@@ -199,7 +199,7 @@ public class RegistrationHelper {
     _srb.setLanguageId((Integer)rsr.getItem("language_id").getResultData());
   }
 
-  public static void getStudentStaticContent(StudentRegistrationBean _srb)
+  public static void populateStudentStaticContent(StudentRegistrationBean _srb)
                                                               throws Exception {
   
     Context ctx=TCContext.getInitial();
@@ -478,7 +478,7 @@ public class RegistrationHelper {
     _crb.setLanguageId((Integer)rsr.getItem("language_id").getResultData());
   }
 
-  public static void getCoachStaticContent(CoachRegistrationBean _crb)
+  public static void populateCoachStaticContent(CoachRegistrationBean _crb)
                                                               throws Exception {
   
     Context ctx=TCContext.getInitial();
