@@ -288,7 +288,7 @@ int x , y , b ;
 
 bi = new BufferedImage ( w, h, BufferedImage.TYPE_3BYTE_BGR ) ;
 g = bi.createGraphics();
-g.setFont ( Font.decode("SansSerif-plain-13")); // make sure
+g.setFont ( Font.decode("SansSerif-plain-11")); // make sure
 db = bi.getWritableTile(0,0).getDataBuffer();
 RenderingHints hints = new RenderingHints ( null ) ;
 hints.put(RenderingHints.KEY_ANTIALIASING,
