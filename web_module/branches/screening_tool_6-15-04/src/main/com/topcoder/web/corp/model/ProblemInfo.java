@@ -258,10 +258,19 @@ public class ProblemInfo extends BaseModel {
         if (category == null) return;
         businessCategories.add(category);
     }
+    
+    public static ProblemInfo createProblemInfo(User user,
+                                                long roundId,
+                                                long problemId) throws Exception
+    {
+        createProblemInfo(user, roundId, problemId, false);
+    
+    }
 
     public static ProblemInfo createProblemInfo(User user,
                                                 long roundId,
-                                                long problemId)
+                                                long problemId,
+                                                boolean screening)
             throws Exception {
 
         log.debug("Getting problem info for round " + roundId + ", problem " + problemId);
@@ -351,30 +360,57 @@ public class ProblemInfo extends BaseModel {
         }
 
         Request accuracyInfo = new Request();
-        accuracyInfo.setProperty(DataAccessConstants.COMMAND,
-                Constants.ACCURACY_INFO_QUERY_KEY);
+        if(!screening)
+        {
+            accuracyInfo.setProperty(DataAccessConstants.COMMAND,
+                    Constants.ACCURACY_INFO_QUERY_KEY);
 
-        accuracyInfo.setProperty("pm", String.valueOf(problemId));
-        accuracyInfo.setProperty("rd", contestRoundId);
-        accuracyInfo.setProperty("dn", divisionId);
-        map = dwAccess.getData(accuracyInfo);
-        rsc = (ResultSetContainer) map.get(Constants.ACCURACY_INFO_QUERY_KEY);
+            accuracyInfo.setProperty("pm", String.valueOf(problemId));
+            accuracyInfo.setProperty("rd", contestRoundId);
+            accuracyInfo.setProperty("dn", divisionId);
+            map = dwAccess.getData(accuracyInfo);
+            rsc = (ResultSetContainer) map.get(Constants.ACCURACY_INFO_QUERY_KEY);
 
-        if (rsc.size() == 0) {
-            throw new ScreeningException(
-                    "Data error, accuracy info query returned no rows");
+            if (rsc.size() == 0) {
+                throw new ScreeningException(
+                        "Data error, accuracy info query returned no rows");
+            }
+            if (rsc.size() > 1) {
+                throw new ScreeningException(
+                        "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
+            }
+
+
+            row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+            info.setSubmissionAccuracy(row.getItem("submission_accuracy").toString());
+            info.setSubmission(row.getItem("submission_percentage").toString());
+            info.setOverallAccuracy(row.getItem("overall_accuracy").toString());
         }
-        if (rsc.size() > 1) {
-            throw new ScreeningException(
-                    "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
+        else
+        {
+            accuracyInfo.setProperty(DataAccessConstants.COMMAND,
+                    "problem_statistics_by_company");
+
+            accuracyInfo.setProperty("pid", String.valueOf(problemId));
+            accuracyInfo.setProperty("uid", String.valueOf(user.getId()));
+            map = cached.getData(accuracyInfo);
+            rsc = (ResultSetContainer) map.get("problem_statistics_by_company");
+
+            if (rsc.size() == 0) {
+                throw new ScreeningException(
+                        "Data error, accuracy info query returned no rows");
+            }
+            if (rsc.size() > 1) {
+                throw new ScreeningException(
+                        "Data error with accuracy, too many results(" + rsc.size() + ") - uid " + user.getId() + " - roundId " + roundId + " - problemId " + problemId);
+            }
+
+
+            row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+            info.setSubmissionAccuracy(row.getItem("submit_correct_percent").toString());
+            info.setSubmission(row.getItem("submit_percent").toString());
+            info.setOverallAccuracy(row.getItem("overall_correct_percent").toString());
         }
-
-
-        row = (ResultSetContainer.ResultSetRow) rsc.get(0);
-        info.setSubmissionAccuracy(row.getItem("submission_accuracy").toString());
-        info.setSubmission(row.getItem("submission_percentage").toString());
-        info.setOverallAccuracy(row.getItem("overall_accuracy").toString());
-
         return info;
     }
 

@@ -6,9 +6,9 @@ import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 
-public class PopulateProblemDetail extends BaseProcessor {
+public class PopulateProblemDetail extends BaseScreeningProcessor {
 
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         String roundProblemId =
                 getRequest().getParameter(Constants.ROUND_PROBLEM_ID);
 
@@ -25,8 +25,16 @@ public class PopulateProblemDetail extends BaseProcessor {
         long problemId = Long.parseLong(roundProblemId.substring(index + 1));
         ProblemInfo info = null;
         try {
-            info =
+            if(getRequest().getAttribute(Constants.USAGE_TYPE) != null && ((Long)getRequest().getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING)
+            {
+                info =
+                    ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
+            }
+            else
+            {
+                info =
                     ProblemInfo.createProblemInfo(getUser(), roundId, problemId);
+            }
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
