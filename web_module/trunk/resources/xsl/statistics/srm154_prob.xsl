@@ -241,76 +241,54 @@ size="+2"><B>CheatCode</B></FONT><br /><FONT size="-1">Used as: Division-I, Leve
       <td style="BACKGROUND: #eee" class="bodyText"><B>malpt</B> for 327.38 points 
     </td></TR></TBODY></TABLE></BLOCKQUOTE></FONT>
 <H4>Implementation</H4>
-<p>This problem can be modeled as a nondeterministic finite automaton (NFA). 
-That is, we iterate through each sequence of keystrokes. At each keystroke, we 
-are in some set of states (which for this problem is a set of positions in the 
-target cheat code). For each keystroke, we iterate through each state and, for 
-each state, find as many states that can be reached from that state using that 
-keystroke as possible. These become part of the new set of states. </p>
-<p>For instance, initially our set of states consists of only one state: the 
-beginning of the cheat code. When we read a keystroke, we see if it matches the 
-next character in the cheat code. If it does, then we know that advancing the 
-position by one gives one possible next state. If that character is the same as 
-the previous keystroke entered, then we can also ignore it, which means the 
-current state is also a possible next state. And, we can also always go back to 
-the beginning of the cheat code as the next state. </p>
-<p>We can represent the set of current states as a simple bitmask (e.g., an 
-array of boolean values), where the <I>i</I>th value of the bitmask specifies 
-whether or not position <I>i</I> in the cheat code is reachable at this point. 
-Initially, <CODE>bitmask[0] = true</CODE> while the rest is <CODE>false</CODE>. 
-We then proceed through the keystrokes and generate a new bitmask. After we 
-process the keystroke, we replace the previous bitmask with the new one. If the 
-<I>n</I>th bit of the bitmask is ever true, where <I>n</I> is the length of the 
-cheat code, then we have a valid entry of the cheat code. </p>
-<p>The trick to this problem is understanding the model (that is, how to map it 
-to an NFA, and what an NFA is). The implementation is actually rather easy. </p>
-<A name="PossibleOrders"></A><FONT 
-size="+2"><B>PossibleOrders</B></FONT><br /><FONT size="-1">Used as: Division-I, Level 
-3 :
-<BLOCKQUOTE>
-  <TABLE cellSpacing="2">
-    <TBODY>
-    <TR>
-      <td style="BACKGROUND: #eee" class="bodyText"><B>Value</B></td>
-      <td style="BACKGROUND: #eee" class="bodyText">1000</td></TR>
-    <TR>
-      <td style="BACKGROUND: #eee" class="bodyText"><B>Submission Rate</B></td>
-      <td style="BACKGROUND: #eee" class="bodyText">18 / 137 (13.14%) </td></TR>
-    <TR>
-      <td style="BACKGROUND: #eee" class="bodyText"><B>Success Rate</B></td>
-      <td style="BACKGROUND: #eee" class="bodyText">14 / 18 (77.78%) </td></TR>
-    <TR>
-      <td style="BACKGROUND: #eee" class="bodyText"><B>High Score</B></td>
-      <td style="BACKGROUND: #eee" class="bodyText"><B>vorthys</B> for 893.76 points 
-    </td></TR></TBODY></TABLE></BLOCKQUOTE></FONT>
-<H4>Implementation</H4>
-<p>To begin, we use the information provided to build a graph. Initially, we 
-have a graph with no edges and a vertex for each of the <I>num</I> objects. 
-Then, for each equivalence given, we construct an edge between the two objects. 
-Once we have constructed this graph, we then identify how many connected 
-components there are. </p>
-<p>The number of connected components tells us the maximum number of equivalence 
-classes we can have. That is, if there are 3 connected components, then there 
-are <I>at most</I> 3 distinct values among our objects. However, there may be 
-fewer distinct objects, because there may be equivalences that <I>weren't</I> 
-given to us. That means, if there are <I>n</I> connected components, then there 
-are at least 1 and at most <I>n</I> equivalence classes. Thus we must sum up the 
-total number of orderings of objects for each possible number of equivalence 
-classes. </p>
-<p>For any given number of equivalence classes, the number of orderings is a <A 
-href="http://planetmath.org/encyclopedia/StirlingNumbersSecondKind.html">Stirling 
-number of the second kind</A>. The preceding link gives an overview of this 
-concept, but it essentially boils down to the following recurrence relation (for 
-<I>k</I> equivalence classes among <I>n</I> total objects): </p>
-<BLOCKQUOTE><CODE>S(n, k) = k * S(n - 1, k) + S(n - 1, k - 
-  1)</CODE><br /><CODE>S(n, n) = S(n, 1) = 1</CODE> </BLOCKQUOTE>
-<p>This is a simple recurrence relation to implement (using basic memoization 
-techniques). So, if we have <I>n</I> connected components, then the solution to 
-this problem is: </p>
-<BLOCKQUOTE><PRE>sum = 0;
-for(int i = 1; i &lt;= n; i++)
-    sum += S(n, i);
-                </PRE></BLOCKQUOTE>
+<p>
+                To begin, we use the information provided to build a graph.  Initially, we have a graph with no edges and a vertex for each
+                of the <i>num</i> objects.  Then, for each equivalence given, we construct an edge between the two objects.
+                Once we have constructed this graph, we then identify how many connected components there are.  This gives us
+                the number of distinct values we are working with.
+            </p>
+<p>
+                If there
+                are <i>n</i> connected components, then there are <i>at most</i> <i>n</i> distinct values among our objects.  However, there
+                may be fewer distinct objects, because there may be equivalences that <i>weren't</i> given to us.  So,
+                if there are <i>n</i> connected components, then there are at least 1 and at most <i>n</i> equivalence classes.
+                When the objects are put in order, equivalent objects will be adjacent, so we can just treat all equivalent objects
+                as a single object.  Thus the problem is reduced to counting the number of ways to order <i>n</i> objects when there
+                are no equivalences given.
+            </p>
+<p>
+                Now, we must keep in mind that there may exist equivalences that were not given to us.
+                In other words, the number of <a href="http://planetmath.org/encyclopedia/EquivalenceClass.html">equivalence classes</a>
+                is at least <code>1</code> and at most <i>n</i>, and we know nothing about them.
+                We must count each case distinctly.
+                For each choice for the number of equivalence classes, we must count the number of ways we can
+                <a href="http://planetmath.org/encyclopedia/Partition.html">partition</a> all of the objects into that many groups,
+                as each partition arbitrarily assigns objects to equivalence classes.
+                We then multiply that value by the number of possible ways we can order our equivalence classes (which is simply
+                the factorial of the number of equivalence classes).
+            </p>
+<p>
+                The number of possible ways we can partition a set of <i>n</i> objects into <i>k</i> groups
+                is given by a
+                <a href="http://planetmath.org/encyclopedia/StirlingNumbersSecondKind.html">Stirling number of the second kind</a>.
+                The preceding link gives an overview of this concept, but it essentially boils down to the following recurrence
+                relation (for partitioning <i>n</i> items into <i>k</i> groups):
+            </p>
+<blockquote>
+                <code>S(n, k) = k * S(n - 1, k) + S(n - 1, k - 1)</code><br />
+                <code>S(n, n) = S(n, 1) = 1</code>
+            </blockquote>
+<p>
+                This is a simple recurrence relation to implement (using basic memoization techniques).  So, if we have <i>n</i>
+                connected components, then the solution to this problem is:
+            </p>
+<blockquote>
+                <pre>
+sum = 0;
+for(long long i = 1; i &lt;= n; i++)
+    sum += factorial(i) * S(n, i);
+                </pre>
+            </blockquote>
                 
                 
 
