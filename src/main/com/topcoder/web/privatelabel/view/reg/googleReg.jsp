@@ -289,7 +289,7 @@ function openWin(url, name, w, h) {
             </tr>
             <tr>
                <td colspan="2" align="center">
-                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p> 
                </td>
             </tr>
             </form>
