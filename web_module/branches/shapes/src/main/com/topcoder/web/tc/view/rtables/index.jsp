@@ -48,6 +48,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <jsp:include page="../script.jsp" />
     <%@ include file="rating.jsp" %>
+	<%@ taglib uri="tc.tld" prefix="tc" %>
 
   </HEAD>
   <BODY>
