@@ -61,8 +61,7 @@ public class Submit extends Base {
            if(ratings.getRow(0).getIntItem("count")!=0){
                //user already rated problem, show results
                processResults();
-               setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
-               setIsNextPageInContext(true);
+               return;
 //                throw new NavigationException("You may only rate a problem once.");
             }
             ctx = new InitialContext();
@@ -89,8 +88,6 @@ public class Submit extends Base {
                 if(error!=null){
                     addError("problemRating",error);
                     processQuestions();
-                    setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
-                    setIsNextPageInContext(true);
                     return;
                 }
                 questions.add(new Integer(qid));
@@ -103,8 +100,6 @@ public class Submit extends Base {
                 prs.setProblemRating(qid,userID,pid,rating);
             }
             processResults();
-            setNextPage(Constants.PROBLEM_RATING_RESULTS);
-            setIsNextPageInContext(true);
         }catch(NavigationException e){
             throw e;
         }catch(Exception e){

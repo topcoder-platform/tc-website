@@ -44,7 +44,6 @@ abstract public class Base extends BaseProcessor {
         return dAccess;
     }
     protected void processResults() throws Exception{
-        System.out.println("in processResults()");
         Request r = new Request();
         r.setContentHandle("Problem Rating Results");
         r.setProperty("pm", getRequest().getParameter(Constants.PROBLEM_ID));
@@ -55,10 +54,11 @@ abstract public class Base extends BaseProcessor {
         ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
         getRequest().setAttribute("problemRatingResults",questions);
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
+        setNextPage(Constants.PROBLEM_RATING_RESULTS);
+        setIsNextPageInContext(true);
     }
 
     protected void processQuestions() throws Exception{
-        System.out.println("in processQuestions()");
         long userID = getUser().getId();
         Request r = new Request();
         r.setContentHandle("Problem Rating Questions");
@@ -70,8 +70,6 @@ abstract public class Base extends BaseProcessor {
         ResultSetContainer ratings = (ResultSetContainer) qMap.get("problem rated");
         if(ratings.getRow(0).getIntItem("count")!=0){
             processResults();
-            setNextPage(Constants.PROBLEM_RATING_RESULTS);
-            setIsNextPageInContext(true);
             return;
         }
         ResultSetContainer questionRSC = (ResultSetContainer) qMap.get("problem rating questions");
@@ -87,5 +85,7 @@ abstract public class Base extends BaseProcessor {
         }
         getRequest().setAttribute("problemRatingQuestions",questions);
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
+        setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
+        setIsNextPageInContext(true);
     }
 }
