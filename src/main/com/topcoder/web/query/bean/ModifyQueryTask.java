@@ -74,7 +74,8 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
         buf.append(begin);
         buf.append(Constants.MODIFY_INPUT_TASK);
         buf.append(end);
-        super.getNavLinks().add(new LinkBean(buf.toString(), "New Input"));    }
+        super.getNavLinks().add(new LinkBean(buf.toString(), "New Input"));
+    }
 
     public void process(String step) throws Exception {
         QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
