@@ -74,7 +74,7 @@ function submitEnter(e) {
                      <a href="<%=sessionInfo.getServletPath()%>?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp;
                      <a href="<%=sessionInfo.getServletPath()%>?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp;
                      <font color="006633">Registration</font> &nbsp;|&nbsp;
-                     <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp;
                      <a href="<%=sessionInfo.getServletPath()%>?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
 <%--                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>--%>
                   </font>
@@ -120,7 +120,6 @@ function submitEnter(e) {
                               document.frmLogin.<%=Constants.HANDLE%>.focus();
                            </script>
 
-                            <p><font size="-1">If you are not currently a TopCoder member, please click <a href="/pl/?&module=GoogleReg&cid=1865&eid=1">here</a>.</font></p>
                         </form>
                         <br/>
                         If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="https://<%=ApplicationServer.SERVER_NAME%><%=sessionInfo.getServletPath()%>?&module=GoogleReg&cid=1865&eid=1">here</a>.
