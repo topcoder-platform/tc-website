@@ -73,7 +73,7 @@
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></td>
-                    <td class="formHandleEven" align="right">75.90</td>
+                    <td class="formHandleEven" align="right">78.33</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=260578">danno</a></td>
