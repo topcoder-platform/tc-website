@@ -55,7 +55,7 @@
 
   <init-param>
     <param-name>login_ok_page</param-name>
-    <param-value>/tces?task=MainTask&amp;st=v</param-value>
+    <param-value>/tces?task=MainTask&st=v</param-value>
     <description>
       URI to the successful login page
     </description>
