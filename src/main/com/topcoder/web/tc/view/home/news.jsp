@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.24.05<br>9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span><br><br>
+      This match seemed to have a lot less challenges than other matches, but the systests were brutal for many coders, especially on the division 1 650 and 900.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/index?t=statistics&c=srm232_prob">full story</A>&#160;|&#160;
+         <A href="/?t=statistics&c=editorial_archive">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.23.05<br>12:45 PM</td>
       <td class="newsTextCell"><span class="newsTitle">SRM calendar updated for <A href="/index?t=schedule&c=may_05">May</A>, <A href="/index?t=schedule&c=jun_05">June</A>, and <A href="/index?t=schedule&c=jul_05">July</A></span><br><br>
       Also, there will be no more 9am, 8pm, or 10pm matches. The reasoning behind this is simply participation analysis.  We are trying to maximize participation while at the same time providing timeslots that everyone in the world can participate in.
@@ -458,29 +470,6 @@
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm226_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Surveys" border="0" /><br>01.06.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=ViewSurvey&sid=6516">RSS Feeds</A></span><br><br>
-      Which of the following TopCoder related RSS feeds would you be interested in utilizing? (choose all that apply)
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=SurveyResults&sid=6515">results</A>&#160;|&#160;
-         <A href="/tc?module=ViewSurvey&sid=6515">vote</A>&#160;|&#160;
-         <A href="/tc?&module=SurveyList">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>01.05.05<br>5:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=features&c=feat_010505">Mathematics for TopCoders</A></span><br><br>
-      "This article discusses the theory and practical application to some of the more common mathematical constructs. "
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=features&c=feat_010505">full article</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
    </td></tr>
 
 </table>
