@@ -108,6 +108,11 @@ function sponsorLink(spons)
   w=window.open(spons,"Sponsor");
   return;
 }
+function sponsorLinkWindow(spons,nam,top,lef,wid,hei,sta)
+{
+  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",status="+sta);
+  return;
+}
 function goTo(selection)
 {
   sel = selection.options[selection.selectedIndex].value;
