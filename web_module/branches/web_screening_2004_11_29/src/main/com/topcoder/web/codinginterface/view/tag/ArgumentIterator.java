@@ -67,7 +67,7 @@ public class ArgumentIterator extends BodyTagSupport {
             String input = null;
             if (arguments[index].getDimension() > 0) {
                 input = "<a href=\"Javascript:launchArray(" + index +
-                        ");<img src=\"/i/corp/screening/buttonCreate.gif\" alt=\"Create\"/></a>";
+                        ");\"><img src=\"/i/corp/screening/buttonCreate.gif\" alt=\"Create\"/></a>";
             } else {
                 String name = CodingInterfaceConstants.TEST_ARGUMENT_PREFIX + index;
                 input = "<input type=\"text\" name=\"" + name + "\" size=\"20\" maxlength=\"50\" value=\"" +

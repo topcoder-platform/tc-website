@@ -24,7 +24,6 @@ public class TestWindowResponse extends Base {
                 loadSessionDefaultsIntoRequest(messageId);
                 loadSessionErrorsIntoRequest(messageId);
                 if (hasDefault(Constants.PROBLEM)) {
-                    log.debug("problem " + getDefault(Constants.PROBLEM));
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
                     getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
                     setNextPage(Constants.PAGE_TEST);
