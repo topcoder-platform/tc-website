@@ -237,6 +237,10 @@
     <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
     <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>.
   </LI>
+    <LI>
+    I am matriculated full-time at
+      <xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/school_name"/>, which is an accredited college or university.
+    </LI>
   <LI>I am submitting this statutory declaration with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2004 TopCoder Collegiate Challenge, sponsored by Yahoo!&#174; Component Tournament (the "Contest").</LI>
   <LI>I hereby represent that I am 18 years of age or older, and I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me.  I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.</LI>
   <LI>Further, I represent that the following information contained in TopCoder's member database represents my personal, identifying information, and that such information is true, accurate and comprehensive:</LI>
