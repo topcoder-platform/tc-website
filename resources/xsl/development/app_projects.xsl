@@ -127,31 +127,31 @@
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server EJB Interface</td>
                     <td class="formTextOdd" align="center">$980</td>
                     <td class="formTextOdd" align="center">$350</td>
-                    <td class="formTextOdd" align="center">12.29.2003</td>
+                    <td class="formTextOdd" align="center">closed</td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Security Server SAML Interface</td>
                     <td class="formTextOdd" align="center">$980</td>
                     <td class="formTextOdd" align="center">$350</td>
-                    <td class="formTextOdd" align="center">12.29.2003</td>
+                    <td class="formTextOdd" align="center">closed</td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;Portal Adapter</td>
                     <td class="formTextOdd" align="center">$630</td>
                     <td class="formTextOdd" align="center">$225</td>
-                    <td class="formTextOdd" align="center">12.29.2003</td>
+                    <td class="formTextOdd" align="center">closed</td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;JSP-Based Application Authenticators</td>
                     <td class="formTextOdd" align="center">$805</td>
                     <td class="formTextOdd" align="center">$287</td>
-                    <td class="formTextOdd" align="center">12.29.2003</td>
+                    <td class="formTextOdd" align="center">closed</td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd">&#160;&#160;&#160;&#160;WebConnect-based Application Authentication</td>
                     <td class="formTextOdd" align="center">$805</td>
                     <td class="formTextOdd" align="center">$287</td>
-                    <td class="formTextOdd" align="center">12.29.2003</td>
+                    <td class="formTextOdd" align="center">closed</td>
                </tr>
                <tr valign="top">
                     <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a></td>
