@@ -53,7 +53,7 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
-						<p><strong>Thank you for your inquiry.</strong></p>
+						<p><strong>Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your inquiry.</strong></p>
 						
 						<p>Unfortunately you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current <a class="statText" href="/?t=schedule&amp;c=index">schedule</a> for details regarding upcoming matches. Make sure you are also <a class="statText" href="http://www.topcodersoftware.com/pages/c_registration.jsp">registered</a> at TopCoderSoftware.com so you can download the documentation and participate in the online forums for this component.</p>
 						
@@ -61,6 +61,7 @@
 						
 						<p>Contact us if you have questions about <a class="statText" href="mailto:service@topcodersoftware.com">registering</a> at TopCoderSoftware.com.</p>
 
+                        <p>If you have any problems please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 						<p><br /></p>
 					</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
