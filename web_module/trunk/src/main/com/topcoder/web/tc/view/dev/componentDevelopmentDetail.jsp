@@ -43,6 +43,14 @@
             <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
 
 <%-- Title --%>
+                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
+            <table cellspacing="0" class="bodyText" align="center" width="530">
+                <tr>
+                    <td class="bodyText" align="right"><img src="/i/development/tccc04_comp_badge.gif" alt="TCCC Qualifying Project" width="145" height="46" border="0"/></td>
+                </tr>
+            </table>
+                        <% } %>
+
             <table cellspacing="0" class="formFrame" align="center" width="530">
                 <tr>
                     <td class="projectTitles" nowrap="nowrap">Development Component Project - <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
@@ -52,9 +60,6 @@
                 </tr>
             </table>
 
-                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
-                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
-                        <% } %>
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
