@@ -16,6 +16,8 @@ import com.topcoder.web.common.security.TCESAuthorization;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.shared.security.ProcessorResource;
+import com.topcoder.web.corp.Util;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
@@ -72,7 +74,7 @@ public class Controller extends HttpServlet {
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
-                log.info("[**** tces **** " + taskName + " **** " + request.getRemoteHost() + " ****]");  log.info("[**** TASK STEO NAME: **** " + taskStepName + " **** " );    
+                log.info("[**** tces **** " + taskName + " **** " + request.getRemoteHost() + " ****]");  
                 // process a task
                 Task task = null;
                 Class taskClass = null;
@@ -101,10 +103,10 @@ public class Controller extends HttpServlet {
 
 //  Preliminary Authorization work:
 //
-//              User curUser = getAuthenticityToken().getActiveUser();
-//              uid = curUser.getId();
+//              TCSubject user = Util.retrieveTCSubject(authToken.getActiveUser());
 //              Resource taskResource = new ProcessorResource(task);
-//              Authorization authorize = new TCESAuthorization(new TCSubject(uid));
+//
+//              Authorization authorize = new TCESAuthorization(user);
 //              if (!authorize.hasPermission(taskResource)) {
 //                  throw new TCESAuthorizationException(
 //                          uid + ": not Authorized for access to resource: "
@@ -160,7 +162,7 @@ public class Controller extends HttpServlet {
 
     private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception) throws ServletException, IOException {
-        response.sendRedirect("/corp");
+        response.sendRedirect("/corp/?module=Login");
     }
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
