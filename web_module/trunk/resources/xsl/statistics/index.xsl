@@ -102,21 +102,21 @@
         </TR> -->               
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;1st.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=154579" CLASS="coderTextYellow">Altrag</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">9</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1170.20</TD>  
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="coderTextRed">evd</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">2</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1152.03</TD>  
         </TR>    
         <TR>
           <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="12">2nd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=153505" CLASS="coderTextRed">ambrose</A></TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="coderTextRed">NDBronson</A></TD>
           <TD CLASS="statText" VALIGN="middle" ALIGN="center">1</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1159.53</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1130.16</TD>
         </TR>
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">3rd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=107835" CLASS="coderTextYellow">sjelkjd</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">3</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1145.77</TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=151360" CLASS="coderTextYellow">buddh4sack</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">8</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">580.93</TD>
         </TR>
         <TR>
           <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
@@ -150,21 +150,21 @@
         </TR>        
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">&#160;&#160;&#160;1st.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=264169" CLASS="coderTextGreen">Ninjak</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">39</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1752.81</TD>  
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=274023" CLASS="coderTextBlue">venco</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">48</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1651.44</TD>  
         </TR>    
         <TR>
           <TD CLASS="statText" VALIGN="middle" ALIGN="right" HEIGHT="12">2nd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=260828" CLASS="coderTextBlue">Larry</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">24</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1751.96</TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=268010" CLASS="coderTextBlue">cem1834</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">26</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1651.01</TD>
         </TR>
         <TR>
           <TD CLASS="statText" ALIGN="right" VALIGN="middle" HEIGHT="12">3rd.&#160;&#160;&#160;</TD>
-          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=159965" CLASS="coderTextBlue">wcbarksdale</A></TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">26</TD>
-          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1717.90</TD>
+          <TD CLASS="statText" VALIGN="middle"><A HREF="/stat?c=member_profile&amp;cr=262602" CLASS="coderTextBlue">infrared</A></TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">27</TD>
+          <TD CLASS="statText" VALIGN="middle" ALIGN="center">1649.46</TD>
         </TR>
         <TR>
           <TD  COLSPAN="4" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="smallText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
