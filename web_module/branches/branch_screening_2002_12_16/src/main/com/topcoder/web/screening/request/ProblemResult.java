@@ -20,6 +20,11 @@ public class ProblemResult extends BaseProcessor {
         cinfo.setEmailAddress("sample@somewhere.com");
         getRequest().setAttribute("candidateInfo",cinfo);
         
+        ProfileInfo pinfo = new ProfileInfo();
+        pinfo.setProfileName("Sample Test Profile");
+        pinfo.setTestSetAName("Sample Problem Set");
+        getRequest().setAttribute("profileInfo",cinfo);
+        
         setNextPage("/prob_results_detail.jsp");
         setNextPageInContext(true);
     }

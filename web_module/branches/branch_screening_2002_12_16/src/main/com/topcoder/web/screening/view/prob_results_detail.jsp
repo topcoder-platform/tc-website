@@ -19,6 +19,7 @@ function getProblemDetail(url,wd,ht) {
 
 <jsp:useBean id="submissionInfo" class="com.topcoder.web.screening.model.SubmissionInfo" />
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
+<jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="includes/top.jsp"/>
@@ -53,12 +54,12 @@ function getProblemDetail(url,wd,ht) {
 	        </TR>
 	        <TR>
 		       <TD VALIGN="top" CLASS="bodyText">
-                           <B>Test Profile:</B> Test Profile 1
+                           <B>Test Profile:</B> <jsp:getProperty name='profileInfo' property='profileName'/>
                        </TD>
 	        </TR>	                 
 	        <TR>
 		       <TD VALIGN="top" CLASS="bodyText">
-                           <B>Problem Group:</B> Group 1
+                           <B>Problem Set:</B> <jsp:getProperty name='profileInfo' property='testSetAName'/>
                        </TD>
 	        </TR>
 	        <TR>
