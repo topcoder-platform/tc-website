@@ -69,10 +69,10 @@
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on your performance in the 2004 TopCoder Open, Sponsored by Microsoft!&#174;
+                            Congratulations on your performance in the 2004 TopCoder Open, Sponsored by Microsoft&#174;
                         </p>
 
-                        <p><strong>A.  To be completed by everyone by 9:00 PM ET Wednesday, March 17:</strong></p>
+                        <p><strong>A.  To be completed by everyone by 9:00 PM ET Wednesday, September 29:</strong></p>
 
                             <ol>
                                 <li>
@@ -83,23 +83,14 @@
                                 </li>
                                 <li>
                                 <p>
-                                    <strong>QUESTIONNAIRE</strong> - Form must be completed and submitted by 9:00 PM ET on Wednesday, March 17.
-                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=203">2004 TopCoder Open Challenge Questionnaire</a>.
-                                    NOTE: All questions are mandatory.  The answera to the free form questions may be included in the 2004 TCO
+                                    <strong>QUESTIONNAIRE</strong> - Form must be completed and submitted by 9:00 PM ET on Wednesday, September 29.
+                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=203">2004 TopCoder Open Questionnaire</a>.
+                                    NOTE: All questions are mandatory.  The answers to the free form questions may be included in the 2004 TCO
                                     Program, at TopCoder's discretion.  Answers to the multiple choice questions will be provided to Microsoft.
                                 </p>
                                 </li>
-                            </ol>
-                            <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on April 15 &amp; 16 in Boston, MA, USA.</strong></p>
-                            <ol>
                                 <li>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 PM ET on Wednesday, March 24.</p>
-
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
-                                </li>
-
-                                <li>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before 9:00 PM ET on Wednesday, March 24.</p>
+                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before 9:00 PM ET on Wednesday, September 29.</p>
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
@@ -119,7 +110,7 @@
                                 <li>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
-                                        <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before 9:00 PM ET on Wednesday, March 24.</p>
+                                        <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before 9:00 PM ET on Wednesday, September 29.</p>
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
                                         that applies to you, please refer to the instructions below:</p>
 
@@ -140,7 +131,7 @@
 
 
                                 <li>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by 9:00 PM ET on Wednesday, March 24.</p>
+                                <p><strong>HEAD SHOT</strong> - must be emailed by 9:00 PM ET on Wednesday, September 29.</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -151,6 +142,16 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 </li>
+
+                            </ol>
+                            <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on November 11 &amp; 12 in Santa Clara, CA, USA.</strong></p>
+                            <ol>
+                                <li>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 AM ET on Wednesday, October 18.</p>
+
+                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+                                </li>
+
                             </ol>
                         <div align="center">
                             Address to send affidavits &amp; tax forms to:<br/>
@@ -160,8 +161,8 @@
                             Glastonbury, CT 06033
                         </div>
 
-                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, March 24.  Any
-                        items that need to be mailed via the postal service must be postmaarked by this date.</strong></p>
+                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, September.  Any
+                        items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.</p>
                         <p><br/></p>
