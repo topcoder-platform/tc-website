@@ -28,8 +28,8 @@
         </persistence-descriptor>
         <reference-descriptor>
             <resource-description>
-                <res-ref-name>common_datasource</res-ref-name>
-                <jndi-name>JTS_COMMON_OLTP</jndi-name>
+                <res-ref-name>security_datasource</res-ref-name>
+                <jndi-name>JTS_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
         <jndi-name>com.topcoder.ejb.UserServicesHome</jndi-name>
