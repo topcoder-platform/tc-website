@@ -99,6 +99,8 @@
              debug="${debug}"
              >
          </javac>
+         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
+         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
      </target>
 
      <target name="compile_techassess" depends="init">
@@ -133,8 +135,6 @@
              <exclude name="com/topcoder/sql/**"/>
              <exclude name="com/topcoder/util/**"/>
          </javac>
-         <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
-         <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
      </target>
 
      <target name="javadocs">
