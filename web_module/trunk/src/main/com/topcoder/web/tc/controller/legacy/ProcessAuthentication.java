@@ -9,6 +9,7 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Registration;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.common.web.data.Sector;
 import com.topcoder.common.web.data.User;
 import com.topcoder.common.web.data.Authentication;
@@ -76,7 +77,7 @@ public final class ProcessAuthentication {
         int result = INVALID;
         InitialContext ctx = null;
         try {
-            int coderId = Registration.getCoderId(activationCode);
+            int coderId = StringUtils.getCoderId(activationCode);
             ctx = new InitialContext();
             AuthenticationServices authEJB = (AuthenticationServices)BaseProcessor.createEJB(ctx, AuthenticationServices.class);
             Authentication authentication = authEJB.getActivation(coderId);
