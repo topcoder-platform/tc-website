@@ -10,16 +10,16 @@ import javax.servlet.jsp.JspException;
  * Time: 12:59:20 PM
  */
 public class UseBeanTag extends BodyTagSupport {
-    private static final String DEFAULT_CLASS= "java.lang.String";
+    private static final String DEFAULT_TYPE= "java.lang.String";
     private static final int DEFAULT_SCOPE = PageContext.PAGE_SCOPE;
 
-    private String clazz = DEFAULT_CLASS;
+    private String type= DEFAULT_TYPE;
     private int scope = DEFAULT_SCOPE;
     private String id = null;
     private String name = null;
 
-    public void setClass(String clazz) {
-        this.clazz = clazz;
+    public void setType(String type) {
+        this.type= type;
     }
 
 
@@ -46,7 +46,7 @@ public class UseBeanTag extends BodyTagSupport {
     public int doEndTag() throws JspException {
         pageContext.setAttribute(id, pageContext.getAttribute(name), scope);
 
-        this.clazz= DEFAULT_CLASS;
+        this.clazz= DEFAULT_TYPE;
         this.scope = DEFAULT_SCOPE;
         this.name = null;
         this.id = null;
