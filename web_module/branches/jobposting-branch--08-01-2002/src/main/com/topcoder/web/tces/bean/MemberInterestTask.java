@@ -15,8 +15,7 @@ import com.topcoder.web.tces.common.*;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /** Processes the member interest task.
  * @author George Dean
