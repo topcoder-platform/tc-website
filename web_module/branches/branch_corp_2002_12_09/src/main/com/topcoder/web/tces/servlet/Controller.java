@@ -166,7 +166,7 @@ public class Controller extends HttpServlet {
         request.setAttribute("caught-exception", exception);
 
         getServletContext().getRequestDispatcher(
-                response.encodeURL("error.jsp")).forward(request, response);
+                response.encodeURL(TCESConstants.ERROR_PAGE)).forward(request, response);
     }
 }
 
