@@ -27,14 +27,30 @@
        <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
 
-
+<%
+Request srb = (Request) request.getAttribute("REQUEST_BEAN");
+pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
+%>
 <!-- BEGIN BODY -->
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
-              &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Component Ratings History&#160;&#160;</SPAN>
+              &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Component 
+<% if(srb.getProperty("pi").equals("113")){
+%>
+       Development
+<%
+   }
+   else{
+%>
+       Design
+
+<%
+   }
+%>
+Ratings History&#160;&#160;</SPAN>
             </TD>
             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
           </TR>
@@ -47,8 +63,6 @@
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 
 <% 
-Request srb = (Request) request.getAttribute("REQUEST_BEAN");
-pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
 
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Basic_Coder_Information");
 boolean bEmpty = (rsc == null || rsc.size()!=1);
@@ -74,7 +88,7 @@ pageContext.setAttribute("resultRow", rsr);
                      <A HREF="/stat?c=component_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Component History</A>
                      |   
 <% 
-   if(pageContext.getAttribute("pi").equals("113"))
+   if(srb.getProperty("pi").equals("113"))
    {
 %>
                      <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Ratings History</A>
