@@ -77,8 +77,15 @@
                         <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
                                         
                         <p><strong>Single Round Match 142</strong><br />
-                        Tuesday, April 15 2003</p>
+                        Tuesday, April 15, 2003</p>
 										
+                        <h2>Match summary</h2>
+
+                        <p>The top two scorers in Division-I, <strong>Yarin</strong> and <strong>dgarthur</strong> were the same as in the recent TCCC final, but 
+                        this time with <strong>Yarin</strong> as the winner. In third place came <strong>dary</strong> after a very impressive performance in only 
+                        his second SRM! In Division-II, <strong>PJYelton</strong> took a comfortable win after delivering 5 successful challenges. The 
+                        difficulty level of the problem set was very good, with a good distribution of scores and submits.</p>
+
                         <p><strong>Problem Set Analysis &amp; Opinion</strong></p>
 
                         <font size="+2"><strong>FarmFence</strong></font><br />
@@ -274,9 +281,8 @@ RBBRG
 
 
                         <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" />
-                        By&#160;Yarin<br/>
-                        <div class="smallText"><em>TopCoder Member</em><br/>
-                        <a href="/stat?c=member_profile&amp;cr=269554" class="smallText">Author Profile</a></div><br clear="all" />
+                        By&#160;<a href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+                        <div class="smallText"><em>TopCoder Member</em></div><br clear="all" />
                                        
                         <p><br /></p>
                     
