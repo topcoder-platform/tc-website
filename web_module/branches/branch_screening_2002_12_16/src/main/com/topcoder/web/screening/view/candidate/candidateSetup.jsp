@@ -37,7 +37,7 @@
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Email Address</strong>&#160;&#160;</TD>
               <% if (candidateInfo.isNew()) { %>
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="emailAddress" size="30" maxlength="30"></TD>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="emailAddress" size="30" maxlength="30" value="<jsp:getProperty name="candidateInfo" property="emailAddress" />"></TD>
               <% } else { %>
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><jsp:getProperty name="candidateInfo" property="emailAddress" /></TD>
               <% } %>

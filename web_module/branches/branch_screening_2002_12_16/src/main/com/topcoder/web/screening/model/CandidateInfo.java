@@ -19,33 +19,13 @@ public class CandidateInfo extends BaseModel {
     private Long userId;
     private String referrer;
 
-    /**
-     * Sets the value of <code>referrer</code>.
-     *
-     * @param referrer
-     */
-    public void setReferrer( String val )
-    {
-        referrer = val;
-    }
-
-    /**
-     * Gets the value of <code>referrer</code>.
-     *
-     * @return 
-     */
-    public String getReferrer()
-    {
-        return referrer;
-    }
-
-
     /** Holds value of property noteList. */
     private ResultSetContainer noteList;
     
     public CandidateInfo() {
         emailAddress = "";
         password = "";
+        referrer = "";
     }
 
     /**
@@ -100,6 +80,26 @@ public class CandidateInfo extends BaseModel {
      */
     public Long getUserId() {
         return userId;
+    }
+
+    /**
+     * Sets the value of <code>referrer</code>.
+     *
+     * @param referrer
+     */
+    public void setReferrer( String val )
+    {
+        referrer = val;
+    }
+
+    /**
+     * Gets the value of <code>referrer</code>.
+     *
+     * @return 
+     */
+    public String getReferrer()
+    {
+        return referrer;
     }
 
     /** Getter for property noteList.
