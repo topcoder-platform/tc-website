@@ -667,8 +667,6 @@
         <war warfile="${war.dir}/corp.war" webxml="${resources}/corp/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/corp/**"/>
-                <include name="com/topcoder/web/tces/**"/>
-                <include name="com/topcoder/web/screening/**"/>
                 <include name="com/topcoder/web/common/**"/>
                 <include name="com/topcoder/web/ejb/**"/>
                 <include name="com/topcoder/shared/**"/>
@@ -879,7 +877,7 @@
 
 
 
-    <target name="war-tc" depends="compile,package-Jive">
+    <target name="war-tc" depends="compile">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.*"/>
