@@ -33,7 +33,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" WIDTH="100%" valign="top"><IMG SRC="/i/p/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Registration</B></FONT><BR>
+<FONT SIZE="3" COLOR="#666666"><B>Terms Of Use</B></FONT><BR>
 <P>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
@@ -46,7 +46,7 @@
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Terms of Use</B></FONT></TD>
   </TR>
   <TR align="right" valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" value="<%=TransactionInfo.getTerms()%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
+    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" text="<%=TransactionInfo.getTerms()%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
   </TR>
 
     <TR>
