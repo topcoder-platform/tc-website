@@ -16,6 +16,9 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.PathResource;
+import com.topcoder.web.common.PermissionException;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +35,7 @@ public final class TaskAffidavit {
 
     static String process(HttpServletRequest request, HttpServletResponse response,
                           HTMLRenderer HTMLmaker, Navigation nav, XMLDocument document)
-            throws NavigationException {
+            throws PermissionException, NavigationException {
         String result = null;
         Request dataRequest = null;
         DataAccessInt dai = null;
@@ -44,16 +47,7 @@ public final class TaskAffidavit {
         String requestCommand = null;
         try {
             if (nav == null || !nav.isIdentified()) {
-                StringBuffer url = new StringBuffer(request.getRequestURI());
-                String query = request.getQueryString();
-                if (query != null) {
-                    url.append("/?");
-                    url.append(query);
-                }
-                throw new NavigationException(
-                        "You must login to view this page"
-                        , TCServlet.LOGIN_PAGE
-                        , url.toString());
+                throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource(TCServlet.XSL_ROOT + requestTask + "/" + requestCommand));
             } else {
                 requestTask = Conversion.checkNull(request.getParameter("t"));
                 requestCommand = Conversion.checkNull(request.getParameter("c"));
@@ -153,6 +147,8 @@ public final class TaskAffidavit {
         } catch (NavigationException ne) {
             log.error("TaskAffidavit error" + ne);
             throw ne;
+        } catch (PermissionException pe) {
+            throw pe;
         } catch (Exception e) {
             e.printStackTrace();
             throw new NavigationException("TaskAffidavit error", TCServlet.INTERNAL_ERROR_PAGE);

@@ -9,6 +9,7 @@ import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.util.Data;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -99,6 +100,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
             log.debug("User not logged in, can not add job hit.");
             throw new Exception("User not logged in, can not add job hit.");
         } else {
+            Data.loadUser(navigation);
             loadUserInfo(navigation.getUser());
         }
     }

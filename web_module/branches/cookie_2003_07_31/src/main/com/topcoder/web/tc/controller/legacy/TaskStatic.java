@@ -15,7 +15,10 @@ import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.PathResource;
 import com.topcoder.web.tc.controller.legacy.TaskHome;
+import com.topcoder.web.common.PermissionException;
 
 import javax.naming.Context;
 import javax.naming.NamingException;
@@ -56,7 +59,7 @@ public final class TaskStatic {
 
     public static String displayStatic(HTMLRenderer HTMLmaker, HttpServletRequest request,
                                        Navigation nav, XMLDocument document)
-            throws NavigationException {
+            throws PermissionException, NavigationException {
         String result = null;
         String requestTask = null;
         String requestCommand = null;
@@ -89,17 +92,7 @@ public final class TaskStatic {
             if (nav.isIdentified()) {
                 xsldocURLString = TCServlet.XSL_ROOT + requestTask + SECURE_DIR_NAME + "/" + requestCommand + ".xsl";
             } else {
-                StringBuffer url = new StringBuffer(request.getRequestURI());
-                String query = request.getQueryString();
-                if (query != null) {
-                    url.append("/?");
-                    url.append(query);
-                }
-                throw new NavigationException(
-                        "You must login to view this page" // MESSAGE WILL APPEAR ABOVE LOGIN
-                        , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
-                        , url.toString()
-                );
+                throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource(TCServlet.XSL_ROOT + requestTask + SECURE_DIR_NAME + "/" + requestCommand));
             }
         } else {
             xsldocURLString = TCServlet.XSL_ROOT + requestTask + requestOther + requestCommand + ".xsl";

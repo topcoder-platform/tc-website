@@ -25,8 +25,11 @@ import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.PathResource;
 import com.topcoder.web.tc.controller.legacy.ProcessAuthentication;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.PermissionException;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -44,7 +47,7 @@ public final class TaskSearch {
 
     static String process(HttpServletRequest request, HttpServletResponse response,
                           HTMLRenderer HTMLmaker, Navigation nav, XMLDocument document)
-            throws NavigationException {
+            throws NavigationException, PermissionException {
         String result = null;
         try {
             StringBuffer url = new StringBuffer(request.getRequestURI());
@@ -62,21 +65,13 @@ public final class TaskSearch {
             //***************THIS CODE RUNS PRIOR TO COMMAND BEING SET********************
             if (command.equals("")) {
                 if (!(nav.isIdentified()))
-                    throw new NavigationException(
-                            "You must login to view the member search page" // MESSAGE WILL APPEAR ABOVE LOGIN
-                            , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
-                            , url.toString()
-                    );
+                    throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource("search"));
                 result = displaySearch(HTMLmaker, request, nav, document, search, listTag);
             }
             //****************************Get Coders*********************************
             else if (command.equals("member_search")) {
                 if (!(nav.isIdentified()))
-                    throw new NavigationException(
-                            "You must login to view the member search page" // MESSAGE WILL APPEAR ABOVE LOGIN
-                            , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
-                            , url.toString()
-                    );
+                    throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource("search"));
                 result = search(HTMLmaker, request, nav, document, search, listTag);
             }
             //****************************abridged search *********************************
@@ -90,11 +85,7 @@ public final class TaskSearch {
             //****************************refer*********************************
             else if (command.equals("refer")) {
                 if (!(nav.isIdentified()))
-                    throw new NavigationException(
-                            "You must login to view the member search page" // MESSAGE WILL APPEAR ABOVE LOGIN
-                            , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
-                            , url.toString()
-                    );
+                    result = search(HTMLmaker, request, nav, document, search, listTag);
                 result = displayReferrals(HTMLmaker, request, nav, document, search, listTag);
             } else {
                 result = TaskStatic.process(request, response, HTMLmaker, nav, document);
@@ -102,6 +93,8 @@ public final class TaskSearch {
         } catch (NavigationException ne) {
             log.debug("TaskSearch:ERROR:\n" + ne.getMessage());
             throw ne;
+        } catch (PermissionException ps) {
+            throw ps;
         } catch (Exception e) {
             StringBuffer msg = new StringBuffer(150);
             msg.append("TaskSearch:process:");

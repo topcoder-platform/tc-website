@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.legacy.reg.servlet;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tc.controller.legacy.reg.bean.Task;
 import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
@@ -161,6 +162,7 @@ public class Controller
             log.debug("navigation isserializable: " + ((Navigation)navigation).userIsSerializable());
             if (navigation instanceof Navigation) {
                 ((Navigation) navigation).makeUserSerializable();
+                Data.loadUser((Navigation)navigation);
                 User user = ((Navigation) navigation).getUser();
                 if (user.getUserId() == 0) {
                     return null;

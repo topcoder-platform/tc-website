@@ -5,13 +5,17 @@ import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
+import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.security.SimpleUser;
+import com.topcoder.shared.security.PathResource;
 import com.topcoder.web.tc.controller.legacy.TaskHome;
+import com.topcoder.web.common.PermissionException;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -51,6 +55,7 @@ public final class TaskJob {
                 String from = nav.getUser().getEmail();
                 String experience = Conversion.clean(request.getParameter("Experience"));
                 String comment = Conversion.clean(request.getParameter("Comment"));
+                Data.loadUser(nav);
                 HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
                 CoderRegistration reg = (CoderRegistration) userTypeDetails.get("Coder");
                 int rating = reg.getRating().getRating();
@@ -71,6 +76,7 @@ public final class TaskJob {
                 xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
             } else {
                 if (nav.isIdentified()) {
+                    Data.loadUser(nav);
                     HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
                     CoderRegistration reg = (CoderRegistration) userTypeDetails.get("Coder");
                     devTag.addTag(new ValueTag("Rating", reg.getRating().getRating()));
@@ -94,17 +100,11 @@ public final class TaskJob {
 
 
     private static void checkPermission(XMLDocument document, HttpServletRequest request, Navigation nav)
-            throws NavigationException {
+            throws PermissionException, NavigationException {
         if (!nav.isIdentified()) {
-            throw new NavigationException(
-                    "You must login to inquire about a job" // MESSAGE WILL APPEAR ABOVE LOGIN
-                    , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
-                    , getRequestedURL(request)
-            );
+            throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource("job"));
         }
-        HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
-        CoderRegistration reg = (CoderRegistration) userTypeDetails.get("Coder");
-        if (reg.getRating().getRating() <= 0) {
+        if (nav.getSessionInfo().getRating() <= 0) {
             RecordTag tag = new RecordTag("HOME");
             TaskHome.getContestDates(tag);
             document.addTag(tag);

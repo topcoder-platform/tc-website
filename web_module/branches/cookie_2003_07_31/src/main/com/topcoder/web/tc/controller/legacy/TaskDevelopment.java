@@ -8,6 +8,7 @@ import com.topcoder.common.web.data.report.Constants;
 import com.topcoder.common.web.data.report.Query;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
+import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.common.web.data.User;
 import com.topcoder.security.NoSuchUserException;
@@ -267,6 +268,7 @@ public final class TaskDevelopment {
                     msgText.append("Hours per Week:  ");
                     msgText.append(workWeek);
 
+                    Data.loadUser(nav);
                     User user = nav.getUser();
                     CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
                     int rating = coder.getRating().getRating();
