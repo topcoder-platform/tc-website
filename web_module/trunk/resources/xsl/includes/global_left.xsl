@@ -728,11 +728,6 @@
     </xsl:choose>
 </xsl:template>
 
-    alkdjfl;asdjfl;aksdjf;lasdfla;sdkjfalsdkjfl;asdkfaldsjlka;sdjflk;ad<br/><br/><br/><br/><br/><br/><br/><br/>
-    <xsl:value-of select="/TC/Task"/>
-
-
-
 <!-- Navigation Rows Below -->
     <xsl:template name="left_nav_top_row">
         <img alt="" width="180" height="5" src="/i/spacer.gif" border="0" /><br/>
