@@ -42,7 +42,7 @@ public class PopulateCandidate extends BaseProcessor {
             request.setAttribute("candidateInfo", info);
         }
 
-        setNextPage("/context/candidate/candidateSetup.jsp");
+        setNextPage("/candidate/candidateSetup.jsp");
         setNextPageInContext(true);
     }
 }

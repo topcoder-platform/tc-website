@@ -1,4 +1,4 @@
-<%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <A NAME="top"/>
     <!-- Logo Bar Include Begins -->       
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            

@@ -88,7 +88,7 @@ public class MainServlet
             rp.setRequest(request);
             rp.setAuthentication(auth);
             rp.process();
-            String wherenow = rp.getNextPage();
+            String wherenow = request.getContextPath() + rp.getNextPage();
             boolean forward = rp.isNextPageInContext();
 
             sendToPage(request, response, wherenow, forward);
@@ -111,8 +111,7 @@ public class MainServlet
                             boolean forward)
                      throws ServletException, IOException {
         if (forward) {
-            getServletContext().getRequestDispatcher(response.encodeURL("/"+page)).forward(request, 
-                                                                                           response);
+            getServletContext().getRequestDispatcher(response.encodeURL(page)).forward(request, response);
         } else {
             response.sendRedirect(response.encodeRedirectURL(page));
         }
@@ -130,8 +129,8 @@ public class MainServlet
     private void sendToErrorPage(HttpServletRequest request, HttpServletResponse response, 
                                  Throwable exception)
                           throws ServletException, IOException {
-        request.setAttribute("Exception", exception);
-        sendToPage(request, response, ERROR_PAGE, true);
+        request.setAttribute("exception", exception);
+        sendToPage(request, response, request.getContextPath() + ERROR_PAGE, true);
     }
 
     /**

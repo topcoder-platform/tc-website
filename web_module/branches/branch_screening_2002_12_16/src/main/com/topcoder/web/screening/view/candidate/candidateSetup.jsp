@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.web.screening.model.CandidateInfo" %>
-<%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Setup</TITLE>
@@ -23,54 +23,6 @@ function generatePassword() {
     }
 
     document.candidateSetupForm.password.value = newPass;
-}
-
-//validates the fields in this form
-function validateFields() {
-    var email = document.candidateSetupForm.emailAddress.value;
-    var valid = true;
-    if(email.length < 5) {
-        alert("Email Address is too short.  Use 'joe@topcoder.com' format");
-        valid = false;
-    }
-
-    var index = email.indexOf('@');
-    if(index == -1) {
-        alert("Email Address needs '@' in it.  Use 'joe@topcoder.com' format");
-        valid = false;
-    }
-    else if(index == 0) {
-        alert("Email Address must have information before '@'. Use 'joe@topcoder.com' format");
-        valid = false;
-    }
-
-    index = email.indexOf('.', index + 2);
-    if(index == -1) {
-        alert("Email Address needs '.' in it. Use 'joe@topcoder.com' format");
-        valid = false;
-    }
-
-    if((email.length <= index + 1) || (valueSpace.indexOf(email.charAt(index + 1)) == -1)) {
-        alert("Email Address must have characters after the '.' Use 'joe@topcoder.com' format");
-        valid = false;
-    }
-
-    var password = document.candidateSetupForm.password.value;
-    if(password.length == 0) {
-        alert("Password does not exist");
-        valid = false;
-    }
-
-    //check for characters not allowed...
-    for(var i = 0; i < password.length; ++i) {
-        if(valueSpace.indexOf(password.charAt(i)) == -1) {
-            alert("Character '" + password.charAt(i) + "' is not a valid character to use in a password. Use only '" + valueSpace + "'");
-            valid = false;
-            break;
-        }
-    }
-
-    return valid;
 }
 //--></SCRIPT>
 </HEAD>
@@ -108,7 +60,7 @@ function validateFields() {
 
     String referrer = request.getParameter("referrer");
 %>
-<screen:form name="candidateSetupForm" action="/MainServlet" method="POST" onSubmit="return validateFields();">
+<screen:form name="candidateSetupForm" action="/screening" method="POST">
         <INPUT type="hidden" name="rp" value="UpdateCandidate" />
 <%
     if(referrer != null) {

@@ -5,7 +5,7 @@
 <taglib>
   <tlibversion>1.0</tlibversion>
   <jspversion>1.1</jspversion>
-  <shortname>TopCoder Query Tags</shortname>
+  <shortname>TopCoder Screening Tags</shortname>
   <info>
   </info>
 
@@ -41,7 +41,7 @@
   <tag>
     <name>img</name>
     <tagclass>com.topcoder.web.common.tag.ImgTag</tagclass>
-    <bodycontent>JSP</bodycontent>
+    <bodycontent>empty</bodycontent>
     <info>
       Tag to write out an html image src smartly (i.e. using webapp context)
     </info>
@@ -117,6 +117,62 @@
     <attribute>
       <name>target</name>
       <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <name>listIterator</name>
+    <tagclass>com.topcoder.web.jsp.tag.ListIteratorTag</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a List
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+  <tag>
+    <name>resultSetRowIterator</name>
+    <tagclass>com.topcoder.web.jsp.tag.ListIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.jsp.tag.ResultSetRowIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a ResultSetContainer
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>resultSetItem</name>
+    <tagclass>com.topcoder.web.jsp.tag.ResultSetItemTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+      Tag to get the value of a ResultSetContainer.ResultSetRow
+    </info>
+    <attribute>
+      <name>row</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>name</name>
+      <required>true</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>

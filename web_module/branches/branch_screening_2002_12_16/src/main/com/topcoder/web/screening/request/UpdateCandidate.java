@@ -156,7 +156,7 @@ public class UpdateCandidate extends BaseProcessor
             referrer = DEFAULT_PAGE_NAME;
         }
 
-        setNextPage("/servlet/MainServlet?rp= " + referrer);
+        setNextPage("/screening?rp= " + referrer);
         //redirect because we are done
         setNextPageInContext(false);
     }

@@ -1,5 +1,5 @@
 <%@  page contentType="text/html" %>
-<%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>

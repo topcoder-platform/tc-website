@@ -1,5 +1,5 @@
 <!-- Footer Include Begins -->
-<%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <P><BR/></P>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
   <TR>
