@@ -41,7 +41,7 @@ public class NoteList extends BaseProcessor {
                 throw new PermissionDeniedException(
                     "You are not authorized to view information about that candidate.");
             }
-            cinfo.setEmailAddress(result.getItem(0, "email").toString());
+            cinfo.setEmailAddress(result.getRow(0).getItem("email").toString());
             
             result = (ResultSetContainer)map.get("noteList");
             cinfo.setNoteList(result);
