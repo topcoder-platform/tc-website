@@ -4,36 +4,47 @@
 <head>
 
 <title>DoubleClick</title>
-<jsp:include page="../script.jsp" />
+<jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
 
 </head>
 <body>
 
-<jsp:include page="links.jsp" >
+<jsp:include page="../links.jsp" >
    <jsp:param name="tabLev1" value="collegiate"/>
-   <jsp:param name="tabLev2" value="rules"/>
+   <jsp:param name="tabLev2" value="registration"/>
 </jsp:include>
 
-<div CLASS="dc_bodyTable">
-<table width="750" cellspacing="0" border="0" align="center">
+<div CLASS="dc_bodySpacer" align="center">
+<table class="dc_bodyTable">
    <tr>
-      <td  valign="top">
+      <td CLASS="dc_headerPic">
       <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
       </td>
 
-      <td  valign="top" width="100%">
-         <div CLASS="dc_bodyText">
-         <p align="left" class="pageTitle">Rules</p>
-         </div>
+      <td class="dc_bodyText">
+         <p class="pageTitle">Registration</p>
+         <p>Description of registration goes here</p>
+
+         <table width="100%" cellpadding="0" cellspacing="3">
+            <tr>
+               <td class="dc_regTableQuestion">reg question</td>
+               <td class="dc_regTableAnswer">answer</td>
+            </tr>
+            <tr>
+               <td class="dc_regTableQuestion">reg question</td>
+               <td class="dc_regTableAnswer">answer</td>
+            </tr>
+         </table>
+              
       </td>
 
    </tr>
 </table>
 </div>
 
-<jsp:include page="foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 </html>
