@@ -27,6 +27,8 @@ public class StudentRegistrationBean implements Serializable {
 
   private Integer language_id=null;
 
+  private boolean agree_terms=false;
+
   private List state_list=null;
 
   private List school_list=null;
@@ -125,6 +127,14 @@ public class StudentRegistrationBean implements Serializable {
 
   public void setLanguageId(Integer _language_id) {
     language_id=_language_id;
+  }
+
+  public boolean getAgreeTerms() {
+    return(agree_terms);
+  }
+
+  public void setAgreeTerms(boolean _agree_terms) {
+    agree_terms=_agree_terms;
   }
 
   public List getStateList() {
