@@ -136,7 +136,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     private void viewMemberProfile() throws Exception
     {
-        NumberFormat pctFmt = new DecimalFormat("#.#0%");
         NumberFormat decFmt = new DecimalFormat("#.#0");
 
         Map memberInfo = new HashMap();
@@ -257,7 +256,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2],
                        memStatLvlRow.getItem("submitted").toString() );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                       pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("submit_percent").toString()) ) );
+                       decFmt.format( Double.parseDouble(memStatLvlRow.getItem("submit_percent").toString()) )+"%" );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4],
                        memStatLvlRow.getItem("correct").toString() );
 
@@ -265,9 +264,9 @@ log.debug(memStatLvlRow.getItem("submission_accuracy").toString() );
 log.debug(decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) ));
 
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                       pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString()) ) );
+                       decFmt.format( Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString())+"%" ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                       pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("overall_accuracy").toString()) ) );
+                       decFmt.format( Double.parseDouble(memStatLvlRow.getItem("overall_accuracy").toString()) )+"%" );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
                        decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
@@ -314,12 +313,12 @@ log.debug(decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_submissio
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1], Integer.toString(ttlPresented) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2], Integer.toString(ttlSubmitted) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                   pctFmt.format( (double)ttlSubmitted / (double)ttlPresented ));
+                   decFmt.format( (double)ttlSubmitted / (double)ttlPresented )+"%");
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4], Integer.toString(ttlCorrect) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                   pctFmt.format( (double)ttlCorrect / (double)ttlSubmitted));
+                   decFmt.format( (double)ttlCorrect / (double)ttlSubmitted)+"%");
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                   pctFmt.format( (double)ttlCorrect / (double)ttlPresented));
+                   decFmt.format( (double)ttlCorrect / (double)ttlPresented)+"%");
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
                    decFmt.format(avgSubPts) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
