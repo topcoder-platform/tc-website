@@ -297,7 +297,7 @@ public class Submit extends FullRegSubmit {
                 TCSEmailMessage mail = new TCSEmailMessage();
                 mail.setSubject("Invitation to Private Candidate Testing Application");
 
-                buf.append("Thank you for your interest in working at TopCoder.  We would like you to participate in the Private Candidate Testing Application powered by TopCoder.  Through this Testing Application, you will be asked to solve algorithmic problems as an objective measure of your programming ability.\n\n");
+                buf.append("Thank you for your interest in working at XYZ Company.  We would like you to participate in the Technical Assessment Tool, powered by TopCoder.  Through the Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming ability.\n\n");
                 buf.append("Please review the Help Manual before getting started:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
@@ -326,7 +326,7 @@ public class Submit extends FullRegSubmit {
                 buf.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
                 buf.append("\n\n");
                 buf.append("Thank you,\n\n");
-                buf.append("TopCoder");
+                buf.append("XYZ Company");
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
