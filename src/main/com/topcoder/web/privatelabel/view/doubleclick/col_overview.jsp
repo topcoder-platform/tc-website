@@ -26,10 +26,10 @@
 		<td class="dc_bodyText">
          <p class="pageTitle">Are you the best collegiate programmer in New York City?</p>
          <p>
-         Do you like to solve problems?<br/><br/>
+         Do you like to solve problems?<img src="/i/clear.gif" border="0" width="160" height="1"/><A href="/pl/?module=DCReg&cid=2998&eid=1"><img src="/i/events/doubleclick/registernow.gif" border="0" width="102" height="21"/></A><br/><br/>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do math and science interest you?<br/><br/>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you spend your time online looking for the next challenge?<br/><br/>
-         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Would you like to win $5,000?</p>
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Would you like to win $5,000? </p>
 
 			<p>DoubleClick&#153;, a leading New York high technology company, is conducting a fast-paced and challenging programming tournament in order to identify the most talented technologists at two of New York City's finest universities - Columbia and NYU - and to answer the question, "Who is the best collegiate programmer in New York City?"  The competition will involve problem-solving skills, programming competency and composure in head-to-head competition.</p>
 
