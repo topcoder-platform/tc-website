@@ -386,7 +386,7 @@ public class TCLoadRequests extends TCLoad {
 
             if (trimedUrl.indexOf('?') < 0)
                 this.baseUrl = trimedUrl;
-            else trimedUrl.substring(0, trimedUrl.indexOf('?'));
+            else baseUrl = trimedUrl.substring(0, trimedUrl.indexOf('?'));
 
             log.debug("url " + baseUrl);
 
