@@ -68,7 +68,7 @@
          <li>5th through 10th place - CHOICE OF: Canon PowerShot S400 digital camera or Apple 30 GB iPod</li>
          </ul>
 
-         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the Official Rules and Regulations.</p>
+         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
 
 		</td>
 	</tr>
