@@ -52,7 +52,7 @@
             <span class=bodySmallTitle>Test Set B</span><br />
             (if presented) The total time allotted for this problem set can be seen in the Time Available column below. Although your solution submissions will be timed, accuracy and style are your main objectives.
             <br /><br />
-            Click on an Enter button to open a pro  blem set.
+            Click on an Enter button to open a problem set.
             <br /><br />
             </p>
             <table width="100%" cellspacing=0 cellpadding=0 class=tableFrame>
