@@ -8,13 +8,12 @@ import java.util.*;
  *
  * @author Greg Paul
  * @version $Revision$
- *
+ * @see com.topcoder.shared.dataAccess.QueryRunner
+ * @see com.topcoder.shared.dataAccess.DWQueryDataAccess
+ * @see com.topcoder.shared.dataAccess.OLTPQueryDataAccess
  */
 public class QueryRequest implements RequestInt {
-    //generic container for mappings
     private Map mProp;
-
-    //var for the c=someStuff
     private Map queries;
 
     /**

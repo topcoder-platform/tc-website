@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 /**
- * This bean processes a Request and returns the data from the transactional db.
+ * This bean processes a {@link com.topcoder.shared.dataAccess.QueryRequest} and returns the data from the transactional db.
  *
  * @author  Greg Paul
  * @version $Revision$
@@ -19,7 +19,7 @@ public class OLTPQueryDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(OLTPQueryDataAccess.class);
 
     /**
-     * This method passes a query request and passes the contents
+     * This method takes a query request and passes the contents
      * of that request and a connection to the transactional db
      * to the QueryRunner.
      *

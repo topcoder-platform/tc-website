@@ -9,7 +9,7 @@ import java.util.*;
 /**
  *
  * A class which handles the retrieving of data via a provided
- * query, unlike DataRetriever which pulls query information
+ * query, unlike {@link com.topcoder.shared.dataAccess.DataRetriever} which pulls query information
  * from a database.
  *
  * @author  Greg Paul
