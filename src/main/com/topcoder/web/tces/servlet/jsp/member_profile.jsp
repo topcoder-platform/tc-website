@@ -99,7 +99,9 @@
                 <B>School:</B> <%=MemberInfo.getItem(0, "school_name").toString()%> <BR>
                 <B>Degree:</B> <%=MemberInfo.getItem(0, "degree").toString()%> <BR>
                 <B>Major:</B> <%=MemberInfo.getItem(0, "major").toString()%> <BR>
-                <B>GPA:</B> <%=MemberInfo.getItem(0, "gpa").toString()%> <BR>
+                <% if (MemberInfo.getItem(0, "gpa").toString().trim().length()>0) {%>
+                  <B>GPA:</B> <%=MemberInfo.getItem(0, "gpa").toString()%> <BR>
+                <% } %>
                 <B>Graduation Date:</B> <%=MemberInfo.getItem(0, "grad_month").toString()%> 
                 <%=MemberInfo.getItem(0, "grad_month").toString().trim().length()==0?"":", "%>
                 <%=MemberInfo.getItem(0, "grad_year").toString()%><BR>
