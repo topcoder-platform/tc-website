@@ -14,7 +14,7 @@
 
 <%--<% ResultSetContainer tournamentProjectList = (ResultSetContainer)request.getAttribute("tournamentProjectList");%>--%>
 <head>
-<title>Component Project Review</title>
+<title>Project Review</title>
 
 <jsp:include page="../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
