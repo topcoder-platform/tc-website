@@ -26,6 +26,10 @@ public class Demog extends FullRegDemog {
         
         log.info("CODER TYPE: " + ((FullRegInfo)info).getCoderType() );
         
+        if(((FullRegInfo)info).getCoderType() == 0)
+        {
+            addError(Constants.CODER_TYPE, "Please select your Student/Professional status.");
+        }
         //remove handle error
         removeError(Constants.HANDLE);
         

@@ -11,6 +11,10 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.controller.request.screening.BaseSessionProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.model.SearchModel;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.web.corp.common.Util;
+import java.util.*;
 /**
  *
  * @author  rfairfax
@@ -99,6 +103,26 @@ public class SearchResults extends BaseScreeningProcessor {
         {
             query.append("and e.address like '" + ret.getEmailAddress() + "' ");
         }
+        
+        QueryRequest r = new QueryRequest();
+        r.addQuery("search", query.toString());
+        //r.setProperty("member_search"+DataAccessConstants.START_RANK, m.getStart().toString());
+        //r.setProperty("member_search"+DataAccessConstants.END_RANK, m.getEnd().toString());
+
+        
+        DataAccessInt cda = Util.getDataAccess(true);
+        ((CachedDataAccess) cda).setExpireTime(15 * 60 * 1000); //cache for 15 minutes
+        Map res = cda.getData(r);
+        ResultSetContainer rsc = (ResultSetContainer) res.get("search");
+        
+        ret.setResults(rsc);
+        ret.setTotal(rsc.getRowCount());
+        /*if (m.getEnd().intValue() > m.getTotal()) {
+            m.setEnd(new Integer(m.getTotal()));
+        }
+        if (m.getTotal()==0) {
+            m.setStart(new Integer(0));
+        }*/
         
         return ret;
     }
