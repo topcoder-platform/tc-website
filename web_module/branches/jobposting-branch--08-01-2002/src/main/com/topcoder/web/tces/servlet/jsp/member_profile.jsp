@@ -114,7 +114,7 @@
               Average Points per Contest: <%=MemberInfo.get(TCESConstants.MEM_RATING_AVGPOINTS_KEY)%><BR>
               </P>    
               
-                            
+              Statistics by Problem Level:<br>         
               <TABLE ID="dataByLevelTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
                 <TR>
                     <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLEVEL_TITLES.length;i++) { %>
@@ -139,6 +139,32 @@
 
               </TABLE>
               <P><BR></P>
+              
+              Statistics by Language:<br>         
+              <TABLE ID="dataByLangTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">
+                <TR>
+                    <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_TITLES.length;i++) { %>
+                        <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif">&#160;<b>
+                            <%= TCESConstants.MEM_RATING_STATSBYLANG_TITLES[i] %>
+                        </b></TD>
+                        <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
+                    <% } %>
+                </TR>                    
+                <tces:mapIterator id="language" MapList="<%=MemberProfileTask.getStatsByLang()%>">
+        
+                <TR> 
+                  <% for (int i=0;i<TCESConstants.MEM_RATING_STATSBYLANG_KEYS.length;i++) { %>
+                      <TD class="statText" HEIGHT="18">
+                        <%= language.get(TCESConstants.MEM_RATING_STATSBYLANG_KEYS[i]) %>
+                      </TD>
+                      <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"></TD>
+                    <% } %>
+                </TR>
+
+                </tces:mapIterator>
+
+              </TABLE>
+              
                             
               
               
