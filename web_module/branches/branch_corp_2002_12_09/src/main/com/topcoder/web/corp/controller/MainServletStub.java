@@ -43,7 +43,7 @@ public class MainServletStub extends HttpServlet {
          * RequestProcessor will set 'where-to-go' attribute of request. So 
          * we will return to user same jsp page.  It is template.jsp and it 
          * will fill responese with real content using that tag */
-        String whereToGo = (String)request.getAttribute("where-to-go");
+        String whereToGo = currentProc.getNextPage();
         getServletContext().getRequestDispatcher(whereToGo).forward(request, response);
         return;
     }
