@@ -71,8 +71,8 @@
                 unless="jdk1.4+"
             />
       </javac>
-      <rmic classname="com.topcoder.server.distCache.CacheClientImpl"     base="${classes}"/>
-      <rmic classname="com.topcoder.server.distCache.CacheServerSyncImpl" base="${classes}"/>
+      <rmic classname="com.topcoder.shared.distCache.CacheClientImpl"     base="${classes}"/>
+      <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
    </target>
 
    <target name="deploy" depends="servlets,jsp,moveStruts,moveReg">
