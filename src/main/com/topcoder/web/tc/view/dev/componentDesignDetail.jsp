@@ -40,25 +40,25 @@
 <%-- Center Column Begins --%>
         <td width="100%" align="center">
 
-            <img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
-
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="middle">
-                    <td class="bodyText">
+            <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
 
 <%-- Title --%>
-                        <h2 class="devSubhead"><strong>Design Project</strong></h2>
-                        <h2 class="devSubhead"><strong><rsc:item set="<%=projectDetail%>" name="component_name"/></strong></h2>
-                    </td>
-                    <td align="right">
-                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
-                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
-                        <% } %>
-                    </td>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectTitles">Design Project</td>
+                </tr>
+                <tr>
+                    <td class="projectHeaders" align="left">Project name: <rsc:item set="<%=projectDetail%>" name="component_name"/></td>
                 </tr>
             </table>
+            
+                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
+                            <img src="/i/development/tccc04_comp_badge.gif" alt="TCCC Qualifying Project" width="145" height="46" border="0" align="right"/>
+                        <% } %>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+            <table border="0" cellspacing="0" cellpadding="0" align="center" width="530">
                 <tr valign="top">
                     <td class="bodyText">
 
@@ -68,8 +68,8 @@
                         </p>
 
 <%-- Technologies --%>
-                        <p><strong>Technologies</strong></p>
-                        <ul>
+                        <p class="noSpaceList"><strong>Technologies</strong></p>
+                        <ul class="noSpaceList">
                             <rsc:iterator list="<%=technologies%>" id="item">
                                 <li><rsc:item row="<%=item%>" name="technology_name"/></li>
                             </rsc:iterator>
@@ -85,7 +85,12 @@
                             </p>
 
 <%-- Payment --%>
-                        <p><strong>Payment</strong><br />
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Payment</td>
+                </tr>
+            </table>
+                        <p>
                         TopCoder will compensate members with first and second place submissions that have scored at least
                         70. First place compensation will consist of both initial payments and royalties on
                         the sale of the component. The initial payment will be distributed in two installments.
@@ -97,27 +102,43 @@
                         <p><strong>Winning Designer</strong><br />
                         Royalty Percentage - 25%</p>
 
-                        <p>Total Payment - $<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/><br/>
-                           First Deliverable - $<rsc:item set="<%=projectDetail%>" name="first_payment" format="0.00"/><br/>
-                               Project Completion - $<rsc:item set="<%=projectDetail%>" name="second_payment" format="0.00"/></p>
-
+                        <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="175">
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Total Payment -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="total_payment" format="0.00"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">First Deliverable -</td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="first_payment" format="0.00"/></td>
+                            </tr>
+                            <tr>
+                                <td class="bodyText" nowrap="nowrap">Project Completion - </td><td class="bodyText" align="right">$<rsc:item set="<%=projectDetail%>" name="second_payment" format="0.00"/></td>
+                            </tr>
+                        </table>
+                        
                         <p><strong>Second Place Designer</strong><br />
                            Total Payment - $<rsc:item set="<%=projectDetail%>" name="second_place_payment" format="0.00"/><br/>
                         </p>
 <%-- Definition of Completion --%>
-                        <p><sup>*</sup>Completion of the project is defined as follows:</p>
+                        <p class="noSpaceList"><strong>Project Completion</strong><br />
+                        *Completion of the project is defined as follows:</p>
 
-                        <ul>
+                        <ul class="noSpaceList">
                             <li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
                             <li>The Submission has been selected by the board as the winning submission.</li>
                             <li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
                         </ul>
+                        <br/>
 
 <%-- Eligibility Requirements --%>
-                        <p><strong>Eligibility</strong><br />
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Eligibility</td>
+                </tr>
+            </table>
+            <br/>
+                        <p class="noSpaceList">
                         You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
-                        <ul>
+                        <ul class="noSpaceList">
                             <li>A US Citizen </li>
                             <li>A Lawful Permanent Resident of the US</li>
                             <li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
@@ -125,7 +146,13 @@
                         </ul>
 
 <%-- Time Line --%>
-                        <p><strong>Time Line</strong><br/>
+            <br/>
+            <table cellspacing="0" class="formFrame" align="center" width="530">
+                <tr>
+                    <td class="projectHeaders" align="left">Time Line</td>
+                </tr>
+            </table>
+                        <p>
                         All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
                         <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="300">
@@ -150,7 +177,7 @@
                                Registration is closed.
                            <% } else { %>
                                <% if (projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_INQUIRIES) { %>
-                            <p>
+                            <p class="bigRed">
                             **Important Note:
                             By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>
                            <p>
