@@ -69,7 +69,7 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>												
 						<TR>
-							<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="statText"><!-- Single Round Match 67 -->2002 TCCC First Round W/MW</A></TD>						
+							<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?t=tournaments&amp;c=tourny_sched" CLASS="statText"><!-- Single Round Match 67 -->2002 TCCC First Round W/MW</A></TD>
 							<TD VALIGN="middle" CLASS="statText">Thursday, February 21</TD>
 							<TD VALIGN="middle" CLASS="statText">10:00pm EST</TD>
 						</TR>						
@@ -177,7 +177,7 @@ All in all, 14 coders added their name to the Division II Highest Point Total li
 
 
 <P>
-The next TopCoder competition is the first round of the 2002 Sun and TopCoder Collegiate Challenge for the MidWest and West regions, which will be held Thursday, February 21 at 10:00pm EST. <A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="statText">View match overview.</A>
+The next TopCoder competition is the first round of the 2002 Sun and TopCoder Collegiate Challenge for the MidWest and West regions, which will be held Thursday, February 21 at 10:00pm EST. <A HREF="/?t=tournaments&amp;c=tourny_sched" CLASS="statText">View match overview.</A>
 </P>
 
 

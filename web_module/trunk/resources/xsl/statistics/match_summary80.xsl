@@ -69,9 +69,9 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-              <TD VALIGN="middle" HEIGHT="13" CLASS="bodyText"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="bodyGeneric"><!-- Single Round Match 80 -->2002 TCCC Semifinals</A></TD>            
+              <TD VALIGN="middle" HEIGHT="13" CLASS="bodyText"><A HREF="/?t=tournaments&amp;c=tourny_sched" CLASS="bodyGeneric"><!-- Single Round Match 80 -->2002 TCCC Semifinals</A></TD>
               <TD VALIGN="middle" CLASS="bodyText">Friday, April 19</TD>
-              <TD VALIGN="middle" CLASS="bodyText"><A HREF="/?t=schedule&amp;c=tourny_sched" CLASS="bodyGeneric">tourney schedule</A></TD>
+              <TD VALIGN="middle" CLASS="bodyText"><A HREF="/?t=tournaments&amp;c=tourny_sched" CLASS="bodyGeneric">tourney schedule</A></TD>
             </TR>            
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
