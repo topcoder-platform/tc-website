@@ -265,7 +265,7 @@ cps.challenges_made_successful,
   WHEN 0 THEN 0.0
   ELSE cps.challenges_made_successful / cps.challenge_attempts_made
   END) AS challenge_success_percentage,
-p.path || i.file_name as image,
+p.path || i.file_name as image_path,
 (SELECT count(*)
   FROM coder_image_xref cix
        ,image i
@@ -783,7 +783,7 @@ SELECT p.path || i.file_name, link, width, height
    AND rix.display_flag = 1
    AND rix.round_id = @rd@
 "
-java QueryLoader 46 "Top_Room_Winners" 0 0 "
+java QueryLoader 46 "Top_Room_Winners" 1 7"
 SELECT ro.name as round_name
        ,ro.round_id as round_id
        ,r.name as room_name
@@ -791,31 +791,46 @@ SELECT ro.name as round_name
        ,c.handle as handle
        ,c.coder_id as coder_id
        ,rr.final_points as final_points
+       ,rr.new_rating as rating
+       ,co.name as contest_name
   FROM room_result rr
        ,room r
        ,coder c
        ,round ro
+       ,contest co
  WHERE rr.room_id = r.room_id
+   AND ro.contest_id = co.contest_id
    AND rr.round_id = r.round_id
    AND ro.round_id = rr.round_id
    AND r.round_id = ro.round_id
    AND rr.division_id = r.division_id 
    AND rr.coder_id = c.coder_id
-   AND r.division_id = 1
-   AND r.division_id = (SELECT max(ro.division_id)
-                          FROM room ro
-                               ,round r1
-                         WHERE ro.round_id = r1.round_id
-                           AND r1.calendar_id = (SELECT MAX(r2.calendar_id)
-                                                  FROM room_result rr2
-                                                       ,round r2
-                                                 WHERE rr2.round_id = r2.round_id
-                                                   AND rr2.coder_id = @cr@))
+   AND r.division_id = @dn@
    AND rr.room_placed = 1
    AND ro.calendar_id = (SELECT max(calendar_id) 
                            FROM round r
                           WHERE r.round_type_id = 1)
  ORDER BY final_points desc
 "
+java QueryLoader 47 "Top_Ranked_Div_1" 1 3"
+SELECT c.coder_id
+       ,c.handle
+       ,r.rating
+  FROM coder c, rating r
+ WHERE c.coder_id = r.coder_id
+   AND c.status = 'A'
+   AND r.rating > 1199
+ ORDER BY r.rating DESC
+"
 
-
+java QueryLoader 48 "Top_Ranked_Div_2" 1 3 "
+SELECT c.coder_id
+       ,c.handle
+       ,r.rating
+  FROM coder c, rating r
+ WHERE c.coder_id = r.coder_id
+   AND c.status = 'A'
+   AND r.rating > 0
+   AND r.rating < 1200
+ ORDER BY r.rating DESC
+"

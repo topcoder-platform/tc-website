@@ -47,6 +47,8 @@ insert into command_query_xref values(21, 37, 1);
 insert into command_query_xref values(21, 26, 2);
 insert into command_query_xref values(21, 45, 3);
 insert into command_query_xref values(22, 46, 1);
+insert into command_query_xref values(23, 47, 1);
+insert into command_query_xref values(24, 48, 1);
 
 insert into input_lu values(1, "rd", 1001, "Round ID");
 insert into input_lu values(2, "rm", 1001, "Room ID");
@@ -160,5 +162,11 @@ insert into query_input_xref values(41, "Y", -666, 17, 1);
 insert into query_input_xref values(44, "N", null, 3, 1);
 insert into query_input_xref values(44, "Y", "$42", 1, 2);
 insert into query_input_xref values(45, "Y", "$26", 1, 1);
-insert into query_input_xref values(46, "N", null, 3, 1);
+insert into query_input_xref values(46, "N", null, 11, 1);
+insert into query_input_xref values(46, 'Y', 1, 8, 2);
+insert into query_input_xref values(46, 'Y', 10, 9, 3);
+insert into query_input_xref values(47, 'Y', 1, 8, 1);
+insert into query_input_xref values(47, 'Y', 10, 9, 2);
+insert into query_input_xref values(48, 'Y', 1, 8, 1);
+insert into query_input_xref values(48, 'Y', 10, 9, 2);
 
