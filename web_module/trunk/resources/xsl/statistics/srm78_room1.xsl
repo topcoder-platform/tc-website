@@ -62,11 +62,11 @@ for a total of 1408.41, giving him second overall (to <A HREF="/stat?c=last_matc
 <P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> was true to his usual form in this match, with the third highest score overall. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ambrose</A>
 , <A HREF="/stat?c=last_match" CLASS="bodyGeneric">erdos</A>, and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">bigg_nate</A>, however, did not fair so well, each receiving points only for the 
 easy problem, resulting in big ratings drops of 150+ points.</P>
-<P>In addition, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>, the number 2 and number 4 coders were absent tonight.  jonmac, last year's 2001 Invitation winner, was rumored to be playing tennis.</P>
+<P>In addition, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>, the number 2 and number 3 coders were absent tonight.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, last year's <A HREF="/index?t=schedule&amp;c=tourny_tci_01" CLASS="bodyText">2001 Invitational</A> winner, was rumored to be playing tennis.</P>
     
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>   
-
+By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+<BR/><A HREF="mailto:editorial@topcoder.com">Are you a member interested in writing a review?</A>
           <P><br/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
