@@ -102,7 +102,7 @@
         <TABLE border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
-        <INPUT TYPE="hidden" NAME="c" VALUE="2004_collegiate_comp_submit_info"/>
+        <INPUT TYPE="hidden" NAME="c" VALUE="2004_open_comp_submit_info"/>
             <TR><TD COLSPAN="2"><H1 align="center">Travel Form</H1></TD></TR>
             <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
 
@@ -296,7 +296,7 @@
 <!-- Right Column Begins -->
         <td width="170">
             <xsl:call-template name="public_right_col">
-                <xsl:with-param name="sectionName">tco03</xsl:with-param>
+                <xsl:with-param name="sectionName">tco04</xsl:with-param>
             </xsl:call-template>
         </td>
 <!-- Right Column Ends -->
