@@ -395,9 +395,10 @@ public abstract class Base extends BaseProcessor {
         }
     }
 
-    protected void lock() throws TCWebException {
+    protected void lock() throws TCWebException, ServerBusyException {
         synchronized(locks) {
-            locks.add(Constants.SERVER_BUSY + getSessionId());
+            if (isBusy()) throw new ServerBusyException();
+            else locks.add(Constants.SERVER_BUSY + getSessionId());
         }
     }
 
