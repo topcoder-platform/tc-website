@@ -187,7 +187,7 @@ function lookupText(qId){
                 </tr>
 
                 <tr>
-                    <td class="registerLabel">Alow others to see what school I attend&nbsp;</td>
+                    <td class="registerLabel">Allow others to see what school I attend&nbsp;</td>
                     <td class="statText"><input type="checkbox" name="<%=Registration.SCHOOL_VIEWABLE%>" <%=Registration.isSchoolViewable()?"checked":""%>></td>
                 </tr>
 
