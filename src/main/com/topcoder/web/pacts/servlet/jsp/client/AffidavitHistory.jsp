@@ -43,7 +43,7 @@ function goTo(selection){
 	<TR>
 		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
+<BR/>
 <!-- <jsp:include page="MemberHeader.jsp" flush="true" /> -->
 <%@ page import="com.topcoder.web.pacts.common.*,java.util.*,java.text.*" %>
 
@@ -71,7 +71,7 @@ function goTo(selection){
 	    	href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.AFFIDAVIT_TASK, 
-	            PactsConstants.AFFIDAVIT_HISTORY_CMD, str);
+	            PactsConstants.AFFIDAVIT_HISTORY_CMD, str, "statText");
 		out.print(href);
 	}
 	out.print("</p>");
@@ -109,7 +109,7 @@ function goTo(selection){
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.AFFIDAVIT_TASK, 
-	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str);
+	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str, "statText");
 	    tableData.setElement(i,1,href);
 	    
 	    // payment
@@ -134,9 +134,15 @@ function goTo(selection){
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
 	table.setBgcolor("\"#001935\"");
-	table.setCellSpacing("0");
+	table.setCellSpacing("3");
 	table.setCellPadding("2");
 	table.setBorder("0");
+	table.setWidth("100%");	
+	table.setColumnWidth(0, "35%");
+	table.setColumnWidth(1, "25%");
+	table.setColumnWidth(2, "20%");
+	table.setColumnWidth(3, "10%");
+	table.setColumnWidth(4, "10%");					
 	table.setRowColor(0,"\"#093158\"");	
 	table.setClassName("statText");
 	table.setRowBold(0,true);	
