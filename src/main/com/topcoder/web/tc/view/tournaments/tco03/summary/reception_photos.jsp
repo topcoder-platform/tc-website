@@ -145,7 +145,7 @@
             <h2>Opening Night Photos</h2>
 
             <p>by Kathryn DeStefano, <em>TopCoder Staff</em><br />
-            Thursday, December 4, 2003</p>
+            Wednesday, December 4, 2003</p>
 
             <table border="0" cellspacing="0" cellpadding="3" width="100%">            
                 <tr>
