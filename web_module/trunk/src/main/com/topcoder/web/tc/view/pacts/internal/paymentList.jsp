@@ -58,8 +58,6 @@
             <td>
                 <a href="Javascript:checkAll(false)">uncheck all</a>
             </td>
-            <td colspan="6">
-            </td>
         </tr>
 		<tr>
 		<td></td>
@@ -107,6 +105,14 @@
 		}
 	}
 %>
+        <tr>
+            <td>
+                <a href="Javascript:checkAll(true)">check all</a>
+            </td>
+            <td>
+                <a href="Javascript:checkAll(false)">uncheck all</a>
+            </td>
+        </tr>
 
 </table>
 
@@ -136,16 +142,6 @@ for (int n = 0; n < rowCount; n++) {
 out.print("</td></tr>");
 
 %>
-        <tr>
-            <td>
-                <a href="Javascript:checkAll(true)">check all</a>
-            </td>
-            <td>
-                <a href="Javascript:checkAll(false)">uncheck all</a>
-            </td>
-            <td colspan="6">
-            </td>
-        </tr>
 
 </table>
 
