@@ -21,27 +21,30 @@
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
 	<tr>
-		<td><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td valign=middle align=center rowspan=2 width="100%"></td>
+		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
+		<td valign=middle align=center rowspan=2></td>
+		<td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tccc05/tc_logo.gif" border=0/></a></td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_overviewOnL.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
 	<tr>
-		<td><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td valign=middle align=center rowspan=2 width="100%"><a href="/tc?module=TCCC05AlgorithmTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a></td>
+		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
+		<td valign=middle align=center rowspan=2><a href="/tc?module=TCCC05AlgorithmTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a></td>
+		<td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tccc05/tc_logo.gif" border=0/></a></td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_algOnL.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("component")) { %>
 	<tr>
-		<td><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td valign=middle align=center rowspan=2 width="100%"><a href="/tc?module=TCCC05ComponentTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a></td>
+		<td width="50%"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
+		<td valign=middle align=center rowspan=2><a href="/tc?module=TCCC05ComponentTerms"><img src="/i/tournament/tccc05/tccc05_headline.gif" border=0/></a></td>
+		<td valign=top align=right rowspan=2 width="50%"><a href="/"><img src="/i/tournament/tccc05/tc_logo.gif" border=0/></a></td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_compOnL.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } %>
 
 <!-- LEVEL 2 TABS -->
 	<tr>
-		<td colspan=2>
+		<td colspan=3>
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
     		<tr>
         		<td class=nav>&#160;&#160;&#160;</td>
@@ -100,6 +103,7 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_description"><img src="/i/tournament/tccc05/tabs/L2_detailsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+<%--
 				<% if (tabLev2.equals("design")) {%>
 					<td class=nav><A href="/tc?module=TCCC05Results&ph=112"><img src="/i/tournament/tccc05/tabs/L2_designOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
@@ -110,6 +114,7 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=TCCC05Results&ph=113"><img src="/i/tournament/tccc05/tabs/L2_developmentOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+--%>
 			<% } %>
         		<td class=nav align=left><img src="/i/tournament/tccc05/tabs/L2_sideLT.gif" border=0 /></td>
         		<td class=nav width="100%">&#160;</td>
@@ -119,9 +124,9 @@
 	</tr>
 
 <!-- LEVEL 3 TABS -->
-	<tr><td class=tabL3Top colspan=2><img src="/i/clear.gif" width=1 height=7 border=0/></td></tr>
+	<tr><td class=tabL3Top colspan=3><img src="/i/clear.gif" width=1 height=7 border=0/></td></tr>
 	<tr>
-		<td colspan=2>
+		<td colspan=3>
 		<table width="100%" border=0 cellspacing=0 cellpadding=0 class="subNav">
 			<tr>
 				<td class=subNavBG>&#160;&#160;&#160;</td>
@@ -186,6 +191,6 @@
 		</td>
 	</tr>
 <%--
-	<tr><td class=tabL3Bottom colspan=2><img src="/i/clear.gif" width=1 height=7 border=0/></td></tr>
+	<tr><td class=tabL3Bottom colspan=3><img src="/i/clear.gif" width=1 height=7 border=0/></td></tr>
 --%>
 </table> 
