@@ -92,6 +92,7 @@
                                     <strong>Match 182</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">NVIDIA</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4730&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
@@ -121,7 +122,7 @@
                                     <strong>Match 184</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: NVIDIA &amp; Google<br />
+                                    Sponsor: Gentleware<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4740&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">18</td>
