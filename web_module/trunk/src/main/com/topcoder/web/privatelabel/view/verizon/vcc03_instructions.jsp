@@ -134,10 +134,10 @@
                             <dd><strong>Java Code Template</strong><br/>
                             <pre>import &#60;necessary classes&#62;<br/><br/>
 public class &#60;class-name&#62; {<br/>
-   public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
-   //your source here<br/>
-   return &#60;results&#62;;<br/>
-   }<br/>
+    public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
+        //your source here<br/>
+        return &#60;results&#62;;<br/>
+    }<br/>
 }</pre><br/><br/>
 
                           <dd><strong>C++ Code Template</strong><br/>
@@ -145,11 +145,11 @@ public class &#60;class-name&#62; {<br/>
 using namespace std; //Required for TopCoder gcc compiler<br/>
 class &#60;class-name&#62;<br/>
 {<br/>
-public:
-&#60;return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1)<br/>
+    public:
+    &#60;return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1)<br/>
    {<br/>
-   //your source here<br/>
-   return &#60result&#62;;<br/>
+        //your source here<br/>
+        return &#60result&#62;;<br/>
    } ;<br/>
 } ; </pre><br/><br/>
                           
@@ -157,18 +157,18 @@ public:
                           <pre>using &#60necessary classes&#62;;<br/><br/>
 public class &#60class-name&#62; { <br/>
    public &#60return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1) {<br/>
-   //your source here<br/>
-   return &#60result&#62;;</code><br/>
+        //your source here<br/>
+        return &#60result&#62;;</code><br/>
    }<br/>
 }</pre><br/><br/>
                           
                           <dd><strong>VB.NET Code Template</strong><br/>
                           <pre>Imports &#60necessary-classes&#62;<br/><br/>
 Public Class &#60class-name&#62;<br/><br/>
-public Function &#60method-name&#62; (arg1 as &#60argument-type&#62;) As &#60return-type&#62;<br/>
---your source here<br/>
-Return &#60result&#62;<br/>
-End Function<br/>
+    public Function &#60method-name&#62; (arg1 as &#60argument-type&#62;) As &#60return-type&#62;<br/>
+        --your source here<br/>
+        Return &#60result&#62;<br/>
+    End Function<br/>
 End Class </pre><br/><br/>
                           
                           <dd><strong>Compiling</strong><br/>
