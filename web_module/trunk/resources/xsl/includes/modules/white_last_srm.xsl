@@ -5,43 +5,55 @@
 	<!-- <TR>
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
 	</TR> -->
+	<!-- <TR>
+		<TD VALIGN="top" ROWSPAN="8"><IMG SRC="/i/m/coder_mug_a.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/></TD>		
+		<TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+	</TR>	
 	<TR>
-		<TD VALIGN="middle" HEIGHT="16" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig" NOWRAP="0">&#160;&#160;Match 75 - March 26, 2002<!-- 2002 TCCC Regional Championships - Mar. 13 --> &#160;</TD>
+		<TD VALIGN="top" CLASS="bodyText" NOWRAP="0"><SPAN CLASS="bodyTextBold">Match 77 - April 3, 2002</SPAN><BR/>
+		Adam Loss, TopCoder Staff Writer<BR/></TD>
+	</TR> -->
+	<TR>
+		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
 	</TR>
-	<TR>
-		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="13" CLASS="bodyTextBold">&#160;&#160;Division-I<!-- Northeast Region --></TD>
-	</TR>
-	<TR>
+	<!--  <TR>
+		<TD VALIGN="middle" CLASS="bodyTextBold">Division-INortheast Region</TD>
+	</TR> -->
+	<!-- <TR>
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-	</TR>		
+	</TR> -->	
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
-<P>
-<A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A> was the Room 1 winner in Single Round Match 
-75 with 790.51 final points.  <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A> earned 241.11 
-points on the Level One problem and 399.40 points on the Level Two problem, for a total of 640.51 after the "Coding Phase".
+		
+<P><IMG SRC="/i/m/adam_loss_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3" ALIGN="left"/>
+<SPAN CLASS="bodyTextBold">Match 77</SPAN><BR/>
+April 3, 2002<BR/>
+By Adam Loss, <I>TopCoder Staff Writer</I><BR CLEAR="all"/>
 </P>
-
+					
+<P><B>Division-I</B><BR/>
+<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A> earned 100 points in the 
+"Challenge Phase" for a come-from-behind win in Room 1.  The room win was the 44th by 
+<A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>, by far the most of any 
+member (<A HREF="/stat?c=all_time_wins" CLASS="bodyGeneric">View the list of Overall Wins</A>).</P>
        </TD>
 	</TR>
 	<TR>
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD>
 	</TR>			
 	<TR>
-		<TD VALIGN="middle" BGCOLOR="#CCCCCC" HEIGHT="13" CLASS="bodyTextBold">&#160;&#160;Division-II<!-- Southeast Region --> </TD>
+		<TD VALIGN="middle" CLASS="bodyTextBold">Division-II<!-- Southeast Region --> </TD>
 	</TR>
-	<TR>
+	<!-- <TR>
 		<TD VALIGN="middle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD>
-	</TR>	
+	</TR> -->	
  	<TR>
 		<TD CLASS="bodyText" VALIGN="top">
 <P>
-First-time coder <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="bodyGeneric">jesser</A>
- won Room 56 with a division-high 1288.94 final points, all earned in the "Coding Phase". <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="bodyGeneric">jesser</A>
- earned 247.85 points on the Level One problem, 511.95 on the Level Two problem, and 529.14 on the Level Three problem
+The highest score earned by a first-time coder was the 1441.00 point total of <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">antimatter</A>, 
+who was the winner in Room 53.  That point total earned <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=2" CLASS="bodyGeneric">antimatter</A> a 
+1785 debut rating (<A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>), 
+which is the 17th highest ever
 
 ...&#160;<A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A>.
 </P>
