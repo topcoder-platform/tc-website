@@ -90,12 +90,13 @@
 
                 <tr>
                     <td width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
-                    <td class="statText" colspan="6"><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
+                    <td class="statText" colspan=""><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
                     <td width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Catalog</td>
                     <td background="/i/steel_bluebv_bg.gif" width="40%" class="statText">Design Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Initial<br />Submit</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Review<br />Complete</td>
@@ -141,8 +142,8 @@
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText">Development Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Catalog</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText">Development Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Initial<br />Submit</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Review<br />Complete</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Final<br />Submit</td>
