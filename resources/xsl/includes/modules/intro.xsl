@@ -49,7 +49,7 @@
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
-      <TR> 
+      <!-- <TR> 
         <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR>       
@@ -62,7 +62,7 @@
           </A>
         </TD>
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
-      </TR>
+      </TR> -->
       <TR> 
         <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
