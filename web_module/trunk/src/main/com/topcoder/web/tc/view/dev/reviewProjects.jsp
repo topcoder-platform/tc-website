@@ -71,7 +71,7 @@
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
                     <tr>
                         <%-- <a> should link to project description page like the Open Projects page does --%>
-                        <td class="projectCells"><a href=""><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
+                        <td class="projectCells"><rsc:item row="<%=resultRow%>" name="component_name"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
