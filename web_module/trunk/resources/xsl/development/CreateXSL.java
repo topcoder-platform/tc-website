@@ -18,22 +18,30 @@ public class CreateXSL
         File templateFile = null;
         FileInputStream templateFileStream = null;
         try{
+            String appServer = null;
+            String outputDir = null;
+            if(args.length > 0)
+            {
+                appServer = args[0];
+                outputDir = args[1];
+                
+            }
                 long phase = 0L;
                 String componentName = "";
                 String componentId = "";
                 String componentDesc = "";
-                Context CONTEXT = getContext("org.jnp.interfaces.NamingContextFactory", "192.168.10.151:1099");
-                System.out.println("tesT3");
+                Context CONTEXT = getContext("org.jnp.interfaces.NamingContextFactory", appServer);
+                //System.out.println("tesT3");
                 Object objTechTypes = CONTEXT.lookup("CatalogEJB");
-                System.out.println("tesT3a");
+                //System.out.println("tesT3a");
                 CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
-                System.out.println("tesT3b");
+                //System.out.println("tesT3b");
                 Catalog catalog = home.create();
-                System.out.println("tesT4");
+                //System.out.println("tesT4");
                 Object objComponentMgr = CONTEXT.lookup("ComponentManagerEJB");
                 ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(objComponentMgr, ComponentManagerHome.class);
                 ComponentManager componentManager = null;
-                System.out.println("tesT2");
+                //System.out.println("tesT2");
                 
                 long lngComponent;
 
@@ -77,54 +85,64 @@ public class CreateXSL
                     }           
     
     /** Getting file**/
-                    String postfix = "development";
-                    if(phase == ComponentVersionInfo.SPECIFICATION)
-                    {
-                        postfix = "design";
-                    }
-                    templateFile = new File("tcs_template-" + postfix + ".xsl");
-                    templateFileStream = new FileInputStream(templateFile);
-                    if(templateFile.length() > Integer.MAX_VALUE){
-                        System.out.println("PROGRAM HAS PROBLEM!!!");
-                    }
-                    int bufferSize = (int)templateFile.length();
-                    byte[] fileContents = new byte[bufferSize];
-                    long n = templateFileStream.read(fileContents, 0, bufferSize); 
-                    String output = "";
-                    if (n != templateFile.length()) 
-                        throw new Exception("Error in reading file '" + templateFile.getName() + "'"); 
-    /** Got file**/
-    
-    
-    
-                    String fileName = replacePattern(componentName, " ", "_");
-    
-    
-                    output = new String(fileContents);
-                    output = replacePattern(output, "<<<overview>>>", componentDesc);
-                    String formattedComponentName = replacePattern(componentName," ", "%20");
-                    output = replacePattern(output, "<<<COMPONENT_NAME>>>", formattedComponentName);
-                    output = replacePattern(output, "<<<COMPONENT_SPACE_NAME>>>", componentName);
-                    output = replacePattern(output, "<<<COMPONENT_ID>>>", componentId);
-
-                    if(requirementsDoc != null)
-                    {
-                        output = replacePattern(output, "<<<REQUIREMENTS_FILE>>>", "http://www.topcodersoftware.com/catalog/document?id=" + requirementsDoc.getId());
-                    }
-                       
-                    //System.out.println( output ); 
-    
-    
                     
-                    
-                    
-                    FileOutputStream fos = new FileOutputStream(fileName.toLowerCase() + "-" + postfix +".xsl");
-                    byte[] outputBytes = output.getBytes();
-                    for(int i = 0; i < outputBytes.length; i++)
+                    if(phase == ComponentVersionInfo.SPECIFICATION || 
+                       phase == ComponentVersionInfo.DEVELOPMENT)
                     {
-                        fos.write(outputBytes[i]);
+                        String postfix = "development";
+                        if(phase == ComponentVersionInfo.SPECIFICATION)
+                        {
+                            postfix = "design";
+                        }
+                                                
+                        templateFile = new File("tcs_template-" + postfix + ".xsl");
+                        templateFileStream = new FileInputStream(templateFile);
+                        if(templateFile.length() > Integer.MAX_VALUE){
+                            System.out.println("PROGRAM HAS PROBLEM!!!");
+                        }
+                        int bufferSize = (int)templateFile.length();
+                        byte[] fileContents = new byte[bufferSize];
+                        long n = templateFileStream.read(fileContents, 0, bufferSize); 
+                        String output = "";
+                        if (n != templateFile.length()) 
+                            throw new Exception("Error in reading file '" + templateFile.getName() + "'"); 
+     
+                        //formatting file name for output
+                        String fileName = replacePattern(componentName, " ", "_");
+                        if(fileName.startsWith(".")){
+                            fileName = "dot" + fileName.substring(1);   
+                        }
+                        if(outputDir != null)
+                            fileName = outputDir + "/" + fileName;
+                        
+        
+                        output = new String(fileContents);
+                        output = replacePattern(output, "<<<OVERVIEW>>>", componentDesc);
+                        String formattedComponentName = replacePattern(componentName," ", "%20");
+                        output = replacePattern(output, "<<<COMPONENT_NAME>>>", formattedComponentName);
+                        output = replacePattern(output, "<<<COMPONENT_SPACE_NAME>>>", componentName);
+                        output = replacePattern(output, "<<<COMPONENT_ID>>>", componentId);
+    
+                        if(requirementsDoc != null)
+                        {
+                            output = replacePattern(output, "<<<REQUIREMENTS_FILE>>>", "http://www.topcodersoftware.com/catalog/document?id=" + requirementsDoc.getId());
+                        }
+                        else{                       
+                            System.out.println("Warning: no requirements for: " + componentName); 
+                        }
+        
+        
+                        
+                        
+                        System.out.println(fileName.toLowerCase() + "-" + postfix +".xsl");
+                        FileOutputStream fos = new FileOutputStream(fileName.toLowerCase() + "-" + postfix +".xsl");
+                        byte[] outputBytes = output.getBytes();
+                        for(int i = 0; i < outputBytes.length; i++)
+                        {
+                            fos.write(outputBytes[i]);
+                        }
+                        fos.close();
                     }
-                    fos.close();
                 }
         }
         catch(Exception e){
@@ -147,47 +165,11 @@ public class CreateXSL
         String replaceString){
         String output = "";
         Pattern pattern = Pattern.compile(patternMatch);
+        //System.out.println(pattern.pattern());
         Matcher m = pattern.matcher(sourceString);
         return m.replaceAll(replaceString);
 
      }
-
-    private static void test()
-    {
-        Context CONTEXT = null;
-        System.out.println("tesT");
-        try{
-            
-            CONTEXT = getContext("org.jnp.interfaces.NamingContextFactory", "172.16.20.222:1099");
-            System.out.println("tesT3");
-            Object objTechTypes = CONTEXT.lookup("CatalogEJB");
-            System.out.println("tesT3a");
-            CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
-            System.out.println("tesT3b");
-            Catalog catalog = home.create();
-            System.out.println("tesT4");
-            Object objComponentMgr = CONTEXT.lookup("ComponentManagerEJB");
-            ComponentManagerHome component_manager_home = (ComponentManagerHome) PortableRemoteObject.narrow(objComponentMgr, ComponentManagerHome.class);
-            ComponentManager componentManager = null;
-            System.out.println("tesT2");
-            long lngComponent;
-            try {
-                lngComponent = Long.parseLong("4202835");
-                componentManager = component_manager_home.create(lngComponent);
-                ComponentInfo comp = componentManager.getComponentInfo();
-                
-                System.out.println(comp.getDescription());
-                System.out.println(comp.getName());
-                System.out.println(comp.getId());
-            } catch (CatalogException e) {
-                System.out.println(e.getMessage());
-
-            } catch (Exception e) {
-                System.out.println("here:" + e.getMessage());
-            }           
-        }catch(Exception e)
-        {System.out.println("here2:" + e.getMessage() + e.toString());}
-    }
 
     public static Context getContext(String initialContextFactory, String providerUrl) throws NamingException {
         Hashtable env = new Hashtable();
