@@ -7,7 +7,7 @@
 <head>
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
 
-<jsp:include page="/script.jsp">
+<jsp:include page="/script.jsp" />
 <script type="text/javascript" language="Javascript">
 <!--
 function showEmail() {
@@ -48,15 +48,12 @@ function submitSession() {
 //-->
 </script>
 
-<link rel="Stylesheet" href="/css/style.css" type="text/css">
-<link rel="Stylesheet" href="/css/coders.css" type="text/css">
-
 </head>
 
 <body>
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp">
+<jsp:include page="/includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -64,7 +61,7 @@ function submitSession() {
 <!-- left column begins -->
         <td width="22" bgcolor="#000000">
 
-        <jsp:include page="/includes/left.jsp">
+        <jsp:include page="/includes/left.jsp" />
 
       </td>
 <!-- left column ends -->
