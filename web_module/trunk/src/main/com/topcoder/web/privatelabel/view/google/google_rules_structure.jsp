@@ -131,7 +131,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             
            <p><span class="bodySubtitle">The Competition Field</span><br />
             A total of 500 individuals will qualify to compete in Round 1.  The top 250 scorers will advance to Round 2.  The top 
-            25 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Google’s headquarters 
+            25 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Google's headquarters 
             in Mountain View, CA, USA.</p>
             
            <p><span class="bodySubtitle">Scoring and Advancing</span><br />
@@ -184,8 +184,8 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             </ul>
             
             <p><span class="bodySubtitle">Championship Round</span><br />
-            The 25 advancers from Round 2 must travel to Google’s headquarters to compete in the Championship Round of the tournament.  All 
-            finalists must arrive at Google’s headquarters no later than 10:00 AM on Friday, November 14th.  If a contestant is unable to attend 
+            The 25 advancers from Round 2 must travel to Google's headquarters to compete in the Championship Round of the tournament.  All 
+            finalists must arrive at Google's headquarters no later than 10:00 AM on Friday, November 14th.  If a contestant is unable to attend 
             the onsite rounds, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest 
             scorer from Round 2.</p>
 

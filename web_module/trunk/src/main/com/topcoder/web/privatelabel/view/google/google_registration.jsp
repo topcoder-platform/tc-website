@@ -114,7 +114,7 @@
 
             <h2>Registration</h2>
             
-            <p>Registration will open on Wednesday, October 1 at 8:00AM and will close on Wednesday, October 15 at 5:00PM.  Registration is unlimited.</p>
+            <p>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</p>
             
             <p><br /></p>
                         

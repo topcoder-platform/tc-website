@@ -129,39 +129,39 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
        
             <h2>Prizes</h2>
             
-            <p>All participants who compete in Round 1 will receive a Google Extreme Challenge t-shirt.  In addition, the 25 finalists 
+            <p>All participants who compete in Round 1 will receive a Google Extreme Coding Challenge t-shirt.  In addition, the 25 finalists 
             in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of 
             the prizewinner.  Prizes will be distributed as follows:</p>
             
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="50%">Competitiors</td>
+                    <td class="sidebarTitle" width="50%">Competitors</td>
                     <td class="sidebarTitle" width="50%" align="right">Prize</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText">Up to 500 competitors who compete in Round 1 </td>
-                    <td class="sidebarText" align="right">Google Extreme Coding Challenge t-shirt</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">21 finalists not finishing with one of the top 4 scores* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$250 each</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">4th place finisher* in the Championship Round </td>
-                    <td class="sidebarText" align="right">$1,250</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">3rd place finisher* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$3,500</td>
+                    <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
+                    <td class="sidebarText" align="right"><b>$10,000</b></td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">2nd place finisher* in the Championship Round</td>
                     <td class="sidebarText" align="right">$5,000</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
-                    <td class="sidebarText" align="right"><b>$10,000</b></td>
+                    <td class="sidebarText">3rd place finisher* in the Championship Round</td>
+                    <td class="sidebarText" align="right">$3,500</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">4th place finisher* in the Championship Round </td>
+                    <td class="sidebarText" align="right">$1,250</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">21 finalists not finishing with one of the top 4 scores* in the Championship Round</td>
+                    <td class="sidebarText" align="right">$250 each</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Up to 500 competitors who compete in Round 1 </td>
+                    <td class="sidebarText" align="right">Google Extreme Coding Challenge t-shirt</td>
                 </tr>
 
                 <tr valign="top">

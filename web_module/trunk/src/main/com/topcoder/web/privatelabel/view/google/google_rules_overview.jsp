@@ -133,12 +133,12 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
            <p><span class="bodySubtitle">Overview of the Tournament</span><br />
-            The 2003 Google Extreme Challenge is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google 
-            is using the results of the Extreme Challenge to identify possible employees for their company.  The Extreme Challenge will 
+            The 2003 Google Extreme Coding Challenge is being offered by Google, Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google 
+            is using the results of the Extreme Coding Challenge to identify possible employees for their company.  The Extreme Coding Challenge will 
             take place between Wednesday, October 1 and Friday, November 14, 2003.  It begins with a 2-week online registration, 
             after which all registered individuals will compete in a Qualification Round to determine who will compete in the 
             programming tournament.  The tournament consists of three (3) days of qualification, two (2) online elimination rounds 
-            and one (1) onsite final round.  All participants who compete in Round 1 will receive a Google Extreme Challenge t-shirt.  
+            and one (1) onsite final round.  All participants who compete in Round 1 will receive a Google Extreme Coding Challenge t-shirt.  
             In addition, Google will award $25,000 in cash prizes to the 25 finalists in the tournament.</p>
 
             <p><br /></p>
