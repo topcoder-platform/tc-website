@@ -694,9 +694,13 @@ final class UserDbCoder {
                 ps.setString(2, currentSchool.getName());
                 ps.setInt(3, currentSchool.getUserId());
                 if (currentSchool.getGpa()>0 || currentSchool.getGpaScale()>0) {
+                    log.debug("setting gpa: " + currentSchool.getGpa());
+                    log.debug("setting gpaScale: " + currentSchool.getGpaScale());
                     ps.setFloat(4, currentSchool.getGpa());
                     ps.setFloat(5, currentSchool.getGpaScale());
                 } else {
+                    log.debug("setting gpa null");
+                    log.debug("setting gpaScale");
                     ps.setFloat(4, Types.NULL);
                     ps.setFloat(5, Types.NULL);
                 }
