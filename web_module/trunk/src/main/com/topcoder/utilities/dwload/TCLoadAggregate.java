@@ -1741,7 +1741,6 @@ public class TCLoadAggregate extends TCLoad {
             query.append(" ,AVG(time_elapsed) ");     //16
             query.append("  FROM coder_problem cp ");
             query.append(" WHERE cp.end_status_id >= " + STATUS_SUBMITTED);
-            query.append("  AND cp.language_id = l.language_id");
             if (!FULL_LOAD) {   //if it's not a full load, just load up the problems from this round
                 query.append(" AND cp.round_id =" + fRoundId);
             }

@@ -134,10 +134,10 @@
                  <tr>
                    <td VALIGN="middle" WIDTH="10">Best Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("best_time"))) %></TD>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("best_time"))) %></TD>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></TD>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -160,10 +160,10 @@
                  <tr>
                    <td VALIGN="middle" WIDTH="10">Average Correct Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("avg_time"))) %></TD>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("avg_time"))) %></TD>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></TD>
                    </rsc:iterator>
                  </tr>
                </table>
@@ -258,10 +258,10 @@
                  <tr>
                    <td VALIGN="middle" WIDTH="10">Best Time</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("best_time"))) %></td>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("best_time"))) %></td>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></td>
                    </rsc:iterator>
                  </tr>
                  <tr>
@@ -284,10 +284,10 @@
                  <tr>
                    <td VALIGN="middle" WIDTH="10">Average Correct Time</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("avg_time"))) %></td>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLong("avg_time"))) %></td>
+                     <td VALIGN="middle" WIDTH="10"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
                    </rsc:iterator>
                  </tr>
 
