@@ -54,10 +54,10 @@
            <jsp:param name="image1" value="steelblue"/>
            <jsp:param name="title" value="View Threads"/>
         </jsp:include>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
   <TR>
-    <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+    <TD BGCOLOR="#001B35" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+    <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
 <%  ////////////////////////
   // authorization check
@@ -397,11 +397,11 @@ int numReplies = thread.getMessageCount()-1;
         </tr>
      
         <tr>
-          <td align="left" class="statText" background="/i/steel_blue_bg.gif" height="18">
+          <td align="left" class="statText" height="18">
             <img src="/i/clear.gif" width="3" height="1" />Posted By: <%=getUserDisplay(author)%></td>
 
 
-          <td colspan="3" align="right" class="statText" background="/i/steel_blue_bg.gif" height="18">Posted <i><%= dateFormatter.format(creationDate) %>&#160;<img src="/i/clear.gif" width="6" height="1" /></td>
+          <td colspan="3" align="right" class="statText" height="18">Posted <i><%= dateFormatter.format(creationDate) %>&#160;<img src="/i/clear.gif" width="6" height="1" /></td>
         </tr>
         <tr>
           <td width="1" colspan="4"><img src="/i/clear.gif" width="1" height="3" /></td>
@@ -484,7 +484,7 @@ int numReplies = thread.getMessageCount()-1;
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>     
   <TR>
     <TD VALIGN="top" BACKGROUND="" BGCOLOR="#CCCCCC" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
