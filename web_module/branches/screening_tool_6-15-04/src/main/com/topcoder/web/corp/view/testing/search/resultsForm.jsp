@@ -20,6 +20,19 @@ function getProblemDetail(id) {
     return;
   }
 </SCRIPT>
+<% ResultSetContainer results = searchResults.getResults();%>
+<script language="JavaScript"><!--
+  function next() {
+    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.submit();
+  }
+  function previous() {
+    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
+    document.searchForm.submit();
+  }
+//--></script>
 
         <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
               <tr valign="middle">
@@ -29,7 +42,7 @@ function getProblemDetail(id) {
         </table>
 
           <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="screeningFrame">
-          <% ResultSetContainer results = searchResults.getResults();%>
+          
               
               <tr>
                   <td class="screeningHeader" valign="middle" width="50%">Name</td>
