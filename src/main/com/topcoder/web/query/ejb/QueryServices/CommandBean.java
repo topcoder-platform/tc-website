@@ -224,9 +224,9 @@ public class CommandBean extends BaseEJB {
             query.append(" SELECT c.command_id");
             query.append(     " , c.command_desc");
             query.append(     " , c.command_group_id");
-            query.append(     " , cg.command_group_desc");
+            query.append(     " , cg.command_group_name");
             query.append(     " , LOWER(c.command_desc)");
-            query.append(     " , LOWER(cg.command_group_desc)");
+            query.append(     " , LOWER(cg.command_group_name)");
             query.append(  " FROM command c");
             query.append(     " , command_group_lu cg");
             query.append( " WHERE c.command_id = cg.command_id");
