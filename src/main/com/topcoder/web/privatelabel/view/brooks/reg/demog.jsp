@@ -50,7 +50,7 @@ if(request.getAttribute("extraquestion") != null && request.getAttribute("extraq
                                 </td>
                            </tr>
                         <pl:questionIterator id="question" list="<%=questionList%>">
-                            <%if(!extra || question.getId() != 61) {%>
+                            <%if(extra || question.getId() != 61) {%>
                             <tr>
                                 <td class="brErrorText" colspan="2">
                                     <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
@@ -67,7 +67,9 @@ if(request.getAttribute("extraquestion") != null && request.getAttribute("extraq
                                     <pl:demographicInput question="<%=question%>"/>
                                 </td>
                            </tr>
-                           <% }%>
+                           <% } else {%> 
+                           test
+                           <%}%>
                         </pl:questionIterator>
                             <tr>
                                 <td class="brErrorText" colspan="2">
