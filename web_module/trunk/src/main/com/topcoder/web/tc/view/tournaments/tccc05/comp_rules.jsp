@@ -20,7 +20,7 @@
 	<tr valign=top>
 		<td valign=top align=center>
 		<div class=bodySpacer>
-            
+
         <p class=bigTitle>Component Design and Development Competition</p>
 
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -61,13 +61,13 @@
 			<li>If the member's cumulative placement score is the same for both competitions, then the member will choose the competition in which he/she will compete.</li>
 			</ol>
 
-			Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs up as an official sponsor of the tournament after December 20, 2004, then that competitor will be disqualified from participating further in the tournament. TopCoder members who are performing internships for any official tournament sponsor between December 20, 2004 and March 11, 2005 are also ineligible to compete.  
+			Employees of TopCoder, Inc. and of all official tournament sponsors, regardless of commitment date as sponsor, including any companies involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. If a competitor's employer signs up as an official sponsor of the tournament after December 20, 2004, then that competitor will be disqualified from participating further in the tournament. TopCoder members who are performing internships for any official tournament sponsor between December 20, 2004 and March 11, 2005 are also ineligible to compete.
 			<br /><br />
 
             <a name="scoring"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Placement Scoring</h3>
-			Scoring in the CDDC is determined based on the placement for each submission. Placement is determined based on the score awarded for a particular component. For example, if 3 submissions were received for a component and the scores were 93, 89, and 71, the member receiving the score of 93 would be in 1st place and would receive 10 points. In order to receive placement points, a submission must pass the minimum component score of 70. Placement scoring is as follows: 
+			Scoring in the CDDC is determined based on the placement for each submission. Placement is determined based on the score awarded for a particular component. For example, if 3 submissions were received for a component and the scores were 93, 89, and 71, the member receiving the score of 93 would be in 1st place and would receive 10 points. Note that only those registered for the tournament are considered when determining place and placement points. In order to receive placement points, a submission must pass the minimum component score of 70. Placement scoring is as follows:
 
 			<br /><br />
 			<table width="300" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -183,14 +183,14 @@
             <a name="advancing"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Scoring and Advancing</h3>
-			During each week of competition, eligible competitors can submit design and development solutions for at least one eligible component by the submission deadline.  Submissions will be scored by the TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard component design and development submissions.  Scoring of each submission by the TopCoder Review Boards is based on the criteria outlined in the <A href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=devReviewSample">Development Review Scorecard</A> for the Development Contest or the criteria outlined in the <A href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=desReviewSample">Design Review Scorecard</A> for the Design Contest. Note that the scorecards to be used for the CDDC are the ones that are in effect as of January 4, 2005. ALL SUBMISSIONS MUST BE RECEIVED ACCORDING TO THE SUBMISSION DEADLINE TO BE CONSIDERED A VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.  There will be no elimination of contestants during the online competition.  
+			During each week of competition, eligible competitors can submit design and development solutions for at least one eligible component by the submission deadline.  Submissions will be scored by the TopCoder Review Boards and will be subject to final review and appeal in the same manner as standard component design and development submissions.  Scoring of each submission by the TopCoder Review Boards is based on the criteria outlined in the <A href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=devReviewSample">Development Review Scorecard</A> for the Development Contest or the criteria outlined in the <A href="http://www.topcoder.com/tc?module=Static&d1=dev&d2=desReviewSample">Design Review Scorecard</A> for the Design Contest. Note that the scorecards to be used for the CDDC are the ones that are in effect as of January 4, 2005. ALL SUBMISSIONS MUST BE RECEIVED ACCORDING TO THE SUBMISSION DEADLINE TO BE CONSIDERED A VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.  There will be no elimination of contestants during the online competition.
 			<br /><br />
-			Up to the three (3) highest individual placement scores that each contestant receives for his/her submissions throughout the four (4) weeks of competition will be added together for a cumulative placement score.  The four (4) competitors in each competition with the highest cumulative positive (i.e., greater than zero) placement score will advance to the onsite Championship round.  
+			Up to the three (3) highest individual placement scores that each contestant receives for his/her submissions throughout the four (4) weeks of competition will be added together for a cumulative placement score.  The four (4) competitors in each competition with the highest cumulative positive (i.e., greater than zero) placement score will advance to the onsite Championship round.
 			<br /><br />
 			In the event of a tie of cumulative placement score among the advancers to the Championship round, the tie will be resolved in the following manner:
 
 			<ol>
-			<li>Highest cumulative component score of the lesser number of components used to develop the cumulative placement score for the tied competitors.  
+			<li>Highest cumulative component score of the lesser number of components used to develop the cumulative placement score for the tied competitors.
 			<li>If a tie still remains, then the highest individual component score of the lesser number of components used to develop the cumulative placement score for the tied competitors.
 			<li>If a tie still remains, then all tied contestants will advance to the online Championship round.
 			</ol>
@@ -224,7 +224,7 @@
 			<br /><br />
 			TopCoder will provide travel arrangements for each competitor up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  TopCoder will provide ground transportation to and from the airport, as well as accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2005 TCCC.
 			<br /><br />
-			The Championship round will be a single round of four (4) members in each competition.  Two winners will be crowned, one Design Champion and one Development Champion.  Each champion will be the member who receives the highest score for his/her final submission in each competition.  
+			The Championship round will be a single round of four (4) members in each competition.  Two winners will be crowned, one Design Champion and one Development Champion.  Each champion will be the member who receives the highest score for his/her final submission in each competition.
 			<br /><br />
 			Championship Tiebreaker:  In the event of a tie in the Championship round, the tie will be resolved in the following manner (in order):
 
@@ -326,20 +326,20 @@
 
         </div>
 		</td>
-        
-         
+
+
 <!-- Right Column-->
         <td width=170 align=right>
             <jsp:include page="../../public_right.jsp">
             <jsp:param name="level1" value="tccc05"/>
             </jsp:include>
          </td>
-		
+
 	</tr>
-	
+
 </table>
-	
-	
+
+
 
 
 <jsp:include page="../../foot.jsp" />
