@@ -17,6 +17,7 @@
    <property name="java"          value="${src.dir}/main" />
    <property name="testjava"      value="${src.dir}/testcases" />
    <property name="resources"     value="resources" />
+   <property name="taglib"        value="${resources}/taglib" />
    <property name="images"        value="images" />
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
    <property name="servlets"      value="${build}/servlets" />
@@ -275,6 +276,11 @@
       <copy todir="${tces.trgt}">
          <fileset dir="${tces.src}" >
                  <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${public_html}/WEB-INF">
+         <fileset dir="${taglib}" >
+                 <include name="*.tld" />
          </fileset>
       </copy>
    </target>
