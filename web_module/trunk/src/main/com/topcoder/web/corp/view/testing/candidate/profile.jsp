@@ -181,6 +181,7 @@ function getProblemDetail(id) {
 
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)%>">
+                                <% long uid = row.getIntItem("user_id");%>
                         <tr>
                             <td class="screeningCellEven" align=right>Preference Level:</td>
                             <td class="screeningCellEven" valign=middle>
@@ -226,7 +227,7 @@ if ( MM_FlashCanPlay ) {
                             <%if(((String)request.getAttribute("resume")).equals("")) { %>
                                 None
                             <% } else { %>
-                                <a href="?module=DownloadResume&<%=Constants.USER_ID%>=<%=request.getAttribute(Constants.USER_ID)%>">View (<%=request.getAttribute("resume")%>)</a>
+                                <a href="?module=DownloadResume&<%=Constants.USER_ID%>=<%=uid%>">View (<%=request.getAttribute("resume")%>)</a>
                             <% } %>
                             </td>
                         </tr>
