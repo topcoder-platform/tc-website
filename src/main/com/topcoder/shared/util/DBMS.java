@@ -120,11 +120,8 @@ public class DBMS {
         Connection conn = null;
         InitialContext ctx = null;
         try {
-            log.debug("begin");
             ctx = TCContext.getInitial();
-            log.debug("middle");
             conn = getConnection(ctx, dataSourceName);
-            log.debug("end");
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
@@ -154,10 +151,8 @@ public class DBMS {
     public static final java.sql.Connection getConnection(InitialContext context, String dataSourceName) throws SQLException {
         DataSource ds = null;
         try {
-            log.debug("lookup begin");
             ds = (DataSource) PortableRemoteObject.narrow(
                     context.lookup(dataSourceName),DataSource.class);
-            log.debug("lookup end");
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
