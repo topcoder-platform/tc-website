@@ -226,7 +226,7 @@ cost-effectively.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="67"><B>Who owns the source code that I write during tournaments?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">The coder.  Our Terms of Use agreement basically specifies that the coder who submits any source code to TopCoder owns the code.  We simply require that we can display the source code for the normal course of the tournaments.  The actual source code is viewable during certain parts of the competition to competitors and spectators. You can read the complete Terms of Use agreement <A HREF="/?c=terms" CLASS="bodyText">here</A>.</TD></TR>
+                        <TR><TD CLASS="bodyText">The coder.  Our Terms of Use agreement basically specifies that the coder who submits any source code to TopCoder owns the code.  We simply require that we can display the source code for the normal course of the tournaments.  The actual source code is viewable during certain parts of the competition to competitors and spectators. You can read the complete Terms of Use agreement <A HREF="/?t=about_tc&amp;c=terms" CLASS="bodyText">here</A>.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="70"><B>Who supplies the prizes for TopCoder events that pay prizes?</B></A></TD></TR>
@@ -288,7 +288,7 @@ cost-effectively.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                        
                         <TR><TD CLASS="bodyText"><A NAME="java3"><B>What software does TopCoder use?</B></A></TD></TR>
-                        <TR><TD CLASS="bodyText">Linux 2.4, Java 1.4 (build 1.4.0_01-b03).</TD></TR>
+                        <TR><TD CLASS="bodyText">Linux 2.4, Java 1.4.1 (build 1.4.1_04).</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR> 
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                       
                         <TR><TD CLASS="bodyText"><A NAME="java4"><B>What options are set when starting up the VM?</B></A></TD></TR>
@@ -338,7 +338,7 @@ cost-effectively.</TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
                         <TR><TD CLASS="bodyText"><A NAME="183"><B>What software does TopCoder use?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
-<P>Linux 2.4, gcc 3.1 (Redhat 7.1 default), glibc-2.2.2, and libstdc++-3.</P>
+<P>Linux 2.4.20-8smp, gcc 3.2.2 (Redhat 9), glibc-2.3.2, and libstdc++-3.</P>
 <P>
 pointers to appropriate docs for each<BR/>
 <A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR/>
