@@ -64,7 +64,9 @@ if (securityEnabledUser == null) {
             e.printStackTrace();
         }
     }
-    securityEnabledUser = userManager.getUser(Cookies.getUserFromLoginCookies(request, response, USER_MANAGER));
+    TCSubject sub = Cookies.getUserFromLoginCookies(request, response, USER_MANAGER);
+    if (sub!=null)
+        securityEnabledUser = userManager.getUser(sub);
 
     try {
         if (securityEnabledUser != null) {
