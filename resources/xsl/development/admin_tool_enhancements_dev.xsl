@@ -208,22 +208,25 @@
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 1 Due:
-                                                        <br/>&#160;&#160;&#160;Use Cases
-                                                        <br/>&#160;&#160;&#160;Class Diagrams
-                                                        <br/>&#160;&#160;&#160;Sequence Diagrams
+                                                        <br/>&#160;&#160;&#160;Develop Test Cases
+                                                        <br/>&#160;&#160;&#160;Functionality Development
+                                                        <br/>&#160;&#160;&#160;Documentation
                                                     </td>
                                                     <td class="bodyText" valign="top" align="right">10.10.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 2 Due:
-                                                        <br/> &#160;&#160;&#160;Design Specification
+                                                        <br/>&#160;&#160;&#160;Develop Test Cases
+                                                        <br/>&#160;&#160;&#160;Functionality Development
+                                                        <br/>&#160;&#160;&#160;Documentation
                                                     </td>
                                                     <td class="bodyText" valign="top" align="right">10.21.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 3 Due:
-                                                        <br/>&#160;&#160;&#160;Test Plan
-                                                        <br/>&#160;&#160;&#160;Development Scope Document
+                                                        <br/>&#160;&#160;&#160;Develop Test Cases
+                                                        <br/>&#160;&#160;&#160;Functionality Development
+                                                        <br/>&#160;&#160;&#160;Documentation
                                                     </td>
                                                     <td class="bodyText" valign="top" align="right">10.29.2003</td>
                                                 </tr>
