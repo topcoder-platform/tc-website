@@ -55,7 +55,7 @@ public class Login extends Base {
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                             setNextPage(dest);
                             setIsNextPageInContext(false);
-                            getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("true"));
+                            getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
                             doLegacyCrap(getRequest());
                             return;
                         } else {

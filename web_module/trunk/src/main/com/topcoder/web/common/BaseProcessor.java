@@ -69,7 +69,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     protected void reissueCookie(Resource r) {
         try {
-            ((BasicAuthentication) auth).setCookie(getUser().getId());
+            ((BasicAuthentication) auth).setCookie(getUser().getId(), false);
         } catch (Exception e) {
             /* this should not happen, but is not a big deal if it does... they just have to login again later */
             log.warn("caught exception reissuing cookie", e);
