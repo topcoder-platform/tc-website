@@ -60,7 +60,7 @@ public class Submit extends View {
                     setDefaults(responses);
                     setNextPage(Constants.SURVEY_VIEW);
                     setIsNextPageInContext(true);
-                } else if (hasAllFreeForm) {
+                } else if (hasAllFreeForm&&!responses.isEmpty()) {
                     setNextPage(Constants.SURVEY_THANKS);
                     setIsNextPageInContext(true);
                 } else {
