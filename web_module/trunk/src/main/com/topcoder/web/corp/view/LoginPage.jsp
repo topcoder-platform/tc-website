@@ -58,9 +58,8 @@
 %>
 
 <%--<form name="loginform" action="<%= "https://"+request.getServerName()+request.getAttribute("canonpath") %>" method="POST">--%>
-<form name="loginform" action="<%= "http://"+request.getServerName()%>" method="POST">
-<input type="hidden" name="module" value="Login">
-<input type="hidden" name="nextpage" value="<%= nextpage %>">
+<form name="loginform" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
+<input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
    <TD CLASS="bodyText"><font size="+1" color="#ff2010"><%= message %></font></TD>
@@ -68,7 +67,7 @@
 </TABLE>
 <TABLE CELLSPACING="5" CELLPADDING="5" BORDER="0" ALIGN="center">
 <TR>
-    <TD CLASS="bodyText"><B>Handle</B><BR><INPUT TYPE="text" NAME="<%=Login.KEY_USER_HANDLE%>" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event,document.loginform)"></TD>
+    <TD CLASS="bodyText"><B>User Name</B><BR><INPUT TYPE="text" NAME="<%=Login.KEY_USER_HANDLE%>" VALUE="<%= username %>" SIZE="25" onKeyPress="submitEnter(event,document.loginform)"></TD>
 </TR>
 <TR>
     <TD CLASS="bodyText"><B>Password</B><BR><INPUT TYPE="password" NAME="<%=Login.KEY_USER_PASS%>" SIZE="25" onKeyPress="submitEnter(event,document.loginform)"><BR><B><A HREF="javascript:document.loginform.submit()" CLASS="statTextBig">Login&gt;&gt;</A></B></TD>

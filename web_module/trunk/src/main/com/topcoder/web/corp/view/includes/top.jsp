@@ -49,7 +49,8 @@
         <td width="100%" nowrap align="right">
 <% if( SessionInfo.isGuest() ) { %>
            <table border="0" cellpadding="0" cellspacing="0" align="right">
-                <tr valign="middle"><form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
+                <tr valign="middle">
+                  <form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                     <td nowrap class="loginText" align="right">User Name:&#160;&#160;</td>
                     <td colspan="2" align="left"><input maxlength="15" size="12" name="<%=Login.KEY_USER_HANDLE%>" type="TEXT" onkeypress="submitEnter(event, document.frmMiniLogin)"></td>
                 </tr>
