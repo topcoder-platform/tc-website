@@ -24,7 +24,7 @@ public class Home extends Base {
 
     protected void loadPublicData() throws TCWebException {
         try {
-            CachedDataAccess countDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+            CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             countDai.setExpireTime(15*60*1000);
             Request countReq = new Request();
             countReq.setContentHandle("member_count");
