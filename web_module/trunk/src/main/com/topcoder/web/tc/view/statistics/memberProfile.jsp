@@ -175,7 +175,7 @@ if (!rsc.isEmpty()) {
 
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Rating:</TD>
-                                <TD CLASS="statText" ALIGN="right"><%= coderrank.toString() %></TD>
+                                <TD CLASS="statText" ALIGN="right"><rsc:item row="resultRow" name="rating" ifNull="Not Rated"/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=ratings_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
@@ -260,7 +260,7 @@ if (!rsc.isEmpty()) {
                             
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Rating:</TD>
-                                <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 30 /* design rating*/ + "]" %>'/></TD>
+                                <TD CLASS="statText" ALIGN="right"><rsc:item row="resultRow" name="design_rating" ifNull="Not Rated"/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
@@ -295,7 +295,7 @@ if (!rsc.isEmpty()) {
                             
                             <TR>
                                 <TD CLASS="statText" >&#160;&#160;Rating:</TD>
-                                <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 31 /* development rating*/ + "]" %>'/></TD>
+                                <TD CLASS="statText" ALIGN="right"><rsc:item row="resultRow" name="development_rating" ifNull="Not Rated"/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
