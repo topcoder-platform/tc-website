@@ -88,11 +88,10 @@ Member Selection: Closed<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=grant_process" CLASS="statTextBig">Grant Processing Application</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=grant_process" CLASS="statText">Grant Processing Application</A><BR/>
 Start Date: June 14, 2002<BR/>
 End Date: June 24, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline:  June 13, 2002<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
