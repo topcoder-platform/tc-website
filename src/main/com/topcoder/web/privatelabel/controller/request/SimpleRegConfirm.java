@@ -16,11 +16,18 @@ public class SimpleRegConfirm extends SimpleRegBase {
         if (hasErrors()) {
             getRequest().setAttribute("countryList", getCountryList());
             getRequest().setAttribute("stateList", getStateList());
-            setNextPage(Constants.SIMPLE_REG_PAGE);
             setDefaults(regInfo);
         } else {
             regInfo.setCountryName(findCountry(regInfo.getCountryCode()));
             regInfo.setStateName(findState(regInfo.getStateCode()));
+        }
+        setNextPage();
+    }
+
+    protected void setNextPage() {
+        if (hasErrors()) {
+            setNextPage(Constants.SIMPLE_REG_PAGE);
+        } else {
             setNextPage(Constants.SIMPLE_REG_CONFIRM_PAGE);
         }
         setIsNextPageInContext(true);
