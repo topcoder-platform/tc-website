@@ -954,6 +954,11 @@ public final class GraphServlet extends HttpServlet {
             out.line(110+ (16*4),0,110+ (16*4),400);
             out.line(126+ (16*4),0,126+ (16*4),400);
             out.render(g);
+            
+            Image img = out.getImage();
+            Graphics gr = img.getGraphics();
+            gr.setColor(Color.green);
+            gr.drawLine(10,10,10,300);
             return baos.toByteArray();
 
         } catch (Exception e) {
