@@ -68,12 +68,11 @@
                         and we are shaping the world of tomorrow&#133;today.  </p>
                      </td>
                      
-                      <td class="promoText" align="center" width="255">
-                        <p>We invite you to explore the opportunities available at NVIDIA <br/> 
-                        Click on the link to see what your future may hold.<br/>
-                        Experienced professionals <br/>
+                      <td class="promoText" align="left" width="255">
+                        <p>We invite you to explore the opportunities available at NVIDIA. Click on the link to see what your future may hold.</p>
+                        <p><blockquote>Experienced professionals <br/>
                         New &#38; Recent College Graduates <br/>
-                        Interns &#38; Co-ops<br/>
+                        Interns &#38; Co-ops</blockquote><br/>
                        <strong>We love what we do because we do what we love.  Join us.</strong></p>
                       </td>
                   </tr>
