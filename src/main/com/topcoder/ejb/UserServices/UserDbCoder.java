@@ -594,8 +594,8 @@ final class UserDbCoder {
                     addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 }
 
-                long phoneId = phoneEJB.getPrimaryPhoneId(coder.getCoderId());
-                phoneEJB.setNumber(phoneId, coder.getHomePhone());
+                long phoneId = phoneEJB.getPrimaryPhoneId(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                phoneEJB.setNumber(phoneId, coder.getHomePhone(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             }
         } catch (SQLException sqe) {
