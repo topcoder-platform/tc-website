@@ -108,6 +108,12 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("comp", comp));
             devTag.addTag(new ValueTag("version", version));
             devTag.addTag(new ValueTag("phase", phase));
+            devTag.addTag(new ValueTag("formattedName", "formattedName"));
+            devTag.addTag(new ValueTag("documentId", "234"));
+            devTag.addTag(new ValueTag("componentName", "Comp Name"));
+            
+            
+            
             
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
