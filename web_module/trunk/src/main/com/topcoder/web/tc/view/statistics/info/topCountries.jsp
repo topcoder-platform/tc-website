@@ -23,10 +23,57 @@
   <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
          <td>
+
+
             <p class="bodyText">
-                This list represents those countries with the highest average rated coders that have
-                competed within the last 180 days.  The average must include at least 10 coders to be included.
+            When generating the country rankings we take the individual ratings for active coders
+            from a particular country, sorted in decreasing order.  These ratings are given
+            by rating<sub>1</sub> ... rating<sub>M</sub>, where <b><i>M</i></b> is the total number
+            of active coders from a country.
             </p>
+
+            <p class="bodyText">
+            The formula below has the property that if all the coders from a particular country have
+            the same rating, then that country's rating would be the same as the individual ratings.
+            When coder ratings differ, the country rating is based mostly on the top rated coders.
+            </p>
+
+            <p class="bodyText"><img src="/i/rank_formula.gif"/></p>
+
+            <p class="bodyText">Where:</p>
+
+            <p class="bodyText"><b><i>M</i></b> is the number of coders from a particular
+            country that have competed within the last 180 days</p>
+
+            <p class="bodyText"><b><i>i</i></b> is a 1 based index of active coders from a
+            particular country when sorted by rating in descending order, in other words,
+            their rank within their country</p>
+
+            <p class="bodyText"><b><i>rating<sub>i </sub></i></b>is the rating of the coder
+            with index i</p>
+
+            <p class="bodyText"><b><i>R</i></b> is a constant that will dictate the
+            weighting of the different ranks</p>
+
+            <p></p>
+
+            <p class="bodyText">One may determine the weighting (<b><i>R</i></b>) using the
+            following equation.</p>
+
+            <p class="bodyText"></p>
+
+            <p class="bodyText"><img src="/i/rank_weight_equation.gif"/></p>
+
+            <p class="bodyText"></p>
+
+            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a country’s rating
+            that will be based on the top <b><i>K</i></b> coders within that country.</p>
+
+            <p class="bodyText"></p>
+
+            <p class="bodyText">We have chosen an <b><i>R</i></b> of .87, this means that
+            the top 10 coders contribute about 75% of a country’s rating.</p>
+
          </td>
       </tr>
       <br/>
