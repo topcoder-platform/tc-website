@@ -1,6 +1,7 @@
 package com.topcoder.utilities;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 
 import javax.naming.Context;
 import javax.sql.DataSource;
@@ -28,6 +29,7 @@ public class UpdateTerms {
         Connection conn = null;
 
         try {
+            ctx = TCContext.getInitial();
             DataSource ds = (DataSource)ctx.lookup("DS");
             conn = ds.getConnection();
 
