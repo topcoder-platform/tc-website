@@ -24,7 +24,6 @@ public class ApplicationServer {
     public static String BASE_DIR = bundle.getProperty("BASE_DIR", "/usr/web/build/classes");
     public static String SECURITY_PROVIDER_URL = bundle.getProperty("SECURITY_PROVIDER_URL", "172.16.20.40:1099");
 
-    public static String IAGREE = bundle.getProperty("IAGREE", BASE_DIR + "/com/topcoder/common/terms.txt");
     public final static String JNDI_FACTORY = bundle.getProperty("JNDI_FACTORY", "weblogic.jndi.WLInitialContextFactory");
     public final static String JMS_FACTORY = bundle.getProperty("JMS_FACTORY", "jms.connection.jmsFactory");
     public final static String JMS_BKP_FACTORY = bundle.getProperty("JMS_BKP_FACTORY", "jms.connection.jmsFactory_BKP");
