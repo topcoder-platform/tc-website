@@ -20,6 +20,7 @@ public class RequestTracker {
 
     private static final User GUEST = SimpleUser.createGuest();
     private static final int BATCH_PERIOD = 60 * 1000;
+    private static final int SESSION_ID_LENGTH = 50;
 
     private static Queue q = new Queue();
 
@@ -92,9 +93,9 @@ public class RequestTracker {
                 for (Iterator it = a.iterator(); it.hasNext();) {
                     UserRequest r = (UserRequest) it.next();
                     if (r.userId == GUEST.getId()) {
-                        rs.createRequest(r.url, new Timestamp(r.time), r.sessionId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        rs.createRequest(r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     } else {
-                        rs.createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        rs.createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     }
                 }
                 log.debug("end request batch load");
