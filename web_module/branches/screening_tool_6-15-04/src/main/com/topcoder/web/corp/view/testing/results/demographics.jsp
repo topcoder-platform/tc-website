@@ -111,7 +111,7 @@
 
                 <TD width="40%">
 
-                  <% if (DemographicTask.getProCount() > 0) { %>
+                  <% if (demographicInfo.getProCount() > 0) { %>
                   
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                         <TR>
