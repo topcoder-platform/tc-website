@@ -82,6 +82,7 @@ public class Constants
     public static String PROFILE_SETUP_PAGE;
     public static String PROFILE_CONFIRM_PAGE;
     public static String PROFILE_LIST_PAGE;
+    public static String PROFILE_DETAIL_PAGE;
     public static String PROFILE_ADD_PROBLEM_PROCESSOR;
     public static String PROFILE_REMOVE_PROBLEM_PROCESSOR;
     public static String PROFILE_CONFIRM_PROCESSOR;
@@ -220,6 +221,7 @@ public class Constants
         PROFILE_SETUP_PAGE = JSP_ROOT+config.getInitParameter("profile_setup_page");
         PROFILE_CONFIRM_PAGE = JSP_ROOT+config.getInitParameter("profile_confirm_page");
         PROFILE_LIST_PAGE = JSP_ROOT+config.getInitParameter("profile_list_page");
+        PROFILE_DETAIL_PAGE = JSP_ROOT+config.getInitParameter("profile_detail_page");
         PROFILE_ADD_PROBLEM_PROCESSOR = config.getInitParameter("profile_add_problem_processor");
         PROFILE_REMOVE_PROBLEM_PROCESSOR = config.getInitParameter("profile_remove_problem_processor");
         PROFILE_CONFIRM_PROCESSOR = config.getInitParameter("profile_confirm_processor");

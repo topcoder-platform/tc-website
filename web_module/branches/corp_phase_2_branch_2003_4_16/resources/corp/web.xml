@@ -868,6 +868,12 @@
         </init-param>
 
         <init-param>
+            <param-name>profile_detail_page</param-name>
+            <param-value>profile/profileDetail.jsp</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>profile_add_problem_processor</param-name>
             <param-value>AddProfileProblems</param-value>
             <description></description>
