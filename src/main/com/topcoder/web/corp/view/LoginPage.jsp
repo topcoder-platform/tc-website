@@ -1,10 +1,10 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          autoFlush="false"
          buffer="64kb"
-         errorPage="exc/InternalError.jsp"
          import="com.topcoder.web.corp.request.Login,
                  com.topcoder.web.corp.model.SessionInfo,
-                 com.topcoder.web.corp.Constants" %>
+                 com.topcoder.web.corp.Constants,
+                 com.topcoder.web.common.BaseServlet" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -44,8 +44,8 @@
                     <td class="bodyText" width="100%">
 
                         <%
-                            String nextpage = (String)request.getAttribute(Login.KEY_DESTINATION_PAGE);
-                            if(nextpage==null) nextpage = request.getParameter(Login.KEY_DESTINATION_PAGE);
+                            String nextpage = (String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY);
+                            if(nextpage==null) nextpage = request.getParameter(BaseServlet.NEXT_PAGE_KEY);
                             if(nextpage==null) nextpage = request.getHeader("Referer");
                             if(nextpage==null) nextpage = "http://"+request.getServerName();
                             String message = (String)request.getAttribute("message");
@@ -58,7 +58,7 @@
                         <% if (sessionInfo.isAnonymous()) { %>
                             <p>New to TopCoder? <a href="/?module=Registration" class="bodyText">Register</a> today!</p>
                         <% } else { %>
-                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
+                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="/?module=Logout&<%=BaseServlet.NEXT_PAGE_KEY%>=/?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
                         <% } %>
 
                     </td>
@@ -73,7 +73,7 @@
                 <tr><td class="testTableTitle">Login</td></tr>
                 <tr valign="middle">
                   <form method="post" name="frmLogin" action="/">
-                    <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
+                    <input type="hidden" name="<%=BaseServlet.NEXT_PAGE_KEY%>" value="<%= nextpage %>">
                     <input type="hidden" name="module" value="Login">
                     <td class="statText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">

@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          autoFlush="false"
          buffer="64kb"
-         errorPage="../exc/InternalError.jsp"
          import="com.topcoder.web.corp.request.Registration,
                  com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
