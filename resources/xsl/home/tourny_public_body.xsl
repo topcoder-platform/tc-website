@@ -65,7 +65,7 @@
 
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
 <xsl:call-template name="module_login"/>
-<!--<xsl:call-template name="simple_search"/>-->
+<xsl:call-template name="simple_search"/>
 <xsl:call-template name="intro"/>
 <xsl:call-template name="srm_dates"/>
 <!-- <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/> -->
