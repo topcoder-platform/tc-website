@@ -476,7 +476,7 @@ public class TCLoadRound extends TCLoad {
             query.append(" , (SELECT cm.problem_id FROM component cm WHERE cm.component_id = cs.component_id)");          //3
             query.append(" ,cs.points ");              //4
             query.append(" ,cs.status_id ");           //5
-            query.append(" ,cs.language_id ");         //6
+            query.append(" ,CASE WHEN s.language_id is null THEN c.language_id ELSE s.language_id END as language_id");         //6
             query.append(" ,s.open_time ");            //7
             query.append(" ,cs.submission_number ");   //8
             query.append(" ,s.submission_text ");      //9
@@ -1740,7 +1740,7 @@ if students change schools, reloading an old round will lose historical data
             query.append("       ,c.open_time ");                                // 9
             query.append("       ,s.submit_time ");                              // 10
             query.append("       ,s.submit_time - c.open_time ");                // 11
-            query.append("       ,cs.language_id ");                             // 12
+            query.append(" ,CASE WHEN s.language_id is null THEN c.language_id ELSE s.language_id END as language_id");         //12
             // 13: challenge_points
             query.append("       ,(SELECT sum(c.challenger_points) ");           // 13
             query.append("           FROM challenge c ");
