@@ -72,7 +72,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about"><img src="/i/tournament/tccc04.gif" alt="2003 TopCoder Open" width="274" height="121" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2004 TopCoder Collegiate Challenge&#153;</strong></font></td>
+                    <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2004 TopCoder Collegiate Challenge&#153; sponsored by Yahoo!<sup>&#174; </sup></strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
