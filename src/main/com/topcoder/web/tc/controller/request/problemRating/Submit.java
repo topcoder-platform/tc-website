@@ -66,7 +66,7 @@ public class Submit extends Base {
                 setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
                 setIsNextPageInContext(true);
             }else{
-                request.setAttribute("error","Please answer all of the questions.");
+                addError("problemRating","Please answer all of the questions.");
                 setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingQuestions");
                 setIsNextPageInContext(true);
             }

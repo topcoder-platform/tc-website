@@ -38,6 +38,7 @@ public class Questions extends Base {
                 ProblemRatingQuestion prq = new ProblemRatingQuestion();
                 prq.setQuestion(row.getStringItem("question"));
                 prq.setID(row.getIntItem("question_id"));
+                questions.add(prq);
             }
             getRequest().setAttribute("problemRatingQuestions",questions);
             getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
