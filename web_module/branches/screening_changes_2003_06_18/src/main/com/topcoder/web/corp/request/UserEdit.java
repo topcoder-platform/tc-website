@@ -85,7 +85,7 @@ public class UserEdit extends BaseProcessor {
         log.debug(secTok.createNew ?"verification passed: create" :"verification passed: edit");
 
         InitialContext icEJB = null;
-        PrincipalMgrRemote mgr = secTok.man;
+        PrincipalMgrRemote mgr = null;
 
         if (loadUserData()) return;
 
@@ -105,11 +105,11 @@ public class UserEdit extends BaseProcessor {
             // transaction boundary
             tx = Util.beginTransaction();
 
-            oldPass = mgr.getPassword(secTok.targetUser.getId());
             if (secTok.createNew) {
                 secTok.targetUser = createUserPrincipal();
                 targetUserID = secTok.targetUser.getId();
             } else {
+                oldPass = mgr.getPassword(secTok.targetUser.getId());
                 mgr.editPassword(secTok.targetUser, password, secTok.requestor);
             }
 

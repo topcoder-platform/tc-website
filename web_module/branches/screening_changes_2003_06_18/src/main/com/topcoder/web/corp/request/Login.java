@@ -24,7 +24,6 @@ import java.util.Map;
  * @author Ambrose Feinstein
  */
 public class Login extends BaseProcessor {
-    public static final String KEY_DESTINATION_PAGE = "nextpage";
     public static final String KEY_USER_HANDLE = "handle";
     public static final String KEY_USER_PASS = "passw";
 
@@ -52,9 +51,9 @@ public class Login extends BaseProcessor {
                     if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
-                    String dest = StringUtils.checkNull(getRequest().getParameter(KEY_DESTINATION_PAGE));
+                    String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
                     log.debug("dest param was: " + dest);
-                    if (dest==null) dest = StringUtils.checkNull((String)getRequest().getAttribute(Login.KEY_DESTINATION_PAGE));
+                    if (dest==null) dest = StringUtils.checkNull((String)getRequest().getAttribute(BaseServlet.NEXT_PAGE_KEY));
                     log.debug("on successfull login, going to " + dest);
                     setNextPage(dest);
                     setIsNextPageInContext(false);
