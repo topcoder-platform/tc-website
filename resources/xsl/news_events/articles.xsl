@@ -53,6 +53,7 @@
             <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
 		<!-- <TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR> -->
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Articles - 2002</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;12.09.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.computerworld.com/careertopics/careers/story/0,10801,76488,00.html" CLASS="bodyText" TARGET="_blank">Need Coders?</A></TD></TR>	 
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;12.09.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.computerworld.com/careertopics/careers/story/0,10801,76427,00.html" CLASS="bodyText" TARGET="_blank">And the Winner Is...</A></TD></TR>	        
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.18.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.mndaily.com/article.php?id=4148" CLASS="bodyText" TARGET="_blank">U computer programmers take first place in contest</A></TD></TR>	
