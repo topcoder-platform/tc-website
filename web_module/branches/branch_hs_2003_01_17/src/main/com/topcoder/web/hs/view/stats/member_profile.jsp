@@ -26,13 +26,13 @@ if (!bEmpty) {
                  <TR>
                    <TD COLSPAN="5" CLASS="statText">
           <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
-                     <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
+                     <B>Coder:</B>&nbsp;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
                    </TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="5" CLASS="statText">
           <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
-                     <B>School:</B>&#160;<B><bean:write name="resultRow" property='<%= "item[" + 3 /* school full_name */ + "]" %>'/></B>
+                     <B>School:</B>&nbsp;<B><bean:write name="resultRow" property='<%= "item[" + 3 /* school full_name */ + "]" %>'/></B>
                    </TD>
                  </TR>
                  <TR>
@@ -58,19 +58,19 @@ if (!bEmpty) {
                    <TD CLASS="statText">Volatility Factor:</TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 5 /* volatility*/ + "]" %>'/></TD>
                    <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                   <TD CLASS="statText" ALIGN="left">&nbsp;</TD>
                  </TR>
                  <TR>
                    <TD CLASS="statText">Member Since:</TD>
                    <TD CLASS="statText" ALIGN="right"><bean:write format="MM.dd.yy" name="resultRow" property='<%= "item[" + 6 /*"start_date"*/ + "].resultData" %>'/></TD>
                    <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                   <TD CLASS="statText" ALIGN="left">&nbsp;</TD>
                 </TR>
                 <TR>
                   <TD CLASS="statText">Number of Competitions:</TD>
                   <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 8 /* number of comps */ + "]" %>'/></TD>
                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                  <TD CLASS="statText" ALIGN="left">&nbsp;</TD>
                 </TR>
                 <TR>
                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
@@ -79,13 +79,13 @@ if (!bEmpty) {
                   <TD CLASS="statText">Average Points per Contest:</TD>
                   <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /*"avg final pts"*/ + "].resultData" %>'/></TD>
                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                  <TD CLASS="statText" ALIGN="left">&nbsp;</TD>
                 </TR>
                 <TR>
                   <TD CLASS="statText">Maximum Rating:</TD>
                   <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 10 /*"avg final pts"*/ + "].resultData" %>'/></TD>
                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                  <TD CLASS="statText" ALIGN="left">&nbsp;</TD>
                 </TR>
                 <TR>
                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
@@ -110,7 +110,7 @@ pageContext.setAttribute("resultSet", rsc2);
 
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                  <TD BGCOLOR="#1B2E5D" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Submission Information</TD>
+                  <TD BGCOLOR="#1B2E5D" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&nbsp;&nbsp;Submission Information</TD>
                 </TR>
                 <TR>
                   <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -158,7 +158,7 @@ pageContext.setAttribute("resultSet", rsc3);
 
               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                 <TR>
-                  <TD BGCOLOR="#1B2E5D" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&#160;&#160;Challenge Information</TD>
+                  <TD BGCOLOR="#1B2E5D" COLSPAN="7" CLASS="registerNav" HEIGHT="18">&nbsp;&nbsp;Challenge Information</TD>
                 </TR>
                 <TR>
                   <TD COLSPAN="6"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

@@ -17,12 +17,12 @@
                         <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
                       </TR>
                       <TR>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">1</TD>
                       </TR>
                       <TR>
@@ -67,11 +67,11 @@
                       <TR>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">30</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">31</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
                       </TR>
             </TABLE>
             </TD>

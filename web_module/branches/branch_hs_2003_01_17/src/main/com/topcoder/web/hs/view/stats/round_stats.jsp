@@ -146,7 +146,7 @@ if(bSchool) {
                    <TD  COLSPAN="16"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="registerNav" COLSPAN="16" HEIGHT="18">&#160;&#160;Statistics for <%= resultRow_0.getItem(2).toString() + "&nbsp;&gt;&nbsp;" + resultRow_0.getItem(3).toString() %></TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="registerNav" COLSPAN="16" HEIGHT="18">&nbsp;&nbsp;Statistics for <%= resultRow_0.getItem(2).toString() + "&nbsp;&gt;&nbsp;" + resultRow_0.getItem(3).toString() %></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="16"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -284,7 +284,7 @@ if(bSchool) {
                  </TR>
         <% } %>
                  <TR>
-                   <TD  CLASS="statText" COLSPAN="16"><A HREF="#top" CLASS="statText">&#160;Back to Top</A></TD>
+                   <TD  CLASS="statText" COLSPAN="16"><A HREF="#top" CLASS="statText">&nbsp;Back to Top</A></TD>
                  </TR>
 <% } %>
                </TABLE>

@@ -22,7 +22,7 @@ pageContext.setAttribute("resultRow", rsr);
                  </TR>
                  <TR>
                    <TD COLSPAN="4"  CLASS="statText">
-<B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
+<B>Coder:</B>&nbsp;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
                    </TD>
                  </TR>
                  <TR>
@@ -73,9 +73,9 @@ String sSortUrl = "?module=Statistics&c=ratings_history&cr="+srb.getProperty("cr
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">
 <% if (!bEmpty) { %>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="6" HEIGHT="18">&#160; <B>Ratings History</B>
-                     <A HREF="JavaScript:void(getGraph('c=rating_history_graph&cr=<%=pageContext.getAttribute("coder_id")%>','600','400'))" class="statText">&#160;&#160;Rating History Graph</a>
-                     <A HREF="JavaScript:void(getGraph('c=rating_distribution_graph','600','400'))" class="statText">&#160;&#160;Distribution Graph</a>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="6" HEIGHT="18">&nbsp; <B>Ratings History</B>
+                     <A HREF="JavaScript:void(getGraph('c=rating_history_graph&cr=<%=pageContext.getAttribute("coder_id")%>','600','400'))" class="statText">&nbsp;&nbsp;Rating History Graph</a>
+                     <A HREF="JavaScript:void(getGraph('c=rating_distribution_graph','600','400'))" class="statText">&nbsp;&nbsp;Distribution Graph</a>
 </TD>
                 </TR>
                  <TR>

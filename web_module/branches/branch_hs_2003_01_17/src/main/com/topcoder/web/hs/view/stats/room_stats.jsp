@@ -102,7 +102,7 @@ else {
                    <TD  COLSPAN="20"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
               <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="20" HEIGHT="18">&#160;<B>Statistics for
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="20" HEIGHT="18">&nbsp;<B>Statistics for
                      <%= pageContext.getAttribute("contestName").toString() %>&nbsp;>&nbsp;<%= pageContext.getAttribute("roundName").toString() %>&nbsp;>&nbsp;<%= pageContext.getAttribute("roomName").toString() %></B>
                    </TD>
                  </TR>
@@ -111,7 +111,7 @@ else {
                  </TR>
                  <TR VALIGN="middle">
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="18%" HEIGHT="18">&#160;</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="18%" HEIGHT="18">&nbsp;</TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="2" ALIGN="center" WIDTH="12%">Submissions</TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" WIDTH="5%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
@@ -141,19 +141,19 @@ else {
                    <TD BGCOLOR="#1B2E5D" CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="2" ALIGN="center">
               <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Qnty</a>
-           &#160;/&#160;
+           &nbsp;/&nbsp;
              <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Points</a>
            </TD>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="right">&#160;&#160;</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="right">&nbsp;&nbsp;</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="2" ALIGN="center">
               <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Qnty</a>
-           &#160;/&#160;
+           &nbsp;/&nbsp;
              <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=9&sd=<%= "9".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Points</a>
            </TD>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="right">&#160;&#160;</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="right">&nbsp;&nbsp;</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="2" ALIGN="center">
               <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Qnty</a>
-           &#160;/&#160;
+           &nbsp;/&nbsp;
              <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=11&sd=<%= "11".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Points</a>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" WIDTH="5"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
@@ -164,10 +164,10 @@ else {
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
              <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Total</a>
            </TD>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="right">&#160;&#160;</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="right">&nbsp;&nbsp;</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="3" ALIGN="center">
               <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=15&sd=<%= "15".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Pre</a>
-           &#160;/&#160;
+           &nbsp;/&nbsp;
              <A HREF="?module=Statistics&c=<%=sContentHandle%>&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&sq=Room_Summary_Data&sc=17&sd=<%= "17".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%><%= srb.getProperty("cr","").length()>0?"&cr="+srb.getProperty("cr"):"" %>" CLASS="statText">Post</a>
            </TD>
                    <TD BGCOLOR="#1B2E5D" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -182,7 +182,7 @@ else {
            pageContext.setAttribute("coderHandle", resultRow.getItem(0).toString()); %>
                    <TD  WIDTH="10"><IMG SRC="/i/hs/coders_icon_on.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></TD>
                    <TD  CLASS="coderBrackets" ALIGN="left" HEIGHT="13">
-                     <SPAN CLASS="coderBrackets">[&#160;</SPAN><A HREF="?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>" TITLE="<bean:write name="resultRow" property='<%= "item[" + 21 /* school_name */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A><SPAN CLASS="coderBrackets">&#160;]</SPAN>
+                     <SPAN CLASS="coderBrackets">[&nbsp;</SPAN><A HREF="?module=Statistics&c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>" TITLE="<bean:write name="resultRow" property='<%= "item[" + 21 /* school_name */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A><SPAN CLASS="coderBrackets">&nbsp;]</SPAN>
                    </TD>
          <% } else { %>
                     <TD  WIDTH="10"><A HREF="?module=Statistics&c=coder_room_stats&rd=<%=pageContext.getAttribute("rd") %>&rm=<%=pageContext.getAttribute("rm") %>&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="statText"><IMG SRC="/i/hs/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></A></TD>
@@ -193,17 +193,17 @@ else {
                    <TD  CLASS="statText" ><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 6 /* submits */ + "]" %>'/></TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 7 /* submit pts */ + "].resultData" %>'/></TD>
-                   <TD  CLASS="statText" ALIGN="right">&#160;&#160;</TD>
+                   <TD  CLASS="statText" ALIGN="right">&nbsp;&nbsp;</TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 8 /* defenses */ + "]" %>'/></TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 9 /* defense pts */ + "].resultData" %>'/></TD>
-                   <TD  CLASS="statText" ALIGN="right">&#160;&#160;</TD>
+                   <TD  CLASS="statText" ALIGN="right">&nbsp;&nbsp;</TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 10 /* challenges */ + "]" %>'/></TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 11 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD  CLASS="statText" WIDTH="5"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 12 /* challenge pts */ + "].resultData" %>'/></TD>
                    <TD  CLASS="statText"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow" property='<%= "item[" + 13 /* challenge pts */ + "].resultData" %>'/></TD>
-                   <TD  CLASS="statText" ALIGN="right">&#160;&#160;</TD>
+                   <TD  CLASS="statText" ALIGN="right">&nbsp;&nbsp;</TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 15 /* pre-rating */ + "]" %>'/></TD>
                    <TD  CLASS="statText" WIDTH="5%"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD  CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 17 /* end-rating */ + "]" %>'/></TD>
@@ -232,21 +232,21 @@ if (rscProblems != null && rscProblems.size() > 0) {
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;<B>Problem Information for <%=pageContext.getAttribute("coderHandle").toString() %></B></TD>
+                   <TD BGCOLOR="#1B2E5D" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;<B>Problem Information for <%=pageContext.getAttribute("coderHandle").toString() %></B></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="8"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;Problems</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="8" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;Problems</TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="8"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR VALIGN="middle">
                    <TD BGCOLOR="#1B2E5D" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" WIDTH="20%" HEIGHT="18">Class&#160;Name</TD>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText">Method&#160;Name</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" WIDTH="20%" HEIGHT="18">Class&nbsp;Name</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText">Method&nbsp;Name</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText">Difficulty</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText">Coding Time</TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText">Status</TD>
@@ -288,7 +288,7 @@ pageContext.setAttribute("resultSet", rscChallenge);
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">
                  <TR>
-                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;<B>Challenges</B></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;<B>Challenges</B></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -337,7 +337,7 @@ pageContext.setAttribute("resultSet", rscDefense);
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934"  WIDTH="100%">
                  <TR>
-                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&#160;<B>Defenses</B></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="7" HEIGHT="18" VALIGN="middle" CLASS="statText">&nbsp;<B>Defenses</B></TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

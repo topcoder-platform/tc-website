@@ -41,7 +41,7 @@
    if(message==null) message = "";
 %>
 <font color="white">
-<h3>Error: <%= message %></h3>
+<h3>Error: <%--= message --%></h3>
 <p>Your request could not be processed.  Please inform TopCoder.</p>
 <%--
 <h3>Exception: <%= exception.toString() %></h3>

@@ -42,9 +42,9 @@ while (strtok.hasMoreTokens()){
   sTemp = strtok.nextToken();
   for (i=0; i<sTemp.length(); i++){
     if (sTemp.charAt(i)==' ')
-      stBuffer.append("&#160;");
+      stBuffer.append("&nbsp;");
     else if (sTemp.charAt(i)=='\t')
-      stBuffer.append("&#160;&#160;&#160;");
+      stBuffer.append("&nbsp;&nbsp;&nbsp;");
     else
       stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
   }
@@ -73,7 +73,7 @@ while (strtok.hasMoreTokens()){
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&#160;Problem Statistics for
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;Problem Statistics for
           <%= sHeader %>
                    </TD>
                  </TR>
@@ -100,7 +100,7 @@ if (rscSubmissions.size() > 0) {  %>
                      <TD  VALIGN="middle" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
        <% if (pageContext.getAttribute("pm").toString().equals(resultRow.getItem(2).toString())) { %>
                      <TD  CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
-                      <SPAN CLASS="coderBrackets">[&#160;</SPAN><SPAN CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></SPAN><SPAN CLASS="coderBrackets">&#160;]</SPAN>
+                      <SPAN CLASS="coderBrackets">[&nbsp;</SPAN><SPAN CLASS="statText"><bean:write name="resultRow" property='<%= "item[" + 0 /* class name */ + "]" %>'/></SPAN><SPAN CLASS="coderBrackets">&nbsp;]</SPAN>
                      </TD>
        <% } else { %>
          <TD  CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">
@@ -148,7 +148,7 @@ if (rscDefense.size() > 0) {
 %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="10" HEIGHT="18">&#160;Defense Results</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="10" HEIGHT="18">&nbsp;Defense Results</TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -231,7 +231,7 @@ if (rscSysTest.size() > 0) {
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&#160;System Test Results</TD>
+                   <TD BGCOLOR="#1B2E5D" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;System Test Results</TD>
                  </TR>
                  <TR>
                    <TD  COLSPAN="7"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

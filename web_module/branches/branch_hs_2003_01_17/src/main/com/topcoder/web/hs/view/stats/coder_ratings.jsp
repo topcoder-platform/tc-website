@@ -69,7 +69,7 @@ try{
                  </TR>
                  <TR>
                    <TD BGCOLOR="#1B2E5D"  COLSPAN="6" CLASS="statText">
-                     Show <INPUT TYPE="text" NAME="nr" MAXLENGTH="4" SIZE="4" value="<%= srb.getProperty("nr","50") %>" CLASS="bodyText">&nbsp;Coders per page. <A HREF="javascript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
+                     Show <INPUT TYPE="text" NAME="nr" MAXLENGTH="4" SIZE="4" value="<%= srb.getProperty("nr","50") %>" CLASS="bodyText">&nbsp;Coders per page. <A HREF="javascript:submitForm();" CLASS="statText">&nbsp;[ submit ]</A>
                    </TD>
                  </TR>
                  <TR>
@@ -148,11 +148,11 @@ try{
                  </TR>
                  <TR>
                    <TD BGCOLOR="#1B2E5D" COLSPAN="6" ALIGN="center" CLASS="statText">
-                       Viewing coders ranked&#160;
+                       Viewing coders ranked&nbsp;
                        <INPUT TYPE="text" NAME="First" MAXLENGTH="4" SIZE="4" value="<%=iFirst%>" CLASS="bodyText">
-                       &#160;to&#160;
+                       &nbsp;to&nbsp;
                        <INPUT TYPE="text" NAME="Last" MAXLENGTH="4" VALIGN="center" SIZE="4" value="<%=iLast%>" CLASS="bodyText">
-                       <A HREF="javascript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
+                       <A HREF="javascript:submitForm();" CLASS="statText">&nbsp;[ submit ]</A>
                    </TD>
                  </TR>
                  <TR>
