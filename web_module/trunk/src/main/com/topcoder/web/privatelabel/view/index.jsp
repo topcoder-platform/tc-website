@@ -26,7 +26,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td> 
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
