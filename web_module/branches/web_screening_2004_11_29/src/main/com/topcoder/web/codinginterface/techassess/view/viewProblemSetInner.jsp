@@ -130,7 +130,7 @@
 <%-- IF LAST PROBLEM SET, "CONTINUE" GOES TO MAIN, OTHERWISE IT GOES TO NEXT SET --%>
             <table width="100%" cellspacing=0 cellpadding=0>
                <tr>
-                  <td class=bodyCell100 align=right>Click the continue button to <%=continueDesc%><&gt;&#160;&#160;</td>
+                  <td class=bodyCell100 align=right>Click the continue button to <%=continueDesc%>&#160;&#160;</td>
                   <td align=right><a href="<%=continueLink%>" target="_top"><img src="/i/corp/screening/buttonContinue.gif" alt=""/></a></td>
                </tr>
             </table>
