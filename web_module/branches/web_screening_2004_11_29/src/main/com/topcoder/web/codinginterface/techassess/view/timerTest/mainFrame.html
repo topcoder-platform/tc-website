@@ -27,16 +27,18 @@
             var windowHandle = null;
             
             function openTestingWindow() {
-                if(windowHandle && windowHandle.opened) {
+                if(windowHandle && !windowHandle.closed) {
                     windowHandle.focus();
                     return;
                 }
-                var w = 200;
+                var w = 500;
                 var h = 300;
                 var left = (screen.availWidth - w) / 2;
                 var top = (screen.availHeight - h) / 2;
                 windowHandle = window.open("testingWindow.html?componentId=" + document.frmTest.componentId.value, "", "statusbar=no,menubar=no,status=no,toolbar=no,width=" + w + ",height=" + h + ",screenX=" + left + ",screenY=" + top);
             }
+            
+           
         </script>
   </body>
 </html>
