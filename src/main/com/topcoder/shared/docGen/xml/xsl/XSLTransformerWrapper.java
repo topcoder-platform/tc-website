@@ -21,7 +21,7 @@ import org.apache.xml.utils.WrappedRuntimeException;
  * @version  $Revision$
  *
  */
-public class XSLTransformerWrapper implements Serializable {
+public class XSLTransformerWrapper {
     /**
      * The actual transformer object that is being wrapped
      */
@@ -67,10 +67,10 @@ public class XSLTransformerWrapper implements Serializable {
             //killing most of the stack trace cuz it's just too much
             //and not very informative.
             SourceLocator s = getRootSourceLocator(e);
-            throw new Exception(e.getMessage() + 
+            throw new Exception(e.getMessage() +
                     "\n column  : " + s.getColumnNumber() +
-                    "\n line    : " + s.getLineNumber() + 
-                    "\n publicid: " + s.getPublicId() + 
+                    "\n line    : " + s.getLineNumber() +
+                    "\n publicid: " + s.getPublicId() +
                     "\n systemid: " + s.getSystemId());
         }
     }
@@ -119,14 +119,14 @@ public class XSLTransformerWrapper implements Serializable {
     private SourceLocator getRootSourceLocator(Throwable exception) {
       SourceLocator locator = null;
       Throwable cause = exception;
-        
+
       // Try to find the locator closest to the cause.
       do {
         if(cause instanceof SAXParseException) {
           locator = new SAXSourceLocator((SAXParseException)cause);
         }
         else if (cause instanceof TransformerException) {
-          SourceLocator causeLocator = 
+          SourceLocator causeLocator =
                         ((TransformerException)cause).getLocator();
           if(null != causeLocator)
             locator = causeLocator;
@@ -141,7 +141,7 @@ public class XSLTransformerWrapper implements Serializable {
           cause = null;
       }
       while(null != cause);
-            
+
       return locator;
     }
 
