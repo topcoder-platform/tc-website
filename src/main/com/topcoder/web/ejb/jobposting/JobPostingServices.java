@@ -1,4 +1,4 @@
-package com.topcoder.web.jobposting.ejb.JobPostingServices;
+package com.topcoder.web.ejb.jobposting;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;

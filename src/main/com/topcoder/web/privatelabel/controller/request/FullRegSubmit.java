@@ -56,6 +56,7 @@ public class FullRegSubmit extends SimpleRegSubmit {
             }
         }
         //log them is so that they can upload a resume
+        //this is really sketchy if they we are requiring an activation email to activate their account
         getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
 
 

@@ -59,6 +59,7 @@ public class Constants {
     public static String MODULE_KEY;
     public static String STATIC_PREFIX;
     public static String COMPANY_ID;
+    public static String EVENT_ID;
     public static String REGISTRATION_INFO;
 
 
