@@ -894,7 +894,7 @@ public class ComponentManagerBean
 
 
                     Project project = pt.getProjectById(
-                        pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
+                        pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DESIGN), requestor);
 
 
                     if (project.getWinner() != null) {
