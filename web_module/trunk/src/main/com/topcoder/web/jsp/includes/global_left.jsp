@@ -55,7 +55,6 @@
             Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
             if (aToken==null) {
                 Authorization authToken = null;
-                com.topcoder.common.web.data.User user = null;
                 String rtUser = "";
                 String rtPassword = "";
                 String Redirect_URL = "http://" + request.getServerName();
@@ -63,10 +62,8 @@
                 try {
                     n = (Navigation) session.getAttribute("navigation");
                     if (n==null) n = new Navigation();
-                        user = n.getUser();
                     if ( n.isIdentified() ) {
-                        rtUser =user.getHandle();
-                        rtPassword =user.getPassword();
+                        rtUser = n.getSessionInfo().getHandle();
                     }
                 } catch( Exception e ) {
                     response.sendRedirect(Redirect_URL);
