@@ -123,7 +123,7 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
             out = new StringBuffer(s.length());
             out.append("\n");
             for (int i = 0; i < s.length(); i++) {
-                if (s.charAt(i) == '\"' && s.length() >= i && s.charAt(i + 1) == ',') {
+                if (s.charAt(i) == '\"' && s.length() > i+1 && s.charAt(i + 1) == ',') {
                     out.append("\",\n");
                     i += 2;
                 } else {
