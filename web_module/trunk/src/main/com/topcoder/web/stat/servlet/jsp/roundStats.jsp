@@ -127,7 +127,7 @@ function goTo(selection){
              <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
 <%
-String currRound = resultRow_0.getItem("round_id").toString();
+String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
 if (bRequireLogin){
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
 pageContext.setAttribute("resultSetDates", rsc);
