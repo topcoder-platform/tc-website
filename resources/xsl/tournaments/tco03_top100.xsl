@@ -78,8 +78,11 @@
             
             <table width="300" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
-                    <td class="header" width="50%">Handle</td>
-                    <td class="header" width="50%" align="right">Rating</td>
+                  <td class="header" width="100%" colspan="2">Top 100</td>
+               </tr>
+                <tr>
+                   <td class="testTableTitle" width="50%" align="left">Handle</td>
+                   <td class="testTableTitle" width="50%" align="right">Rating</td>
                 </tr>
 
                           <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
@@ -98,8 +101,7 @@
                           </xsl:for-each>
 
              </table>
-            </blockquote>
-
+           </blockquote>
             <p><br/></p>
 
         </td>

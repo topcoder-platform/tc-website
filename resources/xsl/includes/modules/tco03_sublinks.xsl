@@ -77,10 +77,10 @@
 
                 <xsl:choose>
                      <xsl:when test="$selectedTab='qualRound1'">
-                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_qualRound1" class="topLink">Qual Round 1</a></td>
+                    <td class="tcoSubNav_on" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_advancers" class="topLink">Qual Round 1</a></td>
                 </xsl:when>
                 <xsl:otherwise>
-                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_qualRound1" class="topLink">Qual Round 1</a></td>
+                    <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_advancers" class="topLink">Qual Round 1</a></td>
                 </xsl:otherwise>
                 </xsl:choose>
 
