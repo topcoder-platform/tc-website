@@ -57,6 +57,7 @@ public class Controller extends HttpServlet {
             return;
 		} else if (command.equals("login")) {
             handleLogin(request, response);
+            return;
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
             String tempJobId = request.getParameter(TCESConstants.JOB_ID_KEY);
             String tempUserId = request.getParameter(TCESConstants.USER_ID_KEY);
@@ -173,14 +174,28 @@ public class Controller extends HttpServlet {
 
                 return;
             }
+
+/*            HttpSession session = request.getSession(true);
+            Navigation nav = setupSession(request, response, session);
+
+            UserServicesHome userServicesHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
+            UserServices userServicesEJB = (UserServices) userServicesHome.findByPrimaryKey(TCData.getTCInteger(rRow,"user_id"));
+            user = userServicesEJB.getUser();
+
+            nav.setUserId(user.getUserId());
+            nav.setUser(user);
+            nav.setLoggedIn(true);
+
+            request.setAttribute(TCESConstants.MSG_ATTR_KEY,new String("Login OK!"));*/
+
+            getServletContext().getContext("/").getRequestDispatcher(
+                response.encodeURL("/es/login.jsp")).forward(request, response);
+
         } catch (Exception ex) {
             forwardToErrorPage(request, response, ex);
         }
 
-        request.setAttribute(TCESConstants.MSG_ATTR_KEY,new String("Login OK!"));
 
-        getServletContext().getContext("/").getRequestDispatcher(
-            response.encodeURL("/es/login.jsp")).forward(request, response);
     }
 
 
