@@ -51,7 +51,7 @@
 				<TR>
 					<TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P CLASS="bodyTextBold"> 01.28.2002 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/>TopCoder Adds the United Kingdom To Its Developer Community<BR/><SPAN CLASS="bodyTextItal">Host of Computer Programming Contests Continues Global Expansion</SPAN></P>
+<P CLASS="bodyTextBold"> 01.28.2002 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/>United Kingdom Added to TopCoder Developer Community<BR/><SPAN CLASS="bodyTextItal">Host of Computer Programming Contests Continues Global Expansion</SPAN></P>
 <P>GLASTONBURY, CT., Jan. 28, 2002 - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has expanded eligibility to its online and onsite 
 computer programming contests to include citizens of the United Kingdom.  The addition of the United Kingdom to the TopCoder developer community demonstrates the company's continuing global expansion efforts.  The United 
 Kingdom is the fourth international territory to be added since the company launched its competitions in February 2001. Citizens of Canada, Australia and India are also eligible to compete.</P>
