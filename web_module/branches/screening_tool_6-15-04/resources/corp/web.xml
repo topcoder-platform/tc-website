@@ -1070,6 +1070,18 @@
             <param-value>companyUsageType</param-value>
             <description></description>
         </init-param>
+        
+        <init-param>
+            <param-name>usage_type_testing</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>usage_type_screening</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
 
         <init-param>
             <param-name>session_lookup_command</param-name>

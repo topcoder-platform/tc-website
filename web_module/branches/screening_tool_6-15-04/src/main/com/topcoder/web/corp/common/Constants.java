@@ -157,6 +157,8 @@ public class Constants
     public static String DEBUG;
     
     public static String USAGE_TYPE;
+    public static int USAGE_TYPE_TESTING;
+    public static int USAGE_TYPE_SCREENING;
 
     public static String DATE_TIME_FORMAT;
 
