@@ -82,7 +82,7 @@
                         <p>We constantly evaluate opportunities to partner with organizations that fit our corporate culture and objectives, and we're pleased to again be a part of 
                         TopCoder's programming competitions, again as a premier sponsor of the TopCoder Collegiate Challenge.  "NVIDIA truly believes that the TopCoder arena 
                         fosters an unparalleled competitive spirit among the most brilliant programmers in the world. We are proud to be a part of this initiative again," said Daniel 
-                        Rohrer, Manager of Direct X Graphics at NVIDIA.</p>
+                        Rohrer, Manager of Direct X Graphics at NVIDIA. "Our corporate culture encourages innovation and excellence and the TopCoder competition model is a perfect complement to that philosophy."</p>
                         
                         
                         <p>We at NVIDIA wish you the best of luck in the Collegiate Challenge, and encourage you to explore your potential for innovation in future 
