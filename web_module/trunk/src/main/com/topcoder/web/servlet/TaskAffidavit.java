@@ -74,7 +74,7 @@ public final class TaskAffidavit {
                             int index = Integer.parseInt(parameterName.substring(QUESTION_PREFIX.length()));
                             questions.ensureCapacity(index);
                             questions.set(index, parameterValue);
-                        } else {
+                        } else if (parameterName.startsWith(ANSWER_PREFIX)) {
                             int index = Integer.parseInt(parameterName.substring(ANSWER_PREFIX.length()));
                             answers.ensureCapacity(index);
                             answers.set(index, parameterValue);
