@@ -52,6 +52,7 @@
       <property name="regservlets" value="com/topcoder/web/reg/servlet" />
       <property name="resumeservlets" value="com/topcoder/web/resume/servlet" />
       <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet" />
+      <property name="tcesservlets" value="com/topcoder/web/tces/servlet" />
       <mkdir dir="${classes}" />
       <mkdir dir="${testclasses}" />
       <mkdir dir="${bin}" />
@@ -63,6 +64,7 @@
       <mkdir dir="${servlets}/${regservlets}" />
       <mkdir dir="${servlets}/${resumeservlets}" />
       <mkdir dir="${servlets}/${jobpostingservlets}" />
+      <mkdir dir="${servlets}/${tcesservlets}" />
       <mkdir dir="${public_html}/WEB-INF/lib" />
    </target>
 
@@ -121,6 +123,11 @@
       </move>
       <move todir="${servlets}/${jobpostingservlets}">
          <fileset dir="${classes}/${jobpostingservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${tcesservlets}">
+         <fileset dir="${classes}/${tcesservlets}" >
                  <include name="*.class" />
          </fileset>
       </move>
@@ -190,6 +197,8 @@
       <property name="resume.src"    value="${web}/resume/servlet/jsp" />
       <property name="jobposting.trgt"      value="${public_html}/jobposting_jsp" />
       <property name="jobposting.src"       value="${web}/jobposting/servlet/jsp" />
+      <property name="tces.trgt"      value="${public_html}/tces_jsp" />
+      <property name="tces.src"       value="${web}/tces/servlet/jsp" />
 
       <mkdir dir="${stat.trgt}" /> 
       <mkdir dir="${root.trgt}" />
@@ -197,6 +206,7 @@
       <mkdir dir="${project.trgt}" />
       <mkdir dir="${reg.trgt}" />
       <mkdir dir="${render.trgt}" />
+      <mkdir dir="${resume.trgt}" />
       <mkdir dir="${jobposting.trgt}" />
 
       <copy todir="${stat.trgt}">
@@ -236,6 +246,11 @@
       </copy>
       <copy todir="${jobposting.trgt}">
          <fileset dir="${jobposting.src}" >
+                 <include name="**/*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${tces.trgt}">
+         <fileset dir="${tces.src}" >
                  <include name="**/*.jsp" />
          </fileset>
       </copy>

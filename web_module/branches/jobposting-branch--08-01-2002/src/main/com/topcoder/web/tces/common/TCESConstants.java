@@ -1,5 +1,7 @@
 package com.topcoder.web.tces.common;
 
+import com.topcoder.shared.util.TCResourceBundle;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import java.text.*;
@@ -142,8 +144,79 @@ public class TCESConstants {
     public static DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
     public static NumberFormat NUMBER_FORMAT = new DecimalFormat("####0.00");
 
-    public static void init(ServletConfig servletConfig) throws ServletException {
+    private static TCResourceBundle bundle = null;
 
+    public static void init(ServletConfig servletConfig) throws ServletException {
+        
+        bundle = new TCResourceBundle("TCES");
+
+        JSP_ROOT = bundle.getProperty("jsp_root", "");
+        TCES_PACKAGE = bundle.getProperty("tces_package", "");
+        ERROR_PAGE = bundle.getProperty("error_page", "");
+
+        AUTH_FAILED_PAGE = bundle.getProperty("auth_failed_page", "");
+        LOGIN_PAGE = bundle.getProperty("login_page", "");
+        LOGIN_OK_PAGE = bundle.getProperty("login_ok_page", "");
+        MAIN_PAGE = bundle.getProperty("main_page", "");
+        MAIN_GODETAIL_PAGE = bundle.getProperty("main_godetail_page", "");
+        CAMPAIGN_DETAIL_PAGE = bundle.getProperty("campaign_detail_page", "");
+        POSITION_INTEREST_PAGE = bundle.getProperty("position_interest_page", "");
+        CAMPAIGN_INTEREST_PAGE = bundle.getProperty("campaign_interest_page", "");
+        DEMOGRAPHIC_PAGE = bundle.getProperty("demographic_page", "");
+        MEMBER_PROFILE_PAGE = bundle.getProperty("member_profile_page", "");
+        CODER_DEMOGRAPHICS_PAGE = bundle.getProperty("coder_demographics_page", "");
+        COMPETITION_HISTORY_PAGE = bundle.getProperty("competition_history_page", "");
+        COMPETITION_STATISTICS_PAGE = bundle.getProperty("competition_statistics_page", "");
+        PROBLEM_SUBMISSIONS_PAGE = bundle.getProperty("problem_submissions_page", "");
+        PROBLEM_STATISTICS_PAGE = bundle.getProperty("problem_statistics_page", "");
+        PROBLEM_STATEMENT_PAGE = bundle.getProperty("problem_statement_page", "");
+        MEMBER_INTEREST_PAGE = bundle.getProperty("member_interest_page", "");
+
+        LOGIN_TASK = bundle.getProperty("login_task", "");
+        LOGIN_TASK_STEP_VIEW = bundle.getProperty("login_task_step_view", "");
+        LOGIN_TASK_STEP_AUTH = bundle.getProperty("login_task_step_auth", "");
+        MAIN_TASK = bundle.getProperty("main_task", "");
+        CAMPAIGN_DETAIL_TASK = bundle.getProperty("campaign_detail_task", "");
+        CAMPAIGN_INTEREST_TASK = bundle.getProperty("campaign_interest_task", "");
+        POSITION_INTEREST_TASK = bundle.getProperty("position_interest_task", "");
+        DEMOGRAPHIC_TASK = bundle.getProperty("demographic_task", "");
+        MEMBER_PROFILE_TASK = bundle.getProperty("member_profile_task", "");
+        CODER_DEMOGRAPHICS_TASK = bundle.getProperty("coder_demographics_task", "");
+        COMPETITION_HISTORY_TASK = bundle.getProperty("competition_history_task", "");
+        COMPETITION_STATISTICS_TASK = bundle.getProperty("competition_statistics_task", "");
+        PROBLEM_SUBMISSIONS_TASK = bundle.getProperty("problem_submissions_task", "");
+        PROBLEM_STATISTICS_TASK = bundle.getProperty("problem_statistics_task", "");
+        PROBLEM_STATEMENT_TASK = bundle.getProperty("problem_statement_task", "");
+        MEMBER_INTEREST_TASK = bundle.getProperty("member_interest_task", "");
+
+        SORT_ORDER_ASC = bundle.getProperty("sort_order_asc", "");
+        SORT_ORDER_DES = bundle.getProperty("sort_order_des", "");
+
+        TASK_PARAM = bundle.getProperty("task_param", "");
+        STEP_PARAM = bundle.getProperty("step_param", "");
+        SORT_PARAM = bundle.getProperty("sort_param", "");
+        SORT_ORDER_PARAM = bundle.getProperty("sort_order_param", "");
+        USER_ID_PARAM = bundle.getProperty("user_id_param", "");
+        HANDLE_PARAM = bundle.getProperty("handle_param", "");
+        PASSWORD_PARAM = bundle.getProperty("password_param", "");
+        CAMPAIGN_ID_PARAM = bundle.getProperty("campaign_id_param", "");
+        JOB_ID_PARAM = bundle.getProperty("job_id_param", "");
+        MEMBER_ID_PARAM = bundle.getProperty("member_id_param", "");
+        ROUND_ID_PARAM = bundle.getProperty("round_id_param", "");
+        PROBLEM_ID_PARAM = bundle.getProperty("problem_id_param", "");
+
+        PRO_CODER_TYPE = bundle.getIntProperty("pro_coder_type", 2);
+        STUDENT_CODER_TYPE = bundle.getIntProperty("student_coder_type", 1);
+        PROBLEM_STATUS_OPEN = bundle.getIntProperty("problem_status_open", 120);
+        PROBLEM_STATUS_COMPILED = bundle.getIntProperty("problem_status_compiled", 121);
+
+        JSP_ROOT = bundle.getProperty("jsp_root", "");
+        ERROR_PAGE = bundle.getProperty("error_page", "");
+
+
+
+
+/*   can't use the war deployment descriptor cuz we're not using a war for session issues
         JSP_ROOT = servletConfig.getInitParameter("jsp_root");
         TCES_PACKAGE = servletConfig.getInitParameter("tces_package");
         ERROR_PAGE = servletConfig.getInitParameter("error_page");
@@ -206,8 +279,10 @@ public class TCESConstants {
 
         JSP_ROOT = servletConfig.getInitParameter("jsp_root");
         ERROR_PAGE = servletConfig.getInitParameter("error_page");
+*/
     }
 
+/*
     private static int getIntParameter(ServletConfig servletConfig, String key)
             throws ServletException {
         int ret = -1;
@@ -218,5 +293,6 @@ public class TCESConstants {
         }
         return ret;
     }
+*/
 
 }
