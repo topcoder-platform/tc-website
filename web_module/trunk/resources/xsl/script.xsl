@@ -5,6 +5,10 @@
       <script language="JavaScript" type="text/javascript" src="/js/tcscript.js"></script>
   </xsl:template>
 
+    <xsl:template name="JS">
+        <script language="JavaScript" type="text/javascript" src="/js/tcscript.js"></script>
+    </xsl:template>
+
 
   <xsl:template name="DateTime">
 <SCRIPT type="text/javascript"><![CDATA[
