@@ -71,10 +71,15 @@ public class GraphServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
-        Authentication auth = new BasicAuthentication(persistor, request, response);
-        Authorization hsa = new HSAuthorization(auth.getUser());
-        if(!hsa.hasPermission(new ClassResource(this.getClass()))) return;  // give them a red x
+        try {
+            Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
+            Authentication auth = new BasicAuthentication(persistor, request, response);
+            Authorization hsa = new HSAuthorization(auth.getUser());
+            if(!hsa.hasPermission(new ClassResource(this.getClass())))
+                throw new PermissionException("You must login to view this page.");
+        } catch(Exception e) {
+            return;  // just give them a red x
+        }
 
         ServletOutputStream o = null;
         byte[] result = null;

@@ -33,12 +33,20 @@ function goTo(selection){
     window.location=sel;
   }
 }
-function getGraph(url,wd,ht) {
-  var last=0;
-  var daHt = parseInt(ht) + parseInt('49');
-  var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
-  var name="graph";
-  window.open('graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+function getGraph(params,wd,ht) {
+  var url = 'graph?' + params + '&width='+wd+'&height='+ht;
+  var wht = parseInt(ht)+49;
+  var size = 'top=2,left=2,width='+wd+',height='+wht+'status=0';
+  var win = window.open('', 'graph', size);
+  win.document.open('text/html', 'replace');
+  win.document.write(
+    '<html><head><title>TopCoder :: Graph</title></head>',
+    '<body bgcolor="#000000" background="/images/background_2.jpg" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" onLoad="focus()>">',
+    '<table><tr><td><img src="/i/logo.gif" width="206" height="49"/></td></tr>',
+    '<tr><td><img src="' + url + '" width="' + wd + '" height="' + ht + '"/></td></tr>',
+    '</table></body></html>'
+  );
+  win.document.close();
   return;
 }
 </script>

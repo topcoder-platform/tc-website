@@ -1,6 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import com.topcoder.shared.security.*;
+import com.topcoder.web.common.*;
 import com.topcoder.web.hs.common.*;
 
 /**
@@ -16,10 +17,10 @@ public class Static extends Base {
         for(int i=1; ; i++) {
             String p = request.getParameter("d"+i);
             if(p==null) break;
-            if(!Constants.isLegal(p)) throw new IllegalArgumentException("disallowed path component: "+p);
+            if(!Constants.isLegal(p)) throw new NavigationException("disallowed path component: "+p);
             path += "/"+p;
         }
-        if(path.equals("")) throw new IllegalArgumentException("path must have at least one component");
+        if(path.equals("")) throw new NavigationException("path must have at least one component");
         path += ".jsp";
 
         /* check whether the path is allowed for this type of user */

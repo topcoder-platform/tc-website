@@ -16,9 +16,9 @@ public abstract class Base implements RequestProcessor {
 
     protected ServletRequest request;
     protected ServletResponse response;
-    protected BasicAuthentication auth;
+    protected WebAuthentication auth;
     protected User user;
-    protected HSAuthorization hsa;
+    protected Authorization hsa;
     private boolean nextPageInContext = false;
     private String nextPage = "";
 
