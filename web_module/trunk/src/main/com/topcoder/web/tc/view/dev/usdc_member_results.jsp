@@ -74,6 +74,15 @@
                                 <td class="sidebarTitle" align=right>Component Prize</td>
                                 <td class="sidebarTitle" align=center >Placed</td>
                             </tr>
+                            <rsc:iterator list="<%=rsc%>" id="resultRow">
+                            <tr>
+                                <td class="sidebarText"><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=resultRow%>"/>"><rsc:item name="component_name" row="<%=resultRow%>"/></A></td>                               
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="submit_timestamp" format="MM.dd.yyyy hh:mma" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right>$<rsc:item name="payment" format="#,##0" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center>$<rsc:item name="placed" format="0" row="<%=resultRow%>"/></td>
+                            </tr>
+                            </rsc:iterator>
                         </table>
                         
                         <br/>
