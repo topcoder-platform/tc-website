@@ -58,11 +58,15 @@
 <blockquote>
 <h2>Registration</h2>
 <p>
-Thank you for registering<br/>
-<br/>
-</p>
-<p>
+Registration Successful!
+
+Thank you for registering for the Google Extreme Coding Challenge.
+
 If you would like to upload a resume, click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask&compid=1865','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a>
+
+Spend time in the Practice Rooms prior to the Qualification Round by clicking the Practice Arena tab above.
+
+Good luck to you in the Arena!
 </p>
 </blockquote>
 <p><br /></p>
