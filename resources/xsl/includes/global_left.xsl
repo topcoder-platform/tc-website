@@ -579,7 +579,7 @@
       </xsl:when>
 <!-- Tournaments ends -->
 
-<!-- Support/FAQs begins -->
+<!-- Support/FAQ begins -->
       <xsl:when test="/TC/Task='support'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
@@ -591,7 +591,7 @@
                 <xsl:call-template name="tourney_row"/>
                 <xsl:call-template name="rtables_row"/>
                 
-                <tr><td id="leftNavOn"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support/FAQs:</td></tr>
+                <tr><td id="leftNavOn"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support/FAQ:</td></tr>
                 
 <!-- General FAQs -->
                 <tr>
@@ -602,7 +602,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute>General FAQs</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute>General FAQ</A>
                     </td>
                 </tr>
 
@@ -615,7 +615,7 @@
                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=comp_faq</xsl:attribute>Competition FAQs</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=comp_faq</xsl:attribute>Competition FAQ</A>
                     </td>
                 </tr>
 
