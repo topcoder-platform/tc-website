@@ -23,6 +23,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.3  2002/05/24 19:28:10  gpaul
+ *           added some  code so that we can load just the stuff for the current round in the aggregate load
+ *
  *           Revision 1.2  2002/05/16 07:26:09  gpaul
  *           don't load nullified challenges.  load last submission only
  *
@@ -275,27 +278,42 @@ public class TCLoadRound extends TCLoad {
 
     try {
       a = new ArrayList();
-      if (FULL_LOAD)
+
+
+      if (FULL_LOAD) {
         a.add(new String("DELETE FROM coder_level"));
-      else 
-        a.add(new String("DELETE FROM coder_level WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
-      a.add(new String("DELETE FROM room_result WHERE round_id = ?"));
-      a.add(new String("DELETE FROM coder_division"));
-      a.add(new String("DELETE FROM round_division"));
-      a.add(new String("DELETE FROM coder_problem_summary"));
-      a.add(new String("DELETE FROM system_test_case WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)"));
-      if (FULL_LOAD)
+        a.add(new String("DELETE FROM coder_division"));
+        a.add(new String("DELETE FROM room_result WHERE round_id = ?"));
+        a.add(new String("DELETE FROM round_division"));
+        a.add(new String("DELETE FROM coder_problem_summary"));
+        a.add(new String("DELETE FROM system_test_case WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)"));
         a.add(new String("DELETE FROM round_problem"));
-      else 
-        a.add(new String("DELETE FROM round_problem WHERE round_id = " + fRoundId));
-      a.add(new String("DELETE FROM challenge WHERE round_id = ?"));
-      a.add(new String("DELETE FROM coder_problem WHERE round_id = ?"));
-      a.add(new String("DELETE FROM room WHERE round_id = ?"));
-      a.add(new String("DELETE FROM system_test_result WHERE round_id = ?"));
-      a.add(new String("DELETE FROM problem_submission WHERE round_id = ?"));
-      a.add(new String("DELETE FROM problem WHERE round_id = ?"));
-      a.add(new String("UPDATE rating SET first_rated_round_id = null WHERE first_rated_round_id = ?"));
-      a.add(new String("UPDATE rating SET last_rated_round_id = null WHERE last_rated_round_id = ?"));
+        a.add(new String("DELETE FROM challenge WHERE round_id = ?"));
+        a.add(new String("DELETE FROM coder_problem WHERE round_id = ?"));
+        a.add(new String("DELETE FROM room WHERE round_id = ?"));
+        a.add(new String("DELETE FROM system_test_result WHERE round_id = ?"));
+        a.add(new String("DELETE FROM problem_submission WHERE round_id = ?"));
+        a.add(new String("DELETE FROM problem WHERE round_id = ?"));
+        a.add(new String("UPDATE rating SET first_rated_round_id = null WHERE first_rated_round_id = ?"));
+        a.add(new String("UPDATE rating SET last_rated_round_id = null WHERE last_rated_round_id = ?"));
+
+      } else {
+        a.add(new String("DELETE FROM coder_level WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
+        a.add(new String("DELETE FROM coder_division WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
+        a.add(new String("DELETE FROM room_result WHERE round_id = ?"));
+        a.add(new String("DELETE FROM round_division WHERE round_id = ?"));
+        a.add(new String("DELETE FROM coder_problem_summary WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
+        a.add(new String("DELETE FROM system_test_case WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)"));
+        a.add(new String("DELETE FROM round_problem WHERE round_id = ?"));
+        a.add(new String("DELETE FROM challenge WHERE round_id = ?"));
+        a.add(new String("DELETE FROM coder_problem WHERE round_id = ?"));
+        a.add(new String("DELETE FROM system_test_result WHERE round_id = ?"));
+        a.add(new String("DELETE FROM problem_submission WHERE round_id = ?"));
+        a.add(new String("DELETE FROM problem WHERE round_id = ?"));
+        a.add(new String("UPDATE rating SET first_rated_round_id = null WHERE first_rated_round_id = ?"));
+        a.add(new String("UPDATE rating SET last_rated_round_id = null WHERE last_rated_round_id = ?"));
+
+      }
 
       int count = 0;
       for (int i=0; i<a.size(); i++) {

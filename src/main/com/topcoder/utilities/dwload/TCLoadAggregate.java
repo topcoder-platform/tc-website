@@ -27,6 +27,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/05/24 19:28:10  gpaul
+ *           added some  code so that we can load just the stuff for the current round in the aggregate load
+ *
  *           Revision 1.1  2002/04/02 21:54:14  gpaul
  *           moving the load over from 153 cvs
  *
@@ -278,6 +281,13 @@ public class TCLoadAggregate extends TCLoad {
       fSql.append("       ,SUM(final_points) ");                    // 19
       fSql.append("       ,SUM(defense_points) ");                  // 20
       fSql.append("  FROM room_result ");
+      if (!FULL_LOAD) {   //if it's not a full load, just load up the people that competed in the round we're loading
+        fSql.append( " WHERE coder_id IN");
+        fSql.append(                " (SELECT coder_id");
+        fSql.append(                   " FROM room_result");
+        fSql.append(                  " WHERE attended = 'Y'");
+        fSql.append(                    " AND round_id = " + fRoundId + ")");
+      }
       fSql.append(" GROUP BY coder_id ");
       fSql.append("          ,division_id");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
@@ -406,6 +416,9 @@ public class TCLoadAggregate extends TCLoad {
       fSql.append("       ,STDEV(final_points) ");                  // 15
       fSql.append("       ,SUM(defense_points) ");                  // 16
       fSql.append("  FROM room_result ");
+      if (!FULL_LOAD) {   //if it's not a full load, just load up the problems from this round
+        fSql.append( " WHERE round_id =" + fRoundId);
+      }
       fSql.append(" GROUP BY round_id ");
       fSql.append("          ,division_id");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
@@ -780,6 +793,13 @@ public class TCLoadAggregate extends TCLoad {
       fSql.append("       ,SUM(final_points) ");                    // 18
       fSql.append("       ,SUM(defense_points) ");                  // 19
       fSql.append("  FROM room_result ");
+      if (!FULL_LOAD) {   //if it's not a full load, just load up the people that competed in the round we're loading
+        fSql.append( " WHERE coder_id IN");
+        fSql.append(             " (SELECT coder_id");
+        fSql.append(                " FROM room_result");
+        fSql.append(               " WHERE attended = 'Y'");
+        fSql.append(                 " AND round_id = " + fRoundId + ")");
+      }
       fSql.append(" GROUP BY coder_id ");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
@@ -1061,6 +1081,13 @@ public class TCLoadAggregate extends TCLoad {
       fSql.append(        " ,SUM(cp.submission_points) ");
       fSql.append(        " ,SUM(CASE WHEN cp.end_status_id >= " + STATUS_SUBMITTED + " THEN 1 ELSE 0 END)");
       fSql.append(   " FROM coder_problem cp");
+      if (!FULL_LOAD) {   //if it's not a full load, just load up the people that competed in the round we're loading
+        fSql.append( " WHERE cp.coder_id IN");
+        fSql.append(                " (SELECT coder_id");
+        fSql.append(                   " FROM room_result");
+        fSql.append(                  " WHERE attended = 'Y'");
+        fSql.append(                    " AND round_id = " + fRoundId + ")");
+      }
       fSql.append(  " GROUP BY cp.round_id ");
       fSql.append(        " ,cp.coder_id ");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
@@ -1135,6 +1162,9 @@ public class TCLoadAggregate extends TCLoad {
       fSql.append("       ,rd.point_standard_deviation ");  // 3
       fSql.append("       ,rd.average_points ");            // 4
       fSql.append("  FROM round_division rd ");
+      if (!FULL_LOAD) {   //if it's not a full load, just load up the problems from this round
+        fSql.append( " WHERE rd.round_id =" + fRoundId);
+      }
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
 
       fSql.setLength(0);
