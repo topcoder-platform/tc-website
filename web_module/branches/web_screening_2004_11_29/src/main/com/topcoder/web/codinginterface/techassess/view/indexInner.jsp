@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel"%>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <html>
@@ -69,7 +70,7 @@
                       <td class=tableTextOdd align=center><jsp:getProperty name="problem" property="completedCount"/>/<jsp:getProperty name="problem" property="problemCount"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="description"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="status"/></td>
-                      <td class=tableTextOdd align=right><span id="problemTimer<%=problem.getProblemLabels[0].getComponentID()%>">Initializing</span></td>
+                      <td class=tableTextOdd align=right><span id="problemTimer<%=((ScreeningProblemLabel)problem.getProblemLabels[0]).getComponentID()%>">Initializing</span></td>
                    </tr>
                </tc-webtag:listIterator>
             </table>
