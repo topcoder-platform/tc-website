@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />      
 
- <title>TopCoder | Development</title>
+ <title>How to Get Paid for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />      
 
@@ -38,7 +38,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="5" alt="" border="0" /></td>
+        <td width="1"><img src="/i/clear.gif" width="15" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
@@ -46,38 +46,35 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Payment Requirements</xsl:with-param>
+            <xsl:with-param name="title">&#160;How to Get Paid</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="10" width="100%">
-                <tr valign="top">
-                    <td width="100%" class="bodyText"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /><br />
-                        <h2>TopCoder Development Project Payment Requirements</h2>
+            <img src="/i/clear.gif" alt="" width="240" height="20" border="0" />
+            
+            <h2>TopCoder Development Project Payment Requirements</h2>
                                     
-                        <p>You must meet the following requirements in order for TopCoder to pay you:
+            <p>You must meet the following requirements in order for TopCoder to pay you:</p>
                                           
-                        <ul>
-                            <li><strong>Valid member profile information.</strong><br/>
-                            We will mail checks to the address in your TopCoder profile, so please make sure that this information is current.<br/><br/></li>
-                            <li><strong>One completed tax form on file with TopCoder.</strong><br/>
-                            <a href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></a><br/><br/>
-                            The <strong>W-9 form</strong> should be filled out by all U.S. Citizens, including U.S resident aliens.<br/>
-                            <a href="/contest/iw9.pdf">Click here for W-9 form instructions >></a><br/>
-                            <a href="/contest/fw9.pdf">Click here for the W-9 form >></a><br/><br/>
-                            The <strong>W-8BEN form</strong> should be filled out by all non-U.S. Citizens.<br/>
-                            <a href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></a><br/>
-                            <a href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></a></li>
-                        </ul>
+            <ul>
+                <li><strong>Valid member profile information.</strong><br/>
+                We will mail checks to the address in your TopCoder profile, so please make sure that this information is current.<br/><br/></li>
+                
+                <li><strong>One completed tax form on file with TopCoder.</strong><br/>
+                <a href="/?t=support&amp;c=form_faq">TopCoder FAQ regarding these forms >></a><br/><br/>
+                The <strong>W-9 form</strong> should be filled out by all U.S. Citizens, including U.S resident aliens.<br/>
+                <a href="/contest/iw9.pdf">Click here for W-9 form instructions >></a><br/>
+                <a href="/contest/fw9.pdf">Click here for the W-9 form >></a><br/><br/>
+                The <strong>W-8BEN form</strong> should be filled out by all non-U.S. Citizens.<br/>
+                <a href="/contest/iw8ben.pdf">Click here for W-8BEN form instructions >></a><br/>
+                <a href="/contest/fw8ben.pdf">Click here for the W-8BEN form >></a></li>
+            </ul>
                         
-                        Mailing address for forms and affidavits:&#160;&#160;TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033</p>
-                    </td>
-                </tr>
-            </table>
+            <p>Mailing address for forms and affidavits:&#160;&#160;TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033</p>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->

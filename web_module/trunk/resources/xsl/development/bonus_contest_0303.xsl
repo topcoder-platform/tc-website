@@ -15,7 +15,7 @@
 
     <xsl:call-template name="Preload" />      
 
- <title>TopCoder &#160;|&#160; Development</title>
+ <title>Component Design Contest for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />      
 
@@ -48,7 +48,7 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+            <xsl:with-param name="title">&#160;Contests</xsl:with-param>
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -131,7 +131,7 @@
                         <table border="0" cellspacing="0" cellpadding="3" width="300" class="formFrame">
 
                 <tr>
-                    <td class="bodyText" colspan="3"><a name="design"></a><h1 class="devSubhead">Qualifying Contest Entries</h1></td>
+                    <td class="statTextLarge" colspan="3" bgcolor="#999999"><a name="design"></a><font size="3">Qualifying Contest Entries</font></td>
                 </tr>
 
                 <tr valign="middle">

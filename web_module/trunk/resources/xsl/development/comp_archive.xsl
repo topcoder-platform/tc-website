@@ -65,7 +65,7 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+            <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -99,7 +99,7 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$design-phase">
                         <tr>
-                            <td class="smallText" >                            
+                            <td class="formTextOdd" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
@@ -109,11 +109,11 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="smallText" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
                         </tr>                 
                     </xsl:if>
                 </xsl:for-each> 
@@ -136,7 +136,7 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$dev-phase">
                         <tr>
-                            <td class="smallText" >                            
+                            <td class="formTextOdd" >                            
                                 <a target="_new">
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
@@ -146,11 +146,11 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="smallText" align="center"><xsl:value-of select="./catalog_name"/></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-                            <td class="smallText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:value-of select="./catalog_name"/></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
+                            <td class="formTextOdd" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
                         </tr>                 
                     </xsl:if>
                 </xsl:for-each> 
