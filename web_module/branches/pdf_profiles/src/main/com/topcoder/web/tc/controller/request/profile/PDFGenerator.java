@@ -23,6 +23,23 @@ import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.problem.TextElement;
 import com.topcoder.shared.problem.TestCase;
 import java.io.FileOutputStream;
+
+import com.topcoder.web.common.MultipartRequest;
+
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.coderskill.CoderSkill;
+
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+
+import com.topcoder.web.tc.model.Skill;
+
+import javax.naming.Context;
+import javax.naming.InitialContext;
+import java.util.Arrays;
 /**
  *
  * @author rfairfax
@@ -31,17 +48,72 @@ public class PDFGenerator extends BaseProcessor {
     
     PlacementConfig info;
     
-    private PlacementConfig getConfig() {
-        return new PlacementConfig();
+    private PlacementConfig getConfig() throws Exception {
+        int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
+
+        PlacementConfig config = new PlacementConfig();
+
+        config.setUserID(uid);
+
+        InitialContext ctx = TCContext.getInitial(); 
+        User userbean = (User)createEJB(ctx, User.class);
+        Email emailbean = (Email)createEJB(ctx, Email.class);
+
+        config.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+        config.setName(userbean.getFirstName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+
+        config.setPresentedBy(StringUtils.checkNull(getRequest().getParameter("presentedBy")));
+        config.setPresentedByEmail(StringUtils.checkNull(getRequest().getParameter("presentedByEmail")));
+        
+        if(getRequest() instanceof MultipartRequest) {
+            MultipartRequest request = (MultipartRequest)getRequest();
+            config.setCompanyLogo(request.getUploadedFile("logo"));
+        }
+
+        //load skills
+        CoderSkill skillbean = (CoderSkill)createEJB(ctx, CoderSkill.class);
+
+        Request r = new Request();
+        r.setContentHandle("skill_types");
+
+        ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
+        for(int i = 0; i < rsc.size(); i++) {
+            ResultSetContainer rscSkills = skillbean.getSkillsByType(config.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
+            for(int j = 0; j < rscSkills.size(); j++) {
+                int sid = rscSkills.getIntItem(j, "skill_id");
+                
+                if(Arrays.asList(getRequest().getParameterValues("skills")).contains(String.valueOf(sid))) {
+                    Skill s = new Skill(); 
+                    s.setID(sid);
+                    s.setText(rscSkills.getStringItem(j, "skill_desc"));
+
+                    config.createSkill(rsc.getStringItem(i, "skill_type_desc"), s, rscSkills.getIntItem(j, "ranking"));
+                }
+            }
+        }
+        return config;
+    }
+     
+    protected static DataAccessInt getDWDataAccess() throws Exception { 
+       DataAccessInt dAccess = null;
+       dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
+       return dAccess;
+    }
+    
+    protected static DataAccessInt getDataAccess() throws Exception { 
+       DataAccessInt dAccess = null;
+       dAccess = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
+       return dAccess;
     }
     
     protected void businessProcessing() throws TCWebException {
-        //load config values
-        info = getConfig();
-        
-        //create document
-        Document doc = new Document(PageSize.A4, 35,35,35,35);
         try {
+            //load config values    
+            info = getConfig();
+            
+            //create document
+            Document doc = new Document(PageSize.A4, 35,35,35,35);
+            
             getResponse().setContentType("application/pdf");
             
             PdfWriter writer = PdfWriter.getInstance(doc,  getResponse().getOutputStream());
