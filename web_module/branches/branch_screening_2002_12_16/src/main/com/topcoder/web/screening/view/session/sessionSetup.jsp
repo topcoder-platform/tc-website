@@ -32,7 +32,7 @@ function getEmail(url,wd,ht) {
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><screen:img page="/ev/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
@@ -67,7 +67,7 @@ function getEmail(url,wd,ht) {
               <TD CLASS="bodyText" VALIGN="middle">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">Add a Candidate</A></TD>              
            </TR>
            <TR>
-              <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
+              <TD><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
            <TR>
               <TD COLSPAN="3" CLASS="bodyText" HEIGHT="15" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Begin Time</b></TD>
@@ -146,7 +146,7 @@ function getEmail(url,wd,ht) {
               </TD>
            </TR>                                             
            <TR>
-              <TD COLSPAN="3"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD COLSPAN="3"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
               <TD COLSPAN="3" CLASS="bodyText" HEIGHT="15" VALIGN="middle" BGCOLOR="#CCCCCC"><b>End Time</b></TD>
@@ -225,7 +225,7 @@ function getEmail(url,wd,ht) {
               </TD>
            </TR>                 
            <TR>
-              <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
+              <TD><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD><TD COLSPAN="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
          </TABLE>       
          
@@ -249,12 +249,12 @@ function getEmail(url,wd,ht) {
               <TD ALIGN="center"><A HREF="/eval/sess_setup_confirm.jsp" CLASS="bodyText">Save</A></TD>
            </TR>            	        	        	        
          </TABLE>                 
-</FORM>         
+</screen:form>         
 <P><BR/></P>   
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><screen:img page="/ev/clear.gif" width="10" height="1" border="0" /></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

@@ -8,50 +8,17 @@ package com.topcoder.web.screening.model;
  * should be false.
  * </p>
  *
- * @author Dan Tomalesky (grim@xynesis.com)
+ * @author Grimicus
  * @version 1.0
  */
-public class CandidateInfo implements java.io.Serializable
-{
+public class CandidateInfo extends BaseModel {
     private String emailAddress;
     private String password;
     private Long userId;
-    private boolean isNew;
 
-    public CandidateInfo()
-    {
+    public CandidateInfo() {
         emailAddress = "";
         password = "";
-        isNew = true;
-    }
-
-    /** 
-     * Set the variable isNew 
-     *
-     * @param val The value to set isNew to
-     */
-    public void setIsNew(boolean val)
-    {
-        isNew = val;
-    }
-
-    /** 
-     * Get the value of isNew
-     *
-     * @return boolean The value of isNew
-     */
-    public boolean getIsNew()
-    {
-        return isNew;
-    }
-
-    /** 
-     * Alternative method to retrieve the value of isNew
-     * @return 
-     */
-    public boolean isNew()
-    {
-        return isNew;
     }
 
     /**
@@ -59,8 +26,7 @@ public class CandidateInfo implements java.io.Serializable
      *
      * @param emailAddress
      */
-    public void setEmailAddress( String val )
-    {
+    public void setEmailAddress( String val ) {
         emailAddress = val;
     }
 
@@ -69,8 +35,7 @@ public class CandidateInfo implements java.io.Serializable
      *
      * @return 
      */
-    public String getEmailAddress()
-    {
+    public String getEmailAddress() {
         return emailAddress;
     }
 
@@ -79,8 +44,7 @@ public class CandidateInfo implements java.io.Serializable
      *
      * @param password
      */
-    public void setPassword( String val )
-    {
+    public void setPassword( String val ) {
         password = val;
     }
 
@@ -89,8 +53,7 @@ public class CandidateInfo implements java.io.Serializable
      *
      * @return 
      */
-    public String getPassword()
-    {
+    public String getPassword() {
         return password;
     }
 
@@ -99,8 +62,7 @@ public class CandidateInfo implements java.io.Serializable
      *
      * @param userId
      */
-    public void setUserId( Long val )
-    {
+    public void setUserId( Long val ) {
         userId = val;
     }
 
@@ -109,8 +71,7 @@ public class CandidateInfo implements java.io.Serializable
      *
      * @return 
      */
-    public Long getUserId()
-    {
+    public Long getUserId() {
         return userId;
     }
 

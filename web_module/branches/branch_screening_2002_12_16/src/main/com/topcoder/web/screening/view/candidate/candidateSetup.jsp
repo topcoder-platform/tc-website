@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page import="com.topcoder.web.screening.model.CandidateInfo" %>
+<%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -28,7 +28,7 @@
 <P>
             Create a new candidate or update the existing one.
 </P><BR>
-<jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
 
 <%
     String referrer = request.getParameter("referrer");

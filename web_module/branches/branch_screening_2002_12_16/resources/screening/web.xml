@@ -81,9 +81,51 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>profile_id_parameter</param-name>
+    <param-value>profileId</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_name_parameter</param-name>
+    <param-value>profileName</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>test_set_a_parameter</param-name>
+    <param-value>testSetA</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>test_set_b_parameter</param-name>
+    <param-value>testSetB</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>language_parameter</param-name>
+    <param-value>language</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>test_set_b_add_parameter</param-name>
+    <param-value>testSetBAdd</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>test_set_b_remove_parameter</param-name>
+    <param-value>testSetBRemove</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Parameters used by Candidate -->
   <init-param>
-    <param-name>candidate_info_parameter</param-name>
+    <param-name>candidate_info_attribute</param-name>
     <param-value>candidateInfo</param-value>
     <description></description>
   </init-param>
@@ -121,6 +163,103 @@
   <init-param>
     <param-name>candidate_list_query_key</param-name>
     <param-value>candidateList</param-value>
+    <description></description>
+  </init-param>
+
+  <!-- Profile constants -->
+  <init-param>
+    <param-name>profile_info_attribute</param-name>
+    <param-value>profile</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_lookup_command</param-name>
+    <param-value>profileLookup</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_problem_set_query_key</param-name>
+    <param-value>profileProblemSet</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_test_set_a_query_key</param-name>
+    <param-value>profileTestSetA</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_test_set_b_query_key</param-name>
+    <param-value>profileTestSetB</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_company_problem_query_key</param-name>
+    <param-value>profileCompanyProblem</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_language_query_key</param-name>
+    <param-value>profileLanguageList</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_info_query_key</param-name>
+    <param-value>profileInfo</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_problems_query_key</param-name>
+    <param-value>profileProblems</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_languages_query_key</param-name>
+    <param-value>profileLanguages</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>populate_profile_processor</param-name>
+    <param-value>PopulateProfileSetup</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_setup_page</param-name>
+    <param-value>/profile/profileSetup.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_confirm_page</param-name>
+    <param-value>/profile/profileConfirm.jsp</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_add_problem_processor</param-name>
+    <param-value>AddProfileProblems</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_remove_problem_processor</param-name>
+    <param-value>RemoveProfileProblem</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>profile_confirm_processor</param-name>
+    <param-value>ConfirmProfile</param-value>
     <description></description>
   </init-param>
 

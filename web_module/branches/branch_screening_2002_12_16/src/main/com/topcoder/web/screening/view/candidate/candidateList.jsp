@@ -56,7 +56,7 @@
             <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
 	        <TR>
    <% 
-    String linkUrl = "/screening?referrer=BuildCandidateList&rp=PopulateCandidate&candidateId=" + row.getItem("user_id");
+    String linkUrl = "/screening?referrer=BuildCandidateList&rp=PopulateCandidate&userId=" + row.getItem("user_id");
     %>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:link page="<%=linkUrl%>" styleClass="bodyText">Edit</screen:link></TD>
 		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="address" /></TD>		       
@@ -65,7 +65,7 @@
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;In Progress...</TD>
    <% 
-    linkUrl = "/screening?rp=NoteList&candidateId=" + row.getItem("user_id");
+    linkUrl = "/screening?rp=NoteList&userId=" + row.getItem("user_id");
     %>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:link page="<%=linkUrl%>" styleClass="bodyText">View</screen:link></TD>		       		       	        
 	        </TR>
