@@ -3749,7 +3749,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         StringBuffer query = new StringBuffer(300);
         query.append("SELECT COUNT(*) FROM affidavit WHERE user_id = " + userId);
-        query.append(" AND affidavit_type_id = " + affidavitTypeId);
+        //does it matter what type of affidavit was notarized?  i don't think so
+        //query.append(" AND affidavit_type_id = " + affidavitTypeId);
         query.append(" AND notarized = 1");
         Connection c = null;
         boolean ret = false;
