@@ -11,11 +11,11 @@ import java.util.*;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
+ *           Revision 1.1.2.9  2002/07/07 23:53:48  sord
+ *           Added functions related to creating reports for EmailJobs
  *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
+ *           Revision 1.1.2.8  2002/06/12 06:44:35  sord
+ *           Added functions required for the multiple scheduler feature.
  *
  *           Revision 1.1.2.7  2002/05/06 05:36:00  sord
  *           Implemented archive_sched_job_detail related functions.
@@ -60,6 +60,7 @@ public interface EmailServer extends EJBObject {
 
     public static final int EMAIL_JOB_TYPE_PRE = 1;
     public static final int EMAIL_JOB_TYPE_POST = 2;
+    public static final int EMAIL_JOB_TYPE_REPORT = 3;
     
  /**
   * Returns the Date according to the remote system that the bean is running on.
@@ -79,6 +80,11 @@ public interface EmailServer extends EJBObject {
   * Changes the status of a job to the requested status.
   */
     public void setJobStatus(int jobId, int status) throws RemoteException;
+
+ /**
+  * Changes the type of a job to the requested type.
+  */
+    public void setJobType(int jobId, int type) throws RemoteException;
 
  /**
   * Removes any detail records for the job that may have been added in 
@@ -111,5 +117,43 @@ public interface EmailServer extends EJBObject {
   * Moves the job's detail records from the detail table to the archive table.
   */
     public void archiveDetail(int jobId) throws RemoteException;
+    
+ /**
+  * Returns the next scheduler id from the database.
+  *
+  * @return     the id the scheduler should use.
+  */
+    public long getSchedulerId() throws RemoteException;
+    
+ /**
+  * Attempts to assign an unassigned job to a scheduler.
+  *
+  * @return  true if the assignment succeeded or false if
+  *          another scheduler already acquired the job.
+  */
+    public boolean acquireJob(int jobId, long controlId) throws RemoteException;
+    
+ /**
+  * Attempts to transfer control of an assigned job to 
+  * a new scheduler.
+  *
+  * @return  true if the assignment succeeded or false if
+  *          another scheduler already transfered the job.
+  */
+    public boolean acquireJob(int jobId, long controlId, long oldId) throws RemoteException;
+    
+ /**
+  * Returns the controlId for a job.
+  *
+  * @return     the controlId that has been assigned to a job
+  */
+    public long getJobControlId(int jobId) throws RemoteException;
+    
+ /**
+  * Clear controlIds that are before the given id.
+  * These are old control ids with completed jobs.
+  */
+    public void clearJobControlIds(long controlId) throws RemoteException;
+    
 }
 

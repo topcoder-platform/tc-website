@@ -13,11 +13,8 @@ import java.util.*;
  * @version  $Revision$
  * @internal Log of Changes:
  *           $Log$
- *           Revision 1.1.2.1  2002/07/09 14:39:25  gpaul
- *           no message
- *
- *           Revision 1.1  2002/05/21 15:45:15  steveb
- *           SB
+ *           Revision 1.2.2.15  2002/07/07 23:53:48  sord
+ *           Added functions related to creating reports for EmailJobs
  *
  *           Revision 1.2.2.14  2002/05/08 02:50:37  sord
  *           Added getJobDetailResults(job, first, last) function.
@@ -82,7 +79,25 @@ public interface EmailJob extends EJBObject {
   *
   * @return     the job id for the newly created email job.
   */
-    public int createEmailJob(    int templateId, 
+    public int createEmailJob(  int templateId, 
+                                int listId, 
+                                int commandId, 
+                                Date startAfter, 
+                                Date stopBefore, 
+                                String fromAddress,
+                                String fromPersonal,
+                                String subject ) throws RemoteException;
+
+ /**
+  * Creates a new email report job with the requested template, list, command, timeframe, and sender information.
+  * An email report will wait until the sourceJobId is done running before running itself.
+  * Be sure to allow some time after the source job expires for the report to run.
+  *
+  * @return     the job id for the newly created email job.
+  */
+    public int createEmailReportJob(  
+                                int sourceJobId,
+                                int templateId, 
                                 int listId, 
                                 int commandId, 
                                 Date startAfter, 

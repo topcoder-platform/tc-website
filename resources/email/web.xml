@@ -265,9 +265,17 @@
 
   <init-param>
     <param-name>email_ejb_package</param-name>
-    <param-value>com.topcoder.shared.ejb.EmailServices</param-value>
+    <param-value>com.topcoder.server.ejb.EmailServices</param-value>
     <description>
       Package of e-mail ejb's
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>authentication_services_ejb_package</param-name>
+    <param-value>com.topcoder.ejb</param-value>
+    <description>
+      Package of authentication services ejb
     </description>
   </init-param>
 
@@ -314,6 +322,14 @@
   <init-param>
     <param-name>scheduled_job_ejb</param-name>
     <param-value>EmailJob</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>authentication_services_ejb</param-name>
+    <param-value>AuthenticationServicesHome</param-value>
     <description>
 
     </description>
@@ -397,6 +413,14 @@
 
 
   <init-param>
+    <param-name>login_task</param-name>
+    <param-value>LoginTask</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
     <param-name>home_task</param-name>
     <param-value>Home</param-value>
     <description>
@@ -430,6 +454,14 @@
   </init-param>
 
 
+
+  <init-param>
+    <param-name>login_page</param-name>
+    <param-value>login.jsp</param-value>
+    <description>
+      Login page
+    </description>
+  </init-param>
 
   <init-param>
     <param-name>home_page</param-name>
@@ -564,6 +596,14 @@
   <init-param>
     <param-name>scheduled_job_choose_template_add_page</param-name>
     <param-value>scheduledjobs/choose-template-add.jsp</param-value>
+    <description>
+
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>scheduled_job_choose_report_template_page</param-name>
+    <param-value>scheduledjobs/choose-report-template.jsp</param-value>
     <description>
 
     </description>
