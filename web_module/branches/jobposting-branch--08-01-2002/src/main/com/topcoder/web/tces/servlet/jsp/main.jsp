@@ -66,7 +66,7 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>Status</b></TD>
                 </TR>
 
-                <tces:mapIterator id="campaignInfo" mapList="<%=(List) request.getAttribute(CampaignInfo)%>">
+                <tces:mapIterator id="campaignInfo" MapList="<%=(List) request.getAttribute(CampaignInfo)%>">
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
                     <%= (String)campaignInfo.get("campaign_name") %>

@@ -99,10 +99,10 @@ public class MainTask extends BaseTask implements Task, Serializable {
             HashMap campaignInfo = new HashMap();
             rRow = rsc.getRow(rowI);
             campaignInfo.put("campaign_name", TCData.getTCString(rRow, "campaign_name") );
-            campaignInfo.put("start_date", TCData.getTCString(rRow, "start_date") );
-            campaignInfo.put("end_date", TCData.getTCString(rRow, "end_date") );
+            campaignInfo.put("start_date", TCData.getTCDate(rRow, "start_date") );
+            campaignInfo.put("end_date", TCData.getTCDate(rRow, "end_date") );
             campaignInfo.put("status_desc", TCData.getTCString(rRow, "status_desc") );
-            campaignInfo.put("campaign_id", TCData.getTCString(rRow, "campaign_id") );
+            campaignInfo.put("campaign_id", Long.toString(TCData.getTCLong(rRow, "campaign_id")) );
 
             campaignInfoList.add(campaignInfo);
         }

@@ -5,7 +5,7 @@
 <taglib>
   <tlibversion>1.0</tlibversion>
   <jspversion>1.1</jspversion>
-  <shortname>TopCoder E-Mail Tags</shortname>
+  <shortname>TopCoder TCES Tags</shortname>
   <info>
   </info>
 
@@ -28,10 +28,6 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
   </tag>
-
-  </tag>
-
-
 
 
 </taglib>  

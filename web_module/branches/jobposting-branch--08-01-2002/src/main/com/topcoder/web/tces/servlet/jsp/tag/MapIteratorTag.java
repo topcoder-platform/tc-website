@@ -17,10 +17,10 @@ public class MapIteratorTag
         extends IteratorTag {
     private static Logger log = Logger.getLogger(MapIteratorTag.class);
 
-    List CampaignInfoList;
+    List MapList;
 
-    public void setCampaignInfoList(List CampaignInfoList) {
-        this.CampaignInfoList = CampaignInfoList;
+    public void setMapList(List MapList) {
+        this.MapList = MapList;
     }
 
     public int doStartTag()
