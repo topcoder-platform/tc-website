@@ -100,12 +100,6 @@
                     <td class="bodyText"></td>
                 </tr>
 
-                <tr valign="top">
-                    <td class="bodyText">Total Submissions for this Project:</td>
-                    <td class="bodyText" align="right"><strong>1</strong></td>
-                    <td class="bodyText"></td>
-                </tr>
-
                <tr valign="top">
                     <td class="bodyText">Review Board Score for this Project:</td>
                     <td class="bodyText" align="right"><strong>86.7</strong></td>
@@ -135,11 +129,15 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="27%">Project Name</td>
+<!--
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Total<br/>Submissions</td>
+-->
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="5%" align="right">Place</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%">Winner(s)</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Board&#160;Score</td>
+
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="right">Total&#160;&#160;<br/>Earnings*</td>
+
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/component_winners/winner">
@@ -153,7 +151,6 @@
                                   </xsl:attribute><xsl:value-of select="./component_name"/>
                               </a>
                           </td>
-                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd">
                             <a>
@@ -185,7 +182,9 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="27%">Project Name</td>
+<!--
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Total<br/>Submissions</td>
+-->
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="5%" align="right">Place</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%">Winner(s)</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="center">Board&#160;Score</td>
@@ -203,7 +202,6 @@
                                   </xsl:attribute><xsl:value-of select="./component_name"/>
                               </a>
                           </td>
-                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
                          <td class="formHandleOdd">
                             <a>
