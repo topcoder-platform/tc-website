@@ -71,7 +71,7 @@ function goTo(selection){
 	    	href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.AFFIDAVIT_TASK, 
-	            PactsConstants.AFFIDAVIT_HISTORY_CMD, str);
+	            PactsConstants.AFFIDAVIT_HISTORY_CMD, str, "statText");
 		out.print(href);
 	}
 	out.print("</p>");
@@ -109,7 +109,7 @@ function goTo(selection){
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.AFFIDAVIT_TASK, 
-	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str);
+	            PactsConstants.AFFIDAVIT_DETAILS_CMD, str, "statText");
 	    tableData.setElement(i,1,href);
 	    
 	    // payment
