@@ -73,13 +73,13 @@ public class Confirm  extends ContractingBase {
 
                         ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
-                        rsp.setVal(info.getPreference(String.valueOf(id)));
+                        rsp.setVal(answer);
 
                         g.addResponse(rsp);
                     } else if(type == Constants.PREFERENCE_TEXT_ANSWER && info.getPreference(String.valueOf(id)) != null) {
                         ContractingResponse rsp = new ContractingResponse();
                         rsp.setName(text);
-                        rsp.setVal(answer);
+                        rsp.setVal(info.getPreference(String.valueOf(id)));
 
                         g.addResponse(rsp);
                     }
