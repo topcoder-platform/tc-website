@@ -70,12 +70,12 @@ public abstract class Base implements RequestProcessor {
             hsa = new HSAuthorization(user);
         }
 
+        log.info("[**** "+user.getUserName()+" **** "+request.getAttribute("loginfo"));
+
         info = new SessionInfoBean();
         request.setAttribute("SessionInfo", info);
         Set groups = ((HSAuthorization)hsa).getGroups();
         info.setAll(user, groups);
-
-        log.info("[**** "+info.getUserName()+" **** "+request.getAttribute("loginfo"));
 
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
             throw new PermissionException("access to processor denied", user);
