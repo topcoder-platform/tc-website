@@ -192,21 +192,19 @@
                     <td valign="top" width="8"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText"><br />
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_022003</xsl:attribute>
-                        <strong>Component-Based Development: Why Hasn't the Vision Met Reality?</strong></a><br />
-                        Wednesday, February 20, 2003<br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_031703</xsl:attribute>
+                        <strong>Component-Based Development: TopCoder Style</strong></a><br />
+                        Monday, March 17, 2003<br />
 
-                        <p>By&#160;David Tanacea<br /><i>President of TopCoder Software</i></p>
-
-                        <p>For years now, we in the software development industry have been extolling the virtues of component-based development (CBD). The
-                        benefits of object-oriented design and component-based development seem obvious: </p>
-
-                        <ul>
-                            <li>Reusing software saves money in the development phase of software projects, i.e., the more components you reuse, the less software
-                            you have to build. </li>
-                            <li>The more applications in which you use a given component, the more valuable that component becomes.</li>
-                            <li>Reusable components enable application developers to customize applications... <a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_022003</xsl:attribute>full&#160;story</a></li>
-                        </ul>
+                        <p>By&#160;srowen<br /><i>TopCoder Member</i></p>
+                        
+                        <p>There is programming, and there is software development. You, dear TopCoder member, demonstrate weekly that you 
+                        can solve well-stated programming puzzles quickly.</p>
+						<p>Yet solutions to real-world problems require more: deciding *what* puzzles must be solved, describing them thoroughly, 
+						developing solutions that are open to change, and verifying those solutions: design, documentation and testing. 
+						Together with the actual programming, these make up the software development process...
+						<a class="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_022003</xsl:attribute>full&#160;story</a>
+                    	</p>
                     </td>
                 </tr>
             </table>
