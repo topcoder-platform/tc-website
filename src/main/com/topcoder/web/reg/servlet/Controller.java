@@ -140,20 +140,15 @@ public class Controller
     void forward(HttpServletRequest request, HttpServletResponse response, String url)
             throws ServletException {
         log.debug("forwarding to " + url);
-/*
         response.setHeader("Cache-Control", "no-store");
         response.setHeader("Pragma", "no-cache");
         response.setDateHeader("Expires", 0);
-*/
         try {
-            getServletContext().getRequestDispatcher(response.encodeURL(url)).forward(request, response);
-/*
             if (url != null) {
                 response.sendRedirect(response.encodeURL(url));
             } else {
                 response.sendRedirect(response.encodeURL(CONTROLLER_ERROR_URL));
             }
-*/
         } catch (IOException e) {
             log.error(e.getMessage());
             throw new ServletException(e);
