@@ -34,7 +34,7 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
-			<h2>Documenation</h2>
+			<h2>Documentation</h2>
 
             <table border="0" cellspacing="0" width="100%" class="formFrame">
                 <tr>
@@ -68,14 +68,20 @@
 					</td>
 					<td class="projectCells" valign="top" align="center">
 					06.30.2004<br/>
-					06.30.2004<br/>
-					08.02.2004
+					06.30.2004
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
 					<A href="/tc?module=Static&d1=dev&d2=desScreeningSample">Sample Design Screening Scorecard</A><br/>
 					<A href="/tc?module=Static&d1=dev&d2=desReviewSample">Sample Design Review Scorecard</A><br/>
-					<A href="">Javier's thing</A>
 					</td>
+				</tr>
+                <tr>
+					<td class="projectCells" valign="top">
+					<strong>Javier's thing</strong><br/>
+					This is Javier's thing
+					</td>
+					<td class="projectCells" valign="top" align="center">08.02.2004</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="">Javier's thing</A></td>
 				</tr>
 			</table>
 			
@@ -105,14 +111,20 @@
 					</td>
 					<td class="projectCells" valign="top" align="center">
 					11.10.2003<br/>
-					11.10.2003<br/>
-					08.02.2004
+					07.27.2004
 					</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
 					<A href="/i/development/downloads/Sample_Development_Screening_Scorecard.pdf">Sample Development Screening Scorecard.pdf</A><br/>
-					<A href="/tc?module=Static&d1=dev&d2=devReviewSample">Sample Development Review Scorecard</A><br/>
-					<A href="">Javier's thing</A>
+					<A href="/tc?module=Static&d1=dev&d2=devScoreSheet">Development Review Scoring</A><br/>
 					</td>
+				</tr>
+                <tr>
+					<td class="projectCells" valign="top">
+					<strong>Javier's thing</strong><br/>
+					This is Javier's thing
+					</td>
+					<td class="projectCells" valign="top" align="center">08.02.2004</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="">Javier's thing</A></td>
 				</tr>
                 <tr>
 					<td class="projectCells" valign="top">
