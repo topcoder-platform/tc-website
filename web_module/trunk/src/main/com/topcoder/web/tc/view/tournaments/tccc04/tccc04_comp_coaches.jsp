@@ -45,36 +45,37 @@
 
             <h2>Collegiate Challenge Coaches</h2>
 
-<p>TopCoder is introducing coaches for the TopCoder Collegiate Challenge Component 
-Design Competition.  Coaches will provide competitors with technical guidance and 
+<p>TopCoder is introducing coaches to the 2004 TopCoder Collegiate Challenge Component 
+Design Competition.  Coaches will provide design competitors with technical guidance and 
 support during the contest.  The details below explain the coaching position in more 
-detail.  If you are interested in becoming a coach please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a>
+detail.  If you are interested in becoming a coach, please send an email to <a href="mailto:service@topcoder.com">service@topcoder.com</a>
 with "Coach" in the subject line.
 
 <p><span class="bodySubtitle">Eligibility</span><br/>
 <ul>
 <li>Must be a rated TopCoder or TopCoder Software member</li>
 <li>Must be available to provide design guidance or technical explanations to the competitors for the duration of the Design Contest</li>
-<li>Members of the Component Architect Review Board are NOT eligible to participate as coaches.</li>
+<li>Members of the Component Architect Review Board are NOT eligible to participate as coaches</li>
 </ul>
 
 <p><span class="bodySubtitle">Selection</span><br/>
 <ul>
-<li>Each coach will provide the number of competitors they can coach.</li>
-<li>The list of coaches, the number of available positions, and the number of filled positions will be listed on the topcoder website.</li>
+<li>Each coach will provide the number of competitors he/she can coach.</li>
+<li>The list of coaches, the number of available positions, and the number of filled positions will be listed on the TopCoder website.</li>
 <li>Coaches with available positions will be listed with a "Request Coach" link.  Members can select this link to request the coach.</li>
-<li>Positions will be filled on a first come, first serve basis.</li>
+<li>Positions with a coach will be filled on a first come, first serve basis.</li>
 <li>Once a coach and competitor agree to the coaching agreement, the agreement is effective for the remainder of the competition.</li>
 <li>Members cannot "fire" coaches.</li>
 </ul>
 
 <p><span class="bodySubtitle">Compensation</span><br/>
 <ul>
-<li>Coaches will receive 10% of the competitor's winnings for all submissions made during the Component Competition and submitted after the coaching agreement was signed.  This includes both component earnings and Contest prizes.</li>
+<li>Coaches will receive 10% of the competitor's winnings for all submissions made during the Component Competition and submitted after the coaching agreement was signed.  This includes both component earnings and contest prizes.</li>
 <li>Future royalties received by the winning competitor are not subject to the coach's percentage.</li>
 </ul>
 
-<p><span class="bodySubtitle">Responsibilities</span><br/>
+<p><span class="bodySubtitle">Coaching Responsibilities</span><br/>
+NOTE: Coaches will be available or permitted to provide assistance to any competitor during any portion of Round #3 - Championship Round.
 <ul>
 <li>Expected behavior:</li>
 <ul>

@@ -47,8 +47,6 @@
 
             <p>Both the design and development competitions will have two (2) online rounds and one (1) onsite Championship round.</p>
             
-            <p>The specific structure of the online rounds is as follows:</p>
-
             <p>Each contestant in an online round must submit his/her design and/or development submissions for components as scheduled (see below).  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition.</p>
             
             <a name="sched"></a>
