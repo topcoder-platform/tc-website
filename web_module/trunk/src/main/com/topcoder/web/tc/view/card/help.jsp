@@ -81,7 +81,7 @@ document.write(' <param name="menu" value="false" />');
 document.write(' <param name="quality" value="high" />');
 document.write(' <param name="bgcolor" value="#ffffff" />');
 document.write(' <embed ');
-document.write(' src="/i/card/tc_card_help.swf" />" ');
+document.write(' src="/i/card/tc_card_help.swf" ');
 document.write(' menu="false" ');
 document.write(' quality="high" ');
 document.write(' bgcolor="#ffffff" ');
