@@ -5,8 +5,8 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
-import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.screening.model.ProfileInfo;
 
@@ -21,6 +21,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
     private Request profileTestSetA;
     private Request profileCompanyProblem;
     private Request profileLanguage;
+    private static Logger log = Logger.getLogger(PopulateProfileSetup.class);
 
     public PopulateProfileSetup() {
         profileProblemSet = new Request();
@@ -56,47 +57,47 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
             request.setAttribute(Constants.PROFILE_INFO, info);
         }
 
-        Map map = null;
-        if (!info.isNew()) {
-            //get Problem Set
-            profileProblemSet.setProperty("uid", String.valueOf(user.getId()));
-            map = getDataAccess(true).getData(profileProblemSet);
-            if(map != null) {
-                info.setProblemSetList((ResultSetContainer)
-                    map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
-            }
+        //get Problem Set
+        profileProblemSet.setProperty("uid", String.valueOf(user.getId()));
+        Map map = getDataAccess(true).getData(profileProblemSet);
+        if(map != null) {
+            log.debug("the result map was not null");
+            info.setProblemSetList((ResultSetContainer)
+                map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
+        } else {
+            log.debug("there are no problems associated with this user's(" + user.getId() + ") company");
+        }
 
-            if(info.getTestSetA() == null) {
-                ResultSetContainer rsc = info.getProblemSetList();
-                if(rsc != null && rsc.size() > 0) {
+        if(info.getTestSetA() == null) {
+            ResultSetContainer rsc = info.getProblemSetList();
+            if(rsc != null && rsc.size() > 0) {
+                ResultSetContainer.ResultSetRow row =
+                 (ResultSetContainer.ResultSetRow)rsc.get(0);
+                info.setTestSetA(row.getItem("round_id").toString());
+            }
+        }
+        profileTestSetA.setProperty("rid", info.getTestSetA().toString());
+        profileTestSetA.setProperty("uid", String.valueOf(user.getId()));
+
+        map = dAccess.getData(profileTestSetA);
+
+        if(map != null) {
+            ResultSetContainer rsc = (ResultSetContainer)
+                map.get(Constants.PROFILE_TEST_SET_A_QUERY_KEY);
+            ArrayList list = new ArrayList();
+            if(rsc.size() > 0) {
+                for(Iterator i = rsc.iterator(); i.hasNext();) {
                     ResultSetContainer.ResultSetRow row =
-                     (ResultSetContainer.ResultSetRow)rsc.get(0);
-                    info.setTestSetA(row.getItem("round_id").toString());
+                        (ResultSetContainer.ResultSetRow)i.next();
+                    long roundId = Long.parseLong(
+                            row.getItem("round_id").toString());
+                    long problemId = Long.parseLong(
+                            row.getItem("problem_id").toString());
+                    list.add(
+                      ProblemInfo.createProblemInfo(user, roundId, problemId));
                 }
             }
-            profileTestSetA.setProperty("rid", info.getTestSetA().toString());
-            profileTestSetA.setProperty("uid", String.valueOf(user.getId()));
-
-            map = dAccess.getData(profileTestSetA);
-
-            if(map != null) {
-                ResultSetContainer rsc = (ResultSetContainer)
-                    map.get(Constants.PROFILE_TEST_SET_A_QUERY_KEY);
-                ArrayList list = new ArrayList();
-                if(rsc.size() > 0) {
-                    for(Iterator i = rsc.iterator(); i.hasNext();) {
-                        ResultSetContainer.ResultSetRow row =
-                            (ResultSetContainer.ResultSetRow)i.next();
-                        long roundId = Long.parseLong(
-                                row.getItem("round_id").toString());
-                        long problemId = Long.parseLong(
-                                row.getItem("problem_id").toString());
-                        list.add(
-                          ProblemInfo.createProblemInfo(user, roundId, problemId));
-                    }
-                }
-                info.setTestSetAList(list);
-            }
+            info.setTestSetAList(list);
         }
 
         String[] testSetBArr = info.getTestSetB();
