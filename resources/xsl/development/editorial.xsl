@@ -125,12 +125,12 @@ Technologies
                                     <b>Payment</b>
                                     <BR/>
                                     <BR/>
-                                    Architect will get paid a total of $2,333.33:
+                                    Architect will get paid a total of $2,275.33:
                                     <ul>
-                                        <li>$233.33 at the start of the project.</li>
-                                        <li>$466.67 at the first milestone.</li>
-                                        <li>$700.00 at the second milestone. </li>
-                                        <li>$933.33 at the completion of the project.*</li>
+                                        <li>$227.00 at the start of the project.</li>
+                                        <li>$455.00 at the first milestone.</li>
+                                        <li>$682.00 at the second milestone. </li>
+                                        <li>$910.00 at the completion of the project.*</li>
                                     </ul>
                                     There will be a total of two developers.<br/>
                                     Each developer will get paid a total of $3,000.00:

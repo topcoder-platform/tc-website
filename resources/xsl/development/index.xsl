@@ -67,6 +67,14 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
+Project: <A HREF="/index?t=development&amp;c=editorial" CLASS="statTextBig">Website Editorial</A><BR/>
+Start Date: May 28, 2002<BR/>
+End Date: Jul 9, 2002<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: May 27, 2002 12:00 PM<BR/>
+</P>
+
+<P>
 Project: <A HREF="/index?t=development&amp;c=dde1" CLASS="statTextBig">Design of the TopCoder Distributed Development Environment</A><BR/>
 Start Date: May 21, 2002<BR/>
 End Date: Jun 11, 2002<BR/>
