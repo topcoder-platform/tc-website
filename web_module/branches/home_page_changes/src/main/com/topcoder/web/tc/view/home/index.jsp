@@ -70,6 +70,15 @@
 				<td class=homeArrow>&#160;</td>
 				<td class=homeText>Just <A href="/tc?module=Static&d1=contracting&d2=index">register here</A> and TopCoder will contact you about temporary and permanent positions that fit your skills.</td>
 			</tr>
+
+			<tr>
+				<td class=homeArrow><img src="/i/home/triangle.gif" border=0 /></td>
+				<td class=homeTitle><A href="/tc?module=Static&d1=about&d2=jobs" class=homeTitleLink>Work for TopCoder</A></td>
+			</tr>
+			<tr>
+				<td class=homeArrow>&#160;</td>
+				<td class=homeText>Take a look at the <A href="/tc?module=Static&d1=about&d2=jobs">job openings</A> at TopCoder and see if there's a position that is right for you.</td>
+			</tr>
 		</table>
 		</td>
 <%-- Center Column --%>
