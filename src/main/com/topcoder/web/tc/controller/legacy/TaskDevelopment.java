@@ -77,7 +77,6 @@ public final class TaskDevelopment {
             log.debug("Initial command is: " + command);
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String date = Conversion.checkNull(request.getParameter("date"));
-            int phase = Integer.parseInt(request.getParameter("phase"));
             int version = Integer.parseInt(request.getParameter("version"));
             long projectId = Long.parseLong(request.getParameter("projectId"));
             long componentId = 0;
@@ -97,7 +96,6 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("version", version));
             devTag.addTag(new ValueTag("tccc", request.getParameter("tccc")));
             devTag.addTag(new ValueTag("tco", request.getParameter("tco")));
-            devTag.addTag(new ValueTag("phase", phase));
             devTag.addTag(new ValueTag("posting_date", request.getParameter("posting_date")));
             devTag.addTag(new ValueTag("initial_submission", request.getParameter("initial_submission")));
             devTag.addTag(new ValueTag("final_submission", request.getParameter("final_submission")));
@@ -263,6 +261,11 @@ public final class TaskDevelopment {
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
                 devTag.addTag(rsc.getTag("projects", "project"));
+
+                int phase = Integer.parseInt(request.getParameter("phase"));
+                devTag.addTag(new ValueTag("phase", phase));
+
+
 
                 if (nav.isLoggedIn()) {
 
