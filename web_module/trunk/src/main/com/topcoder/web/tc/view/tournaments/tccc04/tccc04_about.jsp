@@ -61,14 +61,17 @@
             <p><span class="bodySubtitle">The details:</span><br/>
 
             <ul>
+                <li><strong>$100,000 prize purse</strong><br />
                 <li><strong>Elimination Starts</strong><br />
                     January 27, 2004 - Component<br />
                     February 23, 2004 - Algorithm<br /></li>
                 <li><strong>Onsite Finals</strong><br />
-                    April 15 & 16, 2004 in at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
+                    April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
                 <li><strong>Free Competition</strong></li>
-                <li><strong>Open to all college students</strong></li>
+                <li><strong>Open to all eligible college students</strong></li>
             </ul>
+            
+            <p>See the official rules and regulations for more details.</p>
 
          <p><br/></p>
          </td>

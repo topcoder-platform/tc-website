@@ -48,13 +48,19 @@
             <p>
             The 2004 TopCoder Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists will be invited to compete live at the onsite finals in Boston.</p>
             <ul>
-                <li><strong>Elimination Starts</strong><br />
-                    February 23, 2004<br /></li>
+                <li><strong>Registration</strong><br />
+                    Monday, February 1 at 9:00 AM - Monday, February 23 at 9:00 AM</li>
+                <li><strong>Open Qualification Round</strong><br />
+                    Monday, February 23 at 12:00 PM (noon) - Tuesday, February 24 at 12:00 PM (noon)</li>
+                <li><strong>Elimination Rounds Start</strong><br/>
+                     February 28th, 2004</li>
                 <li><strong>Onsite Finals</strong><br />
-                    April 15 & 16, 2004 in at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
+                    April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
                 <li><strong>Free Competition</strong></li>
-                <li><strong>Open to all college students</strong></li>
+                <li><strong>Open to all eligible college students</strong></li>
             </ul>
+            
+            <p>See the official rules and regulations for more details.</p>
 
          <p><br/></p>
          </td>
