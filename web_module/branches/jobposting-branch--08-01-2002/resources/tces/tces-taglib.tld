@@ -29,5 +29,25 @@
     </attribute>
   </tag>
 
+  <tag>
+    <name>rowIterator</name>
+    <tagclass>com.topcoder.web.tces.servlet.jsp.tag.RowIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.tces.servlet.jsp.tag.RowIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a List of ResultSetRows
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>rowList</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
 
 </taglib>  
