@@ -59,8 +59,8 @@ document.sessionConfirmForm.submit();
 
                 <tr>
                     <td class="testTableSubtitleOdd">Candidate:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
-                        <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
+                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
+                        <% if(testSessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
                         <input type="HIDDEN" name="cid" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" >
                     <td class="testTableOdd"><screen:resultSetItem row="<%=row%>" name="handle" /></td>
                         <% } %>
@@ -70,8 +70,8 @@ document.sessionConfirmForm.submit();
                 
                 <tr>
                     <td class="testTableSubtitleEven">Profile:</td>
-                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
-                        <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
+                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getProfileList()%>">
+                        <% if(testSessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
                         <input type="HIDDEN" name="profileId" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" >
                     <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td>
                         <% } %>
@@ -85,7 +85,7 @@ document.sessionConfirmForm.submit();
                         <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="testSessionInfo" property="beginDay" />" >
                         <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="testSessionInfo" property="beginYear" />" >
                         <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="testSessionInfo" property="beginHour" />" >
-                    <td class="testTableOdd"><screen:beanWrite name="sessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
+                    <td class="testTableOdd"><screen:beanWrite name="testSessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
            
