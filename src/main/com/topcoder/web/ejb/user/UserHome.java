@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.user;
 
-import java.ejb.CreateException;
+import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 
 /**
