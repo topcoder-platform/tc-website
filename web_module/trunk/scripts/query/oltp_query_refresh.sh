@@ -351,6 +351,7 @@ java com.topcoder.utilities.QueryLoader "OLTP" 71 "Profile_Detail" 0 0 "
  SELECT u.user_id
  ,r.rating
  ,r.num_ratings
+ ,r.last_rated_event
  ,c.member_since
  ,c.first_name
  ,c.middle_name
@@ -375,7 +376,7 @@ java com.topcoder.utilities.QueryLoader "OLTP" 71 "Profile_Detail" 0 0 "
        WHEN cref.referral_id = 40 THEN (SELECT handle
                                           FROM user
                                          WHERE user_id = cref.reference_id)
-       ELSE '' END
+       ELSE '' END as referral_type
  ,us.user_status_desc
  FROM user u
  JOIN coder c ON u.user_id = c.coder_id
