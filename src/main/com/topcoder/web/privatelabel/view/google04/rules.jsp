@@ -76,10 +76,10 @@
 			</span>
 			<br/><br/>
 
-<span class=bigRed>No purchase necessary to enter or win.  The tournament is void where prohibited</span>
+<span class=bigRed>No purchase necessary to enter or win.  The tournament is void where prohibited.</span>
 <br/><br/>
 <span class=greenSubtitle>Summary of the Tournament</span><br/>
-The Google&#153; Code Jam 2004 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2004 to identify possible employees for their company.  The Code Jam 2004 will take place between Wednesday, September 1 and Friday, October 15, 2004.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a Google Code Jam 2004, Powered by TopCoder t-shirt.  In addition, Google will award $30,000 in cash prizes to the 50 finalists in the tournament.
+The Google&#153; Code Jam 2004 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2004 to identify possible employees for their company.  The Code Jam 2004 will take place between Wednesday, September 1 and Friday, October 15, 2004.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of one (1) day of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt.  In addition, Google will award $30,000 in cash prizes to the 50 finalists in the tournament.
 <br/><br/>
 <b>Eligibility</b><br/>
 All individuals who are 18 years of age or older by September 1, 2004 may register and compete in the Google Code Jam 2004.  
@@ -105,7 +105,6 @@ The Qualification Round will consist of two phases: the Coding Phase and System 
 <li>The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</li>
 </ul>
 
-<br/><br/>
 The Qualification Round will contain ten (10) virtual rooms and five (5) problem sets.  The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2004. 
 <br/><br/>
 
@@ -142,16 +141,16 @@ The Rounds will be held on the following dates:
 <br/><br/>
 
 <span class=greenSubtitle>About the Tournament</span><br/>
-Use of Plugins in the Competition Arena
+<b>Use of Plugins in the Competition Arena</b><br/>
 The use of external TopCoder Arena plugins or any modifications to the TopCoder Arena functionality is strictly prohibited.
 <br/><br/>
 <b>Online Elimination Rounds</b><br/>
-Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as Eastern Time, so contestants in other time zones must adjust accordingly.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
+Everyone who competes in Round 1 must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round.  All start times will be communicated as Eastern Time, so contestants in other time zones must adjust accordingly.  If a coder does not participate, for any reason, in an online round he/she has advanced to, it will be treated as an automatic loss in that round of competition. 
 <br/><br/>
-All competitors who have been invited to compete will be randomly assigned to specific rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of each online round. 
+All competitors who have been invited to compete will be randomly assigned to specific virtual rooms, with up to 10 people in each room.  TopCoder will determine all room assignments prior to the start of each online round. 
 <br/><br/>
 <b>Scoring and Advancing</b><br/>
-After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
+After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement in all rounds is determined by comparing the total point values from all phases of the round (see "Competition Round Structure") for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
 <br/><br/>
 <div class=indented>
 <b>Round 1 (online)</b>
@@ -164,10 +163,10 @@ After each round of competition, the top scorers will be identified and will adv
 <li>Up to 250 coders will compete and up to 50 will advance.  The 50 highest scoring competitors will advance to the Championship Round.  Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.</li>
 </ul>
 
-<b>NOTE:</b>  In the event of a tie for any advancing position, the tie will be resolved in the following manner:
+<b>NOTE:</b> In the event of a tie for any advancing position, the tie will be resolved in the following manner:
 <ul>
-<li>Total points acquired (higher is better) during the previous rounds of the tournament, excluding the Qualification Round </li>
-<li>If a tie still remains, all tied coders will advance to the next round</li>
+<li>Total points acquired (higher is better) during the previous rounds of the tournament, excluding the Qualification Round.</li>
+<li>If a tie still remains, all tied coders will advance to the next round.</li>
 </ul>
 </div>
 
@@ -189,12 +188,12 @@ TopCoder will determine the room assignments for the Championship Round prior to
 <br/><br/>
 The Championship Round will be a single round of 50 coders. The first, second, third and fourth place finishers in the Championship Round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Championship Round, the tie will be resolved in the following manner (in order):
 <ul>
-<li>Total points acquired (higher is better) during online Rounds 1 and 2</li>
-<li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied coders</li>
+<li>Total points acquired (higher is better) during online Rounds 1 and 2.</li>
+<li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied coders.</li>
 </ul>
 
 <span class=greenSubtitle>About the Prizes</span><br/>
-All participants who compete in Round 1 will receive a Google Code Jam 2004, Powered by TopCoder t-shirt.  In addition, the 50 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
+All participants who compete in Round 1 will receive a "Google Code Jam 2004, Powered by TopCoder" t-shirt.  In addition, the 50 finalists in the Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
 <br/><br/>
 <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
 <tr valign="top">
@@ -230,11 +229,11 @@ finisher* in the Championship Round</td>
 </tr>
 <tr valign="top">
 <td class="sidebarText" nowrap>Up to 500 competitors who compete in Round 1 </td>
-<td class="sidebarText" nowrap align=right>Google Code Jam 2004, Powered by TopCoder t-shirt
+<td class="sidebarText" nowrap align=right>"Google Code Jam 2004, Powered by TopCoder" t-shirt
 </td>
 </tr>
 <tr valign="top">
-<td class="sidebarText" colspan="2">* Prize will be awarded at the conclusion of the Championship Round.  Winner must be present at the onsite round to receive prize.</td>
+<td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
 </tr>
 </table>
 
@@ -251,7 +250,7 @@ Prizewinners will be announced upon completion of the Championship Round.  Any p
 <li>Affidavit of Eligibility and Liability and Publicity Release </li>
 <li>Applicable tax form</li>
 </ul>
-Prizes will be presented onsite upon receipt of the documents identified above.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
+Cash prizes will be sent to winners upon receipt of the documents identified above.  All t-shirts will be sent after the conclusion of the Championship Round to competitors using the address given during registration, and may take 4-6 weeks to arrive.  Unclaimed or undeliverable prizes will not be awarded.
 <br/><br/>
 As a condition of participation in the tournament, all information provided by you upon registration must be comprehensive, accurate and up-to-date. Google and/or TopCoder may require you to complete an additional registration form to register for the tournament. In order to be eligible to participate in the tournament, you must have completed any and all registration forms required by Google and TopCoder.
 <br/><br/>
@@ -270,8 +269,6 @@ The tournament is void in whole or in part where prohibited by law.
 <br/><br/>
 This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033 and Google Inc. (http://www.google.com) 1600 Amphitheatre Parkway, Mountain View, CA 94043.
 
-			<br/><br/>
-			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
 		</td>
 		<td width="49%">&#160;</td>
