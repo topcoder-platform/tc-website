@@ -61,7 +61,7 @@ public class UserList extends BaseProcessor {
         }
         long companyId = new 
             com.topcoder.web.ejb.user.ContactBean().getCompanyId(userId);
-        log.debug("UserList getting users for companyId: "+companyId);
+        log.debug("--- UserList getting users for companyId: "+companyId);
         Request dataRequest = new Request();
         dataRequest.setContentHandle("corp_company_user_listing");
         
