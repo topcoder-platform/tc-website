@@ -126,15 +126,23 @@ public final class JavaDocServlet extends HttpServlet {
             //the user is logged in, get the file specified by path
             log.info("Showing page.");
 
+            String requestPath = path;
             //fill in the path if there isn't one 
             if(path == null || path.length() == 0) {
-                path = "index.html";
+                requestPath = "index.html";
             }
+            //take off the #page link for the request
+            if(path != null && path.indexOf("#") != -1) {
+                requestPath = path.substring(0, path.indexOf("#"));
+            }
+ 
+ 
+
 
             String file = null;
 
             try {
-                file = services.getFile(webServiceName, path);
+                file = services.getFile(webServiceName, requestPath);
             } catch(Exception e) {
                 log.error("Error getting " + path + " for " + webServiceName);
                 forwardToErrorPage(request, response, e, "Error using JavaDocServices to get file.");
