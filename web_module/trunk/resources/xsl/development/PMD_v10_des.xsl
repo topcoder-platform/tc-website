@@ -148,15 +148,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$1,770.00</td>
+                                                            <td class="bodyText" align="right">$2,106.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$1,062.00</td>
+                                                            <td class="bodyText" align="right">$1,263.60</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$708.00</td>
+                                                            <td class="bodyText" align="right">$842.40</td>
                                                         </tr>
                                                     </table>
 
