@@ -70,16 +70,16 @@ public class AutoPilotTimer
             logger.debug("AUTO PILOT TIMER FIRED");
             
             try {
-            //setup user
-            TCSubject user = new TCSubject(100129);
-            
-            //get projects that are in submission phase and have submission end time > current
-            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
-            
-            UserProjectInfo[] projs = projectTracker.getProjectInfo(user);
-            for(int i = 0; i < projs.length;i++) {
-                log.debug("PROJECT: " + projs[i].getProjectName());
-            }
+                //setup user
+                TCSubject user = new TCSubject(100129);
+
+                //get projects that are in submission phase and have submission end time > current
+                ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
+
+                UserProjectInfo[] projs = projectTracker.getProjectInfo(user);
+                for(int i = 0; i < projs.length;i++) {
+                    log.debug("PROJECT: " + projs[i].getProjectName());
+                }
             } catch(Exception e) {
                 log.error(e.getMessage());
             }
@@ -93,7 +93,7 @@ public class AutoPilotTimer
         try {
     
             timer = new Timer();
-            timer.schedule(new SubmissionTask(), DELAY * 60 * 1000, //initial delay
+            timer.schedule(new SubmissionTask(), 0, //initial delay
                     DELAY * 60 * 1000); //subsequent rate
             isInitialised = Boolean.TRUE;
         } catch (Exception e) {
