@@ -14,7 +14,7 @@
                 				<TD CLASS="statText"  BGCOLOR="#990000" VALIGN="top">
 			
 <xsl:call-template name="Form"/>				
-               				
+               				<A HREF="index?t=authentication&amp;c=recover_password" CLASS="statText">Password help</A>
                 				</TD>
                 				<TD CLASS="data" BGCOLOR="#990000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
               				</TR>
@@ -25,11 +25,11 @@
 		          	</TD>
         		</TR>       		
       		</TABLE>
-              <DIV CLASS="smallText" ALIGN="right">
+              <!-- <DIV CLASS="smallText" ALIGN="right">
                 Forget your password? 
                 <A HREF="index?t=authentication&amp;c=recover_password" CLASS="smallText">Click here</A>.
               <BR/>New to TopCoder?
 <A HREF="/reg/index.jsp" CLASS="smallText">Register now</A>. 
-              </DIV><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/>     		
+              </DIV><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/>  -->   		
   </xsl:template>
 </xsl:stylesheet>
