@@ -4,14 +4,10 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.web.corp.Util;
 
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.jsp.JspException;
-import javax.sql.DataSource;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -25,7 +21,7 @@ import java.util.*;
 public class QueryIteratorTag extends IteratorTag {
     private String command = null;
     private ResultSetContainer rsc = null;
-    Hashtable params;
+    private Hashtable params;
 
     /**
      *
@@ -92,5 +88,17 @@ public class QueryIteratorTag extends IteratorTag {
             if (st2.countTokens() != 2) continue;
             params.put(st2.nextToken(), st2.nextToken());
         }
+    }
+
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.command = null;
+        this.rsc = null;
+        this.params = null;
+        return super.doEndTag();
     }
 }

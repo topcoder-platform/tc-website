@@ -59,6 +59,11 @@ public class RewriteTag extends TagSupport {
         return SKIP_BODY;
     }
 
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
     public int doEndTag() throws JspException {
         HttpServletResponse response =
                 (HttpServletResponse) pageContext.getResponse();
@@ -79,6 +84,9 @@ public class RewriteTag extends TagSupport {
             throw new JspException(e.getMessage());
         }
 
-        return EVAL_PAGE;
+        this.page=null;
+        this.href = null;
+
+        return super.doEndTag();
     }
 }

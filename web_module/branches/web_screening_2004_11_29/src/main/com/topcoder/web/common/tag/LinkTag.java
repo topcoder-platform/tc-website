@@ -132,6 +132,10 @@ public class LinkTag extends TagSupport {
     /**
      * JSP Tag Specific method.  Sets the &lt;/a&gt; part of the anchor.
      *
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     *
      * @return JSP Tag specific return (Always returns EVAL_PAGE)
      * @throws JspException Thrown if there is a problem write out the tag.
      */
@@ -142,7 +146,13 @@ public class LinkTag extends TagSupport {
             throw new JspException(e.getMessage());
         }
 
-        return EVAL_PAGE;
+        this.page=null;
+        this.href=null;
+        this.onClick=null;
+        this.styleClass=null;
+        this.target=null;
+
+        return super.doEndTag();
     }
 
 }

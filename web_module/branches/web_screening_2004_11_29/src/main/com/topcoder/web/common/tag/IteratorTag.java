@@ -79,9 +79,16 @@ public class IteratorTag extends BodyTagSupport {
         }
     }
 
-    public void release() {
-        collection = null;
-        index = 0;
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.collection = null;
+        this.index = 0;
+        this.elementArray = null;
+        return super.doEndTag();
     }
 }
 

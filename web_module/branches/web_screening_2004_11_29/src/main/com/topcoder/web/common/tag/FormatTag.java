@@ -53,4 +53,16 @@ public class FormatTag  extends TagSupport {
         this.ifNull = ifNull;
     }
 
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.object = null;
+        this.format = null;
+        this.ifNull = "";
+        return super.doEndTag();
+    }
+
 }

@@ -3,9 +3,9 @@ package com.topcoder.web.common.tag;
 import java.lang.reflect.Method;
 import javax.servlet.jsp.JspException;
 
-/** 
+/**
  * <p>
- * This tag will takes a bean name, property and optional format and 
+ * This tag will takes a bean name, property and optional format and
  * tries to write outthe value received from the bean for that property. If
  * The object gotten is a date object and format is set, then it will format
  * the output to the format specified.
@@ -15,8 +15,8 @@ import javax.servlet.jsp.JspException;
  * @version 1.0
  */
 public class BeanWriteTag extends FormatTag {
-    private static Class[] NO_PARAMS = new Class[0];
-    private static Object[] NO_ARGS = new Object[0];
+    private static final Class[] NO_PARAMS = new Class[0];
+    private static final Object[] NO_ARGS = new Object[0];
 
     private String name;
     private String property;
@@ -41,11 +41,11 @@ public class BeanWriteTag extends FormatTag {
     }
 
 
-    /** 
+    /**
      * Method specific to JSP Tags.  Validates inputs and writes out property
      * if possible.  If it is not possible because bean does not exist, exits
      * quietly
-     * 
+     *
      * @return The JSP Tag specific return specifying the next action
      *          (Should always return SKIP_BODY)
      * @throws JspException Thrown if name and property are not set or if
@@ -80,6 +80,17 @@ public class BeanWriteTag extends FormatTag {
         }
 
         return new StringBuffer("get").append(Character.toUpperCase(property.charAt(0))).append(property.substring(1)).toString();
+    }
+
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.name = null;
+        this.property=null;
+        return super.doEndTag();
     }
 
 }

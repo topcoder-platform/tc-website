@@ -58,11 +58,11 @@ public class ProblemStatementTag extends TagSupport {
         }
     }
 
-    /** 
+    /**
      * Method specific to JSP Tags.  Validates inputs and writes out property
      * if possible.  If it is not possible because bean does not exist, exits
      * quietly
-     * 
+     *
      * @return The JSP Tag specific return specifying the next action
      *          (Should always return SKIP_BODY)
      * @throws JspException Thrown if name and property are not set or if
@@ -92,5 +92,17 @@ public class ProblemStatementTag extends TagSupport {
         }
 
         return SKIP_BODY;
+    }
+
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.tdClass = null;
+        this.text = null;
+        this.language = null;
+        return super.doEndTag();
     }
 }

@@ -100,6 +100,10 @@ public class FormTag extends TagSupport {
     /**
      * JSP Tag specific method.  Writes out the &lt;/form&gt; tag.
      *
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     *
      * @return JSP TAG specific return (Always returns EVAL_PAGE)
      * @throws JspException Thrown if the write to the page fails.
      */
@@ -109,7 +113,12 @@ public class FormTag extends TagSupport {
         } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
+        this.action=null;
+        this.method=null;
+        this.onSubmit=null;
+        this.name=null;
 
-        return EVAL_PAGE;
+
+        return super.doEndTag();
     }
 }

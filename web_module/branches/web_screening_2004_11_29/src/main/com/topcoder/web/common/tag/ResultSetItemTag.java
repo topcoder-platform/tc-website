@@ -38,5 +38,19 @@ public class ResultSetItemTag extends FormatTag {
         return super.doStartTag();
     }
 
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.row = null;
+        this.set= null;
+        this.name  =null;
+        this.rowIndex=0;
+        return super.doEndTag();
+
+    }
+
 }
 

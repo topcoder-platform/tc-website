@@ -75,4 +75,16 @@ public class SortTag extends TagSupport {
         return SKIP_BODY;
     }
 
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    public int doEndTag() throws JspException {
+        this.column = -1;
+        this.ascColumn = -1;
+        this.descColumn = -1;
+        return super.doEndTag();
+    }
+
 }

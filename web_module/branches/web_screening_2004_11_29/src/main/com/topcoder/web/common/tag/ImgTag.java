@@ -115,6 +115,9 @@ public class ImgTag extends TagSupport {
      * <code>href</code> or <code>page</code>.  If <code>page</code>was set,
      * then it will prepend the context of this web app to the value.
      *
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
      *
      * @return JSP Tag specific return (Always returns EVAL_PAGE)
      * @throws JspException thrown if there is IO trouble writing the tag out.
@@ -163,11 +166,6 @@ public class ImgTag extends TagSupport {
         } catch (IOException e) {
             throw new JspException(e.getMessage());
         }
-
-        return super.doEndTag();
-    }
-
-    protected void init() {
         this.page = null;
         this.href = null;
         this.height = null;
@@ -176,5 +174,7 @@ public class ImgTag extends TagSupport {
         this.border = null;
         this.alt = null;
 
+        return super.doEndTag();
     }
+
 }
