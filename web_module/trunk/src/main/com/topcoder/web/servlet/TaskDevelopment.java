@@ -97,7 +97,9 @@ public final class TaskDevelopment {
         String result = null;
         String cacheKey = null;
         try {
+            System.out.println("HEEEEEEEEEEEEEEEEEELLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
             String command = Conversion.checkNull(request.getParameter("c"));
+            log.debug("command is: " + command);
             boolean requiresLogin = false;
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
