@@ -70,15 +70,9 @@
             <h2>Schedule</h2>
             
 <!-- Qualification Description begins -->
-            <p><strong>Qualification Spots</strong> - Verizon will choose all qualifying members for the 500 available spots.  These 
-            members will then compete in Online Elimination Round 1</p>
+            <p>Registration is unlimited, however only the first 500 eligible individuals to register will be invited to compete.</p>
 <!-- Qualification Description Ends -->
 
-<!-- Online Elimination Rounds begins -->
-            <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
-            A total of 500 TopCoder members will compete in Online Round #1 of the VCC.  Each room winner and the next highest 
-            scorers in each round will advance.</p>
-            
             <a name="sched"></a>
             <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                 <tr>
