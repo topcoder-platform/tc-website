@@ -99,7 +99,7 @@ By indicating your interest in designing or developing a software component and/
 2.    You are at least 18 years of age.
 3.    You are either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S., or (iv) a non-U.S. resident authorized to perform services as an independent contractor.
 4.    You will abide by the Terms of Use of both TopCoder's and TopCoder Software's websites at www.topcoder.com and www.topcodersoftware.com, respectively.
-5.    You acknowledge that you have read and agree to the TopCoder Software Application Development Methodology posted at www.topcoder.com/?&t=development&c=app_meth .
+5.    You acknowledge that you have read and agree to the TopCoder Software Application Development Methodology posted at www.topcoder.com/?&amp;t=development&amp;c=app_meth .
 6.    No impediment exists to you participating in design and/or development projects posted on TopCoder's website(s), and your participation in such projects will not interfere with your performance of, or breach, any other agreement or obligation which has been or will be made with any third party, including but not limited to your employer (if applicable).
 7.    You agree to use your own independently developed code, and shall not copy or include code from any other party, including publicly available "open source" code that is or may be subject to licensing restrictions.
 
