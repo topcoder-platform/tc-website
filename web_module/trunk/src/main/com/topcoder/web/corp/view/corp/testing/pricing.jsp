@@ -49,7 +49,7 @@
 
                         <h2 class="corpHead">Pricing</h2>
 
-                        <p><strong>You can now securely purchase a Private Candidate Testing Program online.</strong> After you receive confirmation of your
+                        <p><strong>You can now securely purchase a Private Candidate Technical Assessment Program online.</strong> After you receive confirmation of your
                         purchase by email, you can immediately begin setting up a session in the Management Tool. If you prefer to speak to a TopCoder representative
                         before purchasing a program, call us toll free at <strong>866.867.2633.</strong></p>
 
