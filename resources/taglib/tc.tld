@@ -69,8 +69,8 @@
     </tag>
 
    <tag>
-        <name>ratingClass</name>
-        <tagclass>com.topcoder.web.common.tag.RatingClassTag</tagclass>
+        <name>ratingStyle</name>
+        <tagclass>com.topcoder.web.common.tag.RatingStyleTag</tagclass>
         <attribute>
             <name>rating</name>
             <required>true</required>
