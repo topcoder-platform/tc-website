@@ -76,11 +76,11 @@
                who the top fund raisers are.  As always, best of luck to you in the
                Arena!</p>
                </td>
-               <td valign="top" align="right" width="208"><img src="/i/tournament/crpf03/indexlinks.gif" width="208" height="230" border="0" usemap="#indexlinks">
+               <td valign="top" align="right" width="208"><img src="/i/tournament/crpf03/indexlinks.gif" width="208" height="172" border="0" usemap="#indexlinks">
                <map name="indexlinks">
-               <area shape="rect" coords="11,11,195,57" href="/reg/index.jsp" />
-               <area shape="rect" coords="59,75,194,144" href="/tc/?module=Static&d1=crpf&d2=crpf_overview" />
-               <area shape="rect" coords="60,175,188,215" href="/tc/?module=Static&d1=crpf&d2=crpf_donate" />
+               <area shape="rect" coords="113,4,201,38" href="/tc/?module=Static&d1=crpf&d2=crpf_donate" />
+               <area shape="rect" coords="60,57,201,100" href="/tc/?module=Static&d1=crpf&d2=crpf_overview" />
+               <area shape="rect" coords="2,124,202,167" href="/reg/index.jsp" />
                </map>
             </td>                       
                </tr>
