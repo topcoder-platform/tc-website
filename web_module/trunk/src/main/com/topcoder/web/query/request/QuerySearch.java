@@ -93,7 +93,7 @@ public class QuerySearch extends BaseProcessor {
 
     private List find(ResultSetContainer list, String searchCriteria) {
         List ret = new ArrayList(4);
-        StringBuffer word = null;
+        StringBuffer word = new StringBuffer(10);
         String temp = searchCriteria.trim();
         boolean inQuote = false;
         List searchList = new ArrayList(4);
