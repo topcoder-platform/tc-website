@@ -1,4 +1,5 @@
-package admin;
+package com.topcoder.web.servlet.admin;
+
 
 import java.io.*;
 import java.util.*;
@@ -10,6 +11,10 @@ import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.util.*;
+import com.topcoder.web.servlet.admin.task.coder.SystemTestCaseReport;
+import com.topcoder.web.servlet.admin.task.coder.Challenge;
+import com.topcoder.web.servlet.admin.task.coder.Compilation;
+import com.topcoder.web.servlet.admin.task.Home;
 
 public final class TC extends HttpServlet {
 
@@ -86,7 +91,7 @@ public final class TC extends HttpServlet {
       //************************ no task ************************
       if ( requestTask.equals("") ) {
         if ( requestCommand.equals("") ) {
-          html = admin.task.Home.process( request, response, renderer, nav, document );
+          html = Home.process( request, response, renderer, nav, document );
         } else {
           html = renderer.render ( document, XSL.DIR+requestCommand, null );
         }
@@ -105,11 +110,11 @@ public final class TC extends HttpServlet {
 */
       //************************ systemtestcasereport ************************
       else if ( requestTask.equals("systemtestcasereport") ) {
-        html = admin.task.coder.SystemTestCaseReport.process ( request, response, renderer, nav, document );
+        html = SystemTestCaseReport.process ( request, response, renderer, nav, document );
       }
       //************************ challenge ************************
       else if ( requestTask.equals("challenge") ) {
-        html = admin.task.coder.Challenge.process ( request, response, renderer, nav, document );
+        html = Challenge.process ( request, response, renderer, nav, document );
       }
       //************************ problems ************************
       else if ( requestTask.equals("problems") ) {
@@ -130,7 +135,7 @@ public final class TC extends HttpServlet {
 */
       //************************ compilation ************************
       else if ( requestTask.equals("compilation") ) {
-        html = admin.task.coder.Compilation.process ( request, response, renderer, nav, document );
+        html = Compilation.process ( request, response, renderer, nav, document );
       }
       //************************ contact mail ************************
 /*
@@ -141,7 +146,7 @@ public final class TC extends HttpServlet {
       //************************ invalid ************************
       else {
         StringBuffer msg = new StringBuffer( 150                               );
-        msg.append ( "admin.TC:processCommands:ERROR:invalid task:" );
+        msg.append ( "com.topcoder.web.servlet.admin.TC:processCommands:ERROR:invalid task:" );
         msg.append ( requestTask                                               );
         msg.append ( ":\n"                                                     );
         throw new NavigationException ( 
@@ -167,7 +172,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, ne.getUrl(), null);
         out.print ( html );
         out.flush();
-        Log.msg ( "admin.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
+        Log.msg ( "com.topcoder.web.servlet.admin.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
       } catch (Exception end) {
         end.printStackTrace();
         try {
@@ -189,7 +194,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, XSL.INTERNAL_ERROR_URL, null);
         out.print(html);
         out.flush();
-        Log.msg("admin.TC:INTERNAL ERROR:\n"+e);
+        Log.msg("com.topcoder.web.servlet.admin.TC:INTERNAL ERROR:\n"+e);
       } catch (Exception end) {
         end.printStackTrace();
         try {
@@ -232,7 +237,7 @@ public final class TC extends HttpServlet {
         result = (Navigation) session.getAttribute("navigation");
       }
     } catch (Exception e) {
-      throw new Exception("admin.TC:setupSession:ERROR:\n"+e);
+      throw new Exception("com.topcoder.web.servlet.admin.TC:setupSession:ERROR:\n"+e);
     }
     return result;
   }
@@ -259,7 +264,7 @@ public final class TC extends HttpServlet {
         ) 
       );
     } catch (Exception e) {
-      throw new Exception ( "admin.TC:addURLTags:ERROR:\n"+e );
+      throw new Exception ( "com.topcoder.web.servlet.admin.TC:addURLTags:ERROR:\n"+e );
     }
   }
 

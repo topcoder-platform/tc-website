@@ -1,4 +1,4 @@
-package admin.task.util;
+package com.topcoder.web.servlet.admin.task.util;
 
 import java.io.*;
 import java.util.*;
@@ -9,7 +9,7 @@ import javax.transaction.UserTransaction;
 import javax.transaction.Status;
 
 import com.topcoder.ejb.ProblemServices.*;
-import admin.*;
+import com.topcoder.web.servlet.admin.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.util.*; 
 import com.topcoder.common.web.xml.*; 

@@ -1,4 +1,4 @@
-package marketing;
+package com.topcoder.web.servlet.marketing;
 
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
@@ -77,7 +77,7 @@ public final class TC extends HttpServlet {
       //************************ no task ************************
       if ( requestTask.equals("") ) {
         if ( requestCommand.equals("") ) {
-          html = marketing.task.Home.process( request, response, renderer, nav, document );
+          html = com.topcoder.web.servlet.marketing.task.Home.process( request, response, renderer, nav, document );
         } else {
           html = renderer.render ( document, XSL.DIR+requestCommand, null );
         }
@@ -90,12 +90,12 @@ public final class TC extends HttpServlet {
 */
       //************************ report ************************
       else if ( requestTask.equals("report") ) {
-        html = marketing.task.report.Report.process ( request, response, renderer, nav, document );
+        html = com.topcoder.web.servlet.marketing.task.report.Report.process ( request, response, renderer, nav, document );
       }
       //************************ invalid ************************
       else {
         StringBuffer msg = new StringBuffer( 150                               );
-        msg.append ( "marketing.TC:processCommands:ERROR:invalid task:" );
+        msg.append ( "com.topcoder.web.servlet.marketing.TC:processCommands:ERROR:invalid task:" );
         msg.append ( requestTask                                               );
         msg.append ( ":\n"                                                     );
         throw new NavigationException ( 
@@ -121,7 +121,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, ne.getUrl(), null);
         out.print ( html );
         out.flush();
-        Log.msg ( "marketing.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
+        Log.msg ( "com.topcoder.web.servlet.marketing.TC:NAVIGATION ERROR:\n"+ne.getMessage() );
       } catch (Exception end) {
         end.printStackTrace();
         try {
@@ -143,7 +143,7 @@ public final class TC extends HttpServlet {
         html = renderer.render(document, XSL.INTERNAL_ERROR_URL, null);
         out.print(html);
         out.flush();
-        Log.msg("marketing.TC:INTERNAL ERROR:\n"+e);
+        Log.msg("com.topcoder.web.servlet.marketing.TC:INTERNAL ERROR:\n"+e);
       } catch (Exception end) {
         end.printStackTrace();
         try {
@@ -186,7 +186,7 @@ public final class TC extends HttpServlet {
         result = (Navigation) session.getAttribute("navigation");
       }
     } catch (Exception e) {
-      throw new TCException("marketing.TC:setupSession:ERROR:\n"+e);
+      throw new TCException("com.topcoder.web.servlet.marketing.TC:setupSession:ERROR:\n"+e);
     }
     return result;
   }
@@ -213,7 +213,7 @@ public final class TC extends HttpServlet {
         ) 
       );
     } catch (Exception e) {
-      throw new TCException ( "marketing.TC:addURLTags:ERROR:\n"+e );
+      throw new TCException ( "com.topcoder.web.servlet.marketing.TC:addURLTags:ERROR:\n"+e );
     }
   }
 

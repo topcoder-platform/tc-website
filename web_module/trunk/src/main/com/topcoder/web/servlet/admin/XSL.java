@@ -1,4 +1,4 @@
-package admin;
+package com.topcoder.web.servlet.admin;
 
 import com.topcoder.common.web.constant.*;
 

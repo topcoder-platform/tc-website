@@ -1,25 +1,28 @@
 <project name="topcoder" default="main" basedir=".">
 
-   <property name="Name"     value="TopCoder" />
-   <property name="version"     value="0.0.1" />
-   <property name="build"       value="build" />
-   <property name="war.dir"     value="${build}/wars" />
-   <property name="war.name"    value="email.war"/>
-   <property name="ejb_jars"    value="${build}/ejb_jars" />
-   <property name="classes"     value="${build}/classes" />
-   <property name="testclasses" value="${build}/testcases" />
+   <property name="Name"          value="TopCoder" />
+   <property name="version"       value="0.0.1" />
+   <property name="build"         value="build" />
+   <property name="war.dir"       value="${build}/wars" />
+   <property name="war.name"      value="email.war"/>
+   <property name="ejb_jars"      value="${build}/ejb_jars" />
+   <property name="classes"       value="${build}/classes" />
+   <property name="testclasses"   value="${build}/testcases" />
    <property name="build.javadocs" value="${build}/javadocs" />
-   <property name="lib.dir"         value="lib" />
-   <property name="jars.dir"         value="${lib.dir}/jars" />
-   <property name="bin"         value="lib/bin" />
-   <property name="src.dir"     value="src"/>
-   <property name="java"        value="${src.dir}/main" />
-   <property name="testjava"    value="${src.dir}/testcases" />
-   <property name="resources"   value="resources" />
-   <property name="images"      value="images" />
-   <property name="mpsqas.jar"  value="${bin}/MPSQASApplet.jar"/>
-   <property name="Jive.jar"    value="${bin}/Jive.jar"/>
-   <property name="wl_jvmargs"  value="-Dweblogic.home=${WL_HOME}"  />
+   <property name="lib.dir"       value="lib" />
+   <property name="jars.dir"      value="${lib.dir}/jars" />
+   <property name="bin"           value="lib/bin" />
+   <property name="src.dir"       value="src"/>
+   <property name="java"          value="${src.dir}/main" />
+   <property name="testjava"      value="${src.dir}/testcases" />
+   <property name="resources"     value="resources" />
+   <property name="images"        value="images" />
+   <property name="mpsqas.jar"    value="${bin}/MPSQASApplet.jar"/>
+   <property name="Jive.jar"      value="${bin}/Jive.jar"/>
+   <property name="wl_jvmargs"    value="-Dweblogic.home=${WL_HOME}"  />
+   <property name="servlets"      value="${build}/servlets" />
+   <property name="web"           value="src/main/com/topcoder/web" />
+   <property name="public_html"   value="/home/weblog5/weblogic1/tc_cluster/public_html" />
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
@@ -39,11 +42,17 @@
    </path>
 
    <target name="init">
+      <property name="statservlets"  value="com/topcoder/web/stat/servlet" />
+      <property name="webservlets"   value="com/topcoder/web/servlet" />
+      <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
       <mkdir dir="${classes}" />
       <mkdir dir="${testclasses}" />
       <mkdir dir="${bin}" />
       <mkdir dir="${ejb_jars}" />
       <mkdir dir="${war.dir}" />
+      <mkdir dir="${servlets}/${statservlets}" />
+      <mkdir dir="${servlets}/${webservlets}" />
+      <mkdir dir="${servlets}/${pactsservlets}" />
    </target>
 
     <target name="check_java_version">
@@ -64,11 +73,80 @@
             />
       </javac>
    </target>
+   <target name="deploy" depends="compile">
+      <move todir="${servlets}/${statservlets}">
+         <fileset dir="${classes}/${statservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${webservlets}">
+         <fileset dir="${classes}/${webservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${pactsservlets}">
+         <fileset dir="${classes}/${pactsservlets}" >
+                 <include name="*.class" />
+         </fileset>
+      </move>
+   </target>
+   <target name="jsp" depends="check_java_version">
+      <property name="stat.trgt"     value="${public_html}/stat_jsp" />
+      <property name="stat.src"      value="${web}/stat/servlet/jsp" />
+      <property name="root.trgt"     value="${public_html}/public_html" />
+      <property name="root.src"      value="${web}/jsp" />
+      <property name="pacts.trgt"    value="${public_html}/pacts" />
+      <property name="pacts.src"     value="${web}/pacts/servlet/jsp" />
+      <property name="project.trgt"  value="${public_html}/project" />
+      <property name="project.src"   value="${web}/project/servlet/jsp" />
+      <property name="reg.trgt"      value="${public_html}/reg" />
+      <property name="reg.src"       value="${web}/reg/servlet/jsp" />
+      <property name="render.trgt"   value="${public_html}/cm" />
+      <property name="render.src"    value="${web}/render/servlet/jsp" />
+
+      <mkdir dir="${stat.trgt}" />
+      <mkdir dir="${root.trgt}" />
+      <mkdir dir="${pacts.trgt}" />
+      <mkdir dir="${project.trgt}" />
+      <mkdir dir="${reg.trgt}" />
+      <mkdir dir="${render.trgt}" />
+
+      <copy todir="${stat.trgt}">
+         <fileset dir="${stat.src}" >
+                 <include name="*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${root.trgt}">
+         <fileset dir="${root.src}" >
+                 <include name="*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${pacts.trgt}">
+         <fileset dir="${pacts.src}" >
+                 <include name="*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${project.trgt}">
+         <fileset dir="${project.src}" >
+                 <include name="*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${reg.trgt}">
+         <fileset dir="${reg.src}" >
+                 <include name="*.jsp" />
+         </fileset>
+      </copy>
+      <copy todir="${render.trgt}">
+         <fileset dir="${render.src}" >
+                 <include name="*.jsp" />
+         </fileset>
+      </copy>
+   </target>
 
 
    <target name="run" depends="package">
    </target>
-   
+
    <target name="package" depends="jars">
    </target>
 
@@ -97,7 +175,7 @@
       <target name="main">
         <antcall target="run"/>
     </target>
-	
+
 	<target name="package-mpsqasApplat" depends="compile">
        <jar jarfile="${mpsqas.jar}" >
 	       <fileset dir="${classes}/"
@@ -106,7 +184,7 @@
            />
        </jar>
    </target>
-   
+
    <target name="package-Jive" depends="compile">
        <jar jarfile="${Jive.jar}" >
 	       <fileset dir="${classes}/"

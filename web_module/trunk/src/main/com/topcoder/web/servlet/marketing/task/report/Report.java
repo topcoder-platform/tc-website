@@ -1,6 +1,6 @@
-package marketing.task.report;
+package com.topcoder.web.servlet.marketing.task.report;
 
-import marketing.*;
+import com.topcoder.web.servlet.marketing.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.data.*;
@@ -34,7 +34,7 @@ public final class Report {
     } catch ( Exception e ) {  
       e.printStackTrace();
       throw new TCException (
-        "marketing.task.report.Report.getReporting:ERROR:"+e.getMessage()
+        "com.topcoder.web.servlet.marketing.task.report.Report.getReporting:ERROR:"+e.getMessage()
       );      
     } finally {
       if ( ctx != null ) { try { ctx.close(); } catch ( Exception ignore ) {} }
@@ -83,7 +83,7 @@ public final class Report {
       }
       else {
         StringBuffer msg = new StringBuffer( 150                                   );
-        msg.append ( "marketing.task.corp.Request:processCommands:ERROR:invalid task:" );
+        msg.append ( "com.topcoder.web.servlet.marketing.task.corp.Request:processCommands:ERROR:invalid task:" );
         msg.append ( requestCommand                                                );
         throw new NavigationException (
           msg.toString()
@@ -91,11 +91,11 @@ public final class Report {
         );
       }
     } catch ( NavigationException ne ) {
-      Log.msg("marketing.task.corp.Request:ERROR:\n"+ne);
+      Log.msg("com.topcoder.web.servlet.marketing.task.corp.Request:ERROR:\n"+ne);
       throw ne;
     } catch ( Exception e ) {
       StringBuffer msg = new StringBuffer ( 150                               );
-      msg.append ( "marketing.task.corp.Request:process:"                               );
+      msg.append ( "com.topcoder.web.servlet.marketing.task.corp.Request:process:"                               );
       msg.append ( ":ERROR:\n"                                                );
       msg.append ( e.getMessage()                                             );
       throw new NavigationException ( msg.toString(), XSL.INTERNAL_ERROR_URL );

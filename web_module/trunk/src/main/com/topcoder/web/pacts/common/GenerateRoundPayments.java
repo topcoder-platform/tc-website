@@ -1,3 +1,5 @@
+package com.topcoder.web.pacts.common;
+
 import com.topcoder.web.pacts.bean.*;
 
 /**

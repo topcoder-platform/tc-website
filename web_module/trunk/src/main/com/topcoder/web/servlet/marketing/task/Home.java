@@ -1,12 +1,13 @@
-package marketing.task;
+package com.topcoder.web.servlet.marketing.task;
 
-import marketing.*;
+import com.topcoder.web.servlet.marketing.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.util.*;
 import com.topcoder.common.web.error.*;
 import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.data.*;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 

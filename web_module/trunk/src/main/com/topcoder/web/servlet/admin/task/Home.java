@@ -1,12 +1,12 @@
-package admin.task;
+package com.topcoder.web.servlet.admin.task;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
-import admin.*;
 import com.topcoder.common.*;
 import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.*;
+import com.topcoder.web.servlet.admin.*;
 
 
 public final class Home {

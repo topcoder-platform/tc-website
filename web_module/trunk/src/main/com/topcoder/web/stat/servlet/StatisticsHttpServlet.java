@@ -1,4 +1,4 @@
-//package com.topcoder.web.stat.servlet;
+package com.topcoder.web.stat.servlet;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

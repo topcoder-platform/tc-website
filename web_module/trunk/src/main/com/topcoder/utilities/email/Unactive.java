@@ -1,4 +1,4 @@
-package com.topcoder.utilites.email;
+package com.topcoder.utilities.email;
 
 import java.io.*;
 import java.util.*;
