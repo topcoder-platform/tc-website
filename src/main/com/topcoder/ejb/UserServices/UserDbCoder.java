@@ -268,8 +268,8 @@ final class UserDbCoder {
     private static void insertCurrentSchool(Connection conn, School currentSchool) throws TCException {
         log.debug("ejb.User.UserDbCoder:insertCurrentSchool():called.");
         PreparedStatement ps = null;
-        String query = "INSERT INTO current_school(coder_id, school_id, school_name, gpa, gpa_scale)" +
-                " VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO current_school(coder_id, school_id, school_name, gpa, gpa_scale, viewable)" +
+                " VALUES (?, ?, ?, ?, ?, ?)";
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, currentSchool.getUserId());
@@ -282,6 +282,7 @@ final class UserDbCoder {
                 ps.setNull(4, Types.FLOAT);
                 ps.setNull(5, Types.FLOAT);
             }
+            ps.setInt(6, currentSchool.isViewable()?1:0);
             int RetVal = ps.executeUpdate();
             currentSchool.setModified("S");
         } catch (SQLException sqe) {
@@ -722,7 +723,7 @@ final class UserDbCoder {
             ps.clearParameters();
             if (rs.next()) {
                 /**************************************************************/
-                query = "UPDATE current_school SET school_id=?, school_name=?, gpa=?, gpa_scale=? WHERE coder_id=?";
+                query = "UPDATE current_school SET school_id=?, school_name=?, gpa=?, gpa_scale=?, viewable = ? WHERE coder_id=?";
                 /**************************************************************/
                 ps = conn.prepareStatement(query);
                 ps.setInt(1, currentSchool.getSchoolId());
@@ -739,6 +740,7 @@ final class UserDbCoder {
                     ps.setNull(4, Types.FLOAT);
                 }
                 ps.setInt(5, currentSchool.getUserId());
+                ps.setInt(6, currentSchool.isViewable()?1:0);
                 ps.executeUpdate();
                 currentSchool.setModified("S");
             } else {
@@ -1307,6 +1309,7 @@ final class UserDbCoder {
         query.append(" ,ct.country_name");
         query.append(" ,c.gpa");
         query.append(" ,c.gpa_scale");
+        query.append(" ,c.viewable");
         query.append(" FROM");
         query.append(" current_school c");
         query.append(" ,school s");
@@ -1336,6 +1339,7 @@ final class UserDbCoder {
                 currentSchool.getCountry().setCountryName(rs.getString("country_name"));
                 currentSchool.setGpa(rs.getFloat("gpa"));
                 currentSchool.setGpaScale(rs.getFloat("gpa_scale"));
+                currentSchool.setViewable(rs.getInt("viewable")==1);
                 currentSchool.setModified("S");
             }
             XMLDocument test = new XMLDocument("test");
