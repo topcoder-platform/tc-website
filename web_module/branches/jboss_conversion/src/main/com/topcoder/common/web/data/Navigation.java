@@ -58,12 +58,12 @@ public final class Navigation
                 UserServicesHome userHome = (UserServicesHome) PortableRemoteObject.narrow(ctx.lookup(
                                 UserServicesHome.class.getName()),
                                 UserServicesHome.class);
-                UserServices userEJB = userHome.findByPrimaryKey(new Long(getUser().getUserId()));
-                setUser(userEJB.getUser());
-                getUser().setLoggedIn("N");
-                getUser().setModified("U");
                 TransactionManager tm = (TransactionManager) ctx.lookup(ApplicationServer.TRANS_MANAGER);
                 try {
+                    UserServices userEJB = userHome.findByPrimaryKey(new Long(getUser().getUserId()));
+                    setUser(userEJB.getUser());
+                    getUser().setLoggedIn("N");
+                    getUser().setModified("U");
                     tm.begin();
                     userEJB.setUser(getUser());
                     tm.commit();
