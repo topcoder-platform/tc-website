@@ -59,8 +59,7 @@ body,td,font,p,a
                      <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=googleLogin">Registration</a> &nbsp;|&nbsp;
                      <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
-<%--                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>--%>
+                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
                   </font>
                   </div><br><br>
                   

@@ -59,8 +59,7 @@ body,td,font,p,a
                      <font color="006633">Rules</font> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=googleLogin">Registration</a> &nbsp;|&nbsp;
                      <a href="/pl/?&module=Static&d1=google&d2=google_faq">FAQ</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_practice">Practice Arena</a>
-<%--                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>--%>
+                     <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
                   </font>
                   </div><br><br>
                   
@@ -311,14 +310,7 @@ Google and TopCoder reserve the right, in their sole discretion, to revoke any a
 <br>
 <font color="006633"><strong>Other</strong></font><br><br>
 <font size="-1">The tournament is void in whole or in part where prohibited by law.
-
-                        </td>
-                     </tr>
-                     <tr>
-                        <td><p><br /></p>
-                              <p><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-                              <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Terms and Conditions</a>.
-                              </font></p>
+<p><br /></p>
                         </td>
                      </tr>
                   </table>
