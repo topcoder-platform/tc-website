@@ -71,9 +71,10 @@ persons living in the same household as such persons, are ineligible to enter th
 of the weekly posting date to be eligible for that week's prizes.</p>
 
 <h3>Placement Scoring</h3>
-<p>Scoring in the USDC is determined based on the placement for each submission. Placement is determined based on the score awarded 
-for a particular component.  For example, if 3 submissions were received for one Level 1 component and the scores were 93, 89, and 71, the 
-member receiving the score of 93 would be in 1st place and would receive 10 points. Placement scoring is as follows: </p>
+<p>Scoring in the USDC is determined based on the placement for each submission. Placement is determined based on the score awarded for a 
+particular component. For example, if 3 submissions were received for one Level 1 component and the scores were 93, 89, and 71, the member 
+receiving the score of 93 would be in 1st place and would receive 10 points.   In order to receive placement points the submission must 
+pass the minimum component score of 70. Placement scoring is as follows: </p>
 <table width="400" align="center" border="0" cellpadding="5" cellspacing="2">
 	<tr>
 		<td class="bodyText">
