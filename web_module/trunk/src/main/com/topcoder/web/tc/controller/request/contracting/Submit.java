@@ -91,7 +91,7 @@ public class Submit  extends ContractingBase {
                 {
                     byte[] fileBytes = null;
                     String fileName = "";
-                    int fileType = -1;
+                    int fileType = 7; //generic
 
                     fileBytes = new byte[(int) info.getResume().getSize()];
                     info.getResume().getInputStream().read(fileBytes);
@@ -108,7 +108,7 @@ public class Submit  extends ContractingBase {
                         }
                         else
                         {
-                            log.debug("DID NOT FIND TYPE " + info.getResume().getContentType());
+                            log.info("DID NOT FIND TYPE " + info.getResume().getContentType());
                         }
                         fileName = info.getResume().getRemoteFileName();
                         ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);

@@ -152,8 +152,12 @@ abstract public class ContractingBase extends BaseProcessor {
                 addError(Constants.PREFERENCE_PREFIX + Constants.PREFERENCE_CONTRACTING, "Please indicate interest in either contract or permanent positions.");
             }
 
+            try {
             ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-            if((!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) && (info.getResume() == null)) {
+                if((!resumeServices.hasResume(getUser().getId(), DBMS.OLTP_DATASOURCE_NAME)) && (info.getResume() == null)) {
+                    addError("Resume", "A resume is required.");
+                }
+            } catch(Exception e) {
                 addError("Resume", "A resume is required.");
             }
         }
