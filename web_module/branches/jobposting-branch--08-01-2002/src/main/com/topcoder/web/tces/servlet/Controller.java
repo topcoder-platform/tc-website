@@ -84,9 +84,7 @@ log.debug("<<<");
 
                 request.setAttribute( taskName, task );
 
-                RequestDispatcher disp = getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) );
-if (disp==null) log.debug("disp NULL!");
-                disp.forward(request, response);
+                getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
             else if (command != null && command.trim().length() > 0) {
