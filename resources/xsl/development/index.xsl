@@ -67,16 +67,15 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=ssoc" CLASS="statTextBig">Single Sign On Components</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=ssoc" CLASS="statText">Single Sign On Components</A><BR/>
 Start Date: September 27, 2002<BR/>
 End Date: October 11, 2002<BR/>
-Member Selection: Open<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statTextBig">Architect</A><BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: TBD<BR/>
+Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statText">Architect</A><BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
