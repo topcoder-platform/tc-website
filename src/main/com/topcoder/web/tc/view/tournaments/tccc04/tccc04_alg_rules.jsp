@@ -43,7 +43,7 @@
    <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
 
-            <p class="terciary">
+            <p>
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#conditions">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#structure">Competition Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
@@ -54,13 +54,13 @@
             <h2>Overview of the Tournament</h2>
 
 
-            <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
+            <h3><font color="#CC0000">No purchase necessary to enter or win. The tournament is void where prohibited.</font></h3>
 
             <p>
             The 2004 TopCoder Collegiate Challenge ("TCCC") Algorithm Competition will take place between February 
             23rd and April 16th, 2004.  It will consist of one (1) online qualification round, four (4) online elimination 
             rounds and two (2) onsite final rounds, being the Semifinal and Championship rounds.  The prize purse for this 
-            competition is $38,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online Round 
+            competition is $40,000 in cash.  Up to 500 competitors will receive a prize just for competing in Online Round 
             #1.  The top 24 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, 
             being held at the Boston Park Plaza Hotel & Towers in Boston, Massachusetts on April 15th and 16th.
             </p>
@@ -85,18 +85,18 @@
             </p>
             
             <p><span class="bodySubtitle">Registration</span><br/>
-            Registration for the 2004 TopCoder Collegiate Challenge will open at 9:00AM EST on Monday, February 1, 2004, and will close at 9:00AM on Monday, February 23, 2004.  In order to be eligible to compete in the TCCC, competitors must be a registered TopCoder member and have registered separately for the TCCC.  Registration for the competition is unlimited, however each individual may only register once.</p>
+            Registration for the 2004 TopCoder Collegiate Challenge will open at 9:00am EST on Monday, February 1, 2004, and will close at 9:00am EST on Monday, February 23, 2004.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the TCCC.  Registration for the competition is unlimited, however each individual may only register once.</p>
 
             <p><span class="bodySubtitle">Qualification Round</span><br/>
-            The Qualification Round will be open for 24 hours from 12:00PM EST Monday, February 23 through 12:00PM EST Tuesday, February 24, 2004.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors can only attempt to qualify one time during the 24 hours.</p>
+            The Qualification Round will be open for 24 hours from 12:00pm EST Monday, February 23 through 12:00pm EST Tuesday, February 24, 2004.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors must only attempt to qualify one time during the 24 hours.</p>
 
-            <p>The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.</p>
+            <p>The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.  NOTE: The Qualification Round will not include a Challenge Phase</p>
+            
+            <p><b>The Qualification Round Coding Phase</b> is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</p>
 
-            <p>The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete the set of two problems.  The 60 minutes will begin to elapse once the first problem is opened.</p>
+            <p><b>The Qualification Round System Testing Phase</b> is applied to all submitted code at the conclusion of the Qualification Round. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</p>
 
-            <p>The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question.</p>
-
-            <p>The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Online Round #1 of the TCCC.</p>
+            <p>Upon logging in to the TopCoder Arena during the Qualification Round, each competitor who has registered for the Algorithm Competition will receive a message indicating which set of problems they have been assigned.  The100 highest scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Online Round #1 of the Algorithm Competition.  A maximum of 500 competitors will advance.  Advancers will be posted within 24 hours after the conclusion of the Qualification Round.  Members will be rated at the conclusion of the Qualification Round based on their performance against others with the same problem set.</p>
 
 <!-- Conditions of Participation -->
             <a name="conditions"></a>
@@ -115,7 +115,7 @@
          the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
 
          <p>Prizewinners will be notified via e-mail within 10 days of the completion of the Online Round #1 that they have 
-         won a prize.  Contestants who advance to Online Round #4 must complete the following documents online by 9:00 PM 
+         won a prize.  Contestants who advance to Online Round #4 must complete the following documents online by 9:00 pm 
          EST on Wednesday, March 17, 2004:</p>
 
          <ul>
@@ -169,7 +169,7 @@
          for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder 
          and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify 
          TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result 
-         of the prizewinner’s participation in the tournament.</p>
+         of the prizewinner's participation in the tournament.</p>
 
          <p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this 
          tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder 
@@ -185,9 +185,9 @@
             </a>Competition Structure</h2>
          
             <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
-            Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round. (See below for competition dates and times.) TopCoder members from around the world may be participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be treated as an automatic loss in that round of competition.</p>
+            Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round. (See the <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_alg_schedule">schedule</a> for competition dates and times.) TopCoder members from around the world may be participating in these rounds (<b>but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly</b>). If a coder does not participate, for any reason, in an online round they have advanced to, it will be treated as an automatic loss in that round of competition.</p>
 
-            <p>All competitors who have qualified for an online round will be assigned to a specific room. TopCoder will determine all room assignments prior to the start of each online round in a manner such that the average competitor rating (as of February 23rd) for each room will be similar.</p>
+            <p>All competitors who have qualified for an online round will be assigned to a specific room. TopCoder will determine all room assignments prior to the start of each online round in a manner such that the average competitor rating (following the Qualification Round) for each room will be similar.</p>
 
             <p><span class="bodySubtitle">Scoring and Advancing during Online Rounds</span><br/>
             After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:</p>
@@ -210,32 +210,32 @@
 
             <ul>
             <li>Total points acquired (higher is better) during the rounds of the tournament in which all of the tied participants were presented with the same set of problems (excluding the Qualification Round)</li>
-            <li>If a tie still remains, then by rating (higher is better) as of February 23, 2004.  Unrated coders as of February 23, 2004 will be assigned a rating of zero for tiebreaker purposes</li>
+            <li>If a tie still remains, then by rating (higher is better) following the Qualification Round</li>
             <li>If a tie still remains, all tied coders will advance to the next round</li>
             </ul>
 
             <p>With the exception of the Qualification Round, each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: the format of these competition rounds is similar to the format of the Single Round Matches.)</p>
 
-            <p>The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.</p>
+            <p><b>The Coding Phase</b> is a timed event where all contestants are presented with the same three questions representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time the problem was opened until the time it was submitted.</p>
 
-            <p>The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition. </p>
+            <p><b>The Challenge Phase</b> is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point reduction of 50 points as a penalty, applied against their total score in that round of competition. </p>
 
-            <p>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</p>
+            <p><b>The System Testing Phase</b> is applied to all submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will be added to the sets of inputs for the System Testing Phase.</p>
 
             <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
-            The twenty-four (24) advancers from Online Round #4 will travel to the Boston Park Plaza Hotel & Towers on Wednesday, April 14th to compete in the Semifinal round of the tournament being held on Thursday, April 15th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 PM on Wednesday, April 14th.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.</p>
+            The twenty-four (24) advancers from Online Round #4 will travel to the Boston Park Plaza Hotel & Towers on Wednesday, April 14th to compete in the Semifinal round of the tournament being held on Thursday, April 15th.  All contestants must arrive at the Boston Park Plaza Hotel & Towers no later than 4:00 pm on Wednesday, April 14th.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive a prize, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.</p>
 
-            <p>TopCoder will provide travel arrangements for each competitor, up to a cost of $1,000 per person.  (That is, if a contestant’s airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  In addition, TopCoder will also provide travel arrangements to and from the airport to the Boston Park Plaza Hotel & Towers and accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2004 TCCC.</p>
+            <p>TopCoder will provide travel arrangements for each competitor, up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  THe Boston Park Plaza Hotel & Towers will also provide travel arrangements to and from the airport and TopCoder will provide accomodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will <b>not</b> provide travel or lodging accommodations for competitor guests at the 2004 TCCC.</p>
 
-            <p>TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a manner such that the average competitor rating (as of February 23rd) for each room will be similar.</p>
+            <p>TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a manner such that the average competitor rating (following the Qualification Round) for each room will be similar.</p>
 
-            <p>The Semifinal Round will consist of four (4) rooms of four (4) coders each. The winner in each room will advance to the Championship Round</p>
+            <p>The Semifinal Round will consist of three (3) rooms of eight (8) coders each. The winner in each room will advance to the Championship Round.  The 2nd and 3rd place finishers in each round will participate in one(1) Wildcard Round.  The winner of the Wildcard Round will also advance to the Championship Round.</p>
 
             <p>The Championship Round will be a single round of four (4) coders. First, second, third and fourth place in the Championship round are determined by comparing the total points of each coder, with the highest point value placing first. The winner of the Championship Round will be the coder with the highest point total for the round. In the event of a tie in the Semifinal and/or Championship rounds, the tie will be resolved in the following manner (in order):</p>
 
             <ul>
             <li>Total points acquired (higher is better) during Online Rounds #1, #2, #3 and #4 of the 2004 TopCoder Collegiate Challenge</li>
-            <li>If a tie still remains, then by rating (higher is better) as of February 23, 2004.  Unrated coders as of February 23, 2004 will be assigned a rating of zero for tiebreaker purposes</li>
+            <li>If a tie still remains, then by rating (higher is better) following the Qualification Round</li>
             <li>If a tie still remains in the Semifinal round, then all tied coders will advance to the Championship Round</li>
             <li>If a tie still remains in the Championship round, then the prize money will be distributed equally amongst the tied coders</li>
             </ul>
@@ -246,7 +246,7 @@
             </a>About the Prizes</h2>
             
 
-            <p>The tournament will award prizes to up to 500 competitors and $38,000 in cash prizes.  Any and all applicable 
+            <p>The tournament will award prizes to up to 500 competitors and $40,000 in cash prizes.  Any and all applicable 
             taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:</p>
 
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
@@ -262,7 +262,7 @@
 
                 <tr>
                     <td width="50%" class="sidebarText">2nd place finisher* in the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">$7,000</td>
+                    <td width="50%" class="sidebarText" align="right">$9,000</td>
                 </tr>
 
                 <tr>
@@ -292,7 +292,7 @@
             <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be
             displayed for at least 3 months after the end of the tournament.</p>
 
-            <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 AM Eastern Time on the date following the round for which the appeal is being addressed.</p>
+            <p>Any appeals as to the outcome of a round of competition must be submitted via email to <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> by no later than 11:00 am Eastern Time on the date following the round for which the appeal is being addressed.</p>
 
             <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 

@@ -46,12 +46,12 @@
             <h2>Description of the Algorithm Competition</h2>
 
             <p>
-            The 2004 Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists will be invited to compete live at the onsite finals in Boston.</p>
+            The 2004 TopCoder Collegiate Challenge is bigger and better than ever! 24 Algorithm finalists will be invited to compete live at the onsite finals in Boston.</p>
             <ul>
                 <li><strong>Elimination Starts</strong><br />
-                    February 2004 - Algorithm<br /></li>
+                    February 28, 2004<br /></li>
                 <li><strong>Onsite Finals</strong><br />
-                    April 2004 in Boston, MA</li>
+                    April 15 & 16, 2004 in athe Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
                 <li><strong>Free Competition</strong></li>
                 <li><strong>Open to all college students</strong></li>
             </ul>
