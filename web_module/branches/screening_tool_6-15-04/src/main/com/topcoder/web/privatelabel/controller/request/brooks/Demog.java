@@ -45,6 +45,7 @@ public class Demog extends FullRegDemog {
             handle = handle.substring(0, Constants.MAX_HANDLE_LENGTH);
         }
         
+        handle = handle.toLowerCase();
         String baseHandle = handle;
         
         try {
