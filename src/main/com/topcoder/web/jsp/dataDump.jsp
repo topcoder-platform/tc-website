@@ -6,7 +6,7 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="com.topcoder.web.stat.common.*"
+  import="com.topcoder.shared.dataAccess.resultSet.*"
 %>
 
 <%!
