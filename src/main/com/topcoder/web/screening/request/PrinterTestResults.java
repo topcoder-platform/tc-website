@@ -30,6 +30,7 @@ public class PrinterTestResults extends TestResults {
 
         //get the problem statements
         if (resultMap!=null) {
+            //perhaps add an accessor to the parent so we don't get the problem info 2x
             ResultSetContainer problems = (ResultSetContainer)resultMap.get("sessionProblems");
             getRequest().setAttribute("problemSolutionList", problems);
             ResultSetContainer.ResultSetRow row = null;
