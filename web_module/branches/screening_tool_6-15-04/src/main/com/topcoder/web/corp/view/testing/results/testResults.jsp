@@ -138,7 +138,7 @@ function getProblemDetail(id) {
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
 		       <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) %>
-		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>">percentile</td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><%= testResultsInfo.getProblemSetBPrecentiles().get( String.valueOf( row.getLongItem("problem_id") ) ) %></td>
 		       <% %>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>">
                  <% if (isSystemTested && (isSubmitted || isCompiled)) {%>
