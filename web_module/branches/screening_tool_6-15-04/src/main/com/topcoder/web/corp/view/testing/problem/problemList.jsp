@@ -38,42 +38,46 @@ function getProblemDetail(id) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
                <h1 class="testHead">Problem Sets</h1>
             <P>Below is a list of Problem Sets available for use in the Testing Application.  Clicking on a Problem Name opens a window that
-            displays statistical information about the Problem, as well as the Problem Statement.</P>
+            displays statistical information about the Problem, as well as the Problem Statement.<br/></P>
                     </td>
                 </tr>
             </table>
 
 
-         <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
 	        <TR>
-		       <TD ALIGN="center" CLASS="testTableTitle">Name</TD>
-		       <TD ALIGN="center" CLASS="testTableTitle">Division</TD>
-		       <TD ALIGN="center" CLASS="testTableTitle">Difficulty</TD>
-		       <TD ALIGN="center" CLASS="testTableTitle">Overall Accuracy %</TD>
-		       <TD ALIGN="center" CLASS="testTableTitle">Sub. Acc. %</TD>
-		       <TD ALIGN="center" CLASS="testTableTitle">Sub. %</TD>
-		       <TD ALIGN="center" CLASS="testTableTitle">Algorithmic Categories</TD>
+		       <TD ALIGN="left" CLASS="screeningHeader">Name</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Division</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Difficulty</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Overall Accuracy %</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Sub. Acc. %</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Sub. %</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Algorithmic Categories</TD>
 	        </TR>
         <jsp:useBean id='problemList' type='java.util.List' scope='request' />
+		<%
+			int counter = 0;
+			String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
+		%>
         <screen:nestedListIterator id="subSet" list="<%=problemList%>">
             <% ProblemInfo firstProblem = (ProblemInfo)subSet.get(0); %>
             <TR>
-                <TD COLSPAN="8" CLASS="testFormHeader"><%=firstProblem.getRoundName()%></TD>
+                <TD COLSPAN="8" CLASS="screeningHeader"><%=firstProblem.getRoundName()%></TD>
             </TR>
             <screen:problemInfoIterator id="problem" list="<%= subSet %>">
 	        <TR>
-		       <TD ALIGN="center" CLASS="testTableOdd"><A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='divisionDesc' /></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='difficultyDesc' /></TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='overallAccuracy' />%</TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='submissionAccuracy' />%</TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='submission' />%</TD>
-		       <TD ALIGN="center" CLASS="testTableOdd"><screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
+		       <TD ALIGN="left" class="<%=cssClasses[counter % 2]%>"><A HREF="JavaScript:getProblemDetail('<screen:beanWrite name='problem' property='roundId' />,<screen:beanWrite name='problem' property='problemId' />')" CLASS="bodyText"><screen:beanWrite name='problem' property='problemName' /></A></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='divisionDesc' /></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='difficultyDesc' /></TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='overallAccuracy' />%</TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submissionAccuracy' />%</TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter % 2]%>"><screen:beanWrite name='problem' property='submission' />%</TD>
+		       <TD ALIGN="center" class="<%=cssClasses[counter++ % 2]%>"><screen:beanWrite name='problem' property='algorithmicCategoryList' /></TD>
 	        </TR>
             </screen:problemInfoIterator>
         </screen:nestedListIterator>
