@@ -58,17 +58,13 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
                 <tr>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-
                     <td class="<%=tab.equals("reception")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception" class="topLink">Reception</a></td>
                     <td class="<%=tab.equals("room1")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room1" class="topLink">Room 1</a></td>
                     <td class="<%=tab.equals("room2")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2" class="topLink">Room 2</a></td>
                     <td class="<%=tab.equals("room3")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room3" class="topLink">Room 3</a></td>
                     <td class="<%=tab.equals("room4")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room4" class="topLink">Room 4</a></td>
                     <td class="<%=tab.equals("final")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=final" class="topLink">Final Round</a></td>
-                    <%--
-                    <td class="<%=tab.equals("awards")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=awards" class="topLink">Awards Dinner</a></td>
-                     --%>
-                     
+                    <td class="<%=tab.equals("slide_show")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=slide_show" class="topLink">Slide Show</a></td>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
