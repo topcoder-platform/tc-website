@@ -13,5 +13,5 @@ for company specific content we'll need a different page/backend<br/>
 <br/>
 <a href="?&<%=Constants.MODULE_KEY+"="+Constants.VERIZON_REG_MAIN+"&"+Constants.COMPANY_ID+"=1747&"+Constants.EVENT_ID+"=1"%>">Register Verizon</a>
 <br/>
-<a href="?&<%=Constants.MODULE_KEY+"="+Constants.GOOGLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=34&"+Constants.EVENT_ID+"=1"%>">Register Google</a>
+<a href="?&<%=Constants.MODULE_KEY+"="+Constants.GOOGLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=1865&"+Constants.EVENT_ID+"=1"%>">Register Google</a>
 </body>
