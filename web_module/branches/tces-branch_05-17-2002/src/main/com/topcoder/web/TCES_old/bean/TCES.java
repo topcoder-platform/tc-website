@@ -308,6 +308,7 @@ public class TCES extends Task implements Serializable {
                                                         */
 				}
 			} catch (Exception e) {
+                                Log.msg("Exception while processing TCES.process(): " + e.getMessage());
 				throw new TaskException("TCES.process(): Exception: " + e.getMessage());			
 			}
     }
