@@ -21,6 +21,7 @@ public class StatXMLParser {
             parser.parse(is);
             doc = parser.getDocument();
         } catch (SAXException e) {
+            e.printStackTrace();
             throw new IOException("ERROR GETTING XML DOCUMENT: " + e);
         }
         return doc;
@@ -28,7 +29,6 @@ public class StatXMLParser {
 
     public static Document getXMLDocument(String sFileName) throws IOException {
         InputStream in = (InputStream) new FileInputStream(sFileName);
-        ;
         return getXMLDocument(in);
     }
 
