@@ -68,4 +68,15 @@
         </attribute>
     </tag>
 
+   <tag>
+        <name>ratingClass</name>
+        <tagclass>com.topcoder.web.common.tag.RatingClassTag</tagclass>
+        <attribute>
+            <name>rating</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
 </taglib>
