@@ -44,6 +44,7 @@ public class ProductUnitBean extends BaseEJB {
         DataSource ds = null;
 
         try {
+            ctx = new InitialContext();
             ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 

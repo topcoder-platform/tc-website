@@ -32,6 +32,7 @@ public class EmailBean extends BaseEJB {
 
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             if (!IdGenerator.isInitialized()) {
@@ -339,5 +340,3 @@ public class EmailBean extends BaseEJB {
     }
 
 }
-
-;

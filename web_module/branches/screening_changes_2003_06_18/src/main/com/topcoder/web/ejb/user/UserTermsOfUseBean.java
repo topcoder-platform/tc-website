@@ -29,6 +29,7 @@ public class UserTermsOfUseBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
@@ -69,6 +70,7 @@ public class UserTermsOfUseBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
+            ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
@@ -110,6 +112,7 @@ public class UserTermsOfUseBean extends BaseEJB {
         boolean ret = false;
         InitialContext ctx = null;
         try {
+            ctx = new InitialContext();
 
             DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
 
