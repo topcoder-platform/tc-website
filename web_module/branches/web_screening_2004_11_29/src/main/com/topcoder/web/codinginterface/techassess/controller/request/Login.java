@@ -42,6 +42,8 @@ public class Login extends BaseProcessor {
         }
 
         ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
+        request.setServerID(993);
+
 
         log.debug("instantiate queue message sender");
         String jmsFactory = ScreeningApplicationServer.JMS_FACTORY;
