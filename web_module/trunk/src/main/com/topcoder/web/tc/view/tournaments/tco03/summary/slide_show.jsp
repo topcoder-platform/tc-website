@@ -11,7 +11,7 @@
 
 var imageDir = "/i/tournament/tco03/download_photos/";
 var imageNum = 1;
-var totalImages = 316;
+var totalImages = 328;
 
 <%
     final String CURR_IMAGE_KEY = "currImage";
@@ -113,19 +113,19 @@ function changeImage(place, imageIndex) {
 
             <p class="terciary"><div align="center">
                 <a href="Javascript:void changeImage('slideImg', 1);">Reception</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 21);">Room 1</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 49);">Room 2</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 68);">Room 3</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 110);">Room 4</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 147);">NVIDIA Gathering</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 168);">Component Finals</a><br/>
+                <a href="Javascript:void changeImage('slideImg', 22);">Room 1</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 51);">Room 2</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 71);">Room 3</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 114);">Room 4</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 152);">NVIDIA Gathering</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 174);">Component Finals</a><br/>
 
-                <a href="Javascript:void changeImage('slideImg', 191);">Intel Presentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 196);">War Room</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 204);">Coding Finals</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 254);">Winners</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 282);">Press Conference</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-                <a href="Javascript:void changeImage('slideImg', 304);">Awards Dinner</a>
+                <a href="Javascript:void changeImage('slideImg', 198);">Intel Presentation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 203);">War Room</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 212);">Coding Finals</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 263);">Winners</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 292);">Press Conference</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                <a href="Javascript:void changeImage('slideImg', 315);">Awards Dinner</a>
             </div></p>
 
             <p><div align="center">
