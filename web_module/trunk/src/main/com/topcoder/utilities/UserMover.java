@@ -80,6 +80,7 @@ public class UserMover {
             String zip = (String)user.getItem("last_name").getResultData();
             String phone = (String)user.getItem("home_phone").getResultData();
 
+
             userEJB.createUser(userId, handle, status);
             userEJB.setFirstName(userId, firstName);
             userEJB.setLastName(userId, lastName);
@@ -118,7 +119,6 @@ public class UserMover {
                     pmr.addUserToGroup(gp, up, tcs);
                 }
             }
-
         } catch (Exception e) {
             log.error(handle + " didn't move over right");
             log.error(user.toString());
@@ -153,7 +153,7 @@ public class UserMover {
             query.append( " from user u");
             query.append(     ", coder c");
             query.append(" where u.user_id = c.coder_id");
-            query.append(  " and u.user_id = 114443");
+            //query.append(  " and u.user_id = 114443");
             query.append(" order by status_order desc");
 
             ps = conn.prepareStatement(query.toString());
