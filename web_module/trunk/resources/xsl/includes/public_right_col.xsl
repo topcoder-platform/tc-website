@@ -22,10 +22,7 @@ function find(n) {
     if (s[i].name==n) return s[i];
   }
 }
-
-timer(1);
 ]]></script>
-
 
 <xsl:choose>
     <xsl:when test="$sectionName='tourny'or$sectionName='statistics'">
