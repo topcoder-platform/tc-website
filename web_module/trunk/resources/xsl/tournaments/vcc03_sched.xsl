@@ -60,13 +60,9 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-    <div align="center"><object 
-         type="application/x-shockwave-flash"
-         data="/i/tournament/vcc03/vcc03.swf"
-         width="500"
-         height="120">
-    <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
-    </object></div>
+   <p><br /></p>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.jpg" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <p><br /></p>
 
 <!-- Tab bar links-->
             <xsl:call-template name="vcc03_links">
@@ -94,111 +90,51 @@
             <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="35%">Date and Time - Chennai Time</td>
                     <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
                     <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText">Online Round #1</td>
+                    <td class="sidebarText">Round #1</td>
                     <td class="sidebarText">
                         Wednesday, August 20th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
+                        Sign In: 6:00 PM - 8:55 PM<br />
+                        START: 9:00 PM<br />
                     </td>
                     <td class="sidebarText" align="center">500</td>
                     <td class="sidebarText" align="center">250</td>
                 </tr>
 
                 <tr valign="top">
-                    <td class="sidebarText">Online Round #2</td>
+                    <td class="sidebarText">Round #2</td>
                     <td class="sidebarText">
                         Monday, August 25th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
+                        START: 9:30 PM<br />
                     </td>
-                    <td class="sidebarText" align="center">200</td>
+                    <td class="sidebarText" align="center">250</td>
                     <td class="sidebarText" align="center">25</td>
                 </tr>
 
                 <tr valign="top">
+                    <td class="sidebarText">Round #3 - Championship Round</td>
+                    <td class="sidebarText">
+                        Friday, August 29th<br />
+                        START: 9:30 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">25</td>
+                    <td class="sidebarText" align="center">4 Prize  Winners</td>
+                </tr>
+
+                <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
-                        will be the following day at the same time.
+                        *NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.
                     </td>
                 </tr>
             </table>
+
 <!-- Online Elimination Rounds ends -->
 
-<!-- Onsite Semifinal and Championship Rounds begins -->
-            <p><span class="bodySubtitle">Onsite Championship Round</span><br />
-            The 25 advancers from Online Round #2 will travel to India on Friday, August 29th to compete in the Final round 
-            of the tournament being held on Thursday, December 4th.</p>
-<!--          
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #1</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 10:00 AM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #2</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 1:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #3</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 4:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #4</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 7:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="bodyText" bgcolor="#FFCC33"><strong>Championship Round</strong></td>
-                    <td class="bodyText" bgcolor="#FFCC33">
-                        <strong>Friday, December 5th<br />
-                        Compete: 1:00 PM<br /></strong>
-                    </td>
-                    <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>4</strong></td>
-                    <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>1</strong></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
-                    </td>
-                </tr>
-            </table><br />
--->
             </blockquote>
 
             <p><br/></p>
