@@ -23,7 +23,7 @@
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td colspan="2">
-                        <jsp:include page="times.jsp">
+                        <jsp:include page="des_times.jsp">
                             <jsp:param name="member" value="adic" />
                             <jsp:param name="time" value="init" />
                         </jsp:include>
@@ -37,7 +37,7 @@
 
                 <tr valign="top">
                     <td colspan="2">
-                        <jsp:include page="times.jsp">
+                        <jsp:include page="des_times.jsp">
                             <jsp:param name="member" value="adic" />
                             <jsp:param name="time" value="init" />
                         </jsp:include>
