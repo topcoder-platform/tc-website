@@ -50,7 +50,7 @@
 			</tr>
 			<tr>
 				<td class=homeArrow>&#160;</td>
-				<td class=homeText>How do you stand up among your peers? <A href="/tc">Compete</A> to be the best coder in the world through our algorithm competitions.</td>
+				<td class=homeText>How do you stand up among your peers? <A href="/tc">Compete</A> in our algorithm competitions.</td>
 			</tr>
 
 			<tr>
