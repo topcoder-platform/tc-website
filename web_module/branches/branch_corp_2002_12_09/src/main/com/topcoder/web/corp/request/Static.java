@@ -1,12 +1,18 @@
 package com.topcoder.web.corp.request;
 
+import com.topcoder.security.NotAuthorizedException;
+import com.topcoder.security.TCSubject;
+import com.topcoder.shared.security.Authorization;
+import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.util.logging.Logger;
+
 /**
 * <p> Title: Static </p>
 * <p> Description: Handles "static" pages.  Serve up jsp's in essentially 
 * any directory (below the root) The request processor gets the list of 
 * parameters out of the request, validates them, and then processes them. 
 *
-* @version   1.1.2.21
+* @version   1.1.2.22
 * @author    Daniel Cohn
 */
 
@@ -29,7 +35,46 @@ public class Static extends BaseProcessor {
      */
     void businessProcessing() throws Exception {
         nextPage = requestProcessor();
+        logger.debug("Static processor nextPage = "+nextPage);
+
+        if (!havePermission()) { 
+             log.debug(
+                 "user [id="+tcUser.getUserId()+"] does not have enough " +
+                 "permissions to access: " + nextPage
+             );
+            /* Controller should catch NotAuthorizedException and forward
+               to login page if user is anonymous and send to permission 
+               error page if user is logged in but not authorized.  */
+            throw new NotAuthorizedException("Not enough permissions to access"
+                + " static page: " + nextPage);
+        }
     }
+
+
+    /**
+     * method to check that user has permissions to access static page 
+     * 
+     * @return boolean - true if user has permissions to access static page
+     */ 
+     private boolean havePermission() {
+    
+        int lastSlashIndex = nextPage.lastIndexOf("/");
+        String staticPageDirectory = nextPage.substring(0,lastSlashIndex);
+        if (!staticPageDirectory.equals("")) { 
+            TCSubject tcUser
+                = Util.retrieveTCSubject(authToken.getActiveUser().getId());
+            Authorization authorization = new TCESAuthorization(tcUser);
+
+            boolean allowedToRun = authorization.hasPermission(
+                new SimpleResource(staticPageDirectory)
+            ); 
+            if(! allowedToRun ) {
+                return false;
+            }
+        }
+        return true;
+     }
+
 
     /**
      * method for processesing a page request and checking to make sure it 
