@@ -29,7 +29,7 @@ import java.sql.SQLException;
 public class AddressBean implements SessionBean {
 
     private SessionContext ctx;
-    private static Logger log = Logger.getLogger(UserBean.class);
+    private static Logger log = Logger.getLogger(AddressBean.class);
     private static final String dataSourceName = "CORP_OLTP";
     private static final String idGenDataSourceName = "SCREENING_OLTP";
 

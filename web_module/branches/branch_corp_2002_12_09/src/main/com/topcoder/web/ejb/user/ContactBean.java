@@ -27,7 +27,7 @@ import java.sql.SQLException;
 public class ContactBean implements SessionBean {
 
     private SessionContext ctx;
-    private static Logger log = Logger.getLogger(UserBean.class);
+    private static Logger log = Logger.getLogger(ContactBean.class);
     private static final String dataSourceName = "CORP_OLTP";
 
     //required ejb methods
