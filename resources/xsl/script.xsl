@@ -68,6 +68,7 @@ function arena()
   return;
 }
 </SCRIPT>
+
 <SCRIPT type="text/javascript"><![CDATA[
 function sponsorLink(spons)
 {
@@ -184,13 +185,11 @@ function goTo(selection)
   {
     window.location = "/index?t=about_tc&c=spons_report_prof";
   } 
-   
-  
-  
 
   else
   {}
 }
 ]]></SCRIPT>
+
   </xsl:template>
 </xsl:stylesheet>
