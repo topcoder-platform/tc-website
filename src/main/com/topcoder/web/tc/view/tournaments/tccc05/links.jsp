@@ -87,9 +87,9 @@
 					<td class=nav><A href="/tc?module=TCCC05StudentReps"><img src="/i/tournament/tccc05/tabs/L2_studentrepsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 				<% if (tabLev2.equals("sponsors")) {%>
-					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola"><img src="/i/tournament/tccc05/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo"><img src="/i/tournament/tccc05/tabs/L2_sponsorsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
-					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola"><img src="/i/tournament/tccc05/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
+					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo"><img src="/i/tournament/tccc05/tabs/L2_sponsorsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 
 				<% } else if (tabLev1.equals("algorithm")) { %>
@@ -153,6 +153,7 @@
 					<% } else if (tabLev2.equals("specshow")) {%>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=specshow"><% if (tabLev3.equals("description")) {%><img src="/i/tournament/tccc05/tabs/L3_descriptionOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_descriptionOff.gif" border=0><% } %></a></td>
 					<% } else if (tabLev2.equals("sponsors")) {%>
+						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=yahoo"><% if (tabLev3.equals("yahoo")) {%><img src="/i/tournament/tccc05/tabs/L3_yahooOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_yahooOff.gif" border=0><% } %></a></td>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=motorola"><% if (tabLev3.equals("motorola")) {%><img src="/i/tournament/tccc05/tabs/L3_motorolaOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_motorolaOff.gif" border=0><% } %></a></td>
 					<% } else {%>
 						<td class=subNavBG><img src="/i/clear.gif" height="35" width="1" border=0/></td>
