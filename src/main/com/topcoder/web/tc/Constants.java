@@ -79,6 +79,8 @@ public class Constants {
     public static String DOWNLOADS;
     public static String LANDING_PAGE;
 
+    public static String REFERRALS;
+
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;
