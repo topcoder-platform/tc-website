@@ -98,6 +98,16 @@
                 
                 <tr>
                     <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6707859&ver=1" target="blank">Bace64 Codec</A> - Plugs in to the Compression Utility library so that users can handle Base64 data. Uses for the library include logic to encode email messages, attachments, and XML strings.</td>
+                </tr>
+                
+                <tr>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7411534&ver=1" target="blank">Performance Oriented Thread Pool</A> - Maintains a pool of threads and provides the highest performance to those threads that have been executing for the shortest period of time.</td>
+                </tr>
+                
+                <tr>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
                     <td class="smallText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601809&ver=1" target="blank">Trie Collection</A> - Provides trie data structure implementations including the Set and Map interfaces.</td>
                 </tr>
 
@@ -146,35 +156,28 @@
 
             <tr>
 				<td>
-					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
-
+					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">            
+                
                 <tr>
                     <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8447769&ver=1" target="blank">File Upload</A></td>
+                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8519763&ver=1" target="blank">Unit Converter</A></td>
                 </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8444395&ver=1" target="blank">Heartbeat</A></td>
-                </tr>
-                
                 
                 <tr>
                     <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
                     <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7387570&ver=1" target="blank">Phonetic Matching</A></td>
                 </tr>
 
-
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7540610&ver=1" target="blank">OSS/J TCK Test Proxy</A></td>
+                </tr>
+                
                 <tr>
                     <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
                     <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=600038&ver=2" target="blank">Document Generator V2</A></td>
                 </tr>
-
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8451710&ver=1" target="blank">Source Control Client</A></td>
-                </tr>
-                
+    
                 <tr>
                     <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
                     <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7325502&ver=1" target="blank">XML Navigator</A></td>
@@ -206,7 +209,29 @@
             <tr>
 				<td>
 					<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+                
                 <tr>
+                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7410031&ver=1" target="blank">Tail</A></td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7551467&ver=1" target="blank">Unit Test Generator</A></td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8447769&ver=1" target="blank">File Upload</A></td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8444395&ver=1" target="blank">Heartbeat</A></td>
+                </tr>
+                
+                
+              	<tr>
                     <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
                     <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7381375&ver=1" target="blank">File Delta</A></td>
                 </tr>
@@ -218,13 +243,14 @@
                 
                 <tr>
                     <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6707859&ver=1" target="blank">Bace64 Codec</A></td>
+                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7534130&ver=1" target="blank">Java Class Associations</A></td>
                 </tr>
-
+                
                 <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7411534&ver=1" target="blank">Performance Oriented Threadpool</A></td>
+                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8451710&ver=1" target="blank">Source Control Client</A></td>
                 </tr>
+                
                 
                 <tr>
                     <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
