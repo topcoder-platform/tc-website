@@ -348,8 +348,12 @@ pointers to appropriate docs for each<BR/>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
                         <TR><TD CLASS="bodyText"><A NAME="184"><B>What compiler options are used?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
-<P>The compiler is invoked as:</P>
-<P>g++ -Wall -W -s -pipe</P>           
+<P>The compiler is invoked as:<BR/>
+g++ -Wall -W -s -pipe</P>
+<P>
+Additional info on gcc 3.1<BR/> 
+<A HREF="http://gcc.gnu.org/bugs.html#updating" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/bugs.html#updating</A>
+</P>
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR> 
