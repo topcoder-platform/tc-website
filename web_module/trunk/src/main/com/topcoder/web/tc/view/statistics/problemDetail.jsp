@@ -24,39 +24,39 @@
  <body>
    <jsp:include page="../top.jsp" />
    <table WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-     <TR>
-       <TD WIDTH="180" VALIGN="top">
+     <tr>
+       <td WIDTH="180" VALIGN="top">
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
             </jsp:include>
        </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
+       <td WIDTH="10" VALIGN="top"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+       <td CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
          <!-- BEGIN BODY -->
          <table BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-           <TR>
-             <TD WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
-             <TD VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
-             <TD CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
+           <tr>
+             <td WIDTH="11" HEIGHT="26" ALIGN="left" VALIGN="bottom"><IMG WIDTH="11" HEIGHT="26" BORDER="0" SRC="/i/steelblue_top_left1.gif"></TD>
+             <td VALIGN="bottom" WIDTH="180" ALIGN="left"><IMG WIDTH="180" HEIGHT="26" BORDER="0" SRC="/i/header_statistics.gif"></TD>
+             <td CLASS="bodyTextBold" VALIGN="middle" WIDTH="100%">
                &#160;<SPAN CLASS="bodySubhead">&#160;&#160;Problem Detail&#160;&#160;</SPAN>
              </TD>
-             <TD VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
-           </TR>
-         </TABLE>
+             <td VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
+           </tr>
+         </table>
          <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
-           <TR>
-             <TD VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
+           <tr>
+             <td VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
 
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <tr><td>Division 1</td></tr>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"></TD>
+                 <tr>
+                   <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"></TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="language_name" row="<%=resultRow%>"/></TD>
+                     <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="language_name" row="<%=resultRow%>"/></TD>
                    </rsc:iterator>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Overall</TD>
-                 </TR>
-                 <TR>
+                   <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Overall</TD>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Problems Submitted</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
@@ -64,8 +64,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Submission Percentage</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
@@ -73,8 +73,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Problems Correct</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
@@ -82,8 +82,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Submission Accuracy</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
@@ -91,8 +91,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Problems Failed by Challenge</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
@@ -100,8 +100,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Problems Failed by System Test</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
@@ -109,8 +109,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Challenge Attempts Made</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
@@ -118,8 +118,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td WIDTH="10">Challenge Accuracy</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
@@ -127,8 +127,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Best Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
@@ -136,8 +136,8 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">High Scorer</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10">
@@ -153,8 +153,8 @@
                      <% } %>
                      </TD>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
+                 </tr>
+                 <tr>
                    <td VALIGN="middle" WIDTH="10">Average Correct Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="avg_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
@@ -162,150 +162,150 @@
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10"><rsc:item name="avg_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
                    </rsc:iterator>
-                 </TR>
+                 </tr>
                </table>
 
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <tr><td>Division 1</td></tr>
-                 <TR>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"></TD>
+                 <tr>
+                   <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"></TD>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="language_name" row="<%=resultRow%>"/></TD>
+                     <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10"><rsc:item name="language_name" row="<%=resultRow%>"/></TD>
                    </rsc:iterator>
-                   <TD BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Overall</TD>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Problems Submitted</TD>
+                   <td BACKGROUND="/i/steel_bluebv_bg.gif" VALIGN="middle" WIDTH="10">Overall</td>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Problems Submitted</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_submitted" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Submission Percentage</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Submission Percentage</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_percentage" row="<%=resultRow%>" ifNull="0.00%" format="0.00#"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Problems Correct</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Problems Correct</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_correct" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Submission Accuracy</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Submission Accuracy</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="submission_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Problems Failed by Challenge</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Problems Failed by Challenge</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_challenge" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Problems Failed by System Test</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Problems Failed by System Test</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="problems_failed_by_system_test" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Challenge Attempts Made</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Challenge Attempts Made</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_attempts_made" row="<%=resultRow%>" ifNull="0"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td WIDTH="10">Challenge Accuracy</TD>
+                 </tr>
+                 <tr>
+                   <td WIDTH="10">Challenge Accuracy</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="challenge_accuracy" row="<%=resultRow%>" ifNull="0.00" format="0.00"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Best Time</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Best Time</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="best_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">High Scorer</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">High Scorer</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                      <% } %>
-                     </TD>
+                     </td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
                      <td VALIGN="middle" WIDTH="10">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                      <% } %>
-                     </TD>
+                     </td>
                    </rsc:iterator>
-                 </TR>
-                 <TR>
-                   <td VALIGN="middle" WIDTH="10">Average Correct Time</TD>
+                 </tr>
+                 <tr>
+                   <td VALIGN="middle" WIDTH="10">Average Correct Time</td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="avg_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="avg_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div2Overall%>" id="resultRow">
-                     <td VALIGN="middle" WIDTH="10"><rsc:item name="avg_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></TD>
+                     <td VALIGN="middle" WIDTH="10"><rsc:item name="avg_time" row="<%=resultRow%>" ifNull="" format="H:mm:ss.S"/></td>
                    </rsc:iterator>
-                 </TR>
+                 </tr>
 
 
                </table>
 
 
 
-             </TD>
-           </TR>
-           <TR>
-             <td VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-           </TR>
+             </td>
+           </tr>
+           <tr>
+             <td VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></td>
+           </tr>
          </table>
 
          <p><br></p>
 
          <!-- END BODY -->
-       </TD>
-       <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+       </td>
+       <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></td>
        <td WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
          <jsp:include page="../public_right.jsp" />
-       </TD>
+       </td>
     <!-- Gutter -->
     <td WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></td>
     <!-- Gutter Ends -->
-     </TR>
+     </tr>
    </table>
    <jsp:include page="../foot.jsp" />
  </body>
