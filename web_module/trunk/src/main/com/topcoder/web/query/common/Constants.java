@@ -160,7 +160,8 @@ public class Constants {
         DB_LIST.add(new DatabaseBean("TCS_CATALOG", "TCS Catalog"));
         DB_LIST.add(new DatabaseBean("DS", "Corporate"));
         DB_LIST.add(new DatabaseBean("SCREENING_OLTP", "Screening"));
-
+        DB_LIST.add(new DatabaseBean("HS_OLTP", "HS Transactional"));
+        DB_LIST.add(new DatabaseBean("HS_DW", "HS Warehouse"));
 
     }
 }
