@@ -36,8 +36,8 @@ import com.topcoder.util.log.Level;
 import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
-import com.topcoder.apps.review.TCPhase;
-import com.topcoder.apps.review.TCWorkdays;
+import com.topcoder.project.phases.TCPhase;
+import com.topcoder.date.workdays.TCWorkdays;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -1650,7 +1650,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps = null;
 
             if (dates == null) {
-                dates = calcDates(projectTypeId);
+                dates = calcDates(projectTypeId, phaseArr);
             }
 
             for (int i = 0; i < phaseArr.length; i++) {
@@ -1937,25 +1937,29 @@ public class ProjectTrackerBean implements SessionBean {
         return projectId;
     }
 
-    private Date[] calcDates(long projectTypeId) {
-        // fix!
-        java.util.Date startDate = new java.util.Date();
+
+    private Date[] calcDates(long projectTypeId, Phase[] phaseArr ) {
+
+        int n = phaseArr.length;
+        java.util.Date startDate = new java.util.Date(); // Fix
+
         com.topcoder.project.phases.Project project = new com.topcoder.project.phases.Project(startDate, new TCWorkdays());
-        TCPhase[] phases = new TCPhase[10];
-        for (int i=0; i < 10; i++) {
-            phases[i] = new TCPhase(project, startDate, i+1);
+
+        TCPhase[] phases = new TCPhase[n];
+        for (int i=0; i < n; i++) {
+            phases[i] = new TCPhase(project, startDate, phaseArr[i].getDefaultDuration());
             if (i > 0) {
-                phases [i].addDependency(phases[i-1]);
+                phases [i].addDependency(phases[i - 1]);
             }
         }
 
-        Date[] result = new Date [11];
+        Date[] result = new Date [n + 1];
 
-        for (int i=0; i < 10; i++) {
+        for (int i=0; i < n; i++) {
             result [i] = new Date(phases[i].getStartDate().getTime());
-
         }
-        result[10] = new Date (phases [9].calcEndDate().getTime());
+        result[n] = new Date (phases [n - 1].calcEndDate().getTime());
+
         return result;
 
 

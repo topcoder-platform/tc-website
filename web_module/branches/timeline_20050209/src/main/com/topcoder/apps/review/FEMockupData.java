@@ -80,13 +80,13 @@ public final class FEMockupData {
      * The phases.
      */
     private Phase[] phases = {
-        new Phase(1, 1, "Submission"),
-        new Phase(2, 2, "Screening"),
-        new Phase(3, 3, "Review"),
-        new Phase(4, 4, "Aggregation"),
-        new Phase(5, 5, "Agg. Review"),
-        new Phase(6, 6, "Final Fixes"),
-        new Phase(7, 7, "Final Review")
+        new Phase(1, 1, 40,  "Submission"),
+        new Phase(2, 2, 8, "Screening"),
+        new Phase(3, 3, 24, "Review"),
+        new Phase(4, 4, 8, "Aggregation"),
+        new Phase(5, 5, 4, "Agg. Review"),
+        new Phase(6, 6, 4, "Final Fixes"),
+        new Phase(7, 7, 4, "Final Review")
     };
 
     /**

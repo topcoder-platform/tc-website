@@ -1,11 +1,7 @@
 /*
  * Copyright (c) 2004, TopCoder, Inc. All rights reserved
  */
-package com.topcoder.apps.review;
-
-import com.topcoder.date.workdays.Workdays;
-import com.topcoder.date.workdays.WorkdaysUnitOfTime;
-import com.topcoder.date.workdays.ConfigurationFileException;
+package com.topcoder.date.workdays;
 
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
@@ -1314,7 +1310,7 @@ public class TCWorkdays implements Workdays {
 
     /**
      * Get how many workable minutes are there between two specific dates.
-     *
+     * 
      * @param startDay start date and time
      * @param endDay end date and time
      * @return the number of workable minutes between startDay and endDay
@@ -1324,7 +1320,7 @@ public class TCWorkdays implements Workdays {
         if (startDay.compareTo(endDay) > 0) {
             throw new IllegalArgumentException("start day must be before end day");
         }
-
+        
         Calendar start = Calendar.getInstance(this.locale);
         start.setTime(startDay);
 
@@ -1334,23 +1330,23 @@ public class TCWorkdays implements Workdays {
         // How many minutes are "lost" in the start day
         int minutesStart = 0;
         if (!isNonWorkday(start)) {
-            minutesStart = (start.get(Calendar.HOUR_OF_DAY) - getWorkdayStartTimeHours()) * 60 +
-                               (start.get(Calendar.MINUTE) - getWorkdayStartTimeMinutes());
-
-            if (minutesStart > getWorkdayDurationInMinutes()) {
-                minutesStart =  getWorkdayDurationInMinutes();
-            }
-            if (minutesStart < 0) {
-                minutesStart = 0;
-            }
+	        minutesStart = (start.get(Calendar.HOUR_OF_DAY) - getWorkdayStartTimeHours()) * 60 +
+							   (start.get(Calendar.MINUTE) - getWorkdayStartTimeMinutes());
+	        
+	        if (minutesStart > getWorkdayDurationInMinutes()) {
+	            minutesStart =  getWorkdayDurationInMinutes();
+	        }
+	        if (minutesStart < 0) {
+	            minutesStart = 0;
+	        }
         }
-
+        
         // How many minutes are "lost" in the end day
         int minutesEnd = 0;
         if (!isNonWorkday(end)) {
             minutesEnd = (getWorkdayEndTimeHours() - end.get(Calendar.HOUR_OF_DAY)) * 60 +
-                         (getWorkdayEndTimeMinutes() - end.get(Calendar.MINUTE));
-
+						 (getWorkdayEndTimeMinutes() - end.get(Calendar.MINUTE));
+        
             if (minutesEnd > getWorkdayDurationInMinutes()) {
                 minutesEnd =  getWorkdayDurationInMinutes();
             }
@@ -1375,11 +1371,11 @@ public class TCWorkdays implements Workdays {
             }
             start.add(Calendar.DATE, 1);
         }
-
-
+        
+        
         return days * getWorkdayDurationInMinutes() - minutesStart - minutesEnd;
     }
-
+    
     /**
      * <p>
      * Checks if the date represented by cal is a non-work day.
@@ -1399,7 +1395,7 @@ public class TCWorkdays implements Workdays {
         }
 
         Calendar calDate = (Calendar) cal.clone();
-
+        
         // cut the part of nonWorkday's hour, minute , second and millisecond
         calDate.set(Calendar.HOUR_OF_DAY, 0);
         calDate.set(Calendar.MINUTE, 0);

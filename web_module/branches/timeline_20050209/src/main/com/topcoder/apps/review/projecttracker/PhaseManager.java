@@ -75,7 +75,7 @@ public class PhaseManager implements Refreshable {
             conn = Common.getDataSource().getConnection();
 
             ps = conn.prepareStatement(
-                    "SELECT rp.review_phase_id, rp.review_phase_name, rp.phase_order " +
+                    "SELECT rp.review_phase_id, rp.review_phase_name, rp.phase_order, rp.default_length " +
                     "FROM review_phase rp " +
                     "ORDER BY rp.review_phase_id");
             rs = ps.executeQuery();
@@ -84,8 +84,9 @@ public class PhaseManager implements Refreshable {
                 long id = rs.getLong(1);
                 String name = rs.getString(2);
                 int order = rs.getInt(3);
+                int defaultLength = rs.getInt(4);
 
-                Phase phase = new Phase(id, order, name);
+                Phase phase = new Phase(id, order, defaultLength, name);
                 newMap.put(new Long(id), phase);
             }
         } catch (SQLException e) {
