@@ -10,6 +10,7 @@
     <body>
         <form name=frmConfig method=post action="/tc">
         <input type="hidden" name="module" value=""/>
+        <b>Profile Config</b><br />
         <table border=0>
             <tr>
                 <td>
@@ -25,6 +26,22 @@
                 </td>
                 <td>
                     <jsp:getProperty name="configInfo" property="Name"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Presented By:</b>
+                </td>
+                <td>
+                    <tc-webtag:textInput name="presentedBy"  size="25" maxlength="50"/>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <b>Presented By Email:</b>
+                </td>
+                <td>
+                    <tc-webtag:textInput name="presentedByEmail"  size="25" maxlength="50"/>
                 </td>
             </tr>
         </table>

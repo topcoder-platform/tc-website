@@ -13,6 +13,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.PlacementConfigInfo;
 
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.email.Email;
 
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
@@ -33,7 +34,9 @@ public class ProfileConfig extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         try {
-           //lookup user id
+            //load any data for errors?
+            
+            //lookup user id
             int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
 
             PlacementConfigInfo info = new PlacementConfigInfo();
@@ -42,11 +45,18 @@ public class ProfileConfig extends BaseProcessor {
             
             InitialContext ctx = TCContext.getInitial();
             User userbean = (User)createEJB(ctx, User.class);
+            Email emailbean = (Email)createEJB(ctx, Email.class);
             
             info.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             info.setName(userbean.getFirstName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             
-            System.out.println(info.getHandle());
+            info.setPresentedBy(userbean.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            info.setPresentedByEmail(emailbean.getAddress(emailbean.getPrimaryEmailId(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+
+            
+            setDefault("presentedBy", info.getPresentedBy());
+            setDefault("presentedByEmail", info.getPresentedBy());
+            
             
             getRequest().setAttribute("configInfo", info);
 
