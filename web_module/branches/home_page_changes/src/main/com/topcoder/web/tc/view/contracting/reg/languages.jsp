@@ -83,7 +83,13 @@ return false;
 				<td class=oppDesc width="100%" valign=top>
 				<span class=bodySubtitle>Languages</span>
 				<br/><br/>
-				This is a description paragraph with some instructions and some details about the questions asked.
+				For each of the selections below rate your experience.  Use the following guide when making your selections:<br/>
+				<b>0</b> - No experience<br/>
+				<b>1</b> - Aware of that specific item. Experimented with it in the past.<br/>
+				<b>2</b> - Fair amount of experience using that specific item. However, you do not feel quite confident about it.<br/>
+				<b>3</b> - Feel confident in your knowledge of that specific item. Have a good amount of experience using it.<br/>
+				<b>4</b> - Very confident in your knowledge of that specific item. Have extensive experience using it.<br/>
+				<b>5</b> - Expert/Guru.  Select this only if you feel you know all there is to know in regards to that specific item.
 				</td>
 				<td valign=top>
 				<jsp:include page="breadcrumb.jsp" >

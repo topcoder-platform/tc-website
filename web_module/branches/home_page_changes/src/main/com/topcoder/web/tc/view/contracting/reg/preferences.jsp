@@ -81,7 +81,6 @@ return false;
 				<td class=oppDesc width="100%" valign=top>
 				<span class=bodySubtitle>Preferences</span>
 				<br/><br/>
-				This is a description paragraph with some instructions and some details about the questions asked.
 				</td>
 				<td valign=top>
 				<jsp:include page="breadcrumb.jsp" >
