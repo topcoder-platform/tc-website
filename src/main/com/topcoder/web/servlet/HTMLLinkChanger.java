@@ -17,7 +17,7 @@ public class HTMLLinkChanger {
      * easily tricked algorithm.
      */
     public static String prependToAllAddresses(String prepath, String contents) {
-        StringBuffer output = new StringBuffer();
+        StringBuffer output = new StringBuffer(contents.length()+1000);
         for(int i = 0; i < contents.length(); i++) {
             if(contents.charAt(i) == '<') {
                 //opening a tag, let's do the prepending in this tag
@@ -37,7 +37,7 @@ public class HTMLLinkChanger {
     }
 
     private static String prependToPathsInTag(String tag, String prepath) {
-        StringBuffer output = new StringBuffer();
+        StringBuffer output = new StringBuffer(1000);
         StringTokenizer st = new StringTokenizer(tag, "=", true);
         while(st.hasMoreTokens()) {
             String token = st.nextToken();
