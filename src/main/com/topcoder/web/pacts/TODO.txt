@@ -42,7 +42,8 @@ foreign key refrences.  Also if detail records are deleted there is no way to fi
 Also, you cannot delete the payment_detail without deleting the payment_detail_xref, however, you would then loss the
 reference to find the detail records.
 
-
+6/6/2002 11:06 am edt  jason n. evans
+Print more meaningful errors for navigation errors for Memberside
 
 
 ****************** BEING WORKED ON  ***********************
