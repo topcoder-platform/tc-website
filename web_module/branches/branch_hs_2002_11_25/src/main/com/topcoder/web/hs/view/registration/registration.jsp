@@ -2,7 +2,7 @@
 <P><BR></P>
 <P>Welcome to TopCoder High School, a site developed by programmers for high school students who are already interested in computer science.</P>
 <P><B>There is no cost to sign up or compete.</B></P>
-<FORM ACTION="?modules=Registration" METHOD="post" NAME="regForm">
+<FORM ACTION="?module=Registration" METHOD="post" NAME="regForm">
  <INPUT TYPE="hidden" NAME="c" VALUE="reg"/>
  <TABLE WIDTH="400" BORDER="0" CELLSPACING="0" CELLPADDING="5" ALIGN="center">
   <TR ALIGN="right" VALIGN="middle">
