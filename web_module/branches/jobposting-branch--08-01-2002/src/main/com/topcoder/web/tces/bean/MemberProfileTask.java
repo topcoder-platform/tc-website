@@ -58,6 +58,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /* Indicates whether the coder is ranked in competition */
     private boolean isRanked;
 
+    private int uid;
 
     /** Creates new MemberProfileTask */
     public MemberProfileTask() {

@@ -38,6 +38,17 @@
       frm.submit();
     }
    }
+  function submitEnter(e){
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     login.submit();
+     return false;
+    } else return true;
+  }
+   
 </script>
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
@@ -81,7 +92,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="handle" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="handle" onKeyPress="submitEnter(event)" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
                     </TD>
                   </TR>
                   <TR>
@@ -89,7 +100,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="password" TYPE="Password" VALUE="">
+                      <INPUT MAXLENGTH="25" SIZE="20" NAME="password" onKeyPress="submitEnter(event)" TYPE="Password" VALUE="">
                     </TD>
                   </TR>
                   <TR>

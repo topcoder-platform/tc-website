@@ -67,6 +67,7 @@ public class TCESConstants {
     public static String DEMOGRAPHIC_NOTIFY_KEY = "notify";
     public static String DEMOGRAPHIC_INFO_KEY = "info";
     public static String MEM_INFO_HANDLE_KEY = "handle";
+    public static String MEM_INFO_SINCE_KEY = "membersince";
     public static String MEM_INFO_FULLNAME_KEY = "fullname";
     public static String MEM_INFO_FULLADDR_KEY = "fulladdress";
     public static String MEM_INFO_CONTACT_KEY = "contact";

@@ -96,6 +96,7 @@
               
               <P>
               Member Type: <%=MemberInfo.get(TCESConstants.MEM_INFO_MEMTYPE_KEY)%> <BR>
+              TopCoder Member Since: <%=MemberInfo.get(TCESConstants.MEM_INFO_SINCE_KEY)%><BR>
               <% if (MemberProfileTask.getIsStudent()) { %>
                 School: <%=MemberInfo.get(TCESConstants.MEM_INFO_SCHOOLNAME_KEY)%> <BR>
                 Degree: <%=MemberInfo.get(TCESConstants.MEM_INFO_DEGREE_KEY)%> <BR>
