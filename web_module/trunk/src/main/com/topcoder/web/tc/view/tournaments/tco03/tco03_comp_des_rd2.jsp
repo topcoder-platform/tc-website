@@ -89,22 +89,30 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleOdd" align="center">2</td>
-                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
+                    <td class="formHandleOdd" align="center"></td>
+                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson***</a></td>
                     <td class="formHandleOdd" align="right">90.62</td>
                     <td class="formHandleOdd" align="right">91.90,89.34</td>
                     <td class="formHandleOdd" align="right">$483.00</td>
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleEven" align="center">3</td>
-                    <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=299180">isv</a></td>
+                    <td class="formHandleEven" align="center"></td>
+                    <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=299180">isv***</a></td>
                     <td class="formHandleEven" align="right">87.92</td>
                     <td class="formHandleEven" align="right">87.65,88.18</td>
                     <td class="formHandleEven" align="right">$462.00</td>
                 </tr>
 
-                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score<br/>**aksonov finished 1st in both design and development, as stated in the rules he advances in Development due to a higher average score</td></tr>
+                <tr valign="middle">
+                    <td class="formHandleOdd" align="center">2</td>
+                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342">kyky***</a></td>
+                    <td class="formHandleOdd" align="right">81.42</td>
+                    <td class="formHandleOdd" align="right">81.42</td>
+                    <td class="formHandleOdd" align="right">$189.50</td>
+                </tr>
+
+                <tr valign="middle"><td class="formHandleEven" width="20%" align="left" colspan="5">*the average of the two highest scores, including at least one level II score<br/>**aksonov finished 1st in both design and development, as stated in the rules he advances in Development due to a higher average score<br/>***Tomson and isv are unable to attend the onsite round due to travel restrictions. The next highest scorer in the tournament, kyky, has replaced them.</td></tr>
 
             </table>
 
@@ -126,15 +134,7 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=152342">kyky</a></td>
-                    <td class="formHandleOdd" align="right">81.42</td>
-                    <td class="formHandleOdd" align="right">81.42</td>
-                    <td class="formHandleOdd" align="right">$189.50</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleEven" align="center">2</td>
+                    <td class="formHandleEven" align="center">1</td>
                     <td class="formHandleEven" align="left"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=7405912">StrongHold</a></td>
                     <td class="formHandleEven" align="right">72.21</td>
                     <td class="formHandleEven" align="right">72.21</td>
