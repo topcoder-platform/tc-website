@@ -7,13 +7,14 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <SCRIPT LANGUAGE="JavaScript">
 <!--
 var MM_contentVersion = 6;
 var MM_FlashCanPlay = false;
-var plugin = (navigator.mimeTypes 
-              && navigator.mimeTypes["application/x-shockwave-flash"]) 
+var plugin = (navigator.mimeTypes
+              && navigator.mimeTypes["application/x-shockwave-flash"])
             ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
 if ( plugin ) {
   var words = navigator.plugins["Shockwave Flash"].description.split(" ");
@@ -79,12 +80,12 @@ document.write(' id="tc_card" ');
 document.write(' align="middle">');
 document.write(' <param name="allowScriptAccess" value="sameDomain" />');
 document.write(' <param name="movie" ');
-document.write(' value="/i/card/tc_card.swf?memberID=119676"/>');
+document.write(' value="/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>"/>');
 document.write(' <param name="menu" value="false" />');
 document.write(' <param name="quality" value="high" />');
 document.write(' <param name="bgcolor" value="#ffffff" />');
 document.write(' <embed ');
-document.write(' src="/i/card/tc_card.swf?memberID=119676" ');
+document.write(' src="/i/card/tc_card.swf?memberID=<jsp:getProperty name="sessionInfo" property="UserId"/>" ');
 document.write(' menu="false" ');
 document.write(' quality="high" ');
 document.write(' bgcolor="#ffffff" ');
