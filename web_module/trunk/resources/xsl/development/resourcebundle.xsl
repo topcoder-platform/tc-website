@@ -133,12 +133,14 @@ You must be a rated TopCoder member, at least 18 years of age, meeting all of th
 
 <P>
 <B>Time Line</B>
+<BR/>All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given untill the Final Submission Due Date to modify their submission.
+<BR/>
 </P>
 <P>
 Component Posting: 11/8/2002<BR/>
-Initial Submission Due Date: 11/25/2002<BR/>
-Final Submission Due Date: 12/6/2002<BR/>
-Estimated Development End Date: 12/30/2002<BR/>
+Initial Submission Due Date: 11/12/2002<BR/>
+Final Submission Due Date: 11/19/2002<BR/>
+Estimated Development End Date: 12/6/2002<BR/>
 
 <BR/>
 After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.
