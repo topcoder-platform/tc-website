@@ -129,7 +129,7 @@ return false;
 	            <td valign=top align=center class=bodyText><input type="radio" name=group7 property=""/></td>
             <% } %>
 	        </tr>
-			<tr><td colspan=11 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=preferences"><img src="/i/submit.jpg" border=0/></a></td></tr>
+			<tr><td colspan=11 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
 		</FORM>
 
