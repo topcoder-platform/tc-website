@@ -30,7 +30,6 @@ public class Submit extends PRBase {
         }
         long userID = getUser().getId();
         HttpServletRequest request = null;
-        InitialContext ctx = null;
         try {
             request = getRequest();
             int pid = 0;
@@ -58,8 +57,7 @@ public class Submit extends PRBase {
                 throw new Exception("Problem not yet used, or non-existent.");
             }
 
-            ctx = new InitialContext();
-            ProblemRatingServices prs = (ProblemRatingServices) createEJB(ctx, ProblemRatingServices.class);
+            ProblemRatingServices prs = (ProblemRatingServices) createEJB(getInitialContext(), ProblemRatingServices.class);
 
 
             ResultSetContainer questionsRSC = (ResultSetContainer) qMap.get("problem rating questions");
