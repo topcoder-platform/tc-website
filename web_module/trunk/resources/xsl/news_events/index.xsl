@@ -105,6 +105,20 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
+<!-- BWO Google article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href=" http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm" target="_blank"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href=" http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm" target="_blank">Hiring Techies Is as Tricky as Ever</A></strong></font><br />
+                         TopCoder rounded up about 100 programmers to participate in this software smackdown, some 10 of whom made it to the final round. DoubleClick Chief Information Officer Mok Choe says the company has already hired a few of the winners. "We can filter out the cream of the crop," says Choe. <span class="prHead">[April 13]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Yahoo TCCC Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
