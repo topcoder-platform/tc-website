@@ -3,7 +3,7 @@
 <%@ include file="body.inc" %>
 
          <!-- BEGIN BODY -->
-            <P><B>Rating History</B></P>
+            <h3>My Rating History</h3>
 
 <%
 pageContext.setAttribute("coder_id", srb.getProperty("cr","0000"));
