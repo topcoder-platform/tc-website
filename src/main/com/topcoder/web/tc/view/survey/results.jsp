@@ -103,7 +103,7 @@
                   </table>
 
                <tc:questionIterator list="<%=questionInfo%>" id="question">
-                  <table width="100%" border="0" cellpadding="3" cellspacing="0" class="bodyText">
+                  <table width="510" border="0" cellpadding="3" cellspacing="0" class="bodyText">
                      <tr>
                         <td colspan="4" class="bodySubtitle">
                            <jsp:getProperty name="question" property="text"/><br/><br/>
