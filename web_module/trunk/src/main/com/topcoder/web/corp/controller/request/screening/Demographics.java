@@ -74,7 +74,7 @@ public class Demographics extends BaseScreeningProcessor {
 
                 rsc = (ResultSetContainer) resultMap.get("campaign_demographic_responses");
                 ResultSetContainer.ResultSetRow demoInfoRow = null;
-                HashMap demoOtherMap = new HashMap();
+                TreeMap demoOtherMap = new TreeMap();
 
                 for (int rowI = 0; rowI < rsc.getRowCount(); rowI++) {
                     demoInfoRow = rsc.getRow(rowI);
