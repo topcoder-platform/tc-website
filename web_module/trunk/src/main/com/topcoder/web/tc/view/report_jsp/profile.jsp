@@ -107,7 +107,10 @@
       <td><br/></td>
     </tr>
     <tr>
-      <td colspan="3"><center>&lt;A HREF="/stat?c=member_profile&amp;amp;cr=<rsc:item name="user_id" row="<%=p%>"/>" CLASS="<%=className%>"&gt;<rsc:item name="handle" row="<%=p%>"/>&lt;/A&gt;</center></td>
+      <td colspan="3"><center><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=p%>"/>" CLASS="">View Member Profile</A></center></td>
+    </tr>
+        <tr>
+      <td colspan="3"><center><A HREF="mailto:<rsc:item name="email" row="<%=p%>"/>" CLASS="">Send email to <rsc:item name="handle" row="<%=p%>"/></A></center></td>
     </tr>
     <tr>
       <td><br/></td>
