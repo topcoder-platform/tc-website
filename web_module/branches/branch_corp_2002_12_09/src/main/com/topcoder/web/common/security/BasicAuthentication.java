@@ -32,7 +32,9 @@ import com.topcoder.web.corp.Constants;
  * @version 1.02
  */
 public class BasicAuthentication implements WebAuthentication {
-    protected static final Logger log = Logger.getLogger(BasicAuthentication.class); 
+    protected static final Logger log = Logger.getLogger(
+        BasicAuthentication.class
+    ); 
     private static final String KEY_LOGGEDIN_USER   = "logged-in-user";
     private static final String KEY_LOGON_COOKIE_ID = "a1";
 
@@ -54,7 +56,12 @@ public class BasicAuthentication implements WebAuthentication {
      * @param req
      * @param resp
      */
-    public BasicAuthentication(Persistor persistor, HttpServletRequest req, HttpServletResponse resp) {
+    public BasicAuthentication(
+        Persistor persistor,
+        HttpServletRequest req,
+        HttpServletResponse resp
+    )
+    {
         store = persistor;
         request = req;
         response = resp;
