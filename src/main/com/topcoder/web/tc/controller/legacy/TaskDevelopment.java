@@ -663,7 +663,7 @@ else if (command.equals("send")) {
     }
     
     public static boolean tcoTermsCheck(long userId) throws Exception {
-        Calendar c = new GregorianCalendar();
+        Calendar c = Calendar.getInstance();
         
         if(c.getTimeInMillis() < new GregorianCalendar(104, 7, 1).getTimeInMillis() || c.getTimeInMillis() > new GregorianCalendar(104, 9, 23).getTimeInMillis())
         {
