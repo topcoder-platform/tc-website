@@ -53,9 +53,7 @@ public class ProfileSearch extends Base {
         query.append("  st.state_name,\n");
         query.append("  cry.country_name,\n");
         query.append("  r.rating,\n");
-        query.append("  ur1.rating,\n");
-        query.append("  ur2.rating\n");
-        query.append("  (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112)\n");
+        query.append("  (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112),\n");
         query.append("  (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113)\n");
         query.append("  FROM coder c,\n");
         query.append("    rating r,\n");
@@ -63,15 +61,6 @@ public class ProfileSearch extends Base {
         String comp = request.getParameter("company");
         if(comp != null && comp.length() > 0){
             query.append("    demographic_response drc,\n");
-        }
-        if(!request.getParameter("placement").equals("none") || skill){
-            query.append("    user_preference up1,\n");
-        }
-        if("on".equals(request.getParameter("travel"))){
-            query.append("    user_preference up2,\n");
-        }
-        if("on".equals(request.getParameter("auth"))){
-            query.append("    user_preference up3,\n");
         }
         if("on".equals(request.getParameter("resume"))){
             query.append("    resume res,\n");
@@ -85,28 +74,19 @@ public class ProfileSearch extends Base {
         query.append("    country cry,\n");
         query.append("    state st\n");
         query.append("  WHERE 1 = 1\n");
-        query.append("  AND r.coder_id = c.coder_id\n");
-        query.append("  AND u.user_id = c.coder_id\n");
-        query.append("  AND cry.country_code = c.country_code\n");
-        query.append("  AND st.state_code = c.state_code\n");
+        query.append("    AND r.coder_id = c.coder_id\n");
+        query.append("    AND u.user_id = c.coder_id\n");
+        query.append("    AND cry.country_code = c.country_code\n");
+        query.append("    AND st.state_code = c.state_code\n");
         if(comp != null && comp.length() > 0){
-            query.append("  AND src.coder_id = c.coder_id\n");
-            query.append("  AND drc.demographic_question_id = 15\n");
-            query.append("  AND demographic_response");
+            query.append("    AND src.coder_id = c.coder_id\n");
+            query.append("    AND drc.demographic_question_id = 15\n");
+            query.append("    AND demographic_response");
             query.append(stringMatcher(comp));
             query.append('\n');
         }
-        if(!request.getParameter("placement").equals("none") || skill){
-            query.append("  AND up1.user_id = c.coder_id\n");
-        }
-        if("on".equals(request.getParameter("travel"))){
-            query.append("  AND up2.user_id = c.coder_id\n");
-        }
-        if("on".equals(request.getParameter("auth"))){
-            query.append("  AND up3.user_id = c.coder_id\n");
-        }
         if("on".equals(request.getParameter("resume"))){
-            query.append("  AND res.coder_id = c.coder_id\n");
+            query.append("    AND res.coder_id = c.coder_id\n");
         }
 
         for(int i = 0; i<constraints.size(); i++){
@@ -268,6 +248,8 @@ public class ProfileSearch extends Base {
                 query.append(x);
                 if(i < 4){
                     query.append(" 00:00:00.0'\'\n");
+                }else{
+                    query.append('\n');
                 }
             }catch(Exception exp){
                 //what to do here? For now just ignore this field.
@@ -284,24 +266,23 @@ public class ProfileSearch extends Base {
         }
         String place = request.getParameter("placement");
         if(place.equals("either") || place.equals("none") && skill){
-            query.append("    AND up1.preference_value_id IN (32, 34)\n");
+            query.append("    AND c.coder_id IN (select up1.user_id FROM up1.preference_value_id IN (32, 34))\n");
         }else if(place.equals("contract")){
-            query.append("    AND up1.preference_value_id = 32\n");
+            query.append("    AND c.coder_id IN (select up1.user_id FROM up1.preference_value_id = 32)\n");
         }else if(place.equals("full")){
-            query.append("    AND up1.preference_value_id = 34\n");
+            query.append("    AND c.coder_id IN (select up1.user_id FROM up1.preference_value_id = 34)\n");
         }
-        boolean travel = "on".equals(request.getParameter("travel"));
-        if(travel){
+        if("on".equals(request.getParameter("travel"))){
             if(place.equals("full")){
-                query.append("    AND up2.preference_value_id = 26\n");
+                query.append("    AND c.coder_id IN (select up2.user_id FROM up2.preference_value_id = 26)\n");
             }else if(place.equals("contract")){
-                query.append("    AND up2.preference_value_id = 17\n");
+                query.append("    AND c.coder_id IN (select up2.user_id FROM up2.preference_value_id = 17)\n");
             }else{
-                query.append("    AND up2.preference_value_id IN (17,26)\n");
+                query.append("    AND c.coder_id IN (select up2.user_id FROM up2.preference_value_id IN (17,26))\n");
             }
         }
         if("on".equals(request.getParameter("auth"))){
-            query.append("    AND up3.preference_value_id = 28\n");
+            query.append("    AND c.coder_id IN (select up3.user_id FROM up3.preference_value_id = 28)\n");
         }
 
         return query.toString();
