@@ -46,21 +46,22 @@ public class DokkahBlade {
                 terms[i] = terms[i].toLowerCase();
             query = new StringBuffer(100);
             query.append(" SELECT problem_id");
+            query.append(" , component_id");
             query.append(" ,class_name");
             query.append(" ,method_name");
-            query.append(" ,problem_text");
-            query.append(" FROM problem");
-            query.append(" ORDER BY problem_id");
+            query.append(" ,component_text");
+            query.append(" FROM component");
+            query.append(" ORDER BY component_id");
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
 
             ret = new ArrayList();
             while (rs.next()) {
-                if (found(rs.getString("problem_text"), terms)) {
-                    p = new Problem(rs.getInt("problem_id"),
+                if (found(rs.getString("component_text"), terms)) {
+                    p = new Problem(rs.getInt("component_id"),
                             rs.getString("class_name"),
                             rs.getString("method_name"),
-                            rs.getString("problem_text"));
+                            rs.getString("component_text"));
                     ret.add(p);
                 }
             }
