@@ -6,6 +6,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.InformixDB;
+import com.topcoder.util.idgenerator.sql.SimpleDB;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -283,7 +284,7 @@ public class CommandBean extends BaseEJB {
         try {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new InformixDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
+                IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
                         "sequence_object", "name", "current_value", 9999999999L, 10, true);
             }
             ret = IdGenerator.nextId("COMMAND_SEQ");
