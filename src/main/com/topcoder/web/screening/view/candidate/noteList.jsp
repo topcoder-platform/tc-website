@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="/errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -46,7 +47,7 @@
            <% { boolean even = true; %>
               <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
                  <TR>
-                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="text" /></TD>
+                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><%=StringUtils.htmlEncode(row.getText())%></TD>
                     <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<screen:resultSetItem row="<%=row%>" name="created_by" />&#160;&#160;</TD>
                     <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B><screen:resultSetItem row="<%=row%>" name="create_date" /></B>&#160;&#160;</TD>
                  </TR>
