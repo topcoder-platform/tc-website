@@ -104,7 +104,7 @@ public class Legacy extends Base {
                     getProfileDetail(getRequest());
                 } else if (task.equals(Constants.REPORT_PROFILE_SEARCH_KEY)) {
                     response_addr = Constants.REPORT_PROFILE_SEARCH_ADDR;
-                    getProfileDetail(getRequest());
+                    getProfileSearch(getRequest());
                 } else {
                     throw new NavigationException("Invalid task " + task);
                 }
@@ -223,6 +223,8 @@ public class Legacy extends Base {
         dataRequest.setContentHandle(Constants.REPORT_PROFILE_DETAIL_KEY);
         resultMap = dai.getData(dataRequest);
         request.setAttribute(Constants.REPORT_PROFILE_DETAIL_KEY, resultMap);
+    }
+    private void getProfileSearch(TCRequest request) throws Exception {
     }
 
     private void getProfileList(TCRequest request) throws Exception {
