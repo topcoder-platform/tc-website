@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.model;
 
 import com.topcoder.web.common.SessionInfo;
-import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -11,15 +10,12 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.util.Set;
 import java.util.Map;
 
 public class CoderSessionInfo extends SessionInfo {
     private int rating;
+    private int memberCount;
 
     //these can probably go away when we get away from the legacy controller
     //they really just support some of the xsl
@@ -53,6 +49,12 @@ public class CoderSessionInfo extends SessionInfo {
                 log.debug("couldn't find rank info for: " + authentication.getActiveUser().getId());
             }
         }
+
+        CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+        countDai.setExpireTime(15*60*1000);
+        Request countReq = new Request();
+        countReq.setContentHandle("member_count");
+        memberCount = ((ResultSetContainer)countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
     }
 
     public int getRating() {
@@ -69,6 +71,10 @@ public class CoderSessionInfo extends SessionInfo {
 
     public boolean hasImage() {
         return hasImage;
+    }
+
+    public int getMemberCount() {
+        return memberCount;
     }
 
     private ResultSetContainer getInfo(long userId) throws Exception {
