@@ -46,9 +46,9 @@
             
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td height="100%" class="statText">
-                        <p><font size="3">Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle 
-                        to view information about the Coder.</font></p>
+                    <td height="100%" class="statTextBig">
+                        <p>Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle 
+                        to view information about the Coder.</p>
                                     
                         <input type="hidden" name="module" value="Search">
                         <input type="hidden" name="cmd" value="adv">

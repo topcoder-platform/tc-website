@@ -45,7 +45,7 @@
                             <jsp:param name="isOnlinePage" value="true"/>
                         </jsp:include>
 
-                        <h2>2003 TopCoder High School Challenge<br>Official Rules and Regulations</h2>
+                        <h3>2003 TopCoder High School Challenge<br>Official Rules and Regulations</h3>
                         <p>No purchase necessary to enter or win.</p>
                         
                         </div>

@@ -59,7 +59,7 @@
                             <tr valign="top"><td align="left" class="statTextSmall">Xxxx contemplates a question during the Semi-final Round.</td></tr>
                         </table>
                                 
-                        <h2>Blah Blah High School named 2003 TopCoder High School Challenge Champs!</h2>
+                        <h3>Blah Blah High School named 2003 TopCoder High School Challenge Champs!</h3>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
                         Tuesday, may 2003, 2003</p>
 

@@ -48,11 +48,11 @@
                         </div>
                         
                         <table width="100%" border="0" cellpadding="0" cellspacing="10">
-                            <tr valign="top"><td colspan="3" class="statTextBig"><h2>Tuesday, May 20, 2003</h2></td></tr>
+                            <tr valign="top"><td colspan="3" class="statTextBig"><h3>Tuesday, May 20, 2003</h3></td></tr>
                             
                             <tr valign="top">
-                                <td width="20%" class="statTextBig">12:00pm - 12:30pm</td>
-                                <td width="40%" class="statTextBig">Competitors arrival and registration</td>
+                                <td width="23%" class="statTextBig">12:00pm - 12:30pm</td>
+                                <td width="37%" class="statTextBig">Competitors arrival and registration</td>
                                 <td width="40%" class="statTextBig">Homer Babbage Library (2nd floor)</td>
                             </tr>
                                 
