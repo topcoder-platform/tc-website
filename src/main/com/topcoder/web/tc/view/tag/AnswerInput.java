@@ -14,6 +14,7 @@ public class AnswerInput extends BaseTag {
     protected static Logger log = Logger.getLogger(AnswerInput.class);
 
     public static final String PREFIX = "question_";
+    public static final String NAME = "inputName";
 
     private String cssclass;
     private Question question;
@@ -46,26 +47,23 @@ public class AnswerInput extends BaseTag {
         Answer answer = null;
         String inputText = null;
         if (answers==null || question.getAnswerInfo().isEmpty()) {
-            log.debug("answers was null or empty");
             if (question.getStyleId()==Question.LONG_ANSWER) {
                 inputText = buildText();
             } else if (question.getStyleId()==Question.SHORT_ANSWER) {
                 inputText = buildText();
             }
+            pageContext.setAttribute(NAME, name, PageContext.PAGE_SCOPE);
             /* if we haven't done so already, set the information
                to make it accessible from the jsp and evaluate, otherwise, skip the body
              */
             if (processed) {
-                log.debug("not evaluating");
                 return wrapItUp();
             } else {
-                log.debug("evaluating");
                 pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
                 processed = true;
                 return EVAL_BODY_TAG;
             }
         } else if (answers!=null && answers.hasNext()) {
-            log.debug("answers wasn't null and there were more elements");
             answer = (Answer)answers.next();
             if (question.getStyleId()==Question.MULTIPLE_CHOICE) {
                 inputText = buildCheckBox(answer.getId());
@@ -73,9 +71,9 @@ public class AnswerInput extends BaseTag {
                 inputText = buildRadioButton(answer.getId());
             }
             pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
+            pageContext.setAttribute(NAME, name, PageContext.PAGE_SCOPE);
             return EVAL_BODY_TAG;
         } else {
-            log.debug("answers wasn't null and there were no more elements");
             return wrapItUp();
         }
     }
