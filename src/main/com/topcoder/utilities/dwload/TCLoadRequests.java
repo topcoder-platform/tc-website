@@ -532,6 +532,10 @@ public class TCLoadRequests extends TCLoad {
             }
         }
 
+        public String toString() {
+            return getUrl();
+        }
+
     }
 
 
