@@ -183,6 +183,84 @@ public class AutoPilot {
         
         return new SuccessResult();
     }
+    
+    public static ResultData reviewEmail(ReviewData data) {
+        try {
+            //setup user info
+            TCSubject subject = new TCSubject(100129);
+            subject.addPrincipal(new RolePrincipal("Administrator", 1));
+
+            UserManagerLocal userManager = EJBHelper.getUserManager();
+            DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
+            ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
+
+            SecurityEnabledUser user = userManager.getUser(subject);
+
+            Project project = data.getReviewScorecard().getProject();
+            
+            if(!project.getAutoPilot()) return new SuccessResult();
+
+            //check if all screenings are done,check to see if something passes
+            boolean passed = false;
+            double minscore = ConfigHelper.getMinimumScore();
+
+            ReviewScorecard[] scorecard = docManager.getReviewScorecard(project, user.getTCSubject());
+            for (int i = 0; i < scorecard.length; i++) {
+                if(!scorecard[i].isCompleted()) {
+                    //nothing to do
+                    return new SuccessResult();
+                }
+
+                if(scorecard[i].getScore() >= minscore) {
+                    passed = true;
+                }
+            } 
+
+            //lookup pm
+            String email = "";
+            UserRole[] participants = project.getParticipants(); 
+            for(int i = 0; i < participants.length;i++) {
+                if( participants[i].getRole().getId() == Role.ID_PRODUCT_MANAGER ) { 
+                    email = participants[i].getUser().getEmail();
+                }
+            }
+
+            if(email.equals("")) {
+                return new FailureResult("Cannot locate PM for Auto Pilot");
+            }
+
+            //override, change me
+            email = "rfairfax@topcoder.com";
+
+
+            //check if nothing passed, send email
+            if(!passed) {
+
+                StringBuffer mail = new StringBuffer();
+                mail.append("The following project: \n\n");
+                mail.append(project.getName());
+                mail.append("\n\nhas completed review and has no passing submissions");
+
+                sendMail("autopilot@topcoder.com", email, "AutoPilot: Review Notification", mail.toString());
+            } else {
+                //send notification to start PM reviews
+
+                StringBuffer mail = new StringBuffer();
+                mail.append("The following project: \n\n");
+                mail.append(project.getName());
+                mail.append("\n\nhas completed review and is ready for PM review.");
+
+                sendMail("autopilot@topcoder.com", email, "AutoPilot: Review Notification", mail.toString());
+            }
+
+
+
+        } catch(Exception e) {
+            return new FailureResult(e.toString());
+        }
+        
+        return new SuccessResult();
+    }
 
     static void sendMail(String from, String to, String subject, String messageText) throws Exception {
         TCSEmailMessage message = new TCSEmailMessage(); 
