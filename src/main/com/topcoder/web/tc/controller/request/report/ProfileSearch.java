@@ -294,7 +294,7 @@ public class ProfileSearch extends Base {
             }
         }
         query.append(")\n");
-        if(!first){
+        if(first){
             query.delete(query.length()-"    AND c.language_id IN ()\n".length(),query.length());
         }
         String[] bounds = {"maxdayssincerating","mindays","maxdays","minevents","minrating","maxrating"};
