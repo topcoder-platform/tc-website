@@ -216,7 +216,7 @@
                                 <table>
                                   <tr><td class="bodyText" colspan="3">TopCoder has adjusted the hours of certain SRMs to better accommodate members in Europe, Asia and Australia.  The additional dates and times are as follows:</td></tr>
                                   <tr><td class="bodyText"></td></tr>
-                                  <tr><td class="bodyText">December 6:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
+                                  <tr><td class="bodyText">December 7:</td><td class="bodyText">Register - 10:00AM ET </td><td class="bodyText">Compete - 1:00PM ET</td></tr>
                                 </table>
                                 <br/>
                             </xsl:when>
