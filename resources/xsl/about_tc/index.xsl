@@ -39,7 +39,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->    
@@ -47,7 +47,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">about_tc</xsl:with-param>
-                <xsl:with-param name="title">&#160;</xsl:with-param>
+                <xsl:with-param name="title">Overview</xsl:with-param>
             </xsl:call-template>
             
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -117,7 +117,7 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->

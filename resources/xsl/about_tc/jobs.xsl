@@ -40,7 +40,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="6"><img src="/i/clear.gif" alt="" width="6" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" alt="" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->    
@@ -48,12 +48,12 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">about_tc</xsl:with-param>
-                <xsl:with-param name="title">Jobs at TopCoder</xsl:with-param>
+                <xsl:with-param name="title">Working at TopCoder</xsl:with-param>
             </xsl:call-template>
             
-            <table border="0" cellspacing="0" cellpadding="10"  width="100%">
+            <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                 <tr valign="top">
-                    <td class="bodyText" width="100%">
+                    <td class="bodyText" width="100%"><br />
                         <p>TopCoder has established itself as the premier way to differentiate development talent, and has developed several unique products and 
                         services designed to improve software development productivity and efficiency. We are looking to fill internal positions for a Graphic 
                         Designer and a Salesperson. See the job descriptions below for details.</p>
@@ -167,17 +167,17 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-        <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="170" bgcolor="#FFFFFF" valign="top"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+        <td width="170">
             <xsl:call-template name="public_right_col"/>       
         </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
-        <td width="5" bgcolor="#FFFFFF"><img src="/i/clear.gif" width="5" height="1" border="0"/></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
     </tr>
 </table>
