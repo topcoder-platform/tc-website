@@ -12,9 +12,7 @@
   //
 
   String Redirect_URL = "http://" + request.getServerName();
-  String url ="";
   String responseURL = response.encodeURL("");
-  String responsePostURL = responseURL.equals("") ? "" :  responseURL.substring(1);
 
 %>        
 
@@ -166,41 +164,6 @@
 
 %>
 
-<%  //////////////////////////
-
-  // try loading up forums (exceptions may be thrown)
-
-  ForumFactory forumFactory = ForumFactory.getInstance(authToken);
-
-  ProfileManager manager = forumFactory.getProfileManager();
-
-  Forum forum = null;
-
-  boolean notAuthorizedToViewForum = false;
-
-  boolean forumNotFound = false;
-
-  try {
-
-    forum = forumFactory.getForum(forumID);
-
-  }
-
-  catch( UnauthorizedException ue ) {
-
-    notAuthorizedToViewForum = true;
-
-  }
-
-  catch( ForumNotFoundException fnfe ) {
-
-    forumNotFound = true;
-
-  }
-
-  String forumName = forum.getName();
-
-%>
 
                 <center>
 
@@ -310,7 +273,6 @@ function submitEnter(e) {
 
 <%  } else {
 
-      User user = manager.getUser(authToken.getUserID()); 
 
       if (responseURL=="") { %>
 
