@@ -147,4 +147,16 @@ public class HandleTag extends TagSupport {
         if (a >= b) return a;
         return b;
     }
+
+    public int doEndTag() throws JspException {
+        coderId=0;
+        link = "";
+        cssclass = "";
+        darkBG = true;
+        alogrithm = false;
+        design = false;
+        development = false;
+
+        return super.doEndTag();
+    }
 }
