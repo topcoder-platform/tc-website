@@ -5,6 +5,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.tc.controller.request.Base;
 import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.email.Email;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.util.DBMS;
@@ -51,14 +52,22 @@ public class Login extends Base {
                         char status = getStatus(userId);
                         log.debug("status: " + status);
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)>0) {
-                            log.debug("user active");
-                            String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
-                            log.debug("on successfull login, going to " + dest);
-                            setNextPage(dest);
-                            setIsNextPageInContext(false);
-                            getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
-                            doLegacyCrap(getRequest());
-                            return;
+                            if (getEmailStatus(userId)!=EmailActivate.ACTIVE_STATUS) {
+                                getAuthentication().logout();
+                                log.debug("inactive email");
+                                setNextPage(Constants.EMAIL_ACTIVATE);
+                                setIsNextPageInContext(true);
+                                return;
+                            } else {
+                                log.debug("user active");
+                                String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+                                log.debug("on successfull login, going to " + dest);
+                                setNextPage(dest);
+                                setIsNextPageInContext(false);
+                                getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
+                                doLegacyCrap(getRequest());
+                                return;
+                            }
                         } else {
                             getAuthentication().logout();
                             if (Arrays.binarySearch(Activate.INACTIVE_STATI, status)>0) {
@@ -109,6 +118,14 @@ public class Login extends Base {
         result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
         return result;
 
+    }
+
+    private int getEmailStatus(long userId) throws Exception {
+        int result;
+        Email email = (Email) createEJB(getInitialContext(), Email.class);
+        result = email.getStatusId(email.getPrimaryEmailId(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME),
+                DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        return result;
     }
 
     private void doLegacyCrap(TCRequest request) throws Exception {
