@@ -126,22 +126,9 @@ public class Search extends Base {
         Map data = dai.getData(req);
 
         ResultSetContainer rsc;
-        ResultSetContainer.ResultSetRow rsr;
-
         rsc = (ResultSetContainer) data.get("state_list");
-        List stateList = new ArrayList();
-        stateList.add(new ListPairBean("", "Any state"));
-        for (Iterator i = rsc.iterator(); i.hasNext();) {
-            rsr = (ResultSetContainer.ResultSetRow) i.next();
-            String stateCode = (String) rsr.getItem("state_code").getResultData();
-            String stateName = (String) rsr.getItem("state_name").getResultData();
-            stateList.add(new ListPairBean(stateCode, stateName));
-        }
+        sb.setStateList(rsc);
 
-        sb.setStateList(stateList);
-
-        List schoolList = new ArrayList();
-        schoolList.add(new ListPairBean(new Long(-1), "Any school"));
         if (isValidListValue(sb.getStateCode(), sb.getStateList())) {
             map.put(DataAccessConstants.COMMAND, "state_schools");
             map.put(STATE_INPUT_CODE, sb.getStateCode());
@@ -149,14 +136,8 @@ public class Search extends Base {
             Map schools = dai.getData(req);
 
             rsc = (ResultSetContainer) schools.get("state_schools");
-            for (Iterator i = rsc.iterator(); i.hasNext();) {
-                rsr = (ResultSetContainer.ResultSetRow) i.next();
-                Long schoolId = (Long) rsr.getItem("school_id").getResultData();
-                String fullName = (String) rsr.getItem("full_name").getResultData();
-                schoolList.add(new ListPairBean(schoolId, fullName));
-            }
         }
-        sb.setSchoolList(schoolList);
+        sb.setSchoolList(rsc);
     }
 
 
@@ -386,7 +367,6 @@ public class Search extends Base {
         Map data = dai.getData(req);
 
         ResultSetContainer rsc;
-        ResultSetContainer.ResultSetRow rsr;
 
         int count = 0;
         rsc = (ResultSetContainer) data.get("member_search");
