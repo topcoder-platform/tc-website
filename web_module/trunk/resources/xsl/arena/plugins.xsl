@@ -58,7 +58,7 @@
 Plugin Name: CodeProcessor<BR/>
 Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<BR/>
 Author: Pops<BR/>
-Date: 5/7/2002<BR/>
+Date: 5/8/2002<BR/>
 Instructions: <A HREF="/contest/classes/CodeProcessor.htm" CLASS="statText">Documentation >></A><BR/>
 Upgrade Release Notes: <A HREF="/contest/classes/CodeProcessor_Upgrade_1_0_1.htm" CLASS="statText">Release Notes >></A><BR/>
 Version: 1.01<BR/>
