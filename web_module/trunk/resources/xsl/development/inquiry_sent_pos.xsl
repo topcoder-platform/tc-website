@@ -47,11 +47,15 @@
 				<xsl:with-param name="image">development</xsl:with-param>
 				<xsl:with-param name="title">&#160;Overview</xsl:with-param>
 			</xsl:call-template>
+			<xsl:variable name='FORUMID' select='/TC/DEVELOPMENT/forumId'/>
               <INPUT TYPE="hidden" NAME="date">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/date"/></xsl:attribute>
               </INPUT>
               <INPUT TYPE="hidden" NAME="Project">
                 <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/Project"/></xsl:attribute>
+              </INPUT>
+              <INPUT TYPE="hidden" NAME="forum">
+                <xsl:attribute name="VALUE"><xsl:value-of select="/TC/DEVELOPMENT/forumId"/></xsl:attribute>
               </INPUT>
 
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
@@ -60,8 +64,15 @@
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
 						<p><strong>Your inquiry has been sent. Thank You!</strong></p>
-						
-						<p>Make sure you are also <a class="statText" href="http://www.topcodersoftware.com/pages/c_registration.jsp">registered</a> at TopCoderSoftware.com so you can download the documentation and participate in the online forums for this component. Once you are registered at TopCoderSoftware.com, a TopCoder Project Manager will contact you over the next couple of days with information about what to do next.</p>
+						<p>Thanks for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the Specification Forum (
+    						<a>
+    						    <xsl:attribute name="href">
+    						        <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_forum.jsp?f=',$FORUMID)"/>
+                                </xsl:attribute>
+    						</a>) 
+    						which can be used to obtain design documentation and ask any questions you may have regarding the component design.  Please post your questions at any time and I will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
+						</P>
+                        <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design to submissions@topcodersoftware.com  Your submission should consist of a jar file populated with the required documents in /docs and appropriate test cases in /src/java/tests.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning designer will receive payment.</P>
 						
 						<p><br /></p>
 					</td>
