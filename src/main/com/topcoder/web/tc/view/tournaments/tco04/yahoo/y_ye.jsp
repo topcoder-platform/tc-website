@@ -27,7 +27,7 @@
 					<p>	Yahoo! Inc.<br/>
 						Location: Sunnyvale, California</p>
 
-					<p>Yahoo!Õs Engineering, IS, Site Ops and QA organizations are focused on hiring. It is a top priority for these 
+					<p>Yahoo!'s Engineering, IS, Site Ops and QA organizations are focused on hiring. It is a top priority for these 
 					groups throughout Yahoo!.  We are looking for top talent in the following areas, as well as so many others:</p>
 					
 					<ul>
