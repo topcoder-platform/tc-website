@@ -67,12 +67,12 @@
                         
                         <p class="promoText">At Artifact, we've created software products and an on-line developer network to help developers better manage their resources. </p>
                         
-                        <p class="promoText">The Artifact Network&trade; is an on-line developer network that provides developers with an open forum to exchange code and development expertise. </p>
+                        <p class="promoText">The Artifact Network&#170;  is an on-line developer network that provides developers with an open forum to exchange code and development expertise. </p>
                         
-                        <p class="promoText">The Artifact Desktop&trade; is a free .Net application that helps the individual developer to easily find, manage and share code, and collaborate with other 
+                        <p class="promoText">The Artifact Desktop&#170; is a free .Net application that helps the individual developer to easily find, manage and share code, and collaborate with other 
                          developers in real-time. </p>
                          
-                         <p class="promoText">The Artifact Server&trade; enables a development team to quickly establish their own private code-sharing network behind the corporate firewall. If so, the Artifact 
+                         <p class="promoText">The Artifact Server&#170;  enables a development team to quickly establish their own private code-sharing network behind the corporate firewall. If so, the Artifact 
                            Desktop can help. It's a free application that provides access to the global Artifact Developer Network. This network contains thousands of code snippets and thousands of experienced 
                            developers. The Artifact Desktop helps you to quickly locate code you need from our network's repository. You can search for code snippets by language, platform, category and more. </p>
                         
