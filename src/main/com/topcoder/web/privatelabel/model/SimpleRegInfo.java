@@ -4,7 +4,7 @@ package com.topcoder.web.privatelabel.model;
  *
  * @author gpaul 06.26.2003
  */
-public class SimpleRegInfo extends Base{
+public class SimpleRegInfo extends Base {
 
     private String handle;
     private String password;

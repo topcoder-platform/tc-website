@@ -79,7 +79,7 @@ public class Controller extends HttpServlet {
 
                     String cmd = Constants.checkNull(request.getParameter("module"));
                     if(cmd.equals("")) cmd = "Home";
-                    if(!Constants.isLegal(cmd)) throw new NavigationException("invalid command: "+cmd);
+                    if(!Constants.isLegal(cmd)) throw new NavigationException();
                     cmd = "com.topcoder.web.hs.controller.requests."+cmd;
 
                     log.debug("creating request processor of class "+cmd);
@@ -87,7 +87,7 @@ public class Controller extends HttpServlet {
                         rp = (RequestProcessor)Class.forName(cmd).newInstance();
                     } catch(Exception e) {
                         log.debug("calling Class.forName()", e);
-                        throw new NavigationException("no such module");
+                        throw new NavigationException();
                     }
                     callProcess(rp, request);
 

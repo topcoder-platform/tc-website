@@ -7,9 +7,13 @@ import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.servlet.request.UploadedFile;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
@@ -78,6 +82,10 @@ public class FullRegConfirm extends FullRegBase {
         if (info.getCoderType() != Constants.STUDENT || info.getCoderType() != Constants.PROFESSIONAL) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
         }
+        if (info.getResume()==null) {
+            addError(Constants.RESUME, "Please provide a resume.");
+        }
+
     }
 
     protected void setDefaults(FullRegInfo info) {
@@ -90,5 +98,23 @@ public class FullRegConfirm extends FullRegBase {
             setDefault(DemographicInput.PREFIX+response.getQuestionId(), String.valueOf(response.getAnswerId()));
         }
     }
+
+    private boolean validResponse(DemographicResponse response) throws Exception {
+        DataAccessInt dataAccess = getDataAccess(true);
+        Request r = new Request();
+        r.setContentHandle("demographic_answer_list");
+        r.setProperty("dq", String.valueOf(response.getQuestionId()));
+        Map aMap = dataAccess.getData(r);
+        ResultSetContainer answers = (ResultSetContainer)aMap.get("demographic_answer_list");
+
+        ResultSetContainer.ResultSetRow aRow = null;
+        boolean found = false;
+        for (Iterator it = answers.iterator(); it.hasNext()&&!found;) {
+            aRow = (ResultSetContainer.ResultSetRow)it.next();
+            found |= (aRow.getIntItem("demographic_answer_id")==response.getAnswerId());
+        }
+        return found;
+    }
+
 
 }

@@ -122,7 +122,7 @@ abstract class SimpleRegBase extends RegistrationBase {
         //state code
         if (info.getCountryCode().equals("840")) {
             if (info.getStateCode().trim().length()==0 || findState(info.getStateCode())==null) {
-                addError(Constants.COUNTRY_CODE, "Please chooose a state from the list.");
+                addError(Constants.STATE_CODE, "Please chooose a state from the list.");
             }
         }
 

@@ -123,8 +123,7 @@ public class GraphServlet extends HttpServlet {
             }
             /***********************************************************************/
             else {
-                throw new NavigationException("GraphServlet:process:ERROR:invalid command: " +
-                        dataRequest.getContentHandle());
+                throw new NavigationException();
             }
             response.setContentType("image/gif");
             o = response.getOutputStream();
@@ -221,8 +220,7 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:");
+            throw new NavigationException(e);
         }
     }
 
@@ -282,8 +280,7 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:");
+            throw new NavigationException(e);
         }
     }
 
@@ -343,8 +340,7 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistributionDark:ERROR:");
+            throw new NavigationException(e);
         }
     }
 
@@ -413,8 +409,7 @@ public class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("GraphServlet:getProblemDistribution:ERROR:");
+            throw new NavigationException(e);
         }
     }
 }

@@ -16,7 +16,7 @@ public class Static extends BaseProcessor {
         for(int i=1; ; i++) {
             String p = getRequest().getParameter(Constants.STATIC_PREFIX+i);
             if(p==null) break;
-            if(!isLegal(p)) throw new NavigationException("disallowed path component: "+p);
+            if(!isLegal(p)) throw new NavigationException();
             path.append("/").append(p);
         }
         if(path.length()==0)
