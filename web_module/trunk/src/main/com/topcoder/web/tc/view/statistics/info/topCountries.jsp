@@ -24,6 +24,7 @@
       <tr>
          <td>
 
+            <h2 class="bodyText">Country Rankings</h2>
             <p class="bodyText">
             The formula below has the property that if all the coders from a particular country have
             the same rating, then that country's rating would be the same as the individual ratings.
