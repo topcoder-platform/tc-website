@@ -43,6 +43,10 @@ public class Controller extends HttpServlet {
             RequestProcessor rp;
 
             String canonpath = request.getContextPath() + request.getServletPath();
+
+            /* we need this in the login form, since we require an absolute path for https but lose it from forwarding to a jsp */
+            request.setAttribute("canonpath", canonpath);
+
             String query = request.getQueryString();
             String qtail = (query==null) ? ("") : ("?"+query);
 
