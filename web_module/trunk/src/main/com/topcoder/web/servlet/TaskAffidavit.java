@@ -66,7 +66,18 @@ public final class TaskAffidavit {
                 document.addTag(affidavitTag);
                 log.debug(document.getXML(2));
                 xsldocURLString = TCServlet.XSL_ROOT + requestTask + "/" + requestCommand + ".xsl";
-                result = HTMLmaker.render(document, xsldocURLString);
+
+                try {
+                    result = HTMLmaker.render(document, xsldocURLString);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    StringBuffer msg = new StringBuffer(150);
+                    msg.append("processStatic:displayStatic:");
+                    msg.append(requestCommand);
+                    msg.append(":ERROR:");
+                    msg.append(e.getMessage());
+                    throw new NavigationException(msg.toString(), TCServlet.NAVIGATION_ERROR_PAGE);
+                }
             }
         } catch (NavigationException ne) {
             log.error("TaskAffidavit error" + ne);
