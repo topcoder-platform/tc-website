@@ -1,4 +1,7 @@
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag";
+    page
+    	import="com.topcoder.web.corp.request.Registration" 
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
@@ -34,31 +37,38 @@
     <TR>
       <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>First Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-first-name" maxlength="30" size="30"/></TD>
-      <TD><tc-webtag:error refname="prim-first-name"><img src="" alt="$e"/></tc-webtag:error></TD>
     </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error refname="prim-first-name"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Last Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="30"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-last-name" size="30" maxlength="30"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error refname="prim-last-name"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Title</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="30"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-title" size="30" maxlength="30"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error refname="prim-title"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
     </TR>    
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Company Address&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="" value ="" size="30" maxlength="50"></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-address-1" size="30" maxlength="50"/></TD>
   </TR>
     <TR>
-        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+        <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+        <TD colspan="2" class="errorText" align="left" valign="middle">
+        <tc-webtag:error refname="prim-company-address-1"><img width="20" height="20" src="" alt="$e"/></tc-webtag:error></TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

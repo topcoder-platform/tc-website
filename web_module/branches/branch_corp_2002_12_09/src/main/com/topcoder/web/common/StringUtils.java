@@ -27,14 +27,14 @@ public final class StringUtils {
     
     public static final String ALPHABET_WHITESPACE_EN = " \t\r\n";
     
-    public static final String ALPHABET_ALPHA_NUM_DIG_EN = 
+    public static final String ALPHABET_ALPHA_NUM_EN = 
         ALPHABET_ALPHA_UPPER_EN +
         ALPHABET_ALPHA_LOWER_EN +
         ALPHABET_DIGITS_EN +
         ALPHABET_PUNCTUATION_EN;
         
-    public static final String ALPHABET_ALPHA_NUM_DIG_PUNCT_EN =
-        ALPHABET_ALPHA_NUM_DIG_EN +
+    public static final String ALPHABET_ALPHA_NUM_PUNCT_EN =
+        ALPHABET_ALPHA_NUM_EN +
         ALPHABET_PUNCTUATION_EN;
     
     /**

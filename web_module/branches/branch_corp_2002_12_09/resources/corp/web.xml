@@ -13,7 +13,7 @@
 
   <init-param>
     <param-name>prim-reg</param-name>
-    <param-value>com.topcoder.web.corp.request.PrimaryRegistrationProcessor</param-value>
+    <param-value>com.topcoder.web.corp.request.Registration</param-value>
     <description>handles primary registration page</description>
   </init-param>
 </servlet>
