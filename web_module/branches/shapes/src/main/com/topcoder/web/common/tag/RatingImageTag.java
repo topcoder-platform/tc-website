@@ -2,7 +2,6 @@ package com.topcoder.web.common.tag;
 
 import javax.servlet.jsp.tagext.TagSupport;
 import javax.servlet.jsp.JspException;
-import java.io.IOException;
 
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
