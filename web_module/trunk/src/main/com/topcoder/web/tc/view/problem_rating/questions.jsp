@@ -11,7 +11,7 @@
 <body bgcolor="#001B35">
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
 <%= request.getAttribute("error") %>
-<form name="ratings" action="/tc/?module=SubmitRatings" method="POST">
+<form name="ratings" action="/tc/?module=SubmitRatings" method="GET">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
         <tr><td></td>
@@ -21,25 +21,18 @@
                 </td>
             <% } %>
         </tr>
-        <rsc:iterator list="<%=problemRatingQuestions%>" id="result">
+        <logic:iterate name="problemRatingQuestions" id="question" type="com.topcoder.web.tc.model.ProblemRatingQuestion">
         <tr>
+            <tc:problemRatingInput id="problemRatingInput" quesion="<%=question=>">
             <td class="statText">
-                <rsc:item row="<%=result%>" name="question"/>
+                <%= question %>
             </td>
-                <%
-                    int qid = result.getIntItem("question_id");
-                    for(int i = 1; i<=10; i++){
-                        String sel = "";
-                        if(String.valueOf(i).equals(request.getParameter("q"+qid))){
-                            sel = " checked";
-                        }
-                %>
             <td>
-                        <input type="radio" name="q<%= qid %>" value="<%= i %>" <%= sel %>>
+                        <input type="radio" name="<%= questionID %>" value="<%= counter %>">
             </td>
-                <%  } %>
+            </tc:problemRatingInput>
         </tr>
-        </rsc:iterator>
+        </logic:iterate>
     </table>
     <table align="right">
         <tr>
