@@ -24,6 +24,8 @@ public class Demog extends FullRegDemog {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
         
+        log.info("CODER TYPE: " + ((FullRegInfo)info).getCoderType() );
+        
         //remove handle error
         removeError(Constants.HANDLE);
         
