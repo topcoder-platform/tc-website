@@ -44,34 +44,34 @@
 			<tr>
 				<td class=tableHeader>&#160;</td>
 				<td class=tableHeader>Tests</td>
-				<td class=tableHeader>Complete/Quantity</td>
+				<td class=tableHeader align=center>Complete/Quantity</td>
 				<td class=tableHeader>Description</td>
 				<td class=tableHeader>Test Status</td>
-				<td class=tableHeader>Time Available</td>
+				<td class=tableHeader align=right>Time Available</td>
 			</tr>
 			<tr>
-				<td class=tableText><img src="/i/corp/screening/buttonEnter.gif" /></td>
-				<td class=tableText>Example Test</td>
-				<td class=tableText>0/1</td>
-				<td class=tableText>Example Coding Problem Set</td>
-				<td class=tableText>Un-Opened</td>
-				<td class=tableText>N/A</td>
+				<td class=tableTextOdd><img src="/i/corp/screening/buttonEnter.gif" /></td>
+				<td class=tableTextOdd>Example Test</td>
+				<td class=tableTextOdd align=center>0/1</td>
+				<td class=tableTextOdd>Example Coding Problem Set</td>
+				<td class=tableTextOdd>Un-Opened</td>
+				<td class=tableTextOdd align=right>N/A</td>
 			</tr>		
 			<tr>
-				<td class=tableText><img src="/i/corp/screening/buttonEnter.gif" /></td>
-				<td class=tableText>Example Test</td>
-				<td class=tableText>0/1</td>
-				<td class=tableText>Example Coding Problem Set</td>
-				<td class=tableText>Un-Opened</td>
-				<td class=tableText>N/A</td>
+				<td class=tableTextEven><img src="/i/corp/screening/buttonEnter.gif" /></td>
+				<td class=tableTextEven>Example Test</td>
+				<td class=tableTextEven align=center>0/1</td>
+				<td class=tableTextEven>Example Coding Problem Set</td>
+				<td class=tableTextEven>Un-Opened</td>
+				<td class=tableTextEven align=right>N/A</td>
 			</tr>		
 			<tr>
-				<td class=tableText><img src="/i/corp/screening/buttonEnter.gif" /></td>
-				<td class=tableText>Example Test</td>
-				<td class=tableText>0/1</td>
-				<td class=tableText>Example Coding Problem Set</td>
-				<td class=tableText>Un-Opened</td>
-				<td class=tableText>N/A</td>
+				<td class=tableTextOdd><img src="/i/corp/screening/buttonEnter.gif" /></td>
+				<td class=tableTextOdd>Example Test</td>
+				<td class=tableTextOdd align=center>0/1</td>
+				<td class=tableTextOdd>Example Coding Problem Set</td>
+				<td class=tableTextOdd>Un-Opened</td>
+				<td class=tableTextOdd align=right>N/A</td>
 			</tr>
 		</table>
 		</td>
