@@ -84,7 +84,37 @@ public class Confirm  extends ContractingBase {
                 }
             }
             
-        getRequest().setAttribute("prefs", groups);
+            getRequest().setAttribute("prefs", groups);
+
+            //resume status
+            if(info.getResume() == null)
+                getRequest().setAttribute("resume", "Not Supplied");
+            else
+                getRequest().setAttribute("resume","Attached (" + info.getResume().getRemoteFileName() + ")");
+
+            //tech skill
+            ArrayList techSkills = new ArrayList();
+            
+            //load skill list from db
+            r = new Request();
+            r.setContentHandle("skill_list");
+            r.setProperty("stid", String.valueOf(Constants.SKILL_TYPE_TECHNOLOGIES));
+
+            rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_list");
+            for(int i = 0; i < rsc.size(); i++) {
+                int id = rsc.getIntItem(i, "skill_id");
+                String text = rsc.getStringItem(i, "skill_desc");
+
+                if(info.getSkill(String.valueOf(id)) != null) {
+                    ContractingResponse resp = new ContractingResponse();
+                    resp.setName(text);
+                    resp.setVal(info.getSkill(String.valueOf(id)));
+                    
+                    techSkills.add(resp);                
+                }
+            }
+            
+            getRequest().setAttribute("techSkills", techSkills);
         
         } catch(TCWebException tce) {
             throw tce;

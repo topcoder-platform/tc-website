@@ -15,6 +15,7 @@
 
 <%
 List prefList = (List)request.getAttribute("prefs");
+List techList = (List)request.getAttribute("techSkills");
 %>
 
 </head>
@@ -88,70 +89,35 @@ List prefList = (List)request.getAttribute("prefs");
             <tr>
 				<td align=right><b><%=((ContractingResponseGroup)prefGroup).getName()%></b></td>
 				<td valign=top>&#160;</td>
+             </tr>
                         	<tc:listIterator id="pref" list="<%=((ContractingResponseGroup)prefGroup).getResponses()%>">
                                   <tr>
                                     <td align=right><%=((ContractingResponse)pref).getName()%>:</td>
                                     <td valign=top><%=((ContractingResponse)pref).getVal()%></td>
                                 </tr>				
 				</tc:listIterator>
-            </tr>
             </tc:listIterator>
-			
+	<tr>
+            <td align=right><b>Resume</b></td>
+            <td valign=top>&#160;</td>
+	</tr>
+              <tr>
+                <td align=right>&#160;</td>
+                <td valign=top><%=request.getAttribute("resume")%></td>
+            </tr>		
 			<tr><td>&#160;</td></tr>			
 
             <tr>
 				<td align=right><b>Technology Skills</b></td>
-				<td><a href="">edit<a/></td>
+				<td><a href="javascript:goToPage('Technologies');">edit<a/></td>
             </tr>
-            <tr>
-				<td align=right>OO Concepts:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>ActiveX:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>CGI:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>ASP:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>JSP:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>Servlets:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>CORBA:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>RMI:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>EJB:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>COM/DCOM:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>TCP/IP:</td>
-				<td valign=top>7</td>
-            </tr>
-            <tr>
-				<td align=right>X Window/Motif:</td>
-				<td valign=top>7</td>
-            </tr>
-
+            <tc:listIterator id="tech" list="<%=techList%>">
+              <tr>
+                <td align=right><%=((ContractingResponse)tech).getName()%>:</td>
+                <td valign=top><%=((ContractingResponse)tech).getVal()%></td>
+            </tr>				
+            </tc:listIterator>
+           
 			<tr><td>&#160;</td></tr>			
 
             <tr>
