@@ -94,6 +94,9 @@ function openWin(url, name, w, h) {
                         Use Java, C++, C# or VB.NET. Pick any of these programming languages to code your solutions. All are acceptable and none is given an advantage.
                         <br><br>
                         <font color="006633" size="3"><b>How it works</b></font><br><br>
+                        
+                        Download the Google Code Jam 2003 Qualification Guide <a href="/i/events/google2003/competition_manual.pdf">here</a>.
+                        <br><br>
                         The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here’s the line-by-line documentation:
                         <ul>
                         <strong>Download the Arena</strong><br>
