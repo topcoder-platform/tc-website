@@ -130,7 +130,7 @@ long ways(int x, int y){
             cost edge whose capacity is sufficiently high.</p>
 
             <h3>RookAttack<br/>
-            <span class="bodyText">Used as: Division 1 - Level 2:</span></h3>
+            <span class="bodyText">Used as: Division 1 - Level 3:</span></h3>
 
             <img src="/contest/problem/RookAttack/rooks.png" align="left" hspace="8" vspace="5" />
             <p>Speaking of sources and sinks, this problem is best solved using a max flow algorithm, though the reduction is a little tricky.  
