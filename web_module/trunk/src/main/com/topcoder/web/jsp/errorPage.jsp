@@ -51,18 +51,19 @@ isErrorPage="true"
     <tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="2" border="0" /></td></tr>
 </table>
 
-<table cellspacing="0" cellpadding="0" border="0" width="100%" height="99%">
+<table cellspacing="0" cellpadding="0" border="0" width="100%" height="60%">
     <tr valign="top">
         <td width="180"><img src="/i/clear.gif" alt="" border="0" height="1" width="170"></td>
         <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
         <td width="100%" class="bodytext">
             <img border="0" vspace="5" height="1" width="400" src="/i/clear.gif"><br>
-            <div class="header"><%=message==null?"Sorry, there was an error in your request.":message%></div>
-            <div class="header"><a href="<%=url==null?"javascript:history.back();":url%>">go back</a></div>
+            <div class="bodyText"><%=message==null?"Sorry, there was an error in your request.":message%></div>
             <br/>
             <br/>
+            <div class="bodyText">Please <a href="<%=url==null?"javascript:history.back();":url%>">go back</a> to the last page you were viewing.</div>
             <br/>
-            <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>
+            <br/>
+            If you have a question or comment please email <a HREF="mailto:service@topcoder.com" CLASS="bodyText">service@topcoder.com</a>.
         </td>
         <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
         <td width="170"><img border="0" height="1" width="170" src="/i/clear.gif"></td>
