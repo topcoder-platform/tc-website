@@ -96,11 +96,11 @@
     </TD>
   </TR>
 </TABLE> <BR/>
-<P>*Intern/Co-op Position Only</P>
+<P>*Intern&#47; Co-op Position Only</P>
 <P>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world's best engineers, 
 and you will have an opportunity of a lifetime to make your mark in history.  Where your career will go…only you can tell!</P>
 
-<P>As an intern/co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development 
+<P>As an intern&#47; co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development 
 of our latest products.  Your success will be determined by your technical strength and undisputed proactive attitude.</P>
 
 <P>If you are highly motivated and passionate about winning, check out the possibilities waiting for you.</P>
