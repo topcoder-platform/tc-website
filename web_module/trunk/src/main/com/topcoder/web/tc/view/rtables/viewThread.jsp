@@ -34,12 +34,6 @@
 
 <%@ include file="rating.jsp" %>
 
-<style type="text/css">
-
-PRE  { white-space: normal; }
-
-</style>
-
 </HEAD>
 
 <BODY>
