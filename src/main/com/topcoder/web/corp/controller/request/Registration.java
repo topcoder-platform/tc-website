@@ -73,10 +73,11 @@ public final class Registration extends UserEdit {
     }
 
     protected void setNextPage() {
-        setIsNextPageInContext(true);
         if (!secTok.createNew) {
+            setIsNextPageInContext(false);
             setNextPage("/");
         } else {
+            setIsNextPageInContext(true);
             setNextPage(successPage);
         }
     }
