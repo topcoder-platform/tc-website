@@ -2,6 +2,7 @@ package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import javax.ejb.SessionBean;
 import javax.ejb.SessionContext;
 import javax.naming.Context;
@@ -192,5 +193,74 @@ public class UserAddressBean implements SessionBean {
                 }
             }
         }
+    }
+
+    public ResultSetContainer getUserAddresses(long userId) {
+        log.debug("getUserAddresses called...");
+
+        Context ctx = null;
+        PreparedStatement ps = null; // could just use Statement
+        Connection conn = null;
+        DataSource ds = null;
+        ResultSet rs = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource)ctx.lookup((String)ctx.lookup(
+                "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT FROM user_address_xref " +
+                                       "WHERE user_id = ?");
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                                   true,
+                                   sqe);
+            throw new EJBException("SQLException getting user addresses");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting user addresses");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting user addresses:\n" +
+                                   e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getUserAddresses");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in " +
+                              "getUserAddresses");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in " +
+                              "createUserAddress");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in createUserAddress");
+                }
+            }
+        }
+    return(new ResultSetContainer(rs));
     }
 }

@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.user;
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 import javax.ejb.EJBException;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 
 /**
@@ -26,5 +27,13 @@ public interface UserAddress extends EJBObject {
      * @see com.topcoder.web.ejb.user.UserAddressBean#removeUserAddress
      */
     void removeUserAddress(long userId, long addressId)
+                    throws RemoteException, EJBException;
+
+    /**
+     *
+     *
+     * @see com.topcoder.web.ejb.user.UserAddressBean#removeUserAddress
+     */
+    ResultSetContainer getUserAddresses(long userId)
                     throws RemoteException, EJBException;
 }
