@@ -153,15 +153,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$1,250.00</td>
+                                                            <td class="bodyText" align="right">$1,560.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$900.00</td>
+                                                            <td class="bodyText" align="right">$1,000.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$350.00</td>
+                                                            <td class="bodyText" align="right">$560.00</td>
                                                         </tr>
                                                     </table>
 
@@ -171,7 +171,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$500.00</td>
+                                                            <td class="bodyText" align="right">$625.00</td>
                                                         </tr>
                                                     </table>
 
@@ -181,15 +181,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Primary Development Reviewer -</td>
-                                                            <td class="bodyText" align="right">$440.00</td>
+                                                            <td class="bodyText" align="right">$550.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Reviewer -</td>
-                                                            <td class="bodyText" align="right">380.00</td>
+                                                            <td class="bodyText" align="right">$475.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Reviewer - </td>
-                                                            <td class="bodyText" align="right">380.00</td>
+                                                            <td class="bodyText" align="right">$475.00</td>
                                                         </tr>
                                                     </table>
 
@@ -198,7 +198,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$2,950.00</td>
+                                                            <td class="bodyText" align="right">$3,685.00</td>
                                                         </tr>
                                                     </table>
 
@@ -251,75 +251,75 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.04.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.10.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.06.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.11.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.09.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.12.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.10.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.13.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Deliverable Due: (all testing code)</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.17.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.20.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Due: (completed project)</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.24.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.27.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.25.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.31.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.28.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.03.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.30.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.06.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">08.31.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.06.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.01.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.07.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.03.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.07.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Development Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.07.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Integration Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.08.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Integration End:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">09.09.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.14.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Development Complete:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.14.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Integration Start:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.14.2004 &#160;&#160;5:00 PM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Integration End:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.15.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
                                                             <td class="bodyText" nowrap="nowrap">Certification Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.10.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.16.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Certification End:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.11.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.17.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                     </table>
 
