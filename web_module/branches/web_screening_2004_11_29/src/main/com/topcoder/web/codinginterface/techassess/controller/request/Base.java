@@ -254,13 +254,11 @@ public abstract class Base extends BaseProcessor {
 
         log.debug(buf.toString());
 
-        PrintWriter out = getResponse().getWriter();
-        out.print(buf.toString());
+        getResponse().getWriter().print(buf.toString());
     }
 
     protected void closeProcessingPage() throws IOException {
-        PrintWriter out = getResponse().getWriter();
-        out.flush();
+        getResponse().flushBuffer();
     }
 
     protected Message receive(int waitTime) throws TimeOutException {

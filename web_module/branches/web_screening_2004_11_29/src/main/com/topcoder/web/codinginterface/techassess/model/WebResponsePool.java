@@ -29,13 +29,18 @@ public class WebResponsePool extends ResponsePool {
         while (System.currentTimeMillis() < endTime) {
 
             if (responseMap.containsKey(correlationId)) {
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException e) {
+
+                }
                 return (Serializable) responseMap.get(correlationId);
             } else {
                 try {
                     //perhaps writing something out to the response for every wait is overkill.  it might
                     //make sense to write 20 bytes every 1/2 second or something like that.
                     response.getWriter().print(" ");
-                    response.flushBuffer();
+                    //response.flushBuffer();
                     wait(waitTime);
                 } catch (InterruptedException e) {
                     //ignore
