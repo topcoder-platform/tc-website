@@ -41,7 +41,7 @@
                                 <td id="calendarMini">12</td>
                                 <td id="calendarMini">13</td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4640&amp;t=schedule&amp;c=srm">14</A></td>
-                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Date">15</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_sched"><span id="calendarTCO03Date">15</span></A></td>
                                 <td id="calendarMini">16</td>
                                 <td id="calendarGoogleMini"><A id="miniSRMDate" href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched"><span id="calendarGoogleDate">17</span></A></td>
                                 <td id="calendarMini">18</td>
