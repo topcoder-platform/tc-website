@@ -395,7 +395,7 @@
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 Saturday, November 23, 2002</P>
 
-Forever concerned about the integrity of the competition results, the four finalists were asked to 
+Due to an inaccuracy in one of the problem specifications, the four finalists were asked to 
 compete twice today as we sought to crown the 2002 TopCoder Invitational champion.  <B>John Dethridge</B> 
 became TopCoder's new highest rated member, defeating <B>SnapDragon</B>, <B>dgarthur</B>, and <B>moira</B> 
 in the Championship round...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_champ</xsl:attribute>read&#160;more</A><BR/><BR/>
