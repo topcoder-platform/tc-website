@@ -23,7 +23,7 @@
             width="100%"
             height="125"
             border="0">           
-            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
+            <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
             </object>
