@@ -9,8 +9,8 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/Pops_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><br/>
+                        <img src="/i/m/pmadden_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=290395"><strong>pmadden</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -18,16 +18,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a href="/?&amp;t=features&amp;c=feat_021004" class="bodyText"><font size="4"><strong>The 5 Most Common Design Mistakes</strong></font></a><br />
-                        Tuesday, February 10, 2003</p>
+                        <p><a href="/?&amp;t=features&amp;c=feat_030104" class="bodyText"><font size="4"><strong>The Educational Component of TopCoding</strong></font></a><br />
+                        Monday, March 1, 2003</p>
 
                         <p>
- Being on the review board, I see designs that are first attempts, those that are well polished and everything in-between. 
- After seeing so many, a few mistakes seem to be made over and over. I polled two fellow designers, srowen and kyky, 
- to see if they have had any similar experiences with mistakes and whether they would have any recommendations to 
- avoid those mistakes.
+ In the real world, I teach graduate and undergraduate algorithms at an
+upstate New York university; for the past year, I've been requiring my
+students to compete in SRMs.  While there's a wide range on how well
+the students do, and I've destroyed the university TopCoder rating,
+most are better off for the experience.
 
-                        <a href="/?&amp;t=features&amp;c=feat_021004" class="bodyText"><strong>full&#160;story</strong></a></p>
+                        <a href="/?&amp;t=features&amp;c=feat_030104" class="bodyText"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
