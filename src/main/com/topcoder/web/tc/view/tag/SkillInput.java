@@ -60,6 +60,14 @@ public class SkillInput extends BaseTag {
 
     private String buildRadios() {
         StringBuffer s = new StringBuffer(2000);
+        String checkVal = "0";
+        try {
+            int n = Integer.parseInt(String.valueOf(getDefaultValue()));
+            if(n <= 5) {
+                checkVal = String.valueOf(n);
+            }
+        } catch(Exception e) {}
+        
         for(int i = 0; i <= 5; i++) {
             s.append("<td valign=top align=center ");
             if (cssclass != null) {
@@ -74,9 +82,7 @@ public class SkillInput extends BaseTag {
             s.append("\" value=\"");
             s.append(i);
             s.append("\" ");
-            if(getDefaultValue() == null && i == 0) {
-                s.append("checked ");
-            } else if(getDefaultValue() != null &&  getDefaultValue().equals(String.valueOf(i))) {
+            if(checkVal.equals(String.valueOf(i))) {
                 s.append("checked ");
             }
             
