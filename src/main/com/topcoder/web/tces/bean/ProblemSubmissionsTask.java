@@ -11,9 +11,12 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -97,6 +100,15 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
      */
     public void processStep(String step) throws Exception {
         viewProblemSubmissions();
+        ResumeServicesHome rHome = null;
+        ResumeServices rServices = null;
+        try {
+            rHome = (ResumeServicesHome) getInitialContext().lookup(ApplicationServer.RESUME_SERVICES);
+            rServices = rHome.create();
+            setHasResume(rServices.hasResume(mid));
+        } catch (Exception e) {
+            log.error("could not determine if user has a resume or not");
+        }
     }
 
     private void viewProblemSubmissions() throws Exception {
