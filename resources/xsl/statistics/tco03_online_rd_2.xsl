@@ -255,19 +255,17 @@ Once we have our flood fill method written, it's not too hard to pick out which 
         for(int i = 0; i&lt;rows; i++){
             for (int j = 0; j&lt;cols; j++){
                 int index = order.indexOf(block(i,j).color);
+                if(visited[block(i,j)] || block(i,j)==empty || index &gt; bestColorIndex)continue;
+                int size = floodFill(block(i,j))
+		if(size==1)continue;
                 if(index &lt; bestColorIndex){
                     bestColorIndex = index;
                     smallest = 10000;
-                }else if(index &gt; bestColorIndex){
-                    continue;
                 }
-                if(!visited[block(i,j)]){
-                    int size = floodFill(block(i,j))
-                    if(size &lt; smallest){
-                        smallest = size;
-                        r = i;
-                        c = j;
-                    }
+                if(size &lt; smallest){
+                    smallest = size;
+                    r = i;
+                    c = j;
                 }
             }
         }
