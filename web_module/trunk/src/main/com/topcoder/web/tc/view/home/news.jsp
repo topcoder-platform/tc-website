@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>04.01.05<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=contracting&d2=comac">Comac</A></span><br><br>
+      <A href="/tc?module=Static&d1=contracting&d2=comac">Comac</A> is offering a position as a Senior Software Developer, available to <strong>ALL</strong> members.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/survey.gif" alt="Component Competition News" border="0" /><br>03.31.05<br>12:05 PM</td>
      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?&module=ViewSurvey&sid=208">TCO05 seeding/advancement survey</A></span><br><br>
       Which of the following seeding/advancement formats would you most prefer for the online portion of the upcoming TopCoder Open Algorithm Competition?
@@ -235,18 +247,6 @@
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_wildcard_analysis">full story</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.11.05<br>12:45 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_leader_website">radeye wins Day 1 of the Spectator Showdown</A></span><br><br>
-      radeye wins a close one with tjq just over 2 points behind in the Day 1 Spectator Showdown.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_leader_website">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
    </td></tr>
 
