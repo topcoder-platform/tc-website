@@ -94,13 +94,13 @@
 <B>When:</B> October 8th - November 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
 <B>Total Prize:</B> $150,000<BR/><BR/>		
-        <TABLE WIDTH="90%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+        <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0">
 			<TR>
                 <TD WIDTH="150" CLASS="bodyText" VALIGN="top">
                 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
                 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>
                 </TD>
-                <TD CLASS="bodyText" VALIGN="top">
+                <TD CLASS="bodyText" VALIGN="top" WIDTH="250">
                 <P>On Friday, Oct. 4th, contestants will receive a final invitation &amp; will be notified of which part of online round #1 they are assigned to.</P>
                 </TD>
             </TR>
