@@ -9,6 +9,7 @@
 <jsp:include page="../../script.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/TCO04style.css"/>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco04_alg_qual"); %>
 </head>
