@@ -52,8 +52,13 @@ Now, consistent competitive software development is at your finger-tips, with mo
 <li><strong>Dates:</strong><br/>
 June 1, 2004 through September 2, 2004</li>
 <li><strong>Prizes:</strong><br/>
-$1,600 each week, $5,250 each month, and $13,500 each quarter for a total of $50,000 in addition to current component project payments.*</li>
-<p>*See official rules for details</p>
+$50,000 in total cash prizes, with:
+	<ul><li>$1,600 paid each week</li>
+	<li>$5,250 paid each month
+	<li>$13,500 paid each quarter</li></ul>
+(All prizes are in addition to current component project payments.*)
+</li>
+<p>*See <a href="/tc?module=Static&d1=dev&d2=usdc_rules">official rules</a> for details</p>
         </td>
 <!-- Center Column Ends -->
 
