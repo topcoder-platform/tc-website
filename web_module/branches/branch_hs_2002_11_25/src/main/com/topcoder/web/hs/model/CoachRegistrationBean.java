@@ -5,6 +5,8 @@ import java.util.*;
 
 public class CoachRegistrationBean implements Serializable {
 
+  private Long user_id=null;
+
   private String first_name=null;
 
   private String last_name=null;
@@ -14,6 +16,8 @@ public class CoachRegistrationBean implements Serializable {
   private Long school_id=null;
 
   private String handle=null;
+
+  private boolean change_password=false;
 
   private String password=null;
 
@@ -41,6 +45,14 @@ public class CoachRegistrationBean implements Serializable {
 
   public CoachRegistrationBean() {
     /* do nothing */
+  }
+
+  public Long getUserId() {
+    return(user_id);
+  }
+
+  public void setUserId(Long _user_id) {
+    user_id=_user_id;
   }
 
   public String getFirstName() {
@@ -81,6 +93,14 @@ public class CoachRegistrationBean implements Serializable {
 
   public void setHandle(String _handle) {
     handle=_handle;
+  }
+
+  public boolean getChangePassword() {
+    return(change_password);
+  }
+
+  public void setChangePassword(boolean _change_password) {
+    change_password=_change_password;
   }
 
   public String getPassword() {
