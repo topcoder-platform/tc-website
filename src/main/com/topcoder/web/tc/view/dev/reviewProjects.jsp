@@ -264,7 +264,7 @@
 <% } %>
 <% if (desProjectCount+devProjectCount==0) { %>
             <br />
-            <p>Sorry there are currently no review positions available.</p>
+            <p>Sorry, there are currently no review positions available.</p>
             <br />
 <% } else { %>
             <br/>
