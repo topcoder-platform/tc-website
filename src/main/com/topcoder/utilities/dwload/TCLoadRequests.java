@@ -464,13 +464,16 @@ public class TCLoadRequests extends TCLoad {
             long ret = -1;
             if (hasCoderId()) {
                 boolean found = false;
+                String temp = null;
                 for (int i = 0; i < CODER_ID_KEYS.length & !found; i++) {
                     //returning the first found, so if there are more
                     //than one coder_id key in the query, then we'll be
                     //returning the first one
-                    log.debug("coder id value: " + paramMap.get(CODER_ID_KEYS[i]));
-                    ret = Long.parseLong(((String) paramMap.get(CODER_ID_KEYS[i])));
-                    found = true;
+                    temp = (String)paramMap.get(CODER_ID_KEYS[i]);
+                    if (temp!=null) {
+                        ret = Long.parseLong(((String) paramMap.get(CODER_ID_KEYS[i])));
+                        found = true;
+                    }
                 }
             }
             return ret;
@@ -480,12 +483,16 @@ public class TCLoadRequests extends TCLoad {
             long ret = -1;
             if (hasRoundId()) {
                 boolean found = false;
+                String temp = null;
                 for (int i = 0; i < ROUND_ID_KEYS.length & !found; i++) {
                     //returning the first found, so if there are more
                     //than one round_id key in the query, then we'll be
                     //returning the first one
-                    ret = Long.parseLong(((String) paramMap.get(ROUND_ID_KEYS[i])));
-                    found = true;
+                    temp = (String)paramMap.get(ROUND_ID_KEYS[i]);
+                    if (temp!=null) {
+                        ret = Long.parseLong(((String) paramMap.get(ROUND_ID_KEYS[i])));
+                        found = true;
+                    }
                 }
             }
             return ret;
@@ -499,7 +506,8 @@ public class TCLoadRequests extends TCLoad {
                 //than one round_id key in the query, then we'll be
                 //returning the first one
                 ret = (String) paramMap.get(CONTENT_IDS[i]);
-                found = true;
+                if (ret!=null)
+                    found = true;
             }
             return ret;
         }
