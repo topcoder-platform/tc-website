@@ -66,11 +66,11 @@
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_lessons">Lessons Learned</A></TD>
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments? Ideas?</A></TD>
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
@@ -87,12 +87,12 @@
 <P><B>Single Round Match 85</B><BR/>
 May 1, 2002</P>
 <P><B>Rookie Review</B></P>
-<P><A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">loopy</A> was the clear leader across the rookie rooms tonight, as his 1325.26 points accumulated during the Coding Phase were 
-sufficient to win both his room and $100.  <B>loopy</B> obtained the fifth highest score among Division 2 competitors, solely through his performance in the Coding Phase. <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">-infinity</A> 
-and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">IAZer</A> also registered solid first-time performances, accumulating 1217.09 and 1192.84 points respectively.</P>
+<P><A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">loopy</A> was the clear leader across the rookie rooms tonight, as his 1325.26 points accumulated during the Coding Phase were 
+sufficient to win both his room and $100.  <B>loopy</B> obtained the fifth highest score among Division 2 competitors, solely through his performance in the Coding Phase. <A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">-infinity</A> 
+and <A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">IAZer</A> also registered solid first-time performances, accumulating 1217.09 and 1192.84 points respectively.</P>
 
-<P>During the Challenge Phase the only notable performance was from <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">Ryback</A>. <B>Ryback</B> successfully challenged <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">tabbulus</A> 
-and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">Black_Ice</A> for a total of 100 points, giving him a total of 736.90 points for the night. This made <B>Ryback</B> the only rookie to 
+<P>During the Challenge Phase the only notable performance was from <A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">Ryback</A>. <B>Ryback</B> successfully challenged <A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">tabbulus</A> 
+and <A HREF="/stat?c=round_stats&amp;rd=4145&amp;dn=2" CLASS="bodyGeneric">Black_Ice</A> for a total of 100 points, giving him a total of 736.90 points for the night. This made <B>Ryback</B> the only rookie to 
 accumulate positive points during the Challenge Phase tonight.</P>
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>

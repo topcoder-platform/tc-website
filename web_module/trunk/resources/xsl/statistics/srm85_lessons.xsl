@@ -86,27 +86,56 @@
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
 <P><B>Single Round Match 85</B><BR/>
 May 1, 2002</P>
-<P><B>Room 1 Review</B></P>
-<P>Room 1 (and Division 1 as a whole) was dominated by <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">derkuci</A>, who finished the night with 1586.05 points, almost 200 points above the 
-score of the next highest coder in Division 1. <B>derkuci</B> began his dominance early, spending only 40 minutes to complete the three problems during the Coding Phase for a total of 1436.05 points. 
-This score by itself would have been sufficient to achieve top score of the night, although at this point he was closely followed by <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">SnapDragon</A> 
-(1420.51 points), <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">malpt</A> (1404.20 points), and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">John Dethridge</A> (1391.89).</P>
+<P><B>Lessons Learned the Hard Way</B></P>
+<P>This is the first of what hopefully will develop into a regular review of division 2.  The focus will be on "what went wrong". 
+We hope to provide a statistical breakdown in the future, but this has not been finalised yet.</P>
 
-<P><B>derkuci</B> proceeded to pad his initially tiny lead by wreaking havoc among 250 point submissions during the Challenge Phase.  By identifying a similar mistake in the 250 point submissions of <B>SnapDragon</B>,
-<B>malpt</B>, and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">anr</A>, <B>derkuci</B> managed to boost his score by 150 points while at the same time decreasing the scores of his two closest 
-competitors by over 200 points each.</P>
+<P>SRM 85 had 660 entrants. In the end, there were enough coders to create some 43 rooms in Division 2.  As a landmark, it was the first
+match to allow submission in C#.</P>
 
-<P><B>John Dethridge</B> and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">reid</A> each managed to put in solid performances. <B>John Dethridge</B> obtained 1391.89 in the Coding Phase, which 
-earned him second place in Room 1 and across Division 1. <B>reid</B> earned 1260.93 points in the Coding Phase, which was sufficient for third place in Room 1.</P>
+<P>The first 2 problems on the division 2 problem slate were straightforward: if you could do the problem, there was a very high
+likelihood that it was correct.  My room had only 2 challenges, some others had none.  The top 2 rooms of the division each had only 1
+solution fail.  The third problem was trickier, but the problem complexity seems to have stopped submission of weak solutions.</P>
 
-<P>There were some lackluster performances as well.</P>
-<P><A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">ambrose</A> mistakenly submitted as his solution for the 450 point problem code which overrided its input with a hard-coded test case.  After alerting 
-the others of the existence of such a mistake during the Intermission, the challenge of his submission was snapped up by <B>SnapDragon</B>. <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">ZorbaTHut</A> 
-and <A HREF="/stat?c=round_stats&amp;rd=4145" CLASS="bodyGeneric">NDBronson</A> both failed to submit a solution for the 1000 point problem, earning them the last two places in the room. <B>NDBronson</B>, in an 
-uncharacteristically poor performance, lost his 450 point submission during the System Test Phase, due to a minor mistake.  As a result he also lost top ranking among all coders, a title now held by 
-<A HREF="/stat?c=member_profile&amp;cr=114853" CLASS="bodyGeneric">dmwright</A> (who did not compete tonight).</P>
-<IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+<P><B>Level One - 250:</B><BR/>
+This problem involved doing a parity check on the bits of an array of ints.  The return value was a String with the character '0' representing 
+odd parity and '1' representing even parity.  Bear in mind that failures  were quite rare.<BR/><BR/>
+
+Issues:<BR/>
+1.  Failure to extract a bit!<BR/>
+2.  Adding the wrong character!  (Mea culpa)<BR/>
+3.  Returning the string in reverse order...<BR/>
+</P>
+
+<P><B>Level Two - 500:</B><BR/>
+This problem was based on error correction, where each character of message was sent 3 times to increase reliability.  The problem was to then extract
+the original message.  A '*' represented a garbled input character. The rules within a block of 3 characters were (a, b and c each represent 
+one of block[i], block[i+!] and block[i+2] at random:<BR/><BR/>
+1. a == b == c: return a;<BR/>
+2. a == b &amp;&amp; a == '*': return c;<BR/>
+3. a == b &amp;&amp; a != '*': return a;<BR/>
+4. a != b &amp;&amp; a != c &amp;&amp; b != c: return '*';<BR/>
+</P>
+
+<P>The solution was simple: search each block of 3 in each position. A variant on this was to keep a "starcount" of the number of '*' characters,
+to help in identifying cases.  A third variant counted the number of pairs of equal characters.</P>
+
+<P>It was noticeable that the solutions which failed were distinctly "uglier" than average.  The counting methods were fairly unreliable.<BR/><BR/>
+Issues:<BR/>
+1. Not checking all combinations of rules 2 &amp; 3 correctly.  This tended to arise from long conditionals.<BR/>
+2. In problems which kept a "starcount", failure to deal with the case where only one star is found.<BR/>
+3. Correct checks, but in the wrong order...</P>
+
+<P><B>Level Two - 100:</B><BR/>
+The 1000 problem doubled as the 450 in division 1.  The problem was to score a multiplayer, roshambo-like game with a bunch of random rules.
+Valid choices were 0-5, with i+1%6 beating i+2%6. Among these were bonuses for choosing the lowest entry.  Another rule said that the cumulative score 
+for each player at the end of each round reset to 0 if it was negative.</P>
+
+<P>It's hard to analyse where a lot of these problems went wrong, because of the complexity of the rules.  Probably, only getting out a debugger.<BR/><BR/>
+Issues:<BR/>Many of the issues involved either failing to deal with the negative reset, or resetting the round score rather than the cumulative score.</P>
+
+<IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

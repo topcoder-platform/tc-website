@@ -181,25 +181,26 @@
   </TR>     
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">    
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 84</B></FONT><BR/>
+    <B>SRM 85</B></FONT><BR/>
 	<!-- Tuesday, April 30, 2002<BR/> -->
-	By&#160;lbackstrom,<I>[TC] Member</I><BR/>
-	<A HREF="/?t=statistics&amp;c=srm84_room1" CLASS="bodyGeneric">Room One Review</A> | 
-	<A HREF="/?t=statistics&amp;c=srm84_rookie" CLASS="bodyGeneric">Rookie Review</A> | 
-	<A HREF="/?t=statistics&amp;c=srm84_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
+	By&#160;Logan,<I>[TC] Member</I><BR/>
+	<A HREF="/?t=statistics&amp;c=srm85_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm85_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
+	<A HREF="/?t=statistics&amp;c=srm85_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
      <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
      <TD VALIGN="top" WIDTH="1" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
      <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/Slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="50%" ALIGN="left" CLASS="bodyText">
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 84</B></FONT><BR/>
+    <B>SRM 85</B></FONT><BR/>
 	<!-- Tuesday, April 30, 2002<BR/> -->
-	By&#160;Slowjoe,<I>[TC] Member</I><BR/>
-	Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh.
+	By&#160;slowjoe,<I>[TC] Member</I><BR/>
+	This is the first of what hopefully will develop into a regular review of Division 2. 
+	The focus will be on "<A HREF="/?t=statistics&amp;c=srm85_lessons" CLASS="bodyGeneric">what went wrong</A>".
 	</TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
   </TR>
