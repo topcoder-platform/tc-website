@@ -56,17 +56,18 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
-							<h1 class="devSubhead"><strong>Generic Mapping: Design</strong></h1>
+							<h1 class="devSubhead"><strong>Image Resizing: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Mapping: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Image Resizing: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The Generic Mapping component facilitates the dynamic mapping of resources based on an incoming request. This component is directly applicable to web-based applications that use the Model-View-Controller pattern by providing a configurable source that enables on-the-fly manipulation of destinations based on an incoming request. In addition, this component can be applied to any "controller" pattern, whether it is web-based or not. An example is a generic request processor that instantiates specific Java objects and executes specific methods based upon the contents of the request.
-
+							The Image Resizing component accepts images and resizes them while maintaining the original aspect ratio. The component relies on the underlying image file to determine the existing image size thereby eliminating the need for GUI-based image manipulation. This functionality is currently available through existing image editing applications but requires a desktop application to view and manipulate the image. The Image Resizing component provides this same functionality through an API.
+                            </p><p>
+                            The Image Resizing component can be used to generate multiple sizes of the same image for use on a website. Generating these images is currently a manual process for TopCoder..
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the Generic Mapping component.<br />
+							Component Design Project: Provide a complete design for the Image Resizing component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -87,9 +88,9 @@
 							<p><strong>Designer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $245.00<br/>
-							First Deliverable - $183.75<br/>
-							Project Completion - $61.25</p>
+							<p>Total Payment - $175.00<br/>
+							First Deliverable - $131.25<br/>
+							Project Completion - $43.75</p>
 
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
@@ -111,16 +112,16 @@
 
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
-							
-							<p>Component Posting: 12.12.2002<br/>
-							Initial Submission Due Date: 12.27.2002<br/>
-							Winner Announced: 01.07.2003<br/>
-							Final Submission Due Date: 01.10.2003<br/>
-							Estimated Development End Date: 02.17.2003</p>
+
+							<p>Component Posting: 12.19.2002<br/>
+							Initial Submission Due Date: 01.03.2003<br/>
+							Winner Announced: 01.14.2003<br/>
+							Final Submission Due Date: 01.17.2003<br/>
+                            Estimated Development End Date: 02.24.2003</p>
 
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Mapping: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Image Resizing: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
