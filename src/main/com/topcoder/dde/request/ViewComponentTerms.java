@@ -8,6 +8,7 @@ import com.topcoder.dde.user.UserManagerLocalHome;
 import com.topcoder.dde.user.UserManagerLocal;
 
 import javax.rmi.PortableRemoteObject;
+import javax.naming.NamingEnumeration;
 
 /**
  * @author  dok
@@ -22,6 +23,10 @@ public class ViewComponentTerms extends BaseProcessor {
         if (getUser().isAnonymous()) {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         } else {
+            NamingEnumeration ne = getInitialContext().list(getInitialContext().getNameInNamespace());
+            while(ne.hasMore()) {
+                log.debug(ne.next().toString());
+            }
             UserManagerLocalHome userManagerHome = (UserManagerLocalHome)
                     getInitialContext().lookup("dde/UserManager");
             UserManagerLocal userManager = userManagerHome.create();
