@@ -19,10 +19,7 @@ import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.address.AddressHome;
 import com.topcoder.web.ejb.company.Company;
 import com.topcoder.web.ejb.company.CompanyHome;
-import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.ejb.user.ContactHome;
-import com.topcoder.web.ejb.user.UserAddress;
-import com.topcoder.web.ejb.user.UserAddressHome;
+import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
 
@@ -65,6 +62,7 @@ public final class Registration extends UserEdit {
     private String state;
     private String zip;
     private String country;
+    private boolean agree = false;
 
     /**
      *
@@ -88,6 +86,8 @@ public final class Registration extends UserEdit {
         state = request.getParameter(KEY_STATE);
         zip = request.getParameter(KEY_ZIP);
         country = request.getParameter(KEY_COUNTRY);
+        agree = Boolean.getBoolean(request.getParameter(KEY_AGREE_TO_TERMS)==null
+                ?"":request.getParameter(KEY_AGREE_TO_TERMS));
         return super.getFormFields();
     }
 
@@ -122,7 +122,7 @@ public final class Registration extends UserEdit {
             request.setAttribute("rsc-countries-list", rsc);
 
             TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
-            terms.getText(Constants.CORP_SITE_TERMS_ID);
+            setFormFieldDefault(KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
         } finally {
             Util.closeIC(ic);
@@ -203,8 +203,17 @@ public final class Registration extends UserEdit {
                 checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_ZIPCODE_EN,
                         true, 1, "Ensure ZIP code is not empty and, consists of digits only"
                 );
+        valid &= checkTerms(agree);
         return valid;
     }
+
+    private boolean checkTerms(boolean agree) {
+        if (!agree) {
+            markFormFieldAsInvalid(KEY_AGREE_TO_TERMS, "You must agree to terms to register.");
+        }
+        return agree;
+    }
+
 
     /**
      */
@@ -370,6 +379,11 @@ public final class Registration extends UserEdit {
             addrTable.setStateCode(addressID, null);
         }
         addrTable.setZip(addressID, zip);
+
+        UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
+        userTerms.createUserTermsOfUse(targetUserID, Constants.CORP_SITE_TERMS_ID);
+
+
     }
 
     /**
