@@ -64,7 +64,7 @@ public class QueueRequest {
   {
     boolean successfull = false;
     try {
-      InitialContext ctx = TCContext.getInitial();
+      InitialContext ctx = TCContext.getPactsInitial();
 
       // keep trying to initialize the queue until it starts
       while (!successfull)
