@@ -86,7 +86,7 @@ public class TestMessage{
 	}
 
 	public static void addSubTitleMessage(String str) { 
-		if(htmlDoc)title.append(nextLine+nextLine+"<a href=\"#title"+(++titleId)+"\">"+str+"</a>");
+		if(htmlDoc)title.append(nextLine+"<a href=\"#title"+(++titleId)+"\">"+str+"</a>");
 		sb.append(nextLine+nextLine+nextLine + bold +
 				(htmlDoc?("<a name=\"title" + titleId + "\">"):"") + 
 				str + (htmlDoc?("</a>"):"") + _bold + line1); 

@@ -78,6 +78,7 @@ public class PageNumTestView{
 			pnt = new PageNumTest();	pnt.setFrom_4_5(5);			
 			PageNumTest.checkResponse(pnt.memberProfileTask());	
 
+/*
 			TestMessage.addSubTitleMessage("TESTING NODES: 8");
 			PageNumTest.checkResponse((new PageNumTest()).individualDemographicInfoTask());	
 			TestMessage.addSubTitleMessage("TESTING NODES: 9");
@@ -101,7 +102,7 @@ public class PageNumTestView{
 
 			TestMessage.addSubTitleMessage("TESTING NODES: 15");
 			PageNumTest.checkResponse((new PageNumTest()).problemStatementTask());	
-
+*/
 		}catch(org.xml.sax.SAXException se){
 		}catch(IOException ioe){
 		}
