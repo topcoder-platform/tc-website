@@ -57,6 +57,10 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
             
             screeningProcessing();
         }
+        catch(TCWebException ex)
+        {
+            throw ex;
+        }
         catch(Exception e)
         {
             throw new TCWebException(e);
