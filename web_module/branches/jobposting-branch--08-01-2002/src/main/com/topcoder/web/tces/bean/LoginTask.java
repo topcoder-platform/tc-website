@@ -88,18 +88,11 @@ public class LoginTask extends BaseTask implements Task, Serializable {
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception
     {
         if (request.getParameter(TCESConstants.STEP_PARAM)!=null &&
-            (request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH) ||
-             request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTHREDIR)) ) {
+            request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH)) {
             HttpSession session = request.getSession(true);
 
-            if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session)) {
-                if (request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH))
-                    setNextPage(TCESConstants.LOGIN_OK_PAGE );
-                else if (request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTHREDIR)) {
-log.debug("loginredir");
-log.debug(HttpUtils.getRequestURL(request).toString() );
-                    setNextPage( HttpUtils.getRequestURL(request).toString() );
-                }
+            if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session, "")) {
+                setNextPage(TCESConstants.LOGIN_OK_PAGE );
             }
             else {
                 setMessage(Authentication.getErrorMessage(session));

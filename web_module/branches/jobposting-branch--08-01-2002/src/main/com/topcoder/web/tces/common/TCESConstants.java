@@ -34,7 +34,6 @@ public class TCESConstants {
     public static String LOGIN_TASK = null;
     public static String LOGIN_TASK_STEP_VIEW = null;
     public static String LOGIN_TASK_STEP_AUTH = null;
-    public static String LOGIN_TASK_STEP_AUTHREDIR = null;
     public static String MAIN_TASK = null;
     public static String CAMPAIGN_DETAIL_TASK = null;
     public static String CAMPAIGN_INTEREST_TASK = null;
@@ -170,7 +169,6 @@ public class TCESConstants {
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         LOGIN_TASK_STEP_VIEW = servletConfig.getInitParameter("login_task_step_view");
         LOGIN_TASK_STEP_AUTH = servletConfig.getInitParameter("login_task_step_auth");
-        LOGIN_TASK_STEP_AUTHREDIR = servletConfig.getInitParameter("login_task_step_authredir");
         MAIN_TASK = servletConfig.getInitParameter("main_task");
         CAMPAIGN_DETAIL_TASK = servletConfig.getInitParameter("campaign_detail_task");
         CAMPAIGN_INTEREST_TASK = servletConfig.getInitParameter("campaign_interest_task");
