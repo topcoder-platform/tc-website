@@ -71,10 +71,11 @@ public class UserDemographics implements PactsConstants, java.io.Serializable {
       if(rsc == null) {
           log.error("The result map did not contain " + USER_CURRENT_SCHOOL);
           _schoolName = "";
+     //fix - 6/16/2002  Matt Murphy
       } else if (rsc.getRowCount() <= 0) {
-         _schoolName = "";
-      } else {
           log.error("The result set '" + USER_CURRENT_SCHOOL + "' was empty!");
+          _schoolName = "";
+      } else {
           ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
           _schoolName = TCData.getTCString(rRow,"school_name");
       }
