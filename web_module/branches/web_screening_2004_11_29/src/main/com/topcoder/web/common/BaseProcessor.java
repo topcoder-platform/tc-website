@@ -218,6 +218,10 @@ public abstract class BaseProcessor implements RequestProcessor {
         return response;
     }
 
+    protected boolean hasParameter(String param) {
+        return !"".equals(getRequest().getParameter(param).trim());
+    }
+
 
     /**
      * Get a remote instance of the specified EJB.
