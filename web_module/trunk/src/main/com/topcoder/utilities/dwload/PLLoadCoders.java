@@ -347,7 +347,7 @@ public class PLLoadCoders extends TCLoad {
             query.append(" VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
-            query.append("?,?,?,?)");  // 23
+            query.append("?,?,?,?)");  // 24
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
@@ -460,6 +460,7 @@ public class PLLoadCoders extends TCLoad {
                     psIns.setTimestamp(21, rs.getTimestamp(21));  // last_login
                     psIns.setString(22, rs.getString(22));  // coder_region_code
                     psIns.setString(23, "");  // clear plassword, dw don't need it
+                    psIns.setString(24, "");  // terms
 
                     // Now, execute the insert of the new row
                     retVal = psIns.executeUpdate();
