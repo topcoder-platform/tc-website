@@ -6,6 +6,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.web.tces.common.JSPUtils;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
