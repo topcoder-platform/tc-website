@@ -4,14 +4,16 @@ import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
-import com.topcoder.web.ejb.company.Company;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.rating.Rating;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserAddress;
+import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
@@ -29,6 +31,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
     private static final String SOFTWARE_GROUP = "Users";
     private static final long ADDRESS_TYPE = 2; //2 is home address
     private static final long EMAIL_TYPE = 1; //1 is "primary"
+    private static final int HIT_TYPE = 3; //private label reg hit type
     private static final String US = "840";
 
     protected void registrationProcessing() throws TCWebException {
@@ -88,7 +91,6 @@ public class SimpleRegSubmit extends SimpleRegBase {
         Address address = (Address) createEJB(getInitialContext(), Address.class);
         Email email = (Email) createEJB(getInitialContext(), Email.class, "main:");
         UserAddress userAddress = (UserAddress) createEJB(getInitialContext(), UserAddress.class, "main:");
-        Company company = (Company) createEJB(getInitialContext(), Company.class);
         Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
         Rating rating = (Rating) createEJB(getInitialContext(), Rating.class);
 
@@ -118,8 +120,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         }
 
         //create user
-        user.createUser(newUser.getId(), regInfo.getHandle(),
-                company.getNewUserStatus(regInfo.getCompanyId()).charAt(0));
+        user.createUser(newUser.getId(), regInfo.getHandle(), getNewUserStatus());
         user.setFirstName(newUser.getId(), regInfo.getMiddleName());
         user.setMiddleName(newUser.getId(), regInfo.getFirstName());
         user.setLastName(newUser.getId(), regInfo.getLastName());
@@ -154,8 +155,62 @@ public class SimpleRegSubmit extends SimpleRegBase {
         //create rating
         rating.createRating(newUser.getId(), db);
 
+        long jobId = getJobId();
+        if (jobId > 0) {
+            JobPostingServices jp = (JobPostingServices)createEJB(getInitialContext(), JobPostingServices.class);
+            if (jp.jobExists(jobId)) {
+                jp.addJobHit(newUser.getId(), jobId, HIT_TYPE);
+            } else {
+                throw new Exception ("Invalid or inactive job " + jobId);
+            }
+        }
+
         return newUser;
 
     }
+
+    /**
+     *
+     * @return
+     * @throws Exception if the status isn't present in the db, or some other error
+     */
+    protected char getNewUserStatus() throws Exception {
+        ResultSetContainer rsc = getConfigInfo();
+        if (rsc.getRow(0).getItem("status").getResultData()==null)
+            throw new Exception ("Missing new user status for company: " +
+                    regInfo.getCompanyId() + " event_id " + regInfo.getEventId());
+        else return rsc.getStringItem(0, "status").charAt(0);
+    }
+
+    /**
+     * get the job id they implicitly applied to by registering for the event
+     * if it doesn't exist, return -1
+     * @return
+     * @throws Exception
+     */
+    protected long getJobId() throws Exception {
+        ResultSetContainer rsc = getConfigInfo();
+        if (rsc.getRow(0).getItem("job_id").getResultData()==null)
+            return -1;
+        else return rsc.getLongItem(0, "job_id");
+    }
+
+    /**
+     *
+     * @return
+     * @throws Exception if the data is not in the db, or some other problem
+     */
+    protected ResultSetContainer getConfigInfo() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("config_info");
+        r.setProperty("eid", String.valueOf(regInfo.getEventId()));
+        r.setProperty("cid", String.valueOf(regInfo.getCompanyId()));
+        ResultSetContainer ret = (ResultSetContainer)getDataAccess(db, true).getData(r).get("config_info");
+        if (ret==null)
+            throw new Exception ("Missing config info for company: " +
+                    regInfo.getCompanyId() + " event_id " + regInfo.getEventId());
+        return ret;
+    }
+
 
 }

@@ -6,9 +6,9 @@
     <enterprise-beans>
       <session>
   <ejb-name>JobPostingServices</ejb-name>
-  <home>com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesHome</home>
-  <remote>com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServices</remote>
-  <ejb-class>com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesBean</ejb-class>
+  <home>com.topcoder.web.ejb.jobposting.JobPostingServicesHome</home>
+  <remote>com.topcoder.web.ejb.jobposting.JobPostingServices</remote>
+  <ejb-class>com.topcoder.web.ejb.jobposting.JobPostingServicesBean</ejb-class>
   <session-type>Stateless</session-type>
   <transaction-type>Container</transaction-type>
   <env-entry>

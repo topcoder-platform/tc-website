@@ -348,7 +348,7 @@
     <target name="package-EJB-JobPostingServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="JobPostingServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/jobposting/ejb/JobPostingServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/jobposting"/>
         </antcall>
     </target>
 

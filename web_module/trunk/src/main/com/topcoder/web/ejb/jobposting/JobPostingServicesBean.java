@@ -1,4 +1,4 @@
-package com.topcoder.web.jobposting.ejb.JobPostingServices;
+package com.topcoder.web.ejb.jobposting;
 
 import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
