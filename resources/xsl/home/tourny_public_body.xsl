@@ -175,8 +175,8 @@ always a deliverable...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="4" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 103</B></A><BR/>
-Wednesday, July 10, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 104</B></A><BR/>
+Tuesday, July 16, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -202,7 +202,7 @@ Wednesday, July 10, 2002<BR/><BR/>
     </TD>
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Want to write?</A></TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR>    
+  </TR>  
 </TABLE>  
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR>
@@ -218,29 +218,29 @@ Wednesday, July 10, 2002<BR/><BR/>
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;bstanescu</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">187</TD>
-             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 2</TD>
+             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;zorg</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">211</TD>
+             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 6</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;jacobius</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-391</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;adic</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-274</TD>
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 3&#160;</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;banizar</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">191</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 10</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;leibniz</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">319</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 8</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;PaulDamer</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-302</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;taxi</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-356</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 9</TD>
           </TR>
           <!-- <TR><TD VALIGN="middle" HEIGHT="15" COLSPAN="5" BGCOLOR="#FFFFFF" CLASS="smallText">&#160;Login is required to view room details.</TD></TR>   -->                                
        </TABLE>   
@@ -252,19 +252,19 @@ Wednesday, July 10, 2002<BR/><BR/>
 <!-- Editorials -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
-      <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
+      <TD VALIGN="top" COLSPAN="7"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>    
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="10">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 103</B></FONT>
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 104</B></FONT>
     </TD>
   </TR>      
   <TR>    
-    <TD VALIGN="top" CLASS="bodyText" WIDTH="40%">      
+    <!-- <TD VALIGN="top" CLASS="bodyText" WIDTH="40%">      
       <A CLASS="bodyGeneric">
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm103_rookie</xsl:attribute>
         <B>Rookie Review</B>
@@ -274,24 +274,27 @@ Wednesday, July 10, 2002<BR/><BR/>
     </TD>
     <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" CLASS="bodyText" WIDTH="60%">
+    <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD> -->
+    <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm103_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm104_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
-      </A><BR/>Division-I - Level 3 (CostlyOnes): To solve this problems two approaches should be considered: divide and conquer and dynamic programming...<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm103_prob</xsl:attribute>full&#160;story
+      </A><BR/>Division-I, Level 3 (QuickDiv): First off, it's obviously easy to determine how many numbers between 1 and N
+are a multiple of some number M. It's N/M. That's trivial. So then it's also easy to determine how many numbers between 1 and N are a
+multiple of, say, A, B, or C. N/A + N/B + N/C. However, the problem is, what
+if it's a multiple of A *and* B?...<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm104_prob</xsl:attribute>full&#160;story
       </A>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
   </TR>
-  <TR><TD VALIGN="top" COLSPAN="13"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
+  <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" COLSPAN="11" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="100%" COLSPAN="7" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
-  <TR><TD VALIGN="top" COLSPAN="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
+  <TR><TD VALIGN="top" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
 </TABLE>
 
  <!-- Coder of the Week Begins -->
