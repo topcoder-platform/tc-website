@@ -128,8 +128,10 @@ public class Controller
     }
 
     User getUser(HttpSession session) {
+        log.debug(session+"");
         if (session != null) {
             Object navigation = session.getAttribute(NAVIGATION);
+            log.debug(navigation +"");
             if (navigation instanceof Navigation) {
                 User user = ((Navigation) navigation).getUser();
                 if (user.getUserId() == 0) {
