@@ -1,4 +1,4 @@
-<%@ page errorPage="/errorPage.jsp" %>
+<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
@@ -54,7 +54,7 @@ function submitSession() {
 <body>
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp" />
+<jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -242,7 +242,7 @@ function submitSession() {
     </tr>
 </table>
 
-  <jsp:include page="/includes/foot.jsp" />
+  <jsp:include page="../includes/foot.jsp" />
 
 </body>
 </html>

@@ -14,14 +14,14 @@ String message = (String)request.getAttribute("message");
 <jsp:include page="includes/script.jsp"/>
 </HEAD>
 <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="/includes/top.jsp"/>
+<jsp:include page="includes/top.jsp"/>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
     <!-- Left Column Begins -->
       <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
+        <jsp:include page="includes/left.jsp"/>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -66,7 +66,7 @@ You do not have permission to access the requested resource.
 </TABLE>
   <!-- Body Ends -->
 
-  <jsp:include page="/includes/foot.jsp"/>
+  <jsp:include page="includes/foot.jsp"/>
 
 </body>
 </html>

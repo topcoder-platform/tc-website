@@ -1,5 +1,5 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="/errorPage.jsp" %>
+<%@ page errorPage="../errorPage.jsp" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <html>
@@ -27,7 +27,7 @@ document.sessionConfirmForm.submit();
 <body>
 
 <!-- Header begins -->
-<jsp:include page="/includes/top.jsp" />
+<jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -133,7 +133,7 @@ document.sessionConfirmForm.submit();
     </tr>
 </table>
 
-  <jsp:include page="/includes/foot.jsp" />
+  <jsp:include page="../includes/foot.jsp" />
 
 </body>
 </html>
