@@ -138,6 +138,7 @@ public class Request implements RequestInt {
      * @param sVal The property value
      */
     public void setProperty(String sKey, String sVal) {
+        log.debug("set " + sKey + " = " + sVal);
         log.debug("before: " + getCacheKey());
         mProp.setProperty(sKey, sVal);
         if (sKey.equals(DataAccessConstants.COMMAND))
