@@ -71,7 +71,7 @@ function openWin(url, name, w, h) {
                   </font>
                   </div><br><br>
                   
-                  <table border=0 cellspacing=0 width="100%">
+                  <table border=0 cellspacing=0 width="100%"> 
                      <tr>
                         <td valign="top">
                         <b><font size="+1">Tough problems. Intense competition. No pressure.</font></b>
@@ -95,7 +95,7 @@ function openWin(url, name, w, h) {
                         <br><br>
                         <font color="006633" size="3"><b>How it works</b></font><br><br>
                         
-                        Download the Google Code Jam 2003 Qualification Guide <a href="/i/events/google2003/competition_manual.pdf">here</a>.
+                        Download the Google Code Jam 2003 Qualification Round Competition Manual <a href="/i/events/google2003/competition_manual.pdf">here</a>.
                         <br><br>
                         The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here’s the line-by-line documentation:
                         <ul>

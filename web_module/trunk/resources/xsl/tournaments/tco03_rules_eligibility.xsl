@@ -72,7 +72,7 @@
             </xsl:call-template>
 
             <blockquote>
-            <h2>Eligibility</h2>
+            <h2>Eligibility</h2> 
 
             <p>
             All TopCoder members who are 18 years of age or older may attempt to
