@@ -72,7 +72,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         }
 
         if(info.getTestSetA() == null) {
-            System.out.println("TestSetA is null");
             ResultSetContainer rsc = info.getProblemSetList();
             if(rsc != null && rsc.size() > 0) {
                 ResultSetContainer.ResultSetRow row = 

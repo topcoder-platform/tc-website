@@ -72,7 +72,7 @@ function submitUpdate() {
                 <% if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { %>
                   <INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
                   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:resultSetItem row="<%=row%>" name="name" /></TD>
-                <% break; }%>
+                <% } %>
                 </screen:resultSetRowIterator>
            </TR>
            <TR>
