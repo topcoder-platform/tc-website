@@ -289,7 +289,7 @@ Founder and Chairman, TopCoder, Inc.
     </tr>
   <tr align="right" valign="middle">
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Re-type Email</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.CONFIRM_EMAIL%>" value ="<jsp:getProperty name="Registration" property="ConfirmEmail" />" size="30" maxlength="30"></td>
+    <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.CONFIRM_EMAIL%>" value ="<jsp:getProperty name="Registration" property="ConfirmEmail" />" size="30" maxlength="40"></td>
   </tr>
   <tr>
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
