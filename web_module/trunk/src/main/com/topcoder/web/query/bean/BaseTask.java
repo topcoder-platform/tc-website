@@ -118,7 +118,7 @@ public abstract class BaseTask implements Task, Serializable {
     }
 
     public boolean hasErrors() {
-        return errors.isEmpty();
+        return !errors.isEmpty();
     }
 
     public List getNavLinks() {
