@@ -1100,11 +1100,11 @@ WHERE
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 57 "School_Avg_Rating" 1 2 "
- SELECT name 
+ SELECT name
         ,TRUNC(CASE WHEN rated_count=0 THEN 0 ELSE sum_rating/rated_count END, 2) AS avg_rating 
         ,rated_count
    FROM TABLE(MULTISET(
-          SELECT sc.name
+          SELECT NVL(short_name, name) AS name
                  ,sc.school_id
                  ,SUM(CASE WHEN cr.rating > 0 THEN 1 ELSE 0 END) AS rated_count
                  ,SUM(CASE WHEN cr.rating > 0 THEN cr.rating ELSE 0 END) as sum_rating
@@ -1116,8 +1116,7 @@ java com.topcoder.utilities.QueryLoader "DW" 57 "School_Avg_Rating" 1 2 "
            AND cs.coder_id = c.coder_id
            AND cs.school_id = sc.school_id
            AND c.status = 'A'
-           AND email NOT LIKE '%topcoder.com%'
-         GROUP BY sc.school_id, sc.name))
+         GROUP BY sc.school_id, 1))
   WHERE rated_count >= @nrn@
   ORDER BY 2 DESC
 "
