@@ -106,7 +106,7 @@ public final class MainServlet extends HttpServlet {
             if (ApplicationServer.PROD==ApplicationServer.ENVIRONMENT) {
                 if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME)) {
                     log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
-                    throw new NavigationException("Invalid Request - Wrong Server Name", TCServlet.NAVIGATION_ERROR_PAGE);
+                    throw new NavigationException("Invalid Request - Wrong Server Name");
                 }
             }
 
@@ -116,8 +116,7 @@ public final class MainServlet extends HttpServlet {
             }
             String loggedIn = Conversion.checkNull(request.getParameter("LoggedIn"));
             if (timedOut && loggedIn.equals("true")) {
-                throw new NavigationException("Your session has been idle for more that 30 minutes.",
-                        SESSION_TIMEOUT_PAGE);
+                throw new NavigationException("Your session has been idle for more that 30 minutes.");
             }
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
@@ -176,7 +175,7 @@ public final class MainServlet extends HttpServlet {
                     msg.append("MainServlet:processCommands:ERROR:");
                     msg.append("request indicates user is logged in, ");
                     msg.append("but the server session indicates otherwise.");
-                    throw new NavigationException(msg.toString(), TCServlet.LOGGED_OUT_ERROR_PAGE);
+                    throw new NavigationException(msg.toString());
                 }
                 user.setLoggedIn("N");
             }

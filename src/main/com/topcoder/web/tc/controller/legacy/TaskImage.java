@@ -33,8 +33,7 @@ public final class TaskImage {
             fis.read(result);
             return result;
         } catch (Exception e) {
-            throw new NavigationException("TaskImage:process:ERROR::",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
 
     }

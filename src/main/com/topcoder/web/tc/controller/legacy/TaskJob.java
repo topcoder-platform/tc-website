@@ -90,11 +90,7 @@ public final class TaskJob {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("TaskJob:process:");
-            msg.append(":ERROR:\n");
-            msg.append(e.getMessage());
-            throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }

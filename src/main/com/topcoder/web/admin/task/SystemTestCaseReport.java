@@ -69,7 +69,7 @@ public final class SystemTestCaseReport {
             }
         } catch (Exception e) {
             e.printStackTrace();
-            throw new NavigationException("SystemTestResult: process method: ERROR:\n " + e, com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -129,10 +129,7 @@ public final class SystemTestCaseReport {
                 }
                 systemTestCaseReportList = contestEJB.getSystemTestCaseReportList(roundId, problemId, coderId, filter);
             } catch (Exception e) {
-                e.printStackTrace();
-                log.debug("SystemTestResult: getSystemTestCaseReportList error retrieving systemtestcasereport  list .");
-                log.debug("MSG: " + e);
-                throw new NavigationException("Exception:", com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -153,8 +150,7 @@ public final class SystemTestCaseReport {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("SystemTestCaseReport: remove systemtestcase  : ERROR:\n " + e,
-                    com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -197,9 +193,7 @@ public final class SystemTestCaseReport {
                 }
                 coderList = contestEJB.getCoderList(roundId, problemId);
             } catch (Exception e) {
-                log.debug("SystemTestResult: getCoder error retrieving coder list.");
-                log.debug("MSG: " + e);
-                throw new NavigationException("DB ERROR", com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -211,7 +205,7 @@ public final class SystemTestCaseReport {
             }
 
             if (coderList == null)
-                throw new NavigationException("CODER LIST IS NULL", com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException("CODER LIST IS NULL");
 
             for (int i = 0; i < coderList.size(); i++) {
                 contestTag.addTag(((com.topcoder.common.web.data.SystemTestCaseReport) coderList.get(i)).getXML());
@@ -224,8 +218,7 @@ public final class SystemTestCaseReport {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("SystemTestCaseReport:  getCoderList  : ERROR:\n " + e,
-                    com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -269,9 +262,7 @@ public final class SystemTestCaseReport {
 
                 problemList = contestEJB.getProblemList(roundId);
             } catch (Exception e) {
-                log.debug("SystemTestResult: getProblemList error retrieving problem list.");
-                log.debug("MSG: " + e);
-                throw new NavigationException("DB ERROR", com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -292,8 +283,7 @@ public final class SystemTestCaseReport {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            throw new NavigationException("SystemTestCaseReport:  getProblemList  : ERROR:\n " + e,
-                    com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
         return result;
@@ -314,9 +304,7 @@ public final class SystemTestCaseReport {
                 int testCaseId = Integer.parseInt(request.getParameter("testcaseid"));
                 contestEJB.removeSystemTestResult(roundId, coderId, problemId, testCaseId);
             } catch (Exception e) {
-                log.debug("SystemTestResult: removeSystemTestResult error removing challenge .");
-                log.debug("MSG: " + e);
-                throw new NavigationException("DB ERROR", com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -327,8 +315,7 @@ public final class SystemTestCaseReport {
             }
 
         } catch (Exception e) {
-            throw new NavigationException("SystemTestResult: removeSystemTestResult  : ERROR:\n " + e,
-                    com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+            throw new NavigationException(e);
 
         }
     }
@@ -349,9 +336,7 @@ public final class SystemTestCaseReport {
                 contestEJB = (ContestAdminServices)BaseProcessor.createEJB(ctx, ContestAdminServices.class);
                 roundList = contestEJB.getRoundList();
             } catch (Exception e) {
-                log.debug("SystemTestResult: getRoundMenuScreen error retrieving contest list .");
-                log.debug("MSG: " + e);
-                throw new NavigationException("DB ERROR", com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
+                throw new NavigationException(e);
             } finally {
                 try {
                     if (ctx != null) ctx.close();
@@ -373,10 +358,7 @@ public final class SystemTestCaseReport {
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("SystemTestResult: getRoundMenuScreen : ERROR:\n " + e,
-                    com.topcoder.web.admin.XSLConstants.NAVIGATION_ERROR_URL);
-
+            throw new NavigationException(e);
         }
         return result;
     }

@@ -116,8 +116,7 @@ public final class GraphServlet extends HttpServlet {
             /***********************************************************************/
             else {
                 throw new NavigationException("GraphServlet:process:ERROR:invalid command: " +
-                        dataRequest.getContentHandle(),
-                        TCServlet.NAVIGATION_ERROR_PAGE);
+                        dataRequest.getContentHandle());
             }
             response.setContentType("image/gif");
             response.setHeader("content-disposition","inline; filename=graph.png");
@@ -193,9 +192,7 @@ public final class GraphServlet extends HttpServlet {
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return null;
     }
@@ -257,9 +254,7 @@ public final class GraphServlet extends HttpServlet {
             return baos.toByteArray();
 
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("GraphServlet:getRatingDistGraph:ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
     }
 

@@ -91,12 +91,7 @@ public final class TaskSearch {
         } catch (PermissionException ps) {
             throw ps;
         } catch (Exception e) {
-            e.printStackTrace();
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("TaskSearch:process:");
-            msg.append(":ERROR:\n");
-            msg.append(e);
-            throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }
@@ -141,8 +136,7 @@ public final class TaskSearch {
             xsldocURLString = XSL_DIR + "member_search.xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
-            throw new NavigationException("TaskSearch:RENDERING ERROR:",
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }
@@ -223,9 +217,7 @@ public final class TaskSearch {
             xsldocURLString = XSL_DIR + command + ".xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("TaskSearch:displayCoders:ERROR:\n" + e,
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         } finally {
             if (ctx != null) {
                 try {
@@ -287,9 +279,7 @@ public final class TaskSearch {
             xsldocURLString = XSL_DIR + Conversion.checkNull(request.getParameter("c")) + ".xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("TaskSearch:displayCoders:ERROR:\n" + e,
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         } finally {
             if (ctx != null) {
                 try {
@@ -398,9 +388,7 @@ public final class TaskSearch {
             String xsldocURLString = XSL_DIR + "refer.xsl";
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("TaskSearch:displayReferrals:ERROR:\n" + e,
-                    TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         } finally {
             if (ctx != null) {
                 try {

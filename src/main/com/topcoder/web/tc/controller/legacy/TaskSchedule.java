@@ -94,12 +94,7 @@ public final class TaskSchedule {
             log.error("TaskSchedule:ERROR:\n" + ne);
             throw ne;
         } catch (Exception e) {
-            e.printStackTrace();
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("TaskSchedule:process:");
-            msg.append(":ERROR:\n");
-            msg.append(e.getMessage());
-            throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }

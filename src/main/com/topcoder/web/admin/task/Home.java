@@ -19,11 +19,7 @@ public final class Home {
         try {
             result = HTMLmaker.render(document, XSLConstants.DIR + "home.xsl");
         } catch (Exception e) {
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("admin.task.Home:process:");
-            msg.append(":ERROR:\n");
-            msg.append(e.getMessage());
-            throw new NavigationException(msg.toString(), XSLConstants.INTERNAL_ERROR_URL);
+            throw new NavigationException(e);
         }
         return result;
     }

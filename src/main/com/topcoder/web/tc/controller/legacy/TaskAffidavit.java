@@ -102,13 +102,7 @@ public final class TaskAffidavit {
                     try {
                         result = HTMLmaker.render(document, xsldocURLString);
                     } catch (Exception e) {
-                        e.printStackTrace();
-                        StringBuffer msg = new StringBuffer(150);
-                        msg.append("processStatic:displayStatic:");
-                        msg.append(requestCommand);
-                        msg.append(":ERROR:");
-                        msg.append(e.getMessage());
-                        throw new NavigationException(msg.toString(), TCServlet.NAVIGATION_ERROR_PAGE);
+                        throw new NavigationException(e);
                     }
 
                 } else {
@@ -135,13 +129,7 @@ public final class TaskAffidavit {
                     try {
                         result = HTMLmaker.render(document, xsldocURLString);
                     } catch (Exception e) {
-                        e.printStackTrace();
-                        StringBuffer msg = new StringBuffer(150);
-                        msg.append("processStatic:displayStatic:");
-                        msg.append(requestCommand);
-                        msg.append(":ERROR:");
-                        msg.append(e.getMessage());
-                        throw new NavigationException(msg.toString(), TCServlet.NAVIGATION_ERROR_PAGE);
+                        throw new NavigationException(e);
                     }
                 }
             }
@@ -151,8 +139,7 @@ public final class TaskAffidavit {
         } catch (PermissionException pe) {
             throw pe;
         } catch (Exception e) {
-            e.printStackTrace();
-            throw new NavigationException("TaskAffidavit error", TCServlet.INTERNAL_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }
