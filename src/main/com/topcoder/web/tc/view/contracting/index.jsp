@@ -83,6 +83,7 @@ return false;
       TopCoder currently has several clients looking to hire TopCoder members.  Register <a href="/tc?module=ContractingPreferences">here</a> to provide us with your salary and travel requirements and rate your experience with a variety of programming languages, database platforms and relevant Industry experience.  Then let TopCoder work for you!
 		<br/><br/>
 		</p>
+      <p align="center"><b>Please note that your placement information will only be accessible by TopCoder personnel.  TopCoder will NOT submit your information to any company without the candidate’s expressed approval.</b></p>
 
       <%--
       <hr noshade="noshade" size="1" width="100%">
