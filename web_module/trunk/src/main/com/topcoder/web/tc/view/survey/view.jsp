@@ -12,7 +12,7 @@
 
 <head>
 
-<title>TopCoder Polls</title>
+<title>TopCoder Survey</title>
 
 <jsp:include page="../script.jsp" />
 
@@ -24,14 +24,14 @@
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
-<table width="100%" border="1" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
 <!-- Left Column Begins -->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value=""/>
-                <jsp:param name="level2" value=""/> 
+                <jsp:param name="level2" value=""/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -40,33 +40,38 @@
         <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
-         <td width="100%" class="bodyText">
-            <img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-            <img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
-            <p><img src="/i/clear.gif" width="240" height="1" border="0"><br>   
+<!-- Center Column Begins -->
+         <td width="100%" class="bodyText" valign="top">
+                  <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
+                     <tr>
+                        <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
+                        <td class ="bodyText" align="right"><a href="/tc?&module=SurveyList">Archive</a></td>
+                     </tr>
+                  </table>
+
                <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
-                     <table width="100%" border="1" cellpadding="3" cellspacing="0" class="formFrame">
+                     <table width="100%" border="0" cellpadding="3" cellspacing="0">
                         <tr>
-                           <td colspan="2">
-                              <jsp:getProperty name="question" property="text"/>
+                           <td colspan="2" class="bodySubtitle">
+                              <jsp:getProperty name="question" property="text"/><br/>
+                              <hr width="100%" size="1" noshade/>
                            </td>
                            </tr>
                            <tr>
                               <td colspan="2">
-                                 <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+                                 <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%></tc-webtag:errorIterator>
                               </td>
                            </tr>
                            <% boolean even = false; %>
                         <tc:answerInput id="answerInput" question="<%=question%>">
                            <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                              <td>
+                              <td width="100%">
                                  <%=answerText%>
                               </td>
-                              <td align="left">                                 
+                              <td align="right">                                 
                                  <%=answerInput%>
                               </td>
                            </tr>
@@ -90,6 +95,12 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
+       <td width="170">
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="review_board"/>
+                <jsp:param name="level2" value="competition"/>
+            </jsp:include>
+        </td>
 <!-- Right Column Ends -->
 
 <!-- Gutter -->
