@@ -101,20 +101,23 @@ All individuals who are 18 years of age or older are eligible to register and co
 </ul>
 Participants who do not meet the citizenship requirements to win prize money are still eligible to compete. However these individuals will be required to donate any cash prizes to charity. Participants will choose a charity to receive their winnings from the TopCoder approved list of charities. A prize-winning participant may request a new charity be added to the list, however it shall remain in Google's sole discretion to add that charity after reviewing the proposed charity's credentials.
 <br><br>
+Employees of Google and TopCoder, and those involved in the development, production, implementation and distribution of this tournament and their advertising or promotional agencies, parent companies, agents, directors, subsidiaries or affiliates, or any other persons living in the same household as such persons, are ineligible to enter the tournament.
+<br><br>
+
 <strong>Registration</strong><br>
 Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.
 <br><br>
 <strong>Qualification Round</strong><br>
-The Qualification Round will be open for 72 hours from 8:00AM EDT Friday, October 17 through 8:00AM EDT Monday, October 20, 2003.
+The Qualification Round will be open for 72 hours from 8:00AM EDT Friday, October 17 through 8:00AM EDT Monday, October 20, 2003. Each competitor may participate in the Qualification round at any time during the 72 hours. 
 <br><br>
 The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.
 <ul>
-<li>	The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.
+<li>	The Qualification Round Coding Phase is a timed event where contestants are presented with one of five possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete the set of two problems.
 <br><br>
 <li>	The Qualification Round System Testing Phase is applied to all submitted code. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question. 
 </ul>
 
-The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2003. 
+The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2003.  
 <br><br>
 <strong>The Competition Field</strong><br>
 Up to 500 individuals will qualify to compete in Round 1.  The top 250 scorers from Round 1 will advance to Round 2.  The top 25 scorers from Round 2 will advance to the Championship Round, which will be held onsite at Google’s headquarters in Mountain View, CA, USA.
