@@ -15,7 +15,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param handle the Handle.
      * @return boolean true for a valid user name.
      */
-    public boolean validHandle(String userName)
+    public boolean validHandle(String handle)
             throws RemoteException;
 
     /**
@@ -53,7 +53,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param password the user's password.
      * @return an Authentication object.
      */
-    public Authentication authenticate(String userName, String password)
+    public Authentication authenticate(String handle, String password)
             throws RemoteException;
 
     /**
@@ -63,7 +63,7 @@ public interface AuthenticationServices extends EJBObject {
      * @param handle the Handle.
      * @return Map of UserId keys and Handle values.
      */
-    public Map getLikeUsers(String userName)
+    public Map getLikeUsers(String handle)
             throws RemoteException;
 
     /**
@@ -84,16 +84,6 @@ public interface AuthenticationServices extends EJBObject {
             throws RemoteException;
 
     /**
-     * Given a secured sector and a permission assignee, this method returns the highest level
-     * of permission granted for that sector.
-     * @param sector -- the secured area.
-     * @param the permission assignee (usually a user).
-     * @return the highest permission granted for the given sector/assignee combo.
-     */
-    public Permission getSectorPermission(Sector sector, PermissionAssignee assignee)
-            throws RemoteException;
-
-    /**
      * Determines if a given permission assignee is a member of the administrative staff.
      * @param assignee -- the user.
      * @return boolean true if assignee is TopCoder staff.
@@ -103,7 +93,7 @@ public interface AuthenticationServices extends EJBObject {
 
     /**
      * Loads a User object from the DB for the given user id.
-     * @param a valid user id.
+     * @param userId a valid user id.
      * @return a populated user object.
      */
     public User loadUser(int userId)

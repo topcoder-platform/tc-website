@@ -9,17 +9,13 @@ package com.topcoder.ejb.AuthenticationServices;
 public abstract class SecureObject implements java.io.Serializable {
 
 
-    private int SId;
-    private String SIdType;
     private String Modified;
-    private java.util.ArrayList Permissions;
+    int SId;
 
 
     public SecureObject() {
-        SId = 0;
-        SIdType = "";
         Modified = "";
-        Permissions = new java.util.ArrayList();
+        SId = 0;
     }
 
 
@@ -31,24 +27,10 @@ public abstract class SecureObject implements java.io.Serializable {
     }
 
     /**
-     * Set the secure object type (G)roup or (U)ser.
-     */
-    public void setSIdType(String SIdType) {
-        this.SIdType = SIdType;
-    }
-
-    /**
      * Set the modified flag (A)dd, (U)pdate, or (D)elete.
      */
     public void setModified(String Modified) {
         this.Modified = Modified;
-    }
-
-    /**
-     * Set the list of permissions to security sectors for the secure object.
-     */
-    public void setPermissions(java.util.ArrayList Permissions) {
-        this.Permissions = Permissions;
     }
 
 
@@ -60,25 +42,12 @@ public abstract class SecureObject implements java.io.Serializable {
     }
 
     /**
-     * Get the secure object type (G)roup or (U)ser.
-     */
-    public String getSIdType() {
-        return SIdType;
-    }
-
-    /**
      * Get the modified flag (A)dd, (U)pdate, or (D)elete.
      */
     public String getModified() {
         return Modified;
     }
 
-    /**
-     * Get the list of permissions to security sectors for the secure object.
-     */
-    public java.util.ArrayList getPermissions() {
-        return Permissions;
-    }
 
 
 }

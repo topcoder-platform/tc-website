@@ -65,9 +65,6 @@ final class UserDb {
                 throw new TCException("ejb.User.UserDb:insertUser():failed:\n");
             }
             user.setModified("S");
-            if (user.getPermissions().size() > 0) {
-                insertPermissions(conn, user);
-            }
             if (user.getGroups().size() > 0) {
                 insertGroupUsers(conn, user);
             }
@@ -304,7 +301,6 @@ final class UserDb {
             rs = ps.executeQuery();
             if (rs.next()) {
                 UserType userType = user.getDefaultUserType();
-                user.setSIdType(rs.getString(1));
                 user.setHandle(rs.getString(2));
                 user.setPassword(rs.getString(3));
                 user.setEmail(rs.getString(4));
@@ -317,7 +313,6 @@ final class UserDb {
                 userType.setModified("S");
                 user.setUserTypeDetails(new HashMap(4));
                 loadGroupUsers(conn, user);
-                loadPermissions(conn, user);
                 // if they have the coder user type, load their coder info
                 if (userType.getUserTypeId()==1) {
                     UserDbCoder.loadCoder(conn, user);
@@ -485,204 +480,7 @@ final class UserDb {
     }
 
 
-    private static void loadPermissions(Connection conn, User user)
-            throws TCException {
-        log.debug("ejb.User.UserDb:loadPermissions() called ...");
-        try {
-            user.getPermissions().clear();
-            ArrayList permissions = getPermissions(conn, user.getUserId());
-            if (permissions != null) {
-                user.getPermissions().addAll(permissions);
-                permissions.clear();
-            }
-            ArrayList groupIds = getGroupIds(conn, user.getUserId());
-            if (groupIds != null) {
-                for (int i = 0; i < groupIds.size(); i++) {
-                    int groupId = ((Integer) groupIds.get(i)).intValue();
-                    permissions = getPermissions(conn, groupId);
-                    if (permissions != null) {
-                        user.getPermissions().addAll(permissions);
-                        permissions.clear();
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new TCException("ejb.User.UserDb:loadPermissions():" + user.getUserId() + "failed:\n" + ex);
-        }
-    }
 
-
-    private static ArrayList getGroupIds(Connection conn, int userId)
-            throws TCException {
-        log.debug("ejb.User.UserDb:getGroupIds() called ...");
-        ArrayList result = null;
-        ArrayList groupIds = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        StringBuffer query = new StringBuffer(200);
-        /**************************************************************/
-        /***********************Informix*******************************/
-        /**************************************************************/
-        query.append(" SELECT");
-        query.append(" group_id");
-        query.append(" FROM");
-        query.append(" group_user");
-        query.append(" WHERE");
-        query.append(" user_id = ?");
-        /**************************************************************/
-        try {
-            ps = conn.prepareStatement(query.toString());
-            query.delete(0, 200);
-            ps.setInt(1, userId);
-            rs = ps.executeQuery();
-            ps.clearParameters();
-            while (rs.next()) {
-                if (result == null) result = new ArrayList();
-                int groupId = rs.getInt(1);
-                result.add(new Integer(groupId));
-                groupIds = getSubGroupIds(conn, groupId);
-                if (groupIds != null) {
-                    result.addAll(groupIds);
-                    groupIds.clear();
-                }
-            }
-        } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:getGroupIds():" + userId + "failed:\n" + ex);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
-    private static ArrayList getSubGroupIds(Connection conn, int groupId)
-            throws TCException {
-        log.debug("ejb.User.UserDb:getSubGroupIds() called ...");
-        ArrayList result = null;
-        ArrayList groupIds = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        StringBuffer query = new StringBuffer(200);
-        /**************************************************************/
-        /***********************Informix*******************************/
-        /**************************************************************/
-        query.append(" SELECT");
-        query.append(" g.user_id");
-        query.append(" FROM");
-        query.append(" group_user g");
-        query.append(" ,secure_object s");
-        query.append(" WHERE");
-        query.append(" g.group_id = ?");
-        query.append(" AND s.secure_object_type = 'G'");
-        query.append(" AND g.user_id = s.secure_object_id");
-        try {
-            ps = conn.prepareStatement(query.toString());
-            query.delete(0, 200);
-            ps.setInt(1, groupId);
-            rs = ps.executeQuery();
-            ps.clearParameters();
-            while (rs.next()) {
-                if (result == null) result = new ArrayList();
-                int subGroupId = rs.getInt(1);
-                result.add(new Integer(subGroupId));
-                groupIds = getSubGroupIds(conn, subGroupId);
-                if (groupIds != null) {
-                    result.addAll(groupIds);
-                    groupIds.clear();
-                }
-            }
-        } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:getSubGroupIds():" + groupId + "failed:\n" + ex);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
-    private static ArrayList getPermissions(Connection conn, int sid)
-            throws TCException {
-        log.debug("ejb.User.UserDb:getPermissions(conn,sid) called ...");
-        ArrayList result = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        StringBuffer query = new StringBuffer(400);
-        /**************************************************************/
-        /***********************Informix*******************************/
-        /**************************************************************/
-        query.append(" SELECT");
-        query.append(" s.sector_id");
-        query.append(" ,s.sector_desc");
-        query.append(" ,a.access_id");
-        query.append(" ,a.access_desc");
-        query.append(" FROM");
-        query.append(" permission p");
-        query.append(" ,sector s");
-        query.append(" ,access a");
-        query.append(" WHERE");
-        query.append(" p.secure_object_id = ?");
-        query.append(" AND p.sector_id = s.sector_id");
-        query.append(" AND p.access_id = a.access_id");
-        /**************************************************************/
-        try {
-            ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, sid);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                if (result == null) result = new ArrayList();
-                Permission permission = new Permission();
-                Sector sector = permission.getSector();
-                AccessLevel accessLevel = permission.getAccessLevel();
-                permission.setSId(sid);
-                sector.setSectorId(rs.getInt(1));
-                sector.setSectorDesc(rs.getString(2));
-                accessLevel.setAccessLevelId(rs.getInt(3));
-                accessLevel.setAccessLevelDescription(rs.getString(4));
-                result.add(permission);
-            }
-        } catch (Exception ex) {
-            throw new TCException(
-                    "ejb.User.UserDb:getPermissions(conn,sid):" + sid + "failed:\n" + ex.getMessage()
-            );
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
 
 
     private static void insertSecureObject(Connection conn, User user)
@@ -692,13 +490,12 @@ final class UserDb {
         /**************************************************************/
         /***********************Informix*******************************/
         /**************************************************************/
-        String query = "INSERT INTO secure_object ( secure_object_id, secure_object_type ) VALUES ( ?, ? )";
+        String query = "INSERT INTO secure_object ( secure_object_id) VALUES (?)";
         /**************************************************************/
         try {
             user.setUserId(DBMS.getTransSeqId(conn, DBMS.JMA_SEQ));
             ps = conn.prepareStatement(query);
             ps.setInt(1, user.getUserId());
-            ps.setString(2, user.getSIdType());
             ps.executeUpdate();
         } catch (Exception ex) {
             throw new TCException(
@@ -714,58 +511,6 @@ final class UserDb {
         }
     }
 
-
-    private static void insertPermissions(Connection conn, User user)
-            throws TCException {
-        log.debug("ejb.User.UserDb:insertPermissions() called ...");
-        try {
-            ArrayList permissions = user.getPermissions();
-            for (int i = 0; i < permissions.size(); i++) {
-                Permission permission = (Permission) permissions.get(i);
-                permission.setSId(user.getUserId());
-                insertPermission(conn, permission);
-            }
-        } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:insertPermissions():failed:\n" + ex);
-        }
-    }
-
-    private static void insertPermission(Connection conn, Permission permission)
-            throws TCException {
-        log.debug("ejb.User.UserDb:insertPermission() called ...");
-        PreparedStatement ps = null;
-        /**************************************************************/
-        /***********************Informix*******************************/
-        /**************************************************************/
-        String query = "INSERT INTO permission ( secure_object_id, sector_id, access_id ) VALUES ( ?, ?, ? )";
-        /**************************************************************/
-        try {
-            ps = conn.prepareStatement(query);
-            ps.setInt(1, permission.getSId());
-            ps.setInt(2, permission.getSector().getSectorId());
-            ps.setInt(3, permission.getAccessLevel().getAccessLevelId());
-            int regVal = ps.executeUpdate();
-            if (regVal != 1) {
-                StringBuffer msg = new StringBuffer(200);
-                msg.append("ejb.User.UserDb.insertPermission():insert error:sid=");
-                msg.append(permission.getSId());
-                msg.append(":sector_id=");
-                msg.append(permission.getSector().getSectorId());
-                msg.append(":sector_desc=");
-                msg.append(permission.getSector().getSectorDesc());
-                msg.append(":\n");
-                throw new TCException(msg.toString());
-            }
-            permission.setModified("S");
-        } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:insertPermission():failed:\n" + ex);
-        } finally {
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception ignore) {
-            }
-        }
-    }
 
     private static void insertGroupUsers(Connection conn, User user)
             throws TCException {

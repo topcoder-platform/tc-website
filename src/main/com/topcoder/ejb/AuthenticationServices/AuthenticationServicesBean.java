@@ -94,7 +94,6 @@ public class AuthenticationServicesBean extends BaseEJB {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        int check = 0;
         /*************************************************************************************/
         String query = "SELECT 1 FROM sector_agreement WHERE sector_id=? AND user_id=?";
         /*************************************************************************************/
@@ -601,42 +600,6 @@ public class AuthenticationServicesBean extends BaseEJB {
 
 
     /**
-     * Given a secured sector and a permission assignee, this method returns the highest level
-     * of permission granted for that sector.
-     * @param sector -- the secured area.
-     * @param the permission assignee (usually a user).
-     * @return the highest permission granted for the given sector/assignee combo.
-     */
-    public Permission getSectorPermission(Sector sector, PermissionAssignee assignee)
-            throws RemoteException {
-        Permission result = new Permission();
-        result.setSector(sector);
-        result.setSId(assignee.getSId());
-        try {
-            if (isStaff(assignee)) {
-                result.getAccessLevel().setAccessLevelId(getStaffAccessLevel().intValue());
-            } else {
-                ArrayList permissions = assignee.getPermissions();
-                for (int i = 0; i < permissions.size(); i++) {
-                    Permission listPermission = (Permission) permissions.get(i);
-                    if (listPermission.getSector().getSectorId() == sector.getSectorId()) {
-                        int listLevel = listPermission.getAccessLevel().getAccessLevelId();
-                        int currentLevel = result.getAccessLevel().getAccessLevelId();
-                        if (listLevel > currentLevel) {
-                            result.setAccessLevel(listPermission.getAccessLevel());
-                        }
-                    }
-                }
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RemoteException(e.getMessage());
-        }
-        return result;
-    }
-
-
-    /**
      * Determines if a given permission assignee is a member of the TopCoder staff.
      * @param assignee -- the user.
      * @return boolean true if assignee is TopCoder staff.
@@ -664,7 +627,7 @@ public class AuthenticationServicesBean extends BaseEJB {
 
     /**
      * Loads a User object from the DB for the given user id.
-     * @param a valid user id.
+     * @param userId a valid user id.
      * @return a populated user object.
      */
     public User loadUser(int userId) throws RemoteException {
@@ -706,7 +669,6 @@ public class AuthenticationServicesBean extends BaseEJB {
             rs = ps.executeQuery();
             if (rs.next()) {
                 UserType userType = result.getDefaultUserType();
-                result.setSIdType(rs.getString(1));
                 result.setHandle(rs.getString(2));
                 result.setPassword(rs.getString(3));
                 result.setEmail(rs.getString(4));
@@ -718,7 +680,6 @@ public class AuthenticationServicesBean extends BaseEJB {
                 result.setTerms(rs.getString(9));
                 userType.setModified("S");
                 loadGroupUsers(conn, result);
-                loadPermissions(conn, result);
             } else {
                 throw new RemoteException("ejb.User.UserDb:loadUser():empty resultset:\n");
             }
@@ -807,203 +768,6 @@ public class AuthenticationServicesBean extends BaseEJB {
     }
 
 
-    private static void loadPermissions(Connection conn, User user)
-            throws RemoteException {
-        try {
-            user.getPermissions().clear();
-            ArrayList permissions = getPermissions(conn, user.getUserId());
-            if (permissions != null) {
-                user.getPermissions().addAll(permissions);
-                permissions.clear();
-            }
-            ArrayList groupIds = getGroupIds(conn, user.getUserId());
-            if (groupIds != null) {
-                for (int i = 0; i < groupIds.size(); i++) {
-                    int groupId = ((Integer) groupIds.get(i)).intValue();
-                    permissions = getPermissions(conn, groupId);
-                    if (permissions != null) {
-                        user.getPermissions().addAll(permissions);
-                        permissions.clear();
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            ex.printStackTrace();
-            throw new RemoteException("ejb.User.UserDb:loadPermissions():" + user.getUserId() + "failed:\n" + ex);
-        }
-    }
-
-
-    private static ArrayList getGroupIds(Connection conn, int userId)
-            throws RemoteException {
-        ArrayList result = null;
-        ArrayList groupIds = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        StringBuffer query = new StringBuffer(200);
-        /**************************************************************/
-        /***********************Informix*******************************/
-        /**************************************************************/
-        query.append(" SELECT");
-        query.append(" group_id");
-        query.append(" FROM");
-        query.append(" group_user");
-        query.append(" WHERE");
-        query.append(" user_id = ?");
-        /**************************************************************/
-        try {
-            ps = conn.prepareStatement(query.toString());
-            query.delete(0, 200);
-            ps.setInt(1, userId);
-            rs = ps.executeQuery();
-            ps.clearParameters();
-            while (rs.next()) {
-                if (result == null) result = new ArrayList();
-                int groupId = rs.getInt(1);
-                result.add(new Integer(groupId));
-                groupIds = getSubGroupIds(conn, groupId);
-                if (groupIds != null) {
-                    result.addAll(groupIds);
-                    groupIds.clear();
-                }
-            }
-        } catch (Exception ex) {
-            throw new RemoteException("ejb.User.UserDb:getGroupIds():" + userId + "failed:\n" + ex);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
-    private static ArrayList getSubGroupIds(Connection conn, int groupId)
-            throws RemoteException {
-        ArrayList result = null;
-        ArrayList groupIds = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        StringBuffer query = new StringBuffer(200);
-        /**************************************************************/
-        /***********************Informix*******************************/
-        /**************************************************************/
-        query.append(" SELECT");
-        query.append(" g.user_id");
-        query.append(" FROM");
-        query.append(" group_user g");
-        query.append(" ,secure_object s");
-        query.append(" WHERE");
-        query.append(" g.group_id = ?");
-        query.append(" AND s.secure_object_type = 'G'");
-        query.append(" AND g.user_id = s.secure_object_id");
-        /**************************************************************/
-        try {
-            ps = conn.prepareStatement(query.toString());
-            query.delete(0, 200);
-            ps.setInt(1, groupId);
-            rs = ps.executeQuery();
-            ps.clearParameters();
-            while (rs.next()) {
-                if (result == null) result = new ArrayList();
-                int subGroupId = rs.getInt(1);
-                result.add(new Integer(subGroupId));
-                groupIds = getSubGroupIds(conn, subGroupId);
-                if (groupIds != null) {
-                    result.addAll(groupIds);
-                    groupIds.clear();
-                }
-            }
-        } catch (Exception ex) {
-            throw new RemoteException("ejb.User.UserDb:getSubGroupIds():" + groupId + "failed:\n" + ex);
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
-    private static ArrayList getPermissions(Connection conn, int sid)
-            throws RemoteException {
-        ArrayList result = null;
-        PreparedStatement ps = null;
-        ResultSet rs = null;
-        StringBuffer query = new StringBuffer(400);
-        /**************************************************************/
-        /***********************Informix*******************************/
-        /**************************************************************/
-        query.append(" SELECT");
-        query.append(" s.sector_id");
-        query.append(" ,s.sector_desc");
-        query.append(" ,a.access_id");
-        query.append(" ,a.access_desc");
-        query.append(" FROM");
-        query.append(" permission p");
-        query.append(" ,sector s");
-        query.append(" ,access a");
-        query.append(" WHERE");
-        query.append(" p.secure_object_id = ?");
-        query.append(" AND p.sector_id = s.sector_id");
-        query.append(" AND p.access_id = a.access_id");
-        /**************************************************************/
-        try {
-            ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, sid);
-            rs = ps.executeQuery();
-            while (rs.next()) {
-                if (result == null) result = new ArrayList();
-                Permission permission = new Permission();
-                Sector sector = permission.getSector();
-                AccessLevel accessLevel = permission.getAccessLevel();
-                permission.setSId(sid);
-                sector.setSectorId(rs.getInt(1));
-                sector.setSectorDesc(rs.getString(2));
-                accessLevel.setAccessLevelId(rs.getInt(3));
-                accessLevel.setAccessLevelDescription(rs.getString(4));
-                result.add(permission);
-            }
-        } catch (Exception ex) {
-            throw new RemoteException(
-                    "ejb.User.UserDb:getPermissions(conn,sid):" + sid + "failed:\n" + ex.getMessage()
-            );
-        } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                }
-            }
-        }
-        return result;
-    }
-
-
     private String getDS() {
         if (DS == null) {
             javax.naming.Context ctx = null;
@@ -1051,29 +815,6 @@ public class AuthenticationServicesBean extends BaseEJB {
         return STAFF_GROUP_ID;
     }
 
-
-    private Integer getStaffAccessLevel() {
-        if (STAFF_ACCESS_LEVEL == null) {
-            javax.naming.Context ctx = null;
-            try {
-                ctx = new javax.naming.InitialContext();
-                javax.naming.Context env = (javax.naming.Context) ctx.lookup("java:comp/env");
-                synchronized (this) {
-                    STAFF_ACCESS_LEVEL = (java.lang.Integer) env.lookup("STAFF_ACCESS_LEVEL");
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                if (ctx != null) {
-                    try {
-                        ctx.close();
-                    } catch (Exception ignore) {
-                    }
-                }
-            }
-        }
-        return STAFF_ACCESS_LEVEL;
-    }
 
 
 }
