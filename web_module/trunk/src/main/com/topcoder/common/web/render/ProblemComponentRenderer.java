@@ -57,6 +57,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         }
 
         /* Signature */
+        buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
         buf.append("<tr>");
         buf.append("<td colspan=\"2\">");
         appendTag(buf, SECTION_HEADER, "Definition");
@@ -125,6 +126,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         /* Notes */
         Element[] notes = problemComponent.getNotes();
         if (notes != null && notes.length > 0) {
+            buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
             buf.append("<tr>");
             buf.append("<td colspan=\"2\">");
             appendTag(buf, SECTION_HEADER, "Notes");
@@ -145,6 +147,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         /* Constraints */
         Element[] constraints = problemComponent.getConstraints();
         if (constraints != null && constraints.length > 0) {
+            buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
             buf.append("<tr>");
             buf.append("<td colspan=\"2\">");
             appendTag(buf, SECTION_HEADER, "Constraints");
@@ -170,6 +173,7 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
                 hasExamples = testCases[i].isExample();
             }
             if (hasExamples) {
+                buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
                 buf.append("<tr>");
                 buf.append("<td colspan=\"2\">");
                 appendTag(buf, SECTION_HEADER, "Examples");
