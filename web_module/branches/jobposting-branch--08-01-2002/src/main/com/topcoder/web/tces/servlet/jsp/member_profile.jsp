@@ -141,6 +141,7 @@
 
     <% if (MemberProfileTask.hasDivisionI()) { %>
                   <P>
+                  &nbsp;<BR>
                   <B>Division I Performance</B>
                   </P>    
 
@@ -207,7 +208,7 @@
                       </TD>
                       <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                       <TD class="statText">
-                        <%= level.getItem("avg_final_points").toString() %>
+                        <%= JSPUtils.autoFormat(level.getItem("avg_final_points")) %>
                       </TD>
                       <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                       <TD class="statText">
@@ -258,8 +259,8 @@
                       </TD>
                     </TR>
                   </TABLE>
-                  <P><BR></P>
 
+                  &nbsp;<BR>
                   <B>Statistics by Language:<br></B>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
@@ -342,6 +343,7 @@
                       </TD>
                     </TR>
                   </TABLE>
+                  <P><BR></P>
     <% } %>
 
 <% } else { %>
