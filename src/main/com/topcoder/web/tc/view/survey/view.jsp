@@ -52,6 +52,7 @@
                <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
+                  <% int i=1; %>;
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
                   <table width="510" border="0" cellpadding="5" cellspacing="0" class="formFrame" align="center">
                         <tr>
@@ -61,7 +62,7 @@
                         </tr>
                         <tr>
                            <td colspan="2" class="bodySubtitle" valign="top" width="100%">
-                              <jsp:getProperty name="question" property="text"/><br/><br/>
+                              <%=questionInfo.size()>1?i+". ":""%><jsp:getProperty name="question" property="text"/><br/><br/>
                               <hr width="100%" size="1" noshade/>
                            </td>
 
@@ -85,6 +86,7 @@
                         </tc:answerInput>
                      </table>
                      <p><br/></p>
+                     <% i++;%>
                   </tc:questionIterator>
                      <table class="bodyText" align="center">
                         <tr><td><a href="?<%=Constants.MODULE_KEY%>=SurveyResults&<%=Constants.SURVEY_ID%>=<%=surveyInfo.getId()%>"><img src="/i/results.gif" width="60" height="18" border="0"/></a>
