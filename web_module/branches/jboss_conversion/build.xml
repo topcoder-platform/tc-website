@@ -956,7 +956,7 @@
      </target>
 
      <target name="deploy-security" depends="build-security">
-         <copyfile src="${ear.dir}/security.ear" dest="${jboss_deploy}"/>
+         <copyfile src="${ear.dir}/security.ear" dest="${jboss_deploy}/"/>
      </target>
 
      <target name="build-security" depends="compile_shared">
