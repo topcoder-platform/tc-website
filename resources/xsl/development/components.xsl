@@ -81,7 +81,7 @@
 							<tr valign="top">
 								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=279551" class="coderTextGreen"><img src="/i/m/nophoto_dev.gif" alt="" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
 								<td class="statText" width="65%">Developer Level:</td>
-								<td class="statText" align="right" width="10%">II</td>
+								<td class="statText" align="right" width="10%">I</td>
 								<td class="statText" width="25%"></td>
 							</tr>
 
