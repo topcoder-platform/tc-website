@@ -89,7 +89,7 @@
   <!-- Center Column Begins -->  
     <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"> 
 <!-- Invitational block -->    
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
+<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%"> 
   <TR>
     <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
@@ -140,7 +140,7 @@ Based on your profile information and your rated event participation, you are el
   <TR>
     <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>
-</TABLE>
+</TABLE> -->
 
      <!-- My Stats Begins -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
