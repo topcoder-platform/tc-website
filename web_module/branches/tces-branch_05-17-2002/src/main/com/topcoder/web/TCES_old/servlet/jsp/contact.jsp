@@ -46,14 +46,15 @@
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 							<%
+									int user_id = user.getUserId();
 									CoderBean beanCoder = new CoderBean();
 									CoderObject objCoder = new CoderObject();
-									objCoder.coder_id = new Long( (long)user.getUserId() );
+									objCoder.coder_id = new Long( (long)user_id );
 									objCoder = beanCoder.request(Coder.SELECT, objCoder);
 
 									UserBean beanUser = new UserBean();
 									UserObject objUser = new UserObject();
-									ojbUser.user_id = new Long ((long)user.getUserId());
+									ojbUser.user_id = new Long ((long)user_id);
 									objUser = beanUser.request(User.SELECT, objUser);
 							%>
 
