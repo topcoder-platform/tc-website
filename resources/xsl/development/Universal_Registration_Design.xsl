@@ -88,7 +88,7 @@
                                                     <p>
                                                         Universal Registration is a critical initiative to grow the number of members for the websites.   
                                                         Universal Registration will create a simplified and streamlined process for implementing registration for 
-                                                        all of the websites.  This environment will evolve to incorporate all of users in the future. 
+                                                        all of the websites.  This environment will evolve to incorporate all users in the future. 
                                                         This project will continue to pursue that goal in subsequent releases.  This system will consist of developing 
                                                         a scalable architecture to handle all future website registration and user data.  The architecture will consist
                                                         of JSP pages and java code.
