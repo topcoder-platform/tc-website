@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <a name="top"></a>
 
@@ -12,7 +13,7 @@
              <strong>Hello, <jsp:getproperty name="sessionInfo" property="Handle" />.</strong>
             &#160;&#160;|&#160;&#160;<a href="/?module=Logout" class="loginLinks" target="_parent">Logout</a>
 <%} %>
-            &#160;&#160;|&#160;&#160;<a href="/" class="loginLinks">Corporate Services Home</a>
+            &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/" class="loginLinks">Corporate Services Home</a>
         </td>
         <td class="login" width="10">&nbsp;</td>
     </tr>
