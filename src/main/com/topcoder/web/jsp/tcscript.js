@@ -57,8 +57,8 @@ function infoWindow(url) {
 }
 
 function openProblemRating(id) {
-    var width = Math.round(screen.availWidth * 2 / 3);
-    var height = Math.round(screen.availHeight * 2 / 3);
+    var width = Math.round(560);
+    var height = Math.round(660);
     var left = Math.round((screen.availWidth - width) / 2);
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top="+top+",left="+left+",width=" + width + ",height=" + height + ",status=0";
