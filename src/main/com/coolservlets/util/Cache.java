@@ -69,7 +69,13 @@ public class Cache {
     private CacheClient cache;
     private static final int MAX_SIZE = 10000;
     private int timeOut= 1000*24*60*60*1000;
+
+    /* can only use distributed for users for now.
+     * if we need to use it for others, then we'll
+     * have to come up with different keys
+     */
     private boolean isDistributed = false;
+
     private static Logger log = Logger.getLogger(Cache.class);
     private static final String CACHE_KEY_PREFIX = "rtable_cache_key:";
 
@@ -126,7 +132,7 @@ public class Cache {
 
 	public void add(int uniqueID, Object object) {
         try {
-            getCache().set(CACHE_KEY_PREFIX+String.valueOf(uniqueID), object, timeOut);
+            getCache().set(String.valueOf(uniqueID), object, timeOut);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -135,7 +141,7 @@ public class Cache {
     public boolean containsKey(int key) {
         boolean ret = false;
         try {
-            ret = (getCache().containsKey(CACHE_KEY_PREFIX+String.valueOf(key)));
+            ret = (getCache().containsKey(String.valueOf(key)));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -144,7 +150,7 @@ public class Cache {
 
 	public void remove(int uniqueID) {
         try {
-            getCache().remove(CACHE_KEY_PREFIX+String.valueOf(uniqueID));
+            getCache().remove(String.valueOf(uniqueID));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
