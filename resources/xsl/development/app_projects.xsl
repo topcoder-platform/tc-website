@@ -75,22 +75,21 @@
 
                                 <tr valign="middle">
                                     <td class="projectCells">
+                                        <a href="?t=development&amp;c=IQM_Integration_Design">IQM Integration Design</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">10.07.2004</td>
+                                </tr>
+
+                                <tr valign="middle">
+                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Seat_Service_Scheduling_Design">Seat Service Scheduling Design</a>
                                     </td>
                                     <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">10.04.2004</td>
                                 </tr>
-
-                                <tr valign="middle">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Seat_Service_Inventory_Design">Seat Service Inventory Design</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$470 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.04.2004</td>
-                                </tr>
-
 
                             </table>
 
@@ -137,6 +136,15 @@
                                         <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     </tr>
                                 </tr>
+
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Seat_Service_Inventory_Design">Seat Service Inventory Design</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$470 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>
+
 
                                 <tr valign="middle">
                                     <td class="projectCells">
