@@ -135,8 +135,8 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=GeneChip_Data_Interface">GeneChip Data Interface</a>
                                     </td>
-                                    <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1050 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">06/21/2004 9:00 AM ET</td>
                                 </tr>
 
