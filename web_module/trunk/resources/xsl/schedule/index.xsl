@@ -96,7 +96,7 @@
                                     <strong>Match 162</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation">Amazon.com</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4615&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
@@ -118,7 +118,7 @@
                                     <strong>Match 163</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation">Diversified Data</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4620&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">9</td>
