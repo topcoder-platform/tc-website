@@ -37,87 +37,25 @@ function getProblemDetail(url,wd,ht) {
         <!-- Body Area -->
       <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Test Profile List</B></FONT><BR/><BR/>
-                           
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
-	        <TR>
-		       <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B>Test Profile 1</B></FONT></TD>		       	       		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666">&#160;</TD>		       
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666"><B>Candidates</B></TD>	       		       
-	        </TR>             	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Problem Set</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Total</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Complete</B></TD>		       		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">1</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">5</TD>	
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>			       	       		       
-	        </TR>	        	        	        
-         </TABLE>         
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
-	        <TR>
-		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="4"></TD>
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" COLSPAN="3"><B>PROBLEMS</B></TD>		       	       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-	        </TR>
-	        	        	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="bodyTextBold"><B>Candidate</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>Status</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Presented</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Submitted</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Passed</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">rjames@nodomain.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">2</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">maryjane@spam.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">ttuner@rolling.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">Available</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">0</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">0</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Details</A></TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">simonenina@nodamin.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>	         	        	        	        	        	        
+
+<jsp:useBean id="profileList" type="java.util.List" scope="request" />
+
+<% { String curProfile = "NONE"; boolean first = true; boolean even = true; %>
+     <screen:resultSetRowIterator id="row" list="<%= profileList %>">
+       <% if(!curProfile.equals(row.getItem("session_profile_id").toString())){ %>
+        <% if(!first){ %>
+         <%-- End previous table --%>
 	        <TR>
 		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>         
          </TABLE>                
+        <% } %>
 
-
-
+         <%-- Start a fresh table --%>
+         <% even = true; %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
 	        <TR>
-		       <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B>Test Profile 2</B></FONT></TD>		       	       		       
+		       <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></B></FONT></TD>		       	       		       
 	        </TR>	        
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666">&#160;</TD>		       
@@ -129,9 +67,9 @@ function getProblemDetail(url,wd,ht) {
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Complete</B></TD>		       		       
 	        </TR>
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">1</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">5</TD>	
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>			       	       		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="round_name" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></TD>	
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_complete" /></TD>			       	       		       
 	        </TR>	        	        	        
          </TABLE>         
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
@@ -153,118 +91,31 @@ function getProblemDetail(url,wd,ht) {
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Passed</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
 	        </TR>
+           <% first = false; %>
+        <% } %>
+        <%-- Do a main body row --%>
 	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">rjames@nodomain.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">2</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">maryjane@spam.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="status" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="presented" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="passed" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></A></TD>		       
 	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">ttuner@rolling.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">Available</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">0</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">0</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Details</A></TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">simonenina@nodamin.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>	         	        	        	        	        	        
+	<% even = !even; %>
+     </screen:resultSetRowIterator>
+
+        <% if(!first){ %>
+         <%-- End final table --%>
 	        <TR>
 		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>         
-         </TABLE>           
-         
-         
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
-	        <TR>
-		       <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B>Test Profile 3</B></FONT></TD>		       	       		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666">&#160;</TD>		       
-		       <TD COLSPAN="2" VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#666666"><B>Candidates</B></TD>	       		       
-	        </TR>             	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Problem Set</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Total</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="10%" CLASS="bodyTextBold" BGCOLOR="#999999"><B>Complete</B></TD>		       		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">1</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">5</TD>	
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>			       	       		       
-	        </TR>	        	        	        
-         </TABLE>         
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
-	        <TR>
-		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="4"></TD>
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" COLSPAN="3"><B>PROBLEMS</B></TD>		       	       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-	        </TR>
-	        	        	        
-	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="bodyTextBold"><B>Candidate</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>Status</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Presented</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Submitted</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Passed</B></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">rjames@nodomain.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">2</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">maryjane@spam.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">ttuner@rolling.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">Available</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">0</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">0</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Details</A></TD>		       
-	        </TR>	        
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText">simonenina@nodamin.com</A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">Done</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">3</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText"><A HREF="/eval/test_results.jsp" CLASS="bodyText">Results</A></TD>		       
-	        </TR>	         	        	        	        	        	        
-	        <TR>
-		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-	        </TR>         
-         </TABLE>             
+         </TABLE>                
+        <% }else{ %>
+         <%-- No tables means no profiles --%>
+         No test profiles found.
+        <% } %>
+<% } %>
          
          
 <P><BR/></P>    
