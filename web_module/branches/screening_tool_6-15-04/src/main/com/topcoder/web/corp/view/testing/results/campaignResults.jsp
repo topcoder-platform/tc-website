@@ -117,12 +117,12 @@ function getProblemDetail(id) {
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=first_name&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=name&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
                             Name
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=state_province&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=state&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
                             State/<br/>Province
                         </A>
                     </td>
@@ -166,13 +166,12 @@ function getProblemDetail(id) {
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<%=row.getStringItem("user_id")%>'>
-                            <%=row.getStringItem("first_name") + " " + row.getStringItem("middle_name") + " "
-                               + row.getStringItem("last_name") %>
+                            <%=row.getStringItem("name")%>
                         </A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <%=row.getStringItem("state_province")%>
+                        <%=row.getStringItem("state")%>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
