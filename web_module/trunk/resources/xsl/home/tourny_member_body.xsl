@@ -405,9 +405,9 @@
     <TD VALIGN="top" WIDTH="4">
 
       <xsl:choose>
-      <xsl:when test="/TC/InvitationalInfo/IsRegistered/is_registered='0'"> 
+      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'"> 
         <xsl:choose>
-        <xsl:when test="/TC/InvitationalInfo/IsEligible/is_eligible='0'"> 
+        <xsl:when test="/TC/HOME/InvitationalInfo/IsEligible='0'"> 
           Not Eligible. 
         </xsl:when>
         <xsl:otherwise>
