@@ -40,7 +40,8 @@ ORDER BY cal.date DESC
 "
 java QueryLoader 3 "Rooms_For_Round" 0 0 "
 SELECT room_id,
-name
+name,
+division_desc
 FROM room
 WHERE room.round_id = @rd@
 ORDER BY room_id ASC
@@ -522,7 +523,8 @@ WHERE room.round_id = @rd@
 "
 java QueryLoader 28 "Rooms_For_Round" 0 0 "
 SELECT room_id,
-name
+name,
+division_desc
 FROM room
 WHERE room.round_id = @rd@
 ORDER BY room_id ASC
