@@ -124,7 +124,7 @@
 			<xsl:when test="/TC/Command='invit02_semi'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='invit02_champ'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
-		<A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statTextBig">Round Updates</A></TD>
+		<A HREF="/index?t=schedule&amp;c=tourney_semi" CLASS="statTextBig">Round Updates</A></TD>
 		<TD WIDTH="33%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='invit02_sched'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
 		<A HREF="/index?t=schedule&amp;c=invit02_sched" CLASS="statTextBig">Schedule</A></TD>
@@ -190,10 +190,10 @@ is slated to be the most exciting onsite event yet.  Join me as the scene unfold
 <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4371</xsl:attribute><B>The 2002 TopCoder Invitational: Room 2</B></A><BR/>
+        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4372</xsl:attribute><B>The 2002 TopCoder Invitational: Room 3</B></A><BR/>
 Friday, November 22, 2002<BR/><BR/>
 
-<B>Room 2 updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom2</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom2#photo</xsl:attribute>Photos</A>
+<B>Room 3 updates: </B> <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_semi</xsl:attribute>Advancer Stats</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_brackets</xsl:attribute>Brackets</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom3</xsl:attribute>Summary</A> | <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom3#photo</xsl:attribute>Photos</A>
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
@@ -214,7 +214,7 @@ Friday, November 22, 2002<BR/><BR/>
     </TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="23%" NOWRAP="0">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4371</xsl:attribute>
+        <xsl:attribute name="HREF">/stat?&amp;c=round_stats&amp;rd=4372</xsl:attribute>
         Results
       </A>
     </TD>   
@@ -262,17 +262,16 @@ Friday, November 22, 2002<BR/><BR/>
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><BR/>
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiroom2</xsl:attribute><B>A Nail Biter, Indeed</B></A><BR/>
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiroom3</xsl:attribute><B>And the woman has her way!</B></A><BR/>
 by MaryBeth Biondi, <I>TopCoder Staff</I><BR/>
 
 <P>
-The morning's second competition brought a few more spectators onsite, but lots more online.  
-Nearly 50 members logged in to cheer on their fellow coders in a tightly contested match, which
- pitted <B>dmwright</B>'s tournament experience against <B>reid</B>'s speed.  <B>dgarthur</B> and <B>lars</B>, in some 
- people's minds, may have only been along for the experience...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom2</xsl:attribute>read&#160;more</A>
+The answer to my last question has been answered in a resounding way - the surprises are 
+anything but over.  In the biggest upset of the day, the lowest ranked coder onsite, 
+<B>moira</B>, has overcome the odds and will be advancing to the finals for the chance to win $50,000...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=tournament&amp;c=invit02_semiroom3</xsl:attribute>read&#160;more</A>
 </P>
-<B>Room 3</B>: 3PM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+<B>Room 4</B>: 6PM (EST)(<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit02_sched</xsl:attribute>Get details</A>). Logon to view round activity.
 <BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
@@ -295,27 +294,25 @@ Nearly 50 members logged in to cheer on their fellow coders in a tightly contest
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;lbackstrom<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>The 2002 TopCoder Invitational: Room 2</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>The 2002 TopCoder Invitational: Room 3</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob2</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob3</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 <P>
-This round had a pretty simple easy problem, and pretty difficult medium and hard problems, both dealing with graphs, 
-though in very different ways.  All three coders submitted the easy fairly quickly.  <B>dmwright</B> then moved 
-on the the hard problem while everyone else solved the medium.  <B>Lars</B> was the fastest on the medium, though 
-his solution was doomed to timeout.  <B>reid</B> and <B>dgarthur</B> submitted shortly afterwards.  With about 15 minutes 
-to go, <B>dmwright</B> gave up on the hard, and went back to the medium, but was unable to finish it.  With less than 
-5 minutes to spare, both <B>dgarthur</B> and <B>reid</B> submitted the 1000.  However <B>reid</B> had an off by 1 error somewhere, 
-and <B>dgarthur</B> came away with the upset....<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob2</xsl:attribute>Get the analysis</A>
+I just noticed that TopCoder doesn't often have problems that deal with geometry.
+            However, this round's Level 1 problem was a pure geometry problem, and relatively easy.
+            It was a refreshing change for Level 1 problems, but the coders seemed to struggle with it.
+            The Level 2 problem was straight-forward, but the Level 3 problem was a poser, stumping all
+            four coders...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_semiprob3</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
