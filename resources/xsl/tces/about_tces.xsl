@@ -133,13 +133,6 @@ statistics and code samples for rated TopCoder members.
 		<TD class="bodyText">3</TD>
 		<TD class="bodyText">$5,000</TD>		
 	</TR>
-	<TR>
-		<TD class="bodyText">6 months</TD>
-		<TD class="bodyText">Up to 30</TD>
-		<TD class="bodyText">2</TD>
-		<TD class="bodyText">6</TD>
-		<TD class="bodyText">$7,500</TD>		
-	</TR>				
 </TABLE>
 
 <P>
