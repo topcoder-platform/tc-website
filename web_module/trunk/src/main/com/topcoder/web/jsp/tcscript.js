@@ -7,7 +7,7 @@
     var last=0;
     var daHt = parseInt(ht) + parseInt('49');
     var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
-    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,null,size);
+    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,resizable=yes,null,size);
     return;
   }
 
@@ -15,18 +15,18 @@
     var last=0;
     var daHt = parseInt(ht) + parseInt('49');
     var size = "top=2,left=2,width="+wd+",height="+daHt+",status=0";
-    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,resizable=yes,name,size);
     return;
   }
 
 
 function arena() {
-  w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,status=1");
+  w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,resizable=yes,status=1");
   return;
 }
 
 function tcTime() {
-  w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,status=1");
+  w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,resizable=yes,status=1");
   return;
 }
 
@@ -36,7 +36,7 @@ function sponsorLink(spons) {
 }
 
 function sponsorLinkWindow(spons,nam,top,lef,wid,hei) {
-  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=no,toolbar=no,location=no,scrollbars=no,menubar=no,status=no");
+  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=yes,toolbar=no,location=no,scrollbars=no,menubar=no,status=no");
   return;
 }
 
