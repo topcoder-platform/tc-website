@@ -31,27 +31,22 @@ public abstract class BaseScreeningProcessor extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         try
         {
-            HttpSession session = getRequest().getSession();
-            Long usageType = (Long)
-                session.getAttribute(Constants.USAGE_TYPE);
-            if(usageType == null) {
-                DataAccessInt dAccess = Util.getDataAccess(true);
-                Request dr = new Request();
-                dr.setContentHandle("usage_type");
-                dr.setProperty("uid", String.valueOf(getUser().getId()));
-                Map map = dAccess.getData(dr);
+            Long usageType;
+            DataAccessInt dAccess = Util.getDataAccess(true);
+            Request dr = new Request();
+            dr.setContentHandle("usage_type");
+            dr.setProperty("uid", String.valueOf(getUser().getId()));
+            Map map = dAccess.getData(dr);
 
-                ResultSetContainer access = (ResultSetContainer) map.get("usage_type");
+            ResultSetContainer access = (ResultSetContainer) map.get("usage_type");
 
-                if(access.getRowCount() == 0)
-                {
-                    usageType = new Long(Constants.USAGE_TYPE_TESTING);
-                }
-                else
-                {
-                    usageType = new Long(access.getLongItem(0, "usage_type_id"));
-                }
-                session.setAttribute(Constants.USAGE_TYPE, usageType);
+            if(access.getRowCount() == 0)
+            {
+                usageType = new Long(Constants.USAGE_TYPE_TESTING);
+            }
+            else
+            {
+                usageType = new Long(access.getLongItem(0, "usage_type_id"));
             }
 
             log.info("USAGE TYPE:" + usageType.longValue());
