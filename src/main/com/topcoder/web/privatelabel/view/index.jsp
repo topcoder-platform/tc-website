@@ -40,20 +40,10 @@
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
 <!-- Upcoming Tournaments begins -->
-<!--
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Private Label Events</font></td></tr>
-            </table>
-
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
--->            
-<!-- Upcoming Tournaments ends -->
-
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Private Label Events</font></td></tr>
             </table>
-
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">

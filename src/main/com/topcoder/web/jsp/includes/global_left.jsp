@@ -39,7 +39,6 @@
                 <tr><td id="<%=level1.equals("review_board")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=review_board&d2=competition" class="<%=level1.equals("review_board")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("review_board")?"bottom":"right"%>.gif" border="0"/>Review Boards</a></td></tr>
 
             <% if (level1.equals("review_board")) { %>
-                <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=review_board&d2=competition">Competition</a></td></tr>
                 <tr><td id="<%=level2.equals("design")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=review_board&d2=design">Design</a></td></tr>
                 <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=review_board&d2=development">Development</a></td></tr>
             <% } %>

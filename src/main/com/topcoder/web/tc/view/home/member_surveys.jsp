@@ -25,8 +25,4 @@
                  </a>
              </td>
          </tr>
-         <tr>
-            <td><img src="/i/clear.gif" width="244" height="10" border="0"/>
-            </td>
-         </tr>
       </table>

@@ -42,9 +42,9 @@ if ( MM_FlashCanPlay ) {
 // -->
 </SCRIPT>
 <SCRIPT language="JavaScript">
-<!--
+<!--<A href="/?&amp;t=development&amp;c=index"  target="_blank"><img src="/i/promos/development_promo_third.gif" width="170" height="150" border="0" alt="Earn cash while using your skills" /></A>
        if (!MM_FlashCanPlay){
-       document.write('<img src="/i/tournament/tco03/bracket.gif" width="510" height="261" border="0">');
+       document.write('<A href="/?&amp;t=development&amp;c=index"  target="_blank"><img src="/i/promos/development_promo_third.gif" width="170" height="150" border="0"></A>');
        }
 // -->
 </SCRIPT>
