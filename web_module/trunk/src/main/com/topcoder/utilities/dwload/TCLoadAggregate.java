@@ -1962,7 +1962,7 @@ public class TCLoadAggregate extends TCLoad {
                 psSel.setLong(2, row.getLongItem("problem_id"));
                 psSel.setInt(3, row.getIntItem("division_id"));
                 rs = psSel.executeQuery();
-                rankList = new ResultSetContainer(rs, 0, Integer.MAX_VALUE, 4);
+                rankList = new ResultSetContainer(rs, 0, Integer.MAX_VALUE, 5);
 
                 for (Iterator it1 = rankList.iterator(); it1.hasNext();) {
                     innerRow = (ResultSetContainer.ResultSetRow)it1.next();
