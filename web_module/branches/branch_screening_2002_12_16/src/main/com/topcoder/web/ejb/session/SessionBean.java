@@ -93,8 +93,8 @@ public class SessionBean extends BaseEJB {
             pstmt.setLong(3,userId);
             pstmt.setTimestamp(4,beginTime);
             pstmt.setTimestamp(5,endTime);
-            pstmt.setBoolean(6,sendRepEmail);
-            pstmt.setBoolean(7,sendCandidateEmail);
+            pstmt.setLong(6,sendRepEmail?1:0);
+            pstmt.setLong(7,sendCandidateEmail?1:0);
             pstmt.setLong(8,createUserId);
 
             pstmt.executeUpdate();
