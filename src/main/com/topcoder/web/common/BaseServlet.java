@@ -237,12 +237,15 @@ public abstract class BaseServlet extends HttpServlet {
             throws Exception {
         log.error("caught exception, forwarding to error page", e);
         if (e instanceof PermissionException) {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
             request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
         } else if (e instanceof NavigationException) {
+            response.setStatus(HttpServletResponse.SC_NOT_FOUND);
             request.setAttribute(MESSAGE_KEY, e.getMessage());
             if (((NavigationException)e).hasUrl())
                 request.setAttribute(URL_KEY, ((NavigationException)e).getUrl());
         } else {
+            response.setStatus(HttpServletResponse.SC_BAD_REQUEST);
             request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
        }
         request.setAttribute("exception", e);
