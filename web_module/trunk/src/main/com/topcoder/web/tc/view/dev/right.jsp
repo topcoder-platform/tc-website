@@ -5,7 +5,7 @@
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <% ResultSetContainer openProjects = (ResultSetContainer)request.getAttribute("OpenProjects");%>
 
-<div class="dc_devRightSpacer">
+<div class="devRightSpacer">
 <%-- Component Design Projects begins --%>
             <table width="180" border="0" cellspacing="0" cellpadding="0">
                 <tr valign="middle">
@@ -65,7 +65,7 @@
 <%-- Component Design Projects ends --%>
 </div>
 
-<div class="dc_devRightSpacer">
+<div class="devRightSpacer">
 <%-- Component Development Projects begins --%>
             <table width="180" border="0" cellspacing="0" cellpadding="0">
                 <tr valign="middle">
@@ -125,7 +125,7 @@
 <%--  Component Development Projects ends --%>
 </div>
 
-<div class="dc_devRightSpacer">
+<div class="devRightSpacer">
 <%-- Read Me's begins --%>
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
