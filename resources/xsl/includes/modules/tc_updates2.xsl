@@ -107,6 +107,15 @@
                   <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Sponsor &amp; Related News</B></FONT></TD>
                 </TR>
+                       <TR>
+                          <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">11.13.02</TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom" WIDTH="100%">
+                        <A HREF="http://builder.com.com/article.jhtml?id=u00220021106adm01.htm&amp;rcode=&amp;page=1" CLASS="bodyGeneric" TARGET="_blank">You'll find more than competitions at TopCoder these days</A>
+                        </TD>
+                        <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+                      </TR>                               
                       <TR>
                           <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">11.11.02</TD>
