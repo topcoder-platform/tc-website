@@ -150,16 +150,16 @@ public class SimpleRegSubmit extends SimpleRegBase {
         email.setPrimaryEmailId(newUser.getId(), emailId);
 
         //create coder
-        coder.createCoder(newUser.getId(), db);
+        coder.createCoder(newUser.getId(), transDb);
 
         //create rating
-        rating.createRating(newUser.getId(), db);
+        rating.createRating(newUser.getId(), transDb);
 
         long jobId = getJobId();
         if (jobId > 0) {
             JobPostingServices jp = (JobPostingServices)createEJB(getInitialContext(), JobPostingServices.class);
-            if (jp.jobExists(jobId, db)) {
-                jp.addJobHit(newUser.getId(), jobId, HIT_TYPE, db);
+            if (jp.jobExists(jobId, transDb)) {
+                jp.addJobHit(newUser.getId(), jobId, HIT_TYPE, transDb);
             } else {
                 throw new Exception ("Invalid or inactive job " + jobId);
             }
@@ -205,7 +205,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         r.setContentHandle("config_info");
         r.setProperty("eid", String.valueOf(regInfo.getEventId()));
         r.setProperty("cm", String.valueOf(regInfo.getCompanyId()));
-        ResultSetContainer ret = (ResultSetContainer)getDataAccess(db, true).getData(r).get("config_info");
+        ResultSetContainer ret = (ResultSetContainer)getDataAccess(transDb, true).getData(r).get("config_info");
         if (ret==null || ret.isEmpty())
             throw new Exception ("Missing config info for company: " +
                     regInfo.getCompanyId() + " event_id " + regInfo.getEventId());

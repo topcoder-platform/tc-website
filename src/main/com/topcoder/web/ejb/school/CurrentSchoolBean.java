@@ -1,4 +1,4 @@
-package com.topcoder.web.ejb.currentschool;
+package com.topcoder.web.ejb.school;
 
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
@@ -12,7 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
 public class CurrentSchoolBean extends BaseEJB {
-    public void createCurrentSchool(long coderId, String schoolName, String dataSource) throws EJBException {
+    public void createCurrentSchool(long coderId, String schoolName, long schoolId, String dataSource) throws EJBException {
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -21,8 +21,8 @@ public class CurrentSchoolBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
-            query.append(  "INTO current_school (coder_id, school_name) ");
-            query.append("VALUES (?, ?)");
+            query.append(  "INTO current_school (coder_id, school_name, school_id) ");
+            query.append("VALUES (?, ?, ?)");
 
             ctx = new InitialContext();
             DataSource ds = (DataSource) ctx.lookup(dataSource);
@@ -30,6 +30,7 @@ public class CurrentSchoolBean extends BaseEJB {
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, coderId);
             ps.setString(2, schoolName);
+            ps.setLong(3, schoolId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {

@@ -6,27 +6,25 @@ import java.rmi.RemoteException;
 
 public interface School extends EJBObject {
 
-    public long createSchool() throws EJBException, RemoteException;
+    public long createSchool(String dataSource, String idDataSource) throws EJBException, RemoteException;
 
-    public String getSchoolDivisionCode(long schoolId)
+    public String getSchoolDivisionCode(long schoolId, String dataSource)
             throws EJBException, RemoteException;
 
-    public String getFullName(long schoolId)
+    public String getFullName(long schoolId, String dataSource)
             throws EJBException, RemoteException;
 
-    public String getShortName(long schoolId)
+    public String getShortName(long schoolId, String dataSource)
             throws EJBException, RemoteException;
 
     public void setSchoolDivisionCode(long schoolId,
-                                      String _school_division_code)
+                                      String schoolDivisionCode, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setFullName(long schoolId, String _full_name)
+    public void setFullName(long schoolId, String fullName, String dataSource)
             throws EJBException, RemoteException;
 
-    public void setShortName(long schoolId, String _short_name)
+    public void setShortName(long schoolId, String shortName, String dataSource)
             throws EJBException, RemoteException;
 
 }
-
-;
