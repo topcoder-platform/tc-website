@@ -77,11 +77,10 @@
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/><BR/>
 <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
 <B>2002 TopCoder  Invitational<BR/>
-Online Round #1, Part 2</B><BR/>
-Friday October 11, 2002
+Online Round #2</B><BR/>
+Thursday October 17, 2002
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
-
-<font size="+2"><b>Whisper</b>
+<font size="+2"><b>Bullets</b>
 </font>
 <BR/> 
 Used as: Level 1<BR/>
@@ -96,20 +95,20 @@ Used as: Level 1<BR/>
         <td style="background: #eee;" class="bodyText">
           <b>Value</b>
         </td>
-        <td style="background: #eee;" class="bodyText">300 points</td>
+        <td style="background: #eee;" class="bodyText">250 points</td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Submission Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">295/324 (91.05%)  
+        <td style="background: #eee;" class="bodyText">428/435 (98%)  
         </td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Success Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">154/295 (52.20%) 
+        <td style="background: #eee;" class="bodyText">414/428 (97%) 
         </td>
       </tr>
       <tr>
@@ -117,36 +116,28 @@ Used as: Level 1<BR/>
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
-          <b>eduar09</b> for 289.89 points 
+          <b>mbarb</b> for 248.60 points
         </td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Average Points</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">
-        221.85 
-        </td>
-      </tr>      
+      </tr>    
     </table>
-    <P>169 out of 323 coders who opened Whisper, received 0 points.</P>
     </blockquote>
-<P><B>Implementation</B><BR/>
-The problem was straightforward enough for Level 1 problem and solution should involve no complicated algorithms or recursion (well unless one would did something very complicated and unnecessary). Nevertheless the problem had only about 50% success rate, which is attributed to the number of special cases one should consider when solving this problem.</P>
+<P>Considering the difficulty of the Level Two problem, perhaps it's a good thing that this one was so easy. Many people found testing took longer than writing the actual problem (myself included) even using copy'n'paste tricks - one case where an autotester plugin would be superbly helpful. mbarb completed his implementation in two minutes and eight seconds, which on its own would have won him a place in Round 3 (though mbarb also solved the Level Two, bringing him up to room leader status.)</P>
 
-<P>The first thing to do to solve this problem is to return &quot;not as whisper&quot; if first 5 characters are not equal to &quot;/msg &quot;. Actually it would be a good idea to convert entire string to lower case before you do anything. 
-Most of the fast and successful solutions chose the following tactics to solve the problem: 
-Create a new string = &quot;/msg &quot; + name + &quot; &quot; and check if the message starts with this string. If it does, check if name used to create this string is longer than the best so far and memorized it if it is longer. When you have finished checking all the names, the &quot;best so far&quot; variable would be empty of no solutions are found or would have the longest name of the person to send the message to.
-</P>
+<P>The simplest way to accomplish this was brute-force. Take each set of gun markings and rotate them as many times as necessary to make a full circuit, comparing at each step. If they match the bullet markings, return that element number. If none of them match, return -1.</P>
 
- 
+<P>Implementations can be split into basically three groups. The way I implemented it was to use three nested loops and do single-character comparisons in the deepest one, using the second-deepest as an offset, and modulus to find the actual character. My innermost test looked rather like if( gunmarkings[ currentgun ][ ( currentlocation + offset ) % size ] != bulletmarkings[ currentlocation ] ) this_isnt_it();</P>
 
-<font size="+2"><b>Execution</b>
+<P>Some people decided to rotate the gun markings one character at a time, often making use of substring operations in the process. This had the advantage that they could get rid of a loop. The cleverest solutions I saw simply doubled the string, then did a substring search, looking for the bulletmarkings inside the doubled gunmarkings. If the gunmarkings could be rotated to match, there will be a
+substring match, and if not, then not. This could be implemented as a single loop and a test.</P>
+
+<P>Speed wasn't an issue, as in the worst-case you're doing 50^3 tests, which is well within the eight-second boundary.</P>
+
+<font size="+2"><b>MatArith</b>
 </font>
 <BR/> 
-Used as: Level 2<BR/>
- <blockquote>
-	 <table cellspacing="2">
+Used as: Level 1<BR/>
+<blockquote>
+    <table cellspacing="2">
 	<tr>
         <td style="background: #eee;" class="bodyText" colspan="2">
           <b>Div-I</b>
@@ -156,20 +147,20 @@ Used as: Level 2<BR/>
         <td style="background: #eee;" class="bodyText">
           <b>Value</b>
         </td>
-        <td style="background: #eee;" class="bodyText">550 points</td>
+        <td style="background: #eee;" class="bodyText">500 points</td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Submission Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">183/324 (56.50%)
+        <td style="background: #eee;" class="bodyText">219/435 (50%)  
         </td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Success Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">107/183 (58.47%)
+        <td style="background: #eee;" class="bodyText">86/219 (39%) 
         </td>
       </tr>
       <tr>
@@ -177,55 +168,29 @@ Used as: Level 2<BR/>
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
-          <b>SnapDragon</b> for 499.13 points 
+          <b>bstanescu</b> for 336.60 points
         </td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Average Points</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">
-        317.76  
-        </td>
-      </tr>
+      </tr>    
     </table>
-  </blockquote>
-  <P>208 out of 315 coders who opened Execution, received 0 points.</P>
-  <P>Reference implementation: slavik (practice room)</P>
-  
-<P><B>Implementation</B><BR/>
-I think the hardest part to solve this problem was to correctly parse the input. I think the best way to go about doing it is to append entire string array into a single string and then work with it. The grammar of the input was enforced by the problem statement so it would be enough to only look for specific characters inside the string like 'B','(','{','}'.
-</P>
-<P>
-The recursive function shall be build to take a string and return a number of iterations inside this string.<BR/>
-Start going through the string char by char and do the following:<BR/>
-	Maintain the state of the scope:</P>
-    <PRE>
-		Set initial scope to 0<BR/>
-		if '{' found, increment scope state<BR/>
-		if '}' found, decrement scope state<BR/>
-	if scope==0 (it means you are NOT inside the nested loop)<BR/>
-    do the following:<BR/>
-		if 'B' found count++;<BR/>
-		if '(' found, read number of iterations inside the<BR/>
-        loop into a temp variable &quot;last_loop&quot;<BR/>
-		if '{' found, start_loop = current postion<BR/>
-		if '}' found, count += last_loop * call to<BR/>
-         myself(new string(start_loop , current position) )<BR/>
-	Return &quot;count&quot; when entire string is parsed. <BR/>
-    To solve this problem correctly one should realize<BR/>
-    that a number inside a &quot;for&quot; structure is a 64 bit integer.<BR/>
-    For C++ coders I have seen 3 approaches on how to read this number:<BR/>
-	1. sscanf( str.c_str(), &quot;%lld&quot;, &amp;y ); (by SnapDragon)<BR/>
-	2. atoll(str.c_str())<BR/>
-	3. Create a for loop to build a 64 bit number digit by digit.
-    </PRE>
-<font size="+2"><b>Decimal</b>
+    </blockquote>
+<P>This one wasn't as hard as the numbers would have you believe . . . just very very long, bugprone, and with a flaw in the problem description. The first thing you did should have been to turn the input into a more usable form. I decided to use a vector&lt; vector&lt; int &gt; &gt;, due to its resizability and pass-by-value semantics. This won't have any meaning to anyone who isn't C++ - I honestly don't know what you'd use otherwise, but since you're basically going for a 2-d integer array, it shouldn't be hard to find something.</P>
+
+<P>Once you've parsed the input arrays into your data format of choice, you should also write multiply and add functions. They should return something special if the arrays aren't compatible - in my case, an empty array, which happened to conveniently translate to exactly the error return. Remember to check for overflow in *both* addition and multiplication - many people didn't. Also remember to use the exact overflow numbers, or alternatively, just see if it's the same number after it's been cropped to 32 bits, since those are the 32-bit overflow points.</P>
+
+<P>Addition is easy, and nobody should have trouble with it. Multiplication can be a bit harder, and anyone who didn't already know it was probably doomed. I personally am not an expert in matrices - I've never gotten the hang of them for some reason - but your basic algorithm will look like three nested for loops. Unfortunately this is exactly where the glitch in the problem description was, and it went unnoticed for a long time because people who knew matrix multiplication simply skipped it, whereas people who didn't know it obviously had some trouble.</P>
+
+<P>In any case, once those were completed, there was still the order-of-operations to deal with. Quite honestly, my expression parsing technique is horrible - in this case I made one pass through the string to take care of multiplication, adding new matrix names as I went ( "A*B" would be replaced with "D", and I'd add a D matrix to my matrix database), then passed through again for addition. There are doubtless better ways, but for this situation, this worked beautifully.</P>
+
+<P>After all that, of course, you've got to take your 2-d array format and turn it back into strings, being very careful to avoid terminating spaces on the end of each string.</P>
+
+<P>You might be a bit worried about efficiency, but it's unnecessary. A pessimistic look at it gives us a maximum of 50^4 calculations, which is 6,250,000, well under the ten-million point where I even start worrying. Looking a bit closer yields even smaller numbers - at most there are 24 operations (two letters each, plus one for the first operation, and 50 letters at most in the equation), and the arrays go up to 25 width at most - one space and one digit per item. As long as you're not being blatantly inefficient, it should be just fine.</P>
+
+<font size="+2"><b>Doorknobs</b>
 </font>
-<BR/>  
-Used as: Level 3<BR/>
- <blockquote>
-	 <table cellspacing="2">
+<BR/> 
+Used as: Level 1<BR/>
+<blockquote>
+    <table cellspacing="2">
 	<tr>
         <td style="background: #eee;" class="bodyText" colspan="2">
           <b>Div-I</b>
@@ -235,20 +200,20 @@ Used as: Level 3<BR/>
         <td style="background: #eee;" class="bodyText">
           <b>Value</b>
         </td>
-        <td style="background: #eee;" class="bodyText">900 points</td>
+        <td style="background: #eee;" class="bodyText">1000 points</td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Submission Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">54/324 (16.67%) 
+        <td style="background: #eee;" class="bodyText">53/435 (12%)  
         </td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
           <b>Success Rate</b>
         </td>
-        <td style="background: #eee;" class="bodyText">33/54 (61.11%)  
+        <td style="background: #eee;" class="bodyText">27/53 (51%) 
         </td>
       </tr>
       <tr>
@@ -256,35 +221,35 @@ Used as: Level 3<BR/>
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
-          <b>SnapDragon</b> for 845.10 points 
+          <b>memetic</b> for 721.24 points
         </td>
-      </tr>
-      <tr>
-        <td style="background: #eee;" class="bodyText">
-          <b>Average Points</b>
-        </td>
-        <td style="background: #eee;" class="bodyText">
-        622.13  
-        </td>
-      </tr>      
+      </tr>    
     </table>
-  </blockquote>
-  <P>198 out of 231 coders who opened Logical, received 0 points.</P>
-  <P>Reference implementation: SnapDragon </P> 
-<P><B>Implementation</B><BR/></P>
-<P>
-The solution to this problem is straightforward once you know what to look for. To solve this problem we should remember how we were taught to dive two numbers in elementary school: 
-<OL>
-<LI>Dived two numbers by finding the whole part and a reminder (The whole part can be ignored for the purpose of this problem.</LI>
-<LI>Go to Step 1 with new dividend = reminder multiplied by 10.</LI>
-</OL>
-</P>
-<P>To find the repeating sequence we just have to keep track of the reminders. Once you have found a reminder, which you have seen before, the sequence will repeat itself indefinitely.</P>
-<P>Check how many divisions were done between two identical reminders and see if this number falls into lower and upper bound.</P>
+    </blockquote>
+<P>This is one of those problems where the only thing that saves you is the problem restrictions. Luckily, we only need to deal with six doorknobs, and that's what makes this problem possible.</P>
+
+<P>First off, a bit of semantics. I realized pretty early on that it would simply things enormously if I considered the start position a "doorknob". No, it isn't a doorknob, but if we consider it one, the question changes from "find the shortest distance from start to any doorknob, then n-1 more doorknobs" to "starting at doorknob 0, find the shortest distance to n more", which is much much easier.</P>
+
+<P>So we're going to call the start position a doorknob.</P>
+
+<P>Now what we want is the shortest distance from any one doorknob to any other. This actually isn't all that hard. You can do a floodfill-like algorithm, or a breadth-first search, on the map. Efficiency might be a little worrying on the floodfill, since you might be doing it seven times on a 50x50 grid, so I found breadth-first worked quite nicely. In any case, just keep in mind not to go through walls, and assign a suitably high infinity value (one million works fine) if you can't get there from here. </P>
+
+<P>At that point it's trivial - just brute-force all the combinations. At worst there's well under 1000 of them.</P>
+
+<P>Problem solved.</P>
+
+
+
+<P>A few other interesting stats. The lowest ranked competitor remaining in the tournament is Fingers, with a rating of 1037. Fingers actually did quite well this round, submitting a successful Level One problem in under five minutes for 243.04 points. Fingers was seeded #822 at the start of the tournament. The cutoff score from last round was gmenhorn, who spent 8 minutes and 40 seconds on the Level One to yield 229.34 points.</P>
+
+<P>This means that if you spent more than 8 minutes and 40 seconds to complete the Level One, and didn't get any successful challenges, you didn't continue to the next round. I expect Round 3 to be hard enough that simply getting the Level One won't be enough, and by Round 4, there'll be figurative blood
+in the water.</P>
+
+<P><B>Good luck.</B></P>
 <BR/>
   
-<IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;slavik<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=160082" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+<IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
