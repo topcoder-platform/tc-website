@@ -173,13 +173,13 @@
               <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
                 <TR>
                   <TD class="testTableTitle" HEIGHT="18">&#160;<b></b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Status</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Points</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Time to Submit</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Language</b></TD>
                 </TR>
 
@@ -219,24 +219,24 @@
               <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
                 <TR>
                   <TD class="testTableTitle" HEIGHT="18">&#160;<b></b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Presented</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Submitted</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Submit %</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
                   <TD class="testTableTitle"><b>Correct</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Submission Accuracy</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Overall Accuracy</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Avg Points for Submissions</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Avg Points Overall</b></TD>
-                  <TD class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="testTableTitle"><b>Avg Time to Submit</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Submission<br>Accuracy</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Overall<br>Accuracy</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Avg Points for<br>Submissions</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Avg Points<br>Overall</b></TD>
+                  <TD class="testTableTitle">&#160;&#160;</TD>
+                  <TD class="testTableTitle"><b>Avg Time<br>to Submit</b></TD>
                 </TR>
 
                 
