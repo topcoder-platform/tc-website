@@ -31,6 +31,7 @@ public class HTMLRenderer {
  
     try {
       cache = XSLTransformerCache.getInstance();
+      baos = new ByteArrayOutputStream();
       wrapper = cache.getXSLTransformerWrapper(xsldocURLString);
       wrapper.transform(new StringReader(xmldocObject.createXML()), baos);
       return baos.toString();   
