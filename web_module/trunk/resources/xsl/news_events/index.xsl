@@ -83,7 +83,7 @@
 <!-- Intel TCO-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_09_29_03"><img src="/i/pressroom/intel.gif" alt="intel" width="135" height="70" border="0" /></A></td>
+                    <td width="274" align="center"><A href="/?&amp;t=news_events&amp;c=pr_09_29_03"><img src="/i/pressroom/intel.gif" alt="intel" width="135" height="35" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_29_03">Intel is the Title Sponsor for TopCoder Open</A></strong></font><br />
@@ -138,10 +138,10 @@
 <!-- SD Times Article - Battle Royal for Jobs -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank"><img src="/i/pressroom/sd_times_logo.gif" alt="SD Times" width="135" height="44" border="0" /></A></td>
+                    <td width="274"><A href="http://www.sdtimes.com/news/086/story9.htm" target="_blank"><img src="/i/pressroom/sd_times_logo.gif" alt="SD Times" width="135" height="44" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank">TopCoder Software Thrives on Competition</A></strong></font><br />
+                        <p><font size="3"><strong><A href="http://www.sdtimes.com/news/086/story9.htm" target="_blank">TopCoder Software Thrives on Competition</A></strong></font><br />
                         TopCoder Inc., the company that sponsors programming competitions at trade shows, has spun off TopCoder Software as a vehicle for selling software created by the best of the competitors. 
 
                         <span class="prHead">[September 15]</span></p>
