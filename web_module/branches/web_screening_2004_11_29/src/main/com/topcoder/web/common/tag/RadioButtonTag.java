@@ -13,6 +13,7 @@ public class RadioButtonTag extends BaseTag {
         StringBuffer ret = new StringBuffer();
         try {
             ret.append("<input type=\"radio\" name=\"").append(name).append("\" ");
+            ret.append(" value=\"").append(value).append("\" ");
 
             if (selected==null) {
                 selected = getDefaultValue()==null?null:getDefaultValue().toString();
