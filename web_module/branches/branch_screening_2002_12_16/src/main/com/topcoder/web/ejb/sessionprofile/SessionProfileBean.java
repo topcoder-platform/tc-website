@@ -214,6 +214,7 @@ public class SessionProfileBean extends BaseEJB {
         } catch (Exception e) {
             throw new EJBException("Exception in getSessionProfileDesc sessionProfileId: " + sessionProfileId);
         } finally {
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSessionProfileDesc");}}
             if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getSessionProfileDesc");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getSessionProfileDesc");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getSessionProfileDesc");}}
@@ -265,6 +266,7 @@ public class SessionProfileBean extends BaseEJB {
         } catch (Exception e) {
             throw new EJBException("Exception in getRoundId sessionProfileId: " + sessionProfileId);
         } finally {
+            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getRoundId");}}
             if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getRoundId");}}
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getRoundId");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getRoundId");}}
