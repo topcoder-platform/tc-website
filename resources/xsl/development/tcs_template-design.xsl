@@ -83,7 +83,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=<<<COMPONENT_ID>>>">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" target="_new" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=<<<COMPONENT_ID>>>">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -133,7 +133,7 @@
 
 <!-- Register at TCS -->
 						   <p>
-        						<strong>View the <a class="statText" href= "<<<REQUIREMENTS_FILE>>>">Requirement Specification</a> for this component project &gt;&gt;</strong>
+        						<strong>View the <a class="statText" target="_new"  href= "<<<REQUIREMENTS_FILE>>>">Requirement Specification</a> for this component project &gt;&gt;</strong>
                             </p>
 						
 
