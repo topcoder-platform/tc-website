@@ -66,14 +66,14 @@
                         
 <p><span class="bodySubtitle">Introduction</span><br />
 I have seen a number of competitors complain that they are unfairly disadvantaged because many TopCoder problems are too mathematical. Personally, I love mathematics and thus I am biased in this issue. Nevertheless, I strongly believe that problems should contain at least some math, because mathematics and computer science often go hand in hand. It is hard to imagine a world where these two fields could exist without any interaction with each other. These days, a great deal of applied mathematics is performed on computers such as solving large systems of equations and approximating solutions to differential equations for which no closed formula exists. Mathematics is widely used in computer science research, as well as being heavily applied to graph algorithms and areas of computer vision.
-<br /><br />	
+<br /><br />   
 This article discusses the theory and practical application to some of the more common mathematical constructs. The topics covered are: primes, GCD, basic geometry, bases, fractions and complex numbers.
-<br /><br />	
+<br /><br />   
 <span class="bodySubtitle">Primes</span><br />
 A number is prime if it is only divisible by 1 and itself. So for example 2, 3, 5, 79, 311 and 1931 are all prime, while 21 is not prime because it is divisible by 3 and 7. To find if a number n is prime we could simply check if it divides any numbers below it. We can use the modulus (%) operator to check for divisibility:
 <pre class="code">
 for (int i=2; i&lt;n; i++)
-	if (n%i==0) return false;
+   if (n%i==0) return false;
 
 return true;
 </pre>
@@ -81,16 +81,16 @@ We can make this code run faster by noticing that we only need to check divisibi
 <pre class="code">
 public boolean isPrime (int n)
 {
-	if (n&lt;=1) return false;
-	if (n==2) return true;
-	if (n%2==0) return false;
-	int m=Math.sqrt(n);
+   if (n&lt;=1) return false;
+   if (n==2) return true;
+   if (n%2==0) return false;
+   int m=Math.sqrt(n);
 
-	for (int i=3; i&lt;=m; i+=2)
-		if (n%i==0)
-			return false;
+   for (int i=3; i&lt;=m; i+=2)
+      if (n%i==0)
+         return false;
 
-	return true;
+   return true;
 }
 </pre>
 Now suppose we wanted to find all the primes from 1 to 100000, then we would have to call the above method 100000 times. This would be very inefficient since we would be repeating the same calculations over and over again. In this situation it is best to use a method known as the Sieve of Eratosthenes. The Sieve of Eratosthenes will generate all the primes from 2 to a given number n. It begins by assuming that all numbers are prime. It then takes the first prime number and removes all of its multiples. It then applies the same method to the next prime number. This is continued until all numbers have been processed. For example, consider finding primes in the range 2 to 20. We begin by writing all the numbers down:
@@ -109,18 +109,18 @@ All the remaining numbers are prime and we can safely terminate the algorithm. B
 <pre class="code">
 public boolean[] sieve(int n)
 {
-	boolean[] prime=new boolean[n+1];
-	Arrays.fill(prime,true);
-	prime[0]=false;
-	prime[1]=false;
-	int m=Math.sqrt(n);
+   boolean[] prime=new boolean[n+1];
+   Arrays.fill(prime,true);
+   prime[0]=false;
+   prime[1]=false;
+   int m=Math.sqrt(n);
 
-	for (int i=2; i&lt;=m; i++)
-		if (prime[i])
-			for (int k=i*i; k&lt;=n; k+=i)
-				prime[k]=false;
+   for (int i=2; i&lt;=m; i++)
+      if (prime[i])
+         for (int k=i*i; k&lt;=n; k+=i)
+            prime[k]=false;
 
-	return prime;
+   return prime;
 } 
 </pre>
 In the above method, we create a boolean array prime which stores the primality of each number less of equal than n. If prime[i] is true then number i is prime. The outer loop finds the next prime while the inner loop removes all the multiples of the current prime.
@@ -148,17 +148,18 @@ We continue this process until we reach a remainder of 0:
 </pre>
 The last non-zero remainder is the GCD. So the GCD of 2336 and 1314 is 146. This algorithm can be easily coded as a recursive function:
 <pre class="code">
+//assume that a and b cannot both be 0
 public int GCD(int a, int b)
 {
-	if b==0 return a;
-	return GCD(b,a%b);
+   if (b==0) return a;
+   return GCD(b,a%b);
 }
 </pre>
 Using this algorithm we can find the lowest common multiple (LCM) of two numbers. For example the LCM of 6 and 9 is 18 since 18 is the smallest number that divides both 6 and 9. Here is the code for the LCM method:
 <pre class="code">
 public int LCM(int a, int b)
 {
-	return b*a/GCD(a,b);
+   return b*a/GCD(a,b);
 }
 </pre>
 As a final note, Euclid's algorithm can be used to solve linear Diophantine equations. These equations have integer coefficients and are of the form:
@@ -209,17 +210,17 @@ Binary numbers work in a similar way. They are composed solely from 0 and 1 and 
 <pre class="code">
 public int toDecimal(int n, int b)
 {
-	int result=0;
-	int multiplier=1;
-		
-	while(n>0)
-	{
-		result+=n%10*multiplier;
-		multiplier*=b;
-		n/=10;
-	}
-		
-	return result;
+   int result=0;
+   int multiplier=1;
+      
+   while(n>0)
+   {
+      result+=n%10*multiplier;
+      multiplier*=b;
+      n/=10;
+   }
+      
+   return result;
 }
 </pre>
 Java users will be happy to know that the above can be also written as:
@@ -239,33 +240,33 @@ So 43 in decimal is 101011 in binary. By swapping all occurrences of 10 with b i
 <pre class="code">
 public int fromDecimal(int n, int b)
 {
-	int result=0;
-	int multiplier=1;
-		
-	while(n>0)
-	{
-		result+=n%b*multiplier;
-		multiplier*=10;
-		n/=b;
-	}
-		
-	return result;
+   int result=0;
+   int multiplier=1;
+      
+   while(n>0)
+   {
+      result+=n%b*multiplier;
+      multiplier*=10;
+      n/=b;
+   }
+      
+   return result;
 }
 </pre>
 If the base b is above 10 then we must use non-numeric characters to represent digits that have a value of 10 and more. We can let 'A' stand for 10, 'B' stand for 11 and so on. The following code will convert from a decimal to any base (up to base 20):
 <pre class="code">
 public String fromDecimal2(int n, int b)
 {
-	String chars="0123456789ABCDEFGHIJ";
-	String result="";
-		
-	while(n>0)
-	{
-		result=chars.charAt(n%b) + result;
-		n/=b;
-	}
-		
-	return result;
+   String chars="0123456789ABCDEFGHIJ";
+   String result="";
+      
+   while(n>0)
+   {
+      result=chars.charAt(n%b) + result;
+      n/=b;
+   }
+      
+   return result;
 }
 </pre>
 In Java there are some useful shortcuts when converting from decimal to other common representations, such as binary (base 2), octal (base 8) and hexadecimal (base 16):
@@ -279,8 +280,8 @@ Fractional numbers can be seen in many problems. Perhaps the most difficult aspe
 <pre class="code">
 public int[] multiplyFractions(int[] a, int[] b)
 {
-	int[] c={a[0]*b[0], a[1]*b[1]};
-	return c;
+   int[] c={a[0]*b[0], a[1]*b[1]};
+   return c;
 }
 </pre>
 Adding fractions is slightly more complicated, since only fractions with the same denominator can be added together. First of all we must find the common denominator of the two fractions and then use multiplication to transform the fractions such that they both have the common denominator as their denominator. The common denominator is a number which can divide both denominators and is simply the LCM (defined earlier) of the two denominators. For example lets add 4/9 and 1/6. LCM of 9 and 6 is 18. Thus to transform the first fraction we need to multiply it by 2/2 and multiply the second one by 3/3:
@@ -295,18 +296,18 @@ Here is the code to add two fractions:
 <pre class="code">
 public int[] addFractions(int[] a, int[] b)
 {
-	int denom=LCM(a[1],b[1]);
-	int[] c={denom/a[1]*a[0] + denom/b[1]*b[0], denom};
-	return c;
+   int denom=LCM(a[1],b[1]);
+   int[] c={denom/a[1]*a[0] + denom/b[1]*b[0], denom};
+   return c;
 }
 </pre>
 Finally it is useful to know how to reduce a fraction to its simplest form. The simplest form of a fraction occurs when the GCD of the numerator and denominator is equal to 1. We do this like so:
 <pre class="code">
 public void reduceFraction(int[] a)
 {
-	int b=GCD(a[0],a[1]);
-	a[0]/=b;
-	a[1]/=b;
+   int b=GCD(a[0],a[1]);
+   a[0]/=b;
+   a[1]/=b;
 }
 </pre>
 Using a similar approach we can represent other special numbers, such as complex numbers. In general, a complex number is a number of the form a + ib, where a and b are reals and i is the square root of -1. For example, to add two complex numbers m = a + ib and n = c + id we simply group likewise terms:
@@ -326,8 +327,8 @@ By storing the real part in the first element and the complex part in the second
 <pre class="code">
 public int[] multiplyComplex(int[] m, int[] n)
 {
-	int[] prod = {m[0]*n[0] - m[1]*n[1], m[0]*n[1] + m[1]*n[0]};
-	return prod;
+   int[] prod = {m[0]*n[0] - m[1]*n[1], m[0]*n[1] + m[1]*n[0]};
+   return prod;
 }
 </pre>
 <span class="bodySubtitle">Conclusion</span><br />
