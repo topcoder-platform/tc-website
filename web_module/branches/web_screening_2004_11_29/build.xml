@@ -844,6 +844,7 @@
              <classes dir="${classes}">
                  <include name="com/topcoder/web/codinginterface/techassess/**"/>
                  <include name="com/topcoder/web/codinginterface/view/tag/**"/>
+                 <include name="com/topcoder/web/codinginterface/*.class"/>
                  <include name="com/topcoder/web/common/**"/>
              </classes>
              <webinf dir="${resources}/taglib">
