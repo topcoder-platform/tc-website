@@ -58,7 +58,7 @@
                                     <B>To compete in any single round match or tournament, a coder must first... </B>
                                     <UL>
                                         <LI>
-                                            <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>register</A>Register</A>
+                                            <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</A>
                                         </LI>
                                         <LI>Complete the Qualification Round</LI>
                                     </UL>
