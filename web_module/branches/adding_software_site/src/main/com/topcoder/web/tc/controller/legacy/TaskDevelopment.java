@@ -145,7 +145,7 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("compvers", request.getParameter("compvers")));
             devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
             
-            log.debug("PROJECT IS: " + request.getParameter("projectId"));
+            log.info("PROJECT IS: " + request.getParameter("projectId"));
 
 
             if (command.equals("inquire")) {
