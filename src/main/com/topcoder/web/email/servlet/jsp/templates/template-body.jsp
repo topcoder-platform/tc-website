@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.email.servlet.*, com.topcoder.web.email.bean.*" %>
 <jsp:include page="../js/validate-js.jsp" />
+<jsp:useBean id="EmailTemplate" scope="session" class="com.topcoder.web.email.bean.EmailTemplateForm" />
 
 
 <SCRIPT Language="javascript"> <!--
