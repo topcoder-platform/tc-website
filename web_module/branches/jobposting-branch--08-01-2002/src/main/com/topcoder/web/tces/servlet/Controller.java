@@ -48,7 +48,16 @@ public class Controller extends HttpServlet {
         log.debug("service called");
 
         String command = request.getParameter(DataAccessConstants.COMMAND);
-        InitialContext ctx = null;
+        String commandStep = request.getParameter(TCESConstants.STEP_PARAM);
+
+      	InitialContext ctx = null;
+      	try {
+			ctx = (InitialContext) TCContext.getInitial();
+		} catch (Exception e) {
+            forwardToErrorPage(request, response,
+                    new Exception("unable to get initial context"));
+            return;
+		}
 
         if (command == null) {
             forwardToErrorPage(request, response,
@@ -56,11 +65,15 @@ public class Controller extends HttpServlet {
                     " in request"));
             return;
 		} else if (command.equals("login")) {
-            handleLogin(request, response);
-            return;
+			try {
+				(new LoginCommand(commandStep,log)).processCommand(request, response,
+									                         ctx, getServletContext());
+			} catch (Exception ex) {
+				forwardToErrorPage(request, response, ex);
+			}
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
-            String tempJobId = request.getParameter(TCESConstants.JOB_ID_KEY);
-            String tempUserId = request.getParameter(TCESConstants.USER_ID_KEY);
+            String tempJobId = request.getParameter(TCESConstants.JOB_ID_PARAM);
+            String tempUserId = request.getParameter(TCESConstants.USER_ID_PARAM);
             int jobId = -1;
             int userId = -1;
             int hitTypeId = -1;
@@ -72,12 +85,12 @@ public class Controller extends HttpServlet {
             }
             if (tempJobId == null || tempJobId.trim().equals("")) {
                 forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.JOB_ID_KEY + " parameter " +
+                        new Exception("missing " + TCESConstants.JOB_ID_PARAM + " parameter " +
                         " in request"));
                 return;
             } else if (tempUserId == null || tempUserId.trim().equals("")) {
                 forwardToErrorPage(request, response,
-                        new Exception("missing " + TCESConstants.USER_ID_KEY + " parameter " +
+                        new Exception("missing " + TCESConstants.USER_ID_PARAM + " parameter " +
                         " in request"));
                 return;
             } else {
@@ -111,103 +124,6 @@ public class Controller extends HttpServlet {
         }
     }
 
-
-    /**
-     * Handles a login request
-     *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
-     *
-     * @throws ServletException
-     */
-
-    private void handleLogin(HttpServletRequest request,
-                             HttpServletResponse response) throws ServletException, IOException {
-
-        String handle = request.getParameter(TCESConstants.HANDLE_KEY);
-        String password = request.getParameter(TCESConstants.PASSWORD_KEY);
-
-        if (handle == null) {
-            forwardToErrorPage(request, response,
-                    new Exception("missing " + TCESConstants.JOB_ID_KEY + " parameter " +
-                    " in request"));
-        }
-        if (password == null) {
-            forwardToErrorPage(request, response,
-                    new Exception("missing " + TCESConstants.JOB_ID_KEY + " parameter " +
-                    " in request"));
-        }
-
-        try {
-            InitialContext ctx = (InitialContext) TCContext.getInitial();
-
-            Request dataRequest = new Request();
-            dataRequest.setProperty("c", "tces_user_and_pw");
-            dataRequest.setProperty("hn", "" + handle);
-            DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-
-            Map resultMap = dai.getData(dataRequest);
-            ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
-
-            if (rsc.getRowCount() == 0) {
-                request.setAttribute(TCESConstants.MSG_ATTR_KEY, "User handle incorrect.  Please retry.");
-
-                getServletContext().getContext("/").getRequestDispatcher(
-                    response.encodeURL("/es/login.jsp")).forward(request, response);
-
-                return;
-            }
-
-            ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
-
-            String actualPassword = TCData.getTCString(rRow, "password");
-            if (actualPassword == null) {
-                log.debug("Exception occured getting user data in handleLogin.");
-                forwardToErrorPage(request, response, new Exception("Unable to read user data from DB in handleLogin"));
-            }
-
-            if (!actualPassword.trim().equals(password)) {
-                request.setAttribute(TCESConstants.MSG_ATTR_KEY, "Password incorrect.  Please retry.");
-
-                getServletContext().getContext("/").getRequestDispatcher(
-                    response.encodeURL("/es/login.jsp")).forward(request, response);
-
-                return;
-            }
-
-/*            HttpSession session = request.getSession(true);
-            Navigation nav = setupSession(request, response, session);
-
-            UserServicesHome userServicesHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            UserServices userServicesEJB = (UserServices) userServicesHome.findByPrimaryKey(TCData.getTCInteger(rRow,"user_id"));
-            user = userServicesEJB.getUser();
-
-            nav.setUserId(user.getUserId());
-            nav.setUser(user);
-            nav.setLoggedIn(true);
-
-            request.setAttribute(TCESConstants.MSG_ATTR_KEY,new String("Login OK!"));*/
-
-            getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL("/es/login.jsp")).forward(request, response);
-
-        } catch (Exception ex) {
-            forwardToErrorPage(request, response, ex);
-        }
-
-
-    }
-
-
-
-    /**
-     * Forwards to the navigation error page.
-     *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
-     *
-     * @throws ServletException
-     */
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception) throws ServletException, IOException {
