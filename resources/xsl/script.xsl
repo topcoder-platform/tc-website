@@ -91,11 +91,16 @@ function changeImages() {
 }
 ]]></SCRIPT>
 
-<script language="JavaScript"><![CDATA[
+<script type="text/javascript"><![CDATA[
 <!--
 function arena() 
 {
   w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,status=1");
+  return;
+}
+function tcTime() 
+{
+  w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,status=1");
   return;
 }
 function sponsorLink(spons)
