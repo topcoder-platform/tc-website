@@ -2,6 +2,7 @@ package com.topcoder.web.screening.model;
 
 import java.util.List;
 import java.util.Map;
+import java.util.Arrays;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -22,6 +23,7 @@ import javax.rmi.PortableRemoteObject;
  */
 public class SubmissionInfo implements java.io.Serializable {
 
+    private static final int[] DONE_STATUSES = {131, 140, 150, 160};
     private static DataAccessInt cached;
     private static DataAccessInt dwAccess;
 
@@ -38,6 +40,8 @@ public class SubmissionInfo implements java.io.Serializable {
     private long userId;
     private String profileName;
     private String testSetAName;
+    private int statusId;
+
 
     public SubmissionInfo() { }
 
@@ -105,9 +109,13 @@ public class SubmissionInfo implements java.io.Serializable {
         this.setUserId(((Long)result.getItem(0,"user_id").getResultData()).longValue());
         this.setProfileName(result.getItem(0,"session_profile_desc").toString());
         this.setTestSetAName(result.getItem(0,"round_name").toString());
+        this.setStatusId(((Integer)result.getItem(0, "status_id").getResultData()).intValue());
 
     }
 
+    public boolean isSubmitted() {
+        return Arrays.binarySearch(DONE_STATUSES, getStatusId())>=0;
+    }
 
     /** Getter for property code.
      * @return Value of property code.
@@ -181,6 +189,14 @@ public class SubmissionInfo implements java.io.Serializable {
 
     private void setTestSetAName(String testSetAName) {
         this.testSetAName = testSetAName;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
     }
 
 }
