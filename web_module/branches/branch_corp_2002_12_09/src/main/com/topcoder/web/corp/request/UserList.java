@@ -65,14 +65,14 @@ public class UserList extends BaseProcessor {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("corp_company_user_listing");
         
-        dataRequest.setProperty("cm", Long.toString(companyId) );
+        dataRequest.setProperty("comid", Long.toString(companyId) );
         
         DataAccessInt dai = new DataAccess(
             (javax.sql.DataSource)new InitialContext().lookup("CORP_OLTP"));
 
         Map resultMap = dai.getData(dataRequest);
         
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("CORP_USER_LIST");
+        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("CORP_user_list");
         if (rsc.getRowCount() == 0) {
             throw new Exception("User list invalid");
         }
