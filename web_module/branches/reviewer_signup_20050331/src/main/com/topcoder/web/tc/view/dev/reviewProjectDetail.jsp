@@ -14,7 +14,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
-<% RBoardApplication rba = (RBoardApplication) BaseProcessor.createEJB(BaseProcessor.getInitialContext(), RBoardApplication.class); %>
+<% RBoardApplication rboardApplication = (RBoardApplication) request.getAttribute("rboardApplication"); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -158,7 +158,7 @@
                             <% } else {
                                Timestamp ts = null;
                                 try {
-                                    ts = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
+                                    ts = rboardApplication.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
                                 } catch (RemoteException e) {
                                     if (e.detail instanceof RowNotFoundException) {
                                         // No previous review application found, we don't need to do anything here.
