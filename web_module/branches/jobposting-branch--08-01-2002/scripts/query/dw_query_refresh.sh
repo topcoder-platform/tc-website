@@ -1088,7 +1088,9 @@ SELECT cp.language_id
 
 java com.topcoder.utilities.QueryLoader "DW" 1003 "TCES_Problem_Submissions" 0 0 "
 SELECT cal.date
-     , c.name
+     , (CASE WHEN r.round_type_id = 2
+             THEN c.name || ' ' || r.name
+             ELSE c.name) AS name
      , cp.level_desc
      , dlu.division_desc
      , cp.final_points
@@ -1114,7 +1116,9 @@ SELECT cal.date
 
 java com.topcoder.utilities.QueryLoader "DW" 1004 "TCES_Competition_History" 0 0 "
 SELECT cal.date
-     , contest.name
+     , (CASE WHEN r.round_type_id = 2
+             THEN contest.name || ' ' || r.name
+             ELSE contest.name) AS name
      , dlu.division_desc
      , rr.final_points
      , rd.average_points
@@ -1138,7 +1142,9 @@ SELECT cal.date
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 1005 "TCES_Coder_Comp_Stats" 0 0 "
-SELECT contest.name AS contest_name
+SELECT (CASE WHEN round.round_type_id = 2
+             THEN contest.name || ' ' || round.name
+             ELSE contest.name) AS contest_name
      , dlu.division_desc
      , (SELECT COUNT(*)
           FROM room_result rr2
@@ -1321,7 +1327,9 @@ SELECT llu.language_id
 "
 
 java com.topcoder.utilities.QueryLoader "DW" 1010 "TCES_Problem_Statement" 0 0 "
-SELECT c.name AS contest_name
+SELECT (CASE WHEN r.round_type_id = 2
+             THEN c.name || ' ' || r.name
+             ELSE c.name) AS contest_name
      , dlu.division_desc
      , p.class_name
      , p.problem_text
