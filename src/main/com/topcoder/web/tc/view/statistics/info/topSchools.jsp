@@ -62,23 +62,26 @@
             <p class="bodyText">One may determine the weighting (<b><i>R</i></b>) using the
             following equation.</p>
 
-            <p class="bodyText"></p>
+            <p class="bodyText"><br/></p>
 
             <table width="100%"><tr><td align="center"><img src="/i/rank_weight_equation.gif"/></td></tr></table>
 
-            <p class="bodyText"></p>
+            <p class="bodyText"><br/></p>
 
-            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a school’s rating
+            <p class="bodyText">Where <b><i>X</i></b> is the fraction of a schoolï¿½s rating
             that will be based on the top <b><i>K</i></b> coders within that school.</p>
 
             <p class="bodyText"></p>
 
             <p class="bodyText">We have chosen an <b><i>R</i></b> of .87, this means that
-            the top 10 coders contribute about 75% of a school’s rating.</p>
+            the top 10 coders contribute about 75% of a school's rating.</p>
 
          </td>
       </tr>
       <br/>
+      <br/>
+      <br/>
+      <tr><td align="right" class="bodyText">Rating formula courtesy of ChristopherH</td></tr>
       <tr>
          <td align="center">
            <p><br /></p>
