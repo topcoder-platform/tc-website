@@ -703,10 +703,10 @@ public class UserEdit extends BaseProcessor {
 
                 if (Util.retrieveTCSubject(loggedUserID)==null)
                     log.debug("subject returned was null id was: " + loggedUserID);
-                if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID))==null)
-                    log.debug("roles were null");
                 if (secTok.man==null)
                     log.debug("principal manager was null");
+                if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID))==null)
+                    log.debug("roles were null");
 
                 if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID)).contains(Constants.CORP_ADMIN_ROLE)) {
                     isAccountAdmin = true;
