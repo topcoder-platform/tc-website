@@ -239,7 +239,7 @@ Wednesday, August 21, 2002<BR/><BR/>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;sphere<BR/>&#160;&#160;datakix<BR/>&#160;&#160;daily10</TD>
              <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-259</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12<BR/>&#160;Room 7<BR/>&#160;Room 8</TD>
           </TR>                                
        </TABLE>
     </TD>
