@@ -210,7 +210,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         if (!profileInfo.isEmpty()) {
             setSchool(profileInfo.getItem(0, "school_name").toString());
             setMemberSince(profileInfo.getItem(0, "member_since_date").toString());
-            setNewbie(((Long)profileInfo.getItem(0, "num_ratings").getResultData()).intValue()==0);
+            setNewbie(((Integer)profileInfo.getItem(0, "num_ratings").getResultData()).intValue()==0);
         }
         if (!nextMatch.isEmpty()) {
             setNextRoundId(((Long)nextMatch.getItem(0, "round_id").getResultData()).intValue());
