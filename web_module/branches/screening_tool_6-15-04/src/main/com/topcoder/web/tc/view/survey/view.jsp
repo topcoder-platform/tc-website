@@ -49,7 +49,7 @@
                      </tr>
                   </table>
 
-               <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm" enctype="multipart/form-data">
+               <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
                   <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
                   <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
                   <tc:questionIterator list="<%=questionInfo%>" id="question">
