@@ -20,10 +20,20 @@ public class Constants {
      */
     private static String[] ignoreList = {"log", "isInitialized", "ignoreList", "bundle"};
 
+    //pages
     public static String PAGE_INDEX;
+
+    //parameters
     public static String HANDLE;
     public static String PASSWORD;
     public static String COMPANY_ID;
+    public static String COMPONENT_ID;
+    public static String PROBLEM_TYPE_ID;
+    public static String LANGUAGE_ID;
+    public static String CODE;
+
+
+    //other
     public static int SERVER_ID;
 
 
