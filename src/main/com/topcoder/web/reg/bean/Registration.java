@@ -1928,6 +1928,7 @@ public class Registration
                 msgText.append("To activate your account, navigate to the following WWW URL:\n");
                 msgText.append(ACTIVATION_URL);
                 msgText.append(activationCode);
+                msgText.append("\n");
                 msgText.append("If you cannot click on the web address above, please copy");
                 msgText.append(" the address into your web browser to continue.  If the ");
                 msgText.append("address spans two lines, please make sure you copy and paste");
