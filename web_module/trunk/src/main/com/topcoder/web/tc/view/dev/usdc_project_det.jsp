@@ -61,7 +61,7 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=7><A class="header" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
+                                <td class=header colspan=5><A class="header" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Competitor</td>
