@@ -124,6 +124,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         user.setMiddleName(newUser.getId(), regInfo.getFirstName());
         user.setLastName(newUser.getId(), regInfo.getLastName());
 
+
         //create address
         long addressId = address.createAddress();
         address.setAddress1(addressId, regInfo.getAddress1());
