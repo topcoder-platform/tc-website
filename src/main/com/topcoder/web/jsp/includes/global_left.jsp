@@ -36,7 +36,6 @@
                 <tr><td id="<%=level2.equals("terms")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=terms">Terms, Revisions</a></td></tr>
                 <tr><td id="<%=level2.equals("privacy")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=privacy">Privacy Policy</a></td></tr>
             <% } %>
-<%-- About TopCoder ends --%>
 
 <%-- Review Boards begins --%>
                 <tr><td id="<%=level1.equals("review_board")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=review_board&d2=design" class="<%=level1.equals("review_board")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("review_board")?"bottom":"right"%>.gif" border="0"/>Review Boards</a></td></tr>
@@ -57,6 +56,8 @@
 
             </table>
 <%-- TopCoder Info ends *************************** --%>
+
+<% } else if (level1.equals("development")) { %>
 
 <% } else { %>
 
