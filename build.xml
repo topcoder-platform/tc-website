@@ -573,8 +573,10 @@
         </fileset>
       </copy>
       <copy todir="${tc_cluster}/${query.war.name}/WEB-INF">
-          <include name="${resources}/${query.war_name}/*.tld"/>
-          <include name="${resources}/${query.war_name}/*.xml"/>
+        <fileset dir="${resources}/${query.war.name}">
+          <include name="*.tld"/>
+          <include name="*.xml"/>
+        </fileset>
       </copy>
       <copy todir="${tc_cluster}/${query.war.name}/classes">
           <include name="com/topcoder/web/query/**"/>
