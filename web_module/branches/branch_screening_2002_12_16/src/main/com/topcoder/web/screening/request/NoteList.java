@@ -26,7 +26,7 @@ public class NoteList extends BaseProcessor {
             (DataSource)context.lookup(Constants.DATA_SOURCE));
         
         Request dr = new Request();
-        dr.setProperties(getRequest().getParameterMap());
+        dr.setProperties(getParameterMap());
         dr.setContentHandle("noteList");
         dr.setProperty("uid", String.valueOf(getAuthentication().getUser().getId()));
         

@@ -4,7 +4,9 @@ import com.topcoder.web.common.RequestProcessor;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpUtils;
 import java.util.Hashtable;
+import java.util.Map;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 
@@ -191,6 +193,15 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     public void setAuthentication(Authentication authentication) {
         this.authentication = authentication;
+    }
+    
+    /** Getter for property parameterMap.
+     * @return Value of property parameterMap.
+     */
+    public Map getParameterMap() {
+        HttpServletRequest rq = (HttpServletRequest)getRequest();
+        
+        return HttpUtils.parseQueryString(rq.getQueryString());
     }
     
 }
