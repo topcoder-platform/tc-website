@@ -57,7 +57,7 @@ function submitUpdate() {
                ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P><BR>
 <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-<screen:form name="profileConfirmForm" method="POST" action="<%=Constants.CONTROLLER_URL%>">
+<screen:form name="profileConfirmForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
         <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >
         <% if(!profile.isNew()) { %>
         <INPUT TYPE="HIDDEN" NAME="profileId" VALUE="<jsp:getProperty name="profile" property="profileId" />" >

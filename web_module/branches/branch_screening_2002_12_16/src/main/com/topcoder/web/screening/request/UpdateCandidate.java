@@ -8,6 +8,7 @@ import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.transaction.UserTransaction;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -17,6 +18,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.Transaction;
 
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
@@ -90,6 +92,10 @@ public class UpdateCandidate extends BaseProcessor
         TCSubject requestor = 
             principalMgr.getUserSubject(getAuthentication().getUser().getId());
 
+        UserTransaction ut = Transaction.get(context);
+        ut.begin();
+
+        try {
         UserPrincipal userPrincipal = null;
         try {
             //check to see if user already exists
@@ -152,6 +158,12 @@ public class UpdateCandidate extends BaseProcessor
         email.setPrimary(emailId, userId, true);
 
         updateSessionCandidate(userId);
+        }
+        catch(Exception e) {
+            ut.rollback();
+            throw e;
+        }
+        ut.commit();
         
         determineNextPage();
     }

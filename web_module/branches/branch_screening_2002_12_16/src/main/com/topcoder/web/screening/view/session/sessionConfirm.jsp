@@ -46,7 +46,7 @@ document.sessionConfirmForm.submit();
                ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
-<screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="POST">
+<screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
          <input type="HIDDEN" name="rp" value="" >
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
            <TR>

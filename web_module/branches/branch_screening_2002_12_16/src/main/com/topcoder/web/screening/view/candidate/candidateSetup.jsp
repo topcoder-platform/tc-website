@@ -32,7 +32,7 @@
 </P><BR>
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" scope="request" />
 
-<screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="POST">
+<screen:form name="candidateSetupForm" action="<%= Constants.CONTROLLER_URL %>" method="GET">
         <INPUT type="hidden" name="rp" value="UpdateCandidate" />
         <INPUT type="hidden" name="referrer" value="<jsp:getProperty name="candidateInfo" property="referrer" />" />
 

@@ -5,12 +5,14 @@ import java.util.Map;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
+import javax.transaction.UserTransaction;
 
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.Transaction;
 
 import com.topcoder.web.ejb.sessionprofile.SessionProfile;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileHome;
@@ -48,6 +50,10 @@ public class UpdateProfile extends BaseProfileProcessor {
         SessionProfileProblem problem = sppHome.create();
         User user = getAuthentication().getUser();
 
+        UserTransaction ut = Transaction.get(context);
+        ut.begin();
+
+        try {
         if(info.isNew()) {
             DataAccess access = getDataAccess();
             Request dataRequest = new Request();
@@ -122,6 +128,12 @@ public class UpdateProfile extends BaseProfileProcessor {
             language.createProfileLanguage(sessionProfileId, 
                                            languages[i].intValue());
         }
+        }
+        catch(Exception e) {
+            ut.rollback();
+            throw e;
+        }
+        ut.commit();
 
         setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.REQUEST_PROCESSOR + "=" +
