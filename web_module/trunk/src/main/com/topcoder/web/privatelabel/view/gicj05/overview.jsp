@@ -7,9 +7,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/gicj05.css"/>
 <title>Google India Code Jam 2005, Powered by TopCoder</title>
-<jsp:include page="../script.jsp" />
 </head>
 <body>
 
