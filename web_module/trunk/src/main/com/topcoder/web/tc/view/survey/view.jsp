@@ -44,8 +44,8 @@
          <td width="100%" class="bodyText" valign="top">
                   <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
                      <tr>
-                        <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
-                        <td class ="bodyText" align="right"><a href="/tc?&module=SurveyList">Archive</a></td>
+                        <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
+                        <p align="right" class="bodyText"><a href="/tc?&module=SurveyList">Archive</a></p></td>
                      </tr>
                   </table>
 
