@@ -29,7 +29,7 @@ public class Login extends Base {
 
         String dest = request.getParameter("nextpage");
         if(dest == null || dest.equals(""))
-            dest = (HttpServletRequest)request.getContextPath()+(HttpServletRequest)request.getServletPath()+"?module=Static&d1=home&d2=index_member";
+            dest = ((HttpServletRequest)request).getContextPath()+((HttpServletRequest)request).getServletPath()+"?module=Static&d1=home&d2=index_member";
 
         setNextPage(dest);
         setIsNextPageInContext(false);

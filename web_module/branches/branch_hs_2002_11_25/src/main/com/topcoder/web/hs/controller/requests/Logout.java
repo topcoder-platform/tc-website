@@ -15,7 +15,7 @@ public class Logout extends Base {
         auth.logout();
 
         /* back to the front page */
-        setNextPage((HttpServletRequest)request.getContextPath().getContextPath()+(HttpServletRequest)request.getContextPath().getServletPath());
+        setNextPage(((HttpServletRequest)request).getContextPath().getContextPath()+((HttpServletRequest)request).getContextPath().getServletPath());
         setIsNextPageInContext(false);
     }
 }
