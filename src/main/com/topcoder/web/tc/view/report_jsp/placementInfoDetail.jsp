@@ -58,7 +58,7 @@ List industryList = (List)request.getAttribute("industrySkills");
         <table border=0 cellpadding=0 cellspacing=0 width="100%">
 		    <tr>
 		        <td valign=top width="50%">
-		            <table width="100%" cellpadding="0" cellspacing="5" align="center">
+		            <table width="100%" cellpadding="0" cellspacing="5" align="center" border=1>
                         <tr>
                             <td align=right width="65%"><b>Preferences</b></td>
                             <td width="35%"></td>
