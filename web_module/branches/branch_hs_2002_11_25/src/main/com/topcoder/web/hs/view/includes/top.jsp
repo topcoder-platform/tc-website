@@ -34,9 +34,7 @@ function openWin(url, name, w, h) {
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001934" WIDTH="100%">
     <TR VALIGN="middle">
         <TD WIDTH="100%" HEIGHT="50" BGCOLOR="#000000">&nbsp;&nbsp;<A HREF="?module=Home"><IMG SRC="/i/hs/top_tchs_logo.gif" WIDTH="168" HEIGHT="36" ALT="" BORDER="0"></A></TD>
-		<TD WIDTH="100%" HEIGHT="50" BGCOLOR="#000000" ALIGN="right">
-        <IMG SRC="/i/hs/top_banner2.gif" WIDTH="500" HEIGHT="50" ALT="" BORDER="0">
-        </TD>
+	<TD WIDTH="100%" HEIGHT="50" BGCOLOR="#000000" ALIGN="right"><IMG SRC="/i/hs/top_banner2.gif" WIDTH="500" HEIGHT="50" ALT="" BORDER="0"></TD>
      </TR>
 </TABLE>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">

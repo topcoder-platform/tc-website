@@ -177,36 +177,36 @@ if(bSchool) {
                  <TR VALIGN="middle">    
                    <TD BGCOLOR="#1B2E5D"  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" WIDTH="15%" HEIGHT="18">
-             <A HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coders</A>
+             <A <% if(!bSchool) { %>HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>Coders</A>
            </TD>  
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coding<br>Phase</A>
+             <A <% if(!bSchool) { %>HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>Coding<br>Phase</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREf="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Challenge<br>Phase</A>
+             <A <% if(!bSchool) { %>HREf="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>Challenge<br>Phase</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=9&sd=<%= "9".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Testing<br>Phase</A>
+             <A <% if(!bSchool) { %>HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=9&sd=<%= "9".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>Testing<br>Phase</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">=</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREf="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Final<br>Points</A>
+             <A <% if(!bSchool) { %>HREf="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>Final<br>Points</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
              Adv.
            </TD>  
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Old<br>Rating</A>
+             <A <% if(!bSchool) { %>HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>Old<br>Rating</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Rating<br>Change</A>
+             <A <% if(!bSchool) { %>HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>Rating<br>Change</A>
            </TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">=</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=14&sd=<%= "14".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">New<br>Rating</A>
+             <A <% if(!bSchool) { %>HREF="?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=14&sd=<%= "14".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText"<% } %>>New<br>Rating</A>
            </TD>    
                    <TD BGCOLOR="#1B2E5D" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
