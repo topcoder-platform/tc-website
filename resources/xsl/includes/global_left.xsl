@@ -323,7 +323,7 @@
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="tc_gear_row"/>
 
-                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support/FAQs</A></td></tr>
+                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support / FAQs</A></td></tr>
 
 <!-- General FAQs -->
                 <tr>
@@ -823,7 +823,7 @@
 </xsl:template>
 
 <xsl:template name="rules_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute>Support/FAQs</A></td></tr>
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute>Support / FAQs</A></td></tr>
 </xsl:template>
 
 <xsl:template name="reg_row">
