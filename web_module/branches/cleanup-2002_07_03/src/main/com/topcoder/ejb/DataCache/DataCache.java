@@ -18,9 +18,11 @@ public interface DataCache extends EJBObject {
 
   public void resetRounds() throws TCException, RemoteException;
 
+/*
   public byte[] resetXSL() throws TCException, RemoteException;
 
   public byte[] resetXSL ( String xsldocURLString ) throws TCException, RemoteException;
+*/
 
   public byte[] resetAll() throws TCException, RemoteException;
 
