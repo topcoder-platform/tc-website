@@ -52,7 +52,7 @@
                     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
                     <TD CLASS="bodyText" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="400" HEIGHT="1" BORDER="0"/><br />
                         <div align="center"><strong>Duke University's David Arthur Wins 2003 Sun Microsystems And Topcoder Collegiate Challenge</strong><br />
-                        Toronto, Canada Resident Beats Out 15 Competitors for $50,000 Grand Priz</div>
+                        Toronto, Canada Resident Beats Out 15 Competitors for $50,000 Grand Prize</div>
 
                         <p><strong>CAMBRIDGE, MA&#151;April 7, 2003&#151;</strong>Sun Microsystems, Inc. and TopCoder, Inc. today announced 
                         that Duke University Junior David Arthur, originally from Toronto, Canada, has won the 2003 Sun Microsystems and TopCoder 

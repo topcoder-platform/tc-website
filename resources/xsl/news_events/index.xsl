@@ -52,15 +52,20 @@
 <!-- 2003 Press Releases -->
                             <tr valign="middle"><td class="statTextBig" colspan="2" background="/i/steel_gray_bg.gif">Press Releases - 2003</td></tr>
                             
+                           
+                            
+                           
                             <tr valign="top">
                                 <td class="bodyText">04.08.03</td>
                                 <td class="bodyText"><a class="bodyText" href="/?&amp;t=news_events&amp;c=pr_04_08_03">Duke University's David Arthur Wins 2003 Collegiate Challenge</a></td>
                             </tr>    
-                             
-                            <tr valign="middle">
+                        
+                             <tr valign="middle">
                                 <td class="bodyText" valign="top">03.13.03</td>
                                 <td class="bodyText"><a class="bodyText" href="/index?t=news_events&amp;c=pr_03_13_03">Sun Microsystems and TopCoder Highlight Field for 2003 Collegiate Challenge</a></td>
                             </tr>
+                            
+                           
                             
                             <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
                         
