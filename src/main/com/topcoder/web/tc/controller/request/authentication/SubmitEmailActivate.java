@@ -94,17 +94,6 @@ public class SubmitEmailActivate extends Base {
     }
 
     private void updateEmail(TCSubject subject, String email) throws Exception {
-        Navigation nav = (Navigation) getRequest().getSession(true).getAttribute("navigation");
-        if (nav == null) {
-            log.debug("nav not found, make a new one");
-            nav = new Navigation(getRequest(), new CoderSessionInfo(getRequest(),
-                    getAuthentication(), subject.getPrincipals()));
-        }
-
-        com.topcoder.common.web.data.User user;
-        user = nav.getUser();
-        user.setEmail(email);
-        user.setModified("U");
 
         Context context = null;
         UserTransaction transaction = null;
@@ -113,7 +102,10 @@ public class SubmitEmailActivate extends Base {
             UserServicesHome userServicesHome = (UserServicesHome) context.lookup(ApplicationServer.USER_SERVICES);
             transaction = Transaction.get();
             if (Transaction.begin(transaction)) {
-                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer(user.getUserId()));
+                UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int)subject.getUserId()));
+                com.topcoder.common.web.data.User user = userServices.getUser();
+                user.setEmail(email);
+                user.setModified("U");
                 userServices.setUser(user);
             }
             if (!Transaction.commit(transaction)) {
