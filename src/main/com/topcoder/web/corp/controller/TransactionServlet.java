@@ -46,6 +46,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.Vector;
+import java.text.DecimalFormat;
 
 /**
  * Credit card transaction servlet. Used for both client and VeriSign
@@ -362,7 +363,9 @@ public class TransactionServlet extends HttpServlet {
             userTerms.createUserTermsOfUse(txInfo.getBuyerID(), termsId);
         }
         txInfo.setAgreed(true);
-        req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost()));
+        DecimalFormat formater = new DecimalFormat("#.##");
+        log.debug("purchase being made for: " + txInfo.getCost() + " formmatted: " + formater.format(txInfo.getCost()));
+        req.setAttribute(Constants.KEY_CCTX_SUM, formater.format(txInfo.getCost()));
 //        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
 //        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
 //        req.setAttribute(Constants.KEY_CCTX_CONFIRM, Constants.CCTX_CONFIRM);
