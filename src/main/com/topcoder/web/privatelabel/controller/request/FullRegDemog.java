@@ -2,11 +2,11 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.naming.InitialContext;
+import java.util.Collections;
+import java.util.List;
+
 
 /**
  *
@@ -16,6 +16,7 @@ public class FullRegDemog extends FullRegBase {
     protected static Logger log = Logger.getLogger(FullRegDemog.class);
 
     protected void registrationProcessing() throws TCWebException {
+        super.registrationProcessing();
 
         checkRegInfo(regInfo);
 
@@ -26,7 +27,9 @@ public class FullRegDemog extends FullRegBase {
             setDefaults(regInfo);
         } else {
             try {
-                getRequest().setAttribute("questionList", getQuestions());
+                List l = getQuestionList();
+                Collections.sort(l);
+                getRequest().setAttribute("questionList", l);
             } catch (Exception e) {
                 throw new TCWebException(e);
             }

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class FullRegConfirm extends FullRegBase {
 
     protected void registrationProcessing() throws TCWebException {
+        super.registrationProcessing();
 
         /*
           check the 2nd page input, no reason to do the first page again
@@ -34,10 +35,12 @@ public class FullRegConfirm extends FullRegBase {
 
         try {
             if (hasErrors()) {
-                getRequest().setAttribute("questionList", getQuestions());
+                getRequest().setAttribute("questionList", getQuestionList());
                 setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
                 setDefaults(regInfo);
             } else {
+                getRequest().setAttribute("responseList", ((FullRegInfo)regInfo).getResponses());
+                getRequest().setAttribute("questionMap", questions);
                 regInfo.setCountryName(findCountry(regInfo.getCountryCode()));
                 regInfo.setStateName(findState(regInfo.getStateCode()));
                 setNextPage(Constants.VERIZON_REG_CONFIRM_PAGE);
@@ -66,8 +69,9 @@ public class FullRegConfirm extends FullRegBase {
         String value = null;
         DemographicResponse r = null;
         String key = null;
-        List responses = new ArrayList(getQuestions().size());
-        for (Iterator it = getQuestions().iterator(); it.hasNext();) {
+        List questionList = getQuestionList();
+        List responses = new ArrayList(questionList.size());
+        for (Iterator it = questionList.iterator(); it.hasNext();) {
             q = (DemographicQuestion) it.next();
             key = DemographicInput.PREFIX + q.getId();
             value = StringUtils.checkNull(getRequest().getParameter(key));
@@ -110,7 +114,7 @@ public class FullRegConfirm extends FullRegBase {
         try {
             for (Iterator it = info.getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
-                q = findQuestion(getQuestions(), r.getQuestionId());
+                q = findQuestion(r.getQuestionId());
                 if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                     if (!validResponse(r) && q.isRequired()) {
                         addError(DemographicInput.PREFIX + r.getQuestionId(), "Please choose an answer from the list.");

@@ -2,8 +2,7 @@ package com.topcoder.web.privatelabel.model;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.*;
 
 public class DemographicQuestion extends Base {
     protected static Logger log = Logger.getLogger(DemographicQuestion.class);
@@ -17,7 +16,7 @@ public class DemographicQuestion extends Base {
     private String desc;
     private String selectable;
     private boolean required;
-    private List answers;
+    private TreeMap answers;
 
     public DemographicQuestion() {}
 
@@ -28,9 +27,11 @@ public class DemographicQuestion extends Base {
         ret.setDesc(desc);
         ret.setSelectable(selectable);
         ret.setRequired(required);
-        List list = new ArrayList(answers.size());
-        for (int i=0; i<answers.size(); i++) {
-            list.set(i, ((DemographicAnswer)answers.get(i)).clone());
+        TreeMap list = new TreeMap();
+        DemographicAnswer a = null;
+        for (Iterator it = answers.values().iterator(); it.hasNext();) {
+            a = (DemographicAnswer)it.next();
+            list.put(new Long(a.getAnswerId()), a.clone());
         }
         ret.setAnswers(list);
         return ret;
@@ -64,15 +65,29 @@ public class DemographicQuestion extends Base {
         List list = null;
         if (answers!=null) {
             list = new ArrayList(answers.size());
-            for (int i=0; i<answers.size(); i++) {
-                list.add(((DemographicAnswer)answers.get(i)).clone());
+            for (Iterator it = answers.values().iterator(); it.hasNext();) {
+                list.add(((DemographicAnswer)it.next()).clone());
             }
         }
         return list;
     }
 
     public void setAnswers(List answers) {
+        this.answers = new TreeMap();
+        DemographicAnswer a = null;
+        for (Iterator it = answers.iterator(); it.hasNext();) {
+            a = (DemographicAnswer)it.next();
+            this.answers.put(new Long(a.getAnswerId()), a.clone());
+        }
+    }
+
+    private void setAnswers(TreeMap answers) {
         this.answers = answers;
+    }
+
+    public DemographicAnswer getAnswer(long answerId) {
+        DemographicAnswer ret = (DemographicAnswer)answers.get(new Long(answerId));
+        return (DemographicAnswer)ret.clone();
     }
 
     public int getAnswerType() {
