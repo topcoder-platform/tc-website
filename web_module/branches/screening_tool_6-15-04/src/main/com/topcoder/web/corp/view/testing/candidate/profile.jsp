@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,java.util.List,
-                 com.topcoder.web.corp.common.JSPUtils"%>
+                 com.topcoder.web.corp.common.JSPUtils,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
