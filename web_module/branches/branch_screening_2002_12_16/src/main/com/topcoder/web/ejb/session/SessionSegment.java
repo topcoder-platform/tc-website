@@ -17,12 +17,12 @@ public interface SessionSegment extends EJBObject {
      *
      * @param sessionId
      * @param sessionSegmentId
-     * @param availableTime
+     * @param segmentLength
      * @throws RemoteException
      */
     public void createSessionSegment(long sessionId,
                                      long sessionSegmentId,
-                                     long availableTime)
+                                     long segmentLength)
             throws RemoteException;
 
     /**
@@ -53,12 +53,12 @@ public interface SessionSegment extends EJBObject {
      *
      * @param sessionId
      * @param sessionSegmentId
-     * @param availableTime
+     * @param segmentLength
      * @throws RemoteException
      */
-    public void setAvailableTime(long sessionId,
+    public void setSegmentLength(long sessionId,
                                  long sessionSegmentId,
-                                 long availableTime)
+                                 long segmentLength)
             throws RemoteException;
 
     /**
@@ -85,17 +85,17 @@ public interface SessionSegment extends EJBObject {
      *
      * @param sessionId
      * @param sessionSegmentId
-     * @return availableTime in millesecs
+     * @return segmentLength in millesecs
      * @throws RemoteException
      */
-    public long getAvailableTime(long sessionId, long sessionSegmentId)
+    public long getSegmentLength(long sessionId, long sessionSegmentId)
             throws RemoteException;
 
     /**
      *
      * @param sessionId
      * @param sessionSegmentId
-     * @return SessionSegement Description
+     * @return SessionSegment Description
      * @throws RemoteException
      */
 
