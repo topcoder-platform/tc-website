@@ -149,7 +149,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -225,7 +225,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -303,7 +303,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

@@ -156,7 +156,7 @@ public class SessionBean extends BaseEJB {
             query.append("session_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -220,7 +220,7 @@ public class SessionBean extends BaseEJB {
             query.append("session_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -284,7 +284,7 @@ public class SessionBean extends BaseEJB {
             query.append("session_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -347,7 +347,7 @@ public class SessionBean extends BaseEJB {
             query.append("session_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -410,7 +410,7 @@ public class SessionBean extends BaseEJB {
             query.append("session_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -474,7 +474,7 @@ public class SessionBean extends BaseEJB {
             query.append("session_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -537,7 +537,7 @@ public class SessionBean extends BaseEJB {
             query.append("session_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

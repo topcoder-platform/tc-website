@@ -103,7 +103,7 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set text = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -146,7 +146,7 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set submitted_by = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -189,7 +189,7 @@ public class NoteBean extends BaseEJB {
             query.append("UPDATE note set note_type_id = ? where note_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

@@ -124,7 +124,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("AND note_id = ? ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource)ctx.lookup(dsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

@@ -135,7 +135,7 @@ public class SessionProfileBean extends BaseEJB {
             query.append("session_profile_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -199,7 +199,7 @@ public class SessionProfileBean extends BaseEJB {
             query.append("WHERE session_profile_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -263,7 +263,7 @@ public class SessionProfileBean extends BaseEJB {
             query.append("session_profile_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

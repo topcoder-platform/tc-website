@@ -102,7 +102,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -151,7 +151,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -200,7 +200,7 @@ public class SessionSegmentBean extends BaseEJB {
             query.append("WHERE session_id = ? AND session_segment_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
+            ds = (DataSource)ctx.lookup(txDataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
