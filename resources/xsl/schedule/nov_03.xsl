@@ -111,9 +111,9 @@
                                     Online Round #4<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_artifact" class="statText">Artifact</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_artifact" class="statText">Artifact</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statText">Details</A></td>
                                 <td id="calendar">6</td>
                                 <td id="calendar">7</td>
                                 <td id="calendarSRM">
@@ -121,7 +121,7 @@
                                     <strong>Match 170</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_northface">Northface</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_northface">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4655&amp;t=schedule&amp;c=srm">Details</A></td>
                             </tr>
@@ -142,7 +142,7 @@
                                     <strong>Match 171</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_intel">Intel</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4660&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarCRPF">
@@ -195,7 +195,7 @@
                                     <strong>Match 173</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation">Revelation Software</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_revelation">Revelation Software</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4670&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">26</td>

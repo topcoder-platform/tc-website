@@ -1181,7 +1181,7 @@
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tournaments&amp;c=tco03_comp_overview</xsl:attribute>TCO Component Contest</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview</xsl:attribute>TCO Component Contest</A>
         </td>
     </tr>
 

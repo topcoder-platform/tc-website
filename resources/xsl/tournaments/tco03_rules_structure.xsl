@@ -143,7 +143,7 @@
             <br/><br/>
             TopCoder will determine the room assignments for the Semifinal rooms prior to the start of each Semifinal round, in a 
             manner such that the average competitor rating (as of October 6th) for each room will be similar.  Click
-            <A href="/?&amp;t=tournaments&amp;c=tco03_sched">here</A> for the schedule.
+            <A href="/?&amp;t=tournaments&amp;c=tco03_schedule">here</A> for the schedule.
             <br/><br/>
             The Semifinal Round will consist of four (4) rooms of four (4) coders each. The winner in each room will advance to the 
             Championship Round.

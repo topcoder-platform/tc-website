@@ -89,7 +89,7 @@
                                     <strong>Match 166</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_northface">Northface</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_northface">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4635&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
@@ -99,7 +99,7 @@
                                     Winners announced<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendar">3</td>
                                 <td id="calendar">4</td>
                             </tr>
@@ -115,14 +115,14 @@
                                     Compete: 9:00&#160;PM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statText">Details</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <strong>2003 TCO: Development</strong><br />
                                     Online Round #2<br />
                                     Projects posted: 12:00&#160;AM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendar">8</td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">9</span><br />
@@ -132,14 +132,14 @@
                                     Compete: 10:00&#160;PM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statText">Details</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <strong>2003 TCO: Design</strong><br />
                                     Online Round #2<br />
                                     Projects posted: 12:00&#160;AM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendar">10</td>
                                 <td id="calendar">11
                                 &#160;<br />
@@ -157,7 +157,7 @@
                                     <strong>Match 167</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_northface">Northface</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_northface">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4640&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
@@ -166,9 +166,9 @@
                                     Online Round #1<br />
                                     Registration: 6:30-9:25&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_nvidia" class="statText">NVIDIA</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_nvidia" class="statText">NVIDIA</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statText">Details</A></td>
                                 <td id="calendar">16</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">17</span><br />
@@ -192,7 +192,7 @@
                                           Online Round #2<br />
                                           Deadline: 11:59&#160;PM<br />
                                           <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                          <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td></tr>
+                                          <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td></tr>
                                     </table>
                                     <table width="100%" cellspacing="1" cellpadding="3">
                                        <tr>
@@ -218,16 +218,16 @@
                                     Online Round #2<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation" class="statText">Revelation</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_revelation" class="statText">Revelation</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statText">Details</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <strong>2003 TCO: Design</strong><br />
                                     Online Round #2<br />
                                     Deadline: 11:59&#160;PM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendar">23</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">24</span><br />
@@ -255,7 +255,7 @@
                                     <strong>Match 169</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation">Revelation Software</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_revelation">Revelation Software</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4650&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendarTCO03">
@@ -264,9 +264,9 @@
                                     Online Round #3<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_northface" class="statText">Northface</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_northface" class="statText">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statText">Details</A></td>
                                 <td id="calendar">30</td>
                                 <td id="calendar">31</td>
                                 <td id="calendarBlank">

@@ -22,7 +22,7 @@
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4635&amp;t=schedule&amp;c=srm">1</A></td>
-                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_comp_sched"><span id="calendarTCO03Date">2</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule"><span id="calendarTCO03Date">2</span></A></td>
                                 <td id="calendarMini">3</td>
                                 <td id="calendarMini">4</td>
                             </tr>
@@ -41,7 +41,7 @@
                                 <td id="calendarMini">12</td>
                                 <td id="calendarMini">13</td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4640&amp;t=schedule&amp;c=srm">14</A></td>
-                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_sched"><span id="calendarTCO03Date">15</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule"><span id="calendarTCO03Date">15</span></A></td>
                                 <td id="calendarMini">16</td>
                                 <td id="calendarGoogleMini"><A id="miniSRMDate" href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched"><span id="calendarGoogleDate">17</span></A></td>
                                 <td id="calendarMini">18</td>
@@ -61,7 +61,7 @@
                                 <td id="calendarMini">26</td>
                                 <td id="calendarGoogleMini"><A id="miniSRMDate" href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched"><span id="calendarGoogleDate">27</span></A></td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4650&amp;t=schedule&amp;c=srm">28</A></td>
-                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/?t=tournaments&amp;c=tco03_sched"><span id="calendarTCO03Date">29</span></A></td>
+                                <td id="calendarTCO03Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule"><span id="calendarTCO03Date">29</span></A></td>
                                 <td id="calendarMini">30</td>
                                 <td id="calendarMini">31</td>
                                 <td id="calendarBlankMini">&#160;</td>

@@ -28,13 +28,13 @@
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
 <!-- Component Design Projects begins -->
-            <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/development/tco_sidebar_top.gif" alt="2003 TCO Component Contest" width="238" height="157" border="0" /></A>
+            <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_overview"><img src="/i/development/tco_sidebar_top.gif" alt="2003 TCO Component Contest" width="238" height="157" border="0" /></A>
 
             <table width="238" border="0" cellspacing="0" cellpadding="12" bgcolor="#999999">
                 <tr valign="middle">
                     <td background="/i/development/tco_sidebar_background.gif" class="smallText">
                         <p><strong>Only projects from the list below qualify for the 2003 TCO Component Competition. See the 
-                        <A href="/index?t=tournaments&amp;c=tco03_comp_rules_structure">Rules</A> page for for full entry requirements.</strong></p>
+                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_rules_structure">Rules</A> page for for full entry requirements.</strong></p>
                     </td>
                 </tr>
             </table>

@@ -72,7 +72,7 @@
 
             <blockquote>
             <h2>Advancers</h2>
-            <div align="right" class="bodyText"><A href="/index?t=tournaments&amp;c=tco03_comp_des_rd1">Design</A>&#160;&#160;|&#160;&#160;Development</div>
+            <div align="right" class="bodyText"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_des_rd1">Design</A>&#160;&#160;|&#160;&#160;Development</div>
             <br/>
             
     <!-- Design Winners Begins -->

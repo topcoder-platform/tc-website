@@ -62,7 +62,7 @@
                         
                         <p><strong>GLASTONBURY, Conn., October 1, 2003&#151;</strong>
                         TopCoder, Inc., the leader in on-line programming competition, skills assessment and competitive software development, today announced that 
-                        Artifact Software and Northface University have signed on as corporate sponsors of the upcoming 2003 TopCoder Open (<A href="/index?t=tournaments&amp;c=tco03_overview">www.topcoder.com/tco</A>).  
+                        Artifact Software and Northface University have signed on as corporate sponsors of the upcoming 2003 TopCoder Open (<A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview">www.topcoder.com/tco</A>).
                         Artifact will leverage this international programming tournament to introduce its suite of products to some of the world's best programmers.  
                         Northface University will gain exposure to further their efforts to establish the finest university in the world for software developers.</p>
 

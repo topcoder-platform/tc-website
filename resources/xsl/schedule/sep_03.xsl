@@ -90,7 +90,7 @@
                                     Projects posted: 12:00&#160;AM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">3</span><br />
                                     <strong>Match 162</strong><br />
@@ -106,7 +106,7 @@
                                     Projects posted: 12:00&#160;AM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendar">5</td>
                                 <td id="calendar">6</td>
                             </tr>
@@ -137,7 +137,7 @@
                                     Deadline: 11:59&#160;PM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendar">16</td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">17</span><br />
@@ -146,7 +146,7 @@
                                     Deadline: 11:59&#160;PM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_schedule" class="statText">Details</A></td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendarSRM">
@@ -167,7 +167,7 @@
                                     <strong>Match 165</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation">Revelation Software</A><br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_revelation">Revelation Software</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4630&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">24</td>
