@@ -75,9 +75,7 @@ public class Login extends Base {
 
 
     private boolean hasActiveAccount(String userName) throws Exception {
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource) PortableRemoteObject.narrow(context.lookup(DBMS.HS_OLTP_DATASOURCE_NAME), DataSource.class);
-        DataAccessInt dAccess = new DataAccess(ds);
+        DataAccessInt dAccess = new DataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
 
         Request dataRequest = new Request();
         dataRequest.setProperty("ha", userName);

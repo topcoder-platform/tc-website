@@ -69,8 +69,7 @@ public class DataServlet extends HttpServlet {
 
         try {
             if (isAuthenticated(request, response)) {
-                dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+                dai = new DataAccess(DBMS.DW_DATASOURCE_NAME);
                 dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
                 resultMap = dai.getData(dataRequest);
                 // if the request is for an xml file, then go through all the result sets in the map
@@ -124,8 +123,7 @@ public class DataServlet extends HttpServlet {
             else {
                 log.info("[*** data *** " + command + " *** " + nav.getUser().getHandle() + " ***]");
 
-                dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 dataRequest = new Request();
                 dataRequest.setContentHandle("authenticate_data_user");
                 dataRequest.setProperty("cr", "" + nav.getUserId());

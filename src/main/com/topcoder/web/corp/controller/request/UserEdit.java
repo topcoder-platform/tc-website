@@ -462,8 +462,7 @@ public class UserEdit extends BaseProcessor {
         r.setContentHandle("user exists");
         r.setProperty("hn", handle);
 
-        InitialContext ic = TCContext.getInitial();
-        DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
 
         ResultSetContainer rsc = (ResultSetContainer)dai.getData(r).get("user exists");
         return !rsc.isEmpty();
@@ -782,18 +781,12 @@ public class UserEdit extends BaseProcessor {
         dataRequest.setProperty("uid", "" + targetUserID);
         dataRequest.setProperty("puid", "" + getAuthentication().getUser().getId());
 
-        InitialContext ic = null;
         ResultSetContainer rsc = null;
-        try {
-            ic = TCContext.getInitial();
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
-            Map resultMap = dai.getData(dataRequest);
-            rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");
-            getRequest().setAttribute(KEY_USER_PERMS, rsc);
+        DataAccessInt dai = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
+        Map resultMap = dai.getData(dataRequest);
+        rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");
+        getRequest().setAttribute(KEY_USER_PERMS, rsc);
 
-        } finally {
-            Util.closeIC(ic);
-        }
 
     }
 

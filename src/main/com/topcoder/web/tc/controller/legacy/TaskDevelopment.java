@@ -177,9 +177,8 @@ public final class TaskDevelopment {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("open_projects");
 
-                    DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                            TCContext.getInitial().lookup(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+                    DataAccessInt dai = new DataAccess(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
                     log.debug("got dai");
 
                     resultMap = dai.getData(dataRequest);
@@ -231,9 +230,8 @@ public final class TaskDevelopment {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("open_projects");
 
-                    DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                            TCContext.getInitial().lookup(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+                    DataAccessInt dai = new DataAccess(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
                     log.debug("got dai");
 
                     resultMap = dai.getData(dataRequest);
@@ -299,9 +297,8 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("open_projects");
 
-                DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+                DataAccessInt dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
                 log.debug("got dai");
 
                 resultMap = dai.getData(dataRequest);
@@ -314,9 +311,8 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("project_status");
 
-                dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+                dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
 
                 resultMap = dai.getData(dataRequest);
                 log.debug("got map");
@@ -337,9 +333,8 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("open_projects");
 
-                DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+                DataAccessInt dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
                 log.debug("got dai");
 
                 resultMap = dai.getData(dataRequest);
@@ -562,9 +557,8 @@ public final class TaskDevelopment {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("open_projects");
 
-                DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                        TCContext.getInitial().lookup(
-                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+                DataAccessInt dai = new DataAccess(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG));
                 log.debug("got dai");
 
                 resultMap = dai.getData(dataRequest);

@@ -93,7 +93,7 @@ public final class TourneyRegServlet extends HttpServlet {
                     dataRequest.setProperty("cr", "" + nav.getUserId());
 //                    dataRequest.setProperty("rd", "" + roundId);
                     dataRequest.setProperty("cd", "" + contestId);
-                    transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                    transDai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
                     resultMap = transDai.getData(dataRequest);
 //                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
                     rsc = (ResultSetContainer) resultMap.get("Collegiate_Eligibility");

@@ -374,7 +374,7 @@ public class SendEmailTask extends EmailTask implements Runnable {
 
         Map listMap = null;
         RequestInt dataRequest = new Request(m);
-        DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+        DataAccessInt dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
         try {
             listMap = dai.getData(dataRequest);
         } catch (Exception ignore) {

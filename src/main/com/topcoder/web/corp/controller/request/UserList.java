@@ -55,11 +55,9 @@ public class UserList extends BaseProcessor {
 
         dataRequest.setProperty("uid", Long.toString(userId));
 
-        InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = (InitialContext) TCContext.getInitial();
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
+            DataAccessInt dai = new DataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
 
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("CORP_user_list");
@@ -67,8 +65,6 @@ public class UserList extends BaseProcessor {
             throw e;
         } catch (Exception e) {
             throw(new TCWebException(e));
-        } finally {
-            Util.closeIC(ic);
         }
 
 //        if (rsc.getRowCount() == 0) {

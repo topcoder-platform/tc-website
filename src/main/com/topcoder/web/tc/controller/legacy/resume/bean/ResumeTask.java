@@ -121,16 +121,11 @@ public abstract class ResumeTask {
     protected static DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null)
             throw new IllegalArgumentException("datasource name is null.");
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(context.lookup(datasource),
-                        DataSource.class);
-        BaseProcessor.close(context);
         DataAccessInt dAccess = null;
         if (cached)
-            dAccess = new CachedDataAccess(ds);
+            dAccess = new CachedDataAccess(datasource);
         else
-            dAccess = new DataAccess(ds);
+            dAccess = new DataAccess(datasource);
         return dAccess;
     }
 

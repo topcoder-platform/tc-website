@@ -216,7 +216,7 @@ public final class GraphServlet extends HttpServlet {
         Iterator it = null;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("School_Membership");
 
@@ -266,7 +266,7 @@ public final class GraphServlet extends HttpServlet {
         Iterator it = null;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "5");   //What's your primary interest in tc
             resultMap = dai.getData(dataRequest);
@@ -317,7 +317,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "7");   //What Industry are you in
             resultMap = dai.getData(dataRequest);
@@ -392,7 +392,7 @@ public final class GraphServlet extends HttpServlet {
         Iterator it = null;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest.setProperty("ct", "1");   //Student
             dataRequest.setProperty("dq", "5");   //What's your primary interest in tc
             resultMap = dai.getData(dataRequest);
@@ -443,7 +443,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "8");   //What's your job title
             resultMap = dai.getData(dataRequest);
@@ -520,7 +520,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest.setProperty("ct", "2");   //Professional
             dataRequest.setProperty("dq", "12");  //What's your area of interest
             resultMap = dai.getData(dataRequest);
@@ -596,7 +596,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest.setProperty("ct", "2");   //Professional
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Referral_Graph");
@@ -672,7 +672,7 @@ public final class GraphServlet extends HttpServlet {
         final double minPercentage = .05;
 
         try {
-            dai = new DataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
             dataRequest.setProperty("ct", "1");   //Student
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Referral_Graph");

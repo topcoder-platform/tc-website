@@ -125,9 +125,7 @@ public class Search extends Base {
 
 
     private void populateSearchStaticContent(SearchBean sb) throws Exception {
-        Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
-        DataAccessInt dai = new CachedDataAccess(ds);
+        DataAccessInt dai = new CachedDataAccess(DBMS.HS_OLTP_DATASOURCE_NAME);
 
         Request req = new Request();
         req.setContentHandle("state_list");
@@ -324,9 +322,7 @@ public class Search extends Base {
 
 
     private int findMembers(SearchBean sb) throws Exception {
-        Context ctx = TCContext.getInitial();
-        DataSource ds = (DataSource) ctx.lookup(DBMS.HS_DW_DATASOURCE_NAME);
-        DataAccessInt dai = new DataAccess(ds);
+        DataAccessInt dai = new DataAccess(DBMS.HS_DW_DATASOURCE_NAME);
         Map map = new HashMap();
 
         String handlePattern = "%";

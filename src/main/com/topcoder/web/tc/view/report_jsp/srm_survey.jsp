@@ -19,9 +19,8 @@
 				dataRequest.setContentHandle("srm_survey_report");
 				dataRequest.setProperty("rd", request.getParameter("rd")==null?"4445":request.getParameter("rd"));
 				
-				           DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                            TCContext.getInitial().lookup(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
+				           DataAccessInt dai = new DataAccess(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL));
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
 					

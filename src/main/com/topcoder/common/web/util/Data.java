@@ -156,7 +156,7 @@ public final class Data {
             qr.addQuery("Mappings", "SELECT data_type_id, language_id, display_value " +
                                          "FROM data_type_mapping");
             qr.addQuery("Types", "SELECT data_type_id, data_type_desc FROM data_type");
-            dai = new QueryDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            dai = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             resultMap = dai.getData(qr);
            
             ResultSetContainer mapRsc = (ResultSetContainer)resultMap.get("Mappings");

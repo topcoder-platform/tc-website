@@ -340,13 +340,7 @@ public class EmailInfo extends BaseModel {
         emailInfo.setCandidatePassword(mgr.getPassword(candidateId));
 
         if(access == null) {
-            InitialContext context = new InitialContext();
-            DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(
-                        context.lookup(Constants.DATA_SOURCE),
-                                            DataSource.class);
-
-            access = new DataAccess(ds);
+            access = new DataAccess(Constants.DATA_SOURCE);
         }
 
         Request emailLookup = new Request();

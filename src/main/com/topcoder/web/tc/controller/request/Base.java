@@ -23,14 +23,11 @@ abstract public class Base extends BaseProcessor {
 
     public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
         if (datasource == null) return null;
-        DataSource ds = (DataSource)
-                PortableRemoteObject.narrow(getInitialContext().lookup(datasource),
-                        DataSource.class);
         DataAccessInt dAccess = null;
         if (cached)
-            dAccess = new CachedDataAccess(ds);
+            dAccess = new CachedDataAccess(datasource);
         else
-            dAccess = new DataAccess(ds);
+            dAccess = new DataAccess(datasource);
         return dAccess;
     }
 
