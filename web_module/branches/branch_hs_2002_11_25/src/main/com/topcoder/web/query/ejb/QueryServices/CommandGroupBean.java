@@ -193,7 +193,7 @@ public class CommandGroupBean extends BaseEJB {
             ctx = new InitialContext();
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME),
-                        "sequence_object", "name", "current_value", 9999999, 10, true);
+                        "sequence_object", "name", "current_value", 9999999, 1, true);
             }
             ret = (int)IdGenerator.nextId("COMMAND_GROUP_SEQ");
 
