@@ -441,11 +441,11 @@ public class TransactionServlet extends HttpServlet {
             purchaseTable.setStartDate(purchaseID, startDate);
             purchaseTable.setEndDate(purchaseID, txInfo.getEnd(startDate));
             //purchaseTable.setSumPaid(purchaseID, txInfo.sum);
-            
+
             // before commit transaction we are required
             // to set roles, on per product basis
             assignPerProductRoles(txInfo);
-            
+
             dbTx.commit();
             log.debug("CcTx completed, redirectURL is "+txInfo.getUserBackPage());
         } catch (Exception e) {
@@ -592,7 +592,7 @@ public class TransactionServlet extends HttpServlet {
      */
     private void fetchLoginPage(HttpServletRequest request,HttpServletResponse response,WebAuthentication authToken)
             throws ServletException, IOException {
-
+/*
         request.setAttribute("message", "In order to continue, you must provide your user name and "+
                 "password, even if you’ve logged in already.");
         log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
@@ -607,6 +607,10 @@ public class TransactionServlet extends HttpServlet {
         }
         boolean forward = l.isNextPageInContext();
         String destination = l.getNextPage();
+*/
+        String destination = "/?"+Constants.KEY_MODULE+"=Login&"+Login.KEY_DESTINATION_PAGE+"="+
+                HttpUtils.getRequestURL(request) + "?" + request.getQueryString();
+        boolean forward = false;
         fetchRegularPage(request, response, destination, forward);
         return;
     }
@@ -616,7 +620,7 @@ public class TransactionServlet extends HttpServlet {
      * then all changes are rolled back programmaticaly (because PrincipalManager
      * usage this cant be performed in transaction scope and, thus can't be
      * rolled back automatically)
-     * 
+     *
      * @param txInfo
      */
     private void assignPerProductRoles(TransactionInfo txInfo)
@@ -632,14 +636,14 @@ public class TransactionServlet extends HttpServlet {
         Iterator i = txInfo.getRolesPerProduct().iterator();
         log.debug("buyer ["+txInfo.getBuyerID()+"] has roles assigned "+assignedRoles);
         log.debug("roles to be added on per product basis "+txInfo.getRolesPerProduct());
-        
+
         HashSet rollbackStore = new HashSet();
         Exception caught = null;
-        
+
         while( i.hasNext() ) {
             RolePrincipal newRole = (RolePrincipal)i.next();
             if( assignedRoles.contains(newRole) ) continue;
-            
+
             // it is really new role - try to assign it
             try {
                 log.debug("trying to assign the role "+newRole);
@@ -665,8 +669,8 @@ public class TransactionServlet extends HttpServlet {
                     );
                 }
             }
-            // rethrow caught exception to provide entire transaction rollback 
-            throw caught; 
+            // rethrow caught exception to provide entire transaction rollback
+            throw caught;
         }
         log.debug("leaving assignPerProductRoles. Role(s) succesfully assigned to user ["+
             txInfo.getBuyerID()+"] "+rollbackStore
