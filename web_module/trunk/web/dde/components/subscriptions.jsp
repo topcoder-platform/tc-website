@@ -88,20 +88,6 @@
                         
                         <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
 
-<!-- Developer Subscription -->
-                        <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                            <tr><td class="pageDivider" width="100%">Developer Subscriptions</td></tr>
-                        </table>
-
-                        <table border="0" cellpadding="0" cellspacing="10">
-                            <tr valign="top">
-                                <td><A href="http://www.topcoder.com/corp/Tx/?&op=terms&pid=15"><img src="/images/java_developer_sub.gif" alt="Java Developer Subscription -- $2000 per year" width="286" height="166" border="0" /></A></td>
-                                <td><A href="http://www.topcoder.com/corp/Tx/?&op=terms&pid=16"><img src="/images/dotnet_developer_sub.gif" alt=".NET Developer Subscription -- $1200 per year" width="286" height="166" border="0" /></A></td>
-                            </tr>
-                        </table><br />
-                        
-                        <img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br />
-
 <!-- Enterprise Subscriptions -->
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr><td class="pageDivider" width="100%">Enterprise Subscriptions</td></tr>
