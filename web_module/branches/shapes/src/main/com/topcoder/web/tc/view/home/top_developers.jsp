@@ -17,6 +17,7 @@
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Rating</td>
     </tr>
     <% boolean even= true; %>
+    <% String sLink = "/stat?c=member_profile&cr=";%>
     <rsc:iterator list="<%=coders%>" id="resultRow">
         <tr>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
