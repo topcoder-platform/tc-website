@@ -125,7 +125,7 @@ function openWin(url, name, w, h) {
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye_rd1','comp',900,600);">view</A></td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid">Online Round 1</td>
+                  <td align = "left" class="advancers_roundid">Online Round 1</td> 
                   <td align = "right" class="advancers_faded">TBD</td>
                   <td align = "right" class="advancers_faded">TBD</td>
                   <td align = "right" class="advancers_faded">TBD</td>
