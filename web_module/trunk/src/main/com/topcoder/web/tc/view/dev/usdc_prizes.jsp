@@ -22,6 +22,7 @@
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="development"/>
                 <jsp:param name="level2" value="contests"/>
+                <jsp:param name="level3" value="ultimate"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
