@@ -963,8 +963,41 @@ public final class ProjectForm extends ReviewForm {
             return errors;
         }
 
+        boolean checkTimeline = false;
+        boolean checkPayments = false;
+        boolean checkProjectData = false;
 
-        if (Constants.EDITING_TIMELINE.equals(currentEdition))  {
+
+        if (Constants.EDITING_TIMELINE.equals(currentEdition)) {
+            log(Level.INFO, "EDITING_TIMELINE");
+            String timelineAction = request.getParameter(Constants.ACTION_KEY);
+
+            if (Constants.ACTION_STORE.equals(timelineAction)) {
+                checkTimeline = true;
+            }
+
+            if (Constants.ACTION_REFRESH.equals(timelineAction)) {
+                checkTimeline = true;
+            }
+
+            if (Constants.ACTION_LOAD.equals(timelineAction)) {
+                checkPayments = true;
+                log(Level.INFO, "ACTION_LOAD");
+            }
+
+            // if the action is CANCEL, no checking will be done.
+
+        }
+
+        // if the user edited the project, set what is needed to check depending on the action
+        if (Constants.EDITING_PROJECT.equals(currentEdition)) {
+            if (Constants.ACTION_EDIT.equals(action)) {
+                checkProjectData = true;
+            }
+        }
+
+
+        if (checkTimeline)  {
             for (int i = 0; i < project.getTimeline().length; i++) {
                 phaseValid[i] = true;
 
@@ -987,9 +1020,8 @@ public final class ProjectForm extends ReviewForm {
             }
         }
 
-        if (Constants.EDITING_PROJECT.equals(currentEdition)) {
-
-            // check the participants
+        if (checkPayments || checkProjectData) {
+            log(Level.INFO, "checking payments");
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (!participantsValid[i]) {
                     setValid(false);
@@ -998,7 +1030,6 @@ public final class ProjectForm extends ReviewForm {
                 }
             }
 
-            // check the payments
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (project.getParticipants()[i].getPaymentInfo() != null
                         && project.getParticipants()[i].getPaymentInfo().getPayment() < 0.0f) {
@@ -1009,6 +1040,9 @@ public final class ProjectForm extends ReviewForm {
                 }
             }
 
+        }
+
+        if (checkProjectData) {
             if (project.getCurrentPhase().getId() == Phase.ID_SCREENING) {
                 if (project.getScreeningTemplateId() == -1) {
                     setValid(false);
@@ -1024,7 +1058,6 @@ public final class ProjectForm extends ReviewForm {
                             new ActionError("error.reviewTemplate.required"));
                 }
             }
-
             reasonValid = true;
             if (reason == null || reason.trim().equals("")) {
                 errors.add("reason",
