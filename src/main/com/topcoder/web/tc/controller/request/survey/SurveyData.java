@@ -14,6 +14,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class SurveyData extends Base {
+
+    protected abstract List makeAnswerInfo(long surveyId, long questionId) throws Exception;
+
     protected void businessProcessing() throws TCWebException {
         long surveyId;
         try {
@@ -50,12 +53,4 @@ public abstract class SurveyData extends Base {
         }
     }
 
-    protected List makeAnswerInfo(long surveyId, long questionId) throws Exception {
-        Request responseRequest = new Request();
-        DataAccessInt dataAccess = getDataAccess();
-        responseRequest.setContentHandle("survey_responses");
-        responseRequest.setProperty("sid", String.valueOf(surveyId));
-        responseRequest.setProperty("qid", String.valueOf(questionId));
-        return (ResultSetContainer)dataAccess.getData(responseRequest).get("response_info");
-    }
 }
