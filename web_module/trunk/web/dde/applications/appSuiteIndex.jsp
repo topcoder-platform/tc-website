@@ -61,30 +61,18 @@
 			</p>
 			<br/>
 			<hr noshade="noshade" size="1" width="100%">
-			<table cellspacing=0 cellpadding=0 border=0 width="100%">
-				<tr>
-					<td class=bodyText valign=middle align=left width="100%">
-					<p>
-					<b>
-					<A href="/applications/appSuite.jsp">Communication</A><br/>
-					&#160;&#160;&#160;Description of Communication app suite<br/>
-					<A href="/applications/appSuite.jsp">Data Management</A><br/>
-					&#160;&#160;&#160;Description of Data Management app suite<br/>
-					<A href="/applications/appSuite.jsp">E-commerce</A><br/>
-					&#160;&#160;&#160;Description of E-commerce app suite<br/>
-					<A href="/applications/appSuite.jsp">Financial</A><br/>
-					&#160;&#160;&#160;Description of Financial app suite<br/>
-					<A href="/applications/appSuite.jsp">Imaging</A><br/>
-					&#160;&#160;&#160;Description of Imaging app suite<br/>
-					<A href="/applications/appSuite.jsp">Work Flow</A><br/>
-					&#160;&#160;&#160;Description of Work Flow app suite
-					</b>
-					</p>
-					<td>
-					<td class=bodyText valign=middle align=right>
-					<div align=right width="100%">
-					<img src="/images/appSuiteQues.gif" border=0/>
-					</div>
+			<table cellspacing=0 cellpadding=10 border=0 width="100%">
+				<tr valign=top>
+					<td valign=top align=center width="50%">
+						<img src="/images/javaSm.jpg" border=0/><br/>
+						<hr noshade="noshade" size="1" width="100%">
+						<b><A href="/applications/appSuite.jsp?appSuiteID=jas_eCommerce">eCommerce</A></b><br/>
+					</td>
+					<td class=bodyText valign=top align=center><img src="/images/appSuiteQues.gif" border=0/></td>
+					<td valign=top align=center width="50%">
+						<img src="/images/dotnetSm.jpg" border=0/><br/>
+						<hr noshade="noshade" size="1" width="100%">
+						<b><A href="/applications/appSuite.jsp?appSuiteID=nas_eCommerce">eCommerce</A></b><br/>
 					</td>
 				</tr>
 			</table>
