@@ -62,15 +62,32 @@
 </P>
 
 <P>
-The TopCoder Distributed Development Environment (DDE) is a software product that enables the building of components and component-based software in a distributed environment.  The purpose of DDE is to enable the development and assembly of reusable software assets. The DDE is not platform specific.  The only requirement is that reuse be a goal for all development efforts. 
+The TopCoder Distributed Development Environment (DDE) is a software
+product that enables the building of components and component-based
+software in a distributed environment.  The purpose of DDE is to enable
+the development and assembly of reusable software assets. The DDE is not
+platform specific.  The only requirement is that re-use be a goal for
+all development efforts. 
 </P>
 
 <P>
-The software industry has failed to drive the adoption of reuse.  The main reasons why the industry failed are because of inferior software and more importantly, it lacked accepted industry standards, such as Web Services and J2EE.
+The software industry has failed to drive the adoption of re-use.  The
+industry has failed thus far for two primary reasons: Lack of a large
+enough base of interacting developers aware of components available for
+re-use and, more importantly, lack of accepted framework standards on
+which to build components such as Web Services and J2EE.  Since
+industry-wide frameworks are being adopted at an increasing pace,
+TopCoder, through its large and growing developer base, sees an
+opportunity to open up the development of components to our member base.
 </P>
 
 <P>
-The purpose of this project is to assemble a team of architects to design the DDE, which will happen in the two phases described below.  The implementation of phase 1 will begin immediately following this design project.  The deliverables of the design project will be to determine the scope, timeline and specific deliverables for the implementation of the DDE.
+The purpose of this project is to assemble a team of architects to
+design the DDE, which will happen in the two phases described below.
+The implementation of phase 1 will begin immediately following this
+design project.  The deliverables of the design project will be to
+determine the scope, timeline and specific deliverables for the
+implementation of the DDE.
 </P>
 
 <P>
