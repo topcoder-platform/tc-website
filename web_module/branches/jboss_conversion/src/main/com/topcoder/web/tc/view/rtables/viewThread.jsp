@@ -14,6 +14,7 @@
           com.topcoder.common.*"
  errorPage="../errorPage.jsp"%>
 
+
 <%  ////////////////
   //
   String Redirect_URL = "http://" + request.getServerName();

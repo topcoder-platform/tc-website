@@ -19,6 +19,7 @@
             com.topcoder.common.*,
             com.coolservlets.forum.database.DbAuthorization"
  errorPage="../errorPage.jsp"%>
+
 <%
     Navigation n = null;
     String Redirect_URL = "http://" + request.getServerName() + "/rtables/perm_error.jsp";
