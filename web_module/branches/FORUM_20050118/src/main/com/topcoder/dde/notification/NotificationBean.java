@@ -84,8 +84,15 @@ import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 
 
+import java.util.Iterator;
 import java.util.Properties;
 import java.util.Map;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 /**
  * This is the concrete implementation of the ProjectTracker interface.
@@ -199,12 +206,12 @@ public class NotificationBean implements SessionBean {
             LogHelper.log("Sending e-mail to address: " + formatAddress(to));
             EmailEngine.send(message);
         } else {
-            LogHelper.log("--mail--");
-            LogHelper.log("From: " + from);
-            LogHelper.log("To: " + to);
-            LogHelper.log("Subject: " + subject);
-            LogHelper.log(messageText);
-            LogHelper.log("---end--");
+            info("--mail--");
+            info("From: " + from);
+            info("To: " + to);
+            info("Subject: " + subject);
+            info(messageText);
+            info("---end--");
         }
     }
 
