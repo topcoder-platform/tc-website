@@ -58,7 +58,8 @@
             </TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
-              <TD COLSPAN="2" CLASS="statText" ALIGN="center">DB:
+              <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
+              <TD CLASS="statText" ALIGN="left">
                 <% if (ModifyCommandTask.isNewCommand()) { %>
                   <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyCommandTask.getDb()%>"/>
                 <% } else { %>
