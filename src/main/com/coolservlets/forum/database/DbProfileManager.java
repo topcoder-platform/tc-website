@@ -80,7 +80,7 @@ public class DbProfileManager implements ProfileManager {
     private static final String DELETE_USER_PROPS =
         "DELETE FROM jiveUserProp WHERE userID=?";
 
-    private static final boolean cacheEnabled = false;
+    private static final boolean cacheEnabled = true;
 
     private Cache userCache = new Cache();
     private Map userIDMap = Collections.synchronizedMap(new HashMap());
