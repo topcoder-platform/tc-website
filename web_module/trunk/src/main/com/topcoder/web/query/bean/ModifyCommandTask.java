@@ -112,6 +112,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
+        log.debug("setAttributes called...param: " + paramName + " value: " + value);
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
             setDb(value);
@@ -167,6 +168,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
     }
 
     public void setGroupId(int groupId) {
+        log.debug("setGroupId called..." + groupId);
         this.groupId = groupId;
     }
 
