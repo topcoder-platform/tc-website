@@ -9,9 +9,15 @@
 
 <SCRIPT LANGUAGE="JavaScript">
 <!-- Begin
-
 function openWnd(pageUrl) {
-  OpenWin=this.open(pageUrl,"CtrlWindow","toolbar=yes,menubar=yes,location=yes,scrollbars=yes,resizable=yes");
+  var width = screen.availWidth * 2 / 3;
+  var height = screen.availHeight / 2;
+  var left = (screen.availWidth - width) / 2;
+  var top = 0;
+  OpenWin=this.open(pageUrl,"CtrlWindow",
+            "toolbar=yes,menubar=yes,location=yes,scrollbars=yes,resizable=yes"
+            + ",width=" + width + ",height=" + height
+            + ",left=" + left + ",top=" + top);
 }
 // End -->
 </SCRIPT>

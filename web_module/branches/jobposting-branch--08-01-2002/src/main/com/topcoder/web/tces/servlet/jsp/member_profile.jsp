@@ -51,7 +51,7 @@
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
             
             <P align="center">
-            <% if (MemberProfileTask.getImagePath().length() > 0) { %>
+<%--            <% if (MemberProfileTask.getImagePath().length() > 0) { %>
             <TABLE WIDTH=100%>
             <TD class="statText" ALIGN="right">
                 <IMG SRC="<%=MemberProfileTask.getImagePath()%>"/>
@@ -59,7 +59,7 @@
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" ALIGN="left">
             <% } %>
-            
+--%>            
               <B>Coder Profile: <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
               <BR>
               <%= MemberInfo.get(TCESConstants.MEM_INFO_FULLNAME_KEY)%>
@@ -74,10 +74,10 @@
                 </A>
               </B>
               
-              <% if (MemberProfileTask.getImagePath().length() > 0) { %>
+<%--              <% if (MemberProfileTask.getImagePath().length() > 0) { %>
               </TD></TR></TABLE>
               <% } %>
-              </P>                            
+--%>              </P>                            
               
               
               <P align="center">
