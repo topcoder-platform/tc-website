@@ -106,6 +106,7 @@
                 	<tr><td id="<%=level3.equals("ratings")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=ratings">Rating System</A></td></tr>
                 	<tr><td id="<%=level3.equals("reliability")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=reliability">Reliability Rating</A></td></tr>
                 	<tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=development&c=dev_payment">How to Get Paid</A></td></tr>
+                	<tr><td id="<%=level3.equals("documentation")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=documentation">Documentation</A></td></tr>
                 <% } %>
             </table>
 
