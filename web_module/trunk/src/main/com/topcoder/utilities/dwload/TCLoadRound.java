@@ -1601,7 +1601,7 @@ public class TCLoadRound extends TCLoad {
             query.append(  " and c2.date < c1.date");
             query.append(" group by rr2.coder_id");
 
-            psSel = prepareStatement(query.toString(), TARGET_DB);
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
             query.append("INSERT INTO room_result ");
@@ -1736,7 +1736,9 @@ public class TCLoadRound extends TCLoad {
                     sqle.getMessage());
         } finally {
             close(rs);
+            close(rs2);
             close(psSel);
+            close(psSel2);
             close(psIns);
             close(psDel);
         }
