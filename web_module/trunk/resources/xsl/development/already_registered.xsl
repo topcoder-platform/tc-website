@@ -55,7 +55,7 @@
                     <td class="bodyText" width="100%">
                         <p>You've already registered for this component.</p>
 
-                        <p>If you have any problems please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
+                        <p>If you have any questions please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
                         <p><br /></p>
 

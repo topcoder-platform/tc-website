@@ -441,7 +441,7 @@ public final class TaskDevelopment {
                             if (!isProjectLockedOut(componentId, version, phase, nav.getSessionInfo().getUserId()) ||
                                     isTournamentComponent(componentId, version, phase)) {
 
-                                if (!hasInquired(componentId, version, phase, nav.getSessionInfo().getUserId())) {
+                                if (!hasRegistered(componentId, version, phase, nav.getSessionInfo().getUserId())) {
 
                                     Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
@@ -680,7 +680,7 @@ public final class TaskDevelopment {
         return !rsc.isEmpty();
     }
 
-    static boolean hasInquired(long componentId, long version, long phase, long userId) throws Exception {
+    static boolean hasRegistered(long componentId, long version, long phase, long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("component_inquiry");
@@ -689,7 +689,7 @@ public final class TaskDevelopment {
         r.setProperty("ph", String.valueOf(phase));
         r.setProperty("uid", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_inquiry");
-        return rsc.isEmpty();
+        return !rsc.isEmpty();
     }
 
 
