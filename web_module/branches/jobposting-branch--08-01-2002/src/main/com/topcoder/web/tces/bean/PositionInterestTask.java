@@ -41,6 +41,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
         uid=-1;
         sortBy="";
+        sortOrder="";
     }
 
     public void setCampaignName( String campaignName ) {

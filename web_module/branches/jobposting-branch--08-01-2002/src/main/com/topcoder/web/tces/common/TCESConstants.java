@@ -56,9 +56,13 @@ public class TCESConstants {
     public static String SORT_SCHOOL = "school";
     public static String SORT_HITDATE = "hd";
 
+    public static String SORT_ORDER_ASC = "a";
+    public static String SORT_ORDER_DES = "d";
+
     public static String TASK_PARAM = "task";
     public static String STEP_PARAM = null;
     public static String SORT_PARAM = "sort";
+    public static String SORT_ORDER_PARAM = "so";
     public static String USER_ID_PARAM = null;
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
