@@ -34,7 +34,8 @@ public class Questions extends Base {
             ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
             Iterator it = questionRSC.iterator();
             List questions = new ArrayList(10);
-            for(ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next(); it.hasNext(); row = (ResultSetContainer.ResultSetRow)it.next()){
+            while(it.hasNext()){
+                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next();
                 ProblemRatingQuestion prq = new ProblemRatingQuestion();
                 prq.setQuestion(row.getStringItem("question"));
                 prq.setID(row.getIntItem("question_id"));
