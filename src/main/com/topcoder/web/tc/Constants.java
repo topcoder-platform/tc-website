@@ -98,7 +98,6 @@ public class Constants {
     public static String RATING_SIM;
 
     public static String PLACEMENT_INFO_DETAIL;
-    public static String DOWNLOAD_RESUME;
     public static String NOTE_LIST;
     public static String NOTE_EDIT;
 
