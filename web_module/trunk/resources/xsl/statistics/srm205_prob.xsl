@@ -374,7 +374,7 @@ hex[0]=n=1;
 while(hex[n-1]&lt;=sum )
    {
    if ( hex[n-1]==sum ) return 1 ;
-   hex[n]=hex[n]+4*n+1 ;
+   hex[n]=hex[n-1]+4*n+1;
    n++ ;
    }
 if ( search (sum , 2, 0) ) return 2 ;
