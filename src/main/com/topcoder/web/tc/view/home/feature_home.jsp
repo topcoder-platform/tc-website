@@ -20,14 +20,14 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_102403</xsl:attribute><font size="4"><strong>Challenging 101</strong></font></a><br />
+                        <p><a class="bodyText" href="/?&amp;t=features&amp;c=feat_102403"><font size="4"><strong>Challenging 101</strong></font></a><br />
                         Friday, October 24, 2003</p>
 
                         <p>What do you do during the challenge phase? Do you sit idle, aimlessly opening and closing problems, 
                         willing on the system tests, and watching with envy as coders of the ilk of Yarin, radeye and bstanescu 
                         average almost 4 successful challenges in every 5 competitions?
 
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_102403</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <a class="bodyText" href="/?&amp;t=features&amp;c=feat_102403"><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
