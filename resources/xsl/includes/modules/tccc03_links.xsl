@@ -6,13 +6,10 @@
                 <tr valign="top">
                     <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
                     <td valign="middle" class="statText" width="99%">
-                        <p><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
-                        Welcome to our third annual programming tournament for college students, now open to any collegiate coder in the world, regardless of their country of 
-                        residence. Invitations will be given to the top 200 coders in each of five regions. Online elimination rounds begin on February 18th. The final field of 
-                        16 coders will be brought to the University Hotel @ MIT in Cambridge, MA where they will compete head-to-head on April 4th and 5th. The total prize 
-                        purse for this tournament is $100,000 and the winner will receive $50,000.</p>
-                        
-                        <p>
+                        <p><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
+                        The 2003 TopCoder Collegiate Challenge Final Championship is almost upon us! The final field of 16 coders will be competing head-to-head this 
+                        Friday and Saturday at the University Hotel @ MIT in Cambridge, Massachusetts. The total prize purse for the Challenge is $100,000 and the 
+                        Final Champion will walk away with $50,000. Check in all day Friday and Saturday for complete a play-by-play fo the semi-final and final rounds.<br />
                         <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
                     </td>
                     <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
