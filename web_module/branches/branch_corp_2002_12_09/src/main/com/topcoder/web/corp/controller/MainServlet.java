@@ -19,7 +19,6 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCESAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Util;
-import com.topcoder.web.corp.request.Login;
 import java.net.URLEncoder;
 
 /**
@@ -254,8 +253,11 @@ public class MainServlet extends HttpServlet {
         if( request.getQueryString() != null ) {
             originatingPage += "?"+request.getQueryString();
         }
-        String destParam = Login.KEY_DESTINATION_PAGE;
-        String loginPage = servletConfig.getInitParameter(PFX_PAGE+KEY_LOGINPAGE);
+        String destParam = 
+            com.topcoder.web.corp.request.Login.KEY_DESTINATION_PAGE;
+        String loginPage = servletConfig.getInitParameter(
+            PFX_PAGE + KEY_LOGINPAGE
+        );
         String loginPageDest = loginPage + "&" + destParam + "="
                                + URLEncoder.encode(originatingPage);
         fetchRegularPage(request, response, loginPageDest, true);
