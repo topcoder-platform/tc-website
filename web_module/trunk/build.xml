@@ -607,17 +607,14 @@
             <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
         </antcall>
 
-        <!-- Resume ejb -->
+        <!-- Datacache ejb -->
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="DataCache"/>
             <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
         </antcall>
 
         <!-- Resume ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="ResumeServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
-        </antcall>
+        <antcall target="package-EJB-ResumeServicesBean"/>
 
         <!-- Address ejb -->
         <antcall target="build-ejb-unit">
