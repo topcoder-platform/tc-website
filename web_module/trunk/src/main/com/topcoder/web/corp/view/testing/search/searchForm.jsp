@@ -88,7 +88,7 @@
                                         <%=question.getText()%>
                                     </td>
                                     <td class="<%=cssClasses[counter++ % 2]%>">
-                                        <pl:demographicInput question="<%=question%>"/>
+                                        <pl:demographicInput question="<%=question%>" showmulti="false"/>
                                     </td>
                                </tr>
                                <%} %>

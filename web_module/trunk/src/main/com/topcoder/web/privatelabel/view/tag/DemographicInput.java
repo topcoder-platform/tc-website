@@ -15,10 +15,20 @@ public class DemographicInput extends BaseTag {
 
     private String cssclass;
     private DemographicQuestion question;
+    private boolean showMulti;
 
     public DemographicInput() {
         super();
         cssclass = null;
+        showMulti = true;
+    }
+    
+    public void setShowMulti(boolean b) {
+        showMulti = b;
+    }
+    
+    public boolean getShowMulti() {
+        return showMulti;
     }
 
     public void setClass(String cssclass) {
@@ -39,7 +49,14 @@ public class DemographicInput extends BaseTag {
                     output.append(buildText());
                     break;
                 case DemographicQuestion.MULTIPLE_SELECT:
-                    output.append(buildSelect(true));
+                    if(showMulti)
+                    {
+                        output.append(buildSelect(true));
+                    }
+                    else
+                    {
+                        output.append(buildSelect(false));
+                    }
                     break;
                 case DemographicQuestion.SINGLE_SELECT:
                     output.append(buildSelect(false));
