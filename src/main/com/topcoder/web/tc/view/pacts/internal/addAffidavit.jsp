@@ -58,7 +58,7 @@
 	if (net == null) net = "";
 	String gross = request.getParameter("gross_amount");
 	if (gross == null) gross = "";
-	
+
 %>
 
 <h1>PACTS</h1>
@@ -227,7 +227,7 @@
 
 <input type=submit>
 </form>
-<jsp:include page="/pacts/internal/InternalFooter.jsp" flush="true" />
+<jsp:include page="InternalFooter.jsp" flush="true" />
 
 </body>
 

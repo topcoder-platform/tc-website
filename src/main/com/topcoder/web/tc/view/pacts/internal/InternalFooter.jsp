@@ -10,32 +10,32 @@ Searches<br>
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.USER_CMD+"\">");
    out.print("Users</a> | ");
-   
+
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.PAYMENT_CMD+"\">");
    out.print("Payments</a> | ");
-   
+
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.AFFIDAVIT_CMD+"\">");
    out.print("Affidavits</a> | ");
-   
+
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.CONTRACT_CMD+"\">");
    out.print("Contracts</a> | ");
-   
+
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.TAX_FORM_CMD+"\">");
    out.print("General Tax Forms</a> | ");
-   
+
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.USER_TAX_FORM_CMD+"\">");
    out.print("User Tax Forms</a> | ");
-   
+
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
    out.print(PactsConstants.TASK_STRING+"="+PactsConstants.SEARCH_TASK+"&");
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.NOTE_CMD+"\">");
@@ -48,6 +48,13 @@ Searches<br>
    out.print(PactsConstants.CMD_STRING+"="+PactsConstants.PRINT_CMD+"\">");
    out.print("Print Payments</a><br>");
 %>
+<br><br>
+<%
+    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
+    out.print(PactsConstants.MODULE_KEY+"=Static&d1=pacts&d2=internal&d3=generatePayments");
+    out.print("Generate Payments</a><br>");
+%>
+
 <br><br>
 <%
    out.print("<a href=\""+PactsConstants.INTERNAL_SERVLET_URL+"?");
