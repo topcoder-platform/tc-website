@@ -267,7 +267,7 @@ public final class MainServlet extends HttpServlet {
                 htmlMaker.refresh();
                 response.setContentType("text/html");
                 o = response.getOutputStream();
-                o.write(java.net.InetAddress.getLocalHost().getAddress());
+                o.write(Conversion.ipBytesToString(java.net.InetAddress.getLocalHost().getAddress()).getBytes());
                 responseWritten = true;
             }
             //************************ statistics ************************
