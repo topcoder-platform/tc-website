@@ -5,7 +5,7 @@
           com.topcoder.web.tces.common.*, 
           com.topcoder.web.tces.servlet.*,
           com.topcoder.web.tces.bean.*" %>
-
+<jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.tces.bean.LoginTask" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -69,7 +69,6 @@
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
             
-<jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.tces.bean.LoginTask" />
 
 <p class='notice'>
 <jsp:getProperty name="LoginTask" property="Message" />
