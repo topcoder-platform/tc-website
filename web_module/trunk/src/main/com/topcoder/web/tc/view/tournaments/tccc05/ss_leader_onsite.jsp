@@ -61,19 +61,19 @@ H3 { font-size: 125%; }
 
 .leaderParentL
 { 
-    border: 1px solid #FF6600; 
+    border: 1px solid #7A7A89; 
 }
 
 .leaderParentR
 { 
-    border-top: 1px solid #FF6600; 
-    border-bottom: 1px solid #FF6600; 
-    border-right: 1px solid #FF6600; 
+    border-top: 1px solid #7A7A89; 
+    border-bottom: 1px solid #7A7A89; 
+    border-right: 1px solid #7A7A89; 
 }
 
 .leaderTitle
 { 
-    background-color: #FF6600;	
+    background-color: #7A7A89;	
 	color: #FFFFFF;
 	font-size: 17px;
 	font-weight: bold;
@@ -146,14 +146,11 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
 %>
 
     <body>
-            <table border=0 cellspacing=0 width="100%" align=center bgcolor="#EBEBEB">
+            <table border=0 cellspacing=0 width="100%" align="center">
                 <tr>
                     <td align="left" valign="middle" width="50%"><img src="/i/tournament/tco04/showdownTCOLogo.gif" border="0"/></td>
-                    <td align="center" valign="middle"><img src="/i/tournament/tco04/showdownTitle.gif" border="0"/></td>
+                    <td align="center" valign="middle"><img src="/i/tournament/tccc05/ss_logo.gif" border=0 /></td>
                     <td align="right" valign="middle" width="50%"><img src="/i/tournament/tco04/showdownMSLogo.gif" border="0"/></td>
-                </tr>
-                <tr>
-                    <td align="left" valign="middle" colspan="3" class=headerBar><img src="/i/clear.gif" width="100%" height="18" border="0"></td>
                 </tr>
             </table>
 
