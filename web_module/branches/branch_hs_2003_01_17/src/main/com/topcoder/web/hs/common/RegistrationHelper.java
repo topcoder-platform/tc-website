@@ -41,6 +41,8 @@ public class RegistrationHelper {
 
   private final static char NEW_USER_TYPE='A';
 
+  private final static String ANONYMOUS_GROUP_NAME="Anonymous";
+
   private final static String STUDENT_GROUP_NAME="Student";
 
   private final static String COACH_GROUP_NAME="Coach";
@@ -361,6 +363,9 @@ public class RegistrationHelper {
       Collection groups=pmr.getGroups(tcs);
       for (Iterator iterator=groups.iterator();iterator.hasNext();) {
         GroupPrincipal gp=(GroupPrincipal)iterator.next();
+        if (gp.getName().equals(ANONYMOUS_GROUP_NAME)) {
+          pmr.addUserToGroup(gp,up,tcs);
+        }
         if (gp.getName().equals(STUDENT_GROUP_NAME)) {
           pmr.addUserToGroup(gp,up,tcs);
         }
@@ -713,6 +718,9 @@ public class RegistrationHelper {
       Collection groups=pmr.getGroups(tcs);
       for (Iterator iterator=groups.iterator();iterator.hasNext();) {
         GroupPrincipal gp=(GroupPrincipal)iterator.next();
+        if (gp.getName().equals(ANONYMOUS_GROUP_NAME)) {
+          pmr.addUserToGroup(gp,up,tcs);
+        }
         if (gp.getName().equals(COACH_GROUP_NAME)) {
           pmr.addUserToGroup(gp,up,tcs);
         }
