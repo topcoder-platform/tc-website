@@ -43,15 +43,12 @@
 <!-- Center Column Begins -->	
 <td align="center">	
 <table border="0" cellspacing="10" cellpadding="0" width="510">
-
-            <tr>
+        <tr>
                 <td  align="left" width="510" colspan="2"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
                  </td>
              </tr>
-                  
-                 
             <tr>
-                    <td align="left">
+                <td align="left">
                         <img src="/i/sponsor/northface/northface_title_1.gif" alt="Northface" width="360" height="42" border="0" />
                         </td>  
                         
@@ -75,34 +72,13 @@
 		    <td align="left" class="bodyText">
                             <p>Located in Salt Lake City, <A href="http://www.northface.edu" target="_blank">Northface University</A> offers B.S. in Computer Science degrees 
                             and MBA degrees.</p>
-=======
-        <td class="bodyText" align="center">
-            <table width="540" border="0" cellpadding="0" cellspacing="15">
-                  <tr align="left">
-                    <td colspan="2"><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A></td>
-                  </tr>
                             
-                <tr valign="top">
-                    <td class="bodyText" width="360">
-                        <p><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University</A> is establishing the finest university in the world
-                        for software developers. Our educational programs focus on the latest advancements in modeling, business rules, data management and 
-                        systems integration. The courses are  fast-paced, utilize leading edge technologies and reinforce best practice skills for the 
-                        implementation of real-world projects.</p>
-
-                        <p><img src="/i/sponsor/northface/northface_title_1.gif" alt="Northface" width="360" height="42" border="0" /></p>
-
-                        <p><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University's</A> students are mentored by some of the most
-                        well-respected thought leaders in the software industry. The Northface University programs provide:</p>
->>>>>>> 1.19
-                        
-                        <ul>
-<<<<<<< tco03_northface.xsl
-                        <li><strong>Bachelor of Science in Computer Science</strong> (on-campus program: 28 month duration) enables students to align IT and business 
-                        through modeling and business rules.</li>
-                        <li><strong>Master of Business Administration in Enterprise Informatics</strong> (online and on-campus program: 24 month duration) provides 
-                        students with a fast-paced, educational experience with a 70&#37; real-world, project focus.</li>
-                       </ul>
-                        </blockquote>
+                            <ul><li><strong>Bachelor of Science in Computer Science</strong> (on-campus program: 28 month duration) enables students to align IT and business 
+                            through modeling and business rules.</li>
+                            <li><strong>Master of Business Administration in Enterprise Informatics</strong> (online and on-campus program: 24 month duration) provides 
+                            students with a fast-paced, educational experience with a 70&#37; real-world, project focus.</li>
+                            </ul>
+                            </blockquote>
                         
                         <p>Graduates earn degrees, and are equipped with a digital portfolio of project work, and the two most respected certifications in the industry: 
                         jCert Enterprise Developer for IBM and Microsoft Certified Solution Developer (MCSD). </p>
@@ -123,31 +99,8 @@
                         
                         <p>Over a two-year period, you and your instructors will work in partnership with IBM, Microsoft, and Unisys on a revolutionary project-driven 
                         learning experience. So you will graduate with more than just a diploma, you'll graduate with real-world experience on your resume.</p>
-=======
-                            <li>An experiential learning environment</li>
-                            <li>An accelerated, focused program</li>
-                            <li>Competency in key development areas</li>
-                            <li>World-class mentoring</li>
-                        </ul>
-                        
-                        <p>The following degree programs are currently offered by <A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University</A>:</p>
->>>>>>> 1.19
-                        
-<<<<<<< tco03_northface.xsl
-=======
-                        <ul>
-                            <li><strong>Bachelor of Science in Computer Science</strong> (on-campus program: 28 month duration) enables students to align 
-                            IT and business through modeling and business rules. </li>
-                            <li><strong>Master of Business Administration in Enterprise Informatics</strong> (online and on-campus program: 24 month 
-                            duration) provides students with a fast-paced, educational experience with a 70% real-world, project focus.</li>
-                        </ul>
-
-                        <p><A href="/?&amp;t=sponsor&amp;c=link&amp;link=http://www.northface.edu&amp;refer=tco03_northface" target="_blank">Northface University</A> offers unique  value through the knowledge base
-                        of its faculty , its Global 1000 corporate partnerships , and its hands-on approach to learning. (The Northface Advantage)</p>
->>>>>>> 1.19
                     </td>
-<<<<<<< tco03_northface.xsl
-               </tr>
+            </tr>
                         
             <tr valign="top"> 
                 <td align="left" colspan="2">
@@ -168,10 +121,7 @@
                         <img src="/i/sponsor/northface/northface_title_5.gif" alt="Northface" width="360" height="42" border="0" />
                 </td>
             </tr>  
-=======
->>>>>>> 1.19
-                        
-<<<<<<< tco03_northface.xsl
+
                          
                 <tr valign="top">
                     <td class="bodyText" align="left">
@@ -180,49 +130,17 @@
                     <td align="left">  <img src="/i/sponsor/northface/northface_graph.gif" alt="Northface" width="245" height="120" border="0" />
                     </td>
                 </tr>
-                      
-=======
-                    <td><img src="/i/sponsor/northface/northface_vertical_graphic.gif" alt="Northface" width="148" height="492" border="0" /></td>
-                </tr>
 
->>>>>>> 1.19
                 <tr valign="top">
-<<<<<<< tco03_northface.xsl
                     <td class="promoText" colspan="2" align="left">
                         <p>SCHOLARSHIPS, FINANCIAL AID, AND TEACHING ASSISTANTSHIPS AVAILABLE - Click <A href="http://www.northface.edu" target="_blank">here</A> for info ASAP</p>
                     </td>
                 </tr>
+                
     </table>    
     <p><br/></p>
 </td>
-=======
-                    <td colspan="2" class="bodyText">
-                        <p><img src="/i/sponsor/northface/northface_title_2.gif" alt="Northface" width="360" height="42" border="0" /></p>
-                        
-                        <p>U.S. Labor Department Statistics project that computer software engineering will be the fastest-growing occupation through 2010.* 
-                        Northface University was founded to meet the industry demand for graduates with hands-on project and team collaboration skills. Our 
-                        misson is to give the next generation of software developers the real-world training they need to succeed on the job from day one. 
-                        Northface University's model-driven program gets you out of the classroom and into a high-paying job in just 28 months. *U.S. 
-                        Dept of Labor's Bureau of Labor Statistics, 2002-03</p>
-                        
-                        <p><img src="/i/sponsor/northface/northface_title_3.gif" alt="Northface" width="360" height="42" border="0" /></p>
 
-                        <p>If you attend Northface University, you'll graduate in 28 months an have an average starting salary of $52,000/yr.* That gives 
-                        you three and a half years to work, and earn  approximately $156,000. That's enough to pay back your tuition plus $96,000, all before 
-                        your friends at a tradtional university even graduate. *National Association of Colleges and Employers</p>
-
-                        <p><img src="/i/sponsor/northface/northface_title_4.gif" alt="Northface" width="360" height="42" border="0" /></p>
-
-                        <p><img src="/i/sponsor/northface/northface_graph.gif" alt="Northface" width="245" height="120" border="0" align="right" />
-                        Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience.</p>                        
-                    </td>
-                </tr>
-            </table>
-            
-            <p><br/></p>
-            
-        </td>
->>>>>>> 1.19
 <!-- Center Column Ends -->
 
 <!-- Right Column Begins -->
