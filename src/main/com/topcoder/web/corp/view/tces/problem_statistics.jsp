@@ -55,7 +55,8 @@ function openWnd(pageUrl) {
 <table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
     <tr valign="top">
 <!-- Center Column Begins -->
-        <td class=recruitingBody>
+        <td align=center valign=top>
+			<div class=recruitingBody>
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
@@ -196,6 +197,7 @@ function openWnd(pageUrl) {
 					</TD>
 				</TR>
 			</table>
+		</div>
 		</td>
 	</tr>
 </table>

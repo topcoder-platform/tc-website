@@ -29,7 +29,8 @@
 <table width=700 border=0 cellpadding=0 cellspacing=0 align=center>
 	<TR valign="top">
 <!-- Center Column Begins -->
-        <td class=recruitingBody>
+        <td align=center valign=top>
+			<div class=recruitingBody>
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
@@ -491,42 +492,12 @@
 <% } %>
 
                   <P><br/></P>
-
-    </TD>
-    <TD VALIGN="top" WIDTH="10"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD COLSPAN="4" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-  </TR>
-  <!-- <TR>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="14"><IMG src="/i/corp/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="10"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" bgcolor="#001935"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="14"><IMG src="/i/corp/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="100%"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" BACKGROUND="" WIDTH="10"><IMG src="/i/corp/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  </TR> -->
-</TABLE>
+				</div>
+		    </TD>
+  		</TR>
+	</TABLE>
     </TD>
   <!-- Center Column Ends -->
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="6"><IMG src="/i/corp/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-      <!-- Right Column Begins -->
-      <TD WIDTH="10"><IMG src="/i/corp/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"><br/>
-        <!-- Right Column Include Begins -->
-        <!--include virtual="/includes/public_right_col.shtml"-->
-        <!-- Right Column Include Ends -->
-      </TD>
-      <!-- Right Column Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="25"><IMG src="/i/corp/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
     </TR>
 </TABLE>
 
