@@ -15,7 +15,6 @@ import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.common.*;
-import com.topcoder.common.web.error.NavigationException;
 
 import javax.transaction.UserTransaction;
 import java.util.Map;

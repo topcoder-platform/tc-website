@@ -112,7 +112,7 @@ public final class MainServlet extends HttpServlet {
         boolean responseWritten = false;
         try {
             if (!request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
-                throw new NavigationException();
+                throw new NavigationException("Invalid Request", TCServlet.NAVIGATION_ERROR_PAGE);
 
             // CHECK FOR SESSION TIMEOUT
             if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {
