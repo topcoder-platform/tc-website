@@ -514,6 +514,24 @@
             <param-value>/errorPage.jsp</param-value>
             <description>where to forward for errors</description>
         </init-param>
+        
+        <init-param>
+            <param-name>first_name</param-name>
+            <param-value>firstName</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>last_name</param-name>
+            <param-value>lastName</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>email_address</param-name>
+            <param-value>emailAddress</param-value>
+            <description></description>
+        </init-param>
         <!-- end  parameters required by BaseServlet -->
 
         <!-- Controller parameters -->
@@ -566,11 +584,6 @@
             <description></description>
         </init-param>
 
-        <init-param>
-            <param-name>email_address</param-name>
-            <param-value>emailAddress</param-value>
-            <description></description>
-        </init-param>
 
         <init-param>
             <param-name>first_attempt</param-name>
