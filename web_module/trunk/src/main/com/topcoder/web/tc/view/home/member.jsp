@@ -34,6 +34,7 @@
         <jsp:include page="big_promo.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
         <jsp:include page="small_promos.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
         <jsp:include page="corp_promos.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
+        <jsp:include page="arena.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
         <jsp:include page="coder_pov.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
         <jsp:include page="feature_home.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
         <jsp:include page="press_room_highlights.jsp" /><img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
@@ -51,7 +52,8 @@
          <jsp:include page="tco_promo.jsp" />
          <jsp:include page="coder_of_month.jsp" />
          <jsp:include page="member_surveys.jsp" />
-
+         <img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="244" height="20" border="0" /><br/>
+         <jsp:include page="top_scorers.jsp" />
          </td>
 <!-- Right Column Ends -->
 
