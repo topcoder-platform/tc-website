@@ -145,6 +145,17 @@
                                         <tc-webtag:textInput name="<%=Constants.MAX_NUM_RATINGS%>" size="6" maxlength="6" onkeypress="submitEnter(event)"/>
                                     </td>
                                 </tr>
+
+                                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+
+                                <tr><td class="bodyText">School</td></tr>
+
+                                <tr>
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onkeypress="submitEnter(event)"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </td>
                     </tr>
