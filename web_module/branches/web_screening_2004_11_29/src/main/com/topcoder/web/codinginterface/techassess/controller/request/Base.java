@@ -10,6 +10,7 @@ import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,6 +23,9 @@ import java.io.IOException;
  * Date: Dec 10, 2004
  */
 public abstract class Base extends BaseProcessor {
+
+    protected static final Logger log = Logger.getLogger(Base.class);
+
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
     private String messageId = null;
@@ -96,6 +100,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected boolean hasDefault(String key ) {
+        log.debug("defaults is " + defaults);
         return defaults.containsKey(key);
     }
 
