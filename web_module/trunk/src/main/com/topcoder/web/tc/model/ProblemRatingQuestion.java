@@ -2,22 +2,35 @@ package com.topcoder.web.tc.model;
 
 import java.io.Serializable;
 
-public class ProblemRatingQuestion implements Serializable{
+public class ProblemRatingQuestion implements Serializable {
     public int id;
     public String question;
-    public ProblemRatingQuestion(){
+    public String questionDesc;
+
+    public ProblemRatingQuestion() {
     }
-    public String getQuestion(){
+
+    public String getQuestion() {
         return question;
     }
-    public int getID(){
+
+    public int getID() {
         return id;
     }
 
-    public void setQuestion(String question){
+    public void setQuestion(String question) {
         this.question = question;
     }
-    public void setID(int id){
+
+    public void setID(int id) {
         this.id = id;
+    }
+
+    public String getQuestionDesc() {
+        return questionDesc;
+    }
+
+    public void setQuestionDesc(String questionDesc) {
+        this.questionDesc = questionDesc;
     }
 }

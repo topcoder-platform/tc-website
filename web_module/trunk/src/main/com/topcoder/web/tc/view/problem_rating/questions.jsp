@@ -46,7 +46,7 @@
             <td class="bodyText">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
-            <td class="bodyText" width="100%"><jsp:getProperty name="quest" property="question_desc"/></td>
+            <td class="bodyText" width="100%"><jsp:getProperty name="quest" property="questionDesc"/></td>
             <tc:counter min="1" max="10" inc="1" id="rating">
             <td valign="top">
                 <% boolean checked = rating.equals(request.getParameter("q"+quest.getID())); %>
