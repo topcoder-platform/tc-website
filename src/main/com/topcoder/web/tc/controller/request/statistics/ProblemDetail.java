@@ -24,9 +24,9 @@ public class ProblemDetail extends Base {
 
             DataAccessInt dai = getDataAccess(true);
             r.setProperty("dn", "1");
-            getRequest().setAttribute("div1Reslts", dai.getData(r));
+            getRequest().setAttribute("div1Results", dai.getData(r));
             r.setProperty("dn", "2");
-            getRequest().setAttribute("div2Reslts", dai.getData(r));
+            getRequest().setAttribute("div2Results", dai.getData(r));
 
             setNextPage(Constants.PROBLEM_DETAIL);
             setIsNextPageInContext(true);
