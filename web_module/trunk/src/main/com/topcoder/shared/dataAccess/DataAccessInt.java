@@ -19,6 +19,8 @@ public interface DataAccessInt {
      * @return the requested data
      * @throws Exception
      */
-    public Map getData(RequestInt request) throws Exception;
+    Map getData(RequestInt request) throws Exception;
+
+
 }
 

@@ -3,7 +3,6 @@ package com.topcoder.shared.dataAccess;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Map;
 
@@ -16,7 +15,7 @@ import java.util.Map;
  */
 public class DataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(DataAccess.class);
-    private String dataSource;
+    protected String dataSource;
 
     /**
      * Default Constructor
@@ -46,7 +45,7 @@ public class DataAccess implements DataAccessInt {
     public Map getData(RequestInt request) throws Exception {
         Connection conn = DBMS.getConnection(dataSource);
         try {
-            DataRetriever dr = new DataRetriever(conn);
+            DataRetrieverInt dr = getDataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
             return map;
         } catch (Exception e) {
@@ -73,6 +72,10 @@ public class DataAccess implements DataAccessInt {
      */
     public String getDataSource() {
         return dataSource;
+    }
+
+    protected DataRetrieverInt getDataRetriever(Connection conn) {
+        return new DataRetriever(conn);
     }
 }
 

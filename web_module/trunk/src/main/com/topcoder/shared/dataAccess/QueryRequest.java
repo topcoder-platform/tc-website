@@ -9,8 +9,6 @@ import java.util.*;
  * @author Greg Paul
  * @version $Revision$
  * @see com.topcoder.shared.dataAccess.QueryRunner
- * @see com.topcoder.shared.dataAccess.DWQueryDataAccess
- * @see com.topcoder.shared.dataAccess.OLTPQueryDataAccess
  */
 public class QueryRequest implements RequestInt {
     private Map mProp;
@@ -180,4 +178,40 @@ public class QueryRequest implements RequestInt {
         }
         return sb.toString();
     }
+
+    /**
+     * Generate a string from this object sutable for using
+     * as a key for some key/value pair construct.
+     * @return
+     */
+    public String getCacheKey() {
+        Map.Entry me = null;
+        StringBuffer sb = new StringBuffer(100);
+        //using a tree map so that the keys are always in the same order
+        //we want the cache to pick it up regardless of order
+        TreeMap t = new TreeMap(mProp);
+
+        for (Iterator it = t.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry) it.next();
+            if (me.getKey().equals(DataAccessConstants.QUERY_KEY)) {
+                TreeMap queries = new TreeMap((Map)me.getValue());
+                Map.Entry me1 = null;
+                for (Iterator qIt = queries.entrySet().iterator(); qIt.hasNext();) {
+                    me1 = (Map.Entry) qIt.next();
+                    sb.append(me1.getKey().toString());
+                    sb.append("=");
+                    sb.append(me.getValue().hashCode());  //it's a whole query, so use the hashcode to save space
+                    sb.append("|");
+                }
+            }
+
+            sb.append(me.getKey().toString());
+            sb.append("=");
+            sb.append(me.getValue().toString());
+            sb.append("|");
+        }
+        return sb.toString();
+    }
+
+
 }

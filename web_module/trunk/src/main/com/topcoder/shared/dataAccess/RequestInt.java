@@ -45,4 +45,6 @@ public interface RequestInt {
      */
     void setProperty(String sKey, String sVal);
 
+    String getCacheKey();
+
 }
