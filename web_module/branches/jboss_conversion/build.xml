@@ -1185,7 +1185,7 @@
                  <include name="ProblemRatingServices.jar"/>
                  <include name="RBoard.jar"/>
                  <include name="Reporting.jar"/>
-                 <include name="ResumeServicesBean.jar"/>
+                 <include name="ResumeServices.jar"/>
                  <include name="Search.jar"/>
                  <include name="Survey.jar"/>
                  <include name="User.jar"/>
