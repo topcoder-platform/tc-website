@@ -103,7 +103,7 @@
 			<tr>
 				<td>				
 					<p><br/><span class="bodySubtitle">Step 1 - Read the TopCoder Component Development Tutorial</span><br/>
-					Download the <a href="/i/development/downloads/TopCoder_Software_Component_Development_Tutorial.pdf" target="_blank">Component Development Tutorial</a>.
+					Download the <a href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devTutorial" target="_blank">Component Development Tutorial</a>.
 					This document is a tutorial for developers new to the TopCoder component development methodology and environment.</p>
 					
 					<p><span class="bodySubtitle">Step 2 - Install the necessary Software</span><br/>
