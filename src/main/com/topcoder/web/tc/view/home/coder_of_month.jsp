@@ -26,12 +26,12 @@
         <td rowspan="5" align="center" valign="middle"><img src="/i/m/szymcio_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
-        <td class="formHandleEven">SRM 224</td>
-        <td class="formHandleEven" align="right">2010</td>
+        <td class="formHandleOdd">SRM 224</td>
+        <td class="formHandleOdd" align="right">2010</td>
     </tr>
     <tr>
-        <td class="formHandleOdd">SRM 221</td>
-        <td class="formHandleOdd" align="right">1795</td>
+        <td class="formHandleEven">SRM 221</td>
+        <td class="formHandleEven" align="right">1795</td>
     </tr>
 </table>
 
