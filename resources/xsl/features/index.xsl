@@ -70,7 +70,7 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;November</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.20.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;leadhyena_inran</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_112002" CLASS="bodyGeneric">The eight seconds of death: Tips on preventing timeout</A></TD></TR>
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.13.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;RevenantChaos</TD><TD VALIGN="middle" CLASS="bodyText">King of the Silicon Hill: Today's High-End Microprocessors</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;11.13.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;RevenantChaos</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=features&amp;c=feat_111302" CLASS="bodyGeneric">King of the Silicon Hill: Today's High-End Microprocessors</A></TD></TR>
 				
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;October</TD></TR>
