@@ -44,7 +44,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-        <td class="bodyText" width="100%" valign="top">
+        <td class="bodyText" width="99%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelblue</xsl:with-param>
                 <xsl:with-param name="image">development</xsl:with-param>
@@ -73,8 +73,7 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
-                    <td height="30"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
-                    <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
+                    <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="30" border="0" /><br />
                         <p><strong>Your inquiry has been sent. Thank You!</strong></p>
         
                         <p><xsl:value-of select="/TC/DEVELOPMENT/Project"/>
