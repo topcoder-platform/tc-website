@@ -280,7 +280,7 @@ public class CoderBean extends BaseEJB {
 
             stmt.setLong(1, coderId);
 
-            rs = stmt.executeQuery(query.toString());
+            rs = stmt.executeQuery();
             if (rs.next()) {
                 memberSince = rs.getDate(1);
             } else {
@@ -325,7 +325,7 @@ public class CoderBean extends BaseEJB {
 
             stmt.setLong(1, coderId);
 
-            rs = stmt.executeQuery(query.toString());
+            rs = stmt.executeQuery();
             if (rs.next()) {
                 quote = rs.getString(1);
             } else {
@@ -370,7 +370,7 @@ public class CoderBean extends BaseEJB {
 
             stmt.setLong(1, coderId);
 
-            rs = stmt.executeQuery(query.toString());
+            rs = stmt.executeQuery();
             if (rs.next()) {
                 editorId = rs.getInt(1);
             } else {
@@ -416,7 +416,7 @@ public class CoderBean extends BaseEJB {
 
             stmt.setLong(1, coderId);
 
-            rs = stmt.executeQuery(query.toString());
+            rs = stmt.executeQuery();
             if (rs.next()) {
                 languageId= rs.getInt(1);
             } else {
@@ -461,7 +461,7 @@ public class CoderBean extends BaseEJB {
 
             stmt.setLong(1, coderId);
 
-            rs = stmt.executeQuery(query.toString());
+            rs = stmt.executeQuery();
             if (rs.next()) {
                 languageId= rs.getInt(1);
             } else {
@@ -506,7 +506,7 @@ public class CoderBean extends BaseEJB {
 
             stmt.setLong(1, coderId);
 
-            rs = stmt.executeQuery(query.toString());
+            rs = stmt.executeQuery();
             if (rs.next()) {
                 activationCode = rs.getString("activation_code");
             } else {
