@@ -12,7 +12,6 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=radeye_rd1">Round 1</a> 
             <% } %>
 
-<%--
             &nbsp;|&nbsp;
             
 <!-- round2 tab -->
@@ -22,6 +21,7 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=radeye_rd2">Round 2</a> 
             <% } %>
 
+<%--
             &nbsp;|&nbsp;
             
 <!-- round3 -->
