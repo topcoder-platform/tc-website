@@ -149,11 +149,11 @@
                            <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
                                Registration is closed.
                            <% } else { %>
+                               <% if (projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_INQUIRIES) { %>
                             <p>
                             **Important Note:
                             By registering to work on this project you are committing to delivering the specified requirements.  Failure to submit the project requirements by the specified date will result in a one month suspension from TopCoder design and development competitions.</p>
                            <p>
-                               <% if (projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_INQUIRIES) { %>
                                <strong><A href="/?t=development&amp;version=<rsc:item set="<%=projectDetail%>" name="version_id"/>&phase=<rsc:item set="<%=projectDetail%>" name="phase_id"/>&comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>&c=tcs_inquire&Project=<%=response.encodeURL(projectDetail.getStringItem(0, "component_name")+" Design")%>&date=<rsc:item set="<%=projectDetail%>" name="initial_submission_date" format="MM.dd.yyyy"/>">
                                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
                                <% } else {%>

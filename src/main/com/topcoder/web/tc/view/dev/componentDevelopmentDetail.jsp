@@ -90,8 +90,8 @@
 
 <%-- Payment --%>
                         <p><strong>Payment</strong><br />
-                        TopCoder will compensate members with first and second place submissions that have scored a
-                        minimum of 70. First place compensation will consist of both initial payments and royalties on
+                        TopCoder will compensate members with first and second place submissions that have scored at least
+                        70. First place compensation will consist of both initial payments and royalties on
                         the sale of the component. The initial payment will be distributed in two installments.
                         First Milestone: When the winning solution is submitted and review board suggestions are integrated.
                         Second Milestone: Is marked by the completion of the development project*.</p>
