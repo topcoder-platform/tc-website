@@ -57,7 +57,7 @@
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
                         <div align="center">
                         <p><span class="bodyTitle">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</span><br />
-                        <span class="bodySubTitle"><em>ThomsonLeading Global Internet Company Added to Distinguished Sponsorship Group for World's Most Challenging Programming Tournament</em></span></p>
+                        <span class="bodySubTitle"><em>Leading Global Internet Company Added to Distinguished Sponsorship Group for World's Most Challenging Programming Tournament</em></span></p>
                         </div>
                         
                         <p><strong>GLASTONBURY, Conn., September 2, 2004&#151;</strong>
