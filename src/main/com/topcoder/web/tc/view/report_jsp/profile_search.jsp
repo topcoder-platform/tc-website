@@ -109,6 +109,17 @@
             document.search[a].options[0] = null;
         }
     }
+    function submitEnter(e) {
+      var keycode;
+      if (window.event) keycode = window.event.keyCode;
+      else if (e) keycode = e.which;
+      else return true;
+      if (keycode == 13) {
+        submitForm();
+        return false;
+      } else return true;
+    }
+
     -->
 </script>
   </head>
@@ -125,14 +136,14 @@
   <a href="JavaScript:submitForm()">Submit</a>
 </td></tr><tr><td valign="top" class="lefttop">
     <table class="search">
-      <tr><td class="left">Show count only:</td><td class="right"> <tc-webtag:chkBox name="count"/></td></tr>
-      <tr><td class="left">Handle: </td><td class="right"><tc-webtag:textInput name="handle" size="15"/></td></tr>
-      <tr><td class="left">E-Mail: </td><td class="right"><tc-webtag:textInput name="email" size="15"/></td></tr>
-      <tr><td class="left">First Name: </td><td class="right"><tc-webtag:textInput name="firstname" size="15"/></td></tr>
-      <tr><td class="left">Last Name: </td><td class="right"><tc-webtag:textInput name="lastname" size="15"/></td></tr>
-      <tr><td class="left">Zipcode: </td><td class="right"><tc-webtag:textInput name="zipcode" size="5"/></td></tr>
-      <tr><td class="left">City: </td><td class="right"><tc-webtag:textInput name="city" size="15"/></td></tr>
-      <tr><td class="left">Company: </td><td class="right"><tc-webtag:textInput name="company" size="15"/></td></tr>
+      <tr><td class="left">Show count only:</td><td class="right"> <tc-webtag:chkBox onKeyPress="submitEnter(event)" name="count"/></td></tr>
+      <tr><td class="left">Handle: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="handle" size="15"/></td></tr>
+      <tr><td class="left">E-Mail: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="email" size="15"/></td></tr>
+      <tr><td class="left">First Name: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="firstname" size="15"/></td></tr>
+      <tr><td class="left">Last Name: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="lastname" size="15"/></td></tr>
+      <tr><td class="left">Zipcode: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="zipcode" size="5"/></td></tr>
+      <tr><td class="left">City: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="city" size="15"/></td></tr>
+      <tr><td class="left">Company: </td><td class="right"><tc-webtag:textInput onKeyPress="submitEnter(event)" name="company" size="15"/></td></tr>
       <tr><td class="left">State:<br/><a href="JavaScript:deselect('states')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="state_code" fieldText="state_name" name="states" multiple="true" size="5" useTopValue="false" list="<%=states%>" selected='<%=(Set)selectedMap.get("states")%>'/></td></tr>
       <tr><td class="left">Country:<br/><a href="JavaScript:deselect('country')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="country_code" fieldText="country_name" name="country" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("country")%>'/></td></tr>
       <tr><td class="left">Country of origin:<br/><a href="JavaScript:deselect('countryoforigin')">Deselect</a> </td><td class="right"><tc-webtag:multiRSCSelect class="multiSel1" fieldValue="country_code" fieldText="country_name" name="countryoforigin" multiple="true" size="5" useTopValue="false" list="<%=country%>" selected='<%=(Set)selectedMap.get("countryoforigin")%>'/></td></tr>
@@ -145,10 +156,10 @@
           <br/>
         </rsc:iterator>
       </td></tr>
-      <tr><td class="left">Max days since last rating:</td><td class="right"> <tc-webtag:textInput name="maxdayssincerating" size="5"/></td></tr>
-      <tr><td class="left">Min events:</td><td class="right"> <tc-webtag:textInput name="minevents" size="5"/></td></tr>
-      <tr><td class="left">Days since registration:</td><td class="right"> <tc-webtag:textInput name="mindays" size="5"/> to <tc-webtag:textInput name="maxdays" size="5"/></td></tr>
-      <tr><td class="left">Algorithm Rating range:</td><td class="right"> <tc-webtag:textInput name="minrating" size="5"/> to <tc-webtag:textInput name="maxrating" size="5"/></td></tr>
+      <tr><td class="left">Max days since last rating:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdayssincerating" size="5"/></td></tr>
+      <tr><td class="left">Min events:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minevents" size="5"/></td></tr>
+      <tr><td class="left">Days since registration:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="mindays" size="5"/> to <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxdays" size="5"/></td></tr>
+      <tr><td class="left">Algorithm Rating range:</td><td class="right"> <tc-webtag:textInput onKeyPress="submitEnter(event)" name="minrating" size="5"/> to <tc-webtag:textInput onKeyPress="submitEnter(event)" name="maxrating" size="5"/></td></tr>
       <tr><td class="left">Placement Indicator: </td><td class="right"><select name="placement">
       <option value="none"<%= "none".equals(request.getParameter("placement")) ? " selected" : "" %>>No preference</option>
       <option value="either"<%= "either".equals(request.getParameter("placement")) ? " selected" : "" %>>Either</option>
