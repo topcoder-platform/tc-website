@@ -54,7 +54,7 @@
             <table border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td class="bodyCopy">
-                    <h2>Registration Successful!</h2><br>
+                    <font size="+1">Registration Successful!</font><br>
 
 <p><font size="-1">
 <br/>
