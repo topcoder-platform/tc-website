@@ -75,26 +75,12 @@
             <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td><A name="tco_des"><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></A></td></tr>
-
-                <tr>
-                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="9">
-                        <p>Only the projects below are designated as TCCC projects.
-                        <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A>
-                        for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</p>
-                       Be the first submitter for ANY project and earn yourself the multiplier.  Click the "details" link for any project to see who inquired, who submitted, and who got the multiplier!
-                       <br/><br/>
-                    </td>
-                </tr>
-
-                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
-            </table>
-
-            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+            <p><h2 align="left">Projects for Design and/or Development currently available!</h2></p>
+            <p>Be the first submitter for ANY project and earn yourself the multiplier.  Click the "details" link for any project to see who inquired, who submitted, and who got the multiplier!</p>
+            <p cass="bodyText" align="right"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 Design project submitters!</p>
 
 <!-- TCCC Design Begins -->
+            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
                     <td colspan="9" class="tccc04SubNav"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
                 </tr>
@@ -178,7 +164,6 @@
            </table>
 <!-- TCCC Design Ends -->
 
-            <p class="bodyText" align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 Design project submitters!</p>
             <br/>
 
 <!-- TCCC Development Begins -->
@@ -345,7 +330,7 @@
             </table>
 <!-- Open Component Design Projects ends -->
     
-            <br/><br/>
+            <br/>
 
 <!-- Open Component Development Projects begins -->
 
@@ -423,8 +408,8 @@
                 </xsl:for-each>
             </table>
 
-            <p><br/>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A>
-            we sell, the more royalties we pay out to our winners!</p>
+            <p><br/>*And that's before royalty payments. The more Component <A href="http://software.topcoder.com/components/subscriptions.jsp">Subscriptions</A> we sell, the more royalties we pay out to our winners!<br/>
+            **Only these projects are designated as TCCC projects. <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_comp_description">Click here</A> for the rules and more information about the 2004 TCCC Component Competition. At the <A href="#comp_des">bottom</A> of this page are regular component projects that do not qualify for the TCCC.</p>
 
             <p><br/></p>
 <!-- Open Component Development Projects ends -->
