@@ -162,12 +162,6 @@
         </init-param>
 
         <init-param>
-            <param-name>page-login</param-name>
-            <param-value>/corp/LoginPage.jsp</param-value>
-            <description>unauthorized anonymous users will go here</description>
-        </init-param>
-
-        <init-param>
             <param-name>page-error-security</param-name>
             <param-value>/corp/exc/SecurityError.jsp</param-value>
             <description>security exceptions (authentification, authorization) will fetch this page</description>
