@@ -86,52 +86,31 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        The current system was originally architected over ten years ago.
-                                                        The existing system is now outdated, slow and the user interface
-                                                        is hard to navigate.  Utilizing the latest Microsoft .NET technologies,
-                                                        a new faster, more extensible and user friendly application will be
-                                                        designed.  Not only will the new system be easier to navigate, but the
-                                                        maintenance of the system will be dramatically improved.  All business,
-                                                        data access and presentation logic will be properly separated into distinct
-                                                        tiers.  Separating each tier into a different layer will reduce maintenance
-                                                        costs and increase reusability.  Furthermore, the old application resides
-                                                        on a soon to be unsupported environment, NT4; the new environment will be
-                                                        hosted on Windows Server 2003.  This technology will increase the speed
-                                                        and scalability of the application.
-                                                        <br/>
-                                                        <br/>
-                                                        The new system will provide an electronic web based interface to remove all
-                                                        paperwork associated with processing orders.  Internal sales representatives
-                                                        will enter order information for external customers into the new system.
-                                                        Once these orders have been entered the orders will be sent to the factories.
-                                                        The factories will receive the order and transmit a record back to the system
-                                                        stating the order was received and an expected completion date.  Users of the
-                                                        system will be able to view all orders to determine an order's status and completion times.
-                                                        Communication between the system and the factories is not in scope for this application.
+                                                        The GeneChip Data Interface application gives users access to the data collected
+                                                        from years of research by the Salk Institute.  In addition, the application will
+                                                        provide information about the methods used to collect the gene data.  The target
+                                                        user for this application is a general neurobiologist.
                                                         <br/>
                                                         <br/>
                                                     </p>
-                                                    <p class="noSpListTitle">
-                                                        <strong>Objectives</strong>
-                                                    </p>
-                                                    <ul class="noSpList">
-                                                        <li>Provide an extensible platform designed to handle the functional requirements identified by the client.</li>
-                                                        <li>Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.</li>
-                                                        <li>Deliver an improved user experience and site navigation.</li>
-                                                    </ul>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/OrderFulfillment-Spec-1_0.pdf">Business Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/GeneChipDataInterfaceApplicationSpec.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Windows Server 2003</li>
-                                                        <li>SQL Server 2000</li>
-                                                        <li>Microsoft .NET Framework Version 1.1</li>
+                                                        <li>Development language: Java 1.3</li>
+                                                        <li>Compilation target: Java 1.4</li>
+                                                        <li>Web Server: Tomcat</li>
+                                                        <li>Platform: Windows 2003</li>
+                                                        <li>Database: Microsoft SQL Server 2000</li>
+                                                        <li>MVC</li>
+                                                        <li>J2SE</li>
+
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -272,39 +251,59 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.13.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.17.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.18.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.21.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.22.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.28.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.29.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.29.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Review Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.02.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.05.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.05.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.04.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.05.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.08.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.06.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.09.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.15.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">08.05.2004</td>
                                                         </tr>
                                                     </table>
 
