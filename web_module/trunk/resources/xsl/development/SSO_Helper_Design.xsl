@@ -98,7 +98,7 @@
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/SSO_Helper_Spec.pdf">Requirement Specification</a> for this application project.<br/>
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/SSO_Helper.pdf">Requirement Specification</a> for this application project.<br/>
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
