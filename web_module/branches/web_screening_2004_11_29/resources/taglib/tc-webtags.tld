@@ -281,7 +281,7 @@
     <tag>
         <name>useBean</name>
         <tagclass>com.topcoder.web.common.tag.UseBeanTag</tagclass>
-<!--        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>-->
+        <teiclass>com.topcoder.web.common.tag.UseBeanTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
             Tag to make a bean available for use

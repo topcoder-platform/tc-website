@@ -22,6 +22,7 @@ public class UseBeanTag extends BodyTagSupport {
         this.clazz = clazz;
     }
 
+
     public void setScope(String scope) {
         if (scope.equalsIgnoreCase("REQUEST")) {
             this.scope = PageContext.REQUEST_SCOPE;
