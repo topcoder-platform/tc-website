@@ -146,10 +146,10 @@
                   </P>    
 
                   <P>
-                  <B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %><BR>
+                  <B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIStatistic("avg_contest_points") %>
                   </P>    
 
-                  &nbsp;<BR>
+                  <P>
                   <B>Statistics by Problem Level:<br></B>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
@@ -262,8 +262,9 @@
                       </TD>
                     </TR>
                   </TABLE>
+                  </P>    
 
-                  &nbsp;<BR>
+                  <P>
                   <B>Statistics by Language:<br></B>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
@@ -346,6 +347,7 @@
                       </TD>
                     </TR>
                   </TABLE>
+                  </P>    
     <% } %>
 
     <% if (MemberProfileTask.hasDivisionII()) { %>
@@ -355,10 +357,10 @@
                   </P>    
 
                   <P>
-                  <B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %><BR>
+                  <B>Average Points per Contest:</B> <%= MemberProfileTask.getDivIIStatistic("avg_contest_points") %>
                   </P>    
 
-                  &nbsp;<BR>
+                  <P>
                   <B>Statistics by Problem Level:<br></B>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
@@ -471,8 +473,9 @@
                       </TD>
                     </TR>
                   </TABLE>
+                  </P>    
 
-                  &nbsp;<BR>
+                  <P>
                   <B>Statistics by Language:<br></B>
                   <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                     <TR>
@@ -555,6 +558,7 @@
                       </TD>
                     </TR>
                   </TABLE>
+                  </P>    
     <% } %>
 
 <% } else { %>
