@@ -563,14 +563,14 @@ Wednesday, October 23, 2002<BR/><BR/>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>	  
 <P>
-The problem set for this round was a little easy for this Round of Tournament and one would expect to have a little more 
-difficult set of problems at this stage. <B>ZorbaTHut</B> was a round leader with impressive 1472.93 points and 91 rating 
-points gain. Problem one was just a typing skill contest and would not get you into the next round alone. Problem 
-two and three were more difficult but not difficult enough for this stage. The cut off for this round was 588 
-point and only people who have completed at least two problems fairly quickly would advance to the next round. 
-After this round we still have 26 yellow coders who are still in the contest but most of them will be illuminated 
-in the next round or they would become red. 7 red coders and all green and blue coders were illuminated during this 
-round (or became yellow)...
+The problem set for this round was a little easy for the third round of the tournament and one would 
+expect to have a more difficult set of problems at this stage. <B>ZorbaTHut</B> was the round leader with an 
+impressive 1472.93 points and a 91 rating point gain. Problem one was just a typing skill contest and 
+would not get you into the next round alone. Problem two and three were more difficult, but not difficult 
+enough for this stage. The cut off for this round was 588 points and only people who completed at least two 
+problems fairly quickly advanced to the next round. After the third round we still have 26 yellow coders who 
+are still in the tournament but most of them will be eliminated in the next round or they should become red. 
+7 red coders and all green and blue coders were eliminated during the third round (or they became yellow)...
 <A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r3_prob</xsl:attribute>get&#160;analysis</A>
 </P>
     </TD>
