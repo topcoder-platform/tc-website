@@ -1,0 +1,1 @@
+nohup java -cp "/home/coder/resources/ifxjdbc.jar:/home/coder/resources/jdbc7.0-1.2.jar:/home/coder/resources/xerces.jar:/home/coder/classes" com.topcoder.utilities.dwload.TCLoadUtility -xmlfile /home/coder/resources/stat/dwload/loadcoders.xml >> /home/coder/resources/stat/dwload/coder_load.log 2>&1 &

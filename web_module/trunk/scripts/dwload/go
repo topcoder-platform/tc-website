@@ -1,3 +1,0 @@
-#!/bin/ksh
-
-java -cp "./classes:./lib/jars/xerces.jar:./lib/jars/ifxjdbc.jar" com.topcoder.utilities.dwload.TCLoadUtility -xmlfile loadreqtrack.xml
