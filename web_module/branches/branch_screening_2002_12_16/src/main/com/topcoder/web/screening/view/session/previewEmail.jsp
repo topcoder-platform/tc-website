@@ -41,7 +41,7 @@
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><PRE>
-<jsp:getProperty name="emailInfo" "msgText" />
+<jsp:getProperty name="emailInfo" property="msgText" />
 </PRE></TD>
            </TR>
          </TABLE>             
