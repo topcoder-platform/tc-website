@@ -314,7 +314,9 @@ public class InputBean extends BaseEJB {
             query.append(     " , i.input_code");
             query.append(     " , i.input_desc");
             query.append(     " , i.data_type_id");
+            query.append(     " , LOWER(input_code)");
             query.append(  " FROM input_lu i");
+            query.append( " ORDER BY 5 ASC");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
