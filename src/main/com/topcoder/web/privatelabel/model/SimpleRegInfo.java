@@ -25,6 +25,7 @@ public class SimpleRegInfo extends Base {
     private String province;
     private String city;
     private String zip;
+    private String phonenumber;
 
     private long companyId;
     private long eventId;
@@ -51,6 +52,7 @@ public class SimpleRegInfo extends Base {
         zip = "";
         companyId = 0;
         eventId = 0;
+        phonenumber = "";
     }
 
     public SimpleRegInfo(SimpleRegInfo info) {
@@ -75,14 +77,24 @@ public class SimpleRegInfo extends Base {
         setZip(info.getZip());
         setCompanyId(info.getCompanyId());
         setEventId(info.getEventId());
+        setPhoneNumber(info.getPhoneNumber());
     }
 
+    public String getPhoneNumber()
+    {
+        return phonenumber;
+    }
+    
     public long getUserId() {
         return userId;
     }
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+    
+    public void setPhoneNumber(String number) {
+        this.phonenumber = number;
     }
 
     public String getHandle() {

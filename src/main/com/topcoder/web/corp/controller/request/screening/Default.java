@@ -4,8 +4,8 @@ import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 
-public class Default extends BaseProcessor {
-    protected void businessProcessing() throws TCWebException {
+public class Default extends BaseScreeningProcessor {
+    protected void screeningProcessing() throws TCWebException {
         setNextPage(Constants.DEFAULT_PAGE);
         setIsNextPageInContext(true);
     }

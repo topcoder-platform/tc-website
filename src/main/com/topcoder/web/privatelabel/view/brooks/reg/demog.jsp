@@ -1,4 +1,11 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:usebean id="questionList" class="java.util.List" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -19,27 +26,64 @@
 		<td>
 			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
 				<tr> 
-					<td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+<%--
+                    <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
+--%>
 					<td width="100%" valign="top">
-					    <p class="brBody"><span class="brBodyTitle">Registration</span><br/><br/>
-						Registration explanation goes here.
-						</p>
-						<form>
+						<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm" enctype="multipart/form-data">
+                                                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.BROOKS_REG_CONFIRM%>"/>
+                                                    <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
+                                                    <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
-                        <tr>
-                            <td class="brErrorText" colspan="2"></td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Question</td>
-                            <td class="brRegTableAnswer">Answer</td>
+                            <tr>
+                                <td class="brBodyTitle" align=left>Application Information
+                                </td>
+                                <td class="brBodyTitle" align=right nowrap=nowrap>
+                                </td>
+                           </tr>
+                        <pl:questionIterator id="question" list="<%=questionList%>">
+                            <tr>
+                                <td class="brErrorText" colspan="2">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="brRegTableQuestion">
+                                <%if(question.isRequired()) {%><span class="brErrorText">*</span><%}%>
+                                    <%=question.getText()%>
+                                <%if(question.getId() == Constants.QUESTION_AREAS_OF_INTEREST) { %> (Choose up to 3) <br>
+                                To select multiple items hold down the <br>Control key and click on each item.<% } %>
+                                </td>
+                                <td class="brRegTableAnswer">
+                                    <pl:demographicInput question="<%=question%>"/>
+                                </td>
+                           </tr>
+                        </pl:questionIterator>
+                            <tr>
+                                <td class="brErrorText" colspan="2">
+                                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE%>"><%=err%><br/></tc-webtag:errorIterator>
+                                </td>
+                            </tr>
+                           <tr>
+                                <td class="brRegTableQuestion"> 
+                                    Resume
+                                </td>
+                                <td class="brRegTableAnswer">
+                                    <input type=file name="Resume">
+                                </td>
+                           </tr>
+                           <tr>
+                            <td class="brRegTableQuestion">
+                                <span class="brErrorText">* Required</span> 
+                            </td>
+                            <td class="brRegTableAnswer">
+                                &nbsp;
+                            </td>
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer" nowrap=nowrap>
-                            <br/><a class="brRegTableAnswer" href="/pl/?&module=Static&d1=brooks&d2=reg&d3=confirm">Submit</a>
-                            <br/><br/>
-
-                            <span class="brErrorText"><b>OPTIONAL:</b></span> If you would like to upload a resume, click <a class="brRegTableAnswer" href="/">here</a></p>
+                            <br/><a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
                             </td>
                         </tr>
                         </table>

@@ -23,7 +23,7 @@ import java.util.Map;
 public class ProfileDetail extends BaseProfileProcessor {
     private static Logger log = Logger.getLogger(ProfileDetail.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         ProfileInfo info = buildProfileInfo(getRequest());
 
         try {

@@ -12,12 +12,12 @@ import com.topcoder.web.common.TCWebException;
  * Processing for the Problem Result page.
  * @author Porgery
  */
-public class ProblemResult extends BaseProcessor {
+public class ProblemResult extends BaseScreeningProcessor {
 
     /** Implements the processing step.
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         try {
             SubmissionInfo sinfo = new SubmissionInfo(getUser(),
                     Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)),

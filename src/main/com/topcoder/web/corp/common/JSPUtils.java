@@ -164,5 +164,26 @@ public class JSPUtils {
         return sortedMapList;
     }
 
+    /**
+     * Formats a <code>long</code> time as an elapsed time in hours, minutes and seconds. The parameter must contain a
+     * numeric value which is taken to be an elapsed time expressed in milliseconds.
+     *
+     * @param  time a <code>String</code> containing an elapsed time in milliseconds.
+     * @return a <code>String</code> representing the time value expressed as hours, minutes and seconds.
+     * @since  Screening Tool 1.1
+     */
+    public static String timeFormat(String time) {
+        if (time == null) {
+            return "N/A";
+        }
+
+        double millisec = 0.0D;
+        millisec = Double.parseDouble(String.valueOf(time));
+        int sec = (int) (millisec / 1000);
+        int hour = sec / 3600;
+        int min = (sec - hour * 3600) / 60;
+        sec %= 60;
+        return hour + ":" + min + ":" + sec;
+    }
 
 }

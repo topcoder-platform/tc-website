@@ -17,12 +17,12 @@ import java.util.Map;
  * Processor for Problem List page.
  * @author Porgery
  */
-public class ProblemList extends BaseProcessor {
+public class ProblemList extends BaseScreeningProcessor {
 
     /** Implements the processing step.
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         User user = getUser();
 
         Request dr = new Request();
@@ -49,10 +49,20 @@ public class ProblemList extends BaseProcessor {
                     while (item < result.size() &&
                             round.equals(result.getItem(item, "session_round_id").toString())) {
                         String problem = result.getItem(item, "problem_id").toString();
-                        subList.add(
-                                ProblemInfo.createProblemInfo(user,
-                                        Long.parseLong(round),
-                                        Long.parseLong(problem)));
+                        if(super.getUsageType() == Constants.USAGE_TYPE_SCREENING)
+                        {
+                            subList.add(
+                                    ProblemInfo.createProblemInfo(user,
+                                            Long.parseLong(round),
+                                            Long.parseLong(problem), true));
+                        }   
+                        else
+                        {
+                            subList.add(
+                                    ProblemInfo.createProblemInfo(user,
+                                            Long.parseLong(round),
+                                            Long.parseLong(problem)));
+                        }
                         item++;
                     }
                     list.add(subList);

@@ -9,7 +9,7 @@ import com.topcoder.web.common.TCWebException;
 import javax.servlet.ServletRequest;
 
 public class PreviewEmail extends BaseSessionProcessor {
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         EmailInfo info = null;
         try {
             TestSessionInfo sInfo = getSessionInfo();

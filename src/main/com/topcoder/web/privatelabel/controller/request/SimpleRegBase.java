@@ -40,6 +40,7 @@ public abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.PROVINCE, info.getProvince());
         setDefault(Constants.CITY, info.getCity());
         setDefault(Constants.ZIP, info.getZip());
+        setDefault(Constants.PHONE_NUMBER, info.getPhoneNumber());
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
@@ -87,6 +88,8 @@ public abstract class SimpleRegBase extends RegistrationBase {
             info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
         if (hasRequestParameter(Constants.EVENT_ID))
             info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
+        if (hasRequestParameter(Constants.PHONE_NUMBER))
+            info.setPhoneNumber(StringUtils.checkNull(getRequestParameter(Constants.PHONE_NUMBER)));
 
         return info;
     }

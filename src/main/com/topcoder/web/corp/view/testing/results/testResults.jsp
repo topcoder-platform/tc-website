@@ -85,7 +85,6 @@ function getProblemDetail(id) {
                     </td>
 	        </tr>
 	    </table>
-        <p></p>
    <% if(testResultsInfo.isSessionComplete()) { %>
 
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
@@ -97,7 +96,6 @@ function getProblemDetail(id) {
 	        </tr>
             </table>
 
-        <p></p>
         <% boolean even = false; %>
         <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">

@@ -7,7 +7,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.security.ClassResource;
 
 public class ConfirmProfile extends PopulateProfileSetup {
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }

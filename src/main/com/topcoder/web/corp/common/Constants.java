@@ -7,6 +7,7 @@ import java.lang.reflect.Field;
 
 public class Constants
 {
+
     //don't instantiate this class
     private Constants() { }
 
@@ -20,6 +21,20 @@ public class Constants
     //URL Parameter constants
     public static String USER_ID;
     public static String CANDIDATE_ID;
+    
+    public static int STUDENT;
+    public static int PROFESSIONAL;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of parameter
+     * of incoming HTTP requests containing the preference level of some user relevant to some company.</p>
+     *
+     * <p>The controller servlet configuration file must have a "preference_level" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String PREFERENCE_LEVEL;
+
     public static String EMAIL_ADDRESS;
     public static String MESSAGE_PARAMETER;
     public static String FIRST_ATTEMPT;
@@ -49,6 +64,13 @@ public class Constants
     public static String NOTE_TEXT;
     public static String ROUND_PROBLEM_ID;
     public static String SESSION_ID;
+    public static String SEARCH_PAGE;
+    public static String SEARCH_RESULTS_PAGE;
+    
+    public static String DEMOGRAPHICS_PAGE;
+    
+    public static String FIRST_NAME;
+    public static String LAST_NAME;
 
     //Candidate constants
     public static String CANDIDATE_INFO;
@@ -62,6 +84,313 @@ public class Constants
     public static String CREATE_CANDIDATE_PROCESSOR;
     public static String POPULATE_CANDIDATE_PROCESSOR;
     public static String CHECK_COMPANY_USER_QUERY_KEY;
+    
+    public static int SEARCH_SCROLL_SIZE;
+
+    /**
+     * <p>A <code>String</code> name of the processor to be used to add the new note to candidate's profile.</p>
+     *
+     * <p>The controller servlet configuration file must have a "note_create_processor" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String NOTE_CREATE_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the content of
+     * candidate's profile.</p>
+     *
+     * <p>The controller servlet configuration file must have a "candidate_profile_info" parameter specified.
+     * </p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CANDIDATE_PROFILE_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the query within <code>Query Tool</code> to be executed to get the content of
+     * candidate's address.</p>
+     *
+     * <p>The controller servlet configuration file must have a "candidate_address_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CANDIDATE_ADDRESS_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the content of
+     * candidate's demographic info.</p>
+     *
+     * <p>The controller servlet configuration file must have a "candidate_demographic_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CANDIDATE_DEMOGRAPHIC_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the content of
+     * candidate's personal info.</p>
+     *
+     * <p>The controller servlet configuration file must have a "candidate_personal_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CANDIDATE_PERSONAL_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the content of
+     * candidate's notes.</p>
+     *
+     * <p>The controller servlet configuration file must have a "candidate_notes" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CANDIDATE_NOTES;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * problem solutions performed by the candidate.</p>
+     *
+     * <p>The controller servlet configuration file must have a "candidate_problems_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CANDIDATE_PROBLEMS_INFO;
+    
+    public static String CANDIDATE_PREFERENCE_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * problem solutions performed by the candidate.</p>
+     *
+     * <p>The controller servlet configuration file must have a "company_campaigns_list" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String COMPANY_CAMPAIGNS_LIST;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * company the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "company_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String COMPANY_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * job position the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the results for
+     * job position the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_results_list" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_RESULTS_LIST;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the results for
+     * job position the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_results_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_RESULTS_PAGE;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
+     * providing the users with details of profile for requested candidate.</p>
+     *
+     * <p>The controller servlet configuration file must have a "candidate_profile_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CANDIDATE_PROFILE_PAGE;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
+     * providing the users with details of profile for requested candidate.</p>
+     *
+     * <p>The controller servlet configuration file must have a "company_campaigns_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String COMPANY_CAMPAIGNS_PAGE;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
+     * providing the users with the list of positions associated with requested campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_list_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_POSITIONS_PAGE;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * parameter of incoming request containing the ID of requested campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_id" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_ID;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * specified campaign for the company the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * positions assigned to specified campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_positions_list" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_POSITIONS_LIST;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * parameter of incoming request containing the ID of requested position associated with campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "job_position_id" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String JOB_POSITION_ID;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
+     * providing the users with the user results relevant to requested position associated with campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "job_position_results_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String JOB_POSITION_RESULTS_PAGE;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the results for
+     * candidates assigned to specified campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_results_list" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_RESULTS_LIST;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
+     * providing the users with the candidate results corresponding to requested campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_results_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_RESULTS_PAGE;
+
+    // New processors introduced with Screening Tool 1.1
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * processor to be used to update the preference level for candidates.</p>
+     *
+     * <p>The controller servlet configuration file must have a "update_preference_processor" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String UPDATE_PREFERENCE_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * processor to be used to provide the users with resuls for specified campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_results_processor" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_RESULTS_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * processor to be used to provide the users with resuls for specified position.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_results_processor" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_RESULTS_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * processor to be used to provide the users with the list of campaigns associated with specified company.</p>
+     *
+     * <p>The controller servlet configuration file must have a "campaign_list_processor" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String CAMPAIGN_LIST_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * processor to be used to provide the users with the list of positions associated with specified campaign.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_list_processor" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_LIST_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * parameter of incoming request containing the name of a column to sort the data list against.</p>
+     *
+     * <p>The controller servlet configuration file must have a "sort_by" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String SORT_BY;
+
+    /**
+     * <p>An <code>int</code> representing the number of a records to be displayed at <code>Campaign Resutlts</code> and
+     * <code>Position Results</code> JSPs at one time.
+     *
+     * <p>The controller servlet configuration file must have a "page_size" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static int PAGE_SIZE = 20;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * parameter of incoming request containing the index of a starting element in the list of campaign/position results
+     * to render the results from.</p>
+     *
+     * <p>The controller servlet configuration file must have a "page_start_index" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String PAGE_START_INDEX;
 
     //Profile constants
     public static String PROFILE_INFO;
@@ -142,8 +471,24 @@ public class Constants
     public static String TX_DATA_SOURCE;
     public static String DW_DATA_SOURCE;
     public static String CONTACT_INFO_QUERY_KEY;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a query
+     * existing within <code>Query Tool</code> to be used to get the <code>Screening Tool</code> application usage type
+     * set for the company the user wishing to view the candidates info is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "company_usage_type_query_key" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String COMPANY_USAGE_TYPE_QUERY_KEY;
+
     public static String ERRORS;
     public static String DEBUG;
+    
+    public static String USAGE_TYPE;
+    public static int USAGE_TYPE_TESTING;
+    public static int USAGE_TYPE_SCREENING;
 
     public static String DATE_TIME_FORMAT;
 

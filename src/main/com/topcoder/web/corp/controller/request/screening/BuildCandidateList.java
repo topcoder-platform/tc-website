@@ -13,7 +13,7 @@ import com.topcoder.web.common.TCWebException;
 import javax.servlet.ServletRequest;
 import java.util.Map;
 
-public class BuildCandidateList extends BaseProcessor {
+public class BuildCandidateList extends BaseScreeningProcessor {
     private Request dataRequest;
 
     public BuildCandidateList() {
@@ -23,7 +23,7 @@ public class BuildCandidateList extends BaseProcessor {
 
     }
 
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
 
         User user = getUser();
 

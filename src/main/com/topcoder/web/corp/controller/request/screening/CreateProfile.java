@@ -19,7 +19,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class CreateProfile extends BaseSessionProcessor {
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }

@@ -20,7 +20,7 @@ import javax.servlet.ServletRequest;
 import javax.rmi.PortableRemoteObject;
 import java.util.*;
 
-public abstract class BaseProfileProcessor extends BaseProcessor {
+public abstract class BaseProfileProcessor extends BaseScreeningProcessor {
     private static final int TEST_SET_B_PROBLEM_TYPE = 4;
 
     protected ProfileInfo buildProfileInfo(TCRequest request) {

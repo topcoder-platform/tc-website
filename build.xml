@@ -586,6 +586,19 @@
         </jar>
     </target>
 
+    <!-- Since Screening Tool 1.1 -->
+    <target name="package-EJB-PreferenceLevelBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="PreferenceLevel"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/preferencelevel"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/PreferenceLevel.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/corp/common/NoSuchPreferenceLevelException.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/corp/common/DuplicatePreferenceLevelException.class"/>
+        </jar>
+    </target>
+
     <target name="deploy">
         <antcall target="deploy-tc"/>
         <antcall target="deploy-admin"/>
@@ -761,6 +774,8 @@
         <antcall target="package-EJB-NoteBean"/>
         <antcall target="package-EJB-SessionBean"/>
         <antcall target="package-EJB-SessionProfileBean"/>
+        <!-- Since Screening Tool 1.1 -->
+        <antcall target="package-EJB-PreferenceLevelBean"/>
     </target>
 
     <target name="build-ejb-unit" depends="compile">
@@ -1007,6 +1022,8 @@
         <antcall target="package-EJB-SurveyBean"/>
         <antcall target="package-EJB-RBoard"/>
         <antcall target="package-EJB-UserEvent"/>
+        <!-- Since Screening Tool 1.1 -->
+        <antcall target="package-EJB-PreferenceLevelBean"/>
         <antcall target="war-tc"/>
     </target>
 

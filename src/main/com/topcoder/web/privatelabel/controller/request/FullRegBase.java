@@ -8,6 +8,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.*;
+import com.topcoder.web.common.StringUtils;
 
 import java.util.*;
 
@@ -50,8 +51,22 @@ public abstract class FullRegBase extends SimpleRegBase {
         List responses = ((FullRegInfo) info).getResponses();
         DemographicResponse response = null;
         DemographicQuestion question = null;
+        
+        HashMap multiAnswerMap = new HashMap();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             response = (DemographicResponse) it.next();
+            if(questions == null)
+            {
+                log.info("GETTING QUESTIONS");
+                try
+                {
+                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType());
+                }
+                catch(Exception e)
+                {
+                    log.error("COULD NOT GET QUESTIONS");
+                }
+            }
             question = findQuestion(response.getQuestionId(), questions);
             if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                 setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
@@ -59,9 +74,22 @@ public abstract class FullRegBase extends SimpleRegBase {
                 setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), response.getText());
             } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 //todo handle multiple select
+                ArrayList al = new ArrayList();
+                if(multiAnswerMap.containsKey(new Long(response.getQuestionId())))
+                {
+                    al = (ArrayList)multiAnswerMap.get(new Long(response.getQuestionId()));
+                }
+                al.add(String.valueOf(response.getAnswerId()));
+                multiAnswerMap.put(new Long(response.getQuestionId()), al);
+                //setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
             } else {
                 //todo something is wrong, we don't recognize that kind of question
             }
+        }
+        for(Iterator it = multiAnswerMap.keySet().iterator(); it.hasNext();) {
+            String s = String.valueOf(((Long)it.next()).longValue());
+            log.info("ADDING MULTIANSWER " + s);
+            setDefault(Constants.DEMOG_PREFIX + s, multiAnswerMap.get(new Long(s)));
         }
 
     }
@@ -86,6 +114,9 @@ public abstract class FullRegBase extends SimpleRegBase {
         if (!(ret instanceof FullRegInfo)) {
             ret = new FullRegInfo(ret);
         }
+        
+        if (hasRequestParameter(Constants.CODER_TYPE))
+            ((FullRegInfo)ret).setCoderType(Integer.parseInt(StringUtils.checkNull(getRequestParameter(Constants.CODER_TYPE))));
         return ret;
     }
 

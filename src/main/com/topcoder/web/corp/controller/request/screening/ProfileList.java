@@ -16,12 +16,12 @@ import java.util.Map;
  * Processing for the Profile List page.
  * @author Porgery
  */
-public class ProfileList extends BaseProcessor {
+public class ProfileList extends BaseScreeningProcessor {
 
     /** Implements the processing step.
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         try {
             DataAccessInt dAccess = Util.getDataAccess();
 

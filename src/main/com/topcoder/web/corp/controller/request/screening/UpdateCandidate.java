@@ -44,7 +44,7 @@ import java.util.Map;
  * @author Grimicus
  * @version 1.0
  */
-public class UpdateCandidate extends BaseProcessor {
+public class UpdateCandidate extends BaseScreeningProcessor {
     /** String with the total list of character able to be used in a password */
     private final int createCoderStatusId;
     private final int maxPasswordSize;
@@ -61,7 +61,7 @@ public class UpdateCandidate extends BaseProcessor {
      *
      * @throws com.topcoder.web.common.TCWebException Thrown if there is input error.
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         synchronized (UpdateCandidate.class) {
             if (getAuthentication().getUser().isAnonymous()) {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));

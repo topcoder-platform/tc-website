@@ -30,7 +30,7 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 public class UpdateSession extends BaseSessionProcessor {
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         synchronized (UpdateSession.class) {
             if (getAuthentication().getUser().isAnonymous()) {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));

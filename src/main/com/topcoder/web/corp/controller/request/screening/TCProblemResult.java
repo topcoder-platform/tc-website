@@ -16,12 +16,12 @@ import java.util.Map;
  * Processing for the TopCoder Problem Result page.
  * @author Porgery
  */
-public class TCProblemResult extends BaseProcessor {
+public class TCProblemResult extends BaseScreeningProcessor {
 
     /** Implements the processing step.
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         try {
             DataAccessInt dAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
 

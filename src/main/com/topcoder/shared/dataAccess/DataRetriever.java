@@ -575,7 +575,7 @@ public class DataRetriever implements DataRetrieverInt {
             }
         } catch (Exception e) {
             handleException(e, queryText, inputs);
-            throw new Exception("Error while retrieving query data");
+            throw new Exception("Error while retrieving query data:" + queryText);
         }
 
         // Done!

@@ -31,46 +31,18 @@
 			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
 				<tr> 
 					<td width="46"><img src="/i/clear.gif" height="1" width="46"></td> 
-					<td valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=brooks_reg"><img src="/i/events/brooks/registernow.gif" alt="Register Now" width="146" height="19" border="0"></a>
+					<td valign="top"><a href="/pl/?module=BrooksReg&cid=4999"><img src="/i/events/brooks/registernow.gif" alt="Register Now" width="146" height="19" border="0"></a>
 					</td> 
 					<td width="29"><img src="/i/clear.gif" height="1" width="29"></td> 
-					<td width="231" valign="top">
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
-						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
-						<img src="/i/clear.gif" alt="" width="231" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
-						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
-						<img src="/i/clear.gif" alt="" width="1" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
-						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-	
-					<td width="29"><img src="/i/clear.gif" height="1" width="29"></td> 
-					<td width="231" valign="top">
-					
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
-						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
-						<img src="/i/clear.gif" alt="" width="231" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
-						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
-						
-						<img src="/i/clear.gif" alt="" width="1" height="8" border="0"><br>
-						
-						<font class="content">Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Suspendisse commodo tincidunt eros. 
-						Nunc mi ante, feugiat a, auctor at, iaculis non, diam. Sed lacinia massa non metus. Nullam venenatis sem et nunc. 
-						Ut pulvinar dolor varius nisl. Curabitur sit amet lectus.</font><br>
+					<td width="100%" valign="top">
+						<font class="content">
+						Thank you for your interest in working for Brooks Automation Private Limited in Chennai, India.
+                        <br/><br/>
+                        For a company of our size and stature, Brooks offers a refreshingly casual and dynamic work environment that inspires employees to achieve their personal best.  We recognize individual ideas and initiative, encourage creative collaboration, and reward employees with competitive salaries and benefits and tremendous growth opportunities. We seek to create a diverse workplace where our employees' range of experiences and perspectives contributes to new levels of innovation.
+                        <br/><br/>
+                        Please take the time to apply now and demonstrate your skills through the innovative Technical Assessment Tool, powered by TopCoder.
+                        </font><br>
 					</td> 
-					<td width="100%">&nbsp;</td> 
 				</tr>
 			</table>
 		</td>

@@ -58,9 +58,9 @@ public abstract class FullRegConfirm extends FullRegBase {
      */
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         log.debug("called checkRegInfo");
-        if (!(((FullRegInfo) info).getCoderType() == Constants.STUDENT || ((FullRegInfo) info).getCoderType() == Constants.PROFESSIONAL)) {
+        /*if (!(((FullRegInfo) info).getCoderType() == Constants.STUDENT || ((FullRegInfo) info).getCoderType() == Constants.PROFESSIONAL)) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
-        }
+        }*/
 
         //check demographic answers
         DemographicResponse r = null;
@@ -128,6 +128,7 @@ public abstract class FullRegConfirm extends FullRegBase {
             String key = null;
             List questionList = getQuestionList(info.getCoderType());
             //loop through all the questions
+            info.clearResponses();
             for (Iterator it = questionList.iterator(); it.hasNext();) {
                 q = (DemographicQuestion) it.next();
                 key = Constants.DEMOG_PREFIX + q.getId();

@@ -118,6 +118,64 @@ public class SessionBean extends BaseEJB {
     /**
      *
      * @param sessionId
+     * @param jobId
+     */
+    public void setJobId(long sessionId, long jobId) {
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+        varBuf.append(" jobId: ");
+        varBuf.append(jobId);
+
+        debugBuf.append("setJobId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        // begin
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append("UPDATE session SET job_id = ? WHERE ");
+            query.append("session_id = ?");
+
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            ps = conn.prepareStatement(query.toString());
+
+            ps.setLong(1, jobId);
+            ps.setLong(2, sessionId);
+
+            ps.executeUpdate();
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in setSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
+        } catch (Exception e) {
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in setSessionProfileId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+    
+    /**
+     *
+     * @param sessionId
      * @param sessionProfileId
      */
     public void setSessionProfileId(long sessionId, long sessionProfileId) {
@@ -571,6 +629,67 @@ public class SessionBean extends BaseEJB {
         }
 
         return sessionProfileId;
+    }
+    
+    /**
+     *
+     * @param sessionId
+     * @return long of Job Id
+     */
+    public long getJobId(long sessionId) {
+        // constructing debugging information
+        StringBuffer debugBuf = new StringBuffer(500);
+        StringBuffer varBuf = new StringBuffer(500);
+
+        varBuf.append("sessionId: ");
+        varBuf.append(sessionId);
+
+        debugBuf.append("getJobId called. ");
+        debugBuf.append(varBuf.toString());
+
+        log.debug(debugBuf.toString());
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        long jobId = -1;
+
+        try {
+            StringBuffer query = new StringBuffer();
+            query.append("SELECT job_id FROM session WHERE ");
+            query.append("session_id = ?");
+
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, sessionId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                jobId = rs.getLong(1);
+            }
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("SQLException in getJobId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
+        } catch (Exception e) {
+            StringBuffer exceptionBuf = new StringBuffer(500);
+            exceptionBuf.append("Exception in getJobId. ");
+            exceptionBuf.append(varBuf.toString());
+            throw new EJBException(exceptionBuf.toString());
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+        return jobId;
     }
 
     /**

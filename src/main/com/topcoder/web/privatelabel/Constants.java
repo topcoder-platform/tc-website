@@ -56,6 +56,14 @@ public class Constants {
     public static String DC_REG_STUDENT_SUCCESS_PAGE;
     public static String DC_REG_PRO_SUCCESS_PAGE;
     public static String DC_ACTIVATION_PAGE;
+    
+    public static String BROOKS_REG_PAGE;
+    public static String BROOKS_REG_DEMOG_PAGE;
+    public static String BROOKS_REG_CONFIRM_PAGE;
+    public static String BROOKS_REG_SUCCESS_PAGE;
+    public static String BROOKS_ACTIVATION_PAGE;
+    
+    public static int QUESTION_AREAS_OF_INTEREST;
 
     //main reg parameters
     public static String HANDLE;
@@ -74,10 +82,14 @@ public class Constants {
     public static String PROVINCE;
     public static String CITY;
     public static String ZIP;
+    public static String PHONE_NUMBER;
 
     //secondary reg parameters
     public static String CODER_TYPE;
     public static String DEMOG_PREFIX;
+    
+    //resume parameters
+    public static String RESUME;
 
     //other parameters
     public static String MODULE_KEY;
@@ -118,6 +130,13 @@ public class Constants {
     public static String DC_REG_CONFIRM;
     public static String DC_REG_SUBMIT;
     public static String DC_ACTIVATION;
+    public static String BROOKS_REG_MAIN;
+    public static String BROOKS_REG_DEMOG;
+    public static String BROOKS_REG_CONFIRM;
+    public static String BROOKS_REG_SUBMIT;
+    public static String BROOKS_ACTIVATION;
+    
+    public static String BROOKS_REFERRAL_QUESTION_ID;
 
     //various constants
     public static int STUDENT;
@@ -131,6 +150,7 @@ public class Constants {
     public static int NON_TECHNICAL_ANSWER;
     public static int MAX_VERIZON_REGISTRATIONS;
 
+    public static String VALID_PASS_CHAR_LIST;
 
     private Constants() {
     }
