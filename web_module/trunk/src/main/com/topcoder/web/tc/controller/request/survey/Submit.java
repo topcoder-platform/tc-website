@@ -38,6 +38,7 @@ public class Submit extends View {
                         if (l != null)
                             responses.addAll(l);
                     }
+                    checkRequiredQuestions(responses);
                 }
                 boolean hasAllFreeForm = true;
                 if (!hasErrors()) {
@@ -63,7 +64,7 @@ public class Submit extends View {
                     setDefaults(responses);
                     setNextPage(Constants.SURVEY_VIEW);
                     setIsNextPageInContext(true);
-                } else if (hasAllFreeForm&&!responses.isEmpty()) {
+                } else if (hasAllFreeForm && !responses.isEmpty()) {
                     setNextPage(Constants.SURVEY_THANKS);
                     setIsNextPageInContext(true);
                 } else {
@@ -85,6 +86,12 @@ public class Submit extends View {
         }
     }
 
+    /**
+     * Go through the request and pull out the users answers
+     *
+     * @param paramName
+     * @return a list of the user's responses
+     */
     private List validateAnswer(String paramName) {
 
         Question question = null;
@@ -99,6 +106,9 @@ public class Submit extends View {
             long answerId = -1;
             for (int i = 0; i < values.length; i++) {
                 log.debug("param: " + paramName + " value: " + values[i]);
+                /* single choice will be in the format <prefix><question_id>
+                 * multiple choice will be in the format <prefix><question_id>,<answer_id>
+                 */
                 StringTokenizer st = new StringTokenizer(paramName.substring(AnswerInput.PREFIX.length()), ",");
                 if (st.hasMoreTokens()) {
                     questionId = Long.parseLong(st.nextToken());
@@ -168,6 +178,28 @@ public class Submit extends View {
         }
         return ret;
     }
+
+    private void checkRequiredQuestions(List responses) {
+        Question q = null;
+        for (Iterator it = questionInfo.iterator(); it.hasNext();) {
+            q = (Question) it.next();
+            if (q.isRequired() && !containsQuestion(responses, q)) {
+                addError(AnswerInput.PREFIX + q.getId(), "Please respond to this question.");
+            }
+
+        }
+    }
+
+    private boolean containsQuestion(List responses, Question question) {
+        SurveyResponse r = null;
+        boolean found = false;
+        for (Iterator it = responses.iterator(); it.hasNext() && !found;) {
+            r = (SurveyResponse) it.next();
+            found = (r.getQuestionId() == question.getId());
+        }
+        return found;
+    }
+
 
     private Question findQuestion(long questionId) {
         Question q = null;
