@@ -62,6 +62,7 @@ public class PositionResults extends BaseScreeningProcessor {
         }
 
         log.info("Got the request to get the results for position : " + positionId + ", user : " + userId);
+        request.setAttribute(Constants.JOB_POSITION_ID, positionId);
 
         // Construct a request for position details
         Request dr = new Request();
