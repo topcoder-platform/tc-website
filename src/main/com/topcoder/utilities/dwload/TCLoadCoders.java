@@ -1369,6 +1369,9 @@ public class TCLoadCoders extends TCLoad {
             query.append(" ,cs.school_name ");
             query.append(" ,cs.school_id ");
             query.append(" ,cs.degree_number ");
+            query.append(" ,cs.gpa");
+            query.append(" ,cs.gpa_scale");
+            query.append(" ,cs.viewable");
             query.append(" FROM current_school cs ");
             query.append(" WHERE cs.modify_date > ?");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
@@ -1379,13 +1382,16 @@ public class TCLoadCoders extends TCLoad {
             query.append(" (coder_id ");
             query.append(" ,school_name ");
             query.append(" ,school_id ");
-            query.append(" ,degree_number) ");
+            query.append(" ,degree_number ");
+            query.append(" ,gpa ");
+            query.append(" ,gpa_scale ");
+            query.append(" ,viewable) ");
             query.append("VALUES (");
-            query.append("?,?,?,?)");
+            query.append("?,?,?,?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append(" UPDATE current_school SET school_name = ?, school_id = ?, degree_number = ? WHERE coder_id = ?");
+            query.append(" UPDATE current_school SET school_name = ?, school_id = ?, degree_number = ?, gpa=?, gpa_scale=?,viewable=? WHERE coder_id = ?");
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             rs = executeQuery(psSel, "loadCurrentSchool");
@@ -1398,13 +1404,19 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setString(2, rs.getString("school_name"));
                     psIns.setString(3, rs.getString("school_id"));
                     psIns.setString(4, rs.getString("degree_number"));
+                    psIns.setFloat(5, rs.getFloat("gpa"));
+                    psIns.setFloat(6, rs.getFloat("gpa_scale"));
+                    psIns.setInt(7, rs.getInt("viewable"));
                     retVal = psIns.executeUpdate();
                 } catch (Exception e) {
                     // the insert failed, so try an update
                     psUpd.setString(1, rs.getString("school_name"));
                     psUpd.setString(2, rs.getString("school_id"));
                     psUpd.setString(3, rs.getString("degree_number"));
-                    psUpd.setInt(4, coder_id);
+                    psUpd.setInt(4, rs.getInt("gpa"));
+                    psUpd.setFloat(5, rs.getFloat("gpa_scale"));
+                    psUpd.setFloat(6, rs.getFloat("viewable"));
+                    psUpd.setInt(7, coder_id);
                     retVal = psUpd.executeUpdate();
                 }
 
