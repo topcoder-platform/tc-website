@@ -90,6 +90,14 @@
                                 </p>
                             </li>
                             <li>
+                                <p><strong>To be completed by everyone:</strong></p>
+
+                                <p>
+                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Monday, March 17th:
+                                    View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2003 TopCoder Collegiate Challenge Questionnaire</a>.  Complete ALL questions.
+                                </p>
+                            </li>
+                            <li>
                                 <p><strong>To be completed by those that will personally receive a cash prize:</strong></p>
                                 <p><strong>TAX FORM</strong> - must be postmarked on or before March 17, 2003:</p>
                                 <xsl:choose>
@@ -109,14 +117,6 @@
                                         We already have your tax form on file.  You do NOT need to complete and return another form.
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </li>
-                            <li>
-                                <p><strong>To be completed by everyone:</strong></p>
-
-                                <p>
-                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Monday, March 17th:
-                                    View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2003 TopCoder Collegiate Challenge Questionnaire</a>.  Complete ALL questions.
-                                </p>
                             </li>
                             <li>
                                 <p><strong>To be completed by those that will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
