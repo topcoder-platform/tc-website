@@ -61,7 +61,8 @@ else
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
                                 <td class="usdcTitle" colspan=5 align=left>
-                                <A href="/tc?module=TCO04ContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></A> - 
+                                <%String module = rscContest.getIntItem(0, "contest_type_id") == 6 ? "TCO04ContestDetails" : "TCO04ContestDetailsOverall";%>
+                                <A href="/tc?module=<%=module%>&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></A> - 
                                 <A href="/stat?c=member_profile&cr=<rsc:item name="coder_id" row="<%=rscUser.getRow(0)%>" />" class=usdcTitle><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /></A>
                                 </td>
                             </tr>
