@@ -243,7 +243,7 @@ public class ProfileInfo extends BaseModel {
 
     public boolean isSelectedTestSetA(String aRoundId)
     {
-        if(aRoundId == null) return false;
+        if(aRoundId == null || testSetA == null) return false;
         return testSetA.equals(new Long(aRoundId));
     }
 
