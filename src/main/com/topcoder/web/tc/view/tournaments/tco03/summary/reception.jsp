@@ -6,91 +6,6 @@
 
 <jsp:include page="../../../script.jsp" />
 
-<style type="text/css" media="screen">
-	.leadPhoto
-	{
-		float: right;
-		position: relative;
-		top: 0px;
-		width: 200px;
-		margin-left: 10px;
-		margin-top: 0px;
-		margin-right: 2px;
-		margin-bottom: 4px;
-	}
-	
-	.leadPhotoCaption
-	{
-		font-size: 10px;
-		font-weight: bold;
-		color: #333333;
-	}
-	
-	.pointsName, .pointsScore
-	{
-		font-size: 12px;
-		font-weight: normal;
-		color: #333333;
-		background-color: #EEEEEE;
-		text-align: left;
-		padding: 8px;
-		margin: 1px;
-		width: 100px;
-		white-space: nowrap;
-	}
-	
-	.pointsScore
-	{
-		text-align: right;
-		width: 30px;
-	}
-	
-	.pointsTable
-	{
-		background-color: #FFFFFF;
-		border-style: solid;
-		border-color: #CCCCCC;
-		border-width: 1px;
-	}
-	
-	.terciary
-	{
-		color: #666666;
-		font-size: 12px;
-		font-weight: bold;
-		font-style: normal;
-		text-align: right;
-	}
-	
-	.terciary A:link
-	{
-		color: #00F;
-		font-weight: normal;
-		text-decoration: underline;
-	}
-	
-	.terciary A:visited
-	{
-		color: #006;
-		font-weight: normal;
-		text-decoration: underline;
-	}
-	
-	.terciary A:hover
-	{
-		color: #F00;
-		font-weight: normal;
-		text-decoration: none;
-	}
-	
-	.terciary A:active
-	{
-		color: #F00;
-		font-weight: normal;
-		text-decoration: none;
-	}
-</style>
-
 </head>
 
 <body onLoad="timer(1);">
@@ -143,7 +58,7 @@
             <h2>Opening Night Reception</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
-            Wednesday, December 4, 2003</p>
+            Wednesday, December 3, 2003</p>
 
             <p>In a final round that saw 11 out of a possible 12 submissions, it was <strong>dgarthur</strong> who posted the highest 
             score and walked away $50,000 richer as the Champion.</p>
