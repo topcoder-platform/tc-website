@@ -9,6 +9,7 @@
             </table>
 
             <table width="100%" border="0" cellspacing="0" cellpadding="4">   
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_19_03">TopCoder Hosts Software Component Design and Development Contest</A> [August 19]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_13_03">TopCoder Hosts Charity Tournament</A> [August 13]</td></tr>  
 
@@ -20,9 +21,6 @@
                                               
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_17_03">Sweden Added to TopCoder Developer Community</A> [June 17]</td></tr>  
                 
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_16_03">2003 TopCoder Open Announced</A> [June 16]</td></tr>   
-
-                          
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
   </xsl:template>
