@@ -10,10 +10,13 @@ public interface User extends EJBObject {
             throws EJBException, RemoteException;
 
 
-    public void setFirstName(long userId, String _first_name)
+    public void setFirstName(long userId, String firstName)
             throws EJBException, RemoteException;
 
-    public void setLastName(long userId, String _last_name)
+    public void setMiddletName(long userId, String middleName)
+            throws EJBException, RemoteException;
+
+    public void setLastName(long userId, String lastName)
             throws EJBException, RemoteException;
 
     public void setStatus(long userId, char status)
