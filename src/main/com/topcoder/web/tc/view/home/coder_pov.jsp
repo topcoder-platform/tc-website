@@ -21,15 +21,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_3">TCO - Online Round 3 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, October 28, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm173_prob">SRM 173 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, November 26, 2003</p>
 
 <p> 
-The best-of-the-best battled for the 50 round 4 slots.  Unlike previous rounds, slow-yet-cautious coding 
-practices prevailed, with many submissions falling to challenges and systests.  Most quickly submitted the 
-easy problem, but had troubles with the medium.  Valiant coders who submitted the medium had even greater 
-woes ahead.
-                       <a class="bodyText" href="/?t=statistics&amp;c=tco03_online_rd_3"><strong>full&#160;story</strong></a>
+SRM 173 had no big surprises, with many of the usual names in the top. <b>SnapDragon</b> proved
+fastest on the first two problems and <b>WishingBone</b> on the last, but still the winner was
+<b>ZorbaTHut</b> despite no challenges. Notably for a problem set that I write was that
+5 people managed to solve the hard problem!
+
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm173_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
