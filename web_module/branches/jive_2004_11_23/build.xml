@@ -18,6 +18,7 @@
     <property name="taglib" value="${resources}/taglib"/>
     <property name="images" value="images"/>
     <property name="Jive.jar" value="${bin}/Jive.jar"/>
+    <property name="TCJive.jar" value="${bin}/TCJive.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
     <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
