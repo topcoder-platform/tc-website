@@ -1,6 +1,5 @@
 <%@ page 
   language="java"
-  errorPage="/errorPage.jsp"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 %>
 
@@ -16,7 +15,7 @@ Request srb = (Request) request.getAttribute("REQUEST_BEAN");
    <TITLE>TopCoder Statistics - All-Time Wins</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="/script.jsp" />
+   <jsp:include page="../script.jsp" />
 <SCRIPT language="JavaScript">
 <!--
 function goTo(selection){
@@ -30,7 +29,7 @@ function goTo(selection){
 </HEAD>
 </HEAD>
 <BODY>
-  <jsp:include page="/top.jsp" />
+  <jsp:include page="../top.jsp" />
 
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
@@ -137,7 +136,7 @@ function goTo(selection){
         </TD>
         <TD WIDTH="10"><IMG src="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
         <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
-            <jsp:include page="/public_right.jsp" />
+            <jsp:include page="../public_right.jsp" />
         </TD>
 <!-- Gutter -->
         <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -145,7 +144,7 @@ function goTo(selection){
 
      </TR>
 </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="../foot.jsp" />
 </body>
 </html>
 

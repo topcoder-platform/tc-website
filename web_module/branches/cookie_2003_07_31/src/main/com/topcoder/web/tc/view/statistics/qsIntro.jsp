@@ -1,4 +1,4 @@
-<%@ page language="java" errorPage="/errorPage.jsp" %>
+<%@ page language="java" %>
                   <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                     <TR>
                       <TD ROWSPAN="2" CLASS="statText" VALIGN="top" WIDTH="100%">

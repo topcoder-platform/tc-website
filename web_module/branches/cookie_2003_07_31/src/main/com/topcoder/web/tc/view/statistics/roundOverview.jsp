@@ -1,6 +1,5 @@
 <%@ page
   language="java"
-  errorPage="/errorPage.jsp"
   import="com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.text.DecimalFormat"
 
@@ -14,10 +13,10 @@
    <jsp:include page="baseHRef.jsp" />
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-   <jsp:include page="/script.jsp" />
+   <jsp:include page="../script.jsp" />
  </HEAD>
  <BODY>
-   <jsp:include page="/top.jsp" />
+   <jsp:include page="../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
@@ -290,7 +289,7 @@ function goTo(selection){
     </TR>
 </TABLE>
 
-   <jsp:include page="/foot.jsp" />
+   <jsp:include page="../foot.jsp" />
  </BODY>
 </HTML>
 

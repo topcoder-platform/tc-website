@@ -1,6 +1,5 @@
 <%@ page 
   language="java"
-  errorPage="/errorPage.jsp"
   import="java.net.URLEncoder,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
 
 %>
@@ -87,7 +86,7 @@ if (srb.getProperty("sq")!=null){
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
 <jsp:include page="baseHRef.jsp" />   
-   <jsp:include page="/script.jsp" />
+   <jsp:include page="../script.jsp" />
 <script language="JavaScript">
 <!--
 function goTo(selection){
@@ -100,7 +99,7 @@ function goTo(selection){
 </script>   
  </HEAD>
  <BODY>
-   <jsp:include page="/top.jsp" />
+   <jsp:include page="../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
        <TD WIDTH="180" VALIGN="top">
@@ -354,14 +353,14 @@ pageContext.setAttribute("resultSetDates", rsc);
 <% } %>
 
 
-         <jsp:include page="/public_right.jsp" />
+         <jsp:include page="../public_right.jsp" />
        </TD>
     <!-- Gutter -->
     <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->       
      </TR>
    </TABLE>
-   <jsp:include page="/foot.jsp" /> 
+   <jsp:include page="../foot.jsp" />
  </BODY>
 </HTML>
 

@@ -1,4 +1,4 @@
-<%@ page language="java" errorPage="/errorPage.jsp" %>
+<%@ page language="java" %>
 
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
