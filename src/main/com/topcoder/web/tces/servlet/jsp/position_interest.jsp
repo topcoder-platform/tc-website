@@ -107,53 +107,55 @@
                     <b>Language</b></A>
                   </TD>
                 </TR>
-                
-                <tces:rowIterator id="hit" rowList="<%=PositionInterestTask.getHitList()%>">                
-                
+
+                <% int i=0; %>
+                <tces:rowIterator id="hit" rowList="<%=PositionInterestTask.getHitList()%>">
+                <% i++; %>
+
                 <TR>
-                  <TD class="bodyText" HEIGHT="18">&#160;
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">&#160;
                   <A HREF="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=hit.getItem("coder_id").toString()%>" class="bodyText">
                     <%= hit.getItem("handle").toString() %>
                   </A>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("rating").toString() %>
                   </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("state_code").toString() %>
                   </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("country_code").toString() %>
                   </TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("coder_type_desc").toString() %>
                   </TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("school_name").toString() %>
                   </TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("gpa").toString() %>
                   </TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("grad_year").toString() %>
                   </TD>                  
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%= hit.getItem("hit_date").toString() %>
                   </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%=hit.getItem("has_resume").toString().equals("1")?"Yes":"No"%>  
                   </TD>
-                  <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="bodyText">
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                  <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                     <%=hit.getItem("language_name").toString()%>
                   </TD>
                 </TR>
