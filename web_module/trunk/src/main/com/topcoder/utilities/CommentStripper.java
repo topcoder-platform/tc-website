@@ -10,7 +10,9 @@ public class CommentStripper {
     {
         idx = 0;
         ptr = 0;
-        return code((" "+input+" ").toCharArray());
+        String ret = code((" "+input+" ").toCharArray());
+//        System.out.println(ret.length());
+        return ret;
     }
     private String code(char[] chars)
     {
@@ -51,6 +53,8 @@ public class CommentStripper {
             }
             else if(chars[idx] == ' ' || chars[idx] == '\t' || chars[idx] == '\n' || chars[idx] == '\r')
             {
+                if(chars[idx]=='\r')
+                    chars[idx] = '\n';
                 ret[ptr++] = chars[idx++];
                 while(idx<chars.length && (chars[idx] == ' ' || chars[idx] == '\t' || chars[idx] == '\n' || chars[idx] == '\r'))idx++;
             }
