@@ -3,8 +3,11 @@ package com.topcoder.web.hs.controller;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
+import com.topcoder.shared.security.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.hs.common.*;
+import com.topcoder.web.common.security.*;
+import com.topcoder.web.hs.controller.requests.*;
 
 /**
  * All requests to the HS website pass through this servlet.
@@ -70,30 +73,27 @@ public final class Controller extends HttpServlet {
                 cmd = "com.topcoder.web.hs.controller.requests."+cmd;
 
                 rp = (RequestProcessor)Class.forName(cmd).newInstance();
-                rp.setRequest(request);
-                rp.setResponse(response);
-                rp.process();
+                callProcess(rp, request, response);
 
-            } catch(com.topcoder.shared.security.PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
+            } catch(PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
 
                 /* forward to the login page, with a message and a way back */
+
                 request.setAttribute("message", e.getMessage());
                 request.setAttribute("nextpage", canonpath + qtail);
-                rp = new com.topcoder.web.hs.controller.requests.Login();
-                rp.setRequest(request);
-                rp.setResponse(response);
-                rp.process();
+
+                rp = new Login();
+                callProcess(rp, request, response);
 
             } catch(Exception e) {
-
                 e.printStackTrace();
 
                 /* try to forward to the error page */
+
                 request.setAttribute("exception", e);
-                rp = new com.topcoder.web.hs.controller.requests.Error();
-                rp.setRequest(request);
-                rp.setResponse(response);
-                rp.process();
+
+                rp = new Login();
+                callProcess(rp, request, response);
             }
 
             if(rp.isNextPageInContext()) {
@@ -105,6 +105,7 @@ public final class Controller extends HttpServlet {
         /* things are extremely broken, make one last attempt to get an error message to the logs and browser */
         } catch(Exception e) {
             e.printStackTrace();
+
             response.setStatus(500);
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");
@@ -112,5 +113,15 @@ public final class Controller extends HttpServlet {
             e.printStackTrace(out);
             out.println("</pre></body></html>");
         }
+    }
+
+    /** invoke the given RequestProcessor */
+    private void callProcess(RequestProcessor rp, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        Persistor persistor = new SessionPersistor(request.getSession());
+        WebAuthentication auth = new BasicAuthentication(persistor, request, response);
+
+        rp.setRequest(request);
+        rp.setAuthentication(auth);
+        rp.process();
     }
 }

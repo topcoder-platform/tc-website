@@ -4,8 +4,8 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
+import com.topcoder.web.common.*;
 import com.topcoder.web.hs.model.*;
-import com.topcoder.web.common.RequestProcessor;
 
 /**
  * Contains some of the basic methods and data for request processors.
@@ -16,14 +16,13 @@ public abstract class Base implements RequestProcessor {
 
     /* set by the creator */
     protected ServletRequest request;
-    protected ServletResponse response;
+    protected WebAuthentication auth;
 
     /* attached to the request */
     protected SessionInfoBean info;
     protected NavZoneBean nav;
 
     /* used internally */
-    protected WebAuthentication auth;
     protected User user;
     protected Authorization hsa;
 
@@ -34,12 +33,12 @@ public abstract class Base implements RequestProcessor {
     public Base() {
     }
 
-    public void setRequest(ServletRequest sr) {
-        request = sr;
+    public void setRequest(ServletRequest request) {
+        this.request = request;
     }
 
-    public void setResponse(ServletResponse sr) {
-        response = sr;
+    public void setAuthentication(WebAuthentication auth) {
+        this.auth = auth;
     }
 
     protected boolean isUserGuest() {
@@ -51,8 +50,6 @@ public abstract class Base implements RequestProcessor {
      * Override this to disable auth setup and adding default beans.
      */
     protected void baseProcessing() throws Exception {
-        Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
-        auth = new BasicAuthentication(persistor, request, response);
         user = auth.getUser();
 
         info = new SessionInfoBean();

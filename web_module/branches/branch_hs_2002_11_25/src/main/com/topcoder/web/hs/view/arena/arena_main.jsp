@@ -54,7 +54,7 @@ coding phase is active.</LI><BR><LI>System Test your solutions just as they woul
 Click the button below to launch the TopCoder High School Competition Arena. To enter the practice
 area once you log in, select "Practice Room" from the "Active Contests"
 menu. <BR><BR>
-Click the button below to launch the Arena.<BR><BR><a class="rednav" href="Javascript:openWin('/?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><IMG BORDER="0" HEIGHT="30" WIDTH="200" ALT="Download Arena Applet" SRC="/i/download_applet2.gif"></A></P><P><BR></P>
+Click the button below to launch the Arena.<BR><BR><a class="rednav" href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);"><IMG BORDER="0" HEIGHT="30" WIDTH="200" ALT="Download Arena Applet" SRC="/i/download_applet2.gif"></A></P><P><BR></P>
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">

@@ -1,21 +1,25 @@
 package com.topcoder.web.common;
 
 import javax.servlet.*;
+import com.topcoder.web.common.security.WebAuthentication;
 
 /**
  * Classes that implement RequestProcessor should contain the
  * business logic to process a request from a servlet controller.
  *
- * Call {@link #setRequest(javax.servlet.ServletRequest)} and {@link #setResponse(javax.servlet.ServletResponse)} first,
- * then {@link #process()} to process the request, and finally the accessor methods to see the result.
+ * Call {@link #setRequest(javax.servlet.ServletRequest)}
+ * and {@link #setAuthentication(com.topcoder.shared.security.WebAuthentication)}
+ * first, then {@link #process()} to process the request, and finally use
+ * the accessor methods to see the result.
  *
  * @author Ambrose Feinstein
  */
 public interface RequestProcessor {
 
     public void setRequest(ServletRequest sr);
-    public void setResponse(ServletResponse sr);
+    public void setAuthentication(WebAuthentication sr);
 
+    /** entry point from the controller */
     public void process() throws Exception;
 
     /**
@@ -24,5 +28,6 @@ public interface RequestProcessor {
      */
     public boolean isNextPageInContext();
 
+    /** where the controller should go next, to render this request */
     public String getNextPage();
 }

@@ -6,16 +6,15 @@ import com.topcoder.shared.util.*;
 
 /**
  * Houses a convenience method for getting EJB interfaces.
+ * Package scope is deliberate.
  *
  * @author Ambrose Feinstein
  */
-public class Constants {
+class Constants {
 
     /**
      * Get a remote instance of the specified EJB.
      * Assumes the home class will have the same name plus "Home".
-     *
-     * Package scope is deliberate.
      *
      * @param remoteclass The class of the interface which should be returned.
      */
