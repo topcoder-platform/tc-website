@@ -1,4 +1,5 @@
-package com.topcoder.web.tces.common;
+//package com.topcoder.web.tces.common;
+package com.topcoder.web.TCES.common;
 
 import java.util.*;
 import	java.io.Serializable;
@@ -21,14 +22,14 @@ public class Lookup implements Serializable {
     }
 
     public String getValue(int i) {
-        if (list.size() < i) {
+        if (list.size() > i) {
             return ((Pair)(list.get(i))).getValue();
         }
         return null;
     }
 
     public String getLabel(int i) {
-        if (list.size() < i) {
+        if (list.size() > i) {
             return ((Pair)(list.get(i))).getLabel();
         }
         return null;
@@ -62,7 +63,8 @@ public class Lookup implements Serializable {
             if (v != null && !v.equals("")) {
                 r.append("value=\"" + v + "\" ");
             }
-            r.append(selectedString + ">\n");
+            r.append(selectedString + ">");
+            r.append(l + "</option>\n");
         }
         r.append("</select>\n");
         return r.toString();
@@ -75,9 +77,9 @@ public class Lookup implements Serializable {
         private String value;
         private String label;
 
-        Pair(String value, String label) {
-            this.value = value;
-            this.label = label;
+        Pair(String v, String l) {
+            this.value = v;
+            this.label = l;
         }   
         Pair() {
             value = "";
@@ -95,5 +97,13 @@ public class Lookup implements Serializable {
         void setValue(String v) {
             value = v;
         }
+    }
+
+    public static void main(String[] arg) {
+        Lookup look = new Lookup();
+        look.addPair("1", "test1");
+        look.addPair("2", "test2");
+        System.out.println(look.getSelectBox("", "", "", ""));
+        System.out.println(look.getLabel(0) + look.getValue(0));
     }
 }
