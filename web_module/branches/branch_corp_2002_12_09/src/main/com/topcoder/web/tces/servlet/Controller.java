@@ -114,13 +114,13 @@ public class Controller extends HttpServlet {
 
 //          Authentication.attemptLogin("", "", ctx,request.getSession(true), request.getContextPath()+request.getServletPath()+"?"+request.getQueryString());
             
-            HttpSession currentSession = request.getSession(true);
+            //HttpSession currentSession = request.getSession(true);
             
             /* requestedURL is new way to store requested URL's instead of 
                using Authentication object, stored as a string.             */
-            currentSession.setAttribute("requestedURL", 
-                request.getContextPath() + request.getServletPath() + "?" +
-                request.getQueryString());
+            //currentSession.setAttribute("requestedURL", 
+            //    request.getContextPath() + request.getServletPath() + "?" +
+            //    request.getQueryString());
 
             forwardToLoginPage(request, response, authex);
             return;
@@ -134,9 +134,16 @@ public class Controller extends HttpServlet {
         }
     }
 
+//
+//    private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response,
+//                                    Throwable exception) throws ServletException, IOException {
+//        getServletContext().getRequestDispatcher(response.encodeURL(TCESConstants.AUTH_FAILED_PAGE)).forward(request, response);
+//    }
+
+
     private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception) throws ServletException, IOException {
-        getServletContext().getRequestDispatcher(response.encodeURL(TCESConstants.AUTH_FAILED_PAGE)).forward(request, response);
+        response.sendRedirect("/corp");
     }
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
