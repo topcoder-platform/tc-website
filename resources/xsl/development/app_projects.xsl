@@ -92,7 +92,7 @@
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     
-                    <!--
+
                     <td background="" class="statText">
                         <a class="statText" href="http://www.topcoder.com">Online Review
                     <!--
