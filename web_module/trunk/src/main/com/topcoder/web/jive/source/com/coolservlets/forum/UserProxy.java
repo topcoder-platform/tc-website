@@ -79,6 +79,12 @@ public class UserProxy implements User {
         this.authorization = authorization;
         this.permissions = permissions;
     }
+    /**
+     * Returns the user's rating.
+     */
+    public int getRating() {
+        return user.getRating();
+    }
 
     /**
      * Returns the user's id. All ids must be unique in the system.

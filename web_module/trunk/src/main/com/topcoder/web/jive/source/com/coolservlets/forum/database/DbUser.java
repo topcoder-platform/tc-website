@@ -87,9 +87,9 @@ import java.security.*;
 public class DbUser implements User {
 
     private static final String LOAD_USER_BY_USERNAME =
-        "SELECT * FROM user WHERE handle=?";
+        "SELECT u.user_id, u.handle, u.password, u.email, r.rating FROM user u, rating r WHERE u.user_id = r.coder_id and u.handle=?";
     private static final String LOAD_USER_BY_ID =
-        "SELECT * FROM user WHERE user_id=?";
+        "SELECT u.user_id, u.handle, u.password, u.email, r.rating FROM user u, rating r WHERE u.user_id = r.coder_id and u.user_id=?";
 
     private static final String INSERT_USER =
         "INSERT INTO jiveUser(userID,username,passwordHash,email,emailVisible," +
@@ -112,6 +112,7 @@ public class DbUser implements User {
     private String name = "";
     private boolean nameVisible = true;
     private String email;
+    private int rating;
     private boolean emailVisible = true;
     private Object propertyLock = new Object();
     private Object permLock = new Object();
@@ -148,6 +149,10 @@ public class DbUser implements User {
     protected DbUser(String username) throws UserNotFoundException {
         this.username = username;
         loadFromDb();
+    }
+
+    public int getRating() {
+        return rating;
     }
 
     public int getID() {
@@ -263,10 +268,11 @@ public class DbUser implements User {
                     "Failed to read user " + userID + " from database."
                 );
 */
-              this.userID = rs.getInt("user_ID");
+              this.userID = rs.getInt("user_id");
               this.username = rs.getString("handle");
               this.passwordHash = rs.getString("password");
               this.email = rs.getString("email");
+              this.rating = rs.getInt("rating");
             }
         }
         catch( SQLException sqle ) {
