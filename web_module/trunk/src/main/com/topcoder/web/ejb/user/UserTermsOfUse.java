@@ -6,10 +6,10 @@ import java.rmi.RemoteException;
 
 public interface UserTermsOfUse extends EJBObject {
 
-    public void createUserTermsOfUse(long _user_id, long _terms_of_use_id)
+    public void createUserTermsOfUse(long userId, long _terms_of_use_id)
             throws EJBException, RemoteException;
 
-    public void removeUserTermsOfUse(long _user_id, long _terms_of_use_id)
+    public void removeUserTermsOfUse(long userId, long _terms_of_use_id)
             throws EJBException, RemoteException;
 
     public boolean hasTermsOfUse(long userId, long termsOfUseId)

@@ -3,6 +3,7 @@ package com.topcoder.web.ejb.email;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -18,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class EmailBean implements SessionBean {
+    private static Logger log = Logger.getLogger(EmailBean.class);
 
     private final static String DATA_SOURCE = "java:comp/env/datasource_name";
     private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
@@ -50,7 +52,7 @@ public class EmailBean implements SessionBean {
         ctx = _ctx;
     }
 
-    public long createEmail(long _user_id) throws EJBException, RemoteException {
+    public long createEmail(long userId) throws EJBException, RemoteException {
 
         long email_id = 0;
 
@@ -77,7 +79,7 @@ public class EmailBean implements SessionBean {
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
             ps.setLong(1, email_id);
-            ps.setLong(2, _user_id);
+            ps.setLong(2, userId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -109,7 +111,7 @@ public class EmailBean implements SessionBean {
         return (email_id);
     }
 
-    public void setPrimaryEmailId(long _user_id, long _email_id)
+    public void setPrimaryEmailId(long userId, long _email_id)
             throws EJBException, RemoteException {
 
         Connection con = null;
@@ -127,7 +129,7 @@ public class EmailBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
 
             int rc = ps.executeUpdate();
             if (rc < 1) {
@@ -142,7 +144,7 @@ public class EmailBean implements SessionBean {
             query.append("WHERE user_id=? AND email_id=?");
 
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
             ps.setLong(2, _email_id);
 
             rc = ps.executeUpdate();
@@ -174,12 +176,13 @@ public class EmailBean implements SessionBean {
         }
     }
 
-    public long getPrimaryEmailId(long _user_id)
+    public long getPrimaryEmailId(long userId)
             throws EJBException, RemoteException {
         long email_id = 0;
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
 
@@ -191,16 +194,16 @@ public class EmailBean implements SessionBean {
             query.append("FROM email ");
             query.append("WHERE user_id=? AND primary=1");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 email_id = rs.getLong(1);
             } else {
                 throw(new EJBException("No rows found when selecting from 'email' " +
-                        "with user_id=" + _user_id + "."));
+                        "with user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true,_sqle);
@@ -209,18 +212,25 @@ public class EmailBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (rs != null) {
                 try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
                 }
             }
             if (ps != null) {
                 try {
                     ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
                 }
             }
         }
@@ -282,9 +292,9 @@ public class EmailBean implements SessionBean {
 
         long email_type_id = 0;
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
         try {
 
             String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
@@ -295,11 +305,11 @@ public class EmailBean implements SessionBean {
             query.append("FROM email ");
             query.append("WHERE email_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, _email_id);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 email_type_id = rs.getLong(1);
             } else {
@@ -313,18 +323,25 @@ public class EmailBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (rs != null) {
                 try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
                 }
             }
             if (ps != null) {
                 try {
                     ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
                 }
             }
         }
@@ -386,9 +403,9 @@ public class EmailBean implements SessionBean {
 
         String address = "";
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
         try {
 
             String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
@@ -399,11 +416,11 @@ public class EmailBean implements SessionBean {
             query.append("FROM email ");
             query.append("WHERE email_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, _email_id);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 address = rs.getString(1);
             } else {
@@ -417,18 +434,25 @@ public class EmailBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
+            if (rs != null) {
                 try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
                 }
             }
             if (ps != null) {
                 try {
                     ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
                 }
             }
         }

@@ -80,7 +80,7 @@ public class SessionBean extends BaseEJB {
             query.append("INSERT INTO session (session_id, " );
             query.append("session_profile_id, user_id, begin_time, end_time, ");
             query.append("send_rep_email, send_candidate_email, ");
-            query.append("create_user_id) ");
+            query.append("createuserId) ");
             query.append("VALUES(?,?,?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
@@ -541,7 +541,7 @@ public class SessionBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE session SET create_user_id = ? WHERE ");
+            query.append("UPDATE session SET createuserId = ? WHERE ");
             query.append("session_id = ?");
 
             ctx = new InitialContext();
@@ -1016,7 +1016,7 @@ public class SessionBean extends BaseEJB {
 
         try {
             StringBuffer query = new StringBuffer();
-            query.append("SELECT create_user_id FROM session ");
+            query.append("SELECT createuserId FROM session ");
             query.append("WHERE session_id = ?");
 
             ctx = new InitialContext();

@@ -53,11 +53,11 @@ public class UserSchoolBean implements SessionBean {
         ctx = _ctx;
     }
 
-    public void createUserSchool(long _user_id, long _school_id)
+    public void createUserSchool(long userId, long schoolId)
             throws EJBException, RemoteException {
 
-        log.debug("createUserSchool called. user_id=" + _user_id + " " +
-                "school_id=" + _school_id);
+        log.debug("createUserSchool called. user_id=" + userId + " " +
+                "school_id=" + schoolId);
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -74,8 +74,8 @@ public class UserSchoolBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
-            ps.setLong(2, _school_id);
+            ps.setLong(1, userId);
+            ps.setLong(2, schoolId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -109,11 +109,11 @@ public class UserSchoolBean implements SessionBean {
         }
     }
 
-    public void removeUserSchool(long _user_id, long _school_id)
+    public void removeUserSchool(long userId, long schoolId)
             throws EJBException, RemoteException {
 
-        log.debug("removeUserSchool called. user_id=" + _user_id + " " +
-                "school_id=" + _school_id);
+        log.debug("removeUserSchool called. user_id=" + userId + " " +
+                "school_id=" + schoolId);
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -130,8 +130,8 @@ public class UserSchoolBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
-            ps.setLong(2, _school_id);
+            ps.setLong(1, userId);
+            ps.setLong(2, schoolId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -165,11 +165,11 @@ public class UserSchoolBean implements SessionBean {
         }
     }
 
-    public void setCurrentUserSchoolId(long _user_id, long _school_id)
+    public void setCurrentUserSchoolId(long userId, long schoolId)
             throws EJBException, RemoteException {
 
-        log.debug("setCurrentUserSchoolId called. user_id=" + _user_id + " " +
-                "school_id=" + _school_id);
+        log.debug("setCurrentUserSchoolId called. user_id=" + userId + " " +
+                "school_id=" + schoolId);
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -186,7 +186,7 @@ public class UserSchoolBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
 
             int rc = ps.executeUpdate();
             if (rc < 1) {
@@ -201,8 +201,8 @@ public class UserSchoolBean implements SessionBean {
             query.append("WHERE user_id=? AND school_id=?");
 
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
-            ps.setLong(2, _school_id);
+            ps.setLong(1, userId);
+            ps.setLong(2, schoolId);
 
             rc = ps.executeUpdate();
             if (rc != 1) {
@@ -236,15 +236,16 @@ public class UserSchoolBean implements SessionBean {
         }
     }
 
-    public long getCurrentUserSchoolId(long _user_id)
+    public long getCurrentUserSchoolId(long userId)
             throws EJBException, RemoteException {
 
-        log.debug("getCurrentUserSchoolId called. user_id=" + _user_id);
+        log.debug("getCurrentUserSchoolId called. user_id=" + userId);
 
         long school_id = 0;
 
         Connection con = null;
         PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
 
@@ -258,14 +259,14 @@ public class UserSchoolBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 school_id = rs.getLong(1);
             } else {
                 throw(new EJBException("No rows found when selecting from " +
-                        "'user_school_xref' with user_id=" + _user_id +
+                        "'user_school_xref' with user_id=" + userId +
                         " AND current_ind=1."));
             }
         } catch (SQLException _sqle) {
@@ -275,6 +276,13 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
             if (ps != null) {
                 try {
                     ps.close();
@@ -295,17 +303,17 @@ public class UserSchoolBean implements SessionBean {
         return (school_id);
     }
 
-    public boolean isCurrentUserSchoolId(long _user_id, long _school_id)
+    public boolean isCurrentUserSchoolId(long userId, long schoolId)
             throws EJBException, RemoteException {
 
-        log.debug("isCurrentUserSchoolId called. user_id=" + _user_id + " " +
-                "school_id=" + _school_id);
+        log.debug("isCurrentUserSchoolId called. user_id=" + userId + " " +
+                "school_id=" + schoolId);
 
         boolean current = false;
 
         Connection con = null;
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
         try {
 
             String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
@@ -318,16 +326,16 @@ public class UserSchoolBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
-            ps.setLong(2, _school_id);
+            ps.setLong(1, userId);
+            ps.setLong(2, schoolId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 current = rs.getBoolean(1);
             } else {
                 throw(new EJBException("No rows found when selecting from " +
-                        "'user_school_xref' with user_id=" + _user_id +
-                        " AND school_id=" + _school_id + "."));
+                        "'user_school_xref' with user_id=" + userId +
+                        " AND school_id=" + schoolId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true,_sqle);
@@ -356,17 +364,17 @@ public class UserSchoolBean implements SessionBean {
         return (current);
     }
 
-    public boolean exists(long _user_id, long _school_id)
+    public boolean exists(long userId, long schoolId)
             throws EJBException, RemoteException {
 
-        log.debug("exists called. user_id=" + _user_id + " " +
-                "school_id=" + _school_id);
+        log.debug("exists called. user_id=" + userId + " " +
+                "school_id=" + schoolId);
 
         boolean exists = true;
 
         Connection con = null;
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
         try {
 
             String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
@@ -379,10 +387,10 @@ public class UserSchoolBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
-            ps.setLong(2, _school_id);
+            ps.setLong(1, userId);
+            ps.setLong(2, schoolId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (!rs.next()) {
                 exists = false;
             }
@@ -393,6 +401,13 @@ public class UserSchoolBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
             if (ps != null) {
                 try {
                     ps.close();

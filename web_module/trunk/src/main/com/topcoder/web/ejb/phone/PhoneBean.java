@@ -151,7 +151,6 @@ public class PhoneBean implements SessionBean {
     /**
      *
      *
-     * @param userId user ID of the entry
      * @param phoneId phone ID of the entry
      *
      * @return a long with the entry's phone type ID
@@ -231,7 +230,6 @@ public class PhoneBean implements SessionBean {
     /**
      *
      *
-     * @param userId user ID of the entry
      * @param phoneId phone ID of the entry
      *
      * @return a long with the entry's phone number
@@ -311,7 +309,6 @@ public class PhoneBean implements SessionBean {
     /**
      *
      *
-     * @param userId user ID of entry to set
      * @param phoneId phone ID of entry to set
      * @param phoneTypeId the phone type ID to set to
      */
@@ -381,9 +378,8 @@ public class PhoneBean implements SessionBean {
     /**
      *
      *
-     * @param userId user ID of entry to set
      * @param phoneId phone ID of entry to set
-     * @param phoneTypeId the phone number to set to
+     * @param number
      */
     public void setNumber(long phoneId, String number) {
         log.debug("setNumber called...phoneId: " +
