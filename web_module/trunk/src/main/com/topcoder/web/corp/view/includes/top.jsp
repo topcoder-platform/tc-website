@@ -4,7 +4,8 @@
                  com.topcoder.shared.security.User,
                  com.topcoder.web.common.security.SessionPersistor,
                  com.topcoder.web.common.security.BasicAuthentication,
-                 com.topcoder.web.corp.model.SessionInfo"
+                 com.topcoder.web.corp.model.SessionInfo,
+                 com.topcoder.shared.util.ApplicationServer"
          autoFlush="false" %>
 <jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
 
@@ -68,12 +69,12 @@
  -->
 
 <!-- Member sites -->
-        <td class="topNav" nowrap><a href="http://www.topcoder.com" class="topLink">Competition</a></td>
-        <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=development&c=index" class="topLink">Development</a></td>
-        <td class="topNav" nowrap><a href="http://www.topcoder.com/?t=tces&c=index" class="topLink">Job Listing</a></td>
+        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>" class="topLink">Competition</a></td>
+        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=index" class="topLink">Development</a></td>
+        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tces&c=index" class="topLink">Job Listing</a></td>
 
 <!-- Corporate sites -->
-        <td class="topNav" nowrap><a href="http://software.topcoder.com" class="topLink">Software</a></td>
+        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="topLink">Software</a></td>
 
 <% if (isTCESPage) { %>
         <td class="topNavOn" nowrap><a href="/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
