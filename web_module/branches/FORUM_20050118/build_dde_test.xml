@@ -352,7 +352,7 @@
 
         <jar    jarfile="${notification.jar}"
                 basedir="${build_classdir}"
-                includes="${notification.dir}/**">
+                includes="${notificationdir}/**">
             <metainf dir="${notification.src.dir}" includes="*.xml"/>
         </jar>
 

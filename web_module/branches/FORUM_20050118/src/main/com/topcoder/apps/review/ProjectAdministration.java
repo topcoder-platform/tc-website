@@ -30,6 +30,8 @@ import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.dde.notification.Notification;
+import com.topcoder.dde.notification.NotificationHome;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -44,7 +46,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.transaction.SystemException;
 import javax.transaction.UserTransaction;
-
+import javax.rmi.PortableRemoteObject;
 /**
  * This Model provides business logic through which users administers projects (only for admins).
  *
@@ -715,6 +717,32 @@ public class ProjectAdministration implements Model {
                 for (int i = 0; i < oldRoles.length; i++) {
                     removeSet.add(oldRoles[i]);
                 }
+            }
+
+LogHelper.log("qq before if ");
+            if (closed && (newProject.getProjectType().getId() == ProjectType.ID_DESIGN))
+            {
+                LogHelper.log("qq in the if0");
+
+                InitialContext context = new InitialContext();
+
+                LogHelper.log("qq in the if1");
+
+                NotificationHome notificationHome = (NotificationHome)
+                            PortableRemoteObject.narrow(
+                            context.lookup(NotificationHome.EJB_REF_NAME),
+                            NotificationHome.class);
+
+                LogHelper.log("qq in the if2");
+
+                Notification notification = notificationHome.create();
+                LogHelper.log("qq in the if3");
+
+                notification.createNotification("forum post " + newProject.getForumId(),
+                    newProject.getWinner().getId(), notification.FORUM_POST_TYPE_ID);
+                LogHelper.log("qq in the if4");
+
+
             }
 
             // remove permission for old reviewers and remove all permission if project closes

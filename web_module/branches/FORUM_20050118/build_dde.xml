@@ -347,6 +347,7 @@
             <metainf dir="${ddeforum.src.dir}" includes="*.xml"/>
         </jar>
 
+
         <jar    jarfile="${ddeservlet.jar}"
                 basedir="${build_classdir}"
                 includes="${ddeservletdir}/**,${ddeutildir}/**">

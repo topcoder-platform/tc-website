@@ -8,7 +8,7 @@ package com.topcoder.dde.notification;
 
 
 import javax.ejb.EJBLocalObject;
-
+import java.util.Properties;
 
 /**
  * The ProjectTrackerLocal provides access to the project data stored within the system.
