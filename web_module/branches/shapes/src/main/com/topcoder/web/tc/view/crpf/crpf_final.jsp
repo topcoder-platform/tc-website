@@ -3,6 +3,7 @@
                  java.util.Map"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="/tc.tld" prefix="tc" %>
 <html>
 <head>
 <title>TopCoder Charity Challenge</title>
@@ -75,6 +76,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Online Rounds begins -->
             <p align="right"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_advancers">Round 1</a>&#160;|&#160;Finals</p>
             <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
+    		<% String sLink = "/stat?c=member_profile&cr=";%>
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="3" bgcolor="#4E9DD5">Finals</td>
                </tr>
@@ -83,10 +85,10 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <td class="crpfAdvancersSort" width="25%" align="left" nowrap="nowrap">Handle</td>
                     <td class="crpfAdvancersSort" width="65%" align="right" nowrap="nowrap">Points</td>
                </tr>
-<tr valign="top"><td class="sidebarText" align="right">1st</td><td class="sidebarText" align="left">jms137</td><td class="sidebarText" align="right">1316.57</td></tr>
-<tr valign="top"><td class="sidebarText" align="right">2nd</td><td class="sidebarText" align="left">John Dethridge</td><td class="sidebarText" align="right">1209.47</td></tr>
-<tr valign="top"><td class="sidebarText" align="right">3rd</td><td class="sidebarText" align="left">po</td><td class="sidebarText" align="right">1203.13</td></tr>
-<tr valign="top"><td class="sidebarText" align="right">4th</td><td class="sidebarText" align="left">hamster</td><td class="sidebarText" align="right">1067.53</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">1st</td><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 287266%>' bg='W' cid='287266' /></td><td class="sidebarText" align="right">1316.57</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">2nd</td><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 270505%>' bg='W' cid='270505' /></td><td class="sidebarText" align="right">1209.47</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">3rd</td><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 113178%>' bg='W' cid='113178' /></td><td class="sidebarText" align="right">1203.13</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">4th</td><td class="sidebarText" align="left"><tc:ratingImage link='<%=sLink + 7475981%>' bg='W' cid='7475981' /></td><td class="sidebarText" align="right">1067.53</td></tr>
             </table><br />
             </blockquote>
 

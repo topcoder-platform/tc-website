@@ -97,44 +97,44 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 251832%>' bg='W' cid='251832' /></td><td class="sidebarText" align="right">1404.07</td></tr>
 <tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 155275%>' bg='W' cid='155275' /></td><td class="sidebarText" align="right">1323.66</td></tr>
 <tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 2059666%>' bg='W' cid='2059666' /></td><td class="sidebarText" align="right">1293.01</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>dangelo</td><td class="sidebarText" align="right">1214.14</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>abiczo</td><td class="sidebarText" align="right">1196.68</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>turuthok</td><td class="sidebarText" align="right">1185.74</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>vorthys</td><td class="sidebarText" align="right">1172.24</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>joeli</td><td class="sidebarText" align="right">1155.66</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Jay_Slupesky</td><td class="sidebarText" align="right">1149.49</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>ante</td><td class="sidebarText" align="right">1144.70</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Minsk</td><td class="sidebarText" align="right">1127.21</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Jumping John</td><td class="sidebarText" align="right">1083.53</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Ken Vogel</td><td class="sidebarText" align="right">1075.14</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>kikuni</td><td class="sidebarText" align="right">1014.15</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>futo</td><td class="sidebarText" align="right">911.47</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>checkmate</td><td class="sidebarText" align="right">824.08</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>LunaticFringe</td><td class="sidebarText" align="right">636.49</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>gladius</td><td class="sidebarText" align="right">603.10</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>indigo9</td><td class="sidebarText" align="right">583.81</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>madking</td><td class="sidebarText" align="right">576.32</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>dukeola</td><td class="sidebarText" align="right">573.59</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>jms137</td><td class="sidebarText" align="right">555.35</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Koroibos</td><td class="sidebarText" align="right">548.31</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>shuvovse</td><td class="sidebarText" align="right">547.83</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>cgu</td><td class="sidebarText" align="right">531.01</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>ambrose</td><td class="sidebarText" align="right">527.44</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>WhiteShadow</td><td class="sidebarText" align="right">521.24</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Abednego</td><td class="sidebarText" align="right">517.70</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>nicka81</td><td class="sidebarText" align="right">511.10</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Ag98</td><td class="sidebarText" align="right">489.09</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>amirshim</td><td class="sidebarText" align="right">473.36</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>TheSkipper</td><td class="sidebarText" align="right">465.08</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>moggy</td><td class="sidebarText" align="right">441.24</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>wleite</td><td class="sidebarText" align="right">344.33</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Karshikinpa</td><td class="sidebarText" align="right">247.59</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>qubits</td><td class="sidebarText" align="right">245.37</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>amorosov</td><td class="sidebarText" align="right">243.28</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Rustyoldman</td><td class="sidebarText" align="right">242.40</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>hgliebe</td><td class="sidebarText" align="right">241.61</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>Dumitru</td><td class="sidebarText" align="right">240.26</td></tr>
-<tr valign="top"><td class="sidebarText" nowrap=nowrap>kats</td><td class="sidebarText" align="right">238.78</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 260987%>' bg='W' cid='260987' /></td><td class="sidebarText" align="right">1214.14</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 293387%>' bg='W' cid='293387' /></td><td class="sidebarText" align="right">1196.68</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 152614%>' bg='W' cid='152614' /></td></td><td class="sidebarText" align="right">1185.74</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 299177%>' bg='W' cid='299177' /></td><td class="sidebarText" align="right">1172.24</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 306980%>' bg='W' cid='306980' /></td><td class="sidebarText" align="right">1155.66</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 297500%>' bg='W' cid='297500' /></td><td class="sidebarText" align="right">1149.49</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 264869%>' bg='W' cid='264869' /></td><td class="sidebarText" align="right">1144.70</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 283388%>' bg='W' cid='283388' /></td><td class="sidebarText" align="right">1127.21</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 293390%>' bg='W' cid='293390' /></td><td class="sidebarText" align="right">1083.53</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 154754%>' bg='W' cid='154754' /></td><td class="sidebarText" align="right">1075.14</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 129381%>' bg='W' cid='129381' /></td><td class="sidebarText" align="right">1014.15</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 2059354%>' bg='W' cid='2059354' /></td><td class="sidebarText" align="right">911.47</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 7517126%>' bg='W' cid='7517126' /></td><td class="sidebarText" align="right">824.08</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 288584%>' bg='W' cid='288584' /></td><td class="sidebarText" align="right">636.49</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 268851%>' bg='W' cid='268851' /></td><td class="sidebarText" align="right">603.10</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 283374%>' bg='W' cid='283374' /></td><td class="sidebarText" align="right">583.81</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 297823%>' bg='W' cid='297823' /></td><td class="sidebarText" align="right">576.32</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 268212%>' bg='W' cid='268212' /></td><td class="sidebarText" align="right">573.59</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 287266%>' bg='W' cid='287266' /></td><td class="sidebarText" align="right">555.35</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 159594%>' bg='W' cid='159594' /></td><td class="sidebarText" align="right">548.31</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 151144%>' bg='W' cid='151144' /></td><td class="sidebarText" align="right">547.83</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 266764%>' bg='W' cid='266764' /></td><td class="sidebarText" align="right">531.01</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 153505%>' bg='W' cid='153505' /></td><td class="sidebarText" align="right">527.44</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 273112%>' bg='W' cid='273112' /></td><td class="sidebarText" align="right">521.24</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 263396%>' bg='W' cid='263396' /></td><td class="sidebarText" align="right">517.70</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 293874%>' bg='W' cid='293874' /></td><td class="sidebarText" align="right">511.10</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 301376%>' bg='W' cid='301376' /></td><td class="sidebarText" align="right">489.09</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 7434314%>' bg='W' cid='7434314' /></td><td class="sidebarText" align="right">473.36</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 306872%>' bg='W' cid='306872' /></td><td class="sidebarText" align="right">465.08</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 7440483%>' bg='W' cid='7440483' /></td><td class="sidebarText" align="right">441.24</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 7213681%>' bg='W' cid='7213681' /></td><td class="sidebarText" align="right">344.33</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 269678%>' bg='W' cid='269678' /></td><td class="sidebarText" align="right">247.59</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 105922%>' bg='W' cid='105922' /></td><td class="sidebarText" align="right">245.37</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 105922%>' bg='W' cid='268720' /></td><td class="sidebarText" align="right">243.28</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 282718%>' bg='W' cid='282718' /></td><td class="sidebarText" align="right">242.40</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 7446406%>' bg='W' cid='7446406' /></td><td class="sidebarText" align="right">241.61</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 7305703%>' bg='W' cid='7305703' /></td><td class="sidebarText" align="right">240.26</td></tr>
+<tr valign="top"><td class="sidebarText" nowrap=nowrap><tc:ratingImage link='<%=sLink + 7364110%>' bg='W' cid='7364110' /></td><td class="sidebarText" align="right">238.78</td></tr>
             </table><br />
                </blockquote>
             
