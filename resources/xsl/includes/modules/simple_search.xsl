@@ -32,7 +32,7 @@
                                 }
                               ]]></SCRIPT>
 
-                          <INPUT TYPE="text" NAME="Handle" SIZE="15" MAXLENGTH="20" onKeyPress="checkEnter(event)"/>
+                          <INPUT TYPE="text" NAME="SearchHandle" SIZE="15" MAXLENGTH="20" onKeyPress="checkEnter(event)"/>
                           <A HREF="javascript:submitSearch()"><xsl:attribute name="CLASS">statText</xsl:attribute>&#160;[ submit ]</A>
                           </FORM>
                         </TD>
