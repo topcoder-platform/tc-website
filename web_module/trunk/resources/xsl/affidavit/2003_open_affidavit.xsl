@@ -219,9 +219,15 @@
         </center>
         <BR/>
         <BR/>
-            I, ______________________ [insert full name], aged ___ [insert age],
+            I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/>, aged ___ [insert age],
             son/daughter of _____________ [insert father's name], residing
-            at _____________________________ [insert address] do hereby solemnly affirm and state
+            at <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address1"/>&#160;
+            <xsl:if test="/TC/AFFIDAVIT/Affidavit/Info/address2!=''">
+              <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address2"/>&#160;
+            </xsl:if>
+            <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/city"/>,
+            <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
+            <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/> do hereby solemnly affirm and state
             as follows:
     </xsl:when>
     <xsl:otherwise>
