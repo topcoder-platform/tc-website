@@ -152,43 +152,43 @@
                                             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="50%">
                                                 <tr>
                                                     <td class="statText" >Application Project Posting:</td>
-                                                    <td class="statText" valign="right">7.15.2003</td>
+                                                    <td class="statText" align="right">7.15.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Member Selection:</td>
-                                                    <td class="statText" valign="right">7.18.2003</td>
+                                                    <td class="statText" align="right">7.18.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Member Acceptance:</td>
-                                                    <td class="statText" valign="right">7.21.2003</td>
+                                                    <td class="statText" align="right">7.21.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Design Start:</td>
-                                                    <td class="statText" valign="right">7.22.2003</td>
+                                                    <td class="statText" align="right">7.22.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Phase 1 Due Date:</td>
-                                                    <td class="statText" valign="right">7.28.2003</td>
+                                                    <td class="statText" align="right">7.28.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Phase 2 Due Date:</td>
-                                                    <td class="statText" valign="right">8.04.2003</td>
+                                                    <td class="statText" align="right">8.04.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Phase 3 Due Date:</td>
-                                                    <td class="statText" valign="right">8.11.2003</td>
+                                                    <td class="statText" align="right">8.11.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Winner Announced:</td>
-                                                    <td class="statText" valign="right">8.13.3003</td>
+                                                    <td class="statText" align="right">8.13.3003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Updated Submission Due Date:</td>
-                                                    <td class="statText" valign="right">8.15.3003</td>
+                                                    <td class="statText" align="right">8.15.3003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="statText">Estimated Development End Date:</td>
-                                                    <td class="statText" valign="right">10.06.3003</td>
+                                                    <td class="statText" align="right">10.06.3003</td>
                                                 </tr>
                                             </table>
 
