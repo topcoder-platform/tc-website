@@ -8,7 +8,7 @@
     </head>
     <body>
         <h1>PACTS</h1>
-        <h2 align="center">Generate Payments</h2>
+        <h2 align="center">Generate Affidavits</h2>
 
         <center>
             <form name="paymentForm" action="<%=PactsConstants.INTERNAL_SERVLET_URL%>" method="post">

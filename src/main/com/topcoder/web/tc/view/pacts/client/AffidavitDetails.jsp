@@ -131,7 +131,7 @@ if(a.affidavit._birthday.length() <= 0) {
 out.print("<input type=\"submit\" value=\"affirm affidavit\">");
 out.print("</form>");
 out.print("</td><td>");
-out.print("<form action=PactsMemberServlet?t=edit_personal_info method=post>");
+%><form action="/Registration"><%
 out.print("<input type=\"submit\" value=\"Edit Personal Information\">");
 out.print("</form>");
 out.print("</td></tr></table></center>");
