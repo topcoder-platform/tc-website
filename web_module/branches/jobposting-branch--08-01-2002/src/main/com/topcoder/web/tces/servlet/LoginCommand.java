@@ -121,6 +121,7 @@ log.debug("viewauth");
 		ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
 
 		if (rsc.getRowCount() == 0) {
+log.debug("User handle incorrect.  Please retry.");
 			setMessage("User handle incorrect.  Please retry.");
 
 			goLoginPage(request,response,servCtx);
@@ -137,6 +138,7 @@ log.debug("viewauth");
 		}
 
 		if (!actualPassword.trim().equals(password)) {
+log.debug("Password incorrect.  Please retry.");
 			setMessage("Password incorrect.  Please retry.");
 
 			goLoginPage(request,response,servCtx);
@@ -149,6 +151,7 @@ log.debug("viewauth");
 		request.setAttribute("LoginCommand",this);
 
 		goLoginPage(request,response,servCtx);
+log.debug("login good");
 	}
 
 

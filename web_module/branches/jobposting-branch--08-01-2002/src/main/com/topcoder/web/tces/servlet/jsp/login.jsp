@@ -48,10 +48,10 @@
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
 
 <jsp:useBean id="LoginCommand" scope="request"
-class="com.topcoder.web.tces.servlet.LoginCommand"/>
+class="com.topcoder.web.tces.servlet.LoginCommand" />
 
 <p class='notice'>
-<jsp:getProperty name="LoginCommand" property="message">
+<jsp:getProperty name="LoginCommand" property="message" />
 </p>
 
 <FORM NAME="login" METHOD="POST" ACTION="/tces/tces" onSubmit="">
