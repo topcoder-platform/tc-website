@@ -23,10 +23,12 @@ public class ViewProblemSetInner extends Base {
                 loadSessionErrorsIntoRequest(messageId);
                 loadSessionDefaultsIntoRequest(messageId);
                 log.debug("defaults: " + defaults);
-                if (hasDefault(Constants.PROBLEMS) && hasDefault(Constants.PROBLEM_TYPE_ID)) {
+                if (hasDefault(Constants.PROBLEMS) && hasDefault(Constants.PROBLEM_TYPE_ID) &&
+                        hasDefault(Constants.CONTINUE_LINK)) {
                     log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEMS, getDefault(Constants.PROBLEMS));
                     getRequest().setAttribute(Constants.PROBLEM_TYPE_ID, getDefault(Constants.PROBLEM_TYPE_ID));
+                    getRequest().setAttribute(Constants.CONTINUE_LINK, getDefault(Constants.CONTINUE_LINK));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_SET_INNER);
                     setIsNextPageInContext(true);
                 } else {

@@ -73,6 +73,7 @@ public class Constants {
     public static String PROBLEMS;
     public static String PROBLEM;
     public static String CONTINUE_LINK;
+    public static String CONTINUE_DESC;
 
     //other
     public static int TEST_SET_A_ID;
