@@ -18,10 +18,10 @@
     <TITLE>TopCoder Employment Services</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <%@ include file="../script.jsp" %>
+    <%@ include file="/script.jsp" %>
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <%@ include file="../top.jsp" %>
+  <%@ include file="/top.jsp" %>
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
@@ -39,7 +39,7 @@
         <!-- Body Area -->
         <!-- Center Column Begins -->
       <TD class="statText" width="100%" bgcolor="#001935" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <jsp:include page="../body_top.jsp" >  
+        <jsp:include page="/body_top.jsp" >  
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
            <jsp:param name="title" value="Login"/>  
@@ -123,7 +123,7 @@
   </TABLE>
   <!-- Body Ends -->
 
-  <%@ include file="../foot_tces.jsp" %>
+  <%@ include file="/foot_tces.jsp" %>
 
   </BODY>
 </HTML>
