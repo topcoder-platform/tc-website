@@ -71,7 +71,9 @@
                            <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
 <p><B>Verification</B><br/>
-Google is looking for experienced software engineers to develop regression testbeds that rigorously and automatically verify the correct operation of large software systems. We need people who have a passion for correctness, write great software, and naturally think of the tough corner cases and race conditions where software might fail. </p>
+Position available in Mountain View, CA.</p>
+
+<p>Google is looking for experienced software engineers to develop regression testbeds that rigorously and automatically verify the correct operation of large software systems. We need people who have a passion for correctness, write great software, and naturally think of the tough corner cases and race conditions where software might fail. </p>
 
 <p>If you have a background in verifying networking products or ASICs, this position is a good match for you (although experience in the networking or ASIC areas is not required). </p>
 

@@ -71,8 +71,9 @@
                            <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
 <p><B>Java</B><br/>
+Position available in Mountain View, CA.</p>
 
-We are hiring Java software engineers to write server-side code for web-based applications for both internal and external use. We are 
+<p>We are hiring Java software engineers to write server-side code for web-based applications for both internal and external use. We are 
 looking for well-rounded developers who know how to create robust production applications and can also develop prototypes quickly. You 
 should have a good understanding of, and practical production experience with, Java web application development. </p>
 
