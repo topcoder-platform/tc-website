@@ -60,18 +60,23 @@ public final class ReportServlet extends HttpServlet {
                 response_addr = Constants.REPORT_HOME_ADDR;
                 request.setAttribute(Constants.REPORT_LIST_KEY, getReportList());
                 request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
-
-                /**************************************************************************/
-                /***************************** report list ********************************/
-                /**************************************************************************/
+            } else if (task.equals(Constants.NEW_REPORT_KEY)) {
+                Request dataRequest = null;
+                dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
+                if (dataRequest.getContentHandle()==null || dataRequest.getContentHandle().equals("")) {
+                    response_addr = Constants.NEW_REPORT_HOME_ADDR;
+                } else {
+                    DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                            TCContext.getInitial().lookup(
+                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
+                    Map dataMap = dai.getData(dataRequest);
+                    request.setAttribute(Constants.REPORT_RESULT_KEY, dataMap);
+                    response_addr = Constants.NEW_RESULT_ADDR;
+                }
             } else if (task.equals(Constants.REPORT_LIST_KEY)) {
                 response_addr = Constants.REPORT_HOME_ADDR;
                 request.setAttribute(Constants.REPORT_LIST_KEY, getReportList());
                 request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
-
-                /**************************************************************************/
-                /**************************** report result *******************************/
-                /**************************************************************************/
             } else if (task.equals(Constants.REPORT_RESULT_KEY)) {
                 // get the list of reports from the request if it's there, then get
                 // the name of the report we want from the request.
@@ -165,8 +170,8 @@ public final class ReportServlet extends HttpServlet {
     /**
      * Forwards to the navigation error page.
      *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
+     * @param request the servlet request object
+     * @param response servlet response object
      *
      * @throws ServletException
      */
@@ -226,7 +231,6 @@ public final class ReportServlet extends HttpServlet {
         ArrayList result = new ArrayList();
         Profile p = null;
         for (int i = 0; i < a.size() && i < 100; i++) { //let then have 100 records back max.
-            ResultItem[] ri = (ResultItem[]) a.get(i);
             p = new Profile(
                     ((ResultItem[]) a.get(i))[0].toString(),
                     ((ResultItem[]) a.get(i))[1].toString(),
@@ -295,8 +299,8 @@ public final class ReportServlet extends HttpServlet {
     }
 
     /**
-     * @param Map a map containing the information we'll use to create the query
-     * @param boolean true if one just wants to run the query and
+     * @param request a map containing the information we'll use to create the query
+     * @param emptySet true if one just wants to run the query and
      */
 
     private String getProfileListQuery(Map request, boolean emptySet) throws Exception {
@@ -314,10 +318,7 @@ public final class ReportServlet extends HttpServlet {
         String firstName = null;
         String lastName = null;
         String relocate = null;
-        QueryRequest qr = null;
-        DataAccessInt dai = null;
         boolean hasGradYear = true;
-        Map resultMap = null;
 
         minRating = (String) request.get(Constants.REPORT_MIN_RATING_KEY);
         maxRating = (String) request.get(Constants.REPORT_MAX_RATING_KEY);

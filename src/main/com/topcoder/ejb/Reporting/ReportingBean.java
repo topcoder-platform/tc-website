@@ -8,6 +8,10 @@ import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
+import javax.sql.DataSource;
+import javax.naming.InitialContext;
+import javax.naming.Context;
+import javax.ejb.EJBException;
 import java.rmi.RemoteException;
 import java.sql.*;
 import java.util.ArrayList;
@@ -291,24 +295,23 @@ public class ReportingBean extends BaseEJB {
 
 
     /**
-     ************************************************************************************
      * Execute the given query and returns an ArrayList of arrays of
      * ResultItems.
-     * @author greg paul
-     ************************************************************************************
      */
     public ArrayList getResult(Query query) throws RemoteException {
         PreparedStatement ps = null;
-        java.sql.Connection conn = null;
         ResultSet rs = null;
         ArrayList resultList = new ArrayList();
         int[] returnTypes = query.getReturnTypes();
+        Connection conn = null;
+        Context ctx = null;
+        DataSource ds = null;
 
         try {
-            if (query.getDB() == Query.WAREHOUSE)
-                conn = DBMS.getDWConnection();
-            else
-                conn = DBMS.getConnection();
+            ctx = new InitialContext();
+            if (query.getDB()==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
+            ds = (DataSource)ctx.lookup(query.getDB());
+            conn = ds.getConnection();
 
             log.debug("query:\n" + query.getQuery());
             ps = conn.prepareStatement(query.getQuery());
@@ -363,10 +366,7 @@ public class ReportingBean extends BaseEJB {
 
 
     /**
-     ************************************************************************************
      * Returns a particular type of return item.
-     * @author greg paul
-     ************************************************************************************
      */
     private ResultItem getResultItem(ResultSet rs, int returnType, int col)
             throws SQLException, Exception {

@@ -15,11 +15,12 @@ public class Query implements Serializable {
     private static Logger log = Logger.getLogger(Query.class);
     private StringBuffer query;
     private int[] returnTypes;
-    private int db;
+    private String db;
 
     private static final char PLACE_HOLDER = '?';
-    public static final int TRANSACTIONAL = 1;
-    public static final int WAREHOUSE = 2;
+    public static final String TRANSACTIONAL = "OLTP";
+    public static final String WAREHOUSE = "DW";
+    public static final String TCS_CATALOG = "TCS_CATALOG";
 
     public Query() {
         query = new StringBuffer();
@@ -33,7 +34,7 @@ public class Query implements Serializable {
         this.db = TRANSACTIONAL;
     }
 
-    public Query(String query, int[] returnTypes, int db) {
+    public Query(String query, int[] returnTypes, String db) {
         this.query = new StringBuffer(query);
         this.returnTypes = returnTypes;
         this.db = db;
@@ -48,7 +49,7 @@ public class Query implements Serializable {
         this.returnTypes = returnTypes;
     }
 
-    public void setDB(int db) {
+    public void setDB(String db) {
         this.db = db;
     }
 
@@ -61,7 +62,7 @@ public class Query implements Serializable {
         return returnTypes;
     }
 
-    public int getDB() {
+    public String getDB() {
         return db;
     }
 
@@ -70,11 +71,8 @@ public class Query implements Serializable {
     }
 
     /**
-     ************************************************************************************
      * Set a int value in a query.  This works somewhat like a prepared statement.
      * we replace PLACE_HOLDER with some value.
-     * @author Greg Paul
-     ************************************************************************************
      */
     public void setValue(int value) {
         int location = getIndex(query, PLACE_HOLDER);
@@ -83,11 +81,8 @@ public class Query implements Serializable {
     }
 
     /**
-     ************************************************************************************
      * Set a String value in a query.  This works somewhat like a prepared statement.
      * we replace PLACE_HOLDER with some value.
-     * @author Greg Paul
-     ************************************************************************************
      */
     public void setValue(String value) {
         // replace single quotes with two single quotes.
@@ -105,12 +100,9 @@ public class Query implements Serializable {
     }
 
     /**
-     ************************************************************************************
      * Execute this objects query.  If there is no query, or if the query is incomplete
      * (there are still ?'s even after setting values) then throw an exception.  If
      * returnTypes is still null, throw exception
-     * @author Greg Paul
-     ************************************************************************************
      */
     public ArrayList execute() throws Exception {
         ArrayList result = null;
