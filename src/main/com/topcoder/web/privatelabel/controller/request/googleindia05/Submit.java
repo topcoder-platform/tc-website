@@ -92,40 +92,56 @@ public class Submit extends FullRegSubmit {
             String code = user.getActivationCode(userId, db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
-            if (info.isNew()) {
-                mail.setSubject("IMPORTANT - Google Code Jam 2004 Activation Email");
-            } else {
-                mail.setSubject("Google Code Jam 2004 Information");
+            mail.setSubject("IMPORTANT - Google(TM) India Code Jam 2005 Activation Email");
 
-            }
+            buf.append("You're invited to take part in the Google(TM) India Code Jam 2005, Powered by TopCoder(R), a programming competition that will be worthy of your time, your skills and your interest.\n\n");
 
-            buf.append("You're invited to take part in the Google Code Jam 2004, Powered by Topcoder, a programming competition that will be worthy of your time, your skills and your interest.\n\n");
-            if (info.isNew()) {
-                buf.append("GOOGLE CODE JAM 2004 ACTIVATION INFORMATION\n\n");
-                buf.append("Your Google activation code is ");
-                buf.append(code);
-                buf.append("\n\n");
-                buf.append("To activate your account, navigate to the following WWW URL:\n\n");
-                buf.append(getUrl(code));
-                buf.append("\n\n");
-                buf.append("If you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
-            }
-            buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google Code Jam 2004.\n\n");
+            buf.append("GOOGLE INDIA CODE JAM 2005 ACTIVATION INFORMATION\n\n");
+
+            buf.append("Your Google activation code is ");
+            buf.append(code);
+
+            buf.append("To activate your account, navigate to the following WWW URL:\n");
+
+            buf.append(getUrl(code));
+
+            buf.append("\n\nIf you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
+
+            buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google India Code Jam 2005.\n\n");
+
             buf.append("PRACTICING FOR THE EVENT\n");
-            buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam 2004.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM ET on September 1, 2004 through 5:00PM ET on October 15, 2004.\n\n");
-            buf.append("You can access the practice rooms by navigating to http://www.topcoder.com/googlecodejam and clicking on the Competition Arena tab.\n\n");
+            buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google India Code Jam 2005.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM IST on February 8, 2005 through 5:00PM IST on March 26, 2005.\n\n");
+
+            buf.append("You can access the practice rooms by navigating to ");
+            buf.append("http://");
+            buf.append(ApplicationServer.SERVER_NAME);
+            buf.append("/gicj05 and clicking on the Competition Arena tab.\n\n");
+
             buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
-            buf.append("You may participate in the Qualification Round at any time between Wednesday, September 15 at 12:00 PM ET and Thursday, September 16 at 12:00 PM ET (GMT -4).  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
+            buf.append("You may participate in the Qualification Round at any time between Saturday, February 26 at 12:00PM (Noon) IST and Sunday, February 27 at 12:00PM (Noon) IST.  You will have up to one hour to solve two problems. It is recommended that you utilize the practice area prior to participating in the Qualification Round.\n\n");
+
             buf.append("LAUNCHING THE ARENA\n");
-            buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://www.topcoder.com/googlecodejam and clicking on the Competition Arena tab.\n\n");
+            buf.append("You can launch and login to the Competition Arena at the appropriate time by navigating to ");
+            buf.append("http://");
+            buf.append(ApplicationServer.SERVER_NAME);
+
+            buf.append("/gicj05 and clicking on the Competition Arena tab.\n\n");
+
             buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
-            buf.append("We also suggest that you read up on the competition process by navigating to http://www.topcoder.com/googlecodejam and downloading the competition manual.\n\n");
-            buf.append("If you have any questions about how to participate, please email them to googlecodejam@topcoder.com\n\n");
-            buf.append("Thank you for registering for the Google Code Jam 2004, Powered by TopCoder.  We look forward to seeing you in the Arena!\n\n");
+
+            buf.append("We also suggest that you read up on the competition process by navigating to");
+            buf.append("http://");
+            buf.append(ApplicationServer.SERVER_NAME);
+            buf.append("/gicj05 and reading over the Competition Instructions.\n\n");
+
+            buf.append("If you have any questions about how to participate, please email them to gicj05@topcoder.com\n\n");
+
+            buf.append("Thank you for registering for the Google India Code Jam 2005, Powered by TopCoder.  We look forward to seeing you in the Arena!\n\n");
+
 
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-            mail.setFromAddress("gicj05@topcoder.com", "Google Code Jam Team");
+            mail.setFromAddress("gicj05@topcoder.com", "Google India Code Jam Team");
             log.info("sent registration email to " + info.getEmail());
             EmailEngine.send(mail);
         } catch (Exception e) {
