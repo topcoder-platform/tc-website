@@ -32,7 +32,7 @@ public class NoteList extends BaseProcessor {
         
         Map map = dAccess.getData(dr);
 
-        if(map != null && map.size() == 1)
+        if(map != null)
         {
             CandidateInfo cinfo = new CandidateInfo();
             ResultSetContainer result =
