@@ -1,5 +1,7 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
+import com.topcoder.shared.util.logging.Logger;
+
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.JspWriter;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -7,6 +9,9 @@ import java.util.List;
 import java.util.Iterator;
 
 public abstract class Select extends TagSupport {
+
+    private static Logger log = Logger.getLogger(Select.class);
+
     private String name = null;
     private String value = null;
     private String ccsclass = null;
@@ -44,12 +49,12 @@ public abstract class Select extends TagSupport {
                 || selectedOnly.equalsIgnoreCase("true"));
     }
 
-    public int doStartTag()
-            throws JspException {
+    public int doStartTag() throws JspException {
         return SKIP_BODY;
     }
 
     public int doEndTag() throws JspException {
+        log.debug("doEndTag called...");
         try {
             JspWriter out = pageContext.getOut();
             if (selectedOnly) {
@@ -69,7 +74,7 @@ public abstract class Select extends TagSupport {
 
     String getSelected(List options) {
         Iterator it = options.iterator();
-        for ( ; it.hasNext(); ) {
+        for (; it.hasNext();) {
             Object option = it.next();
             String optionValue = getOptionValue(option);
             String optionText = getOptionText(option);
@@ -86,8 +91,7 @@ public abstract class Select extends TagSupport {
         return buildSelect(getSelectOptions());
     }
 
-    String buildSelect(List options)
-            throws JspException {
+    String buildSelect(List options) throws JspException {
         StringBuffer s = new StringBuffer(2000);
         s.append("<select");
         if (name != null) {
@@ -103,7 +107,7 @@ public abstract class Select extends TagSupport {
         if (options != null) {
             s.append("<option value=\"\"></option>");
             Iterator it = options.iterator();
-            for ( ;  it.hasNext(); ) {
+            for (; it.hasNext();) {
                 Object option = it.next();
                 String optionValue = getOptionValue(option);
                 String optionText = getOptionText(option);
