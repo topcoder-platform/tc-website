@@ -27,7 +27,7 @@
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Note Creation</h1> 
@@ -40,9 +40,8 @@
             <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
             <INPUT type="hidden" name='<%=Constants.CANDIDATE_ID%>' value='<%=candidateInfo.getUserId()%>'/>
             
-            <table cellspacing="1" cellpadding="0" width="70%">
-                <tr><td class="body" align="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></td></tr>
-            </table>
+            <table cellspacing="1" cellpadding="3" width="70%">
+                <tr><td class="bodyText" align="center"><screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+candidateInfo.getUserId()%>" styleClass="bodyText"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink></td></tr>
 
                 <tr>
                     <td class="errorText">
@@ -58,12 +57,12 @@
                     </td>
                 </tr>
                 
-                <tr><td align="center"><textarea name="<%=Constants.NOTE_TEXT%>" COLS="80" ROWS="4"></textarea></td></tr>    
+                <tr><td align="center"><textarea name="<%=Constants.NOTE_TEXT%>" COLS="80" rows="4"></textarea></td></tr>    
             </table>
 
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
-                    <td><div align="center"><p class="button"><a href="Javascript:document.note.submit()" CLASS="bodyText">Save</a></p></div></td>
+                    <td><div align="center"><p class="button"><a href="Javascript:document.note.submit()" CLASS="button">Save</a></p></div></td>
                  </tr>
             </table>
             </screen:form>
