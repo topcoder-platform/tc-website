@@ -118,10 +118,7 @@ public class SimpleSearch extends Base {
             queryBottom.append(" , OUTER round ro");
         }
         queryBottom.append(" , country co");
-        if (m.getSchoolName() !=null) {
-            queryBottom.append(" , school s");
-            queryBottom.append(" , current_school cs");
-        }
+        queryBottom.append(" , outer (school s, current_school cs)");
         queryBottom.append(" WHERE c.coder_id = r.coder_id");
         queryBottom.append(" AND c.status = 'A'");
         if (m.getStateCode() != null)
@@ -144,14 +141,13 @@ public class SimpleSearch extends Base {
             queryBottom.append(" AND cal.date > CURRENT - ").append(m.getMaxDaysSinceLastComp()).append(" UNITS DAY");
         }
         queryBottom.append(" AND c.comp_country_code = co.country_code");
+        queryBottom.append(" AND s.school_id = cs.school_id");
+        queryBottom.append(" AND cs.viewable = 1");
+        queryBottom.append(" AND cs.coder_id = c.coder_id");
         if (m.getSchoolName()!=null) {
             queryBottom.append(" AND lower(s.name) like lower('").append(m.getSchoolName()).append("')");
-            queryBottom.append(" AND s.school_id = cs.school_id");
-            queryBottom.append(" AND cs.viewable = 1");
             queryBottom.append(" AND c.coder_type_id = 1");
-            queryBottom.append(" AND cs.coder_id = c.coder_id");
         }
-
         StringBuffer searchQuery = new StringBuffer(400);
         searchQuery.append(" SELECT c.coder_id AS user_id");
         searchQuery.append(" , c.handle");
@@ -162,9 +158,7 @@ public class SimpleSearch extends Base {
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = ro.calendar_id) AS last_competed");
         searchQuery.append(" , CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         searchQuery.append(" , co.country_name");
-        if (m.getSchoolName()!=null) {
-            searchQuery.append(" , s.name as school_name ");
-        }
+        searchQuery.append(" , s.name as school_name ");
         searchQuery.append(queryBottom.toString());
         searchQuery.append(" ORDER BY rating_order, lower_handle");
 
