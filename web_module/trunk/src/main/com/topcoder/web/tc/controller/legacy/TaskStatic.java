@@ -165,7 +165,9 @@ public final class TaskStatic {
                     if (requestCommand.equals("tco03_top100")) {
                         dataRequest = new Request();
                         dataRequest.setContentHandle(requestCommand);
-                        Map top100Map= dai.getData(dataRequest);
+                        DataAccessInt dwdai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+
+                        Map top100Map= dwdai.getData(dataRequest);
                         ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get("tco03_top100");
                         tournamentTag.addTag(top100Rsc.getTag("Competitors", "Competitor"));
 
