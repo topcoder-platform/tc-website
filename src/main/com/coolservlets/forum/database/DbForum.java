@@ -565,10 +565,10 @@ public class DbForum implements Forum {
 
         //Step 1 - Get permissions for the User. This includes anonymous
         //perms, "special user" perms, and the specific perms for the user.
+        //gp note: noone ever gets permissions this way cuz no one
+        //gets an entry in the permissions table
         if (isUser) {
-            log.debug("they're a user");
             ForumPermissions userPermissions = factory.getUserPermissions(userID, id);
-            log.debug("found " + userPermissions.toString());
             //Combine permissions
             finalPermissions = new ForumPermissions(finalPermissions, userPermissions);
         }
@@ -585,6 +585,8 @@ public class DbForum implements Forum {
         finalPermissions = new ForumPermissions(finalPermissions, anonyPermissions);
 
         //If they are a valid user, figure out "any user" permissions.
+        //this is how they get permissions...if they are a user ie; logged in
+        //then they have permission to read and post etc.
         if (isUser) {
             ForumPermissions specialUserPermissions;
             //Check for cache
@@ -607,8 +609,6 @@ public class DbForum implements Forum {
         if (cacheEnabled) {
             userPermissionsCache.add(userID, finalPermissions);
         }
-
-        log.debug("final permissions are " + finalPermissions.toString());
 
         return finalPermissions;
     }

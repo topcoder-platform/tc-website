@@ -82,7 +82,6 @@ public class DbQuery implements Query {
         this.factory = factory;
     }
     public void setQueryString(String queryString) {
-        System.out.println("This is the query word " + queryString);
         this.queryString = queryString;
     }
     public String getQueryString() {
@@ -109,7 +108,6 @@ public class DbQuery implements Query {
         try {
             con =  DBMS.getConnection();
             pstmt = con.prepareStatement(buildQuery(false));
-            System.out.println("This is the query that was built " + buildQuery(false));
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 tempMessages.add(new Integer(rs.getInt(1)));
