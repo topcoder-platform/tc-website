@@ -24,38 +24,33 @@
   String responseURL = response.encodeURL("");
 %>
 
-
-
-<%  //////////////////////
-  try {
-   n = (Navigation) session.getAttribute("navigation");
-   if ( n == null ) n = new Navigation();
-   user = n.getUser();
-     if ( n.isIdentified() ) {
-       rtUser =user.getHandle();
-       rtPassword =user.getPassword();
-     }
-  }
-
-  catch( Exception e ) {
-       response.sendRedirect(Redirect_URL);
-       return;
-  }
+<%
+            Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
+            if (aToken==null) {
+                try {
+                    n = (Navigation) session.getAttribute("navigation");
+                    if (n==null) n = new Navigation();
+                        user = n.getUser();
+                    if ( n.isIdentified() ) {
+                        rtUser =user.getHandle();
+                        rtPassword =user.getPassword();
+                    }
+                } catch( Exception e ) {
+                    response.sendRedirect(Redirect_URL);
+                    return;
+                }
+                // do a login if all parameters are good
+                AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
+                if(rtUser.equals("")) {
+                    authToken = authFactory.getAnonymousAuthorization();
+                    session.setAttribute("jiveAuthorization",authToken);
+                } else {
+                    authToken = authFactory.getAuthorization(rtUser,rtPassword);
+                    session.setAttribute("jiveAuthorization",authToken);
+                }
+                aToken = (Authorization) session.getAttribute("jiveAuthorization");
+            }
 %>
-
-<%  //////////////////////
-  // do a login if all parameters are good
-  AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
-
-    if(rtUser==""){
-      authToken = authFactory.getAnonymousAuthorization();
-      session.putValue("jiveAuthorization",authToken);
-    } else {    
-      authToken = authFactory.getAuthorization(rtUser,rtPassword);
-      session.putValue("jiveAuthorization",authToken);
-    }
-%>
-
 
 <%
 String checked1 = ""; 
