@@ -675,7 +675,7 @@ else if (command.equals("send")) {
     private static boolean tcoTermsCheck(long userId) throws Exception {
         Calendar c = Calendar.getInstance();
 
-        if(c.before(new GregorianCalendar(2004, 6, 10)) || c.after(new GregorianCalendar(2004, 9, 23)))
+        if(c.before(new GregorianCalendar(2004, 7, 10)) || c.after(new GregorianCalendar(2004, 9, 23)))
         {
             return true;
         }
