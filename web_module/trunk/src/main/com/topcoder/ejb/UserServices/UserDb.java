@@ -158,8 +158,9 @@ final class UserDb {
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new TCException("ejb.DataCache.DataCacheBean.insertUser: ERROR \n " + sqe.getMessage());
+            throw new TCException("ejb.User.UserDb.insertUser: ERROR \n " + sqe.getMessage());
         } catch (Exception ex) {
+            ex.printStackTrace();
             throw new TCException("ejb.User.UserDb:insertUser():failed:\n" + ex);
         } finally {
             if (ps != null) {
