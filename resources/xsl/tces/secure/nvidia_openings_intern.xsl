@@ -63,18 +63,19 @@
 </TABLE>
 <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
 <P>
-<B>Full Time Positions</B><BR/>
+<B>Intern/Co-op Positions</B><BR/> 
 Below is a listing of current open positions within NVIDIA.  All jobs are located in Santa Clara, CA unless otherwise noted.  Click on the job title for the position description and requirements.
 </P>
 <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_jr_ogleng&amp;a=secure" CLASS="bodyText">JUNIOR OPENGL ENGINEER (524954)</A></B><BR/><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sr_ogleng&amp;a=secure" CLASS="bodyText">SENIOR OPENGL ENGINEER (524953)</A></B><BR/><BR/>
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dsseng83&amp;a=secure" CLASS="bodyText">3D SYSTEM SOFTWARE ENGINEER (521183)</A></B><BR/><BR/>
-         <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
+       <P>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01_intern&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01_intern&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/></P>
+        <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgrapharch&amp;a=secure" CLASS="bodyText">3D GRAPHIC ARCHITECT</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softqaeng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE QA ENGINEER INTERN/CO-OP</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platverarch&amp;a=secure" CLASS="bodyText">PLATFORM VERIFICATION ARCHITECT</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sqaeng_mobil&amp;a=secure" CLASS="bodyText">SQA ENGINEER - MOBILE</A></B><BR/>
@@ -88,13 +89,14 @@ Below is a listing of current open positions within NVIDIA.  All jobs are locate
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_fieldappeng&amp;a=secure" CLASS="bodyText">FIELD APPLICATION ENGINEER (Seoul, Korea)</A></B><BR/>-->
       
       </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">       
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01&amp;a=secure" CLASS="bodyText">ARCHITECTURE</A></B><BR/> <BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE</A></B><BR/><BR/>  
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dsseng82&amp;a=secure" CLASS="bodyText">3D SYSTEM SOFTWARE ENGINEER (521182)</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dgseng&amp;a=secure" CLASS="bodyText">3D GRAPHICS SOFTWARE ENGINEER (520749)</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_sqaeng&amp;a=secure" CLASS="bodyText">SQA ENGINEER - MOBILE (517399)</A></B><BR/><BR/> 
-        <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
+      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
+       <P>       
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01_intern&amp;a=secure" CLASS="bodyText">ARCHITECTURE INTERN/CO-OP</A></B><BR/><BR/>  
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECTURE INTERN/CO-OP</A></B><BR/><BR/></P> 
+        <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dpertooleng&amp;a=secure" CLASS="bodyText">3D PERFORMANCE TOOLS ENGINEER</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3dappsweng&amp;a=secure" CLASS="bodyText">3D APPLICATION SW ENGINEER</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cusqeng&amp;a=secure" CLASS="bodyText">CUSTOMER QUALITY ENGINEER (Taipei, Taiwan)</A></B><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_siginteng&amp;a=secure" CLASS="bodyText">SIGNAL INTEGRITY ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_packdesigner&amp;a=secure" CLASS="bodyText">PACKAGE DESIGNER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_srdesigneng&amp;a=secure" CLASS="bodyText">SENIOR DESIGN ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_prodtesteng&amp;a=secure" CLASS="bodyText">PRODUCT/TEST ENGINEER</A></B><BR/>
