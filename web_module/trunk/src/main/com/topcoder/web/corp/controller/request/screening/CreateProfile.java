@@ -53,8 +53,7 @@ public class CreateProfile extends BaseSessionProcessor {
             throw(new TCWebException(e));
         }
 
-        setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
-                Constants.MODULE_KEY + "=" +
+        setNextPage("?" + Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);
         setIsNextPageInContext(true);
     }
