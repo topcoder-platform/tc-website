@@ -68,6 +68,9 @@
                  int lastCompany;
                  if (MainTask.getCampaignInfoList().isEmpty()) {
                      lastCompany = -1;
+                %>
+                  <TR><TD colspan="5" class="statTextBig">You have no active job campaigns.  Contact pmoriarty@topcoder.com to set one up.<BR/><BR/></TD></TR>
+                <%
                  } else {
                      lastCompany = Integer.parseInt(((ResultSetContainer)MainTask.getCampaignInfoList()).getItem(0, "company_id").toString());
                  }
