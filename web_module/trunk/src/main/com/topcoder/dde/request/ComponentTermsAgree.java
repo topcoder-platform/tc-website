@@ -5,6 +5,8 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.dde.user.UserManagerRemoteHome;
 import com.topcoder.dde.user.UserManagerRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.admin.PrincipalMgrRemote;
 
 import javax.rmi.PortableRemoteObject;
 
@@ -24,8 +26,15 @@ public class ComponentTermsAgree extends BaseProcessor {
             UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)
                     PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class);
             UserManagerRemote userManager = userManagerHome.create();
-
             userManager.agreeToComponentTerms(getUser().getId());
+
+            PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
+                    getInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote principalMgr = principalMgrHome.create();
+
+            //reload the subject object so that their new role is available
+            getRequest().setAttribute("TCSUBJECT", principalMgr.getUserSubject(getUser().getId()));
+
             setNextPage("/catalog/index.jsp");
             setIsNextPageInContext(false);
         }
