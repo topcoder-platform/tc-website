@@ -8,7 +8,7 @@
 
 </head>
 
-<jsp:useBean id="emailInfo" type="com.topcoder.web.corp.model.EmailInfo" />
+<jsp:useBean id="emailInfo" type="com.topcoder.web.corp.model.EmailInfo" scope="request"/>
 
 <body>
 
