@@ -611,9 +611,7 @@ public class TCLoadRequests extends TCLoad {
         public String getPageName() {
             String contentId = getContentId();
             String ret = contentId;
-            log.debug("page name is " + ret + " for url " + getUrl());
             if (pageNameMap.containsKey(contentId)) {
-                log.debug("page name is " + ret + " for url " + getUrl());
                 ret = (String) pageNameMap.get(contentId);
             } else {
                 //look through the other stuff that might indicate what page name to use
@@ -628,7 +626,6 @@ public class TCLoadRequests extends TCLoad {
                         found = true;
                     }
                 }
-                log.debug("page name is " + ret + " for url " + getUrl());
                 if (!found) {
                     //perhaps we've seen this before and it's got a name in the database
                     ResultSet rs = null;
@@ -650,7 +647,6 @@ public class TCLoadRequests extends TCLoad {
                     }
 
                 }
-                log.debug("page name is " + ret + " for url " + getUrl());
             }
             return ret;
         }
