@@ -222,8 +222,8 @@
                                                 </td>
                                             </tr>
                                             <tr>
-                                                <td class="sidebarText">Member Selection:</td>
-                                                <td class="sidebarText" align="right">12.03.2003</td>
+                                                <td class="sidebarText">Inquire By:</td>
+                                                <td class="sidebarText" align="right">12.03.2003 6:00 PM ET</td>
                                             </tr>
 
                                             <tr>
@@ -238,7 +238,7 @@
 
                                             <tr>
                                                 <td class="sidebarText">Design Due:</td>
-                                                <td class="sidebarText" valign="top" align="right">12.12.2003</td>
+                                                <td class="sidebarText" valign="top" align="right">12.12.2003 6:00 PM ET</td>
                                             </tr>
 
                                             <tr>
@@ -248,7 +248,7 @@
 
                                             <tr>
                                                 <td class="sidebarText">Updated Submission Due Date:</td>
-                                                <td class="sidebarText" align="right">12.17.2003</td>
+                                                <td class="sidebarText" align="right">12.17.2003 6:00 PM ET</td>
                                             </tr>
 
                                             <tr>
