@@ -14,7 +14,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.language.*;
 
 import java.util.*;
-import java.io.PrintWriter;
 import java.io.IOException;
 
 /**
@@ -44,6 +43,7 @@ public abstract class Base extends BaseProcessor {
     protected User getUser() {
         if (user == null)
             user = getAuthentication().getUser();
+        log.debug("user: " + user.getUserName());
         return user;
     }
 
