@@ -16,20 +16,6 @@
     <table cellpadding="1" cellspacing="3">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.SIMPLE_REG_SUBMIT%>"/>
-            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
-            <input type="hidden" name="<%=Constants.HANDLE%>" value="<jsp:getProperty name="regInfo" property="Handle"/>"/>
-            <input type="hidden" name="<%=Constants.LAST_NAME%>" value="<jsp:getProperty name="regInfo" property="FirstName"/>"/>
-            <input type="hidden" name="<%=Constants.FIRST_NAME%>" value="<jsp:getProperty name="regInfo" property="LastName"/>"/>
-            <input type="hidden" name="<%=Constants.PASSWORD%>" value="<jsp:getProperty name="regInfo" property="Password"/>"/>
-            <input type="hidden" name="<%=Constants.PASSWORD_CONFIRM%>" value="<jsp:getProperty name="regInfo" property="PasswordConfirm"/>"/>
-            <input type="hidden" name="<%=Constants.EMAIL%>" value="<jsp:getProperty name="regInfo" property="Email"/>"/>
-            <input type="hidden" name="<%=Constants.EMAIL_CONFIRM%>" value="<jsp:getProperty name="regInfo" property="EmailConfirm"/>"/>
-            <input type="hidden" name="<%=Constants.ADDRESS1%>" value="<jsp:getProperty name="regInfo" property="Address1"/>"/>
-            <input type="hidden" name="<%=Constants.ADDRESS2%>" value="<jsp:getProperty name="regInfo" property="Address2"/>"/>
-            <input type="hidden" name="<%=Constants.CITY%>" value="<jsp:getProperty name="regInfo" property="City"/>"/>
-            <input type="hidden" name="<%=Constants.ZIP%>" value="<jsp:getProperty name="regInfo" property="Zip"/>"/>
-            <input type="hidden" name="<%=Constants.STATE_CODE%>" value="<jsp:getProperty name="regInfo" property="StateCode"/>"/>
-            <input type="hidden" name="<%=Constants.COUNTRY_CODE%>" value="<jsp:getProperty name="regInfo" property="CountryCode"/>"/>
 
             <tr>
                 <td align="right">
@@ -166,7 +152,21 @@
                 </td>
             </tr>
 
-<% System.out.println("questionMap: " + questionMap.toString());%>
+            <tr>
+                <td colspan="2" align="center">
+                    Country
+                </td>
+            </tr>
+
+            <tr>
+                <td align="right">
+                    Student/Professional
+                </td>
+                <td align="left">
+                    <%=regInfo.isStudent?"Student":"Professional"%>
+                </td>
+            </tr>
+
             <pl:responseIterator id="resp" list="<%=responseList%>">
                 <tr>
                     <td align="right">

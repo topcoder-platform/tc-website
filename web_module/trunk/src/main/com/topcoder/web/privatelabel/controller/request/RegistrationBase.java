@@ -130,7 +130,7 @@ abstract class RegistrationBase extends BaseProcessor {
         try {
             Request request = new Request();
             request.setContentHandle("country_list");
-            Map map = getDataAccess(true).getData(request);
+            Map map = getDataAccess(db, true).getData(request);
             if (map == null)
                 throw new Exception("error getting country list from db");
             else
@@ -144,7 +144,7 @@ abstract class RegistrationBase extends BaseProcessor {
         try {
             Request request = new Request();
             request.setContentHandle("state_list");
-            Map map = getDataAccess(true).getData(request);
+            Map map = getDataAccess(db, true).getData(request);
             if (map == null)
                 throw new Exception("error getting state list from db");
             else

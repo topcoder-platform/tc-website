@@ -50,11 +50,11 @@ public class Submit extends View {
                     for (Iterator it = responses.iterator(); it.hasNext();) {
                         resp = (SurveyResponse) it.next();
                         hasAllFreeForm &= resp.isFreeForm();
+                        response.createResponse(resp.getUserId(), resp.getQuestionId());
                         if (resp.isFreeForm()) {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId());
                             response.setResponseText(resp.getUserId(), resp.getQuestionId(), resp.getText());
                         } else {
-                            response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
+                            response.setAnswerId(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
                         }
                     }
                     Transaction.commit(tx);
