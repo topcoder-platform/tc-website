@@ -27,6 +27,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+<table><tr><td>
 <FONT SIZE="3" COLOR="#666666"><B>Candidate Evaluation Application</B></FONT><BR/>
 <P>
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
@@ -53,17 +54,9 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
                        wisi enim adminim veniam, quis nostrud exerci. 
                        tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam.
 </P>
-<P><BR/></P>    
-     </TD>
-
-
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="30"><IMG SRC="/i/p/clear.gif" WIDTH="30" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-   <tr>
-   <td align="left">
+<P><BR/></P>
+</td></tr>
+<tr><td>
              <form method="POST" action="<%=request.getContextPath()%>Tx/?op=begin">
        <input type="hidden" name="back-to" value="/"/>
        <table>
@@ -72,8 +65,16 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
          <tr><td colspan="2" align ="center"><input type="submit" value=" buy it "/></td></tr>
        </table>
      </form>
-   </td>
-   </tr>
+</td></tr>
+    
+     </TD>
+
+
+<!-- Body Area Ends -->
+      <!-- Gutter -->
+      <TD WIDTH="30"><IMG SRC="/i/p/clear.gif" WIDTH="30" HEIGHT="1" BORDER="0"></TD>
+      <!-- Gutter Ends -->
+   </TR>
 </TABLE>
   <!-- Body Ends -->
 
