@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCYahoo! Signs On as Premier Sponsor of 2004 TCO</title>
+<title>Yahoo! Signs On as Premier Sponsor of 2004 TCO</title>
 
 <xsl:call-template name="CSS"/>      
 
