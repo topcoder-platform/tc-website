@@ -6,8 +6,7 @@ import com.topcoder.shared.util.ApplicationServer;
  *  A set of constants related to servlets
  *  @author Steve Burrows
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class TCServlet {
 

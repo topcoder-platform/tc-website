@@ -13,14 +13,6 @@ import java.rmi.RemoteException;
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.1  2002/07/16 21:50:21  gpaul
- *           merging sord's email changes
- *
- *           Revision 1.1.2.1  2002/07/07 23:52:34  sord
- *           Added EmailReportTask.
- *           Split basic task functions into the base class EmailTask
  *
  */
 abstract class EmailTask implements Runnable {

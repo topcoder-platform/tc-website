@@ -6,7 +6,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * to secured sectors.  See the GroupUser class for the list of members of the Group.
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public class Group
         extends SecureObject

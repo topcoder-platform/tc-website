@@ -5,7 +5,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * This abstract class provides a security foundation for a user or group.
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public abstract class SecureObject implements java.io.Serializable {
 

@@ -19,60 +19,6 @@ import java.util.*;
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/16 21:38:08  gpaul
- *           merging in sord email changes
- *
- *           Revision 1.1.2.15  2002/07/07 23:52:34  sord
- *           Added EmailReportTask.
- *           Split basic task functions into the base class EmailTask
- *
- *           Revision 1.1.2.14  2002/06/13 06:09:54  email
- *           Added feature to limit scheduling to the number of threads that
- *           can run so that other schedulers aren't denied the chance to
- *           do the scheduling (at least not without timing out the task first).
- *
- *           Revision 1.1.2.13  2002/06/12 06:43:52  sord
- *           Added multiple scheduler feature that allows 2 or more schedulers to
- *           share the work of running tasks and provide redundant service.
- *
- *           Revision 1.1.2.12  2002/05/06 03:38:41  sord
- *           Added some informational log messages.
- *
- *           Revision 1.1.2.11  2002/05/06 03:33:29  sord
- *           Fixed max_email_per_second_per_job config variable name.
- *
- *           Revision 1.1.2.10  2002/05/06 03:30:32  sord
- *           Moved all configuration stuff to EmailJobScheduler.
- *
- *           Revision 1.1.2.9  2002/05/06 03:07:24  sord
- *           Handle case where configuration matches default.
- *
- *           Revision 1.1.2.8  2002/05/06 03:05:40  sord
- *           Log configuration when it is changed.
- *
- *           Revision 1.1.2.7  2002/05/06 03:00:54  sord
- *           Modified how the configuration is reloaded.
- *
- *           Revision 1.1.2.6  2002/05/06 01:59:47  sord
- *           Added configuration options for thread control and resource limits.
- *
- *           Revision 1.1.2.5  2002/04/28 05:23:45  sord
- *           Mark jobs as incomplete if they have passed their time.
- *
- *           Revision 1.1.2.4  2002/04/27 07:27:56  sord
- *           Copy the contex for the sub-processes so that they don't get closed when the function exits.
- *
- *           Revision 1.1.2.3  2002/04/25 07:26:59  sord
- *           Fixed config reader bug.
- *
- *           Revision 1.1.2.2  2002/04/25 05:59:54  sord
- *           Additional functionallity.
- *
- *           Revision 1.1.2.1  2002/04/25 04:54:20  sord
- *           Initial version.
- *
  */
 public class EmailJobScheduler {
 

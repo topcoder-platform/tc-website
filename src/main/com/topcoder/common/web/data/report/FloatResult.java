@@ -5,8 +5,7 @@ import java.text.DecimalFormat;
 /** A wrapper for a float
  *  @author Greg Paul
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class FloatResult extends ResultItem {
 

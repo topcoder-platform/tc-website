@@ -12,33 +12,6 @@ import java.util.Map;
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/16 21:37:45  gpaul
- *           merging in sord email changes
- *
- *           Revision 1.4.2.2  2002/04/12 06:03:13  apps
- *           Fixed SQL DELETE syntax (added FROM)
- *
- *           Revision 1.4.2.1  2002/04/11 18:20:28  apps
- *           SB -- readded EmailServices
- *
- *           Revision 1.4  2002/04/11 08:06:04  apps
- *           Fix SQL INSERT statements (had double left parens '((')
- *
- *           Revision 1.3  2002/04/09 10:14:04  apps
- *           Initial implementation.
- *
- *           Revision 1.2  2002/04/05 04:18:38  apps
- *           Fixed formatting by replacing tabs with spaces.
- *
- *           Revision 1.1.1.1  2002/04/02 10:42:29  apps
- *           no message
- *
- *           Revision 1.1.2.1  2002/04/02 10:34:32  apps
- *           Initial version.
- *           Interface declared.
- *
  */
 public class EmailListGroupBean extends BaseEJB {
     /**

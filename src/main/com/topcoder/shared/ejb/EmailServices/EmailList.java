@@ -18,36 +18,9 @@ import java.util.Set;
  *
  * A member's data can be retrieved using getMemberData().
  *
+ *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/16 21:37:45  gpaul
- *           merging in sord email changes
- *
- *           Revision 1.2.2.4  2002/04/21 22:21:58  apps
- *           Added functions to set job properties.
- *
- *           Revision 1.2.2.3  2002/04/15 06:12:24  apps
- *           Replaced tabs with spaces.
- *           Added data accessors to EmailList classes for name and groupId
- *
- *           Revision 1.2.2.2  2002/04/12 01:33:56  apps
- *           This is just a test.
- *
- *           Revision 1.2.2.1  2002/04/11 18:20:28  apps
- *           SB -- readded EmailServices
- *
- *           Revision 1.2  2002/04/05 04:18:38  apps
- *           Fixed formatting by replacing tabs with spaces.
- *
- *           Revision 1.1.1.1  2002/04/02 10:42:29  apps
- *           no message
- *
- *           Revision 1.1.2.1  2002/04/02 10:34:32  apps
- *           Initial version.
- *           Interface declared.
- *
  */
 public interface EmailList extends EJBObject {
     /**

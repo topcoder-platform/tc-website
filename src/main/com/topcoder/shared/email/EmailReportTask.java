@@ -21,30 +21,6 @@ import java.util.*;
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.1  2002/07/16 21:50:21  gpaul
- *           merging sord's email changes
- *
- *           Revision 1.1.2.6  2002/07/10 05:33:15  sord
- *           Increment the counts!!
- *
- *           Revision 1.1.2.5  2002/07/10 05:04:59  sord
- *           change XML fields to lowercase
- *           change report template group to [SentReports]
- *
- *           Revision 1.1.2.4  2002/07/10 04:59:32  sord
- *           Change status so templateId can be updated.
- *
- *           Revision 1.1.2.3  2002/07/10 04:35:05  sord
- *           Change job status so date can be updated.
- *
- *           Revision 1.1.2.2  2002/07/10 04:20:00  sord
- *           Added root 'report' tag to internal XML document.
- *
- *           Revision 1.1.2.1  2002/07/07 23:52:34  sord
- *           Added EmailReportTask.
- *           Split basic task functions into the base class EmailTask
  *
  */
 public class EmailReportTask extends EmailTask implements Runnable {

@@ -4,8 +4,7 @@ package com.topcoder.common.web.constant;
 /** Constants related to the transactional database
  *  @author Steve Burrows
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class OLTP {
 

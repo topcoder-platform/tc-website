@@ -7,71 +7,11 @@ import java.rmi.RemoteException;
 import java.util.*;
 
 /**
+ *
  * @see EmailList
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/16 21:37:45  gpaul
- *           merging in sord email changes
- *
- *           Revision 1.5.2.11  2002/04/21 22:21:58  apps
- *           Added functions to set job properties.
- *
- *           Revision 1.5.2.10  2002/04/15 06:16:46  apps
- *           Added accesor functions for Name and GroupId.
- *
- *           Revision 1.5.2.9  2002/04/15 06:12:24  apps
- *           Replaced tabs with spaces.
- *           Added data accessors to EmailList classes for name and groupId
- *
- *           Revision 1.5.2.8  2002/04/15 05:21:14  apps
- *           Advance recordset before getting seqId.
- *
- *           Revision 1.5.2.7  2002/04/15 04:06:05  apps
- *           Modified to use database sequences instead of queries to get ids.
- *           This is a more reliable method, should multiple users update at the
- *           same time and it also eliminates problems that can arise from
- *           removing a record and then re-adding a record with the same id.
- *
- *           Revision 1.5.2.6  2002/04/12 07:54:49  apps
- *           Commented out line that should have been commented out last update.
- *
- *           Revision 1.5.2.5  2002/04/12 07:47:56  apps
- *           Fixed logic to deal with detail_id being a primary key.
- *
- *           Revision 1.5.2.4  2002/04/12 07:38:56  apps
- *           Fixed typo
- *
- *           Revision 1.5.2.3  2002/04/12 07:31:03  apps
- *           Fixed column name.
- *
- *           Revision 1.5.2.2  2002/04/12 06:03:13  apps
- *           Fixed SQL DELETE syntax (added FROM)
- *
- *           Revision 1.5.2.1  2002/04/11 18:20:28  apps
- *           SB -- readded EmailServices
- *
- *           Revision 1.5  2002/04/11 08:06:04  apps
- *           Fix SQL INSERT statements (had double left parens '((')
- *
- *           Revision 1.4  2002/04/09 10:14:04  apps
- *           Initial implementation.
- *
- *           Revision 1.3  2002/04/09 02:44:43  apps
- *           Fixed return type to match EmailList class
- *
- *           Revision 1.2  2002/04/05 04:18:38  apps
- *           Fixed formatting by replacing tabs with spaces.
- *
- *           Revision 1.1.1.1  2002/04/02 10:42:29  apps
- *           no message
- *
- *           Revision 1.1.2.1  2002/04/02 10:34:32  apps
- *           Initial version.
- *           Interface declared.
- *
  */
 public class EmailListBean extends BaseEJB {
     /**

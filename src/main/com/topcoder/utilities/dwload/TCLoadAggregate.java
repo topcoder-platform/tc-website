@@ -1,109 +1,25 @@
 package com.topcoder.utilities.dwload;
 
-/*****************************************************************************
+/**
  * TCLoadAggregate.java
  *
  * TCLoadAggregate loads the various aggregate tables in the data warehouse.
  *
  * The tables that are built by this load procedure are:
  *
- RoomResult2();
-
- CoderDivision();
-
- RoundDivision();
-
- RoomResult3();
-
- CoderProblemSummary();
-
- CoderLevel();
-
- Streak();
-
- RoundProblem();
+ * <ul>
+ * <li>room_result</li>
+ * <li>coder_division</li>
+ * <li>round_division</li>
+ * <li>coder_problem_summary</li>
+ * <li>coder_level</li>
+ * <li>streak</li>
+ * <li>round_problem</li>
+ * </ul>
  *
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.6  2002/07/12 17:15:47  gpaul
- *           merged baby
- *
- *           Revision 1.5.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.5  2002/06/11 02:08:36  gpaul
- *           fixed up the win streak load, it was using the wrong division id on the insert.  also, i cleaned up the case where someone has consequtive streaks in different divisions, it was probably wrong before.
- *
- *           Revision 1.4  2002/06/06 22:39:35  gpaul
- *           fixed win streak load, it would exclusive on the begining round
- *
- *           Revision 1.3  2002/05/31 01:25:37  gpaul
- *           added more stuff to speed it up
- *
- *           Revision 1.2  2002/05/24 19:28:10  gpaul
- *           added some  code so that we can load just the stuff for the current round in the aggregate load
- *
- *           Revision 1.1  2002/04/02 21:54:14  gpaul
- *           moving the load over from 153 cvs
- *
- *           Revision 1.1.2.12  2002/03/22 03:50:00  gpaul
- *           fix so problems submitted shows 0, not null
- *
- *           Revision 1.1.2.11  2002/03/21 23:52:05  gpaul
- *           gotta update the standard deviation in room_result after loading the round_division tablel
- *
- *           Revision 1.1.2.10  2002/03/21 20:08:46  gpaul
- *           fixed round_problem load for division
- *
- *           Revision 1.1.2.9  2002/03/20 19:38:06  gpaul
- *           added avg_time_elapsed to round_problem and coder_level tables
- *
- *           Revision 1.1.2.8  2002/03/19 23:05:03  gpaul
- *           pulled extra comments
- *
- *           Revision 1.1.2.7  2002/03/19 23:04:41  gpaul
- *           added round_problem load
- *
- *           Revision 1.1.2.6  2002/03/19 18:30:42  gpaul
- *           log.debug instead of system.out.println
- *
- *           Revision 1.1.2.5  2002/03/19 01:23:56  gpaul
- *           fixed a couple loads for number_submitted column
- *
- *           Revision 1.1.2.4  2002/03/17 20:26:14  gpaul
- *           pulled out some comments
- *
- *           Revision 1.1.2.3  2002/03/17 20:25:38  gpaul
- *           pulled out some comments
- *
- *           Revision 1.1.2.2  2002/03/17 20:23:40  gpaul
- *           fixed up coder_level load
- *
- *           Revision 1.1.2.1  2002/03/16 20:17:02  gpaul
- *           moving these over from the member dev area.  i've added  a couple fixes to exclude admins from queries.
- *
- *           Revision 1.12  2002/03/12 21:21:50  stalker
- *           Latest version of the aggregate load
- *
- *           Revision 1.11  2002/03/06 13:02:25  stalker
- *           Fixed problem with win_streak load
- *
- *           Revision 1.10  2002/03/05 19:17:18  stalker
- *           Modified win_streak load to only include those rounds whose type is 1 (single match rounds). Also added the singrndmatch parameter to override this value.
- *
- *           Revision 1.9  2002/03/02 15:22:11  stalker
- *           Fixed error message when more or less than one row is modified by an update
- *
- *           Revision 1.8  2002/02/20 15:08:48  stalker
- *           The latest version of TCLoadAggregate
- *
- *           Revision 1.7  2002/02/13 22:19:58  stalker
- *           The latest version of TCLoadAggregate which has all code in place for loading
- *           aggregate tables.
- *
- *****************************************************************************/
+ */
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;

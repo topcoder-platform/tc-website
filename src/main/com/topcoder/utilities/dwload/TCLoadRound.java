@@ -1,6 +1,6 @@
 package com.topcoder.utilities.dwload;
 
-/*****************************************************************************
+/**
  * TCLoadRound.java
  *
  * TCLoadRound loads round information from the transactional database and
@@ -8,109 +8,22 @@ package com.topcoder.utilities.dwload;
  *
  * The tables that are built by this load procedure are:
  *
- *  rating (additional information is populated in the rating table)
- *  problem_submission
- *  system_test_case
- *  system_test_result
- *  contest
- *  problem
- *  round
- *  room
- *  room_result
- *  coder_problem
+ * <ul>
+ * <li>rating (additional information is populated in the rating table)</li>
+ * <li>problem_submission</li>
+ * <li>system_test_case</li>
+ * <li>system_test_result</li>
+ * <li>contest</li>
+ * <li>problem</li>
+ * <li>round</li>
+ * <li>room</li>
+ * <li>room_result</li>
+ * <li>coder_problem</li>
+ * </ul>
  *
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.8  2002/07/12 17:15:47  gpaul
- *           merged baby
- *
- *           Revision 1.7.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.7  2002/06/13 03:56:37  gpaul
- *           fixed the payment stuff to use the round_payment table
- *
- *           Revision 1.6  2002/06/12 05:13:41  gpaul
- *           exclude people in group_id 14 also
- *
- *           Revision 1.5  2002/06/11 18:44:38  gpaul
- *           added stuff to populate the payment_type_id and payment_type_desc columns in room_result
- *
- *           Revision 1.4  2002/05/31 01:25:37  gpaul
- *           added more stuff to speed it up
- *
- *           Revision 1.3  2002/05/24 19:28:10  gpaul
- *           added some  code so that we can load just the stuff for the current round in the aggregate load
- *
- *           Revision 1.2  2002/05/16 07:26:09  gpaul
- *           don't load nullified challenges.  load last submission only
- *
- *           Revision 1.1  2002/04/02 21:54:14  gpaul
- *           moving the load over from 153 cvs
- *
- *           Revision 1.1.2.11  2002/03/29 20:41:34  gpaul
- *           only load the coder_problem record if the coder attended
- *
- *           Revision 1.1.2.10  2002/03/28 21:21:32  gpaul
- *           un comment out the load
- *
- *           Revision 1.1.2.9  2002/03/28 21:20:12  gpaul
- *           load compiled code to problem_submission too
- *
- *           Revision 1.1.2.8  2002/03/25 18:16:29  gpaul
- *           load system tests before system test results.
- *           load system tests for each problem in given round rather than by date
- *
- *           Revision 1.1.2.7  2002/03/22 18:17:35  gpaul
- *           dont' clear round and contest tables in clean rounds method.  be sure room_type is a contest room for coder_problem load
- *
- *           Revision 1.1.2.6  2002/03/21 20:08:17  gpaul
- *           delete for round before you load...just to make sure it's clean
- *
- *           Revision 1.1.2.5  2002/03/20 23:08:54  gpaul
- *           changed so that if they didn't submit, the coder_problem table should get the distance between open time and end of coding phase
- *
- *           Revision 1.1.2.4  2002/03/20 20:42:42  gpaul
- *           load rating after room_result cuz rating gets num_competitions from room_result
- *
- *           Revision 1.1.2.3  2002/03/19 23:04:19  gpaul
- *           pulled round_problem load out and put it in aggregate load
- *
- *           Revision 1.1.2.2  2002/03/19 18:30:42  gpaul
- *           log.info instead of system.out.println
- *
- *           Revision 1.1.2.1  2002/03/16 20:17:02  gpaul
- *           moving these over from the member dev area.  i've added  a couple fixes to exclude admins from queries.
- *
- *           Revision 1.19  2002/03/15 01:37:29  stalker
- *           Latest version
- *
- *           Revision 1.18  2002/03/12 21:21:26  stalker
- *           Latest version of the round load
- *
- *           Revision 1.17  2002/03/06 03:16:15  stalker
- *           Fixed minor problem with new columns being added and the fact that the coder_problem table was not loading level_id and level_desc properly since the problem_id is no longer unique.
- *
- *           Revision 1.16  2002/03/05 19:16:26  stalker
- *           Fixed a few problems with the round table load due to columns being added last minute
- *
- *           Revision 1.15  2002/03/02 15:25:50  stalker
- *           Fixed error message when more than or fewer than 1 row is modified by an update. Also, changed the round comparison to be based on date instead of id as roundIds are not sequential.
- *
- *           Revision 1.14  2002/02/20 15:11:18  stalker
- *           Added new loads for division_seed, division_placed and overall_rank
- *
- *           Revision 1.13  2002/02/14 14:44:27  stalker
- *           Moved the computation of num_competitions for the rating table to this load.
- *           Since we need to select from the room_result table, we don't want this in the
- *           coders load.
- *
- *           Revision 1.12  2002/02/13 22:20:53  stalker
- *           The latest version of TCLoadRound
- *
- *****************************************************************************/
+ */
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;

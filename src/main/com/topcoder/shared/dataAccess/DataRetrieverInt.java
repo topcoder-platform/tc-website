@@ -7,13 +7,8 @@ import java.util.Map;
  * retrievers should take in request and produce data stored in a Map
  * as a response.
  *
- * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.1  2002/07/03 00:30:22  gpaul
- *           moving over here
- *
  * @author Greg Paul
+ * @version $Revision$
  */
 
 public interface DataRetrieverInt {

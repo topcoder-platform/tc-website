@@ -11,35 +11,6 @@ import java.util.*;
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.2  2002/07/12 17:15:47  gpaul
- *           merged baby
- *
- *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1  2002/07/03 00:30:04  gpaul
- *           moving over here
- *
- *           Revision 1.1  2002/05/21 18:42:50  steveb
- *           SB
- *
- *           Revision 1.1.2.4  2002/05/01 05:48:52  apps
- *           SB
- *
- *           Revision 1.1.2.4  2002/04/30 23:58:57  chuck
- *           fixed line that calls send to use configurable host and port
- *           (not constants SMTP_HOST_PORT and SMPT_HOST_ADDR)
- *
- *           Revision 1.1.2.3  2002/04/27 01:45:57  sord
- *           Added test for at least on TO address.
- *
- *           Revision 1.1.2.2  2002/04/17 12:43:17  apps
- *           Fixed some compiler issues.
- *
- *           Revision 1.1.2.1  2002/04/17 12:34:11  apps
- *           Initial implementation.
  *
  */
 public class EmailEngine {

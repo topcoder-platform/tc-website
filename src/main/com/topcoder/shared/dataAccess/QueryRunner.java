@@ -12,16 +12,8 @@ import java.util.*;
  * query, unlike DataRetriever which pulls query information
  * from a database.
  *
- * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.2  2002/07/19 19:29:27  gpaul
- *           fixed exception handling
- *
- *           Revision 1.1  2002/07/18 23:57:53  gpaul
- *           added so that one could dynamically create queries on the front end and then get result sets back
- *
  * @author  Greg Paul
+ * @version $Revision$
  * @see     ResultSetContainer
  */
 

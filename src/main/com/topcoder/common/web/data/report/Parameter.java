@@ -5,8 +5,7 @@ import java.io.Serializable;
 /** Holds a parameter for a query
  *  @author Greg Paul
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class Parameter implements Serializable {
 

@@ -7,77 +7,11 @@ import java.rmi.RemoteException;
 import java.util.*;
 
 /**
+ *
  * @see    EmailJob
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/16 21:37:45  gpaul
- *           merging in sord email changes
- *
- *           Revision 1.1.2.20  2002/07/10 04:05:32  sord
- *           Get all job types in getJobs()
- *
- *           Revision 1.1.2.19  2002/07/07 23:53:48  sord
- *           Added functions related to creating reports for EmailJobs
- *
- *           Revision 1.1.2.18  2002/06/13 06:14:13  email
- *           Fixed scope of SQLException so compiler can find it.
- *
- *           Revision 1.1.2.17  2002/06/13 06:10:56  email
- *           Catch multiple job insertion SQLException.  It is ok, it just means the job
- *           wasn't acquired (return false).
- *
- *           Revision 1.1.2.16  2002/06/12 06:44:35  sord
- *           Added functions required for the multiple scheduler feature.
- *
- *           Revision 1.1.2.15  2002/05/06 05:36:00  sord
- *           Implemented archive_sched_job_detail related functions.
- *
- *           Revision 1.1.2.14  2002/05/03 09:04:17  sord
- *           Added functions to update jobType and check a job's type. The job type
- *           will be used to determine if a job is pre-detail-build or post-detail-build.
- *
- *           Revision 1.1.2.13  2002/05/03 08:14:31  sord
- *           Replace timestamp parameters with inline string to see if I can avoid the timezone problem.
- *
- *           Revision 1.1.2.12  2002/05/03 07:52:37  sord
- *           Converted sql.Date to sql.Timestamp because we are really storing timestamps, not just dates.
- *
- *           Revision 1.1.2.11  2002/05/02 20:17:37  sord
- *           Added getDate function so we can tell what time it is on the ejb server.
- *
- *           Revision 1.1.2.10  2002/05/01 08:05:14  sord
- *           Fixed bug where reason wasn't being saved to the database.
- *
- *           Revision 1.1.2.9  2002/04/27 08:07:57  sord
- *           Fixed column name (adding detail record)
- *
- *           Revision 1.1.2.8  2002/04/27 02:54:13  sord
- *           Fixed typo
- *
- *           Revision 1.1.2.7  2002/04/27 01:40:56  sord
- *           Fixed bug in getJobs that was returning the wrong jobId
- *
- *           Revision 1.1.2.6  2002/04/25 08:40:31  sord
- *           Added additional functions required for working with job detail records.
- *
- *           Revision 1.1.2.5  2002/04/25 07:33:52  sord
- *           Fixed column name.
- *
- *           Revision 1.1.2.4  2002/04/25 06:05:33  sord
- *           Added setStatus function.
- *
- *           Revision 1.1.2.3  2002/04/25 05:57:01  sord
- *           Fixed some Date type issues.
- *
- *           Revision 1.1.2.2  2002/04/25 05:52:59  sord
- *           Added EmailServer bean.
- *
- *           Revision 1.1.2.1  2002/04/25 04:52:35  sord
- *           Initial version.
- *
  */
 public class EmailServerBean extends BaseEJB {
     /**

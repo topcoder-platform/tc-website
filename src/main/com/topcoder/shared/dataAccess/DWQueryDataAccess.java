@@ -13,14 +13,6 @@ import java.util.Map;
  *
  * @author  Greg Paul
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.2  2002/07/23 23:37:21  gpaul
- *           use DataSources rather than DBMS to get connections
- *
- *           Revision 1.1  2002/07/19 00:07:17  gpaul
- *           a DataAccessInt to handle running QueryRequests
- *
  * @see     RequestInt
  */
 public class DWQueryDataAccess implements DataAccessInt {

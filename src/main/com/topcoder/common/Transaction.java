@@ -12,8 +12,7 @@ import javax.transaction.*;
 /**
  *  @author Steve Burrows
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class Transaction {
 

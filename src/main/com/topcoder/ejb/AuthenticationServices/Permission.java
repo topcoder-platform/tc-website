@@ -5,7 +5,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * This class represents a Permission for a given
  * Secure Object (User or Group) to a secured Sector at a given AccessLevel.
  * @version  $Revision$
- *  Log of Changes:
  */
 public class Permission implements java.io.Serializable {
 

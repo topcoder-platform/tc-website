@@ -1,62 +1,21 @@
 package com.topcoder.utilities.dwload;
 
-/*****************************************************************************
+/**
  * TCLoadCoders.java
  *
  * TCLoadCoders loads coder information tables from one database to another.
  * The tables that are built by this load procedure are:
- *      coder
- *      skill
- *      skill_type
- *      coder_skill
- *      rating
+ * <ul>     
+ * <li>coder</li>
+ * <li>skill</li>
+ * <li>skill_type</li>
+ * <li>coder_skill</li>
+ * <li>rating</li>
+ * </ul>
  *
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.4  2002/07/12 17:15:47  gpaul
- *           merged baby
- *
- *           Revision 1.3.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.3  2002/06/12 05:13:41  gpaul
- *           exclude people in group_id 14 also
- *
- *           Revision 1.2  2002/04/22 17:50:38  gpaul
- *           include coder_image_xref.display_flag in the move
- *
- *           Revision 1.1  2002/04/02 21:54:14  gpaul
- *           moving the load over from 153 cvs
- *
- *           Revision 1.1.2.3  2002/03/19 18:30:42  gpaul
- *           log.info instead of system.out.println
- *
- *           Revision 1.1.2.2  2002/03/18 19:31:46  gpaul
- *           added image schema load
- *
- *           Revision 1.1.2.1  2002/03/16 20:17:02  gpaul
- *           moving these over from the member dev area.  i've added  a couple fixes to exclude admins from queries.
- *
- *           Revision 1.13  2002/03/12 21:21:12  stalker
- *           Latest version of the coders load
- *
- *           Revision 1.12  2002/03/02 15:23:54  stalker
- *           dok fixed one bug and I cleaned up some other code. thanks dok
- *
- *           Revision 1.11  2002/02/20 15:09:38  stalker
- *           Fixed minor bug in rating table load
- *
- *           Revision 1.10  2002/02/14 14:43:29  stalker
- *           Fixed problem with num_competitions not being computed correctly. It has been
- *           moved to the round load so is actually computed on every round you load
- *
- *           Revision 1.9  2002/02/13 22:20:27  stalker
- *           The latest version of TCLoadCoders with all tables/columns loaded.
- *
- *****************************************************************************/
-
+ */
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 
