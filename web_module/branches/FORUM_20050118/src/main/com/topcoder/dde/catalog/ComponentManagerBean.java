@@ -870,8 +870,6 @@ public class ComponentManagerBean
                 && info.getPhase() == ComponentVersionInfo.SPECIFICATION) ||
                 (versionBean.getPhaseId() == ComponentVersionInfo.SPECIFICATION
                     && info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
-
-log.debug("qq1" );
             long projectTypeId;
             if (info.getPhase() == ComponentVersionInfo.SPECIFICATION) {
                 // TODO Change to reference
@@ -896,39 +894,20 @@ log.debug("qq1" );
                         null,
                         requestor,
                         levelId);
-log.debug("qq2");
+
                 if (newForum >= 0) {
-log.debug("qq3");
                     Project project = pt.getProjectById(projectId, requestor);
-log.debug("qq4");
 
                     NotificationHome notificationHome = (NotificationHome)
                             PortableRemoteObject.narrow(
                             homeBindings.lookup(NotificationHome.EJB_REF_NAME),
                             NotificationHome.class);
-log.debug("qq5");
 
                     Notification notification = notificationHome.create();
-log.debug("qq6");
-                    if (info.getPhase() == ComponentVersionInfo.DEVELOPMENT) {
-                        User winner = project.getWinner();
-                        if (winner == null) {
-                            log.debug("Can't get winner for project, no notification added.");
-                        } else {
-            log.debug("qq6.1");
-                            notification.createNotification("forum post " + project.getForumId(),
-                                    winner.getId(),
-                                    notification.FORUM_POST_TYPE_ID);
-               log.debug("qq6.2");
-                        }
-                    }
-
 
                     notification.createNotification("forum post "+ newForum,
                             project.getProjectManager().getId(),
                             notification.FORUM_POST_TYPE_ID);
-log.debug("qq7");
-
                 }
 
             } catch (ClassCastException e) {
@@ -947,6 +926,29 @@ log.debug("qq7");
                 ejbContext.setRollbackOnly();
                 throw new CatalogException(e.getMessage());
             }
+        }
+
+        if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
+            (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
+            try {
+                ProjectTracker pt = projectTrackerHome.create();
+
+                Project project = pt.getProjectById(
+                    pt.getProjectIdByComponentVersionId(getVersionInfo().getVersionId(), ProjectType.ID_DEVELOPMENT), requestor);
+
+                notification.createNotification("forum post " + project.getForumId(),
+                        project.getWinner().getId(),
+                        notification.FORUM_POST_TYPE_ID);
+
+           } catch (NullPointerException e) {
+               log.debug("Can't get winner for project, no notification added: " +e.toString());
+           } catch (Exception e) {
+                ejbContext.setRollbackOnly();
+                throw new CatalogException(e.toString());
+            }
+
+
+
         }
 
         versionBean.setVersionText(info.getVersionLabel());
