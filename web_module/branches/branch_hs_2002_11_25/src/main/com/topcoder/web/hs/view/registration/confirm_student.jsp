@@ -5,13 +5,16 @@
 <P><B>Registration for Students Confirmation page</B></P>
 <BR>
 <FORM ACTION="" METHOD="post" NAME="regForm">
+ <INPUT TYPE="hidden" NAME="cmd" VALUE="confirm">
  <INPUT TYPE="hidden" NAME="first_name" VALUE="<jsp:getProperty name="student" property="FirstName"/>">
  <INPUT TYPE="hidden" NAME="last_name" VALUE="<jsp:getProperty name="student" property="LastName"/>">
  <INPUT TYPE="hidden" NAME="state" VALUE="<jsp:getProperty name="student" property="StateCode"/>">
  <INPUT TYPE="hidden" NAME="school" VALUE="<jsp:getProperty name="student" property="SchoolId"/>">
  <INPUT TYPE="hidden" NAME="handle" VALUE="<jsp:getProperty name="student" property="Handle"/>">
  <INPUT TYPE="hidden" NAME="password" VALUE="<jsp:getProperty name="student" property="Password"/>">
+ <INPUT TYPE="hidden" NAME="confirm_password" VALUE="<jsp:getProperty name="student" property="ConfirmPassword"/>">
  <INPUT TYPE="hidden" NAME="email" VALUE="<jsp:getProperty name="student" property="Email"/>">
+ <INPUT TYPE="hidden" NAME="confirm_email" VALUE="<jsp:getProperty name="student" property="ConfirmEmail"/>">
  <INPUT TYPE="hidden" NAME="editor" VALUE="<jsp:getProperty name="student" property="EditorId"/>">
  <INPUT TYPE="hidden" NAME="language" VALUE="<jsp:getProperty name="student" property="LanguageId"/>">
  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
@@ -133,10 +136,20 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD ALIGN="right" VALIGN="middle"></TD>
    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
-    <INPUT TYPE="button" ONCLICK="regForm.submit()" NAME="confirmButton" VALUE="Confirm">
+    <INPUT TYPE="button" ONCLICK="Javascript:backStudent()regForm.submit()" MAME="backButton" VALUE="Back">
+    <INPUT TYPE="button" ONCLICK="Javascript:confirmStudent()" NAME="confirmButton" VALUE="Confirm">
    </TD>
   </TR>
  </TABLE>
+ <SCRIPT type="text/javascript">
+  function backStudent() {
+   document.regForm.cmd="";
+   document.regForm.submit();
+  }
+  function confirmStudent() {
+   document.regForm.submit();
+  }
+ </SCRIPT>
 </FORM>
 <%@ include file="tail.inc" %>
 
