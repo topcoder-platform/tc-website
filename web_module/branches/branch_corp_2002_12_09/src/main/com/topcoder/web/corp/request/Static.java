@@ -14,7 +14,7 @@ import com.topcoder.web.corp.Util;
 * any directory (below the root) The request processor gets the list of 
 * parameters out of the request, validates them, and then processes them. 
 *
-* @version   1.1.2.25
+* @version   1.1.2.33
 * @author    Daniel Cohn
 */
 
@@ -23,7 +23,6 @@ public class Static extends BaseProcessor {
     private static final String STATIC_PREFIX = "d";  // Prefix for parameters
     private static final String VALID_PARAMETER_CHARS = 
         "_-ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
-    private static final String LOGIN_PAGE_NAME = "LoginPage";
     private final static Logger log = Logger.getLogger(Static.class);
 
     /** Constructor sets pageInContext to true since all Static pages are in
@@ -43,17 +42,17 @@ public class Static extends BaseProcessor {
         if( request.getQueryString() != null ) {
             originatingPage += "?"+request.getQueryString();
         }
-        log.debug("\n\n*******Static request = "+originatingPage);
+        log.debug("Original static request: "+originatingPage);
 
         nextPage = requestProcessor();
-        log.debug("Static processor nextPage = "+nextPage);
+        log.debug("Static processor set user's nextPage to: "+nextPage);
 
         if (!havePermission()) { 
              log.debug(
                  "user [id="+authToken.getActiveUser().getId()+"] does not " +
                  "have enough permissions to access: " + nextPage
              );
-            /* Controller should catch NotAuthorizedException and forward
+            /* Controller will catch NotAuthorizedException and forward
                to login page if user is anonymous and send to permission 
                error page if user is logged in but not authorized.  */
             throw new NotAuthorizedException("Not enough permissions to access"
@@ -115,9 +114,6 @@ public class Static extends BaseProcessor {
                 int check = validParameter(cur);  // returns -1 if valid.
                 if (check == -1) { 
                     ret.append("/"+cur);
-                    if (cur.equals(LOGIN_PAGE_NAME)) {
-                        found = true;
-                    }
                 }
                 else {
                     char invalidChar = cur.charAt(check);

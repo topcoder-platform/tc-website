@@ -35,7 +35,7 @@ import com.topcoder.web.corp.Util;
  * server errors.
  * 
  * @author Greg Paul , modified by djFD
- * @version 1.1.2.61
+ * @version 1.1.2.62
  *
  */
 public class MainServlet extends HttpServlet {
@@ -167,17 +167,22 @@ public class MainServlet extends HttpServlet {
         }
         catch(NotAuthorizedException nae) {
             if (authToken.getActiveUser().isAnonymous()) {
-                /* If the user is anonymous and tries to access a module 
-                   they are not authorized to access, send them to the 
-                   login page.
-                */
+                /* If the user is anonymous and tries to access a resource they
+                   are not authorized to access, send them to login page.    */
                 log.debug("user unauthorized to access resource and user " +
                           "not logged in, forwarding to login page.");
                 fetchLoginPage(request,response);
                 return;
+            } else {
+                /* If the user is logged-in and is not authorized to access
+                   the resource, send them to an authorization failed page */
+                log.error("Unauthorized Access to ["+processorName+"]", nae);
+                fetchErrorPage(request, response, nae);
+                //fetchAuthorizationFailedPage(request, response, nae);
             }
         }
         catch(Exception e) {
+            /* All Non authorization errors are cought here  */
             log.error("exception during request processing ["
                 +processorName+"]", e
             );
