@@ -39,7 +39,7 @@ public abstract class SurveyData extends Base {
             if (survey == null) {
                 throw new NavigationException("Invalid Request, survey does not exist.");
             } else {
-                log.debug("found survey " + survey.getId());
+                log.debug("found survey " + survey.getId() + " " + survey.getName());
                 getRequest().setAttribute("surveyInfo", survey);
                 questionInfo = getQuestionInfo(surveyId);
                 getRequest().setAttribute("questionInfo", questionInfo);
