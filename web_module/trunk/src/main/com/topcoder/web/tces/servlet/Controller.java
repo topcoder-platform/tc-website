@@ -62,6 +62,7 @@ public class Controller extends HttpServlet {
             ctx = (InitialContext) TCContext.getInitial();
 
             if (taskName != null && taskName.trim().length() > 0) {
+                log.info("[**** tces **** " + taskName + " ****]");    
                 // process a task
                 Task task = null;
                 Class taskClass = null;
