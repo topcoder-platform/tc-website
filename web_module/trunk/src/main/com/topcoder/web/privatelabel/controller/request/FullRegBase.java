@@ -112,6 +112,7 @@ abstract class FullRegBase extends SimpleRegBase {
         ret.setText(row.getStringItem("demographic_question_text"));
         ret.setSelectable(row.getStringItem("selectable"));
         ret.setRequired(row.getItem("is_required").getResultData() != null && row.getIntItem("is_required") == 1);
+        ret.setSort(row.getIntItem("sort"));
 
         DataAccessInt dataAccess = getDataAccess(true);
         Request r = new Request();
