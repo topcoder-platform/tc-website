@@ -244,7 +244,7 @@
             <img src="/i/es/srmanimation_home.gif" alt="" width="244" height="142" border="0" usemap="#srmanimation_home" /><br />
             <map name="srmanimation_home">
             <!-- <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" />  -->
-            <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" />
+            <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" />
             <area shape="poly" alt="SRM Match 146" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4540&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
@@ -288,18 +288,24 @@
                 
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="right">87.31</td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
+                    <td class="statText" align="center">2</td>
+                    <td class="statText" align="right">89.16</td>
                 </tr>
                 
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="right">87.14</td>
+                    <td class="statText" align="center">2</td>
+                    <td class="statText" align="right">88.11</td>
                 </tr>
                 
+                 <tr valign="top">
+                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
+                    <td class="statText" align="center">1</td>
+                    <td class="statText" align="right">87.31</td>
+                </tr>
 
                 <tr valign="top">
                 	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
@@ -308,12 +314,7 @@
                     <td class="statText" align="right">74.78</td>
                 </tr>
                 
-                <tr valign="top">
-                	<td width="1"><img src="/i/clear.gif" width="1" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
-                    <td class="statText" align="center">1</td>
-                    <td class="statText" align="right">68.70</td>
-                </tr>
+               
 
 
                 <tr valign="top">
