@@ -159,7 +159,7 @@ public final class TaskStatic {
                             case 4: regionCode = "MW"; break;
                             case 5: regionCode = "INT"; break;
                         }
-                        if (region!=null) dataRequest.setProperty("rc", regionCode);
+                        dataRequest.setProperty("rc", regionCode);
                         resultMap = dai.getData(dataRequest);
                         rsc = (ResultSetContainer) resultMap.get("Regional_Tourney_Competitorss");
                         if (sortCol != null && sortDir != null)
