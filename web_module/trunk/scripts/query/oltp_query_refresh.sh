@@ -1088,14 +1088,14 @@ ORDER BY
 
 
 java com.topcoder.utilities.QueryLoader "OLTP" 84 "Invitational_Eligibility" 0 0 "
-SELECT count(*) AS is_eligible
+SELECT CASE WHEN r.num_ratings > 2 THEN 'true' ELSE 'false' END AS has_enough_ratings
+     , CASE WHEN r.last_rated_event > '2002-03-30 00:00:00.000' THEN 'true' ELSE 'false' END AS has_recent_competition
+     , CASE WHEN c.country_code in ('036','124','372','356','826','840','156','554') THEN 'true' ELSE 'false' END AS in_eligible_country
+     , CASE WHEN r.num_ratings > 2 AND r.last_rated_event > '2002-03-30 00:00:00.000' AND r.last_rated_event > '2002-03-30 00:00:00.000' THEN 'true' ELSE 'false' END AS is_eligible
   FROM coder c
      , rating r
- WHERE c.country_code in ('036','124','372','356','826','840','156','554')
-   AND c.coder_id = @cr@
-   AND r.num_ratings > 2
-   AND c.coder_id = r.coder_id
-   AND r.last_rated_event > '2002-03-30 00:00:00.000'
+ WHERE c.coder_id = @cr@
+   AND r.coder_id = c.coder_id
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 86 "Is_Registered" 0 0 "
@@ -1134,3 +1134,24 @@ where
   986,219,1246 )
 order by 1
 " 
+
+java com.topcoder.utilities.QueryLoader "OLTP" 88 "Invitational Sign Up List" 0 0 "
+select
+  email, handle
+from
+  coder c,
+  user u,
+  rating r
+where
+  u.user_id = r.coder_id and
+  c.coder_id = r.coder_id and
+  rating > 0 and
+  u.status = 'A' and
+  num_ratings > 2 and
+  date(last_rated_event) >= mdy(4,1,2002) and
+  lower(email) not like '%topcoder.com' and
+  handle not like 'guest%' and
+  country_code in ('036','124','372','356','826','840','156','554') and
+  u.user_id not in (select user_id from group_user where group_id = 13)
+"
+
