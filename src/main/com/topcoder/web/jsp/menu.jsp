@@ -22,15 +22,15 @@
 
         <td class="topNavOn" nowrap><A href="/" class="topLink">Competition</A></td>
 
-        <td class="topNav" nowrap><A href="/?t=development&c=index" class="topLink" target="_blank">Development</A></td>
+        <td class="topNav" nowrap><A href="/?t=development&c=index" class="topLink" target="_parent">Development</A></td>
 
-        <td class="topNav" nowrap><A href="/?t=tces&c=index" class="topLink" target="_blank">Job Listing</A></td>
+        <td class="topNav" nowrap><A href="/?t=tces&c=index" class="topLink" target="_parent">Job Listing</A></td>
 
-        <td class="topNav" nowrap><A href="http://software.topcoder.com" class="topLink">Software</A></td>
+        <td class="topNav" nowrap><A href="http://software.topcoder.com" class="topLink" target="_parent">Software</A></td>
 
-        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</A></td>
+        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home" class="topLink" target="_parent">Employment Services</A></td>
 
-        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</A></td>
+        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink" target="_parent">Sponsorship</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>
