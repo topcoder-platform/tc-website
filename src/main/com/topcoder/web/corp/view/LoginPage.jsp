@@ -52,8 +52,7 @@
                             if(username==null) username = "";
                         %>
 
-                        <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
-                    
+
                         <p><%= message %></p>
                     </td>
                 </tr>
@@ -66,6 +65,7 @@
             <table width="350" border="0" cellpadding="3" cellspacing="0" class="loginForm">
                 <tr><td class="testTableTitle">Login</td></tr>
                 <tr valign="middle"><form method="post" name="frmLogin" action="/?module=Login">
+                    <input type="hidden" name="<%=Login.KEY_DESTINATION_PAGE%>" value="<%= nextpage %>">
                     <td class="statText" align="center">
                         <table border="0" cellpadding="3" cellspacing="0">
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
@@ -83,7 +83,7 @@
 
                            <tr><td colspan="3"><img src="/i/clear.gif" width="10" height="3" alt="" border="0"></td></tr>
                         </table>
-                        
+
                     <script>
                       document.frmLogin.<%=username.equals("")?Login.KEY_USER_HANDLE:Login.KEY_USER_PASS%>.focus();
                     </script>
