@@ -34,11 +34,11 @@ function goTo(selection){
     window.location=sel;
   }
 }
-function getGraph(params,wd,ht) {
+function getGraph(params,wd,ht,name) {
   var url = 'graph?' + params + '&width='+wd+'&height='+ht;
   var wht = parseInt(ht)+49;
   var features = 'width='+wd+',height='+wht+'status=0';
-  var win = window.open('', 'graph', features);
+  var win = window.open('', name, features);
   win.document.open('text/html', 'replace');
   win.document.write('<html><head><title>TopCoder :: Graph</title></head><body bgcolor="#000000" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0"><img src="/i/logo.gif" width="206" height="49"><br><img src="' + url + '" width="' + wd + '" height="' + ht + '"></body></html>');
   win.document.close();
