@@ -44,46 +44,46 @@
 
 <P><B>Java</B></P>
 
-<P><B><A HREF="http://java.sun.com/" TARGET="_blank">http://java.sun.com/</A></B><BR/>
+<P><B><A HREF="http://java.sun.com/" TARGET="_blank">http://java.sun.com/</A></B><BR>
 The Source for JavaTM Technology</P>
 
-<P><B><A HREF="http://www.javaworld.com/" TARGET="_blank">http://www.javaworld.com/</A></B><BR/>
+<P><B><A HREF="http://www.javaworld.com/" TARGET="_blank">http://www.javaworld.com/</A></B><BR>
 JavaWorld.com, an IDG Communications company </P>
 
-<P><B><A HREF="http://java.sun.com/docs/books/tutorial/" TARGET="_blank">http://java.sun.com/docs/books/tutorial/</A></B><BR/>
+<P><B><A HREF="http://java.sun.com/docs/books/tutorial/" TARGET="_blank">http://java.sun.com/docs/books/tutorial/</A></B><BR>
 The Java Tutorial
-A practical guide for programmers, with hundreds of complete, working examples and 
+A practical guide for programmers, with hundreds of complete, working examples and
 dozens of trails--groups of lessons on a particular subject.</P>
 
-<P><B><A HREF="http://java.sun.com/docs/books/tutorial/java/" TARGET="_blank">http://java.sun.com/docs/books/tutorial/java/</A></B><BR/>
-Trail: Learning the Java Language 
-This trail covers the fundamentals of programming in the Java programming language.</P> 
+<P><B><A HREF="http://java.sun.com/docs/books/tutorial/java/" TARGET="_blank">http://java.sun.com/docs/books/tutorial/java/</A></B><BR>
+Trail: Learning the Java Language
+This trail covers the fundamentals of programming in the Java programming language.</P>
 
-<P><B><A HREF="http://www.jguru.com/" TARGET="_blank">http://www.jguru.com/</A></B><BR/>
+<P><B><A HREF="http://www.jguru.com/" TARGET="_blank">http://www.jguru.com/</A></B><BR>
 Your view of the Java universe </P>
 
-<P><B><A HREF="http://www.javacoffeebreak.com/" TARGET="_blank">http://www.javacoffeebreak.com/</A></B><BR/>
-The Coffee Break  
+<P><B><A HREF="http://www.javacoffeebreak.com/" TARGET="_blank">http://www.javacoffeebreak.com/</A></B><BR>
+The Coffee Break
 Your free guide to learning the Java™ programming language</P>
- 
+
 
 <P><B>C++</B></P>
 
-<P><B><A HREF="http://www.cplusplus.com/doc/tutorial/" TARGET="_blank">http://www.cplusplus.com/doc/tutorial/</A></B><BR/>
+<P><B><A HREF="http://www.cplusplus.com/doc/tutorial/" TARGET="_blank">http://www.cplusplus.com/doc/tutorial/</A></B><BR>
 The cplusplus.com tutorial
 Complete C++ language tutorial </P>
 
-<P><B><A HREF="http://www.sgi.com/tech/stl/" TARGET="_blank">http://www.sgi.com/tech/stl/</A></B><BR/>
+<P><B><A HREF="http://www.sgi.com/tech/stl/" TARGET="_blank">http://www.sgi.com/tech/stl/</A></B><BR>
 Standard Template Library Programmer's Guide</P>
 
 
 <P><B>C#</B></P>
 
-<P><B><A HREF="http://www.mastercsharp.com/" TARGET="_blank">http://www.mastercsharp.com/</A></B><BR/>
+<P><B><A HREF="http://www.mastercsharp.com/" TARGET="_blank">http://www.mastercsharp.com/</A></B><BR>
 Master C#, the easy way</P>
 
-<P><B><A HREF="http://www.c-sharpcorner.com/" TARGET="_blank">http://www.c-sharpcorner.com/</A></B><BR/>
-The C-sharpcorner.com was formed and maintained by professionals, who strongly believe 
+<P><B><A HREF="http://www.c-sharpcorner.com/" TARGET="_blank">http://www.c-sharpcorner.com/</A></B><BR>
+The C-sharpcorner.com was formed and maintained by professionals, who strongly believe
 in sharing their piece of code with other developers.</P>
 
 <P><B>Books</B></P>
@@ -111,7 +111,7 @@ in sharing their piece of code with other developers.</P>
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -124,9 +124,9 @@ in sharing their piece of code with other developers.</P>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" />
-</TD>		
+</TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

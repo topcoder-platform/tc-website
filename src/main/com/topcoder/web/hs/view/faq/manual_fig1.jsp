@@ -43,9 +43,9 @@
             <!--Body starts here-->
 <BR><P><ul CLASS="bodyText"><li><b>Figure 1.</b> Login
                                         </li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig2"><b>Figure 2.</b> Lobby</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig3"><b>Figure 3.</b> Problem Selection</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig4"><b>Figure 4.</b> Coding Window - Coding Phase</A></li><li><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=manual_fig5"><b>Figure 5.</b> Status Window - Challenge Phase</A></li></ul></P><P CLASS="bodyText"><b>Figure 1: Login</b></P><IMG BORDER="0" HEIGHT="468" WIDTH="619" ALT="Login" SRC="/i/hs/login_screen.gif"><P CLASS="bodyText">
-A Login Timeout screen may appear due to a 
-          server problem or high network traffic. If this occurs, the user must login again. <BR><BR><b>*Note:</b>  In the event that this should happen during 
-          the course of competition, the latest saved version of the problem being solved at the time will automatically open in the coding window when 
+A Login Timeout screen may appear due to a
+          server problem or high network traffic. If this occurs, the user must login again. <BR><BR><b>*Note:</b>  In the event that this should happen during
+          the course of competition, the latest saved version of the problem being solved at the time will automatically open in the coding window when
           the contestant returns to the coding room.
 </P><P><BR></P>
               <!--Body Ends Here-->
@@ -55,7 +55,7 @@ A Login Timeout screen may appear due to a
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -66,10 +66,10 @@ A Login Timeout screen may appear due to a
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

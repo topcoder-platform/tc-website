@@ -42,25 +42,25 @@
             <TD HEIGHT="100%" CLASS="bodyText">
             <!--Body starts here-->
                    <BR><P CLASS="bodyTextBold">What do I need to install to run the TopCoder Competition Arena?</P><P>
-The online tournament rounds run in a Java applet. We have designed our utilities to utilize some of the features 
-of Sun's 1.2 version of the JDK. This means that in order to run the applet, you will need to install a web 
-browser plug-in that allows the browser to run 1.2 applications. For information on which browser and 
-operating systems are compatible with the plug-in, <A TARGET="_blank" CLASS="bodyText" HREF="http://java.sun.com/getjava/install.html">click here</A>. 
-Even if you already have a JRE 1.1.X plug-in installed, you will need to re-install a newer version of the plug-in.  
-The latest version of the plug-in can be downloaded from Sun's website 
-(<A TARGET="_blank" CLASS="bodyText" HREF="http://java.sun.com/products/plugin/">http://java.sun.com/products/plugin/</A>). 
-If you have the Sun 1.3 or 1.4 JRE or JDK installed on your machine, you already have the plug-in software 
-installed. Remember, you must install a plug-in that at least supports the Java 1.2 runtime environment. 
-We recommend installing the 1.4 environment, which is the most current version available.  Once the plug-in 
-(or the 1.3/1.4 environment) has been downloaded and installed, you will not need to perform these steps in 
-the future. The download for the JRE (Java Runtime Environment) version 1.3, which includes the plug-in 
-software, is around 10MB. This means the download may take some time to complete. Remember, this 
-download only needs to be completed once. Completing the previous steps will also satisfy all prerequisites 
-in order to run the Competition Arena from within your browser.  Installing the 1.3/1.4 Java Runtime 
-will also allow you to run the TopCoder competition Arena from within Java Web Start (although Java 
+The online tournament rounds run in a Java applet. We have designed our utilities to utilize some of the features
+of Sun's 1.2 version of the JDK. This means that in order to run the applet, you will need to install a web
+browser plug-in that allows the browser to run 1.2 applications. For information on which browser and
+operating systems are compatible with the plug-in, <A TARGET="_blank" CLASS="bodyText" HREF="http://java.sun.com/getjava/install.html">click here</A>.
+Even if you already have a JRE 1.1.X plug-in installed, you will need to re-install a newer version of the plug-in.
+The latest version of the plug-in can be downloaded from Sun's website
+(<A TARGET="_blank" CLASS="bodyText" HREF="http://java.sun.com/products/plugin/">http://java.sun.com/products/plugin/</A>).
+If you have the Sun 1.3 or 1.4 JRE or JDK installed on your machine, you already have the plug-in software
+installed. Remember, you must install a plug-in that at least supports the Java 1.2 runtime environment.
+We recommend installing the 1.4 environment, which is the most current version available.  Once the plug-in
+(or the 1.3/1.4 environment) has been downloaded and installed, you will not need to perform these steps in
+the future. The download for the JRE (Java Runtime Environment) version 1.3, which includes the plug-in
+software, is around 10MB. This means the download may take some time to complete. Remember, this
+download only needs to be completed once. Completing the previous steps will also satisfy all prerequisites
+in order to run the Competition Arena from within your browser.  Installing the 1.3/1.4 Java Runtime
+will also allow you to run the TopCoder competition Arena from within Java Web Start (although Java
 Web Start will need to be installed separately).
 </P><P>
-If you have the necessary software loaded, 
+If you have the necessary software loaded,
 <SCRIPT type="text/javascript">
 function arena() {
   w=window.open("","Launch","top=2,left=2,width=300,height=225,status=1");
@@ -81,7 +81,7 @@ click here to load the arena &gt;&gt;
 Check <A CLASS="bodyText" HREF="http://www.javasoft.com/products/plugin/1.3/troubleshooting.faq.html">www.javasoft.com/products/plugin/1.3/troubleshooting.faq.html</A> for FAQs regarding plug-in installation problems.
 </P><P><BR></P>
 
-					<P><BR/></P>
+					<P><BR></P>
               <!--Body Ends Here-->
             </TD>
              <TD>
@@ -89,7 +89,7 @@ Check <A CLASS="bodyText" HREF="http://www.javasoft.com/products/plugin/1.3/trou
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -100,10 +100,10 @@ Check <A CLASS="bodyText" HREF="http://www.javasoft.com/products/plugin/1.3/trou
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

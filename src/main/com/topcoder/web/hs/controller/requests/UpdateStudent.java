@@ -1,6 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
 
@@ -17,124 +18,139 @@ import javax.servlet.*;
  */
 public class UpdateStudent extends Base {
 
-  private final static String UPDATE_BASE="/registration/";
+    private final static String UPDATE_BASE = "/registration/";
 
-  private final static String UPDATE_PAGE="update_student.jsp";
+    private final static String UPDATE_PAGE = "update_student.jsp";
 
-  private final static String CONFIRM_PAGE="confirm_student.jsp";
+    private final static String CONFIRM_PAGE = "confirm_student.jsp";
 
-  private final static String HOME_PAGE="/home/index.jsp";
+    private final static String HOME_PAGE = "/home/index.jsp";
 
-  private final static String REGISTER_CMD="update";
+    private final static String REGISTER_CMD = "update";
 
-  private final static String CONFIRM_CMD="confirm";
+    private final static String CONFIRM_CMD = "confirm";
 
-  private final static String INVALID_COMMAND="Invalid command passed to "+
-                                              "update module: ";
+    private final static String INVALID_COMMAND = "Invalid command passed to " +
+            "update module: ";
 
-  private final static String MISSING_SESSION="Cannot update information "+
-                                              "without logging in";
+    private final static String MISSING_SESSION = "Cannot update information " +
+            "without logging in";
 
-  protected User getAuthUser() {
-    return(auth.getUser());
-  }
+    private final static Logger log = Logger.getLogger(UpdateStudent.class);
 
-  protected void businessProcessing() throws Exception {
-
-    String cmd=request.getParameter("cmd");
-
-    /* If there is no command, then we are trying to display the main update
-     * student page 
-     */
-    if (cmd==null||cmd.equals("")) {
-      StudentRegistrationBean srb=new StudentRegistrationBean();
-
-      SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
-      if (sib==null) {
-        throw(new Exception(MISSING_SESSION));
-      }
-
-      RegistrationHelper.populateStudentWithDefaults(srb);
-      RegistrationHelper.populateStudentFromSession(sib,srb);
-      RegistrationHelper.populateStudentFromRequest(request,srb);
-      RegistrationHelper.populateStudentStaticContent(srb);
-
-      request.setAttribute("student",srb);
-
-      setNextPage(UPDATE_BASE+UPDATE_PAGE);
-      setIsNextPageInContext(true);
+    protected User getAuthUser() {
+        return (auth.getUser());
     }
 
-    /* If the user clicks the "Continute" button after entering his registration
-     * information, then perform some data validation and redirect to the
-     * confirmation page
-     */
-    else if (cmd.equals(REGISTER_CMD)) {
-      StudentRegistrationBean srb=new StudentRegistrationBean();
+    protected void businessProcessing() throws Exception {
 
-      SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
-      if (sib==null) {
-        throw(new Exception(MISSING_SESSION));
-      }
+        String cmd = request.getParameter("cmd");
 
-      RegistrationHelper.populateStudentWithDefaults(srb);
-      RegistrationHelper.populateStudentFromSession(sib,srb);
-      RegistrationHelper.populateStudentFromRequest(request,srb);
-      RegistrationHelper.populateStudentStaticContent(srb);
+        log.info("UpdateStudent: cmd=" + cmd);
 
-      request.setAttribute("student",srb);
+        /* If there is no command, then we are trying to display the main update
+         * student page
+         */
+        if (cmd == null || cmd.equals("")) {
+            log.debug("UpdateStudent processing '' command.");
 
-      HashMap errors=new HashMap();
-      request.setAttribute("form_errors",errors);
-   
-      if (RegistrationHelper.isValidStudent(errors,srb)) {
-        setNextPage(UPDATE_BASE+CONFIRM_PAGE);
-      }
-      else {
-        setNextPage(UPDATE_BASE+UPDATE_PAGE);
-      }
+            StudentRegistrationBean srb = new StudentRegistrationBean();
 
-      setIsNextPageInContext(true);
+            SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+            if (sib == null) {
+                throw(new Exception(MISSING_SESSION));
+            }
+
+            RegistrationHelper.populateStudentWithDefaults(srb);
+            RegistrationHelper.populateStudentFromSession(sib, srb);
+            RegistrationHelper.populateStudentFromRequest(request, srb);
+            RegistrationHelper.populateStudentStaticContent(srb);
+
+            request.setAttribute("student", srb);
+
+            setNextPage(UPDATE_BASE + UPDATE_PAGE);
+            setIsNextPageInContext(true);
+        }
+
+        /* If the user clicks the "Continute" button after entering his registration
+         * information, then perform some data validation and redirect to the
+         * confirmation page
+         */
+        else
+            if (cmd.equals(REGISTER_CMD)) {
+                log.debug("UpdateStudent processing 'register' command.");
+
+                StudentRegistrationBean srb = new StudentRegistrationBean();
+
+                SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+                if (sib == null) {
+                    throw(new Exception(MISSING_SESSION));
+                }
+
+                RegistrationHelper.populateStudentWithDefaults(srb);
+                RegistrationHelper.populateStudentFromSession(sib, srb);
+                RegistrationHelper.populateStudentFromRequest(request, srb);
+                RegistrationHelper.populateStudentStaticContent(srb);
+
+                request.setAttribute("student", srb);
+
+                HashMap errors = new HashMap();
+                request.setAttribute("form_errors", errors);
+
+                if (RegistrationHelper.isValidStudent(errors, srb)) {
+                    setNextPage(UPDATE_BASE + CONFIRM_PAGE);
+                }
+                else {
+                    setNextPage(UPDATE_BASE + UPDATE_PAGE);
+                }
+
+                setIsNextPageInContext(true);
+            }
+
+            /* When the user confirms his registration information, perform data
+             * validation again, and persist it to the database
+             */
+            else
+                if (cmd.equals(CONFIRM_CMD)) {
+                    log.debug("UpdateStudent processing 'confirm' command.");
+
+                    StudentRegistrationBean srb = new StudentRegistrationBean();
+
+                    SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+                    if (sib == null) {
+                        throw(new Exception(MISSING_SESSION));
+                    }
+
+                    RegistrationHelper.populateStudentWithDefaults(srb);
+                    RegistrationHelper.populateStudentFromSession(sib, srb);
+                    RegistrationHelper.populateStudentFromRequest(request, srb);
+                    RegistrationHelper.populateStudentStaticContent(srb);
+
+                    request.setAttribute("student", srb);
+
+                    HashMap errors = new HashMap();
+                    request.setAttribute("form_errors", errors);
+
+                    if (RegistrationHelper.isValidStudent(errors, srb)) {
+                        RegistrationHelper.updateStudent(srb);
+                        if(srb.getChangePassword()) reissueCookie();
+                        setNextPage(HOME_PAGE);
+                    }
+                    else {
+                        setNextPage(UPDATE_BASE + UPDATE_PAGE);
+                    }
+
+                    setIsNextPageInContext(true);
+                }
+
+                /* If any other command is given, redirect to the errorPage and display a
+                 * meaningful message
+                 */
+                else {
+                    log.debug("UpdateStudent illegal command.");
+
+                    throw(new IllegalArgumentException(INVALID_COMMAND + cmd));
+                }
     }
-
-    /* When the user confirms his registration information, perform data
-     * validation again, and persist it to the database
-     */
-    else if (cmd.equals(CONFIRM_CMD)) {
-      StudentRegistrationBean srb=new StudentRegistrationBean();
-
-      SessionInfoBean sib=(SessionInfoBean)request.getAttribute("SessionInfo");
-      if (sib==null) {
-        throw(new Exception(MISSING_SESSION));
-      }
-
-      RegistrationHelper.populateStudentWithDefaults(srb);
-      RegistrationHelper.populateStudentFromSession(sib,srb);
-      RegistrationHelper.populateStudentFromRequest(request,srb);
-      RegistrationHelper.populateStudentStaticContent(srb);
-
-      request.setAttribute("student",srb);
-
-      HashMap errors=new HashMap();
-      request.setAttribute("form_errors",errors);
-
-      if (RegistrationHelper.isValidStudent(errors,srb)) {
-        RegistrationHelper.updateStudent(srb);
-        setNextPage(HOME_PAGE);
-      }
-      else {
-        setNextPage(UPDATE_BASE+UPDATE_PAGE);
-      }
-
-      setIsNextPageInContext(true);
-    }
-
-    /* If any other command is given, redirect to the errorPage and display a
-     * meaningful message
-     */
-    else {
-      throw(new IllegalArgumentException(INVALID_COMMAND+cmd));
-    }
-  }
 
 };

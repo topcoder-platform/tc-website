@@ -60,19 +60,19 @@
 <P><B>Can a school with less than 3 students on a team still compete?</B></P>
 
 <P>Yes.  A high school may have less then 3 students competing, but their scores do not count towards the score for their high school.  These students are permitted to compete for fun.</P>
-  
+
 <P><B>How do schools advance to the playoffs?</B></P>
 
 <P>The regular season will consist of 8 regular matches.  In order to be invited to the playoffs, a high school must have competed in at least 6 "scored" rounds.  This means that they must have had at least 6 rounds in which they had at least 3 students competing.  The highest ranked schools at the end of the regular season will be invited to the playoffs.  A high school's rank will be determined by the average of that high school's best 6 scores.   </P>
-<P><BR/></P>                         
-            <!-- Body Ends Here-->            
+<P><BR></P>
+            <!-- Body Ends Here-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -83,11 +83,11 @@
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top" > <BR/>
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top" > <BR>
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
+<BR>
 <jsp:include page="../includes/right_resources.jsp" />
-     </TD>		
+     </TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

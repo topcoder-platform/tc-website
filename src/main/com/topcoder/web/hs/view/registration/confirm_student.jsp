@@ -1,4 +1,3 @@
-<%@ page errorPage="../home/error.jsp" %>
 <%@ taglib uri="/registration-taglib.tld" prefix="reg" %>
 <jsp:useBean id="student" type="com.topcoder.web.hs.model.StudentRegistrationBean" scope="request"/>
 <%@ include file="head.inc" %>
@@ -74,7 +73,7 @@
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle">&nbsp;</TD>
   </TR>
   <TR VALIGN="middle">
-   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Handle &amp; Password</TD>
+   <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" HEIGHT="16">&nbsp;Handle &amp; Email</TD>
   </TR>
   <TR VALIGN="middle">
    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></TD>

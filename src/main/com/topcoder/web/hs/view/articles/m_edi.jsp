@@ -1,3 +1,7 @@
+<jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
+<jsp:setProperty name="NavZone" property="Level0" value="stats" />
+<jsp:setProperty name="NavZone" property="Level1" value="m_edi" />
+
 <HTML>
 <HEAD>
 	<TITLE>::TopCoder High School::</TITLE>
@@ -41,10 +45,8 @@
             </TD>
             <TD HEIGHT="100%" CLASS="bodyText">
             <!-- Start Body-->
-                    <P><B><Font COLOR="cccccc" SIZE="2">NOTE:  The information provided on this page is for 
-demonstration purposes only</Font></B></P>
             <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%"><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle"><IMG BORDER="0" HEIGHT="23" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR><TR><TD HEIGHT="18"  COLSPAN="2" CLASS="bodyText" VALIGN="middle">&nbsp;Match Editorial Archive - 2002</TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle"><IMG BORDER="0" HEIGHT="10" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle">&nbsp;<B>October</B></TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.30.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #4 - Problem Set &amp; Analysis</TD></TR>
-<TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.29.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 118 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.23.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #3 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.21.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 117 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.16.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #2 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.15.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 116 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.10.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #1 (part 2) - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.08.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #1 (part 1) - Problem Set &amp; Analysis</TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle"><IMG BORDER="0" HEIGHT="10" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle">&nbsp;<B>September</B></TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.30.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 115 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.24.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 114 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.10.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 113 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.09.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 112 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.04.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 111 - Problem Set &amp; Analysis</TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle"><IMG BORDER="0" HEIGHT="10" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR></TABLE><P><BR/></P>
+<TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.29.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 118 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.23.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #3 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.21.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 117 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.16.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #2 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.15.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 116 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.10.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #1 (part 2) - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;10.08.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;2002 Invitational Round #1 (part 1) - Problem Set &amp; Analysis</TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle"><IMG BORDER="0" HEIGHT="10" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle">&nbsp;<B>September</B></TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.30.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 115 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.24.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 114 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.10.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 113 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.09.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 112 - Problem Set &amp; Analysis</TD></TR><TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;09.04.02</TD><TD NOWRAP="0" CLASS="bodyText" VALIGN="middle">&nbsp;SRM 111 - Problem Set &amp; Analysis</TD></TR><TR><TD COLSPAN="2" CLASS="bodyText" VALIGN="middle"><IMG BORDER="0" HEIGHT="10" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR></TABLE><P><BR></P>
             <!-- End Body-->
            </TD>
              <TD>
@@ -52,18 +54,18 @@ demonstration purposes only</Font></B></P>
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>  
+                </TABLE>
             </TD>
            </TR>
-          </TABLE>       
+          </TABLE>
          </TD>
         </TR>
 
        </TABLE>
         </TD>
-        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>	
-        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>	
-        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>		
+        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>
+        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>
+        <TD  BGCOLOR="#001934" VALIGN="top">&nbsp;&nbsp;</TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

@@ -48,21 +48,21 @@
 
 <P><B>COPYRIGHT, TRADEMARK AND OTHER INTELLECTUAL PROPERTY</B></P>
 
-<P><B>Protection</B><BR/>
+<P><B>Protection</B><BR>
 Except as otherwise indicated, this Web site and its entire contents (including, but not limited to, the text, information, software, graphics, images, sound, and animation) are owned by TopCoder, Inc. and are protected by domestic and international copyright, trademark, patent, and other intellectual property laws.  All copyrightable text and graphics, the selection, arrangement, and presentation of all materials (including information in the public domain), and the overall design of this Web site are ©2003 TopCoder.  All rights reserved.  Permission is granted to download and print materials from this Web site for the sole purposes of viewing, reading, and retaining for reference.  Any other copying, distribution, retransmission, or modification of information or materials on this Web site, whether in electronic or other form, without our express prior written permission is strictly prohibited.</P>
 
-<P><B>Notice<BR/>
+<P><B>Notice<BR>
 All trademarks, service marks, and trade names are proprietary to us or other respective owners that have granted us the right and license to use their marks.</B></P>
 
-<P><B>Copyright Complaints</B><BR/>
+<P><B>Copyright Complaints</B><BR>
 We respect the intellectual property of others, and we ask you to do the same.  We may, in appropriate circumstances and at our sole discretion, terminate the access of users who infringe the copyright rights of others. </P>
 
 <P>If you believe that your work has been copied and is accessible at our Web site in a way that constitutes copyright infringement, or that our Web site contains links or other references to another online location that contains material or activity that infringes your copyright rights, you may notify us by providing our copyright agent the information required by the U.S. Online Copyright Infringement Liability Limitation Act of the U.S. Digital Millennium Copyright Act, 17 U.S.C.  §512 Our agent for notice of claims of copyright infringement on or regarding this Web site can be reached as follows:</P>
 
-<P>BY E-MAIL: <A HREF="mailto:service@topcoder.com">service@topcoder.com</A><BR/>
-BY MAIL: John Hughes c/o Tanya Horgan TopCoder, Inc. 703 Hebron Avenue, Glastonbury, CT 06033<BR/>
-BY PHONE: 860.633.5540<BR/>
-Repeat infringers will be blocked from accessing the TopCoder web site.<BR/>
+<P>BY E-MAIL: <A HREF="mailto:service@topcoder.com">service@topcoder.com</A><BR>
+BY MAIL: John Hughes c/o Tanya Horgan TopCoder, Inc. 703 Hebron Avenue, Glastonbury, CT 06033<BR>
+BY PHONE: 860.633.5540<BR>
+Repeat infringers will be blocked from accessing the TopCoder web site.<BR>
 </P>
 
 <P><B>INDEMNIFICATION AND RELEASE</B></P>
@@ -77,7 +77,7 @@ Repeat infringers will be blocked from accessing the TopCoder web site.<BR/>
 <P>Documents, graphics and other materials appearing at our Web site may include technical inaccuracies, typographical errors, and out-of-date information and use of such documents, graphics or other materials is at your own risk.</P>
 
 
-<P><B>LIMITATION OF LIABILITY</B><BR/>
+<P><B>LIMITATION OF LIABILITY</B><BR>
 TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT BE LIABLE FOR ANY DAMAGES (INCLUDING, BUT NOT LIMITED TO, DIRECT, INDIRECT, INCIDENTAL, SPECIAL OR CONSEQUENTIAL DAMAGES), INCLUDING, BUT NOT LIMITED TO, DAMAGES FOR LOSS OF WINNINGS, DATA OR OTHER DAMAGE TO ANY OTHER INTANGIBLE PROPERTY, EVEN IF TOPCODER HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES, RESULTING FROM (i) THE USE OR INABILITY TO USE THIS WEB SITE, (ii) THE DISCLOSURE OF, UNAUTHORIZED ACCESS TO OR ALTERATION OF ANY TRANSMISSION OR DATA, (iii) THE STATEMENTS OR CONDUCT OF ANY THIRD PARTY OR (iv) ANY OTHER MATTER RELATING TO TOPCODER.</P>
 
 
@@ -130,16 +130,16 @@ TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT
 
 <P>If you have any questions regarding these Terms, contact us at <A HREF="mailto:service@topcoder.com">service@topcoder.com</A>.</P>
 
-<P><BR/></P>
-       
-            <!-- End Body-->            
+<P><BR></P>
+
+            <!-- End Body-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -150,10 +150,10 @@ TO THE FULLEST EXTENT PERMISSIBLE PURSUANT TO APPLICABLE LAW, TOPCODER SHALL NOT
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
-<BR/>
-<jsp:include page="../includes/right_resources.jsp" /></TD>		
+<BR>
+<jsp:include page="../includes/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

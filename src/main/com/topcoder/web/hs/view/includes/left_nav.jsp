@@ -78,7 +78,6 @@ sub = NavZone.getLevel1();
     <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
     <%=rootsep%>
 
-<%--
     <%=rootitem("?module=Statistics&c=round_overview", "Statistics", "stats", true)%>
     <% if(subopen("stats")) { %>
         <%=subsep%>
@@ -88,7 +87,7 @@ sub = NavZone.getLevel1();
         <%=subsep%>
         <%=subitem("?module=Statistics&c=ratings_history&cr="+SessionInfo.getUserId(), "Rating History", "ratings_history")%>
         <%=subsep%>
-        <%=subitem("?module=Static&d1=stats&d2=m_edi", "Match Editorials", "m_edi")%>
+        <%=subitem("?module=Static&d1=articles&d2=m_edi", "Match Editorials", "m_edi")%>
         <%=subsep%>
         <%=subitem("?module=Statistics&c=school_round_stats&hs="+SessionInfo.getSchoolId(), "High School Round Stats", "school_round_stats")%>
         <%=subsep%>
@@ -101,7 +100,6 @@ sub = NavZone.getLevel1();
         <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "Member Profile", "member_profile")%>
     <% } %>
     <%=rootsep%>
---%>
 
     <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
     <%=rootsep%>
@@ -123,8 +121,8 @@ sub = NavZone.getLevel1();
         <%=subsep%>
         <%=subitem("?module=Static&d1=faq&d2=rules_quali", "Rules & Qualification ", "rules_quali")%>
     <% } %>
-
     <%=rootsep%>
+
     <%=rootitem("?module=Static&d1=resources&d2=resources", "Resources", "resources", false)%>
     <%=rootsep%>
     <%=rootheader("[TCHS] Corporate")%>
@@ -137,8 +135,8 @@ sub = NavZone.getLevel1();
         <%=subsep%>
         <%=subitem("?module=Static&d1=about&d2=about_sponsor", "For Sponsors", "about_sponsor")%>
     <% } %>
-
     <%=rootsep%>
+
     <%=rootitem("?module=Static&d1=press&d2=press_main", "Press Room", "press", false)%>
     <%=rootsep%>
     <%=rootitem("?module=Static&d1=contacts&d2=contacts", "Contacts", "contacts", false)%>

@@ -1,6 +1,6 @@
 <%@ include file="head.inc" %>
 
-<%@ include file="body.inc" %> 
+<%@ include file="body.inc" %>
 
          <!-- BEGIN BODY -->
 
@@ -37,7 +37,7 @@ pageContext.setAttribute("resultSetDates", rdlist);
   </TR>
 </TABLE>
 
-<% 
+<%
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("School_Round_Scores");
 pageContext.setAttribute("resultSet", rsc);
 %>
@@ -50,10 +50,10 @@ pageContext.setAttribute("resultSet", rsc);
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Position</TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="48%">
-				   <A HREF="?module=Statistics&c=school_round_ranks&sq=School_Round_Scores&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">School</a>
+				   <A HREF="?module=Statistics&c=school_round_rank&rd=<%=currRound%>&sq=School_Round_Scores&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">School</a>
 				   </TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">
-				   <A HREF="?module=Statistics&c=school_round_ranks&sq=School_Round_Scores&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Score</a>
+				   <A HREF="?module=Statistics&c=school_round_rank&rd=<%=currRound%>&sq=School_Round_Scores&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">Score</a>
 				   </TD>
                    <TD BACKGROUND="/i/hs/blue_heading_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>

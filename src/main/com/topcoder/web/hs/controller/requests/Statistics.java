@@ -2,6 +2,7 @@ package com.topcoder.web.hs.controller.requests;
 
 import java.util.*;
 import javax.servlet.*;
+import javax.servlet.http.*;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.util.*;
@@ -16,6 +17,15 @@ import com.topcoder.common.web.util.Data;
  */
 public class Statistics extends Base {
 
+    static {
+        try {
+            /* this is only needed once per JVM before calling ProblemParser */
+            Data.initializeDataTypes();
+        } catch(Exception e) {
+            log.error("call from static initializer in statistics processor to Data.initializeDataTypes() failed", e);
+        }
+    }
+
     protected void businessProcessing() throws Exception {
 
         String cmd = request.getParameter(DataAccessConstants.COMMAND);
@@ -23,10 +33,7 @@ public class Statistics extends Base {
         /* we do this here so that if the query fails, we still keep our place in the menus */
         nav.setAll("stats", cmd);
 
-        Data.initializeDataTypes();
-
-        Map map = getParameterMap(request);
-        Request dataRequest = new Request(map);
+        Request dataRequest = new Request(HttpUtils.parseQueryString(((HttpServletRequest)request).getQueryString()));
         request.setAttribute("REQUEST_BEAN", dataRequest);
 
         DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
@@ -35,16 +42,5 @@ public class Statistics extends Base {
 
         setNextPage("/stats/"+cmd+".jsp");
         setIsNextPageInContext(true);
-    }
-
-    /** This exists as a request method, but only in version 2.3 or later of the servlet API. */
-    private static Map getParameterMap(ServletRequest r) {
-        Map m = new HashMap();
-        Enumeration e = r.getParameterNames();
-        while(e.hasMoreElements()) {
-            String s = (String)e.nextElement();
-            m.put(s, r.getParameter(s));
-        }
-        return m;
     }
 }

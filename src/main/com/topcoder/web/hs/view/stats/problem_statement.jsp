@@ -7,7 +7,7 @@
 
 <P><B>Problem Statement</B></P>
 
-<% 
+<%
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
 ResultSetContainer.ResultSetRow resultRow_0 = null;
 String sClassName = null;
@@ -24,7 +24,7 @@ if (rsc!=null && !rsc.isEmpty()) {
   problem = new Problem();
   problem.setProblemComponents(arrProblemComponent);
 }
-%>		 
+%>
 
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"  WIDTH="100%">
            <TR>
@@ -39,9 +39,9 @@ if (rsc!=null && !rsc.isEmpty()) {
                  </TR>
                  <TR>
                    <% if (sClassName == null) { %>
-                     <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&#160;</TD>
+                     <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;</TD>
                    <% } else { %>
-                     <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&#160;Problem Statement for <%=sClassName%></TD>
+                     <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;Problem Statement for <%=sClassName%></TD>
                    <% } %>
                  </TR>
                  <TR>
@@ -52,7 +52,7 @@ if (rsc!=null && !rsc.isEmpty()) {
                  </TR>
                  <TR>
                    <TD  CLASS="statText" VALIGN="middle" ALIGN="left">
-                      <% if (problem!=null) { 
+                      <% if (problem!=null) {
                            ProblemRenderer pr = new ProblemRenderer(problem);
                            pr.setForegroundColor(Color.white);
                       %>
