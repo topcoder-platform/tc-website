@@ -206,11 +206,15 @@ public final class TaskDevelopment {
                     compProjects.append("    <td background=\"\" class=\"statText\"><a class=\"statText\" href=\"/index?t=development&amp;c=tcs_inquire-design&amp;payment=280&amp;date=2&#47;19&#47;2003\">");
                     compProjects.append("componentName");
                     compProjects.append("</a></td>\n");
+                    compProjects.append("    <td background=\"\" class=\"statText\" align=\"center\">");
+                    compProjects.append(payment);
+                    compProjects.append("</td>\n");
+                    compProjects.append("    <td background=\"\" class=\"statText\" align=\"center\">");
+                    compProjects.append(date);
+                    compProjects.append("</td>\n");
                     compProjects.append("    <td background=\"\" width=\"10\" class=\"statText\"><img src=\"/i/clear.gif\" alt=\"\" width=\"10\" height=\"1\" border=\"0\" /></td>");
                     compProjects.append("</tr>\n");
-                    devTag.addTag(new ValueTag("ProjectName", project));
-                    devTag.addTag(new ValueTag("Project", project));
-                    devTag.addTag(new ValueTag("To", to));
+                    devTag.addTag(new ValueTag("design_projects", compProjects.toString()));
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 } else {
                     requiresLogin = true;
