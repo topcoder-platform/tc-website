@@ -31,7 +31,7 @@ function find(n) {
 
             <img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
             
-            <A href="/i/downloads/tco03_guide.pdf"  target="_blank"><img src="/i/promos/tco_guide_promo_third.gif" alt="The TCO Guide" width="170" height="150" border="0" /></A><br/>
+            <A href="/tc?module=Static&d1=about&d2=student_rep"><img src="/i/promos/student_rep_small.gif" alt="Represent TopCoder at Your College" width="170" height="150" border="0" /></A><br/>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
