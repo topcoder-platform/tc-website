@@ -159,6 +159,9 @@
                                         <br/>Once the winning members have been identified the TopCoder Project Manager will select
                                         one of the members as the lead developer.  The lead developer will get compensated an additional
                                         $250.00 to manage the integration process.
+                                        <br/>
+                                        <br/>
+
 
                                         <sup>*</sup>Completion of the integration project is defined as follows:
                                         <ul>
