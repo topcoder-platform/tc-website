@@ -67,7 +67,6 @@ public class XSLTransformerWrapper {
             //killing most of the stack trace cuz it's just too much
             //and not very informative.
             SourceLocator s = getRootSourceLocator(e);
-            e.printStackTrace();
             throw new Exception(e.getMessage() + 
                     "\n column  : " + s.getColumnNumber() +
                     "\n line    : " + s.getLineNumber() + 
