@@ -31,6 +31,8 @@
 		5th Place - Rs. 50,000
 		<br/><br/>
 		6th to 50th Place<br/>will share Rs. 850,000
+      <br><br>
+      <A href="/pl/?&module=Static&d1=gicj05&d2=rules#prizes">Learn more</A>
 		</td>
 	</tr>
 </table>

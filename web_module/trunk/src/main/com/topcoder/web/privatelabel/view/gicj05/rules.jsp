@@ -135,6 +135,7 @@
          <li>If a tie still remains in the Championship Round, then the prize money will be distributed equally among the tied coders</li>
          </ul>
 
+         <a name="prizes"></a>
          <span class="greenSubtitle">About the Prizes</span><br>
          The 50 finalists in the Championship Round will receive cash prizes totaling Rs. 1,600,000.  As required by Indian law, Google India will deduct income-tax at source from all prize money, at the rate of 30% + surcharge + educational cess.  Prizes will be distributed as follows:
          <br><br>

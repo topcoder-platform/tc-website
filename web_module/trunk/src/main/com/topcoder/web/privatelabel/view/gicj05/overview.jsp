@@ -75,7 +75,7 @@
 			<br/><br/>
 			Registration for the Google India Code Jam 2005 opens on February 8th and ends on February 25, 2005. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the India Code Jam 2005 on March 5th.  Click on the Registration link at the top of the page to enter.
 			<br/><br/>
-			The top 50 performers in Round 1 will be invited to compete for cash prizes in the Championship Round onsite at Google's office in Bangalore, India on March 26th.
+			The 50 advancers from Round 1 will travel to Bangalore, India on Friday, March 25 to compete in the Championship Round of the tournament being held on Saturday, March 26, 2005.
 			<br/><br/>
 
                         <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
@@ -112,13 +112,13 @@
                            <tr valign="top">
                               <td class="sidebarText">Saturday, March 5</td>
                               <td class="sidebarText">12:00 PM</td>
-                              <td class="sidebarText">Round 1 - 500 participants</td>
+                              <td class="sidebarText">Round 1 - 500 participants<br>DURATION: Approx. 2 hours</td>
                            </tr>
 
                            <tr valign="top">
                               <td class="sidebarText">Saturday, March 26</td>
                               <td class="sidebarText">9:00 AM</td>
-                              <td class="sidebarText">Championship Round - 50 participants</td>
+                              <td class="sidebarText">Championship Round - 50 participants<br>DURATION: Approx. 2.5 hours</td>
                            </tr>
                 
                            <tr valign="top">
@@ -137,6 +137,11 @@
 			      3rd Place - Rs. 125,000<br/>
 			      4th Place - Rs. 75,000<br/>
 			      5th Place - Rs. 50,000<br/>
+			      6th - 10th Place - Rs. 35,000<br/>
+			      11th - 20th Place - Rs. 25,000<br/>
+			      21st - 30th Place - Rs. 20,000<br/>
+			      31st - 40th Place - Rs. 15,000<br/>
+			      41st - 50th Place - Rs. 7,500<br/>
 			</div>
 			<br/>
 			Those finalists not finishing as one of the top five scorers in the Championship Round will share Rs. 850,000.
