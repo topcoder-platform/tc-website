@@ -295,7 +295,7 @@ public class Submit extends FullRegSubmit {
                 StringBuffer buf = new StringBuffer(1000);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
-                mail.setSubject("Invitation to Private Candidate Testing Application");
+                mail.setSubject("Invitation to Private Candidate Technical Assessment Application");
 
                 buf.append("Thank you for your interest in working at XYZ Company.  We would like you to participate in the Technical Assessment Tool, powered by TopCoder.  Through the Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming ability.\n\n");
                 buf.append("Please review the Help Manual before getting started:\n");
@@ -317,7 +317,7 @@ public class Submit extends FullRegSubmit {
                 buf.append(info.getPassword());
                 buf.append("\n\n");
                 buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TESTING APPLICATION PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 2 HOURS TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
-                buf.append("You must have the Java 1.4.x runtime installed to access the Testing Application here: \n");
+                buf.append("You must have the Java 1.4.x runtime installed to access the Technical Assessment Application here: \n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/corp/testing/testingApp.jsp?company=");
@@ -354,7 +354,7 @@ public class Submit extends FullRegSubmit {
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year),
                months[Integer.parseInt(month)],
-               Integer.parseInt(day), 
+               Integer.parseInt(day),
                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
