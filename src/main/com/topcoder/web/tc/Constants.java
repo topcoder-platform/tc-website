@@ -182,12 +182,12 @@ public class Constants {
     public static int PREFERENCE_TEXT_ANSWER;
     public static String PREFERENCE_PREFIX;
 
-    public static String PREFERENCE_CONTRACTING;
-    public static String PREFERENCE_CONTRACTING_TRUE;
-    public static String PREFERENCE_CONTRACTING_FALSE;
-    public static String PREFERENCE_PERMANENT;
-    public static String PREFERENCE_PERMANENT_TRUE;
-    public static String PREFERENCE_PERMANENT_FALSE;
+    public static int PREFERENCE_CONTRACTING;
+    public static int PREFERENCE_CONTRACTING_TRUE;
+    public static int PREFERENCE_CONTRACTING_FALSE;
+    public static int PREFERENCE_PERMANENT;
+    public static int PREFERENCE_PERMANENT_TRUE;
+    public static int PREFERENCE_PERMANENT_FALSE;
 
     public static int SKILL_TYPE_LANGUAGES;
     public static int SKILL_TYPE_TECHNOLOGIES;
