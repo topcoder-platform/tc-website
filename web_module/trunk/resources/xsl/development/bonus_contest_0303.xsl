@@ -129,7 +129,7 @@ A.methNav:active {
 						<p><strong>As a TopCoder member you can earn cash, royalties, recognition... AND a $2,000 cash bonus!</strong></p>
 
 						<p>The TopCoder member with the highest average Architecture Review Board score for design submissions 
-						during February and March will win $2,000*.</p>
+						during February and March will win a $2,000* cash bonus on top of the regular payment and royalties for each winning design solution.</p>
 
 						<p><strong>It's easy to enter</strong><br />
 						Just submit designs for a minimum of four Component Projects whose initial submission dates are 
@@ -179,13 +179,13 @@ A.methNav:active {
 <!-- Right Column Ends -->
 	
 	</tr>
-</table>
+</table> 
 
 <!-- Footer Begins -->
         <xsl:call-template name="Foot" />
 <!-- Footer Endss -->
 
-</BODY>
+</body>
 </html>
 	</xsl:template>
 </xsl:stylesheet>
