@@ -84,7 +84,7 @@ pageContext.setAttribute("resultSetDates", rsc);
         <TR>
                    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
                      <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
-                     <SELECT NAME="Contest" onchange="goTo(this)">
+                     <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown">
            <OPTION value="#">Select a Round:</OPTION>
          <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
          <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
