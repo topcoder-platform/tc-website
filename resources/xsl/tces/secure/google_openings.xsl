@@ -68,7 +68,7 @@
                               </TR>	
                            </TABLE>
 
-                           <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
+                           <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
                            <P>
                            <B>Positions currently available</B>
@@ -89,10 +89,6 @@
   </TR>
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_front_end&amp;a=secure" CLASS="bodyText">Front End Focus</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_soft_eng_1&amp;a=secure" CLASS="bodyText">Software Engineer #1</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_soft_eng_2&amp;a=secure" CLASS="bodyText">Software Engineer #2</A></B></TD>
   </TR>
 </TABLE> 
                            

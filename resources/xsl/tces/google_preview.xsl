@@ -53,7 +53,7 @@
             <a href="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" class="bodyText">Google Job Listing Main Page</a><br/>
             <a href="/?t=tces&amp;c=google" class="bodyText">Google Main Page</a></p>
 
-        </td>
+        </td> 
     </tr>
 </table>
 
