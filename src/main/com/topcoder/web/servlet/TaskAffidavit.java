@@ -72,11 +72,11 @@ public final class TaskAffidavit {
                         String parameterValue = request.getParameter(parameterName);
                         if (parameterName.startsWith(QUESTION_PREFIX)) {
                             int index = Integer.parseInt(parameterName.substring(QUESTION_PREFIX.length()));
-                            questions.ensureCapacity(index);
+                            questions.ensureCapacity(index+1);
                             questions.set(index, parameterValue);
                         } else if (parameterName.startsWith(ANSWER_PREFIX)) {
                             int index = Integer.parseInt(parameterName.substring(ANSWER_PREFIX.length()));
-                            answers.ensureCapacity(index);
+                            answers.ensureCapacity(index+1);
                             answers.set(index, parameterValue);
                         }
                     }
