@@ -55,9 +55,9 @@
             
 <!-- Results tab -->
             <% if (selectedTab.equals("results")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?module=USDCResults" class="statTextBig"><img src="/i/development/usdc/tab_results_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=USDCResults&ph=112" class="statTextBig"><img src="/i/development/usdc/tab_results_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?module=USDCResults" class="statTextBig"><img src="/i/development/usdc/tab_results_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?module=USDCResults&ph=112" class="statTextBig"><img src="/i/development/usdc/tab_results_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
             
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
@@ -67,8 +67,8 @@
     <tr>
         <td class="usdcSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
             <% if (selectedTab.equals("results")) {%>
-                 <td class="<%=selectedTab2.equals("design")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=USDCResults" class="topLink">Design</a></td>
-                 <td class="<%=selectedTab2.equals("development")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=USDCResults" class="topLink">Development</a></td>
+                 <td class="<%=selectedTab2.equals("design")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=USDCResults&ph=112" class="topLink">Design</a></td>
+                 <td class="<%=selectedTab2.equals("development")?"usdcSubNav_on":"usdcSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=USDCResults&ph=113" class="topLink">Development</a></td>
             <% } else { %>
                 <td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
             <% } %>
