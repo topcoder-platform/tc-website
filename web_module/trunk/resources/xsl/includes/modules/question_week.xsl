@@ -9,11 +9,12 @@
              <td class="bodyText" align="center">
                  <a>
                    <xsl:attribute name="href">/tc?&amp;module=ViewSurvey&amp;sid=<xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/survey_id"/></xsl:attribute>
-                   <img src="/i/submit.gif" width="101" height="20" border="0"/>
+                   <img src="/i/answer.gif" width="60" height="18" border="0"/>
                  </a>
+                 <img src="/i/clear.gif" width="10" height="18" border="0"/>
                  <a>
                    <xsl:attribute name="href">/tc?&amp;module=SurveyResults&amp;sid=<xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/survey_id"/></xsl:attribute>
-                   <img src="/i/view_results.gif" width="101" height="20" border="0"/>
+                   <img src="/i/results.gif" width="60" height="18" border="0"/>
                  </a>
              </td>
          </tr>
