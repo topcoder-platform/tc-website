@@ -194,9 +194,8 @@ public final class TaskStatic {
                 Map top100Map = dwdai.getData(dataRequest);
                 ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get(requestCommand);
                 tournamentTag.addTag(top100Rsc.getTag("Competitors", "Competitor"));
-
+                document.addTag(tournamentTag);
             }
-            document.addTag(tournamentTag);
         } catch (Exception e) {
             log.error("failed to get tco03 top 100 from db");
             e.printStackTrace();
@@ -220,10 +219,8 @@ public final class TaskStatic {
                     advRsc.sortByColumn(sortCol, sortDir.trim().toLowerCase().equals("asc"));
                 tournamentTag.addTag(advRsc.getTag("Competitors", "Competitor"));
                 tournamentTag.addTag(contestName.getTag("Contest", "Item"));
-
-
+                document.addTag(tournamentTag);
             }
-            document.addTag(tournamentTag);
         } catch (Exception e) {
             log.error("failed to get tco03 top 100 from db");
             e.printStackTrace();
