@@ -195,6 +195,15 @@
 
                 <tr valign="top">
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a></td>
+                    <td class="statText" align="center">0</td>
+                    <td class="statText" align="center">None Scored Yet</td>
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+
+                <tr valign="top">
+                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
                     <td class="statText" align="center">3</td>
                     <td class="statText" align="center">84.42</td>
@@ -217,13 +226,6 @@
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr valign="top">
-                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a></td>
-                    <td class="statText" align="center">0</td>
-                    <td class="statText" align="center">None Scored Yet</td>
-                    <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
 
                 <tr>
                     <td background="" width="4" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
