@@ -132,7 +132,8 @@ public class DataCacheBean extends BaseEJB {
         query.append(" ,r.link");
         query.append(" FROM round r");
         query.append(" WHERE r.status IN ('A','F')");
-        query.append(" AND r.round_type_id != 3");
+//        query.append(" AND r.round_type_id != 3");
+        query.append(" AND r.round_type_id = 1"); //get SRMs only
         query.append(" ORDER BY r.round_id");
         /*************************************************************************************/
         try {
