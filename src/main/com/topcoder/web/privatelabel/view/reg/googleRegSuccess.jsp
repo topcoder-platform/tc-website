@@ -92,9 +92,10 @@ function openWin(url, name, w, h) {
 <br/>
 
 <b>In order to be eligible to compete in the Google Extreme Coding Challenge,
-you must activate your account by follwoing the directions sent to you via
-email to the email address provided during registration.  You <u>will not</u> be
-able to compete if you do not activate your account.</b>
+you must activate your account by following the directions sent to the email
+address provided during registration. You <u>will not</u> be able to compete if you
+do not activate your account.</b>
+
 <br/><br/>
 
 If you would like to upload a resume, click <a href="JavaScript:void window.open('<jsp:getProperty name="sessionInfo" property="ServletPath"/>resume?&<%=Constants.MODULE_KEY%>=ViewUpload&<%=Constants.COMPANY_ID%>=1865','Resume_Upload','top=2,left=2,width=300,height=300,status=0');">here</a><br/><br/>
