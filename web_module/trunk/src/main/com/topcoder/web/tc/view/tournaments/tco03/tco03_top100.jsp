@@ -1,3 +1,5 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -13,6 +15,10 @@
 <jsp:include page="../../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco03_advancers"); %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -58,12 +64,13 @@
                    <td class="testTableTitle" width="50%" align="left">Handle</td>
                    <td class="testTableTitle" width="50%" align="right">Rating</td>
                 </tr>
-                <tr>
-                  <td class="advancers_list">
-                  </td>
-                  <td class="advancers_list" align="right">
-                  </td>
-               </tr>
+
+                <rsc:iterator list="<%=rsc%>" id="resultRow">
+                    <tr>
+                       <td class="advancers_list"><rsc:item name="handle" row="<%=resultRow%>"/></td>
+                       <td class="advancers_list" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                   </tr>
+               </rsc:iterator>
             </table>
             <br/><br/>
 
