@@ -63,11 +63,11 @@ function openWin(url, name, w, h) {
          <img src="/i/clear.gif" width="1" height="1" border="0" />
          <jsp:include page="top_scorers.jsp" />
          <img src="/i/clear.gif" width="1" height="1" border="0" />
-         <jsp:include page="top_10_coders.jsp" />
+         <jsp:include page="top_coders.jsp" />
          <img src="/i/clear.gif" width="1" height="1" border="0" />
-         <jsp:include page="top_10_schools.jsp" />
+         <jsp:include page="top_schools.jsp" />
          <img src="/i/clear.gif" width="1" height="1" border="0" />
-         <jsp:include page="top_10_countries.jsp" />
+         <jsp:include page="top_countries.jsp" />
          </td>
 <!-- Right Column Ends -->
 
