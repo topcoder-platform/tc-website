@@ -59,6 +59,13 @@
             <br><br>
             TopCoder would like to give any member the opportunity to put their creativity to the test and come up with the logo design that we'll be using to brand this year's TCO.  That includes our website, t-shirts, the stage at the onsite finals, and anywhere else that the TCO might show up.  So here is your chance to express what TopCoder tournaments mean to you, by designing the face of this year's TopCoder Open.
             <br><br>
+            <b>Color guidelines</b><br>
+            <img src="/i/tournament/tco05/logo_colors.gif" alt="" border="0" align="right" />
+            We've selected these 2 colors on the right to be the "coloring theme", meaning you must use them in your logo design.  You are not limited to these 2 colors.  We will allow the use of black(000000), white(FFFFFF), or any gray inbetween.
+            <br><br>
+            <b>The Theme</b><br>
+            Design a logo that will fit into the 2005 TopCoder Open theme: a high-speed race.  TopCoder contestants can be compared to the likes of racing cars, screaming airplanes, and thundering horses. Think of speed and accuracy, combined with all the pressure it takes to reach the end FIRST. Think of movement, noise, blurred colors and shapes. Thoughts and calculations careening through minds at warp speed. Yeah, we need a logo for that!
+            <br><br>
             <b>Not a TopCoder member yet?</b><br>
             <A href="/Registration">Register here</A>
             <br><br>
