@@ -43,7 +43,7 @@
 <!-- Tab bar sublinks-->
 <jsp:include page="../tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="onsite"/>
-   <jsp:param name="selectedTab" value="schedule"/>
+   <jsp:param name="selectedTab" value="joinus"/>
 </jsp:include>
 
             <h2><img src="/i/tournament/tco03/onsite_crowd.jpg" alt="" width="301" height="200" border="0" align="right" hspace="8" vspace="4">Join Us at the Onsite Finals</h2>
