@@ -39,7 +39,7 @@ public class PrinterTestResults extends TestResults {
             dr.setProperty("cid", String.valueOf(cinfo.getUserId()));
 
 
-            Map map = Util.getDataAccess().getData(dr);
+            Map map = Util.getDataAccess(false).getData(dr);
 
             if (map != null) {
                 ResultSetContainer result = (ResultSetContainer) map.get("candidateInfo");
