@@ -49,113 +49,117 @@
         </CENTER>
         <BR/>
         <BR/>
-        <TABLE border="0" cellspacing="0" cellpadding="0" width="70%">
+        <TABLE border="0" cellspacing="3" cellpadding="0" width="70%">
     <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2003_collegiate_submit_info"/>
             <TR><TD COLSPAN="2"><U><B>CONTACT INFORMATION:</B></U><BR/></TD></TR>
 
             <TR>
-                <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="First Name: "/>First Name: </TD>
+                <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="First Name"/>First Name: </TD>
                 <TD align="left"><INPUT TYPE="text" NAME="a1" size="20"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/></xsl:attribute></INPUT><BR/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Last Name: "/>Last Name: </TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="20"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/></xsl:attribute></INPUT><BR/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q2" VALUE="Last Name"/>Last Name: </TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a2" size="20"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/></xsl:attribute></INPUT><BR/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Social Security #: "/>Social Security #: </TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="10"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q3" VALUE="Social Security #"/>Social Security #: </TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a3" size="10"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Date of Birth:"/>Date of Birth: </TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="10"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q4" VALUE="Date of Birth"/>Date of Birth: </TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a4" size="10"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Handle: "/>Handle: </TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/handle"/></xsl:attribute></INPUT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q5" VALUE="Handle"/>Handle: </TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a5" size="15"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/handle"/></xsl:attribute></INPUT></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Phone: "/>Phone:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q6" VALUE="Phone"/>Phone:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a6" size="15"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="School: "/>School:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="30"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q7" VALUE="School"/>School:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a7" size="30"/></TD>
             </TR>
             <BR/>
             <TR><TD COLSPAN="2"><U><B>Mailing address:</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Street Address: "/>Street Address:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="Street Address"/>Street Address:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a8" size="50"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="City: "/>City:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="25"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q9" VALUE="City"/>City:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a9" size="25"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="State: "/>State:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="2"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q10" VALUE="State"/>State:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a10" size="2"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Zip: "/>Zip:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q11" VALUE="Zip"/>Zip:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a11" size="15"/></TD>
             </TR>
 
             <BR/>
             <TR><TD COLSPAN="2"><U><B>Emergency contact:</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Name: "/>Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="30"/><BR/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q12" VALUE="Emergency contact Name"/>Name:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a12" size="30"/><BR/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Phone: "/>Phone:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q13" VALUE="Emergency contact Phone"/>Phone:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a13" size="15"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Relationship: "/>Relationship:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="30"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q14" VALUE="Emergency contact Relationship"/>Relationship:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a14" size="30"/></TD>
             </TR>
 
             <BR/>
 
 
             <TR><TD COLSPAN="2"><U><B>Media Information:</B></U></TD></TR>
-            Please list your local newspapers, radio, and television stations.  If you are a student, list both hometown and college locations.<BR/>
-            <BR/>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Newspapers: "/>Newspapers:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="50"/></TD>
+              <TD COLSPAN="2">
+                  Please list your local newspapers, radio, and television stations for both hometown and college locations.
+              </TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Radio: "/>Radio:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="Newspapers"/>Newspapers:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a15" size="50"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="TV: "/>TV:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q16" VALUE="Radio"/>Radio:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a16" size="50"/></TD>
+            </TR>
+
+            <TR>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q17" VALUE="TV"/>TV:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a17" size="50"/></TD>
             </TR>
 
             <BR/>
             <TR><TD COLSPAN="2"><U><B>Miscellaneous:</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Shirt size (S|M|L|XL|XXL): "/>Shirt size (S|M|L|XL|XXL):</TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q18" VALUE="Shirt size"/>Shirt size:</TD>
               <TD align="left">
-                  <SELECT name="a1">
+                  <SELECT name="a18">
                       <OPTION value="S">S</OPTION>
                       <OPTION value="M">M</OPTION>
                       <OPTION value="L">L</OPTION>
@@ -169,88 +173,89 @@
             <TR><TD COLSPAN="2"><U><B>GUEST INFORMATION:</B></U></TD></TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="First Name: "/>First Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="20"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q19" VALUE="Guest First Name"/>First Name:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="q19" size="20"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Last Name: "/>Last Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="20"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q20" VALUE="Guest Last Name"/>Last Name:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a20" size="20"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Date of Birth: "/>Date of Birth:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q21" VALUE="Guest Date of Birth"/>Date of Birth:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a21" size="15"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Phone: "/>Phone:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q22" VALUE="Guest Phone"/>Phone:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a22" size="15"/></TD>
             </TR>
             <BR/>
             <TR><TD COLSPAN="2"><U><B>Emergency contact (for guest):</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Name: "/>Name:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="30"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q23" VALUE="Guest Emergency Contact Name"/>Name:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a23" size="30"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Phone: "/>Phone:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q24" VALUE="Guest Emergency Contact Phone"/>Phone:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a24" size="15"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Relationship: "/>Relationship:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="30"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q25" VALUE="Guest Emergency Contact Relationship"/>Relationship:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a25" size="30"/></TD>
             </TR>
 
             <BR/>
             <TR><TD COLSPAN="2"><U><B>TRAVEL INFORMATION:</B></U></TD></TR>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Relationship: "/>Departure City/Airport:</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q26" VALUE="Departure City/Airport"/>Departure City/Airport:</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a26" size="50"/></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Relationship: "/>Guest Departure City/Airport (if different):</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q27" VALUE="Guest Departure City/Airport (if different)"/>Guest Departure City/Airport (if different):</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a27" size="50"/></TD>
             </TR>
 
             <BR/>
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="November 21, 2002 - preferred departure time (AM|PM): "/>November 21, 2002 - preferred departure time (AM|PM):</TD>
-              <TD align="left"><SELECT name="a1"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="November 21, 2002 - preferred departure time"/>November 21, 2002 - preferred departure time:</TD>
+              <TD align="left"><SELECT name="a28"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="November 24, 2002 - preferred departure time (AM|PM): "/>November 24, 2002 - preferred departure time (AM|PM):</TD>
-              <TD align="left"><SELECT name="a1"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="November 24, 2002 - preferred departure time"/>November 24, 2002 - preferred departure time:</TD>
+              <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
 
             <BR/>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Seating preference (Window|Aisle): "/>Seating preference (Window|Aisle):</TD>
-              <TD align="left"><SELECT name="a1"><OPTION value="Window">Window</OPTION><OPTION value="Aisle">Aisle</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q30" VALUE="Seating preference"/>Seating preference:</TD>
+              <TD align="left"><SELECT name="a30"><OPTION value="Window">Window</OPTION><OPTION value="Aisle">Aisle</OPTION></SELECT></TD>
             </TR>
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Preference for your hotel room (Smoking|Non Smoking): "/>Preference for your hotel room (Smoking|Non Smoking):</TD>
-              <TD align="left"><SELECT name="a1"><OPTION value="Smoking">Smoking</OPTION><OPTION value="Non Smoking">Non Smoking</OPTION></SELECT></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q31" VALUE="Preference for your hotel room"/>Preference for your hotel room :</TD>
+              <TD align="left"><SELECT name="a31"><OPTION value="Smoking">Smoking</OPTION><OPTION value="Non Smoking">Non Smoking</OPTION></SELECT></TD>
             </TR>
 
 
             <TR>
-              <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Personal Considerations/Special Requests: (Physical requirements or Medical needs): "/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a1" size="50"/></TD>
+              <TD align="right"><INPUT TYPE="hidden" NAME="q32" VALUE="Personal Considerations/Special Requests"/>Personal Considerations/Special Requests: (Physical requirements or Medical needs)</TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a32" size="50"/></TD>
             </TR>
-            <BR/>
-            <BR/>
-            <BR/>
-            <BR/>
-            <BR/>
+            <TR><TD COLSPAN="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></TD></TR>
             </FORM>
         </TABLE>
+          <BR/>
+          <BR/>
+          <BR/>
+          <BR/>
+          <BR/>
 
       </BODY>
     </HTML>
