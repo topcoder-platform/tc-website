@@ -49,6 +49,8 @@
          <tr>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/component.mov"><img src="/i/tournament/tccc05/onsite_movies/component.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tccc05/onsite_movies/component.mov">Component Competition<br>and winners (3.5 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/designFinals.mov"><img src="/i/tournament/tccc05/onsite_movies/designFinals.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tccc05/onsite_movies/designFinals.mov">Design finals and interview<br>with adic (3.4 MB)</A><br/></td>
             </tr>
       </table>
 
