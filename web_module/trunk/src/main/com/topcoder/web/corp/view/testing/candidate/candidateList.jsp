@@ -30,7 +30,7 @@
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Candidate Status</h1>
-                        <p>Below is a list of all candidates.  Clicking on a candidate's email address will bring you to the Candidate Info page.<br/><br/></p>
+                        <p>Below is a list of all candidates.  Clicking on a candidate will bring you to the Candidate Info page.<br/><br/></p>
                     </td>
                 </tr>
             </table>
