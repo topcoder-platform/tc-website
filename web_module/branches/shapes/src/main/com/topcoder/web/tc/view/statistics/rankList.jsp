@@ -150,7 +150,7 @@ try{
                  <TR>
                    <TD VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD CLASS="statText" HEIGHT="13"><bean:write name="resultRow" property='<%= "item[" + 5 /* order */ + "]" %>'/></TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="left" nowrap=nowrap>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="left" width="100%" nowrap=nowrap>
 					<tc:ratingImage link='<%=sLink+resultRow.getIntItem(0)%>' bg='B' cid='<%=resultRow.getIntItem(0)%>' />
                    </TD>
                    <TD CLASS="statText" VALIGN="middle" ALIGN="right"><%= coderrank.toString() %></TD>
