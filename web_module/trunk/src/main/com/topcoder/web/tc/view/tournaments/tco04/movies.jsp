@@ -40,6 +40,29 @@
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/wc_2.mpg"><img src="/i/tournament/tco04/onsite_movies/wc_2.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tco04/onsite_movies/wc_2.mpg">snewman's wildcard<br/>win (22 MB)</A><br/></td>
             </tr>
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/finals_1.MPG"><img src="/i/tournament/tco04/onsite_movies/finals_1.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/finals_1.MPG">tomek in the<br/>finals (7 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/finals_2.MPG"><img src="/i/tournament/tco04/onsite_movies/finals_2.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/finals_2.MPG">snewman in the<br/>finals (5 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/finals_3.MPG"><img src="/i/tournament/tco04/onsite_movies/finals_3.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/finals_3.MPG">reid in the<br/>finals (7 MB)</A><br/></td>
+            </tr>
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/finals_4.MPG"><img src="/i/tournament/tco04/onsite_movies/finals_4.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/finals_4.MPG">SnapDragon in the<br/>finals (8 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/finals_5.AVI"><img src="/i/tournament/tco04/onsite_movies/finals_5.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/finals_5.AVI">And the winner is... (10 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/random_1.MPG"><img src="/i/tournament/tco04/onsite_movies/random_1.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/random_1.MPG">Arena chat station (9 MB)</A><br/></td>
+            </tr>
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/random_2.MPG"><img src="/i/tournament/tco04/onsite_movies/random_2.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/random_2.MPG">NVIDIA booth (7 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/random_3.MPG"><img src="/i/tournament/tco04/onsite_movies/random_3.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/random_3.MPG">Microsoft booth (7 MB)</A><br/></td>
+				<td></td>
+            </tr>
 		</table>
 
         </div>
