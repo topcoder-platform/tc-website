@@ -40,11 +40,16 @@
 <jsp:include page="tccc04links.jsp" >
    <jsp:param name="tabLev1" value="algorithm"/>
    <jsp:param name="tabLev2" value="rules"/>
-   <jsp:param name="tabLev3" value="conditions"/>
+   <jsp:param name="tabLev3" value="structure"/>
 </jsp:include>
 
-         <h2>Conditions of Participation</h2>
+         <h2>Competition Structure</h2>
          
+            <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
+            Everyone who competes in an online round must login to the TopCoder Competition Arena no later than ten minutes prior to the start of the online round. (See below for competition dates and times.) TopCoder members from around the world may be participating in these rounds, but all start times will be communicated as Eastern Time, so contestants in different time zones must adjust accordingly. If a coder does not participate, for any reason, in an online round they have advanced to, it will be treated as an automatic loss in that round of competition.</p>
+
+            <p>All competitors who have qualified for an online round will be assigned to a specific room. TopCoder will determine all room assignments prior to the start of each online round in a manner such that the average competitor rating (as of February 23rd) for each room will be similar.</p>
+
             <p><span class="bodySubtitle">Scoring and Advancing during Online Rounds</span><br/>
             After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next online round. Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:</p>
 
