@@ -45,7 +45,7 @@
 
                         <span class="bodySmallTitle"><strong>Step 1 - Loading the Application</strong></span><br>
                         <ul>
-                            <li>Load the <a href="testingApp.jsp">Technical Assessment Application</a> by going to the URL provided in the email from the Employer.</li>
+                            <li>Load the <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=testingApp">Technical Assessment Application</a> by going to the URL provided in the email from the Employer.</li>
                         </ul>
 
                         <span class="bodySmallTitle"><strong>Step 2 - Launching the Application</strong></span><br>
@@ -53,7 +53,7 @@
                             <li>Click on the Launch Technical Assessment button.
                                 <ul>
                                     <li>If a button that says Launch Technical Assessment does not appear, then you do not have the Java 1.4 runtime installed.  Get additional
-                                    information on installing <a href="testingApp.jsp">Java 1.4 runtime.</a></li>
+                                    information on installing <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=testingApp">Java 1.4 runtime.</a></li>
                                 </ul>
                             </li>
                         </ul>

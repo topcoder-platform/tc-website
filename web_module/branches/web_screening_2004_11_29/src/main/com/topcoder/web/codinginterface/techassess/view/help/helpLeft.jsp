@@ -11,7 +11,7 @@
                             <% if (selected.equals("steps")) { %>
                                 <td class=helpTitleOn>Perform the Following Steps</td>
                             <% } else { %>
-                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=step">Perform the Following Steps</a></td>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=steps">Perform the Following Steps</a></td>
                             <% } %>
                             </tr>
 
