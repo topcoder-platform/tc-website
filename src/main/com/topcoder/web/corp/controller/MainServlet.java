@@ -21,6 +21,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpUtils;
 import java.io.IOException;
 import java.util.Set;
 
@@ -151,8 +152,17 @@ public class MainServlet extends HttpServlet {
                    are not authorized to access, send them to login page.    */
                 log.debug("user unauthorized to access resource and user " +
                         "not logged in, forwarding to login page.");
-                fetchLoginPage(request, response);
-                return;
+
+                /* forward to the login page, with a message and a way back */
+                request.setAttribute("message", "You must login to view this page.");
+                request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + request.getQueryString());
+                processorModule = new Login();
+                try {
+                    callProcess(processorModule, request, authToken);
+                } catch (Exception e) {
+                    log.error("exception during request processing [Login]", e);
+                    fetchErrorPage(request, response, errorPageInternal, e);
+                }
             } else {
                 /* If the user is logged-in and is not authorized to access
                    the resource, send them to an authorization failed page */
@@ -165,11 +175,17 @@ public class MainServlet extends HttpServlet {
             fetchErrorPage(request, response, errorPageSecurity, aex);
         } catch (Exception e) {
             /* All Non authorization errors are cought here  */
-            log.error("exception during request processing ["
-                    + processorName + "]", e
-            );
+            log.error("exception during request processing [" + processorName + "]", e);
             fetchErrorPage(request, response, errorPageInternal, e);
         }
+    }
+
+
+    /** invoke the given RequestProcessor */
+    private void callProcess(RequestProcessor rp, HttpServletRequest request, WebAuthentication auth) throws Exception {
+        rp.setRequest(request);
+        rp.setAuthentication(auth);
+        rp.process();
     }
 
     /**
@@ -253,6 +269,7 @@ public class MainServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
+/*
     private void fetchLoginPage(
             HttpServletRequest req,
             HttpServletResponse resp
@@ -271,6 +288,7 @@ public class MainServlet extends HttpServlet {
                 .append(originatingPage);
         fetchRegularPage(req, resp, loginPageDest.toString(), false);
     }
+*/
 
 
     /**
