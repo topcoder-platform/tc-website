@@ -33,7 +33,7 @@ INSERT INTO command VALUES(26,"rating_history_graph",2);
 INSERT INTO command VALUES(27,"rating_distribution_graph",2);
 INSERT INTO command VALUES(28,"submission_information",3);
 INSERT INTO command VALUES(29,"rating_distribution_graph_dark",2);
-INSERT INTO command VALUES(30,"index",6);
+INSERT INTO command VALUES(30,"round_overview",6);
 INSERT INTO command VALUES(31,"problem_distribution_graph",2);
 INSERT INTO command VALUES(32,"school_avg_rating",6);
 
