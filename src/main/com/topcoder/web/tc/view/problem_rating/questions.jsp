@@ -10,6 +10,7 @@
 </head>
 <body bgcolor="#001B35">
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
+<%= request.getAttribute("redoError") %>
 <form name="ratings" action="/tc/?module=SubmitRatings" method="POST">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
     <table BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
@@ -30,7 +31,7 @@
                     for(int i = 1; i<=10; i++){
                         String sel = "";
                         if(String.valueOf(i).equals(request.getParameter("q"+qid))){
-                            sel = " selected";
+                            sel = " checked";
                         }
                 %>
             <td>
