@@ -75,7 +75,7 @@
                             
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:dvaughn@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
+                                    <p><a href="mailto:sponsorship@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
                                     Drew Vaughn, VP of Sales<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
@@ -93,7 +93,7 @@
 
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:mlydon@topcoder.com" class="bodyText">Competition Applet/Website</a><br />
+                                    <p><a href="mailto:mlydon@topcoder.com" class="bodyText">Competition Applet / Web Site</a><br />
                                     Mike Lydon, CTO<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
@@ -101,7 +101,7 @@
                                 </td>
                                     
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:tces@topcoder.com" class="bodyText">Recruiting and Testing Services</a><br />
+                                    <p><a href="mailto:tces@topcoder.com" class="bodyText">Employment Services</a><br />
                                     Paul Moriarty, Director of Employment Services<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
@@ -129,7 +129,7 @@
 
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:tces@topcoder.com" class="bodyText">Software Service</a><br />
+                                    <p><a href="mailto:service@topcodersoftware.com" class="bodyText">Software Service</a><br />
                                     Mike Morris<br />
                                     tel: 866.TOP.CODE<br />
                                     fax: 860.657.4276<br />
