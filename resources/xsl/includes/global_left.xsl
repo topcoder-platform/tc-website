@@ -354,6 +354,7 @@
 
                 <xsl:call-template name="div_line_row"/>
 
+<!-- Overview -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -365,17 +366,19 @@
 
                 <xsl:call-template name="div_line_row"/>
 
+<!-- How to Get Paid -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
                         <xsl:when test="/TC/Command='dev_payment'">graybv_lite_bg</xsl:when>
                         <xsl:otherwise>clear</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>Payment Requirements</a>
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=dev_payment</xsl:attribute>How to Get Paid</a>
                     </td>
                 </tr>
 
                 <xsl:call-template name="div_line_row"/>
 
+<!-- Components: -->
                 <tr>
                     <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
                     <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><font color="#999999">Components:</font></td>
@@ -384,6 +387,7 @@
             
                 <xsl:call-template name="div_line_row"/>
             
+<!-- Project Winners -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -395,6 +399,7 @@
 
                 <xsl:call-template name="div_line_row"/>
 
+<!-- Open Projects -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -406,14 +411,7 @@
                 
                 <xsl:call-template name="div_line_row"/>
 
-                <tr>
-                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
-                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://software.topcoder.com/pages/c_active_collab.jsp?ft=2</xsl:attribute>Developer Forums</a>
-                    </td>
-                </tr>
-                
-                <xsl:call-template name="div_line_row"/>
-
+<!-- Project Status -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -425,6 +423,16 @@
 
                 <xsl:call-template name="div_line_row"/>
 
+<!-- Developer Forums -->
+                <tr>
+                    <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
+                        &#160;&#160;&#160;&#160;&#160;<a class="statText"><xsl:attribute name="HREF">http://software.topcoder.com/pages/c_active_collab.jsp?ft=2</xsl:attribute>Developer Forums</a>
+                    </td>
+                </tr>
+                
+                <xsl:call-template name="div_line_row"/>
+
+<!-- Development Methodology -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -436,7 +444,7 @@
 
                 <xsl:call-template name="div_line_row"/>
 
-<!-- Component Documentation and Samples -->
+<!-- Documentation and Samples -->
                 <tr>
                     <td valign="middle" height="28" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -472,7 +480,7 @@
 
                 <xsl:call-template name="div_line_row"/>
 
-<!-- Applications -->
+<!-- Applications: -->
                 <tr>
                     <td valign="top" bgcolor="#333333"><img alt="" width="6" height="1" src="/i/clear.gif" border="0"/></td>
                     <td valign="middle" height="18" class="statTextBig" bgcolor="#333333"><font color="#999999">Applications:</font></td>
@@ -481,7 +489,7 @@
 
                 <xsl:call-template name="div_line_row"/>
 
-<!-- Open Application Projects -->
+<!-- Open Projects -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
@@ -493,7 +501,7 @@
 
                 <xsl:call-template name="div_line_row"/>
 
-<!-- Application Development Methodology -->
+<!-- Development Methodology -->
                 <tr>
                     <td valign="middle" height="18" class="statText" bgcolor="#333333" colspan="3">
                         <xsl:attribute name="BACKGROUND">/i/<xsl:choose>
