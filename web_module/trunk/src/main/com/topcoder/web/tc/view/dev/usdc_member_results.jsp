@@ -16,6 +16,7 @@
 
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_result_by_coder"); %>
+<% ResultSetContainer rscUser = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("user_details"); %>
 </head>
 
 <body>
@@ -71,7 +72,7 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=5><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</td>
+                                <td class=header colspan=5><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /> Results</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Component Name</td>                              
