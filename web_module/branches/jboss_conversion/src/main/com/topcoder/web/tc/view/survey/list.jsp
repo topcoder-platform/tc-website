@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -7,7 +8,7 @@
 
 <head>
 
-<title>Member Surveys</title> 
+<title>Member Surveys</title>
 
 <jsp:include page="../script.jsp" />
 

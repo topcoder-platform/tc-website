@@ -4,7 +4,7 @@
 <head>
 <title>Algorithm Tutorials</title>
 
-<jsp:include page="../../script.jsp" />
+<jsp:include page="../script.jsp" />
 <style type="text/css">
     .code
 {
@@ -25,7 +25,7 @@
 
 <body>
 
-<jsp:include page="../../top.jsp" >
+<jsp:include page="../top.jsp" >
     <jsp:param name="level1" value=""/>
 </jsp:include>
 
@@ -33,7 +33,7 @@
    <tr valign="top">
 <!-- Left Column Begins-->
         <td width="180">
-            <jsp:include page="../../includes/global_left.jsp">
+            <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="education"/>
                 <jsp:param name="level2" value="alg_tutorials"/>
             </jsp:include>
@@ -44,7 +44,7 @@
          <td width="100%" align="center">
 
          <div class="tutorBodyFull">
-            
+
             <h2>Introduction to graphs and their data structures: Section 1</h2>
 
 			<p>
@@ -122,7 +122,7 @@ Getting back to the concept of a cost function, our cost function would look as 
 cost(X, Y) := if (X.link = Y) return 1;
 			  else if (X = Y) return 0;
 			  else "Not possible"
-</pre>		  
+</pre>
 This cost function represents the fact that we can only move directly to the link node from our current node.  Get used to seeing cost functions because anytime that you encounter a graph problem you will be dealing with them in some form or another!  A question that you may be asking at this point is "Wait a second, the cost from A to C would return not possible, but I can get to C from A by stepping through B!"  This is a very valid point, but the cost function simply encodes the *direct* cost from a node to another.  We will cover how to find distances in generic graphs later on.
 <br/><br/>
 Now that we have seen an example of the one of the simplest types of graphs, we will move to a more complicated example.
@@ -161,7 +161,7 @@ end
 
 cost(X, Y) := if (X.neighbors contains Y) return X.neighbors[Y];
 			  else "Not possible"
-			  
+
 list<node> nodes;
 </pre>
 This is a very general way to represent a graph.  It allows us to have multiple edges from one node to another and it is a very compact representation of a graph as well.  However the downside is that it is usually more difficult to work with than other representations (such as the array method discussed below).
@@ -188,7 +188,7 @@ This representation is very convenient for graphs that do not have multiple edge
 <br/><br/>
 <A href="/tc?module=Static&d1=tutorials&d2=graphsDataStrucs2">...continue to Section 2</A>
 			</p>
-            
+
 
         </div>
         <p><br/></p>
@@ -197,7 +197,7 @@ This representation is very convenient for graphs that do not have multiple edge
 
 <!-- Right Column Begins -->
          <td width="170">
-            <jsp:include page="../../public_right.jsp">
+            <jsp:include page="../public_right.jsp">
                <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
@@ -209,7 +209,7 @@ This representation is very convenient for graphs that do not have multiple edge
     </tr>
 </table>
 
-<jsp:include page="../../foot.jsp" />
+<jsp:include page="../foot.jsp" />
 
 </body>
 
