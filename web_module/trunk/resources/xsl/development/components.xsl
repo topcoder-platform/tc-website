@@ -117,7 +117,7 @@
 			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="middle">
 					<td class="statText" background="/i/steel_darkblue_bg.gif">
-						<p><strong>Spell Check:&#160;Design</strong><br />
+						<p><strong>String Class:&#160;Design</strong><br />
 						The String Component is designed to extend the functionality of the string manipulation methods available in Java.  For more details, check out <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3501906" class="statText">String Class</a> on the TopCoder Software web site.</p>
 						
 						<p><strong>Review Board Comments</strong><br />
@@ -156,6 +156,17 @@
 					<td class="statText" height="15" align="right">$210.00&#160;&#160;&#160;&#160;</td>
 					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 				</tr>
+
+				<tr valign="middle">
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+					<td class="statText" height="15">&#160;&#160;<a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3501906" class="statText">String Class</a></td>
+					<td class="statText" height="15" align="center">1</td>
+					<td class="statText" height="15"><a href="/stat?c=member_profile&amp;cr=279551" class="coderTextGreen"><strong>scamp</strong></a></td>
+					<td class="statText" height="15" align="center">97.98</td>
+					<td class="statText" height="15" align="right">$140.00&#160;&#160;&#160;&#160;</td>
+					<td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+				</tr>
+
 
 				<tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
 
