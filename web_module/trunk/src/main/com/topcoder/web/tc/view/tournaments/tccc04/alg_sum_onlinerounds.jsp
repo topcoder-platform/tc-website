@@ -44,8 +44,15 @@
 </jsp:include>
 
             <h2>Online Rounds</h2>
+            <h3>Problem Set Analyses</h3>
             
-            <p>The only details here that aren't in the advancers pages would be links to the round analyses.</p>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+                            <tr><td class="bodyText">&#160;02.28.04</td><td class="bodyText" nowrap="0">&#160;TCCC04 - Online Round 1 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_1">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="bodyText">&#160;03.03.04</td><td class="bodyText" nowrap="0">&#160;TCCC04 - Online Round 2 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_2">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="bodyText">&#160;03.10.04</td><td class="bodyText" nowrap="0">&#160;TCCC04 - Online Round 3 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_3">Problem Set &amp; Analysis</a></td></tr>
+                            <tr><td class="bodyText">&#160;03.17.04</td><td class="bodyText" nowrap="0">&#160;TCCC04 - Online Round 4 - <a href="/index?t=statistics&amp;c=tccc04_online_rd_4">Problem Set &amp; Analysis</a></td></tr>
+                        </table>
 
          <p><br/></p>
          </td>
