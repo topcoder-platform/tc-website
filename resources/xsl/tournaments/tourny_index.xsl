@@ -70,7 +70,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/photo_tco03.gif" alt="2003 TopCoder Open" width="274" height="121" border="0" /></A></td>
+                    <td width="274"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_overview"><img src="/i/tournament/photo_tco03.gif" alt="2003 TopCoder Open" width="274" height="121" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong>2003 TopCoder Open sponsored by Intel<sup>&#174; </sup></strong></font><br />
@@ -82,7 +82,7 @@
                         
                         <p><em>Component Competition</em><br/><font color="#CC0000"><strong>Round 2 winners announced November 6</strong></font></p>
 
-                        <p><A href="/?t=tournaments&amp;c=tco03_rules_overview">Official Rules and Regulations</A></p><br />
+                        <p><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_rules_overview">Official Rules and Regulations</A></p><br />
                     </td>
                 </tr>
             </table>
