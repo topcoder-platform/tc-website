@@ -8,18 +8,17 @@
   <xsl:import href="../includes/global_left.xsl"/>
     <xsl:import href="../includes/dev/public_dev_right.xsl" />
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
-    <xsl:template name="formatmmddyyy">
+    <xsl:template name="formatmmddyyyy">
 		<xsl:param name="DATE"/>
 		<xsl:if test='boolean($DATE)'>
 			<xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/>
 		</xsl:if>
-	</xsl:template>
+    </xsl:template>
 
     <xsl:template match="/">
 
 <html>
 <head>
-
     <xsl:call-template name="Preload" />
 
  <title>TopCoder :: Development</title>
@@ -110,13 +109,14 @@
                     <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
                 </tr>
 
-                
+                 
+                <xsl:variable name="priceFormat" select="'$###,###.00'" />
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
                     <xsl:variable name="price" select="./price"/>
                     <xsl:variable name="comp" select="./component_id"/>
                     <xsl:variable name="initial_submission_date">
-                        <xsl:call-template name="formatmmddyyyyhhmi"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        <xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                     </xsl:variable>
                     <tr valign="top">
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -128,8 +128,8 @@
                             </a>
                         </td>
                         <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
-                        <td background="" class="statText" align="center"><xsl:value-of select="./price"/></td>
-                        <td background="" class="statText" align="center"><xsl:value-of select="initial_submission_date"/></td>
+                        <td background="" class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
+                        <td background="" class="statText" align="center"><xsl:value-of select="$initial_submission_date"/></td>
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     </tr>
                 </xsl:for-each>
