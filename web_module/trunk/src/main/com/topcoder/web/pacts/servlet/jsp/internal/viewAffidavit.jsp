@@ -73,7 +73,7 @@
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-<%			out.print(affidavit._description);
+<%			out.print(affidavit._header._description);
 %>
 		</td></tr>
 		<tr>

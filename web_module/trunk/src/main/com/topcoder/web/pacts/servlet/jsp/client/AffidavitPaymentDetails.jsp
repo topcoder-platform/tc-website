@@ -28,7 +28,7 @@
 	// fill in the data
 	// row 0
 	tableData.setElement(0,0,"Description");
-	tableData.setElement(0,1,aPay._affidavit._description);
+	tableData.setElement(0,1,aPay._affidavit._header._description);
 
 	// row 1
 	tableData.setElement(1,0,"Affidavit Affirmation");

@@ -31,6 +31,7 @@
 		<table border="0" cellpadding="5" cellspacing="5">
 		<tr>
 		<td><b>User</b></td>
+		<td><b>Description</b></td>
 		<td><b>Date</b></td>
 		<td><b>Affirmed</b></td>
 		<td><b>Notarized</b></td>
@@ -57,7 +58,9 @@
 			out.print(PactsConstants.AFFIDAVIT_CMD+"&");
 			out.print(PactsConstants.AFFIDAVIT_ID+"=");
 			out.print(affidavitList[n]._id);
-			out.print("\">"+affidavitList[n]._creationDate+"</a></td>\n");
+			out.print("\">"+affidavitList[n]._description+"</a></td>\n");
+
+			out.print("<td>" + affidavitList[n]._creationDate + "</td>\n");
 
 			if (affidavitList[n]._affirmed) {
 				out.print("<td>Yes</td>\n");

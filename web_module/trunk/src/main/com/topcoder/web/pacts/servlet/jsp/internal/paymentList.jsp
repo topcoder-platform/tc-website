@@ -12,6 +12,7 @@
 
 <%@ page import="com.topcoder.web.pacts.common.*" %>
 <%@ page import="com.topcoder.web.common.*" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%
 	PaymentHeader[] paymentList = (PaymentHeader[])
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -22,6 +23,7 @@
 		paymentList = new PaymentHeader[0];
 	}
 	double total_net = 0;
+	DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
 %>
 
 <h1>PACTS</h1>
@@ -73,7 +75,7 @@
 
 			total_net += paymentList[n]._recentNetAmount;
 
-			out.print("<td>"+paymentList[n]._recentNetAmount+"</td>\n");
+			out.print("<td>"+df.format(paymentList[n]._recentNetAmount)+"</td>\n");
 			out.print("<td>"+paymentList[n]._type+"</td>\n");
 			out.print("<td>"+paymentList[n]._recentStatus+"</td>\n");
 			if (paymentList[n]._reviewed) out.print("<td>Yes</td>\n");
@@ -86,7 +88,7 @@
 
 </table>
 
-<b>Total Net Amount: <% out.print(total_net); %></b>
+<b>Total Net Amount: <% out.print(df.format(total_net)); %></b>
 
 <table>
 <%

@@ -17,6 +17,7 @@
 *
 * DBP 3/20 - Change path to ResultSetContainer - now in com.topcoder.web.common
 * DBP 3/26 - Implement serializable, have the no arg constructor set defaults
+* DBP 6/6 - Move description to header
 *
 * Copyright 2002, TopCoder, Inc
 * All rights are reserved. Reproduction in whole or part is prohibited
@@ -44,14 +45,15 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 */
 	public AffidavitHeader _header;
 	public PaymentHeader _payment;
-	public String _description;
+	//public String _description;
 	public String _affirmationDate;
 	public Long _roundID;
 	public String _round;
         public String _birthday;
-    public long _daysLeftToAffirm;
+        public long _daysLeftToAffirm;
 
-    public static final long DAYS_TO_AFFIRM = 60;
+        // DBP 6/6 - use the PactsConstants value
+        public static final long DAYS_TO_AFFIRM = AFFIDAVIT_EXPIRE_TIME;
 
 /**************\
 *              *
@@ -69,7 +71,7 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 
     private void setDefaults() {
 	_payment = new PaymentHeader();
-	_description = "Default Description";
+	//_description = "Default Description";
 	_header = new AffidavitHeader();
 	_affirmationDate = "00/00/00";
 	_roundID = new Long(0);
@@ -88,7 +90,8 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 		_payment = null;
 		_header = new AffidavitHeader();
 		_roundID = round;
-		_description = desc;
+		//_description = desc;
+		_header._description = desc;
 		_header._typeID = type;
 		_header._user._id = user;
 		_header._statusID = status;
@@ -125,7 +128,7 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 		log.debug("Making the Affidavit");
 		_payment = new PaymentHeader(results);
 		_header = new AffidavitHeader(results);
-		_description = TCData.getTCString(rsr,"affidavit_desc","default description",true);
+		//_description = TCData.getTCString(rsr,"affidavit_desc","default description",true);
 		_affirmationDate = TCData.getTCDate(rsr,"date_affirmed","Not Affirmed",false);
 		_round = TCData.getTCString(rsr,"name","No Round",false);
 		_roundID = new Long(TCData.getTCLong(rsr,"round_id",0,false));
@@ -136,7 +139,7 @@ public class Affidavit implements PactsConstants, java.io.Serializable {
 		try {
 		    Date d = dfmt.parse(_header._creationDate);
 		    long diff = System.currentTimeMillis() - d.getTime();
-		    _daysLeftToAffirm = DAYS_TO_AFFIRM - diff / ((long) 1000*60*60*24);
+		    _daysLeftToAffirm = DAYS_TO_AFFIRM - (diff / ((long) 1000*60*60*24));
 		} catch( Exception e3) {
 		    log.error("exception parsing the creation date");
 		    _daysLeftToAffirm = -1;

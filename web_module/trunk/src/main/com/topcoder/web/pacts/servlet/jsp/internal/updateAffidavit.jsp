@@ -37,7 +37,7 @@
 		param = request.getParameter("round_id");
 		try { if (param != null) affidavit._roundID = new Long(Long.parseLong(param)); } catch (Exception e) {}
 		param = request.getParameter("affidavit_desc");
-		if (param != null) affidavit._description = param;	
+		if (param != null) affidavit._header._description = param;	
 	}
 	if (affidavit == null) {
 		out.println("no affidavit!!!<br>");
@@ -109,7 +109,7 @@
 		</tr>
 		<tr>
 		<td><b>Description:</b></td><td>
-<% out.print("<input type=text width=25 name=\"affidavit_desc\" value=\""+affidavit._description+"\">"); %>
+<% out.print("<input type=text width=25 name=\"affidavit_desc\" value=\""+affidavit._header._description+"\">"); %>
 		</td></tr>
 		<tr>
 		<td><b>Type:</b></td><td>

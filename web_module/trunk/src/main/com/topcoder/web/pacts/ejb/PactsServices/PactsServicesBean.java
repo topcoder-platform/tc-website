@@ -288,7 +288,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         StringBuffer selectAffidavitHeader = new StringBuffer(300);
         selectAffidavitHeader.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, ");
         selectAffidavitHeader.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
-        selectAffidavitHeader.append("a.affidavit_type_id, atl.affidavit_type_desc ");
+        selectAffidavitHeader.append("a.affidavit_type_id, atl.affidavit_type_desc, a.affidavit_desc ");
         selectAffidavitHeader.append("FROM affidavit a, status_lu s, user u, affidavit_type_lu atl ");
         selectAffidavitHeader.append("WHERE a.affidavit_id = " + affidavitId + " ");
         selectAffidavitHeader.append("AND a.affidavit_type_id = atl.affidavit_type_id ");
@@ -296,7 +296,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         selectAffidavitHeader.append("AND u.user_id = a.user_id");
 
         StringBuffer selectAffidavitDetails = new StringBuffer(300);
-        selectAffidavitDetails.append("SELECT a.round_id, a.date_affirmed, a.payment_id, a.affidavit_desc, ");
+        selectAffidavitDetails.append("SELECT a.round_id, a.date_affirmed, a.payment_id, ");
         selectAffidavitDetails.append("c.name, coder.date_of_birth ");
         selectAffidavitDetails.append("FROM affidavit a, OUTER(round r, contest c), coder ");
         selectAffidavitDetails.append("WHERE a.affidavit_id = " + affidavitId + " ");
@@ -734,10 +734,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // New version which sorts by a combination time field which is round start time 
         // if the affidavit is associated with a contest, and the affidavit creation date
-        // otherwise.
+        // otherwise.  Also gets affidavit description.
         selectAffidavitHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, "); 
         selectAffidavitHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
-        selectAffidavitHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, ");
+        selectAffidavitHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, a.affidavit_desc, ");
         selectAffidavitHeaders.append("NVL(rs.start_time, a.date_created) AS origin_date ");
         selectAffidavitHeaders.append("FROM affidavit a, status_lu s, user u, affidavit_type_lu atl, ");
         selectAffidavitHeaders.append("OUTER round_segment rs ");
@@ -1148,10 +1148,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         // New version which sorts by a combination time field which is round start time 
         // if the affidavit is associated with a contest, and the affidavit creation date
-        // otherwise.
+        // otherwise.  Also gets affidavit description.
         selectHeaders.append("SELECT a.affidavit_id, a.status_id, s.status_desc, a.user_id, "); 
         selectHeaders.append("a.notarized, a.affirmed, a.date_created, u.handle, ");
-        selectHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, ");
+        selectHeaders.append("a.affidavit_type_id, atl.affidavit_type_desc, a.affidavit_desc, ");
         selectHeaders.append("NVL(rs.start_time, a.date_created) AS origin_date ");
         selectHeaders.append("FROM affidavit a, status_lu s, user u, affidavit_type_lu atl, ");
         selectHeaders.append("OUTER round_segment rs ");
@@ -1845,7 +1845,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(3, a._header._statusID);
             ps.setInt(4, 0); // notarized
             ps.setInt(5, 0); // affirmed
-            ps.setString(6, a._description);
+            ps.setString(6, a._header._description);
             ps.setInt(7, a._header._typeID);
             ps.setBytes(8, DBMS.serializeTextString(text));
             ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_created
@@ -2528,8 +2528,12 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             setLockTimeout(c);
 
             StringBuffer checkAffidavit = new StringBuffer(300);
-            checkAffidavit.append("SELECT status_id, payment_id, affirmed FROM affidavit ");
-            checkAffidavit.append("WHERE affidavit_id = " + affidavitId);
+            checkAffidavit.append("SELECT a.status_id, a.payment_id, a.affirmed, ");
+            checkAffidavit.append("pd.status_id AS payment_status_id ");
+            checkAffidavit.append("FROM affidavit a, OUTER(payment p, payment_detail pd) ");
+            checkAffidavit.append("WHERE affidavit_id = " + affidavitId + " ");
+            checkAffidavit.append("AND a.payment_id = p.payment_id ");
+            checkAffidavit.append("AND p.most_recent_detail_id = pd.payment_detail_id");
             ResultSetContainer rsc = runSelectQuery(c, checkAffidavit.toString(), false);
             if (rsc.getRowCount() == 0) {
                 throw new NoObjectFoundException("Affidavit " + affidavitId + " not found in database");
@@ -2546,7 +2550,24 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
 
             Long paymentId = (Long) rsc.getItem(0, "payment_id").getResultData();
+
+            // Change to not update the associated payment if the payment is on hold or canceled.
+            Integer paymentStatusId = (Integer) rsc.getItem(0, "payment_status_id").getResultData();
+            boolean okToUpdate = false;
             if (paymentId != null) {
+                if (paymentStatusId == null) {
+                    log.error("Null payment status id found for payment " + paymentId.longValue());
+                    okToUpdate = true;
+                } else {
+                    long statusIdValue = paymentStatusId.longValue();
+                    if (statusIdValue != PAYMENT_ON_HOLD_STATUS && 
+                        statusIdValue != PAYMENT_CANCELED_STATUS) {
+                       okToUpdate = true;
+                    }
+                }
+            }
+
+            if (okToUpdate) {
                 long inputs[] = new long[1];
                 inputs[0] = paymentId.longValue();
                 try {
@@ -2638,7 +2659,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setInt(2, a._header._statusID);
             ps.setInt(3, (a._header._notarized ? 1 : 0));
             ps.setLong(4, a._payment._id);
-            ps.setString(5, a._description);
+            ps.setString(5, a._header._description);
             ps.setInt(6, a._header._typeID);
             ps.setLong(7, a._header._id);
 
@@ -3486,6 +3507,10 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
         checkDemographics.append("  (SELECT demographic_question_id FROM demographic_response ");
         checkDemographics.append("   WHERE coder_id = " + userId + ") ");
 
+        // Change to also check for tax forms on file
+        StringBuffer checkTaxForm = new StringBuffer(300);
+        checkTaxForm.append("SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = " + userId);
+
         Connection c = null;
         try {
             c = DBMS.getConnection();
@@ -3493,6 +3518,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             
             ResultSetContainer rsc = runSelectQuery(c, checkNotarized.toString(), false);
             int notarizedCount = Integer.parseInt(rsc.getItem(0,0).toString());
+
             if (notarizedCount == 0) {
                 c.close();
                 c = null;
@@ -3501,10 +3527,20 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             rsc = runSelectQuery(c, checkDemographics.toString(), false);
             int questionsLeftBlank = Integer.parseInt(rsc.getItem(0,0).toString());
+
+            if (questionsLeftBlank > 0) {
+                c.close();
+                c = null;
+                return false;
+            }
+        
+            rsc = runSelectQuery(c, checkTaxForm.toString(), false);
+            int taxFormCount = Integer.parseInt(rsc.getItem(0,0).toString());
+
             c.close();
             c = null;
 
-            return (questionsLeftBlank == 0);
+            return (taxFormCount > 0);
         } catch (SQLException e) {
             printException(e);
             try { if (c != null) c.close(); } catch (Exception e1) { printException(e1); }
@@ -3907,7 +3943,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 a._roundID = new Long(roundId);
                 a._header._user._id = userId;
                 a._header._statusID = AFFIDAVIT_PENDING_STATUS;
-                a._description = roundName + " contest affidavit";
+                a._header._description = roundName + " contest affidavit";
                 a._header._typeID = CONTEST_WINNING_AFFIDAVIT;
 
                 Payment p = new Payment();
@@ -3932,7 +3968,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     pairAdd.append("Affidavit round ID: " + a._roundID.longValue() + "\n");
                     pairAdd.append("Affidavit user ID: " + a._header._user._id + "\n");
                     pairAdd.append("Affidavit status ID: " + a._header._statusID + "\n");
-                    pairAdd.append("Affidavit description: " + a._description + "\n");
+                    pairAdd.append("Affidavit description: " + a._header._description + "\n");
                     pairAdd.append("Affidavit type ID: " + a._header._typeID + "\n");
                     pairAdd.append("Affidavit text (start): ");
                     if (text != null) {

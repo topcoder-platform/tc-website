@@ -11,6 +11,7 @@
 <body>
 
 <%@ page import="com.topcoder.web.pacts.common.*" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%
 	Payment[] payments = (Payment[])
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -20,6 +21,7 @@
 		out.println("no payments!!!<br>");
 		payments = new Payment[0];
 	}
+	DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
 %>
 
 <h1>PACTS</h1>
@@ -74,8 +76,8 @@
 			out.print("<td>"+payments[n]._description+"</td>\n");
 			out.print("<td>"+payments[n]._statusDesc+"</td>\n");
 			out.print("<td>"+payments[n]._type+"</td>\n");
-			out.print("<td>"+payments[n]._netAmount+"</td>\n");
-			out.print("<td>"+payments[n]._grossAmount+"</td>\n");
+			out.print("<td>"+df.format(payments[n]._netAmount)+"</td>\n");
+			out.print("<td>"+df.format(payments[n]._grossAmount)+"</td>\n");
 			out.print("<td>"+payments[n]._printDate+"</td>\n");
 			out.print("<td>"+payments[n]._payDate+"</td>\n");
 			out.print("<td>"+payments[n]._dueDate+"</td>\n");

@@ -11,6 +11,7 @@
 <body>
 
 <%@ page import="com.topcoder.web.pacts.common.*" %>
+<%@ page import="java.text.DecimalFormat" %>
 <%
 	TaxForm taxForm = (TaxForm)
 		request.getAttribute(PactsConstants.PACTS_INTERNAL_RESULT);
@@ -23,6 +24,7 @@
 	if (notes == null) {
 		notes = new NoteHeader[0];
 	}
+	DecimalFormat df = new DecimalFormat(PactsConstants.DECIMAL_FORMAT_STRING);
 %>
 
 <h1>PACTS</h1>
@@ -71,8 +73,8 @@
 		</td></tr>
 		<tr>
 		<td><b>Withholding Amount <% if (!taxForm._usePercentage) out.print("(Used)"); %>:</b></td><td>
-<%			out.print(taxForm._withholdingAmount+"</td><td>(Default: ");
-			out.print(taxForm._defaultWithholdingAmount+")");
+<%			out.print(df.format(taxForm._withholdingAmount)+"</td><td>(Default: ");
+			out.print(df.format(taxForm._defaultWithholdingAmount)+")");
 %>
 		</td></tr>
 		<tr>

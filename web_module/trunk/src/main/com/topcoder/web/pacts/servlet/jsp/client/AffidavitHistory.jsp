@@ -87,7 +87,7 @@ function goTo(selection){
 	// fill in the data
 	for(int i=1;i<=affidavits.length;i++) {
 	    // the description
-	    tableData.setElement(i,0,affidavits[i-1]._description);
+	    tableData.setElement(i,0,affidavits[i-1]._header._description);
 
 	    // affirmation
 	    vec.clear();

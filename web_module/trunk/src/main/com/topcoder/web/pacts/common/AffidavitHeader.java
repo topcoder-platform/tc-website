@@ -8,6 +8,7 @@
 *                ResultSetContainer.java
 *
 * DBP 3/26 - Implement serializable, change type id to int
+* DBP 6/6 - Move description to header
 *
 * Copyright 2002, TopCoder, Inc
 * All rights are reserved. Reproduction in whole or part is prohibited
@@ -43,7 +44,7 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
 	public int _statusID;
 	public String _type;
 	public int _typeID;
-
+        public String _description;
 
 /**************\
 *              *
@@ -56,18 +57,21 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
 *  @ARGS none
 */
 	public AffidavitHeader () {
-		_id = 0;
-		_status = "Default Status";
-		_user = new UserProfileHeader();
-		_notarized = false;
-		_affirmed = false;
-		_creationDate = "00/00/00";
-		_statusID = 0;
-		_type = "default type";
-		_typeID = 0;
-
+            setDefaultFields();
 	}
 
+        public void setDefaultFields() {
+            _id = 0;
+            _status = "Default Status";
+            _user = new UserProfileHeader();
+            _notarized = false;
+            _affirmed = false;
+            _creationDate = "00/00/00";
+            _statusID = 0;
+            _type = "default type";
+            _typeID = 0;
+            _description = "default description";
+        }
 
 /* This constructor makes the object out of the Map containing
 *  the ResultSetContainer with the constant name of AFFIDAVIT_HEADER_LIST
@@ -81,28 +85,14 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
 		ResultSetContainer rsc = (ResultSetContainer) results.get(AFFIDAVIT_HEADER_LIST);
 		if (rsc == null) {
 			log.error("There is no " + AFFIDAVIT_HEADER_LIST + " in the ResultSetContainer");
-			_id = 0;
-			_status = "Default Status";
-			_user = new UserProfileHeader();
-			_notarized = false;
-			_affirmed = false;
-			_creationDate = "00/00/00";
-			_type = "default type";
-			_typeID = 0;
+                        setDefaultFields();
 			return;
 		}
 
 		int numRows = rsc.getRowCount();
 		if (numRows <= row || row < 0) {
 			log.error("Bad row number: " + row);
-			_id = 0;
-			_status = "Default Status";
-			_user = new UserProfileHeader();
-			_notarized = false;
-			_affirmed = false;
-			_creationDate = "00/00/00";
-			_type = "default type";
-			_typeID = 0;
+                        setDefaultFields();
 			return;
 		}
 
@@ -120,6 +110,7 @@ public class AffidavitHeader implements PactsConstants, java.io.Serializable {
 		_creationDate = TCData.getTCDate(rsr,"date_created","00/00/00",true);
 		_type = TCData.getTCString(rsr,"affidavit_type_desc","default affidavit type",true);
 		_typeID = TCData.getTCInt(rsr,"affidavit_type_id",0,true);
+                _description = TCData.getTCString(rsr,"affidavit_desc","default description",true);
 	}
 
 /* This constructor makes the object out of the Map containing
