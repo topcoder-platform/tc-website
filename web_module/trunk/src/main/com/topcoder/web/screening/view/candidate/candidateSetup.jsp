@@ -52,31 +52,23 @@ function back() {
  
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr>
-                    <td class="testTableTitle" colspan="2">Candidate</td>
+                    <td class="testTableTitle" colspan="3">Candidate</td>
                 </tr>
                     
                 <tr>
-                    <td class="testTableSubtitleOdd">Email Address</td>
+                    <td class="testTableSubtitleOdd">Email Address:</td>
                         <% if (candidateInfo.isNew()) { %>
                     <td class="testTableOdd"><input type="text" name="emailAddress" size="30" maxlength="30" value="<jsp:getProperty name="candidateInfo" property="userName" />"></td>
                         <% } else { %>
                     <td class="testTableOdd"><jsp:getProperty name="candidateInfo" property="userName" /></td>
                         <% } %>
-                </tr>
-                
-                <tr>
-                    <td>&#160;</td>
-                    <td class="errorTextOdd" align="left" valign="middle"><screen:errors name="emailAddress" /></td>
+                    <td class="errorTextOdd"><screen:errors name="emailAddress" /></td>
                 </tr>
                 
                     <% if (!candidateInfo.isNew()) { %>
                 <tr>
-                    <td class="testTableSubtitleOdd">Password</td>
+                    <td class="testTableSubtitleEven">Password:</td>
                     <td class="testTableEven"><jsp:getProperty name="candidateInfo" property="password" /></td>
-                </tr>
-                
-                <tr>
-                    <td>&#160;</td>
                     <td class="errorTextOdd" align="left" valign="middle"></td>
                 </tr>
                     <% } %>
@@ -96,7 +88,7 @@ function back() {
                     { 
                         String params = Constants.CANDIDATE_ID + "=" + candidateInfo.getUserId(); 
                 %>
-                <p><screen:servletLink processor="NoteList" param="<%=params%>">Add a note</screen:servletLink> for this candidate</p>
+                 <tr><td class="bodyText" align="center"><screen:servletLink processor="NoteList" param="<%=params%>">Add a note</screen:servletLink> for this candidate</p></td></tr>
                 <% }  %>
 
             </table>
