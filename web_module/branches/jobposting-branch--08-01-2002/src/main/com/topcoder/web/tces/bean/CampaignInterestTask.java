@@ -135,7 +135,7 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             HashMap hit = new HashMap();
 
             hit.put("handle", TCData.getTCString(hitListRow, "handle") );
-            hit.put("rating", Long.toString(TCData.getTCLong(hitListRow, "rating")) );
+            hit.put("rating", Integer.toString(TCData.getTCInt(hitListRow, "rating")) );
             hit.put("state", TCData.getTCString(hitListRow, "state_code") );
             hit.put("country", TCData.getTCString(hitListRow, "country_code") );
             hit.put("type", TCData.getTCString(hitListRow, "coder_type_desc") );
