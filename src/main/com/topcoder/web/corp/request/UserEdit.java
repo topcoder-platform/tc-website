@@ -31,6 +31,7 @@ import javax.naming.NamingException;
 import javax.sql.DataSource;
 import javax.transaction.Transaction;
 import javax.transaction.UserTransaction;
+import javax.transaction.TransactionManager;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
 import java.util.Map;
@@ -99,19 +100,23 @@ public class UserEdit extends BaseProcessor {
         InitialContext icEJB = null;
         InitialContext secCtx = null;
         Transaction tx = null;
-        UserTransaction secTx = null;
+        //UserTransaction secTx = null;
+        Transaction secTx = null;
         try {
             mgr = Util.getPrincipalManager();
 
             // transaction boundary
-//            tx = Util.beginTransaction();
+            tx = Util.beginTransaction();
 
             secCtx = (InitialContext) TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
-            secTx = (UserTransaction) secCtx.lookup("UserTransaction");
-Object o = secCtx.lookup("UserTransactionSessionFactory");
-log.debug(o.toString());
-            secTx.begin();
+
+            TransactionManager tm = (TransactionManager) secCtx.lookup("java:/TransactionManager");
+            tm.begin();
+            secTx = tm.getTransaction();
+
+//            secTx = (UserTransaction) secCtx.lookup("UserTransaction");
+//            secTx.begin();
 
             if (secTok.createNew) {
                 secTok.targetUser = createUserPrincipal();
@@ -124,7 +129,7 @@ log.debug(o.toString());
             storeUserDataIntoDB(icEJB);
 
             secTx.commit();
-//            tx.commit();
+            tx.commit();
         } catch (Exception exc) {
             //rollbackHelper(tx);
             try {
@@ -133,7 +138,7 @@ log.debug(o.toString());
                 e.printStackTrace();
             }
             try {
-//                tx.rollback();
+                tx.rollback();
             } catch (Exception e) {
                 e.printStackTrace();
             }
