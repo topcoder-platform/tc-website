@@ -43,7 +43,7 @@ function getProblemDetail(id) {
                     <td class="bodyText">
                <h1 class="testHead">Problem Sets</h1>
             <P>Below is a list of Problem Sets available for use in the Testing Application.  Clicking on a Problem Name opens a window that
-            displays statistical information about the Problem, as well as the Problem Statement.<br/></P>
+            displays statistical information about the Problem, as well as the Problem Statement.<br/><br/></P>
                     </td>
                 </tr>
             </table>
