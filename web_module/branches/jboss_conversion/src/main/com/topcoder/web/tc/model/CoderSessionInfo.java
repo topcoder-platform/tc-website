@@ -18,7 +18,6 @@ public class CoderSessionInfo extends SessionInfo implements Serializable {
     private int rating;
     private int devRating;
     private int designRating;
-    private int memberCount;
 
     //these can probably go away when we get away from the legacy controller
     //they really just support some of the xsl
@@ -62,12 +61,6 @@ public class CoderSessionInfo extends SessionInfo implements Serializable {
                 log.debug("couldn't find rank info for: " + authentication.getActiveUser().getId());
             }
         }
-
-        CachedDataAccess countDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-        countDai.setExpireTime(15 * 60 * 1000);
-        Request countReq = new Request();
-        countReq.setContentHandle("member_count");
-        memberCount = ((ResultSetContainer) countDai.getData(countReq).get("member_count")).getIntItem(0, "member_count");
     }
 
     public int getRating() {
@@ -92,10 +85,6 @@ public class CoderSessionInfo extends SessionInfo implements Serializable {
 
     public boolean hasImage() {
         return hasImage;
-    }
-
-    public int getMemberCount() {
-        return memberCount;
     }
 
     private ResultSetContainer getInfo(long userId) throws Exception {
