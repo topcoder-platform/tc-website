@@ -24,6 +24,8 @@ public class SearchBean {
 
   private List school_list=null;
 
+  private List member_list=null;
+
   public static int getMaxResultsPerPage() {
     return(MAX_RESULTS_PER_PAGE);
   }
@@ -98,5 +100,13 @@ public class SearchBean {
 
   public void setSchoolList(List _school_list) {
     school_list=_school_list;
+  }
+
+  public List getMemberList() {
+    return(member_list);
+  }
+
+  public void setMemberList(List _member_list) {
+    member_list=_member_list;
   }
 };
