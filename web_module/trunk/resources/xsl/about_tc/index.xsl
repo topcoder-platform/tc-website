@@ -95,8 +95,8 @@
                         certification has offered some credibility, competitions that test a developer's skills in real-world challenges goes much 
                         further to differentiating one candidate from another.</li>
 
-                        <li><A><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/pages/s_index.jsp</xsl:attribute><strong>Software</strong></A><br />
-                        The best way to drive down the cost of software development is through re-use. The <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/pages/s_learn.jsp</xsl:attribute>Component Catalog</A>
+                        <li><A><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/index.jsp</xsl:attribute><strong>Software</strong></A><br />
+                        The best way to drive down the cost of software development is through re-use. The <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/components/index.jsp</xsl:attribute>Component Catalog</A>
                         is a tool for increasing re-use and developer productivity within an organization. The component catalog continues to grow on a weekly basis as component 
                         requirements are generated through requests from catalog customers, research from TopCoder Product Managers and from application development.</li><br />
                     
