@@ -72,19 +72,56 @@
 <B>Jobs @ Vertex</B>
 
 <P>
-Vertex currently employs over 1,000 people. As we pursue our vision for the future, we will continue to recruit top industry talent, and foster an integrated, team-oriented culture of innovation.
+<B>Associate Scientific Software Analyst, 6600-02</B>
 </P>
 
 <P>
-Vertex's success stems from the contributions of employees with diverse backgrounds and areas of expertise. Vertex is an Equal Opportunity Employer. We are actively committed to maintaining a diverse workplace.
+Position located in Cambridge, MA
 </P>
- 
-<P><BR/></P>
 
-<P><A HREF="/?&amp;t=tces&amp;c=vertex_assa02&amp;a=secure" CLASS="bodyText">Associate Scientific Software Analyst, 6600-02</A></P>
+<P>
+This Associate Scientific Software Analyst will develop and support
+applications used in drug discovery, especially those applications
+involved in the capture, analysis, reduction, storage, retrieval, and
+visualization of chemical and biological data.  Additionally, this
+position will be responsible for managing complex projects in a rapid
+prototyping environment.
+</P>
 
-<P><A HREF="/?&amp;t=tces&amp;c=vertex_assa01&amp;a=secure" CLASS="bodyText">Associate Scientific Software Analyst, 6600-01</A></P>
+<P>
+<B>Responsibilities will include:</B>
+<UL>
+	<LI>Work closely with scientists and business groups to define practical solutions to research problems</LI>
+	<LI>Respond quickly to high-priority prototyping efforts</LI>
+	<LI>Manage the definition, development, delivery, and support of complex projects</LI>
+</UL>
+</P>
 
+<P>
+This person will be required to communicate effectively with scientists
+and business groups to understand the challenges they face. In solving
+these problems, this individual must be able to both prototype rapid
+solutions and manage larger projects--and to know when each approach is
+appropriate.
+</P>
+
+<P>
+<B>Minimum Education Requirements:</B><BR/>
+BS in Chemistry/Biology, with computer science skills
+</P>
+
+<P>
+<B>Specify any required experience and/or qualifications:</B>
+<UL>
+	<LI>Strong communication skills</LI>
+	<LI>Ability to coordinate effectively with colleagues</LI>
+	<LI>Rapid learning curve</LI>
+	<LI>Aptitude in web-based programming (Cold Fusion, JSP, Perl)</LI>
+	<LI>Experience with database-driven applications and database design (MySQL or Oracle preferred)</LI>
+</UL>
+</P>
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=103&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=vertex_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 
 <!-- <FORM METHOD="" ACTION="/jobposting">
 <p><INPUT TYPE="CHECKBOX" NAME="jobhit_24" VALUE="true"/>&#160;Apply to this position</p><BR/>

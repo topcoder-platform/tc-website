@@ -72,19 +72,59 @@
 <B>Jobs @ Vertex</B>
 
 <P>
-Vertex currently employs over 1,000 people. As we pursue our vision for the future, we will continue to recruit top industry talent, and foster an integrated, team-oriented culture of innovation.
+<B>Associate Scientific Software Analyst, 6600-01</B>
 </P>
 
 <P>
-Vertex's success stems from the contributions of employees with diverse backgrounds and areas of expertise. Vertex is an Equal Opportunity Employer. We are actively committed to maintaining a diverse workplace.
+Position located in Cambridge, MA
 </P>
- 
-<P><BR/></P>
 
-<P><A HREF="/?&amp;t=tces&amp;c=vertex_assa02&amp;a=secure" CLASS="bodyText">Associate Scientific Software Analyst, 6600-02</A></P>
+<P>
+This Associate Scientific Software Analyst will develop and support
+applications used in drug discovery, especially those applications
+involved in the capture, analysis, reduction, storage, retrieval, and visualization of chemical and biological data.
+</P>
 
-<P><A HREF="/?&amp;t=tces&amp;c=vertex_assa01&amp;a=secure" CLASS="bodyText">Associate Scientific Software Analyst, 6600-01</A></P>
+<P>
+<B>Responsibilities will include:</B>
+<UL>
+	<LI>Work closely with scientists to define practical solutions to research data problems</LI>
+	<LI>Respond quickly to high-priority prototyping efforts</LI>
+	<LI>Create a modular infrastructure for the display and analysis of biological and chemical information</LI>
+	<LI>Create analysis packages to visualize chemical information</LI>
+</UL>
+</P>
 
+
+<P>
+This position requires that the person must keep up with research
+software trends as well as appropriate computing skills to support these
+software packages. Specifically, this includes awareness of
+cheminformatics software, bioinformatics software, and bioimaging
+software. Support may require installation, configuration, maintenance,
+troubleshooting &amp; upgrading of concomitant computer systems. Finally,
+this person will be required to communicate effectively with scientists to
+understand their software needs and relay this information to vendors,
+scientists, IS, and management as appropriate.
+</P>
+
+<P>
+<B>Minimum Education Requirements:</B><BR/>
+BS in Computer Science/Math - background in chemistry /biology preferred
+</P>
+
+<P>
+<B>Required experience and/or qualifications:</B>
+<UL>
+	<LI>Rapid learning curve</LI>
+	<LI>Strong communication skills</LI>
+	<LI>Aptitude in Java (Perl or Python a plus)</LI>
+	<LI>Experience with database-driven applications and database design (MySQL or Oracle preferred)</LI>
+</UL>
+</P>
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=102&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=vertex_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 
 <!-- <FORM METHOD="" ACTION="/jobposting">
 <p><INPUT TYPE="CHECKBOX" NAME="jobhit_24" VALUE="true"/>&#160;Apply to this position</p><BR/>
