@@ -35,7 +35,8 @@ abstract class FullLogin extends FullReg {
                 getAuthentication().login(new SimpleUser(0, handle, password));
                 ret = true;
             } catch(LoginException l) {
-                addError(Constants.HANDLE, l.getMessage());
+                if (!hasError(Constants.HANDLE))
+                    addError(Constants.HANDLE, l.getMessage());
             }
         } else {
             addError(Constants.HANDLE, "Account status not active.");
