@@ -63,9 +63,9 @@
 
 
 <P><B>SYSTEMS ENGINEER</B></P>
-<p>Systems Engineers are members of the team responsible for developing NVIDIAÕs cutting edge graphics board products.  Primary responsibilities are to work hands on with new NVIDIA hardware to ensure it meets design, feature and quality objectives.  Specific responsibilities include:</p>
+<p>Systems Engineers are members of the team responsible for developing NVIDIA's cutting edge graphics board products.  Primary responsibilities are to work hands on with new NVIDIA hardware to ensure it meets design, feature and quality objectives.  Specific responsibilities include:</p>
 
-<p>Hardware Bringup - As a member of the board "bring-up" team, you and your teammates will bring-up and test NVIDIAÕs graphics board and chip products.  You will experience the world's fastest 3D graphics products 4-6 months before arriving on the store shelves.  Expect to learn pc architecture, graphics architecture, laboratory methodologies, lab experimentation and measurement techniques.</p>
+<p>Hardware Bringup - As a member of the board "bring-up" team, you and your teammates will bring-up and test NVIDIA's graphics board and chip products.  You will experience the world's fastest 3D graphics products 4-6 months before arriving on the store shelves.  Expect to learn pc architecture, graphics architecture, laboratory methodologies, lab experimentation and measurement techniques.</p>
 
 <p>Hardware Qualification - Working along side the chip & board designers, you will verify new NVIDIA hardware meets design objectives and is ready for mass production.  It is here that you will learn state of the art techniques for ensuring hardware designs meet specification and the highest quality standards.</p>
 
