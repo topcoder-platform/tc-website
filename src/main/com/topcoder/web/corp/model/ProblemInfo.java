@@ -295,6 +295,8 @@ public class ProblemInfo extends BaseModel {
         if (dwAccess == null) {
             dwAccess = new CachedDataAccess(Constants.DW_DATA_SOURCE);
         }
+        
+        DataAccessInt dwNew = new DataAccess(Constants.DATA_SOURCE);
 
         //first check permissions on given problem
         Request checkAccess = new Request();
@@ -393,7 +395,7 @@ public class ProblemInfo extends BaseModel {
 
             accuracyInfo.setProperty("pid", String.valueOf(problemId));
             accuracyInfo.setProperty("uid", String.valueOf(user.getId()));
-            map = dwAccess.getData(accuracyInfo);
+            map = dwNew.getData(accuracyInfo);
             rsc = (ResultSetContainer) map.get("problem_statistics_by_company");
 
             if (rsc.size() == 0) {
