@@ -16,7 +16,7 @@ public class TCESConstants {
     public static String MAIN_GODETAIL_PAGE = "/tces?task=CampaignDetailTask";
     public static String CAMPAIGN_DETAIL_PAGE = "/campaign_detail.jsp";
 
-    public static String CAMPAIGN_INTEREST_PAGE = "/tces?task=CampaignInterestTask";
+    public static String CAMPAIGN_INTEREST_PAGE = "/campaign_interest.jsp";
 
     public static String LOGIN_TASK = "LoginTask";
     public static String LOGIN_TASK_STEP_VIEW = "v";
