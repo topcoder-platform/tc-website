@@ -24,8 +24,7 @@ public class TestResponse extends Base {
                 loadSessionDefaultsIntoRequest(messageId);
                 loadSessionErrorsIntoRequest(messageId);
                 loadUserMessageIntoRequest(messageId);
-                if (getRequest().getSession().getAttribute(Constants.MESSAGE)!=null) {
-                    loadUserMessageIntoRequest(messageId);
+                if (getRequest().getAttribute(Constants.MESSAGE)!=null) {
                     setNextPage(Constants.PAGE_TEST_RESULT);
                     setIsNextPageInContext(true);
                     //this logic is mostly for the case that they hit refresh
