@@ -95,7 +95,7 @@
                     <td class="formHandleOdd" align="center">1(T)</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
                     <td class="formHandleOdd" align="right">bye</td>
-                    <td class="formHandleOdd" align="right"><strong><a href="http://www.topcoder.com/?&t=development&c=bonus_contest_0303">Contest 1</a></strong></td>
+                    <td class="formHandleOdd" align="right"><strong><a class="StatText" href="http://www.topcoder.com/?&amp;t=development&amp;c=bonus_contest_0303">Contest 1</a></strong></td>
                     <td class="formHandleOdd" align="right">$0.00</td>
                 </tr>
 
@@ -103,7 +103,7 @@
                     <td class="formHandleEven" align="center">1(T)</td>
                     <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></td>
                     <td class="formHandleEven" align="right">bye</td>
-                    <td class="formHandleEven" align="right"><strong><a href="http://www.topcoder.com/?t=development&c=des_bonus_contest_2">Contest 2</a></strong></td>
+                    <td class="formHandleEven" align="right"><strong><a class="StatText" href="http://www.topcoder.com/?t=development&amp;c=des_bonus_contest_2">Contest 2</a></strong></td>
                     <td class="formHandleEven" align="right">$0.00</td>
                 </tr>
 
