@@ -46,8 +46,8 @@ public class Index extends Base {
             }
             log.debug("there are " + sets.size() + " problem sets");
 
-            getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
-            getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
+            setDefault(Constants.PROBLEM_SETS, sets);
+            setDefault(Constants.LANGUAGES, getLanguages(response));
 
             closeProcessingPage();
 
