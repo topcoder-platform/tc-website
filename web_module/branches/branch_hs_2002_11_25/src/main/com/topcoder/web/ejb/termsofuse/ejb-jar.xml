@@ -8,7 +8,7 @@
       <ejb-name>TermsOfUse</ejb-name>
       <home>com.topcoder.web.ejb.termsofuse.TermsOfUseHome</home>
       <remote>com.topcoder.web.ejb.termsofuse.TermsOfUse</remote>
-      <ejb-class>com.topcoder.web.ejb.email.TermsOfUseBean</ejb-class>
+      <ejb-class>com.topcoder.web.ejb.termsofuse.TermsOfUseBean</ejb-class>
       <session-type>Stateless</session-type>
       <transaction-type>Container</transaction-type>
     </session>
