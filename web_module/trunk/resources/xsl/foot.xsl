@@ -39,4 +39,33 @@
 <!-- Footer Include Ends -->
 
   </xsl:template>
+  
+  <xsl:template name="FootVCC">
+
+<!-- Footer VCC Include Begins -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666">
+    <tr>
+        <td height="15" background="/i/footer_graphic_tile.gif" align="left"><img src="/i/footer_graphic.gif" width="710" height="16" border="0"/></td>
+    </tr>
+
+    <tr valign="top">
+        <td width="100%" align="center" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
+            <div class="smallFoot">
+            <A class="smallFoot"><xsl:attribute name="HREF">http://www.verizon.com</xsl:attribute>Home</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</A>&#160;&#160;|&#160;&#160;
+<!--            <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc/?d1=review_board&amp;d2=competition</xsl:attribute>Review Boards</A>&#160;&#160;|&#160;&#160;-->
+            <A class="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contact Us</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot"><xsl:attribute name="HREF">http://www22.verizon.com/privacy/</xsl:attribute>Privacy</A>&#160;&#160;|&#160;&#160;
+            <A class="smallFoot"><xsl:attribute name="HREF">http://www22.verizon.com/About/Privacy/terms/</xsl:attribute>Terms</A><br /><br />
+
+            Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved.
+            </div>
+            <br/><br/>
+        </td>
+    </tr>
+</table>    
+<!-- Footer Include Ends -->
+
+  </xsl:template>
+
 </xsl:stylesheet>
