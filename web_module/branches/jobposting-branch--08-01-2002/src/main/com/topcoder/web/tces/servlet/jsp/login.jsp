@@ -51,7 +51,7 @@
 <%= (message == null) ? "" : ("<p class='notice'>" + message + "</p>") %>
 
 <FORM NAME="login" METHOD="POST" ACTION="/tces/tces" onSubmit="">
-<INPUT TYPE="HIDDEN" NANE="c" VALUE="login">
+<INPUT TYPE="HIDDEN" NAME="c" VALUE="login">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">User:</TD>
