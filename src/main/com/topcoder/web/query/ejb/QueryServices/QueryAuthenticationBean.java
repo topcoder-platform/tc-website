@@ -66,7 +66,8 @@ public class QueryAuthenticationBean extends BaseEJB {
     }
 
     public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        this.dataSourceName = dataSourceName;
+        if (dataSourceName.trim().length()>0)
+            this.dataSourceName = dataSourceName;
     }
 }
 
