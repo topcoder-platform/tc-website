@@ -8,7 +8,7 @@
  <INPUT TYPE="hidden" NAME="cmd" VALUE="search">
  <INPUT TYPE="hidden" NAME="next" VALUE="">
  <INPUT TYPE="hidden" NAME="prev" VALUE="">
- <TABLE WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif" CELLPADDING="0" CELLSPACING="0" BORDER="0">
+ <TABLE WIDTH="100%" BACKGROUND="/i/steel_darkblue_bg.gif" BGCOLOR="#000033" CELLPADDING="0" CELLSPACING="0" BORDER="0">
   <TR>
    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/hs/clear.gif" HEIGHT="4" WIDTH="1" BORDER="0"></TD>
   </TR>
