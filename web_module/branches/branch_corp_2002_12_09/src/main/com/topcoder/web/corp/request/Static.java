@@ -129,6 +129,7 @@ public class Static extends BaseProcessor {
             } else {
                 return -1; 
             }
+        }
         int parseTill = request.indexOf("=",lastIndex);
         String deepest = request.substring(lastIndex, parseTill);
         return Integer.parseInt(deepest);
