@@ -137,7 +137,7 @@ Current and active SSBI highly preferred.
 US Citizenship. 
 </P>
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=94&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=raytheon_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=94&amp;jt=2" CLASS="bodyText"></A>Apply now! | <A HREF="/?&amp;t=tces&amp;c=raytheon_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 <!-- Client Job List Ends -->
           
           <P><BR/></P>
