@@ -12,7 +12,7 @@
     <tr valign="top">
         <td width="100%" align="center" bgcolor="#43515E"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
             <div class="smallFoot">
-            <A href="/?t=home&c=public_home" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
+            <A href="/" class="smallFoot">Home</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=about_tc&c=index" class="smallFoot">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc/?d1=review_board&d2=competition" class="smallFoot">Review Boards</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=news_events&c=index" class="smallFoot">Press Room</A>&#160;&#160;|&#160;&#160;
@@ -20,7 +20,7 @@
             <A href="/?c=privacy" class="smallFoot">Privacy</A>&#160;&#160;|&#160;&#160;
             <A href="/?c=terms" class="smallFoot">Terms</A><br /><br />
 
-            <A href="/?t=home&c=public_home" class="smallFoot">Competition</A>&#160;&#160;|&#160;&#160;
+            <A href="/" class="smallFoot">Competition</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=development&c=index" class="smallFoot">Development</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=tces&c=index" class="smallFoot">Job Listings</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="smallFoot">Software</A>&#160;&#160;|&#160;&#160;
