@@ -61,18 +61,35 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="component_rules"/>
-   <jsp:param name="selectedTab" value="overview"/>
+   <jsp:param name="selectedTab" value="prizes"/>
 </jsp:include>
 
-            <h2>Official Rules and Regulations</h2>
+            <h2>About the Prizes</h2>
 
-            <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
+            <p>The tournament will award $30,000 in cash prizes.  $15,000 will be awarded for each of the design and development competitions.
+            Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole responsibility of the
+            prizewinner.  Prizes will be distributed as follows:</p>
 
-            <p>The 2003 TopCoder Open sponsored by Intel&#174;  Component Design and Development Competition ("CDDC") will take place between September 2nd and December 5th, 2003.
-            It will consist of two (2) online elimination rounds, and one (1) onsite final round, being the Championship round.  The prize purse for this tournament
-            is $30,000 in cash, with $15,000 being awarded for the design contest and $15,000 for the development contest.  The top two scorers from each of the
-            last online rounds will advance to the onsite Championship round, being held at the Mohegan Sun Casino in Uncasville, CT on December 5th.
-            </p>
+            <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="50%" class="sidebarTitle">Competitor(s)</td>
+                    <td width="50%" class="sidebarTitle" align="right">Prize</td>
+                </tr>
+                <tr>
+                    <td width="50%" class="sidebarText">2<span class="super">nd</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText" align="right">$5,000</td>
+                </tr>
+
+                <tr>
+                    <td width="50%" class="sidebarText">1<span class="super">st</span> place finisher* - Component Design/Development Champion</td>
+                    <td width="50%" class="sidebarText" align="right">$10,000</td>
+                </tr>
+
+                <tr>
+                    <td colspan="2" class="sidebarText">* Prizes will be awarded at the conclusion of the Championship Round.
+                        Winners must be present at the onsite rounds to receive prize.</td>
+                </tr>
+            </table>
 
          <p><br/></p>
          </td>
