@@ -55,41 +55,60 @@ public class ProfileSearch extends Base {
         query.append("  r.rating,\n");
         query.append("  ur1.rating,\n");
         query.append("  ur2.rating\n");
-        query.append("  FROM coder c\n");
-        query.append("  JOIN rating r ON r.coder_id = c.coder_id\n");
-        query.append("  JOIN user u ON u.user_id = c.coder_id\n");
-        query.append("  JOIN country cry ON cry.country_code = c.country_code\n");
-        query.append("  JOIN state st ON st.state_code = c.state_code\n");
+        query.append("  (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112)\n");
+        query.append("  (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113)\n");
+        query.append("  FROM coder c,\n");
+        query.append("    rating r,\n");
+        query.append("    user u,\n");
         String comp = request.getParameter("company");
         if(comp != null && comp.length() > 0){
-            query.append("  JOIN demographic_response drc ON src.coder_id = c.coder_id");
-            query.append(" AND drc.demographic_question_id = 15 AND demographic_response");
+            query.append("    demographic_response drc,\n");
+        }
+        if(!request.getParameter("placement").equals("none") || skill){
+            query.append("    user_preference up1,\n");
+        }
+        if("on".equals(request.getParameter("travel"))){
+            query.append("    user_preference up2,\n");
+        }
+        if("on".equals(request.getParameter("auth"))){
+            query.append("    user_preference up3,\n");
+        }
+        if("on".equals(request.getParameter("resume"))){
+            query.append("    resume res,\n");
+        }
+        for(int i = 0; i<tables.size(); i++){
+            String tab = (String)tables.get(i);
+            query.append("    ");
+            query.append(tab);
+            query.append(", \n");
+        }
+        query.append("    country cry,\n");
+        query.append("    state st\n");
+        query.append("  WHERE 1 = 1\n");
+        query.append("  AND r.coder_id = c.coder_id\n");
+        query.append("  AND u.user_id = c.coder_id\n");
+        query.append("  AND cry.country_code = c.country_code\n");
+        query.append("  AND st.state_code = c.state_code\n");
+        if(comp != null && comp.length() > 0){
+            query.append("  AND src.coder_id = c.coder_id\n");
+            query.append("  AND drc.demographic_question_id = 15\n");
+            query.append("  AND demographic_response");
             query.append(stringMatcher(comp));
             query.append('\n');
         }
         if(!request.getParameter("placement").equals("none") || skill){
-            query.append("  JOIN user_preference up1 ON up1.user_id = c.coder_id\n");
+            query.append("  AND up1.user_id = c.coder_id\n");
         }
         if("on".equals(request.getParameter("travel"))){
-            query.append("  JOIN user_preference up2 ON up2.user_id = c.coder_id\n");
+            query.append("  AND up2.user_id = c.coder_id\n");
         }
         if("on".equals(request.getParameter("auth"))){
-            query.append("  JOIN user_preference up3 ON up3.user_id = c.coder_id\n");
+            query.append("  AND up3.user_id = c.coder_id\n");
         }
         if("on".equals(request.getParameter("resume"))){
-            query.append("  JOIN resume res ON res.coder_id = c.coder_id\n");
+            query.append("  AND res.coder_id = c.coder_id\n");
         }
-        for(int i = 0; i<tables.size(); i++){
-            String tab = (String)tables.get(i);
-            query.append("  JOIN ");
-            query.append(tab);
-            query.append(" ON ");
-            query.append(tab.substring(tab.indexOf(" ")+1));
-            query.append(".coder_id = c.coder_id\n");
-        }
-        query.append("  LEFT JOIN tcs_catalog:user_rating ur1 ON ur1.user_id = c.coder_id AND ur1.phase_id = 112\n");
-        query.append("  LEFT JOIN tcs_catalog:user_rating ur2 ON ur2.user_id = c.coder_id AND ur2.phase_id = 113\n");
-        query.append("  WHERE 1 = 1\n");
+
         for(int i = 0; i<constraints.size(); i++){
             query.append("    AND ");
             query.append(constraints.get(i));
