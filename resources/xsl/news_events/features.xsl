@@ -56,12 +56,12 @@
 	
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;September</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;09.11.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText">Problem Creation</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;09.11.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_091102" CLASS="bodyGeneric">...A Problem is Born</A></TD></TR>
 
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>				
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="3" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;August</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.21.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;polgara</TD><TD VALIGN="middle" CLASS="bodyText">Wireless</TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.21.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;polgara</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_082102" CLASS="bodyGeneric">Wireless Woes and Winners</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.07.02</TD><TD VALIGN="middle" CLASS="bodyText">&#160;&#160;KaiEl</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=feat_080702" CLASS="bodyGeneric">Match Strategy</A></TD></TR>
 		
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>		

@@ -455,8 +455,8 @@ Based on your profile information and your rated event participation, you are el
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 114</B></A><BR/>
-Tuesday, September 24, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 115</B></A><BR/>
+Monday, September 30, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -497,28 +497,28 @@ Tuesday, September 24, 2002<BR/><BR/>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
              <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;uglyfool</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">291</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">211</TD>
              <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 4</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;ChuBerto</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-308</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 7&#160;</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;Ukraine</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-337</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 3&#160;</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;pkidman</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">205</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 19</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;dudedude</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">230</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 16</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;wb_bb_617</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-350</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 20</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;smacky</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-346</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12</TD>
           </TR>                                
        </TABLE>
     </TD>
@@ -529,7 +529,7 @@ Tuesday, September 24, 2002<BR/><BR/>
 <!-- Summary/Best/Worst Ends -->
 
 <!-- Coder Point of View Begins -->
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="7"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>    
@@ -569,7 +569,7 @@ This problem set was probably a little bit easy for most of the Division-I coder
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
   <TR><TD VALIGN="top" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
-</TABLE>
+</TABLE> -->
 <!-- End of Point of View -->
 
 <xsl:call-template name="arena"/> 
