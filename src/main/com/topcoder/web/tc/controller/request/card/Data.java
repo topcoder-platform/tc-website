@@ -91,8 +91,9 @@ public class Data extends Base {
     }
 
     private void addElement(TransformerHandler hd, String name, String value, Attributes atts) throws Exception {
+        String temp = value==null?"":value;
         hd.startElement("", "", name, atts);
-        hd.characters(value.toCharArray(), 0, value.length());
+        hd.characters(temp.toCharArray(), 0, temp.length());
         hd.endElement("", "", name);
 
     }
