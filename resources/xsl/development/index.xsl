@@ -135,7 +135,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br />
+        <td width="244" bgcolor="#001B35">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->

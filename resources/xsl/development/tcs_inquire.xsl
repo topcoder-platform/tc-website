@@ -211,7 +211,7 @@ If you have any questions regarding these Terms, contact us at service@topcoder.
     <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+        <td width="244" bgcolor="#001B35">
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_dev_right"/>        
 <!-- Right Column Include Ends -->        
