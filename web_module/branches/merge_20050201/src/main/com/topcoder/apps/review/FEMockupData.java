@@ -554,7 +554,7 @@ public final class FEMockupData {
 
             // The final review.
             finalReview = new FinalReview(1, fixItems, aggregationWorksheet,
-                                          false, 1, 1);
+                                          false, 1, 1, false, null);
         } catch (Exception e) {
             System.out.println("error........");
         }
@@ -652,7 +652,7 @@ public final class FEMockupData {
                                         projects[(int) ((FinalReviewData) data).getProject().getId() - 1],
                                         1, 1);
         finalReview = new FinalReview(1, fixItems, aggregationWorksheet,
-                                      false, 1, 1);
+                                      false, 1, 1, false, null);
 
         return new FinalReviewRetrieval(finalReview);
     }
@@ -670,13 +670,13 @@ public final class FEMockupData {
                     return new ProjectRetrieval(projects[i],
                                                 screeningScorecards,
                                                 submissions,
-												null,
+                                                null,
                                                 null);
                 } else {
                     return new ProjectRetrieval(projects[i],
                                                 reviewScorecards,
                                                 submissions,
-												null,
+                                                null,
                                                 null);
                 }
             }
