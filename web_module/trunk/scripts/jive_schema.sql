@@ -5,8 +5,8 @@ CREATE TABLE jiveForum (
   description          LVARCHAR,
   modDefaultThreadVal  INTEGER NOT NULL,
   modDefaultMsgVal     INTEGER NOT NULL,
-  creationDate         INTEGER NOT NULL,
-  modificationDate     INTEGER NOT NULL,
+  creationDate         decimal(14,0) NOT NULL,
+  modificationDate     decimal(14,0) NOT NULL,
   categoryID           INTEGER NOT NULL,
   categoryIndex        INTEGER NOT NULL,
   forumIndexCounter    INTEGER NOT NULL
@@ -36,8 +36,8 @@ CREATE TABLE jiveThread (
   rootMessageID       INTEGER NOT NULL,
   modValue            INTEGER NOT NULL,
   rewardPoints        INTEGER NOT NULL,
-  creationDate        INTEGER NOT NULL,
-  modificationDate    INTEGER NOT NULL
+  creationDate        decimal(14,0) NOT NULL,
+  modificationDate    decimal(14,0) NOT NULL
 );
 CREATE INDEX jiveThread_forumID_idx ON jiveThread (forumID ASC);
 CREATE INDEX jiveThread_modValue_idx ON jiveThread (modValue ASC);
@@ -71,8 +71,8 @@ CREATE TABLE jiveMessage (
   body              TEXT,
   modValue          INTEGER NOT NULL,
   rewardPoints      INTEGER NOT NULL,
-  creationDate      INTEGER NOT NULL,
-  modificationDate  INTEGER NOT NULL
+  creationDate      decimal(14,0) NOT NULL,
+  modificationDate  decimal(14,0) NOT NULL
 );
 CREATE INDEX jiveMessage_forumID_idx ON jiveMessage (forumID ASC, forumIndex);
 CREATE INDEX jiveMessage_threadID_idx ON jiveMessage (threadID ASC);
@@ -101,8 +101,8 @@ CREATE TABLE jiveAnnounce (
   userID           INTEGER NOT NULL,
   subject          VARCHAR(255),
   body             TEXT,
-  startDate        INTEGER NOT NULL,
-  endDate          INTEGER
+  startDate        decimal(14,0) NOT NULL,
+  endDate          decimal(14,0)
 );
 CREATE INDEX jiveAnnounce_sDate_idx ON jiveAnnounce(startDate);
 CREATE INDEX jiveAnnounce_eDate_idx ON jiveAnnounce(endDate);
@@ -132,7 +132,7 @@ CREATE TABLE jivePMessage (
   body                  TEXT,
   readStatus            INTEGER NOT NULL,
   folderID              INTEGER NOT NULL,
-  pMessageDate          INTEGER NOT NULL
+  pMessageDate          decimal(14,0) NOT NULL
 );
 CREATE INDEX jivePMessage_rID_idx ON jivePMessage (recipientID);
 alter table jivePMessage add constraint primary key
@@ -168,8 +168,8 @@ CREATE TABLE jiveUser (
   nameVisible       INTEGER NOT NULL,
   email             VARCHAR(100) NOT NULL,
   emailVisible      INTEGER NOT NULL,
-  creationDate      INTEGER NOT NULL,
-  modificationDate  INTEGER NOT NULL
+  creationDate      decimal(14,0) NOT NULL,
+  modificationDate  decimal(14,0) NOT NULL
 );
 CREATE INDEX jiveUser_cDate_idx on jiveUser (creationDate ASC);
 alter table jiveUser add constraint primary key
@@ -203,8 +203,8 @@ CREATE TABLE jiveGroup (
   groupID           INTEGER NOT NULL,
   name              VARCHAR(100) NOT NULL,
   description       VARCHAR(255),
-  creationDate      INTEGER NOT NULL,
-  modificationDate  INTEGER NOT NULL
+  creationDate      decimal(14,0) NOT NULL,
+  modificationDate  decimal(14,0) NOT NULL
 );
 CREATE INDEX jiveGroup_cDate_idx on jiveGroup (creationDate ASC);
 alter table jiveGroup add constraint primary key
@@ -269,7 +269,7 @@ CREATE TABLE jiveModeration (
   objectID    INTEGER NOT NULL,
   objectType  INTEGER NOT NULL,
   userID      INTEGER,
-  modDate     INTEGER NOT NULL,
+  modDate     decimal(14,0) NOT NULL,
   modValue    INTEGER NOT NULL
 );
 CREATE INDEX jiveModeration_objectID_idx ON jiveModeration (objectID ASC);
@@ -297,7 +297,7 @@ alter table jiveWatch add constraint primary key
 CREATE TABLE jiveBatchWatch (
   userID                INTEGER        NOT NULL,
   frequency             VARCHAR(50)  NOT NULL,
-  prevEmailDate         INTEGER
+  prevEmailDate         decimal(14,0)
 );
 alter table jiveBatchWatch add constraint primary key
 	(userID)
@@ -306,7 +306,7 @@ alter table jiveBatchWatch add constraint primary key
 
 CREATE TABLE jiveReward (
   userID          INTEGER NOT NULL,
-  creationDate    INTEGER NOT NULL,
+  creationDate    decimal(14,0) NOT NULL,
   rewardPoints    INTEGER NOT NULL,
   messageID       INTEGER,
   threadID        INTEGER
@@ -333,8 +333,8 @@ CREATE TABLE jiveAttachment (
   fileName          VARCHAR(255) NOT NULL,
   fileSize          INTEGER NOT NULL,
   contentType       VARCHAR(50) NOT NULL,
-  creationDate      INTEGER NOT NULL,
-  modificationDate  INTEGER NOT NULL
+  creationDate      decimal(14,0) NOT NULL,
+  modificationDate  decimal(14,0) NOT NULL
 );
 CREATE INDEX jiveAttachment_object_idx ON jiveAttachment (objectType, objectID);
 alter table jiveAttachment add constraint primary key
@@ -367,8 +367,8 @@ CREATE TABLE jiveCategory (
   categoryID        INTEGER NOT NULL,
   name              VARCHAR(255) NOT NULL,
   description       LVARCHAR,
-  creationDate      INTEGER NOT NULL,
-  modificationDate  INTEGER NOT NULL,
+  creationDate      decimal(14,0) NOT NULL,
+  modificationDate  decimal(14,0) NOT NULL,
   lft               INTEGER NOT NULL,
   rgt               INTEGER NOT NULL
 );
@@ -403,7 +403,7 @@ CREATE TABLE jiveReadTracker (
   userID            INTEGER NOT NULL,
   objectType        INTEGER NOT NULL,
   objectID          INTEGER NOT NULL,
-  readDate          INTEGER NOT NULL
+  readDate          decimal(14,0) NOT NULL
 );
 alter table jiveReadTracker add constraint primary key
 	(userID, objectType, objectID)
@@ -437,11 +437,11 @@ CREATE TABLE jivePoll (
   name                  VARCHAR(255)   NOT NULL,
   description           LVARCHAR  ,
   pollMode              INTEGER         NOT NULL,
-  creationDate          INTEGER         NOT NULL,
-  modificationDate      INTEGER         NOT NULL,
-  startDate             INTEGER         NOT NULL,
-  endDate               INTEGER         NOT NULL,
-  expireDate            INTEGER         NOT NULL
+  creationDate          decimal(14,0)         NOT NULL,
+  modificationDate      decimal(14,0)         NOT NULL,
+  startDate             decimal(14,0)         NOT NULL,
+  endDate               decimal(14,0)         NOT NULL,
+  expireDate            decimal(14,0)         NOT NULL
 );
 CREATE INDEX jivePoll_oID_oType_idx ON jivePoll (objectID, objectType);
 CREATE INDEX jivePoll_cDate_idx ON jivePoll (creationDate ASC);
@@ -468,7 +468,7 @@ CREATE TABLE jivePollVote (
   userID                INTEGER        ,
   guestID               VARCHAR(255),
   optionIndex           INTEGER         NOT NULL,
-  voteDate              INTEGER         NOT NULL
+  voteDate              decimal(14,0)         NOT NULL
 );
 CREATE INDEX jivePollVote_pollID_idx ON jivePollVote (pollID);
 
@@ -480,7 +480,7 @@ CREATE TABLE jiveSearch (
   query                 LVARCHAR  NOT NULL,
   searchDuration        INTEGER         NOT NULL,
   numResults            INTEGER         NOT NULL,
-  searchDate            INTEGER         NOT NULL
+  searchDate            decimal(14,0)         NOT NULL
 );
 CREATE INDEX jiveSearch_userID_idx ON jiveSearch (userID);
 CREATE INDEX jiveSearch_type_idx ON jiveSearch (searchType);
@@ -500,7 +500,7 @@ CREATE INDEX jiveSearchCrit_sID_idx ON jiveSearchCriteria (searchID);
 CREATE TABLE jiveSearchClick (
   searchID              INTEGER         NOT NULL,
   messageID             INTEGER         NOT NULL,
-  clickDate             INTEGER         NOT NULL
+  clickDate             decimal(14,0)         NOT NULL
 );
 alter table jiveSearchClick add constraint primary key
 	(searchID, messageID, clickDate)
@@ -525,7 +525,7 @@ CREATE TABLE jiveReadStat (
     userID          INTEGER,
     objectType      INTEGER NOT NULL,
     objectID        INTEGER NOT NULL,
-    creationDate    INTEGER NOT NULL,
+    creationDate    decimal(14,0) NOT NULL,
     sessionID       INTEGER NOT NULL
 );
 CREATE INDEX jiveReadStat_cd_idx ON jiveReadStat (creationDate);
@@ -537,7 +537,7 @@ alter table jiveReadStat add constraint primary key
 CREATE TABLE jiveReadStatSession (
     sessionID       INTEGER NOT NULL,
     visitorID       VARCHAR(32) ,
-    creationDate    INTEGER NOT NULL
+    creationDate    decimal(14,0) NOT NULL
 );
 CREATE INDEX jiveRSS_cd_idx ON jiveReadStatSession (creationDate);
 alter table jiveReadStatSession add constraint primary key
@@ -559,8 +559,8 @@ CREATE INDEX jiveHRSS_bs_idx ON jiveHTTPReadStatSession (bytesSent);
 
 
 CREATE TABLE jiveNNTPReadStatSession (
-    creationDate    INTEGER NOT NULL,
-    endDate         INTEGER ,
+    creationDate    decimal(14,0) NOT NULL,
+    endDate         decimal(14,0) ,
     bytesReceived   INTEGER DEFAULT 0,
     bytesSent       INTEGER DEFAULT 0,
     IP              VARCHAR(16) ,
