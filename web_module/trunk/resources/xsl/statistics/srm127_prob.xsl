@@ -270,7 +270,7 @@ Finally we shall go through the sorted array and calculate the total number of k
         <td style="background: #eee;" class="bodyText">
           <b>Value</b>
         </td>
-        <td style="background: #eee;" class="bodyText">650</td>
+        <td style="background: #eee;" class="bodyText">300</td>
       </tr>
       <tr>
         <td style="background: #eee;" class="bodyText">
@@ -289,7 +289,7 @@ Finally we shall go through the sorted array and calculate the total number of k
           <b>High Score</b>
         </td>
         <td style="background: #eee;" class="bodyText">
-<B>SnapDragon</B> for 429.52 points  
+<B>ambrose</B> for 429.52 points  
                 </td>
       </tr>
     </table>
@@ -297,9 +297,7 @@ Finally we shall go through the sorted array and calculate the total number of k
 <P>
 72 out of 92 coders who opened TCSchedule, received 0 points.
 </P>
- 
-Reference implementation:
-    <b>Yarin</b>
+
 <BR/>
 <h4>Implementation</h4>
 
