@@ -38,8 +38,8 @@
                       <tc-webtag:handle coderId='<%=resultRow.getLongItem("user_id")%>' context="algorithm"/>
                   </td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
-                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="design_rating" ifNull="Unrated"/>&#160;&#160;</td>
-                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="dev_rating" ifNull="Unrated"/>&#160;&#160;</td>
+                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="design_rating" format="#" ifNull="Unrated"/>&#160;&#160;</td>
+                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="dev_rating" format="#" ifNull="Unrated"/>&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
                   <td class="formHandleEven" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>

@@ -38,10 +38,10 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.SCHOOL_NAME, m.getSchoolName() == null ? "" : m.getSchoolName().toString());
         setDefault(Constants.MIN_RATING, m.getMinRating() == null ? "" : m.getMinRating().toString());
         setDefault(Constants.MAX_RATING, m.getMaxRating() == null ? "" : m.getMaxRating().toString());
-        setDefault(Constants.MIN_DESIGN_RATING, m.getMinRating() == null ? "" : m.getMinDesignRating().toString());
-        setDefault(Constants.MAX_DESIGN_RATING, m.getMaxRating() == null ? "" : m.getMaxDesignRating().toString());
-        setDefault(Constants.MIN_DEV_RATING, m.getMinRating() == null ? "" : m.getMinDevRating().toString());
-        setDefault(Constants.MAX_DEV_RATING, m.getMaxRating() == null ? "" : m.getMaxDevRating().toString());
+        setDefault(Constants.MIN_DESIGN_RATING, m.getMinDesignRating() == null ? "" : m.getMinDesignRating().toString());
+        setDefault(Constants.MAX_DESIGN_RATING, m.getMaxDesignRating() == null ? "" : m.getMaxDesignRating().toString());
+        setDefault(Constants.MIN_DEV_RATING, m.getMinDevRating() == null ? "" : m.getMinDevRating().toString());
+        setDefault(Constants.MAX_DEV_RATING, m.getMaxDevRating() == null ? "" : m.getMaxDevRating().toString());
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings() == null ? "" : m.getMinNumRatings().toString());
         setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings() == null ? "" : m.getMaxNumRatings().toString());
         setDefault(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp() == null ? "" : m.getMaxDaysSinceLastComp().toString());
