@@ -16,62 +16,30 @@
 <body>
 
 <!-- TCO Header -->
-
 <a name="top_page"></a>
 <table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
    <tr>
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
-<!-- Gutter Ends -->
-
-        <td valign="top" align="center" width="150"><img src="/i/events/google2003/Logo_50wht.gif" width="150" height="74" border="0"/></td>
-
-         <td width="100%" align="center" colspan="3">
-<!--            
+         <td width="100%" align="center" colspan="7">
             <object 
             type="application/x-shockwave-flash"
-            data="/i/events/google2003/google3.swf"
+            data="/i/events/google2003/google.swf"
             width="100%"
-            height="125"
+            height="280"
             border="0">           
-            <param name="movie" value="/i/events/google2003/google3.swf" />
+            <param name="movie" value="/i/events/google2003/google.swf" />
             <param name="quality" value="high" />
             <param name="salign" value="t">
             </object><br/>
---> 
-            <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
-            <tr><td colspan="9" align="center"><img src="/i/events/google2003/gecc_logo.gif" width="502" height="89" border="0"/></td></tr>
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
-            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
-            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="20"></td></tr>
-            <tr>
-               <td width="50%">&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
-               <td width=15>&nbsp;</td>
-               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Schedule</b></font></td>
-               <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Rules</font></a></td>
-               <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_registration"><font size=-1>Register Now</font></a></td>
-               <td width="50%">&nbsp;</td>
-            </tr>
-            <tr>
-               <td wdith="100%" colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
-            </tr>
-         </table>
-
       </td>
    </tr>
    
-   <tr>
 
 <!-- Gutter Begins -->
+   <tr>
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Left Column Begins-->
+<!-- Left Column Begins
          <td valign="top" width="150">
             <table border="0" width="100%" cellspacing="0" cellpadding="3">
                <tr><td valign="middle" bgcolor="#3366CC" class="statText" width="100%"><font size="3"><strong>Important Dates</strong></font></td></tr>        
@@ -100,7 +68,7 @@
             </table><br />
      
          </td>         
-<!-- Left Column Ends -->
+Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
