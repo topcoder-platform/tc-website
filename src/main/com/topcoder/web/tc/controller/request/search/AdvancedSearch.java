@@ -20,6 +20,7 @@ public class AdvancedSearch extends SimpleSearch {
 
             MemberSearch m = getResults();
             getRequest().setAttribute("memberSearch", m);
+            setDefaults(m);
             setNextPage(Constants.ADVANCED_SEARCH_RESULTS);
             setIsNextPageInContext(true);
 
