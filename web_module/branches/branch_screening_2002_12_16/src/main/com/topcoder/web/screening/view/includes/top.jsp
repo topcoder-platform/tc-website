@@ -16,13 +16,13 @@
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>
-      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:link page="/sess_setup.jsp" styleClass="statText">Create a New Session</screen:link></TD>
+      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:servletLink processor="PopulateSession" styleClass="statText">Create a New Session</screen:servletLink></TD>
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>      
       <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:servletLink processor="ProfileList" styleClass="statText">Test Profiles</screen:servletLink></TD> 
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>           
       <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:servletLink processor="ProblemList" styleClass="statText">Problems</screen:servletLink></TD>     
       <TD WIDTH="20" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="30" height="1" border="0"/></TD>       
-      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:link page="/cand_list.jsp" styleClass="statText">Candidates</screen:link></TD>          
+      <TD BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666" NOWRAP="" CLASS="statText"><screen:servletLink processor="BuildCandidateList" styleClass="statText">Candidates</screen:servletLink></TD>          
       <TD WIDTH="100%" BACKGROUND="/i/ev/graybv_lite_bg.gif" BGCOLOR="#666666"><img src="/i/ev/clear.gif" width="1" height="21" border="0"/></TD>  
    </TR>
 
