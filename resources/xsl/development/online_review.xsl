@@ -93,9 +93,9 @@
 
 							
 						<p><strong>Designer</strong><br />
-						Total Payment - $210.00<br />
-						First Deliverable - $157.50<br />
-						Project Completion - $52.50<br />
+						Total Payment - $1,500.00<br />
+						First Deliverable - $1,125.00<br />
+						Project Completion - $875.00<br />
 						</p>
 							
 
