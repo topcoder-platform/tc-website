@@ -199,10 +199,10 @@ public class TCESConstants {
         ROUND_ID_PARAM = servletConfig.getInitParameter("round_id_param");
         PROBLEM_ID_PARAM = servletConfig.getInitParameter("problem_id_param");
 
-        PRO_CODER_TYPE = getIntParameter("pro_coder_type");
-        STUDENT_CODER_TYPE = getIntParameter("student_coder_type");
-        PROBLEM_STATUS_OPEN = getIntParameter("problem_status_open");
-        PROBLEM_STATUS_COMPILED = getIntParameter("problem_status_compiled");
+        PRO_CODER_TYPE = getIntParameter(servletConfig,"pro_coder_type");
+        STUDENT_CODER_TYPE = getIntParameter(servletConfig,"student_coder_type");
+        PROBLEM_STATUS_OPEN = getIntParameter(servletConfig,"problem_status_open");
+        PROBLEM_STATUS_COMPILED = getIntParameter(servletConfig,"problem_status_compiled");
 
         JSP_ROOT = servletConfig.getInitParameter("jsp_root");
         ERROR_PAGE = servletConfig.getInitParameter("error_page");

@@ -141,11 +141,12 @@ log.debug("setting most recent hit = "+mostRecentHit);
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);
-        setTotalHits( ((Long)cpgnHitsRow.getItem("total_hits").getResultData()).toString() );
-        setMostRecentHit( (getTotalHits()==0)?"N/A":getDate(cpgnHitsRow,"most_recent") );
+        Long hits = (Long)cpgnHitsRow.getItem("total_hits").getResultData();
+        setTotalHits( hits.toString() );
+        setMostRecentHit( (hits.longValue()==0)?"N/A":getDate(cpgnHitsRow,"most_recent") );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
-        if (rsc.getRowCount() == "0") {
+        if (rsc.getRowCount() == 0) {
             throw new Exception (" cid="+Integer.toString(getCampaignID())+
                                  "does not belong to uid="+Integer.toString(uid) );
         }
