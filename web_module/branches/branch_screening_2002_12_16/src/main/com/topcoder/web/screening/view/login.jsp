@@ -1,4 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page errorPage="/errorPage.jsp" %>
+<%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -39,31 +41,31 @@
                   <TABLE WIDTH="250" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#333333">
                      <TR>
                         <TD CLASS="time" ALIGN="center" VALIGN="middle">&#160;
-                           <% if((String)request.getAttribute("msg") != null){ %>
+                           <% if((String)request.getAttribute(Constants.MESSAGE_PARAMETER) != null){ %>
                               <p CLASS="statText">
-                                 <%= request.getAttribute("msg").toString() %>
+                                 <%= request.getAttribute(Constants.MESSAGE_PARAMETER).toString() %>
                               </p>
-                           <% }else if((String)request.getParameter("msg") != null){ %>
+                           <% }else if((String)request.getParameter(Constants.MESSAGE_PARAMETER) != null){ %>
                               <p CLASS="statText">
-                                 <%= request.getParameter("msg") %>
+                                 <%= request.getParameter(Constants.MESSAGE_PARAMETER) %>
                               </p>
                            <% } %>
-                           <screen:form NAME="login" METHOD="POST" ACTION="/screening">
-                              <INPUT type="hidden" name='rp' value='Login'/>
-                              <INPUT type="hidden" name='firstVisit' value='false'/>
-                              <% if((String)request.getAttribute("redir") != null){ %>
-                                 <INPUT type="hidden" name='redir' value='<%= request.getAttribute("redir").toString() %>'/>
-                              <% }else if((String)request.getParameter("redir") != null){ %>
-                                 <INPUT type="hidden" name='redir' value='<%= request.getParameter("redir").toString() %>'/>
+                           <screen:form NAME="login" METHOD="POST" ACTION="<%=Constants.CONTROLLER_URL%>">
+                              <INPUT type="hidden" name='<%=Constants.REQUEST_PROCESSOR%>' value='Login'/>
+                              <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
+                              <% if((String)request.getAttribute(Constants.REDIRECT) != null){ %>
+                                 <INPUT type="hidden" name='<%=Constants.REDIRECT%>' value='<%= request.getAttribute(Constants.REDIRECT).toString() %>'/>
+                              <% }else if((String)request.getParameter(Constants.REDIRECT) != null){ %>
+                                 <INPUT type="hidden" name='<%=Constants.REDIRECT%>' value='<%= request.getParameter(Constants.REDIRECT).toString() %>'/>
                               <% } %>
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right" NOWRAP="">&#160;&#160;User Name:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="handle" TYPE="TEXT" VALUE=""/></TD>
+                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Constants.HANDLE%>" TYPE="TEXT" VALUE=""/></TD>
                                  </TR>
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">&#160;&#160;Password:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="password" TYPE="Password" VALUE=""/></TD>
+                                    <TD HEIGHT="20" VALIGN="TOP"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Constants.PASSWORD%>" TYPE="Password" VALUE=""/></TD>
                                     <TD CLASS="statTextBig" VALIGN="top" NOWRAP="">&#160;<A HREF="Javascript:document.login.submit()" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login &gt;</FONT></A>&#160;&#160;</TD>                    
                                  </TR>
                               </TABLE>
