@@ -45,10 +45,12 @@ public class LoginCommand implements TCESCommand, Serializable {
 		else if (step.equals("v")) {
 			isStepAuth=false;
 			isStepView=true;
+log.debug("lc:v");
 		}
 		else if (step.equals("a")) {
 			isStepAuth=true;
 			isStepView=false;
+log.debug("lc:v");
 		}
 
 		setLog(log);
@@ -99,6 +101,7 @@ public class LoginCommand implements TCESCommand, Serializable {
 	private void viewAuth(HttpServletRequest request, HttpServletResponse response,
 					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
 	{
+log.debug("viewauth");
         String handle = request.getParameter(TCESConstants.HANDLE_PARAM);
         String password = request.getParameter(TCESConstants.PASSWORD_PARAM);
 

@@ -45,10 +45,17 @@ public class Controller extends HttpServlet {
      */
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        log.debug("service called");
+        String debugMsg = "service called.";
 
         String command = request.getParameter(DataAccessConstants.COMMAND);
         String commandStep = request.getParameter(TCESConstants.STEP_PARAM);
+
+		if (command!=null)
+			debugMsg+=" c="+command;
+		if (commandStep!=null)
+			debugMsg+=" st="+commandStep;
+
+		log.debug(debugMsg);
 
       	InitialContext ctx = null;
       	try {
