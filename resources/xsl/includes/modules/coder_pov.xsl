@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+                        <img src="/i/m/wernie_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=307638"><strong>Wernie</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,12 +32,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm150_prob">Problem Set Analysis &amp; Opinion: SRM 150</a></font></strong><br />
-                        Wednesday, June 11, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm151_prob">Problem Set Analysis &amp; Opinion: SRM 151</a></font></strong><br />
+                        Tuesday, June 17, 2003</p>
 
-                        <p>Divison-I had a tricky medium level problem which most competitors got stuck at; in the end, only 11 people solved two or more problems. Most likely more
-                        people would have solved the hard problem if they had skipped the medium one at an early stage. Winner was ...
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm150_prob</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <p>
+                        The two matches prior to SRM 151 saw very few submissions on both the division one medium and hard problems, but this time the coders in both divisions submitted merrily.
+                        In division one, newcomers <b>aneubeck</b> (2nd place) and <b>tomek</b> (4th place) pushed hard, but it was for the &quot;oldster&quot; <b>radeye</b> to take the top spot.
+                        It is notable that bilingual <b>tomek</b> submitted in both C++ and Java, an event rarely seen with the top finishers.
+                        <b>noah</b> won division two finishing only 9 points ahead of <b>JWizard</b>. First timer <b>m00tz</b> finished third and was the only first timer to hit the yellow rating category.
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm151_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                        </p>
+
                     </td>
                 </tr>
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr>
