@@ -128,7 +128,7 @@ Used as: Level 1<BR/>
       </tr>
     </table>
     </blockquote>
-</P><B>Implementation</B><BR/>
+<P><B>Implementation</B><BR/>
 This is a straight-forward problem to solve, simply following the directions given. Java and C# users can use the startsWith method of their string class to see if the remaining letters correspond to a particular token. C++ users can use strncmp or the substr method to do the same. It's then a matter of picking the longest token that matches (if any) and adding it to a list. For Java and C# users, the toArray method of ArrayList is quite useful. </P>
 
 <P>Mistakes seemed primarily to result from not following directions. </P>
