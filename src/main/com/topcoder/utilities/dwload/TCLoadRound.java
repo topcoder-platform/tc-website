@@ -315,12 +315,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -335,12 +330,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSelMinMaxRatings = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -484,38 +474,33 @@ public class TCLoadRound extends TCLoad {
 
         try {
             query = new StringBuffer(100);
-            query.append(" SELECT ps.round_id");              //1
-            query.append(" ,ps.coder_id ");            //2
-            query.append(" ,ps.problem_id ");          //3
-            query.append(" ,ps.points ");              //4
-            query.append(" ,ps.status_id ");           //5
-            query.append(" ,ps.language_id ");         //6
+            query.append(" SELECT cs.round_id");              //1
+            query.append(" ,cs.coder_id ");            //2
+            query.append(" , (SELECT cm.problem_id FROM component cm WHERE cm.component_id = cs.component_id)");          //3
+            query.append(" ,cs.points ");              //4
+            query.append(" ,cs.status_id ");           //5
+            query.append(" ,cs.language_id ");         //6
             query.append(" ,s.open_time ");            //7
-            query.append(" ,ps.submission_number ");   //8
+            query.append(" ,cs.submission_number ");   //8
             query.append(" ,s.submission_text ");      //9
             query.append(" ,s.submit_time ");          //10
             query.append(" ,s.submission_points ");    //11
             query.append("  ,(SELECT status_desc ");   //12
-            query.append(" FROM problem_status ");
-            query.append(" WHERE problem_status_id = ps.status_id) ");
+            query.append(" FROM problem_status_lu ");
+            query.append(" WHERE problem_status_id = cs.status_id) ");
             query.append(" ,c.compilation_text");      //13
             query.append(" ,s.submission_number");     //14
-            query.append(" FROM problem_state ps ");
+            query.append(" FROM component_state cs ");
             query.append(" LEFT OUTER JOIN submission s ");
-            query.append(" ON ps.problem_state_id = s.problem_state_id");
+            query.append(" ON cs.component_state_id = s.component_state_id");
             query.append(" LEFT OUTER JOIN compilation c ");
-            query.append(" ON ps.problem_state_id = c.problem_state_id");
-            query.append(" WHERE ps.round_id = ?");
+            query.append(" ON cs.component_state_id = c.component_state_id");
+            query.append(" WHERE cs.round_id = ?");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = ps.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = ps.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("         WHERE gu.user_id = cs.coder_id ");
+            query.append("           AND gu.group_id in (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -626,12 +611,13 @@ public class TCLoadRound extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT stc.test_case_id ");      // 1
-            query.append("       ,stc.problem_id ");       // 2
+            query.append("       ,comp.problem_id ");       // 2
             query.append("       ,stc.args ");             // 3
             query.append("       ,stc.expected_result ");  // 4
             query.append("       ,CURRENT ");              // 5
-            query.append("  FROM system_test_case stc ");
-            query.append(" WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)");
+            query.append("  FROM system_test_case stc, component comp ");
+            query.append(" WHERE comp.problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)");
+            query.append(" AND comp.component_id = stc.component_id");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             query = new StringBuffer(100);
@@ -712,7 +698,7 @@ public class TCLoadRound extends TCLoad {
             query = new StringBuffer(100);
             query.append("SELECT str.coder_id ");           // 1
             query.append("       ,str.round_id ");          // 2
-            query.append("       ,str.problem_id ");        // 3
+            query.append("       ,comp.problem_id ");        // 3
             query.append("       ,str.test_case_id ");      // 4
             query.append("       ,str.num_iterations ");    // 5
             query.append("       ,str.processing_time ");   // 6
@@ -722,18 +708,14 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,str.received ");          // 10
             query.append("       ,str.succeeded ");         // 11
             query.append("       ,str.message ");           // 12
-            query.append("  FROM system_test_result str ");
-            query.append(" WHERE round_id = ?");
+            query.append("  FROM system_test_result str, component comp ");
+            query.append(" WHERE str.round_id = ?");
+            query.append(" AND comp.component_id = str.component_id");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = str.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = str.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -991,27 +973,26 @@ public class TCLoadRound extends TCLoad {
             query = new StringBuffer(100);
             query.append("SELECT p.problem_id ");                             // 1
             query.append("       ,rp.round_id ");                             // 2
-            query.append("       ,p.result_type_id ");                        // 3
-            query.append("       ,p.method_name ");                           // 4
-            query.append("       ,p.class_name ");                            // 5
-            query.append("       ,p.status ");                                // 6
-            query.append("       ,p.default_solution ");                      // 7
-            query.append("       ,p.language_id ");                           // 8
-            query.append("       ,p.param_types ");                           // 9
-            query.append("       ,p.problem_text ");                          // 10
-            query.append("       ,p.group_id ");                              // 11
-            query.append("       ,CURRENT ");                                 // 12
-            query.append("       ,(SELECT data_type_desc ");                  // 13
+            query.append("       ,c.result_type_id ");                        // 3
+            query.append("       ,c.method_name ");                           // 4
+            query.append("       ,c.class_name ");                            // 5
+            query.append("       ,p.status_id ");                                // 6
+            query.append("       ,c.default_solution ");                      // 7
+            query.append("       ,c.component_text ");                          // 8
+            query.append("       ,CURRENT ");                                 // 9
+            query.append("       ,(SELECT data_type_desc ");                  // 10
             query.append("           FROM data_type ");
             query.append("          WHERE data_type_id = result_type_id) ");
-            query.append("       ,d.difficulty_id ");                         // 14
-            query.append("       ,d.difficulty_desc ");                       // 15
-            query.append("       ,rp.division_id ");                          // 16
-            query.append("       ,rp.points ");                               // 17
+            query.append("       ,d.difficulty_id ");                         // 11
+            query.append("       ,d.difficulty_desc ");                       // 12
+            query.append("       ,rp.division_id ");                          // 13
+            query.append("       ,rp.points ");                               // 14
             query.append("  FROM problem p ");
             query.append("       ,round_problem rp ");
             query.append("       ,difficulty d ");
+            query.append("       ,component c ");
             query.append(" WHERE rp.round_id = ? ");
+            query.append("   AND p.problem_id = c.problem_id");
             query.append("   AND p.problem_id = rp.problem_id ");
             query.append("   AND rp.difficulty_id = d.difficulty_id");
             psSel = prepareStatement(query.toString(), SOURCE_DB);
@@ -1025,19 +1006,16 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,class_name ");        // 5
             query.append("       ,status ");            // 6
             query.append("       ,default_solution ");  // 7
-            query.append("       ,language_id ");       // 8
-            query.append("       ,param_types ");       // 9
-            query.append("       ,problem_text ");      // 10
-            query.append("       ,group_id ");          // 11
-            query.append("       ,modify_date ");       // 12
-            query.append("       ,result_type_desc ");  // 13
-            query.append("       ,level_id ");          // 14
-            query.append("       ,level_desc ");        // 15
-            query.append("       ,division_id ");       // 16
-            query.append("       ,points) ");           // 17
+            query.append("       ,problem_text ");      // 8
+            query.append("       ,modify_date ");       // 9
+            query.append("       ,result_type_desc ");  // 10
+            query.append("       ,level_id ");          // 11
+            query.append("       ,level_desc ");        // 12
+            query.append("       ,division_id ");       // 13
+            query.append("       ,points) ");           // 14
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");
-            query.append("?,?,?,?,?,?,?)");         
+            query.append("?,?,?,?)");         
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1047,18 +1025,15 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,class_name = ? ");        // 3
             query.append("       ,status = ? ");            // 4
             query.append("       ,default_solution = ? ");  // 5
-            query.append("       ,language_id = ? ");       // 6
-            query.append("       ,param_types = ? ");       // 7
-            query.append("       ,problem_text = ? ");      // 8
-            query.append("       ,group_id = ? ");          // 9
-            query.append("       ,modify_date = ? ");       // 10
-            query.append("       ,result_type_desc = ? ");  // 11
-            query.append("       ,level_id = ? ");          // 12
-            query.append("       ,level_desc = ? ");        // 13
-            query.append("       ,points = ? ");            // 14
-            query.append(" WHERE problem_id = ? ");         // 15
-            query.append("   AND round_id = ? ");           // 16
-            query.append("   AND division_id = ? ");        // 17
+            query.append("       ,problem_text = ? ");      // 6
+            query.append("       ,modify_date = ? ");       // 7
+            query.append("       ,result_type_desc = ? ");  // 8
+            query.append("       ,level_id = ? ");          // 9
+            query.append("       ,level_desc = ? ");        // 10
+            query.append("       ,points = ? ");            // 11
+            query.append(" WHERE problem_id = ? ");         // 12
+            query.append("   AND round_id = ? ");           // 13
+            query.append("   AND division_id = ? ");        // 14
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1075,7 +1050,7 @@ public class TCLoadRound extends TCLoad {
             while (rs.next()) {
                 int problem_id = rs.getInt(1);
                 int round_id = rs.getInt(2);
-                int division_id = rs.getInt(16);
+                int division_id = rs.getInt(13);
 
                 psSel2.clearParameters();
                 psSel2.setInt(1, problem_id);
@@ -1092,18 +1067,15 @@ public class TCLoadRound extends TCLoad {
                     psUpd.setString(3, rs.getString(5));  // class_name
                     psUpd.setInt(4, rs.getInt(6));  // status
                     setBytes(psUpd, 5, getBytes(rs, 7));  // default_solution
-                    psUpd.setInt(6, rs.getInt(8));  // language_id
-                    setBytes(psUpd, 7, getBlobObject(rs, 9));  // param_types
-                    setBytes(psUpd, 8, getBytes(rs, 10));  // problem_text
-                    psUpd.setInt(9, rs.getInt(11));  // group_id
-                    psUpd.setTimestamp(10, rs.getTimestamp(12));  // modify_date
-                    psUpd.setString(11, rs.getString(13));  // result_type_desc
-                    psUpd.setInt(12, rs.getInt(14));  // level_id
-                    psUpd.setString(13, rs.getString(15));  // level_desc
-                    psUpd.setFloat(14, rs.getFloat(17)); // points
-                    psUpd.setInt(15, rs.getInt(1));  // problem_id
-                    psUpd.setInt(16, rs.getInt(2));  // round_id
-                    psUpd.setInt(17, rs.getInt(16));  // division_id
+                    setBytes(psUpd, 6, getBytes(rs, 8));  // problem_text
+                    psUpd.setTimestamp(7, rs.getTimestamp(9));  // modify_date
+                    psUpd.setString(8, rs.getString(10));  // result_type_desc
+                    psUpd.setInt(9, rs.getInt(11));  // level_id
+                    psUpd.setString(10, rs.getString(12));  // level_desc
+                    psUpd.setFloat(11, rs.getFloat(14)); // points
+                    psUpd.setInt(12, rs.getInt(1));  // problem_id
+                    psUpd.setInt(13, rs.getInt(2));  // round_id
+                    psUpd.setInt(14, rs.getInt(13));  // division_id
 
                     retVal = psUpd.executeUpdate();
                     count += retVal;
@@ -1121,16 +1093,13 @@ public class TCLoadRound extends TCLoad {
                     psIns.setString(5, rs.getString(5));  // class_name
                     psIns.setInt(6, rs.getInt(6));  // status
                     setBytes(psIns, 7, getBytes(rs, 7));  // default_solution
-                    psIns.setInt(8, rs.getInt(8));  // language_id
-                    setBytes(psIns, 9, getBlobObject(rs, 9));  // param_types
-                    setBytes(psIns, 10, getBytes(rs, 10));  // problem_text
-                    psIns.setInt(11, rs.getInt(11));  // group_id
-                    psIns.setTimestamp(12, rs.getTimestamp(12));  // modify_date
-                    psIns.setString(13, rs.getString(13));  // result_type_desc
-                    psIns.setInt(14, rs.getInt(14));  // level_id
-                    psIns.setString(15, rs.getString(15));  // level_desc
-                    psIns.setInt(16, rs.getInt(16));  // division_id
-                    psIns.setFloat(17, rs.getFloat(17)); //points
+                    setBytes(psIns, 8, getBytes(rs, 8));  // problem_text
+                    psIns.setTimestamp(9, rs.getTimestamp(9));  // modify_date
+                    psIns.setString(10, rs.getString(10));  // result_type_desc
+                    psIns.setInt(11, rs.getInt(11));  // level_id
+                    psIns.setString(12, rs.getString(12));  // level_desc
+                    psIns.setInt(13, rs.getInt(13));  // division_id
+                    psIns.setFloat(14, rs.getFloat(14)); //points
 
                     retVal = psIns.executeUpdate();
                     count += retVal;
@@ -1537,26 +1506,26 @@ public class TCLoadRound extends TCLoad {
             query.append("          WHERE rp.round_id = rr.round_id ");
             query.append("            AND rp.division_id = r.division_id ");
             query.append("            AND rr.room_id = r.room_id) ");
-            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 16
-            query.append("          WHERE ps.round_id = rr.round_id ");
-            query.append("            AND ps.coder_id = rr.coder_id ");
-            query.append("            AND status_id = " + STATUS_PASSED_SYS_TEST + ") ");
-            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 17
-            query.append("          WHERE ps.round_id = rr.round_id ");
-            query.append("            AND ps.coder_id = rr.coder_id ");
-            query.append("            AND status_id = " + STATUS_FAILED_SYS_TEST + ") ");
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 16
+            query.append("          WHERE cs.round_id = rr.round_id ");
+            query.append("            AND cs.coder_id = rr.coder_id ");
+            query.append("            AND cs.status_id = " + STATUS_PASSED_SYS_TEST + ") ");
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 17
+            query.append("          WHERE cs.round_id = rr.round_id ");
+            query.append("            AND cs.coder_id = rr.coder_id ");
+            query.append("            AND cs.status_id = " + STATUS_FAILED_SYS_TEST + ") ");
             query.append("       ,(SELECT count(*) FROM challenge c ");       // 18
             query.append("          WHERE c.round_id = rr.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.defendant_id = rr.coder_id ");
-            query.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
-            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 19
-            query.append("          WHERE ps.round_id = rr.round_id ");
-            query.append("            AND ps.coder_id = rr.coder_id) ");
-            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 20
-            query.append("          WHERE ps.round_id = rr.round_id ");
-            query.append("            AND ps.coder_id = rr.coder_id ");
-            query.append("            AND status_id = " + STATUS_OPENED + ") ");
+            query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 19
+            query.append("          WHERE cs.round_id = rr.round_id ");
+            query.append("            AND cs.coder_id = rr.coder_id) ");
+            query.append("       ,(SELECT count(*) FROM component_state cs ");  // 20
+            query.append("          WHERE cs.round_id = rr.round_id ");
+            query.append("            AND cs.coder_id = rr.coder_id ");
+            query.append("            AND cs.status_id = " + STATUS_OPENED + ") ");
             query.append("       ,(SELECT count(*) FROM challenge c ");       // 21
             query.append("          WHERE c.challenger_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
@@ -1565,12 +1534,12 @@ public class TCLoadRound extends TCLoad {
             query.append("          WHERE c.challenger_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id ");
-            query.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
+            query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
             query.append("       ,(SELECT count(*) FROM challenge c ");       // 23
             query.append("          WHERE c.challenger_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id ");
-            query.append("            AND succeeded = " + STATUS_FAILED + ") ");
+            query.append("            AND c.succeeded = " + STATUS_FAILED + ") ");
             query.append("       ,(SELECT count(*) FROM challenge c ");       // 24
             query.append("          WHERE c.defendant_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
@@ -1579,12 +1548,12 @@ public class TCLoadRound extends TCLoad {
             query.append("          WHERE c.defendant_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id ");
-            query.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
+            query.append("            AND c.succeeded = " + STATUS_SUCCEEDED + ") ");
             query.append("       ,(SELECT count(*) FROM challenge c ");       // 26
             query.append("          WHERE c.defendant_id = rr.coder_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("            AND c.round_id = rr.round_id ");
-            query.append("            AND succeeded = " + STATUS_FAILED + ") ");
+            query.append("            AND c.succeeded = " + STATUS_FAILED + ") ");
             query.append("       ,(SELECT sum(defendant_points) ");           // 27
             query.append("           FROM challenge c ");
             query.append("          WHERE c.round_id = rr.round_id ");
@@ -1608,12 +1577,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = rr.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -1765,73 +1729,68 @@ public class TCLoadRound extends TCLoad {
 
         try {
             query = new StringBuffer(100);
-            query.append("SELECT ps.coder_id ");                                 // 1
-            query.append("       ,ps.round_id ");                                // 2
+            query.append("SELECT cs.coder_id ");                                 // 1
+            query.append("       ,cs.round_id ");                                // 2
             // 3: division_id
             query.append("       ,(SELECT r.division_id ");                      // 3
             query.append("           FROM room r ");
             query.append("                ,room_result rr ");
-            query.append("          WHERE rr.coder_id = ps.coder_id ");
-            query.append("            AND rr.round_id = ps.round_id ");
+            query.append("          WHERE rr.coder_id = cs.coder_id ");
+            query.append("            AND rr.round_id = cs.round_id ");
             query.append("            AND r.room_type_id = " + CONTEST_ROOM);
             query.append("            AND r.room_id = rr.room_id) ");
-            query.append("       ,ps.problem_id ");                              // 4
+            query.append("       ,(SELECT comp.problem_id FROM component comp WHERE cs.component_id = comp.component_id)");                              // 4
             query.append("       ,s.submission_points ");                        // 5
-            query.append("       ,ps.points ");                                  // 6
-            query.append("       ,ps.status_id ");                               // 7
+            query.append("       ,cs.points ");                                  // 6
+            query.append("       ,cs.status_id ");                               // 7
             // 8: end_status_text
             query.append("       ,(SELECT status_desc ");                        // 8
-            query.append("           FROM problem_status ");
-            query.append("          WHERE problem_status_id = ps.status_id) ");
+            query.append("           FROM problem_status_lu ");
+            query.append("          WHERE problem_status_id = cs.status_id) ");
             query.append("       ,c.open_time ");                                // 9
             query.append("       ,s.submit_time ");                              // 10
             query.append("       ,s.submit_time - c.open_time ");                // 11
-            query.append("       ,ps.language_id ");                             // 12
+            query.append("       ,cs.language_id ");                             // 12
             // 13: challenge_points
             query.append("       ,(SELECT sum(c.challenger_points) ");           // 13
             query.append("           FROM challenge c ");
-            query.append("          WHERE c.round_id = ps.round_id ");
+            query.append("          WHERE c.round_id = cs.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            query.append("            AND c.challenger_id = ps.coder_id ");
-            query.append("            AND c.problem_id = ps.problem_id) ");
+            query.append("            AND c.challenger_id = cs.coder_id ");
+            query.append("            AND c.problem_id = cs.problem_id) ");
             // 14: system_test_points
             query.append("       ,(SELECT sum(deduction_amount) ");              // 14
             query.append("           FROM system_test_result str ");
-            query.append("          WHERE str.round_id = ps.round_id ");
-            query.append("            AND str.coder_id = ps.coder_id ");
-            query.append("            AND str.problem_id = ps.problem_id) ");
+            query.append("          WHERE str.round_id = cs.round_id ");
+            query.append("            AND str.coder_id = cs.coder_id ");
+            query.append("            AND str.component_id = cs.component_id) ");
             // 15: defense_points
             query.append("       ,(SELECT sum(defendant_points) ");              // 15
             query.append("           FROM challenge c ");
-            query.append("          WHERE c.round_id = ps.round_id ");
+            query.append("          WHERE c.round_id = cs.round_id ");
             query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            query.append("            AND c.defendant_id = ps.coder_id ");
-            query.append("            AND c.problem_id = ps.problem_id) ");
+            query.append("            AND c.defendant_id = cs.coder_id ");
+            query.append("            AND c.component_id = cs.component_id) ");
             query.append("       ,(SELECT rs.end_time");                         // 16
             query.append("           FROM round_segment rs");
-            query.append("          WHERE rs.round_id = ps.round_id");
+            query.append("          WHERE rs.round_id = cs.round_id");
             query.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
-            query.append(" FROM problem_state ps ");
+            query.append(" FROM component_state cs");
             query.append(" LEFT OUTER JOIN submission s ");
-            query.append(" ON ps.problem_state_id = s.problem_state_id");
-            query.append(" AND s.submission_number = ps.submission_number");
+            query.append(" ON cs.component_state_id = s.component_state_id");
+            query.append(" AND s.submission_number = cs.submission_number");
             query.append(" LEFT OUTER JOIN compilation c ");
-            query.append(" ON ps.problem_state_id = c.problem_state_id");
+            query.append(" ON cs.component_state_id = c.component_state_id");
             query.append(" JOIN room_result rr ");
-            query.append(" ON rr.round_id = ps.round_id");
-            query.append(" AND rr.coder_id = ps.coder_id");
-            query.append(" AND rr.attended = 'Y'");
-            query.append(" AND ps.round_id = ?");
+            query.append(" ON rr.round_id = cs.round_id");
+            query.append(" AND rr.coder_id = cs.coder_id");
+            query.append(" WHERE cs.round_id = ?");
+            query.append("   AND rr.attended = 'Y'");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = ps.coder_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = ps.coder_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("           AND gu.group_id = IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
@@ -2017,32 +1976,28 @@ public class TCLoadRound extends TCLoad {
 
         try {
             query = new StringBuffer(100);
-            query.append("SELECT challenge_id ");        // 1
-            query.append("       ,defendant_id ");       // 2
-            query.append("       ,problem_id ");         // 3
-            query.append("       ,round_id ");           // 4
-            query.append("       ,succeeded ");          // 5
-            query.append("       ,submit_time ");        // 6
-            query.append("       ,challenger_id ");      // 7
-            query.append("       ,args ");               // 8
-            query.append("       ,message ");            // 9
-            query.append("       ,challenger_points ");  // 10
-            query.append("       ,defendant_points ");   // 11
-            query.append("       ,expected ");           // 12
-            query.append("       ,received ");           // 13
-            query.append("  FROM challenge ");
-            query.append(" WHERE round_id = ? ");
-            query.append("   AND status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("SELECT chal.challenge_id ");        // 1
+            query.append("       ,chal.defendant_id ");       // 2
+            query.append("       ,comp.problem_id ");         // 3
+            query.append("       ,chal.round_id ");           // 4
+            query.append("       ,chal.succeeded ");          // 5
+            query.append("       ,chal.submit_time ");        // 6
+            query.append("       ,chal.challenger_id ");      // 7
+            query.append("       ,chal.args ");               // 8
+            query.append("       ,chal.message ");            // 9
+            query.append("       ,chal.challenger_points ");  // 10
+            query.append("       ,chal.defendant_points ");   // 11
+            query.append("       ,chal.expected ");           // 12
+            query.append("       ,chal.received ");           // 13
+            query.append("  FROM challenge chal, component comp");
+            query.append(" WHERE chal.round_id = ? ");
+            query.append("   AND chal.component_id = comp.component_id");
+            query.append("   AND chal.status_id <> " + CHALLENGE_NULLIFIED);
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = defendant_id ");
-            query.append("           AND gu.group_id = 13)");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
-            query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = challenger_id ");
-            query.append("           AND gu.group_id = 14)");
+            query.append("         WHERE gu.user_id = chal.defendant_id ");
+            query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
