@@ -554,7 +554,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 .append(" , challenger_points, defendant_points from challenge where challenge_id = ? ");
 
         StringBuffer queryUpdatePSSucessful = new StringBuffer(200);
-        queryUpdatePSSucessful.append(" update problem_state set status_id = ? , points = points - ? ")
+        queryUpdatePSSucessful.append(" update component_state set status_id = ? , points = points - ? ")
                 .append(" where round_id =  ? and coder_id = ? and component_id = ? ");
 
         StringBuffer queryUpdateRR = new StringBuffer(200);
@@ -1230,7 +1230,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" ,s.submission_text");
             query.append(" ,l.language_name");
             query.append(" ,rp.points");
-            query.append(" FROM problem_state ps, ");
+            query.append(" FROM component_state ps, ");
             query.append(" OUTER submission s");
             query.append(" ,user u");
             query.append(" ,compilation c");
