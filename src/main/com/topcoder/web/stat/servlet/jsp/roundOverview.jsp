@@ -210,7 +210,7 @@
 <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">
 </FORM>
       &#160;to&#160;
-      <A HREF="javascript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
+      <A HREF="document.coderRankForm.submit();" CLASS="statText">&#160;[ submit ]</A>
     </TD>
   </TR>
 
