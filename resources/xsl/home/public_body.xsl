@@ -68,19 +68,6 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
 
-<!-- Sun JavaOne promo begins
-            <table border="0" cellspacing="0" cellpadding="0" background="/i/promos/javaone_2003/javaone_bkgd.gif" width="100%">
-                <tr><td rowspan="3" width="138" height="89"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/promo_horz_logo.gif" alt="Sun's 2003 Worldwide Java Developer Conference" width="138" height="89" border="0" /></A></td></tr>
-                <tr>
-                    <td width="99%" height="25" valign="middle"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/javaone_coding_challenge.gif" alt="JavaOne Coding Challenge" width="231" height="20" border="0" /></A></td>
-                    <td width="113" height="25" align="right" valign="bottom"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/powered_by_topcoder.gif" alt="Powered by TopCoder" width="113" height="16" border="0" /></A></td>
-                </tr>
-                <tr><td colspan="2" height="64" valign="middle"><A href="/?t=sponsor&amp;c=javaone2003" target="_top"><img src="/i/promos/javaone_2003/sun_2003_wjdc.gif" alt="Sun's 2003 Worldwide Java Developer Conference" width="381" height="52" border="0" /></A></td></tr>
-            </table>
- Sun JavaOne promo ends
-
-            <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br /> -->
-
 <!-- Summary/Best/Worst Begins  -->
             <xsl:call-template name="srm_best_worst"/>
 <!-- Summary/Best/Worst Ends -->
