@@ -396,7 +396,7 @@ public class Search extends Base {
 
 
         if (count < sb.getEnd().intValue() - sb.getStart().intValue() + 1) {
-            sb.setEnd(new Integer(sb.getStart().intValue() + count - 1));
+            sb.setEnd(new Integer(sb.getStart().intValue() + rsc.size() - 1));
         }
 
         sb.setMemberList(rsc);
