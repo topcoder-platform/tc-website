@@ -65,8 +65,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </jsp:include>
 
                <blockquote>
-               <p>We are no longer accepting donations for the TopCoder Charity Challenge benifiting the Christopher Reeve Paralysis Foundation.  Please feel
-               free to send donations to directly to the CRPF or to find our more information, please visit <a href="http://www.christopherreeve.com/">www.christopherreeve.com</a>.</p>
+               <p>The TopCoder Charity Challenge is officially underway!  While donations will no longer be applied to individual TopCoder members competing in the tournament, we encourage you to continue donating to this  worthy cause.  Donations can be made online at <a href="http://www.christopherreeve.com/">www.christopherreeve.com</a>.</p>
 
             <p><br /></p>
          </td>
