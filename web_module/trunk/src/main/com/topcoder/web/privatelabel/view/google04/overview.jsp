@@ -22,7 +22,7 @@
 				<tr>
 					<td width="49%"></td>
 					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
+					<td width="49%"></td>
 				</tr>
 			</table>
 		</td>
@@ -40,8 +40,8 @@
 			</jsp:include>
 			</div>
 
-
 			<br/><br/>
+
 			<span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
 			<span valign=top>
 			<jsp:include page="right.jsp" />
