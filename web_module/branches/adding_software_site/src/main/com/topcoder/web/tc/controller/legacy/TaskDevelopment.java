@@ -186,6 +186,8 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
+                    
+                    devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 } else {
                     requiresLogin = true;
