@@ -57,13 +57,13 @@
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left">Handle</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left">Coach</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="60%" align="right">Average Score</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="60%" align="right">Score</td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="right">66.52</td>
+                    <td class="formHandleEven" align="right">80.92</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
@@ -103,7 +103,7 @@
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
                     <td class="formHandleEven" align="left"></td>
-                    <td class="formHandleEven" align="right">pending</td>
+                    <td class="formHandleEven" align="right">80.86</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=289251">ragnabot</a></td>
@@ -118,7 +118,7 @@
                 <tr valign="middle">
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=119676">Pops</a></td>
-                    <td class="formHandleOdd" align="right">pending</td>
+                    <td class="formHandleOdd" align="right">84.74</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
@@ -245,34 +245,34 @@
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8403457" class="statText" target="_blank">Sort Utility</a></td>
                     <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="center">1</td>
                     <td class="formHandleOdd"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="center">80.92</td>
                     <td class="formHandleOdd" align="center"><img src="/i/development/multiplierGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=6601794" class="statText" target="_blank">String Distance</a></td>
                     <td class="formHandleEven" align="center">3</td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center"><img src="/i/development/multiplierGray.gif" border="0"/></td>
+                    <td class="formHandleEven" align="center">1</td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
+                    <td class="formHandleEven" align="center">84.74</td>
+                    <td class="formHandleEven" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd">&#160;</td>
                     <td class="formHandleOdd">&#160;</td>
-                    <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
-                    <td class="formHandleOdd" align="center">pending</td>
+                    <td class="formHandleOdd" align="center">2</td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
+                    <td class="formHandleOdd" align="center">80.86</td>
                     <td class="formHandleOdd" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven">&#160;</td>
                     <td class="formHandleEven">&#160;</td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
-                    <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">&#160;</td>
+                    <td class="formHandleEven" align="center">3</td>
+                    <td class="formHandleEven"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="formHandleEven" align="center">78.33</td>
+                    <td class="formHandleEven" align="center"><img src="/i/development/multiplierGray.gif" border="0"/></td>
                 </tr>
 
             </table>
