@@ -9,7 +9,6 @@ import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.ejb.school.CurrentSchool;
 import com.topcoder.web.ejb.school.School;
-import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.jobposting.JobPostingServices;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
@@ -41,6 +40,9 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
         try {
             if (regInfo.isNew() && userExists(regInfo.getHandle())) {
                 addError(Constants.HANDLE, "Please choose another handle.");
+                getRequest().setAttribute("countryList", getCountryList());
+                getRequest().setAttribute("stateList", getStateList());
+                setDefaults(regInfo);
             } else {
                 UserPrincipal newUser = commit(regInfo);
                 handleActivation(regInfo, newUser);
