@@ -20,7 +20,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-<td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+<td class="sidebarText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="problem_rating"/>
            <jsp:param name="image1" value="white"/>
@@ -32,21 +32,21 @@
 <form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
-    <table BORDER="0" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
-        <tr><td class="bodyTextBig">Question</td>
-            <td class="bodyTextBig">Description</td>
+    <table BORDER="0" CELLSPACING="2" CELLPADDING="6" WIDTH="100%" class="sidebarBox">
+        <tr><td class="sidebarTitle">Question</td>
+            <td class="sidebarTitle">Description</td>
             <% for(int i = 1; i<=10; i++){ %>
-                <td class="bodyTextBig" align="center">
+                <td class="sidebarTitle" align="center">
                     <%=i%>
                 </td>
             <% } %>
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <td class="bodyText">
+            <td class="sidebarText">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
-            <td class="bodyText" width="100%"><jsp:getProperty name="quest" property="questionDesc"/></td>
+            <td class="sidebarText" width="100%"><jsp:getProperty name="quest" property="questionDesc"/></td>
             <tc:counter min="1" max="10" inc="1" id="rating">
             <td valign="top">
                 <% boolean checked = rating.equals(request.getParameter("q"+quest.getID())); %>
