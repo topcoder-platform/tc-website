@@ -48,95 +48,48 @@
                     <td align="left" width="100%">
                         <table border="0" cellpadding="0" cellspacing="0">
                             <tr>
-                               <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC_header.gif" width="510" height="115" /></td>
+                               <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></td>
                               </tr>
                             <tr>
                             <td class="bodyText" >
                             	<p>With technology complexity increasing at a blistering pace, Intel&#174; Developer Services offers the resources and opportunities you need to keep stride with industry innovations,
                              	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
-                            <td><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="206" height="200" /></td>
+                            <td><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="150" height="146" /></td>
                       </tr>
                       <tr>
-                            <td>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
-                            Intel&#174; Developer Services gives you FREE access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</td>
-                            <td>
+                            <td class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
+                            Intel&#174; Developer Services gives you FREE access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p></td>
                             
-                            <table>
-                            <tr>
-                            <td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                            <td rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino mobile-technology-based notebook! View Specs.
-                            <br/>Register Now! Use promotion code TCO2003. </p></td>
-                            </tr>
-                            <tr><td></td></tr>
-                            </table>
-                            
-                            
-                            </td>
-                     </tr>
+                          <td>
+                            	<table>
+                            		<tr>
+                            			<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                            			<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino mobile-technology-based notebook! View Specs.
+                            			<br/>Register Now! Use promotion code TCO2003. </p></td>
+                            		</tr>
+                            		<tr><td></td></tr>
+                            	</table>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                        	<td colspan="2">
+                    <p class="promoCallout">Check out a sample of what Intel Developer Services offers you.  Then join Intel Developer Services today and get FREE technical resources designed to help you 
+                    capitalize on today's technology trends, optimize solutions and fulfill your customers' growing demands.   
+                    <br/> Remember to use promotion code TCO2003 and compete in the TCO to be entered for a chance to win an Intel Centrino mobile-technology based notebook! </p>
+                        
+                        <p><br /></p>
+
+                   
+                        	</td>
+                        </tr>
+                  
                         </table>
                     </td>
                 </tr>
                 
-                <tr>
-                <td>
-                            
-                <table border="0" cellpadding="4" cellspacing="0">
-                            <tr valign="top">
-                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Technical Training.</strong>
-                                Offered in classrooms as well as via online tutorials and webcasts, our training can help you get up to speed on the latest information to develop and enhance your solutions.<br />
-                                   <li>"Building Mobile Apps for Intermittant Connections"</li>
-                                    <li>"Thread Programming and Hyper-Threading Technology"</li>
-                                    <li>"3D Animation for Engineers"</li>
-                                    <li>"Steal Our Secrets &#151; Make Your .NET* App Run Faster"</li><br />
-                                </td>
-                            </tr>
-
-                            <tr valign="top">
-                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Focused Content.</strong>
-                                Keep informed with articles and conversation on today's hottest software technologies and topics<br />
-                                    <li>Code Central &#151; offering free samples and downloads</li>
-                                    <li>Columns and Case Studies</li>
-                                    <li>Developer Community Forums</li>
-                                    <li>Developer Solutions Catalog &#151; a dynamic resource in which you can showcase your software products</li><br />
-                                </td>
-                            </tr>
-
-                            <tr valign="top">
-                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Developer Centers.</strong>
-                                These topic-specific community forums provide technical, e-Business and strategic content and developer discussions tailored to your software needs and interests. Some examples&#58;<br />
-                                    <li>Software Technologies &#151; Mobile Technology, Peer-to-Peer, Java, .NET, Handheld and Wireless App Development</li>
-                                    <li>Intel Processors &#151; Itanium Processor Family, Pentium 4 Processor, Xeon Processor</li>
-                                     <li>Industry Segments &#151; Digital Media, Games</li>
-                                    <li>Operating Systems &#151; Windows&#42;, Linux&#42;</li><br />
-                                </td>
-                            </tr>
-                            
-                            <tr valign="top">
-                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Early Access Program.</strong>
-                                Part of a company&#63; If yes, membership to the Early Access Program gives your company early access to the following&#58;<br />
-                                    <li>Intel's next-generation platforms &#151; directly or through Protected Remote Access</li>
-                                    <li>Comprehensive technical support</li>
-                                    <li>Industry Segments &#151; Digital Media, Games</li>
-                                    <li>Extensive marketing and promotional opportunities</li><br />
-                                </td>
-                            </tr>
-                            
-         
-                            
-                        </table>
-                            
-                        
-                        <p class="promoCallout">Give your applications a technology edge. Join <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">Intel Developer Services</A> today.</p>
-                        
-                        <p><br /></p>
-
-                    </td>
-                </tr>
+              
             </table>
         </td>
 <!-- Center Column Ends -->
