@@ -367,7 +367,7 @@ public final class MainServlet extends HttpServlet {
         if (nav==null) {
             nav = new Navigation(request, response);
         }
-        WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
+        WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response, BasicAuthentication.MAIN_SITE);
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
         TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
         CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());

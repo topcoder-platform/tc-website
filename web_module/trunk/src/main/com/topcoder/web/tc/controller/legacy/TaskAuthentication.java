@@ -219,7 +219,7 @@ public final class TaskAuthentication {
 
                     /* set up a cookie so we can persist their logged in state */
                     BasicAuthentication auth = new BasicAuthentication(
-                            new SessionPersistor(request.getSession()), request, response);
+                            new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
                     //we're gonna cheat and not do the actual login, just set the cookie
                     auth.login(new SimpleUser(0, handle, password));
                  //   nav.setAuthentication(auth);
@@ -306,7 +306,7 @@ public final class TaskAuthentication {
 
             /* remove their cookie...*/
             BasicAuthentication auth = new BasicAuthentication(
-                    new SessionPersistor(request.getSession()), request, response);
+                    new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
             auth.logout();
 
 
