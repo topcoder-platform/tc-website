@@ -545,13 +545,14 @@
             </classes>
 
             <!-- libraries to be included in servlet classpath -->
+<!--
             <lib dir="${jars.dir}">
             </lib>
-
+-->
             <webinf dir="${resources}/corp">
                 <include name="tc-webtags.tld"/>
                 <include name="*.properties"/>
-                <include name="*.xml"/>
+                <include name="pstore.xml"/>
             </webinf>
 
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="**/*" prefix=""/>
