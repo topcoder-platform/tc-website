@@ -34,6 +34,7 @@ public class Constants {
     public static String VERIZON_REG_CONFIRM_PAGE;
     public static String VERIZON_REG_SUCCESS_PAGE;
     public static String VERIZON_INELIGIBLE_PAGE;
+    public static String VERIZON_ACTIVATION_PAGE;
     public static String GOOGLE_REG_PAGE;
     public static String GOOGLE_REG_DEMOG_PAGE;
     public static String GOOGLE_REG_CONFIRM_PAGE;
