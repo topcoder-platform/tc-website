@@ -244,7 +244,7 @@ public class Submit extends FullRegSubmit {
 
                 long sessionId =
                         session.createSession(spid,
-                                newUser.getId(),
+                                userId,
                                 new Timestamp(beginDate.getTime()),
                                 new Timestamp(endDate.getTime()),
                                 false,
