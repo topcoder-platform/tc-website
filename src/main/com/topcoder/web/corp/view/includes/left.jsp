@@ -50,8 +50,8 @@
 <!-- Account Admin begins -->
                 <tr><td id="myServicesNav"><img src="/i/nav_arrow_<%=level1.equals("myAccount")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=acc_admin&d3=index" class="corpLeft">Account Administration</a></td></tr>
 <% if (level1.equals("myAccount")) { %>
-                <tr><td id="<%=level2.equals("createUser")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=&d1=corp&d2=acc_admin&d3=UserEdit" target="_parent" class="corpLeft">Create User</a></td></tr>
-                <tr><td id="<%=level2.equals("userList")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=&d1=corp&d2=acc_admin&d3=UserList" target="_parent" class="corpLeft">User List</a></td></tr>
+                <tr><td id="<%=level2.equals("createUser")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" target="_parent" class="corpLeft">Create User</a></td></tr>
+                <tr><td id="<%=level2.equals("userList")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserList" target="_parent" class="corpLeft">User List</a></td></tr>
 <% } %>
 <!-- Account Admin ends -->
             </table>
