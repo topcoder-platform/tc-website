@@ -62,7 +62,12 @@
                             <td class="brRegTableQuestion">Email Address</td>
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Email"/></td>
                         </tr>
-
+                        <tr>
+                            <td class="brRegTableQuestion"></td>
+                            <td class="brRegTableAnswer"><br/>
+                            <a class="brRegTableAnswer" href="javascript: document.regForm.submit();">Submit</a>
+                            </td>
+                        </tr>
                         </table>
 
                         <p><br/></p>
