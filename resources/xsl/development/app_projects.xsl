@@ -74,11 +74,27 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
+                                        <a href="?t=development&amp;c=LDAP_Installation">LDAP Installation</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$500&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">N/A &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">05/26/2004 5:00PM ET</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Universal_Registration_Design">Universal Registation Design</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">05/26/2004 5:00PM ET</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Order_Fulfillment_Design">Order Fulfillment Design</a>
                                     </td>
                                     <td class="projectCells" align="right">$3200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$1100 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">05/19/2004 5:00PM ET</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
 
                                 <tr valign="top">
@@ -87,7 +103,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">05/20/2004 9:00AM ET</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
 
                                 <tr valign="top">
