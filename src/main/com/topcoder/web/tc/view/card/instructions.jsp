@@ -7,7 +7,9 @@
 <jsp:include page="../../script.jsp" />
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-    
+
+<jsp:usebean id="cardUnlocked" class="java.lang.Boolean" scope="request" />
+
 </head>
 
 <body>
@@ -35,14 +37,17 @@
            <jsp:param name="image1" value="white"/>  
            <jsp:param name="title" value="Instructions"/>  
         </jsp:include>
-            
+
             <div class="bodyText">
 
-            <p>Great!  You've unlocked your TopCoder Member Card.  In addition to being able to view your card here, you can also place it right into your own site! The card is built on Macromedia&#174; Flash&#153; technology.  This makes it a little more complicated than inserting a .jpg or .gif into your website, but it is still a simple process.  This page presents 2 methods for posting the TopCoder Member Card on your personal site, one with Flash "detection" and one without it.  Even though <A href="http://www.macromedia.com/software/player_census/flashplayer/?promoid=pu1_homepage_flashubiquity_012804" target="_blank">98% of internet viewers</A> have Flash-enabled browsers, you still might want your site to be able to detect the presence of Flash and react accordingly.  Here's how:</p>
+
+            <% if (cardUnlocked.booleanValue()) { %>
+                <p>Great!  You've unlocked your TopCoder Member Card.  In addition to being able to view your card here, you can also place it right into your own site! The card is built on Macromedia&#174; Flash&#153; technology.  This makes it a little more complicated than inserting a .jpg or .gif into your website, but it is still a simple process.  This page presents 2 methods for posting the TopCoder Member Card on your personal site, one with Flash "detection" and one without it.  Even though <A href="http://www.macromedia.com/software/player_census/flashplayer/?promoid=pu1_homepage_flashubiquity_012804" target="_blank">98% of internet viewers</A> have Flash-enabled browsers, you still might want your site to be able to detect the presence of Flash and react accordingly.  Here's how:</p>
+            <% } %>
 
             <p><a href="#detection">I want my TopCoder Card to have Macromedia Flash Detection.</a><br/>
             <a href="#noDetection">I DO NOT want my TopCoder Card to have Macromedia Flash Detection.</a><br/><br/></p>
-            
+
         <a name="detection"></a>
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -52,17 +57,17 @@
                 </td>
             </tr>
        </table>
-       
+
             <ol>
             <li>Insert the following JavaScript into the <b>&lt;head&gt;</b> of your page:</li>
-            
+
 <pre class="cardCode">
 &lt;SCRIPT LANGUAGE="JavaScript"&gt;
 &lt;!--
 var MM_contentVersion = 6;
 var MM_FlashCanPlay = false;
-var plugin = (navigator.mimeTypes 
-    && navigator.mimeTypes["application/x-shockwave-flash"]) 
+var plugin = (navigator.mimeTypes
+    && navigator.mimeTypes["application/x-shockwave-flash"])
     ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
 if ( plugin ) {
   var words = navigator.plugins["Shockwave Flash"].description.split(" ");
@@ -137,7 +142,7 @@ document.write( '&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" border
 
             </li>
             </ol>
-            
+
         <a name="noDetection"></a>
         <table width="100%" cellpadding="0" cellspacing="0" border="0">
             <tr>
@@ -150,37 +155,37 @@ document.write( '&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" border
 
             <ol>
             <li>If you are not concerned with detecting Flash in the user's browser, you simply need to add the following javascript into your HTML <b>&lt;body&gt;</b> wherever you want the card to show up:</li>
-            
+
 <pre class="cardCode">
-&lt;object 
-classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" 
-codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" 
-width="400" 
-height="410" 
-id="tc_card" 
+&lt;object
+classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+width="400"
+height="410"
+id="tc_card"
 align="middle"&gt;
 &lt;param name="allowScriptAccess" value="sameDomain" /&gt;
 &lt;param name="movie" value="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400"/&gt;
 &lt;param name="menu" value="false" /&gt;
 &lt;param name="quality" value="high" /&gt;
 &lt;param name="bgcolor" value="#ffffff" /&gt;
-&lt;embed 
-src="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400" 
-menu="false" 
-quality="high" 
-bgcolor="#ffffff" 
-width="400" 
-height="410" 
-name="tc_card" 
-align="middle" 
-allowScriptAccess="sameDomain" 
-type="application/x-shockwave-flash" 
-pluginspage="http://www.macromedia.com/go/getflashplayer" /&gt; 
+&lt;embed
+src="http://www.topcoder.com/i/card/tc_card.swf?memberID=144400"
+menu="false"
+quality="high"
+bgcolor="#ffffff"
+width="400"
+height="410"
+name="tc_card"
+align="middle"
+allowScriptAccess="sameDomain"
+type="application/x-shockwave-flash"
+pluginspage="http://www.macromedia.com/go/getflashplayer" /&gt;
 &lt;/object&gt;
 </pre>
             </ol>
             </div>
-            
+
 
          <p><br/></p>
          </td>
