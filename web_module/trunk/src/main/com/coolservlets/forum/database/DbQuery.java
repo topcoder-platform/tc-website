@@ -54,13 +54,16 @@
  * on CoolServlets.com, please see <http://www.coolservlets.com>.
  */
 package com.coolservlets.forum.database;
+
 import java.util.*;
 //JDK1.1// import com.sun.java.util.collections.*;
 import java.sql.*;
+
 import com.coolservlets.util.*;
 import com.coolservlets.forum.*;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
+
 /**
  * Database implementation of the Query interface.
  */
@@ -77,116 +80,143 @@ public class DbQuery implements Query {
     private Forum forum;
     private DbForumFactory factory;
     private static Logger log = Logger.getLogger(DbQuery.class);
-    public DbQuery(Forum forum, DbForumFactory factory){
+
+    public DbQuery(Forum forum, DbForumFactory factory) {
         this.forum = forum;
         this.factory = factory;
     }
+
+    public DbQuery(DbForumFactory factory) {
+        this.forum = null;
+        this.factory = factory;
+    }
+
     public void setQueryString(String queryString) {
         this.queryString = queryString;
     }
+
     public String getQueryString() {
         return queryString;
     }
+
     public void setBeforeDate(java.util.Date beforeDate) {
         this.beforeDate = beforeDate;
     }
+
     public java.util.Date getBeforeDate() {
         return beforeDate;
     }
-    public void setAfterDate(java.util.Date afterDate){
+
+    public void setAfterDate(java.util.Date afterDate) {
         this.afterDate = afterDate;
     }
-    public java.util.Date getAfterDate(){
+
+    public java.util.Date getAfterDate() {
         return afterDate;
     }
-    public Iterator execute(){
+
+    public Iterator execute() {
         //We don't know how many results will be returned, so store them
         //in an ArrayList.
         ArrayList tempMessages = new ArrayList();
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(buildQuery(false));
             ResultSet rs = pstmt.executeQuery();
             while (rs.next()) {
                 tempMessages.add(new Integer(rs.getInt(1)));
             }
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        catch( SQLException sqle ) {
-          DBMS.printSqlException(true, sqle);
-        }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
-        }
-        int [] messages = new int[tempMessages.size()];
-        for (int i=0; i<messages.length; i++) {
-            messages[i] = ((Integer)tempMessages.get(i)).intValue();
+        int[] messages = new int[tempMessages.size()];
+        for (int i = 0; i < messages.length; i++) {
+            messages[i] = ((Integer) tempMessages.get(i)).intValue();
         }
         return new DbQueryIterator(messages, factory);
     }
-    public Iterator execute(int startIndex, int numResults){
+
+    public Iterator execute(int startIndex, int numResults) {
         int[] tempMessages = new int[numResults];
         int resultCount = 0;
         Connection con = null;
         PreparedStatement pstmt = null;
         try {
-            con =  DBMS.getConnection();
+            con = DBMS.getConnection();
             pstmt = con.prepareStatement(buildQuery(false));
             ResultSet rs = pstmt.executeQuery();
             //skip however many we're supposed to
-            for (int i=0; i<startIndex; i++) {
+            for (int i = 0; i < startIndex; i++) {
                 rs.next();
             }
             //copy number of results into temp buffer
-            for (int i=0; i<numResults; i++) {
-                if(rs.next()) {
+            for (int i = 0; i < numResults; i++) {
+                if (rs.next()) {
                     tempMessages[i] = rs.getInt(1);
                     resultCount++;
                 }
             }
-        }
-        catch( SQLException sqle ) {
+        } catch (SQLException sqle) {
             sqle.printStackTrace();
+        } finally {
+            try {
+                pstmt.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                con.close();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        finally {
-            try {  pstmt.close(); }
-            catch (Exception e) { e.printStackTrace(); }
-            try {  con.close();   }
-            catch (Exception e) { e.printStackTrace(); }
-        }
-        int [] messages = new int[resultCount];
-        for (int i=0; i<messages.length; i++) {
+        int[] messages = new int[resultCount];
+        for (int i = 0; i < messages.length; i++) {
             messages[i] = tempMessages[i];
         }
         return new DbQueryIterator(messages, factory);
     }
+
     /**
      * Build the SQL query based on the properties that have been set on the
      * Query object.
      */
     private String buildQuery(boolean isCountQuery) {
         StringBuffer query = new StringBuffer();
-        String [] keywords = StringUtils.toLowerCaseWordArray(queryString);
+        String[] keywords = StringUtils.toLowerCaseWordArray(queryString);
         keywords = StringUtils.removeCommonWords(keywords);
 
         query.append(" SELECT distinct jiveMessageWord.messageID");
-        query.append(  " FROM jiveMessageWord");
-        query.append(       " ,jiveMessage");
-        query.append(       " ,jiveThread jt");
+        query.append(" FROM jiveMessageWord");
+        query.append(" ,jiveMessage");
+        if (forum!=null)
+            query.append(" ,jiveThread jt");
         if (queryString != null) {
-            for (int i=0; i<keywords.length; i++) {
+            for (int i = 0; i < keywords.length; i++) {
                 query.append(", jiveMessageWord jmw" + i + ", jiveWord jw" + i);
             }
         }
-        query.append( " WHERE jt.threadid = jiveMessage.threadid");
-        query.append(   " and jt.forumid = " + forum.getID());
+        query.append(" WHERE 1=1");
+        if (forum!=null) {
+            query.append(" and jt.threadid = jiveMessage.threadid");
+            query.append(" and jt.forumid = " + forum.getID());
+        }
         query.append(" and jiveMessageWord.messageID=jiveMessage.messageID");
         if (queryString != null) {
-            for (int i=0; i<keywords.length; i++) {
+            for (int i = 0; i < keywords.length; i++) {
                 query.append(" AND  jiveMessageWord.messageID=jmw" + i + ".messageID ");
                 query.append(" AND jmw" + i + ".wordID=jw" + i + ".wordID ");
                 query.append(" AND jw" + i + ".word='" + keywords[i] + "'");
