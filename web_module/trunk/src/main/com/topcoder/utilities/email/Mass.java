@@ -20,6 +20,7 @@ public class Mass {
   private static String  TEST_ADDRESS      = "sburrows@topcoder.com";
   private static String  SUBJECT           = "Single Round Match";
   private static int     MILLISECOND_DELAY = 500;
+  private static boolean ALL_ACTIVE        = false;
   private static boolean INTERNATIONAL     = false;
   private static boolean LIVE              = false;
   private static int     RATED_TOP         = 0;
@@ -34,6 +35,8 @@ public class Mass {
     msg.append ( "[OPTION]... " );
     msg.append ( "<email_text_file_name>\n\n" );
     msg.append ( "OPTIONS:\n\n" );
+    msg.append ( " -a \n" );
+    msg.append ( "    Send to all active members.\n" );
     msg.append ( " -f from_email_address\n" );
     msg.append ( "    Address that the email will be from.  Default is 'service@topcoder.com'\n" );
     msg.append ( " -i \n" );
@@ -80,6 +83,11 @@ public class Mass {
               case 'l':
                 System.out.println ( "Sending Live..." );
                 LIVE = true;
+                break;
+              case 'a':
+                System.out.println ( "Sending to all active..." );
+                INTERNATIONAL = true;
+                ALL_ACTIVE = true;
                 break;
               case 'm':
                 if ( (i+1) < argLen ) {
@@ -148,7 +156,7 @@ public class Mass {
       if (eMailBody == null) {
         return;
       }
-      sendMassEMail ( SUBJECT, eMailBody, FROM_ADDRESS, FROM_NAME, TEST_ADDRESS, MILLISECOND_DELAY, RATED_TOP, LIVE );
+      sendMassEMail ( SUBJECT, eMailBody, FROM_ADDRESS, FROM_NAME, TEST_ADDRESS, MILLISECOND_DELAY, RATED_TOP, LIVE, ALL_ACTIVE );
     } catch ( Exception e ) {
       e.printStackTrace();
     }
@@ -157,7 +165,7 @@ public class Mass {
 
   //////////////////////////////////////////////////////////////////////////////// 
   public static void sendMassEMail ( String subject, String eMailBody, String fromAddress,
-    String fromName, String testAddress, int delay, int ratedTop, boolean live ) 
+    String fromName, String testAddress, int delay, int ratedTop, boolean live, boolean allActive ) 
     throws Exception {
   //////////////////////////////////////////////////////////////////////////////// 
     String mailMode = "S";
@@ -185,7 +193,9 @@ public class Mass {
       query.append ( " AND u.user_id = r.coder_id" );
     }
     query.append (   " AND u.status = 'A'" );
-    query.append (   " AND c.notify = 'Y'" );
+    if ( !allActive ) {
+      query.append (   " AND c.notify = 'Y'" );
+    }
     if ( !INTERNATIONAL ) {
       query.append (   " AND c.country_code IN ('840','850','630','581','316','124','036','356','826')" );
     }
