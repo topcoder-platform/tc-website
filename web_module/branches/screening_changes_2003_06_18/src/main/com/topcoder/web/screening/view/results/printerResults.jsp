@@ -250,7 +250,7 @@
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText">
-                     <h3>Solution</h3><br/>
+                     <h3><%=solution.isCompiled()?"Compilation":"Solution"%></h3><br/>
                      <%--this should really get plugged into the formatter object --%>
                      <PRE><%=StringUtils.htmlEncode(solution.getCode())%></PRE>
                     </td>
@@ -275,7 +275,7 @@
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
 		            <td class="bodyText">
-                     <h3>Solution</h3><br/>
+                     <h3><%=solution.isCompiled()?"Compilation":"Solution"%></h3><br/>
                      <%--this should really get plugged into the formatter object --%>
                      <PRE><%=StringUtils.htmlEncode(solution.getCode())%></PRE>
                     </td>
