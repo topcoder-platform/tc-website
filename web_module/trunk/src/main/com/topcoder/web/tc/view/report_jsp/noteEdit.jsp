@@ -3,7 +3,6 @@
   import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
-<jsp:useBean id="note_list" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
 
 <html>
   <head>
