@@ -17,7 +17,7 @@ abstract public class PRBase extends Base {
     protected void processResults() throws Exception{
         Request r = new Request();
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);
-        if(pid==null) 
+        if(pid==null)
             throw new Exception("pid was null");
         r.setContentHandle("Problem Rating Results");
         r.setProperty("pm", pid);
@@ -62,7 +62,7 @@ abstract public class PRBase extends Base {
         Request r = new Request();
         r.setContentHandle("Problem Rating Questions");
         String pid = getRequest().getParameter(Constants.PROBLEM_ID);
-        if(pid==null) 
+        if(pid==null)
             throw new Exception("pid was null");
         r.setProperty("pm", pid);
         r.setProperty("cr", String.valueOf(userID));
@@ -187,12 +187,28 @@ abstract public class PRBase extends Base {
 
     protected static ProblemRatingResult makeResult(ResultSetContainer.ResultSetRow row) {
         ProblemRatingResult ret = new ProblemRatingResult();
-        ret.setDiv1Average(row.getFloatItem("div1_average"));
-        ret.setDiv1Count(row.getIntItem("div1_count"));
-        ret.setDiv2Average(row.getFloatItem("div2_average"));
-        ret.setDiv2Count(row.getIntItem("div2_count"));
-        ret.setOverallCount(row.getIntItem("count"));
-        ret.setOverallAverage(row.getFloatItem("average"));
+        try {
+            ret.setDiv1Average(row.getFloatItem("div1_average"));
+            ret.setDiv1Count(row.getIntItem("div1_count"));
+        } catch (NullPointerException e) {
+            ret.setDiv1Average(0.0f);
+            ret.setDiv1Count(0);
+        }
+        try {
+            ret.setDiv2Average(row.getFloatItem("div2_average"));
+            ret.setDiv2Count(row.getIntItem("div2_count"));
+        } catch (NullPointerException e) {
+            ret.setDiv2Average(0.0f);
+            ret.setDiv2Count(0);
+        }
+        try {
+            ret.setOverallCount(row.getIntItem("count"));
+            ret.setOverallAverage(row.getFloatItem("average"));
+        } catch (NullPointerException e) {
+            //this should never happen
+            ret.setOverallCount(0);
+            ret.setOverallAverage(0.0f);
+        }
         ret.setQuestion(row.getStringItem("question"));
         return ret;
     }
