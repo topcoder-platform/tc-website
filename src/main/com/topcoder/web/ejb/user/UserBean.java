@@ -113,11 +113,11 @@ public class UserBean extends BaseEJB {
         }
     }
 
-    public void setLastName(long userId, String _last_name)
+    public void setLastName(long userId, String lastName)
             throws EJBException {
 
         log.debug("setLastName called. user_id=" + userId + " " +
-                "last_name=" + _last_name);
+                "last_name=" + lastName);
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -136,7 +136,7 @@ public class UserBean extends BaseEJB {
             query.append("WHERE user_id=?");
 
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, _last_name);
+            ps.setString(1, lastName);
             ps.setLong(2, userId);
 
             int rc = ps.executeUpdate();
@@ -156,6 +156,52 @@ public class UserBean extends BaseEJB {
             close(ctx);
         }
     }
+
+
+    public void setMiddleName(long userId, String middleName)
+            throws EJBException {
+
+        log.debug("setLastName called. user_id=" + userId + " " +
+                "middle_name=" + middleName);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        InitialContext ctx = null;
+
+        try {
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            conn = ds.getConnection();
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("UPDATE user ");
+            query.append("SET middle_name=? ");
+            query.append("WHERE user_id=?");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, middleName);
+            ps.setLong(2, userId);
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+            throw(new EJBException(_ne.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
 
     public void setStatus(long userId, char status)
             throws EJBException {
