@@ -1233,8 +1233,9 @@ public class Registration
                 return "search engine";
             case MAGAZINE_ADVERT:
                 return "magazine name";
+            default:
+                return "";
         }
-        return "";
     }
 
     public String getReferralOtherError() {
