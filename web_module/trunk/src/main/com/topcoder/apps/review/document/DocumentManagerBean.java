@@ -1431,7 +1431,7 @@ public class DocumentManagerBean implements SessionBean {
                         "su.login_id = s.submitter_id AND " +
                         "rur.login_id = su.login_id AND " +
                         "rur.cur_version = 1 AND " +
-                        "rur.project_id = s.project_id" +
+                        "rur.project_id = s.project_id " +
                         "ORDER BY rur.r_user_role_id");
                 ps.setLong(1, givenSubmissionId);
                 ps.setInt(2, submissionType);
