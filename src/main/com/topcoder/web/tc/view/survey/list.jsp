@@ -35,9 +35,13 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-         <td width="100%" class="bodyText">
-            <img src="/i/clear.gif" width="400" height="10" border="0"><br/>
-            <img src="/i/header_questions.gif" width="210" height="26" border="0"><br/>
+         <td width="100%" class="bodyText" valign="top">
+                  <table width="100%" border="0" cellpadding="10" cellspacing="0" class="bodyText">
+                     <tr>
+                        <td class ="bodyText" width="100%"><img src="/i/header_questions.gif" width="210" height="26" border="0"></td>
+                        <td class ="bodyText" align="right"><a href="/tc?&module=SurveyList">Archive</a></td>
+                     </tr>
+                  </table>
             <p>Each week, we poll TopCoder competitors to find out answers to questions that are important to the coding community.  
             The following is a list of those questions.  Feel free to click "view results" next to any question to see how the TopCoder member 
             base responded:</p>

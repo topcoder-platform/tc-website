@@ -37,7 +37,7 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td> 
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
