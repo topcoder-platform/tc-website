@@ -90,7 +90,7 @@
 
         <init-param>
             <param-name>page-welcome</param-name>
-            <param-value>index.jsp</param-value>
+            <param-value>tces_home.jsp</param-value>
             <description>all unresolved requests will go here</description>
         </init-param>
         <init-param>
