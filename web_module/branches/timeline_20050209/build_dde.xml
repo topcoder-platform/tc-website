@@ -345,6 +345,13 @@
         
     </target>
 
+        <!-- qq -->
+<target name="qq">
+        <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
+        	update="true"
+        	includes="build.xml" />
+</target>        
+
 
     <target name="make-ear" unless="with-tests" depends="package">
         <ear earfile="${dde.ear}" appxml="./application.xml">
