@@ -78,6 +78,13 @@ public class Controller extends HttpServlet {
 			} catch (Exception ex) {
 				forwardToErrorPage(request, response, ex);
 			}
+		} else if (command.equals("main")) {
+			try {
+				(new MainCommand()).processCommand(request, response,
+											       ctx, getServletContext());
+			} catch (Exception ex) {
+				forwardToErrorPage(request, response, ex);
+			}
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
             String tempJobId = request.getParameter(TCESConstants.JOB_ID_PARAM);
             String tempUserId = request.getParameter(TCESConstants.USER_ID_PARAM);
