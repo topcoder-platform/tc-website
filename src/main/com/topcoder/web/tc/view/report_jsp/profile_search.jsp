@@ -170,7 +170,7 @@
             answer = demographic_answers.getRow(idx);
             if(answer.getIntItem("demographic_question_id") == resultRow.getIntItem("demographic_question_id")){
               %>
-                <option value="<rsc:item name="demographic_answer_id" row="<%=answer%>"/>"<%=hs.contains(resultRow.getStringItem("demographic_answer_id")) ? " selected" : ""%>>
+                <option value="<rsc:item name="demographic_answer_id" row="<%=answer%>"/>"<%=hs.contains(answer.getStringItem("demographic_answer_id")) ? " selected" : ""%>>
                     <rsc:item name="demographic_answer_text" row="<%=answer%>"/>
                 </option>
               <%
