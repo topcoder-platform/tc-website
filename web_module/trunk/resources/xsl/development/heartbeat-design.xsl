@@ -9,7 +9,7 @@
 	<xsl:import href="../includes/dev/public_dev_right.xsl"/>     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
 	<xsl:template match="/">
-
+        <xsl:variable name='COMPONENT_ID' select='4201389'/>
 <html>
 
 <head>
@@ -59,7 +59,7 @@
 <!-- Title -->
 							<h1 class="devSubhead"><strong>Heartbeat: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Heartbeat: Design&amp;comp=4201389" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 							<p><strong>Overview</strong><br />
