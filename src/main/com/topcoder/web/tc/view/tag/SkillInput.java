@@ -60,7 +60,7 @@ public class SkillInput extends BaseTag {
 
     private String buildRadios() {
         StringBuffer s = new StringBuffer(2000);
-        for(int i = 0; i <= 10; i++) {
+        for(int i = 0; i <= 5; i++) {
             s.append("<td valign=top align=center ");
             if (cssclass != null) {
                 s.append(" class=\"");
