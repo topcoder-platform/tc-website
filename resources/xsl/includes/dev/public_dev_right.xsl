@@ -111,7 +111,7 @@
                        <table border="0" cellspacing="3" cellpadding="0">
                            <tr valign="middle">
                                <td width="99%" class="statText">
-                             The Design TCO begins on 9/4/2003
+                             Round 2 of the Design TCO begins on 10/9/2003
                                </td>
                                <td width="1%" class="statText" align="center"></td>
                            </tr>
@@ -207,7 +207,7 @@
                        <table border="0" cellspacing="3" cellpadding="0">
                            <tr valign="middle">
                                <td width="99%" class="statText">
-                             The Development TCO begins on 9/2/2003
+                             Round 2 of the Development TCO begins on 10/7/2003
                                </td>
                                <td width="1%" class="statText" align="center"></td>
                            </tr>
