@@ -28,6 +28,8 @@ public class SoftwareComponent {
     private int submissionCount;
     private int submissionsPassedScreening;
 
+    private SoftwareComponent() {}
+
     public SoftwareComponent(int level, int submissionCount, int submissionsPassedScreening, int phase) {
         this.phase = phase;
         this.level = level;
