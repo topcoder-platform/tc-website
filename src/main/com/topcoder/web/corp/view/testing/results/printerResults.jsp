@@ -6,6 +6,8 @@
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.web.corp.model.SubmissionInfo" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ page autoFlush="false"%>
+<%@ page buffer="64kb"%>
 <html>
 <head>
 <title>Topcoder | Testing Application Management Tool</title>

@@ -2,6 +2,8 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
+<%@ page autoFlush="false"%>
+<%@ page buffer="64kb"%>
 <HTML>
 <HEAD>
 
