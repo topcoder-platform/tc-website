@@ -47,7 +47,7 @@
                 <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>"/>
             </jsp:include>
             
-            <p align="center"><tces:trailiterator id="trailItem" traillist="<%=CampaignDetailTask.getTrail()%>">
+            <p align="center"><tces:trailIterator id="trailItem" traillist="<%=CampaignDetailTask.getTrail()%>">
                 <a href="<jsp:getProperty name="trailitem" property="href"/>" class="statText"><jsp:getproperty name="trailItem" property="name"/></a> &gt;
                 </tces:trailiterator></p>
 
@@ -77,7 +77,7 @@
                                 <td width="10" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
                             </tr>
 
-                            <tces:mapiterator id="position" maplist="<%=(List)CampaignDetailTask.getPositionList()%>">
+                            <tces:mapIterator id="position" maplist="<%=(List)CampaignDetailTask.getPositionList()%>">
                                 
                             <tr>
                                 <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"></td>
