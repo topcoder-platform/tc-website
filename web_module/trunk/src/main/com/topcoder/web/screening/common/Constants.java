@@ -128,6 +128,8 @@ public class Constants
     public static String SESSION_SEGMENT_TEST_SET_B_QUERY_KEY;
     public static String SESSION_SEGMENT_TEST_SET_B_ID;
     public static String TEST_SET_B_SEGMENT_INTERVAL;
+    public static String SESSION_CHECK_COMMAND;
+    public static String SESSION_DUPE_CHECK_QUERY_KEY;
     public static String SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY;
 
     //Preivew email constants
@@ -318,6 +320,10 @@ public class Constants
             config.getInitParameter("session_segment_test_set_b_id");
         TEST_SET_B_SEGMENT_INTERVAL = 
             config.getInitParameter("test_set_b_segment_interval");
+        SESSION_CHECK_COMMAND = 
+            config.getInitParameter("session_check_command");
+        SESSION_DUPE_CHECK_QUERY_KEY = 
+            config.getInitParameter("session_dupe_check_query_key");
         SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY = 
             config.getInitParameter("session_check_candidate_time_query_key");
 

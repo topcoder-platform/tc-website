@@ -357,6 +357,7 @@ public class SessionInfo extends BaseModel {
                months[Integer.parseInt(month)],
                Integer.parseInt(day),
                Integer.parseInt(hour), 0, 0);
+        c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
 }

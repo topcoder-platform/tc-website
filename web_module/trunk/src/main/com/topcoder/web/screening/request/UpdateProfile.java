@@ -30,7 +30,7 @@ import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.screening.model.SessionInfo;
 
 public class UpdateProfile extends BaseProfileProcessor {
-    public void process() throws Exception {
+    public synchronized void process() throws Exception {
         requireLogin();
         
         //validate the info

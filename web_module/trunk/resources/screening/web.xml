@@ -655,6 +655,17 @@
             <param-value>3600000</param-value>
             <description>amount of time allowed for each test set b problem in milliseconds</description>
         </init-param>
+        <init-param>
+            <param-name>session_check_command</param-name>
+            <param-value>sessionCheckCommand</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>session_dupe_check_query_key</param-name>
+            <param-value>sessionDupeCheck</param-value>
+            <description></description>
+        </init-param>
 
         <init-param>
             <param-name>session_check_candidate_time_query_key</param-name>
