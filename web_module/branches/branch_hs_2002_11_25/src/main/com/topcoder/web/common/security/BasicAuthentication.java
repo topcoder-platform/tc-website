@@ -63,7 +63,9 @@ public class BasicAuthentication implements WebAuthentication {
     public void logout() {
 
         persistor.removeObject(request.getSession().getId()+"user_id");
-        response.addCookie(new Cookie("user_id", ""));
+        Cookie r = new Cookie("user_id", "");
+        r.setMaxAge(0);
+        response.addCookie(r);
     }
 
     /**
@@ -77,8 +79,13 @@ public class BasicAuthentication implements WebAuthentication {
         /* check each cookie in the request header */
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
-            if(ca[i].getName().equals("user_id"))
-                return makeUser(Long.parseLong(ca[i].getValue()));
+            if(ca[i].getName().equals("user_id")) {
+                try {
+                    return makeUser(Long.parseLong(ca[i].getValue()));
+                } catch(NumberFormatException e) {
+                    /* invalid cookie, keep going */
+                }
+            }
 
         /* forward to the method below */
         return getActiveUser();

@@ -49,11 +49,11 @@ Click here to register now. After you complete the registration process, we will
 
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <%
-String nextpage = request.getAttribute("nextpage");
+String nextpage = (String)request.getAttribute("nextpage");
 if(nextpage==null) nextpage = "";
-String message = request.getAttribute("message");
+String message = (String)request.getAttribute("message");
 if(message==null) message = "";
-String username = request.getAttribute("username");
+String username = (String)request.getAttribute("username");
 if(username==null) username = SessionInfo.getHandle();
 if(username==null) username = "";
 %>
