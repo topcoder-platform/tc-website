@@ -417,24 +417,19 @@ java com.topcoder.utilities.QueryLoader "OLTP" 1001 "TCES_Campaign_List" 0 0 "
 SELECT c.campaign_id,
        c.campaign_name,
        c.start_date,
-       c.end_date,
-       slu.status_desc
+       c.end_date
   FROM contact con,
-       campaign c,
-       status_lu slu
+       campaign c
  WHERE con.contact_id = @uid@
    AND c.company_id = con.company_id
-   AND slu.status_id = c.status_id
+   AND c.status_id = 1
  ORDER BY 1
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1002 "TCES_Campaign_Info" 0 0 "
-SELECT c.campaign_name,
-       slu.status_desc
-  FROM campaign c,
-       status_lu slu
+SELECT c.campaign_name
+  FROM campaign c
  WHERE c.campaign_id = @cid@
-   AND slu.status_id = c.status_id
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1003 "TCES_Campaign_Hit_Info" 0 0 "
@@ -798,6 +793,7 @@ SELECT jh.user_id
  WHERE con.contact_id = @uid@
    AND con.company_id = c.company_id
    AND c.campaign_id = @cid@
+   AND c.status_id = 1
    AND cjx.campaign_id = c.campaign_id
    AND cjx.status_id = 1
    AND cjx.job_id = @jid@
@@ -815,6 +811,7 @@ SELECT cjx.job_id
  WHERE con.contact_id = @uid@
    AND con.company_id = c.company_id
    AND c.campaign_id = @cid@
+   AND c.status_id = 1
    AND cjx.campaign_id = c.campaign_id
    AND cjx.status_id = 1
    AND cjx.job_id = @jid@
@@ -828,6 +825,7 @@ SELECT c.campaign_id
  WHERE con.contact_id = @uid@
    AND con.company_id = c.company_id
    AND c.campaign_id = @cid@
+   AND c.status_id = 1
 "
 
 java com.topcoder.utilities.QueryLoader "OLTP" 1100 "TCES_User_And_Password" 0 0 "
