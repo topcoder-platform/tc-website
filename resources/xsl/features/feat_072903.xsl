@@ -104,9 +104,9 @@ their average points):  <strong>srowen</strong> (98.75), <strong>ozzie</strong> 
 <strong>adic</strong> (89.16), and <strong>TangentZ</strong> (88.37).
 </p>
 <p>
-Week 6, surprisingly, saw only a single submission from <strong>askonov</strong>, tying the six other competitors at the three 
+Week 6, surprisingly, saw only a single submission from <strong>aksonov</strong>, tying the six other competitors at the three 
 design mark.  Week 7 was likewise calm with only 4 submissions.  <strong>FTolToaster</strong> made a debut with a single submission.  
-<strong>Argolite</strong> and <strong>mishagam</strong> submitted their second design and <strong>ozzie</strong> submitted a forth design to tie <strong>TangentZ</strong>.  
+<strong>argolite</strong> and <strong>mishagam</strong> submitted their second design and <strong>ozzie</strong> submitted a forth design to tie <strong>TangentZ</strong>.  
 These two weeks were very surprising due to the lack of activity from the current top competitors given the flurry of activity in the 
 prior weeks.  Especially surprising was <strong>TangentZ</strong> who, after submitting 4 designs in 4 weeks, went suddenly silent for three 
 weeks straight.
@@ -116,15 +116,15 @@ Week 8 is where things get interesting.  Designers must make a choice whether th
 for the goal (and maybe tradeoff quality for quantity).  At this point, <strong>schveiguy</strong> posted a forum message wondering if anyone was going 
 to make the cut.  Personally, I wondered about <strong>srowen</strong>, who had proved quite capable in the first contest, but had failed to follow-up on 
 his outstanding first submission.  Both fears proved groundless beginning in week 8 with 12 submissions.  <strong>Ken Vogel</strong>, <strong>rhett</strong>, 
-<strong>scamp</strong>, <strong>shiro</strong> and <strong>Thinman</strong> entered the contest with single submissions.  <strong>Adic</strong>, <strong>askonov</strong>, <strong>argolite</strong>, 
+<strong>scamp</strong>, <strong>shiro</strong> and <strong>ThinMan</strong> entered the contest with single submissions.  <strong>adic</strong>, <strong>aksonov</strong>, <strong>argolite</strong>, 
 <strong>isv</strong>, <strong>ozzie</strong>, <strong>srowen</strong>, and <strong>TangentZ</strong> added to their totals by a single submission.  Both <strong>ozzie</strong> and <strong>TangentZ</strong>
 became the first competitors to make the 5 design qualifying minimum this week.  Week 9 was another busy week with an additional 7 submissions 
 with single submissions from <strong>isv</strong>, <strong>Ken Vogel</strong>, <strong>ozzie</strong>, <strong>schveiguy</strong>, <strong>srowen</strong> and a double submission from 
-<strong>Thinman</strong>.  <strong>Isv</strong> joined <strong>ozzie</strong> and <strong>TangentZ</strong> by meeting the minimum requirements of 5 designs.
+<strong>ThinMan</strong>.  <strong>isv</strong> joined <strong>ozzie</strong> and <strong>TangentZ</strong> by meeting the minimum requirements of 5 designs.
 </p>
 <p>
 A lot of caffeine and/or more adult oriented beverages must have been consumed on Week 10 because there were 16 submissions in this final week.  
-<strong>Adic</strong>, <strong>askonov</strong>, <strong>argolite</strong>, <strong>srowen</strong>, and <strong>Thinman</strong> submitted enough designs to 
+<strong>adic</strong>, <strong>aksonov</strong>, <strong>argolite</strong>, <strong>srowen</strong>, and <strong>ThinMan</strong> submitted enough designs to 
 qualify.  <strong>Ken Vogel</strong> made a super human effort and submitted 3 designs to qualify.  Both <strong>ozzie</strong> and <strong>TangentZ</strong> 
 submitted extra designs in an attempt to improve their averages.  A big thumbs up has to go to <strong>giginim</strong> who, while having no chance at making the 
 minimum bar, submitted a second design in the final week.  On a "bummer" type of note, <strong>Saxophonist</strong> submitted a qualifying 5th design that was 

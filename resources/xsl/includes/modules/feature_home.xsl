@@ -24,13 +24,13 @@
                         Tuesday, July 29, 2003</p>
 
                         <p>The TopCoder Design Contest #2 was a very different contest than  the 
-                        previous one due to changes in the contest rules, design requirements, and judging. 
-                        The top 3 designers were awarded payments of $3000,. $2000 and $1000, based 
-                        on the average of the top 5 submission scores from each designer. Design requirements
-                        changed by removing the need for functional tests.  The scorecard added new categories,
-                        relaxed the wording on others and a much needed appeals process was put into place.  Altogether,
-                        the contest provided a wonderful experience to all and definitely improved the resulting
-                        submissions.
+previous one due to changes in the contest rules, design requirements, and judging. 
+The top 3 designers were awarded payments of $3000, $2000 and $1000, based 
+on the average of the top 5 submission scores from each designer. Design requirements
+changed by removing the need for functional tests.  The scorecard added new categories,
+relaxed the wording on others and a much needed appeals process was put into place.  Altogether,
+the contest provided a wonderful experience to all and definitely improved the resulting
+submissions.
                         <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_072903</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
