@@ -49,7 +49,7 @@ function getProblemDetail(id) {
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
-                        <h1 class="testHead"><%=testResultsInfo.isSessionComplete()?"Test Results":"Test Details%></h1>
+                        <h1 class="testHead"><%=testResultsInfo.isSessionComplete()?"Test Results":"Test Details"%></h1>
                     </td>
                 </tr>
             </table>
