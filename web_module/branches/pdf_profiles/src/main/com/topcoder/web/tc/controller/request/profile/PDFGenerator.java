@@ -7,6 +7,7 @@
 package com.topcoder.web.tc.controller.request.profile;
 
 import java.awt.Color;
+import java.text.DecimalFormat;
 
 import com.lowagie.text.*;
 import com.lowagie.text.pdf.*; 
@@ -91,6 +92,39 @@ public class PDFGenerator extends BaseProcessor {
                 }
             }
         }
+        
+        //load competition stats
+        r = new Request();
+        r.setContentHandle("placement_profile_info");
+        r.setProperty("cr", String.valueOf(uid));
+        
+        DecimalFormat formater = new DecimalFormat("#.##");
+        
+        rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("placement_profile_info");
+        
+        config.setNumContests(rsc.getStringItem(0, "num_ratings"));
+        config.setRating(rsc.getIntItem(0, "rating"));
+        config.setRank(rsc.getStringItem(0, "rank") + " out of " + rsc.getStringItem(0, "lowest_rank"));
+        config.setRankPercentile(formater.format(rsc.getDoubleItem(0, "percentile")) + "%" );
+        
+        config.setTotalChallenged(rsc.getStringItem(0, "challenge_attempts_made"));
+        
+        if(rsc.getIntItem(0, "challenge_attempts_made") == 0) {
+            config.setChallengeSuccessRatio("N/A");
+        } else {
+            config.setChallengeSuccessRatio(formater.format(rsc.getDoubleItem(0, "challenge_attempts_made")/rsc.getDoubleItem(0, "challenges_made_successful")) + "%" );
+        }
+        
+        config.setSubmissionRatio(rsc.getStringItem(0, "problems_submitted") + " out of " + rsc.getStringItem(0, "problems_presented") + " (" + formater.format(rsc.getDoubleItem(0, "problems_submitted")/rsc.getDoubleItem(0, "problems_presented")) + "%)" );
+        config.setSubmissionSuccessRatio(rsc.getStringItem(0, "problems_correct") + " out of " + rsc.getStringItem(0, "problems_submitted") + " (" + formater.format(rsc.getDoubleItem(0, "problems_correct")/rsc.getDoubleItem(0, "problems_submitted")) + "%)" );
+        
+        //load problem stats        
+        int cid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("component")));
+        
+        //load solution?
+        
+        //get resume
+        
         return config;
     }
      
@@ -283,7 +317,7 @@ public class PDFGenerator extends BaseProcessor {
         inner.getDefaultCell().setBorderWidth(1);
         inner.getDefaultCell().setHorizontalAlignment(Element.ALIGN_LEFT);
 
-        PdfPCell cell = new PdfPCell(new Phrase("Coder Ranking (Based on x Events)", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
+        PdfPCell cell = new PdfPCell(new Phrase("Coder Ranking (Based on " + info.getNumContests() + " Events)", FontFactory.getFont(FontFactory.HELVETICA, 12, Font.BOLD, Color.BLACK)));
         cell.setBackgroundColor(new Color(0xCC,0xCC,0xCC));
         cell.setHorizontalAlignment(Element.ALIGN_CENTER);
         cell.setColspan(4);
