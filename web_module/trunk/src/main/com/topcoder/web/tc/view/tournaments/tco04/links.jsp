@@ -72,11 +72,6 @@
                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
     
 	<% } %>
-	<% if (tabLev2.equals("register")) {%>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_register" class="statTextBig"><img src="/i/tournament/tco04/tab_register_on.gif" alt="registration" width="88" height="22" border="0" /></A></td>
-	<% } else { %>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=alg_register" class="statTextBig"><img src="/i/tournament/tco04/tab_register_off.gif" alt="registration" width="88" height="22" border="0" /></A></td>
-	<% } %>
 	<% if (tabLev2.equals("advancers")) {%>
                 <td class="statTextBig" width="88"><A href="" class="statTextBig"><img src="/i/tournament/tco04/tab_advancers_on.gif" alt="advancers" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
@@ -94,11 +89,6 @@
                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_on.gif" alt="details" width="88" height="22" border="0" /></A></td>
 	<% } else { %>
                 <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_description" class="statTextBig"><img src="/i/tournament/tco04/tab_details_off.gif" alt="details" width="88" height="22" border="0" /></A></td>
-	<% } %>
-	<% if (tabLev2.equals("register")) {%>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_register" class="statTextBig"><img src="/i/tournament/tco04/tab_register_on.gif" alt="registration" width="88" height="22" border="0" /></A></td>
-	<% } else { %>
-                <td class="nav" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_register" class="statTextBig"><img src="/i/tournament/tco04/tab_register_off.gif" alt="registration" width="88" height="22" border="0" /></A></td>
 	<% } %>
 	<% if (tabLev2.equals("design")) {%>
                 <td class="statTextBig" width="88"><A href="/tc?module=TCO04Results&ph=112" class="statTextBig"><img src="/i/tournament/tco04/tab_design_on.gif" alt="design" width="88" height="22" border="0" /></A></td>
