@@ -49,7 +49,7 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     
     public String timeFormat(TCResultItem result){
         double millisec = Double.parseDouble(result.toString());
-        int sec = millisec/1000;
+        int sec = (int)(millisec / 1000);
         int min = sec/60;
         sec %= 60;
         return min + "mins " + sec + "secs";
