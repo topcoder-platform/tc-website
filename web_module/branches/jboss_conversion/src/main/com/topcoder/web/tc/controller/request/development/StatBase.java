@@ -35,6 +35,7 @@ public abstract class StatBase extends Base {
                     !me.getKey().equals(DataAccessConstants.SORT_COLUMN)&&
                     !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
                 filteredMap.put(me.getKey(), me.getValue());
+            }
         }
 
         try {
