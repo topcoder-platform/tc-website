@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>02.21.05<br>12:30 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/heidiBurgett.mov">Yahoo!'s Director of Corporate Communications Heidi Burgett</A></span><br><br>
+      Yahoo!'s Heidi Burgett on hiring the "best and the brightest".
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tco04/onsite_movies/heidiBurgett.mov">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.21.05<br>11:20 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm231_prob">SRM 231 - Problem Set & Analysis</A></span><br><br>
       SRM 231 gave division 2 coders a welcome reprieve from the difficulties of the last few matches.
