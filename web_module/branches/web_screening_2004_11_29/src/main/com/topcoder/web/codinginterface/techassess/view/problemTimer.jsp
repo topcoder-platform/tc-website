@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
                  java.util.List,
+                 java.util.ArrayList,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
                  com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemLabel"%>
@@ -8,6 +9,13 @@
 
         <%
             Object o = request.getAttribute(Constants.PROBLEMS);
+            if (o==null) {
+                Object temp = request.getAttribute(Constants.PROBLEM);
+                if (temp!=null) {
+                    o = new ArrayList(1);
+                    ((ArrayList)o).add(temp);
+                }
+            }
 if (o!=null) {
     List problems = (List)o;
         %>
