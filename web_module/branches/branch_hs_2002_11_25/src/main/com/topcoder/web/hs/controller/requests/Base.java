@@ -71,7 +71,7 @@ public abstract class Base implements RequestProcessor {
         info.setAll(user, groups);
 
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
-            throw new PermissionException("You must login to view this page.");
+            throw new PermissionException("access to processor denied", user);
 
         nav = new NavZoneBean();
         request.setAttribute("NavZone", nav);

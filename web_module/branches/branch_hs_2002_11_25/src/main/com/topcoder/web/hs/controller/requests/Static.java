@@ -27,7 +27,7 @@ public class Static extends Base {
 
         /* check whether the path is allowed for this type of user */
         if(!hsa.hasPermission(new PathResource(path)))
-            throw new PermissionException("You must login to view this page.");
+            throw new PermissionException("access to page denied", user);
 
         setNextPage(path);
         setIsNextPageInContext(true);

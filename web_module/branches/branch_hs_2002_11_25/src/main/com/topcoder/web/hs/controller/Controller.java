@@ -7,7 +7,6 @@ import com.topcoder.shared.security.*;
 import com.topcoder.web.common.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.common.security.*;
-import com.topcoder.web.hs.controller.requests.*;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -55,44 +54,49 @@ public final class Controller extends HttpServlet {
             /* and those we perhaps can */
             try {
 
-                /* if im not being called by my right name, correct the client asap! */
-                if(!canonpath.equals(request.getRequestURI())) {
+                /* and finally for PermissionExceptions only */
+                try {
 
-                    String ref = request.getHeader("Referer");
-                    if(ref!=null) log.warn("mangled servlet path in request linked from page "+ref);
+                    /* if im not being called by my right name, correct the client asap! */
+                    if(!canonpath.equals(request.getRequestURI())) {
 
-                    /* trying to redirect a post will probably not improve the situation
-                     * if we got this far, though, so only take evasive action on gets.
-                     */
-                    if(request.getMethod().equals("GET")) {
-                        log.info("dispensing with request by redirecting to proper servlet name");
-                        response.sendRedirect(response.encodeRedirectURL(canonpath+qtail));
-                        return;
+                        String ref = request.getHeader("Referer");
+                        if(ref!=null) log.warn("mangled servlet path in request linked from page "+ref);
+
+                        /* trying to redirect a post will probably not improve the situation
+                         * if we got this far, though, so only take evasive action on gets.
+                         */
+                        if(request.getMethod().equals("GET")) {
+                            log.info("dispensing with request by redirecting to proper servlet name");
+                            response.sendRedirect(response.encodeRedirectURL(canonpath+qtail));
+                            return;
+                        }
                     }
+
+                    String cmd = Constants.checkNull(request.getParameter("module"));
+                    if(cmd.equals("")) cmd = "Home";
+                    if(!Constants.isLegal(cmd)) throw new NavigationException("invalid command: "+cmd);
+                    cmd = "com.topcoder.web.hs.controller.requests."+cmd;
+
+                    log.debug("creating request processor of class "+cmd);
+                    rp = (RequestProcessor)Class.forName(cmd).newInstance();
+                    callProcess(rp, request, response);
+
+                } catch(PermissionException pe) {
+                    log.info("caught PermissionException", pe);
+
+                    if(pe.getUser()!=null && !pe.getUser().isGuest()) {
+                        log.info("already logged in, rethrowing");
+                        throw pe;
+                    }
+
+                    /* forward to the login page, with a message and a way back */
+                    request.setAttribute("message", "You must login to view this page.");
+                    request.setAttribute("nextpage", canonpath + qtail);
+
+                    rp = new com.topcoder.web.hs.controller.requests.Login();
+                    callProcess(rp, request, response);
                 }
-
-                String cmd = Constants.checkNull(request.getParameter("module"));
-                if(cmd.equals("")) cmd = "Home";
-                if(!Constants.isLegal(cmd)) throw new NavigationException("invalid command: "+cmd);
-                cmd = "com.topcoder.web.hs.controller.requests."+cmd;
-
-                log.debug("creating request processor of class "+cmd);
-                rp = (RequestProcessor)Class.forName(cmd).newInstance();
-                callProcess(rp, request, response);
-
-            } catch(PermissionException e) {  //@@@ any way i can put this elsewhere?  in Error?
-                log.info("caught PermissionException", e);
-
-//@@@  would like to handle this differently if they are already logged in
-//@@@  nest this catch in a deeper try i think
-
-                /* forward to the login page, with a message and a way back */
-
-                request.setAttribute("message", e.getMessage());
-                request.setAttribute("nextpage", canonpath + qtail);
-
-                rp = new Login();
-                callProcess(rp, request, response);
 
             } catch(Exception e) {
                 log.error("caught exception, forwarding to error page", e);

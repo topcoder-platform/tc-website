@@ -23,8 +23,6 @@ public class BasicAuthentication implements WebAuthentication {
     private LoginRemote login;
     private PrincipalMgrRemote pmgr;
 
-    private User anonymous = new SimpleUser(-1, "anonymous", "");  //@@@ name these?  or is this good enough?  perhaps move to User
-
     /**
      * Construct an authentication instance backed by the given persistor and HTTP request and response.
      */
@@ -114,7 +112,7 @@ public class BasicAuthentication implements WebAuthentication {
             return makeUser(uid.longValue());
 
         /* found nothing, return anonymous */
-        return anonymous;
+        return SimpleUser.createGuest();
     }
 
     /** Fill in the name field from the user id. */
@@ -125,7 +123,7 @@ public class BasicAuthentication implements WebAuthentication {
         } catch(Exception e) {
             log.warn("caught exception in makeUser with id = "+id, e);
             e.printStackTrace();
-            return anonymous;
+            return SimpleUser.createGuest();
         }
     }
 }

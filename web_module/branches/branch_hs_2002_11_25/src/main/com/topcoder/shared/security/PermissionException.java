@@ -7,11 +7,22 @@ package com.topcoder.shared.security;
  */ 
 public class PermissionException extends AuthenticationException {
 
+    private User user;
+
     public PermissionException(String s) {
         super(s);
     }
 
     public PermissionException(Exception e) {
         super(e.getMessage());
+    }
+
+    public PermissionException(String s, User u) {
+        super(s);
+        user = u;
+    }
+
+    public User getUser() {
+        return user;
     }
 }

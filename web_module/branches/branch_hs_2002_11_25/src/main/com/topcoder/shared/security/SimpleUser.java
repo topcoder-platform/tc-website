@@ -7,6 +7,9 @@ package com.topcoder.shared.security;
  */
 public class SimpleUser implements User {
 
+    private static int GUEST_ID = -1;
+    private static String GUEST_NAME = "anonymous";
+
     private long id;
     private String username;
     private String password;
@@ -28,5 +31,13 @@ public class SimpleUser implements User {
 
     public String getPassword() {
         return password;
+    }
+
+    public boolean isGuest() {
+        return id == GUEST_ID;
+    }
+
+    public static User createGuest() {
+        return new SimpleUser(GUEST_ID, GUEST_NAME, "");
     }
 }

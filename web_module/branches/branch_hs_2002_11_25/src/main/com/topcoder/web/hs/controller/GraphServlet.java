@@ -76,9 +76,9 @@ public class GraphServlet extends HttpServlet {
             Authentication auth = new BasicAuthentication(persistor, request, response);
             Authorization hsa = new HSAuthorization(auth.getUser());
             if(!hsa.hasPermission(new ClassResource(this.getClass())))
-                throw new PermissionException("You must login to view this page.");
+                throw new PermissionException("you can't view that kind of graph");
         } catch(Exception e) {
-            log.fatal("caught exception checking permissions, giving up", e);
+            log.fatal("permission check failed, giving up", e);
             return;  // just give them a red x
         }
 

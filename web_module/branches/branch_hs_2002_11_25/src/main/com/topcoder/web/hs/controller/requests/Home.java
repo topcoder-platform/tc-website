@@ -12,7 +12,7 @@ public class Home extends Base {
     protected void businessProcessing() throws Exception {
 
         String path;
-        if(info.isGuest())
+        if(info.isGuest())  // in case we have a named user who is only in the guest group
             path = Constants.public_home;
         else
             path = Constants.member_home;

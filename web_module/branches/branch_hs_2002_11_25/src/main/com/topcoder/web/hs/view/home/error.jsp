@@ -41,7 +41,6 @@
 <% }
    if(exception==null) exception = (Exception)request.getAttribute("exception");
    if(exception!=null) {
-     exception.printStackTrace();
  %>
 <h3>Exception: <%= exception.toString() %></h3>
 <h3>Trace:</h3>
