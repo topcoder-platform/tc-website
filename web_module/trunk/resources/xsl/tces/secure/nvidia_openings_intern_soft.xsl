@@ -83,7 +83,7 @@
        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng02_intern&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_gra_archeng_intern&amp;a=secure" CLASS="bodyText">GRAPHICS ARCHITECTURE ENGINEER</A></B><BR/><BR/>
                             <B><A HREF="/?&amp;t=tces&amp;c=nvidia_3d_softeng_intern&amp;a=secure" CLASS="bodyText">3D GRAPHICS APPLICATION SOFTWARE ENGINEER</A></B><BR/><BR/>
-                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cad_eng_intern&amp;a=secure" CLASS="bodyText">CAD ENGINEER&#42; </A></B><BR/>&#42; Intern&#47; Co-op Position Only<BR/>
+                            <B><A HREF="/?&amp;t=tces&amp;c=nvidia_cad_eng_intern&amp;a=secure" CLASS="bodyText">CAD ENGINEER&#42; </A></B><BR/>&#42; Intern&#47; Co-op Position Only<BR/><BR/>
          <!--<B><A HREF="/?&amp;t=tces&amp;c=nvidia_diageng&amp;a=secure" CLASS="bodyText">DIAGNOSTIC ENGINEER</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_peranaeng_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS ENGINEER INTERN/CO-OP</A></B><BR/>
         <B><A HREF="/?&amp;t=tces&amp;c=nvidia_videobioseng&amp;a=secure" CLASS="bodyText">VIDEO BIOS ENGINEER</A></B><BR/>
