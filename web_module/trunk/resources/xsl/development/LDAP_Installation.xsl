@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Order Fulfillment Design Project at TopCoder</title>
+                <title>LDAP Installation Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Order Fulfillment</td>
+                                                <td class="projectTitles" nowrap="nowrap">Infrastructure Project - LDAP Installation</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -86,28 +86,7 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        The current system was originally architected over ten years ago.
-                                                        The existing system is now outdated, slow and the user interface
-                                                        is hard to navigate.  Utilizing the latest Microsoft .NET technologies,
-                                                        a new faster, more extensible and user friendly application will be
-                                                        designed.  Not only will the new system be easier to navigate, but the
-                                                        maintenance of the system will be dramatically improved.  All business,
-                                                        data access and presentation logic will be properly separated into distinct
-                                                        tiers.  Separating each tier into a different layer will reduce maintenance
-                                                        costs and increase reusability.  Furthermore, the old application resides
-                                                        on a soon to be unsupported environment, NT4; the new environment will be
-                                                        hosted on Windows Server 2003.  This technology will increase the speed
-                                                        and scalability of the application.
-                                                        <br/>
-                                                        <br/>
-                                                        The new system will provide an electronic web based interface to remove all
-                                                        paperwork associated with processing orders.  Internal sales representatives
-                                                        will enter order information for external customers into the new system.
-                                                        Once these orders have been entered the orders will be sent to the factories.
-                                                        The factories will receive the order and transmit a record back to the system
-                                                        stating the order was received and an expected completion date.  Users of the
-                                                        system will be able to view all orders to determine an order's status and completion times.
-                                                        Communication between the system and the factories is not in scope for this application.
+TopCoder needs to install and run the SecureWay LDAP server by IBM.  The selected individual will be required to set up and configure the SecureWay server on an internal TopCoder Solaris box.  Furthermore, the SecureWay product may be configured to use a database or the file system.  The installation document will describe configuring and setting up the application both ways.  Additionally, the participant will create a document outlining the advantages and disadvantages for using the database and the file system methods as storage for the LDAP server taking into consideration reliability, fault tolerance, clustering and scalability.
                                                         <br/>
                                                         <br/>
                                                     </p>
@@ -115,9 +94,9 @@
                                                         <strong>Objectives</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Provide an extensible platform designed to handle the functional requirements identified by the client.</li>
-                                                        <li>Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.</li>
-                                                        <li>Deliver an improved user experience and site navigation.</li>
+                                                        <li>Provide a comprehensive installation guide.  This guide will be used to install the LDAP server at various clients.</li>
+                                                        <li>Deliver document outlining the advantages and disadvantages using a database or file system with the LDAP server.</li>
+
                                                     </ul>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
@@ -208,48 +187,44 @@
                                                         </tr>
                                                     </table>
                                                     <p>
-                                                        The Design Submission must be submitted on time. All questions submitted
+                                                        The Infrastucture Submission must be submitted on time. All questions submitted
                                                         prior to 6PM EDT on the Submission Due Dates will be answered. Following review
-                                                        from the board the winning member is given until the Updated Submission Due Date
+                                                        from the project manager the member is given until the Updated Submission Due Date
                                                         to modify their submission.
                                                     </p>
 
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.13.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap">Infrastructure Project Posting:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">05.24.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.18.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">05.26.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">05.27.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.19.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Design Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Project Start:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">05.28.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.04.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Documents Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.4.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Updated Documents Due Date:</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">06.08.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.09.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Installation Complete:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.10.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.15.2004</td>
                                                         </tr>
                                                     </table>
 
@@ -266,7 +241,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Order%20Fulfillment%20Design">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=LDAP%20Installation">here</a> to be selected as a configuration specialist and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
