@@ -19,6 +19,9 @@ import com.topcoder.web.stat.common.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/04/03 04:14:48  steveb
+ *           SB configured to allow connections to different DataSources
+ *
  *           Revision 1.1.2.2  2002/04/01 22:43:10  apps
  *           SB altered to fix bean structure
  *
@@ -105,7 +108,7 @@ public class StatisticsBean extends BaseEJB {
     // Keeps track of the most recent query run, for exception handling purposes
     private StringBuffer query;
 
-    private final static String DEFAULT_DATA_SOURCE = "TC_DW";
+    private final static String DEFAULT_DATA_SOURCE = "DW";
 
     private void closeObject(Object o) {
         if (o == null) 
