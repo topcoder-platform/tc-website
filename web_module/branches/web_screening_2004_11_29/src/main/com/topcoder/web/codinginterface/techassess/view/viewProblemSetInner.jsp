@@ -1,4 +1,6 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 java.util.ArrayList,
+                 java.util.Arrays"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/REC-html40/loose.dtd">
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <html>
@@ -9,7 +11,8 @@
 </head>
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<tc-webtag:useBean id="problems" name="<%=Constants.PROBLEMS%>" type="java.util.List" toScope="page" />
+<tc-webtag:useBean id="problemSet" name="<%=Constants.PROBLEMS%>" type="com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet" toScope="page" />
+<% ArrayList problems = Arrays.asList(problemSet.getProblemSets());%>
 <tc-webtag:useBean id="problemType" name="<%=Constants.PROBLEM_TYPE_ID%>" type="java.lang.Integer" toScope="page" />
 <tc-webtag:useBean id="continueLink" name="<%=Constants.CONTINUE_LINK%>" type="java.lang.String" toScope="page" />
 <tc-webtag:useBean id="continueDesc" name="<%=Constants.CONTINUE_DESC%>" type="java.lang.String" toScope="page" />
@@ -122,7 +125,7 @@
                       <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=problemType%>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problem" property="componentID"/>" target="_top"><img src="/i/corp/screening/buttonOpen.gif" alt="" /></a></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="className"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="statusDesc"/></td>
-                      <td class=tableTextOdd align=center><span class=bigRed>26:59</span></td>
+                      <td class=tableTextOdd align=center><span class=bigRed id="problemTimer<jsp:getProperty name="problem" property="componentID"/>">Initializing</span></td>
                    </tr>
                 </tc-webtag:listIterator>
             </table>

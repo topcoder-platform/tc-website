@@ -69,7 +69,7 @@
                       <td class=tableTextOdd align=center><jsp:getProperty name="problem" property="completedCount"/>/<jsp:getProperty name="problem" property="problemCount"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="description"/></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="status"/></td>
-                      <td class=tableTextOdd align=right><jsp:getProperty name="problem" property="timeRemaining"/></td>
+                      <td class=tableTextOdd align=right><span id="problemTimer<%=problem.getProblemLabels[0].getComponentID()%>">Initializing</span></td>
                    </tr>
                </tc-webtag:listIterator>
             </table>

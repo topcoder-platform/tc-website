@@ -27,7 +27,7 @@
         <%
             for (int i=0; i<problems.size(); i++) {
                 %> times(<%=i%>) = new Date(<%=((ScreeningProblemSet)problems.get(i)).getCompletionTime().intValue()%>); <%
-                %> ids(<%=i%>) = new Date(<%=((ScreeningProblemSet)problems.get(i)).getProblemLabels()[0].getComponentID()%>); <%
+                %> ids(<%=i%>) = 'problemTimer<%=((ScreeningProblemSet)problems.get(i)).getProblemLabels()[0].getComponentID()%>'; <%
             }
         %>
 
