@@ -58,7 +58,8 @@ public final class TaskAffidavit {
                 requestTask = Conversion.checkNull(request.getParameter("t"));
                 requestCommand = Conversion.checkNull(request.getParameter("c"));
 
-                if (requestCommand.equals("2003_collegiate_submit_questions")) {
+                if (requestCommand.equals("2003_collegiate_submit_questions") ||
+                        requestCommand.equals("2003_collegiate_submit_info")) {
 
                     TreeMap questions = new TreeMap();
                     TreeMap answers = new TreeMap();
@@ -91,7 +92,11 @@ public final class TaskAffidavit {
                     }
 
                     TCSEmailMessage mail = new TCSEmailMessage();
-                    mail.setSubject("Questionaire Response - " + nav.getUser().getHandle());
+                    if (requestCommand.equals("2003_collegiate_submit_questions")) {
+                        mail.setSubject("Questionaire Response - " + nav.getUser().getHandle());
+                    } else {
+                        mail.setSubject("Info Response - " + nav.getUser().getHandle());
+                    }
                     mail.setBody(buf.toString());
                     mail.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
                     mail.setFromAddress(nav.getUser().getEmail());

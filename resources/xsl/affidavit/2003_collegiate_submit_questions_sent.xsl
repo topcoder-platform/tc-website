@@ -8,7 +8,7 @@
       </HEAD>
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
         <CENTER>2003 TopCoder Collegiate Challenge</CENTER>
-          Thank you for completing the questionaire.
+          Thank you for your response.
       </BODY>
     </HTML>
   </xsl:template>
