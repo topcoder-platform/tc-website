@@ -207,6 +207,7 @@ public class StudentRegistration extends Base {
     _srb.setConfirmEmail(getParameterNonNull("confirm_email"));
     _srb.setEditorId(getParameterInteger("editor"));
     _srb.setLanguageId(getParameterInteger("language"));
+    _srb.setAgreeTerms(getParameterNonNull("terms").equals("true"));
 
     List school_list=new ArrayList();
     school_list.add(new ListPairBean(null,"Pick a school"));
