@@ -56,8 +56,8 @@ public class SessionInfo implements Serializable {
         requestString = buf.toString();
 
         isLoggedIn = !authentication.getUser().isAnonymous();
-        log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
-                getQueryString() + " request: " + getRequestString());
+        //log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
+        //        getQueryString() + " request: " + getRequestString());
     }
 
 

@@ -63,7 +63,7 @@ public class HTMLRenderer {
      * Clears the cache.
      */
     public byte[] refresh() throws TCException {
-        log.info("HTMLRenderer.refresh()");
+        //log.info("HTMLRenderer.refresh()");
         XSLTransformerCache cache = null;
         byte[] result = null;
         try {
