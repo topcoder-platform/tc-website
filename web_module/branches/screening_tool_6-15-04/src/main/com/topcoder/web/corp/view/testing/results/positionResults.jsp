@@ -73,6 +73,8 @@ function getProblemDetail(id) {
     if (startIndex >= results.size() || startIndex < 0) {
         startIndex = 0;
     }
+
+    String sortBy = (String) request.getAttribute(Constants.SORT_BY);
 %>
 
 
@@ -115,7 +117,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
                     </A>
                     <%  } %>
@@ -123,7 +125,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
-                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
                       </a>
                     <%  } %>
@@ -275,7 +277,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
                     </A>
                     <%  } %>
@@ -283,7 +285,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
-                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">
+                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
                       </a>
                     <%  } %>

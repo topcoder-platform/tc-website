@@ -50,6 +50,8 @@ function getProblemDetail(id) {
         startIndex = 0;
     }
 
+    String sortBy = (String) request.getAttribute(Constants.SORT_BY);
+
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -94,7 +96,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
                     </A>
                     <%  } %>
@@ -102,7 +104,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
-                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
+                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
                       </a>
                     <%  } %>
@@ -254,7 +256,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
                     </A>
                     <%  } %>
@@ -262,7 +264,7 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex + Constants.PAGE_SIZE < info.size()) {
                     %>
-                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
+                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Next <%=Math.min(info.size() - startIndex - Constants.PAGE_SIZE,Constants.PAGE_SIZE)%>
                       </a>
                     <%  } %>
