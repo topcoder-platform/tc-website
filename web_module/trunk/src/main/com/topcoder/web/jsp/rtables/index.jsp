@@ -109,7 +109,7 @@
   ProfileManager manager = forumFactory.getProfileManager();
   String name = null;
   String username = null;
-  User newUser = null;
+  com.coolservlets.forum.User newUser = null;
   try {
     newUser = manager.getUser( userID );
     name = newUser.getName();

@@ -45,7 +45,7 @@
   ProfileManager mgr = ff.getProfileManager();
   String nm = null;
   String userName = null;
-  User nu = null;
+  com.coolservlets.forum.User nu = null;
   try {
     nu = mgr.getUser( userId );
     nm = nu.getName();

@@ -1,6 +1,6 @@
 <%@ page language="java"%>
 
-<%! String getUserDisplay(User u) {
+<%! String getUserDisplay(com.coolservlets.forum.User u) {
       String color = "#cccccc";
       boolean bold = false;
       if ( u.getRating() > 2199 ) {

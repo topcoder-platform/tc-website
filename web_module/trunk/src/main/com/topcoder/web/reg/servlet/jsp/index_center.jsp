@@ -4,7 +4,7 @@
 <%@ page import="com.topcoder.web.reg.servlet.*" %>
 <jsp:useBean id="Registration" scope="session" class="com.topcoder.web.reg.bean.Registration" />
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
-<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
+<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.ejb.AuthenticationServices.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
 <jsp:setProperty name="Registration" property="Step" value="<%=Registration.STEP_1%>" />
 <SCRIPT type="text/javascript">
