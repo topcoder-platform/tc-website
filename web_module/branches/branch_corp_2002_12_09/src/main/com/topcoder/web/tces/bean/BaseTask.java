@@ -83,6 +83,17 @@ public abstract class BaseTask implements Task {
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
          throws Exception {
+
+        User curUser = getAuthenticityToken().getActiveUser();
+        uid = curUser.getId();
+
+        // For testing purposes only:
+        String testUser = request.getParameter("testUserId");
+        if (testUser != null) {
+            uid = Long.parseLong(testUser);
+        }
+        log.debug(getClass().className()+": User id set: "+uid);
+
     }
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)

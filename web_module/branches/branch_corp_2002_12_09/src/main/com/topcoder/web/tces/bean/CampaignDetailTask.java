@@ -154,6 +154,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         this.companyName = companyName;
     }
 
+/*
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
 
@@ -165,7 +166,7 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
     }
-
+*/
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
 
@@ -189,7 +190,9 @@ public class CampaignDetailTask extends BaseTask implements Task, Serializable {
         dataRequest.setContentHandle("tces_campaign_detail");
 
         dataRequest.setProperty("uid", Long.toString(uid) );
+        log.debug("User id set in CampaignDetailTask= "+uid);
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
+        log.debug("Company id set in CampaignDetailTask= "+uid);
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 

@@ -86,15 +86,10 @@ public class MainTask extends BaseTask implements Task, Serializable {
         return hasManyCompanies;
     }
 
-
+/*
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-
-//        if (!havePermission(this)) {
-//            throw new TCESAuthorizationException(curUser.getUserName() + 
-//                              " not Authorized for access to resouce.");
-//        }
 
         User curUser = getAuthenticityToken().getActiveUser();
         uid = curUser.getId();
@@ -103,8 +98,8 @@ public class MainTask extends BaseTask implements Task, Serializable {
         if (testUser != null) {
             uid = Long.parseLong(testUser);
         }
-        log.debug("User id set in MainTask: "+uid);
-    }
+        log.debug("User id set: "+uid);
+    }*/
 
     public void processStep(String step)
         throws Exception
