@@ -7,7 +7,9 @@ public class CreateCandidate extends BaseSessionProcessor {
         updateSessionInfo();
         setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.REQUEST_PROCESSOR + "=" + 
-                    Constants.POPULATE_CANDIDATE_PROCESSOR);
+                    Constants.POPULATE_CANDIDATE_PROCESSOR + "&" +
+                    Constants.REFERRER + "=" + 
+                    Constants.POPULATE_SESSION_PROCESSOR);
         setNextPageInContext(false);
     }
 }

@@ -64,7 +64,6 @@ function submitSession() {
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
 <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="POST">
         <input type="HIDDEN" name="rp" value="" >
-        <input type="HIDDEN" name="referrer" value="<%=Constants.POPULATE_SESSION_PROCESSOR%>" >
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Test Profile</b>&#160;</TD>
