@@ -161,6 +161,7 @@
                                     </xsl:call-template>
                                 </xsl:attribute>
                                 <xsl:value-of select="user_id"/>
+      <xsl:value-of select="rating"/>
                             </a>
                          </td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
