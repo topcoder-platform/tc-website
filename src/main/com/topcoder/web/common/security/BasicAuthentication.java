@@ -51,6 +51,7 @@ public class BasicAuthentication implements WebAuthentication {
         this.persistor = userPersistor;
         this.request = (HttpServletRequest) request;
         this.response = (HttpServletResponse) response;
+        log.debug("cookie path: " + defaultCookiePath.getName());
     }
 
     /**
@@ -62,30 +63,24 @@ public class BasicAuthentication implements WebAuthentication {
         this.request = (HttpServletRequest) request;
         this.response = (HttpServletResponse) response;
         this.defaultCookiePath = r;
+        log.debug("cookie path: " + defaultCookiePath.getName());
     }
 
 
     /**
-     * login to the default site, current the main tc site
+      * Use the security component to log the supplied user in.
+      * If login succeeds, set a cookie and record status in the persistor.
+      * If login fails, throw a LoginException.
      * @param u
      * @throws LoginException
      */
     public void login(User u) throws LoginException {
-        login(defaultCookiePath, u);
-    }
-
-    /**
-     * Use the security component to log the supplied user in.
-     * If login succeeds, set a cookie and record status in the persistor.
-     * If login fails, throw a LoginException.
-     */
-    public void login(Resource r, User u) throws LoginException {
-        log.info("attempting login as " + u.getUserName() + " path: " + r.getName());
+        log.info("attempting login as " + u.getUserName() + " path: " + defaultCookiePath.getName());
         try {
             LoginRemote login = (LoginRemote) Constants.createEJB(LoginRemote.class);
             TCSubject sub = login.login(u.getUserName(), u.getPassword());
             long uid = sub.getUserId();
-            setCookie(r, uid);
+            setCookie(uid);
             setUserInPersistor(makeUser(uid));
             log.info("login succeeded");
 
@@ -96,41 +91,27 @@ public class BasicAuthentication implements WebAuthentication {
         }
     }
 
-    public void logout() {
-        log.info("logging out");
-        clearCookie(defaultCookiePath);
-        setUserInPersistor(guest);
-    }
-
     /**
      * Figure out who the current user is using either a cookie if it's available, or the persistor.
      * 1.  remove their information from the persistor.
      * 2.  clear their identifying cookies
      */
-    public void logout(Resource r) {
+    public void logout() {
         log.info("logging out");
-        clearCookie(r);
+        clearCookie();
         setUserInPersistor(guest);
     }
 
-
-    /**
-     * use the default
-     * @return
-     */
-    public User getActiveUser() {
-        return getActiveUser(defaultCookiePath);
-    }
 
     /**
      * Get the user for this session.  May return information based on a
      * cookie from a prior session.  If no login has occurred and no cookie
      * is present, returns an anonymous user.
      */
-    public User getActiveUser(Resource r) {
+    public User getActiveUser() {
         User u = getUserFromPersistor();
         if (u == null) {
-            u = checkCookie(r);
+            u = checkCookie();
             if (u==null) {
                 u = guest;
             }
@@ -208,24 +189,24 @@ public class BasicAuthentication implements WebAuthentication {
      *
      * public so com.topcoder.web.hs.controller.requests.Base can reach it, a bit of a kludge
      */
-    public void setCookie(Resource r, long uid) throws Exception {
+    public void setCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
         Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
-        c.setPath(r.getName());
+        c.setPath(defaultCookiePath.getName());
         c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
         response.addCookie(c);
     }
 
     /** Remove any cookie previously set on the client by the method above. */
-    private void clearCookie(Resource r) {
+    private void clearCookie() {
         Cookie c = new Cookie(USER_COOKIE_NAME, "");
         c.setMaxAge(0);
-        c.setPath(r.getName());
+        c.setPath(defaultCookiePath.getName());
         response.addCookie(c);
     }
 
     /** Check each cookie in the request header for a cookie set above. */
-    private User checkCookie(Resource r) {
+    private User checkCookie() {
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
             if(ca[i].getName().equals(USER_COOKIE_NAME)) {
@@ -238,7 +219,7 @@ public class BasicAuthentication implements WebAuthentication {
                         log.info("replacing cookie in old format");
                         Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
                         c.setMaxAge(Integer.MAX_VALUE);
-                        c.setPath(r.getName());
+                        c.setPath(defaultCookiePath.getName());
                         response.addCookie(c);
                     } else {
                         if(!hash.equals(st.nextToken())) continue;

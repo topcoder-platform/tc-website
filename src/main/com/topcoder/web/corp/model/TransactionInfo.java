@@ -85,7 +85,7 @@ public class TransactionInfo {
 
         // find out purchase parameters
         SessionPersistor store = new SessionPersistor(req.getSession(true));
-        User user = new BasicAuthentication(store, req, resp).getUser();
+        User user = new BasicAuthentication(store, req, resp, BasicAuthentication.CORP_SITE).getUser();
         if (user.isAnonymous()) {
             throw new NotAuthorizedException("User not logged in: " + user.getId());
         } else {

@@ -194,7 +194,7 @@ public final class ReportServlet extends HttpServlet {
             } else {
                 //have to do all this to be sure that this request is in the info object
                 WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
-                    request, response);
+                    request, response, BasicAuthentication.MAIN_SITE);
                 PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                         com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
                 TCSubject user = pmgr.getUserSubject(nav.getUserId());

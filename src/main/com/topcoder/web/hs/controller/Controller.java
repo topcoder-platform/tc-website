@@ -46,7 +46,7 @@ public class Controller extends HttpServlet {
         /* for exceptions we surely cannot correct */
         try {
             persistor = new SessionPersistor(request.getSession());
-            auth = new BasicAuthentication(persistor, request, response);
+            auth = new BasicAuthentication(persistor, request, response, BasicAuthentication.HS_SITE);
 
             RequestProcessor rp;
 

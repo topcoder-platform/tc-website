@@ -70,7 +70,7 @@ public class Controller
             String taskClassName = EmailConstants.TASK_PACKAGE + "." + taskName;
             log.debug("Task bean: " + taskClassName);
 
-            WebAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
+            WebAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request
             TCSubject user = pmgr.getUserSubject(auth.getActiveUser().getId());

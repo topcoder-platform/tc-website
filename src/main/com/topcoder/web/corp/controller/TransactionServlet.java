@@ -155,7 +155,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TERMS.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(req.getSession(true));
-                auth = new BasicAuthentication(store, req, resp);
+                auth = new BasicAuthentication(store, req, resp, BasicAuthentication.CORP_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 
@@ -242,7 +242,7 @@ public class TransactionServlet extends HttpServlet {
         } else if (OP_TX_BEGIN.equals(op)) {
             try {
                 SessionPersistor store = new SessionPersistor(request.getSession(true));
-                auth = new BasicAuthentication(store, request, response);
+                auth = new BasicAuthentication(store, request, response, BasicAuthentication.CORP_SITE);
                 TCSubject tcUser = Util.retrieveTCSubject(auth.getActiveUser().getId());
                 Authorization authorization = new TCSAuthorization(tcUser);
 

@@ -55,7 +55,7 @@ public class Controller
              * they are asked to log in.  if we don't do this, we get the wrong info for the
              * request cuz it's stored in the session from some old request.
              */
-            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());
