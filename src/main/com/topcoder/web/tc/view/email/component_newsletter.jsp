@@ -57,53 +57,63 @@
             		<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
 <!-- Completed Components Begins-->
 			<td valign="top">
-				<table border="0" cellpadding="5" cellspacing="1" bgcolor="#666666" width="270">
+				<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="270">
                 <tr>
-                    <td colspan="2" ><strong><font color="#FFFFFF" size="4">Completed Components</font></strong></td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904558&ver=1" target="blank">Generic Service</A> - Windows 2000 service used to instantiate user defined classes at user defined intervals.</td>
-                </tr>
-
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6401040&ver=1" target="blank">Compression Utility</A> - Provides a mechanism for defining and executing compression/decompression algorithms.</td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904571&ver=1" target="blank">Configuration Manager</A> - Centralizes the management of and access to application level configuration files strategy.</td>
-                </tr>
-                
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7351856&ver=1" target="blank">Simple Cache</A> - Provides the ability to quickly and effectively implement a caching strategy.</td>
+					<td>
+					
+				
+				<table border="0" cellpadding="5" cellspacing="0"width="270">
+				
+				<tr>
+                    <td colspan="2"><strong><font color="#FFFFFF" size="4">Completed Components</font></strong></td>
                 </tr>
 
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8352111&ver=1" target="blank">Distributed Simple Cache</A> - Provides a mechanism for the replication of frequently accessed, cached data across a cluster of servers.</td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601809&ver=1" target="blank">Trie Collection</A> - Provides trie data structure implementations including the Set and Map interfaces.</td>
+                    <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904558&ver=1" target="blank">Generic Service</A> - Windows 2000 service used to instantiate user defined classes at user defined intervals.</td>
                 </tr>
 
                 <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263800&ver=1" target="blank">Thread Pool</A> - Facilitates the management and usage of threads for asynchronous processing.</td>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6401040&ver=1" target="blank">Compression Utility</A> - Provides a mechanism for defining and executing compression/decompression algorithms.</td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
-                    <td class="bodyText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263827&ver=1" target="blank">DNS Query</A> - Query DNS servers for DNS records and available servers.</td>
+                    <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904571&ver=1" target="blank">Configuration Manager</A> - Centralizes the management of and access to application level configuration files strategy.</td>
                 </tr>
                 
+                
+                <tr>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7351856&ver=1" target="blank">Simple Cache</A> - Provides the ability to quickly and effectively implement a caching strategy.</td>
+                </tr>
+
+                
+                <tr>
+                    <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/netSm-1.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=8352111&ver=1" target="blank">Distributed Simple Cache</A> - Provides a mechanism for the replication of frequently accessed, cached data across a cluster of servers.</td>
+                </tr>
+                
+                <tr>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6601809&ver=1" target="blank">Trie Collection</A> - Provides trie data structure implementations including the Set and Map interfaces.</td>
+                </tr>
+
+                <tr>
+                    <td bgcolor="#EEEEEE"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#EEEEEE"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263800&ver=1" target="blank">Thread Pool</A> - Facilitates the management and usage of threads for asynchronous processing.</td>
+                </tr>
+                
+                <tr>
+                    <td bgcolor="#FFFFFF"><div align="center"><img src="/i/email/javaSm.gif" width="33" height="17"/></div></td>
+                    <td class="sidebarText" bgcolor="#FFFFFF"><A href="http://software.topcoder.com/catalog/c_component.jsp?comp=7263827&ver=1" target="blank">DNS Query</A> - Query DNS servers for DNS records and available servers.</td>
+                </tr>
+                
+                </table>
+                </td>
+                </tr>
                 </table>
 			</td>
 <!-- Completed Components Ends--> 
@@ -113,9 +123,15 @@
 
 <!-- Compnents in Progress Begins-->   	
       	<td valign="top">
-				<table border="0" cellpadding="5" cellspacing="1" bgcolor="#666666" width="270">
+      		<table border="0" cellpadding="0" cellspacing="1" bgcolor="#666666" width="270">
+
                 <tr>
-                    <td colspan="2" ><strong><font color="#FFFFFF" size="4">Components in Progress</font></strong></td>
+					<td>
+					
+				<table border="0" cellpadding="5" cellspacing="0" bgcolor="#666666" width="270">
+				
+				<tr>
+                    <td colspan="2"><strong><font color="#FFFFFF" size="4">Components in Progress</font></strong></td>
                 </tr>
                 
                 <tr>
@@ -232,6 +248,9 @@
                 </tr>
 
                 </table>
+                	</td>
+                		</tr>
+                			</table>
 			</td>
 <!-- Compnents in Progress Ends-->  
 
@@ -271,7 +290,7 @@
 			</tr>
 			<tr>
 			<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
-			<td colspan="5" class="bodyText"><font size="3"><strong>If a component is missing, please request a component on <A href="http://software.topcoder.com/index.jsp" target="blank">software.topcoder.com.</A></strong></font></td></tr>
+			<td colspan="5" class="bodyText"><strong>If a component is missing, please request a component on <A href="http://software.topcoder.com/index.jsp" target="blank">software.topcoder.com.</A></strong></td></tr>
 						</tr>
 			<tr><td colspan="6"><img src="/i/clear.gif" width="1" height="5" border="0"/></td></tr>
 			<tr>
