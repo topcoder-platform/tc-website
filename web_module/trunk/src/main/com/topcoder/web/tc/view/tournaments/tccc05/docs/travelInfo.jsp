@@ -9,7 +9,7 @@
 <link type="text/css" rel="stylesheet" href="/css/TCCC05style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
 </head>
-<%ResultSetContainer info = (ResultSetContainer)((Map)request.getAttribute("info")).get("Affidavit_Info");%>
+<%--<%ResultSetContainer info = (ResultSetContainer)((Map)request.getAttribute("info")).get("Affidavit_Info");%>--%>
 
 <body>
 
@@ -73,17 +73,17 @@
 
         <TR>
           <TD align="right"><INPUT TYPE="hidden" NAME="q1" VALUE="Handle"/>Handle: </TD>
-          <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/handle"/></xsl:attribute></INPUT></TD>
+          <TD align="left"><INPUT TYPE="text" NAME="a1" size="15"></INPUT></TD>
         </TR>
 
             <TR>
                 <TD align="right"><INPUT TYPE="hidden" NAME="q2" VALUE="First Name"/>First Name: </TD>
-                <TD align="left"><INPUT TYPE="text" NAME="a2" size="20"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/></xsl:attribute></INPUT><BR/></TD>
+                <TD align="left"><INPUT TYPE="text" NAME="a2" size="20"></INPUT><BR/></TD>
             </TR>
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q3" VALUE="Last Name"/>Last Name: </TD>
-              <TD align="left"><INPUT TYPE="text" NAME="a3" size="20"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/></xsl:attribute></INPUT><BR/></TD>
+              <TD align="left"><INPUT TYPE="text" NAME="a3" size="20"></INPUT><BR/></TD>
                 <td></td>
             </TR>
 
