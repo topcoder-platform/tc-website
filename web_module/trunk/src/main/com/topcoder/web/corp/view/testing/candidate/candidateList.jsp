@@ -49,7 +49,9 @@
                    <td align="center" class="screeningHeader">Begin</td>               
                    <td align="center" class="screeningHeader">End</td>
                    <td align="center" class="screeningHeader">Status</td>
+                   <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td align="center" class="screeningHeader">Preference Level</td>
+                   <% } %>
                    <td align="center" class="screeningHeader">Notes</td>                                          
                 </tr>
 
@@ -77,6 +79,7 @@
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>"><screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="20%" align="center" class="<%=cssClasses[counter % 2]%>"><screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a" ifNull="N/A"/></td> 
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap><screen:sessionStatus row="<%=row%>" /></td>
+                   <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
                    <td width="10%" align="center" class="<%=cssClasses[counter % 2]%>" nowrap=nowrap>
                     <object
                         classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
@@ -105,6 +108,7 @@
                         pluginspage="http://www.macromedia.com/go/getflashplayer" />
                         </object>
                    </td>
+                   <% } %>
                    <td width="10%" align="center" class="<%=cssClasses[counter++ % 2]%>"><screen:servletLink processor="PopulateCandidate" param="<%=params%>"><%=hasNotes?"View":"None"%></screen:servletLink></td>
                 </tr>
 
