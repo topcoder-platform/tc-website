@@ -72,7 +72,7 @@
                         <ul>
                             <li>Identify companies with sales potential for TopCoder Employment Services.</li>
                             <li>Identify appropriate professionals within the companies. </li>
-                            <li>Contact appropriate professional and describe our company and programs. </li>
+                            <li>Contact appropriate professionals and describe our company and programs. </li>
                             <li>Build a relationship with appropriate professionals. </li>
                             <li>Set up phone calls and meetings between appropriate professionals and TopCoder Executives. </li>
                             <li>Negotiate contracts and agreements with interested parties.</li>
