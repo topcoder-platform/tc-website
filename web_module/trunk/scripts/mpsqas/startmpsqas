@@ -1,0 +1,3 @@
+#!/usr/bin/ksh
+PORT=5037
+nohup java -classpath $CLASSPATH com.topcoder.mpsqas.appletmanager.MainAppletProcessor $PORT >mpsqas.log 2>&1 &
