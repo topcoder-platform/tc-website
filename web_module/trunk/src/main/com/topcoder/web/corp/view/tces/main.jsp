@@ -31,7 +31,7 @@
     <TR valign="top">
 	<td width="50%">&#160;</td>
 <!-- Center Column Begins -->
-        <td class=recruitingBody align="center">
+        <td class=recruitingBody>
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br>
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
