@@ -64,22 +64,25 @@ String address2 = objCoder.address2;
 String city = objCoder.city;
 String state = objCoder.state_code;
 String zip = objCoder.zip;
-String country = objCoder.country;
-String phone = objCoder.phone;
-String handle = objCoder.handle;
-String email = objCoder.email;
-String remail = email;
+String country = objCoder.country_code;
+String phone = objCoder.home_phone;
+String handle = "";
+String email = "";
+String remail = "";
 String quote = objCoder.quote;
 out.print("Notify:" + objCoder.notify);
 out.print("EmployerSearch:" + objCoder.employer_search);
+
 boolean nextCompetition = true;
 boolean competitionResults = true;
 boolean employmentOpportunities = true;
 boolean memberDevelopment = true;
 boolean newsEvents = true;
+boolean student = true;
+
 String editor = objCoder.editor_id.toString();
 String language = objCoder.language_id.toString();
-boolean student = true;
+
 %>
 
 <FORM NAME="frm" ACTION="<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
