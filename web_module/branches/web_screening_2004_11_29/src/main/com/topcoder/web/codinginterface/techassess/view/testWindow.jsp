@@ -1,5 +1,7 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
-                 com.topcoder.web.common.StringUtils"%>
+                 com.topcoder.web.common.StringUtils,
+                 com.topcoder.shared.problem.DataType,
+                 com.topcoder.web.common.render.DataTypeRenderer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
@@ -33,41 +35,22 @@
             <tr><td colspan="2"></td></tr>
             <tr>
                 <td colspan="2" align=center>
-                    <input type=button value="OK" onclick="ok();" />
-                    <input type=button value="Cancel" onclick="cancel();" />
+                    <a href="Javascript:ok();"><img src="/i/corp/screening/buttonOK.gif" alt="OK"/></a>
+                    <a href="Javascript:cancel();"><img src="/i/corp/screening/buttonCancel.gif" alt="Cancel"/></a>
                 <td>
             </tr>
         </table>
         <script language="javascript" src="/js/techassess.js"></script>
         <script language="javascript">
             //written to page by backend
-            var numArgs = 2;
-            var argTypes = new Array();
-            argTypes[0] = "String[]";
-            argTypes[1] = "int";
-
-            var displayTypes = new Array();
-            displayTypes[0] = "vector&lt;string&gt;";
-            displayTypes[1] = "int";
-
-            //arg types are expected to be in java, arg display types can be anything
-
-            //startup, load variables from the parent
-            for(var i = 0; i < numArgs; i++) {
-                switch(argTypes[i]) {
-                    case "String[]":
-                        if(getValue("window.opener.document.forms[0]", "arg" + i) != "") {
-                            putValue("document.frmTesting", "arg" + i + "input", "modify");
-                        }
-                        break;
-                    case "int":
-                        putValue("document.frmTesting", "arg" + i + "input", getValue("window.opener.document.forms[0]", "arg" + i));
-                        break;
-
-                    default:
-                        break;
-                }
-            }
+            <% DataType[] arguments = prob.getComponent(0).getParamTypes();%>
+            var numArgs = <%=arguments.length%>;
+            var displayTypes = new Array(<%=arguments.length%>);
+            var argTypes = new Array(<%=arguments.length%>);
+            <% for (int i=0; i<arguments.length; i++) { %>
+                argTypes[<%=i%>] = "<%=arguments[i].getDescription()%>";
+                displayTypes[<%=i%>] = "<%=new DataTypeRenderer(arguments[i]).toPlainText(language)%>";
+            <% } %>
 
             var windowHandle = null;
 
