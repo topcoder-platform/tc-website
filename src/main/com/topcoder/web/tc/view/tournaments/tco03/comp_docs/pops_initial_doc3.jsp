@@ -28,7 +28,7 @@
     </tr>
     
     <tr>
-        <td width="99%"><img src="/i/tournament/tco03/comp_docs/pops/initial/Timer_Sequence_Diagram_2.gif" alt="" width="480" height="234" border="0" class="compDocs"></td>
+        <td width="99%"><img src="/i/tournament/tco03/comp_docs/pops/initial/AspectOrientedFactory.gif" alt="" width="2502" height="714" border="0" class="compDocs"></td>
         <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
     </tr>
 
