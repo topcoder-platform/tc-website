@@ -15,10 +15,9 @@
 <!--
   function runFlash(){
 <tc:questionIterator list="<%=questionInfo%>" id="question">
-    var test<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer%>" name="percentage" format="#.##"/>,</rsc:iterator>";
-    var ans<%=question.getId()%> = "<rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer"><rsc:item row="<%=answer%>" name="answer_text"/>|</rsc:iterator>";
-    window.document.myFlash<%=question.getId()%>.SetVariable("answers", test<%=question.getId()%>.substring(0, test<%=question.getId()%>.length-2)); //wack that extra comma
-    window.document.myFlash<%=question.getId()%>.SetVariable("answersText", ans<%=question.getId()%>);
+    <rsc:iterator list="<%=question.getAnswerInfo()%>" id="answer">
+    window.document.myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>.SetVariable("percentage", <rsc:item row="<%=answer%>" name="percentage" format="#.##"/>);
+    </rsc:iterator>
 </tc:questionIterator>
   }
 //-->
@@ -73,28 +72,25 @@
                         <td>
                            <rsc:item row="<%=answer%>" name="percentage" format="#.##"/>%
                         </td>
-                     </tr>
-                     <% even = !even; %>
-                  </rsc:iterator>
-                  </table>
+                        <td>
                             <p align="center">
                             <object
                                   type="application/x-shockwave-flash"
                                   data="/i/barGraph.swf"
                             classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
                             codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0"
-                            width=600
-                            height=400
+                            width=200
+                            height=15
                             border="1"
-                            id="myFlash<%=question.getId()%>" >
+                            id="myFlash<%=question.getId()%>_<rsc:item row="<%=answer%>" name="answer_id"/>" >
                             <PARAM  NAME=movie  VALUE="/i/barGraph.swf">
                             <PARAM NAME=quality VALUE="high">
                             <PARAM NAME=bgcolor VALUE="#FFFFFF">
                             <embed
                             src="/i/barGraph.swf"
                             quality=high
-                            width=600
-                            height=400
+                            width=200
+                            height=15
                             border="1"
                             type="application/x-shockwave-flash"
                             pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"
@@ -103,8 +99,11 @@
                             </embed>
                             </object>
                             </p>
-                            <p><br/></p>
-
+                        </td>
+                     </tr>
+                     <% even = !even; %>
+                  </rsc:iterator>
+                  </table>
              </tc:questionIterator>
             </p>
          </td>
