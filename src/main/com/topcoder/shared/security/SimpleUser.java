@@ -1,11 +1,13 @@
 package com.topcoder.shared.security;
 
+import java.io.*;
+
 /**
- * Simple container for a User.
+ * Simple immutable container for a User.
  *
  * @author Ambrose Feinstein
  */
-public class SimpleUser implements User {
+public class SimpleUser implements User, Serializable {
 
     private static int GUEST_ID = -1;
     private static String GUEST_NAME = "anonymous";
