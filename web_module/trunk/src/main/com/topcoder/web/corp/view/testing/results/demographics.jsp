@@ -33,7 +33,7 @@
 
 <!-- Center Column Begins -->
         <td width="50%"></td>
-        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+        <td align="center"><img src="/i/corp/clear.gif" width="700" height="11" alt="" border="0"><br>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
             <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%" align="center">
@@ -170,7 +170,7 @@
 				<P><BR/></P>
 		</td>
         <td width="50%"></td>
-        <td align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
+        <td align="center"><img src="/i/corp/clear.gif" width="700" height="11" alt="" border="0"><br>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
