@@ -14,6 +14,7 @@ import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Set;
+import java.util.MissingResourceException;
 
 public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
@@ -53,7 +54,11 @@ public class MainServlet extends BaseServlet {
         if (ret.equals(key)) {
             //yuck, gonna throw errors all over the place
             TCResourceBundle bundle = new TCResourceBundle("TC");
-            ret = bundle.getProperty(key, ret);
+            try {
+                ret = bundle.getProperty(key);
+            } catch (MissingResourceException ignore) {
+                //just return what we got
+            }
         }
         return ret;
     }
