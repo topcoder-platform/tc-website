@@ -84,6 +84,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
             } finally {
                 close(securityCtx);
             }
+            throw new TCWebException(e);
         }
     }
 
