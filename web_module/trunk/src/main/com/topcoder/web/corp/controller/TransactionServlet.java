@@ -648,6 +648,7 @@ public class TransactionServlet extends HttpServlet {
             // it is really new role - try to assign it
             try {
                 log.debug("trying to assign the role "+newRole);
+                mgr.assignRole(buyerPrincipal, newRole, appSubject);
                 rollbackStore.add(newRole);
             }
             catch(Exception e) {
