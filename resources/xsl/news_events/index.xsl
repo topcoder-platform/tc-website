@@ -78,6 +78,22 @@
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
+ 
+ <!-- Mason Gazette -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://gazette.gmu.edu/articles/index.php?id=5180" target="_blank"><img src="/i/pressroom/mason_gazette.gif" alt="The Daily Mason Gazette" width="135" height="70" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://gazette.gmu.edu/articles/index.php?id=5180" target="_blank">George Mason Student Wins Third Place in International Coding Competition</A></strong></font><br />
+                        Computer science Ph.D. candidate Bogdan Stanescu won third place in the international 2003 TopCoder Open programming tournament 
+                        sponsored by Intel. Of the top 4 finishers, he was the only one representing the United States in the contest that concluded in early December. 
+                        <span class="prHead"> [January 9]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
             
 <!-- 2003 -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
