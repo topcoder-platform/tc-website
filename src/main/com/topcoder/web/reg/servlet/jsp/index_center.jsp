@@ -458,11 +458,11 @@ Founder and Chairman, TopCoder, Inc.
         </td> --%>
         <td colspan="4" class="errorText" align="center" valign="middle">
           <TEXTAREA NAME="TermDesc" Rows="10" COLS="80" READONLY CLASS="bodyText">
-            <jsp:include page="../includes/terms_top.txt" />
+            <%@include file="../includes/terms_top.txt" %>
 
-            <jsp:include page="../includes/privacy.txt" />
+            <%@include file="../includes/privacy.txt" %>
 
-            <jsp:include page="../includes/terms_bottom.txt" />
+            <%@include file="../includes/terms_bottom.txt" %>
           </TEXTAREA>
         </td>
     </tr>
