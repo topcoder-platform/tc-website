@@ -11,11 +11,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.distCache.CacheClient;
-import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
-import com.topcoder.web.tc.Constants;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
@@ -24,9 +21,7 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.GroupPrincipal;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.web.tc.controller.request.authentication.EmailActivate;
 
-import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.ejb.UserServices.UserServices;
@@ -38,7 +33,6 @@ import javax.transaction.UserTransaction;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
-import java.rmi.RemoteException;
 
 
 public class Registration
