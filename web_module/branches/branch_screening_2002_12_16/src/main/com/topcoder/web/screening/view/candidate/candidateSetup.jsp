@@ -1,5 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page import="com.topcoder.web.screening.model.CandidateInfo" %>
+<%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Setup</TITLE>
@@ -88,10 +89,10 @@ function validateFields() {
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><screen:img page="/ev/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><screen:img page="/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
 <FONT SIZE="3" COLOR="#666666"><strong>Create a New Session - </strong></FONT><FONT SIZE="3" COLOR="#990000"><strong>Set-Up a Candidate</strong></FONT> 
 <P>
             Create a new candidate or update the existing one.
@@ -105,9 +106,9 @@ function validateFields() {
        password = info.getPassword();
     }
 
-    String referrer = request.getParameter("rp");
+    String referrer = request.getParameter("referrer");
 %>
-<FORM name="candidateSetupForm" action="/MainServlet" method="POST" onSubmit="return validateFields();">
+<screen:form name="candidateSetupForm" action="/MainServlet" method="POST" onSubmit="return validateFields();">
         <INPUT type="hidden" name="rp" value="UpdateCandidate" />
 <%
     if(referrer != null) {
@@ -143,7 +144,7 @@ function validateFields() {
               <TD></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
             <TR>
-              <TD COLSPAN="2"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD COLSPAN="2"><screen:img page="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR> 
            <TR>
               <TD COLSPAN="2" ALIGN="center"><INPUT type="SUBMIT" /></TD>
@@ -153,17 +154,17 @@ function validateFields() {
     if(info != null)
     {
 %>
-<P>To add a note <A HREF="/eval/note_list.jsp" CLASS="bodyText">click here</A></P>
+<P>To add a note <screen:link page="/note_list.jsp" styleClass="bodyText">click here</screen:link></P>
 <%
     }
 %>
                             
-</FORM>         
+</screen:form>         
 <P><BR/></P>   
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><screen:img page="/ev/clear.gif" width="10" height="1" border="0" /></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

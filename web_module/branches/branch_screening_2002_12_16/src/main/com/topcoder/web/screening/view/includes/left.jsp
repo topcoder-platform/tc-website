@@ -1,2 +1,2 @@
-<IMG ALT="" WIDTH="22" HEIGHT="1" SRC="/i/p/clear.gif" BORDER="0"/>
-
+<%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
+<screen:img alt="" width="22" height="1" page="/ev/clear.gif" border="0"/>
