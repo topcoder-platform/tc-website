@@ -114,7 +114,15 @@
                             
                             <tr> 
                                 <td id="calendar">15</td>
-                                <td id="calendar">16</td>
+                                <td id="calendarTCO04">
+                                    <span id="calendarTCO04Date">16</span><br/>
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    Registration Opens: 9:00 AM ET<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
+                                    </td>
                                 <td id="calendar">17</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">18</span><br />

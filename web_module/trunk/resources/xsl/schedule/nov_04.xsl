@@ -113,8 +113,24 @@
                                 <td id="calendar">8</td>
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
-                                <td id="calendar">11</td>
-                                <td id="calendar">12</td>
+                                <td id="calendarTCO04">
+                                    <span id="calendarTCO04Date">11</span><br/>
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    SemiFinals<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=onsite_schedule">Details</A>
+                                    </td>
+                                <td id="calendarTCO04">
+                                    <span id="calendarTCO04Date">12</span><br/>
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    Finals<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=onsite_schedule">Details</A>
+                                    </td>
                                 <td id="calendar">13</td>
                             </tr>
                             
