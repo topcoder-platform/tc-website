@@ -9,9 +9,6 @@ import com.topcoder.shared.security.*;
  * @author Greg Paul
  */ 
 public interface WebAuthentication extends Authentication {
-    /**
-     * for sensitive sections, one should not simply go to the cookie, it should require
-     * a login.  therefore we provide this method to skip the cookie check.
-     */
+    /** this looks at the cookie first, whereas inherited getUser() looks at the session only */
     public User getActiveUser();
 }

@@ -45,6 +45,11 @@ public abstract class Base implements RequestProcessor {
         this.auth = auth;
     }
 
+    /** subclasses may override this to demand a login this session */
+    protected void getAuthUser() {
+        return auth.getActiveUser();
+    }
+
     /**
      * Some things we want to do for most subclassed request processors.
      * Override this to disable auth setup and adding default beans.
@@ -53,7 +58,7 @@ public abstract class Base implements RequestProcessor {
        log.debug("entering baseProcessing");
 
         try {
-            user = auth.getUser();
+            user = getAuthUser();
             hsa = new HSAuthorization(user);
 
         } catch(Exception e) {
@@ -61,7 +66,7 @@ public abstract class Base implements RequestProcessor {
 
             /* most likely a stale cookie, so clear it out and try again */
             auth.logout();
-            user = auth.getUser();
+            user = getAuthUser();
             hsa = new HSAuthorization(user);
         }
 

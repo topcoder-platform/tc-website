@@ -83,7 +83,7 @@ public class BasicAuthentication implements WebAuthentication {
      * is a user create a SimpleUser object to be returned.  for now, just populate the id 
      * attribute and leave handle and password empty.   
      */ 
-    public User getUser() {
+    public User getActiveUser() {
 
         /* check each cookie in the request header */
         Cookie[] ca = request.getCookies();
@@ -97,14 +97,14 @@ public class BasicAuthentication implements WebAuthentication {
             }
 
         /* forward to the method below */
-        return getActiveUser();
+        return getUser();
     }
 
     /**
      * This version should only check the persistor.  if the user is not in the persistor, then 
      * return an anonymous user object.
      */ 
-    public User getActiveUser() {
+    public User getUser() {
 
         /* check the persistor */
         Long uid = (Long)persistor.getObject(request.getSession().getId()+"user_id");
