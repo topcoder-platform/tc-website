@@ -6,7 +6,7 @@
   <xsl:import href="../includes/modules/white_last_srm.xsl"/>
   <xsl:import href="../includes/modules/quick_stats_pulldown.xsl"/>
   <xsl:import href="../includes/modules/quick_stats_tidbit.xsl"/>
-  <xsl:import href="../includes/modules/countries.xsl"/>
+  <xsl:import href="../includes/modules/countries2.xsl"/>
   <xsl:import href="../includes/modules/intro.xsl"/>      
   <xsl:import href="../includes/modules/coder_week2.xsl"/>
   <xsl:import href="../includes/modules/top_10_coders2.xsl"/>
@@ -75,7 +75,7 @@
 <xsl:call-template name="srm_dates"/>
 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
 <xsl:call-template name="calendar"/>
-<!-- <xsl:call-template name="countries"/> -->
+<xsl:call-template name="countries"/>
 <IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="5"/><BR/>
 <!-- Do Not Delete This Line --><FONT SIZE="1" COLOR="#CCCCCC" FACE="tahoma">HiddenWord</FONT>      
       </TD>    
@@ -89,7 +89,17 @@
 <!-- Body Area -->
 
   <!-- Center Column Begins -->  
-    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> 
+    <TD WIDTH="100%" VALIGN="top" ALIGN="center" BGCOLOR="#FFFFFF"><!-- <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> --> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#999999">
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" CLASS="bodyText">TopCoder expands match community to include...<A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyGeneric">full story</A><BR/>
+    <DIV ALIGN="center"><A HREF="/index?t=news_events&amp;c=pr_05_28_02" CLASS="bodyGeneric"><IMG SRC="/i/flag_china.gif" ALT="China" WIDTH="150" HEIGHT="40" HSPACE="5" BORDER="0"/><IMG SRC="/i/flag_new_zealand.gif" ALT="New Zealand" WIDTH="150" HEIGHT="40" HSPACE="5" BORDER="0"/></A></DIV></TD>  
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
+  </TR>
+</TABLE>
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
+
 <!-- Feature -->  
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
@@ -176,7 +186,7 @@ could they have made such an obvious mistake,"...<A HREF="/index?t=news_events&a
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">    
+    <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">    
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
     <B>SRM 91</B></FONT><BR/>
 	By&#160;Logan,<I>[TC] Member</I><BR/>
