@@ -341,8 +341,8 @@ public class UpdateCandidate extends BaseProcessor
         StringBuffer newPass = new StringBuffer();
         for(int i = 0; i < maxPasswordSize; ++i) {
             newPass.append(
-                Constants.VALID_CHAR_LIST.charAt(
-                    rand(Constants.VALID_CHAR_LIST.length())));
+                Constants.VALID_PASS_CHAR_LIST.charAt(
+                    rand(Constants.VALID_PASS_CHAR_LIST.length())));
         }
 
         return newPass.toString();

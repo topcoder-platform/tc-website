@@ -508,6 +508,12 @@
         </init-param>
 
         <init-param>
+            <param-name>valid_pass_char_list</param-name>
+            <param-value>abcdefghijkmnopqrstuvwxyz23456789ABCDEFGHJKLMNPQRSTUVWXYZ_</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>controller_url</param-name>
             <param-value>/</param-value>
             <description></description>
