@@ -58,9 +58,16 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	    if((nav==null) || (!nav.getLoggedIn())) {
 		// forward to login page
 		String errorURL = request.getRequestURI();
-		errorURL += (request.getQueryString()==null) ? "" : request.getQueryString();
+		errorURL += (request.getQueryString()==null) ? "" : "?" + request.getQueryString();
+		StringBuffer buf = new StringBuffer();
+		for(int idx=0;idx<errorURL.length();idx++) {
+		    char c = errorURL.charAt(idx);
+		    String str = (c=='&') ? "%26" : new String(c + "");
+		    buf.append(str);
+		}
+		errorURL = buf.toString();
 
-                response.sendRedirect("http://" + request.getServerName() + "/?t=authentication&c=login&errorMsg=" + "You must log in to view this portion of the site.&errorURL=" + errorURL + "?");
+                response.sendRedirect("http://" + request.getServerName() + "/?t=authentication&c=login&errorMsg=" + "You must log in to view this portion of the site.&errorURL=" + errorURL);
                 return;
 
 	    } else {
