@@ -2,8 +2,13 @@ package com.topcoder.web.corp.controller;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.request.Login;
@@ -11,8 +16,9 @@ import com.topcoder.web.corp.model.TransactionInfo;
 import com.topcoder.web.ejb.product.*;
 import com.topcoder.web.ejb.termsofuse.TermsOfUse;
 import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
-import com.topcoder.web.ejb.user.UserTermsOfUse;
-import com.topcoder.web.ejb.user.UserTermsOfUseHome;
+import com.topcoder.web.ejb.user.*;
+import com.topcoder.web.ejb.address.AddressHome;
+import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.common.tag.BaseTag;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -36,16 +42,13 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpUtils;
 import javax.transaction.Transaction;
+import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
 
 import java.io.IOException;
 import java.rmi.RemoteException;
 import java.sql.Date;
-import java.util.HashSet;
-import java.util.Hashtable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 import java.text.DecimalFormat;
 
 /**
@@ -529,7 +532,40 @@ public class TransactionServlet extends HttpServlet {
     }
 
     private boolean userCountryEligible(long userId, long productId) throws Exception {
-        return true;
+        boolean ret = true;
+        InitialContext context = new InitialContext();
+        DataSource ds = (DataSource)
+                PortableRemoteObject.narrow(
+                        context.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME), DataSource.class);
+
+        UserAddressHome uaHome = (UserAddressHome)
+            PortableRemoteObject.narrow(
+                context.lookup("corp:"+UserAddressHome.class.getName()), UserAddressHome.class);
+        UserAddress userAddress = uaHome.create();
+        AddressHome aHome = (AddressHome)
+            PortableRemoteObject.narrow(
+                context.lookup("corp:"+AddressHome.class.getName()), AddressHome.class);
+        Address address = aHome.create();
+        ResultSetContainer rsc = userAddress.getUserAddresses(userId);
+
+        //if they have no address, deny them
+        ret &= rsc.isEmpty();
+
+        DataAccessInt dataAccess = new DataAccess(ds);
+        Request dr = new Request();
+        dr.setContentHandle("eligible_country_for_product");
+        dr.setProperty("prodID", String.valueOf(productId));
+        Map result = null;
+        //go through all their addresses.  if any one is not eligible, then they are not eligible
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next();
+            long addressId = ((Long)row.getItem("address_id").getResultData()).longValue();
+            dr.setProperty("countryID", address.getCountryCode(addressId));
+            result = dataAccess.getData(dr);
+            /* the query returns a row only if the country is eligible to purchase the product */
+            ret &= !((ResultSetContainer) result.get("eligible_country_for_product")).isEmpty();
+        }
+        return ret;
     }
 
 
