@@ -80,7 +80,7 @@
                                     <strong>Match 149</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    <!-- Sponsored by: Sun<br/> -->
+                                    Sponsored by: Solipsys<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4550&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">3</td>
@@ -99,7 +99,7 @@
                                     <strong>Match 150</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: Sun<br/>
+                                    Sponsored by: Appian<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4555&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">12</td>
