@@ -1,8 +1,6 @@
 package com.topcoder.web.tc.controller.request.survey;
 
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.*;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.view.tag.AnswerInput;
 import com.topcoder.web.tc.model.Question;
@@ -66,7 +64,8 @@ public class Submit extends View {
                     setNextPage(Constants.SURVEY_THANKS);
                     setIsNextPageInContext(true);
                 } else {
-                    setNextPage("?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
+                    SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+                    setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
                     setIsNextPageInContext(false);
                 }
             }
