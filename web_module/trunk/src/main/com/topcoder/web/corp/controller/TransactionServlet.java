@@ -84,7 +84,6 @@ import java.text.DecimalFormat;
  */
 public class TransactionServlet extends HttpServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
-    private static final Hashtable currentTransactions = new Hashtable();
 
     public static final String KEY_OPERATION = "op";
     private static final String KEY_TRANSACTION_INFO = "TransactionInfo";
@@ -321,7 +320,7 @@ public class TransactionServlet extends HttpServlet {
                 response.setStatus(HttpServletResponse.SC_OK);
             } catch (Exception e) {
                 try {
-                    ((TransactionInfo) currentTransactions.get(transactionKey(request))).setTcExc(e);
+                    getTransaction(request).setTcExc(e);
                 } catch (Exception ex) {
 					ex.printStackTrace();
                 }
@@ -344,7 +343,7 @@ public class TransactionServlet extends HttpServlet {
      */
     private String txStatus(HttpServletRequest request, WebAuthentication auth)
             throws Exception {
-        TransactionInfo txInfo = ((TransactionInfo) currentTransactions.get(transactionKey(request)));
+        TransactionInfo txInfo = getTransaction(request);
         if (txInfo == null) {
             sendEmail("there is no transaction in progress for the user", auth);
             throw new Exception("there is no transaction in progress");
@@ -404,7 +403,7 @@ public class TransactionServlet extends HttpServlet {
      */
     private void txBegin(HttpServletRequest req)
             throws Exception {
-        currentTransactions.put(transactionKey(req), txInfo);
+        addTransaction(req, txInfo);
         log.debug("CcTx started");
         DecimalFormat formater = new DecimalFormat("#.##");
         log.debug("purchase being made for: " + txInfo.getCost() + " formmatted: " + formater.format(txInfo.getCost()));
@@ -449,7 +448,7 @@ public class TransactionServlet extends HttpServlet {
      * DB errors occured, etc.
      */
     private void txCommit(HttpServletRequest request) throws Exception {
-        TransactionInfo txInfo = (TransactionInfo) currentTransactions.get(transactionKey(request));
+        TransactionInfo txInfo = getTransaction(request);
         if (txInfo == null) {
             throw new Exception("there is no transaction in progress");
         }
@@ -724,5 +723,20 @@ public class TransactionServlet extends HttpServlet {
         );
     }
 
+    private TransactionInfo getTransaction(HttpServletRequest request) {
+        return (TransactionInfo)getTransactions(request).get(transactionKey(request));
+    }
 
+    private TransactionInfo addTransaction(HttpServletRequest request, TransactionInfo info) {
+        return (TransactionInfo)getTransactions(request).put(transactionKey(request), info);
+    }
+
+    private Hashtable getTransactions(HttpServletRequest request) {
+        Hashtable map = (Hashtable)request.getSession(true).getAttribute(KEY_TRANSACTION_INFO);
+        if (map == null) {
+            map = new Hashtable();
+            request.getSession(true).setAttribute(KEY_TRANSACTION_INFO, map);
+        }
+        return map;
+    }
 }
