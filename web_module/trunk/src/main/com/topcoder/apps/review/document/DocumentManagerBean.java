@@ -1429,7 +1429,7 @@ public class DocumentManagerBean implements SessionBean {
                         "e.user_id = uc.user_id AND " +
                         "su.login_id = uc.user_id AND " +
                         "su.login_id = s.submitter_id AND " +
-                        "rur.login_id = s.login_id AND " +
+                        "rur.login_id = su.login_id AND " +
                         "rur.cur_version = 1 AND " +
                         "rur.project_id = s.project_id" +
                         "ORDER BY rur.r_user_role_id");
