@@ -13,7 +13,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("technologies")) {%><td class=vbcON>Technologies 3</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=technologies" class=vbcLINK>Technologies 3</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingTechnologies');" class=vbcLINK>Technologies 3</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("os")) {%><td class=vbcON>Operating Systems 4</td>
