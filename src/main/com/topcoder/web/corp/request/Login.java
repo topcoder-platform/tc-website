@@ -12,6 +12,8 @@ import com.topcoder.web.corp.Constants;
  */
 public class Login extends BaseProcessor {
     public static final String KEY_DESTINATION_PAGE = "nextpage";
+    public static final String KEY_USER_HANDLE = "handle";
+    public static final String KEY_USER_PASS = "passw";
 
     protected void businessProcessing() throws Exception {
 
