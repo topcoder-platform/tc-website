@@ -55,7 +55,7 @@
                 op.value = val1+"_"+text2;
                 op.text = text1+" >= "+text2;
                 document.search[c].options[len] = op;
-                document.search['skill_names'] = document.search['skill_names'] + val1 + "\n" + text1 + "\n";
+                document.search['skill_names'].value = document.search['skill_names'].value + val1 + "\n" + text1 + "\n";
             }
         }
     }
@@ -90,7 +90,7 @@
   </head>
   <body>
     <input type="hidden" name="module" value="ProfileSearch"/>
-    <input type="hidden" name="skill_names" value="skill_names"/>
+    <input type="hidden" name="skill_names" value=""/>
 
     <table cellpadding="0" cellspacing="0" border="0">
       <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A></TD></TR>
