@@ -72,7 +72,7 @@
                         no representation that materials in the site are appropriate or available for use in other locations. Those who choose to access this
                         site from other locations do so on their own initiative and are responsible for compliance with local laws, if and to the extent local
                         laws are applicable. Software from this site is subject to U.S. export controls.  No software from this site may be downloaded or
-                        otherwise exported or reexported into (or to a national or resident of) Cuba, Iraq, Libya, North Korea, Iran, Syria or any other
+                        otherwise exported or reexported into (or to a national or resident of) Cuba, Libya, North Korea, Iran, Syria or any other
                         country to which the U.S. has embargoed goods or to anyone on the U.S. Treasury Department's list of Specially Designated National
                         or the U.S. Commerce Department's Table of Deny Orders.  By downloading or using the software, you represent and warrant that
                         you are not located in, under the control of, or a national or resident of any such country or on any such list.</p>
