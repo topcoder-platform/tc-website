@@ -72,7 +72,7 @@ public class ViewProblemSet extends Base {
             if (problems!=null)
                 log.debug("there are " + problems.getProblemLabels().length + " problems");
 
-            setDefault(Constants.PROBLEMS, problems);
+            setDefault(Constants.PROBLEMS, Arrays.asList(problems.getProblemLabels()));
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
 
 
