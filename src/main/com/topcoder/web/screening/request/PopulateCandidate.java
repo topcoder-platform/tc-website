@@ -42,7 +42,7 @@ public class PopulateCandidate extends BaseProcessor {
                 InitialContext context = new InitialContext();
                 PrincipalMgr principalMgr = new PrincipalMgr();
                 EmailHome eHome = (EmailHome)PortableRemoteObject.narrow(
-                        context.lookup(EmailHome.class.getName()),
+                        context.lookup("screening:"+EmailHome.class.getName()),
                         EmailHome.class);
                 Email email = eHome.create();
                 

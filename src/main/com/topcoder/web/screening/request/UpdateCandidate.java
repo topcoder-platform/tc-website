@@ -83,7 +83,7 @@ public class UpdateCandidate extends BaseProcessor
         PrincipalMgr principalMgr = new PrincipalMgr();
         EmailHome eHome = (EmailHome)
             PortableRemoteObject.narrow(
-                    context.lookup(EmailHome.class.getName()), EmailHome.class);
+                    context.lookup("screening:"+EmailHome.class.getName()), EmailHome.class);
         Email email = eHome.create();
             
         //check to see if user is logged in...

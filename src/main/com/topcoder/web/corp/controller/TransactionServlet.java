@@ -474,7 +474,7 @@ public class TransactionServlet extends HttpServlet {
             throws Exception {
         TransactionInfo txInfo = new TransactionInfo(req, resp);
         InitialContext ic = (InitialContext) TCContext.getInitial();
-        TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
+        TermsOfUse terms = ((TermsOfUseHome) ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
         txInfo.setTerms(terms.getText(Constants.GENERAL_PRODUCT_TERMS_ID));
         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
         if (userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
