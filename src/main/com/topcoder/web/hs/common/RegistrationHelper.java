@@ -176,7 +176,7 @@ public class RegistrationHelper {
     }
 
     Context ctx=TCContext.getInitial();
-    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataSource ds=(DataSource)ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
     DataAccessInt dai=new DataAccess(ds);
     Map map=new HashMap();
 
@@ -212,7 +212,7 @@ public class RegistrationHelper {
                                                               throws Exception {
   
     Context ctx=TCContext.getInitial();
-    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataSource ds=(DataSource)ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
     DataAccessInt dai=new CachedDataAccess(ds);
     Map map=new HashMap();
 
@@ -285,7 +285,7 @@ public class RegistrationHelper {
                                                               throws Exception {
 
     Context ctx=TCContext.getInitial();
-    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataSource ds=(DataSource)ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
     DataAccessInt dai=new DataAccess(ds);
     Map map=new HashMap();
 
@@ -552,7 +552,7 @@ public class RegistrationHelper {
     }
 
     Context ctx=TCContext.getInitial();
-    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataSource ds=(DataSource)ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
     DataAccessInt dai=new DataAccess(ds);
     Map map=new HashMap();
 
@@ -588,7 +588,7 @@ public class RegistrationHelper {
                                                               throws Exception {
   
     Context ctx=TCContext.getInitial();
-    DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+    DataSource ds=(DataSource)ctx.lookup(DBMS.HS_OLTP_DATASOURCE_NAME);
     DataAccessInt dai=new CachedDataAccess(ds);
     Map map=new HashMap();
 
