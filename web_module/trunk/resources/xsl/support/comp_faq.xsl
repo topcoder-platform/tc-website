@@ -54,7 +54,7 @@
                     <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-                                    <A HREF="#1" CLASS="bodyText"><B>How are point values for code submissions determined?</B></A>
+                                    <A HREF="#1" CLASS="bodyText">How are point values for code submissions determined?</A>
                             </TD>
                         </TR>
                         <TR>
@@ -63,7 +63,7 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#2" CLASS="bodyText"><B>How do I advance?</B></A>
+                                    <A HREF="#2" CLASS="bodyText">How do I advance?</A>
                                 
                             </TD>
                         </TR>
@@ -73,7 +73,7 @@
                         <TR>
                             <TD ALIGN="left" VALIGN="middle" WIDTH="490">
                                 
-                                    <A HREF="#3" CLASS="bodyText"><B>It seems like I have the same points as someone else in my room. Who advances?</B></A>
+                                    <A HREF="#3" CLASS="bodyText">It seems like I have the same points as someone else in my room. Who advances?</A>
                                 
                             </TD>
                         </TR>
@@ -83,7 +83,7 @@
                         <TR>
                             <TD ALIGN="left" VALIGN="middle" WIDTH="490">
                                 
-                                    <A HREF="#4" CLASS="bodyText"><B>How does rating work?</B></A>
+                                    <A HREF="#4" CLASS="bodyText">How does rating work?</A>
                                 
                             </TD>
                         </TR>
@@ -93,8 +93,8 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#5" CLASS="bodyText"><B>Why is the point system so complicated?  Are you saying that at the time I submit a solution, 
-             I have no idea how many points I will receive for my submission?</B></A>
+                                    <A HREF="#5" CLASS="bodyText">Why is the point system so complicated?  Are you saying that at the time I submit a solution, 
+             I have no idea how many points I will receive for my submission?</A>
                                 
                             </TD>
                         </TR>
@@ -104,7 +104,7 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#7" CLASS="bodyText"><B>How are room assignments done? Will people with similar ratings be assigned to the same room?</B></A>
+                                    <A HREF="#7" CLASS="bodyText">How are room assignments done? Will people with similar ratings be assigned to the same room?</A>
                                 
                             </TD>
                         </TR>
@@ -114,7 +114,7 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#8" CLASS="bodyText"><B>What if I am participating from behind a firewall?</B></A>
+                                    <A HREF="#8" CLASS="bodyText">What if I am participating from behind a firewall?</A>
                                 
                             </TD>
                         </TR>
@@ -124,10 +124,10 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#9" CLASS="bodyText"><B>
+                                    <A HREF="#9" CLASS="bodyText">
                 Occasionally, when navigating between rooms, I lose my cursor/focus, or stranger 
                 it may have two blinking cursors, but I can't type anything?
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -137,9 +137,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#10" CLASS="bodyText"><B>
+                                    <A HREF="#10" CLASS="bodyText">
                 Why am I not able to copy and paste to my arena applet?
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -149,9 +149,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#11" CLASS="bodyText"><B>
+                                    <A HREF="#11" CLASS="bodyText">
                 How do I emote something or whisper a private message to someone?
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -161,9 +161,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#12" CLASS="bodyText"><B>
+                                    <A HREF="#12" CLASS="bodyText">
                 How does the leaderboard work?
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -173,9 +173,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#13" CLASS="bodyText"><B>
+                                    <A HREF="#13" CLASS="bodyText">
                 The small HTML window that holds the contest applet does not pop up in Mozilla 0.9.4.
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -185,9 +185,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#14" CLASS="bodyText"><B>
+                                    <A HREF="#14" CLASS="bodyText">
                 Is it O.K. for a coder to obfuscate their code before submitting it?
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -197,9 +197,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#15" CLASS="bodyText"><B>
+                                    <A HREF="#15" CLASS="bodyText">
                 If I choose to code a solution in C++, which implementation of string or vector do I use?
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -209,9 +209,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
                                 
-                                    <A HREF="#16" CLASS="bodyText"><B>
+                                    <A HREF="#16" CLASS="bodyText">
                How can I view problem statements, submissions, or statistics for previous matches or tournament rounds? 
-              </B></A>
+              </A>
                                 
                             </TD>
                         </TR>
@@ -223,9 +223,9 @@
                         <TR>
                             <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
 
-                                    <A HREF="#17" CLASS="bodyText"><B>
+                                    <A HREF="#17" CLASS="bodyText">
               Can I re-submit my code during the coding phase if I find an error?
-              </B></A>
+              </A>
 
                             </TD>
                         </TR>
@@ -317,10 +317,13 @@
                                         <A NAME="8" CLASS="bodyText"><B>What if I am participating from behind a firewall? </B></A>
                                     
                                     <BR/>
-The TopCoder applets use socket connections to connect to the TopCoder servers.  The TopCoder servers use TCP ports 5001-5010
-, so your firewall must allow outbound TCP connections to topcoder.com on these ports.  Your network administrator may be able to set up the f
-irewall to allow for this communication.  The applets will utilize the proxy settings of the browser in which they run.  
-
+The TopCoder applets use socket connections to connect to the TopCoder servers. 
+The TopCoder servers use TCP ports 5001-5010, so your firewall must allow outbound TCP 
+connections to topcoder.com on these ports. Your network administrator may be able to set 
+up the f irewall to allow for this communication. The applets will utilize the proxy settings 
+of the browser in which they run.  If you are denied access to port 5001 - 5010 and wish to 
+connect to the arena via HTTP tunneling you may select the Tunnel Option on the arena login screen.  
+Note, that selecting this option will reduce your perfomance.  
       <BR/>
                                     <A HREF="#top" CLASS="bodyText">[back to top]</A>
                                     <BR/>
