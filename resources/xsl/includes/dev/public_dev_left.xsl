@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:import href="modules/calendar.xsl"/>
   <xsl:template name="public_dev_left">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr valign="top">
@@ -26,8 +25,6 @@
 				<tr><td colspan="3" background="/i/steel_gray_bg.gif" align="right"><img src="/i/sub_navbox_btm_right.gif" width="13" height="17" border="0"/></td></tr>
 			</table>
 
-			<xsl:call-template name="calendar"/>
-			
 			<img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10"/>
 
   </xsl:template>
