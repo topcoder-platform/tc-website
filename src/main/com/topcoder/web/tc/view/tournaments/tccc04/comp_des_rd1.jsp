@@ -211,7 +211,7 @@
                     <td class="formHandleEven" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=6707859" class="statText" target="_blank">Matrix Math Library</a></td>
+                    <td class="formHandleOdd"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=5700518" class="statText" target="_blank">Matrix Math Library</a></td>
                     <td class="formHandleOdd" align="center">4</td>
                     <td class="formHandleOdd" align="center">pending</td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
