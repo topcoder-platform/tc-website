@@ -85,11 +85,11 @@
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br /></p>
-                            <p>TopCoder will compensate the member with the winning solution as well as the 2nd place designer. In order to be paid, both the winning submission and the 2nd place designer must pass screening and receive a review score above the minimum score.</p>
+                            <p>TopCoder will compensate the member with the winning solution as well as the second place designer. In order to be paid, both the winning submission and the second place designer must pass screening and receive a review score above the minimum score.</p>
                             Compensation for the winning solution is distributed in two installments.<br />
                             First Payment: When the winning solution is submitted and review board suggestions are integrated.<br />
                             Final Payment: At the completion of the development project*.<br />
-                            <p>Compensation for the 2nd place designer will be paid in one installment following the completion of the design project.</p>
+                            <p>Compensation for the second place designer will be paid in one installment following the completion of the design project.</p>
 
 							
 						<p><strong>Winning Designer</strong><br />
@@ -97,7 +97,7 @@
 						First Payment - $1,125.00<br />
 						Final Payment - $875.00<br />
 						</p>
-						<strong>2nd Place Designer</strong><br />
+						<strong>Second Place Designer</strong><br />
 						Total Payment - $225.00
 						
                                                 	
@@ -127,7 +127,7 @@
 
 						<p><br/>
 						Component Posting: 2.27.2003<br/>
-						Specification Submission Due Date: 2.5.2003<br/>
+						Specification Submission Due Date: 3.5.2003<br/>
 						Design Submission Due Date: 3.10.2003<br/>
 						Winner Announced: 3.19.2003<br/>
 						Updated Submission Due Date: 4.22.2003<br/>
@@ -137,7 +137,7 @@
 
 <!-- Register at TCS -->
 						   <p>
-        						<strong>View the <a class="statText" href="/index?&amp;t=development&amp;c=app_meth">Requirement Specification</a> for this application project &gt;&gt;</strong>
+        						<strong>View the <a class="statText" href="/index?&amp;t=development&amp;c=online_review_req">Requirement Specification</a> for this application project &gt;&gt;</strong>
                             </p>
 						
 
