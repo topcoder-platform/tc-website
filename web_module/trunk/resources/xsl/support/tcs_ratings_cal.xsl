@@ -54,14 +54,13 @@
                 <B>New ratings are calculated as follows:</B>
                 <BR/>
                                     <BR/>
-                After each competition, each submitter who submitted a solution to the competition is re-rated according to the following algorithm. Keep in mind that only submitters are only rated against the same level 
-                components from the last rolling 6 months. The average rating of everyone in the competition is calculated:
+                After each competition, each coder who submitted a solution to the competition is re-rated according to the following algorithm. Keep in mind that coders are only rated against the same level components.  The average rating of everyone is then calculated:
                 <BR/>
                                     <BR/>
                                     <IMG ALT="average rating" HEIGHT="58" WIDTH="167" SRC="/i/rating/avg.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where NumSumbitters is the number of submitters in the competition and Rating is the 
-                rating without the volatility of the submitter in the competition before the competition.
+                Where NumCoders is the number of coders in the competition and Rating is the 
+                rating without the volatility of the coder in the competition before the competition.
                 <BR/>
                                     <BR/>
                 <B>The competition factor is calculated:</B>
@@ -69,33 +68,33 @@
                                     <BR/>
                                     <IMG ALT="competition factor" HEIGHT="62" WIDTH="356" SRC="/i/rating/cf.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where Volatility is the volatility of the submitter in the competition before the competition.
+                Where Volatility is the volatility of the coder in the competition before the competition.
                 <BR/>
                                     <BR/>
-                <B>The skill of the submitter is calculated:</B>
+                <B>The skill of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="skill" HEIGHT="34" WIDTH="138" SRC="/i/rating/skill.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where Rating is the submitter's rating before the competition.
+                Where Rating is the coder's rating before the competition.
                 <BR/>
                                     <BR/>
-                <B>The deviation of the submitter is calculated:</B>
+                <B>The deviation of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="deviation" HEIGHT="34" WIDTH="141" SRC="/i/rating/dev.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where Volatility is the volatility of the submitter before the competition.
+                Where Volatility is the volatility of the coder before the competition.
                 <BR/>
                                     <BR/>
-                The probability of the submitter getting a higher score than another submitter in the 
-                competition (WPi for i from 1 to NumSumbitters) is estimated.  See below for the 'Estimation Algorithm'.
-                The expected rank of the submitter is calculated:
+                The probability of the coder getting a higher score than another coder in the 
+                competition (WPi for i from 1 to NumCoders) is estimated.  See below for the 'Estimation Algorithm'.
+                The expected rank of the coder is calculated:
                 <BR/>
                                     <BR/>
                                     <IMG ALT="expected rank" HEIGHT="39" WIDTH="118" SRC="/i/rating/er.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                <B>The expected performance of the submitter is calculated:</B>
+                <B>The expected performance of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="expected performance" HEIGHT="34" WIDTH="170" SRC="/i/rating/ep.gif" ALIGN="center" BORDER="0"/><BR/>
@@ -104,27 +103,27 @@
                 is the inverse of the standard normal function.
                 <BR/>
                                     <BR/>
-                <B>The actual performance of each submitter is calculated:</B>
+                <B>The actual performance of each coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="expected performance" HEIGHT="34" WIDTH="170" SRC="/i/rating/ap.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where ARank is the actual rank of the submitter in the competition based on score 
-                (1 for first place, NumSumbitters forlast).  If the submitter tied with another submitter, 
-                the rank is the average of the positions covered by the tied submitters.
+                Where ARank is the actual rank of the coder in the competition based on score 
+                (1 for first place, NumCoders forlast).  If the coder tied with another coder, 
+                the rank is the average of the positions covered by the tied coders.
                 <BR/>
                                     <BR/>
-                <B>The performed as rating of the submitter is calculated:</B>
+                <B>The performed as rating of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="performed as" HEIGHT="14" WIDTH="286" SRC="/i/rating/pa.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                <B>The weight of the competition for the submitter is calculated:</B>
+                <B>The weight of the competition for the coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="weight of the competition" HEIGHT="37" WIDTH="223" SRC="/i/rating/wt.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                Where TimesPlayed is the number of times the submitter has been rated before.
+                Where TimesPlayed is the number of times the coder has been rated before.
                 <BR/>
                                     <BR/>
                 To stabilize the higher rated members, the Weight of members whose rating is 
@@ -137,12 +136,12 @@
                                     <BR/>
                                     <IMG ALT="cap" HEIGHT="37" WIDTH="186" SRC="/i/rating/cap.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                <B>The new volatility of the submitter is calculated:</B>
+                <B>The new volatility of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="new volatility" HEIGHT="46" WIDTH="421" SRC="/i/rating/nv.gif" ALIGN="center" BORDER="0"/><BR/>
                                     <BR/>
-                <B>The new rating of the submitter is calculated:</B>
+                <B>The new rating of the coder is calculated:</B>
                 <BR/>
                                     <BR/>
                                     <IMG ALT="new rating" HEIGHT="37" WIDTH="253" SRC="/i/rating/nr.gif" ALIGN="center" BORDER="0"/><BR/>
@@ -156,17 +155,23 @@
                 <B>Estimation Algorithm:</B>
                 <BR/>
                                     <BR/>
-Estimating the probability a submitter gets a higher score than another submitter is done by looking at either submitter's 
-expected performance rating on a range of good to bad days.  Each submitter's performance is modeled as a
-normal distribution with a mean (the rating) and standard deviation (the volatility).  Using this model, a submitter's
+Taking the difference of each submitter's performance is also a normal 
+distribution.  A positive value would then indicate a win and a negative 
+value would indicate a loss.  The percentage chance that a player wins, 
+therefore, uses the standard normal cumulative disribution as follows:
+    <BR />
+ &#160;&#160;        WinProbability( SkillA, DeviationA, SkillB, DeviationB)
+ &#160;&#160;        Return snorm( (SkillB-SkillA) / Math.sqrt(DeviationA^2 + DeviationB^2) )
+
+<BR/>Using this model, a coder's
 performance can be turned into a percentage using the normal distribution, so that 50% represents expected
 performance and 25% represents better three days out of four, etc.  Then, to estimate the probability that the
-submitter beats submitter i, the range from 0% to 100% is broken into 1% blocks, and the midpoint is taken of each
+coder beats coder i, the range from 0% to 100% is broken into 1% blocks, and the midpoint is taken of each
 block and the corresponding performance is computed.  The win probability is the number of blocks where the
-midpoint favors submitter i.  If it's a tie, the block is split between both submitters.   
+midpoint favors coder i.  If it's a tie, the block is split between both coders.   
                 <BR/>
                                     <BR/>
-Here is the psuedo-code function to estimate the probability of submitter A beating submitter B
+Here is the psuedo-code function to estimate the probability of coder A beating coder B
 (<IMG ALT="inverse standard normal" HEIGHT="11" WIDTH="11" SRC="/i/rating/phi.gif" BORDER="0"/> is the inverse of the
 standard normal function):
                 <BR/>
