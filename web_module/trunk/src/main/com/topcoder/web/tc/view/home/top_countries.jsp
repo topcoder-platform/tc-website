@@ -15,7 +15,7 @@
         <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Handle</td>
         <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="45%">Rating</td>
     </tr>
-    <rsc:iterator list="<%=schools%>" id="resultRow">
+    <rsc:iterator list="<%=countries%>" id="resultRow">
         <tr>
             <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/></td>
             <td align="left" class="formHandleEven" nowrap="nowrap"><rsc:item name="name" row="<%=resultRow%>"/></td>
