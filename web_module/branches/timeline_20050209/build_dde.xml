@@ -338,7 +338,7 @@
 	<copy file="${projectphases.jar}" todir="${dist.jars.dir}"/>
         
         <!-- qq -->
-        <jar    jarfile="${dist.jars.dir}"
+        <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
         	update="true"
         	includes="build.xml">
         
