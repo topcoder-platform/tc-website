@@ -15,7 +15,7 @@
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
 
-                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td> 
 
                     <td  width="99%" class="bodyText"  valign="top">
                         <p><a href="/?&amp;t=features&amp;c=feat_090104" class="bodyText"><font size="4"><strong>On Sentinels</strong></font></a><br />
