@@ -30,6 +30,7 @@ public class ViewProblemSetInner extends Base {
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_SET_INNER);
                     setIsNextPageInContext(true);
                 } else {
+                    //this logic is mostly for the case that they hit refresh
                     if (hasDefault(Constants.PROBLEM_TYPE_ID)) {
                         //this is *highly* unlikely, but why not include it? :)
                         setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,

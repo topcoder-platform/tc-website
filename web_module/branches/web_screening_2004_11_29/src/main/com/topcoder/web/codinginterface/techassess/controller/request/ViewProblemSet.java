@@ -42,8 +42,10 @@ public class ViewProblemSet extends Base {
 
             send(request);
 
+            //need the problem type id in there so that one can hit refresh and have it work on the response.
             showProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET_RESPONSE,
-                    new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
+                    new String[] {Constants.MESSAGE_ID, Constants.PROBLEM_TYPE_ID},
+                    new String[]{String.valueOf(getMessageId()), String.valueOf(problemType)}));
 
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
