@@ -4,6 +4,7 @@
 <jsp:useBean id="problemRatingResults" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 <%
     int count = 0;
+    int compCount = 0;
 %>
 <html>
 <head>
@@ -48,7 +49,9 @@
            <td class="bodyTextBig" align="right">Average Rating for Competitors</td>
         </tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
-        <% count = result.getIntItem("count"); %>
+        <% count = result.getIntItem("count");
+           compCount = result.getIntItem("comp_count");
+        %>
         <tr>
             <td class="bodyText">
                 <rsc:item row="<%=result%>" name="question"/> :
@@ -61,7 +64,7 @@
             </td>
         </tr>
         </rsc:iterator>
-        <tr><td class="bodyTextBig" colspan="2" align="center"><%=count%> Total votes</td></tr>
+        <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes <%=compCount%> Competitor Votes</td></tr>
     </table>
       </td>
 <!-- Center Column Ends -->
