@@ -887,7 +887,7 @@
 
 
 
-    <target name="war-tc" depends="compile">
+    <target name="war-tc" depends="compile,package-Jive">
         <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
             <fileset dir="${java}/com/topcoder/web/tc/view">
                 <include name="**/*.jsp"/>
