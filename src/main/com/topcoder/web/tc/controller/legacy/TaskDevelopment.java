@@ -490,10 +490,6 @@ else if (command.equals("send")) {
 
                                             }
 
-Calendar c = new GregorianCalendar();
-        
-        c.getTime()
-
                                             //add the user to the appropriate role to view the specification
                                             java.util.HashSet rolesSet = (java.util.HashSet) PRINCIPAL_MANAGER.getRoles(null);
                                             RolePrincipal[] roles = (RolePrincipal[]) rolesSet.toArray(new RolePrincipal[0]);
