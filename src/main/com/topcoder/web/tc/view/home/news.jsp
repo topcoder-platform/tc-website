@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>03.15.05<br>12:35 PM</td>
+      <td class="newsTextCell"><span class="newsTitle">New job opening at <A href="/tc?module=Static&d1=contracting&d2=vertex">Vertex Pharmaceuticals</A></span><br><br>
+      <A href="/tc?module=Static&d1=contracting&d2=vertex">Vertex</A> is offering a position as a Lead Scientific Software Analyst, available to <strong>ALL</strong> TopCoder members.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
+   </td></tr>
+ 
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>03.14.05<br>12:00 PM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=pr_03_14_05a">Champions Announced In 2005 TCCC Sponsored by Yahoo!&#174;</A></span><br><br>
       TopCoder today announced the champions of the 2005 TopCoder Collegiate Challenge sponsored by Yahoo!
@@ -238,21 +250,6 @@
          <A href="/?t=news_events&c=index">archive</A>
    </td></tr>
 
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.24.05<br>9:30 AM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span><br><br>
-      This match seemed to have a lot less challenges than other matches, but the systests were brutal for many coders, especially on the division 1 650 and 900.</td>
-      <td class="newsPhoto"><img src="/i/m/timmac_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=10407399">timmac</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=statistics&c=srm232_prob">full story</A>&#160;|&#160;
-         <A href="/?t=statistics&c=editorial_archive">archive</A>
-   </td></tr>
- 
 </table>
 <br><br>
 
