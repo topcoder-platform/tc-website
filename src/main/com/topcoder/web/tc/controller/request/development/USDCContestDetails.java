@@ -41,7 +41,7 @@ public class USDCContestDetails extends StatBase {
             Map result =  (Map)getRequest().getAttribute("resultMap");
             
             result.put("contest_results", result.get("contest_results_only_winners"));
-            result.remove("contest_results_only_winners");
+            //result.remove("contest_results_only_winners");
             
             getRequest().setAttribute("resultMap", result);
         }
