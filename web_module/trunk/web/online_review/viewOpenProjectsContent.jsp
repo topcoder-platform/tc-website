@@ -56,6 +56,12 @@
 <logic:equal name="project" property="catalog" value=".NET">
                                 <img src="images/dotnetSm.gif" alt="" border="0">
 </logic:equal>
+<logic:equal name="project" property="catalog" value="Java Custom">
+                                <img src="images/javaCustomSm.gif" alt="" border="0">
+</logic:equal>
+<logic:equal name="project" property="catalog" value=".NET Custom">
+                                <img src="images/dotnetCustomSm.gif" alt="" border="0">
+</logic:equal>
 <logic:equal name="project" property="catalog" value="Application">
                                 <img src="images/appSm.gif" alt="" border="0">
 </logic:equal>
