@@ -897,7 +897,7 @@ public class ComponentManagerBean
                         levelId);
 
                 if (newForum >= 0) {
-                    log.debug("New forum created, adding PM to notification.")
+                    log.debug("New forum created, adding PM to notification.");
                     Project project = pt.getProjectById(projectId, requestor);
 
                     NotificationHome notificationHome = (NotificationHome)
@@ -932,7 +932,7 @@ public class ComponentManagerBean
 log.debug("qq before if");
         if ((versionBean.getPhaseId() != ComponentVersionInfo.DEVELOPMENT) &&
             (info.getPhase() == ComponentVersionInfo.DEVELOPMENT)) {
-            log.debug("Project went to development. Winner of desing will be added to notification")
+            log.debug("Project went to development. Winner of desing will be added to notification");
             try {
                 ProjectTracker pt = projectTrackerHome.create();
 
