@@ -26,8 +26,8 @@
 		<TD CLASS="bodyText" VALIGN="top">
 		
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 80</SPAN><BR/>
-Monday, April 15, 2002<BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 83</SPAN><BR/>
+Monday, April 27, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
 <A HREF="/index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Get the summary</A> or <A HREF="/stat?c=last_match" CLASS="bodyGeneric">View Match Results</A>
 <BR CLEAR="all"/>
