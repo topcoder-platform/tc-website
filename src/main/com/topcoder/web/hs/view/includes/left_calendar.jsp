@@ -6,7 +6,7 @@
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">
                  <TR> 
 <%--                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/hs/module_labels_march_date.gif" ALT="December Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>--%>
-                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle" ALIGN="center">March 2003 Match Dates</TD>
+                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle" ALIGN="center">February 2003 Match Dates</TD>
                    </TR>
                       <TR BGCOLOR="#333366"> 
                         <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
@@ -32,7 +32,7 @@
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">3</TD>                      
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">4</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">5</TD>
-                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">6</A></TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">6</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">7</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">8</TD>
                       </TR>
@@ -41,8 +41,8 @@
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">9</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">10</TD>                      
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">11</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">22</TD>
-                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">13</A></TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">12</TD>
+                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">13</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">14</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">15</TD>
                       </TR>
@@ -52,7 +52,7 @@
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">17</TD>                      
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">18</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">19</TD>
-                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">20</A></TD>
+                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_february_2003" CLASS="smallText">20</A></TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">21</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">22</TD>
                       </TR>
@@ -61,19 +61,10 @@
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">24</TD>                      
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">25</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">26</TD>
-                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">27</A></TD>
+                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_february_2003" CLASS="smallText">27</A></TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">28</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">29</TD>
-                      </TR>				  
-                      <TR> 
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">30</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">31</TD>
                         <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                      </TR>                     
+                      </TR>
             </TABLE>
             </TD>
         </TR>
