@@ -144,6 +144,10 @@ public final class SavePMReviewAction extends ReviewAction {
                         ResultData rs = AutoPilot.screeningPMReview(data);
                         if(!(rs instanceof SuccessResult))
                             return rs;
+                    } else  {
+                        ResultData rs = AutoPilot.reviewPMReview(data);
+                        if(!(rs instanceof SuccessResult))
+                            return rs;
                     }
                 }
                 
