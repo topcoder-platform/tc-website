@@ -10,7 +10,7 @@ public class ListIteratorTagInfo extends TagExtraInfo {
 
         String type = (String)data.getAttribute("type");
         if (type==null||type.trim().equals(""))
-            type = String.class.getName();
+            type = Object.class.getName();
 
         return new VariableInfo[]{
             new VariableInfo(data.getId(),
