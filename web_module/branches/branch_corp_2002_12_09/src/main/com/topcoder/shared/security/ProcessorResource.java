@@ -13,7 +13,7 @@ public class ProcessorResource extends SimpleResource {
      * called super constructor with full name of object passed in
      * @param obj Object to get name of resource from
      */
-    public ProcessorResource(Objects obj) {
+    public ProcessorResource(Object obj) {
         super(obj.getClass().getName());
     } 
 }
