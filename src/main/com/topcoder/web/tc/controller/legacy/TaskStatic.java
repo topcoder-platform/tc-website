@@ -13,14 +13,11 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.PathResource;
-import com.topcoder.web.tc.controller.legacy.TaskHome;
 import com.topcoder.web.common.PermissionException;
 
-import javax.naming.Context;
 import javax.naming.NamingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -37,12 +34,7 @@ public final class TaskStatic {
             throws NavigationException, PermissionException {
         String result = null;
         try {
-            String requestCommand = Conversion.checkNull(request.getParameter("c"));
-            if (requestCommand.equals("")) {
-                result = TaskHome.process(request, response, HTMLmaker, nav, document);
-            } else {
-                result = displayStatic(HTMLmaker, request, nav, document);
-            }
+            result = displayStatic(HTMLmaker, request, nav, document);
         } catch (PermissionException ne) {
             throw ne;
         } catch (NavigationException ne) {
@@ -72,7 +64,6 @@ public final class TaskStatic {
         DataAccessInt dai = null;
         ResultSetContainer rsc = null;
         Map resultMap = null;
-        Context ctx = null;
 
         requestTask = Conversion.checkNull(request.getParameter("t"));
         requestCommand = Conversion.checkNull(request.getParameter("c"));
@@ -101,7 +92,6 @@ public final class TaskStatic {
         }
         if (requestTask.startsWith("tces")) {
             try {
-                ctx = TCContext.getInitial();
                 /* this could be cached, but given low volumen, we'll go for correctness */
                 dai = new DataAccess(DBMS.OLTP_DATASOURCE_NAME);
 
@@ -129,7 +119,6 @@ public final class TaskStatic {
 
             try {
                 if (!roundids.equals("")) {
-                    ctx = TCContext.getInitial();
                     dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                     if (!region.equals("")) {
                         dataRequest = new Request();
@@ -186,7 +175,6 @@ public final class TaskStatic {
         RecordTag tournamentTag = new RecordTag("TOURNAMENTS");
         try {
             if (requestCommand.equals("tco03_top100")) {
-                ctx = TCContext.getInitial();
                 dataRequest = new Request();
                 dataRequest.setContentHandle(requestCommand);
                 DataAccessInt dwdai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
@@ -203,7 +191,6 @@ public final class TaskStatic {
 
         try {
             if (requestCommand.equals("tco03_advancers")) {
-                ctx = TCContext.getInitial();
                 dataRequest = new Request();
                 dataRequest.setContentHandle(requestCommand);
                 String roundId = Conversion.checkNull(request.getParameter("rd"));
@@ -228,7 +215,6 @@ public final class TaskStatic {
 
         try {
             if (requestCommand.equals("tco03_bracket")) {
-                ctx = TCContext.getInitial();
                 dataRequest = new Request();
                 dataRequest.setContentHandle(requestCommand);
                 dai = dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
@@ -251,7 +237,6 @@ public final class TaskStatic {
 
         /* getting this here for the tces/hiring page */
         try {
-            ctx = TCContext.getInitial();
             dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             RecordTag homeTag = new RecordTag("HOME");
             dataRequest = new Request();
@@ -291,4 +276,6 @@ public final class TaskStatic {
         }
         return true;
     }
+
+
 }
