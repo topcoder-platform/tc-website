@@ -2,7 +2,7 @@ package com.topcoder.web.reg.bean;
 
 // package com.topcoder.web.bean;
 
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.User;
 import com.topcoder.shared.util.logging.Logger;
 
 import java.io.Serializable;

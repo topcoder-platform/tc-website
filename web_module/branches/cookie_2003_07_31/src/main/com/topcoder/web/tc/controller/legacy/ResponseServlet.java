@@ -1,6 +1,6 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.ejb.AuthenticationServices.Authentication;
+import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
 import com.topcoder.ejb.AuthenticationServices.AuthenticationServicesHome;
 import com.topcoder.ejb.Util.Util;

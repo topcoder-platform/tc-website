@@ -4,7 +4,7 @@ import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.User;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;

@@ -9,7 +9,7 @@ import com.topcoder.common.web.data.report.Query;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.User;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;

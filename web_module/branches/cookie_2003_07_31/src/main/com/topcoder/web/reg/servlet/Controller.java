@@ -1,7 +1,7 @@
 package com.topcoder.web.reg.servlet;
 
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.bean.Task;
 import com.topcoder.web.reg.bean.TaskException;

@@ -4,6 +4,8 @@ import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.bean.Task;
 import com.topcoder.web.email.bean.TaskFactory;
+import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.data.Authentication;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

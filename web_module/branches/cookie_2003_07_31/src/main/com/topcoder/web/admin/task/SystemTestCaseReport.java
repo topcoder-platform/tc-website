@@ -6,7 +6,7 @@ import com.topcoder.common.web.data.Round;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.AuthenticationServices.Authentication;
+import com.topcoder.common.web.data.Authentication;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;

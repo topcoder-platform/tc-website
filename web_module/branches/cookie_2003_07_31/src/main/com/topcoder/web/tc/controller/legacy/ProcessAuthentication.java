@@ -9,6 +9,9 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.bean.Registration;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.common.web.data.Sector;
+import com.topcoder.common.web.data.User;
+import com.topcoder.common.web.data.Authentication;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

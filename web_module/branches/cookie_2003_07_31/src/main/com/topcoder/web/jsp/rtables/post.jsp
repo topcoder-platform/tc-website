@@ -55,7 +55,7 @@
     }
     // get the authToken as a way to get userID's below
       Authorization authToken = null;
-      com.topcoder.ejb.AuthenticationServices.User user = null;
+      com.topcoder.common.web.data.User user = null;
       String rtUser = "";
       String rtPassword = "";
       try {

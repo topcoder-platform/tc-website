@@ -177,7 +177,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         }
     }
 
-    private void loadUserInfo(com.topcoder.ejb.AuthenticationServices.User user) throws Exception {
+    private void loadUserInfo(com.topcoder.common.web.data.User user) throws Exception {
 
         Request dataRequest = new Request();
         dataRequest.setContentHandle("member_profile_info");

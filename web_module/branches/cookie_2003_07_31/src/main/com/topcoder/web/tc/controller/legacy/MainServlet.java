@@ -10,7 +10,7 @@ import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.DateTime;
 import com.topcoder.common.web.xml.ExcludeRange;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.User;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
