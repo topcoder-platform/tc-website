@@ -20,9 +20,11 @@
 </P>
         
 <P>
-<A HREF="#" CLASS="statText">More about joining</A><BR/>
-<A HREF="#" CLASS="statText">Teams and Divisions</A><BR/>
-<A HREF="#" CLASS="statText">Register Now!</A><BR/><BR/>
+&#160;<A HREF="/index?t=about_tc&amp;c=membr_whyjoin" CLASS="statText">Why join</A><BR/>
+&#160;<A HREF="/index?t=about_tc&amp;c=membr_ratings" CLASS="statText">Ratings</A><BR/>
+&#160;<A HREF="/index?t=about_tc&amp;c=membr_divisions" CLASS="statText">Divisions</A><BR/>
+&#160;<A HREF="/index?t=about_tc&amp;c=membr_teams" CLASS="statText">Teams</A><BR/>
+&#160;<A HREF="/reg/index.jsp" CLASS="statText"><B>Register Now</B></A><BR/><BR/>
 </P>
         </TD>
         <TD VALIGN="top"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
