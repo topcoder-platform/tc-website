@@ -19,7 +19,7 @@
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
-<% ResultSetContainer results = request.getAttribute("candidateList");%>
+<% ResultSetContainer results = (ResultSetContainer) request.getAttribute("candidateList");%>
 
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
