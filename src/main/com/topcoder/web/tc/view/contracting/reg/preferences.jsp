@@ -77,7 +77,7 @@ return false;
 			</tr>
 		</table>
 		
-		<FORM ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
+		<FORM ACTION="/tc" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
 		<input type="hidden" name="module" value="ContractingPreferences"/>
 		<input type="hidden" name="dataToLoad" value="preferences" />
 		

@@ -93,7 +93,7 @@ public class PreferenceInput extends BaseTag {
         s.append(">\n");
         List answers = preference.getPrefValues();
         if (answers != null) {
-            s.append("<option value=\" - \"></option>");
+            s.append("<option value=\"\"> - </option>");
             PreferenceValue answer = null;
             for (int i = 0; i < answers.size(); i++) {
                 answer = (PreferenceValue)answers.get(i);
