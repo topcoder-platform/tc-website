@@ -11,7 +11,7 @@
         <session>
             <description>Contest Admin Services EJB</description>
             <display-name>Contest Admin Services EJB</display-name>
-            <ejb-name>ContestAdminServices</ejb-name>
+            <ejb-name>DataCache</ejb-name>
             <home>com.topcoder.ejb.DataCache.DataCacheHome</home>
             <remote>com.topcoder.ejb.DataCache.DataCache</remote>
 <!--

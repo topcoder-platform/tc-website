@@ -11,7 +11,7 @@
         <session>
             <description>Coder Skill EJB</description>
             <display-name>Coder Skill EJB</display-name>
-            <ejb-name>Skill</ejb-name>
+            <ejb-name>CoderSkill</ejb-name>
             <home>com.topcoder.web.ejb.coderskill.CoderSkillHome</home>
             <remote>com.topcoder.web.ejb.coderskill.CoderSkill</remote>
             <!--

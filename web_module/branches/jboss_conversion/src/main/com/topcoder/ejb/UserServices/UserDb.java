@@ -381,7 +381,7 @@ final class UserDb {
     }
 
 
-    static Integer getExistingUserId(Integer key) throws TCException {
+    static Long getExistingUserId(Long key) throws TCException {
         log.debug("ejb.User.UserDb:getExistingUserId():called...");
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -539,7 +539,7 @@ final class UserDb {
         try {
             ps = conn.prepareStatement(query);
             ps.setInt(1, groupUser.getUserId());
-            ps.setInt(2, groupUser.getGroup().getGroupId());
+            ps.setLong(2, groupUser.getGroup().getGroupId());
             int regVal = ps.executeUpdate();
             if (regVal != 1) {
                 StringBuffer msg = new StringBuffer(200);
@@ -585,9 +585,9 @@ final class UserDb {
                         /**************************************************************/
                         ps = conn.prepareStatement(query);
                         ps.setInt(1, user.getUserId());
-                        ps.setInt(2, groupUser.getGroup().getGroupId());
+                        ps.setLong(2, groupUser.getGroup().getGroupId());
                         ps.setInt(3, user.getUserId());
-                        ps.setInt(4, groupUser.getGroup().getGroupId());
+                        ps.setLong(4, groupUser.getGroup().getGroupId());
                         int regVal = ps.executeUpdate();
                         if (regVal != 1) {
                             StringBuffer msg = new StringBuffer(200);
@@ -609,7 +609,7 @@ final class UserDb {
                         /**************************************************************/
                         ps = conn.prepareStatement(query);
                         ps.setInt(1, user.getUserId());
-                        ps.setInt(2, groupUser.getGroup().getGroupId());
+                        ps.setLong(2, groupUser.getGroup().getGroupId());
                         int regVal = ps.executeUpdate();
                         if (regVal != 1) {
                             StringBuffer msg = new StringBuffer(200);
