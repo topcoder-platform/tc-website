@@ -71,7 +71,7 @@
     <tag>
         <name>problemRatingInput</name>
         <tagclass>com.topcoder.web.tc.view.tag.ProblemRatingInput</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingTagInfo</teiclass>
+        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingInputTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info></info>
         <attribute>

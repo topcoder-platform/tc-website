@@ -8,29 +8,10 @@
 <html>
 <head>
 <title>TopCoder Problem Rating Results - <%=request.getAttribute("problemName")%></title>
-<LINK REL="stylesheet" TYPE="text/css" href="/css/style.css"/>
-<LINK REL="stylesheet" TYPE="text/css" href="/css/coders.css"/>
-<SCRIPT type="text/javascript">
-if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
-  // Linux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
-} else {
-  // NonLinux Stylesheets
-  document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
-  document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
-}
-</SCRIPT>
-<STYLE TYPE="text/css">
-BODY
-{
-	background-color: #001B35;
-	padding: 0px;
-	margin: 0px;
-}
-</STYLE>
+<jsp:include page="../script.jsp"/>
 </head>
 <body>
+<center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
     <table>
         <tr><td class="statTextBig">Question</td><td class="statTextBig">Average Rating</td></tr>
         <rsc:iterator list="<%=problemRatingResults%>" id="result">
