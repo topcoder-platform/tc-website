@@ -277,7 +277,10 @@ Tuesday, September 24, 2002<BR/><BR/>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
-
+	<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm114_prob</xsl:attribute>
+        <B>Problem Set Analysis &amp; Opinion</B>
+      </A><BR/>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
   </TR>
