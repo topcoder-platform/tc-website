@@ -10,6 +10,9 @@
     <xsl:import href="../includes/modules/srm_dates.xsl"/>
     <xsl:template name="global_left">
 
+    <xsl:param name="level1"></xsl:param>
+    <xsl:param name="level2"></xsl:param>
+
 <!-- Home page begins -->
     <xsl:choose>
         <xsl:when test="/TC/Task='public_home'">
@@ -296,7 +299,7 @@
 <!-- Features ends -->
 
 <!-- Development-Overview Begins -->
-        <xsl:when test="/TC/Task='development'">
+        <xsl:when test="$level1='development'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="development_row"/>
@@ -307,7 +310,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='index'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -320,7 +323,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='dev_payment'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='dev_payment'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -350,7 +353,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='components'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='components'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -363,7 +366,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='comp_projects'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='comp_projects'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -376,7 +379,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='comp_archive'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='comp_archive'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -389,7 +392,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='comp_meth'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='comp_meth'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -402,7 +405,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='tcs_sample_docs'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='tcs_sample_docs'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -415,7 +418,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='des_bonus_contest_2'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='des_bonus_contest_2'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -428,7 +431,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='bonus_contest_0303'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='bonus_contest_0303'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -444,7 +447,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='app_projects'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='app_projects'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
@@ -457,7 +460,7 @@
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='app_meth'">leftSubnavOn</xsl:when>
+                            <xsl:when test="$level2='app_meth'">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
