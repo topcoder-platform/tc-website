@@ -1027,6 +1027,8 @@ log(Level.INFO, "checkProjectData="+checkProjectData);
         if (checkTimeline)  {
 
             for (int i = 0; i < project.getTimeline().length; i++) {
+                phaseValid[i] = true;
+
                 if (!adjustStartDates[i]) {
                     Date start = parseDate(forcedStartDates[i]);
 
@@ -1253,9 +1255,7 @@ public void timeLineFromProject(Project project)
             if (i > 0) {
                 phases [i].addDependency(phases[i - 1]);
                 adjustStartDates[i] = project.getTimeline()[i].getStartDate().equals(project.getTimeline()[i-1].getEndDate());
-                if (!adjustStartDates[i]) {
-                    forcedStartDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
-                }
+                forcedStartDates[i] = adjustStartDates[i]? "" : dateFormatter.format(project.getTimeline()[i].getStartDate());
             }
 
             phaseMinutes[i] = phases[i].getLength();
