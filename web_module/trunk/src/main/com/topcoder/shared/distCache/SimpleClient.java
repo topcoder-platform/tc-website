@@ -180,19 +180,10 @@ public class SimpleClient {
             }
         } else if (line.equals("mem")) {
             try {
-                ArrayList al = client.getEntries();
-                ByteArrayOutputStream baos = null;
-                ObjectOutputStream oos = null;
+                ArrayList al = client.getKeys();
                 long tot = 0;
                 for (int i = 0; i < al.size(); i++) {
-                    CachedValue cv = (CachedValue) (al.get(i));
-                    baos = new ByteArrayOutputStream();
-                    oos = new ObjectOutputStream(baos);
-                    oos.writeObject(cv.getValue());
-                    oos.flush();
-                    int size = baos.size();
-                    oos.close();
-                    tot+=size;
+                    tot+=client.getSize((String)al.get(i));
                 }
                 System.out.println("your bloated cache is consuming " + tot + " bytes.");
             } catch (Exception e) {

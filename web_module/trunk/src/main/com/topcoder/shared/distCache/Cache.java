@@ -1,6 +1,9 @@
 package com.topcoder.shared.distCache;
 
 import java.io.Serializable;
+import java.io.ByteArrayOutputStream;
+import java.io.ObjectOutputStream;
+import java.io.IOException;
 import java.util.*;
 
 /**
@@ -50,6 +53,37 @@ public class Cache
             return _keymap.size();
         }
     }
+
+    public int getSize(String key) {
+        Object o = get(key);
+        try {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(o);
+            oos.flush();
+            int size = baos.size();
+            oos.close();
+            return size;
+        } catch (IOException e) {
+
+        }
+        return -1;
+    }
+
+	private int getSize(Object o) {
+		try {
+			ByteArrayOutputStream baos = new ByteArrayOutputStream();
+			ObjectOutputStream oos = new ObjectOutputStream(baos);
+			oos.writeObject(o);
+			oos.flush();
+			int size = baos.size();
+			oos.close();
+			return size;
+		} catch (IOException e) {
+
+		}
+		return -1;
+	}
 
     /**
      *  set a cached value
