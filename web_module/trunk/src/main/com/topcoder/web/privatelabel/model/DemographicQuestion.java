@@ -12,67 +12,65 @@ public class DemographicQuestion extends Base {
     public static final int SINGLE_SELECT = 2;
     public static final int FREE_FORM = 3;
 
-    private long demographicQuestionId;
-    private String demographicQuestionText;
-    private String demographicQuestionDesc;
+    private long questionId;
+    private String text;
+    private String desc;
     private String selectable;
-    private List demographicAnswers;
+    private List answers;
 
     public DemographicQuestion() {}
 
     public Object clone() throws OutOfMemoryError {
         DemographicQuestion ret = new DemographicQuestion();
-        ret.setDemographicQuestionId(demographicQuestionId);
-        ret.setDemographicQuestionText(demographicQuestionText);
-        ret.setDemographicQuestionDesc(demographicQuestionDesc);
+        ret.setQuestionId(questionId);
+        ret.setText(text);
+        ret.setDesc(desc);
         ret.setSelectable(selectable);
-        List list = new ArrayList(demographicAnswers.size());
-        for (int i=0; i<demographicAnswers.size(); i++) {
-            list.set(i, ((DemographicAnswer)demographicAnswers.get(i)).clone());
+        List list = new ArrayList(answers.size());
+        for (int i=0; i<answers.size(); i++) {
+            list.set(i, ((DemographicAnswer)answers.get(i)).clone());
         }
-        ret.setDemographicAnswers(list);
+        ret.setAnswers(list);
         return ret;
     }
 
-    public long getDemographicQuestionId() {
-        return demographicQuestionId;
+    public long getQuestionId() {
+        return questionId;
     }
 
-    public void setDemographicQuestionId(long demographicQuestionId) {
-        this.demographicQuestionId = demographicQuestionId;
+    public void setQuestionId(long questionId) {
+        this.questionId = questionId;
     }
 
-    public String getDemographicQuestionText() {
-        return demographicQuestionText;
+    public String getText() {
+        return text;
     }
 
-    public void setDemographicQuestionText(String demographicQuestionText) {
-        this.demographicQuestionText = demographicQuestionText;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public String getDemographicQuestionDesc() {
-        return demographicQuestionDesc;
+    public String getDesc() {
+        return desc;
     }
 
-    public void setDemographicQuestionDesc(String demographicQuestionDesc) {
-        this.demographicQuestionDesc = demographicQuestionDesc;
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 
-    public List getDemographicAnswers() {
+    public List getAnswers() {
         List list = null;
-        if (demographicAnswers!=null) {
-            log.debug(demographicAnswers.size() + " answers found");
-            list = new ArrayList(demographicAnswers.size());
-            for (int i=0; i<demographicAnswers.size(); i++) {
-                list.add(((DemographicAnswer)demographicAnswers.get(i)).clone());
+        if (answers!=null) {
+            list = new ArrayList(answers.size());
+            for (int i=0; i<answers.size(); i++) {
+                list.add(((DemographicAnswer)answers.get(i)).clone());
             }
-            log.debug(list.size() + " answers generated");
         }
         return list;
     }
 
-    public void setDemographicAnswers(List demographicAnswers) {
-        this.demographicAnswers = demographicAnswers;
+    public void setAnswers(List answers) {
+        this.answers = answers;
     }
 
     public int getAnswerType() {

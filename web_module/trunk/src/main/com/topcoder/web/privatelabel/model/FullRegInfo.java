@@ -2,12 +2,16 @@ package com.topcoder.web.privatelabel.model;
 
 import com.topcoder.web.privatelabel.Constants;
 
+import java.util.List;
+import java.util.ArrayList;
+
 public class FullRegInfo extends SimpleRegInfo {
 
     private byte[] resume;
     private String fileName;
     private int fileType;
     private int coderType;
+    private List responses;
 
     public FullRegInfo() {
     }
@@ -15,7 +19,6 @@ public class FullRegInfo extends SimpleRegInfo {
     public FullRegInfo(SimpleRegInfo info) {
         super(info);
     }
-
 
     public byte[] getResume() {
         return resume;
@@ -55,5 +58,20 @@ public class FullRegInfo extends SimpleRegInfo {
 
     public boolean isProfessional() {
         return coderType==Constants.PROFESSIONAL;
+    }
+
+    public List getResponses() {
+        List list = null;
+        if (responses!=null) {
+            list = new ArrayList(responses.size());
+            for (int i=0; i<responses.size(); i++) {
+                list.add(((DemographicResponse)responses.get(i)).clone());
+            }
+        }
+        return list;
+    }
+
+    public void setResponses(List responses) {
+        this.responses = responses;
     }
 }
