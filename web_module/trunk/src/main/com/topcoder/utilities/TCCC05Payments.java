@@ -220,7 +220,7 @@ public class TCCC05Payments {
                         for (int i=currPlace; i<currPlace+currCoders.size()&&i<money.length; i++) {
                             moneyPile+=money[i];
                         }
-                        int prize = moneyPile/currCoders.size();
+                        int prize = (int)Math.ceil((double)moneyPile/(double)currCoders.size());
                         for (int i=0; i<currCoders.size(); i++) {
                             ((Data)currCoders.get(i)).setPrize(prize);
                             ret.add(currCoders.get(i));
