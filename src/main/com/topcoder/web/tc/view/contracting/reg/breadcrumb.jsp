@@ -17,7 +17,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("os")) {%><td class=vbcON>Operating Systems 4</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=os" class=vbcLINK>Operating Systems 4</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingOS');" class=vbcLINK>Operating Systems 4</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("databases")) {%><td class=vbcON>Databases 5</td>

@@ -113,7 +113,7 @@ return false;
 				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_TECHNOLOGIES%>" rows="3" cols="40"/>
 				</td>
 			</tr>
-			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=os"><img src="/i/submit.jpg" border=0/></a></td></tr>
+			<tr><td colspan=12 align=center><br/><br/><a href="javascript:goToPage('ContractingOS');"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
 		</FORM>
 
