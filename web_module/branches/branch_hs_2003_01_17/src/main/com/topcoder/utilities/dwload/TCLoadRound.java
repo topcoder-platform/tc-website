@@ -1565,20 +1565,16 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.overall_rank ");                        // 27
             query.append("       ,rr.division_placed ");                     // 28
             query.append("       ,rr.division_seed ");                       // 29
-            query.append("       ,NVL(school_rank.division_placed, 0) ");    // 30
-            query.append("       ,school_rank.count(*) ");
+            query.append("      ,(SELECT COUNT(*) ");                        // 30
+            query.append("          FROM room_result rr3 ");
+            query.append("         WHERE rr3.school_id = rr.school_id ");
+            query.append("           AND rr3.round_id = rr.round_id ");
+            query.append("           AND rr3.division_placed < rr.division_placed) ");
+            query.append("       ,(SELECT COUNT(*) ");                       // 31
+            query.append("           FROM room_result rr2 ");
+            query.append("          WHERE rr2.school_id = rr.school_id ");
+            query.append("            AND rr2.round_id = rr.round_id) ");
             query.append("  FROM room_result rr ");
-            query.append(" OUTER TABLE(MULTISET(SELECT FIRST 3 ");
-            query.append("                  coder_id ");
-            query.append("                 ,round_id ");
-            query.append("                 ,school_id ");
-            query.append("                 ,division_placed ");
-            query.append("                  FROM room_result))");
-            query.append("    AS school_rank ");
-            query.append(" WHERE school_rank.coder_id = rr.coder_id ");
-            query.append("   AND school_rank.round_id = rr.round.id ");
-            query.append("   AND school_rank.school_id = rr.school_id ");
-            query.append(" ORDER BY school_rank.division_placed ASC ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
             query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
@@ -1629,7 +1625,7 @@ public class TCLoadRound extends TCLoad {
             query.append("        ?,?,?,?,?,?,?,?,?,?)");  // 30 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            query = new StringBuffer(100);
+            query = new StringBuffer(1024);
             query.append("DELETE FROM room_result ");
             query.append(" WHERE round_id = ? ");
             query.append("   AND room_id = ? ");
@@ -1681,8 +1677,8 @@ public class TCLoadRound extends TCLoad {
                 psIns.setInt(27, rs.getInt(27));  // overall_rank
                 psIns.setInt(28, rs.getInt(28));  // division_placed
                 psIns.setInt(29, rs.getInt(29));  // division_seed
-                if (rs.getInt(31)>=3) {
-                    psIns.setInt(30, rs.getInt(30)); // divison_placed
+                if (rs.getInt(31)>=3&&rs.getInt(30)<3) {
+                    psIns.setInt(30, rs.getInt(28)); // divison_placed
                 }
                 else {
                     psIns.setInt(30, 0);
