@@ -522,14 +522,6 @@ public class TransactionServlet extends HttpServlet {
             boolean forward
             )
             throws IOException, ServletException {
-        if (dest == null) {
-            // it is supposed when processor returns null as next page, then
-            // controller must use defaul page
-            dest = new SessionPersistor(req.getSession(true)).popLastPage();
-            if (dest == null) { //still null
-                dest = req.getContextPath() + "/"; // default page is web app root
-            }
-        }
         log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
 
         String contextPrefix = req.getContextPath();
