@@ -61,7 +61,7 @@
                <p>Donations can be made by:<br />
                <ul>
                <li>Credit card online at <A href="http://www.christopherreeve.org/topcoder">www.christopherreeve.org/topcoder</A>.  
-               Donators will enter in the TopCoder member’s name and/or handle so the donation can be matched with a TopCoder member.  
+               Donators will enter in the TopCoder member's name and/or handle so the donation can be matched with a TopCoder member.  
                This is important as eligibility and prizes are determined based on how much money each member raises.</li>
                <li>Check.  Please complete the donation form located at <A href="http://www.topcoder.com/crpf">www.topcoder.com/crpf</A> and submit the form and a check to:<br />
                      <ul>

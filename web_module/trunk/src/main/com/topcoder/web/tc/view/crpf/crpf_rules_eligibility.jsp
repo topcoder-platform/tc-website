@@ -57,7 +57,9 @@
 
                
 
-               <blockquote> 
+               <blockquote>
+                  <h2>Eligibility</h2>
+                  <p>All TopCoder members 18 years of age or older (as of November 11, 2003) who have raised a minimum of $25 are eligible to compete.</p>
                </blockquote>
             
             <p><br /></p>
