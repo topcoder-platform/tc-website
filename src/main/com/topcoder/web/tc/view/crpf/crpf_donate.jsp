@@ -65,7 +65,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 </jsp:include>
 
                <blockquote>
-               <table width="100%" border="0" cellpadding="0" cellspacing="10">
+               <table width="500" border="0" cellpadding="0" cellspacing="10">
                   <tr>
                       <td class="bodyText" colspan="2">
                         <p>Donating to the TopCoder Charity Challenge for the CRPF is easy! Just follow the directions below. 
