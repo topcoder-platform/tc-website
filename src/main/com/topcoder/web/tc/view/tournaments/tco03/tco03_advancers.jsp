@@ -1,5 +1,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 java.util.Map"%>
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -62,22 +63,22 @@
                </tr>
                 <tr>
                    <td class="testTableTitle_off" width="10%" align="center">
-                       <a class="statTextBig" href="/">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco03_advancers&rd=<%=rsc.getIntItem(0, "round_id")%>&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Seed
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="left">
-                       <a class="statTextBig" href="/">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco03_advancers&rd=<%=rsc.getIntItem(0, "round_id")%>&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Handle
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="right">
-                       <a class="statTextBig" href="/">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco03_advancers&rd=<%=rsc.getIntItem(0, "round_id")%>&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="right">
-                       <a class="statTextBig" href="/">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco03_advancers&rd=<%=rsc.getIntItem(0, "round_id")%>&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Points
                        </a>
                    </td>
