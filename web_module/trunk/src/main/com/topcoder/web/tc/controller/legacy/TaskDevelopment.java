@@ -41,6 +41,8 @@ import javax.naming.Context;
 import java.util.Map;
 import java.text.NumberFormat;
 
+import java.util.*;
+
 public final class TaskDevelopment {
 
 
@@ -488,7 +490,9 @@ else if (command.equals("send")) {
 
                                             }
 
-
+Calendar c = new GregorianCalendar();
+        
+        c.getTime()
 
                                             //add the user to the appropriate role to view the specification
                                             java.util.HashSet rolesSet = (java.util.HashSet) PRINCIPAL_MANAGER.getRoles(null);
@@ -663,7 +667,15 @@ else if (command.equals("send")) {
     }
     
     public static boolean tcoTermsCheck(long userId) throws Exception {
-        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Calendar c = new GregorianCalendar();
+        
+        if(c.getTimeInMillis() < new GregorianCalendar(104, 7, 1).getTimeInMillis() || c.getTimeInMillis() > new GregorianCalendar(104, 9, 23).getTimeInMillis())
+        {
+            return true;
+        }
+        
+        
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
         Request inquiryRequest = new Request();
         inquiryRequest.setContentHandle("checkTerms");
         inquiryRequest.setProperty("uid", String.valueOf(userId));
