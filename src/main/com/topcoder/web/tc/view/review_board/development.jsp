@@ -39,8 +39,25 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="review_boards"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Development"/>  
+           <jsp:param name="title" value=""/>  
         </jsp:include>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" align="center" vspace="10">
+      <tr>
+         <td width="50%"></td>
+         <td height="42"><A href="/tc/?module=Static&amp;d1=review_board&amp;d2=competition"  target="_top"><img src="/i/promos/competition_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
+         <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+         <td height="42"><A href="/tc/?module=Static&amp;d1=review_board&amp;d2=design"  target="_top"><img src="/i/promos/design_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
+         <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+         <td height="42""><A href="/tc/?module=Static&amp;d1=review_board&amp;d2=development"  target="_top"><img src="/i/promos/development_rb_promo.gif" alt="competition" width="175" height="86" border="0" /></A></td>
+         <td width="50%"></td>
+      </tr>
+</table>
+
+<table width="100%" border="0" cellpadding="3" cellspacing="0">
+      <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong> Development Review Board</strong></font></td></tr>
+</table>      
+
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
          <td><img src="/i/clear.gif" width="240" height="1" border="0"><br>
@@ -59,14 +76,16 @@
             </p>
             <p class="bodyText">
             The following members have agreed to participate on the TopCoder Development Review Board:
-            <br><br>
+            <br>
             </p>
          </td>
       </tr>
 
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
-<tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>Development Review Board</strong></font></td></tr>
 </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=278342"><img src="/i/m/adic_mug.gif" alt="adic" width="63" height="70" border="0" /></a></td>
