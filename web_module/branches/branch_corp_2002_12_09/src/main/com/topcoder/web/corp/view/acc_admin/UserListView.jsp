@@ -66,7 +66,7 @@
                         <tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
                 <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
                         <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-                <% boolean isPrim = Long.parseLong(resultRow.getItem("isnot_admin").toString())==0; %>
+                <% boolean isPrim = Double.parseDouble(resultRow.getItem("isnot_admin").toString())==0.0; %>
                 <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=<%= isPrim? "Registration" : "UserEdit" %>&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>          
           </TR>
         </tc-webtag:iterator>
