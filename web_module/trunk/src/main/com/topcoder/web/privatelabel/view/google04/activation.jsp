@@ -59,7 +59,7 @@ function submitEnter(e) {
 			<span class=bigTitle>Activation Successful!</span>
 			<br/><br/>
                         
-			You may practice for the contest by clicking the Competition Arena tab above.
+			You may practice for the contest by clicking the Competition Arena link above.
 			<br/><br/>
 			If you encounter any problems, please contact us at <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>.
 
