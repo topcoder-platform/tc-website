@@ -12,6 +12,9 @@ import com.topcoder.shared.util.TCResourceBundle;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/03 00:30:22  gpaul
+ *           moving over here
+ *
  *           Revision 1.4  2002/06/13 18:53:43  lbackstrom
  *           distributed cache
  *
@@ -39,20 +42,22 @@ public class Request implements RequestInt {
   private String msContentHandle;
 
   private static TCResourceBundle bundle;
+  private static String COMMAND_KEY;
 
   public Request() {
     msContentHandle = ""; 
     mProp = new Properties();
     if (bundle==null) 
       bundle = new TCResourceBundle("DataAccess");
+    COMMAND_KEY = bundle.getProperty("COMMAND", "c");
   }
 
-  public Request(Map map) {
+  public Request(Map map) throws Exception {
     this();
     setProperties(map);
     if (bundle==null) 
       bundle = new TCResourceBundle("DataAccess");
-
+    COMMAND_KEY = bundle.getProperty("COMMAND", "c");
   }
 
   /**
@@ -70,7 +75,7 @@ public class Request implements RequestInt {
    * @param Map A set of mappings
    * @return none
    */
-  public void setProperties(Map map) {
+  public void setProperties(Map map) throws Exception {
           Iterator it = map.entrySet().iterator();
           Map.Entry me = null;
           String[] sArray = null;
@@ -84,7 +89,7 @@ public class Request implements RequestInt {
               sKey = me.getKey().toString(); //maps can't have null-key
               sValue = (String) me.getValue();
               sValue = sValue==null?"":sValue; //nulls not allowed in Properties
-              if (sKey.equals(bundle.getProperty("COMMAND", "c")))
+              if (sKey.equals(COMMAND_KEY))
                 msContentHandle = sValue;
                 mProp.put(sKey, sValue);
             } else if (me.getValue().getClass().isArray()) {
@@ -97,13 +102,15 @@ public class Request implements RequestInt {
                   mProp.put(sKey, sArray[0]);
                   // if the COMMAND_ID is in there multiple times,
                   // we'll just use the first one
-                  if (sKey.equals(bundle.getProperty("COMMAND", "c")))
+                  if (sKey.equals(COMMAND_KEY))
                     msContentHandle = sArray[0];
                 }
                 for(int i=1; i<sArray.length; i++) {
                    mProp.put(sKey+i, sArray[i]);
                 }
               }
+            } else {
+              throw new Exception("unrecognized class " + me.getValue().getClass());
             }
           }
   }
@@ -124,7 +131,7 @@ public class Request implements RequestInt {
   */
   public void setContentHandle(String s) {
     msContentHandle = s;
-    mProp.setProperty(bundle.getProperty("COMMAND", "c"), s);
+    mProp.setProperty(COMMAND_KEY, s);
   }
 
   /**
@@ -155,22 +162,26 @@ public class Request implements RequestInt {
   */
   public void setProperty(String sKey, String sVal) {
     mProp.setProperty(sKey, sVal);
-    if (sKey.equals(bundle.getProperty("COMMAND", "c")))
+    if (sKey.equals(COMMAND_KEY))
       msContentHandle = sVal;
   }
 
-    public String toString()
-    {
-        StringBuffer sb = new StringBuffer();
-        Enumeration keys = mProp.keys();
-        Enumeration values = mProp.elements();
-        while(keys.hasMoreElements())
-        {
-            sb.append(keys.nextElement().toString());
-            sb.append('=');
-            if(values.hasMoreElements())
-                sb.append(values.nextElement().toString());
-        }
-        return sb.toString();
+  /**
+   * Implementation of toString, it includes each
+   * of the key/value pairs from the properties
+   * object of this object.
+   */
+  public String toString() {
+    Iterator it = mProp.entrySet().iterator();
+    Map.Entry me = null;
+    StringBuffer sb = new StringBuffer();
+
+    for( ; it.hasNext(); ) {
+      me = (Map.Entry)it.next();
+      sb.append(me.getKey().toString());
+      sb.append('=');
+      sb.append(me.getValue().toString());
     }
+    return sb.toString();
+  }
 }
