@@ -88,17 +88,6 @@ public class PlacementInfoDetail extends Base {
 
             getRequest().setAttribute("prefs", groups);
 
-            //resume status
-            if (info.getResume() == null) {
-                ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                if (resumeServices.hasResume(userId, DBMS.OLTP_DATASOURCE_NAME)) {
-                    getRequest().setAttribute("resume", "Not Supplied, Using Existing Resume");
-                } else {
-                    getRequest().setAttribute("resume", "Not Supplied");
-                }
-            } else
-                getRequest().setAttribute("resume", "Attached (" + info.getResume().getRemoteFileName() + ")");
-
             //tech skill
             ArrayList techSkills = new ArrayList();
 
@@ -216,6 +205,10 @@ public class PlacementInfoDetail extends Base {
                     industrySkills.add(resp);
                 }
             }
+
+            ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
+
+            getRequest().setAttribute("has_resume", Boolean.toString(resumeServices.hasResume(userId, DBMS.OLTP_DATASOURCE_NAME)));
 
             getRequest().setAttribute("industrySkills", industrySkills);
             setNextPage(Constants.PLACEMENT_INFO_DETAIL);
