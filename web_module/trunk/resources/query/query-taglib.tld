@@ -141,6 +141,16 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
+      <name>size</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>multiple</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
       <name>list</name>
       <required>true</required>
       <rtexprvalue>true</rtexprvalue>
@@ -190,6 +200,16 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
+      <name>size</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>multiple</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
       <name>value</name>
       <required>false</required>
       <rtexprvalue>true</rtexprvalue>
@@ -231,6 +251,16 @@
     <attribute>
       <name>name</name>
       <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>size</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>multiple</name>
+      <required>false</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
@@ -284,6 +314,16 @@
       <rtexprvalue>true</rtexprvalue>
     </attribute>
     <attribute>
+      <name>size</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>multiple</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
       <name>list</name>
       <required>true</required>
       <rtexprvalue>true</rtexprvalue>
@@ -332,11 +372,21 @@
       <required>true</required>
       <rtexprvalue>true</rtexprvalue>
     </attribute>
-      <attribute>
-        <name>list</name>
-        <required>true</required>
-        <rtexprvalue>true</rtexprvalue>
-      </attribute>
+    <attribute>
+      <name>size</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>multiple</name>
+      <required>false</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
     <attribute>
       <name>value</name>
       <required>false</required>

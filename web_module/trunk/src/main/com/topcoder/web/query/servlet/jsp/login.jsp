@@ -20,19 +20,16 @@
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD class="statText" width="100%" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
+      <TD class="statText" width="100%" BGCOLOR="#000000" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
-            <TD BGCOLOR="#000000" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000000" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-
-
-<p class='notice'>
-<jsp:getProperty name="LoginTask" property="Message" />
-</p>
-
-<FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>">
-   <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%= Constants.LOGIN_TASK %>">
+            <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+            <TD class="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+              <p class='notice'>
+                <jsp:getProperty name="LoginTask" property="Message" />
+              </p>
+              <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>">
+                <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%= Constants.LOGIN_TASK %>">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Handle:</TD>
@@ -62,7 +59,7 @@
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   <TR>
-    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000000" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
+    <TD COLSPAN="4" VALIGN="top" BGCOLOR="#000000" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
   </TR>
 </TABLE>
     </TD>
