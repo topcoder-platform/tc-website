@@ -22,7 +22,7 @@ public class Static extends Base {
             path += "/"+p;
             nav.setFolder(i-1, p);
         }
-        if(path.equals("")) throw new NavigationException("path must have at least one component");
+        if(path.length()==0) throw new NavigationException("path must have at least one component");
         path += ".jsp";
 
         /* check whether the path is allowed for this type of user */
