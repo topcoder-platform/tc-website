@@ -1,4 +1,5 @@
 <%@ page language="java" %>
+<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="donationTotal" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
 
 
