@@ -11,6 +11,7 @@
 <%
     String level1 = request.getParameter("level1")==null?"":request.getParameter("level1");
     String level2 = request.getParameter("level2")==null?"":request.getParameter("level2");
+    System.out.println("XXX level1: " + level1 + " level2: " + level2);
 %>
 
 <img alt="" width="180" height="5" src="/i/spacer.gif" border="0"><br>
@@ -18,7 +19,7 @@
 <table width="180" cellspacing="0" cellpadding="0" border="0">
 
 
-    <% if ((level1.equals("review_board"))) { %>
+    <% if (level1.equals("review_board")) { %>
         <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
         <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About TopCoder</a></td></tr>
         <tr><td id="leftNavOn"><a class="leftOn" href="/tc/?module=Static&d1=review_board&d2=competition"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Review Boards</a></td></tr>
