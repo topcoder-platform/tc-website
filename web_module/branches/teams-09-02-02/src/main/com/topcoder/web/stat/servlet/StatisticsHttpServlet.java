@@ -56,7 +56,10 @@ public class StatisticsHttpServlet extends HttpServlet {
         DataAccessInt dai = null;
         Map resultMap = null;
 
-
+        /* initialize the DataType stuff, don't really understand what's going on here.... 
+         * this is pretty nasty to be having queries in 
+         * this servlet.  TODO get them outta here, and clean this up.
+         */
         try {
 
             qr = new QueryRequest();
