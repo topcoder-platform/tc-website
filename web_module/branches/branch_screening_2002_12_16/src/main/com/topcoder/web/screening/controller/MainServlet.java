@@ -15,26 +15,33 @@ import javax.servlet.http.*;
  *
  * @author Nathaniel Dean
  * @date 27-Dec-2002
- * @version 1.0.0
+ * @version 1.0.1
  *
  * History:
  * version 1.0.0 -- 27-Dec-2002 -- created.
+ * version 1.0.1 -- 27-Dec-2002 -- looks up constant changes in web.xml upon initialization.
  */
  
 public class MainServlet
     extends HttpServlet {
-    static final String ERROR_PAGE         = "error.jsp";
-    static final String PROCESSORS_PACKAGE = "com.topcoder.web.screening.controller.request";
-    static final String PROCESSORS_PARAM   = "rp";
+        //defaults seeded for missing config params in web.xml
+    static String ERROR_PAGE         = "error.jsp";
+    static String PROCESSORS_PACKAGE = "com.topcoder.web.screening.controller.request";
+    static String PROCESSORS_PARAM   = "rp";
 
     /**
      * Init() is run the moment that the servlet is loaded into the web server.
-     * currently unused
+     * Initializes the static variables.
      * 
      * @throws ServletException
      */
-    public void init()
-              throws ServletException {
+    public void init() throws ServletException {
+        if(getServletConfig().getInitParameter("error_page")!=null)
+            ERROR_PAGE = getServletConfig().getInitParameter("error_page");
+        if(getServletConfig().getInitParameter("processors_package")!=null)
+            PROCESSORS_PACKAGE = getServletConfig().getInitParameter("processors_package");
+        if(getServletConfig().getInitParameter("processors_param")!=null)
+            PROCESSORS_PARAM = getServletConfig().getInitParameter("processors_param");
     }
 
     /**
