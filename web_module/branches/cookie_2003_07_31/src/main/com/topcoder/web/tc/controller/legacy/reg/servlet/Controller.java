@@ -41,6 +41,7 @@ public class Controller
         HttpSession session = null;
         Navigation nav = null;
         try {
+            session = request.getSession(true);
             nav = (Navigation)session.getAttribute("navigation");
             if (nav == null) nav = new Navigation(request, response);
             if (!nav.isLoggedIn())
@@ -54,7 +55,6 @@ public class Controller
                     forwardToError(request, response, new TaskException(TASK + " not found in request."));
                     return;
                 }
-                session = request.getSession(true); // for now create a new session, later this'll be done in the front page
                 Object taskObject = session.getAttribute(taskName);
                 Task task = null;
                 Class taskClass = null;
