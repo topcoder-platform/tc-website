@@ -77,7 +77,7 @@
     						    <xsl:attribute name="href">
     						        <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_forum.jsp?f=',$FORUMID)"/>
                                 </xsl:attribute>
-                                Specification Forum
+                                Developer Forum
     						</a>.  
 
        						<xsl:choose>
