@@ -18,8 +18,6 @@ public class ProfileList extends BaseProcessor {
      * @throws Exception
      */
     public void process() throws Exception {
-//        authorize(getSelfRedirect());
-        
         InitialContext context = new InitialContext();
         DataAccessInt dAccess = new DataAccess(
             (DataSource)context.lookup(Constants.DATA_SOURCE));

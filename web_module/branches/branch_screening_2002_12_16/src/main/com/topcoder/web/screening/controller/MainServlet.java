@@ -9,12 +9,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.common.web.util.Data;
-import com.topcoder.shared.security.Authentication;
-import com.topcoder.shared.security.Persistor;
+import com.topcoder.shared.security.*;
 import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.common.security.*;
 import com.topcoder.web.screening.common.*;
+import com.topcoder.security.TCSubject;
 
 /**
  * This class handles all incoming requests.
@@ -106,13 +105,33 @@ public class MainServlet extends HttpServlet {
             }
             Class procClass = Class.forName(className);
 
+            Persistor p = new SessionPersistor(request.getSession());
+            WebAuthentication authen = new BasicAuthentication(p, request, response);
+            
+            long userId = authen.getActiveUser().getId();
+            Resource r = new ClassResource(procClass);
+            PrincipalMgr pm = new PrincipalMgr();
+            
+            TCSubject sub = pm.getUserSubject(userId);
+            Authorization author = new TCSAuthorization(sub);
+            
+            if(!author.hasPermission(r)){
+                String redirect = request.getServletPath() + '?' +
+                                  request.getQueryString();
+                if(userId == User.USER_ANONYMOUS_ID){
+                    request.setAttribute(Constants.REDIRECT,redirect);
+                    request.setAttribute(Constants.MESSAGE_PARAMETER,
+                        "You must be logged in to access that resource.");
+                    throw new AnonymousUserException("Login required for "+r.getName());
+                }else{
+                    throw new PermissionDeniedException("Access denied for "+r.getName());
+                }
+            }
+            
             RequestProcessor rp = (RequestProcessor)procClass.newInstance();
 
-            Persistor p = new SessionPersistor(request.getSession());
-            Authentication auth = new BasicAuthentication(p, request, response);
-            
             rp.setRequest(request);
-            rp.setAuthentication(auth);
+            rp.setAuthentication(authen);
             rp.process();
             String wherenow = rp.getNextPage();
             boolean forward = rp.isNextPageInContext();
