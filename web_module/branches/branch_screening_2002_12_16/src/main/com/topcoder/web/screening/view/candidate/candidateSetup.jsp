@@ -66,7 +66,7 @@
            </TR>                                
 <%    } else {%>
            <TR>
-              <TD COLSPAN="2" ALIGN="center"><screen:servletLink processor="<%=referrer%>" styleClass="bodyText">Go Back</screen:servletLink></TD>
+              <TD COLSPAN="2" ALIGN="center"><screen:servletLink processor="<%=candidateInfo.getReferrer()%>" styleClass="bodyText">Go Back</screen:servletLink></TD>
            </TR>                                
 <%    } %>
          </TABLE>
