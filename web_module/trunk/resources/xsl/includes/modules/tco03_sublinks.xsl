@@ -138,7 +138,7 @@
                 </xsl:when>
                 <xsl:otherwise>
                     <td class="tcoSubNav" width="1" nowrap="nowrap"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
-                </xsl:otherwise>
+                </xsl:otherwise> 
                 </xsl:choose>
 
                 <xsl:choose>
