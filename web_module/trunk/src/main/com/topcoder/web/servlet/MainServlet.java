@@ -71,6 +71,7 @@ public final class MainServlet extends HttpServlet {
         //==============================================================
         // REMOVE THIS CACHE REFRESH BLOCK AFTER TESTING COMPLETED...
         //==============================================================
+/*
         try {
             synchronized (this) {
                 htmlMaker.refresh();
@@ -78,6 +79,7 @@ public final class MainServlet extends HttpServlet {
         } catch (Exception e) {
             e.printStackTrace();
         }
+*/
         //==============================================================
 
         processCommands(request, response);
