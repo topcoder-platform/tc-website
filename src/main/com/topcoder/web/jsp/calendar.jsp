@@ -43,14 +43,14 @@
                                 <td id="calendarTCCC05Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">12</A></td>
                                 <td id="calendarMini">13</td>
                                 <td id="calendarMini">14</td>
-                                <td id="calendarMini">15</td>
+                                <td id="calendarTCCC05Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">15</A></td>
                             </tr>
                             
                             <tr> 
                                 <td id="calendarMini">16</td>
                                 <td id="calendarMini">17</td>
                                 <td id="calendarMini">18</td>
-                                <td id="calendarMini">19</td>
+                                <td id="calendarTCCC05Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">19</A></td>
                                 <td id="calendarMini">20</td>
                                 <td id="calendarMini">21</td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=6516&amp;t=schedule&amp;c=srm">22</A></td>
@@ -60,7 +60,7 @@
                                 <td id="calendarMini">23</td>
                                 <td id="calendarMini">24</td>
                                 <td id="calendarMini">25</td>
-                                <td id="calendarMini">26</td>
+                                <td id="calendarTCCC05Mini"><A id="miniSRMDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">26</A></td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=6517&amp;t=schedule&amp;c=srm">27</A></td>
                                 <td id="calendarMini">28</td>
                                 <td id="calendarMini">29</td>
