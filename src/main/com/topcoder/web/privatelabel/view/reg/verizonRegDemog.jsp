@@ -16,7 +16,48 @@
 <jsp:include page="../script.jsp" />
 </head>
 <body>
-    <table cellpadding="1" cellspacing="3">
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+   <tr valign="top">
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+<!-- Gutter Ends -->
+
+<!-- Left Column Begins-->
+         <td>
+         <p><img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <a href="/" ><img src="/i/tournament/vcc03/vcc03_left.gif" width="180" height="74" border="0"/></a><br />
+         <img src="/i/clear.gif" width="180" height="60" border="0"/><br />
+         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
+         <img src="/i/clear.gif" width="180" height="40" border="0"/>
+         </p>
+         </td>         
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->  
+        <td class="bodyText" width="100%">
+<!-- TCO Header -->
+   <p><br /></p>
+   <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
+   <p><br /></p>
+   
+<!-- Tab bar links-->
+<jsp:include page="/verizon/verizonLinks.jsp" >
+   <jsp:param name="selectedTab" value="rules"/>
+</jsp:include>
+<!-- Tab bar sub links-->
+<jsp:include page="/verizon/verizonSublinks.jsp" >
+   <jsp:param name="selectedList" value="rules"/>
+   <jsp:param name="selectedTab" value="registration"/>
+</jsp:include>   
+
+      <blockquote>
+      <table cellpadding="1" cellspacing="3" class="bodyText">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.FULL_REG_CONFIRM%>"/>
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
@@ -51,13 +92,13 @@
                </tr>
             </pl:questionIterator>
 
-
-
             <tr>
-                <td colspan="2">
-                    <a href="javascript: document.regForm.submit();">submit</a>
-                </td>
-            </tr>
+               <td colspan="2" align="center">
+                  <p><br /></p>
+                  <p align="center"><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
+                  <p><br /></p>
+               </td>
+            </tr> 
          </form>
          </table>
       </blockquote>
