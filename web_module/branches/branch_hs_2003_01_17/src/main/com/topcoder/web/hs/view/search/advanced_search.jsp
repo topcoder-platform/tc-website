@@ -28,6 +28,14 @@
    <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/hs/clear.gif" HEIGHT="1" WIDTH="1" BORDER="0"></TD>
   </TR>
   <TR>
+   <TD></TD>
+   <TD></TD>
+   <TD></TD>
+   <TD CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <adv:errorIterator id="error" name="SchoolCode"><%=error%><BR></reg:errorIterator>
+   </TD>
+  </TR>
+  <TR>
    <TD COLSPAN="2" WIDTH="50%" HEIGHT="15" VALIGN="middle" CLASS="bodyText">
     Handle&nbsp;<INPUT TYPE="text" NAME="handle" VALUE="" MAXLENGTH="20" SIZE="15" ONKEYPRESS="submitEnter(event);">
    </TD>
@@ -42,6 +50,17 @@
   <TR>
    <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="bodyText">Rating</TD>
    <TD COLSPAN="2">
+  </TR>
+  <TR>
+   <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
+    <adv:errorIterator id="error" name="MinRating"><%=error%><BR></reg:errorIterator>
+    <adv:errorIterator id="error" name="MaxRating"><%=error%><BR></reg:errorIterator>
+    <adv:errorIterator id="error" name="MinMax"><%=error%><BR></reg:errorIterator>
+   </TD>
+   <TD></TD>
+   <TD>
+    <adv:errorIterator id="error" name="SchoolId"><%=error%><BR></reg:errorIterator>
+   </TD>
   </TR>
   <TR>
    <TD WIDTH="25%" VALIGN="middle" CLASS="bodyText">
