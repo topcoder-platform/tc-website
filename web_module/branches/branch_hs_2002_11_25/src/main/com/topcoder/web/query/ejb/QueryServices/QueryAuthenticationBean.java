@@ -24,7 +24,6 @@ import java.sql.SQLException;
 public class QueryAuthenticationBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(QueryAuthenticationBean.class);
-    private String dataSourceName;
 
     public ResultSetContainer getLoginInfo(String handle) throws RemoteException, EJBException {
         log.debug("getLoginInfo called...handle: " + handle);
@@ -36,6 +35,9 @@ public class QueryAuthenticationBean extends BaseEJB {
         ResultSetContainer rsc = null;
 
         try {
+
+
+
             StringBuffer query = new StringBuffer();
             query.append("SELECT u.handle");
             query.append(    " , u.password");
@@ -56,7 +58,7 @@ public class QueryAuthenticationBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting login information for " + handle);
         } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             throw new EJBException("Exception getting login information for " + handle + "\n " + e.getMessage());
         } finally {
@@ -68,10 +70,6 @@ public class QueryAuthenticationBean extends BaseEJB {
         return rsc;
     }
 
-    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        if (dataSourceName.trim().length()>0)
-            this.dataSourceName = dataSourceName;
-    }
 }
 
 

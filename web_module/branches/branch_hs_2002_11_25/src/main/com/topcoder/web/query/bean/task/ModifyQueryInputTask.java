@@ -67,13 +67,9 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         QueryHome qHome = (QueryHome) getInitialContext().lookup(ApplicationServer.Q_QUERY);
         Query q = qHome.create();
 
-        i.setDataSource(getDb());
-        qi.setDataSource(getDb());
-        q.setDataSource(getDb());
-
         processAttributeQueue();
 
-        setQueryName(q.getName(getQueryId()));
+        setQueryName(q.getName(getQueryId(), getDb()));
 
         checkQueryId(getQueryId(), q);
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
@@ -84,24 +80,24 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
                 for (int j=0; j<getCurrentInputList().size(); j++) {
                     qib = (QueryInputBean)getCurrentInputList().get(j);
                     if (qib.isOptional()) {
-                        qi.setDefaultValue(qib.getQueryId(), qib.getInputId(), qib.getDefaultValue());
+                        qi.setDefaultValue(qib.getQueryId(), qib.getInputId(), qib.getDefaultValue(), getDb());
                     } else {
-                        qib.setDefaultValue(qi.getDefaultValue(qib.getQueryId(), qib.getInputId()));
+                        qib.setDefaultValue(qi.getDefaultValue(qib.getQueryId(), qib.getInputId(), getDb()));
                     }
-                    qi.setOptional(qib.getQueryId(), qib.getInputId(), qib.isOptional()?'Y':'N');
-                    qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder());
+                    qi.setOptional(qib.getQueryId(), qib.getInputId(), qib.isOptional()?'Y':'N', getDb());
+                    qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder(), getDb());
                 }
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
             checkInputId(getInputId(), i);
-            qi.createQueryInput(getQueryId(), getInputId());
+            qi.createQueryInput(getQueryId(), getInputId(), getDb());
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             checkInputId(getInputId(), i);
-            qi.removeQueryInput(getQueryId(), getInputId());
+            qi.removeQueryInput(getQueryId(), getInputId(), getDb());
         }
 
-        setCurrentInputList(qi.getInputsForQuery(getQueryId()));
-        setOtherInputList(i.getAllInputs());
+        setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
+        setOtherInputList(i.getAllInputs(getDb()));
 
         super.setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
     }
@@ -177,13 +173,13 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
     }
 
     private void checkQueryId(long queryId, Query q) throws Exception {
-        if (q.getName(queryId)==null) {
+        if (q.getName(queryId, getDb())==null) {
             super.addError(Constants.QUERY_ID_PARAM, "Invalid query id");
         }
     }
 
     private void checkInputId(long inputId, Input i) throws Exception {
-        if (i.getInputCode(inputId)==null) {
+        if (i.getInputCode(inputId, getDb())==null) {
             super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
         }
     }
@@ -298,8 +294,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         if (currentInputList==null) {
             QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
             QueryInput qi = qiHome.create();
-            qi.setDataSource(getDb());
-            setCurrentInputList(qi.getInputsForQuery(getQueryId()));
+            setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
         }
         return currentInputList;
     }

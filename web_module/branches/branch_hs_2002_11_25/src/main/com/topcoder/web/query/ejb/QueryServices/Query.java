@@ -13,20 +13,18 @@ import java.rmi.RemoteException;
  */
 public interface Query extends EJBObject {
 
-    long createQuery(String text, String name, int ranking) throws RemoteException, EJBException;
+    long createQuery(String text, String name, int ranking, String dataSourceName) throws RemoteException, EJBException;
 
-    void setText(long queryId, String text) throws RemoteException, EJBException;
-    void setName(long queryId, String name) throws RemoteException, EJBException;
-    void setRanking(long queryId, int ranking) throws RemoteException, EJBException;
-    void setColumnIndex(long queryId, int columnIndex) throws RemoteException, EJBException;
+    void setText(long queryId, String text, String dataSourceName) throws RemoteException, EJBException;
+    void setName(long queryId, String name, String dataSourceName) throws RemoteException, EJBException;
+    void setRanking(long queryId, int ranking, String dataSourceName) throws RemoteException, EJBException;
+    void setColumnIndex(long queryId, int columnIndex, String dataSourceName) throws RemoteException, EJBException;
 
-    String getText(long queryId) throws RemoteException, EJBException;
-    String getName(long queryId) throws RemoteException, EJBException;
-    int getRanking(long queryId) throws RemoteException, EJBException;
-    int getColumnIndex(long queryId) throws RemoteException, EJBException;
-    ResultSetContainer getAllQueries(boolean includeText) throws RemoteException, EJBException;
-
-    void setDataSource(String dataSourceName) throws RemoteException, EJBException;
+    String getText(long queryId, String dataSourceName) throws RemoteException, EJBException;
+    String getName(long queryId, String dataSourceName) throws RemoteException, EJBException;
+    int getRanking(long queryId, String dataSourceName) throws RemoteException, EJBException;
+    int getColumnIndex(long queryId, String dataSourceName) throws RemoteException, EJBException;
+    ResultSetContainer getAllQueries(boolean includeText, String dataSourceName) throws RemoteException, EJBException;
 
 }
 

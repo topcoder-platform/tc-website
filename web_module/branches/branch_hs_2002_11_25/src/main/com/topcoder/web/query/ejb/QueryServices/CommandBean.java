@@ -5,7 +5,6 @@ import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.InformixDB;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 
 import javax.ejb.EJBException;
@@ -27,9 +26,8 @@ import java.sql.SQLException;
 public class CommandBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(CommandBean.class);
-    private String dataSourceName;
 
-    public long createCommand(String commandDesc, int commandGroupId)
+    public long createCommand(String commandDesc, int commandGroupId, String dataSourceName)
             throws RemoteException, EJBException {
         log.debug("createCommand called...desc: " + commandDesc + " group: " + commandGroupId);
 
@@ -75,7 +73,7 @@ public class CommandBean extends BaseEJB {
 
     }
 
-    public void setCommandDesc(long commandId, String commandDesc) throws RemoteException, EJBException {
+    public void setCommandDesc(long commandId, String commandDesc, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setCommandDesc called...command: " + commandId + " desc: " + commandDesc);
 
         PreparedStatement ps = null;
@@ -112,7 +110,7 @@ public class CommandBean extends BaseEJB {
         }
 
     }
-    public void setCommandGroupId(long commandId, int commandGroupId) throws RemoteException, EJBException {
+    public void setCommandGroupId(long commandId, int commandGroupId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setCommandGroupId called...command: " + commandId + " group: " + commandGroupId);
 
         PreparedStatement ps = null;
@@ -150,7 +148,7 @@ public class CommandBean extends BaseEJB {
 
     }
 
-    public String getCommandDesc(long commandId) throws RemoteException, EJBException {
+    public String getCommandDesc(long commandId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getCommandDesc called...command: " + commandId);
 
         ResultSet rs = null;
@@ -189,7 +187,7 @@ public class CommandBean extends BaseEJB {
         return ret;
     }
 
-    public int getCommandGroupId(long commandId) throws RemoteException, EJBException {
+    public int getCommandGroupId(long commandId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getCommandGroupId called...command: " + commandId);
 
         ResultSet rs = null;
@@ -231,7 +229,7 @@ public class CommandBean extends BaseEJB {
    }
 
 
-    public ResultSetContainer getCommandList() throws RemoteException, EJBException {
+    public ResultSetContainer getCommandList(String dataSourceName) throws RemoteException, EJBException {
         log.debug("getCommandList called...");
 
         ResultSet rs = null;
@@ -276,7 +274,7 @@ public class CommandBean extends BaseEJB {
         return ret;
    }
 
-    private long getNextValue() {
+     private long getNextValue() {
         log.debug("getNextValue called...");
 
         Context ctx = null;
@@ -293,59 +291,13 @@ public class CommandBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence\n" + sqe.getMessage());
         } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
         return ret;
-    }
-
-/*
-    private long getNextValue() {
-        log.debug("getNextValue called...");
-
-        ResultSet rs = null;
-        PreparedStatement ps = null;
-        Connection conn = null;
-        Context ctx = null;
-        DataSource ds = null;
-        long ret = 0;
-        try {
-
-            StringBuffer query = new StringBuffer();
-            query.append("  EXECUTE PROCEDURE nextval(?)");
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
-            conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, DBMS.COMMAND_SEQ);
-            rs = ps.executeQuery();
-            if (rs.next())
-                ret = rs.getLong(1);
-            else throw new SQLException("nextval() did not return a value");
-        } catch (SQLException sqe) {
-            DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting sequence");
-        } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
-        } catch (Exception e) {
-            throw new EJBException("Exception getting sequence\n " + e.getMessage());
-        } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
-            if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
-        }
-        return ret;
-    }
-*/
-
-
-    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        if (dataSourceName.trim().length()>0)
-            this.dataSourceName = dataSourceName;
     }
 
 }
