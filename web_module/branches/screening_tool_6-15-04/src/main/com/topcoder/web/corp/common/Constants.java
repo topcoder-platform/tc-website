@@ -20,6 +20,17 @@ public class Constants
     //URL Parameter constants
     public static String USER_ID;
     public static String CANDIDATE_ID;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of parameter
+     * of incoming HTTP requests containing the preference level of some user relevant to some company.</p>
+     *
+     * <p>The controller servlet configuration file must have a "preference_level" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String PREFERENCE_LEVEL;
+
     public static String EMAIL_ADDRESS;
     public static String MESSAGE_PARAMETER;
     public static String FIRST_ATTEMPT;
