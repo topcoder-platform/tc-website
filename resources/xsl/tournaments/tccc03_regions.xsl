@@ -2,24 +2,24 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tccc03_links.xsl"/>  
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/modules/tccc03_links.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 
 <html>
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>TopCoder | Tournaments</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -51,16 +51,18 @@
         <td width="6"><img src="/i/clear.gif" width="6" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">steelgray</xsl:with-param>
                 <xsl:with-param name="image">tournaments_gray</xsl:with-param>
                 <xsl:with-param name="title">2003 TopCoder Collegiate Challenge</xsl:with-param>
             </xsl:call-template>
-        
-            <xsl:call-template name="tccc03_links"/>
-            
+
+            <xsl:call-template name="tccc03_links">
+                <xsl:with-param name="selectedTab">regions</xsl:with-param>
+            </xsl:call-template>
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>
                     <td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -72,8 +74,8 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                     <td width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>
                         <table width="100%" border="0" cellpadding="0" cellspacing="1">
-                            <tr><td colspan="4" class="statText"><strong>Regional Breakdown</strong><br /><br /></td></tr>                                            
-                            
+                            <tr><td colspan="4" class="statText"><strong>Regional Breakdown</strong><br /><br /></td></tr>
+
                             <tr>
                                 <td width="20%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_ne" class="statTextBig"></a>Northeast</td>
                                 <td width="20%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_se" class="statTextBig"></a>Southeast</td>
@@ -81,7 +83,7 @@
                                 <td width="20%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_mw" class="statTextBig"></a>Midwest</td>
                                 <td width="20%" align="center" class="tourney_subhead1"><a href="/index?t=tournaments&amp;c=tourny_regions_mw" class="statTextBig"></a>International</td>
                             </tr>
-                        
+
                             <tr valign="top">
                                 <td class="statText" nowrap="nowrap">
                                     Connecticut<br />
@@ -98,7 +100,7 @@
                                     Vermont<br />
                                     Virginia<br />
                                     Washington,&#160;DC</td>
-                                
+
                                 <td class="statText" nowrap="nowrap">
                                     Alabama<br />
                                     Florida<br />
@@ -111,7 +113,7 @@
                                     Tennessee<br />
                                     US Virgin Islands<br />
                                     West Virginia</td>
-                                
+
                                 <td class="statText" nowrap="nowrap">
                                     Alaska<br />
                                     Arizona<br />
@@ -130,7 +132,7 @@
                                     Utah<br />
                                     Washington<br />
                                     Wyoming</td>
-                                
+
                                 <td class="statText" nowrap="nowrap">
                                     Arkansas<br />
                                     Iowa<br />
@@ -144,7 +146,7 @@
                                     North Dakota<br />
                                     South Dakota<br />
                                     Wisconsin</td>
-                                
+
                                 <td class="statText" nowrap="nowrap">
                                     Australia<br/>
                                     Canada, excluding Quebec<br/>
@@ -153,9 +155,9 @@
                                     Ireland<br/>
                                     New Zealand<br/>
                                     United Kingdom
-                                </td>                            
+                                </td>
                             </tr>
-                        
+
                             <tr><td colspan="5"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
                         </table>
                         <p><br/></p>
@@ -173,7 +175,7 @@
   <!-- Right Column Begins -->
         <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
 
-        <xsl:call-template name="public_right_col"/>       
+        <xsl:call-template name="public_right_col"/>
 
         </td>
   <!-- Right Column Ends -->
