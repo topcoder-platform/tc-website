@@ -36,4 +36,6 @@ insert into command values(19,"all_time_wins_by_div");
 insert into command values(20,"last_match");
 insert into command values(21,"last_match_sorted");
 insert into command values(22,"top_room_winners");
+insert into command values(23,"top_ranked_div_1");
+insert into command values(24,"top_ranked_div_2");
 
