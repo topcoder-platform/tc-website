@@ -110,11 +110,6 @@
                                             dynamic programming and geometry.
                                         </p>
 
-                                        <p>
-                                            For the first time since the invitational, <b>John Dethridge</b> dropped from the 1st place in the ranking
-                                            list, leaving <b>Yarin</b> as the currently highest ranked coder on TopCoder.
-                                        </p>
-
                                         <p><B>Problem Set Analysis &amp; Opinion</B></p>
 
                                         <font size="+2"><b>Ordered</b></font><BR/>
