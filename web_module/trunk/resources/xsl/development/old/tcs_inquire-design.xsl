@@ -16,7 +16,7 @@
     
 	<xsl:call-template name="Preload"/>      
 
-<title>TopCoder | Development</title>
+<title>TopCoder | Application</title>
 
 	<xsl:call-template name="CSS"/>      
 
