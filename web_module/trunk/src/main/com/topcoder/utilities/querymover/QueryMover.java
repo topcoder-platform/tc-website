@@ -7,7 +7,7 @@ import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.Input;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
-import com.topcoder.web.query.common.Util;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -546,12 +546,12 @@ public class QueryMover {
     private void initTarget() throws Exception {
         InitialContext ctx = (InitialContext) TCContext.getContext(targetContextFactory, targetContextURL);
 
-        targetQ = (Query) Util.createEJB(ctx, Query.class);
-        targetQI = (QueryInput) Util.createEJB(ctx, QueryInput.class);
-        targetCQ = (CommandQuery) Util.createEJB(ctx, CommandQuery.class);
-        targetC = (Command) Util.createEJB(ctx, Command.class);
-        targetI = (Input) Util.createEJB(ctx, Input.class);
-        targetCG = (CommandGroup) Util.createEJB(ctx, CommandGroup.class);
+        targetQ = (Query) BaseProcessor.createEJB(ctx, Query.class);
+        targetQI = (QueryInput) BaseProcessor.createEJB(ctx, QueryInput.class);
+        targetCQ = (CommandQuery) BaseProcessor.createEJB(ctx, CommandQuery.class);
+        targetC = (Command) BaseProcessor.createEJB(ctx, Command.class);
+        targetI = (Input) BaseProcessor.createEJB(ctx, Input.class);
+        targetCG = (CommandGroup) BaseProcessor.createEJB(ctx, CommandGroup.class);
     }
 
     /**
@@ -561,12 +561,12 @@ public class QueryMover {
         try {
             InitialContext ctx = (InitialContext) TCContext.getContext(sourceContextFactory, sourceContextURL);
 
-            sourceQ = (Query) Util.createEJB(ctx, Query.class);
-            sourceQI = (QueryInput) Util.createEJB(ctx, QueryInput.class);
-            sourceCQ = (CommandQuery) Util.createEJB(ctx, CommandQuery.class);
-            sourceC = (Command) Util.createEJB(ctx, Command.class);
-            sourceI = (Input) Util.createEJB(ctx, Input.class);
-            sourceCG = (CommandGroup) Util.createEJB(ctx, CommandGroup.class);
+            sourceQ = (Query) BaseProcessor.createEJB(ctx, Query.class);
+            sourceQI = (QueryInput) BaseProcessor.createEJB(ctx, QueryInput.class);
+            sourceCQ = (CommandQuery) BaseProcessor.createEJB(ctx, CommandQuery.class);
+            sourceC = (Command) BaseProcessor.createEJB(ctx, Command.class);
+            sourceI = (Input) BaseProcessor.createEJB(ctx, Input.class);
+            sourceCG = (CommandGroup) BaseProcessor.createEJB(ctx, CommandGroup.class);
         } catch (NamingException e) {
             e.printStackTrace();
             throw e;
