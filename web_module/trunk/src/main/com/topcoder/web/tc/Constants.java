@@ -64,7 +64,7 @@ public class Constants {
     public static int SRM_SURVEY_QUESTION;
     public static int TOURNAMENT_SURVEY_QUESTION;
     public static int SEARCH_SCROLL_SIZE;
-    public static int STATISTICS_PATH;
+    public static String STATISTICS_PATH;
 
 
     private Constants() {
