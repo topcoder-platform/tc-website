@@ -39,7 +39,6 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=radeye_rd4">Round 4</a> 
             <% } %>
 
-<%--
             &nbsp;|&nbsp;
             
 <!-- round4 -->
@@ -49,6 +48,7 @@
                   <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=radeye_semi">Semifinals</a> 
             <% } %>
 
+<%--
             &nbsp;|&nbsp;
             
 <!-- round4 -->
