@@ -234,6 +234,7 @@ else {
            pageContext.setAttribute("coderHandle", resultRow.getItem(0).toString()); %>
                    <TD WIDTH="10" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="4" BORDER="0"></TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" ALIGN="left" HEIGHT="13"> 
+                     <SPAN CLASS="coderBrackets">[&#160;</SPAN><tc:ratingImage link='<%=sLink + <bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>' bg='B' cid='<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>' /></SPAN>
                      <SPAN CLASS="coderBrackets">[&#160;</SPAN><A HREF="/stat?c=member_profile&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /* id */ + "]" %>'/>" CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></A><SPAN CLASS="coderBrackets">&#160;]</SPAN>
                    </TD>
                    <TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
