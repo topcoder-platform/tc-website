@@ -15,6 +15,9 @@
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
 <!-- Save until Premier Sponsors come online
+            <img src="/i/tournament/tco03/header_title_sponsor.gif" alt="Title Sponsor" width="170" height="22" border="0" /><br/>
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
             <img src="/i/tournament/tco03/header_premier_sponsors.gif" alt="Premier Sponsors" width="170" height="22" border="0" /><br/>
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />  -->
             
@@ -22,7 +25,7 @@
             <A href="/?t=tournaments&amp;c=tco03_revelation"><img src="/i/tournament/tco03/promo_sm_revelation.gif" alt="Revelation Software" width="170" height="84" border="0" /></A><br/>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index</xsl:attribute><img src="/i/tournament/tco03/promo_sponsor_tco.gif" alt="Sponsor the TCO" width="170" height="124" border="0" /></A><br />
+            <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index</xsl:attribute><img src="/i/tournament/tco03/promo_sponsor_tco.gif" alt="Sponsor the TCO" width="170" height="166" border="0" /></A><br />
             
             <p><br/></p>
     </xsl:when>
