@@ -263,7 +263,89 @@
                                         </table>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td colspan="3">
+                                        <hr width="100%" size="1px" color="666666"/>
+                                    </td>
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="bodyText" height="15" valign="top">
+                                        <strong>Application Integration Deliverables</strong>
+                                        <br/>
+                                        The Application Integration Deliverables provides an overview of the integration process including
+                                        the deliverables required of a complete submission and the responsibilities of a winning
+                                        developer.  The Application Development Review Board will not review submissions that do not meet
+                                        the screening requirements.
+                                        <br/>
+                                        <br/>
+                                        The Application Integration Specification is to be completed by the Developers as part of
+                                        their submission for the design project.
+                                    </td>
+                                    <td></td>
+                                    <td class="bodyText" valign="top">
+                                        <br/>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr valign="top">
+                                                <td class="bodyText">01.12.2004</td>
+                                                <td class="bodyText">
+                                                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
+                                                </td>
+                                                <td class="bodyText">
+                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Integration_Deliverables.pdf" class="bodyText">Application Integration Deliverables</a>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td class="bodyText">01.12.2004</td>
+                                                <td class="bodyText">
+                                                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
+                                                </td>
+                                                <td class="bodyText">
+                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Integration_Specification.rtf" class="bodyText">Application Integration Specification</a>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td class="bodyText">01.12.2004</td>
+                                                <td class="bodyText">
+                                                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
+                                                </td>
+                                                <td class="bodyText">
+                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Development_Scope.rtf" class="bodyText">Application Development Scope</a>
+                                                </td>
+                                            </tr>
 
+                                        </table>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="3">
+                                        <hr width="100%" size="1px" color="666666"/>
+                                    </td>
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="bodyText" height="15" valign="top">
+                                        <strong>Application Integration Review Scorecards</strong>
+                                        <br/>
+                                        The application integration review scorecard is completed by each member of the Application Development Review
+                                        Board that is assigned to the application integration project.  All members who submit an integrated
+                                        solution will receive the populated scorecards from the review board members.
+                                    </td>
+                                    <td></td>
+                                    <td class="bodyText" valign="top">
+                                        <br/>
+                                        <table border="0" cellspacing="0" cellpadding="0">
+                                            <tr valign="top">
+                                                <td class="bodyText">01.12.2004</td>
+                                                <td class="bodyText">
+                                                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
+                                                </td>
+                                                <td class="bodyText">
+                                                    <a target="tcsdocs" href="/i/development/downloads/App_Integration_Review_Scorecard.rtf" class="bodyText">Application Integration Review Scorecard</a>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <td colspan="3">
                                         <hr width="100%" size="1px" color="666666"/>
