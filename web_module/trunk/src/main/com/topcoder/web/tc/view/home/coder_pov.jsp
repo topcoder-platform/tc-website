@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=tccc05_online_rd_1">TCCC05 Round 1 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, January 15, 2005</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=tccc05_online_rd_2">TCCC05 Round 2 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, January 19, 2005</p>
 
                         <p>
+Submissions to the first two problems came in fast and fierce during round 2 of
+the TopCoder Collegiate Challenge.  Eryx was the first to submit both problems,
+doing so in under 10 minutes.  Others were not far behind though, and after 20
+minutes, most of room 1 was working on the last problem.
 
-The first online elimination round in the TCCC caused no major upsets,
-as all the high seeds easily moved on. The problem set, containing three chess related
-problems, was fairly easy (compared to regular division 1 SRM's), and 22 participants
-solved all the problems.
-
-						<a href="/index?t=statistics&c=tccc05_online_rd_1" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=tccc05_online_rd_2" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
