@@ -86,7 +86,7 @@ When the competition begins, you may view the problem statements as follows:
 <li>Select the point value of the problem that you wish to solve</li>
 </ul>
 
-The higher the point value assigned, the more difficult the problem will be. You may open the problems in any order. You may have all problems open at the same time - but keep in mind that the timers for each problem will be counting down independent of other problems that may be open. The points that you receive when you submit a problem are calculated based on elapsed coding time. The faster that you can submit a solution for a problem, the more point you will receive. 
+The higher the point value assigned, the more difficult the problem will be. You may open the problems in any order. You may have all problems open at the same time - but keep in mind that the timers for each problem will be counting down independent of other problems that may be open. The points that you receive when you submit a problem are calculated based on elapsed coding time. The faster that you can submit a solution for a problem, the more points you will receive. 
 <br><br>
 The Coding Phase will allow you to submit a problem more than once. If you've already submitted a problem and you choose to submit again, your score for that submission will be adjusted to account for the additional lapsed time, as well as an additional penalty of 10% of the maximum point value for the problem. 
 <br><br>

@@ -251,20 +251,14 @@
                 </td>
             </tr>
             <tr>
-                <td align="right" valign=bottom nowrap>
-                    <span class="errorText">*</span> Student/Professional
-                </td>
-                <td align="left" valign=bottom>
+                <td align="center" valign="bottom" colspan="2">
                     Student: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.STUDENT%>" <%=regInfo.isStudent()?"checked":""%>>
                     Professional: <input type="radio" name="<%=Constants.CODER_TYPE%>" value ="<%=Constants.PROFESSIONAL%>" <%=regInfo.isProfessional()?"checked":""%>>
                 </td>
             </tr>
             <tr>
-                <td align="right" valign=bottom nowrap>
+                <td align="center" valign="bottom" colspan="2">
                     <span class="errorText">* Required</span>
-                </td>
-                <td align="left" valign=bottom>
-                    &nbsp;
                 </td>
             </tr>
             <tr>

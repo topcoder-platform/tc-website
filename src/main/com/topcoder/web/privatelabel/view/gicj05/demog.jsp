@@ -83,11 +83,8 @@
                 </td>
            </tr>
             <tr>
-                <td align="right" valign=bottom nowrap>
+                <td align="center" valign="bottom" colspan="2">
                     <span class="errorText">* Required</span>
-                </td>
-                <td align="left" valign=bottom>
-                    &nbsp;
                 </td>
             </tr>
             <tr>
