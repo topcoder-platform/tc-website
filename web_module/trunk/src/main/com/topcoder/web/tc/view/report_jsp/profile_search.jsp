@@ -16,7 +16,6 @@
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
     ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographics_questions");
     ResultSetContainer skill_types = (ResultSetContainer)m.get("skill_types");
-    Map skillNames = new HashMap();
     Map selected = (Map)request.getAttribute("selected");
     Map demoMap = (Map)request.getAttribute("demoMap");
     Map skillMap = (Map)request.getAttribute("skillMap");
@@ -54,7 +53,6 @@
                 op.value = val1+"_"+text2+"_"+text1;
                 op.text = text1+" >= "+text2;
                 document.search[c].options[len] = op;
-                document.search['skill_names'].value = document.search['skill_names'].value + val1 + "\n" + text1 + "\n";
             }
         }
     }
@@ -92,7 +90,6 @@
     <input type="hidden" name="t" value=""/>
     <input type="hidden" name="order" value="1"/>
     <input type="hidden" name="sort" value="1"/>
-    <input type="hidden" name="skill_names" value="<%=request.getParameter("skill_names")%>"/>
 
     <table cellpadding="0" cellspacing="0" border="0">
       <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>">&lt;&lt; back to main menu</A></TD></TR>

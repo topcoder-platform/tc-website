@@ -97,6 +97,3 @@
     <a href="JavaScript:revise()">Revise query</a>
   </body>
 </html>
-
-
-
