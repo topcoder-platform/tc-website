@@ -100,20 +100,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
 
         return ret;
@@ -166,20 +160,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -230,20 +218,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -289,20 +271,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -365,20 +341,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
 
         return id;
@@ -437,20 +407,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -502,20 +466,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -586,20 +544,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -655,27 +607,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException("Failed to get schedulerId", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception rserr) {
-                    log.error("Failed to close recordset", rserr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -727,20 +666,12 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException("Error while attempting to acquireJob", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -790,20 +721,12 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException("Error while attempting to acquireJob", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -846,27 +769,14 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException("Error while attempting to getJobControlId", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception rserr) {
-                    log.error("Failed to close recordset", rserr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 
@@ -902,20 +812,12 @@ public class EmailServerBean extends BaseEJB {
             throw new RemoteException("Error while attempting to clearJobControlIds", dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            ps = null;
+            conn = null;
+            ctx = null;
         }
     }
 }

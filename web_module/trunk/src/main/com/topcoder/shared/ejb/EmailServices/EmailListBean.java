@@ -35,7 +35,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int id = 1;
@@ -76,25 +75,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to create list";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return id;
@@ -113,7 +104,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int id = 1;
@@ -154,25 +144,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to create list";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return id;
@@ -190,7 +172,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
@@ -227,25 +208,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to remove list member";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
     }
 
@@ -260,7 +233,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
@@ -288,25 +260,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get list names";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -324,7 +288,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Map ret = new HashMap();
@@ -355,25 +318,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get list names for group " + groupId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -391,7 +346,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         Set ret = new HashSet();
@@ -420,25 +374,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get members for list " + listId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -456,7 +402,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = "";
@@ -484,25 +429,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get data for " + listId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -520,7 +457,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         int ret = 0;
@@ -548,25 +484,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get data for " + listId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -585,7 +513,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
         String ret = "";
@@ -619,25 +546,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to get member data for " + listId + ":" + memberId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
 
         return ret;
@@ -655,7 +574,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
@@ -692,25 +610,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to update list";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
     }
 
@@ -726,7 +636,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
@@ -763,25 +672,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to update list";
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
     }
 
@@ -798,7 +699,6 @@ public class EmailListBean extends BaseEJB {
         java.sql.Connection conn = null;
         java.sql.PreparedStatement ps = null;
         java.sql.ResultSet rs = null;
-        RemoteException result = null;
         StringBuffer sqlStmt = new StringBuffer(500);
         int rows;
 
@@ -838,25 +738,17 @@ public class EmailListBean extends BaseEJB {
         } catch (Exception dberr) {
             String err = "Failed to set member data for " + listId + ":" + memberId;
             log.error(err, dberr);
-            result = new RemoteException(err, dberr);
         } finally {
             // Since the connections are pooled, make sure to close them in finally blocks
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ctxerr) {
-                    log.error("Failed to close database context", ctxerr);
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception connerr) {
-                    log.error("Failed to close database connection", connerr);
-                }
-            }
+            try { if (rs != null) rs.close(); } catch (Exception ignore) { log.error("resultset close problem", ignore); }
+            try { if (ps != null) ps.close(); } catch (Exception ignore) { log.error("prepared statement close problem", ignore); }
+            try { if (conn != null) conn.close(); } catch (Exception ignore) { log.error("connection close problem", ignore); }
+            try { if (ctx != null) ctx.close(); } catch (Exception ignore) { log.error("contet close problem", ignore); }
+            rs = null;
+            ps = null;
+            conn = null;
+            ctx = null;
 
-            if (result != null) throw result;
         }
     }
 
