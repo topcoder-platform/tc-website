@@ -36,6 +36,7 @@ public class TCCC05AlgorithmTerms extends TermsBase {
 
     protected void setSuccessPage() throws Exception {
         if (isRegistered()) {
+            setNextPage("/tc");
             setIsNextPageInContext(false);
         } else {
             setNextPage(Constants.TCCC05_TERMS);

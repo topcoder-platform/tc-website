@@ -74,7 +74,7 @@ public class TCCC05AlgorithmTermsAgree extends TermsAgreeBase {
     }
 
     protected void setSuccessPage() {
-        //just go to the default
+        setNextPage("/tc");
         setIsNextPageInContext(false);
     }
 

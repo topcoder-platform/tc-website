@@ -94,7 +94,6 @@ public class TCO04ComponentTermsAgree extends TermsAgreeBase {
     }
 
     protected void setSuccessPage() {
-        setNextPage("/tc");
         setIsNextPageInContext(false);
     }
 
