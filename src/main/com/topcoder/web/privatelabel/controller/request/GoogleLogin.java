@@ -134,7 +134,7 @@ public class GoogleLogin extends FullLogin {
 
             for (Iterator it = responses.iterator(); it.hasNext();) {
                 row = (ResultSetContainer.ResultSetRow) it.next();
-                question = findQuestion(row.getLongItem("demographic_question_id"), questions);
+                question = findQuestion(row.getLongItem("demographic_question_id"), getQuestions());
                 DemographicResponse r = new DemographicResponse();
                 r.setQuestionId(question.getId());
                 r.setSort(row.getIntItem("sort"));
@@ -167,7 +167,7 @@ public class GoogleLogin extends FullLogin {
                 long tcQuestionId = row.getLongItem("demographic_question_id");
                 //only add the response if we have a mapping for it
                     if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(tcQuestionId))) {
-                        question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), questions);
+                        question = findQuestion(((Long)TC_TO_PL_QUESTION_MAP.get(new Long(tcQuestionId))).longValue(), getQuestions());
                         DemographicResponse r = new DemographicResponse();
                         r.setQuestionId(question.getId());
                         r.setSort(row.getIntItem("sort"));

@@ -34,13 +34,13 @@ public abstract class FullRegConfirm extends FullRegBase {
 
         try {
             if (hasErrors()) {
-                List l = getQuestionList();
+                List l = getQuestionList(((FullRegInfo)regInfo).getCoderType());
                 Collections.sort(l);
                 getRequest().setAttribute("questionList", l);
                 setDefaults(regInfo);
             } else {
                 getRequest().setAttribute("responseList", ((FullRegInfo) regInfo).getResponses());
-                getRequest().setAttribute("questionMap", questions);
+                getRequest().setAttribute("questionMap", getQuestions());
                 regInfo.setCountryName(findCountry(regInfo.getCountryCode()));
                 regInfo.setStateName(findState(regInfo.getStateCode()));
             }
@@ -68,7 +68,7 @@ public abstract class FullRegConfirm extends FullRegBase {
         try {
             for (Iterator it = ((FullRegInfo) info).getResponses().iterator(); it.hasNext();) {
                 r = (DemographicResponse) it.next();
-                q = findQuestion(r.getQuestionId(), questions);
+                q = findQuestion(r.getQuestionId(), getQuestions());
                 if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
                         q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                     if (!validResponse(r)) {
@@ -126,7 +126,7 @@ public abstract class FullRegConfirm extends FullRegBase {
             String[] values = null;
             DemographicResponse r = null;
             String key = null;
-            List questionList = getQuestionList();
+            List questionList = getQuestionList(info.getCoderType());
             //loop through all the questions
             for (Iterator it = questionList.iterator(); it.hasNext();) {
                 q = (DemographicQuestion) it.next();

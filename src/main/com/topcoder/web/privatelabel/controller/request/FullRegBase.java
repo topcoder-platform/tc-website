@@ -36,11 +36,6 @@ public abstract class FullRegBase extends SimpleRegBase {
             log.debug("database set to: " + db);
 
             regInfo = makeRegInfo();
-            //this is pretty hokey...really should figure out a better way to get the
-            //demographic questions for a user.  maybe an accessor method that caches
-            //them and hides everything..?
-            if (questions==null)
-                questions=getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType());
 
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
@@ -118,6 +113,17 @@ public abstract class FullRegBase extends SimpleRegBase {
         }
         return ret;
     }
+
+    protected Map getQuestions() {
+        try {
+            if (questions==null)
+                questions=getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType());
+        } catch (Exception e) {
+            throw new RuntimeException("failed to get the questions \n" + e.getMessage());
+        }
+        return questions;
+    }
+
 
     private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row, String db) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
