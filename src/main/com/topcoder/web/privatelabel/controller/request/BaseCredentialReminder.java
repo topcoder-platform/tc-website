@@ -11,6 +11,7 @@ import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
 
 import java.util.Map;
+import java.util.StringTokenizer;
 
 /**
  * @author  dok
@@ -21,9 +22,15 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
 
     protected void registrationProcessing() throws TCWebException {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
-        if (email.equals("")) {
-            addError(Constants.EMAIL, "Please enter an email address");
-        } else {
+
+
+        StringTokenizer st = new StringTokenizer(email, "@.");
+        if (st.countTokens() < 3
+                || !StringUtils.contains(email, '@')
+                || !StringUtils.contains(email, '.')) {
+            addError(Constants.EMAIL, "Please enter a valid email address.");
+            setDefault(Constants.EMAIL, email);
+        } else{
             try {
                 Request r = new Request();
                 r.setContentHandle("user_info_using_email");
