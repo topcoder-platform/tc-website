@@ -18,6 +18,6 @@ import javax.ejb.EJBObject;
 public interface FileConversion extends EJBObject {
 
     //Convert file
-    public byte[] convertDoc(byte[] file) throws RemoteException;
+    public byte[] convertDoc(byte[] file, String extension) throws RemoteException;
 }
 

@@ -67,11 +67,11 @@ public class FileConversionBean implements SessionBean {
     }
 
 
-    public byte[] convertDoc(byte[] file) throws RemoteException
+    public byte[] convertDoc(byte[] file, String extension) throws RemoteException
     {
         // get an instance of the converter
         ConversionClient client = Conversion.getInstance().getNewClient();
-        ConversionFormatDescriptor inFormat = client.getInputFormat("doc");
+        ConversionFormatDescriptor inFormat = client.getInputFormat(extension);
         ConversionFormatDescriptor outFormat = client.getOutputFormat(inFormat.getType(), "pdf");
         ConversionInputSource input = new ConversionInputSource(new ByteArrayInputStream(file), inFormat.getType());
 

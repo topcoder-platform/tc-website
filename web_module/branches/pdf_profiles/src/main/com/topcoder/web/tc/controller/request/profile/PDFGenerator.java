@@ -763,17 +763,20 @@ public class PDFGenerator extends BaseProcessor {
         ResumeServices resumebean = (ResumeServices)createEJB(ctx, ResumeServices.class);
         
         if(resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
+            String ext = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().substring(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName().lastIndexOf('.'));
+            log.debug(ext);
+            
             doc.resetFooter();
             doc.resetHeader();
             inResume = true;
-            log.debug(resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFileName());
+            
             byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
             //pass through the converter
             
             ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
             
             FileConversion filebean = (FileConversion)createEJB(ctx, FileConversion.class);
-            byte[] result = filebean.convertDoc(rawBytes);
+            byte[] result = filebean.convertDoc(rawBytes,ext);
             
             PdfReader reader = new PdfReader(result);
             
