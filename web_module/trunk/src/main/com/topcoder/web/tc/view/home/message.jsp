@@ -4,9 +4,8 @@
 </table>
 <table cellspacing="0" cellpadding="0" class="messageBoxFrame">
     <tr>
-        <td class="tco04Message" align=center>
-        <img src="/i/tournament/tco04/message.gif" border=0 /><br/><br/>
-		You are not registered for the TCO Algorithm Competition, click <a class="tco04MessageLink" href="/tc?module=TCO04AlgorithmTerms">here</a> to register.<br/>
+        <td class="messageBoxText" align=left>
+		The TopCoder site will be down for maintenance for about 4 hours, starting at <strong>11:00PM ET on Sunday, December 12th</strong>.  Thank you for your patience.<br/>
         </td>
     </tr>
 </table>
