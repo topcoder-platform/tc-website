@@ -14,7 +14,7 @@
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
   </HEAD>
   <BODY BGCOLOR="#333333" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"">
-  <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+  <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR><TD><jsp:include page="top.jsp" /></TD></TR>
     <TR>
       <TD>
