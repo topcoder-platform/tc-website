@@ -1,18 +1,14 @@
 package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
-import java.util.HashSet;
-import java.util.Iterator;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.AppContext;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -44,9 +40,7 @@ public class MainServlet extends HttpServlet {
     private static final String KEY_MODULE      = "module";
     private static final String KEY_MAINPAGE    = "main";
     private static final String KEY_ERRORPAGE   = "error";
-	private static final String KEY_CFG_CONTEXT = "config-context";
     private static final String KEY_EXCEPTION   = "caught-exception";
-    public  static final String KEY_COOKIES_SET = "cookies-to-set";
 
     private static final String PFX_PROCMODULE  = "processor-";
     private static final String PFX_PAGE        = "page-";
@@ -60,17 +54,7 @@ public class MainServlet extends HttpServlet {
      * @throws     ServletException
      * */
     public void init() throws ServletException {
-    	servletConfig = getServletConfig();
-    	String propsFileName = servletConfig.getServletContext().getRealPath(servletConfig.getInitParameter(KEY_CFG_CONTEXT));
-    	
-        // just creates AppContext
-        try {
-            AppContext.getInstance(propsFileName);
-            log.debug("Web-application context instantiated");
-        }
-        catch(Exception e) {
-            log.fatal("Can't get web-application context", e);
-        }
+        servletConfig = getServletConfig();
         //com.topcoder.web.query.common.Constants.init(getServletConfig());
     }
 
@@ -78,10 +62,14 @@ public class MainServlet extends HttpServlet {
      * 
      * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest, HttpServletResponse)
      */
-    public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.debug("URI: "+request.getRequestURI()+"["+request.getQueryString()+"]" );
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException
+    {
+        log.debug("URI: "+
+            request.getRequestURI()+"["+request.getQueryString()+"]" 
+        );
 
-    	String processorName = request.getParameter(KEY_MODULE);
+        String processorName = request.getParameter(KEY_MODULE);
         if( processorName == null ) {
             log.warn("processing module not specified");
             String dest = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
@@ -90,11 +78,15 @@ public class MainServlet extends HttpServlet {
         }
 
         // prefixed to allow different resource kinds to share same name
-    	String processorClassName = servletConfig.getInitParameter(PFX_PROCMODULE+processorName);
+        String processorClassName = servletConfig.getInitParameter(
+            PFX_PROCMODULE+processorName
+        );
+        
         RequestProcessor processorModule = null;
         
         try {
-            processorModule = (RequestProcessor) Class.forName(processorClassName).newInstance();
+            processorModule = (RequestProcessor)
+                Class.forName(processorClassName).newInstance();
             log.debug("processing module "+processorClassName+" instantiated");
         }
         catch(Exception e) {
@@ -105,7 +97,9 @@ public class MainServlet extends HttpServlet {
 
         try {
             processorModule.setRequest(request);
-            SessionPersistor persistor = SessionPersistor.getInstance(request.getSession(true));
+            SessionPersistor persistor = SessionPersistor.getInstance(
+                request.getSession(true)
+            );
             WebAuthentication authToken;
             authToken = new BasicAuthentication(persistor, request, response); 
             processorModule.setAuthToken(authToken);
@@ -122,7 +116,9 @@ public class MainServlet extends HttpServlet {
             fetchRegularPage(request, response, destination, forward);
         }
         catch(Exception e) {
-            log.error("exception during request processing ["+processorName+"]", e);
+            log.error("exception during request processing ["
+                +processorName+"]", e
+            );
             fetchErrorPage(request, response, e);
         }
     }
@@ -135,27 +131,25 @@ public class MainServlet extends HttpServlet {
      * @param forward
      * @throws Exception
      */
-    private void fetchRegularPage( HttpServletRequest req, HttpServletResponse resp,
-                                    String dest, boolean forward ) throws IOException, ServletException
+    private void fetchRegularPage(
+        HttpServletRequest req,
+        HttpServletResponse resp,
+        String dest,
+        boolean forward
+    )
+    throws IOException, ServletException
     {
         if( dest == null ) {
             // it is supposed when processor returns null as next page, then
             // controller must use defaul page
-            dest = SessionPersistor.getInstance(req.getSession(true)).popLastPage();
+            dest = SessionPersistor.getInstance(req.getSession(true))
+                .popLastPage();
             if( dest == null ) { //still null
-                dest = req.getContextPath()+"/"; // deefault page is web app root
+                dest = req.getContextPath()+"/"; // default page is web app root
             } 
         }
         log.debug((forward?"forwarding":"redirecting") + " to " + dest);
 
-        // if there are any cookies to be set, then populate response with them
-        HashSet cookies = (HashSet)req.getAttribute(KEY_COOKIES_SET);
-        if( cookies != null ) {
-            Iterator i = cookies.iterator();
-            while (i.hasNext()) {
-                resp.addCookie((Cookie) i.next());
-            }
-        }
         String contextPrefix = req.getContextPath();
         boolean startsWithContextPath = dest.startsWith(contextPrefix); 
         if( forward ) {
@@ -188,8 +182,12 @@ public class MainServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    private void fetchErrorPage(HttpServletRequest req, HttpServletResponse resp, Throwable exc)
-                                 throws ServletException, IOException
+    private void fetchErrorPage(
+        HttpServletRequest req,
+        HttpServletResponse resp,
+        Throwable exc
+    )
+    throws ServletException, IOException
     {
         // error page is regular page too with the only difference - it
         // has an error attribute set in request, so..
@@ -205,7 +203,9 @@ public class MainServlet extends HttpServlet {
      *
      * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public void doPost(HttpServletRequest request, HttpServletResponse response)
+    throws ServletException, IOException
+    {
         doGet(request, response);
     }
 
@@ -215,7 +215,7 @@ public class MainServlet extends HttpServlet {
      * @see javax.servlet.http.HttpServlet#doDelete(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
-                             throws ServletException, IOException
+    throws ServletException, IOException
     {
         log.error(ERR_DELETE);
         fetchErrorPage(req, resp, new Exception(ERR_DELETE));
@@ -227,7 +227,7 @@ public class MainServlet extends HttpServlet {
      * @see javax.servlet.http.HttpServlet#doOptions(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
     protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
-                               throws ServletException, IOException
+    throws ServletException, IOException
     {
         log.error(ERR_OPTIONS);
         fetchErrorPage(req, resp, new Exception(ERR_OPTIONS));
@@ -238,7 +238,9 @@ public class MainServlet extends HttpServlet {
      * 
      * @see javax.servlet.http.HttpServlet#doPut(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
-    protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doPut(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException
+    {
         log.error(ERR_PUT);
         fetchErrorPage(req, resp, new Exception(ERR_PUT));
     }
@@ -248,7 +250,9 @@ public class MainServlet extends HttpServlet {
      * 
      * @see javax.servlet.http.HttpServlet#doTrace(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
-    protected void doTrace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doTrace(HttpServletRequest req, HttpServletResponse resp)
+    throws ServletException, IOException 
+    {
         log.error(ERR_TRACE);
         fetchErrorPage(req, resp, new Exception(ERR_TRACE));
     }

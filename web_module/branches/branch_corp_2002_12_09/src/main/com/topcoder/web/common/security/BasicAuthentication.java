@@ -1,18 +1,26 @@
 package com.topcoder.web.common.security;
 
+import java.rmi.RemoteException;
+import javax.ejb.CreateException;
+import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.topcoder.security.GeneralSecurityException;
+import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginRemote;
+import com.topcoder.security.login.LoginRemoteHome;
 import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.AppContext;
+import com.topcoder.web.corp.Constants;
 
 /**
  * This implementation will use the TCS security component to attempt a login.
@@ -111,18 +119,31 @@ public class BasicAuthentication implements WebAuthentication {
      * Pulls out user matching given ID from database.
      * 
      * @param id of user to be pulled out
-     * @return User user matching an ID given
+     * @return User user matching an ID given. For security reasons password
+     * will be set as null.
      * @throws Exception if there is not user with given id in DB or some errors
      * in underlying software has occured
      */
-    private User pullUserFromDB(long id) throws Exception {
+    private User pullUserFromDB(long id)
+    throws NamingException, CreateException, NoSuchUserException,
+            RemoteException, GeneralSecurityException
+    {
         log.debug("pulling out user from db [id="+id+"]");
-        PrincipalMgrRemote mgr =
-            AppContext.getInstance().getRemotePrincipalManager();
-        String uname = mgr.getUser(id).getName();
-        // log.debug("[username="+uname+"]");
-        // password set to null because user is not logged in yet
-        return new SimpleUser(uname, null, id);
+        InitialContext ic = null;
+        try {
+            ic = new InitialContext( Constants.SECURITY_CONTEXT_ENVIRONMENT );
+            PrincipalMgrRemoteHome mgrHome = (PrincipalMgrRemoteHome)
+            ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+           
+            PrincipalMgrRemote mgr = mgrHome.create();
+            String uname = mgr.getUser(id).getName();
+            // log.debug("[username="+uname+"]");
+            // password set to null because user is not logged in yet
+            return new SimpleUser(uname, null, id);
+        }
+        finally {
+            closeIC(ic);
+        }
     }
 
     /**
@@ -146,6 +167,20 @@ public class BasicAuthentication implements WebAuthentication {
         }
         return user;
     }
+
+    /**
+     * 
+     * @param ic
+     */    
+    private void closeIC(InitialContext ic) {
+        if( ic == null ) return;
+        try {
+            ic.close();
+        }
+        catch(Exception e) {
+            log.error("Can't close initial context "+ic);
+        }
+    }
     
     /**
      * Get current user logged out and also clears pre-identification cookies in
@@ -168,18 +203,58 @@ public class BasicAuthentication implements WebAuthentication {
      * @see com.topcoder.shared.security.Authentication#login(com.topcoder.shared.security.User)
      */
     public void login(User user) throws AuthenticationException {
+        InitialContext ic = null;
         try {
-            AppContext ac = AppContext.getInstance();
-            LoginRemote lrBean = ac.getRemoteLogin();
-            TCSubject subjUser = lrBean.login(user.getUserName(), user.getPassword());
+            ic = new InitialContext( Constants.SECURITY_CONTEXT_ENVIRONMENT );
+            LoginRemoteHome lrHome;
+            lrHome = (LoginRemoteHome)ic.lookup(LoginRemoteHome.EJB_REF_NAME);
+            
+            LoginRemote loginBean = lrHome.create();
+            
+            TCSubject subjUser = loginBean.login(
+                user.getUserName(),
+                user.getPassword()
+            );
+            
             long id = subjUser.getUserId();
-            User loggedUser = new SimpleUser(user.getUserName(), user.getPassword(), id);
+            User loggedUser = new SimpleUser(
+                user.getUserName(),
+                user.getPassword(),
+                id
+            );
             store.setObject(KEY_LOGGEDIN_USER, loggedUser);
             embedPreIDCookies(loggedUser.getId(), false);
         }
-        catch(Exception e) { //
-            e.printStackTrace();
-            throw new AuthenticationException("Login attempt has failed ["+e.getMessage()+"]");
+        catch( NamingException ne ) {
+            ne.printStackTrace();
+            throw new AuthenticationException(
+                "Login attempt has failed (NaminException occured)["
+                +ne.getMessage()+"]"
+            );
+        }
+        catch(CreateException ce) {
+            ce.printStackTrace();
+            throw new AuthenticationException(
+                "Login attempt has failed (CreateException occured)["
+                +ce.getMessage()+"]"
+            );
+        }
+        catch(RemoteException re) {
+            re.printStackTrace();
+            throw new AuthenticationException(
+                "Login attempt has failed (RemoteException occured)["
+                +re.getMessage()+"]"
+            );
+        }
+        catch(GeneralSecurityException gse) { //
+            gse.printStackTrace();
+            throw new AuthenticationException(
+                "Login attempt has failed (GeneralSecurityException occured)["
+                +gse.getMessage()+"]"
+            );
+        }
+        finally {
+            closeIC(ic);
         }
     }
 }

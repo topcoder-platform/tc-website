@@ -1,11 +1,13 @@
 package com.topcoder.web.corp.request;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
+import javax.transaction.SystemException;
 import javax.transaction.Transaction;
 
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.AppContext;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.corp.Util;
 //import com.topcoder.web.ejb.company.Company;
 //import com.topcoder.web.ejb.company.CompanyHome;
 //import com.topcoder.web.ejb.country.Country;
@@ -212,19 +214,14 @@ public class Registration extends BaseProcessor {
      * Makes user data persistent. Not implemented yet (until ejbs will be
      * ready).
      */
-    private void makePersistent() throws Exception {
+    private void makePersistent()
+    throws SystemException, NamingException
+    {
         //well, general scheme is
         
         
         // trying to start transaction
-        Transaction tx = null;
-        try {
-            tx = AppContext.getInstance().beginTransaction();
-        }
-        catch(Exception e) {
-            e.printStackTrace();
-            throw e;    
-        }
+        Transaction tx = Util.beginTransaction();
         
         // trying to store data
         InitialContext ic = null;
@@ -251,12 +248,10 @@ public class Registration extends BaseProcessor {
         }
         catch(Exception e) {
             tx.rollback(); // roll failed transaction back
-            throw e; 
+//            throw e; 
         }
         finally {
-            if( ic!=null ) {
-                ic.close();
-            }
+            Util.closeIC(ic);
         }
     }
     

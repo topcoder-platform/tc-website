@@ -78,7 +78,7 @@
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
                                     <TD HEIGHT="20" VALIGN="TOP"><FONT COLOR="#CCCCCC">********</FONT></TD>
-                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="javascript:document.mini_login.submit();" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Logout</FONT></A></TD>
+                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="<%=appContext%>/?module=Logout" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Logout &gt;</FONT></A></TD>
                                  </TR>
                               </TABLE>
                               <INPUT NAME="module" TYPE="hidden" VALUE="Logout"/>

@@ -1,5 +1,0 @@
-<persistent-store-until-ejb-ready>
-<user-list>
-    <user id="1" handle="dok" passw="1" group="tc-corp" />
-</user-list>
-</persistent-store-until-ejb-ready>

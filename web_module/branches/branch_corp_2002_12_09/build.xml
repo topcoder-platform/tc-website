@@ -543,15 +543,17 @@
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
+            <classes dir="${resources}/${corp.war.name}">
+                <include name="*.properties"/>
+            </classes>
+
             <!-- libraries to be included in servlet classpath -->
             <!--
             <lib dir="${jars.dir}">
             </lib>
 -->
-            <webinf dir="${resources}/corp">
+            <webinf dir="${resources}/${corp.war.name}">
                 <include name="tc-webtags.tld"/>
-                <include name="*.properties"/>
-                <include name="pstore.xml"/>
             </webinf>
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="*, **/*" prefix=""/>
             <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
