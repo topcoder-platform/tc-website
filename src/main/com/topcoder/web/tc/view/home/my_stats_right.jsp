@@ -25,11 +25,11 @@
 
     <tr>
         <td class="myStatsRatingName">Rating</td>
-        <td class="myStatsRatingAmount"><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/></td>
+        <td class="myStatsRatingAmount"><% if (coderInfo.getIntItem(0, "rating")<1) { %>Not Rated<% } else { %><rsc:item set="<%=coderInfo%>" name="rating" ifNull="Not Rated"/><% } %></td>
     </tr>
     <tr>
         <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00"/></td>
+        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00" ifNull="$0.00"/></td>
         </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Design</td></tr>
