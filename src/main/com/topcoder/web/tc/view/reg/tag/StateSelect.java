@@ -14,7 +14,7 @@ public class StateSelect
     public static final State NOT_IN_US;;
     static {
         NOT_IN_US = new State();
-        NOT_IN_US.setStateCode("");
+        NOT_IN_US.setStateCode("ZZ");
         NOT_IN_US.setStateName("Not In US");
     }
     //public State SEPARATOR;
