@@ -73,9 +73,9 @@
 	      <B>About the Tournament</B><BR/><UL>
 	      <LI><B>When to start the Online Tournament Rounds</B><BR/>
 TopCoder members must register for each single round match from within the competition arena. 
-              Registration is for 1.5 hours before the start of each match.
-              To register, login to the Tournament Arena applet, click on the 'Main' menu, and 
-              choose the option for 'Event Registration'.
+Registration is for 3 hours before the start of each match. To register, login to the 
+competition arena, click on the 'Active Contests' menu, choose the competition for 
+which you would like to register, and then select 'Register'.
               TopCoder members from all over the world will be participating
               in this event, but <B><I>all start times will be communicated as 
               &#160;Eastern Standard Time, so contestants in different time zones must 
