@@ -130,8 +130,8 @@
         <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
-      generic iterator tag iterates through elements of a Collection
-    </info>
+            generic iterator tag iterates through elements of a Collection
+        </info>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -257,7 +257,6 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-
 
 
 </taglib>
