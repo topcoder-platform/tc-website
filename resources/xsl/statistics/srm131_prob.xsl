@@ -112,7 +112,8 @@
                                             spot changing hands multiple times in the coding, challenge, and system
                                             test phases.  In the end, Yarin prevailed with SnapDragon and John Dethridge
                                             close behind.
-
+                                            <BR/>
+                                            <BR/>
                                             As a departure from the standard types of problems used, this competition
                                             featured an assorted set of algorithmic solutions unlike those seen in
                                             previous competitions.  It is very exciting to see competitors struggle with
@@ -121,7 +122,8 @@
                                             problem required the efficient generation of minimum weight Steiner trees,
                                             a topic none of the top ranked coders seemed to have experience with.  It was
                                             this problem that ended up deciding who won SRM 131.
-
+                                            <BR/>
+                                            <BR/>
                                             The writer for this SRM, pmadden, is a Professor of Computer Science at
                                             Binghamton University.  In addition to making TopCoder competitions mandatory
                                             homework for his undergraduate algorithms course, he has created a TopCoder
