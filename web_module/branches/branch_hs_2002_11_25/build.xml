@@ -149,6 +149,7 @@
       </move>
    </target>
 
+
    <target name="moveStruts" depends="check_java_version,create_public_html">
       <copy todir="${public_html}/WEB-INF/lib">
          <fileset dir="${struts.dir}" >
@@ -200,6 +201,20 @@
       <copy todir="${public_html}/WEB-INF">
          <fileset dir="resources/tces" >
                  <include name="**/*.tld" />
+         </fileset>
+      </copy>
+   </target>
+
+
+   <target name="mockSite" depends="">
+      <property name="mock.trgt"     value="${public_html}/hs" />
+      <property name="mock.src"      value="${web}/hs/mock_view" />
+
+      <mkdir dir="${mock.trgt}" /> 
+
+      <copy todir="${mock.trgt}">
+         <fileset dir="${mock.src}" >
+                 <include name="**/*.*" />
          </fileset>
       </copy>
    </target>
