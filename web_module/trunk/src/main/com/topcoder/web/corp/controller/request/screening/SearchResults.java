@@ -135,7 +135,7 @@ public class SearchResults extends BaseScreeningProcessor {
 	query.append("user u, session s, session_profile sp, email e, ");
 	query.append("coder c, user_address_xref uax, address a, country ct, coder_type cty, ");
 	query.append("session_profile_problem_xref sppx, job_hit jh, job j, ");
-	query.append("problem p, OUTER(component_state cs, OUTER( submission sbm)), OUTER(company_user_preference cup) ");
+	query.append("problem p, component cm, OUTER(component_state cs, OUTER( submission sbm)), OUTER(company_user_preference cup) ");
         query.append("where s.user_id = u.user_id ");
 	query.append("and sp.session_profile_id = s.session_profile_id ");
 	query.append("and e.user_id = u.user_id ");
@@ -150,10 +150,11 @@ public class SearchResults extends BaseScreeningProcessor {
 	query.append("and j.job_id = jh.job_id ");
 	query.append("and sppx.session_profile_id = s.session_profile_id ");
 	query.append("and sppx.problem_type_id = 4 ");
-	query.append("and sppx.problem_id in (select component_id from session_round_component ");
-	query.append("	where session_round_id in ( select session_round_id from company_session_schedule where company_id = sp.company_id ) ) ");
+	query.append("and sppx.problem_id in (select problem_id from session_round_component sr, component cp ");
+	query.append("	where sr.component_id = cp.component_id and sr.session_round_id in ( select session_round_id from company_session_schedule where company_id = sp.company_id ) ) ");
 	query.append("and p.problem_id = sppx.problem_id ");
-	query.append("and cs.component_id = p.problem_id ");
+        query.append("and cm.problem_id = p.problem_id");
+	query.append("and cs.component_id = cm.component_id ");
 	query.append("and cs.coder_id = c.coder_id ");
 	query.append("and cs.session_id = s.session_id ");
 	query.append("and sbm.component_state_id = cs.component_state_id ");
