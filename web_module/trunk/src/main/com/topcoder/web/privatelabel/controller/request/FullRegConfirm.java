@@ -8,7 +8,6 @@ import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.StringUtils;
-import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -33,13 +32,18 @@ public class FullRegConfirm extends FullRegBase {
         */
         checkRegInfo(regInfo);
 
-        if (hasErrors()) {
-            setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
-            setDefaults(regInfo);
-        } else {
-            regInfo.setCountryName(findCountry(regInfo.getCountryCode()));
-            regInfo.setStateName(findState(regInfo.getStateCode()));
-            setNextPage(Constants.VERIZON_REG_CONFIRM_PAGE);
+        try {
+            if (hasErrors()) {
+                getRequest().setAttribute("questionList", getQuestions());
+                setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
+                setDefaults(regInfo);
+            } else {
+                regInfo.setCountryName(findCountry(regInfo.getCountryCode()));
+                regInfo.setStateName(findState(regInfo.getStateCode()));
+                setNextPage(Constants.VERIZON_REG_CONFIRM_PAGE);
+            }
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
         setIsNextPageInContext(true);
     }
