@@ -205,7 +205,7 @@ public final class ReportServlet extends HttpServlet {
     }
 
     private void goTo(String addr, HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        log.debug("goTo called...");
+        log.debug("goTo called..." + addr);
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(addr);
         dispatcher.forward(request, response);
     }
