@@ -47,7 +47,7 @@
 </jsp:include>
 
             <p class="terciary">
-                Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=awards_photos">Photos</a>
+                Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=awards_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=slide_show">&gt; Slide Show</a>
             </p>
             
             <div class="leadPhoto">

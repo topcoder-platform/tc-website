@@ -47,7 +47,7 @@
 </jsp:include>
 
             <p class="terciary">
-                Summary&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final_photos">Photos</a>
+                Summary&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=comp_final_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=slide_show">&gt; Slide Show</a>
             </p>
             
             <div class="leadPhoto">
