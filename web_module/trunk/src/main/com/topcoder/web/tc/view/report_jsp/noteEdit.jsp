@@ -1,6 +1,7 @@
 <%@  page
   language="java"
-  import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
+  import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+          com.topcoder.common.web.data.report.Constants"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
@@ -10,7 +11,7 @@
     <title>TopCoder Reporting</title>
   </head>
   <body>
-<%--    <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu<a><br/><br/>--%>
+     <a href=<%=Constants.SERVLET_ADDR+"&"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu</a><br/><br/>
     <center>
     <br/>
     <br/>
