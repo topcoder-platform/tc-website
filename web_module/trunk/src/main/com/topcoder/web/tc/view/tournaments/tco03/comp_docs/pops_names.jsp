@@ -31,7 +31,7 @@
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/AOP_Factory_Requirements_Specification.pdf" target="_blank">AOP Factory Requirements Specification.pdf</a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/initial/AOP_Factory_Requirements_Specification.pdf" target="_blank">AOP Factory Component Specification.pdf</a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/initial/AOP_Factory_Component_Specification.pdf" target="_blank">AOP Factory Component Specification.pdf</a></td></tr>
 
     <% } else if (time.equals("830")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
