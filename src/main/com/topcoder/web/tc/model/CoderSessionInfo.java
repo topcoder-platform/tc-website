@@ -39,8 +39,16 @@ public class CoderSessionInfo extends SessionInfo {
             ResultSetContainer info = getInfo(authentication.getActiveUser().getId());
             if (!info.isEmpty()) {
                 rating = info.getIntItem(0, "rating");
-                devRating = info.getIntItem(0, "dev_rating");
-                designRating = info.getIntItem(0, "design_rating");
+                try {
+                    devRating = info.getIntItem(0, "dev_rating");
+                } catch (NullPointerException e) {
+                    devRating = 0;
+                }
+                try {
+                    designRating = info.getIntItem(0, "design_rating");
+                } catch (NullPointerException e) {
+                    designRating = 0;
+                }
                 hasImage = info.getIntItem(0, "has_image")>0;
                 activationCode = info.getStringItem(0, "activation_code");
             } else {
