@@ -43,14 +43,15 @@
    <jsp:param name="tabLev3" value="rules"/>
 </jsp:include>
 
-            <p class="terciary"><a href="#overview">Overview of the Tournament</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+            <p class="terciary">
                         <a href="#eligibility">Eligibility</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+                        <a href="#overview">Conditions of Participation</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#structure">Competition Structure</a>&nbsp;&nbsp;|&nbsp;&nbsp;
                         <a href="#prizes">About the Prizes</a></p>
                         
     <!-- overview -->
-            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
-            </a>Overview of the Tournament</h2>
+
+            <h2>Overview of the Tournament</h2>
 
 
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
@@ -65,6 +66,7 @@
             </p>
             
 <!-- eligibility -->
+            <a name="eligibility"></a>
             <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Eligibility</h2>
 
@@ -96,6 +98,10 @@
 
             <p>The top 100 scorers from each of the five problem sets presented during the Qualification Round will be eligible to compete in Online Round #1 of the TCCC.</p>
 
+<!-- Conditions of Participation -->
+            <a name="conditions"></a>
+            <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
+            </a>Eligibility</h2>
          <h2>Conditions of Participation</h2>
          
          <p>By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which 
@@ -174,6 +180,7 @@
          
                      
 <!-- structure -->
+            <a name="structure"></a>
             <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Competition Structure</h2>
          
@@ -234,6 +241,7 @@
             </ul>
                      
 <!-- prizes -->
+              <a name="prizes"></a>
             <h2><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>About the Prizes</h2>
             
