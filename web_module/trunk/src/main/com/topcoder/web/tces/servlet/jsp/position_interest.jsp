@@ -107,49 +107,49 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><!-- resume --></TD>
                 </TR>
                 
-                <tces:mapIterator id="hit" mapList="<%=(List)PositionInterestTask.getHitList()%>">                
+                <tces:rowIterator id="hit" rowList="<%=PositionInterestTask.getHitList()%>">                
                 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;
                   <A HREF="<jsp:getProperty name="PositionInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_PROFILE_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=PositionInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=PositionInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=(String)hit.get("coder_id")%>" class="statText">
-                    <%= (String)hit.get("handle") %>
+                    <%= hit.getItem("handle").toString() %>
                   </A>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText" NOWRAP>
-                    <%= (String)hit.get("rating") %>
+                    <%= hit.getItem("rating").toString() %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("state") %>
+                    <%= hit.getItem("state").toString() %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("country") %>
+                    <%= hit.getItem("country").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("type") %>
+                    <%= hit.getItem("type").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("school") %>
+                    <%= hit.getItem("school").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("gpa") %>
+                    <%= hit.getItem("gpa").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("grad_year") %>
+                    <%= hit.getItem("grad_year").toString() %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("hit_date") %>
+                    <%= hit.getItem("hit_date").toString() %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)hit.get("has_resume") %>
+                    <%= hit.getItem("has_resume").toString() %>
                   </TD>
                 </TR>
                 

@@ -1238,6 +1238,19 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
     }
 
     /**
+     * This routine sorts the data in the container by the given column,
+     * in the given direction.
+     *
+     * @param col The column to sort by.
+     * @param ascending whether to sort the data in ascending or descending order.
+     */
+    public void sortByColumn(String sCol, boolean ascending) {
+        if (!isValidColumn(sCol))
+            throw new IllegalArgumentException("Column name " + sCol + " is not valid");
+        Collections.sort(data, new DataRowComparator(getColumnIndex(sCol), ascending));
+    }
+
+    /**
      * This method will output all columns and data, rows separated by \n, columns separated by \t
      *
      * @return	The columns and data, in string form.
