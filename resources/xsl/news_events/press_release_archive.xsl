@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
                             
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_11_15_04">Champions Announced In 2004 TopCoder&#174; Open Sponsored by Microsoft&#174;</A> [November 15]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_11_01_04">TopCoder&#174; Announces Finalists for 2004 TopCoder Open Sponsored by Microsoft&#174;</A> [November 1]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_05_04">Google announces 50 Google Code Jam Finalists</A> [October 5]<br/></td></tr>
