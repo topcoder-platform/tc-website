@@ -3,6 +3,7 @@
   errorPage="/errorPage.jsp"
   import="java.util.*,
           com.topcoder.web.tces.common.*,
+          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
           com.topcoder.web.tces.bean.*" %>
 
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
@@ -23,7 +24,8 @@
 
 <jsp:useBean id="MemberProfileTask" scope="request" class="com.topcoder.web.tces.bean.MemberProfileTask" />
 
-<% Map MemberInfo = MemberProfileTask.getMemberInfo(); %>
+<% ResultSetContainer MemberInfo = MemberProfileTask.getMemberInfo(); %>
+<% ResultSetContainer MemberStats = MemberProfileTask.getMemberStats(); %>
 
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
@@ -57,53 +59,54 @@
                 </tces:trailIterator>
               </P>
             
-            <P align="center">
-            <% if (MemberProfileTask.getImagePath().length() > 0) { %>
-            <TABLE WIDTH="100%">
+            <TABLE WIDTH="100%" BORDER="0">
+            <TR>
             <TD class="statText" ALIGN="right">
+            <% if (MemberProfileTask.getImagePath().length() > 0) { %>
                 <IMG SRC="<%=MemberProfileTask.getImagePath()%>"/>
+            <% } else { %>
+                <IMG SRC="/i/clear.gif" ALT="" WIDTH="126" HEIGHT="140" BORDER="0">
+            <% } %>
             </TD>
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" ALIGN="left">
-            <% } %>
             
-              <B>Member Profile: <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
-              <BR>
-              <%= MemberInfo.get(TCESConstants.MEM_INFO_FULLNAME_KEY)%>
-              <BR>
-              <%= MemberInfo.get(TCESConstants.MEM_INFO_FULLADDR_KEY)%>
-              <BR>
-              <%= MemberInfo.get(TCESConstants.MEM_INFO_CONTACT_KEY)%>
-              <BR>
-              <B>Interested in 
-                <A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>" class="statText">
-                    <%=MemberProfileTask.getJobName()%>
+              <B>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </B> <BR/>
+              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%> <BR/>
+              <%= MemberInfo.getItem(0, "address1").toString()%>
+              <%= MemberInfo.getItem(0, "address1").toString().equals("")?"":"<BR/>"+MemberInfo.getItem(0, "address2").toString()+"<BR/>"%>
+              <%= MemberInfo.getItem(0, "city").toString()%>,
+              <%= MemberInfo.getItem(0, "state_code").toString()%>
+              <%= MemberInfo.getItem(0, "zip").toString()%> <BR/>
+              <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" CLASS="statText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%> <BR/>
+              <B>Interested in </B>
+                <A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.POSITION_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>" class="statText">
+                    <jsp:getProperty name="MemberProfileTask" property="JobName"/>
                 </A>
-              </B>
               
-              <% if (MemberProfileTask.getImagePath().length() > 0) { %>
-              </TD></TR></TABLE>
-              <% } %>
-              </P>                            
+              </TD>
+              </TR>
+              </TABLE>
               
               
               <P align="center">
-              <A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">View all position interest for <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%></A>
+              <A HREF="<jsp:getProperty name="MemberProfileTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText">View all position interest for <%= MemberInfo.getItem(0, "handle")%></A>
               </P>                            
               
               <P>
-              <B>Member Type:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_MEMTYPE_KEY)%> <BR>
-              <B>TopCoder Member Since:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_SINCE_KEY)%><BR>
+              <B>Member Type:</B> <%=MemberInfo.getItem(0, "coder_type_desc").toString()%> <BR>
+              <B>TopCoder Member Since:</B> <%=MemberInfo.getItem(0, "member_since_date").toString()%><BR>
               <% if (MemberProfileTask.getIsStudent()) { %>
-                <B>School:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_SCHOOLNAME_KEY)%> <BR>
-                <B>Degree:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_DEGREE_KEY)%> <BR>
-                <B>Major:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_MAJOR_KEY)%> <BR>
-                <B>Graduation Date:</B> <%=MemberInfo.get(TCESConstants.MEM_INFO_GRADDATE_KEY)%> <BR>
-              
+                <B>School:</B> <%=MemberInfo.getItem(0, "school_name").toString()%> <BR>
+                <B>Degree:</B> <%=MemberInfo.getItem(0, "degree").toString()%> <BR>
+                <B>Major:</B> <%=MemberInfo.getItem(0, "major").toString()%> <BR>
+                <B>Graduation Date:</B> <%=MemberInfo.getItem(0, "grad_month").toString()%> 
+                <%=MemberInfo.getItem(0, "grad_month").toString().trim().length()==0?"":", "%>
+                <%=MemberInfo.getItem(0, "grad_year").toString()%><BR>
               <% } %>
 
               <% if (MemberProfileTask.hasResume()) { %>
-                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">Click here to download resume.</a>
+                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText">Click here to download resume.</a>
               <% } %>
 
               </P>
@@ -131,12 +134,12 @@
                   </TABLE>
 
                   <P>
-                  <B>Current Rating:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_CURRENT_KEY)%><BR>
-                  <B>Highest Rating:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_HIGH_KEY)%><BR>
-                  <B>Lowest Rating:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_LOW_KEY)%><BR>
-                  <B>Rating Percentile:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_PCTILE_KEY)%><BR>
-                  <B>Number of Ratings:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_NUMEVENTS_KEY)%><BR>
-                  <B>Most Recent Rated Event:</B> <%=MemberInfo.get(TCESConstants.MEM_RATING_MOSTRECENT_KEY)%><BR>
+                  <B>Current Rating:</B> <%=MemberStats.getItem(0, "rating").toString()%><BR>
+                  <B>Highest Rating:</B> <%=MemberStats.getItem(0, "highest_rating").toString()%><BR>
+                  <B>Lowest Rating:</B> <%=MemberStats.getItem(0, "lowest_rating").toString()%><BR>
+                  <B>Rating Percentile:</B> <%=MemberStats.getItem(0, "percentile").toString()%><BR>
+                  <B>Number of Ratings:</B> <%=MemberStats.getItem(0, "num_ratings").toString()%><BR>
+                  <B>Most Recent Rated Event:</B> <%=MemberStats.getItem(0, "last_rated_event").toString()%><BR>
                   </P>    
 
     <% if (MemberProfileTask.hasDivisionI()) { %>
@@ -573,7 +576,7 @@
                   </TR>
                   <TR>
                     <TD class="statText" ALIGN="center" WIDTH="100%">
-                      <%= MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> is not ranked in competition.
+                      <%= MemberInfo.getItem(0, "handle").toString()%> is not ranked in competition.
                     </TD>
                   </TR>
                 </TABLE>
