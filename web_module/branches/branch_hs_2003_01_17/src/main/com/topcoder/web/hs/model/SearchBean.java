@@ -6,9 +6,9 @@ public class SearchBean {
 
   private final static int MAX_RESULTS_PER_PAGE=15;
 
-  private Integer prev=null;
+  private Integer start=null;
 
-  private Integer next=null;
+  private Integer end=null;
 
   private String handle=null;
 
@@ -26,26 +26,28 @@ public class SearchBean {
 
   private List member_list=null;
 
-  private Long total_members=null;
+  private boolean has_prev=false;
+
+  private boolean has_next=false;
 
   public static int getMaxResultsPerPage() {
     return(MAX_RESULTS_PER_PAGE);
   }
 
-  public Integer getPrev() {
-    return(prev);
+  public Integer getStart() {
+    return(start);
   }
 
-  public void setPrev(Integer _prev) {
-    prev=_prev;
+  public void setStart(Integer _start) {
+    start=_start;
   }
 
-  public Integer getNext() {
-    return(next);
+  public Integer getEnd() {
+    return(end);
   }
 
-  public void setNext(Integer _next) {
-    next=_next;
+  public void setEnd(Integer _end) {
+    end=_end;
   }
 
   public String getHandle() {
@@ -112,11 +114,19 @@ public class SearchBean {
     member_list=_member_list;
   }
 
-  public Long getTotalMembers() {
-    return(total_members);
+  public boolean getHasPrev() {
+    return(has_prev);
   }
 
-  public void setTotalMembers(Long _total_members) {
-    total_members=_total_members;
+  public void setHasPrev(boolean _has_prev) {
+    has_prev=_has_prev;
+  }
+
+  public boolean getHasNext() {
+    return(has_next);
+  }
+
+  public void setHasNext(boolean _has_next) {
+    has_next=_has_next;
   }
 };
