@@ -69,18 +69,18 @@
           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(a) a U.S.* citizen;<BR/>
           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(b) a lawful permanent resident of the U.S.*; or<BR/>
           &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(c) a non-immigrant residing in the U.S.* with a valid visa;<BR/>
+          (*Including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands.)
+          <br/>
+          I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 TopCoder Open Coding Tournament(the "Contest").
+          <br/>
+          I hereby represent that I am 18 years of age or older and I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me. I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.
+          <br/>
+          Further, I represent that the following information contained in TopCoder's member database represents my personal, identifying information, and that such information is true, accurate and comprehensive:
+          <br/>
       </li>
    </ul>
   <BR/>
   <BR/>
-      (*Including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands.)
-      <br/>
-      I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 TopCoder Open Coding Tournament(the "Contest").
-      <br/>
-      I hereby represent that I am 18 years of age or older and I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me. I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.
-      <br/>
-      Further, I represent that the following information contained in TopCoder's member database represents my personal, identifying information, and that such information is true, accurate and comprehensive:
-      <br/>
 
   <HR/>
   Demographic Information<BR/>
