@@ -7,6 +7,7 @@ import com.topcoder.shared.util.Transaction;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.ejb.address.Address;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.email.Email;
@@ -131,7 +132,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         user.setFirstName(newUser.getId(), regInfo.getFirstName(), transDb);
         user.setMiddleName(newUser.getId(), regInfo.getMiddleName(), transDb);
         user.setLastName(newUser.getId(), regInfo.getLastName(), transDb);
-
+        user.setActivationCode(newUser.getId(), StringUtils.getActivationCode(newUser.getId()), transDb);
 
         //create address
         long addressId = address.createAddress(transDb, db);
