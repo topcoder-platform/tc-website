@@ -641,7 +641,7 @@
         <antcall target="deploy-query"/>
         <antcall target="deploy-email"/>
         <antcall target="deploy-corp"/>
-        <antcall target="deploy-hs"/>
+        <!--<antcall target="deploy-hs"/>-->
         <antcall target="deploy-privatelabel"/>
     </target>
 
@@ -661,8 +661,10 @@
         <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
         <delete dir="${public_html}/corp/META-INF"/>
 
+<!--
         <unwar src="${war.dir}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
         <delete dir="${public_html}/hs/META-INF"/>
+-->
 
         <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
         <delete dir="${public_html}/privatelabel/META-INF"/>
@@ -724,6 +726,7 @@
     </target>
 
     <!-- hs -->
+<!--
     <target name="deploy-hs" depends="war-hs">
         <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-TermsOfUseBean"/>
@@ -735,8 +738,10 @@
         <unwar src="${war.dir}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
         <delete dir="${public_html}/hs/META-INF"/>
     </target>
+-->
 
 
+<!--
     <target name="war-hs" depends="compile">
         <war warfile="${war.dir}/hs.war" webxml="${resources}/hs/web.xml">
             <fileset dir="${java}/com/topcoder/web/hs/view">
@@ -760,6 +765,7 @@
         <unwar src="${war.dir}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
         <delete dir="${public_html}/hs/META-INF"/>
     </target>
+-->
 
 
     <!-- begin corp targets -->
