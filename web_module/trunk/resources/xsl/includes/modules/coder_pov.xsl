@@ -36,8 +36,8 @@
                         Monday, September 8, 2003</p>
 
 <p>
-Division 1 saw a feeding frenzy as the majority of contestants completed
-a by-the-numbers Level One problem and a mildly tricky Level Two with
+Division 1 saw a feeding frenzy as most contestants completed a paint-by-numbers Level One 
+problem and a mildly tricky Level Two with
 ample time to spare. In the early running, <b>tomek</b> and <b>SnapDragon</b> led
 the pack by slim margins. The tempo grew less hectic as coders plodded
 through a Level Three specification torn from the pages of a bureaucratic
