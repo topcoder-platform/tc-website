@@ -27,6 +27,20 @@
         <table>
             <rsc:iterator list="<%=rsc%>" id="info">
                 <% if (!curr.equals(info.getStringItem("handle"))) {%>
+                    <tr>
+                        <td class="formTextOdd">
+                            <rsc:item row="<%=info%>" name="handle"/>
+                        </td>
+                    </tr>
+                <% } %>
+                <% curr = info.getStringItem("handle"); %>
+            </rsc:iterator>
+        </table>
+        <% curr="";%>
+
+        <table>
+            <rsc:iterator list="<%=rsc%>" id="info">
+                <% if (!curr.equals(info.getStringItem("handle"))) {%>
                     <tr><td><br/><br/><br/></td></tr>
                     <tr>
                         <td class="formTextOdd">
