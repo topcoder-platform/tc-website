@@ -4,7 +4,7 @@
 
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                    <td height="120" align="center"><img src="/i/dev_promo_with_project.gif" width="170" height="120" border="0" alt="Develop new software for our customers" usemap="#dev_promo_Map" /></td>
+                    <td height="120" align="center"><img src="/i/promos/development_promo_third.gif" width="170" height="120" border="0" alt="Develop new software for our customers" usemap="#dev_promo_Map" /></td>
                     <td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td height="120" align="center"><A href="/tc?module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_overview"  target="_top"><IMG src="/i/promos/crpf_promo_third.gif" alt="crpf starts november 11" width="170" height="120" border="0"/></A></td>
                     <td width="10"><IMG src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
