@@ -5,14 +5,14 @@
 	<overview>This application suite is built from the ground up as an online business tool, encompassing every aspect needed to make your website a fully functional commerce center.&lt;br&gt;&lt;br&gt;TopCoder&#39;s member base is a distributed resource that spans over 150 countries. Unlike strictly off-shore development firms, it doesn&#39;t matter what country our members call home, as long as they&#39;ve proven that they can deliver a better solution than their peers. Since our members work for TopCoder as contractors, not employees, our fixed costs are much lower than our competition.&lt;br&gt;&lt;br&gt;We&#39;ve spent a year developing substantial catalogs of re-usable Java and .NET components. Re-using these bits of software over and over on client projects allows us to substantially shorten timelines and decrease costs. We then pass these savings onto our clients.&lt;br&gt;&lt;br&gt;Differentiating our members by talent through competition insures that only quality developers are working on our code. Each week, hundreds of TopCoder members compete in programming competitions, where they are rated based on the results. Only members with acceptable ratings are allowed to develop software for TopCoder Software. Our Component Catalogs are made up of the extremely high quality components developed by our members. These components are of such high quality due to the fact that they have been used and re-used in multiple applications. TopCoder strives to develop as many applications with re-usable components as possible.</overview>
 	<functionality>&lt;li&gt;Security&lt;/li&gt;&lt;li&gt;Credit Card Validation&lt;/li&gt;&lt;li&gt;Shopping Cart System&lt;/li&gt;&lt;li&gt;Inventory Database&lt;/li&gt;</functionality>
 	<sampleApp>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/highLevelUseCase.jpg'>High Level Use Case</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity1.jpg'>Activity1</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity2.jpg'>Activity2</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity3.jpg'>Activity3</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity4.jpg'>Activity4</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity5.jpg'>Activity5</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity6.jpg'>Activity6</doc>
-		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity7.jpg'>Activity7</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/highLevelUseCase.jpg'>High Level Use Case Diagram</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity1.jpg'>Activity Diagram 1</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity2.jpg'>Activity Diagram 2</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity3.jpg'>Activity Diagram 3</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity4.jpg'>Activity Diagram 4</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity5.jpg'>Activity Diagram 5</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity6.jpg'>Activity Diagram 6</doc>
+		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/activity7.jpg'>Activity Diagram 7</doc>
 		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/architecture.jpg'>Architecture</doc>
 		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/component.jpg'>Component Diagram</doc>
 		<doc file='http://172.16.20.222:8080/images/catalog/appsuites/ecommerce/useCase.jpg'>Use Case Diagram</doc>
