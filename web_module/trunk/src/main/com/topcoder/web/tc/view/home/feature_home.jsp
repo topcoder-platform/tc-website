@@ -24,7 +24,7 @@
                         <p>
  In the real world, I teach graduate and undergraduate algorithms at an
 upstate New York university; for the past year, I've been requiring my
-students to compete in SRMs.  While there's a wide range on how well
+students to compete in SRMs (Single Round Matches).  While there's a wide range on how well
 the students do, and I've destroyed the university TopCoder rating,
 most are better off for the experience.
 
