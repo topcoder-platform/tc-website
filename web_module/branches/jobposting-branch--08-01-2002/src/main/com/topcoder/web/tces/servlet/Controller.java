@@ -3,7 +3,10 @@ package com.topcoder.web.tces.servlet;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.web.pacts.common.TCData;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServices;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServicesHome;
@@ -12,6 +15,7 @@ import javax.naming.InitialContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import java.io.IOException;
+import java.util.*;
 
 /**
  * The servlet to handle job posting http requests.
@@ -53,11 +57,7 @@ public class Controller extends HttpServlet {
                     " in request"));
             return;
 		} else if (command.equals("login")) {
-            request.setAttribute("message",new String("foo"));
-            getServletContext().getContext("/").getRequestDispatcher(
-                response.encodeURL("/es/login.jsp")).forward(request, response);
-
-            //handleLogin(request, response);
+            handleLogin(request, response);
         } else if (command.equals("job_posting") || command.equals("click_thru")) {
             String tempJobId = request.getParameter(TCESConstants.JOB_ID_KEY);
             String tempUserId = request.getParameter(TCESConstants.USER_ID_KEY);
@@ -123,6 +123,69 @@ public class Controller extends HttpServlet {
 
     private void handleLogin(HttpServletRequest request,
                              HttpServletResponse response) throws ServletException, IOException {
+
+        String handle = request.getParameter(TCESConstants.HANDLE_KEY);
+        String password = request.getParameter(TCESConstants.PASSWORD_KEY);
+
+        if (handle == null) {
+            forwardToErrorPage(request, response,
+                    new Exception("missing " + TCESConstants.JOB_ID_KEY + " parameter " +
+                    " in request"));
+        }
+        if (password == null) {
+            forwardToErrorPage(request, response,
+                    new Exception("missing " + TCESConstants.JOB_ID_KEY + " parameter " +
+                    " in request"));
+        }
+
+        InitialContext ctx = (InitialContext) TCContext.getInitial();
+        Request dataRequest = new Request();
+        dataRequest.setProperty("c", "tces_user_and_pw");
+        dataRequest.setProperty("hn", "" + handle);
+        DataAccessInt dai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+
+        Map resultMap = dai.getData(dataRequest);
+        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
+
+        if (rsc.getRowCount() == 0) {
+            request.setAttribute(TCESConstants.MSG_ATTR_KEY, "User handle incorrect.  Please retry.");
+
+            getServletContext().getContext("/").getRequestDispatcher(
+                response.encodeURL("/es/login.jsp")).forward(request, response);
+
+            return;
+        }
+
+        ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
+
+        String actualPassword=null;
+        try {
+            actualPassword = TCData.getTCString(rRow, "password");
+        } catch (Exception e) {
+            log.debug("Exception occured getting user data in handleLogin.");
+            forwardToErrorPage(request, response, e);
+        } finally {
+            if (actualPassword == null) {
+                log.debug("Exception occured getting user data in handleLogin.");
+                forwardToErrorPage(request, response, e);
+            }
+        }
+
+        if (!actualPassword.trim().equals(password)) {
+            request.setAttribute(TCESConstants.MSG_ATTR_KEY, "Password incorrect.  Please retry.");
+
+            getServletContext().getContext("/").getRequestDispatcher(
+                response.encodeURL("/es/login.jsp")).forward(request, response);
+
+            return;
+        }
+
+
+        request.setAttribute(TCESConstants.MSG_ATTR_KEY,new String("Login OK!"));
+
+        getServletContext().getContext("/").getRequestDispatcher(
+            response.encodeURL("/es/login.jsp")).forward(request, response);
+
 
     }
 

@@ -52,6 +52,31 @@
       The id from the database of a job_posting (hit_type_lu).
     </description>
   </init-param>
+  
+  <init-param>
+    <param-name>handle</param-name>
+    <param-value>handle</param-value>
+    <description>
+      The key for the handle parameter of a request.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>password</param-name>
+    <param-value>password</param-value>
+    <description>
+      The key for the password parameter of a request.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>msg_attr</param-name>
+    <param-value>message</param-value>
+    <description>
+      The key for the message attribute of a request.
+    </description>
+  </init-param>
+  
 </servlet>
 
 <servlet-mapping>
