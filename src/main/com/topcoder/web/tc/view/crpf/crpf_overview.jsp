@@ -75,8 +75,8 @@
                      The grand prize will be awarded to:
                      <ul>
                      <li>The four top scorers in the final round </li>
-                     <li>The four members who raise the most money for CRPF ($500 minimum)</li>
-                     <li>Two "raffle" winners, which will be chosen from every member who raises a minimum of $100.</li>
+                     <li>The four members who raise the most money for CRPF ($500 minimum donation)</li>
+                     <li>Two lucky members who will be randomly chosen ($100 minimum donation).</li>
                      </ul></li>
                 <li><strong>Philanthropy: </strong><br />
                      TopCoder will match every dollar raised, up to $50,000 USD</li>
