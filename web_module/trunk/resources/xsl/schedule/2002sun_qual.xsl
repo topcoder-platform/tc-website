@@ -52,7 +52,7 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
   <TR>
     <TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+    <TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 	
 	 
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
@@ -68,17 +68,19 @@
 		<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sun_sched'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='2002sun_qual'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_scoring'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_conditions'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_prizes'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_onsite'">orangebv_bg</xsl:when>
-			<xsl:when test="/TC/Command='invit02_rules_structure'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='2002sun_quart'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='2002sun_semi'">orangebv_bg</xsl:when>
+			<xsl:when test="/TC/Command='2002sun_champ'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
 		<A HREF="/index?t=schedule&amp;c=2002sun_sched" CLASS="statTextBig">Round Updates/Schedule</A></TD>
 	  </TR>
     </TABLE>
 
-  <BR/><BR/>
+  <BR/>
+<P>
+  Below are the handles of those who have qualified for the Quarterfinal Round.
+</P>
+
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BACKGROUND="/i/steel_darkblue_bg.gif">                    
        <TR>
           <TD COLSPAN="2" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Round Updates</TD>
