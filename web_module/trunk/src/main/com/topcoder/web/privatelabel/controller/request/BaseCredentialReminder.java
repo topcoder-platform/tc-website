@@ -21,29 +21,33 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
 
     protected void registrationProcessing() throws TCWebException {
         String email = StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL));
-
-        try {
-            Request r = new Request();
-            r.setContentHandle("user_info_using_email");
-            r.setProperty("email", email);
-            Map m = getDataAccess(db, true).getData(r);
-            ResultSetContainer rsc = (ResultSetContainer) m.get("user_info_using_email");
-            if (rsc.isEmpty()) {
-                throw new NavigationException("Sorry, this email address does not exist " + email);
-            } else {
-                TCSEmailMessage mail = new TCSEmailMessage();
-                mail.setSubject(getEmailSubject());
-                mail.setBody(getEmailContent(rsc.getStringItem(0, "handle"), rsc.getStringItem(0, "password")));
-                mail.addToAddress(email, TCSEmailMessage.TO);
-                mail.setFromAddress(getEmailFromAddress(), getEmailFromAddressName());
-                log.info("sent reminder email to " + email);
-                EmailEngine.send(mail);
+        if (email.equals("")) {
+            addError(Constants.EMAIL, "Please enter an email address");
+        } else {
+            try {
+                Request r = new Request();
+                r.setContentHandle("user_info_using_email");
+                r.setProperty("email", email);
+                Map m = getDataAccess(db, true).getData(r);
+                ResultSetContainer rsc = (ResultSetContainer) m.get("user_info_using_email");
+                if (rsc.isEmpty()) {
+                    throw new NavigationException("Sorry, this email address does not exist " + email);
+                } else {
+                    TCSEmailMessage mail = new TCSEmailMessage();
+                    mail.setSubject(getEmailSubject());
+                    mail.setBody(getEmailContent(rsc.getStringItem(0, "handle"), rsc.getStringItem(0, "password")));
+                    mail.addToAddress(email, TCSEmailMessage.TO);
+                    mail.setFromAddress(getEmailFromAddress(), getEmailFromAddressName());
+                    log.info("sent reminder email to " + email);
+                    EmailEngine.send(mail);
+                }
+            } catch (TCWebException e) {
+                throw e;
+            } catch (Exception e) {
+                throw new TCWebException(e);
             }
-        } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
         }
+        setNextPage();
 
     }
 
