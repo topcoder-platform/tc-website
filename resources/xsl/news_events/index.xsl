@@ -63,14 +63,28 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
-<!-- BWO -->
+<!-- WSJO -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html"><img src="/i/pressroom/wsjo.gif" alt="wsjo" width="135" height="50" border="0" /></A></td>
+                    <td width="274"><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html" target="_blank"><img src="/i/pressroom/wsjo.gif" alt="wsjo" width="135" height="50" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html">Win in a Corporate Competition, Land on Square That Offers a Job</A></strong></font><br />
+                        <p><font size="3"><strong><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html" target="_blank">Win in a Corporate Competition, Land on Square That Offers a Job</A></strong></font><br />
                          More companies are using competitions to discover candidates with standout skills and talent. Fields such as architecture and fashion design have long held competitions to allow students to showcase their work. But others, including technology companies and advertisers, also are interested in seeing how people perform against their peers.<span class="prHead"> [June 1]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- UPI -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.upi.com/view.cfm?StoryID=20040525-104135-2776r" target="_blank"><img src="/i/pressroom/upi_logo.gif" alt="UPI" width="135" height="100" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.upi.com/view.cfm?StoryID=20040525-104135-2776r" target="_blank">The Web: Search engine wars flare online</A></strong></font><br />
+                         Search engine developers, such as Yahoo!, Google and Microsoft, are aggressively seeking new strategies -- and technologies -- that will give them even a slight edge in the struggle for dominance in what is becoming the Internet's most glamorous niche, experts told United Press International.<span class="prHead"> [May 26]</span></p>
                     </td>
                 </tr>
             </table>
