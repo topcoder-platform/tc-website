@@ -443,7 +443,13 @@
 <!-- tourney links end -->     
 <!-- <B>Update:</B><BR/>
 The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
-<B>View Online Round #2</B>: <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335</xsl:attribute> - Advancers</A><BR/><BR/>
+<P>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335</xsl:attribute>Click here</A> to view the advancers from Round 2 to the next round.
+</P>
+
+<P>
+<B>Next Round #3</B>: Oct. 23rd, at 9:30PM (<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=invit_sched</xsl:attribute>Get details</A>). Logon to view round activity.
+</P>
     </TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>    
@@ -543,31 +549,33 @@ Wednesday, October 16, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
-    By&#160;ZorbaTHut<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> 
+    By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>2002 TopCoder Invitational Round 2</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 117</B></FONT>
     </TD>
   </TR>      
   <TR>
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
 	<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r2_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm117_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
-      </A><BR/>
-	  
+      </A><BR/>	  
 <P>
-Second round of the 2002 Invitational. An uncommonly easy Level One problem,
-coupled with an extremely long and bug-prone Level Two problem, led to a
-large number of people passing or failing based solely on their Level One
-solution. Luckily, only 499 competitors were eligible, and only 435 showed
-up, but competition was deadly.
+The problems for this match were well done, though a little bit easier than the average and unoriginal. All three Division-I 
+problems were rehashings of problems that have been used before, especially the Level 2 and Level 3 problems. The Division-II 
+Level 3 problem was an exception, and gave the Division-II coders quite a bit of trouble. However, practice makes perfect, and I 
+need a lot of practice. 
 </P>
 
 <P>
-It's only going to get nastier...
-<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=invit02_r2_prob</xsl:attribute>get&#160;analysis</A>
+The point values in Division-I made little sense, as two trivial problems were worth 350 and 650 points 
+(extremely high based on historical values for Level 1 and Level 2 problems), while the Level 3 problem was 
+worth only 850 points (extremely low based on the same sort of historical values). The Level 3 problem required 
+some degree of aptitude when it comes to dynamic programming, while the other two problems were just a matter of 
+typing speed and correctness, so it seems that the points in this match were skewed in favor of the latter attributes...
+<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm117_prob</xsl:attribute>get&#160;analysis</A>
 </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
@@ -591,12 +599,13 @@ It's only going to get nastier...
 <IMG USEMAP="#google_home" SRC="/i/es/google/google_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
 <map name="google_home">
-<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4330"/>
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> -->
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4340&amp;t=schedule&amp;c=srm"/>
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4340"/>
+<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4340&amp;t=schedule&amp;c=srm"/> -->
 <area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=google"/>
 </map>
-
+<A HREF="/?&amp;t=news_events&amp;c=pr_10_22_02">
+<IMG SRC="/i/tces_quote.gif" ALT="TCES" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A><BR/> -->
  
@@ -638,10 +647,10 @@ It's only going to get nastier...
                 </TD>
               </TR>               
             </TABLE><BR/>
-<A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
-<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>            
+<!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
+<IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->           
 <A HREF="/stat?c=member_profile&amp;cr=296745" CLASS="coderTextRed">
-<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="0" BORDER="0"/></A>
+<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
     </TD>
 <!-- Body Area Ends -->
   </TR>   
