@@ -26,17 +26,19 @@
                 <tr valign="top">
                     <td class="bodyText"> 
                         <p><span class=testHead>Position Results</span><br/>
-                        Company Name: Brooks<br/>
-                        Campaign Name: Operation FindGeek<br/>
-                        Position Name: <b>Head Geek</b><br/>
-                        Total Candidates: 73
+                        Company Name: <A href="/corp/testing/candidate/campaignList.jsp">Brooks</A><br/>
+                        Campaign Name: <A href="/corp/testing/candidate/campaignResults.jsp">Operation FindGeek</A><br/>
+                        Position Name: Head Geek<br/>
                         </p>
                     </td>
                 </tr>
             </table>
 
+            <br/>
+            
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
+                    <td class="bodyText">Total Candidates: <b>73</b></td>
                     <td class="bodyText" align=right>Showing 1-50:&#160;&#160;&#160;<A href="/">Prev 50</A> | <A href="/">Next 50</a></td>
                 </tr>
             </table>
@@ -60,7 +62,7 @@
 for (i = 0; i <= 50; i++)
 {
                 document.write("<tr>")
-                    document.write("<td class='screeningCell' nowrap=nowrap>Johnny Doe"+i+"</td> ")
+                    document.write("<td class='screeningCell' nowrap=nowrap><A href='/corp/testing/candidate/profile.jsp'>Johnny Doe"+i+"</A></td> ")
                     document.write("<td class='screeningCell'>CT</td>")
                     document.write("<td class='screeningCell' nowrap=nowrap>United States</td>")
                     document.write("<td class='screeningCell' align=center>student</td>")
