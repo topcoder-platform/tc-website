@@ -239,13 +239,7 @@ public class Controller extends HttpServlet {
         }
         log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
 
-        String contextPrefix = req.getContextPath();
-        boolean startsWithContextPath = dest.startsWith(contextPrefix);
         if (forward) {
-            // forwarded pages *must not* contain servlet context path
-            if (startsWithContextPath) {
-                dest = dest.substring(contextPrefix.length());
-            }
             getServletContext().getRequestDispatcher(resp.encodeURL(dest)).forward(req, resp);
         } else {
             resp.sendRedirect(resp.encodeRedirectURL(dest));

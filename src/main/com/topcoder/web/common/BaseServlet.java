@@ -176,10 +176,6 @@ public abstract class BaseServlet extends HttpServlet {
         String contextPrefix = request.getContextPath();
         boolean startsWithContextPath = dest.startsWith(contextPrefix);
         if (forward) {
-            // forwarded pages *must not* contain servlet context path
-            if (startsWithContextPath) {
-                dest = dest.substring(contextPrefix.length());
-            }
             if (!dest.startsWith("/")) {
                 dest = "/" + dest;
             }

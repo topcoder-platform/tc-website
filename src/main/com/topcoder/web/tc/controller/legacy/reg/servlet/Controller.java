@@ -163,13 +163,7 @@ public class Controller
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
                                   boolean forward) throws Exception {
 
-        String contextPrefix = request.getContextPath();
-        boolean startsWithContextPath = dest.startsWith(contextPrefix);
         if (forward) {
-            // forwarded pages *must not* contain servlet context path
-            if (startsWithContextPath) {
-                dest = dest.substring(contextPrefix.length());
-            }
             if (!dest.startsWith("/")) {
                 dest = "/" + dest;
             }
