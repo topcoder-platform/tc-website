@@ -1,107 +1,105 @@
 <!--Small Calendar Starts-->
+            <table width="170" bgcolor="#333333" cellspacing="0" cellpadding="0" border="0">
+                <tr> 
+                    <td valign="top">
+                        <table width="100%" border="0" cellspacing="1" cellpadding="1">
+                            <tr><td colspan="7" class="statTextBig" nowrap="nowrap" align="center" height="18">March 2003 Match Dates</td></tr>
 
-     <TABLE BGCOLOR="#333333" BACKGROUND="/i/hs/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1">
-        <TR>
-               <TD VALIGN="top">
-                  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="1" CELLPADDING="0">
-                 <TR> 
-<%--                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle"><IMG SRC="/i/hs/module_labels_march_date.gif" ALT="December Dates" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>--%>
-                      <TD BGCOLOR="#333333" CLASS="moduleTitle" COLSPAN="7" HEIGHT="17" VALIGN="middle" ALIGN="center">February 2003 Match Dates</TD>
-                   </TR>
-                      <TR BGCOLOR="#333366">
-                        <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
-                        <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">M</FONT></TD>
-                        <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">T</FONT></TD>
-                        <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">W</FONT></TD>
-                        <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">T</FONT></TD>
-                        <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">F</FONT></TD>
-                        <TD BACKGROUND="/i/hs/s_calendar_bg.gif" CLASS="moduleTitle" ALIGN="center" WIDTH="16"><FONT COLOR="#FFFFFF">S</FONT></TD>
-                      </TR>
-                      <TR>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&nbsp;</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">1</TD>
-                      </TR>
-                      <TR>
+                            <tr> 
+                                <td id="calendarDays" width="15%">S</td>
+                                <td id="calendarDays" width="14%">M</td>
+                                <td id="calendarDays" width="14%">T</td>
+                                <td id="calendarDays" width="14%">W</td>
+                                <td id="calendarDays" width="14%">T</td>
+                                <td id="calendarDays" width="14%">F</td>
+                                <td id="calendarDays" width="15%">S</td>
+                            </tr>
+                        
+                            <tr>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarMini">1</td>
+                            </tr>
+                      
+                            <tr> 
+                                <td id="calendarMini">2</td>
+                                <td id="calendarMini">3</td>
+                                <td id="calendarMini">4</td>
+                                <td id="calendarMini">5</td>
+                                <td id="calendarSRMMini"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini">6</a></td>
+                                <td id="calendarMini">7</td>
+                                <td id="calendarMini">8</td>
+                            </tr>
+                            
+                             <tr> 
+                                <td id="calendarMini">9</td>
+                                <td id="calendarMini">10</td>
+                                <td id="calendarMini">11</td>
+                                <td id="calendarMini">12</td>
+                                <td id="calendarSRMMini"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini">13</a></td>
+                                <td id="calendarMini">14</td>
+                                <td id="calendarMini">15</td>
+                            </tr>
+                            
+                            <tr> 
+                                <td id="calendarMini">16</td>
+                                <td id="calendarMini">17</td>
+                                <td id="calendarMini">18</td>
+                                <td id="calendarMini">19</td>
+                                <td id="calendarSRMMini"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini">20</a></td>
+                                <td id="calendarMini">21</td>
+                                <td id="calendarMini">22</td>
+                            </tr>
+                            
+                            <tr> 
+                                <td id="calendarMini">23</td>
+                                <td id="calendarMini">24</td>
+                                <td id="calendarMini">25</td>
+                                <td id="calendarMini">26</td>
+                                <td id="calendarSRMMini"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini">27</a></td>
+                                <td id="calendarMini">28</td>
+                                <td id="calendarMini">29</td>
+                            </tr>
+                            
+                            <tr> 
+                                <td id="calendarMini">30</td>
+                                <td id="calendarMini">31</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                                <td id="calendarBlankMini">&#160;</td>
+                            </tr>
+                            
+                            <tr><td colspan="7" class="statText" nowrap="nowrap" align="right"><a href="?module=Static&d1=schedule&d2=sched_march_2003" class="statText">More 2003 Match Dates&#160;</a></td></tr>
+                        </table>
 
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">2</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">3</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">4</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">5</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">6</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">7</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">8</TD>
-                      </TR>
-                      <TR>
-
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">9</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">10</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">11</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">12</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">13</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">14</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">15</TD>
-                      </TR>
-                      <TR>
-
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">16</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">17</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">18</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">19</TD>
-                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_february_2003" CLASS="smallText">20</A></TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">21</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">22</TD>
-                      </TR>
-                      <TR>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">23</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">24</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">25</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">26</TD>
-                        <TD BGCOLOR="#cccccc" CLASS="smallText" ALIGN="center"><A HREF="?module=Static&d1=schedule&d2=sched_february_2003" CLASS="smallText">27</A></TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">28</TD>
-                        <TD BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center">&#160;</TD>
-                      </TR>
-            </TABLE>
-            </TD>
-        </TR>
-        <TR>
-                <TD BGCOLOR="#CCCCCC" HEIGHT="15" ALIGN="right" CLASS="smallText">
-<<<<<<< left_calendar.jsp
-                  <SPAN CLASS="smallText">More 
-                    <A HREF="?module=Static&d1=schedule&d2=sched_february_2003" CLASS="smallText">
-=======
-                  <SPAN CLASS="smallText">More
-                    <A HREF="?module=Static&d1=schedule&d2=sched_march_2003" CLASS="smallText">
->>>>>>> 1.2.2.3
-                      2003 match dates
-                    </A>
-                  </SPAN>
-                </TD>
-            </TR>
-                    <TR>
-                <TD BGCOLOR="#ACB4BD" CLASS="globalNavSmall"><Font COLOR="000000">
-                  The TopCoder High School regular season will begin in March 2003. Before the regular season begins, students should use the TopCoder High School Competition Arena to practice.</Font>
-
-                </TD>
-            </TR>
-      </TABLE>
+                        <table width="100%" border="0" cellspacing="0" cellpadding="5">
+                            <tr><td colspan="7" class="globalNavSmall">The TopCoder High School regular season will begin in March 2003. Before the regular season begins, students should use the TopCoder High School Competition Arena to practice.</td></tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
 <!--Small Calendar ends-->
 
 <!--Schools Starts-->
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR VALIGN="baseline"><TD><MAP NAME="details">
-        <AREA ALT="" SHAPE="poly" COORDS="88,52,88,62,108,62,108,72,160,72,160,51" HREF="?module=Static&d1=registration&d2=registration">
-        </MAP>
-        &nbsp;<IMG SRC="/i/hs/left_schools2.gif" WIDTH="164" HEIGHT="80" ALT="" BORDER="0" USEMAP="#details">
-        </TD></TR>
-        </TABLE>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="baseline">
+                    <td>
+                        <map name="details">
+                            <area alt="" shape="poly" coords="88,52,88,62,108,62,108,72,160,72,160,51" href="?module=Static&d1=registration&d2=registration">
+                        </map>
+                        &nbsp;<img src="/i/hs/left_schools2.gif" width="164" height="80" alt="" border="0" usemap="#details">
+                    </td>
+                </tr>
+            </table>
 <!--Schools Ends-->
-        <BR>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR VALIGN="baseline"><TD><BR><IMG SRC="/i/hs/left_bottom_elements.gif" WIDTH="170" HEIGHT="116" ALT="" BORDER="0"/>
-        </TD></TR>
-        </TABLE>
+            <br>
+
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="baseline"><td><br><img src="/i/hs/left_bottom_elements.gif" width="170" height="116" alt="" border="0"></td></tr>
+            </table>
