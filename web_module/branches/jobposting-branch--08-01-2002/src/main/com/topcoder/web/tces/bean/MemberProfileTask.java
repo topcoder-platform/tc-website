@@ -415,6 +415,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             
             dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D1");
             if (dwRSC.getRowCount() > 0) {
+                memStatsRow = dwRSC.getRow(0);
                 memberInfo.put(TCESConstants.MEM_RATING_AVGPOINTS_KEY,
                                 decFmt.format(Double.parseDouble(memStatsRow.getItem("avg_contest_points").toString())) );
             }
