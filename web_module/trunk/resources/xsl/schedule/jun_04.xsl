@@ -60,7 +60,7 @@
 
                         <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
                             <tr valign="middle"><form name="selectform">
-                                <td class="statTextLarge" width="99%"><font size="3">&#160;May 2004</font></td>
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;June 2004</font></td>
                                 <td align="right" width="1%">
 <!-- Calendar Pulldown Begins -->	
                         <xsl:call-template name="calendar_view_pulldown"/>
@@ -89,83 +89,72 @@
                                     &#160;<br />
                                     &#160;</td>
                                 <td id="calendarBlank"></td>
-                                <td id="calendarBlank"></td>
-                                <td id="calendarBlank"></td>
-                                <td id="calendarBlank"></td>
-                                <td id="calendarBlank"></td>
                                 <td id="calendar">1</td>
-                            </tr>
-                            
-                            <tr> 
-                                <td id="calendar">2</td>
-                                <td id="calendar">3</td>
-                                <td id="calendar">4</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">5</span><br />
-                                    <strong>Match 193</strong><br />
+                                    <span id="calendarSRMDate">2</span><br />
+                                    <strong>Match 197</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5068&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5072&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">3</td>
+                                <td id="calendar">4</td>
+                                <td id="calendar">5</td>
+                            </tr>
+                            
+                            <tr> 
                                 <td id="calendar">6</td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
-                            </tr>
-                            
-                            <tr> 
                                 <td id="calendar">9</td>
                                 <td id="calendar">10</td>
                                 <td id="calendar">11</td>
-                                <td id="calendar">12</td>
-                                <td id="calendar">13</td>
-                                <td id="calendar">14</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">15</span><br />
-                                    <strong>Match 194</strong><br />
+                                    <span id="calendarSRMDate">12</span><br />
+                                    <strong>Match 198</strong><br />
                                     Register: 9:00&#160;AM<br />
                                     Compete: 12:00&#160;PM<br />
-                                    Sponsor: Yahoo!<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5069&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5073&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">16</td>
-                                <td id="calendar">17</td>
+                                <td id="calendar">13</td>
+                                <td id="calendar">14</td>
+                                <td id="calendar">15</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">18</span><br />
-                                    <strong>Match 195</strong><br />
+                                    <span id="calendarSRMDate">16</span><br />
+                                    <strong>Match 199</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=5074&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">17</td>
+                                <td id="calendar">18</td>
+                                <td id="calendar">19</td>
+                            </tr>
+                            
+                            <tr> 
+                                <td id="calendar">20</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">21</span><br />
+                                    <strong>Match 200</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5070&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">19</td>
-                                <td id="calendar">20</td>
-                                <td id="calendar">21</td>
+                                    <A href="/?RoundId=5075&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">22</td>
-                            </tr>
-                            
-                            <tr> 
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
                                 <td id="calendar">26</td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">27</span><br />
-                                    <strong>Match 196</strong><br />
-                                    Register: 5:00&#160;PM<br />
-                                    Compete: 8:00&#160;PM<br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5071&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                            </tr>
+                            
+                            <tr> 
+                                <td id="calendar">27</td>
                                 <td id="calendar">28</td>
                                 <td id="calendar">29</td>
-                            </tr>
-
-                            <tr> 
                                 <td id="calendar">30</td>
-                                <td id="calendar">31</td>
-                                <td id="calendarBlank"></td>
-                                <td id="calendarBlank"></td>
                                 <td id="calendarBlank"></td>
                                 <td id="calendarBlank"></td>
                                 <td id="calendarBlank">
@@ -176,7 +165,7 @@
                                     &#160;<br />
                                     &#160;</td>
                             </tr>
-                            
+
                         </table>
 
                         <p><br/></p>
