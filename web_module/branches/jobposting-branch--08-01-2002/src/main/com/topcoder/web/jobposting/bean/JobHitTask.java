@@ -58,6 +58,7 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     /** Creates new JobHitTask */
     public JobHitTask() {
         super();
+        setJobHits(new ArrayList());
         setUserId(-1);
         setFirstName("");
         setLastName("");
@@ -141,8 +142,6 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
 
 
     public void setAttributes(String paramName, String[] paramValues) {
-        log.debug("setAttributes called...");
-        log.debug("paramName: " + paramName);
         String value = paramValues[0];
         value = (value == null?"":value.trim());
 
