@@ -116,7 +116,7 @@
                                 <td id="calendarTCO04">
                                     <span id="calendarTCO04Date">11</span><br/>
                                     <strong>2004 TopCoder Open</strong><br/>
-                                    SemiFinals<br/>
+                                    Semifinals<br/>
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
