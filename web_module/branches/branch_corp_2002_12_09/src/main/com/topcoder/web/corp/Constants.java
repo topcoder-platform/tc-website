@@ -14,9 +14,25 @@ import com.topcoder.shared.util.TCResourceBundle;
 public class Constants {
     private static final TCResourceBundle store;
 
-    // keys
-    public  static final String KEY_CCTX_SUM            = "cctx-sum";
-    public static final String KEY_LINK_PREFIX          = "url-prefix";
+    // keys.
+    public static final String KEY_CCTX_SUM    = "cctx-sum";
+    /**
+     * Every request passed thru our controller will have such attribute.
+     * Intended to be used when building http links.
+     */
+    public static final String KEY_LINK_PREFIX = "url-prefix";
+    
+    /**
+     * When error has arised, request will be polulated with such attribute (its
+     * content is exception itself) and, then forwarded to error page.
+     */
+    public  static final String KEY_EXCEPTION  = "caught-exception";
+
+    /**
+     * Processor's name have to be specified in request via such parameter
+     */
+    public  static final String KEY_MODULE     = "module";
+    public  static final String KEY_INTERNAL_EXC_PAGE = "int-exc-page";
     
     /**
      * Environment to produce security InitialContext from.
@@ -63,6 +79,7 @@ public class Constants {
     public static String REGISTRATION_PAGE_RETRY   = null;
     public static String USEREDIT_PAGE_SUCCESS = null;
     public static String USEREDIT_PAGE_RETRY   = null;
+    public static String USERLIST_PAGE         = null;
     
     public static String CORP_ADMIN_ROLE = null;
     public static String CORP_GROUP = null;
@@ -73,6 +90,7 @@ public class Constants {
         REGISTRATION_PAGE_RETRY   = cfg.getInitParameter("page-Registration-retry");
         USEREDIT_PAGE_SUCCESS     = cfg.getInitParameter("page-UserEdit-success");
         USEREDIT_PAGE_RETRY       = cfg.getInitParameter("page-UserEdit-retry");
+        USERLIST_PAGE             = cfg.getInitParameter("page-UserList");
     }
 
     static {

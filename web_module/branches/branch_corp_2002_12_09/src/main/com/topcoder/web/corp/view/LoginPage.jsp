@@ -1,12 +1,15 @@
-<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.web.corp.request.Login
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         import="com.topcoder.web.corp.request.Login
                  com.topcoder.web.corp.Constants"
-%>
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="exc/InternalError.jsp" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
-<jsp:include page="script.jsp"/>
+<script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
 </HEAD>
 
 <BODY BGCOLOR="#999999" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">

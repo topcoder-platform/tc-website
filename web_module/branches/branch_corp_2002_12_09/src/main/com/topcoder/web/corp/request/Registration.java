@@ -38,14 +38,14 @@ import com.topcoder.web.ejb.user.UserAddressHome;
 public final class Registration extends UserEdit {
     private final static Logger log = Logger.getLogger(Registration.class);
    
-    public static final String KEY_TITLE        = "prim-title";
-    public static final String KEY_COMPANY      = "prim-company-name";
-    public static final String KEY_ADDRLINE     = "prim-company-address-1";
-    public static final String KEY_ADDRLINE2    = "prim-company-address-2";
-    public static final String KEY_CITY         = "prim-company-city";
-    public static final String KEY_STATE        = "prim-company-state";
-    public static final String KEY_ZIP          = "prim-company-zip";
-    public static final String KEY_COUNTRY      = "prim-company-country";
+    public static final String KEY_TITLE     = "title";
+    public static final String KEY_COMPANY   = "prim-company-name";
+    public static final String KEY_ADDRLINE  = "prim-company-address-1";
+    public static final String KEY_ADDRLINE2 = "prim-company-address-2";
+    public static final String KEY_CITY      = "prim-company-city";
+    public static final String KEY_STATE     = "prim-company-state";
+    public static final String KEY_ZIP       = "prim-company-zip";
+    public static final String KEY_COUNTRY   = "prim-company-country";
 
     private String title;
     private String company;
@@ -111,7 +111,6 @@ public final class Registration extends UserEdit {
      * @see com.topcoder.web.corp.request.UserEdit#verifyFormFieldsValidity(boolean)
      */
     protected boolean verifyFormFieldsValidity() {
-//        System.err.println(secTok);
         boolean valid = super.verifyFormFieldsValidity();
         valid &= // title name validity
         checkItemValidity(KEY_TITLE, title,

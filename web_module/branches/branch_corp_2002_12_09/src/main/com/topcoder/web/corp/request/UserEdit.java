@@ -41,14 +41,14 @@ import com.topcoder.web.ejb.user.UserHome;
  */
 public class UserEdit extends BaseProcessor {
     public static final String KEY_TARGET_USER_ID = "id";
-    public static final String KEY_FIRSTNAME    = "first-name";
-    public static final String KEY_LASTNAME     = "last-name";
-    public static final String KEY_LOGIN        = "username";
-    public static final String KEY_PASSWORD     = "password";
-    public static final String KEY_PASSWORD2    = "password-once-more";
-    public static final String KEY_PHONE        = "phone";
-    public static final String KEY_EMAIL        = "email";
-    public static final String KEY_EMAIL2       = "email-once-more";
+    public static final String KEY_FIRSTNAME      = "first-name";
+    public static final String KEY_LASTNAME       = "last-name";
+    public static final String KEY_LOGIN          = "username";
+    public static final String KEY_PASSWORD       = "password";
+    public static final String KEY_PASSWORD2      = "password-once-more";
+    public static final String KEY_PHONE          = "phone";
+    public static final String KEY_EMAIL          = "email";
+    public static final String KEY_EMAIL2         = "email-once-more";
     
     protected String firstName;
     protected String lastName;
@@ -783,18 +783,5 @@ public class UserEdit extends BaseProcessor {
                 targetUser = null;
             }
         }
-//        public String toString() {
-//            return "\ncontactTable="+contactTable+
-//            "\nloggedAsPrimary="+loggedAsPrimary+
-//            "\nrequestor="+requestor+
-//            "\nprimaryUserID="+primaryUserID+
-//            "\nloggedUserID="+loggedUserID+
-//            "\nprimaryUserCompanyID="+primaryUserCompanyID+
-//            "\ntargetUserCompanyID="+targetUserCompanyID+
-//            "\nloggedUserCompanyID="+loggedUserCompanyID+
-//            "\ntargetUser="+targetUser+
-//            "\nman="+man+
-//            "\ncreateNew="+createNew;
-//        }
     }
 }

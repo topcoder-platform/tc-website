@@ -1,9 +1,13 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page import="com.topcoder.web.corp.Constants" %>
+<%@ page import="com.topcoder.web.corp.Constants"
+         contentType="text/html; charset=ISO-8859-1"
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="../exc/InternalError.jsp" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
-<jsp:include page="../script.jsp"/>
+<script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>

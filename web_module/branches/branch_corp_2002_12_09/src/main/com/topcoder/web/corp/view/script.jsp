@@ -1,5 +1,5 @@
-<%@  page
-  contentType="text/html"
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         autoFlush="false"
 %>
 <SCRIPT type="text/javascript">
 if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {

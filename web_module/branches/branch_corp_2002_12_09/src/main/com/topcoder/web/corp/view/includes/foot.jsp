@@ -1,4 +1,6 @@
-<%@ page import="com.topcoder.web.corp.Constants" %>
+<%@ page import="com.topcoder.web.corp.Constants"
+         autoFlush="false"
+%>
 <!-- Footer Include Begins -->
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
   <TR>

@@ -29,8 +29,6 @@ import javax.sql.DataSource;
 public class UserList extends BaseProcessor {
     private static Logger log = Logger.getLogger(UserList.class);
 
-    private static final String USER_LIST_PAGE = "/acc_admin/UserListView.jsp"; 
-
    /**  <p>BusinessProcessing for this processor will retrieve a list of user
      *  information from the database related to current company of the
      *  user who is logged in.  
@@ -74,6 +72,6 @@ public class UserList extends BaseProcessor {
 //        }
 //System.err.println("--------"+rsc.getRowCount()+"---");
         request.setAttribute("companyUsers",rsc);
-        nextPage = USER_LIST_PAGE;
+        nextPage = Constants.USERLIST_PAGE;
     }
 }

@@ -1,12 +1,13 @@
-<%@page import="com.topcoder.web.corp.request.Login,
-                com.topcoder.web.corp.Constants,
-                com.topcoder.shared.security.User,
-                com.topcoder.web.common.security.SessionPersistor,
-                com.topcoder.web.common.security.BasicAuthentication "
- %>
+<%@ page import="com.topcoder.web.corp.request.Login,
+                 com.topcoder.web.corp.Constants,
+                 com.topcoder.shared.security.User,
+                 com.topcoder.web.common.security.SessionPersistor,
+                 com.topcoder.web.common.security.BasicAuthentication "
+         autoFlush="false"
+%>
 <% BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request.getSession(true)), request, response);
    User activeUser = auth.getActiveUser();
- %>
+%>
 <A NAME="top"/>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">    
    <TR>

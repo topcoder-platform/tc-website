@@ -1,6 +1,4 @@
-<%@  page
-  contentType="text/html"
-%>
+<%@ page autoFlush="false" %>
 <SCRIPT type="text/javascript">
 var months=new Array(13);
 months[1]="January";

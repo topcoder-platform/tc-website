@@ -19,7 +19,6 @@ public class Logout extends BaseProcessor {
     void businessProcessing() throws Exception {
         authToken.logout();
         pageInContext = false;
-        //nextPage = null; // controller will fetch recently viewed page
         nextPage = Util.appRootPage(request);
         return;
     }

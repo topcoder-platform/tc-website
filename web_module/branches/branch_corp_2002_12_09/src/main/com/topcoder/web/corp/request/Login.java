@@ -1,7 +1,5 @@
 package com.topcoder.web.corp.request;
 
-//import com.topcoder.shared.security.AuthenticationException;
-//import com.topcoder.shared.security.InvalidLogonException;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
@@ -55,16 +53,7 @@ public class Login extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws AuthenticationException {
-//        if( ! authToken.getUser().isAnonymous() ) {
-//            throw new AuthenticationException("Already logged in. Try logout at first");
-//        }
-//        if( ! "POST".equals(request.getMethod()) ) {
-//            pageInContext = true;
-//            nextPage = SessionPersistor.getInstance(request.getSession(true))
-//                       .popLastPage();
-//            return;
-//        }
-        
+
         boolean miniLogin = false;
         try {
             miniLogin = Integer.parseInt(request.getParameter(KEY_LOGINMODE)) == 1;
@@ -110,7 +99,6 @@ public class Login extends BaseProcessor {
         else {
             nextPage = destination;
         }
-        
         pageInContext = false; // ensures all request parameters are dropped off
         return;
     }

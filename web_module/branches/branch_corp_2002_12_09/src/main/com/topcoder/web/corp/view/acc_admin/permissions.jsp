@@ -1,8 +1,12 @@
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="../exc/InternalError.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
-<jsp:include page="../script.jsp"/>
+<script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
 </HEAD>
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -20,29 +24,29 @@
       <TD CLASS="bodyText" valign="top"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Account Administration - Permissions List</B></FONT><BR>
 <P>
-		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
+                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P>
 
 <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0">
-	<TR>
-		<TD COLSPAN="2" VALIGN="middle" CLASS="bodyText"><B>&#160;Permissions</B><BR><BR></TD>		
-	</TR>
-	<TR>
-		<TD VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC"><INPUT TYPE="checkbox"></TD><TD WIDTH="100%" VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;Permission 1</TD>		
-	</TR>
-	<TR>
-		<TD VALIGN="middle" CLASS="bodyText"><INPUT TYPE="checkbox"></TD><TD VALIGN="middle" CLASS="bodyText">&#160;Permission 2</TD>		
-	</TR>	
-	<TR>
-		<TD VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC"><INPUT TYPE="checkbox"></TD><TD VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;Permission 3</TD>		
-	</TR>
-	<TR>
-		<TD VALIGN="middle" CLASS="bodyText"><INPUT TYPE="checkbox"></TD><TD VALIGN="middle" CLASS="bodyText">&#160;Permission 4</TD>		
-	</TR>
-	<TR>
-		<TD COLSPAN="2" VALIGN="middle" CLASS="bodyText" ALIGN="center"><BR><BR><A HREF="#" CLASS="bodyText">Save Permissions</A></TD>		
-	</TR>				
+        <TR>
+                <TD COLSPAN="2" VALIGN="middle" CLASS="bodyText"><B>&#160;Permissions</B><BR><BR></TD>          
+        </TR>
+        <TR>
+                <TD VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC"><INPUT TYPE="checkbox"></TD><TD WIDTH="100%" VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;Permission 1</TD>          
+        </TR>
+        <TR>
+                <TD VALIGN="middle" CLASS="bodyText"><INPUT TYPE="checkbox"></TD><TD VALIGN="middle" CLASS="bodyText">&#160;Permission 2</TD>           
+        </TR>   
+        <TR>
+                <TD VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC"><INPUT TYPE="checkbox"></TD><TD VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;Permission 3</TD>               
+        </TR>
+        <TR>
+                <TD VALIGN="middle" CLASS="bodyText"><INPUT TYPE="checkbox"></TD><TD VALIGN="middle" CLASS="bodyText">&#160;Permission 4</TD>           
+        </TR>
+        <TR>
+                <TD COLSPAN="2" VALIGN="middle" CLASS="bodyText" ALIGN="center"><BR><BR><A HREF="#" CLASS="bodyText">Save Permissions</A></TD>          
+        </TR>                           
 </TABLE>
 </FORM>
 <P><BR></P>    

@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -20,6 +21,7 @@ import com.topcoder.web.common.security.TCESAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.request.Login;
 
 
 /**
@@ -44,20 +46,18 @@ public class MainServlet extends HttpServlet {
     private static final String ERR_DELETE      = "DELETE method invocation";
     private static final String ERR_PUT         = "PUT method invocation";
     private static final String ERR_TRACE       = "TRACE method invocation";
+    private static final String DEFAULT_ERRPAGE = "/exc/InternalError.jsp";
     
-    private static final String KEY_MODULE      = "module";
-    private static final String KEY_MAINPAGE    = "main";
-    private static final String KEY_LOGINPAGE   = "login";
-    private static final String KEY_ERRORPAGE   = "error";
-    private static final String KEY_EXCEPTION   = "caught-exception";
-
-    private static final String PFX_PROCMODULE  = "processor-";
-    private static final String PFX_PAGE        = "page-";
-    
-    private ServletConfig servletConfig;
+    private ServletConfig servletConfig = null;
+    private String welcomeApplicationPage = null;
+    private String loginApplicationPage = null;
+    private String errorPageNavigation = null;
+    private String errorPageSecurity = null;
+    private String errorPageInternal = null;
     
     /**
-     * Initializes the servlet. Primary goal is to set up application context. 
+     * Initializes the servlet. Primary goal is to set up application context
+     * variables and constants.
      * 
      * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
      * @throws     ServletException
@@ -65,6 +65,20 @@ public class MainServlet extends HttpServlet {
     public void init() throws ServletException {
         servletConfig = getServletConfig();
         Constants.init(servletConfig);
+        welcomeApplicationPage = servletConfig.getInitParameter("page-welcome");
+        loginApplicationPage   = servletConfig.getInitParameter("page-login");
+        errorPageNavigation = servletConfig.getInitParameter("page-error-navigation");
+        errorPageSecurity   = servletConfig.getInitParameter("page-error-security");
+        errorPageInternal   = servletConfig.getInitParameter("page-error-internal");
+        if(errorPageNavigation==null || errorPageNavigation.trim().length()==0) {
+            errorPageNavigation = DEFAULT_ERRPAGE; 
+        }
+        if(errorPageSecurity==null || errorPageSecurity.trim().length()==0) {
+            errorPageSecurity = DEFAULT_ERRPAGE;
+        }
+        if(errorPageInternal==null || errorPageInternal.trim().length()==0) {
+            errorPageInternal = DEFAULT_ERRPAGE;
+        }
     }
 
     /**
@@ -79,22 +93,21 @@ public class MainServlet extends HttpServlet {
         );
         
         // put prefix of the url into request
-        request.setAttribute(
-            Constants.KEY_LINK_PREFIX,
-            Util.appRootPage(request)
-        ); 
-        String dest = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
-        String processorName = request.getParameter(KEY_MODULE);
-
+        request.setAttribute(Constants.KEY_LINK_PREFIX, Util.appRootPage(request));
+        
+        // same for name of page to handle internal exceptions
+        request.setAttribute(Constants.KEY_INTERNAL_EXC_PAGE, errorPageInternal);
+        
+        String processorName = request.getParameter(Constants.KEY_MODULE);
         if( processorName == null ) {
             log.warn("processing module not specified");
-            fetchRegularPage(request, response, dest, true);
+            fetchRegularPage(request, response, welcomeApplicationPage, true);
             return;
         }
 
         // prefixed to allow different resource kinds to share same name
         String processorClassName = servletConfig.getInitParameter(
-            PFX_PROCMODULE+processorName
+            "processor-"+processorName
         );
 
         // first of all, to check, if it is allower to run that processor at all
@@ -118,38 +131,18 @@ public class MainServlet extends HttpServlet {
                 log.debug("user [id="+tcUser.getUserId()+"] has not enough "+
                     "permissions to work with module "+processorClassName
                 );
-
-//                if (authToken.getActiveUser().isAnonymous()) {
-//                    /* If the user is anonymous and tries to access a module 
-//                       they are not authorized to access, send them to the 
-//                       login page.
-//                    */
-//                    log.debug("user anonymous unauthorized to access resource, " +
-//                              "forwarding to login page.");
-//                    fetchLoginPage(request,response);
-//                    return;
-//                }
-
-                throw new NotAuthorizedException("Not enough permissions to "+
-                    "work with requested module"
+                throw new NotAuthorizedException(
+                    "Not enough permissions to work with requested module"
                 );
             }
 
-            processorModule = (RequestProcessor)
-                Class.forName(processorClassName).newInstance();
+            processorModule = (RequestProcessor)Class.forName(
+                processorClassName
+            ).newInstance();
             log.debug("processing module "+processorClassName+" instantiated");
 
-//        }
-//        catch(Exception e) {
-//            log.error("processing module instantiation exception ", e);
-//            fetchErrorPage(request, response, e);
-//            return;
-//        }
-//
-//        try {
-
             // set main page in web.xml as homePage for Static Processor
-            request.setAttribute("homePage",dest);
+            request.setAttribute("homePage", welcomeApplicationPage);
 
             processorModule.setRequest(request);
             processorModule.setAuthToken(authToken);
@@ -177,7 +170,7 @@ public class MainServlet extends HttpServlet {
                 /* If the user is logged-in and is not authorized to access
                    the resource, send them to an authorization failed page */
                 log.error("Unauthorized Access to ["+processorName+"]", nae);
-                fetchErrorPage(request, response, nae);
+                fetchErrorPage(request, response, errorPageSecurity, nae);
                 //fetchAuthorizationFailedPage(request, response, nae);
             }
         }
@@ -186,7 +179,7 @@ public class MainServlet extends HttpServlet {
             log.error("exception during request processing ["
                 +processorName+"]", e
             );
-            fetchErrorPage(request, response, e);
+            fetchErrorPage(request, response, errorPageInternal, e);
         }
     }
     
@@ -209,8 +202,7 @@ public class MainServlet extends HttpServlet {
         if( dest == null ) {
             // it is supposed when processor returns null as next page, then
             // controller must use defaul page
-            dest = SessionPersistor.getInstance(req.getSession(true))
-                .popLastPage();
+            dest = SessionPersistor.getInstance(req.getSession(true)).popLastPage();
             if( dest == null ) { //still null
                 dest = req.getContextPath()+"/"; // default page is web app root
             } 
@@ -227,10 +219,6 @@ public class MainServlet extends HttpServlet {
             getServletContext().getRequestDispatcher(dest).forward(req, resp);
         }
         else {
-            // redirected pages *must* contain servlet context path
-//            if( ! startsWithContextPath ) {
-//                dest = contextPrefix+dest;
-//            }
             resp.sendRedirect(dest);
         }
     }                                    
@@ -252,18 +240,21 @@ public class MainServlet extends HttpServlet {
     private void fetchErrorPage(
         HttpServletRequest req,
         HttpServletResponse resp,
+        String errPage,
         Throwable exc
     )
     throws ServletException, IOException
     {
         // error page is regular page too with the only difference - it
         // has an error attribute set in request, so..
-        String errorPage;
-        errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_ERRORPAGE);
         if( exc != null ) {
-            req.setAttribute(KEY_EXCEPTION, exc);
+            req.setAttribute(Constants.KEY_EXCEPTION, exc);
         }
-        fetchRegularPage(req, resp, errorPage, true);
+        String contextPath = req.getContextPath();
+        if(! errPage.startsWith(contextPath) ) {
+            errPage = contextPath+errPage;
+        }
+        fetchRegularPage(req, resp, errPage, true);
     }
     
 
@@ -286,29 +277,19 @@ public class MainServlet extends HttpServlet {
         if( req.getQueryString() != null ) {
             originatingPage += "?"+req.getQueryString();
         }
-
         log.debug("fetchLoginPage request, orginatingPage = "+originatingPage);
-
-        String destParam = 
-            com.topcoder.web.corp.request.Login.KEY_DESTINATION_PAGE;
-        String loginPage = servletConfig.getInitParameter(
-            PFX_PAGE + KEY_LOGINPAGE
-        );
-
-        String loginPageDest = loginPage + "?" + destParam + "=" +
-            java.net.URLEncoder.encode(
-                originatingPage
-//                , resp.getCharacterEncoding() // 1.4
-            );
-
-        fetchRegularPage(req, resp, loginPageDest, true);
+        
+        StringBuffer loginPageDest = new StringBuffer(128);
+        loginPageDest
+            .append(loginApplicationPage).append('?')
+            .append(Login.KEY_DESTINATION_PAGE).append('=')
+            .append(URLEncoder.encode(originatingPage));
+        fetchRegularPage(req, resp, loginPageDest.toString(), true);
     }
 
 
     /**
      * For now it is just synonym for doGet.
-     *
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException
@@ -317,50 +298,42 @@ public class MainServlet extends HttpServlet {
     }
 
     /**
-     * Not supported. Will return 403 forbidden.
-     * 
-     * @see javax.servlet.http.HttpServlet#doDelete(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * Not supported. Will return internal error page.
      */
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException
     {
         log.error(ERR_DELETE);
-        fetchErrorPage(req, resp, new Exception(ERR_DELETE));
+        fetchErrorPage(req, resp, errorPageInternal, new Exception(ERR_DELETE));
     }
 
     /**
-     * Not supported. Will return 403 forbidden.
-     * 
-     * @see javax.servlet.http.HttpServlet#doOptions(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * Not supported. Will return internal error page.
      */
     protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException
     {
         log.error(ERR_OPTIONS);
-        fetchErrorPage(req, resp, new Exception(ERR_OPTIONS));
+        fetchErrorPage(req, resp,errorPageInternal, new Exception(ERR_OPTIONS));
     }
 
     /**
-     * Not supported. Will return 403 forbidden.
-     * 
-     * @see javax.servlet.http.HttpServlet#doPut(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * Not supported. Will return internal error page.
      */
     protected void doPut(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException
     {
         log.error(ERR_PUT);
-        fetchErrorPage(req, resp, new Exception(ERR_PUT));
+        fetchErrorPage(req, resp, errorPageInternal, new Exception(ERR_PUT));
     }
 
     /**
-     * Not supported. Will return 403 forbidden.
-     * 
-     * @see javax.servlet.http.HttpServlet#doTrace(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     * Not supported. Will return internal error page.
      */
     protected void doTrace(HttpServletRequest req, HttpServletResponse resp)
     throws ServletException, IOException 
     {
         log.error(ERR_TRACE);
-        fetchErrorPage(req, resp, new Exception(ERR_TRACE));
+        fetchErrorPage(req, resp, errorPageInternal, new Exception(ERR_TRACE));
     }
 }

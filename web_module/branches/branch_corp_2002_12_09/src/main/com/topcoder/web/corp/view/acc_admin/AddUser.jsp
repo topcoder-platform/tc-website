@@ -1,14 +1,18 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         import="com.topcoder.web.corp.request.Registration,
+                 com.topcoder.web.corp.Constants,
+                 com.topcoder.web.common.security.SessionPersistor,
+                 com.topcoder.web.common.security.BasicAuthentication "
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="../exc/InternalError.jsp" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@page import="com.topcoder.web.corp.request.Registration,
-                com.topcoder.web.corp.Constants,
-                com.topcoder.web.common.security.SessionPersistor,
-                com.topcoder.web.common.security.BasicAuthentication "
-%>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
-<jsp:include page="../script.jsp"/>
+<script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
+<%--
 <script TYPE="text/javascript">
 function getPermissions(url,wd,ht) {
     var last=0;
@@ -19,8 +23,7 @@ function getPermissions(url,wd,ht) {
     return;
   }
 </SCRIPT>
-
-
+--%>
 </HEAD>
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">

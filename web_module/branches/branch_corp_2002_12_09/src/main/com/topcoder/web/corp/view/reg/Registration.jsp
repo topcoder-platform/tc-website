@@ -65,12 +65,12 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
         <TD colspan="2" class="errorText" align="left" valign="middle">
-           <tc-webtag:errorIterator id="err" refname="prim-title"><%=err%><br></tc-webtag:errorIterator>
+           <tc-webtag:errorIterator id="err" refname="title"><%=err%><br></tc-webtag:errorIterator>
         </TD>
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Title</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-title" size="30" maxlength="30"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="title" size="30" maxlength="30"/></TD>
   </TR>
 
 <!-- COMPANY NAME -->

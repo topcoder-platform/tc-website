@@ -1,11 +1,12 @@
-<%@ page
-  language="java"
-  errorPage="/error.jsp"
-  import="com.topcoder.shared.dataAccess.*,
-          com.topcoder.shared.dataAccess.resultSet.*,
-          java.util.Map,
-          com.topcoder.web.corp.Constants"
-%>
+<%@ page contentType="text/html; charset=ISO-8859-1"
+         language="java"
+         import="com.topcoder.shared.dataAccess.*,
+                 com.topcoder.shared.dataAccess.resultSet.*,
+                 java.util.Map,
+                 com.topcoder.web.corp.Constants"
+         autoFlush="false"
+         buffer="64kb"
+         errorPage="../exc/InternalError.jsp" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%    
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
@@ -14,7 +15,7 @@
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
-<jsp:include page="../script.jsp"/>
+<script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
 </HEAD>
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>
