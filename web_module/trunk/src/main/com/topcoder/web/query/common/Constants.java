@@ -77,7 +77,6 @@ public class Constants {
 
     public static ArrayList DB_LIST;
 
-
     /* hard coding these two because they are not well defined in the db
      * and are hard coded in the query runners
      */
