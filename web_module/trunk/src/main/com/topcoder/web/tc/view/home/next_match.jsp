@@ -1,6 +1,6 @@
             <table border="0" cellspacing="0" cellpadding="3" width="530">
                 <tr valign="middle">
-                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Match Dates</font></td>
+                    <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Schedule</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=schedule&c=index" class="bodyText"><strong>View Schedule</strong></a></td>
                 </tr>
             </table>
