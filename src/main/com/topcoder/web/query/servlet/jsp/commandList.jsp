@@ -21,20 +21,22 @@
     <TR>
       <TD WIDTH="170" BGCOLOR="#000000" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <query:linkIterator id="link" list="<%=CommandListTask.getNavLinks()%>">
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
-              </TD>
-            </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-          </query:linkIterator>
+          <jsp:include page="left.jsp">
+            <jsp:param name="<%=Constants.DB_PARAM%>" value="<jsp:getProperty name="CommandListTask" property="Db"/>"/>
+            <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<jsp:getProperty name="CommandListTask" property="ServletPath"/>"/>
+          </jsp:include>
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.COMMAND_LIST_NAME%></TD></TR>
+          <TR>
+            <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
+            <TD CLASS="statText" ALIGN="left">
+              <jsp:getProperty name="CommandListTask" property="Db"/>
+            </TD>
+          </TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           <TR BGCOLOR="#333333">
             <TD CLASS="statTextBig">Group Name</TD>

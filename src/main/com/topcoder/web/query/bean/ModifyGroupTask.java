@@ -41,10 +41,6 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
         }
  	}
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        super.setNavLinks(super.buildNavLinks(getServletPath(), getDb()));
-    }
-
     public void process(String step) throws Exception {
         CommandGroupHome cgHome = (CommandGroupHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_GROUP);
         CommandGroup cg = cgHome.create();

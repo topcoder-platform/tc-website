@@ -45,6 +45,7 @@ public class Constants {
     public static String DEFAULT_VALUE_PARAM;
     public static String SORT_ORDER_PARAM;
     public static String RANKING_PARAM;
+    public static String SERVLET_PATH_PARAM;
 
     public static String LOGIN_TASK;
     public static String DB_SELECTION_TASK;
@@ -121,6 +122,7 @@ public class Constants {
         DEFAULT_VALUE_PARAM = servletConfig.getInitParameter("default_value_param");
         SORT_ORDER_PARAM = servletConfig.getInitParameter("sort_order_param");
         RANKING_PARAM = servletConfig.getInitParameter("ranking_param");
+        SERVLET_PATH_PARAM = servletConfig.getInitParameter("servlet_path_param");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         DB_SELECTION_TASK = servletConfig.getInitParameter("db_selection_task");

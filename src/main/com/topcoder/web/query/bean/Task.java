@@ -5,7 +5,6 @@ import com.topcoder.web.query.common.Authentication;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 
 /**
@@ -66,8 +65,6 @@ public interface Task {
     void clearErrors();
 
     boolean hasErrors();
-
-    List getNavLinks();
 
     boolean isInternalResource();
 
