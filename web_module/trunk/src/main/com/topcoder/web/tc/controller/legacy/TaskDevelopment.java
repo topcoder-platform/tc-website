@@ -618,6 +618,7 @@ public final class TaskDevelopment {
                     Data.loadUser(nav);
                     String from = nav.getUser().getEmail();
                     String to = Conversion.checkNull(request.getParameter("To"));
+                    String teammate = Conversion.clean(request.getParameter("teammate"));
                     String comment = Conversion.clean(request.getParameter("Comment"));
 
 
@@ -631,6 +632,7 @@ public final class TaskDevelopment {
                     } else {
                         msgText.append("\n\nAgreed to terms.\n");
                     }
+                    msgText.append("\n\nTeammate: ").append(teammate);
                     msgText.append("\n\nComment:\n");
                     msgText.append(comment);
 
