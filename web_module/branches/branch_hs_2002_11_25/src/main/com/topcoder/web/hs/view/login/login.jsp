@@ -56,7 +56,7 @@ if(message==null) message = "";
 String username = request.getAttribute("username");
 if(username==null) username = SessionInfo.getHandle();
 if(username==null) username = "";
-
+%>
 
 <form name="loginform" action="" method="post">
 <input type="hidden" name="module" value="Login">
