@@ -8,7 +8,7 @@
 <HTML>
 <HEAD>
 <TITLE>TopCoder Corporate</TITLE>
-<script language="JavaScript" src="<%=request.getContextPath()%>/script.js"></script>
+<script language="JavaScript" src="/js/script.js"></script>
 <%-- <jsp:include page="../script.jsp"/> --%>
 </HEAD>
 
