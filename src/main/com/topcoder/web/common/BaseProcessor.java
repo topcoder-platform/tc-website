@@ -154,7 +154,7 @@ public abstract class BaseProcessor implements RequestProcessor {
         return "";
     }
 
-    protected boolean hasError(String key) {
+    public boolean hasError(String key) {
         return errors.containsKey(key);
     }
 
@@ -168,7 +168,7 @@ public abstract class BaseProcessor implements RequestProcessor {
         errors.clear();
     }
 
-    public boolean hasErrors() {
+    protected boolean hasErrors() {
         return !errors.isEmpty();
     }
 
