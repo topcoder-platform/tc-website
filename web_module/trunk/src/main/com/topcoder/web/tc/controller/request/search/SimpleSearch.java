@@ -129,7 +129,7 @@ public class SimpleSearch extends Base {
         } else {
             queryBottom.append(", tcs_dw:user_rating desr");
         }
-        if (m.getMinDevRating()==null&&m.getMinDesignRating()==null) {
+        if (m.getMinDevRating()==null&&m.getMaxDevRating()==null) {
             queryBottom.append(", outer (tcs_dw:user_rating devr)");
         } else {
             queryBottom.append(", tcs_dw:user_rating devr");
