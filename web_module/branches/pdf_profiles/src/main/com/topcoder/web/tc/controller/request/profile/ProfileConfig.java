@@ -100,17 +100,7 @@ public class ProfileConfig extends BaseProcessor {
 
                 getRequest().setAttribute("configInfo", info);
             } else {
-                String url = "http://172.16.20.23/stat?c=member_profile&cr=7267401";
-                WebConversation wc = new WebConversation();
-                Cookie[] cookies = getRequest().getCookies();
-                for(int i = 0; i < cookies.length; i++) {
-                    wc.addCookie(cookies[i].getName(), cookies[i].getValue());
-                }
                 
-                WebRequest wr = new GetMethodWebRequest(url);
-                WebResponse resp = wc.getResponse(wr);
-                
-                System.out.println(resp.getText());
             }
             
             
