@@ -95,7 +95,7 @@
             <B><U>AWARDS DINNER:</U></B><BR/>
             <BR/>
                 All finalists and one(1) guest are invited to attend the awards dinner on Friday December 5th.
-                Please not that attire is business casual.<BR/>
+                Please note that attire is business casual.<BR/>
             <BR/>
         <BR/>
         <BR/>
