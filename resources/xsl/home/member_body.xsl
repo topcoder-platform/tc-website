@@ -49,15 +49,6 @@
                             <strong>When:</strong> Feb. 18th - April 5th, 2003<br />
                             <strong>Where:</strong> the University Park Hotel @ MIT in Cambridge, MA<br />
                             <strong>Total Purse:</strong> $100,000</p>
-                            
-                            <p><strong>Eligibility Information for the 2003 TopCoder Collegiate Challenge</strong><br />
-                            <xsl:for-each select="/TC/HOME/CollegiateInfo/reasons/reason">
-                                <xsl:value-of select="reason_text"/><br />
-                                </xsl:for-each>
-                                <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'"><br />
-                                <a href="/TourneyReg?&amp;rd=4462&amp;cd=4462" class="statText"><font size="3">Sign up now</font></a>
-                            </xsl:if>
-                            </p>
 
                             <p><font color="#CC0000"><strong>200 TopCoder Members will win money!</strong></font><br />
                             <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Get more information</a><br />
@@ -158,16 +149,16 @@
             <xsl:when test="/TC/HasImage='true'">
 
                 <tr><td colspan="3"><a><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> RE-SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute><xsl:attribute name="CLASS">statText</xsl:attribute>Click here to resend your photo</a></td></tr>
-        
+
             </xsl:when>
             <xsl:otherwise>
-                
+
                 <tr><td colspan="3" class="statText"><img src="/i/clear.gif" alt="" width="1" height="8" border="0"/></td></tr>
                 <tr><td colspan="3" class="statText"><img src="/i/clear.gif" alt="" width="1" height="24" border="0"/></td></tr>
 
             </xsl:otherwise>
             </xsl:choose>
-                
+
                 <tr><td colspan="3" class="statText"><img src="/i/clear.gif" alt="" width="1" height="8" border="0"/></td></tr>
                 <tr><td colspan="3" class="statText"><img src="/i/clear.gif" alt="" width="1" height="8" border="0"/></td></tr>
             </table>
@@ -209,9 +200,9 @@
                             </tr>
 
                             <tr><td background="/i/steel_darkblue_bg.gif" colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="1" height="2" border="0"/></td></tr>
-                            
+
                             <tr>
-                            
+
                             <xsl:choose>
                             <xsl:when test="/TC/Ranking>0">
 
@@ -236,15 +227,15 @@
 
                         <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" background="/i/steel_darkblue_bg.gif" width="100%">
                             <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-                        
+
                         <xsl:if test="count(/TC/HOME/Last3Comps/RoomResult)!='0'">
 
                             <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-                            
+
                             <tr><td background="/i/steel_gray_bg3.gif" colspan="16" class="smallFoot" height="16" valign="middle">&#160;Statistics from your Last <xsl:value-of select="count(/TC/HOME/Last3Comps/RoomResult)"/> Matches (click the <img src="/i/coders_icon_onclear.gif" alt="" width="10" height="10" hspace="2" border="0"/> icon to view problem information).</td></tr>
-                            
+
                             <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-                            
+
                             <tr>
                                 <td background="/i/steel_bluebv_bg.gif" valign="middle" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                                 <td background="/i/steel_bluebv_bg.gif" class="statTextBig" valign="middle" width="10%" height="28">Coder</td>
@@ -263,7 +254,7 @@
                                 <td background="/i/steel_bluebv_bg.gif" class="statTextBig" valign="middle" width="10%" align="center">New<br />Rating</td>
                                 <td background="/i/steel_bluebv_bg.gif" valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                             </tr>
-                            
+
                             <tr><td background="/i/steel_darkblue_bg.gif" colspan="16"><img src="/i/clear.gif" alt="" width="1" height="2" border="0"/></td></tr>
 
                         <xsl:for-each select="/TC/HOME/Last3Comps/RoomResult">
@@ -274,9 +265,9 @@
 
                                 <td background="/i/steel_darkblue_bg.gif" valign="middle" width="10">
                                     <a>
-                        
+
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;rd=<xsl:value-of select="RoundId"/>&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
-                                    
+
                                     <img src="/i/coders_icon.gif" alt="" width="10" height="10" hspace="2" border="0"/>
                                     </a>
                                 </td>
@@ -285,43 +276,43 @@
 
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
                         <xsl:attribute name="CLASS">statText</xsl:attribute>
-                                    
+
                                     <font>
 
                         <xsl:attribute name="color">
                         <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
-                        
+
                         </xsl:attribute>
                         <xsl:value-of select="Handle"/>
-                                    
+
                                     </font>
                                     </a>
                                 </td>
-                        
+
                         </xsl:when>
                         <xsl:otherwise>
 
                                 <td><img src="/i/coders_icon.gif" alt="" width="10" height="10" hspace="4" border="0"/></td>
                                 <td>
-                        
+
                         <xsl:attribute name="CLASS">statText</xsl:attribute>
 
                                     <font>
-                        
+
                         <xsl:attribute name="color">
                         <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="PostRoundRating"/></xsl:with-param></xsl:call-template>
 
                         </xsl:attribute>
-                        
+
                                     <b>
-                                    
+
                         <xsl:value-of select="Handle"/></b>
 
                                     </font>
                                 </td>
 
                         </xsl:otherwise></xsl:choose>
-                        
+
                                 <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(CodingPoints, '0.00')"/></td>
                                 <td class="statText" valign="middle" align="right">&#160;&#160;</td>
                                 <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(ChallengePoints, '0.00')"/></td>
@@ -333,20 +324,20 @@
 
                         <xsl:choose>
                         <xsl:when test="Advanced='Y'">
-                        
+
                                     Yes
 
                         </xsl:when>
                         <xsl:otherwise>
-                        
+
                                     No
-                                    
+
                         </xsl:otherwise>
                         </xsl:choose>
 
                                 </td>
                                 <td class="statText" valign="middle" align="right">
-                        
+
                         <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PreRoundRating, '0')"/></xsl:with-param></xsl:call-template>
 
                                 </td>
@@ -354,9 +345,9 @@
                                 <td class="statText" valign="middle" align="right"><xsl:value-of select="format-number(RatingDifference, '0.00')"/></td>
                                 <td class="statText" valign="middle" align="right">&#160;&#160;</td>
                                 <td class="statText" valign="middle" align="right">
-                                
+
                         <xsl:call-template name="GetRatingToDisplay"><xsl:with-param name="rating"><xsl:value-of select="format-number(PostRoundRating, '0')"/></xsl:with-param></xsl:call-template>
-                                
+
                                 </td>
                                 <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                             </tr>
@@ -364,22 +355,22 @@
                             <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="2" border="0"/></td></tr>
 
                         </xsl:for-each>
-                            
+
                             <tr><td colspan="16"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
 
                             <tr><td background="/i/steel_blue_bg.gif" class="statText" colspan="16"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 
                             <tr><td class="statText" colspan="16"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-                        
+
                         </xsl:if>
-                        
+
                         </table>
                     </td>
                     <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
 
                 <tr><td colspan="4" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
-                
+
                 <tr>
                     <td valign="top" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
                     <td valign="top" width="14"><img src="/i/clear.gif" alt="" width="14" height="8" border="0"/></td>
@@ -439,13 +430,13 @@
                                         <a>
                                         <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
                                         <xsl:attribute name="CLASS">bodyText</xsl:attribute>
-                                        
+
                                         <font>
-                                        
+
                                         <xsl:attribute name="color">
                                             <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                                         </xsl:attribute>
-                                        
+
                                         <xsl:value-of select="handle"/>
 
                                         </font></a>
@@ -483,7 +474,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 <!-- Coder Point of View Begins -->
             <table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
-                
+
                 <tr>
                     <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
                         By&#160;Logan<br /><i>[TC]&#160;Member</i><br /></td>
@@ -500,7 +491,7 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                         <p>The most notable aspect of this round was the Level 2 problem, which was solved by only four coders.
             This lead to a lot of successful challenges by coders such as <b>John Dethridge</b>.  The
             The Level 1 and Level 3 problems had very high success rates among those that submitted the problems,
-            but each had a rather low submission rate.</p>
+            but only 14 coders managed to submit a possible solution for the Level 3 problem.</p>
                     </td>
                 </tr>
             </table>
@@ -524,7 +515,6 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
 <!--SRM Sponsor Starts-->
             <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0" /><br />
             <map name="srmanimation_home">
-<!--                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?t=tournaments&amp;c=tccc03_sched" target="_parent" /> -->
                 <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" />
                 <area shape="poly" alt="SRM Match 136" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4470&amp;t=schedule&amp;c=srm" />
             </map>
