@@ -22,17 +22,15 @@
             <% if (level1.equals("applications")) { %>
                 <tr><td id="<%=level2.equals("overview")?"leftSubnavOn":"leftSubnav"%>"><a href="/applications/index.jsp" class="leftOn">Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("methodology")?"leftSubnavOn":"leftSubnav"%>"><a href="/applications/methodology.jsp" class="leftOn">Methodology</a></td></tr>
-			<%--
                 <tr><td id="<%=level2.equals("appSuites")?"leftSubnavOn":"leftSubnav"%>"><a href="/applications/appSuiteIndex.jsp" class="leftOn">Application Suites</a></td></tr>
-            --%>
 			<% } %>
 <!-- Applications ends -->
 
 <!-- Components begins-->
-                <tr><td id="<%=level1.equals("components")?"leftNavOn":"leftNav"%>"><a href="/catalog/c_showroom.jsp" class="<%=level1.equals("components")?"leftOn":"left"%>"><img src="/images/nav_arrow_<%=level1.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0">Components</a></td></tr>
+                <tr><td id="<%=level1.equals("components")?"leftNavOn":"leftNav"%>"><a href="/catalog/index.jsp" class="<%=level1.equals("components")?"leftOn":"left"%>"><img src="/images/nav_arrow_<%=level1.equals("components")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0">Components</a></td></tr>
 
             <% if (level1.equals("components")) { %>
-                <tr><td id="<%=level2.equals("browse")?"leftSubnavOn":"leftSubnav"%>"><a href="/catalog/c_showroom.jsp" class="leftOn">Browse Catalogs</a></td></tr>
+                <tr><td id="<%=level2.equals("find")?"leftSubnavOn":"leftSubnav"%>"><a href="/catalog/index.jsp" class="leftOn">Find Components</a></td></tr>
                 <tr><td id="<%=level2.equals("overview")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/index.jsp" class="leftOn">What Are Components?</a></td></tr>
                 <tr><td id="<%=level2.equals("methodology")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/methodology.jsp" class="leftOn">Methodology</a></td></tr>
                 <tr><td id="<%=level2.equals("subscriptions")?"leftSubnavOn":"leftSubnav"%>"><a href="/components/subscriptions.jsp" class="leftOn">Purchasing</a></td></tr>

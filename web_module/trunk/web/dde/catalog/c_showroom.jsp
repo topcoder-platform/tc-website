@@ -261,7 +261,7 @@
         <td width="180" class="leftColumn">
         <jsp:include page="/includes/left.jsp" >
             <jsp:param name="level1" value="components"/>
-            <jsp:param name="level2" value="browse"/>
+            <jsp:param name="level2" value="find"/>
         </jsp:include>
 
 <%

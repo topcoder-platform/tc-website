@@ -63,7 +63,7 @@
                             
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_18_04">Intel Corporation Sponsors 2004 TopCoder Open Tournament</A> [August 18]<br/></td></tr>
 
-                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_10_04">TopCoder Software Wins Three New Customer Contracts</A> [August 10]<br/></td></tr>
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_10_04">TopCoder Software Wins New Customer Contracts</A> [August 10]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_08_04_04">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament</A> [August 4]<br/></td></tr>
 

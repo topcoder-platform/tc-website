@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>TopCoder Software Wins Three New Customer Contracts</title>
+<title>TopCoder Software Wins New Customer Contracts</title>
 
 <xsl:call-template name="CSS"/>      
 

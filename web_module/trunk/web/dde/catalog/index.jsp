@@ -53,8 +53,14 @@
 
 <!-- Middle Column begins -->
         <td width="100%">
-		<br/><br/>
 		<table cellspacing=0 cellpadding=0 border=0 width=510 align=center>
+			<tr>
+				<td colspan=2>
+				<img src="/images/clear.gif" alt="" width="10" height="15" border="0" /><br/>
+				<img src="/images/headComponentsShort.gif" alt="Components" width="153" height="32" border="0"><br/>
+				<img src="/images/clear.gif" alt="" width="10" height="15" border="0" />
+				</td>
+			</tr>
 			<tr>
 				<td class=catalogIndexHeader colspan=2>Find Components</td>
 			</tr>
