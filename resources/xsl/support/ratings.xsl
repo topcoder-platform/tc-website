@@ -107,7 +107,7 @@
 										Before competing, new members ratings are provisional.<BR/><BR/> 
 										After a competition the algorithm below is applied to the competitors. First, the ratings of members who have previously competed are calculated, with new members' performances not considered. Second, new members are given a rating based on their performance relative to everyone in the competition.
 										<P><A HREF="/?t=support&amp;c=ratings_cal" CLASS="bodyText">How algorithm ratings are calculated</A></P>
-										<P><A HREF="/?t=support&amp;c=tcs_ratings_cal" CLASS="bodyText">How design and development ratings are calculated</A></P>
+										<P><A HREF="/?t=support&amp;c=tcs_ratings_calc" CLASS="bodyText">How design and development ratings are calculated</A></P>
                                         </TD>
                                     </TR>
                                 </TABLE>
