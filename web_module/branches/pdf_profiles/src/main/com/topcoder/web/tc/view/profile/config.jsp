@@ -9,7 +9,7 @@
     <head><title>Placement Profile Config</title></head>
     <body>
         <form name=frmConfig method=post enctype="multipart/form-data" action="/tc">
-        <input type="hidden" name="module" value="ProfileConfig"/>
+        <input type="hidden" name="module" value="PDFGenerator"/>
         <input type="hidden" name="process" value="true" />
         <input type="hidden" name="uid" value="<jsp:getProperty name="configInfo" property="UserID"/>" />
         <b>Profile Config</b><br />
