@@ -406,7 +406,7 @@
 
                 <tr valign="top">
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=global_distance_calculator-development&amp;payment=168&amp;date=2&#47;20&#47;2003">Global Distance Calculator</a></td>
+                    <td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=global_distance_calculator-development&amp;payment=120&amp;date=2&#47;20&#47;2003">Global Distance Calculator</a></td>
                     <td background="" class="statText" align="center">$120.00</td>
                     <td background="" class="statText" align="center">2.20.2003</td>
                     <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
