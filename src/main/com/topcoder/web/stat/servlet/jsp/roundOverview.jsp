@@ -235,8 +235,8 @@ function goTo(selection){
         int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
         int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
         int problemID = Integer.parseInt(currentRow.getItem("problem_id").toString());
-        double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
-        String perCor = dfp.format((((double)correct)/submissions));
+        double total = correct==0?0.0D:Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
+        String perCor = dfp.format(submissions==0?0.0D:(((double)correct)/submissions));
         String avgPoints = df.format(total);
   %>
 
