@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/timmac_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=10407399"><strong>timmac</strong></a><br/>
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,15 +19,19 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm227_prob">SRM 227 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, January 22, 2005</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=tccc05_online_rd_3">TCCC05 Round 3 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, January 26, 2005</p>
 
                         <p>
-In Division 2, <b>Marto</b> and <b>valo_bg</b> took first and second, with <b>Dan [Popovici]</b> in a very close third. 
-Partway through the match, three newbies held the top three spots, but that changed before too long.
-Nobody was terribly surprised in Division 1, when <b>tomek</b> took top honors. <b>marian</b> and <b>misof</b> were 
-second and third, by good margins.
-						<a href="/index?t=statistics&c=srm227_prob" class="bodyText"><strong>full&#160;story</strong></a>
+Round 3 proved to be leaps and bounds harder than round 2.  Only 3 coders
+submitted the easy problems in the first 10 minutes.  In fact, it was so hard
+that tomek had to resubmit the easy problem once, and the medium problem twice.
+reid, a regular at most onsite events didn't make it past the first problem
+during the coding phase.  After an agonizing 75 minutes, however, 90 coders had
+scraped together solutions for the easy, while 62 had solutions for the
+medium.
+
+						<a href="/index?t=statistics&c=tccc05_online_rd_3" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>

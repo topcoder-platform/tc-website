@@ -61,10 +61,24 @@
 				<br/><A href="/i/tournament/tco04/onsite_movies/random_2.MPG">NVIDIA booth (7 MB)</A><br/></td>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/random_3.MPG"><img src="/i/tournament/tco04/onsite_movies/random_3.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tco04/onsite_movies/random_3.MPG">Microsoft booth (7 MB)</A><br/></td>
-				<td></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/snapNtomek.mov"><img src="/i/tournament/tco04/onsite_movies/snapNtomek.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/snapNtomek.mov">Rivals (2 MB)</A><br/></td>
             </tr>
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/Nvidia2.mov"><img src="/i/tournament/tco04/onsite_movies/nvidia.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/Nvidia2.mov">NVIDIA rep (2 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/snapdragon.mov"><img src="/i/tournament/tco04/onsite_movies/snapdragon.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/snapdragon.mov">SnapDragon on TC<br>community (3 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rhughes.mov"><img src="/i/tournament/tco04/onsite_movies/rhughes.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/rhughes.mov">President/COO<br>Rob Hughes (3 MB)</A><br/></td>
+         </tr>
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/tomekfinal.mov"><img src="/i/tournament/tco04/onsite_movies/tomekfinals.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/tomekfinal.mov">tomek wins (1.5 MB)</A><br/></td>
+            <td></td>
+            <td></td>
+         </tr>
 		</table>
-
         </div>
 		</td>
         
