@@ -77,6 +77,8 @@
                <tr>
                   <td class="advHeader"><strong>Submissions:</td>
                   <td class="advHeader" align="right"><A class="topLink" href=""><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href=""><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="advHeader" align="right"><A class="topLink" href=""><img src="/i/viewGray.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
 
