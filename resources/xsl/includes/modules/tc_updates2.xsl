@@ -9,7 +9,9 @@
             </table>
 
             <table width="100%" border="0" cellspacing="0" cellpadding="4">   
-                              
+
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_07_22_03">TopCoder Adds VB.NET Competitions</A> [June 17]</td></tr>  
+                                              
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_17_03">Sweden Added to TopCoder Developer Community</A> [June 17]</td></tr>  
                 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_06_16_03">2003 TopCoder Open Announced</A> [June 16]</td></tr>   
@@ -20,8 +22,6 @@
                            
                 <tr><td class="prHead"><A href="http://www.sdtimes.com/cols/industrywatch_078.htm" target="_blank">Battle Royal for Jobs</A> [May 15 - SD Times]</td></tr>    
                 
-                <tr><td class="prHead"><A href="/?t=news_events&amp;c=pr_05_14_03">TopCoder and CAS Announce 2003 TopCoder High School Challenge</A> [May 14]</td></tr>    
-
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
   </xsl:template>
