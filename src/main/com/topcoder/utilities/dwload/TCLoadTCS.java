@@ -320,7 +320,7 @@ public class TCLoadTCS extends TCLoad {
                             "comp_catalog cc " +
                             "where p.project_id = ? " +
                             "and p.cur_version = 1  " +
-                            "and p.project_stat_id in (2, 4, 6) " +
+                            "and p.project_stat_id in (2, 4, 5, 6) " +
                             "and cv.comp_vers_id = p.comp_vers_id " +
                             "and cc.component_id = cv.component_id";
 
@@ -467,7 +467,7 @@ public class TCLoadTCS extends TCLoad {
                     "where pr.project_id = ? " +
                     "and p.project_id = pr.project_id " +
                     "and p.cur_version = 1  " +
-                    "and p.project_stat_id in (2,  4, 6) " +
+                    "and p.project_stat_id in (2,  4, 5, 6) " +
                     "and cv.comp_vers_id = p.comp_vers_id " +
                     "and cc.component_id = cv.component_id";
 
