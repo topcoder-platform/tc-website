@@ -70,7 +70,7 @@
    <target name="move_file_upload_xml">
       <property name="toDir" value="${resources}/com/topcoder/servlet/request" />
       <mkdir dir="${toDir}" />
-      <copy todir="$(toDir}">
+      <copy todir="${toDir}">
          <fileset dir="${resources}" >
                  <include name="FileUpload.xml" />
          </fileset>
