@@ -6,7 +6,6 @@
 </head>
 <body>
 
-<jsp:include page="MemberHeader.jsp" flush="true" />
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 
 <%
