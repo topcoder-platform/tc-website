@@ -39,6 +39,7 @@ public class AnswerInput extends BaseTag {
         switch (question.getStyleId()) {
             case Question.MULTIPLE_CHOICE:
                 output.append(buildCheckBox(answer.getId()));
+                break;
             case Question.SINGLE_CHOICE:
                 output.append(buildRadioButton());
                 break;
