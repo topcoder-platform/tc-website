@@ -25,7 +25,7 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Construct an authentication instance backed by the given persistor and HTTP request and response.
      */
-    public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response) {
+    public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response) throws Exception {
         this.persistor = userPersistor;
         this.request = (HttpServletRequest)request;
         this.response = (HttpServletResponse)response;
@@ -43,7 +43,7 @@ public class BasicAuthentication implements WebAuthentication {
     public void login(User u) throws com.topcoder.shared.security.AuthenticationException {
 
         try {
-            TCSubject sub = login.login(u.getUserName(),u.getPassword());
+            TCSubject sub = login.login(u.getUserName(), u.getPassword());
             Long uid = new Long(sub.getUserId());
 
             response.addCookie(new Cookie("user_id", uid.toString()));
