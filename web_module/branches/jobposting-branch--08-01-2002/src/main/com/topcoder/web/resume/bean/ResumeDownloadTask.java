@@ -11,13 +11,14 @@ import com.topcoder.shared.util.ApplicationServer;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletOutputStream;
+import javax.servlet.ServletContext;
 import javax.naming.Context;
 import java.util.Iterator;
 import java.io.IOException;
 
 public class ResumeDownloadTask extends ResumeTask{
     private Resume resume = null;
-    public ResumeDownloadTask(FileUpload fu) throws ResumeTaskException{
+    public ResumeDownloadTask(FileUpload fu,ServletContext sc) throws ResumeTaskException{
         //right now we don't care about anything but the coderID for a download
     }
     public void process() throws ResumeTaskException{
@@ -33,12 +34,12 @@ public class ResumeDownloadTask extends ResumeTask{
     }
     public void getNextPage(HttpServletRequest request, HttpServletResponse response)
                                                     throws IOException{
-//        response.setHeader("Cache-Control", "no-store");
-//        response.setHeader("Pragma", "no-cache");
-//        response.setDateHeader("Expires", 0);
-//        response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
+        response.setHeader("Cache-Control", "no-store");
+        response.setHeader("Pragma", "no-cache");
+        response.setDateHeader("Expires", 0);
+        response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
         response.setContentType(resume.getFileType());
-//        response.setContentLength(resume.getFile().length);
+        response.setContentLength(resume.getFile().length);
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
 //        response.setStatus(HttpServletResponse.SC_OK);

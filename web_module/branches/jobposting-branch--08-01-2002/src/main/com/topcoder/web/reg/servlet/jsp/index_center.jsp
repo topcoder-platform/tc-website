@@ -156,7 +156,7 @@ Founder and Chairman, TopCoder, Inc.
      <tr>
        <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Resume</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
        <td colspan="2" class="statTextBig" align="left" valign="middle">
-         <a href="JavaScript:void window.open('/resume/resume_upload.jsp','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">Resume Upload</a>
+         <a href="JavaScript:void window.open('/Resume?task=ResumeUploadPage','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">Resume Upload</a>
          <br/>
          <a href=<%=com.topcoder.web.resume.servlet.Controller.ALIAS + "?"+ com.topcoder.web.resume.servlet.Controller.TASK+"="+com.topcoder.web.resume.servlet.Controller.RESUME_DOWNLOAD_TASK%> class="statText">Resume Download</a>
        </td>

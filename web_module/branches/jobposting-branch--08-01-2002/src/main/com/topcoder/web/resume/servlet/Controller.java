@@ -61,7 +61,7 @@ public class Controller
             }
             log.debug("about to make task: "+taskName);
             try {
-                task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
+                task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class,ServletContext.class}).newInstance(new Object[]{fu,getServletContext()});
                 log.debug("about to process task: "+taskName);
                 User user = getUser(request.getSession());
                 log.debug(user+"");

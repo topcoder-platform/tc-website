@@ -12,6 +12,7 @@ import com.topcoder.web.resume.servlet.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.ServletException;
+import javax.servlet.ServletContext;
 import javax.naming.Context;
 import java.util.Iterator;
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class ResumeUploadTask extends ResumeTask{
     private int fileType = -1;
     private String fileName = null;
     private static final String SUCCESS = "/resume/upload_success.jsp";
-    public ResumeUploadTask(FileUpload fu) throws ResumeTaskException{
+    public ResumeUploadTask(FileUpload fu,ServletContext sc) throws ResumeTaskException{
         UploadedFile uf = null;
         byte[] fileBytes = null;
         try {
