@@ -139,7 +139,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.timeFormat(level.getItem("avg_time_elapsed")) %>
+                        <%= ProblemStatisticsTask.timeFormat(language.getItem("avg_time_elapsed")) %>
                     </TD>
                   </TR>
                 </tces:rowIterator>
@@ -182,7 +182,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= ProblemStatisticsTask.timeFormat(ProblemStatisticsTask.getCompetitionStats().getItem("avg_time_elapsed")) %>
+                        <%= ProblemStatisticsTask.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("avg_time_elapsed")) %>
                     </TD>
                   </TR>
               </TABLE>
@@ -193,7 +193,7 @@
               <br>
               Status: <b><%= ProblemStatisticsTask.getStatistic("end_status_text") %></b>
               <br>
-              Time to Submit: <b><%= ProblemStatisticsTask.timeFormat(ProblemStatisticsTask.getCompetitionStats().getItem("time_elapsed")) %></b>
+              Time to Submit: <b><%= ProblemStatisticsTask.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("time_elapsed")) %></b>
               <br>
               Points: <b><%= ProblemStatisticsTask.getStatistic("final_points") %></b>
               </p>
