@@ -58,11 +58,11 @@
                      <rsc:item row="<%=survey%>" name="question_text"/>
                   </td>
                   <td nowrap valign="middle">
-                     <a href="?&module=SurveyResults&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/view_results.gif" width="101" height="20" border="0"></a>
+                     <a href="?&module=SurveyResults&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/results.gif" width="60" height="18" border="0"></a>
                   </td>
                   <td nowrap valign="middle">
                      <% if (survey.getIntItem("answered_flag")==0) { %>
-                        <a href="?&module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>">answer it!!!</a>
+                        <a href="?&module=ViewSurvey&sid=<rsc:item row="<%=survey%>" name="survey_id"/>"><img src="/i/answer.gif" width="60" height="18" border="0"></a>
                      <% } %>
                   </td>
                </tr>
