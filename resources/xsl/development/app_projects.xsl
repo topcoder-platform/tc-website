@@ -72,14 +72,6 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Seat_Service_Data_Classes_Design">Seat Service Data Classes</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$460 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">08.20.2004</td>
-                                </tr>
 
                             </table>
 
@@ -102,6 +94,25 @@
 
 
                             <br/>
+
+
+                            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                                <tr valign="middle">
+                                    <td class="projectTitles" colspan="3">Recent Application Design Projects</td>
+                                </tr>
+
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Seat_Service_Data_Classes_Design">Seat Service Data Classes</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>
+
+                            </table>
+
+
+
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                                 <tr valign="middle">
