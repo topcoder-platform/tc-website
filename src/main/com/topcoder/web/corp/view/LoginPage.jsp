@@ -56,10 +56,10 @@
 
 
                         <p><%= message %></p>
-                        <% if (!SessionInfo.isGuest()) { %>
-                          <p>If you are not <%=SessionInfo.getHandle()%>, click <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/<%=request.getQueryString()==null?"":"?"+request.getQueryString()%>">here</a>.
-                        <% } else { %>
+                        <% if (SessionInfo.isGuest()) { %>
                             <p>New to TopCoder? Click <a href="/?module=Registration"><b>here</b></a> to register now.</p>
+                        <% } else { %>
+                            <p>If you are not <%=SessionInfo.getHandle()%>, click <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/<%=request.getQueryString()==null?"":"?"+request.getQueryString()%>">here</a>.
                         <% } %>
 
                     </td>
