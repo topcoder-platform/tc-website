@@ -401,8 +401,8 @@
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="4" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 105</B></A><BR/>
-Wednesday, July 24, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 103</B></A><BR/>
+Wednesday, July 10, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -428,7 +428,7 @@ Wednesday, July 24, 2002<BR/><BR/>
     </TD>
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Want to write?</A></TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
-  </TR>  
+  </TR>    
 </TABLE>  
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR>
@@ -444,32 +444,32 @@ Wednesday, July 24, 2002<BR/><BR/>
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;Jumping John</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">274</TD>
-             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 1</TD>
+             <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;bstanescu</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">187</TD>
+             <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 2</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;drsammyb</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-431</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;jacobius</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-391</TD>
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 3&#160;</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;leibniz</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">277</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 13</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;banizar</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">191</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 10</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;dpopovici</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-278</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 11</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;PaulDamer</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-302</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12</TD>
           </TR>
           <!-- <TR><TD VALIGN="middle" HEIGHT="15" COLSPAN="5" BGCOLOR="#FFFFFF" CLASS="smallText">&#160;Login is required to view room details.</TD></TR>   -->                                
-       </TABLE>    
+       </TABLE>   
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
@@ -478,19 +478,19 @@ Wednesday, July 24, 2002<BR/><BR/>
 <!-- Editorials -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
-      <TD VALIGN="top" COLSPAN="7"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
+      <TD VALIGN="top" COLSPAN="11"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>    
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Penwiper_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Penwiper<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 106</B></FONT>
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="10">
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 103</B></FONT>
     </TD>
-  </TR>     
+  </TR>      
   <TR>    
-    <!-- <TD VALIGN="top" CLASS="bodyText" WIDTH="40%">      
+    <TD VALIGN="top" CLASS="bodyText" WIDTH="40%">      
       <A CLASS="bodyGeneric">
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm103_rookie</xsl:attribute>
         <B>Rookie Review</B>
@@ -500,35 +500,24 @@ Wednesday, July 24, 2002<BR/><BR/>
     </TD>
     <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD> -->
-    <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
+    <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" CLASS="bodyText" WIDTH="60%">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm106_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm103_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
-      </A><BR/>
-308 coders showed up for this SRM: 108 in Division-I and 200 in Division-II.  
-The overall winner of Division-I (and still the #1 ranked coder overall) was <B>SnapDragon</B> 
-with 1339.77 points.  The overall winner of Division-II was <B>Pops</B> with a score of 1398.22 
-points.  Notable performance improvements came from <B>Jumping John</B> in Division-I who was able to 
-increase his rating by 274 points in his second competition, and <B>leibniz</B> who was able to climb 277 points in 
-Division-II.  <B>Gojira</B> had a very impressive rookie debut, shooting all the way up to the yellow 
-division on his first try by winning his room and achieving an initial 1623 ranking.<BR/><BR/>
-
-14 coders in Division-II managed to increase their ratings to the 1200+ 
-(Division-I) level.  Six coders in Division-I fell back to Division-II 
-and unfortunately I was one of them.  Sniff.  Oh well, better luck next time...<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm106_prob</xsl:attribute>get&#160;analysis
+      </A><BR/>Division-I - Level 3 (CostlyOnes): To solve this problems two approaches should be considered: divide and conquer and dynamic programming...<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm103_prob</xsl:attribute>full&#160;story
       </A>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
   </TR>
-  <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
+  <TR><TD VALIGN="top" COLSPAN="13"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
   <TR>  
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" COLSPAN="7" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD VALIGN="top" WIDTH="100%" COLSPAN="11" BGCOLOR="#43515E"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
-  <TR><TD VALIGN="top" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
+  <TR><TD VALIGN="top" COLSPAN="12"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
 </TABLE>
 
 
@@ -609,7 +598,63 @@ World Cup final...
 
     </TD>
   <!-- Center Column Ends -->    
-    <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244">
+    <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
+<A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/2002sunnetwork_button.gif" alt="" width="244" height="79" border="0"/></A><BR/>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
+  <TR> 
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>      
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>             
+    <TD class="statText" WIDTH="100%" ALIGN="right"><A HREF="http://sunnetwork.sun.com/sf2002/reg/general/index.en.jsp" TARGET="_blank" CLASS="statText"><B>Register for the conference</B> &gt;</A></TD>
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD> 
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>                 
+  </TR>
+  <TR> 
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>      
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>             
+    <TD class="statText" WIDTH="100%" ALIGN="right"><A HREF="http://sunnetwork.sun.com/" TARGET="_blank" CLASS="statText">Learn more &gt;</A></TD>    
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD> 
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>                 
+  </TR>                              
+</TABLE>
+<A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sunnetwork</xsl:attribute><IMG SRC="/i/tournament/2002sunnetwork_chall.gif" alt="" width="244" height="56" border="0"/></A><BR/>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
+  <TR> 
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>      
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>                
+    <TD class="statText" WIDTH="100%" ALIGN="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sunnetwork</xsl:attribute><B>Register to compete</B> &gt;</A></TD> 
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD> 
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>                 
+  </TR>
+  <TR> 
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>      
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>                
+    <TD class="statText" WIDTH="100%" ALIGN="right"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002sunnetwork_rules</xsl:attribute>Get Official Rules &amp; Regulations &gt;</A></TD>
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD> 
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>                 
+  </TR>                               
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
+  <TR> 
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>      
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>                
+    <TD class="statText" WIDTH="100%"><B>Note:</B><BR/>Contestants must be a <A HREF="/reg/index.jsp" CLASS="statText">TopCoder member</A> and a registered attendee of the SunNetwork<sup>sm</sup> Conference 
+in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
+    <TD><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD> 
+    <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>    
+    <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>                 
+  </TR>                               
+</TABLE>
+<IMG SRC="/i/tournament/2002sunnetwork_btm.gif" alt="" width="244" height="34" border="0"/><BR/><BR/>
+
 <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=2002invit_rules</xsl:attribute>
 <IMG SRC="/i/2002invit_button.gif" alt="" width="244" height="77" border="0"/></A><BR/><BR/>
 <!-- <A>
@@ -700,8 +745,8 @@ World Cup final...
                 </TD>
               </TR>               
             </TABLE><BR/>
-<A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="coderTextRed">
-<IMG SRC="/i/codermonth_july.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>     
+<A HREF="/stat?c=member_profile&amp;cr=286951" CLASS="coderTextRed">
+<IMG SRC="/i/codermonth_june.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>    
     </TD>
     <!-- <TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
 <!-- Body Area Ends -->
