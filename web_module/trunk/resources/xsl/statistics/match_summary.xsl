@@ -69,9 +69,9 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 89</A></TD>						
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Saturday, May 18</A></TD>
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">11:30am EDT (registration)</A></TD>
+				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 90</A></TD>						
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Saturday, May 21</A></TD>
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4165&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
             </TR>           
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
@@ -83,7 +83,7 @@
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR> -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 88 - May 15, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 89 - May 18, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -107,38 +107,21 @@
 <A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
-<P>
-The closest match of the night took place in Room 5. <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">Zaen</A>
- was a 1159.03 to 1157.61 winner 
-over <A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="bodyGeneric">lbackstrom</A>.  
-That's a difference of just 1.42 points.  <B>lbackstrom</B> actually earned 
-more points, 286.25 to 281.75 and 338.81 to 302.32, on the Level One and Two problems, 
-respectively.  <B>Zaen</B> won the room by earning 574.96 on the Level Three problem, which 
-was 42.41 more than the 532.55 that <B>lbackstrom</B> earned for the problem. 
-</P>
+<P>In Room 17, <A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A> was the room winner with 367.44 final points, and gained 460 rating points, 
+which is the second largest gain ever  (View the list of Division-I Rating Point Gains). <B>binaryni</B> coded the Level One problem for 167.44 points and the Level Two 
+problem for 288.57 in the "Coding Phase". <B>binaryni</B> then successfully challenged the Level Two submissions of <A HREF="/stat?c=member_profile&amp;cr=157915" CLASS="bodyGeneric">Ustaad</A>, 
+<A HREF="/stat?c=member_profile&amp;cr=280985" CLASS="bodyGeneric">yavinmoon</A>, <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">seaniswise</A>, and 
+<A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A> for 200 additional points in the "Challenge Phase".  The Level Two submission of <B>binaryni</B> 
+ended up failing the system test.</P>
 
-<P>
-Two other close matches took place in Room's 6 and 11. 
-</P>
+<P><A HREF="/stat?c=member_profile&amp;cr=263381" CLASS="bodyGeneric">fist</A> was the winner in Room 16 with 217.38 final points, and added 350 rating points, which is the 
+fifth highest gain. <B>fist</B> coded the Level One problem for 167.38 points, and successfully challenged the Level One submission of 
+<A HREF="/stat?c=member_profile&amp;cr=119676" CLASS="bodyGeneric">Pops</A>.</P>
 
-<P>
-In Room 6, <A HREF="/stat?c=member_profile&amp;cr=268954" CLASS="bodyGeneric">ZOOT</A>
- earned more points on the Level Two problem to beat 
- <A HREF="/stat?c=member_profile&amp;cr=265545" CLASS="bodyGeneric">insomnia</A>
-711.33 to 702.97.  <B>ZOOT</B> was behind 267.77 to 256.98 after the Level One problem, 
-but earned 454.35 on the Level Two problem, while <B>insomnia</B> earned 435.20. 
-</P>
-
-<P>
-Just behind Room 5 for the closest match of the night, 
-<A HREF="/stat?c=member_profile&amp;cr=273217" CLASS="bodyGeneric">schveiguy</A> outpaced 
-<A HREF="/stat?c=member_profile&amp;cr=160049" CLASS="bodyGeneric">FogleBird</A>
- by 1.67 points, 670.88 to 669.21, to win Room 11.  <B>FogleBird</B> actually 
-coded the Level One problem 67 seconds quicker and had a slight lead, 266.36 to 
-260.15.  <B>schveiguy</B> was 50 seconds quicker on the Level Two problem, however, 
-and earned 410.73 points, just slightly more than <B>FogleBird</B>, 402.85, but 
-enough for the room win.
-</P>
+<P>In Room 18, <A HREF="/stat?c=member_profile&amp;cr=265504" CLASS="bodyGeneric">coderlemming</A> earned a 343 point rating gain, the sixth largest ever, and won the room 
+with 242.01 final points. <B>coderlemming</B> coded the Level One and Two problems for 470.75 points in the "Coding Phase". <B>coderlemming</B> added 50 points to that total 
+with a successful challenge of the Level Two submission of <A HREF="/stat?c=member_profile&amp;cr=158447" CLASS="bodyGeneric">ValD</A>. <B>coderlemming</B> ended up losing 
+278.74 points in the system test, when the submitted Level Two code failed.</P>
                  </TD>
             </TR>             
             <TR><TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD></TR>        
@@ -146,30 +129,23 @@ enough for the room win.
             <TR><TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD></TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-<P>
-<A HREF="/stat?c=member_profile&amp;cr=283388" CLASS="bodyGeneric">Minsk</A>
- had the best debut of the night and won Room 57, with a division-high 
-1370.61 final points.  <B>Minsk</B> earned 275.77 on the Level One problem, 423.47 
-on the Level Two problem, and 671.37 on the Level Three problem.  The 1888 
-debut rating of <B>Minsk</B> is the eighth highest ever 
-(<A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>). 
-</P>
+<P><A HREF="/stat?c=member_profile&amp;cr=282718" CLASS="bodyGeneric">rustyoldman</A> won Room 41 with 1275.68 final points, and added 506 rating points, which is the second 
+largest gain (View the list of Division-II Rating Point Gain). <B>rustyoldman</B> earned 233.75 points on the Level One problem, 404.83 on the Level Two problem and 587.10 on 
+the Level Three problem for a total of 1225.68 points in the "Coding Phase". <B>rustyoldman</B> lost 50 points with an unsuccessful challenge of the Level Two submission of 
+<A HREF="/stat?c=member_profile&amp;cr=280290" CLASS="bodyGeneric">Iconoclast</A>, but gained that 50 points back with a successful challenge of the Level Two submission of 
+<A HREF="/stat?c=member_profile&amp;cr=160009" CLASS="bodyGeneric">Sherlockk</A>, and added another 50 with a successful challenge of the Level Three submission of 
+<A HREF="/stat?c=member_profile&amp;cr=280185" CLASS="bodyGeneric">ericc</A>.</P>
 
-<P>
-<A HREF="/stat?c=member_profile&amp;cr=128901" CLASS="bodyGeneric">rgmisra</A>
- won Room 47 with 1281.81 final points, and gained 422 rating points, 
-which is the eighth largest gain 
-(<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="bodyGeneric">View the list of Division-II Rating Point Gain</A>). 
- <B>rgmisra</B> earned 155.97 points on the Level One problem, 448.42 on the Level Two 
- problem, and 677.42 on the Level Three problem. 
-</P>
+<P><A HREF="/stat?c=member_profile&amp;cr=284107" CLASS="bodyGeneric">jder</A> finished second to <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">honda89dude</A> 
+in Room 31, but earned 464 rating points, which is the fifth largest gain. <B>jder</B> earned 245 points on the Level One problem, 458.19 on the Level Two problem, and 550.48 on 
+the Level Three problem.</P>
 
-<P>
-There was an interesting occurrence in Room's 40, 44, 50 and 53, where all of the 
-participants had their code fail the system test, which meant that everyone finished with zero points.
-</P>
-
-
+<P><A HREF="/stat?c=member_profile&amp;cr=282715" CLASS="bodyGeneric">The Llama</A> won Room 43 with 1392.99 final points, and earned 450 rating points, which ties 
+<A HREF="/stat?c=member_profile&amp;cr=152073" CLASS="bodyGeneric">NDBronson</A> for the sixth largest gain. <B>NDBronson</B> added those rating points in Single Round Match 24. 
+<B>The Llama</B> earned 1292.99 points in the "Coding Phase" by submitting code for all three problems.  <B>The Llama</B> then added 150 points to that total with successful 
+challenges of the Level Three codes submitted by <A HREF="/stat?c=member_profile&amp;cr=251196" CLASS="bodyGeneric">rumbosoft</A>, <A HREF="/stat?c=member_profile&amp;cr=268617" CLASS="bodyGeneric">Marauder328</A>, 
+and <A HREF="/stat?c=member_profile&amp;cr=276132" CLASS="bodyGeneric">mzuckerberg</A>. <B>The Llama</B> wasn't perfect in the "Challenge Phase", however, failing in a challenge 
+of the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=282667" CLASS="bodyGeneric">jlee</A>.</P>
           </TD>
             </TR>            
           </TABLE>
