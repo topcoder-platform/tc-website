@@ -35,6 +35,14 @@ public abstract class Base extends BaseProcessor {
 
     protected static final Logger log = Logger.getLogger(Base.class);
 
+    private static final ImageInfo BLANK = new ImageInfo();
+
+    static {
+        BLANK.setHeight(325);
+        BLANK.setWidth(85);
+        BLANK.setSrc("/i/corp/screening/emptyClientLogo.gif");
+    }
+
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
     private String messageId = null;
@@ -42,6 +50,7 @@ public abstract class Base extends BaseProcessor {
     private long companyId = -1;
     private List languages = null;
     private static final Set locks = new HashSet();
+    private ImageInfo sponsorImage = null;
 
     protected void businessProcessing() throws Exception {
         //log.debug("session timeout is " + getRequest().getSession().getMaxInactiveInterval());
@@ -49,7 +58,6 @@ public abstract class Base extends BaseProcessor {
         try {
             techAssessProcessing();
             //figure out the sponsor image
-            ImageInfo compImage = new ImageInfo();
             Request dataRequest = new Request();
             dataRequest.setContentHandle("sponsor_image");
             try {
@@ -61,11 +69,12 @@ public abstract class Base extends BaseProcessor {
             DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Map resultMap = dai.getData(dataRequest);
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
-            compImage.setSrc(rsc.getStringItem(0, "file_path"));
-            compImage.setHeight(rsc.getIntItem(0, "height"));
-            compImage.setWidth(rsc.getIntItem(0, "width"));
-            compImage.setLink(rsc.getStringItem(0, "link"));
-            getRequest().setAttribute(Constants.SPONSOR_IMAGE, compImage);
+            sponsorImage = new ImageInfo();
+            sponsorImage.setSrc(rsc.getStringItem(0, "file_path"));
+            sponsorImage.setHeight(rsc.getIntItem(0, "height"));
+            sponsorImage.setWidth(rsc.getIntItem(0, "width"));
+            sponsorImage.setLink(rsc.getStringItem(0, "link"));
+            getRequest().setAttribute(Constants.SPONSOR_IMAGE, sponsorImage);
 
         } catch (TimeOutException e) {
             unlock();
@@ -271,7 +280,8 @@ public abstract class Base extends BaseProcessor {
             " <td align=center>" +
             " <table cellspacing=0 cellpadding=0 class=tabTable>" +
             " <tr>" +
-            " <td class=logoBox rowspan=2><img src=\"/i/corp/screening/clientLogo.gif\" alt=\"\"/></td>" +
+            " <td class=logoBox rowspan=2>";
+    private static final String END_FULL_CONTENT = "</td>" +
             " <td class=titleBar><img src=\"/i/corp/screening/pbtcLogo.gif\" alt=\"\"/></td>" +
             " <td class=tabBarEnd align=right rowspan=2><img src=\"/i/corp/screening/tabBarEnd.gif\" alt=\"\"/></td>" +
             " </tr>" +
@@ -318,7 +328,29 @@ public abstract class Base extends BaseProcessor {
             "</html>";
 
     protected void showProcessingPage() throws IOException {
-        showProcessingPage(FULL_CONTENT);
+
+        ImageInfo image = null;
+        if (sponsorImage == null)
+            image = BLANK;
+        else
+            image = sponsorImage;
+        StringBuffer buffer = new StringBuffer(2000);
+        buffer.append(FULL_CONTENT);
+        buffer.append("<img src=\"");
+        buffer.append(image.getSrc() == null ? "" : image.getSrc());
+        if (image.getHeight() >= 0) {
+            buffer.append(" height=\"" + image.getHeight() + "\"");
+        }
+        if (image.getWidth() >= 0) {
+            buffer.append(" width=\"" + image.getWidth() + "\"");
+        }
+        buffer.append(" border=\"0\"");
+        buffer.append(" alt=\"\"");
+        buffer.append(" />");
+        buffer.append(END_FULL_CONTENT);
+
+
+        showProcessingPage(buffer.toString());
     }
 
     protected void showProcessingPage(String code) throws IOException {
@@ -374,26 +406,27 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void setUserMessage(String message) {
-        getRequest().getSession().setAttribute(Constants.MESSAGE+this.messageId, message);
+        getRequest().getSession().setAttribute(Constants.MESSAGE + this.messageId, message);
     }
 
 
-
     protected boolean isBusy() throws TCWebException {
-        synchronized(locks) {
+        synchronized (locks) {
             return locks.contains(Constants.SERVER_BUSY + getSessionId());
         }
     }
 
     protected void lock() throws TCWebException, ServerBusyException {
-        synchronized(locks) {
-            if (isBusy()) throw new ServerBusyException();
-            else locks.add(Constants.SERVER_BUSY + getSessionId());
+        synchronized (locks) {
+            if (isBusy())
+                throw new ServerBusyException();
+            else
+                locks.add(Constants.SERVER_BUSY + getSessionId());
         }
     }
 
     protected void unlock() throws TCWebException {
-        synchronized(locks) {
+        synchronized (locks) {
             locks.remove(Constants.SERVER_BUSY + getSessionId());
         }
     }
