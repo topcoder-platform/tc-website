@@ -698,4 +698,27 @@ public interface Coder extends javax.ejb.EJBObject {
 
 	public Date getDateOfBirth( Long coder_id ) throws RemoteException, SQLException;
 
+	/**
+	 * Determine whether a coder is a student.
+	 * @param profileId the profile_id of the coder
+	 * @return true if the coder is a student (coder_type_id == 1)
+	 * or false if not
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, June 15th, 2002
+	 */
+
+	public boolean isStudent( Long profileId ) throws RemoteException,
+	  SQLException;
+
+	/**
+	 * Set the coder to be a student.
+	 * @param profileId the profile_id of the coder
+	 * @exception SQLException if a database error occurs
+	 * @exception RemoteException if a system error occurs
+	 * @author Phil Selby, June 15th, 2002
+	 */
+
+	public void setIsStudent( Long profileId ) throws RemoteException,
+	  SQLException;
 }

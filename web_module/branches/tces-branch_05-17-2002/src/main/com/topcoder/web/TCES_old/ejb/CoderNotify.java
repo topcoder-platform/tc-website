@@ -100,101 +100,101 @@ public interface CoderNotify extends javax.ejb.EJBObject {
 
 	/**
 	 * Set (or clear) the competition results notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public boolean getSendNextCompetition( long coder_id )
+	public boolean getSendNextCompetition( Long coderId )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Set (or clear) the competition results notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public boolean getSendCompetitionResults( long coder_id )
+	public boolean getSendCompetitionResults( Long coderId )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Set (or clear) the competition results notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public boolean getSendEmploymentOpportunities( long coder_id )
+	public boolean getSendEmploymentOpportunities( Long coderId )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Get the member development opportunities notification status of a coder.
-	 * @param coder_id the coder_id to query
+	 * @param coderId the coder_id to query
 	 * @return true if notification is enabled else false
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public boolean getSendMemberDevelopmentOpportunities( long coder_id )
+	public boolean getSendMemberDevelopmentOpportunities( Long coderId )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Get the TopCoder news notification status of a coder.
-	 * @param coder_id the coder_id to query
+	 * @param coderId the coder_id to query
 	 * @return true if notification is enabled else false
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public boolean getSendTopCoderNews( long coder_id )
+	public boolean getSendTopCoderNews( Long coderId )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Set (or clear) the next competition notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public void setSendNextCompetition( long coder_id, boolean value )
+	public void setSendNextCompetition( Long coderId, boolean value )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Set (or clear) the competition results notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public void setSendCompetitionResults( long coder_id, boolean value )
+	public void setSendCompetitionResults( Long coderId, boolean value )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Set (or clear) the employment opportunities notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public void setSendEmploymentOpportunities( long coder_id, boolean value )
+	public void setSendEmploymentOpportunities( Long coderId, boolean value )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Set (or clear) the member development opportunities notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public void setSendMemberDevelopmentOpportunities( long coder_id, boolean value )
+	public void setSendMemberDevelopmentOpportunities( Long coderId, boolean value )
 	  throws RemoteException, SQLException;
 
 	/**
 	 * Set (or clear) the TopCoder news notification status of a coder.
-	 * @param coder_id the coder_id to update
+	 * @param coderId the coder_id to update
 	 * @param value true if notification desired, false if not desired
 	 * @author Phil Selby, June 13th, 2001
 	 */
 
-	public void setSendTopCoderNews( long coder_id, boolean value )
+	public void setSendTopCoderNews( Long coderId, boolean value )
 	  throws RemoteException, SQLException;
 }

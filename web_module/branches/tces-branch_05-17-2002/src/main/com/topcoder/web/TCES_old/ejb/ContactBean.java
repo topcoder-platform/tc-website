@@ -30,10 +30,126 @@ public class ContactBean implements javax.ejb.SessionBean {
 
 	public SessionContext	context = null;
 	CoderHome	coderHome = null;
+	UserHome	userHome = null;
+	CoderNotifyHome	coderNotifyHome = null;
 	CountryHome	countryHome = null;
 	StateHome	stateHome = null;
+	EditorHome	editorHome = null;
+	LanguageHome	languageHome = null;
 
-	public Lookup getStateList() throws RemoteException, SQLException {
+	public void ejbCreate() {
+		try {
+			Context	context = new InitialContext();
+			coderHome = (CoderHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.Coder" );
+			userHome = (UserHome) context.lookup(
+			  "com.topcoer.web.TCES.ejb.User" );
+			coderNotifyHome = (CoderNotifyHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.CoderNotify" );
+			countryHome = (CountryHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.Country" );
+			stateHome = (StateHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.State" );
+			editorHome = (EditorHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.Editor" );
+			languageHome = (LanguageHome) context.lookup(
+			  "com.topcoder.web.TCES.ejb.Language" );
+		}
+		catch( NamingException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void ejbRemove() {
+		coderHome = null;
+		userHome = null;
+		coderNotifyHome = null;
+		countryHome = null;
+		stateHome = null;
+		editorHome = null;
+		languageHome = null;
+	}
+
+	public String getFirstName( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getFirstName( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getLastName( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getLastName( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getAddress1( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getAddress1( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getAddress2( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getAddress2( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getCity( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getCity( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getSelectedState( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getStateCode( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public Lookup getStateList()
+	  throws RemoteException, SQLException {
 		State	stateBean = null;
 
 		try {
@@ -45,7 +161,34 @@ public class ContactBean implements javax.ejb.SessionBean {
 		}
 	}
 
-	public Lookup getCountryList() throws RemoteException, SQLException {
+	public String getZip( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getZip( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getSelectedCountry( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getCountryCode( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public Lookup getCountryList()
+	  throws RemoteException, SQLException {
 		Country	countryBean = null;
 
 		try {
@@ -57,26 +200,455 @@ public class ContactBean implements javax.ejb.SessionBean {
 		}
 	}
 
-	public void ejbCreate() {
+	public String getPhone( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
 		try {
-			Context	context = new InitialContext();
-			coderHome = (CoderHome) context.lookup(
-			  "com.topcoder.web.TCES.ejb.Coder" );
-			countryHome = (CountryHome) context.lookup(
-			  "com.topcoder.web.TCES.ejb.Country" );
-			stateHome = (StateHome) context.lookup(
-			  "com.topcoder.web.TCES.ejb.State" );
+			coderBean = coderHome.create();
+			return( coderBean.getHomePhone( profileId ) );
 		}
-		catch( NamingException e ) {
+		catch( CreateException e ) {
 			throw new EJBException( e );
 		}
 	}
 
-	public void ejbRemove() {
-		coderHome = null;
-		countryHome = null;
-		stateHome = null;
+	public String getHandle( Long profileId )
+	  throws RemoteException, SQLException {
+		User	userBean = null;
+
+		try {
+			userBean = userHome.create();
+			return( userBean.getHandle( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
 	}
+
+	public String getEmail( Long profileId )
+	  throws RemoteException, SQLException {
+		User	userBean = null;
+
+		try {
+			userBean = userHome.create();
+			return( userBean.getEmail( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getQuote( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getQuote( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public boolean getSendNextCompetition( Long profileId )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			return( coderNotifyBean.getSendNextCompetition( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public boolean getSendCompetitionResults( Long profileId )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			return( coderNotifyBean.getSendCompetitionResults( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public boolean getSendEmploymentOpportunities( Long profileId )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			return( coderNotifyBean.getSendEmploymentOpportunities( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public boolean getSendMemberDevelopmentOpportunities( Long profileId )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			return( coderNotifyBean.getSendMemberDevelopmentOpportunities( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public boolean getSendTopCoderNews( Long profileId )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			return( coderNotifyBean.getSendTopCoderNews( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public Lookup getEditorList()
+	  throws RemoteException, SQLException {
+		Editor	editorBean = null;
+
+		try {
+			editorBean = editorHome.create();
+			return( editorBean.listEditorIdEditorDesc() );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getSelectedEditor( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getEditorId( profileId ).toString() );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public Lookup getLanguagesList()
+	  throws RemoteException, SQLException {
+		Language	languageBean = null;
+
+		try {
+			languageBean = languageHome.create();
+			return( languageBean.listLanguageIdLanguageName() );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public String getSelectedLanguage( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.getLanguageId( profileId ).toString() );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public boolean isStudent( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			return( coderBean.isStudent( profileId ) );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setFirstName( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setFirstName( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setLastName( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setLastName( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setAddress1( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setAddress1( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setAddress2( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setAddress2( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setCity( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setCity( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSelectedState( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setStateCode( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setZip( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setZip( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSelectedCountry( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setCountryCode( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setPhone( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setHomePhone( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setHandle( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		User	userBean = null;
+
+		try {
+			userBean = userHome.create();
+			userBean.setHandle( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setEmail( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		User	userBean = null;
+
+		try {
+			userBean = userHome.create();
+			userBean.setEmail( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setQuote( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setQuote( profileId, s );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSendNextCompetition( Long profileId, boolean b )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			coderNotifyBean.setSendNextCompetition( profileId, b );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSendCompetitionResults( Long profileId, boolean b )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			coderNotifyBean.setSendCompetitionResults( profileId, b );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSendEmploymentOpportunities( Long profileId, boolean b )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			coderNotifyBean.setSendEmploymentOpportunities( profileId, b );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSendMemberDevelopmentOpportunities( Long profileId, boolean b )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			coderNotifyBean.setSendMemberDevelopmentOpportunities( profileId, b );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSendTopCoderNews( Long profileId, boolean b )
+	  throws RemoteException, SQLException {
+		CoderNotify	coderNotifyBean = null;
+
+		try {
+			coderNotifyBean = coderNotifyHome.create();
+			coderNotifyBean.setSendTopCoderNews( profileId, b );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setSelectedEditor( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			Integer	I = new Integer( s );
+			coderBean.setEditorId( profileId, I );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+/*
+		catch( NumberFormatException e )
+			throw new EJBException( e );
+		}
+ */
+	}
+
+	public void setSelectedLanguage( Long profileId, String s )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			Integer	I = new Integer( s );
+			coderBean.setLanguageId( profileId, I );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
+	public void setIsStudent( Long profileId )
+	  throws RemoteException, SQLException {
+		Coder	coderBean = null;
+
+		try {
+			coderBean = coderHome.create();
+			coderBean.setIsStudent( profileId );
+		}
+		catch( CreateException e ) {
+			throw new EJBException( e );
+		}
+	}
+
 
 	public void setSessionContext( SessionContext context ) {
 		this.context = context;

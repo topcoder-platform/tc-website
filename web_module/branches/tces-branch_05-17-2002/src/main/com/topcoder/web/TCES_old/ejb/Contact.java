@@ -10,6 +10,4 @@ import	com.topcoder.web.TCES.common.Lookup;
  */
 
 public interface Contact extends javax.ejb.EJBObject {
-	public Lookup getStateList() throws RemoteException, SQLException;
-	public Lookup getCountryList() throws RemoteException, SQLException;
 }

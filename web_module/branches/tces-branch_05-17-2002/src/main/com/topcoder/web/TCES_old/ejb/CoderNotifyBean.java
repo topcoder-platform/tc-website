@@ -236,54 +236,54 @@ public class CoderNotifyBean implements javax.ejb.SessionBean {
 	private static final int	SET = 2;
 	private static final int	CLR = 3;
 
-	public boolean getSendNextCompetition( long coder_id )
+	public boolean getSendNextCompetition( Long coderId )
 	  throws SQLException {
-		return( op( GET, coder_id, 1 ) );
+		return( op( GET, coderId.longValue(), 1 ) );
 	}
 
-	public boolean getSendCompetitionResults( long coder_id )
+	public boolean getSendCompetitionResults( Long coderId )
 	  throws SQLException {
-		return( op( GET, coder_id, 2 ) );
+		return( op( GET, coderId.longValue(), 2 ) );
 	}
 
-	public boolean getSendEmploymentOpportunities( long coder_id )
+	public boolean getSendEmploymentOpportunities( Long coderId )
 	  throws SQLException {
-		return( op( GET, coder_id, 3 ) );
+		return( op( GET, coderId.longValue(), 3 ) );
 	}
 
-	public boolean getSendMemberDevelopmentOpportunities( long coder_id )
+	public boolean getSendMemberDevelopmentOpportunities( Long coderId )
 	  throws SQLException {
-		return( op( GET, coder_id, 4 ) );
+		return( op( GET, coderId.longValue(), 4 ) );
 	}
 
-	public boolean getSendTopCoderNews( long coder_id )
+	public boolean getSendTopCoderNews( Long coderId )
 	  throws SQLException {
-		return( op( GET, coder_id, 5 ) );
+		return( op( GET, coderId.longValue(), 5 ) );
 	}
 
-	public void setSendNextCompetition( long coder_id, boolean value )
+	public void setSendNextCompetition( Long coderId, boolean value )
 	  throws SQLException {
-		op( ( value ? SET : CLR ), coder_id, 1 );
+		op( ( value ? SET : CLR ), coderId.longValue(), 1 );
 	}
 
-	public void setSendCompetitionResults( long coder_id, boolean value )
+	public void setSendCompetitionResults( Long coderId, boolean value )
 	  throws SQLException {
-		op( ( value ? SET : CLR ), coder_id, 2 );
+		op( ( value ? SET : CLR ), coderId.longValue(), 2 );
 	}
 
-	public void setSendEmploymentOpportunities( long coder_id,
+	public void setSendEmploymentOpportunities( Long coderId,
 	  boolean value ) throws SQLException {
-		op( ( value ? SET : CLR ), coder_id, 3 );
+		op( ( value ? SET : CLR ), coderId.longValue(), 3 );
 	}
 
-	public void setSendMemberDevelopmentOpportunities( long coder_id,
+	public void setSendMemberDevelopmentOpportunities( Long coderId,
 	  boolean value ) throws SQLException {
-		op( ( value ? SET : CLR ), coder_id, 4 );
+		op( ( value ? SET : CLR ), coderId.longValue(), 4 );
 	}
 
-	public void setSendTopCoderNews( long coder_id, boolean value )
+	public void setSendTopCoderNews( Long coderId, boolean value )
 	  throws SQLException {
-		op( ( value ? SET : CLR ), coder_id, 5 );
+		op( ( value ? SET : CLR ), coderId.longValue(), 5 );
 	}
 
 	/**

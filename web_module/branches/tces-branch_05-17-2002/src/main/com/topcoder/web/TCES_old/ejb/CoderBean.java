@@ -850,6 +850,16 @@ public class CoderBean implements javax.ejb.SessionBean {
 		return( sb.toString() );
 	}
 
+	public boolean isStudent( Long profileId ) throws SQLException {
+		Integer	type = getCoderTypeId( profileId );
+		return( type.intValue() == 1 );
+	}
+
+	public void setIsStudent( Long profileId ) throws SQLException {
+		Integer	type = getCoderTypeId( profileId );
+		if( type.intValue() != 1 )
+			setCoderTypeId( profileId, new Integer( 1 ) );
+	}
 
 	private Connection getConnection() throws SQLException {
 		try {
