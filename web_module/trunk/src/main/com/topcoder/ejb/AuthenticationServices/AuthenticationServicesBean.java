@@ -7,7 +7,10 @@ import java.util.*;
 import java.rmi.RemoteException;
 import java.sql.*;
 
-
+/**
+ * The implementation for the AuthenticationServices EJB.
+ * This stateless session EJB controls logins, security, and loading of user information.
+ */
 /////////////////////////////////////////////////////////
 public class AuthenticationServicesBean extends BaseEJB {
 /////////////////////////////////////////////////////////

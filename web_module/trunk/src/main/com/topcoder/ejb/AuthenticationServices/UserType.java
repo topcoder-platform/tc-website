@@ -1,6 +1,11 @@
 package com.topcoder.ejb.AuthenticationServices;
 
-
+/**
+ * This class defines the type of user.
+ *
+ * @version  $Revision$
+ * @internal Log of Changes:
+*/
 public class UserType implements java.io.Serializable, Cloneable {
 
   private int UserTypeId;
@@ -30,29 +35,45 @@ public class UserType implements java.io.Serializable, Cloneable {
   }
 
 
-  //Set
+  /**
+  * Sets the User Type Id for the user attempting to login.
+  */
   public void setUserTypeId(int UserTypeId) {
     this.UserTypeId = UserTypeId;
   }
 
+  /**
+  * Sets the descriptive name for the type of user.
+  */
   public void setUserTypeDesc(String UserTypeDesc) {
     this.UserTypeDesc = UserTypeDesc;
   }
 
+  /**
+  * Sets the modified flag (A)dd, (U)pdate, (D)elete.
+  */
   public void setModified(String Modified) {
     this.Modified = Modified;
   }
 
 
-  // Get
+  /**
+  * Gets the User Type Id for the user attempting to login.
+  */
   public int getUserTypeId() {
     return UserTypeId;
   }
 
+  /**
+  * Gets the descriptive name for the type of user.
+  */
   public String getUserTypeDesc() {
     return UserTypeDesc;
   }
 
+  /**
+  * Gets the modified flag (A)dd, (U)pdate, (D)elete.
+  */
   public String getModified() {
     return Modified;
   }
