@@ -63,10 +63,10 @@ public final class JNLPServlet extends HttpServlet {
                      //"href=\"ScreeningApp.jnlp\">\r\n" +
                      ">\r\n" +
                      "<information>\r\n" +
-                     "<title>TopCoder Testing Application</title>\r\n" +
+                     "<title>TopCoder Technical Assessment Application</title>\r\n" +
                      "<vendor>TopCoder, Inc.</vendor>\r\n" +
                      "<homepage href=\"http://www.topcoder.com\"/>\r\n" +
-                     "<description>TopCoder Testing Application</description>\r\n" +
+                     "<description>TopCoder Technical Assessment Application</description>\r\n" +
                      "<icon href=\"http://www.topcoder.com/i/ScreeningJWS.jpg\"/>\r\n" +
                      "</information>\r\n" +
                      "<security>\r\n" +

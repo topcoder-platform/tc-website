@@ -96,8 +96,8 @@ public class EmailInfo extends BaseModel {
         StringBuffer msgText = new StringBuffer(1000);
         msgText.append("Thank you for your interest in working at ");
         msgText.append(companyName);
-        msgText.append(".  We would like you to participate in the Private Candidate Testing Application powered by ");
-        msgText.append("TopCoder.  Through this Testing Application, you will be asked to solve algorithmic problems ");
+        msgText.append(".  We would like you to participate in the Private Candidate Technical Assessment Application powered by ");
+        msgText.append("TopCoder.  Through this Technical Assessment, you will be asked to solve algorithmic problems ");
         msgText.append("as an objective measure of your programming ability.");
         msgText.append("\n\n");
         msgText.append("Please review the Help Manual before getting started: ");
@@ -117,11 +117,11 @@ public class EmailInfo extends BaseModel {
         msgText.append("Password:  ");
         msgText.append(candidatePassword);
         msgText.append("\n\n");
-        msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TESTING APPLICATION PRIOR TO THE END ");
+        msgText.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT PRIOR TO THE END ");
         msgText.append("TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 2 HOURS TO COMPLETE ALL PORTIONS OF THE TEST.");
         msgText.append("\n\n");
         msgText.append("You must have the Java 1.4.x runtime installed to access ");
-        msgText.append("the Testing Application here: http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
+        msgText.append("the Technical Assessment Application here: http://www.topcoder.com/corp/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
         msgText.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
@@ -139,7 +139,7 @@ public class EmailInfo extends BaseModel {
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
         msgText.append(candidateHandle);
-        msgText.append(" has been scheduled to participate in the Testing ");
+        msgText.append(" has been scheduled to participate in the Technical Assessment ");
         msgText.append("Application powered by TopCoder during the following times:");
         msgText.append("\n");
         msgText.append("\n");
@@ -150,7 +150,7 @@ public class EmailInfo extends BaseModel {
         msgText.append(sdf.format(sessionInfo.getEndDate()));
         msgText.append(" Eastern Time\n");
         msgText.append("\n");
-        msgText.append("Access this individual's information by logging into the Testing Application ");
+        msgText.append("Access this individual's information by logging into the Technical Assessment Application ");
         msgText.append("Management Tool http://www.topcoder.com/corp/testing/ and clicking on Candidates.");
         msgText.append("\n");
         msgText.append("\n");
@@ -385,8 +385,8 @@ public class EmailInfo extends BaseModel {
         emailInfo.setCandidateAddress(row.getItem("email_address").toString());
         emailInfo.setCandidateHandle(row.getItem("handle").toString());
 
-        emailInfo.setSubject("Invitation to Private Candidate Testing Application");
-        emailInfo.setRepSubject("Testing Application scheduled for " + emailInfo.getCandidateHandle());
+        emailInfo.setSubject("Invitation to Private Candidate Technical Assessment");
+        emailInfo.setRepSubject("Technical Assessment scheduled for " + emailInfo.getCandidateHandle());
 
         return emailInfo;
     }

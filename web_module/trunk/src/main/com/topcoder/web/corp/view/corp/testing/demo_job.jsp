@@ -5,7 +5,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>The TopCoder Testing Program allows companies to test the technical abilities of candidates during the interview process</title>
+<title>The TopCoder Technical Assessment Program allows companies to test the technical abilities of candidates during the interview process</title>
 
 <jsp:include page="../includes/css.jsp" />
 <link type="text/css" rel="stylesheet" href="/css/demo.css"/>
@@ -23,7 +23,7 @@
 		</tr>
 		<tr><td><div class=demoHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
 		<tr><td><div><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
-                
+
         <tr valign="top">
         	<td class="bodyText" width="99%">
             	<table width="100%" cellpadding=0 cellspacing=40 border=0>
@@ -41,7 +41,7 @@
 							<li class="bodyText">Excellent written and verbal communication skills</li>
 							<li class="bodyText">Desire to continue learning</li>
 						</ul>
-						
+
 						<h1 class="testSubhead">Responsibilities:</h1>
 						<ul class="bodyText">
 							<li class="bodyText">Understand basic programming concepts</li>
@@ -49,21 +49,21 @@
 							<li class="bodyText">Test and debug code</li>
 							<li class="bodyText">Work as productive member of dynamic team</li>
 						</ul>
-						
+
 						<h1 class="testSubhead">Education:</h1>
 						<ul class="bodyText">
 							<li class="bodyText">BS or MS in Computer Science</li>
 						</ul>
 
-			
-						
+
+
 						<p class="testSubhead"><a href="/pl/?module=DemoReg&cid=5416">APPLY NOW!</a></p>
-                        
+
                         <p><br></p>
                        </td></tr>
                   </table>
         	</td>
-    	</tr>                    
+    	</tr>
 	</table>
 </body>
 </html>

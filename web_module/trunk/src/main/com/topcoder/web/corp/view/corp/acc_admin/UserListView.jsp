@@ -55,7 +55,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%">
                         <p>Use this page to manage the access that users at your company are given. By clicking <strong>Edit</strong> you can give users
-                        overall Administrative access, full access to the Testing Application, results access to the Testing Application, or reporting access
+                        overall Administrative access, full access to the Technical Assessment Application, results access to the Technical Assessment Application, or reporting access
                         to the Recruiting Application, depending on which TopCoder programs you have purchased.</p>
                     </td>
                 </tr>
