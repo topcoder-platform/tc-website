@@ -1,7 +1,10 @@
+<%@ page import="com.topcoder.web.tc.model.ProblemRatingResult"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="problemRatingResults" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<jsp:useBean id="overallDistribution" scope="request" class="java.util.List" />
+<jsp:useBean id="competitorDistribution" scope="request" class="java.util.List" />
 <%
     int count = 0;
     int compCount = 0;
@@ -67,31 +70,16 @@
         <tr><td class="bodyTextBig" colspan="3" align="center"><%=count%> Total votes <%=compCount%> Competitor Votes</td></tr>
     </table><br/>
          <center>
-         <OBJECT 
-         classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"
-         codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-         WIDTH="100%"
-         HEIGHT="400"
-         id="problem_rating"
-         ALIGN="Top"
-         SALIGN="Top">
-         <PARAM NAME=movie VALUE="/i/problem_rating.swf"> 
-         <PARAM NAME=quality VALUE=medium >
-         <PARAM NAME=salign VALUE=T>
-         <PARAM NAME=bgcolor VALUE="#FFFFFF"> 
-         <EMBED
-         src="/i/problem_rating.swf" 
-         quality=medium 
-         bgcolor="#FFFFFF" 
-         WIDTH="100%"
-         HEIGHT="400"
-         NAME="problem_rating"
-         ALIGN="Top"
-         SALIGN="Top"
-         TYPE="application/x-shockwave-flash"
-         PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">
-         </EMBED>
-         </OBJECT>
+<SCRIPT language="JavaScript"><!--
+     var params = <tc:problemRatingResultIterator list="<%=overallDistribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator><tc:problemRatingResultIterator list="<%=competitorDistribution%>" id="item"><jsp:getProperty name="item" property="keyValueString"/>&</tc:problemRatingResultIterator>
+     params = params.substring(0, params.length-1);
+             document.write('<object type="application/x-shockwave-flash" data="/i/problem_rating.swf" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=5,0,0,0" width=100% height=400 border="0" salign="Top" id="myFlash" >');
+             document.write('<PARAM NAME=movie VALUE="/i/problem_rating.swf?'+params+'">');
+             document.write('<PARAM NAME=quality VALUE="high">');
+             document.write('<PARAM NAME=bgcolor VALUE="#FFFFFF">');
+             document.write('<embed src="/i/problem_rating.swf?'+params+'&flashContentURL=flash_content/flash_content.html&altContentURL=upgrade_flash/upgrade_flash.html&contentVersion=6&contentMajorRevision=0&contentMinorRevision=79&allowFlashAutoInstall=false" quality=high width=200 height=15 border="0" salign="Top" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash" name="myFlash" swLiveConnect="true" ></embed>');
+             document.write('</object>');
+  //--></SCRIPT>
          </center>
          <br/><br/>
       </td>
