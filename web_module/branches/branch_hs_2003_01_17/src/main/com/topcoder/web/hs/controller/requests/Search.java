@@ -25,6 +25,10 @@ public class Search extends Base {
 
   private final static String MAX_RATING_INPUT_CODE="maxra";
 
+  private final static String START_RANK_INPUT_CODE="sr";
+
+  private final static String END_RANK_INPUT_CODE="er";
+
   private final static String SEARCH_BASE="/search/";
 
   private final static String ADVANCED_SEARCH_PAGE="advanced_search.jsp";
@@ -230,18 +234,12 @@ public class Search extends Base {
   private boolean isValidSearch(Map _errors,SearchBean _sb) {
     boolean valid=true;
     valid&=checkValidHandle(_errors,_sb.getHandle());
-    log.debug("valid handle: "+valid);
     valid&=(checkValidState(_errors,_sb.getStateCode(),_sb.getStateList())&&
             checkValidSchool(_errors,_sb.getSchoolId(),_sb.getSchoolList()));
-    log.debug("valid state and school: "+valid);
     valid&=checkValidStateSchool(_errors,_sb.getStateCode(),_sb.getSchoolId());
-    log.debug("valid state/school: "+valid);
     valid&=checkValidMinRating(_errors,_sb.getMinRating());
-    log.debug("valid min rating: "+valid);
     valid&=checkValidMaxRating(_errors,_sb.getMaxRating());
-    log.debug("valid mxx rating: "+valid);
     valid&=checkValidMinMax(_errors,_sb.getMinRating(),_sb.getMaxRating());
-    log.debug("valid min/max rating: "+valid);
     return(valid);
   }
 
@@ -389,6 +387,8 @@ public class Search extends Base {
     map.put(MAX_RATING_INPUT_CODE,max_rating.toString());
     map.put(STATE_INPUT_CODE,state_code_pattern);
     map.put(SCHOOL_NAME_INPUT_CODE,school_name_pattern);
+    map.put(START_RANK_INPUT_CODE,_sb.getPrev().toString());
+    map.put(END_RANK_INPUT_CODE,_sb.getNext().toString());
     Request req=new Request(map);
     Map data=dai.getData(req);
 
