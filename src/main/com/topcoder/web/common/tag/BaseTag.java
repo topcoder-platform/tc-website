@@ -3,6 +3,7 @@ package com.topcoder.web.common.tag;
 import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.jsp.tagext.BodyTagSupport;
+import javax.servlet.jsp.JspException;
 import java.util.HashMap;
 
 
@@ -35,5 +36,20 @@ public abstract class BaseTag extends BodyTagSupport {
             return null;
         }
     }
+
+    public int doEndTag()  throws JspException {
+        this.name = null;
+        init();
+        return super.doEndTag();
+    }
+
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
+    protected abstract void init();
+
+
 
 }

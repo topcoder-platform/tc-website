@@ -19,6 +19,7 @@ public class SessionInfo implements Serializable {
     private long userid = SimpleUser.createGuest().getId();
     private String serverName = null;
     private String servletPath = null;
+    private String absoluteServletPath = null;
     private String queryString = null;
     private String requestString = null;
     private Date date= null;
@@ -54,6 +55,8 @@ public class SessionInfo implements Serializable {
         buf.append(servletPath);
         buf.append(queryString);
         requestString = buf.toString();
+
+        absoluteServletPath = request.getServerName()+servletPath;
 
         isLoggedIn = !authentication.getUser().isAnonymous();
         //log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
@@ -93,6 +96,14 @@ public class SessionInfo implements Serializable {
 
     public String getServletPath() {
         return servletPath;
+    }
+
+    public String getAbsoluteServletPath() {
+        return "http://"+absoluteServletPath;
+    }
+
+    public String getSecureAbsoluteServletPath() {
+        return "https://"+absoluteServletPath;
     }
 
     public String getQueryString() {

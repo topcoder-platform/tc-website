@@ -1,6 +1,6 @@
 <%@ include file="head.inc" %>
 <%@ page import="java.awt.Color,
-                 com.topcoder.common.web.render.ProblemRenderer,
+                 com.topcoder.web.common.render.ProblemRenderer,
                  com.topcoder.shared.language.JavaLanguage"%>
 
 <%@ include file="body.inc" %>

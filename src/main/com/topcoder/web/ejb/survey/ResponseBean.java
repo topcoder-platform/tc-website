@@ -76,8 +76,6 @@ public class ResponseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating response user_id="+userId+" questionId="+questionId+" text="+text);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating response user_id="+userId+" questionId="+questionId+" text="+text);
         } catch (Exception e) {
             throw new EJBException("Exception creating response user_id="+userId+" questionId="+questionId+" text="+text +
                     ":\n" + e.getMessage());

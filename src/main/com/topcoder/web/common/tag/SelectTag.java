@@ -57,6 +57,11 @@ public abstract class SelectTag extends BaseTag {
         return SKIP_BODY;
     }
 
+    /**
+     * Just in case the app server is caching tag (jboss!!!)
+     * we have to clear out all the instance variables at the
+     * end of execution
+     */
     public int doEndTag() throws JspException {
         try {
             JspWriter out = pageContext.getOut();
@@ -66,9 +71,21 @@ public abstract class SelectTag extends BaseTag {
                 out.write(buildSelect());
             }
         } catch (Exception e) {
-            throw new JspException(e.toString());
+            throw new JspException(e.getMessage());
         }
-        return EVAL_PAGE;
+        return super.doEndTag();
+    }
+
+    protected void init() {
+        this.ccsclass = null;
+        this.onChange = null;
+        this.selectedValue = null;
+        this.selectedText = null;
+        this.selectedOnly = false;
+        this.size = null;
+        this.multiple = null;
+        this.topValue = null;
+        this.topText = null;
     }
 
     String getSelected() throws JspException {

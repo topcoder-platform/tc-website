@@ -20,19 +20,13 @@ public class TCO04ComponentTermsAgree extends TermsAgreeBase {
     private TCO04ComponentTerms helper = new TCO04ComponentTerms();
 
     //overload this event, will throw exception if unsuccessful
-     protected void businessProcessing() throws TCWebException {
-         try {
-             super.businessProcessing();
+    protected void businessProcessing() throws Exception {
+        super.businessProcessing();
 
-             //if we're here, this is successful
-             UserEvent userEvent = (UserEvent)createEJB(getInitialContext(), UserEvent.class);
-             userEvent.createUserEvent(getUser().getId(), Constants.TCO04_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
-         } catch (TCWebException e) {
-            throw e;
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-     }
+        //if we're here, this is successful
+        UserEvent userEvent = (UserEvent) createEJB(getInitialContext(), UserEvent.class);
+        userEvent.createUserEvent(getUser().getId(), Constants.TCO04_EVENT_ID, DBMS.TCS_OLTP_DATASOURCE_NAME);
+    }
 
     /**
      * We need this method so that we can set the request on our

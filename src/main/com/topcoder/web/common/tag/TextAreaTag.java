@@ -79,4 +79,15 @@ public class TextAreaTag extends BaseTag {
     public void setClass(String styleClass) {
         this.styleClass = styleClass;
     }
+
+    protected void init() {
+        this.cols = -1;
+        this.rows = -1;
+        this.wrap = null;
+        this.text = null;
+        this.onChange = null;
+        this.readOnly = false;
+        this.styleClass = null;
+
+    }
 }

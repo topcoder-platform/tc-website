@@ -22,11 +22,11 @@ public class DemographicInput extends BaseTag {
         cssclass = null;
         showMulti = true;
     }
-    
+
     public void setShowMulti(boolean b) {
         showMulti = b;
     }
-    
+
     public boolean getShowMulti() {
         return showMulti;
     }
@@ -137,6 +137,12 @@ public class DemographicInput extends BaseTag {
     }
 
 
+    protected void init() {
+        this.cssclass=null;
+        this.question=null;
+        this.showMulti=true;
+
+    }
 
 }
 

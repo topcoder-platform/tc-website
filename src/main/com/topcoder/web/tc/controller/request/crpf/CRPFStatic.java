@@ -10,19 +10,15 @@ import java.util.Map;
 
 public class CRPFStatic extends Static {
 
-    public void businessProcessing() throws TCWebException {
+    public void businessProcessing() throws Exception {
         Request r = new Request();
         r.setContentHandle("crpf_donation_total");
 
-        try {
-            CachedDataAccess da = (CachedDataAccess)getDataAccess(true);
-            da.setExpireTime(30*60*1000); //30 minutes should be sufficient
-            Map m = da.getData(r);
-            ResultSetContainer rsc1 = (ResultSetContainer)m.get("crpf_donation_total");
-            getRequest().setAttribute("donationTotal", rsc1);
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
+        CachedDataAccess da = (CachedDataAccess) getDataAccess(true);
+        da.setExpireTime(30 * 60 * 1000); //30 minutes should be sufficient
+        Map m = da.getData(r);
+        ResultSetContainer rsc1 = (ResultSetContainer) m.get("crpf_donation_total");
+        getRequest().setAttribute("donationTotal", rsc1);
         super.businessProcessing();
 
 

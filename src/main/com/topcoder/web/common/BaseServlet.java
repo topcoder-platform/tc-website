@@ -104,6 +104,8 @@ public abstract class BaseServlet extends HttpServlet {
             TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
             tcRequest.setAttribute(SESSION_INFO_KEY, info);
+            //todo perhaps this should be configuraable...so implementing classes
+            //todo don't have to do it if they don't want to
             RequestTracker.trackRequest(authentication.getActiveUser(), tcRequest);
 
             StringBuffer loginfo = new StringBuffer(100);
@@ -168,7 +170,7 @@ public abstract class BaseServlet extends HttpServlet {
         } catch (Exception e) {
             log.fatal("forwarding to error page failed", e);
             e.printStackTrace();
-
+            response.setContentType("text/html");
             response.setStatus(500);
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");

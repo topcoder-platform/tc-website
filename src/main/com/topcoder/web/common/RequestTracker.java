@@ -1,15 +1,17 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.web.ejb.requestservices.RequestServices;
 
 import javax.naming.InitialContext;
 import java.util.*;
 import java.sql.Timestamp;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  * User: dok
@@ -20,7 +22,6 @@ public class RequestTracker {
 
     private static final User GUEST = SimpleUser.createGuest();
     private static final int BATCH_PERIOD = 60 * 1000;
-    private static final int SESSION_ID_LENGTH = 50;
     private static final String[] IGNORE_LIST = {"65.112.118.194", "172.16.1.182"};
 
     static {
@@ -91,31 +92,99 @@ public class RequestTracker {
                 while (!q.isEmpty())
                     a.add(q.pop());
             }
-            InitialContext ctx = null;
             try {
-                ctx = TCContext.getInitial();
-                //don't really need an ejb here, there's no transaction or anything like that.  we can
-                //can improve efficiency by just doing it in code to skip all the ejb overhread
-                RequestServices rs = (RequestServices) BaseProcessor.createEJB(ctx, RequestServices.class);
                 //log.debug("begin request batch load");
+                String sessionId = null;
                 for (Iterator it = a.iterator(); it.hasNext();) {
                     UserRequest r = (UserRequest) it.next();
-                    if (r.userId == GUEST.getId()) {
-                        rs.createRequest(r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    if (ApplicationServer.SESSION_ID_LENGTH>0) {
+                        sessionId = r.sessionId.substring(0, ApplicationServer.SESSION_ID_LENGTH);
                     } else {
-                        rs.createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        sessionId = r.sessionId;
+                    }
+                    if (r.userId == GUEST.getId()) {
+                        createRequest(r.url, new Timestamp(r.time),
+                                sessionId,DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    } else {
+                        createRequest(r.userId, r.url, new Timestamp(r.time),
+                                sessionId,
+                                DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     }
                 }
                 //log.debug("end request batch load");
 
             } catch (Exception e) {
                 log.error("Problem inserting request" + e);
-            } finally {
-                BaseProcessor.close(ctx);
             }
 
         }
     }
+
+
+
+
+    protected static void createRequest(long userId, String url, Timestamp time,
+                                        String sessionId, String dataSource) throws TCWebException {
+/*
+        log.debug("createRequest called. url: " + url
+                + " userId: " + userId + " time: " + time + " session: " + sessionId);
+*/
+
+        StringBuffer query = new StringBuffer(200);
+        query.append("insert into request (user_id, url, timestamp, session_id) ");
+        query.append(" values (?, ?, ?, ?)");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+            ps.setString(2, url);
+            ps.setTimestamp(3, time);
+            ps.setString(4, sessionId);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new TCWebException(e);
+        } finally {
+            ApplicationServer.close(ps);
+            ApplicationServer.close(conn);
+            ApplicationServer.close(ctx);
+        }
+    }
+
+    protected static void createRequest(String url, Timestamp time, String sessionId, String dataSource) throws TCWebException {
+//        log.debug("createRequest called. url: " + url + " time: " + time + " session: " + sessionId);
+        StringBuffer query = new StringBuffer(200);
+        query.append("insert into request (url, timestamp, session_id) ");
+        query.append(" values (?, ?, ?)");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, url);
+            ps.setTimestamp(2, time);
+            ps.setString(3, sessionId);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw new TCWebException(e);
+        } finally {
+            ApplicationServer.close(ps);
+            ApplicationServer.close(conn);
+            ApplicationServer.close(ctx);
+        }
+    }
+
+
+
 
 
 
@@ -148,7 +217,7 @@ public class RequestTracker {
             this.url = buf.toString();
             this.time = System.currentTimeMillis();
             this.sessionId=r.getSession().getId();
-            //log.debug("session: " + this.sessionId);
+            log.debug("session: " + this.sessionId);
         }
     }
 

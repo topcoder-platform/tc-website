@@ -1,13 +1,9 @@
 package com.topcoder.web.tc.view.tag;
 
 import com.topcoder.web.common.tag.BaseTag;
-import com.topcoder.web.tc.model.ProblemRatingQuestion;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.PageContext;
-import java.util.Iterator;
-import java.util.List;
 
 public class Counter extends BaseTag {
     protected static Logger log = Logger.getLogger(AnswerInput.class);
@@ -56,7 +52,7 @@ public class Counter extends BaseTag {
             return EVAL_BODY_TAG;
         }
     }
-    
+
     public int doAfterBody() throws JspException{
         cur+=inc;
         if(cur>max){
@@ -75,5 +71,13 @@ public class Counter extends BaseTag {
             }
         }
         return SKIP_BODY;
+    }
+
+    protected void init() {
+        this.min = 1;
+        this.max = 10;
+        this.inc = 1;
+        this.cur = 0;
+
     }
 }

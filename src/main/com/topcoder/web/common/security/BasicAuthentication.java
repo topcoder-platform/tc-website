@@ -3,6 +3,7 @@ package com.topcoder.web.common.security;
 import java.util.*;
 import java.security.*;
 import javax.servlet.http.*;
+
 import com.topcoder.security.*;
 import com.topcoder.security.admin.*;
 import com.topcoder.security.login.*;
@@ -32,12 +33,13 @@ public class BasicAuthentication implements WebAuthentication {
     private TCRequest request;
     private TCResponse response;
     private User guest = SimpleUser.createGuest();
-    private Resource defaultCookiePath;
+    protected Resource defaultCookiePath;
 
     public static final Resource CORP_SITE = new SimpleResource("/corp");
     public static final Resource MAIN_SITE = new SimpleResource("/");
     public static final Resource HS_SITE = new SimpleResource("/hs");
     public static final Resource PRIVATE_LABEL_SITE = new SimpleResource("/pl");
+    public static final Resource TECH_ASSESS_SITE = new SimpleResource("/techassess");
 
     /**
      * Construct an authentication instance backed by the given persistor
@@ -64,20 +66,20 @@ public class BasicAuthentication implements WebAuthentication {
 
 
     /**
-      * Use the security component to log the supplied user in.
-      * If login succeeds, set a cookie and record status in the persistor.
-      * If login fails, throw a LoginException.
+     * Use the security component to log the supplied user in.
+     * If login succeeds, set a cookie and record status in the persistor.
+     * If login fails, throw a LoginException.
      * @param u
      * @throws LoginException
      */
     public void login(User u) throws LoginException {
-        login(u,true);
+        login(u, true);
     }
 
     /**
-      * Use the security component to log the supplied user in.
-      * If login succeeds, set a cookie if rememberUser is true, and record status in the persistor.
-      * If login fails, throw a LoginException.
+     * Use the security component to log the supplied user in.
+     * If login succeeds, set a cookie if rememberUser is true, and record status in the persistor.
+     * If login fails, throw a LoginException.
      * @param u
      * @throws LoginException
      */
@@ -128,16 +130,16 @@ public class BasicAuthentication implements WebAuthentication {
         User u = getUserFromPersistor();
 
         if (u == null) {
-            u = (User)persistor.getObject(request.getSession().getId()+USER_COOKIE_NAME);
+            u = (User) persistor.getObject(request.getSession().getId() + USER_COOKIE_NAME);
             if (u == null) {
                 u = checkCookie();
-                if (u==null) {
+                if (u == null) {
                     u = guest;
                     //log.debug("*** made up a guest ***");
                 } else {
                     //log.debug("*** they were in cookie ***");
                 }
-                persistor.setObject(request.getSession().getId()+USER_COOKIE_NAME, u);
+                persistor.setObject(request.getSession().getId() + USER_COOKIE_NAME, u);
             } else {
                 //log.debug("*** they were stale ***");
             }
@@ -153,12 +155,12 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public User getUser() {
         User u = getUserFromPersistor();
-        if(u == null) u = guest;
+        if (u == null) u = guest;
         return u;
     }
 
     /** Fill in the name field from the user id. */
-    private User makeUser(long id) {
+    protected User makeUser(long id) {
         try {
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             UserPrincipal up = pmgr.getUser(id);
@@ -193,20 +195,20 @@ public class BasicAuthentication implements WebAuthentication {
     private String hashForUser(long uid) throws Exception {
         log.debug("hash for user: " + uid);
         CachedDataAccess dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        dai.setExpireTime(30*60*1000);   //cache their password for 30 minutes, this should help db load
+        dai.setExpireTime(30 * 60 * 1000);   //cache their password for 30 minutes, this should help db load
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");
         dataRequest.setProperty("uid", Long.toString(uid));
         Map dataMap = dai.getData(dataRequest);
-        ResultSetContainer rsc = (ResultSetContainer)dataMap.get("userid_to_password");
-        String password = rsc.getItem(0,0).toString();
+        ResultSetContainer rsc = (ResultSetContainer) dataMap.get("userid_to_password");
+        String password = rsc.getItem(0, 0).toString();
 
         MessageDigest md = MessageDigest.getInstance("MD5");
-        byte[] plain = (Constants.hash_secret+uid+password).getBytes();
+        byte[] plain = (Constants.hash_secret + uid + password).getBytes();
         byte[] raw = md.digest(plain);
         StringBuffer hex = new StringBuffer();
-        for(int i=0; i<raw.length; i++)
-            hex.append(Integer.toHexString(raw[i]&0xff));
+        for (int i = 0; i < raw.length; i++)
+            hex.append(Integer.toHexString(raw[i] & 0xff));
         return hex.toString();
     }
 
@@ -219,9 +221,9 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public void setCookie(long uid, boolean rememberUser) throws Exception {
         String hash = hashForUser(uid);
-        Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
+        Cookie c = new Cookie(USER_COOKIE_NAME, "" + uid + "|" + hash);
         c.setPath(defaultCookiePath.getName());
-        c.setMaxAge(rememberUser?Integer.MAX_VALUE:-1);  // this should fit comfortably, since the expiration date is a string on the wire
+        c.setMaxAge(rememberUser ? Integer.MAX_VALUE : -1);  // this should fit comfortably, since the expiration date is a string on the wire
         response.addCookie(c);
     }
 
@@ -236,28 +238,28 @@ public class BasicAuthentication implements WebAuthentication {
     /** Check each cookie in the request header for a cookie set above. */
     private User checkCookie() {
         Cookie[] ca = request.getCookies();
-        for(int i=0; i<ca.length; i++)
-            if(ca[i].getName().equals(USER_COOKIE_NAME)) {
+        for (int i = 0; ca != null && i < ca.length; i++) {
+            if (ca[i].getName().equals(USER_COOKIE_NAME)&&defaultCookiePath.getName().equals(ca[i].getPath())) {
 
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
                     long uid = Long.parseLong(st.nextToken());
-                    if (uid<1) continue;
+                    if (uid < 1) continue;
                     String hash = hashForUser(uid);
-                    if(!hash.equals(st.nextToken())) continue;
+                    if (!hash.equals(st.nextToken())) continue;
                     return makeUser(uid);
 
-                } catch(Exception e) {
+                } catch (Exception e) {
                     log.error("exception parsing cookie", e);
                     /* junk in the cookie, ignore it */
                 }
             }
-
+        }
         return null;
     }
 
     private User getUserFromPersistor() {
-        return (User)persistor.getObject(request.getSession().getId()+USER_PERSISTOR_KEY);
+        return (User) persistor.getObject(request.getSession().getId() + USER_PERSISTOR_KEY);
     }
 
     /**
@@ -267,8 +269,8 @@ public class BasicAuthentication implements WebAuthentication {
      *
      * @param user
      */
-    private void setUserInPersistor(User user) {
-        persistor.setObject(request.getSession().getId()+USER_PERSISTOR_KEY, user);
+    protected void setUserInPersistor(User user) {
+        persistor.setObject(request.getSession().getId() + USER_PERSISTOR_KEY, user);
     }
 
 }

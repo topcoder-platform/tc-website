@@ -9,7 +9,6 @@
          ,com.topcoder.common.web.render.ProblemRenderer,
           java.awt.*,
           java.io.StringReader"
-
 %>
 
 <%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>

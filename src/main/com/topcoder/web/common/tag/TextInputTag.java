@@ -1,6 +1,9 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.shared.util.logging.Logger;
+
 public class TextInputTag extends BaseTag {
+    protected static Logger log = Logger.getLogger(TextInputTag.class);
     private String value;
     private int size = -1;
     private int maxlength = -1;
@@ -34,7 +37,7 @@ public class TextInputTag extends BaseTag {
             if (value != null) {
                 ret.append("value=\"").append(value).append("\" ");
             }
-            ret.append("/>");
+            ret.append(">");
         } else {
             if (value == null) {
                 value = getDefaultValue()==null?null:getDefaultValue().toString();
@@ -49,6 +52,7 @@ public class TextInputTag extends BaseTag {
         }
         return SKIP_BODY;
     }
+
 
     /**
      * Sets the value.
@@ -113,4 +117,16 @@ public class TextInputTag extends BaseTag {
     public void setEditable(boolean edit) {
         editable = edit;
     }
+
+    protected void init() {
+        this.value = null;
+        this.size = -1;
+        this.maxlength = -1;
+        this.passw = false;
+        this.aclass = null;
+        this.onKeyPress = null;
+        this.editable = true;
+    }
+
+
 }

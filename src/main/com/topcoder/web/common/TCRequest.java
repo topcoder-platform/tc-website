@@ -37,4 +37,5 @@ public interface TCRequest {
 
     String getRemoteHost();
 
+    void removeAttribute(java.lang.String name);
 }

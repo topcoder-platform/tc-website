@@ -48,6 +48,7 @@ public class MainServlet extends BaseServlet {
         } else {
             log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
             response.setStatus(400);
+            response.setContentType("text/html");
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>IInvalid Request - Wrong Server Name</title></head>");
             out.println("<body><h4>Your request was invalid for this server.</h4>");

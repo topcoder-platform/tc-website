@@ -110,6 +110,31 @@
         </attribute>
     </tag>
     <tag>
+    <name>radioButton</name>
+        <tagclass>com.topcoder.web.common.tag.RadioButtonTag</tagclass>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onClick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
         <name>errorIterator</name>
         <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
         <teiclass>com.topcoder.web.common.tag.IteratorTagInfo</teiclass>
@@ -130,8 +155,8 @@
         <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info>
-      generic iterator tag iterates through elements of a Collection
-    </info>
+            generic iterator tag iterates through elements of a Collection
+        </info>
         <attribute>
             <name>id</name>
             <required>true</required>
@@ -245,7 +270,6 @@
 
     <tag>
         <name>handle</name>
-        <info>Generates an html select box for fiven ResultSetContainer</info>
         <tagclass>com.topcoder.web.common.tag.HandleTag</tagclass>
         <attribute>
             <name>coderId</name>
@@ -290,5 +314,101 @@
         </attribute>
     </tag>
 
+
+    <tag>
+        <name>listIterator</name>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to iterate through a List
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>type</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>useBean</name>
+        <tagclass>com.topcoder.web.common.tag.UseBeanTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.UseBeanTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to make a bean available for use
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>fromScope</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>toScope</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>type</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>property</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+
+    </tag>
+
+
+    <tag>
+        <name>problemStatement</name>
+        <tagclass>com.topcoder.web.common.tag.ProblemStatementTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for generating html output of a given problem statement xml string
+        </info>
+        <attribute>
+            <name>text</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>problem</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>language</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>class</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 
 </taglib>
