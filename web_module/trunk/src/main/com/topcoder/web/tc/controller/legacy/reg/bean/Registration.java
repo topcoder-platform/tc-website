@@ -1228,7 +1228,7 @@ public class Registration
             case CAMPUS_JOB_FAIR_REFERRAL:
                 return "job fair location";
             case OTHER_REFERRAL:
-                return "description of other - required";
+                return "description of other";
             case NONMEMBER_REFERRAL:
                 return "non-member name";
             case NEWS_ARTICLE_REFERRAL:
@@ -1244,13 +1244,19 @@ public class Registration
             case TOPCODER_EMAIL_REFERRAL:
                 return "TopCoder email";
             case JAVA_USER_GROUP_REFERRAL:
-                return "Java user group name";
+                return "user group name";
             case SEARCH_ENGINE_REFERRAL:
                 return "search engine";
             case MAGAZINE_ADVERT:
                 return "magazine name";
-            default:
+            case CAMPUS_POSTER:
                 return "no details required";
+            case IRC_CHAT:
+                return "chat room name";
+            case RECRUITER:
+                return "recruiter name";
+            default:
+                return "";
         }
     }
 
