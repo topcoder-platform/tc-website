@@ -1015,18 +1015,20 @@ public final class ReportServlet extends HttpServlet {
     private static final int[] REFERRAL_TYPES = {ResultItem.STRING, ResultItem.STRING, ResultItem.INT};
     private static final String[] REFERRAL_HEADINGS = {"Date", "Referral Type", "Count"};
     private static final String REFERRAL =
-            " SELECT TO_CHAR(c.member_since, '%iY-%m-%d')" +
-            " ,r.referral_desc" +
-            " ,COUNT(*)" +
-            " FROM coder c" +
-            " ,referral r" +
-            " ,coder_referral cr" +
-            " WHERE c.coder_id = cr.coder_id" +
-            " AND r.referral_id = cr.referral_id" +
-            " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
-            " AND email NOT LIKE '%topcoder.com%' " +
-            " GROUP BY 1, 2" +
-            " ORDER BY 1 DESC, 2";
+           " SELECT TO_CHAR(c.member_since, '%iY-%m-%d')" +
+           " ,r.referral_desc" +
+           " ,COUNT(*)" +
+           " FROM coder c" +
+           " ,referral r" +
+           " ,coder_referral cr" +
+           " ,user u" +
+           " WHERE c.coder_id = cr.coder_id" +
+           " AND r.referral_id = cr.referral_id" +
+           " AND c.member_since > CURRENT-INTERVAL (30) DAY (2) TO DAY" +
+           " and c.coder_Id = u.user_id" +
+           " AND u.email NOT LIKE '%topcoder.com%' " +
+           " GROUP BY 1, 2" +
+           " ORDER BY 1 DESC, 2";
 
     private static final Integer OTHER_REFERRAL_ID = new Integer(11);
     private static final String OTHER_REFERRAL_TITLE = "Other Referrals";
