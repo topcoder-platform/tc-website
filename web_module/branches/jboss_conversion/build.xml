@@ -1178,10 +1178,14 @@
                  <include name="Email.jar"/>
                  <include name="FileConversion.jar"/>
                  <include name="JavaDocServices.jar"/>
+                 <include name="JobPostingServices.jar"/>
                  <include name="PactsServices.jar"/>
                  <include name="Phone.jar"/>
                  <include name="PreferenceLevel.jar"/>
                  <include name="ProblemRatingServices.jar"/>
+                 <include name="RBoard.jar"/>
+                 <include name="Reporting.jar"/>
+                 <include name="ResumeServicesBean.jar"/>
                  <include name="Search.jar"/>
                  <include name="Survey.jar"/>
                  <include name="User.jar"/>
