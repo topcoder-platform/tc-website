@@ -34,10 +34,11 @@
      * Ug, can't think of any other way to do this...
      * Go through the request and pull out all the parameters that would otherwise be lost by
      * clicking on one of the sort links.
-     * @param String
+     * @param queryString
      * @return
      */
     String addParams(String queryString) {
+        System.out.println(queryString);
         Hashtable h = HttpUtils.parseQueryString(queryString);
         StringBuffer buf = new StringBuffer(100);
         Map.Entry me = null;
