@@ -4,7 +4,7 @@
          import="com.topcoder.web.corp.Constants,
                  com.topcoder.web.corp.controller.TransactionServlet,
                  com.topcoder.shared.util.ApplicationServer"
-         errorPage="../exc/InternalError.jsp" %>
+         %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>

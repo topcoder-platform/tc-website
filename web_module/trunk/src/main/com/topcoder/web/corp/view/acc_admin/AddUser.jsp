@@ -4,7 +4,7 @@
                  com.topcoder.web.corp.request.UserEdit"
          autoFlush="false"
          buffer="64kb"
-         errorPage="../exc/InternalError.jsp" %>
+         %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>

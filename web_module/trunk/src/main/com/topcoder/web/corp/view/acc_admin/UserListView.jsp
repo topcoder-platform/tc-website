@@ -6,7 +6,7 @@
                  com.topcoder.web.corp.Constants"
          autoFlush="false"
          buffer="64kb"
-         errorPage="../exc/InternalError.jsp" %>
+         %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");

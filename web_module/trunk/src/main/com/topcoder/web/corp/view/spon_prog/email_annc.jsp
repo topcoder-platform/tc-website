@@ -3,7 +3,7 @@
          buffer="64kb"
          import="com.topcoder.web.corp.Constants,
                  com.topcoder.web.corp.controller.TransactionServlet"
-         errorPage="../exc/InternalError.jsp" %>
+          %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
