@@ -68,7 +68,7 @@
 </TABLE>
 
 <IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/><BR/>       
-<FORM METHOD="" ACTION="">
+<FORM METHOD="" ACTION="jobposting/?&t=JobHitTask">
 <P>
 <B>Positions currently available</B>
 </P>
@@ -118,7 +118,7 @@ the quality of the web experience of tens of millions of people.
 <li>Successful track record establishing and driving test processes and plans within a high technology software company.</li>
 <li>Extensive familiarity with test automation tools and techniques.</li> 
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_10" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="systems"><font color="093158">Software Engineers</font></a> </h4>
 <p> Google is growing! We need world-class engineers to develop 
@@ -139,7 +139,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Experience developing/designing large software systems.</li> 
                          <li>Experience programming in Python a plus.</li>
                     </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="" VALUE="jobhit_11"/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="senior_sw"><font color="093158">Senior-level Software Engineers</font></a> </h4>
 <p>Help architect and extend one of the world's largest repositories 
@@ -164,7 +164,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Extensive knowledge of Unix systems programming (especially Linux).</li>
                          <li>Experience developing/designing large software systems.</li> 
                     </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_12" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="test_eng"><font color="093158">Senior Software Test Engineer</font></a> </h4>
 <p> Google is looking for a senior software test engineer 
@@ -184,7 +184,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Excellent communication skills. </li>
                          <li>BSCS or MSCS.</li> 
                     </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_13" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="java"><font color="093158">Software Engineers (Java)</font></a></h4>
 <p>We are hiring Java software engineers to write server-side 
@@ -203,7 +203,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Previous experience with JSP and servlets is a plus. </li>
                          <li>Experience with Python and C++ desired.</li> 
                     </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_14" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="jk_search"><font color="093158">Software Engineer (Japanese/Korean Search)</font></a></h4>
 <p>Google is growing worldwide! More than half our traffic 
@@ -232,7 +232,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Experience programming in Python a plus.</li> 
                          <li>Knowledge of grammar/linguistics would be a significant plus. </li>
                     </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_15" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="windows"><font color="093158">Software Engineer (Windows)</font></a></h4>
 <p>We are looking for Windows developers to join our world-class 
@@ -250,7 +250,7 @@ the quality of the web experience of tens of millions of people.
                          <li>A strong desire to ship products and work in a small team is required.</li>
                          <li>A BS or MS in Computer Science or equivalent.</li>
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_16" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="cluster"><font color="093158">Software Engineer (Cluster Management)</font></a> </h4>
 <p>Work with one of the world's largest Linux clusters! As 
@@ -268,7 +268,7 @@ the quality of the web experience of tens of millions of people.
                          <li>Excellent knowledge of Linux and network programming.</li> 
                          <li>Experience developing/designing large software systems. </li>
                     </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_17" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="frontend"><font color="093158">Software Engineer (FrontEnd Production)</font></a> </h4>
 <p>Help shape the way Google looks and works! As part of the 
@@ -289,7 +289,7 @@ the quality of the web experience of tens of millions of people.
                               a demonstrated ability to self-motivate and follow-through 
                               on projects.</li>
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_18" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="int_web"><font color="093158">Internal Web Systems Engineer/Lead</font></a></h4>
 <p>We are looking for an enthusiastic engineer to join Google's 
@@ -310,7 +310,7 @@ the quality of the web experience of tens of millions of people.
 <li>Strong experience interfacing with various business systems.</li>
 <li>Fluent with Unix and Windows environments.</li>
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_19" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="eng_enterprise"><font color="093158">Enterprise Systems Engineer</font></a> </h4>
 <p>Google is the premier provider of Internet search and has 
@@ -348,7 +348,7 @@ harder" approach.
 <li>Solid H/W understanding of Intel-based PCs.</li>
 <li>Programming/scripting ability (Bourne, Perl, Python, C/C++).</li>
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_20" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
                         
                         <h4><a name="usability"><font color="093158">Usability Analyst</font></a></h4>
 <p>Help us find out about our users! Google is looking for 
@@ -381,7 +381,7 @@ harder" approach.
 <li>Digital video recording or editing software.</li>
 </ul>
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_21" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
                          
 <h4><a name="hardware_ee"><font color="093158">Computer Hardware Evaluation Engineer</font></a></h4>
 <p>Play a key role in the development of new Google products! 
@@ -421,7 +421,7 @@ harder" approach.
 <li>Ability to remain organized and effective in a fast-paced, 
                               start-up environment will ensure priority consideration.</li>
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_22" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
                          
                          
 <h4><a name="hardware_eng"><font color="093158">System Hardware Engineer</font></a></h4>
@@ -461,7 +461,7 @@ harder" approach.
 <li>Ability to remain organized and effective in a fast-paced, 
                               start-up environment will ensure priority consideration.</li>
 </ul>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_23" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <h4><a name="deployment"><font color="093158">Deployment Support Engineer</font></a></h4>
 <P>
@@ -484,7 +484,7 @@ This position in the Google Search Services Support Team will be responsible for
 	<LI> Able to handle ambiguity and generate detailed incident reports.</LI>
 	<LI> Must be self-motivated, self-learner, customer oriented, resourceful, enthusiastic and welcome a challenge.</LI>
 </UL>
-<p><INPUT TYPE="CHECKBOX" NAME="" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
+<p><INPUT TYPE="CHECKBOX" NAME="jobhit_24" VALUE=""/>&#160;Apply to this position&#160;&#160;|&#160;&#160;<a href="#top" class="bodyText">Back to List</a></p><BR/>
 
 <DIV ALIGN="center" CLASS="dropdown"><INPUT TYPE="SUBMIT" VALUE=" Submit "/>&#160;<INPUT TYPE="RESET" VALUE=" Clear "/></DIV>
 
