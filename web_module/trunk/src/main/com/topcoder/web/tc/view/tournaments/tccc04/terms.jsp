@@ -38,7 +38,7 @@
          
          <p align="center"><textarea name="terms" rows="20" cols="80" readonly class="bodyText"><%=request.getAttribute("terms")%></textarea></p>
 
-         <p align="center">Click <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">here</a> 
+         <p align="center"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">I agree</a> to these terms and wish to participate in the 2004 TopCoder Collegiate Challenge.
 
 
          <p><br/></p>
