@@ -70,36 +70,32 @@
 
                            <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
-                           <P>
-                           <B>Positions currently available</B>
-                           </P>
+<p><B>Senior Software Verification Engineer</B><br/>
+Position available in Mountain View, CA.</p>
 
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_soft_eng&amp;a=secure" CLASS="bodyText">Software Engineering</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_java&amp;a=secure" CLASS="bodyText">Java</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_eng_tools&amp;a=secure" CLASS="bodyText">Engineering Tools</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_verification&amp;a=secure" CLASS="bodyText">Verification</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_windows&amp;a=secure" CLASS="bodyText">Windows</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_linux&amp;a=secure" CLASS="bodyText">Linux Kernel</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_front_end&amp;a=secure" CLASS="bodyText">Front End Focus</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_ui_eng&amp;a=secure" CLASS="bodyText">User Interface Engineer</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_intranet_dev&amp;a=secure" CLASS="bodyText">Intranet Web Developer</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_release_eng&amp;a=secure" CLASS="bodyText">Release Engineer</A></B></TD>
-  </TR>
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_site_reliability&amp;a=secure" CLASS="bodyText">Site Reliability Engineer</A></B></TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText"><B><A HREF="/?&amp;t=tces&amp;c=google_soft_ver_eng&amp;a=secure" CLASS="bodyText">Sr Software Verification Engineer</A></B></TD>
-  </TR>
-</TABLE> 
+<p>We are looking for strong developers who are very detailed oriented and quality focused.   You will be 
+responsible for helping build the software quality infrastructure. As a member of the verification team, 
+you will be involved in developing a virtual, software quality organization.</p>
+
+<p><b>Responsibilities: </b></p>
+<ul>
+<li>Design and implement automated regression and unit tests in C++ or Java</li>
+<li>Tracking defects</li>
+<li>Managing project documentation</li>
+<li>Maintaining liaison to manual and exploratory testing</li>
+</ul>
+
+<p><b>Experience needed:</b></p>
+<ul>
+<li>BS or MS in CS</li>
+<li>5+ years of development experience in C/C++ or Java</li>
+<li>3 years of experience in regression and software testing</li>
+<li>Experience with developing and testing large applications</li>
+<li>Unix, Linux, or Windows</li>
+<li>Shell scripting</li>
+</ul>	
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=168&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<br/><br/>
                            
 
                         </TD>
