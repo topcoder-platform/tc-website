@@ -135,7 +135,7 @@
             <table border="0" cellpadding="0" cellspacing="4">
                 <tr>
                	 	<input type="hidden" name="timelineAction" value=""/>
-               	 	<html:hidden property="currentEdition " value="timeline"/>
+               	 	<html:hidden property="currentEdition" value="timeline"/>
 			<td>
 			    <html:button value="Apply Changes" styleClass="submitButton" onclick="timelineAction.value='store'; submit()" />
 			</td>
