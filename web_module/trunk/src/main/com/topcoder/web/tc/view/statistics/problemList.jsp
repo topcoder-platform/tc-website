@@ -51,9 +51,9 @@
                     || me.getKey().equals(Constants.DIV1_LEVEL)
                     || me.getKey().equals(Constants.DIV2_LEVEL)) {
                 buf.append("&");
-                buf.append(me.getKey());
+                buf.append(me.getKey().toString());
                 buf.append("=");
-                buf.append(me.getValue());
+                buf.append(me.getValue().toString());
 
             }
         }
