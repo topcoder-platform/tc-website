@@ -54,6 +54,7 @@ public class Constants {
 
     public static String QUESTION_PREFIX;
     public static String ANSWER_PREFIX;
+    public static String MESSAGE;
 
 
     /* pages */
