@@ -128,7 +128,14 @@
             <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Events</a></td></tr>
             <tr><td id="leftNav"><a class="left" href="/rtables/index.jsp"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Round Tables</a></td></tr>
             <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support/FAQs</a></td></tr>
-            <tr><td id="leftNav"><jsp:include page="../../calendar.jsp" /></td></tr>
+            <tr><td id="leftNavTitle">Next Match:</td></tr>
+            <tr><td class="leftDate"><A class="left" href="/?&RoundId=4640&t=schedule&c=srm">
+                        <strong>11/08/2003</strong><br/>
+                        Register:&#160;<br/>
+                        Compete:&#160;<br/>
+                        </A>
+            </td></tr>
+            <tr><td width="100%"><jsp:include page="../../calendar.jsp" /></td></tr>
         <% } %>
 
     <% } %>
