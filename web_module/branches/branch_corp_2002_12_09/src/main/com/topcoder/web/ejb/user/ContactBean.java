@@ -86,7 +86,6 @@ public class ContactBean implements SessionBean {
             if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createContact");}}
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createContact");}}
         }
-        return(ret);
     }
 
     public void setCompany(long contactId, long companyId) {
