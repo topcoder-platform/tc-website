@@ -109,12 +109,12 @@ function getProblemDetail(url,wd,ht) {
 	        </TR>
       <% }else{ %>
 	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></A></TD>
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<screen:servletLink processor="PopulateCandidate" param="<%=Constants.CANDIDATE_ID+'='+row.getItem("user_id")%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="status" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="presented" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="passed" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><A HREF="/eval/test_results.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></A></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:servletLink processor="TestResults" param="<%=Constants.SESSION_ID+'='+row.getItem("session_id")%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></screen:servletLink></TD>		       
 	        </TR>
       <% } %>
       <% even = !even; %>

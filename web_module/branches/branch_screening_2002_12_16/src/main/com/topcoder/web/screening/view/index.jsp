@@ -58,7 +58,7 @@
 		       <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="3" CLASS="bodyText" ALIGN="center"><A HREF="/eval/sess_setup.jsp" CLASS="bodyText">Create a New Session</A></TD>
+		       <TD COLSPAN="3" CLASS="bodyText" ALIGN="center"><screen:servletLink processor="PopulateSession" styleClass="bodyText">Create a New Session</screen:servletLink></TD>
 	        </TR>	        	               	        	        
          </TABLE>
 <P><BR/></P>    
