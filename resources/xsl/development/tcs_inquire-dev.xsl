@@ -175,8 +175,8 @@
                             <p><br /></p>
                            <p>
                                 <strong>
-                                <a class="statText">
-                                    <xsl:attribute name="href">
+                                <a class="statText" target="_new">
+                                    <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://172.16.20.222:8081/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=' , $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
                                     </xsl:attribute>
                                     Upload your submission! &gt;&gt;
