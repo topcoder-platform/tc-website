@@ -69,19 +69,24 @@
     </tag>
 
     <tag>
-        <name>problemRatingInput</name>
-        <tagclass>com.topcoder.web.tc.view.tag.ProblemRatingInput</tagclass>
-        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingInputTagInfo</teiclass>
+        <name>counter</name>
+        <tagclass>com.topcoder.web.tc.view.tag.Counter</tagclass>
+        <teiclass>com.topcoder.web.tc.view.tag.CounterTagInfo</teiclass>
         <bodycontent>JSP</bodycontent>
         <info></info>
         <attribute>
-            <name>question</name>
-            <required>true</required>
+            <name>min</name>
+            <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>id</name>
-            <required>true</required>
+            <name>max</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>inc</name>
+            <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
