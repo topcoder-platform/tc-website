@@ -22,7 +22,7 @@ import com.topcoder.apps.review.BusinessDelegate;
 import com.topcoder.apps.review.ResultData;
 import com.topcoder.apps.review.SuccessResult;
 
-
+import java.util.*;
 /********************************************************************
  * This class creates a timer that will perform auto pilot logic.
  * This functionality is implemented as a JBoss-specific MBean.
@@ -136,7 +136,15 @@ public class AutoPilotTimer
         try {
     
             timer = new Timer();
-            timer.schedule(new SubmissionTask(), DELAY * 60 * 1000, //initial delay
+            Calendar c = Calendar.getInstance();
+            String beginMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
+            String beginDay = String.valueOf(c.get(Calendar.DAY_OF_MONTH));
+            String beginYear = String.valueOf(c.get(Calendar.YEAR));
+            String beginHour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
+
+            Date beginDate = formDate(beginYear, beginMonth, beginDay, beginHour);
+            
+            timer.scheduleAtFixedRate(new SubmissionTask(), beginDate, //initial delay
                     DELAY * 60 * 1000); //subsequent rate
             isInitialised = Boolean.TRUE;
         } catch (Exception e) {
@@ -146,4 +154,24 @@ public class AutoPilotTimer
         }
         status = "Initialized";
     }
+    
+    private Date formDate(String year, String month, String day, String hour) {
+        //if we don't have all the values then just exit
+        if(year == null || month == null || day == null || hour == null) {
+            return new Date(); //so we don't blow up in certain places
+        }
+        Calendar c = Calendar.getInstance();
+        c.set(Integer.parseInt(year),
+               months[Integer.parseInt(month)],
+               Integer.parseInt(day),
+               Integer.parseInt(hour), 0, 0);
+        c.set(Calendar.MILLISECOND, 0);
+        return c.getTime();
+    }
+    
+    private static int[] months =
+        new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
+                  Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
+                  Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
+                  Calendar.NOVEMBER, Calendar.DECEMBER};
 }
