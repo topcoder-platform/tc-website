@@ -81,7 +81,7 @@
               <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" CLASS="statText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%> <BR/>
               <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/><BR/>
               <% if (MemberProfileTask.hasResume()) { %>
-                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText"><FONT SIZE="3"><B>Resume</B></FONT></a>
+                <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText"><B>Resume</B></a>
               <% } %>
               </TD>
               </TR>
