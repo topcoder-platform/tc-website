@@ -420,8 +420,6 @@ public class UserEdit extends BaseProcessor {
         // and additionally check against DB
         boolean techProblems = false;
         try {
-            PrincipalMgrRemote mgr = Util.getPrincipalManager();
-
                 success = false;
                 if (userExists(userName)) {
                     addError(KEY_LOGIN, "Please enter another user name.");
