@@ -34,7 +34,7 @@
 
 						<p class="bodySubtitle">Why Yahoo!?</p>
  
-						<p>What started in 1994 as two Stanford Ph. D. students in a trailer, has quickly become the world's most essential Internet service for consumers, as well as businesses. Over the past ten years, Yahoo! has established itself as the proven leader - reaching over 237 million unique users in 25 countries - but we never rest on our laurels. We're always looking ahead and need the smartest engineers in the world to drive our future. Yep, that's you.</p>
+						<p>What started in 1994 as two Stanford Ph. D. students in a trailer, has quickly become the world's most essential Internet service for consumers, as well as businesses. Over the past ten years, Yahoo! has established itself as the proven leader - reaching over 237 million unique users in 26 countries - but we never rest on our laurels. We're always looking ahead and need the smartest engineers in the world to drive our future. Yep, that's you.</p>
 
 						<p class="bodySubtitle">What keeps us yodeling?
 
