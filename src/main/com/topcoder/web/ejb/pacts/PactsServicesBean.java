@@ -3929,6 +3929,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             select.append("AND tx2.name = '" + W8BEN_TAX_FORM + "'");
 
             rsc = runSelectQuery(c, select.toString(), false);
+            log.debug("found " + rsc.size() + " payments to print");
 
             // Check the print_count and review fields to ensure that we're not printing
             // a payment without review
@@ -3964,6 +3965,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     g.get(Calendar.YEAR);
 
             for (i = 0; i < rowCount; i++) {
+                log.debug("printing payment index " + i);
                 // Build fields requiring manipulations
                 // Coder name and middle initial
                 StringBuffer name = new StringBuffer(100);
