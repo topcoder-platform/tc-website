@@ -1,7 +1,6 @@
 package com.topcoder.web.screening.request;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
@@ -18,7 +17,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
     private ServletRequest request;
     private Request profileProblemSet;
     private Request profileCompanyProblem;
-    private Request profileLanguage;
     private static Logger log = Logger.getLogger(PopulateProfileSetup.class);
 
     public PopulateProfileSetup() {
@@ -29,10 +27,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         profileCompanyProblem = new Request();
         profileCompanyProblem.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY);
-
-        profileLanguage = new Request();
-        profileLanguage.setProperty(DataAccessConstants.COMMAND,
-                Constants.PROFILE_LANGUAGE_QUERY_KEY);
     }
 
     public void process() throws Exception {
@@ -41,8 +35,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         
         //check to see if they are logged in
         User user = getAuthentication().getUser();
-
-        DataAccessInt dAccess = getDataAccess();
 
         ProfileInfo info = (ProfileInfo)request.getAttribute(Constants.PROFILE_INFO);
         if(info == null) {
@@ -92,11 +84,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
                 map.get(Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY));
         }
 
-        map = dAccess.getData(profileLanguage);
-        if(map != null) {
-            info.setLanguageList((ResultSetContainer)
-                map.get(Constants.PROFILE_LANGUAGE_QUERY_KEY));
-        }
+        info.setLanguageList(getLanguageList());
 
         setNextPage(Constants.PROFILE_SETUP_PAGE);
         setNextPageInContext(true);

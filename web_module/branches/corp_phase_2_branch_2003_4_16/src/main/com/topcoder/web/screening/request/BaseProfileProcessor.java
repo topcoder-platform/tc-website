@@ -93,6 +93,20 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         return ret;
     }
 
+    protected ResultSetContainer getLanguageList() throws Exception {
+        Request profileLanguage = new Request();
+        profileLanguage.setProperty(DataAccessConstants.COMMAND,
+                Constants.PROFILE_LANGUAGE_QUERY_KEY);
+        Map map = getDataAccess(true).getData(profileLanguage);
+        ResultSetContainer ret = null;
+        if(map != null) {
+            ret = (ResultSetContainer) map.get(Constants.PROFILE_LANGUAGE_QUERY_KEY);
+        }
+        return ret;
+    }
+
+
+
     protected boolean validateProfileInfo() throws Exception {
         boolean success = true;
         ServletRequest request = getRequest();
