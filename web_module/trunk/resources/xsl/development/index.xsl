@@ -27,7 +27,7 @@
 <BODY>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -40,12 +40,13 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-            <td class="bodyText" width="100%"><img src="/i/clear.gif" width="240" height="1" alt="" vspace="5" border="0" /><br />
+            <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">steelblue</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
             <xsl:with-param name="title">&#160;Overview</xsl:with-param>
             </xsl:call-template>
+
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -89,10 +90,7 @@
             </table>
                 
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
-                <tr valign="top">
-                    <td width="100%">
-                        <table border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
-                            <tr valign="top"><td class="devSubhead">3 great opportunities to earn money and recognition</td></tr>
+                <tr valign="top"><td class="devSubhead">3 great opportunities to earn money and recognition</td></tr>
 
                             <tr valign="top">
                                 <td class="statText">
@@ -116,15 +114,12 @@
                                     than Commercial Component Development, and royalties are paid to team members for every commercial sale of the 
                                     application.</p>
                                 </td>
-                            </tr>
-                        </table>
-                    </td>
                 </tr>
             </table>
                 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td height="10" width="100%"><img src="/i/clear.gif" alt="" width="10" height="10" border="0" /></td>
+                    <td height="10" width="100%"><img src="/i/clear.gif" alt="" width="10" height="20" border="0" /></td>
                 </tr>
             </table>
         </td>

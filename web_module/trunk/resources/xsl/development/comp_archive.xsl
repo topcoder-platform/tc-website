@@ -36,24 +36,15 @@
 
     <xsl:call-template name="CSS" />
 
-<style type="text/css">
-
-#totalMoney {
-    font: bold 130%;
-    color: #FFF;
-    }
-
-</style>
-
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
 
 </head>
 
-<BODY>
+<body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -73,36 +64,34 @@
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" background="/i/steel_darkblue_bg.gif" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#001B35" height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td bgcolor="#001B35" height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
+                    <td bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="3" background="/i/steel_darkblue_bg.gif" bgcolor="#001B35" width="100%">
-
-                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+            <table border="0" cellspacing="0" cellpadding="3" bgcolor="#001B35" width="100%">
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr>
-                    <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
-                    <td class="statText" colspan="9">
+                    <td width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
+                    <td class="statText" colspan="5">
                         <p>This page will be updated when a project date changes.  If you have specific questions about any projects, email <a href="mailto:service@topcodersoftware.com" class="statText">service@topcodersoftware.com</a>.</p> 
-						<p>Note that project winners will not be announced until after the Review Complete date.</p>
+                        <p>Note that project winners will not be announced until after the Review Complete date.</p>
                     </td>
-                        <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
+                    <td width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="14" alt="" border="0" /></td></tr>
 
-                
 <!-- Component Design Projects begin -->
 
                 <tr>
-                    <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
+                    <td width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                     <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
-                    <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
+                    <td width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
@@ -118,9 +107,9 @@
 
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$design-phase">
-        				<tr>
-        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-        					<td background="" class="statText" >                            
+                        <tr>
+                            <td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+                            <td class="statText" >                            
                                 <a class="statText" target="_new">
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/pages/c_component.jsp?comp=', ./component_id)"/>
@@ -130,30 +119,23 @@
                                     </xsl:if>
                                 </a>
                             </td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
-        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-        				</tr>                 
-        		    </xsl:if>
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+                        </tr>                 
+                    </xsl:if>
                 </xsl:for-each> 
-               
 
-                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
-
-
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="14" alt="" border="0" /></td></tr>
 <!-- Component Design Projects ends -->
 
-
-
 <!-- Component Dev Projects begin -->
-
-
- 				<tr>
-                    <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
+                 <tr>
+                    <td width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                     <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
-                    <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
+                    <td width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
@@ -168,9 +150,9 @@
                 
                 <xsl:for-each select="/TC/DEVELOPMENT/reviews/status"> 
                     <xsl:if test="./phase_id=$dev-phase">
-        				<tr>
-        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-        					<td background="" class="statText" >                            
+                        <tr>
+                            <td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+                            <td class="statText" >                            
                                 <a class="statText" target="_new">
                                     <xsl:attribute name="href"> 
                                         <xsl:value-of select="concat('http://software.topcoder.com/pages/c_component.jsp?comp=', ./component_id)"/>
@@ -180,29 +162,22 @@
                                     </xsl:if>
                                 </a>
                             </td>
-
-        					
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
-        					<td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
-        					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-        				</tr>                 
-        		    </xsl:if>
+                            
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
+                            <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="phase_complete_date"/></xsl:call-template></td>
+                            <td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
+                        </tr>                 
+                    </xsl:if>
                 </xsl:for-each> 
 
-                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
-
-
+                <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="14" alt="" border="0" /></td></tr>
             </table>
-            
 <!-- Component Dev Projects ends -->
 
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
-                <tr valign="top">
-                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td>
-                </tr>    
-    
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top"><td width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="15" border="0" /></td></tr>    
             </table>
         </td>
 <!-- Center Column Ends -->
@@ -224,7 +199,7 @@
         <xsl:call-template name="Foot" />
 <!-- Footer Endss -->
 
-</BODY>
+</body>
 </html>
     </xsl:template>
 

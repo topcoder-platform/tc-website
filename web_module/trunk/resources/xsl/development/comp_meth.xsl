@@ -87,7 +87,7 @@ A.methNav:active {
 <BODY>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -106,17 +106,17 @@ A.methNav:active {
             <xsl:with-param name="image">development</xsl:with-param>
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td bgcolor="#001B35" height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
+                    <td bgcolor="#001B35" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
                 
-            <table border="0" cellspacing="0" cellpadding="5" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
+            <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td class="statText"><div align="center"><h1 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h1></div></td>
+                    <td class="statText"><div align="center"><h2 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h2></div></td>
                 </tr>
 
                 <tr valign="top">
@@ -144,9 +144,7 @@ A.methNav:active {
                             </tr>
                         </table></div></td>
                 </tr>
-            </table>
 
-            <table border="0" cellspacing="0" cellpadding="10" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
                 <tr valign="top">
                     <td class="statText">
                         <p>The Component Development Methodology combines the best of traditional software development methodologies with the power 
@@ -156,7 +154,7 @@ A.methNav:active {
 
 <!-- Collaboration begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="collaboration"></a>
+                    <td width="100%"><a name="collaboration"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
@@ -200,7 +198,7 @@ A.methNav:active {
 
 <!-- Design begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="design"></a>
+                    <td width="100%"><a name="design"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
@@ -275,7 +273,7 @@ A.methNav:active {
 
 <!-- Development begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="development"></a>
+                    <td width="100%"><a name="development"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
@@ -356,7 +354,7 @@ A.methNav:active {
 
 <!-- Certification begins -->
                 <tr valign="top">
-                    <td width="100%" background="/i/steel_darkblue_bg.gif"><a name="certification"></a>
+                    <td width="100%"><a name="certification"></a>
                         <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
                             <tr valign="top">
                                 <td class="methNav" width="98%">
@@ -381,25 +379,12 @@ A.methNav:active {
                             <li>Certification projects will be posted on the TopCoder web site and developers will be selected from the resulting inquiries.</li>
                             <li>Developers will be responsible for testing the component on the specified platform and reporting the results.</li>
                             <li>Developers will be paid a fixed amount.</li>
-                        </ol></p></td>
+                        </ol></p>
+                        
+                        <p><br /></p>
+                    </td>
                 </tr>
 <!-- Certification ends -->
-            </table>
-                
-            <table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
-                <tr valign="top">
-                    <td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>    
-    
-                <tr valign="top">
-                    <td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
             </table>
         </td>
 <!-- Center Column Ends -->

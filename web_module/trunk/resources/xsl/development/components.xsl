@@ -27,7 +27,7 @@
 <body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -46,15 +46,13 @@
             <xsl:with-param name="image">development</xsl:with-param>
             <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
             </xsl:call-template>
+
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td colspan="3"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
-
-
-
 <!-- 
                 <tr valign="top">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -165,8 +163,6 @@
                 -->
                 <tr><td height="10" colspan="5"><img src="/i/clear.gif" alt="" height="10" border="0" /></td></tr>
             </table>
-       
-
 
 <!-- Featured Winner Begins -->
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
@@ -190,12 +186,12 @@
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
-                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: </strong><span class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></span></td></tr>
+                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145">srowen</a></span></strong></td></tr>
 
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                             <tr valign="top">
-								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><img src="/i/m/srowen_small.jpg" alt="srowen" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
+                                <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=296145" class="coderTextYellow"><img src="/i/m/srowen_small.jpg" alt="srowen" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
                                 <td class="statText" width="65%">Designer Level:</td>
                                 <td class="statText" align="right" width="10%">III</td>
@@ -235,7 +231,7 @@
                 <tr valign="middle">
                     <td class="statText">
                         <p><strong>Number Translation</strong><br />
-                       	Translates numbers to and from their language equivalents. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=7220261" target="parent" class="statText">Number Translation</a> on the TopCoder Software web site.</p>
+                           Translates numbers to and from their language equivalents. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=7220261" target="parent" class="statText">Number Translation</a> on the TopCoder Software web site.</p>
                         
                         <p><strong>Review Board Comments</strong><br />
                         "Nice Design. Covers the requirements without complications."
@@ -404,25 +400,9 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+                <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="20" border="0" /></td></tr>
             </table>
 <!-- Development Winners Ends -->
-
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
-                <tr valign="top">
-                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>    
-    
-                <tr valign="top">
-                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-            </table>
         </td>
 <!-- Center Column Ends -->
 
