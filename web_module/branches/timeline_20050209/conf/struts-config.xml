@@ -351,6 +351,7 @@
             <forward name="success" path="/editTimeline.jsp"/>
             <forward name="refresh" path="/editTimeline.jsp"/>
             <forward name="store" path="/editProject.jsp"/>
+            <forward name="cancel" path="/editProject.jsp"/>
         </action>
 
         

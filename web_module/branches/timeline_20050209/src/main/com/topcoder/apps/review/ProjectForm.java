@@ -157,6 +157,34 @@ public final class ProjectForm extends ReviewForm {
 
     private String screeningTemplate = null;
     private String reviewTemplate = null;
+
+    /**
+     * Indicate what page is currently present. It can take the values "project" or "timeline",
+     */
+    private String currentEdition = null;
+
+
+    /**
+     * The Project from the ProjectPhases component to store a set of phases.
+     */
+    //qq private com.topcoder.project.phases.Project projectPhases = null;
+
+
+    /**
+     * The length in hours of each phase.
+     */
+    private int[] phaseLengths = null;
+
+    /**
+     * Indicates for each phase if it must adjust its start date to the end date of the previous phase.
+     */
+    private boolean[] adjustStartDates = null;
+
+    /**
+     * The user action for the timeline. Can be "load", "store", "cancel" or "refresh"
+     */
+    private String timelineAction = null;
+
     // ----------------------------------------------------------- Properties
 
     /**
@@ -556,6 +584,25 @@ public final class ProjectForm extends ReviewForm {
     }
 
     /**
+     * Return the user action for the timeline.
+     *
+     * @return the user action.
+     */
+    public String getTimelineAction() {
+        return timelineAction;
+    }
+
+    /**
+     * Set the user action  for the timeline.
+     *
+     * @param action The user action.
+     */
+    public void setTimelineAction(String timelineAction) {
+        this.timelineAction = timelineAction;
+    }
+
+
+    /**
      * Return the user reason.
      *
      * @return the user reason.
@@ -754,6 +801,73 @@ public final class ProjectForm extends ReviewForm {
         return -1;
     }
 
+    /**
+     * Get the key for the page that is being currently edited.
+     *
+     * @return the key for the page that is being currently edited.
+     */
+    public String getCurrentEdition() {
+        return currentEdition;
+    }
+
+    /**
+     * Set the key for the page that is being currently edited.
+     */
+    public void setCurrentEdition(String currentEdition) {
+        this.currentEdition = currentEdition;
+    }
+
+    /**
+     * Get the Project from the ProjectPhases component to store a set of phases.
+     *
+     * @return the Project from the ProjectPhases component to store a set of phases.
+     */
+/*qq    public com.topcoder.project.phases.Project getProjectPhases() {
+        return projectPhases;
+    }*/
+
+    /**
+     * Return the specified phase's length in hours
+     *
+     * @param index The index of phase.
+     * @return the specified phase's length in hours
+     */
+    public int getPhaseLength(int index) {
+        return phaseLengths[index];
+    }
+
+    /**
+     * Set the specified phase's length in hours
+     *
+     * @param index The index of phase.
+     * @param start The new phase's length in hours
+     */
+    public void setPhaseLength(int index, int phaseLength) {
+        phaseLengths[index] = phaseLength;
+    }
+
+
+    /**
+     * Get if the phase must adjust its start date to the end date of the previous phase.
+     *
+     * @param index The index of phase.
+     * @return true if it must adjust its start date to the end date of the previous phase.
+     */
+    public boolean getAdjustStartDate(int index) {
+        return adjustStartDates[index];
+    }
+
+    /**
+     * Set if the phase must adjust its start date to the end date of the previous phase.
+     *
+     * @param index The index of phase.
+     * @param adjust true if it must adjust its start date to the end date of the previous phase.
+     */
+    public void getAdjustStartDate(int index, boolean adjust) {
+        adjustStartDates[index] = adjust;
+    }
+
+
     public void setReviewTemplate(String template) {
         this.reviewTemplate = template;
         this.project.setReviewTemplateId(getReviewTemplateId());
@@ -792,9 +906,45 @@ public final class ProjectForm extends ReviewForm {
                 errors.add(ActionErrors.GLOBAL_ERROR,
                         new ActionError("error.reason.required"));
             }
-        } else if (Constants.ACTION_EDIT.equals(action)) {
-            timelineValid = true;
+            return errors;
+        }
 
+        boolean checkTimeline = false;
+        boolean checkPayments = false;
+        boolean checkProjectData = false;
+
+
+        String actionTimeline = request.getParameter("actionTimeline") ;
+        if (actionTimeline != null) {
+            // the user edited the timeline
+
+            if (Constants.ACTION_STORE.equals(actionTimeline)) {
+                checkTimeline = true;
+            }
+
+            if (Constants.ACTION_REFRESH.equals(actionTimeline)) {
+                checkTimeline = true;
+            }
+
+            if (Constants.ACTION_LOAD.equals(actionTimeline)) {
+                checkPayments = true;
+            }
+
+            // if the action is CANCEL, no checking will be done.
+
+        } else {
+            // the user edited the project
+
+            if (Constants.ACTION_EDIT.equals(action)) {
+                checkProjectData = true;
+            }
+        }
+
+
+
+        if (checkTimeline)  {
+            timelineValid = true;
+/*
             for (int i = 0; i < project.getTimeline().length; i++) {
                 String phaseName = project.getTimeline()[i].getPhase().getName();
                 Date start = project.getTimeline()[i].getStartDate();
@@ -825,11 +975,13 @@ public final class ProjectForm extends ReviewForm {
                     timelineValid = false;
                 }
             }
-
+*/
             if (!timelineValid) {
                 setValid(false);
             }
+        }
 
+        if (checkPayments || checkProjectData) {
             for (int i = 0; i < project.getParticipants().length; i++) {
                 if (!participantsValid[i]) {
                     setValid(false);
@@ -848,6 +1000,9 @@ public final class ProjectForm extends ReviewForm {
                 }
             }
 
+        }
+
+        if (checkProjectData) {
             if (project.getCurrentPhase().getId() == Phase.ID_SCREENING) {
                 if (project.getScreeningTemplateId() == -1) {
                     setValid(false);
@@ -911,6 +1066,8 @@ public final class ProjectForm extends ReviewForm {
         participantsHandle = new String[project.getParticipants().length];
         startDates = new String[project.getTimeline().length];
         endDates = new String[project.getTimeline().length];
+        phaseLengths = new int[project.getTimeline().length];
+        adjustStartDates = new boolean[project.getTimeline().length];
         reviewerSeqs = new int[project.getParticipants().length];
         for (int i = 0; i < project.getParticipants().length; i++) {
             long roleId = project.getParticipants()[i].getRole().getId();
@@ -933,18 +1090,7 @@ public final class ProjectForm extends ReviewForm {
             }
         }
 
-        for (int i = 0; i < project.getTimeline().length; i++) {
-            if (project.getTimeline()[i].getStartDate() == null) {
-                startDates[i] = null;
-            } else {
-                startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
-            }
-            if (project.getTimeline()[i].getEndDate() == null) {
-                endDates[i] = null;
-            } else {
-                endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
-            }
-        }
+        timeLineFromProject(project);
 
         for (int i = 0; i < projectStatuses.length; i++) {
             if (projectStatuses[i].getId() == ProjectStatus.ID_TERMINATED) {
@@ -960,6 +1106,30 @@ public final class ProjectForm extends ReviewForm {
         this.sendMail = false;
         this.submitterRemoval = false;
         this.submitterRemovalSet = null;
+    }
+
+    /**
+     * Set the timeLine in the form bean from the project.
+     * The bean must have been previously created using fromProject method.
+     *
+     */
+    public void timeLineFromProject(Project project)
+    {
+        for (int i = 0; i < project.getTimeline().length; i++) {
+            if (project.getTimeline()[i].getStartDate() == null) {
+                startDates[i] = null;
+            } else {
+                startDates[i] = dateFormatter.format(project.getTimeline()[i].getStartDate());
+            }
+            if (project.getTimeline()[i].getEndDate() == null) {
+                endDates[i] = null;
+            } else {
+                endDates[i] = dateFormatter.format(project.getTimeline()[i].getEndDate());
+            }
+
+            phaseLengths[i]=i;//remove!!!
+            adjustStartDates[i]=true;
+        }
     }
 
     /**

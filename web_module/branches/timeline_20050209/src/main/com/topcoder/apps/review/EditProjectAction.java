@@ -62,33 +62,58 @@ public final class EditProjectAction extends ReviewAction {
         BusinessDelegate businessDelegate = new BusinessDelegate();
         ResultData result = businessDelegate.projectDetail(orpd);
 
+        String actionTimeline = request.getParameter("actionTimeline") ;
+
 log(Level.INFO, "action="+action);
-
-if (action.equals("load_timeline")) {
-    log(Level.INFO, "load_timeline");
-    request.getSession().setAttribute(mapping.getAttribute(), form);
-    return result;
-}
-
-if (action.equals("store_timeline")) {
-    log(Level.INFO, "store_timeline");
-    request.getSession().setAttribute(mapping.getAttribute(), form);
-    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-    forwards.addForward(mapping.findForward("store"));
-
-    return result;
-}
-if (action.equals("refresh_timeline")) {
-    log(Level.INFO, "refresh_timeline");
-    request.getSession().setAttribute(mapping.getAttribute(), form);
-    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-    forwards.addForward(mapping.findForward("refresh"));
-
-    return result;
-}
-
+log(Level.INFO, "timelineAction="+actionTimeline);
 
         if (result instanceof SuccessResult) {
+
+            if (actionTimeline != null) {
+                // the user edited the timeline
+
+                if (Constants.ACTION_STORE.equals(actionTimeline)) {
+                    log(Level.INFO, "store_timeline");
+                    request.getSession().setAttribute(mapping.getAttribute(), form);
+                    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+                    forwards.addForward(mapping.findForward("store"));
+
+                    return result;
+                }
+
+                if (Constants.ACTION_REFRESH.equals(actionTimeline)) {
+                    log(Level.INFO, "refresh_timeline");
+                    request.getSession().setAttribute(mapping.getAttribute(), form);
+
+                    // test!!
+                    ((ProjectForm) form).setPhaseLength(0,((ProjectForm) form).getPhaseLength(0)+1);
+
+                    forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
+                    forwards.addForward(mapping.findForward("refresh"));
+
+                    return result;
+                }
+
+                if (Constants.ACTION_LOAD.equals(actionTimeline)) {
+                    log(Level.INFO, "load_timeline");
+                    request.getSession().setAttribute(mapping.getAttribute(), form);
+                    return result;
+                }
+
+                if (Constants.ACTION_CANCEL.equals(actionTimeline)) {
+                    log(Level.INFO, "cancel_timeline");
+                    ProjectRetrieval pr = (ProjectRetrieval) result;
+                    ((ProjectForm) form).timeLineFromProject(pr.getProject());
+                    request.getSession().setAttribute(mapping.getAttribute(), form);
+                    return result;
+                }
+
+            }
+
+
+
+
+
             ProjectRetrieval pr = (ProjectRetrieval) result;
             // Populate the form
             form = new ProjectForm();

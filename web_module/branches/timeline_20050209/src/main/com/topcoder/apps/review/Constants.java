@@ -312,6 +312,26 @@ public final class Constants {
      */
     public static final String ACTION_PARTIAL = "partial";
 
+    /**
+     * The string constant for action load timeline.
+     */
+    public static final String ACTION_LOAD = "load";
+
+    /**
+     * The string constant for action store timeline.
+     */
+    public static final String ACTION_STORE = "store";
+
+    /**
+     * The string constant for action cancel timeline.
+     */
+    public static final String ACTION_CANCEL = "cancel";
+
+    /**
+     * The string constant for action refresh timeline.
+     */
+    public static final String ACTION_REFRESH = "refresh";
+
     // --------------------------------------------------------- Phase Id
 
     /**

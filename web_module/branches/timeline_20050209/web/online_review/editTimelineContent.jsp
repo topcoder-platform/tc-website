@@ -6,7 +6,6 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
 
 <!-- Start Title -->            
-Edit Timeline
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
 <logic:equal name="projectForm" property="valid" value="false">
 	<tr>
@@ -97,12 +96,12 @@ Edit Timeline
                         <bean:write name="phaseName" /></td>
                     <td class="forumTextCenterOdd">
                         <!-- html:text property='<%="phaseStart["+pIdx+"]"%>' size="20" / -->
-                        <bean:write name="phaseInstance" property='<%="phaseStart["+pIdx+"]"%>' />
+                        <bean:write name="projectForm" property='<%="phaseStart["+pIdx+"]"%>' />
                         
                         </td>
                     <td class="forumTextCenterOdd">
                         <!-- html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" / -->
-                        <bean:write name="phaseInstance" property='<%="phaseEnd["+pIdx+"]"%>' />
+                        <bean:write name="projectForm" property='<%="phaseEnd["+pIdx+"]"%>' />
                         </td>
                         
                     <td class="forumTextCenterOdd">
@@ -135,15 +134,17 @@ Edit Timeline
         <td align="center" class="lightBkgnd">
             <table border="0" cellpadding="0" cellspacing="4">
                 <tr>
-                <input type="hidden" name="action" value=""/>
+               	 	<html:hidden name="action" value="edit"/>
+               	 	<html:hidden name="timelineAction" value=""/>
+               	 	<html:hidden property="currentEdition " value="timeline"/>
 			<td>
-			    <input type="button" value="Save and continue editing project" onClick="action.value='store_timeline'; submit()" />
+			    <html:button value="Apply Changes" styleClass="submitButton" onclick="timelineAction.value='store'; submit()" />
 			</td>
 			<td>
-			    <input type="button" value="Refresh" onClick="action.value='refresh_timeline'; submit()" />
+			    <html:button value="Refresh" styleClass="submitButton" onclick="timelineAction.value='refresh'; submit()" />
 			</td>
 			<td>
-			    <input type="button" value="Cancel" onClick="action.value='cancel_timeline'; submit()" />
+			    <html:button value="Cancel" styleClass="submitButton" onclick="timelineAction.value='cancel'; submit()" />
 			</td>
 			           
 		</tr>
