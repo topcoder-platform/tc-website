@@ -26,6 +26,7 @@ public class Logout extends BaseProcessor {
             getAuthentication().logout();
             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
             log.debug("on successfull logout, going to " + dest);
+            getRequest().getSession().invalidate();
             setNextPage(dest);
             setIsNextPageInContext(false);
             return;
