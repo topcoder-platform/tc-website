@@ -84,11 +84,23 @@
               <% } %>
               </P>
               
-              <TABLE ID="linksTable" WIDTH=100% CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
+              <TABLE ID="linksTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BORDER="0">
                 <TR>
-                    <TD class="statText" ALIGN="center" WIDTH=33%>Coder Demographic Info</TD>
-                    <TD class="statText" ALIGN="center" WIDTH=33%>Coder Competition History</TD>
-                    <TD class="statText" ALIGN="center" WIDTH=33%>Coder Problem Submissions</TD>
+                    <TD class="statText" ALIGN="center" WIDTH="33%">
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                        Coder Demographic Info
+                      </A>
+                    </TD>
+                    <TD class="statText" ALIGN="center" WIDTH="33%">
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                        Coder Competition History
+                      </A>
+                    </TD>
+                    <TD class="statText" ALIGN="center" WIDTH="33%">
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
+                        Coder Problem Submissions
+                      </A>
+                    </TD>
                 </TR>
               </TABLE>
               

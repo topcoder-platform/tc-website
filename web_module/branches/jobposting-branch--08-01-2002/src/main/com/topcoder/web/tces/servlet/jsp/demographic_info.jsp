@@ -227,7 +227,7 @@
 
 
                         <%
-                          while (StudentQuestionIterator.hasNext()) {
+                          while (ProQuestionIterator.hasNext()) {
                             String question = (String)ProQuestionIterator.next();
                             List ProResponsesList = (List)ProQuestionMap.get(question);
                         %>
