@@ -83,36 +83,36 @@
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;<A HREF="#" class="statText">
-                    <%= (String)position.get("handle") %>
+                    <%= (String)hit.get("handle") %>
                   </A></TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)position.get("rating") %>
+                    <%= (String)hit.get("rating") %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)position.get("state") %>
+                    <%= (String)hit.get("state") %>
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)position.get("country") %>
+                    <%= (String)hit.get("country") %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)position.get("type") %>
+                    <%= (String)hit.get("type") %>
                   </TD>                  
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <%= (String)position.get("school") %>
+                    <%= (String)hit.get("school") %>
                   </TD> 
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText"><A HREF="position_int.jsp" class="statText">
-                    <%= (String)position.get("position") %>
+                    <%= (String)hit.get("position") %>
                   </A></TD>                                   
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
                   <A HREF="campaign_int.jsp" class="statText">
-                    <%= (String)position.get("hit_date") %>
+                    <%= (String)hit.get("hit_date") %>
                   </A>
                   </TD>
                 </TR>
