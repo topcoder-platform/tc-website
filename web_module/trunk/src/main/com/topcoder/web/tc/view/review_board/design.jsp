@@ -73,7 +73,7 @@
             <hr width="100%" size="1" noshade="noshade" />
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top"><br>
+                <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=277356"><img src="/i/m/aksonov_mug.gif" alt="aksonov" width="63" height="70" border="0"  class="myStatsPhoto"/></a></td>
                     <td width="99%" class="bodyText">
                         <p>                        

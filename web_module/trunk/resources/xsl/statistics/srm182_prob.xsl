@@ -545,8 +545,7 @@ hands with someone who has not arrived yet. After that, we can determine the max
 possibility for the next member to arrive. With memoization, this gives a solution that runs in 2^n time instead of n! 
 time. For more details, check out the writer solution in the practice room. It is doubtful that too many improvements 
 exist beyond that, however, since the problem is actually NP-complete. If you interpret the matrix as the adjacency 
-matrix for a graph, the problem becomes that of computing path-width, which is of <a href = "http://citeseer.nj.nec.com
-/bodlaender93efficient.html">surprising importance</a> in graph theory and theoretical computer science.
+matrix for a graph, the problem becomes that of computing path-width, which is of <a href = "http://citeseer.nj.nec.com/bodlaender93efficient.html">surprising importance</a> in graph theory and theoretical computer science.
 </p>
 
 <font size="+2"> 
