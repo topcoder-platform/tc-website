@@ -28,7 +28,7 @@
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
                 <jsp:param name="level1" value="sponsorship"/>
-                <jsp:param name="level2" value="srm_web"/> 
+                <jsp:param name="level2" value="tourny_index"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -47,48 +47,50 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">SRM Package - Applet Coverage</h2>
+                        <h2 class="corpHead">Tournament - On-site Arena</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
-                            <tr><td class="sidebarTitle" >SRM PACKAGE LINKS:</td></tr>
+                            <tr><td class="sidebarTitle">TOURNAMENT PACKAGE LINKS:</td></tr>
                             
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
-                                    <strong>Applet coverage</strong><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournament Overview</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web site coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Applet coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_media">Media Coverage</a><br />
+                                    <strong>On-site arena</strong><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public relations</a><br />
+                                    <a href="/i/srm_3pgr.pdf">Download Overview (PDF)</a><br />
                                 </td>
                             </tr>
                         </table></td></tr>
                         </table>
                         
-                        <p>The Arena Applet is where the action takes place. Coders square off against each other in "rooms" based upon their 
-                        current rating. A sample of how a sponsor is presented in the applet is shown below and on the following sample pages.</p>
-                    
-                        <ul>
-                            <li><strong>Lobby</strong> - entry way and chat area for both competitors and spectators 
-                            <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_l">View large sample</a></nobr></li>
-                            <li><strong>Coding</strong> - where competitors view problems, submit solutions, and challenge code 
-                            <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_c">View large sample</a></nobr></li>
-                            <li><strong>Status</strong> - informs both spectators and coders of who's doing what 
-                            <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_s">View large sample</a></nobr></li>
-                            <li><strong>Leader Board</strong> - Dynamic listing of room leaders and current points 
-                            <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=applet_lb">View large sample</a></nobr></li>
-                        </ul>
-                    
-                        <div align="left"><img src="/i/sample_sponsor.gif" alt="" width="300" height="50" border="0"/></div>
-                    
-                        <p><strong>Note</strong> - TopCoder Marketing will produce all necessary graphics &#40;working with a sponsor's internal marketing team 
-                        or agency of record&#41; needed for the medium.</p>
+                        <p>TopCoder's on-site arena is designed to give the competitors a degree of privacy while offering spectators 
+                        viewing of coders and what they're coding.</p>
                         
-                        <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">What is in a Tournament Package?</a></p>
+                        <p>TopCoder has the following elements present for all on-site matches:</p>
+                        
+                        <ul>
+                            <li>Co-branded on-site signage directing spectators to location</li>
+                            <li>Co-branded information and collateral (TopCoder and Sponsor's) area</li>
+                            <li>Co-branded kiosk in lobby with match, sponsor, and competitor information</li>
+                            <li>50" Video Display - co-branded panels surrounding the live digital score board</li>
+                            <li>Viewing Islands - 2 monitors per coder showing their efforts in real-time</li>
+                            <li>Competitor stage - co-branded pillars</li>
+                            <li>TopCoder Arena &#40;see image below&#41;</li>
+                        </ul>
+                        
+                        <div align="center"><img src="/i/arena.gif" alt="" width="450" height="370" border="0"/></div>
+                        
+                        <p><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">What is in an SRM Package?</a></p>
 
                         <p><br/></p>
                     </td>
 
-<!-- Gutter -->
+<!-- Gutter Begins -->
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 

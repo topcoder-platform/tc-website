@@ -47,7 +47,7 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">Single Round Matches</h2>
+                        <h2 class="corpHead">Single Round Match Package</h2>
 
                         <table cellpadding="10" cellspacing="0" border="0" align="right">
                         <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">

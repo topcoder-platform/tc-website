@@ -47,37 +47,11 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">SRM Package - Email Distribution</h2>
-
-                        <table cellpadding="10" cellspacing="0" border="0" align="right">
-                        <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
-                            <tr><td class="sidebarTitle" >SRM PACKAGE LINKS:</td></tr>
-                            
-                            <tr valign="top">
-                                <td class="sidebarText">
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
-                                    <strong>Email distribution</strong><br />
-                                </td>
-                            </tr>
-                        </table></td></tr>
-                        </table>
+                        <h2 class="corpHead">Applet Coverage</h2>
                         
-                        <p>TopCoder's membership receives emails before and after each single round match. The emails are text formatted and contain 
-                        the necessary information regarding the match date, time and registration time. TopCoder has an opt-in email policy regarding 
-                        competition related information. To date, better than 80% of the membership opts-in for these emails.</p>
+                        <h3>Status Window</h3>
                         
-                        <h3>Match Announcment</h3>
-                        Sponsors are given space within the email for company name, forty words of copy and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_annc">View sample</a></nobr></p>
-                        
-                        <h3>Match Results</h3>
-                        Sponsors are given space within the email for company name and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_results">View sample</a></nobr></p>
-                        
-                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop 
-                        the desired copy points.</p>
+                        <div align="center"><img src="/i/s_sample.gif" alt="" width="502" height="375" border="0"/></div>
 
                         <p><br/></p>
                     </td>

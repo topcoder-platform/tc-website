@@ -47,37 +47,45 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
                         
-                        <h2 class="corpHead">SRM Package - Email Distribution</h2>
+                        <h2 class="corpHead">Email Distribution</h2>
 
-                        <table cellpadding="10" cellspacing="0" border="0" align="right">
-                        <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
-                            <tr><td class="sidebarTitle" >SRM PACKAGE LINKS:</td></tr>
-                            
-                            <tr valign="top">
-                                <td class="sidebarText">
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
-                                    <strong>Email distribution</strong><br />
-                                </td>
-                            </tr>
-                        </table></td></tr>
-                        </table>
+                        <h3>Sample Match Results</h3>
                         
-                        <p>TopCoder's membership receives emails before and after each single round match. The emails are text formatted and contain 
-                        the necessary information regarding the match date, time and registration time. TopCoder has an opt-in email policy regarding 
-                        competition related information. To date, better than 80% of the membership opts-in for these emails.</p>
-                        
-                        <h3>Match Announcment</h3>
-                        Sponsors are given space within the email for company name, forty words of copy and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_annc">View sample</a></nobr></p>
-                        
-                        <h3>Match Results</h3>
-                        Sponsors are given space within the email for company name and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_results">View sample</a></nobr></p>
-                        
-                        <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop 
-                        the desired copy points.</p>
+                    <p>To: TopCoder Membership<br/>
+                    From: TopCoder<br/>
+                    Date: 00.00.00<br/>
+                    Subject Line: "Match Results"<br/><br/>
+                    Hello Coders,<br/><br/>
+                    Here are the winners from last night's match. Congratuluations to all. As always, results and a summary of events from the match are posted on <a href="http://www.topcoder.com">www.topcoder.com</a>.<br/><br/>
+                    ====================================<br/>
+                    Thanks to the following sponsor(s):<br/>
+                    ====================================<br/>
+                    .:: SPONSOR NAME<br/>
+                    <a href="#" class="bodyText">http://www.sponsorcompany.com</a><br/><br/>
+                    .:: SPONSOR NAME<br/>
+                    <a href="#" class="bodyText">http://www.sponsorcompany.com</a><br/><br/>
+                    .:: SPONSOR NAME<br/>
+                    <a href="#" class="bodyText">http://www.sponsorcompany.com</a><br/><br/>
+                    .:: SPONSOR NAME<br/>
+                    <a href="#" class="bodyText">http://www.sponsorcompany.com</a><br/><br/>
+                    ====================================<br/>
+                    Division I:<br/>
+                    ====================================<br/>
+                    Room 00: [handle], points, earnings<br/>
+                    Room 00: [handle], points, earnings<br/>
+                    Room 00: [handle], points, earnings<br/><br/>
+                    ====================================<br/>
+                    Division II:<br/>
+                    ====================================<br/>
+                    Room 00: [handle], points, earnings<br/>
+                    Room 00: [handle], points, earnings<br/>
+                    Room 00: [handle], points, earnings<br/>
+                    <a href="#" class="bodyText">More results and match summary</a><br/><br/>
+                    Don't forget to try out the problems new <a href="#" class="bodyText">Practice Room!</a><br/><br/>
+                    Best of luck in the next match!<br/>
+                    Tom Longo<br/>
+                    Vice President of Membership<br/>
+                    TopCoder, Inc.<br/>
 
                         <p><br/></p>
                     </td>
