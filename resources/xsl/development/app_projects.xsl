@@ -139,7 +139,7 @@
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                                 <tr valign="middle">
-                                    <td class="projectTitles" colspan="3">Recent Application Design Projects</td>
+                                    <td class="projectTitles" colspan="3">Recent Team Application Projects</td>
                                 </tr>
 
                                 <tr valign="top">
@@ -155,15 +155,13 @@
                                     </td>
                                     <td class="projectCells" align="right">$12,600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$8,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.20.2004&#160;&#160;&#160;5:00 PM ET</td>
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Team_App_EDI_Transaction_Processor">EDI Transaction Processor</a>
                                     </td>
-                                    <td class="projectCells" align="right">9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$6,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.20.2004&#160;&#160;&#160;5:00 PM ET</td>
                                 </tr>
                             </table>
 
