@@ -27,7 +27,7 @@
     </tr>
     <tr>
         <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$#.##"/></td>
+        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="total_earnings" format="$0.00"/></td>
         </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Design</td></tr>
@@ -38,7 +38,7 @@
     </tr>
     <tr>
         <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="design_earnings" format="$#.##"/></td>
+        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="design_earnings" format="$0.00"/></td>
     </tr>
 
     <tr><td colspan="2" class="myStatsTitle">Development</td></tr>
@@ -49,7 +49,7 @@
     </tr>
     <tr valign="middle">
         <td class="myStatsEarningsName">Earnings</td>
-        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$#.##"/></td>
+        <td class="myStatsEarningsAmount"><rsc:item set="<%=coderInfo%>" name="development_earnings" format="$0.00"/></td>
     </tr>
 </table>
 <% } %>
