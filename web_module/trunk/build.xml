@@ -11,7 +11,7 @@
    <property name="jars.dir"         value="${lib.dir}/jars" />
    <property name="bin"         value="lib/bin" />
    <property name="src.dir"     value="src"/>
-   <property name="java"        value="${src.dir}/java/main" />
+   <property name="java"        value="${src.dir}/main" />
    <property name="testjava"    value="${src.dir}/testcases" />
    <property name="resources"   value="resources" />
    <property name="images"      value="images" />
