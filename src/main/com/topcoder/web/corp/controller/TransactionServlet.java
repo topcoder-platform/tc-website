@@ -3,6 +3,8 @@ package com.topcoder.web.corp.controller;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCSEmailMessage;
+import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -44,7 +46,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpUtils;
 import javax.transaction.Transaction;
-import javax.sql.DataSource;
 import javax.rmi.PortableRemoteObject;
 
 import java.io.IOException;
@@ -148,7 +149,9 @@ public class TransactionServlet extends HttpServlet {
         log.debug("query: " + req.getQueryString());
         if (OP_TX_STATUS.equals(op)) {
             try {
-                String retPage = txStatus(req);
+                SessionPersistor store = new SessionPersistor(req.getSession(true));
+                auth = new BasicAuthentication(store, tcRequest, resp, BasicAuthentication.CORP_SITE);
+                String retPage = txStatus(req,auth);
                 req.getRequestDispatcher(retPage).forward(req, resp);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -236,7 +239,9 @@ public class TransactionServlet extends HttpServlet {
         WebAuthentication auth = null;
         if (OP_TX_STATUS.equals(op)) {
             try {
-                String retPage = txStatus(request);
+                SessionPersistor store = new SessionPersistor(request.getSession(true));
+                auth = new BasicAuthentication(store, tcRequest, response, BasicAuthentication.CORP_SITE);
+                String retPage = txStatus(request,auth);
                 response.sendRedirect(retPage);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -337,13 +342,16 @@ public class TransactionServlet extends HttpServlet {
      * @param request
      * @throws Exception
      */
-    private String txStatus(HttpServletRequest request)
+    private String txStatus(HttpServletRequest request, WebAuthentication auth)
             throws Exception {
         TransactionInfo txInfo = ((TransactionInfo) currentTransactions.get(transactionKey(request)));
         if (txInfo == null) {
+            sendEmail("there is no transaction in progress for the user", auth);
             throw new Exception("there is no transaction in progress");
         }
         if (!isSucessfulTransaction(request)) {
+            sendEmail("Rejected by VeriSign [return code: " + getReturnCode(request) +
+                    " response message: " + getResponseMessage(request)+ "]", auth);
             throw new Exception("Rejected by VeriSign [return code: " + getReturnCode(request) +
                     " response message: " + getResponseMessage(request)+ "]");
         }
@@ -353,6 +361,28 @@ public class TransactionServlet extends HttpServlet {
         }
         //TODO generate a way to handle the case when a transaction fails, should probably be a new operation
         return txInfo.getUserBackPage() == null ? defaultPageSuccess : txInfo.getUserBackPage();
+    }
+
+    private void sendEmail(String body,WebAuthentication auth) {
+        try {
+            TCSEmailMessage mail = new TCSEmailMessage();
+            mail.setSubject("TopCoder Transaction Error");
+            StringBuffer buf = new StringBuffer(300);
+            if (auth!=null) {
+                buf.append(auth.getActiveUser().getUserName());
+                buf.append("(").append(auth.getActiveUser().getId()).append(")");
+            } else {
+                buf.append(" an unknown user ");
+            }
+            buf.append(" had the following problem " );
+
+            mail.setBody(body);
+            mail.addToAddress("service@topcoder.com", TCSEmailMessage.TO);
+            mail.setFromAddress("service@topcoder.com");
+            EmailEngine.send(mail);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -434,7 +464,7 @@ public class TransactionServlet extends HttpServlet {
         InitialContext icEJB = null;
         Transaction dbTx = null;
         try {
-            icEJB = (InitialContext) TCContext.getInitial();
+            icEJB = TCContext.getInitial();
             dbTx = Util.beginTransaction();
             Purchase purchaseTable = ((PurchaseHome) icEJB.lookup(PurchaseHome.EJB_REF_NAME)).create();
             long purchaseID;
@@ -493,7 +523,7 @@ public class TransactionServlet extends HttpServlet {
     private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
-        InitialContext ic = (InitialContext) TCContext.getInitial();
+        InitialContext ic = TCContext.getInitial();
         TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
         txInfo.setTerms(terms.getText(txInfo.getTermsId(), DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
         return txInfo;
