@@ -334,11 +334,11 @@
 
 <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">
 
-&#160;&#160;<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge">Jobs</A>&#160;|&#160;
+&#160;&#160;<A CLASS="bodyText" HREF="/?t=tces&amp;c=ge">Jobs</A>&#160;|&#160;
 
-<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_faq">GE IMLP FAQ</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?t=tces&amp;c=ge_faq">GE IMLP FAQ</A>&#160;|&#160;
 
-<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_criteria">IMLP Criteria</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?t=tces&amp;c=ge_criteria">IMLP Criteria</A>&#160;|&#160;
 
 </TD>
 
@@ -392,7 +392,7 @@
 
 
 
-<P><A HREF="/?t=jobs&amp;c=ge_faq">Read our Frequently Asked Questions</A></P>
+<P><A HREF="/?t=tces&amp;c=ge_faq">Read our Frequently Asked Questions</A></P>
 
 
 
