@@ -59,7 +59,8 @@
                Problem Name:
              </td>
              <td class="statText">
-               <rsc:item set="<%=generalInfo%>" name="class_name" />
+               <A HREF="/stat?c=problem_statement&pm=<rsc:item set="<%=generalInfo%>" name="problem_id"/>&rd=<rsc:item set="<%=generalInfo%>" name="round_id" class="statText"/>"><rsc:item set="<%=generalInfo%>" name="class_name" /></A>
+
              </td>
            </tr>
            <tr>
