@@ -1,8 +1,11 @@
 package com.topcoder.web.codinginterface.techassess.model;
 
 import com.topcoder.shared.problem.Problem;
+import com.topcoder.shared.problem.DataType;
 import com.topcoder.shared.language.Language;
 import com.topcoder.shared.language.BaseLanguage;
+import com.topcoder.web.common.render.DataTypeRenderer;
+import com.topcoder.web.common.render.TextElementRenderer;
 
 import java.io.Serializable;
 
@@ -91,8 +94,16 @@ public class ProblemInfo implements Serializable {
         this.statusDesc = statusDesc;
     }
 
+    /**
+     * There are cases when this object is not fully populated
+     * with a problem object, in that case, it may just have
+     * a classname string property set that we can return.
+     * @return
+     */
     public String getClassName() {
-        return className;
+        if (problem!=null) {
+            return problem.getComponent(0).getClassName();
+        } else return className;
     }
 
     public void setClassName(String className) {
@@ -116,5 +127,28 @@ public class ProblemInfo implements Serializable {
         }
         return ret;
     }
+
+    public String getReturnType() {
+        DataTypeRenderer renderer = new DataTypeRenderer(problem.getComponent(0).getReturnType());
+        return renderer.toPlainText(language);
+    }
+
+    public String getMethodName() {
+        return problem.getComponent(0).getMethodName();
+    }
+
+    public String getArguments() {
+        StringBuffer buf = new StringBuffer(100);
+        buf.append("(");
+        DataType[] paramTypes = problem.getComponent(0).getParamTypes();
+        for (int i = 0; i < paramTypes.length; i++) {
+            if (i > 0)
+                buf.append(", ");
+            buf.append(new DataTypeRenderer(paramTypes[i]).toPlainText(language));
+        }
+        buf.append(")");
+        return buf.toString();
+    }
+
 
 }

@@ -72,6 +72,21 @@
                        </tr>
                     </table>
 
+                    <table cellspacing=0 cellpadding=0 border=0 width="100%">
+                       <tr>
+                          <td align=left><span class=bodySmallTitle>Class Name: </span></td>
+                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="className"/></span></td>
+                          <td align=left><span class=bodySmallTitle>Return Type: </span></td>
+                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="returnType"/></span></td>
+                       </tr>
+                       <tr>
+                          <td align=left><span class=bodySmallTitle>Method Name: </span></td>
+                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="methodName"/></span></td>
+                          <td align=left><span class=bodySmallTitle>Arg Types: </span></td>
+                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="arguments"/></span></td>
+                       </tr>
+                    </table>
+
                     <iframe src="<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" width="100%" height="200px" scrolling="auto" frameborder="1">
                     [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" target="_top">the related document.</a>]
                     </iframe>
