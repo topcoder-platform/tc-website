@@ -45,11 +45,6 @@ public class CorporateDownloadTask extends ResumeTask{
         } else {
             userId = (int)authToken.getActiveUser().getId();
         }
-        if (getRequestParameter(request, "compid")!=null) {
-            companyId = Long.parseLong(super.getFileUpload().getParameter("compid"));
-            db = getCompanyDb(companyId);
-        }
-
 
         Request oltpDataRequest = new Request();
         oltpDataRequest.setContentHandle("tces_verify_member_access");

@@ -27,7 +27,8 @@ public class DownloadTask extends ResumeTask{
         Navigation navigation = (Navigation) session.getAttribute("navigation");
         BasicAuthentication auth = new BasicAuthentication(
                 new SessionPersistor(request.getSession()), request, response);
-        if (navigation == null || (!navigation.getLoggedIn() && auth.getActiveUser().isAnonymous())) {
+        if (navigation==null) navigation = new Navigation();
+        if (!navigation.getLoggedIn() && auth.getActiveUser().isAnonymous()) {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
