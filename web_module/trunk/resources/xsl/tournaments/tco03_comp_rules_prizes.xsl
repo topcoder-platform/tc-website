@@ -72,13 +72,17 @@
 -->
             <table border="0" cellspacing="0" cellpadding="0" align="center">
                 <tr>
-                     <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
+                     <td align="center" colspan="2"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
                 </tr>
                 <tr>
-                    <td height="42" align="center"><A href="/index?t=tournaments&amp;c=tco03_overview"  target="_top"><img src="/i/tournament/tco03/tco_promo_coding_small.gif" alt="Coding Competition" width="263" height="86" border="0" vspace="10"/></A></td>
-                    <td width="50"><img src="/i/clear.gif" alt="" width="50" height="1" border="0" /></td>
-                    <td height="64" align="center"><A href="/index?t=tournaments&amp;c=tco03_comp_overview" target="_top"><img src="/i/tournament/tco03/tco_promo_component_small.gif" alt="Component Contest" width="263" height="86" border="0" vspace="10"/></A></td>
+                    <td width="50%" align="center"><img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/></td>
+                    <td width="50%" align="center"><img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/></td>
                 </tr>
+                <tr>
+                    <td width="50%" align="center"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></td>
+                    <td width="50%" align="center"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></td>
+                </tr>
+                <tr><td align="center" colspan="2"><img src="/i/tournament/tco03/bracket.gif" alt="bracket" width="392" height="19" border="0" vspace="0"/></td></tr>
             </table>
 
 <!-- Tab bar suplinks
