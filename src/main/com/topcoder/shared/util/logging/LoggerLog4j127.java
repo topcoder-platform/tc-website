@@ -1,10 +1,10 @@
 package com.topcoder.shared.util.logging;
 
-final class LoggerLog4j11 extends com.topcoder.shared.util.logging.Logger {
+final class LoggerLog4j127 extends com.topcoder.shared.util.logging.Logger {
 
     private final org.apache.log4j.Logger logger;
 
-    LoggerLog4j11(Class clazz) {
+    LoggerLog4j127(Class clazz) {
         logger = org.apache.log4j.Logger.getLogger(clazz);
     }
 
