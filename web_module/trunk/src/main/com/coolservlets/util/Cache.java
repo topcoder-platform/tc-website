@@ -123,7 +123,7 @@ public class Cache {
     public Object get(int uniqueID) {
         Object ret = null;
         try {
-            ret = getCache().get(CACHE_KEY_PREFIX+String.valueOf(uniqueID));
+            ret = getCache().get(CACHE_KEY_PREFIX+uniqueID);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -132,7 +132,7 @@ public class Cache {
 
 	public void add(int uniqueID, Object object) {
         try {
-            getCache().set(String.valueOf(uniqueID), object, timeOut);
+            getCache().set(CACHE_KEY_PREFIX+uniqueID, object, timeOut);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -141,7 +141,7 @@ public class Cache {
     public boolean containsKey(int key) {
         boolean ret = false;
         try {
-            ret = (getCache().containsKey(String.valueOf(key)));
+            ret = (getCache().containsKey(CACHE_KEY_PREFIX+key));
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
@@ -150,7 +150,7 @@ public class Cache {
 
 	public void remove(int uniqueID) {
         try {
-            getCache().remove(String.valueOf(uniqueID));
+            getCache().remove(CACHE_KEY_PREFIX+uniqueID);
         } catch (RemoteException e) {
             e.printStackTrace();  //To change body of catch statement use Options | File Templates.
         }
