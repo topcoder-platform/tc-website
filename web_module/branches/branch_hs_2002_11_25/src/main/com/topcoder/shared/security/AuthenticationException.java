@@ -7,5 +7,11 @@ package com.topcoder.shared.security;
  */ 
 public class AuthenticationException extends Exception {
 
-    /* Empty for now; let Exception do the work. */
+    public AuthenticationException(String s) {
+        super(s);
+    }
+
+    public AuthenticationException(Exception e) {
+        super(e.getMessage());
+    }
 }
