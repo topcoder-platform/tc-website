@@ -67,7 +67,7 @@
                Used In:
              </td>
              <td class="statText">
-               <rsc:item set="<%=generalInfo%>" name="event_name" />
+               <A HREF="/stat?c=round_overview&rd=<rsc:item name="round_id" row="<%=resultRow%>"/>" class="statText"><rsc:item name="event_name" row="<%=resultRow%>"/></A>
              </td>
            </tr>
            <tr>
