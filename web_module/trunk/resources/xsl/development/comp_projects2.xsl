@@ -6,7 +6,7 @@
     <xsl:import href="../foot.xsl" />
     <xsl:import href="../includes/modules/stats_intro.xsl" />
   <xsl:import href="../includes/global_left.xsl"/>
-    <xsl:import href="../includes/dev/public_dev_right.xsl" />
+    <xsl:import href="../includes/dev/public_dev_right2.xsl" />
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
     <xsl:template name="formatmmddyyyy">
 		<xsl:param name="DATE"/>
@@ -28,7 +28,7 @@
 <head>
     <xsl:call-template name="Preload" />
 
- <title>TopCoder :: Development</title>
+ <title>TopCoder | Development</title>
 
     <xsl:call-template name="CSS" />
 
@@ -46,10 +46,10 @@
 
 </head>
 
-<BODY BGCOLOR="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<BODY>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -58,11 +58,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="4" height="5" alt="" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-            <td class="bodyText" width="100%" bgcolor="#CCCCCC">
+            <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">steelblue</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
@@ -241,31 +241,31 @@
             </table>
 <!-- Open Component Development Projects ends -->
 
-            <table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-
+                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
+                    <td width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>    
+    
                 <tr valign="top">
-                    <td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+        <td width="6"><img src="/i/clear.gif" width="6" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
-            <xsl:call-template name="public_dev_right" />
+        <td width="244">
+            <xsl:call-template name="public_dev_right"><xsl:with-param name="projects" select="."/></xsl:call-template>
         </td>
 <!-- Right Column Ends -->
 
