@@ -71,6 +71,9 @@ public class Constants {
 
     public static String TCCC04_TERMS;
 
+    public static String CARD_PREVIEW;
+    public static String CARD_INSTRUCTIONS;
+
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
     public static String REVIEW_PROJECTS;

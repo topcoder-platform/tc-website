@@ -10,6 +10,9 @@ import com.topcoder.web.common.TCWebException;
 public class Profile extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
+        //redirect to the page that will show cards.  will probably
+        //exist on the corporate site.
+
         setNextPage("/");
         setIsNextPageInContext(false);
     }
