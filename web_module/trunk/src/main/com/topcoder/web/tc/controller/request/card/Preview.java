@@ -18,21 +18,10 @@ import com.topcoder.shared.util.DBMS;
 public class Preview extends Base {
 
     protected void businessProcessing() throws TCWebException {
-        //check if has cookie
 
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        } else {
+        if (userIdentified()) {
             try {
-                Request r = new Request();
-                r.setContentHandle("member_profile");
-                r.setProperty("cr", String.valueOf(getUser().getId()));
-                ResultSetContainer coderInfo =
-                        (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r).get("Coder_Data");
-                //if they've been rated in one of the competitions
-                if (coderInfo.getIntItem(0, "rating")>0 ||
-                        (coderInfo.getItem(0, "design_rating").getResultData()!=null&&coderInfo.getIntItem(0, "design_rating")>0) ||
-                        (coderInfo.getItem(0, "development_rating").getResultData()!=null&&coderInfo.getIntItem(0, "development_rating")>0)) {
+                if (isRated()) {
                     setNextPage(Constants.CARD_PREVIEW);
                     setIsNextPageInContext(true);
                 } else {
@@ -43,7 +32,26 @@ public class Preview extends Base {
             } catch (Exception e) {
                 throw new TCWebException(e);
             }
-
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
     }
+
+    protected boolean isRated() throws Exception {
+        Request r = new Request();
+        r.setContentHandle("member_profile");
+        r.setProperty("cr", String.valueOf(getUser().getId()));
+        ResultSetContainer coderInfo =
+                (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r).get("Coder_Data");
+        //if they've been rated in one of the competitions
+        boolean rated = false;
+        if (coderInfo.getIntItem(0, "rating")>0 ||
+                (coderInfo.getItem(0, "design_rating").getResultData()!=null&&coderInfo.getIntItem(0, "design_rating")>0) ||
+                (coderInfo.getItem(0, "development_rating").getResultData()!=null&&coderInfo.getIntItem(0, "development_rating")>0)) {
+            rated = true;
+        }
+        return rated;
+
+    }
+
 }

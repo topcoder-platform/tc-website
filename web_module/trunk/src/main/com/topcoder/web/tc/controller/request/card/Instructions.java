@@ -19,11 +19,7 @@ public class Instructions extends Base {
 
     protected void businessProcessing() throws TCWebException {
 
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        } else {
-            //instructions page should indicate card is unlocked or not
-
+        if (userIdentified()) {
             try {
                 UserPreference up = (UserPreference)createEJB(getInitialContext(), UserPreference.class);
                 boolean cardUnlocked = false;
@@ -43,6 +39,8 @@ public class Instructions extends Base {
 
             setNextPage(Constants.CARD_INSTRUCTIONS);
             setIsNextPageInContext(true);
+        } else {
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
     }
 
