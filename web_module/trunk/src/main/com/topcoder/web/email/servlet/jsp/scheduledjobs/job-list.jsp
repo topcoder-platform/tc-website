@@ -4,6 +4,7 @@
 
 
 <% // alternate colors every row...
+    String thisPage = request.getParameter("thisPage");
 	int row = 0;
 	String[] colors = { "#EEEEEE", "#FFFFFF" };
 	String errcolor = "#FF0000";

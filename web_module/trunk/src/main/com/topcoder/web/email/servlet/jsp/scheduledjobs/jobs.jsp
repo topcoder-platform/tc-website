@@ -26,7 +26,9 @@
 Recent jobs
 </p>
 
-<jsp:include page="job-list.jsp" />
+<jsp:include page="job-list.jsp" >
+  <jsp:param name="thisPage" value="<%=thisPage%>"/>
+</jsp:include>
 
 <p class="bodyText">
 <a href="javascript:taskSubmit('<%=EmailConstants.HOME_TASK%>', '', '');"

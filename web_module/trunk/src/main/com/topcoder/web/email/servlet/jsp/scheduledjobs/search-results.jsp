@@ -13,7 +13,10 @@
 <p class="bodyTextBig">
 <b>Search Results</b>
 </p>
-<jsp:include page="job-list.jsp" />
+<jsp:include page="job-list.jsp" >
+  <jsp:param name="thisPage" value="<%=thisPage%>"/>
+</jsp:include>
+
 
 <jsp:include page="../footer.jsp" />
 
