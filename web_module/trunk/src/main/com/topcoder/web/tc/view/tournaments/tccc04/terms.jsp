@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.web.privatelabel.Constants"%>
+<%@ page import="com.topcoder.web.tc.Constants"%>
 <%@  page language="java"  %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
