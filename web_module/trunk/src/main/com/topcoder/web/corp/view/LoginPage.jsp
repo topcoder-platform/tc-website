@@ -28,7 +28,7 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC">
+        <td width="170">
             <jsp:include page="includes/left_generic.jsp" />
         </td>
 <!-- Left Column Ends -->
