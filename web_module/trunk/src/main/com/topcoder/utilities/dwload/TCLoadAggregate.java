@@ -159,7 +159,7 @@ public class TCLoadAggregate extends TCLoad {
      */
     public boolean performLoad() {
         try {
-
+/*
             loadRoomResult2();
 
             loadCoderDivision();
@@ -181,7 +181,7 @@ public class TCLoadAggregate extends TCLoad {
             loadRatingDecreaseStreak(true);
 
             loadRatingDecreaseStreak(false);
-
+*/
             loadRoundProblem();
 
             loadProblemLanguage();
