@@ -2456,7 +2456,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
             message += "<a href=\"" + INTERNAL_SERVLET_URL + "?" + TASK_STRING;
             message += "=" + PAYMENT_TASK + "&" + CMD_STRING + "=" + FILE_CMD;
-            message += "&file_num=" + fileNum + "\">" + filename + "</a></ br>\n";
+            message += "&file_num=" + fileNum + "\">" + filename + "</a><br />\n";
 
 
         }

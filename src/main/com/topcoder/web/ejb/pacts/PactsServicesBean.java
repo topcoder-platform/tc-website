@@ -3841,6 +3841,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem updating the database
      */
     public String[] printPayments() throws PaymentNotReviewedException, SQLException {
+        log.debug("printPayments called...");
         Connection c = null;
         PreparedStatement ps = null;
         try {
