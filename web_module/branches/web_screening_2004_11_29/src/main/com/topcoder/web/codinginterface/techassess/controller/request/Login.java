@@ -45,6 +45,7 @@ public class Login extends Base {
             throw new NavigationException("Invalid request, missing required parameter.");
         }
 
+/*
         ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
         request.setServerID(Constants.SERVER_ID);
         log.debug("send message");
@@ -54,6 +55,7 @@ public class Login extends Base {
         log.debug(Thread.currentThread().toString());
         ObjectMessage response = receive(2000, messageId);
         log.debug("response " + response);
+*/
 
 
         Context context = null;
