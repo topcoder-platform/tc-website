@@ -17,9 +17,19 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
 }
+<STYLE TYPE="text/css">
+<!--
+BODY
+{
+	background-color: #001B35;
+	padding: 0px;
+	margin: 0px;
+}
+-->
+</STYLE>
 </SCRIPT>
 </head>
-<body bgcolor="#000000">
+<body bgcolor="#001B35">
 <center><h3><%= request.getAttribute("problemName") %></h3></center>
 <form action="/tc/?module=SubmitRatings" method="POST">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
