@@ -127,7 +127,7 @@
 
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=GeneChip_Data_Interface_Back_End_Dev">GeneChip Data Interface Development - Front End</a>
+                                        <a href="?t=development&amp;c=GeneChip_Data_Interface_Front_End_Dev">GeneChip Data Interface Development - Front End</a>
                                     </td>
                                     <td class="projectCells" align="right">$1,250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
