@@ -40,6 +40,7 @@ public class Controller
         HttpSession session = null;
         try {
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
+            log.debug(request.getContentType());
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
                 FileUpload fu = new FileUpload(request, false);
                 String taskName = fu.getParameter(TASK);
