@@ -245,7 +245,7 @@ public class Legacy extends Base {
         String[] checkBoxes = {"count","pro","stud","resume","travel","auth"};
         boolean[] def = {false,true,true};
         boolean revise = "on".equals(request.getParameter("revise"));
-        for(int i = 0; i<languages.getRowCount(); i++){
+        for(int i = 0; !revise && i<languages.getRowCount(); i++){
             ResultSetContainer.ResultSetRow lang = languages.getRow(i);
             setDefault("lang_"+lang.getIntItem("language_id"), "true");
         }
