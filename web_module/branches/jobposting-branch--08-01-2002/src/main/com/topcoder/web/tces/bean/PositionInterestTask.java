@@ -168,6 +168,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
                     ((Long)hitListRow.getItem("coder_id").getResultData()).toString() );
             hit.put("handle",
                     hitListRow.getItem("handle").toString() );
+            hit.put("rating_int",((Integer)hitListRow.getItem("rating").getResultData()));
             if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
                 hit.put("rating",
                         ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
@@ -186,13 +187,15 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
                     hitListRow.getItem("school_name").toString() );
             hit.put("hit_date",
                     getDate(hitListRow, "timestamp"));
+            hit.put("hd",
+                    hitListRow.getItem("timestamp").toString() );
 
             hitList.add(hit);
         }
 
-        if (sortBy.equals(TCESConstants.SORT_RATING)) {
-            hitList=JSPUtils.sortMapList(hitList,"rating",false);
-        }
+        if (sortBy!=null&&sortBy.length()>0)
+            hitList=JSPUtils.sortMapList(hitList,sortBy,false);
+
 
         setHitList( hitList );
 

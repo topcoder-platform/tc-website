@@ -49,11 +49,11 @@ public class TCESConstants {
     public static String PROBLEM_STATEMENT_TASK = "ProblemStatementTask";
     public static String MEMBER_INTEREST_TASK = "MemberInterestTask";
 
-    public static String SORT_HANDLE = "hn";
+    public static String SORT_HANDLE = "handle";
     public static String SORT_RATING = "ra";
-    public static String SORT_STATE = "st";
-    public static String SORT_TYPE = "ty";
-    public static String SORT_SCHOOL = "sc";
+    public static String SORT_STATE = "state";
+    public static String SORT_TYPE = "type";
+    public static String SORT_SCHOOL = "school";
     public static String SORT_HITDATE = "hd";
 
     public static String TASK_PARAM = "task";
