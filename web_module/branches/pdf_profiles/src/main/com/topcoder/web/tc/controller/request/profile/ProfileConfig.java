@@ -30,6 +30,9 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.ArrayList;
 import java.util.Map;
+
+import com.topcoder.web.common.*;
+import com.topcoder.shared.security.ClassResource;
 /**
  *
  * @author rfairfax
@@ -37,6 +40,8 @@ import java.util.Map;
 public class ProfileConfig extends BaseProcessor { 
 
     protected void businessProcessing() throws TCWebException {
+        if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         try {        
             //lookup user id
             int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));

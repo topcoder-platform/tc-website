@@ -20,6 +20,9 @@ import java.lang.StringBuffer;
 
 import java.util.ArrayList;
 import java.util.Map;
+
+import com.topcoder.web.common.*;
+import com.topcoder.shared.security.ClassResource;
 /**
  *
  * @author rfairfax
@@ -28,6 +31,8 @@ public class PlacementProfile extends BaseProcessor {
     
 
     protected void businessProcessing() throws TCWebException {
+        if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         try {
             //look for search values
             String handle = "";

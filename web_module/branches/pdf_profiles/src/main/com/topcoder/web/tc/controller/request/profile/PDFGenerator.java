@@ -53,6 +53,10 @@ import com.topcoder.web.tc.model.Skill;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.Arrays;
+
+import com.topcoder.web.common.*;
+import com.topcoder.shared.security.ClassResource;
+
 /**
  *
  * @author rfairfax
@@ -208,6 +212,9 @@ public class PDFGenerator extends BaseProcessor {
     }
     
     protected void businessProcessing() throws TCWebException {
+        if (!((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+        
         try {
             //load config values    
             info = getConfig();
