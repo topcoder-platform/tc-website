@@ -368,6 +368,7 @@ public abstract class Base extends BaseProcessor {
 
         ScreeningBaseResponse m = (ScreeningBaseResponse) receiver.receive(waitTime, messageId, getResponse());
 
+        log.debug("response: " + m.getClass().getName());
         if (m.isSynchronous()) {
             log.debug("unlock it and send response");
             unlock();
