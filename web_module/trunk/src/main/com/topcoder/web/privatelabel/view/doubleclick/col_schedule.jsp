@@ -55,7 +55,7 @@
             <tr>
                <td class="sidebarText" valign="top">Main Competition Round - all qualifiers</td>
                <td class="sidebarText" valign="top">Friday, February 20</td>
-               <td class="sidebarText" valign="top" nowrap>Sign in - 3 - 3:50PM<br/>Start - 4:00PM</td>
+               <td class="sidebarText" valign="top" nowrap>Sign in - 3:00 - 3:50PM<br/>Start - 4:00PM</td>
             </tr>
             <tr>
                <td class="sidebarText">Final Round - 10 finalists</td>
