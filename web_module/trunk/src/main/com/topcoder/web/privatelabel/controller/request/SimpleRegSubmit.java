@@ -30,6 +30,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
     private static final String SOFTWARE_GROUP = "Users";
     private static final long ADDRESS_TYPE = 2; //2 is home address
     private static final long EMAIL_TYPE = 1; //1 is "primary"
+    private static final String US = "840";
 
     protected void registrationProcessing() throws TCWebException {
 
@@ -145,7 +146,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
             address.setAddressTypeId(addressId, ADDRESS_TYPE);
             address.setCity(addressId, regInfo.getCity());
             address.setCountryCode(addressId, regInfo.getCountryCode());
-            address.setStateCode(addressId, regInfo.getStateCode());
+            if (regInfo.getCountryCode().equals(US)) {
+                address.setStateCode(addressId, regInfo.getStateCode());
+            }
             address.setZip(addressId, regInfo.getZip());
 
             //associate address with user

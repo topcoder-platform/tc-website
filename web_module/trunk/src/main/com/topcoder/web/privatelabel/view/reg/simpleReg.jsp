@@ -67,7 +67,7 @@
                     Password
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.PASSWORD%>"  size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
+                    <tc-webtag:textInput name="<%=Constants.PASSWORD%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
                 </td>
             </tr>
 
@@ -81,7 +81,7 @@
                     Confirm Password
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>"  size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
+                    <tc-webtag:textInput name="<%=Constants.PASSWORD_CONFIRM%>" passw="true" size="15" maxlength="<%=Constants.MAX_PASSWORD_LENGTH%>"/>
                 </td>
             </tr>
 

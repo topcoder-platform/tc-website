@@ -39,7 +39,6 @@ abstract class SimpleRegBase extends RegistrationBase {
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         //check handle
         //TODO check if handle exists
-        log.debug(info.toString());
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
             addError(Constants.HANDLE, "Your handle must contain between " +
