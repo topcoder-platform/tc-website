@@ -83,7 +83,7 @@ function openWin(url, name, w, h) {
 <b>If you converted your TopCoder account:</b><br/>
 Your account is active.<br/><br/>
 
-<b>For new/non-TopCoder members:</b><br/>
+<b>For new accounts:</b><br/>
 In order to be eligible to compete in the Google Code Jam 2003,
 you must activate your account by following the directions sent to the email
 address provided during registration. You <u>will not</u> be able to compete if you
