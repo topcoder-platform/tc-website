@@ -58,7 +58,7 @@
             <table width="100%" border="0" cellspacing="0" cellpadding="2" class="tcoSubNav">
                 <tr>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="<%=tab.equals("schedule")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="topLink">Schedule</a></td>
+                    <td class="<%=tab.equals("joinus")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=overview" class="topLink">Join Us</a></td>
                     <td class="<%=tab.equals("directions")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=directions" class="topLink">Directions</a></td>
                     <td class="<%=tab.equals("transportation")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=transportation" class="topLink">Transportation</a></td>
                     <td class="<%=tab.equals("hotels")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=onsite&d4=hotels" class="topLink">Hotels</a></td>
