@@ -6,11 +6,11 @@
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 <tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
-<jsp:setProperty name="Registration" property="Step" value="<%=Registration.STEP_2%>" />
 <tc:getProperty id="coderType" name="Registration" property="CoderType" />
 
             <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
             <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" >
+              <input type="hidden" name="<%=Controller.STEP%>" value="<%=Registration.STEP_2%>" />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="3" align="center">
 

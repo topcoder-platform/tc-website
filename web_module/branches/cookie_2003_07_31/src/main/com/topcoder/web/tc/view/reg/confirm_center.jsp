@@ -7,14 +7,14 @@
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 <tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
-<jsp:setProperty name="Registration" property="Step" value="<%=Registration.STEP_3%>" />
 <tc:getProperty id="coderType" name="Registration" property="CoderType" />
 
             <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
             <div align="center">
             <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post">
             <input type="hidden" name="<%=Controller.TASK%>" value="Registration">
-            
+            <input type="hidden" name="<%=Controller.STEP%>" value="<%=Registration.STEP_3%>" />
+
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
                 <tr valign="middle">
                     <td></td>

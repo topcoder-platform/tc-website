@@ -6,7 +6,6 @@
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 <tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
-<jsp:setProperty name="Registration" property="step" value="<%=Registration.STEP_4%>" />
 <jsp:setProperty name="Registration" property="code" />
 <jsp:setProperty name="Registration" property="process" value="doItNowBaby" />
 
@@ -19,4 +18,4 @@ Result:<br>
 <jsp:getProperty name="Registration" property="CodeError" />
 </span>
 
-<a href="/?t=index" class="statText">link to home page</a>
+<a href="/" class="statText">link to home page</a>

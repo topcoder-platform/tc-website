@@ -7,7 +7,7 @@
 <jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 <tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 <jsp:setProperty name="Registration" property="user" value="<%=user%>" />
-<jsp:setProperty name="Registration" property="Step" value="<%=Registration.STEP_1%>" />
+
 <SCRIPT type="text/javascript">
 var usIndex=0;
 var reg;
@@ -83,36 +83,37 @@ function checkInputs(){
 
             <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
             <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" >  
-            <input type="hidden" name="<%=Controller.TASK%>" value="Registration">  
+            <input type="hidden" name="<%=Controller.TASK%>" value="Registration">
+            <input type="hidden" name="<%=Controller.STEP%>" value="<%=Registration.STEP_1%>" />
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
                     <td class="statText" valign="top" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"><br>
                         <p>Welcome to TopCoder. Before you register, there are a few things we think you should know:  First, and most importantly, TopCoder is a commercial
                         site.  We charge sponsors for the right to advertise on our site.  This money pays for the operation of the site and the prizes awarded in competitions.</p>
-                        
+
                         <p>This has several implications. Because we feel it is our obligation to let our sponsors know who their message is reaching, we collect as much
                         demographic information as possible without making the Registration process overly burdensome.  Furthermore, we require that you verify the accuracy of
                         the information you provide.  This does not mean that sponsors have access to your personal information; they do not.  It means that we want to give
                         them as accurate aggregate information as possible.</p>
-                        
+
                         <p>While we believe that sponsors have every right to expect that what we give them is accurate and valuable, we also believe that they must bring more
                         than just money to our member base.  We want sponsors who provide true value to developers.  TopCoder intends to help developers increase their skill
                         level as well as increase their value to employers. Therefore, we are careful to choose sponsors that represent this philosophy.</p>
-                        
+
                         <p>We are also very strict about the way in which sponsors present themselves to the member base&#151;no annoying banners, pop-ups, etc. We work with
                         sponsors to get their message across in an appealing and non-intrusive manner.  Because we take our relationship with sponsors seriously, we
                         believe that they have value to provide.  We ask that you listen to what they have to say.</p>
-                        
+
                         <p>Please read the Terms of Use and Privacy Policy, and let me be the first to say good luck in the arena.</p>
-                        
+
                         <p>Jack Hughes<br>
                         Founder and Chairman, TopCoder, Inc.</p>
                     </td>
                 </tr>
             </table>
-            
+
              <div align="center"><br>Required fields are in <strong>bold</strong><br>&#160;</div>
-            
+
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
 
 <!-- Upload Member Photo -->
