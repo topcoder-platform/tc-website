@@ -71,7 +71,9 @@
                            <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
 <p><B>Windows</B><br/>
-We are looking for Windows developers to join our world-class engineering team to design and develop cutting edge client-based search products, 
+Positions available in Mountain View, CA, New York, NY, and Santa Monica, CA.</p>
+
+<p>We are looking for Windows developers to join our world-class engineering team to design and develop cutting edge client-based search products, 
 such as the Google Toolbar. If you love to use Google and help build revolutionary client applications, join the Google client team. </p>
 
 <p><B>Requirements</B></p>
