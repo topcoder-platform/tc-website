@@ -59,6 +59,7 @@ function submitEnter(e) {
             </p>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <form method="post" name="frmPass" action="/tc">
+                    <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="PasswordEmail"/>
                     <tr>
                         <td>
                             <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%></tc-webtag:errorIterator>
