@@ -41,7 +41,9 @@ function emailValid(address) {
 function checkInputs(){
   if(reg.<%=Registration.FIRST_NAME%>.value==""){alert("Please enter a First Name.");reg.<%=Registration.FIRST_NAME%>.focus();return false;}
   if(reg.<%=Registration.LAST_NAME%>.value==""){alert("Please enter a Last Name.");reg.<%=Registration.LAST_NAME%>.focus();return false;}
-  if(reg.<%=Registration.HANDLE%>.value==""){alert("Please enter a Handle.");reg.<%=Registration.HANDLE%>.focus();return false;}
+  <% if (Registration.isRegister())  {%>
+    if(reg.<%=Registration.HANDLE%>.value==""){alert("Please enter a Handle.");reg.<%=Registration.HANDLE%>.focus();return false;}
+  <% } %>
   if(reg.<%=Registration.PASSWORD%>.value==""||reg.<%=Registration.PASSWORD%>.value.length<7)
     {alert("Please enter a Password at least 7 characters long.");reg.<%=Registration.PASSWORD%>.focus();return false;}
   if(reg.<%=Registration.CONFIRM_PASSWORD%>.value==""){alert("Please re-type the Password.");reg.<%=Registration.CONFIRM_PASSWORD%>.focus();return false;}
