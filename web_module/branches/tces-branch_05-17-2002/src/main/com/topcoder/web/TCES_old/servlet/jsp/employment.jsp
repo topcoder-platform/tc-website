@@ -99,6 +99,9 @@ Lookup numberPeople = new Lookup();
 numberPeople.addPair("1", "1-5");
 numberPeople.addPair("2", "2342 - 123123");
 
+Lookup industries = new Lookup();
+industries.addPair("1", "Finance");
+industries.addPair("2", "Adult");
 
 String company = "";
 String city = "";
