@@ -49,44 +49,200 @@
 <!--trj insert 0611 2200 -->
 
 <%@ page import="javax.ejb.*,javax.naming.*,javax.rmi.*,com.topcoder.web.TCES.ejb.*,java.rmi.*,java.util.*" %>
-
-
-
-<%!
-	private ProfileSkillXref	xrefBean = null;
-	private Skill			skillBean = null;
-
-	public void jspInit() {
-		try {
-			InitialContext	context = new InitialContext();
-			Object	obj = context.lookup( "java:comp/env/ejb/ProfileSkillXref" );
-			ProfileSkillXrefHome	xrefHome = (ProfileSkillXrefHome)
-			  PortableRemoteObject.narrow( obj, ProfileSkillXrefHome.class );
-			xrefBean = xrefHome.create();
-			obj = context.lookup( "java:comp/env/ejb/Skill" );
-			SkillHome	skillHome = (SkillHome) PortableRemoteObject.narrow( obj, SkillHome.class );
-			skillBean = skillHome.create();
-		}
-		catch( Exception e ) {
-			e.printStackTrace();
-		}
-	}
-
-	public void jspDestroy() {
-		xrefBean = null;
-		skillBean = null;
-	}
-%>
+<%@ page import="com.topcoder.web.tces.common.*" %>
 
 <%
 
+Lookup cities = new Lookup();
+cities.add("0", "New York");
+cities.add("1", "Los Angeles");
 
 
+Lookup schools = new Lookup();
+cities.add("0", "Harvard");
+cities.add("1", "Stanford");
+
+
+Lookup degreeTypes = new Lookup();
+degreeTypes.add("0", "BA");
+degreeTypes.add("1", "MA");
+
+
+Lookup majors = new Lookup();
+majors.add("0", "CS");
+majors.add("1", "IS");
+
+
+Lookup gpas = new Lookup();
+gpas.add("0", "4.0");
+gpas.add("1", "2.0");
+
+
+Lookup months = new Lookup();
+months.add("0", "January");
+months.add("1", "February");
+
+Lookup years = new Lookup();
+years.add("0", "2002");
+years.add("1", "2003");
+
+
+String selectedCity = "";
+String selectedSchool = "";
+String selectedDegreeType = "";
+String selectedMajor = "";
+String selectedStartMonth = "";
+String selectedStartYear = "";
+String selectedGradMonth = "";
+String selectedGradYear = "";
 
 
 
 
 %>
+
+  <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
+  <tr>
+    <td class="statTextBig" width="150" align="right" valign="middle"><img src="/i/clear.gif" width="150" height="2" 
+border="0"></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle">Required fields are in <b>bold</b></td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="4" class="statText" valign="middle">&nbsp;</td>
+  </tr>    
+  <tr valign="middle">
+    <td colspan="4" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Education</td>
+  </tr>
+  <tr valign="middle">
+    <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
+  </tr>    
+  
+
+    <tr>
+        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
+align="left" valign="middle"></td>
+    </tr>
+    <tr>
+      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>First 
+Name</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+      <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="firstName" value ="" 
+size="30" maxlength="30"></td>
+    </tr>
+    <tr>
+        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
+align="left" valign="middle"></td>
+    </tr>
+  <tr align="right" valign="middle">
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Last 
+Name</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="lastName" value ="" 
+size="30" maxlength="30"></td>
+  </tr>
+    <tr>
+        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
+align="left" valign="middle"></td>
+    </tr>
+  <tr align="right" valign="middle">
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Address&nbsp;</td><td><img 
+src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="address1" value ="" 
+size="30" maxlength="50"></td>
+  </tr>
+    <tr>
+        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
+align="left" valign="middle"></td>
+    </tr>
+  <tr align="right" valign="middle">
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img 
+src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="address2" value =""
+size="30" maxlength="50"></td>
+  </tr>
+    <tr>
+        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
+align="left" valign="middle"></td>
+    </tr>
+  <tr align="right" valign="middle">
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">City&nbsp;</td><td><img 
+src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="city" value ="" 
+size="30" 
+maxlength="30"></td>
+  </tr>
+
+
+
+    <tr>
+        <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" 
+align="left" valign="middle"></td>
+    </tr>
+  <tr align="right" valign="middle">
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">State&nbsp;</td><td><img 
+src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colspan="2" align="left" valign="middle" class="statTextBig">
+        
+    <select name="state" class="dropdown" onChange="changeCountry()">
+<option value=""></option><option value="ZZ">Not In US</option>
+<option value="AL">Alabama</option>
+<option value="AK">Alaska</option>
+<option value="AZ">Arizona</option>
+<option value="AR">Arkansas</option>
+<option value="CA">California</option>
+<option value="CO">Colorado</option>
+<option value="CT">Connecticut</option>
+<option value="DE">Delaware</option>
+<option value="DC">District of Columbia</option>
+<option value="FL">Florida</option>
+<option value="GA">Georgia</option>
+<option value="HI">Hawaii</option>
+<option value="ID">Idaho</option>
+<option value="IL">Illinois</option>
+<option value="IN">Indiana</option>
+<option value="IA">Iowa</option>
+<option value="KS">Kansas</option>
+<option value="KY">Kentucky</option>
+<option value="LA">Louisiana</option>
+<option value="ME">Maine</option>
+<option value="MD">Maryland</option>
+<option value="MA">Massachusetts</option>
+<option value="MI">Michigan</option>
+<option value="MN">Minnesota</option>
+<option value="MS">Mississippi</option>
+<option value="MO">Missouri</option>
+<option value="MT">Montana</option>
+<option value="NE">Nebraska</option>
+<option value="NV">Nevada</option>
+<option value="NH">New Hampshire</option>
+<option value="NJ">New Jersey</option>
+<option value="NM">New Mexico</option>
+<option value="NY">New York</option>
+<option value="NC">North Carolina</option>
+<option value="ND">North Dakota</option>
+<option value="ZZ">Not in US</option>
+<option value="OH">Ohio</option>
+<option value="OK">Oklahoma</option>
+<option value="OR">Oregon</option>
+<option value="PA">Pennsylvania</option>
+<option value="PR">Puerto Rico</option>
+<option value="RI">Rhode Island</option>
+<option value="SC">South Carolina</option>
+<option value="SD">South Dakota</option>
+<option value="TN">Tennessee</option>
+<option value="TX">Texas</option>
+<option value="UT">Utah</option>
+<option value="VT">Vermont</option>
+<option value="VI">Virgin Islands</option>
+<option value="VA">Virginia</option>
+<option value="WA">Washington</option>
+<option value="WV">West Virginia</option>
+<option value="WI">Wisconsin</option>
+<option value="WY">Wyoming</option>
+</select>
+</td>
+  </tr>
+</table>
+
+
 
 
 
