@@ -1,0 +1,92 @@
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+
+<link rel=stylesheet href="http://java.sun.com/javaone/javaone2004.css">
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
+
+<title>2004 JavaOne Coding Challenge</title>
+
+
+
+<jsp:include page="../script.jsp" />
+
+</head>
+	<body>
+		<div align="center">
+			<table border=0 cellspacing=0 width="800">
+				<tr>
+					<td colspan="2" align="left" valign="middle"> <img src="/i/events/javaone04/javaone04_logo.gif" width="166" height="80" border="0"/>
+					<img src="/i/clear.gif" width="420" height="80" border="0"/>
+					<a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="166" height="80" border="0"/></a><br/>
+					<img src="/i/events/javaone04/purple_dot.gif" width="800" height="25" border="0"></td></tr>
+				<tr>
+					<td valign="top" width="164"><jsp:include page="links.jsp" /></td>
+					<td valign="top">
+				<!-- start breadcrumb -->
+  						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#F0F0F0" >
+   							<tr><td width="19"><img src="/i/clear.gif" width="634" height="20"></td></tr>
+						</table>
+  				<!-- end breadcrumb -->
+  				
+  				<span class="title"><br/>Schedule</span>
+  				<p></p>
+  						
+			<table width="600" align="left" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td width="33%" class="sidebarTitle">Date</td>
+                    <td width="34%" class="sidebarTitle">Problem Set Theme</td>
+                    <td width="33%" class="sidebarTitle">Time</td>
+                </tr>
+
+                <tr>
+                    <td width="33%" class="sidebarText">Monday, June 28</td>
+                    <td width="34%" class="sidebarText">Web Services - Qualification</td>
+                    <td width="33%" class="sidebarText">11:00 am - 4:00 pm</td>
+                </tr>
+
+                <tr>
+                    <td width="33%" class="sidebarText">Monday, June 28</td>
+                    <td width="34%" class="sidebarText">Web Services - Competition</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                </tr>
+
+                <tr>
+                    <td width="33%" class="sidebarText">Tuesday, June 29</td>
+                    <td width="34%" class="sidebarText">Enterprise Services - Qualification</td>
+                    <td width="33%" class="sidebarText">11:00 am - 4:00 pm</td>
+                </tr>
+
+                <tr>
+                    <td width="33%" class="sidebarText">Tuesday, June 29</td>
+                    <td width="34%" class="sidebarText">Enterprise Services - Competition</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                </tr>
+                
+                <tr>
+                    <td width="33%" class="sidebarText">Wednesday, June 30</td>
+                    <td width="34%" class="sidebarText">Mobility - Qualification</td>
+                    <td width="33%" class="sidebarText">11:00 am - 4:00 pm</td>
+                </tr>
+
+                <tr>
+                    <td width="33%" class="sidebarText">Wednesday, June 30</td>
+                    <td width="34%" class="sidebarText">Mobility - Competition</td>
+                    <td width="33%" class="sidebarText">5:00 pm - 6:00 pm</td>
+                </tr>
+            </table>
+					
+					
+					</td>
+				</tr>
+			</table>
+			<jsp:include page="foot.jsp" />
+		</div>
+	</body>
+</html>
