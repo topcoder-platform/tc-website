@@ -20,6 +20,7 @@
     <table width="100%" border="0" cellpadding="3" cellspacing="0">
 
         <tr><td colspan=3>Notes for <%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%></td></tr>
+        <tr><td colspan=3><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(com.topcoder.web.tc.Constants.HANDLE)%>">View Report Profile</a></p></td>
 
         <tr>
             <td>Text</td>
