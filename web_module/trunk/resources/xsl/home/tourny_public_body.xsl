@@ -103,57 +103,7 @@
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
   </TR>
 </TABLE>
-<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> -->
-
-<!-- Feature -->  
-<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
-  <TR>
-    <TD VALIGN="top" WIDTH="5" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="middle" WIDTH="40%" BGCOLOR="#FFFFFF" HEIGHT="26"><IMG SRC="/i/label_feat.gif" ALT="Weekly Feature" WIDTH="184" HEIGHT="26" BORDER="0"/></TD>
-    <TD WIDTH="60%" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="7" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"/></TD>    
-  </TR>  
-  <TR>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" ALIGN="center" HEIGHT="15">
-      <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=features</xsl:attribute>
-        Upcoming/Past Features
-      </A>
-    </TD>
-    <TD VALIGN="middle" BGCOLOR="#CCCCCC" ALIGN="center"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Feature ideas?</A></TD>
-  </TR>
-</TABLE>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
-  <TR>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
-<!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<IMG SRC="/i/m/polgara_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;polgara<BR/><I>[TC] Member</I><BR/></TD>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
-<A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_082102</xsl:attribute>
-  <B>Wireless Woes and Winners</B></A><BR/>
-<!-- <I>"If you take it slow you'll move up."</I><BR/> -->
-August 21, 2002<BR/>
-
-<P>
-I have a laptop with a wireless card in it. Before you get jealous, you should know that the range 
-is 150 km (100 miles) from the core Toronto area, and it is SLOW!  Dialing-up and pcanywhere-ing 
-to my machine will waste anywhere from 2-4 minutes in connection time, while performing any routine 
-tasks will bring back unwelcome memories of a 300-baud modem...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_082102</xsl:attribute>full&#160;story</A></P>
-<!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
-  </TD>
-    <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>
-  <TR><TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="12" BORDER="0"/></TD></TR>
-  <TR>
-  <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-  <TD VALIGN="top" BGCOLOR="#43515E" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-  <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-  </TR>    
-</TABLE>  
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/> --> 
 
     <!-- Last SRM Begins -->    
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
@@ -174,8 +124,8 @@ tasks will bring back unwelcome memories of a 300-baud modem...<A CLASS="bodyGen
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" COLSPAN="3" CLASS="bodyText"><A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 112</B></A><BR/>
-Monday, September 9, 2002<BR/><BR/> 
+        <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><B>Single Round Match 113</B></A><BR/>
+Tuesday, September 10, 2002<BR/><BR/> 
     </TD>    
     <TD VALIGN="top" WIDTH="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>   
   </TR> 
@@ -218,27 +168,27 @@ Monday, September 9, 2002<BR/><BR/>
              <TD VALIGN="middle" ROWSPAN="2" WIDTH="20%" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0"><B>Div-I</B></TD>
              <TD VALIGN="middle" HEIGHT="16" WIDTH="10%" CLASS="bodyText">&#160;&#160;Best:</TD> 
              <TD VALIGN="middle" WIDTH="35%" CLASS="bodyText" NOWRAP="0">&#160;&#160;pzhao</TD>
-             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">325</TD>
+             <TD VALIGN="middle" WIDTH="15%" CLASS="bodyText" ALIGN="center">235</TD>
              <TD VALIGN="middle" WIDTH="20%" CLASS="bodyText" NOWRAP="0">&#160;Room 4</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;Boyohboy17</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-485</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 1&#160;</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;ChuBerto</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-225</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 5&#160;</TD>
           </TR>
           <TR><TD COLSPAN="5" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>          
           <TR>
              <TD VALIGN="middle" ROWSPAN="2" ALIGN="center" CLASS="bodyText" BGCOLOR="#FFFF66" NOWRAP="0">&#160;<B>Div-II</B></TD>
              <TD VALIGN="middle" HEIGHT="16" CLASS="bodyText">&#160;&#160;Best:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;RocketTeam</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">263</TD>
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 12</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;gpn</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">209</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 21</TD>
           </TR>
           <TR>
              <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;&#160;Worst:</TD> 
-             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;dewmeht</TD>
-             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-340</TD>
+             <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;LeppyR64</TD>
+             <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-428</TD>
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 8</TD>
           </TR>                                
        </TABLE>
@@ -246,7 +196,19 @@ Monday, September 9, 2002<BR/><BR/>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
   <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
-</TABLE>
+</TABLE> 
+<!-- Quick Stats --> 
+<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR>
+     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+     <TD VALIGN="middle" WIDTH="100%" ALIGN="right" CLASS="bodyText" BGCOLOR="#CCCCCC"><B>Select a Quick Stat:&#160;</B></TD>
+     <TD VALIGN="middle" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="16"><xsl:call-template name="quick_stats_pulldown"/></TD>
+     <TD VALIGN="top" WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR><TD COLSPAN="3" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/></TD></TR>
+</TABLE> -->
+
 <!-- Editorials -->
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
@@ -255,10 +217,10 @@ Monday, September 9, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 112</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 113</B></FONT>
     </TD>
   </TR>      
   <TR>    
@@ -275,26 +237,29 @@ Monday, September 9, 2002<BR/><BR/>
     <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD> -->
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm112_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm113_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
 <P>
-The strongest Division-I performance of this match came from <B>ZorbaTHut</B>, who not only 
-turned in 1419.53 points (beating the runner up <B>bigg_nate</B> by 200 points), but also three very 
-nice and readable solutions. 
+SRM 113 had a very difficult and unbalanced problem set - only 6 Div-I coders have successfully completed 
+all three problems. Div-II had even worse results where only one person has completed all thee problems 
+correctly. Especially hard problem was Div-I medium or Div-II hard problem - Lazy Year. The problem statement 
+was easy enough to understand but extremely hard to implement correctly because of numerous special cases and 
+optimizations required to run within 8 seconds time limit.
 </P>
+
 <P>
-Three rookies managed to win rooms in Division-II. The highest rookie score came from <B>madking</B>, 
-whose 1217.95 points gave the second highest Division-II score of the match. <B>Spiffage</B> led Division-II, 
-with 1304.79 points. 
+The strongest Division-I performance of this match came from <B>SnapDragon</B> (1401.95 points, 78 rating points gain), 
+who beat the next runner up - <B>venco</B> by 133 points who had 1268.58 points. There were 6 coders in Division-I who 
+have moved to Division-II after this SRM and there was one coder who became red - ntrhieu (3rd best in Div-I). 
 </P>
+
 <P>
-The problems for this match were a good mix. None were exceptionally difficult or required much 
-genius to solve, but they were difficult enough to provide a challenge to most coders. The most 
-interesting was the Division-I Level 3 problem, in which the proper choice of data structure made 
-more of a difference than usual in these sort of competitions
+Division-II had only one rookie coder <B>uglyfool</B> who has completed all three problems.  Uglyfool was Div-II leader 
+with impressive 1245.53 points, which is by 517 points more, then the next runner up - <B>leadhyena_inran</B>. SRM113 
+placed 20 Div-II coders into Div-I and there was only one rookie coder who won his room uglyfool
 ...<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm112_prob</xsl:attribute>get&#160;analysis
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm113_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
@@ -307,6 +272,54 @@ more of a difference than usual in these sort of competitions
   </TR> 
   <TR><TD VALIGN="top" COLSPAN="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
 </TABLE>
+
+<!-- Feature -->  
+<TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
+  <TR>
+    <TD VALIGN="top" WIDTH="5" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="middle" WIDTH="40%" BGCOLOR="#FFFFFF" HEIGHT="26"><IMG SRC="/i/label_feat.gif" ALT="Weekly Feature" WIDTH="184" HEIGHT="26" BORDER="0"/></TD>
+    <TD WIDTH="60%" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="7" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="7" HEIGHT="1" BORDER="0"/></TD>    
+  </TR>  
+  <TR>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" ALIGN="center" HEIGHT="15">
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=features</xsl:attribute>
+        Upcoming/Past Features
+      </A>
+    </TD>
+    <TD VALIGN="middle" BGCOLOR="#CCCCCC" ALIGN="center"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Feature ideas?</A></TD>
+  </TR>
+</TABLE>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
+  <TR>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
+<!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
+<IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
+By&#160;KaiEl<BR/><I>[TC] Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
+<A CLASS="bodyGeneric">
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_091102</xsl:attribute>
+  <B>...A Problem is Born</B></A><BR/>
+<!-- <I>"If you take it slow you'll move up."</I><BR/> -->
+September 11, 2002<BR/>
+
+<P>
+You probably haven't put much thought into the problem creation process before, have you? You probably just take it for granted that every week there will be new and well-written problems waiting for you in the TopCoder Arena, don't you? Well, someone has to write those problems before you can code them. Someone has to test the solutions to those problems before you can challenge them. These often-neglected members code feverishly just so that you can have the privilege of competing in TopCoder every week! I went into the administrator's lobby during one match to de-mystify the process of how a problem gets from the writer's imagination on to your screen
+...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_091102</xsl:attribute>full&#160;story</A></P>
+<!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
+  </TD>
+    <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+  <TR><TD VALIGN="top" COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="12" BORDER="0"/></TD></TR>
+  <TR>
+  <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+  <TD VALIGN="top" BGCOLOR="#43515E" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+  <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+  </TR>    
+</TABLE> 
 
  <!-- Coder of the Week Begins -->
    <!-- <xsl:call-template name="coder_week"/> -->
@@ -485,7 +498,7 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
   <TR><TD CLASS="statText" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                              
   <TR><TD CLASS="quickstatText" VALIGN="top">
   <!-- Quick Stat Pulldown Begins --> 
-  <xsl:call-template name="quick_stats_pulldown"/>
+       <xsl:call-template name="quick_stats_pulldown"/>
   <!-- Quick Stat Pulldown Ends -->
   <!-- Quick Stat Pulldown Begins --> 
   <!-- <xsl:call-template name="quick_stats_tidbit"/> -->

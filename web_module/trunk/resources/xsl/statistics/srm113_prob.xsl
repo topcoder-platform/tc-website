@@ -405,11 +405,17 @@ int do_it(int index,int cur,int maxx) {
 <P>
 72 out of 97 coders who opened Logical, received 0 points.
 </P>
-  
+Reference implementation: <B>ambrose</B>
 <BR/>
 <h4>Implementation</h4>
+
 <P>
-The problem was unusually easy for 1000 problem - 25 out of 33 people who have submitted the problem got it right. Doing brute force computations and finding the smallest number of block to be illuminated could easily solve it. The maximum number of blocks for this problem was set to 10 so there 2^10 different combinations to try. The only thing left is to parse input and try all combinations.
+One of the solutions to the problem is to enumerate all possible true and 
+false assignment to all letters used. There is a maximum of 20 distinct 
+letters which can be used in this problem, so this enumeration will take O 
+(2^20) combinations. Then each block in the statement has to be evaluated. 
+So, there should be a loop to remove blocks which values are false. Number 
+of the remove blocks should be compared to the best so far.
 </P>
 
 
