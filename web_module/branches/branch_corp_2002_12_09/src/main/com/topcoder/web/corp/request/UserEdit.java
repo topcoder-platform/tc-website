@@ -211,7 +211,7 @@ public class UserEdit extends BaseRegistration {
                 (UserHome)icEJB.lookup(UserHome.EJB_REF_NAME)
             ).create();
             if( createNewUser ) {
-                userTable.createUser(userID, userName);
+                userTable.createUser(userID, userName, 'A');
             }
             userTable.setFirstName(userID, firstName);
             userTable.setLastName(userID, lastName);
@@ -233,7 +233,7 @@ public class UserEdit extends BaseRegistration {
             ).create();
             long emailID;
             if( ! createNewUser ) {
-                emailID = emailTable.getEmailID(userID);
+                emailID = emailTable.getEmailId(userID);
             }
             else {
                 emailID = emailTable.createEmail(userID);
@@ -295,7 +295,7 @@ public class UserEdit extends BaseRegistration {
             Email emailTable = (
                 (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
             ).create();
-            long emailID = emailTable.getEmailID(userID);
+            long emailID = emailTable.getEmailId(userID);
             email = emailTable.getAddress(userID, emailID); 
             setFormFieldDefault(KEY_EMAIL, email);
 

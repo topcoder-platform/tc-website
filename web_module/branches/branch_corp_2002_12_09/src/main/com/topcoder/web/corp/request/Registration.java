@@ -374,7 +374,7 @@ public class Registration extends BaseRegistration {
             User userTable = (
                 (UserHome)icEJB.lookup(UserHome.EJB_REF_NAME)
             ).create();
-            userTable.createUser(userID, userName);
+            userTable.createUser(userID, userName, 'A');
             userTable.setFirstName(userID, firstName);
             userTable.setLastName(userID, lastName);
             
