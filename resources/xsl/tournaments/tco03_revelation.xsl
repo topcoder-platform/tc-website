@@ -48,7 +48,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="15">
 
 <!-- 2003 JavaOne Conference -->
-                <tr><td align="center"><A href="http://www.revelation.com" target="_blank"><img src="/i/tournament/tco03/sponsors/revelation_header.jpg" alt="Revelation Software is a corporate sponsor of the 2003 TopCoder Open" width="565" height="91" /></A></td></tr>
+                <tr><td align="center"><A href="http://www.revelation.com" target="_blank"><img src="/i/tournament/tco03/sponsors/revelation_header.jpg" alt="Revelation Software is a corporate sponsor of the 2003 TopCoder Open" width="565" height="91" border="0" /></A></td></tr>
                             
                 <tr valign="top">
                     <td class="promoText" width="99%">
@@ -61,8 +61,8 @@
 
                 <tr valign="top">
                     <td class="promoText" width="99%">
-                        <p><img src="/i/tournament/tco03/sponsors/revelation_pullquote.gif" alt="" width="194" height="138" align="right" />
-                        <img src="/i/tournament/tco03/sponsors/revelation_subhead1.gif" alt="Multi-Value Database" width="245" height="22" /><br />
+                        <p><img src="/i/tournament/tco03/sponsors/revelation_pullquote.gif" alt="" width="194" height="138" border="0" align="right" />
+                        <img src="/i/tournament/tco03/sponsors/revelation_subhead1.gif" alt="Multi-Value Database" width="245" height="22" border="0" /><br />
                         <font face="times">Our database technology is a PC-based implementation of the MultiValue Database, or MVDB. The 
                         MultiValue (MV) architecture is a mature, powerful technology whose roots go back to the Apollo space program era 
                         (various NASA sites use OpenInsight today). The technology is also sometimes called Post-Relational, 
@@ -73,7 +73,7 @@
 
                 <tr valign="top">
                     <td class="promoText" width="99%">
-                        <p><A href="http://www.revelation.com/website/vipweb.nsf/e4a32622500660198525631900091149/5c1fc5847f2a73eb852563f500761db4?OpenDocument" target="_blank"><img src="/i/tournament/tco03/sponsors/revelation_openinsight_logo.gif" alt="OpenInsight" width="194" height="155" align="right" /></A>
+                        <p><A href="http://www.revelation.com/website/vipweb.nsf/e4a32622500660198525631900091149/5c1fc5847f2a73eb852563f500761db4?OpenDocument" target="_blank"><img src="/i/tournament/tco03/sponsors/revelation_openinsight_logo.gif" alt="OpenInsight" width="194" height="155" border="0" align="right" /></A>
                         <img src="/i/tournament/tco03/sponsors/revelation_subhead2.gif" alt="OpenInsight for Workgroups" width="315" height="22" /><br />
                         <font face="times"><A href="http://www.revelation.com/website/vipweb.nsf/e4a32622500660198525631900091149/5c1fc5847f2a73eb852563f500761db4?OpenDocument" target="_blank">OpenInsight for Workgroups</A> 
                         is a repository-based applications development environment that 
@@ -93,7 +93,7 @@
 
                 <tr valign="top">
                     <td class="promoText" width="99%">
-                        <p><img src="/i/tournament/tco03/sponsors/revelation_subhead3.gif" alt="Developer Network" width="245" height="22" /><br />
+                        <p><img src="/i/tournament/tco03/sponsors/revelation_subhead3.gif" alt="Developer Network" width="245" height="22" border="0" /><br />
                         <font face="times">The Revelation Software Developers Network is provided to foster and support the Revelation 
                         community by offering a resource for networking and solutions. If you need help with your Advanced Revelation or 
                         OpenInsight applications, there are Revelation <A href="http://www.revelation.com/DEVNET.NSF/74f7ca4127a6aae485256682006be8d3?OpenView" target="_blank">consultants</A> 
