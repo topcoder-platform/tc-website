@@ -8,7 +8,7 @@
 
 </head>
 
-<body>
+<body onLoad="timer(1);">
 
 <jsp:include page="top.jsp" >
     <jsp:param name="level1" value="review_board"/>
@@ -48,7 +48,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google&d2=google_overview"><img src="/i/events/google2003/index_google.gif" alt="2003 GECC" width="274" height="66" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google&d2=google_overview" target="_blank"><img src="/i/events/google2003/index_google.gif" alt="2003 GECC" width="274" height="66" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText" colspan="2"><font size="3"><strong>2003 Google&#153; Extreme Coding Challenge</strong></font></td>
                 </tr>
@@ -57,7 +57,7 @@
                         November 14<br />
                         Google headquarters<br/>
                         Mountain View, California<br />
-                        <A href="/pl/?&module=Static&d1=google&d2=google_overview">Summary</A>
+                        <A href="/pl/?&module=Static&d1=google&d2=google_overview" target="_blank">Summary</A>
                     </td>
                     <td valign="bottom" width="1%"><img src="/i/clear.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></td>
                 </tr>
@@ -132,14 +132,13 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
-         <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="public_right.jsp">
-               <jsp:param name="level1" value="review_board"/>
-               <jsp:param name="level2" value="competition"/>
+               <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->

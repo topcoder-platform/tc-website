@@ -23,7 +23,7 @@
 
 </HEAD>
 
-<BODY>
+<body onLoad="timer(1);">
 
 <jsp:include page="../top.jsp" />
 
@@ -366,6 +366,6 @@ pageContext.setAttribute("resultSet", rsc3);
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />
- </BODY>
+ </body>
 </HTML>
 
