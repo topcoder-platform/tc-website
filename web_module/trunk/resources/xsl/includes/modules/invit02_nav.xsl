@@ -25,10 +25,10 @@
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Room 1:</B><BR/>
-			- <A HREF="/index?t=tournament&amp;c=invit02_semiroom1" CLASS="bodyText"></A>Summary<BR/>
-			- <A HREF="/index?t=tournament&amp;c=invit02_semiprob1" CLASS="bodyText"></A>Problems<BR/>			
-			- <A HREF="/index?t=tournament&amp;c=invit02_semiprob1#log" CLASS="bodyText"></A>Log<BR/>
-			- <A HREF="/index?t=tournament&amp;c=invit02_semiroom1#photo" CLASS="bodyText"></A>Photos<BR/>
+			- <A HREF="/index?t=tournament&amp;c=invit02_semiroom1" CLASS="bodyText">Summary</A><BR/>
+			- <A HREF="/index?t=tournament&amp;c=invit02_semiprob1" CLASS="bodyText">Problems</A><BR/>			
+			- <A HREF="/index?t=tournament&amp;c=invit02_semiprob1#log" CLASS="bodyText">Log</A><BR/>
+			- <A HREF="/index?t=tournament&amp;c=invit02_semiroom1#photo" CLASS="bodyText">Photos</A><BR/>
 			</TD>		
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Room 2:</B><BR/>
 			- <A HREF="/index?t=tournament&amp;c=invit02_semiroom2" CLASS="bodyText"></A>Summary<BR/>
