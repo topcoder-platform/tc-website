@@ -6,7 +6,7 @@
 
 <ejb-jar>
   <enterprise-beans>
-    <entity>
+    <session>
       <ejb-name>AuthenticationServices</ejb-name>
       <home>com.topcoder.ejb.AuthenticationServices.AuthenticationServicesHome</home>
       <remote>com.topcoder.ejb.AuthenticationServices.AuthenticationServices</remote>
@@ -28,7 +28,7 @@
         <env-entry-type>java.lang.Integer </env-entry-type>
         <env-entry-value>13</env-entry-value>
       </env-entry>
-    </entity>
+    </session>
   </enterprise-beans>
   <assembly-descriptor>
     <container-transaction>
