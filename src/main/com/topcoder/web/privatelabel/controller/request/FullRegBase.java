@@ -17,7 +17,7 @@ import java.util.*;
  * involved in a registration process.
  * @author gpaul 06.26.2003
  */
-abstract class FullRegBase extends SimpleRegBase {
+public abstract class FullRegBase extends SimpleRegBase {
 
     protected static Logger log = Logger.getLogger(FullRegBase.class);
     protected Map questions;
