@@ -66,7 +66,7 @@
                         have completed an undergraduate degree, and be a current resident of Chennai, India.<br /></p>
 
                         <% if (regInfo.isRegFull()) { %>
-                        <p>Registration is full</p
+                        <p>Registration is full<br/></p
                         <% } %>
 
                             <table cellpadding="0" cellspacing="3" class="bodyText" align="center" border="0">
