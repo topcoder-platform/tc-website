@@ -298,7 +298,7 @@
             </TD>
             <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" VALIGN="left"> 
               <A>
-                <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
+                <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="CoderId"/></xsl:attribute>
                 <xsl:attribute name="CLASS">statText</xsl:attribute>
                 <FONT>
                   <xsl:attribute name="color">

@@ -113,8 +113,7 @@ Member Selection: Closed<BR/>
 Project: <A HREF="/index?t=development&amp;c=dde1" CLASS="statTextBig">Design of the TopCoder Distributed Development Environment</A><BR/>
 Start Date: May 21, 2002<BR/>
 End Date: June 11, 2002<BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: TBD<BR/>
+Member Selection: Closed<BR/>
 </P>
 
 <P>
