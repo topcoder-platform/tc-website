@@ -74,66 +74,68 @@
                         <TR>
                           <TD COLSPAN="3" ALIGN="center">
                             <xsl:choose>
-                              <xsl:when test="ContestId='4095'">
-                                <IMG SRC="/i/mot_srm_banner.gif" ALT="" WIDTH="428" HEIGHT="108" BORDER="0" />
+                              <xsl:when test="ContestId='4175'">
+                                <a href="Javascript:sponsorLink('http://www.topcoder.com/contest/citrix.html')"><IMG SRC="/i/srm91_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
+                              </xsl:when>
+                              <xsl:when test="ContestId='4185'">
+                                <a href="Javascript:sponsorLink('http://www.topcoder.com/contest/citrix.html')"><IMG SRC="/i/srm93_citrix.jpg" ALT="" WIDTH="414" HEIGHT="172" BORDER="0" /></a>
                               </xsl:when>
                               <xsl:otherwise>
                                 <IMG SRC="/i/srm_banner.jpg" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
+                                <TR BGCOLOR="#CCCCCC">
+                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
+                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>
+                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Start</B></TD>
+                                </TR>
+                                <TR BGCOLOR="#666666">
+                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                  <b>
+                                  <xsl:choose>
+                                    <xsl:when test="ContestId='4155'">05/09/2002<br/></xsl:when>
+                                    <xsl:when test="ContestId='4160'">05/15/2002<br/></xsl:when>
+                                    <xsl:when test="ContestId='4165'">05/18/2002<br/></xsl:when>
+                                    <xsl:when test="ContestId='4170'">05/21/2002<br/></xsl:when>
+                                    <xsl:when test="ContestId='4175'">05/22/2002<br/></xsl:when>
+                                    <xsl:otherwise>
+                                      <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
+                                    </xsl:otherwise>
+                                  </xsl:choose>
+                                  </b>
+                                  </TD>
+                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                    <B>
+                                      <xsl:choose>
+                                        <xsl:when test="ContestId='4155'">7:30 PM</xsl:when>
+                                        <xsl:when test="ContestId='4160'">7:30 PM</xsl:when>
+                                        <xsl:when test="ContestId='4165'">11:30 AM</xsl:when>
+                                        <xsl:when test="ContestId='4170'">7:30 PM</xsl:when>
+                                        <xsl:when test="ContestId='4175'">7:30 PM</xsl:when>
+                                        <xsl:otherwise>
+                                          <xsl:value-of select="$start_hr"/>:<xsl:value-of select="$start_min"/>&#160;<xsl:value-of select="$am_pm"/>
+                                        </xsl:otherwise>
+                                      </xsl:choose>
+                                    </B>
+                                  </TD>
+                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                    <B>
+                                      <xsl:choose>
+                                        <xsl:when test="ContestId='4155'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
+                                        <xsl:when test="ContestId='4160'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
+                                        <xsl:when test="ContestId='4165'">1:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
+                                        <xsl:when test="ContestId='4170'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
+                                        <xsl:when test="ContestId='4175'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
+                                        <xsl:otherwise>
+                                          <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/>&#160;<xsl:value-of select="ShortDaylight"/>.
+                                        </xsl:otherwise>
+                                      </xsl:choose>
+                                    </B>
+                                  </TD>
+                                </TR>
                               </xsl:otherwise>
                             </xsl:choose>
                           </TD>
                         </TR>
-                        <TR BGCOLOR="#CCCCCC">
-                          <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
-                          <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>
-                          <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Start</B></TD>
-                        </TR>
 
-
-                        <TR BGCOLOR="#666666">
-                          <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                          <b>
-                          <xsl:choose>
-                            <xsl:when test="ContestId='4155'">05/09/2002<br/></xsl:when>
-                            <xsl:when test="ContestId='4160'">05/15/2002<br/></xsl:when>
-                            <xsl:when test="ContestId='4165'">05/18/2002<br/></xsl:when>
-                            <xsl:when test="ContestId='4170'">05/21/2002<br/></xsl:when>
-                            <xsl:when test="ContestId='4175'">05/22/2002<br/></xsl:when>
-                            <xsl:otherwise>
-                              <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
-                            </xsl:otherwise>
-                          </xsl:choose>
-                          </b>
-                          </TD>
-                          <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                            <B>
-                              <xsl:choose>
-                                <xsl:when test="ContestId='4155'">7:30 PM</xsl:when>
-                                <xsl:when test="ContestId='4160'">7:30 PM</xsl:when>
-                                <xsl:when test="ContestId='4165'">11:30 AM</xsl:when>
-                                <xsl:when test="ContestId='4170'">7:30 PM</xsl:when>
-                                <xsl:when test="ContestId='4175'">7:30 PM</xsl:when>
-                                <xsl:otherwise>
-                                  <xsl:value-of select="$start_hr"/>:<xsl:value-of select="$start_min"/>&#160;<xsl:value-of select="$am_pm"/>
-                                </xsl:otherwise>
-                              </xsl:choose>
-                            </B>
-                          </TD>
-                          <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
-                            <B>
-                              <xsl:choose>
-                                <xsl:when test="ContestId='4155'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                <xsl:when test="ContestId='4160'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                <xsl:when test="ContestId='4165'">1:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                <xsl:when test="ContestId='4170'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                <xsl:when test="ContestId='4175'">9:00 PM <xsl:value-of select="ShortDaylight"/>.</xsl:when>
-                                <xsl:otherwise>
-                                  <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/>&#160;<xsl:value-of select="ShortDaylight"/>.
-                                </xsl:otherwise>
-                              </xsl:choose>
-                            </B>
-                          </TD>
-                        </TR>
                       </xsl:for-each>
                       
                       
