@@ -1,9 +1,12 @@
+<%@ page import="com.topcoder.web.corp.common.Constants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
+<%@ taglib uri="screening.tld" prefix="screen" %>
+
 <SCRIPT LANGUAGE="JavaScript">
 <!--
 var MM_contentVersion = 6;
@@ -30,12 +33,29 @@ if ( plugin ) {
 //-->
 </SCRIPT>
 
+<SCRIPT TYPE="text/javascript">
+<!--
+function getProblemDetail(id) {
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top="
+        + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="problemDetail";
+
+    window.open('/corp/testing/?module=PopulateProblemDetail&roundProblemId='+id,name,cmd);
+    return;
+  }
+-->
+</SCRIPT>
+
 </HEAD>
 <body>
 
 <!-- Header begins -->
 <%--<jsp:include page="../includes/top.jsp" />--%>
-<jsp:include page="../includes/topTemp.jsp" />
+<jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -49,8 +69,8 @@ if ( plugin ) {
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="200" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText"> 
-                        
+                    <td class="bodyText">
+
                         <p class=testHead>Candidate Info</p>
 
                     </td>
@@ -60,55 +80,90 @@ if ( plugin ) {
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrameNB">
                 <tr>
                     <td valign=top class=screeningCellBG>
-                
+
                     <table cellspacing="0" cellpadding="0" border=0 class=bodyText width="100%">
+
+                        <!-- Personal info -->
                         <tr>
                             <td class="screeningHeader" colspan=2>Personal Info</td>
                         </tr>
+                        <screen:resultSetRowIterator id="personalInfo" list="<%=request.getParameter(Constants.CANDIDATE_PERSONAL_INFO)%>">
                         <tr>
                             <td class="screeningCellOdd" align=right nowrap=nowrap>First Name:</td>
-                            <td class="screeningCellOdd" width="100%">John</td>
+                            <td class="screeningCellOdd" width="100%">
+                                <screen:resultSetItem row="<%=personalInfo%>" name="first_name" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right nowrap=nowrap>Middle Initial:</td>
-                            <td class="screeningCellEven">Q</td>
+                            <td class="screeningCellEven">
+                                <screen:resultSetItem row="<%=personalInfo%>" name="middle_name" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right nowrap=nowrap>Last Name:</td>
-                            <td class="screeningCellOdd">Doe</td>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=personalInfo%>" name="last_name" />
+                            </td>
                         </tr>
+                        </screen:resultSetRowIterator>
+
+                        <screen:resultSetRowIterator id="emailInfo" list="<%=request.getParameter(Constants.CANDIDATE_EMAIL)%>">
                         <tr>
+                            <!-- Email address -->
                             <td class="screeningCellEven" align=right nowrap=nowrap>Email Address:</td>
-                            <td class="screeningCellEven">jdoe@topcoder.com</td>
+                            <td class="screeningCellEven">
+                                <screen:resultSetItem row="<%=emailInfo%>" name="email_address" />
+                            </td>
                         </tr>
+                        </screen:resultSetRowIterator>
+
+                        <!-- Address info -->
+                        <screen:resultSetRowIterator id="addressInfo" list="<%=request.getParameter(Constants.CANDIDATE_ADDRESS_INFO)%>">
                         <tr>
                             <td class="screeningCellOdd" align=right>Address 1:</td>
-                            <td class="screeningCellOdd">123 This St.</td>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=addressInfo%>" name="address1" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right>Address 2:</td>
-                            <td class="screeningCellEven"></td>
+                            <td class="screeningCellEven">
+                                <screen:resultSetItem row="<%=addressInfo%>" name="address2" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right>Address 3:</td>
-                            <td class="screeningCellOdd"></td>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=addressInfo%>" name="address3" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right>City:</td>
-                            <td class="screeningCellEven">Capital City</td>
+                            <td class="screeningCellEven">
+                                <screen:resultSetItem row="<%=addressInfo%>" name="city" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right>State:</td>
-                            <td class="screeningCellOdd">CT</td>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=addressInfo%>" name="state_code" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right>Zip Code:</td>
-                            <td class="screeningCellEven">012345</td>
+                            <td class="screeningCellEven">
+                                <screen:resultSetItem row="<%=addressInfo%>" name="zip" />
+                            </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right>Country:</td>
-                            <td class="screeningCellOdd">United States</td>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=addressInfo%>" name="country" />
+                            </td>
                         </tr>
+                        </screen:resultSetRowIterator>
+
                         <tr>
                             <td class="screeningCellEven" align=right>Preference Level:</td>
                             <td class="screeningCellEven" valign=middle>
@@ -152,59 +207,55 @@ if ( MM_FlashCanPlay ) {
 
                     <td><img src="/i/clear.gif" border=0 width=10 height=1/></td>
 
+                    <!-- Demographic questions -->
                     <td valign=top class=screeningCellBG>
                     <table cellspacing="0" cellpadding="0" border=0 class=bodyText width="100%">
                         <tr>
                             <td class="screeningHeader" colspan=2>Demographic Info</td>
                         </tr>
-                        <tr>
-                            <td class="screeningCellOdd">Student or Professional?</td>
-                            <td class="screeningCellOdd">Professional</td>
-                        </tr>
-                        <tr>
-                            <td class="screeningCellEven" width="60%">Are you currently seeking employment?</td>
-                            <td class="screeningCellEven">Yes</td>
-                        </tr>
-                        <tr>
-                            <td class="screeningCellOdd">Are you currently employed?</td>
-                            <td class="screeningCellOdd">No</td>
-                        </tr>
-                        <tr>
-                            <td class="screeningCellEven">This is an example of a long question that will test how the table handles questions that need to wrap?</td>
-                            <td class="screeningCellEven">Yes</td>
-                        </tr>
-                        <tr>
-                            <td class="screeningCellOdd">Are you willing to relocate?</td>
-                            <td class="screeningCellOdd">Yes</td>
-                        </tr>
-                    </table>
 
+                        <screen:resultSetRowIterator id="demographicInfo" list="<%=request.getParameter(Constants.CANDIDATE_DEMOGRAPHIC_INFO)%>">
+                        <tr>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=demographicInfo%>" name="demographic_question_text" />
+                            </td>
+                            <td class="screeningCellOdd">
+                                <screen:resultSetItem row="<%=demographicInfo%>" name="demographic_answer_text" />
+                            </td>
+                        </tr>
+                        </screen:resultSetRowIterator>
+                    </table>
                     </td>
                 </tr>
             </table>
 
+            <!-- Notes -->
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td width="70%" class="screeningHeader">Notes</td>
                     <td width="15%" align="center" class="screeningHeader">Author</td>
                     <td width="15%" align="center" class="screeningHeader">Date Created</td>
                 </tr>
+
+               <screen:resultSetRowIterator id="notes" list="<%=request.getParameter(Constants.CANDIDATE_NOTES)%>">
                 <tr>
-                    <td valign=top width="70%"class=screeningCellOdd><strong>This is an example of a very long note.  This note should check the spacing of the this table and how it will react to a message that wraps and extends the cell.</strong></td>
-                    <td valign=top width="15%"class=screeningCellOdd align=center>PGriffin</td>
-                    <td valign=top width="15%"class=screeningCellOdd align=center>06/20/2004</td>
+                    <td valign=top width="70%"class=screeningCellOdd>
+                      <strong>
+                        <screen:resultSetItem row="<%=notes%>" name="text" />
+                      </strong>
+                    </td>
+
+                    <td valign=top width="15%"class=screeningCellOdd align=center>
+                        <screen:resultSetItem row="<%=notes%>" name="created_by" />
+                    </td>
+
+                    <td valign=top width="15%"class=screeningCellOdd align=center>
+                        <screen:resultSetItem row="<%=notes%>" name="create_date" />
+                    </td>
                 </tr>
+               </screen:resultSetRowIterator>
+
                 <tr>
-                    <td valign=top width="70%"class=screeningCellEven><strong>Impressive work</strong></td>
-                    <td valign=top width="15%"class=screeningCellEven align=center>D9S</td>
-                    <td valign=top width="15%"class=screeningCellEven align=center>06/01/2004</td>
-                </tr>
-                <tr>
-                    <td valign=top width="70%"class=screeningCellOdd><strong>Good timing but code could be a little cleaner</strong></td>
-                    <td valign=top width="15%"class=screeningCellOdd align=center>DLRoth</td>
-                    <td valign=top width="15%"class=screeningCellOdd align=center>06/01/2004</td>
-                </tr>
-                 <tr>
                     <td class="screeningCellEven" colspan="3" align=center><img src="/i/corp/addNoteButton.gif" border=0/></td>
                 </tr>
             </table>
@@ -224,7 +275,9 @@ if ( MM_FlashCanPlay ) {
                     <td width="14%" align="center" class="screeningCellOdd">done</td>
                     <td width="14%" align="center" class="screeningCellOdd">00:40.20</td>
                     <td width="14%" align="center" class="screeningCellOdd">90.90</td>
-                    <td width="14%" align="center" class="screeningCellOdd"><A href="/">view</A></td>
+                    <td width="14%" align="center" class="screeningCellOdd">
+                        <A href="javascript:getProblemDetail(?);">view</A>
+                    </td>
                 </tr>
             </table>
 
