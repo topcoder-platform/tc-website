@@ -48,15 +48,15 @@
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
 
 <jsp:useBean id="LoginTask" scope="request"
-class="com.topcoder.web.tces.servlet.LoginCommand" />
+class="com.topcoder.web.tces.servlet.LoginTask" />
 
 <p class='notice'>
 <jsp:getProperty name="LoginTask" property="Message" />
 </p>
 
 <FORM NAME="login" METHOD="POST" ACTION="/tces/tces" onSubmit="">
-<INPUT TYPE="HIDDEN" NAME="c" VALUE="login">
-<INPUT TYPE="HIDDEN" NAME="st" VALUE="a">
+<INPUT TYPE="HIDDEN" NAME="<%= TCESConstants.TASK_PARAM %>" VALUE="<%= TCESConstants.LOGIN_TASK %>">
+<INPUT TYPE="HIDDEN" NAME="<%= TCESConstants.STEP_PARAM %>" VALUE="<%= TCESConstants.LOGIN_TASK_STEP_AUTH %>">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">User:</TD>
