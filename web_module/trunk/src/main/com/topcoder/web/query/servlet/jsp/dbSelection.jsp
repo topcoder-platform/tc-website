@@ -34,7 +34,7 @@
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
         <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <TR><TD CLASS="statText"><%=Constants.DB_SELECTION_NAME%></TD></TR>
+          <TR><TD CLASS="statTextBig"><%=Constants.DB_SELECTION_NAME%></TD></TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>
           <query:DBIterator id="db" list="<%=Constants.DB_LIST%>">
             <TR><TD>
