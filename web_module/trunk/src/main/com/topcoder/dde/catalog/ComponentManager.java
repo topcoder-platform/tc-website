@@ -209,7 +209,7 @@ public interface ComponentManager extends javax.ejb.EJBObject {
      * the component managed by this instance, or if the information cannot be
      * updated
      */
-    public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor)
+    public void updateVersionInfo(ComponentVersionInfo info, TCSubject requestor, long levelId)
         throws RemoteException, CatalogException;
 
     /**

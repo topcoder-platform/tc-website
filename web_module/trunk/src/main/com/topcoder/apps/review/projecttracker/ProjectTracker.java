@@ -1,7 +1,7 @@
 /*
  * ProjectTracker.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -105,7 +105,8 @@ public interface ProjectTracker extends EJBObject {
             long projectTypeId,
             String overview,
             Date[] dates,
-            TCSubject requestor)
+            TCSubject requestor,
+            long levelId)
         throws TCException, RemoteException;
 
     /**

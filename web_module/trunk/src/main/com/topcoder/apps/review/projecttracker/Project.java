@@ -1,7 +1,7 @@
 /*
  * Project.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ? 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -45,6 +45,7 @@ public class Project implements Serializable {
     private boolean dirtyFlag = false;
     private long requestorId;
     private long versionId;
+    private long levelId;
 
     /**
      * Creates a new Project object.
@@ -68,7 +69,7 @@ public class Project implements Serializable {
             PhaseInstance[] timeline, PhaseInstance currentPhase, UserRole[] userRole, String notes, String overView,
             ProjectType projectType, ProjectStatus projectStatus, boolean notificationSent,
             long screeningTemplateId, long reviewTemplateId,
-            long requestorId, long versionId) {
+            long requestorId, long versionId, long levelId) {
         this.id = id;
         this.componentId = componentId;
         this.forumId = forumId;
@@ -89,6 +90,15 @@ public class Project implements Serializable {
         this.reviewTemplateId = reviewTemplateId;
         this.requestorId = requestorId;
         this.versionId = versionId;
+        this.levelId = levelId;
+    }
+    
+    protected long getLevelId() {
+        return levelId;
+    }
+    
+    protected void setLevelId(long levelId) {
+        this.levelId = levelId;
     }
 
     /**
