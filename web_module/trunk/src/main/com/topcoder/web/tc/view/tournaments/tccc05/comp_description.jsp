@@ -31,8 +31,7 @@
                 <li><strong>Online Rounds</strong><br />
                     January 4 - February 3, 2004</li>
                 <li><strong>Onsite Finals</strong><br />
-                    March 10 & 11<br />
-					at the Santa Clara Marriott in Santa Clara, CA, USA</li>
+                    March 10 & 11 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
                 <li><strong>Free Competition</strong><br /></li>
                 <li><strong>Open to all eligible college students over the age of 18.</strong></li>
             </ul>

@@ -79,39 +79,39 @@
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">Development Contest</td>
-                    <td class="sidebarTitle">Start Date/Projects Posted
-                    <td class="sidebarTitle">Registration Deadline
-                    <td class="sidebarTitle">End Date / Submission Deadline
+                    <td class="sidebarTitle">Start Date/Projects Posted</td>
+                    <td class="sidebarTitle">Registration Deadline</td>
+                    <td class="sidebarTitle">End Date / Submission Deadline</td>
 				</tr>
 				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 1
-                    <td class="sidebarText" nowrap=nowrap>01.04.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.06.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>Week 1</td>
+                    <td class="sidebarText" nowrap=nowrap>01.04.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>01.06.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM</td>
 				</tr>
 				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 2
-                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.13.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>Week 2</td>
+                    <td class="sidebarText" nowrap=nowrap>01.11.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>01.13.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM</td>
 				</tr>
 				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 3
-                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.20.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>Week 3</td>
+                    <td class="sidebarText" nowrap=nowrap>01.18.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>01.20.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM</td>
 				</tr>
 				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Week 4
-                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>01.27.2005 9:00AM
-                    <td class="sidebarText" nowrap=nowrap>02.01.2005 9:00AM
+                    <td class="sidebarText" nowrap=nowrap>Week 4</td>
+                    <td class="sidebarText" nowrap=nowrap>01.25.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>01.27.2005 9:00AM</td>
+                    <td class="sidebarText" nowrap=nowrap>02.01.2005 9:00AM</td>
 				</tr>
 				<tr>
-                    <td class="sidebarText" nowrap=nowrap>Championship round
+                    <td class="sidebarText" nowrap=nowrap>Championship round</td>
                     <td class="sidebarText" nowrap=nowrap>03.10.2005</td>
-                    <td class="sidebarText" nowrap=nowrap>N/A
-                    <td class="sidebarText" nowrap=nowrap>03.10.2005
+                    <td class="sidebarText" nowrap=nowrap>N/A</td>
+                    <td class="sidebarText" nowrap=nowrap>03.10.2005</td>
 				</tr>
 			</table>
 
