@@ -44,7 +44,7 @@ public class StudentRegistration extends Base {
 
   private final static String CONFIRM_PAGE="confirm_student.jsp";
 
-  private final static String THANK_YOU_PAGE="thankyou.jsp";
+  private final static String THANK_YOU_PAGE="thankyou_student.jsp";
 
   private final static String REGISTER_CMD="register";
 
