@@ -9,6 +9,7 @@ import com.topcoder.web.tc.model.ProblemRatingQuestion;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.common.NavigationException;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -45,13 +46,19 @@ abstract public class Base extends BaseProcessor {
     }
     protected void processResults() throws Exception{
         Request r = new Request();
+        String pid = getRequest().getParameter(Constants.PROBLEM_ID);
+        if(pid==null) 
+            throw new NavigationException("Problem ID is invalid");
         r.setContentHandle("Problem Rating Results");
-        r.setProperty("pm", getRequest().getParameter(Constants.PROBLEM_ID));
+        r.setProperty("pm", pid);
         //response data has to be live, no cache
         DataAccessInt dataAccess = getDataAccess();
         Map qMap = dataAccess.getData(r);
         ResultSetContainer questions = (ResultSetContainer) qMap.get("problem rating results");
         ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
+        if(problemName.size()==0){
+            throw new NavigationException("Problem ID is invalid");
+        }
         getRequest().setAttribute("problemRatingResults",questions);
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
         setNextPage(Constants.PROBLEM_RATING_RESULTS);
@@ -62,7 +69,10 @@ abstract public class Base extends BaseProcessor {
         long userID = getUser().getId();
         Request r = new Request();
         r.setContentHandle("Problem Rating Questions");
-        r.setProperty("pm", getRequest().getParameter(Constants.PROBLEM_ID));
+        String pid = getRequest().getParameter(Constants.PROBLEM_ID);
+        if(pid==null) 
+            throw new NavigationException("Problem ID is invalid");
+        r.setProperty("pm", pid);
         r.setProperty("cr", String.valueOf(userID));
         //response data has to be live, no cache
         DataAccessInt dataAccess = getDataAccess();
@@ -84,6 +94,9 @@ abstract public class Base extends BaseProcessor {
             questions.add(prq);
         }
         getRequest().setAttribute("problemRatingQuestions",questions);
+        if(problemName.size()==0){
+            throw new NavigationException("Problem ID is invalid");
+        }
         getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
         setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
         setIsNextPageInContext(true);

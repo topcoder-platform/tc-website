@@ -64,6 +64,12 @@ public class Submit extends Base {
                return;
 //                throw new NavigationException("You may only rate a problem once.");
             }
+            ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
+            if(problemName.size()==0){
+                //problem is not used yet, or non-exsistent
+                throw new NavigationException("Problem ID is invalid");
+            }
+            
             ctx = new InitialContext();
             ProblemRatingServices prs = (ProblemRatingServices)createEJB(ctx, ProblemRatingServices.class);
 
