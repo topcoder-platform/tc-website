@@ -85,7 +85,14 @@
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4635&amp;t=schedule&amp;c=srm">Details</A></td>
-                                <td id="calendar">2</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">2</span><br />
+                                    <strong>2003 TCO: Development / Design</strong><br />
+                                    Online Round #1<br />
+                                    Winners announced<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">3</td>
                                 <td id="calendar">4</td>
                             </tr>
@@ -101,7 +108,14 @@
                                     Compete: 9:00&#160;PM<br />
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <strong>2003 TCO: Development</strong><br />
+                                    Online Round #2<br />
+                                    Projects posted: 12:00&#160;AM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">8</td>
                                 <td id="calendarTCO03">
                                     <span id="calendarTCO03Date">9</span><br />
@@ -111,7 +125,14 @@
                                     Compete: 10:00&#160;PM<br />
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <strong>2003 TCO: Design</strong><br />
+                                    Online Round #2<br />
+                                    Projects posted: 12:00&#160;AM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">10</td>
                                 <td id="calendar">11
                                 &#160;<br />
@@ -148,7 +169,14 @@
                             
                             <tr> 
                                 <td id="calendar">19</td>
-                                <td id="calendar">20</td>
+                                <td id="calendarTCO03">
+                                    <span id="calendarTCO03Date">20</span><br />
+                                    <strong>2003 TCO: Development</strong><br />
+                                    Online Round #2<br />
+                                    Submissions deadline: 11:59&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">21</span><br />
                                     <strong>Match 168</strong><br />
@@ -165,7 +193,14 @@
                                     Compete: 9:30&#160;PM<br />
                                     <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
+                                    <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <strong>2003 TCO: Design</strong><br />
+                                    Online Round #2<br />
+                                    Submissions deadline: 11:59&#160;PM<br />
+                                    <!-- Sponsored by: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?t=tournaments&amp;c=tco03_comp_sched" class="statText">Details</A></td>
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
