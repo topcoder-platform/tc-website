@@ -1155,3 +1155,22 @@ where
   u.user_id not in (select user_id from group_user where group_id = 13)
 "
 
+java com.topcoder.utilities.QueryLoader "OLTP" 89 "Additional Invitational Sign Up List 0926" 0 0 "
+select
+  email as email_address
+  , handle
+from
+  user u,
+  coder c,
+  rating r,
+  room_result rr
+where
+  u.user_id = c.coder_id and
+  r.coder_id = c.coder_id and
+  rr.coder_id = c.coder_id and
+  rr.round_id = 4285 and
+  rr.attended = 'Y' and
+  rr.old_rating is not null and
+  r.num_ratings = 3 and
+  u.status = 'A'
+"

@@ -57,6 +57,7 @@ INSERT INTO command VALUES(59,"TCES Notification",1);
 INSERT INTO command VALUES(60,"invitational_info",10);
 INSERT INTO command VALUES(61,"IMLP Targeted School List",1);
 INSERT INTO command VALUES(62,"Invitational Sign Up List",1);
+INSERT INTO command VALUES(63,"Additional Invitational Sign Up List 0926",1);
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
@@ -167,6 +168,7 @@ INSERT INTO command_query_xref VALUES(60, 84, 1);
 INSERT INTO command_query_xref VALUES(60, 86, 1);
 INSERT INTO command_query_xref VALUES(61, 87, 1);
 INSERT INTO command_query_xref VALUES(62, 88, 1);
+INSERT INTO command_query_xref VALUES(63, 89, 1);
 
 
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(3,"cr",1001,"Coder ID");
