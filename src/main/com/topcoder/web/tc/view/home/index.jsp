@@ -75,7 +75,7 @@
          </tr>
          <tr>
             <td class=homeArrow>&#160;</td>
-            <td class=homeText>Compete in software <A href="/?t=development&c=index">component</A> or <A href="/?t=development&c=index">application</A> competitions and get paid for what you build! You can also earn money by <A href="/?t=development&c=index">reviewing</A> software components.</td>
+            <td class=homeText>Compete in software <A href="/?t=development&c=index">component</A> competitions and get paid for what you build! You can also earn money by <A href="/?t=development&c=index">reviewing</A> software components.</td>
          </tr>
 
          <tr>
