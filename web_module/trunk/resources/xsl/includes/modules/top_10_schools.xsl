@@ -43,12 +43,6 @@
                                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="40%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
               </TR> 
-              <TR> 
-                <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-              </TR>                       
-              <TR> 
-                <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
-              </TR>              
           </TABLE>          
         </TD>
     </TR>
