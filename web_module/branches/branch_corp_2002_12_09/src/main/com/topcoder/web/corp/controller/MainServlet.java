@@ -1,6 +1,7 @@
 package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
+import java.util.Enumeration;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,7 +10,8 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.corp.request.PrimaryRegistrationProcessor;
+//import com.topcoder.web.corp.request.PrimaryRegistrationProcessor;
+import com.topcoder.web.query.common.Constants;
 
 /**
  * Final class comment will go gere
@@ -50,9 +52,8 @@ public class MainServlet extends HttpServlet {
      * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
      * @throws     ServletException
      * */
-    public void init(ServletConfig config) throws ServletException {
-        super.init(config);
-        //com.topcoder.web.query.common.Constants.init(getServletConfig());
+    public void init() throws ServletException {
+        com.topcoder.web.query.common.Constants.init(getServletConfig());
 //        try {
 //            proc1 = (RequestProcessor)Class.forName(config.getInitParameter("processor-1")).newInstance();
 //            log.debug("destination 1 ok");
@@ -115,7 +116,47 @@ public class MainServlet extends HttpServlet {
      * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest, HttpServletResponse)
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-    	
+    	String moduleName = request.getParameter("module");
+        Enumeration initNames = getServletConfig().getInitParameterNames();
+        String initValue;
+        Class opClass;
+        RequestProcessor req;
+        boolean found = false;
+        
+        while( initNames.hasMoreElements() ) {
+            initValue = getServletConfig().getInitParameter( initNames.nextElement().toString() );
+            if( initValue.equals( moduleName ) ) {
+                try {
+                    /* 12/19/2002 - NeoTuri
+                     * I'm considering using the prefix Constants.QUERY_PACKAGE for all
+                     * servlets hiding behind this controller.  The associated items in
+                     * web.xml will be modified to reflect this change.
+                     */
+                    opClass = Class.forName( initValue );
+                    req = (RequestProcessor) opClass.newInstance();
+                    req.setRequest( request );
+                    req.process();
+                    sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
+                    found = true;
+                }
+                catch( Exception e ) {
+                    /* Could not process module */
+                    sendToErrorPage( request, response, e );
+                }
+                break;
+            }
+        }
+        
+        if( !found ) {
+            try {
+                /* throw 404 here */
+                throw new Exception( "404?" );
+            }
+            catch( Exception e ) {
+                sendToErrorPage( request, response, e );
+            }
+        }
+        /*
     	// I suppose for testing purposes that 'pr' request parameter defines
     	// what action to pefrorm, so if it is 'prim_reg' literal then my
     	// processor must be called.
@@ -147,6 +188,7 @@ public class MainServlet extends HttpServlet {
     		getServletContext().getRequestDispatcher(entireUri).forward(request, response);
     	}
     	return;
+        */
     }
     
     /**
@@ -203,8 +245,44 @@ public class MainServlet extends HttpServlet {
         throws ServletException, IOException {
         super.doTrace(arg0, arg1);
     }
+    
+    private void sendToLoginPage(HttpServletRequest request, HttpServletResponse response, boolean forward)
+            throws ServletException, IOException {
+        if (forward) {
+            sendToPage(request, response, Constants.LOGIN_PAGE, forward);
+        } else {
+            sendToPage(request,
+                    response,
+                    "http://" + request.getServerName() + request.getContextPath() + request.getServletPath() + "?" +
+                    Constants.TASK_PARAM + "=" + Constants.LOGIN_TASK,
+                    false);
+        }
+    }
+
+    private void sendToPage(HttpServletRequest request, HttpServletResponse response, String page, boolean forward)
+            throws ServletException, IOException {
+        log.debug((forward?"forwarding ":"redirecting ") + "to " + page);
+        if (forward) {
+            getServletContext().getRequestDispatcher(response.encodeURL("/"+page)).forward(request, response);
+        } else {
+            response.sendRedirect(response.encodeRedirectURL(page));
+        }
+    }
+
+    private void sendToErrorPage(HttpServletRequest request, HttpServletResponse response,
+                                    Throwable exception) throws ServletException, IOException {
+        log.error("Controller error - forwarding to error page", exception);
+        request.setAttribute("Exception", exception);
+        sendToPage(request, response, Constants.ERROR_PAGE, true);
+    }
+
+    private static boolean isLegal(String s) {
+        for (int i=0; i<s.length(); i++) {
+            char ch = s.charAt(i);
+            if ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".indexOf(ch) < 0) {
+                return false;
+            }
+        }
+        return true;
+    }
 }
-
-
-
-
