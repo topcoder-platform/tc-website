@@ -1,1 +1,1 @@
-<a href="/?t=tces&c=index"><img src="/i/clear.gif" alt="" width="170" height="100" border="0"></a>
+<a href="/?t=tces&c=index"><img src="/i/srm/srm_banner/srm_banner_studentrep.gif" alt="" width="170" height="100" border="0"></a>
