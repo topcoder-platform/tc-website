@@ -167,7 +167,7 @@ if ( MM_FlashCanPlay ) {
                         </tr>
                         <tr>
                             <td class="screeningCellOdd">Are you currently employed?</td>
-                            <td class="screeningCellOdd">David Lee Roth</td>
+                            <td class="screeningCellOdd">No</td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven">This is an example of a long question that will test how the table handles questions that need to wrap?</td>
