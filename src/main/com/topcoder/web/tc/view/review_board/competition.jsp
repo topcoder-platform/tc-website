@@ -35,32 +35,40 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins --> 
-        <td class="bodyText" width="100%">
-            
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
-                <tr valign="top">
-                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0"/><br/>          
+<td CLASS="bodyText" WIDTH="100%">
+<table BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+      <tr>
+         <td width="274" class="bodyText"><img src="/i/header_review_boards.gif" alt="review" width="180" height="26" border="0" />Competition
+         </td>
+      </tr>
+      <tr>
+         <td>
+            <p align="right" >
+               <a href="/?t=features&amp;c=#" class="bodyText"><strong>Go to Development Review Board</strong></a>
+            </p>
+            <p class="bodyText">
+            TopCoder is pleased to announce the formation of a Competition Review Board. The Review Board's 
+            responsibilities include making recommendations on how to improve the quality and integrity of TopCoder 
+            Competitions. The Review Board will also provide us with guidelines on how we can best handle sub-optimal 
+            situations that can arise during competitions.
+            </p>
+            <p class="bodyText">
+            The following members have agreed to participate on the TopCoder Competition Review Board:
+            <br><br>
+            </p>
+         </td>
+      </tr>
 
-                        <p>TopCoder is pleased to announce the formation of a Competition Review Board. The Review Board’s 
-                        responsibilities include making recommendations on how to improve the quality and integrity of TopCoder 
-                        Competitions. The Review Board will also provide us with guidelines on how we can best handle sub-optimal 
-                        situations that can arise during competitions.</p>
-
-                        <p>The following members have agreed to participate on the TopCoder Competition Review Board:</p>
-                    </td>
-                </tr>
-
-                <tr><td valign="middle" bgcolor="#999999" class="statText"><font size="3"><strong>Competition Review Board</strong></font></td></tr>
-                
-            </table>
-
+<table width="100%" border="0" cellpadding="3" cellspacing="0">
+<tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>Competition Review Board</strong></font></td></tr>
+</table>
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><img src="/i/m/schveiguy_mug.gif" alt="schveiguy" width="55" height="61" border="0" /></td>
+                <tr valign="top"><br>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=273217"><img src="/i/m/schveiguy_mug.gif" alt="schveiguy" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
-                        <p>schveiguy graduated with a Bachelors degree in Computer Science from Worcester Polytechnic 
-                        Institute and currently works as a Senior Software Developer at Network Engines in Canton, 
-                        Massachusetts.</p>                       
+                        <p>                        
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><span class="smallText"></span>
+                        graduated with a Bachelors degree in Computer Science from Worcester Polytechnic 
                      </td>
                 </tr>
             </table>
@@ -69,10 +77,13 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><img src="/i/m/tangentz_mug.gif" alt="tangentz" width="55" height="61" border="0" /></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=268546"><img src="/i/m/tangentz_mug.gif" alt="tangentz" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
-                        <p>TangentZ received a Master of Computer Science degree from Dalhousie University.  While in 
-                        school, he spent time researching artificial intelligence with a focus on neural networks.</p>                       
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=268546"><strong>TangentZ</strong></a><span class="smallText"></span>
+                        received a Master of Computer Science degree from Dalhousie University.  While in 
+                        school, he spent time researching artificial intelligence with a focus on neural networks.
+                        </p>                       
                      </td>
                 </tr>
             </table>
@@ -81,9 +92,11 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><img src="/i/m/vald_mug.gif" alt="vald" width="55" height="61" border="0" /></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=158447"><img src="/i/m/vald_mug.gif" alt="vald" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
-                        <p>ValD currently studies at the University of Albany and plans to graduate with honors.  In his 
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=158447"><strong>ValD</strong></a><span class="smallText"></span>
+                        currently studies at the University of Albany and plans to graduate with honors.  In his 
                         spare time, he studies optimization problems and evolution strategies.  In fact, ValD believes 
                         he may be making progress towards a new evolution model.</p>                       
                      </td>
@@ -94,9 +107,11 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><img src="/i/m/SnapDragon_mug.gif" alt="snapdragon" width="55" height="61" border="0" /></td>
+                    <td width="274"><a href="/stat?c=member_profile&amp;cr=272072"><img src="/i/m/snapdragon_mug.gif" alt="snapdragon" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
-                        <p>SnapDragon has participated in over 50 TopCoder rated events.  He is currently TopCoder’s 
+                        <p>
+                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=272072"><strong>SnapDragon</strong></a><span class="smallText"></span>
+                        has participated in over 50 TopCoder rated events.  He is currently TopCoder's 
                         highest rated member, and is one of only two members who have broken the 3300 rating 
                         mark.  SnapDragon is a graduate of the University of Waterloo and currently works for 
                         Bioinformatics Solutions Inc. in Ontario, Canada.</p>                       
@@ -105,6 +120,11 @@
             </table>            
 
             <hr width="100%" size="1" noshade="noshade" />
+
+<p align="middle" >
+<A href="mailto:service@topcoder.com" class="bodyText">Have a question about the TopCoder Competition Review Board?</strong></a>
+</p>
+<p><br></p>
 
 <!-- Center Column Ends -->
 
