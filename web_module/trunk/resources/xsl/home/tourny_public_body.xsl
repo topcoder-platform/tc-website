@@ -323,7 +323,7 @@ didn't really have a chance, and it was such a long, complicated problem that no
 able to sufficiently understand it to challenge it.  So, it came down to the challenge phase 
 with <B>John Dethridge</B> leading by a little over 50 points.  Both <B>John Dethridge</B> and <B>SnapDragon</B> got a challenge, and 
 as the challenge phase closed, <B>SnapDragon</B> revealed to <B>John Dethridge</B> that his 1000 solution was wrong, giving 
-<B>John Dethridge</B> the victory is his submission survived systests.  As the results came up, every standing 
+<B>John Dethridge</B> the victory if his submission survived systests.  As the results came up, every standing 
 solution but <B>SnapDragon</B>'s hard ended up being correct, and <B>John Dethridge</B> walked away with 50,000 big ones...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournament&amp;c=invit02_champprob</xsl:attribute>Get the analysis</A>
 </P>
     </TD>
