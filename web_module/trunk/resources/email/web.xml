@@ -717,12 +717,6 @@
 
     </description>
   </init-param>
-
-
-
-
-
-
 </servlet>
 
 <servlet-mapping>
@@ -737,19 +731,5 @@
     <url-pattern>emailServlet</url-pattern>
     <url-pattern>*.jsp</url-pattern>
   </web-resource-collection>
-  <auth-constraint>
-    <description>Email Group User</description>
-    <role-name>email</role-name>
-  </auth-constraint>
 </security-constraint>
-
-<login-config>
-  <auth-method>BASIC</auth-method>
-</login-config>
-
-<security-role>
-  <description>Email Group User</description>
-  <role-name>email</role-name>
-</security-role>
-
 </web-app>
