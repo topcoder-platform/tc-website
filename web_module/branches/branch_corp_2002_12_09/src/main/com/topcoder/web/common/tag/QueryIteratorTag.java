@@ -5,14 +5,14 @@ import javax.naming.NamingException;
 import javax.servlet.jsp.JspException;
 import javax.sql.DataSource;
 
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataRetriever;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 
 import java.sql.SQLException;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -37,15 +37,16 @@ public class QueryIteratorTag extends IteratorTag {
         InitialContext ic = null;
         try {
             ic = new InitialContext(Constants.JTA_CONTEXT_ENVIRONMENT);
-            DataSource ds = (DataSource)ic.lookup(Constants.JTA_DATA_SOURCE);
-            DataRetriever dr = new DataRetriever(ds.getConnection());
-            Map params = new HashMap();
-            params.put(DataAccessConstants.COMMAND, command);
-            params = dr.executeCommand(params);
+            DataAccessInt dai = new DataAccess( (DataSource)
+                new InitialContext().lookup(Constants.JTA_DATA_SOURCE)
+            );
+            Request dataRequest = new Request();
+            dataRequest.setContentHandle(command);
+            Map result = dai.getData(dataRequest);
             // for now will take first of queries results
-            Iterator i = params.keySet().iterator();
+            Iterator i = result.keySet().iterator();
             if(i.hasNext()) {
-                rsc = (ResultSetContainer)params.get(i.next());
+                rsc = (ResultSetContainer)result.get(i.next());
             }
             else {
                 rsc = null;
