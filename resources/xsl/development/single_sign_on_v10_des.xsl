@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/SingleSignOn_v10-web.pdf">Requirement Specification</a> |
-                                            <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Single%20Sign%20On">Inquire</a>
+                                            Inquire
                                         </p>
 
                                         <!-- Overview -->
@@ -342,9 +342,8 @@
                                         </p>
 
                                         <p>
-                                            <a name="inquire"></a>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Single%20Sign%20On">Inquire for the Single Sign-On Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                            Inquiry is closed.
                                             </strong>
                                         </p>
                                         <!--
