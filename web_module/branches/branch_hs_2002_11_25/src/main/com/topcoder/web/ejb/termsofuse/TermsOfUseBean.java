@@ -239,7 +239,7 @@ public class TermsOfUseBean implements SessionBean {
       DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       StringBuffer query=new StringBuffer(1024);
-      query.append("SELECT text ");
+      query.append("SELECT terms_text ");
       query.append("FROM terms_of_use ");
       query.append("WHERE terms_of_use_id=?");
 
@@ -299,7 +299,7 @@ public class TermsOfUseBean implements SessionBean {
 
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE terms_of_use ");
-      query.append("SET text=? ");
+      query.append("SET terms_text=? ");
       query.append("WHERE terms_of_use_id=?");
 
       con=ds.getConnection();
