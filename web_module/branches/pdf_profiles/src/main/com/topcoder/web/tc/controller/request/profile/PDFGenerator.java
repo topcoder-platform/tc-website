@@ -261,6 +261,7 @@ public class PDFGenerator extends BaseProcessor {
             
             log.debug("DONE PDFING");
         } catch (Exception e) {
+            throw new TCWebException(e);
             e.printStackTrace();
         }
     }    
