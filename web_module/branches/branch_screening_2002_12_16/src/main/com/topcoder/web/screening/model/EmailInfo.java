@@ -85,7 +85,7 @@ public class EmailInfo extends BaseModel {
      */
     public String getMsgText() {
         if(sessionInfo == null) return null;
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy hhaa");
+        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy haa");
         StringBuffer msgText = new StringBuffer(1000);
         msgText.append("The follow session has been setup for ");
         msgText.append(candidateHandle);

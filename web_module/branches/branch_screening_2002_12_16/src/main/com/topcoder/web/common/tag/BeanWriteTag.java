@@ -1,16 +1,19 @@
 package com.topcoder.web.common.tag;
 
-import java.lang.reflect.Method;
-
 import java.io.IOException;
+import java.lang.reflect.Method;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
 /** 
  * <p>
- * This tag will takes a bean name, property and scope and tries to write out
- * the value received from the bean for that property.
+ * This tag will takes a bean name, property and optional format and 
+ * tries to write outthe value received from the bean for that property. If
+ * The object gotten is a date object and format is set, then it will format
+ * the output to the format specified.
  * </p>
  *
  * @author Grimicus
@@ -23,7 +26,8 @@ public class BeanWriteTag extends TagSupport {
 
     private String name;
     private String property;
-    private String scope;
+    private String format;
+
 
     /**
      * Sets the value of <code>name</code>.
@@ -43,6 +47,16 @@ public class BeanWriteTag extends TagSupport {
     public void setProperty( String val )
     {
         property = val;
+    }
+
+    /**
+     * Sets the value of <code>format</code>.
+     *
+     * @param format
+     */
+    public void setFormat( String val )
+    {
+        format = val;
     }
 
     /** 
@@ -74,7 +88,18 @@ public class BeanWriteTag extends TagSupport {
             Method method = bean.getClass().getMethod(methodName, NO_PARAMS);
             Object out = method.invoke(bean, NO_ARGS);
             if(out != null) {
-                output = out.toString();
+                if(out instanceof Date && format != null) {
+                    try {
+                        SimpleDateFormat sdf = new SimpleDateFormat(format);
+                        output = sdf.format(out);
+                    }
+                    catch(Exception e) {
+                        output = out.toString();
+                    }
+                }
+                else {
+                    output = out.toString();
+                }
             }
         }
         catch(Exception e) {
