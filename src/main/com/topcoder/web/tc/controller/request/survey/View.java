@@ -1,6 +1,8 @@
 package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.Answer;
 import com.topcoder.web.tc.model.Question;
@@ -18,10 +20,10 @@ public class View extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
         try {
             if (alreadyResponded()) {
-                log.debug("already did this one, go to results");
-                setNextPage(Constants.SURVEY_RESULTS);
+                SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+                setNextPage(info.getServletPath() + "?" + Constants.MODULE_KEY + "=SurveyResults&" + Constants.SURVEY_ID + "=" + survey.getId());
+                setIsNextPageInContext(false);
             } else {
-                log.debug("go to view");
                 setNextPage(Constants.SURVEY_VIEW);
             }
         } catch (Exception e) {
