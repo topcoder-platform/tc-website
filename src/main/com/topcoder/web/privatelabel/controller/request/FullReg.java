@@ -12,6 +12,7 @@ public class FullReg extends FullRegBase {
         try {
             getRequest().setAttribute("countryList", getCountryList());
             getRequest().setAttribute("stateList", getStateList());
+            setDefaults(regInfo);
             setNextPage(Constants.VERIZON_REG_PAGE);
             setIsNextPageInContext(true);
         } catch (Exception e) {
