@@ -140,7 +140,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
             if (paramName.startsWith(Constants.OPTIONAL_PARAM)) {
                 try {
                     long inputId = Long.parseLong(paramName.substring(Constants.OPTIONAL_PARAM.length()));
-                    getQueryInput(getCurrentInputList(), inputId).setOptional(value.equals("on"));
+                    getQueryInput(getCurrentInputList(), inputId).setOptional(value.equalsIgnoreCase("true"));
                 } catch (NumberFormatException e) {
                     super.addError(Constants.OPTIONAL_PARAM, e);
                 } catch (Exception e) {
