@@ -42,35 +42,25 @@
                         </jsp:include>
 
                         <jsp:include page="../includes/tchs03_rules_subnav.jsp" >
-                            <jsp:param name="isStructurePage" value="true"/>
+                            <jsp:param name="isOnlinePage" value="true"/>
                         </jsp:include>
 
                         <h3>2003 TopCoder High School Challenge<br>Official Rules and Regulations</h3>
                         
                         </div>
                         
-                        <p><font size="3"><strong>Competition Round Structure</strong></font><br>
-                        Each round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase.</p>
-                        
-                        <ul>
-                            <li>The Coding Phase is a timed event where all contestants are presented with the same three questions representing 
-                            three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded 
-                            upon submission of any solution that successfully compiles and are based on the total time that the problem was open 
-                            before it was submitted.<br><br></li>
-                            
-                            <li>The Challenge Phase is a timed event wherein each competitor has a chance to challenge the functionality of other 
-                            competitors' code. A successful challenge will result in a loss of the original problem submission points by the 
-                            defendant, and a 50 point reward for the challenger; unsuccessful challengers will incur a point reduction of 50 points 
-                            as a penalty, applied against their total score in that round of competition.<br><br></li>
-                            
-                            <li>The System Testing Phase is applied to all submitted code that has not already been successfully challenged. If 
-                            TopCoder finds code that is flawed, the author of that code submission will lose all of the points that were originally 
-                            earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code 
-                            submission to be correct. If the output from a coder's submission does not match the expected output, the submission 
-                            is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given problem. 
-                            All successful challenges from the Challenge Phase will be converted into sets of inputs for the System Testing Phase.<br><br></li>
-                        </ul>
+                        <p><font size="3"><strong>Final Round</strong></font><br>
+                        Representatives from the top 10 performing CT high schools will travel to on Tuesday, May 20th to compete in the Final 
+                        round, which will commence at 1:00PM.  All contestants must arrive at UCONN no later than 12:00PM on Tuesday, May 
+                        20th.  If a contestant is unable to attend the Final round, he/she will forfeit his/her spot, and his/her team will compete 
+                        with one less individual.</p>
 
+                        <p>The Final Round will be a single round, consisting of 1 room with up to 36 coders. The winning team is determined 
+                        by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder 
+                        on a team.  Each high school representative’s score will be summed with those of the other representatives, and the 
+                        winner of the Final Round will be the team with the highest aggregate point total for the round.  In the event of a tie, the 
+                        team with the highest amount of total points acquired throughout the entire regular season will win.</p>
+                        
                         <table width="100%" border="0" cellpadding="0" cellspacing="0">
                             <tr><td width="100%" class="tourney_subnav"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td></tr>
                         </table>
