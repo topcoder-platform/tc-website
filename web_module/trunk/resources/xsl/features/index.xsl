@@ -68,6 +68,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">September 17</td>
+                                <td valign="middle" class="bodyText">goongas</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_091703" class="bodyText">A Crash Course in the Java Collections Framework</A></td>
+                            </tr>
+                            
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">August 28</td>
                                 <td valign="middle" class="bodyText">Yarin</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_082803" class="bodyText">A Crash Course in the C++ STL</A></td>
