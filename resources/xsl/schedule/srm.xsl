@@ -111,7 +111,7 @@
                            </xsl:when>
                                 </xsl:choose>
 
-                            <xsl:if test="$roundId=5075">
+                            <xsl:if test="number($roundId)=5075">
                               In celebration of SRM 200, TopCoder will hold 10 random drawings at the conclusion of the challenge phase.  In order to be eligible to be randomly chosen for a prize, you must both register for SRM 200 during the registration period and participate in the match.<br/>
                               <br/>
                               The prizes to be given away are: <br/>
