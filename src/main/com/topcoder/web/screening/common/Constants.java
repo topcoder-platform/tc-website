@@ -101,7 +101,8 @@ public class Constants
     public static String PROBLEM_BUSINESS_CATEGORY_QUERY_KEY;
     public static String EXAMPLE_PROBLEM_ID;
     public static String PROBLEM_TYPE_EXAMPLE_ID;
-    public static String PROBLEM_TYPE_TEST_SET_B_ID;
+    public static int PROBLEM_TYPE_TEST_SET_B_ID;
+    public static int PROBLEM_TYPE_TEST_SET_A_ID;
     public static String ACCURACY_INFO_QUERY_KEY;
     public static String CHECK_ACCESS_QUERY_KEY;
     
@@ -241,7 +242,8 @@ public class Constants
         PROBLEM_BUSINESS_CATEGORY_QUERY_KEY = config.getInitParameter("problem_business_category_query_key");
         EXAMPLE_PROBLEM_ID = config.getInitParameter("example_problem_id");
         PROBLEM_TYPE_EXAMPLE_ID = config.getInitParameter("problem_type_example_id");
-        PROBLEM_TYPE_TEST_SET_B_ID = config.getInitParameter("problem_type_test_set_b_id");
+        PROBLEM_TYPE_TEST_SET_B_ID = Integer.parseInt(config.getInitParameter("problem_type_test_set_b_id"));
+        PROBLEM_TYPE_TEST_SET_A_ID = Integer.parseInt(config.getInitParameter("problem_type_test_set_a_id"));
         CHECK_ACCESS_QUERY_KEY = config.getInitParameter("check_access_query_key");
         ACCURACY_INFO_QUERY_KEY = config.getInitParameter("accuracy_info_query_key");
         
