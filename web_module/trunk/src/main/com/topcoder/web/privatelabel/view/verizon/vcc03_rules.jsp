@@ -24,7 +24,7 @@
  <!-- Verizon logo-->
         <td width="147" valign="top"><a href="http://www.verizon.com/"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></a></td>
         <td class="red"><a name="top"><img alt="" src="/images/spacer.gif" width="1" height="37"></a></td>
-        <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Contest" border="0"></td>
+        <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Challenge" border="0"></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
         <td valign="top" class="black" width="99%"><img src="/i/events/verizon2003/pbtc_secondary.gif" width="134" height="37" alt="Contest Powered by TopCoder" border="0"></td>
     </tr>
@@ -41,7 +41,7 @@
         <td valign="top" width="146">
             <table width="146" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="146" class="white" align="center"><img src="/i/events/verizon2003/ps_banner.jpg" width="146" height="61" border="0" alt="Verizon Coding Contest">
+                    <td width="146" class="white" align="center"><img src="/i/events/verizon2003/ps_banner.jpg" width="146" height="61" border="0" alt="Verizon Coding Challenge">
 
                         <jsp:include page="verizon_links_secondary.jsp" />
 
@@ -72,11 +72,11 @@
             
                         <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-                        <p>The 2003 Verizon Coding Contest is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder").  Verizon is 
+                        <p>The 2003 Verizon Coding Challenge is being offered by Verizon Communications ("Verizon") and TopCoder, Inc. ("TopCoder").  Verizon is 
                         using the results of the Coding Challenge to identify possible employees for their Chennai VDSI center.  The Coding Challenge will take place between 
                         Monday, August 4 and Friday, August 29, 2003.  It begins with a 2-week online registration, after which up to 500 eligible individuals will be 
                         invited to compete in the programming tournament.  The tournament consists of two (2) online elimination rounds and one (1) onsite final round.  
-                        All participants who compete in Round #1 will receive a Verizon Coding Contest t-shirt.  In addition, Verizon will award $1,900 USD in cash prizes 
+                        All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, Verizon will award $1,900 USD in cash prizes 
                         to the top 4 finalists in the tournament.</p>
                         
                         <p><a name="structure"><br/></a></p>
@@ -131,7 +131,7 @@
                         (Note: the format of these competition rounds is similar to the format of the Single Round Matches.)</p>
             
                         <ul>
-                            <li><strong>The Coding Phase</strong> is a timed event where all contestants are presented with the same three questions 
+                            <li><strong>The Coding Phase</strong> is a timed event where all Challengeants are presented with the same three questions 
                             representing three levels of complexity and, accordingly, three levels of point earnings potential. Points for a problem are 
                             awarded upon submission of any solution that successfully compiles and are calculated on the total time elapsed from the time 
                             the problem was opened to the time it was submitted.</li>
@@ -152,7 +152,7 @@
 
                         <p><strong>Onsite Championship Round</strong><br/>
                         The 25 advancers from Round #2 must travel to Verizon's Chennai VDSI facility to compete in the Championship round of the 
-                        tournament.  All finalists must arrive at Verizon's Chennai VDSI no later than 10:00 AM on Friday, August 29th.  If a contestant 
+                        tournament.  All finalists must arrive at Verizon's Chennai VDSI no later than 10:00 AM on Friday, August 29th.  If a Challengeant 
                         is unable to attend the onsite rounds, he/she will forfeit eligibility to receive a prize, and his/her spot in the tournament will be 
                         given to the next highest scorer from Round #2.</p>
 
@@ -176,7 +176,7 @@
 <!-- About the Prizes -->
                         <h2 class="pgTitle"><a href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right"></a>About the Prizes</h2>
             
-                        <p>All participants who compete in Round #1 will receive a Verizon Coding Contest t-shirt.  In addition, the top four scorers in the 
+                        <p>All participants who compete in Round #1 will receive a Verizon Coding Challenge t-shirt.  In addition, the top four scorers in the 
                         Championship Round will receive cash prizes.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  
                         Prizes will be distributed as follows:</p>
             
@@ -208,7 +208,7 @@
 
                             <tr>
                                 <td width="50%" class="sidebarText">Up to 500 competitors who compete in Online Round #1</td>
-                                <td width="50%" class="sidebarText" align="right">Verizon Coding Contest t-shirt</td>
+                                <td width="50%" class="sidebarText" align="right">Verizon Coding Challenge t-shirt</td>
                             </tr>
 
                             <tr>
@@ -233,8 +233,8 @@
                         <p>By participating in the tournament, you agree to be bound by these rules and to all decisions of TopCoder, which 
                         are final, binding and conclusive in all matters.</p>
 
-                        <h3><font color="#CC0000">Contestants must not cheat. All ideas for any code and/or challenge submitted must be 
-                        the contestant's alone.</font></h3>
+                        <h3><font color="#CC0000">Challengeants must not cheat. All ideas for any code and/or challenge submitted must be 
+                        the Challengeant's alone.</font></h3>
 
                         <p>Winners in each round of competition will be those competitors who win the most points in their respective rooms. 
                         All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to 
@@ -262,11 +262,11 @@
                         a completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9
                          or W-8BEN, as appropriate.  In completing the Affidavit, a winner (i) confirms his/her eligibility, (ii) represents 
                          and warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, 
-                         (iii) verifies the accuracy of the information submitted in the Verizon Coding Contest registration process, (iv) 
+                         (iii) verifies the accuracy of the information submitted in the Verizon Coding Challenge registration process, (iv) 
                          authorizes TopCoder and Verizon to publicize the tournament's results, (v) agrees to sign any applicable forms 
                          required by tax authorities, (vi) licenses to TopCoder and Verizon rights to all information submitted during the 
                          tournament (including rights to source code and other executables), and (vii) releases TopCoder and Verizon from 
-                         liability arising out of any prize won. Verizon requires contestants to complete Form W-9 or W-8BEN, as 
+                         liability arising out of any prize won. Verizon requires Challengeants to complete Form W-9 or W-8BEN, as 
                          applicable, for tax reporting purposes. </p>
              
                          <p>If prize notification is returned as undeliverable, or if the winner fails to return the Affidavit or the applicable 

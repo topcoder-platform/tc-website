@@ -25,7 +25,7 @@
  <!-- Verizon logo-->
         <td width="147" valign="top"><a href="http://www.verizon.com/"><img src="/i/events/verizon2003/logo_black_147x41.gif" width="147" height="37" alt="Verizon" border="0"></a></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
-        <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Contest" border="0"></td>
+        <td valign="top" class="black" width="440"><img src="/i/events/verizon2003/vcc03_logo_secondary.gif" width="440" height="37" alt="Verizon Coding Challenge" border="0"></td>
         <td class="red"><img alt="" src="/images/spacer.gif" width="1" height="37"></td>
         <td valign="top" class="black" width="99%"><img src="/i/events/verizon2003/pbtc_secondary.gif" width="134" height="37" alt="Contest Powered by TopCoder" border="0"></td>
     </tr>
@@ -42,7 +42,7 @@
         <td valign="top" width="146">
             <table width="146" border="0" cellpadding="0" cellspacing="0">
                 <tr>
-                    <td width="146" class="white" align="center"><img src="/i/events/verizon2003/ps_banner.jpg" width="146" height="61" border="0" alt="Verizon Coding Contest">
+                    <td width="146" class="white" align="center"><img src="/i/events/verizon2003/ps_banner.jpg" width="146" height="61" border="0" alt="Verizon Coding Challenge">
 
                         <jsp:include page="verizon_links_secondary.jsp" />
 
