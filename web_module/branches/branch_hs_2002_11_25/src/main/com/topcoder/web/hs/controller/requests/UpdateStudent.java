@@ -22,7 +22,7 @@ public class UpdateStudent extends Base {
 
   private final static String CONFIRM_PAGE="confirm_student.jsp";
 
-  private final static String HOME_PAGE="";
+  private final static String HOME_PAGE="/home/index.jsp";
 
   private final static String REGISTER_CMD="update";
 
