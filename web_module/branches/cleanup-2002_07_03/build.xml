@@ -75,7 +75,10 @@
       <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
    </target>
 
-   <target name="deploy" depends="servlets,jsp,moveStruts,moveReg">
+   <target name="full.deploy" depends="build.ejbs,build.wars,servlets,jsp,moveStruts,moveReg">
+   </target>
+
+   <target name="deploy" depends="build.wars,servlets,jsp,moveStruts,moveReg">
    </target>
 
    <target name="servlets" depends="compile">
@@ -414,7 +417,7 @@
 
    </target>
 
-    <target name="build_wars" depends="compile">
+    <target name="build.wars" depends="compile">
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
         <antcall target="war.email"/>
