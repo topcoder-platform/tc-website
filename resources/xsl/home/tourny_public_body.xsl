@@ -100,7 +100,7 @@
                 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
                 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>
                 </TD>
-                <TD CLASS="bodyText" VALIGN="top" WIDTH="250">
+                <TD CLASS="bodyText" VALIGN="top" WIDTH="300">
                 <P><IMG SRC="/i/invit02_mail_icon.gif" ALT="" WIDTH="75" HEIGHT="57" HSPACE="6" ALIGN="left" BORDER="0"/> On Friday, Oct. 4th, contestants will receive a final invitation &amp; will be notified of which part of online round #1 they are assigned to.</P>
                 </TD>
             </TR>
