@@ -173,9 +173,6 @@ public class Submit extends View {
             }
         }
         log.debug("q: " + question.getId() + "required: " + question.isRequired() + " ret: " + ret.size());
-        if (question.isRequired() && ret.isEmpty()) {
-            addError(errorKey, "Please respond to this question.");
-        }
         return ret;
     }
 
