@@ -9,6 +9,7 @@
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
           com.topcoder.common.*,
+          com.topcoder.web.tces.common.*, 
           com.topcoder.web.tces.servlet.*" %>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
