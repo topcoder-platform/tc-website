@@ -56,9 +56,14 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <!-- Tab bar links-->
 <jsp:include page="verizonLinks.jsp" >
-   <jsp:param name="selectedTab" value="schedule"/>
+   <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
-<!-- Tab bar sub links-->
+
+<!-- Tab bar sublinks-->
+<jsp:include page="verizonSublinks.jsp" >
+   <jsp:param name="selectedList" value=""/>
+   <jsp:param name="selectedTab" value=""/>
+</jsp:include>
 
             <blockquote>
             <h2>Schedule</h2>

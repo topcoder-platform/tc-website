@@ -55,15 +55,14 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
    <p><br /></p>
 
 <!-- Tab bar links-->
-            <xsl:call-template name="vcc03_links">
-                <xsl:with-param name="selectedTab">rules</xsl:with-param>
-            </xsl:call-template>
-
+<jsp:include page="verizonLinks.jsp" >
+   <jsp:param name="selectedTab" value="rules"/>
+</jsp:include>
 <!-- Tab bar sub links-->
-            <xsl:call-template name="vcc03_sublinks">
-                <xsl:with-param name="selectedList">rules</xsl:with-param>
-                <xsl:with-param name="selectedTab">registration</xsl:with-param>
-            </xsl:call-template>
+<jsp:include page="verizonSublinks.jsp" >
+   <jsp:param name="selectedList" value="rules"/>
+   <jsp:param name="selectedTab" value="registration"/>
+</jsp:include>
     
             <blockquote>
             <h2>Registration</h2>
