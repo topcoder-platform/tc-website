@@ -52,9 +52,9 @@ public abstract class Base extends BaseProcessor {
             out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
             out.println("</head>");
             SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-            out.print("<body onLoad=\"window.location=");
+            out.print("<body onLoad=\"window.location=\'");
             out.print(info.getServletPath());
-            out.print("\">");
+            out.print("\'\">");
             out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
             out.println("<tr>");
             out.println("      <td align=center>");
