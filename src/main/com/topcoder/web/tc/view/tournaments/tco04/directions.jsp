@@ -24,23 +24,40 @@
         <p class=pageTitle>Directions to the Santa Clara Marriott</p>
 
         <p>Driving directions from anywhere in California are easy to find using the Santa Clara Marriott's website.  
-        Find out how to drive to the hotel:</p>
-
-		<p><a href="http://marriott.com/property/drivingDirections.mi?marshaCode=SJCGA" target="_blank">http://marriott.com/property/drivingDirections.mi?marshaCode=SJCGA</a></p>
+        Find out how to <a href="http://marriott.com/property/mapandnearbyairports/drivingdirections.mi?marshaCode=sjcga&WT_Ref=mi_left" target="_blank">drive to the hotel</a>:</p>
 
 
-		<p><span class="bodySubtitle">From San Jose Airport (SJC) (3 MI North):</span><br/>
-		Take Airport exit and turn left on Guadalupe Parkway North (Hwy 87). Follow signs to Highway 101 North, 
-		3 miles to Great America Parkway. Turn right onto Great America Pkwy and right again onto Mission College 
-		Blvd. Hotel is on right.</p>
+		<p><span class="bodySubtitle">From San Jose Airport (SJC) (Hotel Direction: 4 N):</span></p>
+		
+		<ul><li>1-408-277-4759</li>
+			<li>Driving Directions: From Mineta San Jose International Airport. Take Highway 101 North 4 miles to Great America 
+			Parkway. Exit right to Mission College Boulevard. Hotel is on the Right </li>
+			<li>$15 USD Shuttle Service from Airport </li>
+			<li>$1.4 USD Bus from Airport to Hotel Fee (one-way) </li>
+			<li>$15 USD Estimated Taxi Fee (one-way) </li>
+		</ul>
 
-		<p><span class="bodySubtitle">From Oakland Airport (OAK) (30 MI Southwest):</span><br/>
-		Take Highway 880 South for 30 miles to Highway 237. Go west 4 miles to Great America Parkway. Take left onto 
-		Great America Pkwy. Turn left on Mission College Boulevard to hotel entrance.</p>
 
-		<p><span class="bodySubtitle">From San Francisco Airport (SFO) (30 MI North):</span><br/>
-		Take Highway 101 South for 30 miles to Great America Parkway Exit. Turn left onto Great America Pkwy and 
-		right onto Mission College Blvd. Hotel is on right.</p>
+		<p><span class="bodySubtitle">From Oakland Airport (OAK) (Hotel Direction: 30 SW):</span></p>
+		
+		<ul><li>1-510-563-3300</li>
+			<li>Driving Directions: Take Highway 880 South 30 miles to Highway 237. West 4 miles to 
+			Great America Parkway. Left onto Great America Pkwy. Turn left on Mission College Boulevard to hotel entrance. </li>
+			<li>$40 USD Shuttle Service from Airport </li>
+			<li>$90 USD Estimated Taxi Fee (one-way) </li>
+		</ul>
+
+
+		<p><span class="bodySubtitle">From San Francisco Airport (SFO) (Hotel Direction: 30 S):</span></p>
+		
+		<ul><li>1-650-821-8211</li> 
+			<li>Driving Directions: Take Highway 202 South 26 miles to Great America Parkway Exit left to Mission 
+			College Boulevard. Hotel is on the Right / Oakland OAK Hotel Direction - Highway 880 South - 
+			Right onto 237 West Exit Great America Parkway Left Left onto Mission College Boulevard. Hotel is on the Right.</li>
+			<li>$40 USD Shuttle Service from Airport </li>
+			<li>$90 USD Estimated Taxi Fee (one-way) </li>
+		</ul>
+
             
         </div>
 		</td>
