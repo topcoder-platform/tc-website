@@ -63,13 +63,11 @@
 
                         <h2 class="pgTitle">Registration</h2>
 
+                        <p class="redsubhead">
                         <% if (regInfo.isRegFull()) { %>
-                            <p>
-                                <font color="#FF0000"><b>Registration for the Verizon Coding Challenge is full.  However, you may continue to
-                                provide your information below to be notified of future Verizon coding events.</b></font><br/>
-                            </p>
-                        <% } %>
-
+                            Registration for the Verizon Coding Challenge is full. However, you may continue to
+                                provide your information below to be notified of future Verizon coding events.
+                        <% } %></p>
 
                             <table cellpadding="0" cellspacing="3" class="bodyText" align="center" border="0">
                                 <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
@@ -292,7 +290,7 @@
                                 <td></td>
                                 <td align="right">
                                     <p><br /></p>
-                                    <p><a href="javascript: document.regForm.submit();"><img src="/i/events/verizon2003/button_continue.gif" alt="continue" width="71" height="23" align="right"></a></p>
+                                    <p><a href="javascript: document.regForm.submit();"><img src="/i/events/verizon2003/button_continue.gif" alt="continue" width="71" height="23" align="right" border="0"></a></p>
                                     <p><br /></p>
                                 </td>
                             </form></tr>
