@@ -8,9 +8,9 @@
     <enterprise-beans>
       <session>
         <ejb-name>ProblemRatingServices</ejb-name>
-        <home>com.topcoder.web.ProblemRating.ejb.ProblemRatingServices.ProblemRatingServicesHome</home>
-        <remote>com.topcoder.web.ProblemRating.ejb.ProblemRatingServices.ProblemRatingServices</remote>
-        <ejb-class>com.topcoder.web.ProblemRating.ejb.ProblemRatingServices.ProblemRatingServicesBean</ejb-class>
+        <home>com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServicesHome</home>
+        <remote>com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServices</remote>
+        <ejb-class>com.topcoder.web.ejb.ProblemRatingServices.ProblemRatingServicesBean</ejb-class>
         <session-type>Stateless</session-type>
         <transaction-type>Bean</transaction-type>
       </session>
