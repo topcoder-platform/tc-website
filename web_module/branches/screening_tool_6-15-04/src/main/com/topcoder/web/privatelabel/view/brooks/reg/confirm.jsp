@@ -1,4 +1,12 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page import="com.topcoder.web.privatelabel.Constants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="privatelabel.tld" prefix="pl" %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:usebean id="responseList" class="java.util.List" scope="request" />
+<jsp:usebean id="questionMap" class="java.util.Map" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -15,6 +23,10 @@
 	<tr><td><img src="/i/events/brooks/brooks_logo.gif" border="0" width="122" height="66"/><img src="/i/events/brooks/header.gif" border="0" width="409" height="66"/></td></tr>
 	<tr><td><div class=brHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
 	<tr><td><div class=brHeadSpacer><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
+	<form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.BROOKS_REG_SUBMIT%>"/>
+            <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
+            <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
 	<tr>
 		<td>
 			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
@@ -33,7 +45,72 @@
                         </tr>
                         <tr>
                             <td class="brRegTableQuestion">Handle</td>
-                            <td class="brRegTableAnswer"></td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Handle"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">First Name</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="FirstName"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Middle Initial</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="MiddleName"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Last Name</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="LastName"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Password</td>
+                            <td class="brRegTableAnswer">********</td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Confirm Password</td>
+                            <td class="brRegTableAnswer">********</td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Email Address</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Email"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Address1</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Address1"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Address2</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Address2"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Address3</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Address3"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">City</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="City"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">State</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="StateName"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Zip Code</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Zip"/></td>
+                        </tr>
+
+                        <tr>
+                            <td class="brRegTableQuestion">Country</td>
+                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="CountryName"/></td>
                         </tr>
                         </table>
 
@@ -65,7 +142,9 @@
 			</table>
 		</td>
 	</tr>
+	</form>
 </table>
+	
 
 </body>
 </html>
