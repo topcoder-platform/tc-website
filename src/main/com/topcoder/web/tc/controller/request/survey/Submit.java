@@ -147,7 +147,7 @@ public class Submit extends View {
                 SurveyResponse response = new SurveyResponse();
                 response.setQuestionId(question.getId());
                 response.setUserId(getUser().getId());
-                if (isFreeForm(question)) {
+                if (question.isFreeForm()) {
                     String text = StringUtils.checkNull(values[i]).trim();
                     if (text.length() != 0) {
                         response.setText(StringUtils.checkNull(values[i]));

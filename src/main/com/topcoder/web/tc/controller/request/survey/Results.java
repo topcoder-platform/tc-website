@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -39,7 +40,7 @@ public class Results extends SurveyData {
         for (Iterator it = questions.iterator(); it.hasNext();) {
             question = (ResultSetContainer.ResultSetRow) it.next();
             int temp = question.getIntItem("question_style_id");
-            if (!isFreeForm(temp)) {
+            if (!Question.isFreeForm(temp)) {
                 questionList.add(makeQuestion(question));
             }
         }

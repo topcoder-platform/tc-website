@@ -5,7 +5,6 @@ import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.tc.model.Question;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -37,11 +36,4 @@ abstract public class Base extends BaseProcessor {
         return dAccess;
     }
 
-    protected final boolean isFreeForm(Question q) {
-        return (q.getStyleId()==Question.LONG_ANSWER||q.getStyleId()==Question.SHORT_ANSWER);
-    }
-
-    protected final boolean isFreeForm(int styleId) {
-        return (styleId==Question.LONG_ANSWER||styleId==Question.SHORT_ANSWER);
-    }
 }
