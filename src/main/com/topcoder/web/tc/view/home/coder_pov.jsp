@@ -19,16 +19,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm189_prob">SRM 189 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, March 31, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm190_prob">SRM 190 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, April 6, 2004</p>
 
                         <p>
-Division 1 had a relatively simple easy problem, where rounding and double 
-imprecision were finally not much of an issue.  The medium problem turned 
-out to be pretty tricky, and required a dynamic programming approach that 
-stumped most coders. The hard problem was a bit more straightforward, but 
-dealt with dates, which tend to be tricky.
-                       <a href="/?t=statistics&amp;c=srm189_prob" class="bodyText"><strong>full&#160;story</strong></a>
+The last match before the TCCC may not have been the warm-up that competitors were looking for, 
+as division 1 had one of the hardest sets in recent memory -- only 10 competitors solved more than 1 
+problem.  Of those, tomek, bladerunner and Klinck were the only coders to solve all 3 problems, taking 
+1<sup>st</sup>, 2<sup>nd</sup> and 3<sup>rd</sup>, respectively.
+
+<a href="/?t=statistics&amp;c=srm190_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
