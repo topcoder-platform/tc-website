@@ -165,6 +165,12 @@
   </init-param>
 
   <init-param>
+    <param-name>division_id_parameter</param-name>
+    <param-value>div</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
     <param-name>begin_month_parameter</param-name>
     <param-value>beginMonth</param-value>
     <description></description>
