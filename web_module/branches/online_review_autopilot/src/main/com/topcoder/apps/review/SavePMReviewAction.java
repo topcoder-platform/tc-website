@@ -85,6 +85,8 @@ public final class SavePMReviewAction extends ReviewAction {
                 ResultData result = businessDelegate.projectAdmin(data);
                 DocumentManagerLocal documentManager;
                 
+                log(Level.ERROR, "HERE");
+                
                 try {
                     documentManager = EJBHelper.getDocumentManager();
                 } catch(Exception e) {
