@@ -97,7 +97,8 @@
         <tr>
            <td class="bodyTextBig" align="left" valign="bottom" nowrap>Question</td>
            <td class="bodyTextBig" align="right" valign="bottom" nowrap>Overall Average Rating</td>
-           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Competitors</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Division I Competitors</td>
+           <td class="bodyTextBig" align="right" valign="bottom" nowrap>Average Rating for Division II Competitors</td>
         </tr>
         <%  if (!problemRatingResults.isEmpty()) {
                 count = problemRatingResults.getIntItem(0,"count");
@@ -113,7 +114,10 @@
                 <rsc:item row="<%=result%>" name="average" format="#.##"/>
             </td>
             <td class="bodyText" align="right">
-                <rsc:item row="<%=result%>" name="comp_average" format="#.##"/>
+                <rsc:item row="<%=result%>" name="div1_average" format="#.##"/>
+            </td>
+            <td class="bodyText" align="right">
+                <rsc:item row="<%=result%>" name="div2_average" format="#.##"/>
             </td>
         </tr>
         </rsc:iterator>

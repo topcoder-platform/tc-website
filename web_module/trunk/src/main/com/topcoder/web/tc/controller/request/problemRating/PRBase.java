@@ -38,15 +38,19 @@ abstract public class PRBase extends Base {
         List overall = getDistributionList(getDataAccess().getData(r), "overall_problem_rating_distribution");
         List div1 = getDistributionList(getDataAccess().getData(r), "div1_problem_rating_distribution");
         List div2 = getDistributionList(getDataAccess().getData(r), "div2_problem_rating_distribution");
+
         ProblemRatingResult overallAvg = avg(overall);
         ProblemRatingResult div1Avg = avg(div1);
         ProblemRatingResult div2Avg = avg(div2);
+
         overallAvg.setName("overallAll");
         div1Avg.setName("overallDiv1");
         div2Avg.setName("overallDiv2");
+
         overall.add(overallAvg);
         div1.add(div1Avg);
-        div2.add(div1Avg);
+        div2.add(div2Avg);
+
         getRequest().setAttribute("overallDistribution", overall);
         getRequest().setAttribute("div1Distribution", div1);
         getRequest().setAttribute("div2Distribution", div2);
