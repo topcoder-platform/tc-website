@@ -392,6 +392,8 @@ public class ProjectTrackerBean implements SessionBean {
                 throw new RuntimeException(e1);
             }
             User plUser = Common.getUser(dataSource, user.getUserId());
+            
+            debug("ADMIN: " + isAdmin);
 
             if (isAdmin) {
                 // Find all open projects
