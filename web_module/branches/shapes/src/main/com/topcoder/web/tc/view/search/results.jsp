@@ -31,14 +31,14 @@
 				<% String sLink = "/stat?c=member_profile&cr=";%>
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
-                  <td align="left" class="formHandleEven" valign="top" nowrap>
+                  <td align="left" class="advDK" valign="top" nowrap>
                       <tc:ratingImage link='<%=sLink + resultRow.getIntItem("user_id")%>' bg='B' cid='<%=resultRow.getIntItem("user_id")%>' />
                   </td>
-                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
-                  <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
-                  <td class="formHandleEven" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
-                  <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                  <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+                  <td class="advDK" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
+                  <td class="advDK" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
+                  <td class="advDK" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
+                  <td class="advDK" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                  <td class="advDK" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
               </tr>
               <%even=!even;%>
               </rsc:iterator>
