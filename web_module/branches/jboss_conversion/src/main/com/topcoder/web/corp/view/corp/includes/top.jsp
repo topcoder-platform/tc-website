@@ -25,7 +25,7 @@
         <td class=homeTopBar width="100%" align=right>
 <% if (sessionInfo.isAnonymous()) {  // no logged user %>
             <a href="<jsp:getProperty name="sessionInfo" property="servletPath" />?module=Static&d1=corp&d2=LoginPage" class=loginLinks>Login</a>
-            &#160;&#160;|&#160;&#160;https://<jsp:getProperty name="sessionInfo" property="absoluteServletPath" />/?module=Registration" class=loginLinks>Register</a>
+            &#160;&#160;|&#160;&#160;<a href="https://<jsp:getProperty name="sessionInfo" property="absoluteServletPath" />?module=Registration" class=loginLinks>Register</a>
 <% } else { %>
             <strong>Hello, <jsp:getProperty name="sessionInfo" property="handle" /></strong>
             &#160;&#160;|&#160;&#160;<a href="<jsp:getProperty name="sessionInfo" property="servletPath" />?module=Logout" class=loginLinks>Logout</a>
