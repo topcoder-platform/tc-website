@@ -19,6 +19,9 @@ import com.topcoder.web.stat.common.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.4  2002/04/03 21:38:41  apps
+ *           no message
+ *
  *           Revision 1.3  2002/04/03 16:27:17  steveb
  *           SB -- changed name of default data source
  *
@@ -193,6 +196,20 @@ public class StatisticsBean extends BaseEJB {
 
                 // Check for the presence of unwanted stuff after it
                 if (pp.getIndex() < input.length())
+                    return false;
+
+                // Passed checks OK
+                return true;
+            } catch (Exception e) {
+                return false;
+            }
+        } else if (dataType == StatisticsQueries.STRING_INPUT) {
+            try {
+                // Check position of reserved characters
+                int inputDelimiterPos = input.indexOf ( StatisticsQueries.INPUT_DELIMITER );
+                int defaultMarkerPos = input.indexOf ( StatisticsQueries.SPECIAL_DEFAULT_MARKER );
+                // Check for the presence of unwanted stuff
+                if ( inputDelimiterPos > -1 || defaultMarkerPos > -1 )
                     return false;
 
                 // Passed checks OK
