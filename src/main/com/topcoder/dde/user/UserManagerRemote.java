@@ -59,4 +59,5 @@ public interface UserManagerRemote extends javax.ejb.EJBObject {
 */
     void agreeToComponentTerms(long userId) throws EJBException, RemoteException;
 
+    String getComponentTerms() throws EJBException, RemoteException;
 }

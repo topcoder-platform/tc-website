@@ -1136,6 +1136,40 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
 
     }
 
+    public String getComponentTerms() throws EJBException {
+        Context ctx = null;
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        try {
+            ctx = new InitialContext();
+            final String sqlSelect=
+                "SELECT terms_text " +
+                "FROM terms_of_use " +
+                "WHERE terms_of_use_id=?";
+            DataSource datasource = (DataSource) ctx.lookup("java:comp/env/jdbc/DefaultDS");
+            conn = datasource.getConnection();
+
+            ps = conn.prepareStatement(sqlSelect);
+            ps.setInt(1, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                return new String(rs.getBytes(1));
+            } else {
+                throw new EJBException("Terms of use " + Constants.COMPONENT_DOWNLOAD_TERMS_ID + " does not exist");
+            }
+
+        } catch (NamingException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        } catch (SQLException e) {
+            e.printStackTrace();  //To change body of catch statement use Options | File Templates.
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+    }
 
 
     protected void close(ResultSet rs) {
