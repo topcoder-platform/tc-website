@@ -83,11 +83,16 @@
 					<P>Competitions offer a different view on skills and abilities. How well do they respond to time constraints? How strong are their problem-solving skills?</P>
 					<P>The competitions give employers a means of gauging how well a coder responds to pressure. Only when a developer submits a piece of code that effectively solves the problems TopCoder presents, is that developer awarded any points and improves his/her rating. Additionally, our challenge phase measures the ability of the developer to read and understand the code submissions of other programmers; this is a strong indicator of the ability to analyze and debug other programmer's software.</P>
 					<P>The fact that a TopCoder member has competed in matches, alone is strong indication of that member's desire to improve their coding skills and their willingness to hold their work up to public scrutiny. TopCoder will provide detailed statistics of the candidate's performance in TopCoder events. The statistics, along with a comprehensive resume, provides a wealth of information about a candidate not available from any other source.</P>
-					<P><B>Members Competition Demographics</B><BR/><UL>
+					<!-- <P><B>Members Competition Demographics</B><BR/><UL>
 					<LI>81&#37; submits at least two solutions per match</LI>
 					<LI>76&#37; has successfully submitted on the 500 or 1000 point question</LI>
 					<LI>63&#37; has successfully challenged other coders for additional points</LI>
-					</UL></P>
+					</UL></P> -->
+					<P>
+<BR/>
+</P>
+
+					
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
