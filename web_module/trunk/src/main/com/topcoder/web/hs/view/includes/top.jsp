@@ -23,7 +23,7 @@ function openWin(url, name, w, h) {
             <strong><font color="orange">Hello,</font> <span class="<%=style%>"><jsp:getproperty name="SessionInfo" property="Handle" /></span></strong>
             &nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Logout" class="globalNavSmall">Logout</a>
 <% } else { %>
-            &nbsp;&nbsp;|&nbsp;&nbsp;<a href="?module=Login" class="globalNavSmall">Login</a>
+            <a href="?module=Login" class="globalNavSmall">Login</a>
 <% } %>
 
 <% if(SessionInfo.isGuest()) { %>
@@ -44,11 +44,15 @@ function openWin(url, name, w, h) {
 <!-- Logo begins -->
 <table border="0" cellspacing="0" cellpadding="0" bgcolor="#000000" width="100%">
     <tr valign="middle">
-        <td width="168" height="50"><a href="?module=Home"><img src="/i/top_tchs_logo.gif" width="168" height="36" alt="TopCoder High School" hspace="10" border="0"></a></td>
+        <td width="168" height="50"><a href="?module=Home"><img src="/i/top_tchs_logo.gif" width="175" height="36" alt="TopCoder High School" hspace="10" border="0"></a></td>
         <td width="99%" height="50" align="right"><img src="/i/top_banner2.gif" width="500" height="50" alt="" border="0"></td>
     </tr>
 </table>
-<!-- Logo begins -->
+<!-- Logo ends -->
+
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr><td height="4" bgcolor="#7B89C5" width="100%"><img src="/images/clear.gif" alt="" height="4" border="0" /></td></tr>
+</table>
 
 <!-- Main Links begins -->
 <table cellspacing="0" cellpadding="3" width="100%" class="rednavBar" border="0">
@@ -67,5 +71,9 @@ function openWin(url, name, w, h) {
     </tr>
 </table>
 <!-- Main Links ends -->
+
+<table cellspacing="0" cellpadding="0" width="100%" border="0">
+    <tr><td height="2" bgcolor="#000000" width="100%"><img src="/images/clear.gif" alt="" height="2" border="0" /></td></tr>
+</table>
 
 <!-- Top Include Ends -->
