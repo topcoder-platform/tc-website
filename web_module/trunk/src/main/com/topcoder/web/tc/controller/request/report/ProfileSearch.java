@@ -46,7 +46,7 @@ public class ProfileSearch extends Base {
         (tables = skills[0]).addAll(demo[0]);
         (constraints = skills[1]).addAll(demo[1]);
         StringBuffer query = new StringBuffer(5000);
-        query.append("SELECT u.handle FROM coder c,\n");
+        query.append("SELECT u.handle,\n");
         query.append("  c.first_name,\n");
         query.append("  c.last_name,\n");
         query.append("  c.city,\n");
@@ -55,8 +55,9 @@ public class ProfileSearch extends Base {
         query.append("  r.rating,\n");
         query.append("  ur1.rating,\n");
         query.append("  ur2.rating\n");
+        query.append("  FROM coder c\n");
         query.append("  JOIN rating r ON r.coder_id = c.coder_id\n");
-        query.append("  JOIN user u ON u.coder_id = c.coder_id\n");
+        query.append("  JOIN user u ON u.user_id = c.coder_id\n");
         query.append("  JOIN country cry ON cry.country_code = c.country_code\n");
         query.append("  JOIN state st ON st.state_code = c.state_code\n");
         String comp = request.getParameter("company");
@@ -79,10 +80,11 @@ public class ProfileSearch extends Base {
             query.append("  JOIN resume res ON res.coder_id = c.coder_id\n");
         }
         for(int i = 0; i<tables.size(); i++){
+            String tab = tables.get(i);
             query.append("  JOIN ");
-            query.append(tables.get(i));
+            query.append(tab);
             query.append(" ON ");
-            query.append(tables.get(i));
+            query.append(tab.substring(tab.indexOf(" ")+1));
             query.append(".coder_id = c.coder_id\n");
         }
         query.append("  LEFT JOIN tcs_catalog:user_rating ur1 ON ur1.user_id = c.coder_id AND ur1.phase_id = 112\n");
