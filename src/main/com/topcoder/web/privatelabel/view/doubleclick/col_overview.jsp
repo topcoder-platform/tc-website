@@ -21,7 +21,8 @@
 </table>
 
 <jsp:include page="links.jsp" >
-   <jsp:param name="tabLev1" value="overview"/>
+   <jsp:param name="tabLev1" value="collegiate"/>
+   <jsp:param name="tabLev2" value="overview"/>
 </jsp:include>
 
 
