@@ -93,4 +93,8 @@ public class ReviewBoardApplication {
         return component.getPrice();
     }
 
+    public SoftwareComponent getComponent() {
+        return (SoftwareComponent)component.clone();
+    }
+
 }
