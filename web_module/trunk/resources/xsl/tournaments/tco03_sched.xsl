@@ -142,7 +142,7 @@
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
                         Wednesday, October 15th<br />
-                        Login by:  9:20 PM<br />
+                        Registration:  6:30 PM - 9:25 PM<br />
                         Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText" align="center">500</td>
