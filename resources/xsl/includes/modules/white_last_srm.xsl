@@ -13,9 +13,9 @@
 Wednesday, May 15, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
 
-The closest match of the night took place in Room 5. <A HREF="/stat?c=member_profile&amp;cr=156804" CLASS="bodyGeneric">Zaen</A>
+The closest match of the night took place in Room 5. <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Zaen</A>
  was a 1159.03 to 1157.61 winner 
-over <A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="bodyGeneric">lbackstrom</A>.  
+over <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">lbackstrom</A>.  
 That's a difference of just 1.42 points
 ...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
