@@ -1,64 +1,76 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<HTML>
-<HEAD>
-<title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
-<jsp:include page="/script.jsp"/>
-</HEAD>
+<html>
+<head>
+<title>Topcoder | Testing Application Management Tool</title>
+
+<jsp:include page="/script.jsp" />
+
+</head>
 
 <jsp:useBean id="emailInfo" type="com.topcoder.web.screening.model.EmailInfo" />
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
-   <TR>
-      <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-      <TD WIDTH="206" BGCOLOR="#000000"><IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="13"/></TD>
-      <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-   </TR>             
-</TABLE>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<h1 class="testHead">Create a New Session - <FONT COLOR="#000000">E-mail Preview</FONT></h1>
-<P>Below is the content of the email that the candidate will receive.</P><BR>
-<FORM>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
-           <TR>
- <% if(emailInfo.getSessionInfo() != null && (emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail())) {%>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-                <strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" /><br /><br />
-                <jsp:getProperty name="emailInfo" property="HTMLMsgText" />
-              </TD>
- <% } else { %>
-              <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">No email to be sent</TD>
- <% } %>
-           </TR>
-         </TABLE>             
-</FORM>         
-<P><BR/></P>    
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
 
-  <jsp:include page="/includes/foot.jsp"/>
+<body>
 
-</BODY>
-</HTML>
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp" />
+<!-- Header ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+    <tr><td colspan="3" class="globalNavSmall"><img src="/i/clear.gif" width="1" height="15" border="0"/></td></tr>
+
+    <tr>
+        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" alt="" border="0"></td>
+        <td width="206"><img src="/i/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Testing Application" vspace="13"></TD>
+        <td width="100%"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
+    </tr>             
+
+    <tr><td colspan="3" class="testTop"><img src="/i/clear.gif" width="1" height="18" border="0"/></td></tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- gutter begins -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="70%">
+                <tr valign="top">
+                    <td class="bodyText">
+                        <h1 class="testHead">Create a New Session - <font color="#000000">E-mail Preview</font></h1>
+                        <p>Below is the content of the email that the candidate will receive.</p><br>
+                    </td>
+                </tr>
+            </table>
+
+             <table border="0" cellspacing="0" cellpadding="0" width="50%">
+                <tr><form>
+                <% if(emailInfo.getSessionInfo() != null && (emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail())) {%>
+                    <td width="100%" class="bodyText">
+                        <strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" /><br><br>
+                        <jsp:getProperty name="emailInfo" property="HTMLMsgText" />
+                    </td>
+                <% } else { %>
+                    <td width="100%" class="bodyText">No email to be sent</td>
+                <% } %>
+           </form></tr>
+        </table>             
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
+
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp" />
+
+</body>
+</html>
