@@ -82,11 +82,27 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
+        log.debug("setAttributes called...param: " + paramName + " value: " + value);
 
-        if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
+        if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
             setDb(value);
-        else if (paramName.equalsIgnoreCase(Constants.INPUT_ID_PARAM))
-            setInputId(Long.parseLong(value));
+        } else if (paramName.equalsIgnoreCase(Constants.INPUT_ID_PARAM)) {
+            try {
+                setInputId(Long.parseLong(value));
+            } catch (NumberFormatException e) {
+                super.addError(Constants.INPUT_ID_PARAM, e);
+            }
+        } else if (paramName.equalsIgnoreCase(Constants.INPUT_DESC_PARAM)) {
+            setInputDesc(value);
+        } else if (paramName.equalsIgnoreCase(Constants.INPUT_CODE_PARAM)) {
+            setInputCode(value);
+        } else if (paramName.equalsIgnoreCase(Constants.DATA_TYPE_ID_PARAM)) {
+            try {
+                setDataTypeId(Integer.parseInt(value));
+            } catch (NumberFormatException e) {
+                super.addError(Constants.DATA_TYPE_ID_PARAM, e);
+            }
+        }
     }
 
     private void checkInputCode(String inputCode, Input i) throws Exception {
