@@ -216,8 +216,8 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_INTEREST_NAME));
         a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
             "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + "&" +
-            TCESConstants.JOB_ID_PARAM + "=" + getJobID(), TCESConstants.POSITION_INTEREST_NAME));
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + 
+            (getJobID()==-1?"":("&" + TCESConstants.JOB_ID_PARAM + "=" + getJobID())), TCESConstants.POSITION_INTEREST_NAME));
         setTrail(a);
 
     }
