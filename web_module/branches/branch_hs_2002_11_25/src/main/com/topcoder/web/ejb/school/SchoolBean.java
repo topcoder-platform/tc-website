@@ -12,6 +12,8 @@ import javax.sql.*;
 
 public class SchoolBean implements SessionBean {
 
+  private final static String DATA_SOURCE="java:comp/env/datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -50,7 +52,8 @@ public class SchoolBean implements SessionBean {
 
     try {
 
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       if (!IdGenerator.isInitialized()) {
         IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
@@ -64,7 +67,7 @@ public class SchoolBean implements SessionBean {
       query.append("INTO school (school_id) ");
       query.append("VALUES (?)");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,school_id);
 
@@ -113,12 +116,15 @@ public class SchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE school ");
       query.append("SET school_division_code=? ");
       query.append("WHERE school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_school_division_code);
       ps.setLong(2,_school_id);
@@ -132,6 +138,10 @@ public class SchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -161,12 +171,15 @@ public class SchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE school ");
       query.append("SET full_name=? ");
       query.append("WHERE school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_full_name);
       ps.setLong(2,_school_id);
@@ -180,6 +193,10 @@ public class SchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -209,12 +226,15 @@ public class SchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE school ");
       query.append("SET short_name=? ");
       query.append("WHERE school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_short_name);
       ps.setLong(2,_school_id);
@@ -228,6 +248,10 @@ public class SchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -259,12 +283,15 @@ public class SchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT school_division_code ");
       query.append("FROM school ");
       query.append("WHERE school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_school_id);
 
@@ -280,6 +307,10 @@ public class SchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -312,12 +343,15 @@ public class SchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT full_name ");
       query.append("FROM school ");
       query.append("WHERE school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_school_id);
 
@@ -333,6 +367,10 @@ public class SchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -365,12 +403,15 @@ public class SchoolBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT short_name ");
       query.append("FROM school ");
       query.append("WHERE school_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_school_id);
 
@@ -386,6 +427,10 @@ public class SchoolBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
