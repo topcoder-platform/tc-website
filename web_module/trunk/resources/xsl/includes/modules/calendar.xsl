@@ -38,7 +38,7 @@
                       <TR> 
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">14</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">15</TD>
-                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4240&amp;t=schedule&amp;c=srm</xsl:attribute>16</A></TD>
+                        <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center"><A HREF="/stat?c=round_stats&amp;rd=4240" CLASS="smallText">16</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">17</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">18</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">19</TD>
@@ -48,7 +48,7 @@
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">21</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">22</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">23</TD>
-                        <TD BGCOLOR="#CCCCCC" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4245&amp;t=schedule&amp;c=srm</xsl:attribute>24</A></TD>
+                        <TD BGCOLOR="#666666" BACKGROUND="" CLASS="smallText" ALIGN="center"><A CLASS="smallFoot"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;ContestId=4245&amp;t=schedule&amp;c=srm</xsl:attribute>24</A></TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">25</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">26</TD>
                         <TD BGCOLOR="#FFFFFF" BACKGROUND="" CLASS="smallText" ALIGN="center">27</TD>
