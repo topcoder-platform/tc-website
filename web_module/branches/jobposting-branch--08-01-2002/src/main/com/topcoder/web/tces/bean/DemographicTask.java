@@ -33,6 +33,8 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     private String positionName;
     private int studentCoderCount;
     private int proCoderCount;
+    private Map studentDemoInfo;
+    private Map proDemoInfo;
 
     private int uid;
 
@@ -44,6 +46,22 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
         setPositionID(-1);
         setCampaignID(-1);
+    }
+
+    public void setStudentDemoInfo( Map studentDemoInfo ) {
+        this.studentDemoInfo = studentDemoInfo;
+    }
+
+    public Map getStudentDemoInfo () {
+        return studentDemoInfo;
+    }
+
+    public void setProDemoInfo( Map proDemoInfo ) {
+        this.proDemoInfo = proDemoInfo;
+    }
+
+    public Map getProDemoInfo() {
+        return proDemoInfo;
     }
 
     public void setStudentCoderCount( int studentCoderCount ) {
