@@ -1,6 +1,7 @@
 package com.topcoder.web.screening.controller;
 
 import javax.servlet.ServletException;
+import javax.servlet.ServletConfig;
 
 import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
@@ -27,9 +28,9 @@ public class MainServlet extends BaseServlet {
      *
      * @throws ServletException
      */
-    public void init() throws ServletException {
-        super.init(getServletConfig());
-        Constants.initialize(getServletConfig());
+    public void init(ServletConfig config) throws ServletException {
+        super.init(config);
+        Constants.initialize(config);
 
         if (!Constants.isInitialized())
             throw new ServletException("Constants did not initialize properly");

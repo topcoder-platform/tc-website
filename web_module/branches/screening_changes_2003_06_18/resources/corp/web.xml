@@ -533,188 +533,188 @@
 
         <!-- URL Parameter constant names -->
         <init-param>
-            <param-name>user_id_parameter</param-name>
+            <param-name>user_id</param-name>
             <param-value>userId</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>candidate_id_parameter</param-name>
+            <param-name>candidate_id</param-name>
             <param-value>cid</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>referrer_parameter</param-name>
+            <param-name>referrer</param-name>
             <param-value>referrer</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>message_parameter</param-name>
+            <param-name>message</param-name>
             <param-value>msg</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>email_address_parameter</param-name>
+            <param-name>email_address</param-name>
             <param-value>emailAddress</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>first_attempt_parameter</param-name>
+            <param-name>first_attempt</param-name>
             <param-value>firstVisit</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>profile_id_parameter</param-name>
+            <param-name>profile_id</param-name>
             <param-value>profileId</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>profile_name_parameter</param-name>
+            <param-name>profile_name</param-name>
             <param-value>profileName</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>test_set_a_parameter</param-name>
+            <param-name>test_set_a</param-name>
             <param-value>testSetA</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>test_set_b_parameter</param-name>
+            <param-name>test_set_b</param-name>
             <param-value>testSetB</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>language_parameter</param-name>
+            <param-name>language</param-name>
             <param-value>language</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>test_set_b_add_parameter</param-name>
+            <param-name>test_set_b_add</param-name>
             <param-value>testSetBAdd</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>test_set_b_remove_parameter</param-name>
+            <param-name>test_set_b_remove</param-name>
             <param-value>testSetBRemove</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>problem_id_parameter</param-name>
+            <param-name>problem_id</param-name>
             <param-value>pid</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>problem_type_id_parameter</param-name>
+            <param-name>problem_type_id</param-name>
             <param-value>ptid</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>round_id_parameter</param-name>
+            <param-name>round_id</param-name>
             <param-value>rid</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>division_id_parameter</param-name>
+            <param-name>division_id</param-name>
             <param-value>div</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>begin_month_parameter</param-name>
+            <param-name>begin_month</param-name>
             <param-value>beginMonth</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>begin_day_parameter</param-name>
+            <param-name>begin_day</param-name>
             <param-value>beginDay</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>begin_year_parameter</param-name>
+            <param-name>begin_year</param-name>
             <param-value>beginYear</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>begin_hour_parameter</param-name>
+            <param-name>begin_hour</param-name>
             <param-value>beginHour</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>end_month_parameter</param-name>
+            <param-name>end_month</param-name>
             <param-value>endMonth</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>end_day_parameter</param-name>
+            <param-name>end_day</param-name>
             <param-value>endDay</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>end_year_parameter</param-name>
+            <param-name>end_year</param-name>
             <param-value>endYear</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>end_hour_parameter</param-name>
+            <param-name>end_hour</param-name>
             <param-value>endHour</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>candidate_email_parameter</param-name>
+            <param-name>candidate_email</param-name>
             <param-value>candidateEmail</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>rep_email_parameter</param-name>
+            <param-name>rep_email</param-name>
             <param-value>repEmail</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>note_text_parameter</param-name>
+            <param-name>note_text</param-name>
             <param-value>noteText</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>round_problem_id_parameter</param-name>
+            <param-name>round_problem_id</param-name>
             <param-value>roundProblemId</param-value>
             <description></description>
         </init-param>
 
         <init-param>
-            <param-name>session_id_parameter</param-name>
+            <param-name>session_id</param-name>
             <param-value>sid</param-value>
             <description></description>
         </init-param>
 
         <!-- Parameters used by Candidate -->
         <init-param>
-            <param-name>candidate_info_attribute</param-name>
+            <param-name>candidate_info</param-name>
             <param-value>candidateInfo</param-value>
             <description></description>
         </init-param>
