@@ -18,7 +18,7 @@
     <jsp:include page="../script.jsp"/>
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <jsp:include page="../top_tces.jsp" />             
+  <jsp:include page="top.jsp" />             
   
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
