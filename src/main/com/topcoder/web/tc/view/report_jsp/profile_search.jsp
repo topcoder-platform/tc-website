@@ -116,15 +116,20 @@
 <script language="javascript">
     function itemAdd( a, b, c)
     {
-        var i = document.search[a].selectedIndex;
-        var j = document.search[b].selectedIndex;
-        var len = document.search[c].length;
-        var text1 = document.search[a].options[i].text;
-        var text2 = document.search[b].options[j].text;
-        op = new Option();
-        op.value = i+"_"+j;
-        op.text = text1+" - "+text2;
-        document.search[c].options[len] = op;
+        var i;
+        for(i = 0; i<document.search[a].length; i++){
+            if(document.search[a].options[i].selected){
+                var j = document.search[b].selectedIndex;
+                var len = document.search[c].length;
+                var val1 = document.search[a].options[i].val;
+                var text1 = document.search[a].options[i].text;
+                var text2 = document.search[b].options[j].text;
+                op = new Option();
+                op.value = val1+"_"+text2;
+                op.text = text1+" >= "+text2;
+                document.search[c].options[len] = op;
+            }
+        }
     }
     function submitForm(){
         var list;
