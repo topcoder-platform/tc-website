@@ -53,9 +53,9 @@
                 <ul>
                 <li><b>See the action live and in-person -</b> Attendence to all the onsite rounds of competition.</li>
                 <li><b>Learn tricks of the trade from the experts -</b> Attendance at all onsite events (sponsor and member presentations)</li>
-                <li><b>Stay at a great hotel -</b> 2 nights hotel accomodations at the Boston Park Plaza Hotel.</li>
+                <li><b>Stay at a great hotel -</b> 2 nights hotel accomodations at the <A href="http://www.bostonparkplaza.com/default.asp?sID=home">Boston Park Plaza Hotel & Towers.</A></li>
                 <li><b>Hang-out and dine with the semifinalists -</b> All meals are included.</li>
-                <li><b>Take home TopCoder collectables -</b> Program, T-shirt and other goodies from the event.</li> 
+                <li><b>Take home TopCoder collectables -</b> Program, T-shirt and other TCCC items.</li> 
                 </ul>
             
             
@@ -63,7 +63,7 @@
 
                 <ul>
                     <li><strong> April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</strong></li>
-                    <li><strong>Price: $495</strong></li>
+                    <li><strong>Price: $495.00</strong></li>
                     <li><strong>Offer valid until 9 AM March 22, 2004</strong></li>
                     <li><strong>Does not include transportation</strong></li>
                </ul>
