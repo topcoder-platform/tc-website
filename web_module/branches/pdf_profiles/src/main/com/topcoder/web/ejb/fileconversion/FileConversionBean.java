@@ -77,31 +77,24 @@ public class FileConversionBean implements SessionBean {
 
         // start the conversion
         try {
-            String claimKey = client.convertAsync(input, outFormat.getType());
-            // do something else for a while
-            boolean done = false;
-            int status = 0;
-            while (!done) {
-              status = client.getStatus(claimKey);
-              if (status != ConversionConstants.STATUS_CONVERSION_PENDING) done = true;
-            }
-            if (status == ConversionConstants.STATUS_CONVERSION_FINISHED) {
-              InputStream finishedFile = client.claim(claimKey);
-              
-              byte[] b = new byte[finishedFile.available()];
-              finishedFile.read(b);
-              finishedFile.close();
-        
-              System.out.println(b.length);
-              
-              return b;
-            }
+            System.out.println("STARTING");
+            InputStream finishedFile = client.convertSync(input, outFormat.getType());
+          
+            byte[] b = new byte[finishedFile.available()];
+            finishedFile.read(b);
+            finishedFile.close();
+
+            System.out.println(b.length);
+
+            return b;
           } catch (ConversionException ce) {
             // something went wrong
               ce.printStackTrace();
           } catch (IOException io) {
               //io exception
               io.printStackTrace();
+          } catch (Exception e) {
+              e.printStackTrace();
           }
         
         return new byte[0];
