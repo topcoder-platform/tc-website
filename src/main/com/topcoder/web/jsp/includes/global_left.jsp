@@ -22,8 +22,8 @@
         <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About TopCoder</a></td></tr>
         <tr><td id="leftNavOn"><a class="leftOn" href="/tc?module=Static&d1=review_board&d2=competition"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Review Boards</a></td></tr>
         <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=review_board&d2=competition">Competition</a></td></tr>
-        <tr><td id="<%=level2.equals("design")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?d1=review_board&d2=design">Design</a></td></tr>
-        <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?d1=review_board&d2=development">Development</a></td></tr>
+        <tr><td id="<%=level2.equals("design")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=review_board&d2=design">Design</a></td></tr>
+        <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=review_board&d2=development">Development</a></td></tr>
         <tr><td id="leftNav"><a class="left" href="/?&t=news_events&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Press Room</a></td></tr>
         <tr><td id="leftNav"><a class="left" href="/?&t=contacts&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Contacts</a></td></tr>
 
