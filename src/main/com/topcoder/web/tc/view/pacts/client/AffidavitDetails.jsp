@@ -5,7 +5,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder :: P.A.C.T.s</TITLE>
+   <TITLE>TopCoder - PACTs</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="/script.jsp" />
