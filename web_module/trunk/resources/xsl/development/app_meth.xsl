@@ -409,19 +409,15 @@
                         </td>
                         <!-- Center Column Ends -->
 
-                        <!-- Gutter Begins -->
-                        <td width="6">
-                            <img src="/i/clear.gif" width="6" height="5" alt="" border="0"/>
-                        </td>
-                        <!-- Gutter Ends -->
+<!-- Gutter Begins -->
+        <td width="15"><img src="/i/clear.gif" width="15" height="5" alt="" border="0" /></td>
+<!-- Gutter Ends -->
 
-                        <!-- Right Column Begins -->
-                        <td width="244">
-                            <img src="/i/clear.gif" width="244" height="1" alt="" border="0"/>
-                            <br/>
-                            <xsl:call-template name="public_dev_right"/>
-                        </td>
-                        <!-- Right Column Ends -->
+<!-- Right Column Begins -->
+        <td width="244">
+            <xsl:call-template name="public_dev_right" />
+        </td>
+<!-- Right Column Ends -->
 
                     </tr>
                 </table>
