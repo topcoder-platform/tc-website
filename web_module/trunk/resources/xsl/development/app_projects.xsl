@@ -76,8 +76,8 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Content_Syndication">Content Syndication</a>
                                     </td>
-                                    <td class="projectCells" align="right">$500&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1290 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$375 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">05/26/2004 5:00PM ET</td>
                                 </tr>
                                 <tr valign="top">
@@ -100,8 +100,8 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=XML_Import">XML Import</a>
                                     </td>
-                                    <td class="projectCells" align="right">$500&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$810 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$225 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">05/26/2004 5:00PM ET</td>
                                 </tr>
                                 <tr valign="top">
