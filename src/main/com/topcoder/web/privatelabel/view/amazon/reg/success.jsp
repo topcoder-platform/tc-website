@@ -3,53 +3,57 @@
 <html>
 <head>
 
-<title>Brooks Automation, Inc. - Screening</title>
+<title>Amazon, Inc. - Screening</title>
 
-<jsp:include page="../../script.jsp" />
-<link type="text/css" rel="stylesheet" href="/css/brooks.css"/>
+<link type="text/css" rel="stylesheet" href="/css/amazon.css"/>
 
 </head>
-<body>
+<body bgcolor="#FFFFFF" link="#003399" alink="#FF9933" vlink="#996633" topmargin=0 text="#000000">
 
-<table width="770" align="left" valign="top" cellpadding=0 cellspacing=0 border=0>
-	<tr><td><img src="/i/events/brooks/brooks_logo.gif" border="0" width="122" height="66"/><img src="/i/events/brooks/header.gif" border="0" width="409" height="66"/></td></tr>
-	<tr><td><div class=brHead><img src="/i/clear.gif" height="23" width="1"></div></td></tr>
-	<tr><td><div class=brHeadSpacer><img src="/i/clear.gif" height="4" width="1"></div></td></tr>
+<table width="100%" valign=top cellpadding=0 cellspacing=0 border=0 class=bodyFrame>
 	<tr>
-		<td>
-			<table cellspacing="0" cellpadding="0" border="0" width="100%"> 
-				<tr> 
-<%--
-                    <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
---%>
-					<td width="100%" valign="top">
+		<td colspan=4 align=center valign=bottom><jsp:include page="../head.jsp" /></td>
+	</tr>
+	<tr>
+		<td class=blueBar colspan=4><img src="/i/clear.gif" width=1 height=29 border=0/></td>
+	</tr>
+	<tr>
+		<td class=foilTop colspan=4><img src="/i/screening/amazon/foil_top.gif" border=0/></td>
+	</tr>
+	<tr>
+		<td class=foilLeft><img src="/i/clear.gif" width=13 height=1 border=0 /></td>
+		<td class=foilCorner><img src="/i/screening/amazon/foil_corner.gif" border=0 /></td>
+		<td class=bodyCol>
+			<div class=bodySpacer>
+
+			<span class=pageTitle>Registration</span>
+			<br/><br/>
+
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                             <tr>
-                                <td class="brBodyTitle" align=left>Application Received
-                                </td>
-                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="http://www.brooks.com/pages/2730_software.cfm" target="_blank" class="brBodyTitle">Learn about Brooks Software</A>
+                                <td align=left colspan=2>Application Information
                                 </td>
                            </tr>
                            <tr>
-                                <td class="brBody" colspan=2 align=center>
+                                <td colspan=2>
                                 
                                 <p>
-                                Thank you for applying to Brooks Automation and for registering for the Technical Assessment Tool, which you must complete within the next four (4) days.
+                                Thank you for applying to Amazon and for registering for the Technical Assessment Tool, which you must complete within the next four (4) days.
                                 <br/><br/>
                                 You will receive an email at the address with which you registered that outlines the specifics of the Technical Assessment Tool.  Please read it carefully and in its entirety before beginning.
                                 <br/><br/>
-                                If you have any questions while using the Technical Assessment Tool, please email them to <a href="mailto:brooks@topcoder.com?subject=Question regarding the Brooks Automation Technical Assessment Tool">brooks@topcoder.com</a>.
+                                If you have any questions while using the Technical Assessment Tool, please email them to <a href="mailto:amazon@topcoder.com?subject=Question regarding the Amazon Technical Assessment Tool">amazon@topcoder.com</a>.
                                 </p>
                                 </td>
                             </tr>
                         </table>
 
-						<p><br/></p>
-					</td> 
-
-				</tr>
-			</table>
+ 			</div>
 		</td>
+		<td valign=top width="100%">&#160;</td>
+	</tr>
+	<tr>
+		<td colspan=4 class=foot align=center><jsp:include page="../foot.jsp" /></td>
 	</tr>
 </table>
 
