@@ -51,8 +51,10 @@ abstract class FullRegBase extends SimpleRegBase {
     protected String getRequestParameter(String name) throws Exception {
         String ret = null;
         if (fu==null) {
+            log.debug("getting parameter from request");
             ret = getRequest().getParameter(name);
         } else {
+            log.debug("getting parameter from file upload");
             ret = fu.getParameter(name);
         }
         log.debug("getRequestParameter: " + name + " = " + ret);
@@ -65,6 +67,7 @@ abstract class FullRegBase extends SimpleRegBase {
 
 
     public void setResume(FileUpload resume) {
+        log.debug("setting resume");
         fu = resume;
     }
 
