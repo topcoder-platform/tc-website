@@ -18,8 +18,8 @@ public class Login extends BaseProcessor {
     protected void businessProcessing() throws Exception {
 
         /* may be null */
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = request.getParameter(KEY_USER_HANDLE);
+        String password = request.getParameter(KEY_USER_PASS);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -35,7 +35,7 @@ public class Login extends BaseProcessor {
                     authToken.login(new SimpleUser(0, username, password));
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
-                    String dest = StringUtils.checkNull(request.getParameter("nextpage"));
+                    String dest = StringUtils.checkNull(request.getParameter(KEY_DESTINATION_PAGE));
                     setNextPage(dest);
                     setIsNextPageInContext(false);
                     return;
