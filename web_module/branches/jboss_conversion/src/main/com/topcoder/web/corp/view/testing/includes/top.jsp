@@ -41,21 +41,21 @@
 <table width="100%" border="0" cellpadding="3" cellspacing="0">
     <tr valign="top">
         <td class="testTop" width="49%">&#160;</td>
-        <td nowrap class="testTop"><screen:servletLink processor="PopulateSession" styleclass="topLink">Create a New Session</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="PopulateSession" styleClass="topLink">Create a New Session</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
-        <td nowrap class="testTop"><screen:servletLink processor="ProfileList" styleclass="topLink">Test Profiles</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="ProfileList" styleClass="topLink">Test Profiles</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
-        <td nowrap class="testTop"><screen:servletLink processor="ProblemList" styleclass="topLink">Problem Sets</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="ProblemList" styleClass="topLink">Problem Sets</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
         <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-        <td nowrap class="testTop"><screen:servletLink processor="CampaignList" styleclass="topLink">Results</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="CampaignList" styleClass="topLink">Results</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
-        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidate Status</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleClass="topLink">Candidate Status</screen:servletLink></td>
         <td class="testTop">&#160;</td>
-        <td nowrap class="testTop"><screen:servletLink processor="Search" styleclass="topLink">Search</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="Search" styleClass="topLink">Search</screen:servletLink></td>
         <td class="testTop" width="49%">&#160;</td>
         <% } else { %>
-        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidate Status</screen:servletLink></td>
+        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleClass="topLink">Candidate Status</screen:servletLink></td>
         <td class="testTop" width="49%">&#160;</td>
         <% } %>
    </tr>
