@@ -132,6 +132,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         address.setAddressTypeId(addressId, ADDRESS_TYPE);
         address.setCity(addressId, regInfo.getCity());
         address.setCountryCode(addressId, regInfo.getCountryCode());
+        address.setProvince(addressId, regInfo.getProvince());
         if (regInfo.getCountryCode().equals(US)) {
             address.setStateCode(addressId, regInfo.getStateCode());
         }

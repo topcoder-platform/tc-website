@@ -162,6 +162,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>province</param-name>
+            <param-value>prov</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>city</param-name>
             <param-value>city</param-value>
             <description></description>
