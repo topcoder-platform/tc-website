@@ -33,7 +33,7 @@
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top"><ING SRC="/i/clear.gif" WIDTH="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-        <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+        <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD CLASS="statText" COLSPAN="2"><%=Constants.COMMAND_LIST_NAME%></TD></TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           <TR BGCOLOR="#333333">
