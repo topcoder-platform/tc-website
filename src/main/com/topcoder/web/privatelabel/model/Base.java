@@ -1,6 +1,6 @@
 package com.topcoder.web.privatelabel.model;
 
-import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 /**
  *
@@ -22,15 +22,19 @@ public class Base {
     }
 
     public String toString() {
-        Field[] f = this.getClass().getFields();
+        Method[] m = this.getClass().getMethods();
         StringBuffer buf = new StringBuffer(200);
-        for (int i = 0; i < f.length; i++) {
+        String methodName = null;
+        for (int i = 0; i < m.length; i++) {
             try {
-                buf.append(f[i].getName() + " = " + f[i].get(null));
+                methodName = m[i].getName();
+                if (methodName.startsWith("get")) {
+                    buf.append(m[i].getName().substring(3) + " = " + m[i].invoke(this, null).toString());
+                }
             } catch (Exception e) {
-                buf.append(f[i].getName() + " is not accessible");
+                buf.append(m[i].getName() + " is not accessible");
             }
-            if (i<f.length-1) buf.append(", ");
+            if (i<m.length-1) buf.append(", ");
         }
         return buf.toString();
     }
