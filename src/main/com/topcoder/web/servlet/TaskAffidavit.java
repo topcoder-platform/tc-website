@@ -33,7 +33,7 @@ public final class TaskAffidavit {
         Context ctx = null;
         String xsldocURLString = null;
         String requestTask = null;
-        String requestCommand = "2002_invitational_affidavit";
+        String requestCommand = null;
         try {
             if (nav==null || !nav.getLoggedIn()) {
                 StringBuffer url = new StringBuffer(request.getRequestURI());
@@ -48,6 +48,7 @@ public final class TaskAffidavit {
                         , url.toString());
             } else {
                 requestTask = Conversion.checkNull(request.getParameter("t"));
+                requestCommand = Conversion.checkNull(request.getParameter("c"));
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 RecordTag affidavitTag = new RecordTag("AFFIDAVIT");
