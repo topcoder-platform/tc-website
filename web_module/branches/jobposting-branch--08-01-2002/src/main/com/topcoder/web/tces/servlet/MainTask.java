@@ -49,6 +49,11 @@ log.debug("setting company name: "+companyName);
     public void servletPreAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
     	throws Exception
     {
+try {
+log.debug("INPREACTION - "+((Integer)request.getSession(true).getAttribute("user_id")).toString() );
+} catch (Exception ignore) {
+}
+
         HttpSession session = request.getSession(true);
 
 		Integer userId = (Integer)session.getAttribute("user_id");
@@ -63,6 +68,10 @@ log.debug("setting company name: "+companyName);
     public void processStep(String step)
         throws Exception
     {
+try {
+log.debug("INPROCSTEP - "+((Integer)request.getSession(true).getAttribute("user_id")).toString() );
+} catch (Exception ignore) {
+}
         if (step == null) {
             viewMain();
             return;

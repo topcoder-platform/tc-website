@@ -56,13 +56,17 @@ log.debug("in doPost");
         String taskName = request.getParameter(TCESConstants.TASK_PARAM);
         String taskStepName = request.getParameter(TCESConstants.STEP_PARAM);
 
+try {
+log.debug("INCONTROLLER - "+((Integer)request.getSession(true).getAttribute("user_id")).toString() );
+} catch (Exception ignore) {
+}
+
         InitialContext ctx = null;
         try {
             ctx = (InitialContext) TCContext.getInitial();
 
 log.debug("ctx "+ctx.toString() );
 log.debug("task = "+taskName);
-
 
             if (taskName != null && taskName.trim().length() > 0) {
                 // process a task

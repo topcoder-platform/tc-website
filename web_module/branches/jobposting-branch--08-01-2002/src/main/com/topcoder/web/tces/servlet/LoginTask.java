@@ -79,11 +79,13 @@ log.debug("getting handleinput "+handleInput);
     {
         HttpSession session = request.getSession(true);
 
-        if (userIdAuthenticated<0) {
+        if (getUserIdAuthenticated()<0) {
             session.setAttribute("user_id", null);  // record the user as not being logged-in.
         }
         else {
-            session.setAttribute("user_id", new Integer(userIdAuthenticated));
+log.debug("user_id set to "+Integer.toString(getUserIdAuthenticated()) );
+            session.setAttribute("user_id", new Integer(getUserIdAuthenticated()));
+log.debug("verify - "+((Integer)session.getAttribute("user_id")).toString() );
         }
     }
 
