@@ -180,7 +180,9 @@ public final class MainServlet extends HttpServlet {
             // FOR SESSION TIMEOUTS TO WARN USER.
             //************************ home ************************
             if (requestTask.equals("home")) {
-                HTMLString = TaskHome.process(request, response, htmlMaker, nav, document);
+                response.sendRedirect(response.encodeURL("http://" + request.getServerName() + "/tc"));
+                return;
+//                HTMLString = TaskHome.process(request, response, htmlMaker, nav, document);
             }
             //************************ home ************************
             else if (requestTask.equals("affidavit")) {
@@ -241,6 +243,10 @@ public final class MainServlet extends HttpServlet {
                 HTMLString = TaskSearch.process(request, response, htmlMaker, nav, document);
             }
             //************************ static  ************************
+            else if (requestTask.equals("") || requestCommand.equals("")) {
+                response.sendRedirect(response.encodeURL("http://" + request.getServerName() + "/tc"));
+                return;
+            }
             else {
                 HTMLString = TaskStatic.process(request, response, htmlMaker, nav, document);
             }
