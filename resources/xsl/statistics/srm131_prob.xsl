@@ -192,9 +192,9 @@
                                         </p>
 
                                         <p>&#160;</p>
-                                        <a name="Complete"></a>
+                                        <a name="SpellCheck"></a>
                                         <font size="+2">
-                                            <b>Complete</b>
+                                            <b>SpellCheck</b>
                                         </font>
                                         <br/>
                                         <font size="-1">
@@ -211,20 +211,20 @@
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Submission Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">133
+                                                        <td style="background: #eee;" class="bodyText">196
                                                             /
-                                                            150
-                                                            (88.67%)
+                                                            264
+                                                            (74.24%)
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Success Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">97
+                                                        <td style="background: #eee;" class="bodyText">96
                                                             /
-                                                            133
-                                                            (72.93%)
+                                                            196
+                                                            (48.98%)
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -232,26 +232,25 @@
                                                             <b>High Score</b>
                                                         </td>
                                                         <td style="background: #eee;" class="bodyText">
-                                                            <b>skanthak</b> for
-                                                            473.42 points
+                                                            <b>Karshikinpa</b> for
+                                                            474.04 points
                                                         </td>
                                                     </tr>
                                                 </table>
                                             </blockquote>
                                         </font>
+                                        <P> Reference Solution: brett1479 in the practice room</P>
                                         <h4>Implementation</h4>
                                         <p>
-                                            For this problem, all of the special cases are described.  There are several.  First, we have to
-                                            add the right letters for the day of the month.  The problem statement specifies which values get
-                                            which letters, so it's just a matter of writing the switch statement that follows from this specification.
-                                            Next, we have to determine the right century for the year.  If the year is greater than or equal to 70,
-                                            then it belongs to the 1900s, otherwise the year occurred on or after 2000.
-                                        </p>
-                                        <p>
-                                            We do not have to worry about the date being valid, so all that is needed is to parse the input date and
-                                            build the return value.  The parsing can be done with a simple tokenizer that splits the string on the
-                                            <tt>'/'</tt> character.  Once the parsing is done, the only trick is to be careful that the special cases
-                                            described above get implemented correctly.
+                                            Here coders needed to implement the spelling rule: I before E except after C.
+                                            To make things slightly more complicated, the I's, E's, and C's can be either
+                                            capital or lowercase.  In addition, the rule must be continually applied until
+                                            every place where E comes before I is removed unless after C.  For example,
+                                            after a single application of this rule to the string "eeei" we end up with
+                                            "eeie".  There is still an I before an E so we must apply the rule again
+                                            producing "eiee".  Applying the rule a final time produces the string "ieee"
+                                            and we are done.  Code to solve this problem basically consisted of swapping i's
+                                            and e's until no more swaps could be made:
                                         </p>
                                         <p>&#160;</p>
                                         <a name="GoldConj"></a>
