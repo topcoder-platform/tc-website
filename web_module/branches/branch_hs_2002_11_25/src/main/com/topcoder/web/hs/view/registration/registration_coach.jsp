@@ -64,7 +64,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
    <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
-<reg:listSelect name="state" class="dropdown" onChange="Javascript:changeState()" list="<%=coach.getStateList()%>" selected="<%=coach.getStateCode()%>"/>
+<reg:listSelect name="state_code" class="dropdown" onChange="Javascript:changeState()" list="<%=coach.getStateList()%>" selected="<%=coach.getStateCode()%>"/>
    </TD>
   </TR>
   <TR>
@@ -78,7 +78,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">School&nbsp;</TD>
    <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
-<reg:listSelect name="school" class="dropdown" list="<%=coach.getSchoolList()%>" selected="<%=coach.getSchoolId().toString()%>"/>
+<reg:listSelect name="school_id" class="dropdown" list="<%=coach.getSchoolList()%>" selected="<%=coach.getSchoolId().toString()%>"/>
    </TD>
   </TR>
   <TR VALIGN="middle">
@@ -191,7 +191,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Editor&nbsp;</TD>
    <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" align="left" valign="middle">
-<reg:listSelect name="editor" class="dropdown" list="<%=coach.getEditorList()%>" selected="<%=coach.getEditorId().toString()%>"/>
+<reg:listSelect name="editor_id" class="dropdown" list="<%=coach.getEditorList()%>" selected="<%=coach.getEditorId().toString()%>"/>
    </TD>
   </TR>
   <TR>
@@ -210,7 +210,7 @@
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Default Language&nbsp;</TD>
    <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
-<reg:listSelect name="language" class="dropdown" list="<%=coach.getLanguageList()%>" selected="<%=coach.getLanguageId().toString()%>"/>
+<reg:listSelect name="language_id" class="dropdown" list="<%=coach.getLanguageList()%>" selected="<%=coach.getLanguageId().toString()%>"/>
    </TD>
   </TR>
   <TR>
