@@ -28,7 +28,7 @@
 
 <body>
 
-<table border="0" cellspacing="15" cellpadding="0" width="100%">
+<table border="0" cellspacing="10" cellpadding="0" width="100%">
     <tr valign="top">
         <td align="center"><img src="/i/sponsor/intel_ids/sample_header.gif" width="510" height="64"/></td>
     </tr>
