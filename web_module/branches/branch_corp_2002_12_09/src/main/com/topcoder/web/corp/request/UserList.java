@@ -51,7 +51,6 @@ public class UserList extends BaseProcessor {
         User currentUser = authToken.getActiveUser();
         userId = currentUser.getId();
 
-        log.debug("--- UserList getting users for companyId: "+companyId);
         Request dataRequest = new Request();
         dataRequest.setContentHandle("corp_company_user_listing");
         
