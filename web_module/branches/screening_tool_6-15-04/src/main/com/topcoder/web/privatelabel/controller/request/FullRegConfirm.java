@@ -58,9 +58,9 @@ public abstract class FullRegConfirm extends FullRegBase {
      */
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         log.debug("called checkRegInfo");
-        if (!(((FullRegInfo) info).getCoderType() == Constants.STUDENT || ((FullRegInfo) info).getCoderType() == Constants.PROFESSIONAL)) {
+        /*if (!(((FullRegInfo) info).getCoderType() == Constants.STUDENT || ((FullRegInfo) info).getCoderType() == Constants.PROFESSIONAL)) {
             addError(Constants.CODER_TYPE, "Please choose either Student or Professional.");
-        }
+        }*/
 
         //check demographic answers
         DemographicResponse r = null;
