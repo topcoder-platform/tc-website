@@ -986,6 +986,8 @@ private Log log = null;
         boolean checkProjectData = false;
 
 log(Level.INFO, "currentEdition=" + currentEdition);
+log(Level.INFO, "action=" + action);
+
         if ("timeline".equals(currentEdition)) {
             // the user edited the timeline
 
@@ -1005,7 +1007,9 @@ log(Level.INFO, "currentEdition=" + currentEdition);
 
             // if the action is CANCEL, no checking will be done.
 
-        } else {
+        }
+
+        if ("project".equals(currentEdition)) {
             // the user edited the project
 
             if (Constants.ACTION_EDIT.equals(action)) {
