@@ -35,6 +35,4 @@
 </table>
 <!-- Header ends -->
 
-<!-- Main Navigation bar begins -->
-<jsp:include page="../menu.jsp"/>
-<!-- Main Navigation bar ends -->
+
