@@ -121,6 +121,8 @@
                               (4) TopCoder Polo Shirts<br/>
                               <br/>
                               A given competitor will only be eligible to win, at most, one random drawing.
+                              <br/>
+                              <br/>
                            </xsl:if>
 
                         </TD>
