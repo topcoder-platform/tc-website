@@ -136,7 +136,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD ALIGN="right" VALIGN="middle"></TD>
    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
-    <INPUT TYPE="button" ONCLICK="Javascript:backStudent();" MAME="backButton" VALUE="Back">
+    <INPUT TYPE="button" ONCLICK="Javascript:backStudent();" NAME="backButton" VALUE="Back">
     <INPUT TYPE="button" ONCLICK="Javascript:confirmStudent();" NAME="confirmButton" VALUE="Confirm">
    </TD>
   </TR>
