@@ -17,6 +17,7 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
+import com.topcoder.web.privatelabel.model.FullRegInfo;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -45,6 +46,9 @@ abstract class RegistrationBase extends BaseProcessor {
             log.debug("database set to: " + db);
 
             regInfo = makeRegInfo();
+            if (regInfo instanceof FullRegInfo) {
+                log.debug("responses: " + ((FullRegInfo)regInfo).getResponses());
+            }
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
         } catch (Exception e) {
