@@ -37,10 +37,10 @@ abstract class FullRegBase extends SimpleRegBase {
             for (Iterator it = questions.values().iterator(); it.hasNext();) {
                 StringBuffer buf = new StringBuffer(100);
                 DemographicQuestion q = (DemographicQuestion)it.next();
-                buf.append("question: " + q.getText() + "  ");
+                buf.append("question: " + q.getId() + " " + q.getText() + "  ");
                 for (Iterator it1 = q.getAnswers().iterator(); it1.hasNext();) {
                     DemographicAnswer a = (DemographicAnswer)it1.next();
-                    buf.append(a.getText() + " ");
+                    buf.append(a.getAnswerId() + " " + a.getText() + " ");
                 }
                 log.debug(buf.toString());
             }
