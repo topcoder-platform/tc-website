@@ -5,7 +5,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * This class represents a secured sector (an area or resource that needs to be secured).
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public class Sector implements java.io.Serializable {
 

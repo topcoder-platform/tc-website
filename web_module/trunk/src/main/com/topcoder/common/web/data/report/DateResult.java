@@ -5,8 +5,7 @@ import java.text.DateFormat;
 /** A wrapper for a date
  *  @author Greg Paul
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class DateResult extends ResultItem {
 

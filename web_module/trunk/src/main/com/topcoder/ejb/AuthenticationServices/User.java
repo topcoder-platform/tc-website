@@ -5,7 +5,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * This class represents a user (type of secure object) of the system.
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public class User
         extends SecureObject

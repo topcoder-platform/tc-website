@@ -5,8 +5,7 @@ package com.topcoder.common.web.constant;
  *  A set of constants related to sorting.
  *  @author Steve Burrows
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class Sort {
 

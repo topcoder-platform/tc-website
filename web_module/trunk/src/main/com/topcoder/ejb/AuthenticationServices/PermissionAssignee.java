@@ -6,7 +6,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * as generic security objects having permissions and groups affiliations.
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public interface PermissionAssignee {
 

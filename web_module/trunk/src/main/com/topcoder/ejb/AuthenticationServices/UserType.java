@@ -4,7 +4,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * This class defines the type of user.
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public class UserType implements java.io.Serializable, Cloneable {
 

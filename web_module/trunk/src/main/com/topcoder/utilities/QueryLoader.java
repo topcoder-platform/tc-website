@@ -33,15 +33,6 @@ import java.util.Hashtable;
  * @author  Greg Paul
  * @author  Dave Pecora
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.5  2002/07/31 20:05:22  gpaul
- *           slight change to javadocs
- *
- *           Revision 1.4  2002/07/31 18:46:33  gpaul
- *           slight change to javadocs
- *
- *           Revision 1.1  2002/07/12 17:15:46  gpaul
  */
 
 public class QueryLoader {

@@ -1,6 +1,6 @@
 package com.topcoder.utilities.dwload;
 
-/*****************************************************************************
+/**
  * TCLoad.java
  *
  * This is the base class for all TopCoder data loads. This is an abstract
@@ -8,39 +8,8 @@ package com.topcoder.utilities.dwload;
  *
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/12 17:15:47  gpaul
- *           merged baby
  *
- *           Revision 1.2.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.2  2002/05/24 19:28:10  gpaul
- *           added some  code so that we can load just the stuff for the current round in the aggregate load
- *
- *           Revision 1.1  2002/04/02 21:54:14  gpaul
- *           moving the load over from 153 cvs
- *
- *           Revision 1.1.2.4  2002/03/19 18:30:42  gpaul
- *           Log.debug instead of system.out.println
- *
- *           Revision 1.1.2.3  2002/03/18 20:42:17  gpaul
- *           print timestamp along with progress messsges
- *
- *           Revision 1.1.2.2  2002/03/17 20:23:28  gpaul
- *           print sql string there is an exception preparing the statement
- *
- *           Revision 1.1.2.1  2002/03/16 20:17:02  gpaul
- *           moving these over from the member dev area.  i've added  a couple fixes to exclude admins from queries.
- *
- *           Revision 1.9  2002/03/02 15:21:21  stalker
- *           Updated version of TCLoad
- *
- *           Revision 1.8  2002/02/13 22:18:54  stalker
- *           The latest version of TCLoad.java
- *
- *****************************************************************************/
+ */
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;

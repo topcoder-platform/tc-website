@@ -10,39 +10,6 @@ import java.util.Set;
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/16 21:37:45  gpaul
- *           merging in sord email changes
- *
- *           Revision 1.1.2.9  2002/07/07 23:53:48  sord
- *           Added functions related to creating reports for EmailJobs
- *
- *           Revision 1.1.2.8  2002/06/12 06:44:35  sord
- *           Added functions required for the multiple scheduler feature.
- *
- *           Revision 1.1.2.7  2002/05/06 05:36:00  sord
- *           Implemented archive_sched_job_detail related functions.
- *
- *           Revision 1.1.2.6  2002/05/03 09:04:17  sord
- *           Added functions to update jobType and check a job's type. The job type
- *           will be used to determine if a job is pre-detail-build or post-detail-build.
- *
- *           Revision 1.1.2.5  2002/05/02 20:17:37  sord
- *           Added getDate function so we can tell what time it is on the ejb server.
- *
- *           Revision 1.1.2.4  2002/04/27 01:40:56  sord
- *           Fixed bug in getJobs that was returning the wrong jobId
- *
- *           Revision 1.1.2.3  2002/04/25 08:40:31  sord
- *           Added additional functions required for working with job detail records.
- *
- *           Revision 1.1.2.2  2002/04/25 05:52:59  sord
- *           Added EmailServer bean.
- *
- *           Revision 1.1.2.1  2002/04/25 04:52:35  sord
- *           Initial version.
- *
  */
 public interface EmailServer extends EJBObject {
 

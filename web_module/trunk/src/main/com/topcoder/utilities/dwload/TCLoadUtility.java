@@ -1,6 +1,6 @@
 package com.topcoder.utilities.dwload;
 
-/*****************************************************************************
+/**
  * TCLoadUtility.java
  *
  * This is the load utility class for TopCoder loads. Using this class, you
@@ -10,31 +10,8 @@ package com.topcoder.utilities.dwload;
  *
  * @author Christopher Hopkins [TCid: darkstalker] (chrism_hopkins@yahoo.com)
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.2  2002/07/12 17:15:47  gpaul
- *           merged baby
  *
- *           Revision 1.1.4.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1  2002/04/02 21:54:14  gpaul
- *           moving the load over from 153 cvs
- *
- *           Revision 1.1.2.2  2002/03/19 18:30:42  gpaul
- *           log.debug instead of system.out.println
- *
- *           Revision 1.1.2.1  2002/03/16 20:17:02  gpaul
- *           moving these over from the member dev area.  i've added  a couple fixes to exclude admins from queries.
- *
- *           Revision 1.8  2002/03/02 15:24:28  stalker
- *           Modified to print a FAILURE message if a load fails
- *
- *           Revision 1.7  2002/02/20 15:10:38  stalker
- *           Removed debug statements
- *
- *
- *****************************************************************************/
+ */
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;

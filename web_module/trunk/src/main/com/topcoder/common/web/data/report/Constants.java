@@ -3,8 +3,7 @@ package com.topcoder.common.web.data.report;
 /** A set of constants for the reporting tool
  *  @author Greg Paul
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class Constants {
 

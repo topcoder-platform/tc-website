@@ -3,8 +3,7 @@ package com.topcoder.common.web.data.report;
 /** A wrapper for a int
  *  @author Greg Paul
  *  @version $Revision$
- *   Log of Changes:
- *           $Log$
+ *
  */
 public class IntResult extends ResultItem {
 

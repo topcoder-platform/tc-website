@@ -17,26 +17,6 @@ import java.util.Map;
  *
  * @author Greg Paul
  * @version $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.4  2002/07/31 17:25:36  gpaul
- *           make the default time for a cached item 1 week
- *
- *           Revision 1.3  2002/07/23 23:37:21  gpaul
- *           use DataSources rather than DBMS to get connections
- *
- *           Revision 1.2  2002/07/12 17:15:46  gpaul
- *           merged baby
- *
- *           Revision 1.1.2.2  2002/07/11 17:05:55  gpaul
- *           check if connection is closed before attempting to do it.
- *
- *           Revision 1.1.2.1  2002/07/09 23:41:27  gpaul
- *           switched to use com.topcoder.shared.util.logging.Logger
- *
- *           Revision 1.1  2002/07/03 00:30:22  gpaul
- *           moving over here
- *
  * @see     RequestInt
  */
 public class OLTPCachedDataAccess implements DataAccessInt {

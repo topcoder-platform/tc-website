@@ -4,7 +4,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * This class defines the levels of access given for a sector (secured resource).
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public final class AccessLevel implements java.io.Serializable {
 

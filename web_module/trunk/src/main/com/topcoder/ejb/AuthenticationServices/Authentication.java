@@ -7,7 +7,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * incremented and the Lockout could be set to true for a certain number of unsuccessful attempts.
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public final class Authentication implements java.io.Serializable {
 

@@ -5,7 +5,6 @@ package com.topcoder.ejb.AuthenticationServices;
  * This class defines a member of a security group.
  *
  * @version  $Revision$
- *  Log of Changes:
  */
 public final class GroupUser implements java.io.Serializable {
 

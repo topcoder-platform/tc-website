@@ -8,49 +8,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
+ *
  * @see EmailTemplate
  *
  * @author   Eric Ellingson
  * @version  $Revision$
- *  Log of Changes:
- *           $Log$
- *           Revision 1.3  2002/07/16 21:37:45  gpaul
- *           merging in sord email changes
- *
- *           Revision 1.4.2.5  2002/04/15 06:16:46  apps
- *           Added accesor functions for Name and GroupId.
- *
- *           Revision 1.4.2.4  2002/04/15 05:21:14  apps
- *           Advance recordset before getting seqId.
- *
- *           Revision 1.4.2.3  2002/04/15 04:13:45  apps
- *           Made static references public and move all statics to EmailJobBean.
- *
- *           Revision 1.4.2.2  2002/04/15 04:06:05  apps
- *           Modified to use database sequences instead of queries to get ids.
- *           This is a more reliable method, should multiple users update at the
- *           same time and it also eliminates problems that can arise from
- *           removing a record and then re-adding a record with the same id.
- *
- *           Revision 1.4.2.1  2002/04/11 18:20:28  apps
- *           SB -- readded EmailServices
- *
- *           Revision 1.4  2002/04/11 08:06:04  apps
- *           Fix SQL INSERT statements (had double left parens '((')
- *
- *           Revision 1.3  2002/04/09 10:14:04  apps
- *           Initial implementation.
- *
- *           Revision 1.2  2002/04/05 04:18:38  apps
- *           Fixed formatting by replacing tabs with spaces.
- *
- *           Revision 1.1.1.1  2002/04/02 10:42:29  apps
- *           no message
- *
- *           Revision 1.1.2.1  2002/04/02 10:34:32  apps
- *           Initial version.
- *           Interface declared.
- *
  */
 public class EmailTemplateBean extends BaseEJB {
 
