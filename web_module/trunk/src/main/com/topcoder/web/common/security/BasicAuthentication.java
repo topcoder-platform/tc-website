@@ -166,9 +166,8 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public void setCookie(long uid) throws Exception {
         String hash = hashForUser(uid);
-        clearCookie();
         Cookie c = new Cookie(USER_COOKIE_NAME, ""+uid+"|"+hash);
-        // could set path here, but we have been assuming only one path is ever used
+        c.setPath("/");  //force everyone to have the same path regardless of servlet used in call
         c.setMaxAge(Integer.MAX_VALUE);  // this should fit comfortably, since the expiration date is a string on the wire
         response.addCookie(c);
     }
