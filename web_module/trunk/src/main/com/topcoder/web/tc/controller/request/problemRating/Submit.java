@@ -39,55 +39,62 @@ public class Submit extends Base {
             throw new PermissionException(getUser(),new ClassResource(this.getClass()));
         }
         long userID = getUser().getId();
-        InitialContext ctx = null;
         HttpServletRequest request = null;
+        InitialContext ctx = null;
         try {
+            request = getRequest();
+            int pid = 0;
+            try{
+                pid = Integer.parseInt(request.getParameter("pid"));
+            }catch(Exception e){
+                throw new NavigationException("Problem ID is invalid");
+            }
             Request r = new Request();
             r.setContentHandle("Problem Rating Submit");
-            r.setProperty("pm", getRequest().getParameter(Constants.PROBLEM_ID));
+            r.setProperty("pm", String.valueOf(pid));
             r.setProperty("cr", String.valueOf(userID));
             //response data has to be live, no cache
             DataAccessInt dataAccess = getDataAccess();
             Map qMap = dataAccess.getData(r);
             ResultSetContainer ratings = (ResultSetContainer) qMap.get("problem rated");
             
-            if(ratings.getRow(0).getIntItem("count")!=0){
-                throw new NavigationException("You may only rate a problem once.");
+           if(ratings.getRow(0).getIntItem("count")!=0){
+               //user already rated problem, show results
+               processResults();
+               setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
+               setIsNextPageInContext(true);
+//                throw new NavigationException("You may only rate a problem once.");
             }
             ctx = new InitialContext();
             ProblemRatingServices prs = (ProblemRatingServices)createEJB(ctx, ProblemRatingServices.class);
-            request = getRequest();
+
 
             ResultSetContainer questionsRSC = (ResultSetContainer) qMap.get("problem rating questions");
             Iterator it = questionsRSC.iterator();
             ArrayList questions = new ArrayList(10);
             ArrayList answers = new ArrayList(10);
             int qid, rating = 0;
+            String error = null;
             while(it.hasNext()){
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next();
                 qid = row.getIntItem("question_id");
                 try{
                     rating = Integer.parseInt(request.getParameter("q"+qid));
                 }catch(Exception e){
-                    addError("problemRating","Please answer all of the questions.");
-                    setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingQuestions");
-                    setIsNextPageInContext(true);
-                    return;
+                    error = "Please answer all of the questions.";
                 }
-                if(rating < 1 || rating > 10){
-                    addError("problemRating","You must rate each question between 1 and 10, inclusive.");
-                    setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingQuestions");
+                if((rating < 1 || rating > 10) && error == null){
+                    error = "You must rate each question between 1 and 10, inclusive.";
+                }
+                if(error!=null){
+                    addError("problemRating",error);
+                    processQuestions();
+                    setNextPage(Constants.PROBLEM_RATING_QUESTIONS);
                     setIsNextPageInContext(true);
                     return;
                 }
                 questions.add(new Integer(qid));
                 answers.add(new Integer(rating));
-            }
-            int pid = 0;
-            try{
-                pid = Integer.parseInt(request.getParameter("pid"));
-            }catch(Exception e){
-                throw new NavigationException("Problem ID is invalid");
             }
             for(int i = 0; i<questions.size(); i++){
                 qid = ((Integer)questions.get(i)).intValue();
@@ -95,12 +102,14 @@ public class Submit extends Base {
                 prs.createProblemRating(qid, userID, pid);
                 prs.setProblemRating(qid,userID,pid,rating);
             }
-            setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
+            processResults();
+            setNextPage(Constants.PROBLEM_RATING_RESULTS);
             setIsNextPageInContext(true);
         }catch(NavigationException e){
             throw e;
         }catch(Exception e){
             e.printStackTrace();
+            throw new NavigationException("There was an error with you problem rating.  Please contact TopCoder.");
         }
     }
 }
