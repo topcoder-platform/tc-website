@@ -67,8 +67,6 @@
             </table>
             <br/><br/>
 
-            <p> Click <A href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_top100">here</A> to see the full TCO advancers table.</p>
-
         <p><br/></p>
          </td>
 <!-- Center Column Ends -->
