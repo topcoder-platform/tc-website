@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
-<!DOCTYPE statServlet [
+<!DOCTYPE StatServlet [
   <!ELEMENT StatServlet	(RankList?, QuickStatList?, ContentList*)>
   
   <!ELEMENT RankList (RankItem+) >
@@ -67,7 +67,7 @@
 <ContentItem contentHandle="state_avg_rating" nextPage="/statistics/topRankedStates.jsp" access="0"/>
 <ContentItem contentHandle="country_avg_rating" nextPage="/statistics/topRankedCountries.jsp" access="0"/>
 <ContentItem contentHandle="top_designers" nextPage="/statistics/topRankedDesigners.jsp" access="0"/>
-<ContentItem contentHandle="top_developerss" nextPage="/statistics/topRankedDeveloperss.jsp" access="0"/>
+<ContentItem contentHandle="top_developers" nextPage="/statistics/topRankedDeveloperss.jsp" access="0"/>
 </ContentList>
 <GlobalError nextPage="/errorPage.jsp"/>
 </StatServlet>
