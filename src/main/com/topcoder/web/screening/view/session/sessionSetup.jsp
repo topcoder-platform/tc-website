@@ -228,8 +228,8 @@ function submitSession() {
                  <tr>
                     <td><div align="center"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></div></td>
                 </tr>
+            </table>
             </screen:form>
-  
             <p><br></p>
         </td>
 <!-- Middle Column ends -->
