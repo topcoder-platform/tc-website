@@ -92,10 +92,11 @@
                     <tr><td id="<%=level3.equals("descontest2")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=des_bonus_contest_2">Design Bonus Contest 2</A></td></tr>
                     <tr><td id="<%=level3.equals("descontest1")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=bonus_contest_0303">Design Bonus Contest 1</A></td></tr>
                 <% } %>
-                <tr><td id="<%=level2.equals("faq")?"leftNavOn":"leftNav"%>"><a href="/?&t=development&c=dev_payment" class="<%=level2.equals("faq")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("faq")?"bottom":"right"%>.gif" alt="" border="0"/>Support / FAQ</a></td></tr>
-                <% if (level2.equals("faq")) { %>
+                <tr><td id="<%=level2.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?t=development&c=getting_started" class="<%=level2.equals("support")?"leftOn":"left"%>"><img width="10" height="10" src="/images/nav_arrow_<%=level2.equals("support")?"bottom":"right"%>.gif" alt="" border="0"/>Support / FAQs</a></td></tr>
+                <% if (level2.equals("support")) { %>
+                    <tr><td id="<%=level3.equals("gettingStarted")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?t=development&c=getting_started">Getting Started</A></td></tr>
+                	<tr><td id="<%=level3.equals("faq")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/tc?module=Static&d1=dev&d2=devFaq">Development FAQ</A></td></tr>
                 	<tr><td id="<%=level3.equals("getPaid")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/?&t=development&c=dev_payment">How to Get Paid</A></td></tr>
-                	<tr><td id="<%=level3.equals("reliability")?"leftSubnavOn":"leftSubnav"%>"><A class="leftOn" href="/">Reliability Rating</A></td></tr>
                 <% } %>
             </table>
 
