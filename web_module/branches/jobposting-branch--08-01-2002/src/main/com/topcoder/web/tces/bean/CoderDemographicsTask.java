@@ -102,9 +102,9 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
             HashMap qr = new HashMap();
 
             qr.put("question",
-                    compListRow.getItem("demographic_question_text").toString() );
+                    qrListRow.getItem("demographic_question_text").toString() );
             qr.put("response",
-                    compListRow.getItem("demographic_answer_text").toString() );
+                    qrListRow.getItem("demographic_answer_text").toString() );
 
             qrList.add(qr);
         }
