@@ -54,7 +54,7 @@
 
 									UserBean beanUser = new UserBean();
 									UserObject objUser = new UserObject();
-									ojbUser.user_id = new Long ((long)user_id);
+									objUser.user_id = new Long ((long)user_id);
 									objUser = beanUser.request(User.SELECT, objUser);
 							%>
 
