@@ -54,26 +54,9 @@ function submitEnter(e) {
 			</jsp:include>
 			</div>
                           
-<b><font size="+1">Registration Successful!</font></b><br>
+                  <b><font size="+1">Activation Successful!</font></b><br>
 
-<p><font size="-1">
-<br/>
 
-<b>If you converted your TopCoder / Code Jam 2003 account:</b><br/>
-Your account is active.<br/><br/>
-
-<b>For new accounts:</b><br/>
-In order to be eligible to compete in the Google Code Jam 2004,
-you must activate your account by following the directions sent to the email
-address provided during registration. You <u>will not</u> be able to compete if you
-do not activate your account.
-
-<br/><br/>
-
-Spend time in the Practice Rooms prior to the Qualification Round by clicking the Practice Arena tab above.<br/><br/>
-
-Good luck to you in the Arena!
-</font></p>
 			<br/><br/>
 			
 		</td>
