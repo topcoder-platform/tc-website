@@ -7,6 +7,8 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 
 import java.util.Map;
+import java.util.Iterator;
+import java.util.HashMap;
 
 /**
  * @author rfairfax
@@ -25,12 +27,18 @@ public abstract class StatBase extends Base {
 
         Request dataRequest = new Request();
         Map map = getRequest().getParameterMap();
-        map.remove(Constants.MODULE_KEY);
-        map.remove(DataAccessConstants.SORT_COLUMN);
-        map.remove(DataAccessConstants.SORT_DIRECTION);
+        HashMap filteredMap = new HashMap();
+        Map.Entry me = null;
+        for (Iterator it = map.entrySet().iterator(); it.hasNext();) {
+            me = (Map.Entry)it.next();
+            if (!me.getKey().equals(Constants.MODULE_KEY)&&
+                    !me.getKey().equals(DataAccessConstants.SORT_COLUMN)&&
+                    !me.getKey().equals(DataAccessConstants.SORT_DIRECTION)) {
+                filteredMap.put(me.getKey(), me.getValue());
+        }
 
         try {
-            dataRequest.setProperties(map);
+            dataRequest.setProperties(filteredMap);
             dataRequest.setContentHandle(getCommandName());
             DataAccessInt dai = getDataAccess(getDataSourceName(), true);
             Map result = dai.getData(dataRequest);
