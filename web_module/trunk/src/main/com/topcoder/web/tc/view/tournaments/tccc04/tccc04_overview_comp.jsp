@@ -39,11 +39,11 @@
    <jsp:param name="selectedTab" value="overview"/>
 </jsp:include>
 
-<!-- Tab bar sublinks
+<!-- Tab bar sublinks-->
 <jsp:include page="tccc04Sublinks.jsp" >
    <jsp:param name="selectedList" value=""/>
    <jsp:param name="selectedTab" value=""/>
-</jsp:include>-->
+</jsp:include>
 
             <p class="terciary">
                 <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_overview">Algorithm Competition</a>&nbsp;&nbsp;|&nbsp;&nbsp;Component Competition
