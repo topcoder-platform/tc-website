@@ -45,7 +45,7 @@
 
             <h2>Schedule</h2>
             
-            <p><span class="bodySubtitle">Online Elimination Rounds</span><br/>
+            <p><span class="bodySubtitle">Registration</span><br/>
             Registration for the 2004 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00am EST 
             on Monday, February 1, 2004 and will close at 9:00am EST on Monday, February 23, 2004.  In order to 
             be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member 
