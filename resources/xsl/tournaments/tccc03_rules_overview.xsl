@@ -70,13 +70,15 @@
 						Championship rounds, being held at the University Park Hotel @ MIT in Cambridge, MA from April 4-5, 2003.</P>
 						
 						<P><B>Eligibility</B></P>
-						<P>The tournament is open to the following members who are at least 18 years of age, who are matriculated full-time at an accredited college or university,
-						who have participated in at least
-three (3) TopCoder rated events (i.e. Single Round Matches and previous
-tournaments) prior to February 15, 2003, with at least one (1) of those
-events being since August 1, 2002 AND:
+						<P>The tournament is open to the members who meet the following criteria: 
 						<UL>
-						
+						      <LI>Are at least 18 years of age (as of February 18th, 2003);</LI>
+						      <LI>Are matriculated full time at an accredited college or university;</LI>
+						      <LI>Have participated in at least two (2) TopCoder rated events (i.e. Single Round Matches and previous tournaments) prior to February 15, 2003, with at least one (1) of those events being since August 1, 2002.</LI>
+						   </UL>
+						</P>
+						<P>Those who compete in the tournament and meet the following criteria will be eligible to receive prize money after completing an affidavit and a tax form:
+						<UL>					
 						<LI>All citizens and lawful permanent residents of:</LI>
 						   <UL>
 						      <LI>Australia</LI>
@@ -90,7 +92,14 @@ events being since August 1, 2002 AND:
 						   </UL>
 						<LI>All non-immigrants currently residing in the US with a valid Visa</LI></UL></P>
 					
-						
+<P>
+Those who do not meet the criteria for prize money will have their winnings donated to a charity.  
+TopCoder maintains a list of approved <A HREF="http://www.topcoder.com/?&amp;t=support&amp;c=charities" CLASS="statText">charities</A>.  
+The member will be allowed to choose from this list of charities.  A prize-winning member may request 
+a new charity for the list.  It will be TopCoder's sole discretion to add that charity after 
+reviewing credentials.
+</P>
+ 						
 <P><B>Invitations and Registration</B></P>
 
 <P>
