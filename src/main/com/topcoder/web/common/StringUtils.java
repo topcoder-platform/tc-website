@@ -131,6 +131,9 @@ public final class StringUtils {
                 sb.append("&#160;&#160;&#160;&#160;");
             } else if (ch == '<') {
                 sb.append("&lt;");
+            } else if (ch == 10 && s.charAt(i+1) == 13) {
+                sb.append("<br />");
+                i++;
             } else if (ch == 10 || ch == 13) {
                 sb.append("<br />");
             } else if (((int) ch) < 32) {
