@@ -85,7 +85,7 @@ In Single Round Match 79, <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="
 </P>
 
 <P>
-"I think I was able to pull it off (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">the high Rating Point Gain</A>) in the competition due to my bad experiences in previous rounds, where my programs failed in System Test," said <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A>.  "It made me much more meticulous in looking at the problems from several approaches."   
+"I think I was able to pull it off (the high Rating Point Gain) in the competition due to my bad experiences in previous rounds, where my programs failed in System Test," said <A HREF="/stat?c=member_profile&amp;cr=270887" CLASS="coderTextYellow">eduar09</A>.  "It made me much more meticulous in looking at the problems from several approaches."   
 </P>
 
 <P>
