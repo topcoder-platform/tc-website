@@ -49,6 +49,8 @@ function openWin(url, name, w, h) {
 			</span>
 
 			<br/><br/>
+         <A href="/pl/?module=GoogleIndia05Credentials&cid=8039">Forgot your password?</A>
+			<br/><br/>
          Click <A href="/pl/?&module=Static&d1=gicj05&d2=instructions">here</A> to read to the <A href="/pl/?&module=Static&d1=gicj05&d2=instructions">competition instructions</A>.
          <br/><br/>
          Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">Java Applet</A>.
