@@ -31,6 +31,7 @@ public class Constants {
 
     public static String HANDLE;
     public static String STATE_CODE;
+    public static String COUNTRY_CODE;
     public static String MIN_RATING;
     public static String MAX_RATING;
     public static String MIN_NUM_RATINGS;
