@@ -1,5 +1,4 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
-<%@ taglib uri="/email-taglib.tld" prefix="email"%>
 <h3>Mailing list members</h3>
 
 <% // alternate colors every row...
