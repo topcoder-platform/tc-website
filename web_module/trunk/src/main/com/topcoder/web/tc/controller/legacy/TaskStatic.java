@@ -197,6 +197,7 @@ public final class TaskStatic {
         RecordTag tournamentTag = new RecordTag("TOURNAMENTS");
         try {
             if (requestCommand.equals("tco03_top100")) {
+                ctx = TCContext.getInitial();
                 log.debug("in here");
                 dataRequest = new Request();
                 dataRequest.setContentHandle(requestCommand);
