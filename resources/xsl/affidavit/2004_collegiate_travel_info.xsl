@@ -243,19 +243,23 @@
             </TR>
             <TR><TD COLSPAN="2" ALIGN="center"><input type="submit" name="submit" value=" Submit "/></TD></TR>
             </FORM>
+
+            <tr>
+                <td colspan="2">
+            <font color="#ff0000">PLEASE NOTE:</font>
+            Guests are invited to attend the TCCC04; however, all costs (hotel, travel, meals, etc.) are at their own
+                expense. TopCoder is offering a spectator package for members and guests to join us at this most exciting
+                tournament yet!  For a cost of $495pp, the spectator package includes 2 nights at the hotel, 2 meals with
+                the competitors, attendance at all onsite events (competitions, technical presentations, etc.) and an
+                assortment of TopCoder Gear.  The package does not include any travel to the event.
+                <br/><br/>
+            For more details, click <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=spectator_package">here</a>
+                </td>
+            </tr>
+
         </TABLE>
 
 
-        <p>
-        <font color="#ff0000">PLEASE NOTE:</font>
-        Guests are invited to attend the TCCC04; however, all costs (hotel, travel, meals, etc.) are at their own
-            expense. TopCoder is offering a spectator package for members and guests to join us at this most exciting
-            tournament yet!  For a cost of $495pp, the spectator package includes 2 nights at the hotel, 2 meals with
-            the competitors, attendance at all onsite events (competitions, technical presentations, etc.) and an
-            assortment of TopCoder Gear.  The package does not include any travel to the event.
-            <br/><br/>
-        For more details, click <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=spectator_package">here</a>
-        </p>
 
 
 
