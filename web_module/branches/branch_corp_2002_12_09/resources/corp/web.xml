@@ -24,6 +24,12 @@
   </init-param>
 
   <init-param>
+    <param-name>processor-user-list</param-name>
+    <param-value>com.topcoder.web.corp.request.UserListTest</param-value>
+    <description>handles user list page</description>
+  </init-param>
+
+  <init-param>
     <!--
          this page will be accessed via forward only, so it must be specified
          from application root, servlet context path is not allowed. First slash

@@ -49,7 +49,7 @@ class UserList extends BaseProcessor {
     void businessProcessing() throws Exception {
         try {
             setupUsersList();
-            nextPage = ("/acc_admin/usr_list.jsp");
+            nextPage = ("/acc_admin/user_list.jsp");
         }
         catch (Exception e) {
             log.error("ERROR while setting up users list: "+e);
