@@ -51,6 +51,7 @@
                 </P><BR><BR>
                 <FORM METHOD="post" NAME="frmLogin" action="<%=appContext%>/?module=Login">
                     <INPUT NAME="module" TYPE="hidden" VALUE="Login"/>
+                    <INPUT NAME="dest" TYPE="hidden" VALUE="<%=request.getParameter("dest")%>"/>
                     <TABLE ALIGN="center" WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                         <TR>
                             <TD ALIGN="right" HEIGHT="14" VALIGN="middle" CLASS="statTextBig">Handle:&nbsp;&nbsp;</TD>
