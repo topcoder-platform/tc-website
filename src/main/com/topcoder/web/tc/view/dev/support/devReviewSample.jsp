@@ -1677,7 +1677,7 @@ testing of the component will be maintained or enhanced.
 			    	<td class="forumTitle" width="80%">
 			    	    <strong>Review Board Test Cases</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
-			    	    <strong>Weight: 10</strong>
+			    	    <strong>Weight: 100</strong>
 			    	</td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
@@ -1750,7 +1750,7 @@ number of tests that were successful.
 			    	<td class="forumTitle" width="80%">
 			    	    <strong>Overall Comments</strong></td>
 			    	<td class="forumTitleCenter" width="10%">
-			    	    <strong>Weight: 15</strong>
+			    	    <strong>Weight: 150</strong>
 			    	</td>
 			    	<td class="forumTitleCenter" width="10%">
 			    	    <strong>Response</strong></td>
