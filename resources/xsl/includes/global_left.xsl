@@ -4,7 +4,6 @@
     <xsl:import href="../includes/modules/simple_search.xsl"/>
     <xsl:import href="../includes/modules/corp_nav.xsl"/>
     <xsl:import href="../includes/modules/intro.xsl"/>
-    <xsl:import href="../includes/modules/module_login.xsl"/>
     <xsl:import href="../includes/modules/my_stats.xsl"/>
     <xsl:import href="../includes/modules/countries2.xsl"/>
     <xsl:import href="../includes/modules/srm_dates.xsl"/>

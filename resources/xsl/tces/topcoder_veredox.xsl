@@ -2,20 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../includes/modules/module_login.xsl"/>  
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>TopCoder :: Employment Services</TITLE>
-        <xsl:call-template name="CSS"/>      
+        <xsl:call-template name="CSS"/>
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
@@ -36,7 +35,7 @@
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-  <!-- Center Column Begins -->  
+  <!-- Center Column Begins -->
 		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
@@ -58,28 +57,28 @@
 <h2>Day One at TopCoder</h2>
 
 <p>
-I walk out of luggage claim at Hartford/Bradley International Airport and <b><font color="#FF9900">bblais</font></b> pulls up with flawless timing.  
+I walk out of luggage claim at Hartford/Bradley International Airport and <b><font color="#FF9900">bblais</font></b> pulls up with flawless timing.
 He is here to pick me up for my first day at TopCoder.
 </p>
 <p>
-After a half hour of engaging conversation ranging from software trends to programming languages we arrive at 
-the office.  It is a modest structure set slightly lower than the nearby road, very unassuming for the atmosphere 
-inside.  I get the full tour from <b><font color="#FF9900">mmorris</font></b>: conference room over here, cubes over there, and servers in the back.  
-Then, as an afterthought he asks, "Oh, and have you seen this?"  I do a double take as he indicates a pair of vending 
+After a half hour of engaging conversation ranging from software trends to programming languages we arrive at
+the office.  It is a modest structure set slightly lower than the nearby road, very unassuming for the atmosphere
+inside.  I get the full tour from <b><font color="#FF9900">mmorris</font></b>: conference room over here, cubes over there, and servers in the back.
+Then, as an afterthought he asks, "Oh, and have you seen this?"  I do a double take as he indicates a pair of vending
 machines labeled free.  This is my kind of place.
 </p>
 <p>
 "So, where should I set up?" I ask. <br/>
-"The Pit." 
+"The Pit."
 </p>
 <p>
-The Pit is the nickname for the place from which programming competitions are run and is actually quite comfortable 
-(contrary to what one might imagine given its title).  <b><font color="#FF9900">mmorris</font></b> hands me my laptop and shows me to my desk.  To my 
-left, <b><font color="#FF9900">dok</font></b> is cranking out code that is more efficient for getting database connections from our application server.  On 
-my right, <b><font color="#FF9900">gt494</font></b> is getting things ready for the next competition, and behind me is a 52" flat screen used to display 
-results during onsite competitions.  Next to the screen rests a Playstation 2 and a large assortment of games.  Just as 
-my imagination starts to take over, a hand holding a piece of papers obscures my vision.  On the print out is my initial 
-to do list; it looks like out-skating <b><font color="#FF9900">mess</font></b> in Tony Hawk's Pro Skater 3 and endlessly fragging <b><font color="#FF9900">Sharakan</font></b> in the latest first 
+The Pit is the nickname for the place from which programming competitions are run and is actually quite comfortable
+(contrary to what one might imagine given its title).  <b><font color="#FF9900">mmorris</font></b> hands me my laptop and shows me to my desk.  To my
+left, <b><font color="#FF9900">dok</font></b> is cranking out code that is more efficient for getting database connections from our application server.  On
+my right, <b><font color="#FF9900">gt494</font></b> is getting things ready for the next competition, and behind me is a 52" flat screen used to display
+results during onsite competitions.  Next to the screen rests a Playstation 2 and a large assortment of games.  Just as
+my imagination starts to take over, a hand holding a piece of papers obscures my vision.  On the print out is my initial
+to do list; it looks like out-skating <b><font color="#FF9900">mess</font></b> in Tony Hawk's Pro Skater 3 and endlessly fragging <b><font color="#FF9900">Sharakan</font></b> in the latest first
 person shooter will have to wait.
 </p>
 <p>
@@ -98,8 +97,8 @@ person shooter will have to wait.
     <!-- Gutter Ends -->
 	<!-- Right Column Begins -->
 		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
+        <xsl:call-template name="public_right_col"/>
+<!-- Right Column Include Ends -->
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
