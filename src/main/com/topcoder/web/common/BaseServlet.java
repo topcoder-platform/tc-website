@@ -144,7 +144,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     private void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
-                                  boolean forward) throws IOException, ServletException {
+                                  boolean forward) throws Exception {
         log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
 
         String contextPrefix = request.getContextPath();
@@ -200,7 +200,7 @@ public abstract class BaseServlet extends HttpServlet {
     }
 
     protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e)
-            throws ServletException, IOException {
+            throws Exception {
         log.error("caught exception, forwarding to error page", e);
         if (e instanceof PermissionException) {
             request.setAttribute(MESSAGE_KEY, "Sorry, you do not have permission to access the specified resource.");
