@@ -50,9 +50,6 @@ public class CachedDataAccess implements DataAccessInt {
         this.dataSource = dataSource;
     }
 
-    public CachedDataAccess(DataSource ds) {
-    }
-
     /**
      * Construtor that takes the timeout for the object should it need to
      * be cached, and a data source.

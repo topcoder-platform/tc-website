@@ -355,9 +355,6 @@ public class CompanyBean extends BaseEJB {
             throw new EJBException("SQLException updating company_id: " +
                     companyId + " new_user_status: " +
                     newUserStatus);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating company " +
-                    "newUserStatus");
         } catch (Exception e) {
             throw new EJBException("Exception updating company_id: " +
                     companyId + " new_user_status: " +
