@@ -1,4 +1,4 @@
-<%@ page import="com.topcoder.dde.util.ApplicationServer" %>
+<%@ page import="com.topcoder.apps.review.ApplicationServer" %> 
 <!-- Main Navigation bar begins -->
 <%
     boolean isDevelopmentPage = "true".equals(request.getParameter("isDevelopmentPage"));
