@@ -17,8 +17,9 @@
             <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0"><br>
             <table width="180" cellspacing="0" cellpadding="0" border="0">
 
-<%-- TopCoder Info begins *************************** --%>
 <% if ((level1.equals("about")) || (level1.equals("review_board"))) { %>
+
+<%-- TopCoder Info begins *************************** --%>
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
 
 <%-- About TopCoder begins --%>
@@ -53,8 +54,9 @@
 <%-- Contacts ends --%>
 <%-- TopCoder Info ends *************************** --%>
 
-<%-- Competition begins *************************** --%>
 <% } else { %>
+
+<%-- Competition begins *************************** --%>
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
                 <tr><td id="leftNavApplet"><a href="Javascript:arena()" class="left"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Launch Arena Applet</a></td></tr>
 
@@ -137,14 +139,15 @@
 
                     <tr><td id="<%=paramFid>0&&paramFid==fID?"leftSubnavOn":"leftSubnav"%>"><a href="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="leftOn"><%=(fName!=null)?fName:"&nbsp;"%></a></td></tr>
                 <% } %>
+        <% } %>
     <%-- Round Tables ends --%>
 
-        <% } %>
     <%-- Support/FAQs begins --%>
                     <tr><td id="<%=level1.equals("support")?"leftNavOn":"leftNav"%>"><a href="/?&t=support&c=index" class="<%=level1.equals("support")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("support")?"bottom":"right"%>.gif" border="0"/>Support/FAQs</a></td></tr>
     <%-- Support/FAQs ends --%>
 
     <%-- Competition ends *************************** --%>
+
 <% } %>
 
 <%-- PACTS begins *************************** --%>
