@@ -67,7 +67,7 @@
                     <td background="/i/steel_bluebv_bg.gif" class="statText">Application Design Projects</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
                     <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Submit by</td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
+                    
                 </tr>
 
 				
