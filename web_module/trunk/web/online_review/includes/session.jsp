@@ -11,7 +11,6 @@
 <%@ page import="com.topcoder.security.policy.*" %>
 
 <%@ page import="com.topcoder.dde.user.*" %>
-<%@ include file="cookies.jsp" %>
 <%
 	////////////////////////////////////////////
 	// Load context

@@ -1,4 +1,5 @@
-<%@ page import="javax.naming.*" %>
+<%@ page import="javax.naming.*,
+                 com.topcoder.dde.util.Cookies" %>
 <%@ page import="javax.ejb.CreateException" %>
 <%@ page import="java.io.*" %>
 <%@ page import="java.rmi.*" %>
@@ -38,7 +39,7 @@
             //remove stuff used by online review
             session.removeAttribute("user");
             session.removeAttribute("projects");
-            clearLoginCookies(response);
+            Cookies.clearLoginCookies(response);
 //            To log user out of Online Review App
 //            session.removeAttribute("user");
 //            session.removeAttribute("projects");
