@@ -245,7 +245,7 @@
                 var ret="";
                 var states = s.split(",");
                 for(i=0; i<states.length; i++) {
-                  if (states[i].charAt(0)!='\''
+                  if (states[i].charAt(0)!='\'')
                     ret+="'";
                   ret+=states[i];
                   if (states[i].charAt(states[i].length-1)!='\'')
