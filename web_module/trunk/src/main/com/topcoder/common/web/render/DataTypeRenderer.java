@@ -28,7 +28,7 @@ public class DataTypeRenderer implements ElementRenderer {
 
         if (desc == null)
             return "null";
-        return ProblemRenderer.encodeHTML(desc);
+        return BaseRenderer.encodeHTML(desc);
     }
 
     public String toPlainText(Language language) {

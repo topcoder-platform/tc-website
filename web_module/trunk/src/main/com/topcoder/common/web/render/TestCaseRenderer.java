@@ -28,26 +28,50 @@ public class TestCaseRenderer extends BaseRenderer implements ElementRenderer {
 
         buf.append("<table>");
 
-        buf.append("<tr><td>");
+        buf.append("<tr><td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append("<table>");
         String[] inputs = testCase.getInput();
         for (int i = 0; i < inputs.length; i++) {
-            buf.append("<tr><td>");
+            buf.append("<tr><td");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             buf.append("<pre>");
-            buf.append(ProblemRenderer.encodeHTML(inputs[i]));
+            buf.append(BaseRenderer.encodeHTML(inputs[i]));
             buf.append("</pre>");
             buf.append("</td></tr>");
         }
         buf.append("</table>");
         buf.append("</td></tr>");
 
-        buf.append("<tr><td>");
+        buf.append("<tr><td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append("<pre>Returns: ");
-        buf.append(ProblemRenderer.encodeHTML(breakIt(testCase.getOutput())));
+        buf.append(BaseRenderer.encodeHTML(breakIt(testCase.getOutput())));
         buf.append("</pre>");
         buf.append("</td></tr>");
 
-        buf.append("<tr><td>");
+        buf.append("<tr><td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         if (testCase.getAnnotation() != null) {
             buf.append("<table>");
             buf.append("<tr><td colspan=\"2\">");

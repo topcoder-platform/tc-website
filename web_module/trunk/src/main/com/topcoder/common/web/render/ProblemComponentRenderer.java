@@ -41,47 +41,125 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
 
         /* Intro */
         buf.append("<tr>");
-        buf.append("<td colspan=\"2\">");
+        buf.append("<td colspan=\"2\"");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         appendTag(buf, SECTION_HEADER, "Problem Statement");
         buf.append("</td>");
         buf.append("</tr>");
         if (problemComponent.getIntro() != null) {
             buf.append("<tr>");
-            buf.append("<td>");
+            buf.append("<td");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             buf.append(LEFT_MARGIN);
             buf.append("</td>");
-            buf.append("<td>");
+            buf.append("<td");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             buf.append(super.getRenderer(problemComponent.getIntro()).toHTML(language));
             buf.append("</td>");
             buf.append("</tr>");
         }
 
         /* Signature */
-        buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
+        buf.append("<tr><td colspan=\"2\"");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">&#160;</td></tr>");
         buf.append("<tr>");
-        buf.append("<td colspan=\"2\">");
+        buf.append("<td colspan=\"2\"");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         appendTag(buf, SECTION_HEADER, "Definition");
         buf.append("</td>");
         buf.append("</tr>");
         buf.append("<tr>");
-        buf.append("<td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append(LEFT_MARGIN);
         buf.append("</td>");
-        buf.append("<td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append("<table>");
         buf.append("<tr>");
-        buf.append("<td>Class:</td>");
-        buf.append("<td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">Class:</td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append(problemComponent.getClassName());
         buf.append("</td>");
         buf.append("</tr>");
-        buf.append("<tr><td>Method:</td>");
-        buf.append("<td>");
+        buf.append("<tr><td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">Method:</td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append(problemComponent.getMethodName());
         buf.append("</td>");
         buf.append("</tr>");
-        buf.append("<tr><td>Parameters:</td>");
-        buf.append("<td>");
+        buf.append("<tr><td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">Parameters:</td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         DataType[] paramTypes = problemComponent.getParamTypes();
         for (int i = 0; i < paramTypes.length; i++) {
             if (i > 0)
@@ -90,21 +168,51 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         }
         buf.append("</td>");
         buf.append("</tr>");
-        buf.append("<tr><td>Returns:</td>");
-        buf.append("<td>");
+        buf.append("<tr><td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">Returns:</td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append(new DataTypeRenderer(problemComponent.getReturnType()).toHTML(language));
 
         buf.append("</td>");
         buf.append("</tr>");
-        buf.append("<tr><td>Method signature:</td>");
-        buf.append("<td>");
+        buf.append("<tr><td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">Method signature:</td>");
+        buf.append("<td");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">");
         buf.append(encodeHTML(language.getMethodSignature(problemComponent.getMethodName(),
                 problemComponent.getReturnType(),
                 problemComponent.getParamTypes(),
                 problemComponent.getParamNames())));
         buf.append("</td>");
         buf.append("</tr>");
-        buf.append("<tr><td colspan=\"2\">(be sure your method is public)</td></tr>");
+        buf.append("<tr><td colspan=\"2\"");
+        if (getTdClass()!=null) {
+            buf.append(" class=\"");
+            buf.append(getTdClass());
+            buf.append("\"");
+        }
+        buf.append(">(be sure your method is public)</td></tr>");
         buf.append("</table>");
         buf.append("</td>");
         buf.append("</tr>");
@@ -112,12 +220,24 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         /* Spec */
         if (problemComponent.getSpec() != null) {
             buf.append("<tr>");
-            buf.append("<td>");
+            buf.append("<td");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             buf.append(LEFT_MARGIN);
             buf.append("</td>");
             buf.append("</tr>");
             buf.append("<tr>");
-            buf.append("<td>");
+            buf.append("<td");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             buf.append(super.getRenderer(problemComponent.getSpec()).toHTML(language));
             buf.append("</td>");
             buf.append("</tr>");
@@ -126,18 +246,42 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         /* Notes */
         Element[] notes = problemComponent.getNotes();
         if (notes != null && notes.length > 0) {
-            buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
+            buf.append("<tr><td colspan=\"2\"");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">&#160;</td></tr>");
             buf.append("<tr>");
-            buf.append("<td colspan=\"2\">");
+            buf.append("<td colspan=\"2\"");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             appendTag(buf, SECTION_HEADER, "Notes");
             buf.append("</td>");
             buf.append("</tr>");
             for (int i = 0; i < notes.length; i++) {
                 buf.append("<tr>");
-                buf.append("<td align=\"center\" valign=\"top\">");
+                buf.append("<td align=\"center\" valign=\"top\"");
+                if (getTdClass()!=null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
                 buf.append("-");
                 buf.append("</td>");
-                buf.append("<td>");
+                buf.append("<td");
+                if (getTdClass()!=null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
                 buf.append(super.getRenderer(notes[i]).toHTML(language));
                 buf.append("</td>");
                 buf.append("</tr>");
@@ -147,18 +291,42 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
         /* Constraints */
         Element[] constraints = problemComponent.getConstraints();
         if (constraints != null && constraints.length > 0) {
-            buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
+            buf.append("<tr><td colspan=\"2\"");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">&#160;</td></tr>");
             buf.append("<tr>");
-            buf.append("<td colspan=\"2\">");
+            buf.append("<td colspan=\"2\"");
+            if (getTdClass()!=null) {
+                buf.append(" class=\"");
+                buf.append(getTdClass());
+                buf.append("\"");
+            }
+            buf.append(">");
             appendTag(buf, SECTION_HEADER, "Constraints");
             buf.append("</td>");
             buf.append("</tr>");
             for (int i = 0; i < constraints.length; i++) {
                 buf.append("<tr>");
-                buf.append("<td align=\"center\" valign=\"top\">");
+                buf.append("<td align=\"center\" valign=\"top\"");
+                if (getTdClass()!=null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
                 buf.append("-");
                 buf.append("</td>");
-                buf.append("<td>");
+                buf.append("<td");
+                if (getTdClass()!=null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
                 buf.append(super.getRenderer(constraints[i]).toHTML(language));
                 buf.append("</td>");
                 buf.append("</tr>");
@@ -173,28 +341,67 @@ public class ProblemComponentRenderer extends BaseRenderer implements ElementRen
                 hasExamples = testCases[i].isExample();
             }
             if (hasExamples) {
-                buf.append("<tr><td colspan=\"2\">&#160;</td></tr>");
+                buf.append("<tr><td colspan=\"2\"");
+                if (getTdClass()!=null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">&#160;</td></tr>");
                 buf.append("<tr>");
-                buf.append("<td colspan=\"2\">");
+                buf.append("<td colspan=\"2\"");
+                if (getTdClass()!=null) {
+                    buf.append(" class=\"");
+                    buf.append(getTdClass());
+                    buf.append("\"");
+                }
+                buf.append(">");
                 appendTag(buf, SECTION_HEADER, "Examples");
                 buf.append("</td>");
                 buf.append("</tr>");
                 int count = 0;
+                TestCaseRenderer tcr = null;
                 for (int i = 0; i < testCases.length; i++) {
                     if (testCases[i].isExample()) {
                         buf.append("<tr>");
-                        buf.append("<td align=\"center\" nowrap=\"true\">");
+                        buf.append("<td align=\"center\" nowrap=\"true\"");
+                        if (getTdClass()!=null) {
+                            buf.append(" class=\"");
+                            buf.append(getTdClass());
+                            buf.append("\"");
+                        }
+                        buf.append(">");
                         buf.append(count + ")");
                         buf.append("</td>");
-                        buf.append("<td>");
+                        buf.append("<td");
+                        if (getTdClass()!=null) {
+                            buf.append(" class=\"");
+                            buf.append(getTdClass());
+                            buf.append("\"");
+                        }
+                        buf.append(">");
                         buf.append("</td>");
                         buf.append("</tr>");
                         buf.append("<tr>");
-                        buf.append("<td>");
+                        buf.append("<td");
+                        if (getTdClass()!=null) {
+                            buf.append(" class=\"");
+                            buf.append(getTdClass());
+                            buf.append("\"");
+                        }
+                        buf.append(">");
                         buf.append(LEFT_MARGIN);
                         buf.append("</td>");
-                        buf.append("<td>");
-                        buf.append(new TestCaseRenderer(testCases[i]).toHTML(language));
+                        buf.append("<td");
+                        if (getTdClass()!=null) {
+                            buf.append(" class=\"");
+                            buf.append(getTdClass());
+                            buf.append("\"");
+                        }
+                        buf.append(">");
+                        tcr = new TestCaseRenderer(testCases[i]);
+                        tcr.setTdClass(getTdClass());
+                        buf.append(tcr.toHTML(language));
                         buf.append("</td>");
                         buf.append("</tr>");
                         count++;
