@@ -340,7 +340,7 @@
         <!-- qq -->
         <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
         	update="true"
-        	includes="build.xml">
+        	includes="build.xml" />
         
         
     </target>
