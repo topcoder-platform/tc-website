@@ -605,7 +605,8 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt = conn.prepareStatement(query.toString());
             pstmt.setLong(1, sessionProfileId);
 
-            ret = new ResultSetContainer(pstmt.executeQuery());
+            rs = pstmt.executeQuery();
+            ret = new ResultSetContainer(rs);
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true,sqe);
