@@ -81,10 +81,10 @@
                    } %>
 
                 <tr>
-                    <td width="5" class="testTableOdd"><img src="/i/clear.gif" alt="" width="5" height="1" border="0"></td>
-                    <td width="60%" class="testTableOdd"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
-                    <td width="20%" class="testTableOdd" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></td>
-                    <td width="20%" class="testTableOdd" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></td>
+                    <td width="5" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/clear.gif" alt="" width="5" height="1" border="0"></td>
+                    <td width="60%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
+                    <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></td>
+                    <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></td>
                 </tr>
 
                 </tces:rowIterator>
