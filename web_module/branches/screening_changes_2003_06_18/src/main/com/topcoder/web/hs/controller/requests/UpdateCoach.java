@@ -27,13 +27,13 @@ public class UpdateCoach extends Base {
 
     private final static Logger log = Logger.getLogger(UpdateCoach.class);
 
-    protected User getAuthUser() {
-        return (auth.getUser());
+    protected User getUser() {
+        return (getAuthentication().getUser());
     }
 
     protected void businessProcessing() throws Exception {
 
-        String cmd = request.getParameter("cmd");
+        String cmd = getRequest().getParameter("cmd");
 
         log.info("UpdateCoach: cmd=" + cmd);
 
@@ -46,17 +46,17 @@ public class UpdateCoach extends Base {
 
             CoachRegistrationBean crb = new CoachRegistrationBean();
 
-            SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+            SessionInfoBean sib = (SessionInfoBean) getRequest().getAttribute("SessionInfo");
             if (sib == null) {
                 throw(new Exception(MISSING_SESSION));
             }
 
             RegistrationHelper.populateCoachWithDefaults(crb);
             RegistrationHelper.populateCoachFromSession(sib, crb);
-            RegistrationHelper.populateCoachFromRequest(request, crb);
+            RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
             RegistrationHelper.populateCoachStaticContent(crb);
 
-            request.setAttribute("coach", crb);
+            getRequest().setAttribute("coach", crb);
 
             setNextPage(UPDATE_BASE + UPDATE_PAGE);
             setIsNextPageInContext(true);
@@ -73,20 +73,20 @@ public class UpdateCoach extends Base {
 
                 CoachRegistrationBean crb = new CoachRegistrationBean();
 
-                SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+                SessionInfoBean sib = (SessionInfoBean) getRequest().getAttribute("SessionInfo");
                 if (sib == null) {
                     throw(new Exception(MISSING_SESSION));
                 }
 
                 RegistrationHelper.populateCoachWithDefaults(crb);
                 RegistrationHelper.populateCoachFromSession(sib, crb);
-                RegistrationHelper.populateCoachFromRequest(request, crb);
+                RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
                 RegistrationHelper.populateCoachStaticContent(crb);
 
-                request.setAttribute("coach", crb);
+                getRequest().setAttribute("coach", crb);
 
                 HashMap errors = new HashMap();
-                request.setAttribute("form_errors", errors);
+                getRequest().setAttribute("form_errors", errors);
 
                 if (RegistrationHelper.isValidCoach(errors, crb)) {
                     setNextPage(UPDATE_BASE + CONFIRM_PAGE);
@@ -108,20 +108,20 @@ public class UpdateCoach extends Base {
 
                     CoachRegistrationBean crb = new CoachRegistrationBean();
 
-                    SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+                    SessionInfoBean sib = (SessionInfoBean) getRequest().getAttribute("SessionInfo");
                     if (sib == null) {
                         throw(new Exception(MISSING_SESSION));
                     }
 
                     RegistrationHelper.populateCoachWithDefaults(crb);
                     RegistrationHelper.populateCoachFromSession(sib, crb);
-                    RegistrationHelper.populateCoachFromRequest(request, crb);
+                    RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
                     RegistrationHelper.populateCoachStaticContent(crb);
 
-                    request.setAttribute("coach", crb);
+                    getRequest().setAttribute("coach", crb);
 
                     HashMap errors = new HashMap();
-                    request.setAttribute("form_errors", errors);
+                    getRequest().setAttribute("form_errors", errors);
 
                     if (RegistrationHelper.isValidCoach(errors, crb)) {
                         RegistrationHelper.updateCoach(crb);

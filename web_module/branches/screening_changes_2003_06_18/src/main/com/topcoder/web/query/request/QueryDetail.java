@@ -36,10 +36,10 @@ public class QueryDetail extends BaseProcessor {
 
 	protected void baseProcessing() throws Exception {
 
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
@@ -58,7 +58,7 @@ public class QueryDetail extends BaseProcessor {
         setInputList(qi.getInputsForQuery(getQueryId(), getDb()));
         setCommandList(cq.getCommandsForQuery(getQueryId(), getDb()));
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.QUERY_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }

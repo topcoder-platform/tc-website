@@ -4,14 +4,14 @@ import com.topcoder.shared.security.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.corp.Constants;
 
-import javax.servlet.ServletRequest;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import javax.rmi.PortableRemoteObject;
@@ -33,8 +33,8 @@ public class Login extends BaseProcessor {
     protected void businessProcessing() throws Exception {
 
         /* may be null */
-        String username = request.getParameter(KEY_USER_HANDLE);
-        String password = request.getParameter(KEY_USER_PASS);
+        String username = getRequest().getParameter(KEY_USER_HANDLE);
+        String password = getRequest().getParameter(KEY_USER_PASS);
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -42,19 +42,19 @@ public class Login extends BaseProcessor {
 
             password = StringUtils.checkNull(password);
             if(username.equals("") || password.equals("")) {
-                request.setAttribute("message", "You must enter a username and a password.");
+                getRequest().setAttribute("message", "You must enter a username and a password.");
 
             } else {
                 try {
 
-                    authToken.login(new SimpleUser(0, username, password));
+                    getAuthentication().login(new SimpleUser(0, username, password));
 
                     if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
-                    String dest = StringUtils.checkNull(request.getParameter(KEY_DESTINATION_PAGE));
+                    String dest = StringUtils.checkNull(getRequest().getParameter(KEY_DESTINATION_PAGE));
                     log.debug("dest param was: " + dest);
-                    if (dest==null) dest = StringUtils.checkNull((String)request.getAttribute(Login.KEY_DESTINATION_PAGE));
+                    if (dest==null) dest = StringUtils.checkNull((String)getRequest().getAttribute(Login.KEY_DESTINATION_PAGE));
                     log.debug("on successfull login, going to " + dest);
                     setNextPage(dest);
                     setIsNextPageInContext(false);
@@ -63,12 +63,12 @@ public class Login extends BaseProcessor {
                 } catch(LoginException e) {
 
                     /* the login failed, so tell them what happened */
-                    request.setAttribute("message", e.getMessage());
+                    getRequest().setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
                 }
             }
 
             /* whatever was wrong with the submission, make sure they are logged out */
-            authToken.logout();
+            getAuthentication().logout();
         }
 
         setNextPage(Constants.LOGIN_PAGE);

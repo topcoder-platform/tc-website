@@ -45,10 +45,10 @@ public class ModifyQueryInput extends BaseProcessor {
     }
 
 	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
@@ -56,7 +56,7 @@ public class ModifyQueryInput extends BaseProcessor {
  	}
 
     protected void businessProcessing() throws Exception {
-        String step = request.getParameter(Constants.STEP_PARAM);
+        String step = getRequest().getParameter(Constants.STEP_PARAM);
 
         Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
         QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
@@ -94,7 +94,7 @@ public class ModifyQueryInput extends BaseProcessor {
         setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
         setOtherInputList(i.getAllInputs(getDb()));
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
         setIsNextPageInContext(true);
     }

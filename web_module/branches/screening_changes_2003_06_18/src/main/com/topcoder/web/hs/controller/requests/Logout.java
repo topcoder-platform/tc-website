@@ -8,7 +8,7 @@ package com.topcoder.web.hs.controller.requests;
 public class Logout extends Base {
 
     protected void businessProcessing() throws Exception {
-        auth.logout();
+        getAuthentication().logout();
 
         /* back to the front page */
         setNextPage("");

@@ -26,17 +26,17 @@ public class Statistics extends Base {
 
     protected void businessProcessing() throws Exception {
 
-        String cmd = request.getParameter(DataAccessConstants.COMMAND);
+        String cmd = getRequest().getParameter(DataAccessConstants.COMMAND);
 
         /* we do this here so that if the query fails, we still keep our place in the menus */
         nav.setAll("stats", cmd);
 
-        Request dataRequest = new Request(HttpUtils.parseQueryString(((HttpServletRequest)request).getQueryString()));
-        request.setAttribute("REQUEST_BEAN", dataRequest);
+        Request dataRequest = new Request(HttpUtils.parseQueryString(getRequest().getQueryString()));
+        getRequest().setAttribute("REQUEST_BEAN", dataRequest);
 
         DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.HS_DW_DATASOURCE_NAME));
         Map dataMap = dai.getData(dataRequest);
-        request.setAttribute("QUERY_RESPONSE", dataMap);
+        getRequest().setAttribute("QUERY_RESPONSE", dataMap);
 
         setNextPage("/stats/"+cmd+".jsp");
         setIsNextPageInContext(true);

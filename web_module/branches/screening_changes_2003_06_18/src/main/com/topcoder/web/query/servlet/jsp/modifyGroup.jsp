@@ -41,8 +41,8 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_ID_PARAM%>"/></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_DESC_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.GROUP_ID_PARAM%>"><%=err%></query:error></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.GROUP_DESC_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right" width="50%">Name: </td>
               <td class="statText" ALIGN="left" width="50%">

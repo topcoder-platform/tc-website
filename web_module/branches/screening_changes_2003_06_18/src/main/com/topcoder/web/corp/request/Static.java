@@ -6,6 +6,7 @@ import com.topcoder.shared.security.PathResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.Util;
 
 
@@ -31,7 +32,7 @@ public class Static extends BaseProcessor {
 
         StringBuffer path = new StringBuffer(100);
         for(int i=1; ; i++) {
-            String p = request.getParameter(STATIC_PREFIX+i);
+            String p = getRequest().getParameter(STATIC_PREFIX+i);
             if(p==null) break;
             if(!isLegal(p)) throw new NavigationException("disallowed path component: "+ p);
             path.append("/").append(p);
@@ -41,7 +42,7 @@ public class Static extends BaseProcessor {
 
         log.debug("next page: " + path.toString());
 
-        Authorization authorization = new TCSAuthorization(Util.retrieveTCSubject(authToken.getActiveUser().getId()));
+        Authorization authorization = new TCSAuthorization(Util.retrieveTCSubject(getAuthentication().getActiveUser().getId()));
         /* check whether the path is allowed for this type of user */
         if(!authorization.hasPermission(new PathResource(path.toString())))
             throw new NotAuthorizedException("access to page denied");

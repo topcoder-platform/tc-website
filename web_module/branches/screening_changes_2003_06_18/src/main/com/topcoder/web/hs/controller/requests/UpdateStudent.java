@@ -27,13 +27,13 @@ public class UpdateStudent extends Base {
 
     private final static Logger log = Logger.getLogger(UpdateStudent.class);
 
-    protected User getAuthUser() {
-        return (auth.getUser());
+    protected User getUser() {
+        return (getAuthentication().getUser());
     }
 
     protected void businessProcessing() throws Exception {
 
-        String cmd = request.getParameter("cmd");
+        String cmd = getRequest().getParameter("cmd");
 
         log.info("UpdateStudent: cmd=" + cmd);
 
@@ -45,17 +45,17 @@ public class UpdateStudent extends Base {
 
             StudentRegistrationBean srb = new StudentRegistrationBean();
 
-            SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+            SessionInfoBean sib = (SessionInfoBean) getRequest().getAttribute("SessionInfo");
             if (sib == null) {
                 throw(new Exception(MISSING_SESSION));
             }
 
             RegistrationHelper.populateStudentWithDefaults(srb);
             RegistrationHelper.populateStudentFromSession(sib, srb);
-            RegistrationHelper.populateStudentFromRequest(request, srb);
+            RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
             RegistrationHelper.populateStudentStaticContent(srb);
 
-            request.setAttribute("student", srb);
+            getRequest().setAttribute("student", srb);
 
             setNextPage(UPDATE_BASE + UPDATE_PAGE);
             setIsNextPageInContext(true);
@@ -71,20 +71,20 @@ public class UpdateStudent extends Base {
 
                 StudentRegistrationBean srb = new StudentRegistrationBean();
 
-                SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+                SessionInfoBean sib = (SessionInfoBean) getRequest().getAttribute("SessionInfo");
                 if (sib == null) {
                     throw(new Exception(MISSING_SESSION));
                 }
 
                 RegistrationHelper.populateStudentWithDefaults(srb);
                 RegistrationHelper.populateStudentFromSession(sib, srb);
-                RegistrationHelper.populateStudentFromRequest(request, srb);
+                RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
                 RegistrationHelper.populateStudentStaticContent(srb);
 
-                request.setAttribute("student", srb);
+                getRequest().setAttribute("student", srb);
 
                 HashMap errors = new HashMap();
-                request.setAttribute("form_errors", errors);
+                getRequest().setAttribute("form_errors", errors);
 
                 if (RegistrationHelper.isValidStudent(errors, srb)) {
                     setNextPage(UPDATE_BASE + CONFIRM_PAGE);
@@ -105,20 +105,20 @@ public class UpdateStudent extends Base {
 
                     StudentRegistrationBean srb = new StudentRegistrationBean();
 
-                    SessionInfoBean sib = (SessionInfoBean) request.getAttribute("SessionInfo");
+                    SessionInfoBean sib = (SessionInfoBean) getRequest().getAttribute("SessionInfo");
                     if (sib == null) {
                         throw(new Exception(MISSING_SESSION));
                     }
 
                     RegistrationHelper.populateStudentWithDefaults(srb);
                     RegistrationHelper.populateStudentFromSession(sib, srb);
-                    RegistrationHelper.populateStudentFromRequest(request, srb);
+                    RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
                     RegistrationHelper.populateStudentStaticContent(srb);
 
-                    request.setAttribute("student", srb);
+                    getRequest().setAttribute("student", srb);
 
                     HashMap errors = new HashMap();
-                    request.setAttribute("form_errors", errors);
+                    getRequest().setAttribute("form_errors", errors);
 
                     if (RegistrationHelper.isValidStudent(errors, srb)) {
                         RegistrationHelper.updateStudent(srb);

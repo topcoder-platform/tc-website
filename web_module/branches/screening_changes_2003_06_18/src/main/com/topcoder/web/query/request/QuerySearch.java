@@ -34,10 +34,10 @@ public class QuerySearch extends BaseProcessor {
 
 	protected void baseProcessing() throws Exception {
 
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
@@ -52,7 +52,7 @@ public class QuerySearch extends BaseProcessor {
             setSearchResults(find(rsc, getSearchCriteria()));
         }
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.QUERY_SEARCH_PAGE);
         setIsNextPageInContext(true);
     }

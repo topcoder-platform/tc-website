@@ -10,6 +10,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -36,16 +37,16 @@ public class UserList extends BaseProcessor {
      *  the companies users and is put into the request attribute named:
      *  "companyUsers" for use in the userlist jsp page.
      *  @throws Exception
-     *  @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
+     *  @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
-    void businessProcessing() throws Exception {
+    protected void businessProcessing() throws Exception {
         log.debug("Attempting to set up user list");
-        pageInContext = true;
+        setIsNextPageInContext(true);
         long userId;
 //        WebAuthentication authToken = getAuthenticityToken();
 
         /* Find the current logged in users ID number.  */
-        User currentUser = authToken.getActiveUser();
+        User currentUser = getAuthentication().getActiveUser();
         userId = currentUser.getId();
 
         Request dataRequest = new Request();
@@ -69,7 +70,7 @@ public class UserList extends BaseProcessor {
 //            throw new Exception("User list invalid. userId="+userId);
 //        }
 //System.err.println("--------"+rsc.getRowCount()+"---");
-        request.setAttribute("companyUsers", rsc);
-        nextPage = Constants.USERLIST_PAGE;
+        getRequest().setAttribute("companyUsers", rsc);
+        setNextPage(Constants.USERLIST_PAGE);
     }
 }

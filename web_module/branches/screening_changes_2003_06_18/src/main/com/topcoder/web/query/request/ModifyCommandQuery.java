@@ -46,10 +46,10 @@ public class ModifyCommandQuery extends BaseProcessor {
 
 
 	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
@@ -57,7 +57,7 @@ public class ModifyCommandQuery extends BaseProcessor {
  	}
 
     protected void businessProcessing() throws Exception {
-        String step = request.getParameter(Constants.STEP_PARAM);
+        String step = getRequest().getParameter(Constants.STEP_PARAM);
         CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
         Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
         Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
@@ -86,7 +86,7 @@ public class ModifyCommandQuery extends BaseProcessor {
         setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
         setOtherQueryList(q.getAllQueries(false, getDb()));
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.MODIFY_COMMAND_QUERY_PAGE);
         setIsNextPageInContext(true);
     }

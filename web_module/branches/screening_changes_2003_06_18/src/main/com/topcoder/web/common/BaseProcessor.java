@@ -6,11 +6,11 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import java.util.HashMap;
+import java.util.ArrayList;
 
 public abstract class BaseProcessor implements RequestProcessor {
 
@@ -21,6 +21,10 @@ public abstract class BaseProcessor implements RequestProcessor {
 
     private InitialContext ctx;
     private HashMap errors;
+    private HashMap defaults;
+
+    public static final String ERRORS_KEY = "processor_errors";
+    public static final String DEFAULTS_KEY = "processor_defaults";
 
     /* return values */
     private String nextPage = "";
@@ -29,6 +33,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     public BaseProcessor() {
         log.debug("constructing " + this.getClass().getName());
         errors = new HashMap();
+        defaults = new HashMap();
     }
 
     public void setRequest(HttpServletRequest request) {
@@ -65,6 +70,8 @@ public abstract class BaseProcessor implements RequestProcessor {
      * Override this to disable auth setup and adding default beans.
      */
     protected void baseProcessing() throws Exception {
+        getRequest().setAttribute(ERRORS_KEY, errors);
+        getRequest().setAttribute(DEFAULTS_KEY, defaults);
     }
 
     /**
@@ -106,7 +113,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      */
     protected void setNextPage(String page) {
         if (page == null || page.equals(""))
-            page = ((HttpServletRequest) request).getContextPath() + ((HttpServletRequest) request).getServletPath();
+            page = request.getContextPath() + request.getServletPath();
         nextPage = page;
     }
 
@@ -142,14 +149,17 @@ public abstract class BaseProcessor implements RequestProcessor {
     }
 
     protected void addError(String key, Object error) {
-        if (!hasError(key)) {
-            errors.put(key, error);
+        ArrayList errs = (ArrayList) errors.get(key);
+        if (errs == null) {
+            errs = new ArrayList();
+            errors.put(key, errs);
         }
+        errs.add(error);
     }
 
-    public String getError(String key) {
+    public Object getError(String key) {
         if (errors.containsKey(key) && errors.get(key) != null) {
-            return errors.get(key).toString();
+            return errors.get(key);
         }
         return "";
     }
@@ -172,8 +182,11 @@ public abstract class BaseProcessor implements RequestProcessor {
         return !errors.isEmpty();
     }
 
-    /* some utility methods */
+    protected void setDefault(String key, Object o) {
+        defaults.put(key, o);
+    }
 
+    /* some utility methods */
     protected boolean isEmpty(String s) {
         return !(s != null && s.trim().length() > 0);
     }

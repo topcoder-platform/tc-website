@@ -41,8 +41,8 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_ID_PARAM%>"/></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_DESC_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.INPUT_ID_PARAM%>"><%=err%></query:error></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.INPUT_DESC_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right" width="50%">Description: </td>
               <td class="statText" ALIGN="left" width="50%">
@@ -50,7 +50,7 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_CODE_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.INPUT_CODE_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right">Code: </td>
               <td class="statText" ALIGN="left">
@@ -58,7 +58,7 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.DATA_TYPE_ID_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.DATA_TYPE_ID_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right">Data Type: </td>
               <td class="statText" ALIGN="left">

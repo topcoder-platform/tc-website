@@ -32,11 +32,11 @@ public class CommandList extends BaseProcessor {
     }
 
 	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         log.debug("baseProcessng called: " + parameterNames.toString());
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
@@ -54,7 +54,7 @@ public class CommandList extends BaseProcessor {
         }
         setCommandGroupList(cg.getAllCommandGroups(getDb()));
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.COMMAND_LIST_PAGE);
         setIsNextPageInContext(true);
     }

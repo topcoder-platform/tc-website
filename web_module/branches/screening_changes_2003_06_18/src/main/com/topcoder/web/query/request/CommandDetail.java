@@ -32,10 +32,10 @@ public class CommandDetail extends BaseProcessor {
     }
 
     protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
@@ -54,7 +54,7 @@ public class CommandDetail extends BaseProcessor {
         setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
         setInputList(qi.getInputsForCommand(getCommandId(), getDb()));
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.COMMAND_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }

@@ -36,7 +36,7 @@ public class Search extends Base {
 
 
     protected void businessProcessing() throws Exception {
-        String cmd = request.getParameter("cmd");
+        String cmd = getRequest().getParameter("cmd");
         log.info("Search: cmd=" + cmd);
 
 
@@ -45,9 +45,9 @@ public class Search extends Base {
 
             SearchBean sb = new SearchBean();
             populateSearchWithDefaults(sb);
-            populateSearchFromRequest(request, sb);
+            populateSearchFromRequest(getRequest(), sb);
             populateSearchStaticContent(sb);
-            request.setAttribute("search", sb);
+            getRequest().setAttribute("search", sb);
             setNextPage(SEARCH_BASE + ADVANCED_SEARCH_PAGE);
             setIsNextPageInContext(true);
         } else if (cmd.equals(SEARCH_CMD)) {
@@ -55,12 +55,12 @@ public class Search extends Base {
 
             SearchBean sb = new SearchBean();
             populateSearchWithDefaults(sb);
-            populateSearchFromRequest(request, sb);
+            populateSearchFromRequest(getRequest(), sb);
             populateSearchStaticContent(sb);
-            request.setAttribute("search", sb);
+            getRequest().setAttribute("search", sb);
 
             HashMap errors = new HashMap();
-            request.setAttribute("form_errors", errors);
+            getRequest().setAttribute("form_errors", errors);
 
             if (isValidSearch(errors, sb)) {
                 int count = findMembers(sb);

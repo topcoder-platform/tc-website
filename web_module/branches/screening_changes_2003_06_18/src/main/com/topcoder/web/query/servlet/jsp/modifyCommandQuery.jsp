@@ -40,7 +40,7 @@
               <td class="statText" ALIGN="center" colspan="2">DB: <jsp:getProperty name="ModifyCommandQuery" property="Db"/></td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.COMMAND_ID_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td colspan="2">
                 <table width="100%" bgcolor="#000000" border="0" cellpadding="0" cellspacing="0">
@@ -52,7 +52,7 @@
                   </tr>
                   <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></tr>
                   <query:commandQueryIterator id="commandQuery" list="<%=ModifyCommandQuery.getCurrentQueryList()%>">
-                    <tr><td class="errorText" colspan="4"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"/></td></tr>
+                    <tr><td class="errorText" colspan="4"><query:error id="err" name="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>"><%=err%></query:error></td></tr>
                     <tr>
                       <td class="statTextBig">
                         <A href="<jsp:getProperty name="SessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQuery" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="QueryId"/>" class="statText">
@@ -82,7 +82,7 @@
                 </table>
               </td>
             </tr>
-           <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyCommandQuery%>" key="<%=Constants.QUERY_ID_PARAM%>"/></td></tr>
+           <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.QUERY_ID_PARAM%>"><%=err%></query:error></td></tr>
            <tr>
              <td class="statTextBig" colspan="2" ALIGN="center">
                <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQuery.getOtherQueryList()%>" size="30" multiple="false"/>

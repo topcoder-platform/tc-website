@@ -16,7 +16,7 @@ public class Static extends Base {
         String path = "";
         nav.setDepth(0);
         for(int i=1; ; i++) {
-            String p = request.getParameter("d"+i);
+            String p = getRequest().getParameter("d"+i);
             if(p==null) break;
             if(!Constants.isLegal(p)) throw new NavigationException("disallowed path component: "+p);
             path += "/"+p;

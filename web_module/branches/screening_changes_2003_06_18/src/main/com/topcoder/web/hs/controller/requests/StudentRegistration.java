@@ -34,7 +34,7 @@ public class StudentRegistration extends Base {
 
     protected void businessProcessing() throws Exception {
 
-        String cmd = request.getParameter("cmd");
+        String cmd = getRequest().getParameter("cmd");
 
         log.info("StudentRegistration: cmd=" + cmd);
 
@@ -47,10 +47,10 @@ public class StudentRegistration extends Base {
             StudentRegistrationBean srb = new StudentRegistrationBean();
 
             RegistrationHelper.populateStudentWithDefaults(srb);
-            RegistrationHelper.populateStudentFromRequest(request, srb);
+            RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
             RegistrationHelper.populateStudentStaticContent(srb);
 
-            request.setAttribute("student", srb);
+            getRequest().setAttribute("student", srb);
 
             setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
             setIsNextPageInContext(true);
@@ -67,13 +67,13 @@ public class StudentRegistration extends Base {
                 StudentRegistrationBean srb = new StudentRegistrationBean();
 
                 RegistrationHelper.populateStudentWithDefaults(srb);
-                RegistrationHelper.populateStudentFromRequest(request, srb);
+                RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
                 RegistrationHelper.populateStudentStaticContent(srb);
 
-                request.setAttribute("student", srb);
+                getRequest().setAttribute("student", srb);
 
                 HashMap errors = new HashMap();
-                request.setAttribute("form_errors", errors);
+                getRequest().setAttribute("form_errors", errors);
 
                 if (RegistrationHelper.isValidStudent(errors, srb)) {
                     setNextPage(REGISTRATION_BASE + CONFIRM_PAGE);
@@ -95,13 +95,13 @@ public class StudentRegistration extends Base {
                     StudentRegistrationBean srb = new StudentRegistrationBean();
 
                     RegistrationHelper.populateStudentWithDefaults(srb);
-                    RegistrationHelper.populateStudentFromRequest(request, srb);
+                    RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
                     RegistrationHelper.populateStudentStaticContent(srb);
 
-                    request.setAttribute("student", srb);
+                    getRequest().setAttribute("student", srb);
 
                     HashMap errors = new HashMap();
-                    request.setAttribute("form_errors", errors);
+                    getRequest().setAttribute("form_errors", errors);
 
                     if (RegistrationHelper.isValidStudent(errors, srb)) {
                         RegistrationHelper.createStudent(srb);

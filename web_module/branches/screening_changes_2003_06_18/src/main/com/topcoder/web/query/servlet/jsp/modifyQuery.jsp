@@ -48,7 +48,7 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.QUERY_NAME_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.QUERY_NAME_PARAM%>"><%=err%></query:error></td></tr>
              <tr>
               <td class="statText" ALIGN="right" width="50%">Name: </td>
               <td class="statText" ALIGN="left" width="50%">
@@ -63,7 +63,7 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.COLUMN_INDEX_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.COLUMN_INDEX_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right" width="50%">Column Index: </td>
               <td class="statText" ALIGN="left" width="50%">
@@ -71,7 +71,7 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyQuery%>" key="<%=Constants.QUERY_TEXT_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.QUERY_TEXT_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="left" colspan="2">Query Text:<BR/>
                 <TEXTAREA COLS="80" ROWS="30" WRAP="off" NAME="<%=Constants.QUERY_TEXT_PARAM%>"><jsp:getProperty name="ModifyQuery" property="Text"/></TEXTAREA>

@@ -27,7 +27,7 @@ public class CoachRegistration extends Base {
 
     protected void businessProcessing() throws Exception {
 
-        String cmd = request.getParameter("cmd");
+        String cmd = getRequest().getParameter("cmd");
 
         log.info("CoachRegistration: cmd=" + cmd);
 
@@ -40,10 +40,10 @@ public class CoachRegistration extends Base {
             CoachRegistrationBean crb = new CoachRegistrationBean();
 
             RegistrationHelper.populateCoachWithDefaults(crb);
-            RegistrationHelper.populateCoachFromRequest(request, crb);
+            RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
             RegistrationHelper.populateCoachStaticContent(crb);
 
-            request.setAttribute("coach", crb);
+            getRequest().setAttribute("coach", crb);
 
             setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
             setIsNextPageInContext(true);
@@ -60,13 +60,13 @@ public class CoachRegistration extends Base {
                 CoachRegistrationBean crb = new CoachRegistrationBean();
 
                 RegistrationHelper.populateCoachWithDefaults(crb);
-                RegistrationHelper.populateCoachFromRequest(request, crb);
+                RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
                 RegistrationHelper.populateCoachStaticContent(crb);
 
-                request.setAttribute("coach", crb);
+                getRequest().setAttribute("coach", crb);
 
                 HashMap errors = new HashMap();
-                request.setAttribute("form_errors", errors);
+                getRequest().setAttribute("form_errors", errors);
 
                 if (RegistrationHelper.isValidCoach(errors, crb)) {
                     setNextPage(REGISTRATION_BASE + CONFIRM_PAGE);
@@ -88,13 +88,13 @@ public class CoachRegistration extends Base {
                     CoachRegistrationBean crb = new CoachRegistrationBean();
 
                     RegistrationHelper.populateCoachWithDefaults(crb);
-                    RegistrationHelper.populateCoachFromRequest(request, crb);
+                    RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
                     RegistrationHelper.populateCoachStaticContent(crb);
 
-                    request.setAttribute("coach", crb);
+                    getRequest().setAttribute("coach", crb);
 
                     HashMap errors = new HashMap();
-                    request.setAttribute("form_errors", errors);
+                    getRequest().setAttribute("form_errors", errors);
 
                     if (RegistrationHelper.isValidCoach(errors, crb)) {
                         RegistrationHelper.createCoach(crb);

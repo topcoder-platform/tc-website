@@ -19,11 +19,11 @@ import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
 import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.ejb.address.AddressHome;
 import com.topcoder.web.ejb.address.Address;
-import com.topcoder.web.common.tag.BaseTag;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
@@ -279,7 +279,7 @@ public class TransactionServlet extends HttpServlet {
                         Vector v = new Vector();
                         v.add("You must agree to terms in order to make a purchase.");
                         formErrors.put(Constants.KEY_AGREE_TO_TERMS, v);
-                        request.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
+                        request.setAttribute(BaseProcessor.ERRORS_KEY, formErrors);
                         request.getRequestDispatcher(defaultPageTerms).forward(request, response);
                     } else {
                         request.getRequestDispatcher(defaultPageBadCountry).forward(request, response);

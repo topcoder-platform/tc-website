@@ -34,7 +34,7 @@ public interface RequestProcessor {
     /** where the controller should go next, to render this request */
     String getNextPage();
 
-    String getError(String key);
+    Object getError(String key);
 
     boolean hasError(String key);
 

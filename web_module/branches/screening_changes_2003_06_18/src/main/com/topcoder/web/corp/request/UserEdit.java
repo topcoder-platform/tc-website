@@ -10,6 +10,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.MisconfigurationException;
@@ -68,15 +69,15 @@ public class UserEdit extends BaseProcessor {
     protected SecurityInfo secTok = null;
 
     public UserEdit() {
-        pageInContext = true;
+        setIsNextPageInContext(true);
         formPage = Constants.USEREDIT_PAGE_RETRY;
         successPage = Constants.USEREDIT_PAGE_SUCCESS;
     }
 
     /**
-     * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
+     * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
-    final void businessProcessing() throws Exception {
+    protected final void businessProcessing() throws Exception {
         secTok = new SecurityInfo(getFormFields());
         log.debug(secTok.createNew ?"user creation intiated":"user modification initiated");
 
@@ -91,7 +92,7 @@ public class UserEdit extends BaseProcessor {
         boolean formValid = verifyFormFieldsValidity();
         if (!formValid) {
             setFormFieldsDefaults();
-            nextPage = formPage;
+            setNextPage(formPage);
             return;
         }
         // form is valid - store it
@@ -123,8 +124,8 @@ public class UserEdit extends BaseProcessor {
             Util.closeIC(icEJB);
         }
 
-        pageInContext = false;
-        nextPage = successPage;
+        setIsNextPageInContext(false);
+        setNextPage(successPage);
     }
 
     /**
@@ -135,7 +136,7 @@ public class UserEdit extends BaseProcessor {
      * @throws Exception
      */
     protected boolean loadUserData() throws Exception {
-        if (!"POST".equalsIgnoreCase(request.getMethod())) {
+        if (!"POST".equalsIgnoreCase(getRequest().getMethod())) {
             if (!secTok.createNew) {
                 PrincipalMgrRemote mgr = Util.getPrincipalManager();
                 password = mgr.getPassword(targetUserID);
@@ -144,7 +145,7 @@ public class UserEdit extends BaseProcessor {
                 retrieveUserDataFromDB((InitialContext)TCContext.getInitial());
             }
             setFormFieldsDefaults();
-            nextPage = formPage;
+            setNextPage(formPage);
             return true;
         }
         return false;
@@ -170,7 +171,7 @@ public class UserEdit extends BaseProcessor {
 
         if (targetUserID != getAuthentication().getActiveUser().getId()) {
             // set up additional permissions for non primary users
-            Enumeration e = request.getParameterNames();
+            Enumeration e = getRequest().getParameterNames();
             while (e.hasMoreElements()) {
                 String pName = (String) e.nextElement();
                 if (!pName.startsWith("permid-")) continue;
@@ -181,7 +182,7 @@ public class UserEdit extends BaseProcessor {
                 } catch (Exception ignore) {
                     continue;
                 }
-                String pValue = request.getParameter("perm-" + permID);
+                String pValue = getRequest().getParameter("perm-" + permID);
                 boolean set = "on".equalsIgnoreCase(pValue);
                 RolePrincipal role = mgr.getRole(permID);
                 if (set) {
@@ -277,20 +278,20 @@ public class UserEdit extends BaseProcessor {
      * must be fetched from the DB by targetUserID value
      */
     protected boolean getFormFields() throws Exception {
-        firstName = request.getParameter(KEY_FIRSTNAME);
-        lastName = request.getParameter(KEY_LASTNAME);
-        phone = request.getParameter(KEY_PHONE);
-        password = request.getParameter(KEY_PASSWORD);
-        password2 = request.getParameter(KEY_PASSWORD2);
-        email = request.getParameter(KEY_EMAIL);
-        email2 = request.getParameter(KEY_EMAIL2);
-        userName = request.getParameter(KEY_LOGIN);
+        firstName = getRequest().getParameter(KEY_FIRSTNAME);
+        lastName = getRequest().getParameter(KEY_LASTNAME);
+        phone = getRequest().getParameter(KEY_PHONE);
+        password = getRequest().getParameter(KEY_PASSWORD);
+        password2 = getRequest().getParameter(KEY_PASSWORD2);
+        email = getRequest().getParameter(KEY_EMAIL);
+        email2 = getRequest().getParameter(KEY_EMAIL2);
+        userName = getRequest().getParameter(KEY_LOGIN);
 
         // retrieve ID of user requested to be modified
         targetUserID = -1;
         try {
             targetUserID = Integer.parseInt(
-                    request.getParameter(KEY_TARGET_USER_ID)
+                    getRequest().getParameter(KEY_TARGET_USER_ID)
             );
         } catch (Exception e) {
             //if there was an exception, just use -1
@@ -303,16 +304,16 @@ public class UserEdit extends BaseProcessor {
      * pulled from DB or entered by user).
      */
     protected void setFormFieldsDefaults() throws Exception {
-        setFormFieldDefault(KEY_FIRSTNAME, firstName);
-        setFormFieldDefault(KEY_LASTNAME, lastName);
-        setFormFieldDefault(KEY_PHONE, phone);
-        setFormFieldDefault(KEY_PASSWORD, password);
-        setFormFieldDefault(KEY_PASSWORD2, password2);
-        setFormFieldDefault(KEY_EMAIL, email);
-        setFormFieldDefault(KEY_EMAIL2, email2);
-        setFormFieldDefault(KEY_LOGIN, userName);
+        setDefault(KEY_FIRSTNAME, firstName);
+        setDefault(KEY_LASTNAME, lastName);
+        setDefault(KEY_PHONE, phone);
+        setDefault(KEY_PASSWORD, password);
+        setDefault(KEY_PASSWORD2, password2);
+        setDefault(KEY_EMAIL, email);
+        setDefault(KEY_EMAIL2, email2);
+        setDefault(KEY_LOGIN, userName);
         if (targetUserID >= 0) {
-            request.setAttribute(KEY_TARGET_USER_ID, "" + targetUserID);
+            getRequest().setAttribute(KEY_TARGET_USER_ID, "" + targetUserID);
         }
         try {
             embedPermissions();
@@ -339,7 +340,7 @@ public class UserEdit extends BaseProcessor {
         );
         if (password2 == null) password2 = "";
         if (!password2.equals(password)) {
-            markFormFieldAsInvalid(
+            addError(
                     KEY_PASSWORD2,
                     "Passwords entered must be same in the both fields"
             );
@@ -364,7 +365,7 @@ public class UserEdit extends BaseProcessor {
         // email2 validity
         if (email2 == null) email2 = "";
         if (!email2.equals(email)) {
-            markFormFieldAsInvalid(
+            addError(
                     KEY_EMAIL2,
                     "e-mail addresses entered must be same in the both fields"
             );
@@ -412,7 +413,7 @@ public class UserEdit extends BaseProcessor {
             try {
                 success = false;
                 mgr.getUser(userName);
-                markFormFieldAsInvalid(
+                addError(
                         KEY_LOGIN, "Please enter another user name."
                 );
             } catch (NoSuchUserException nsue) {
@@ -437,7 +438,7 @@ public class UserEdit extends BaseProcessor {
             gse.printStackTrace();
         } finally {
             if (techProblems) {
-                markFormFieldAsInvalid(
+                addError(
                         KEY_LOGIN,
                         "Some technical problems prevent further processing. Try again later"
                 );
@@ -460,7 +461,7 @@ public class UserEdit extends BaseProcessor {
                 itemValue.length() < minLen ||
                 itemValue.length() > maxLen
         ) {
-            markFormFieldAsInvalid(itemKey, errMsg);
+            addError(itemKey, errMsg);
             return false;
         }
         return true;
@@ -490,12 +491,12 @@ public class UserEdit extends BaseProcessor {
         // either this field is required or (optional and not empty)
         if (itemValue == null || itemValue.length() == 0) {
             ret = false;
-            markFormFieldAsInvalid(itemKey, errMsg);
+            addError(itemKey, errMsg);
         } else {
             //  alphabet check
             if ((!StringUtils.consistsOf(itemValue, alphabet, true))) {
                 ret = false;
-                markFormFieldAsInvalid(itemKey, errMsg);
+                addError(itemKey, errMsg);
             } else {
                 // if word couunt is negative, then do not perworm this check
                 if (maxWords < 0) {
@@ -505,7 +506,7 @@ public class UserEdit extends BaseProcessor {
 
                 if (!StringUtils.hasNotMoreWords(itemValue, maxWords)) {
                     ret = false;
-                    markFormFieldAsInvalid(itemKey, errMsg);
+                    addError(itemKey, errMsg);
                 }
             }
         }
@@ -678,7 +679,7 @@ public class UserEdit extends BaseProcessor {
             man = Util.getPrincipalManager();
 
             InitialContext icEJB = null;
-            if (authToken.getActiveUser().isAnonymous()) {
+            if (getAuthentication().getActiveUser().isAnonymous()) {
                 try {
                     requestor = Util.retrieveTCSubject(Constants.CORP_PRINCIPAL);
                 } catch (Exception cause) {
@@ -766,11 +767,12 @@ public class UserEdit extends BaseProcessor {
             DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");
-            request.setAttribute(KEY_USER_PERMS, rsc);
+            getRequest().setAttribute(KEY_USER_PERMS, rsc);
 
         } finally {
             Util.closeIC(ic);
         }
 
     }
+
 }

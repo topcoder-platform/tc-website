@@ -46,10 +46,10 @@ public class ModifyInput extends BaseProcessor {
 
 
 	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
@@ -57,7 +57,7 @@ public class ModifyInput extends BaseProcessor {
  	}
 
     protected void businessProcessing() throws Exception {
-        String step = request.getParameter(Constants.STEP_PARAM);
+        String step = getRequest().getParameter(Constants.STEP_PARAM);
         Input i = (Input)Util.createEJB(getInitialContext(), Input.class);
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
@@ -83,7 +83,7 @@ public class ModifyInput extends BaseProcessor {
 
         }
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
         setNextPage(Constants.MODIFY_INPUT_PAGE);
         setIsNextPageInContext(true);
     }

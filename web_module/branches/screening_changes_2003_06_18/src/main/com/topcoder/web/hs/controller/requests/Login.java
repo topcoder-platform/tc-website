@@ -24,8 +24,8 @@ public class Login extends Base {
     protected void businessProcessing() throws Exception {
 
         /* may be null */
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = getRequest().getParameter("username");
+        String password = getRequest().getParameter("password");
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
@@ -33,17 +33,17 @@ public class Login extends Base {
 
             password = Constants.checkNull(password);
             if(username.equals("") || password.equals("")) {
-                request.setAttribute("message", "You must enter a username and a password.");
+                getRequest().setAttribute("message", "You must enter a username and a password.");
 
             } else {
                 try {
 
-                    auth.login(new SimpleUser(0, username, password));
+                    getAuthentication().login(new SimpleUser(0, username, password));
 
                     if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
-                    String dest = Constants.checkNull(request.getParameter("nextpage"));
+                    String dest = Constants.checkNull(getRequest().getParameter("nextpage"));
                     setNextPage(dest);
                     setIsNextPageInContext(false);
                     return;
@@ -51,12 +51,12 @@ public class Login extends Base {
                 } catch(LoginException e) {
 
                     /* the login failed, so tell them what happened */
-                    request.setAttribute("message", e.getMessage());
+                    getRequest().setAttribute("message", e.getMessage());
                 }
             }
 
             /* whatever was wrong with the submission, make sure they are logged out */
-            auth.logout();
+            getAuthentication().logout();
         }
 
         /* we may have been forwarded here and failed, so make sure we reflect the page contents in the menus */

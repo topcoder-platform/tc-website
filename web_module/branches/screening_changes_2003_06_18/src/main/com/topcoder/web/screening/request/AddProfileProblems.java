@@ -4,6 +4,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
+import com.topcoder.shared.security.User;
 
 import javax.servlet.ServletRequest;
 
