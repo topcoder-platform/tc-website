@@ -257,14 +257,14 @@ if (!rsc.isEmpty()) {
                             </TR>
 
                             <TR>
-                                <TD CLASS="statText">Component Earnings:</TD>
+                                <TD CLASS="statText">Design Earnings:</TD>
                                 <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 28 /*"component earnings"*/ + "].resultData" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=component_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ component history ]</A></TD>
                             </TR>
                             
                             <TR>
-                                <TD CLASS="statText">Number of Components:</TD>
+                                <TD CLASS="statText">Number of Design Competitions:</TD>
                                 <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 29 /* number of components */ + "]" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left">&#160;</TD>
@@ -274,6 +274,19 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 30 /* design rating*/ + "]" %>'/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ design history ]</A></TD>
+                            </TR>
+                            <TR>
+                                <TD CLASS="statText">Development Earnings:</TD>
+                                <TD CLASS="statText" ALIGN="right">$<bean:write format="0.00" name="resultRow" property='<%= "item[" + 32 /*"component earnings"*/ + "].resultData" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=component_history&pi=113&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ component history ]</A></TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD CLASS="statText">Number of Development Competitions:</TD>
+                                <TD CLASS="statText" ALIGN="right"><bean:write name="resultRow" property='<%= "item[" + 33 /* number of components */ + "]" %>'/></TD>
+                                <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
                             </TR>
                             <TR>
                                 <TD CLASS="statText" >Development Rating:</TD>
