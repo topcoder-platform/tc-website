@@ -29,11 +29,14 @@
          <td width="100%" align="center">
 
          <div class="tutorBody">
+        <jsp:include page="../page_title.jsp" >
+            <jsp:param name="image" value="tutor_tran"/>
+            <jsp:param name="title" value=""/>
+        </jsp:include>
             
-            <h2>Tutor Transcripts Archive</h2>
             
 			<table width="100%" border="0" cellspacing="0" cellpadding="3">
-				<tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">Tutor Transcripts Archive - 2004</font></td></tr>
+				<tr valign="middle"><td class="statTextLarge" bgcolor="#999999" colspan="2"><font size="3">2004</font></td></tr>
 				<tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
 				<tr><td valign="middle" class="bodyText" colspan="2">&#160;<strong>August</strong></td></tr>
 				<tr><td class="bodyText">08.28.04</td><td class="bodyText" nowrap=nowrap width="100%">&#160;-&#160;<a href="/tc?module=Static&d1=tutor_transcripts&d2=tt_082804">SRM 209</a></td></tr>
