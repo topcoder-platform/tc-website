@@ -1,14 +1,16 @@
+<%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>2004 TopCoder Collegiate Challenge  - Computer Programming Tournament - Overview</title>
 <link type="text/css" rel="stylesheet" href="/css/style.css"/>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <style type="text/css">
-.pageSpacer 
-{ 
-   width: 510px; 
+.pageSpacer
+{
+   width: 510px;
 	padding: 15px 0px 10px 0px;
    text-align: left;
 }
@@ -57,11 +59,12 @@
             <span class="bodySubtitle">Logo submission</span><br>
             Thank you accepting the terms of the TCO05 Logo Contest. Please use the form below to attach your logo submission:
             <br><br>
-            <form name="logoSubmission">
+			<form action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="POST" name="logoSubmission">
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="TCO05LogoSubmit"/>
             <b>Logo:</b><br><input type="file" name="logoFile">
             </form>
-            <A href="/tc?module=Static&d1=tournaments&d2=tco05&d3=logo_success"><img src="/i/submit.gif" alt="Submit" border="0" /></A>
-            
+            <A href="javascript:document.logoSubmission.submit();"><img src="/i/submit.gif" alt="Submit" border="0" /></A>
+
          </div>
 
          <p><br/></p>
