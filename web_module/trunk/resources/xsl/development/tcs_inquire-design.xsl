@@ -181,7 +181,7 @@
                             <p><br /></p>
                            <p>
                                 <strong>
-                                Please email your submission to submissions@topcodersoftware.com
+                                Please email your submission to <a class="statText" href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>
                                 <!--
                                 <a class="statText" target="_new">  
                                     <xsl:attribute name="href"> 
