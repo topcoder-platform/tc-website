@@ -40,7 +40,7 @@ public class EditNote extends Base {
             getRequest().setAttribute(Constants.USER_ID, userId);
 
             if (!StringUtils.checkNull(nId).equals("")) {
-                getRequest().setAttribute(Constants.NOTE_TEXT,
+                setDefault(Constants.NOTE_TEXT,
                         note.getText(Long.parseLong(nId), DBMS.OLTP_DATASOURCE_NAME));
                 getRequest().setAttribute(Constants.NOTE_ID, nId);
             }
