@@ -27,7 +27,7 @@
 
 <script>
 function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
     win.location.href = url;
     win.focus();
 }
@@ -122,7 +122,7 @@ function openWin(url, name, w, h) {
                   <td align = "right" class="advancers_faded"><a href="/index?t=tournaments&amp;c=tco03_top100">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye','comp',600,400);">view</A></td>
+                  <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye','comp',900,600);">view</A></td>
                </tr>
             </table>
            </blockquote>
