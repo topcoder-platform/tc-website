@@ -330,4 +330,4 @@
  </SCRIPT>
 </FORM>
 <P><BR></P>
-<%@ include file="tail.inc" %>
+<jsp:include file="tail.inc"/>
