@@ -85,13 +85,21 @@
                      <td>
                         <ul><li>
                         Check:
-                        <ol><li>Please complete this donation form:</li>
+                        <ol><li>Please complete this <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A>.<br>
+                        <A href="http://www.adobe.com/products/acrobat/readstep.html">Adobe Acrobat 5</A> is required to view this form</li>
                         <li>Make your check payable to the Christopher Reeve Paralysis Foundation</li>
-                        <li>Mail the form and check, <b>postmarked no later than November 10</b>, to:<br />
+                        <li>Checks must be received at TopCoder <b>no later than November 10</b>.<br />
+                        Mail the form and check to:<br /> 
                         TopCoder<br />
                         703 Hebron Ave<br />
                         Glastonbury,CT 06033<br />
                         ATTN:  CRPF DONATIONS</li></ol></li></ul>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td>
+                        <ul><li>If you would like to collect donations around the office, this <A href="/i/tournament/crpf03/pledge_collection_form.pdf" target="_blank">form</A> may be helpful.</li></ul>
                      </td>
                   </tr>
                </table>

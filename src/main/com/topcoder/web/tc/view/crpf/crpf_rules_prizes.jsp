@@ -71,7 +71,14 @@
                <ul>
                <li>4 highest scoring competitors in Round 3</li>
                <li>4 members who raised the most money as of 11:59pm on November 10th.  Members must raise a minimum of $500 to 
-               be awarded this grand-prize</li>
+               be awarded this grand-prize<br>
+               <b>NOTE:</b> In the event of a tie for funds raised, the tie will be resolved in the following manner:<br>
+                     <ul>
+                     <li>The winner will be the competitor that raised the tied amount first</li>
+                     <li>If a tie still remains, then the winner will be the competitor who advanced farthest in the tournament.</li>
+                     <li>If a tie still remains, then the winner will be the competitor who had the highest score in the last round.</li>
+                     </ul>
+               </li>
                <li>2 members will be randomly chosen on November 11th to receive a grand-prize.  All members who raise a minimum of 
                $100 will be entered into the drawing.  Members will receive one chance for every $100 he/she raises</li>
                </ul>
