@@ -143,16 +143,16 @@
                                         <p>
                                             <strong>Winning Developer</strong>
                                             <br/>
-                                            Total Payment - $1,860.00
+                                            Total Payment - $1,950.00
                                             <br/>
-                                            First Payment - $1,400.00
+                                            First Payment - $1,200.00
                                             <br/>
-                                            Final Payment - $460.00
+                                            Final Payment - $750.00
                                             <br/>
                                         </p>
                                         <strong>Second Place Developer</strong>
                                         <br/>
-                                        Total Payment - $690.00
+                                        Total Payment - $600.00
                                         <!-- Definition of Completion -->
                                         <p/>
                                         <strong>Integration Lead Developer</strong>
