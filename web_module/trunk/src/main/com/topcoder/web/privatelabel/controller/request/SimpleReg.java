@@ -12,9 +12,12 @@ public class SimpleReg extends SimpleRegBase {
     protected void registrationProcessing() throws TCWebException {
         getRequest().setAttribute("countryList", getCountryList());
         getRequest().setAttribute("stateList", getStateList());
+        setNextPage();
+    }
+
+    protected void setNextPage() {
         setNextPage(Constants.SIMPLE_REG_PAGE);
         setIsNextPageInContext(true);
     }
-
 
 }
