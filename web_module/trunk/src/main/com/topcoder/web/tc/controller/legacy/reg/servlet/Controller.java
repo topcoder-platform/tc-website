@@ -227,7 +227,7 @@ public class Controller
                 navigation = new Navigation();
                 session.setAttribute(NAVIGATION, navigation);
             }
-            log.debug("navigation isserializable: " + ((Navigation)navigation).userIsSerializable());
+            log.debug("navigation is serializable: " + ((Navigation)navigation).userIsSerializable());
             if (navigation instanceof Navigation) {
 //                ((Navigation) navigation).makeUserSerializable();
                 Data.loadUser((Navigation)navigation);
@@ -240,6 +240,8 @@ log.debug("coder activation code: " + c.getActivationCode());
                     return null;
                 }
                 return user;
+            } else {
+                log.debug("WTF navigation object is not the right class");
             }
         }
         return null;
