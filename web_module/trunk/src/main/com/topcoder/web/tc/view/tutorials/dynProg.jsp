@@ -5,7 +5,21 @@
 <title>Algorithm Tutorials</title>
 
 <jsp:include page="../../script.jsp" />
+<style type="text/css">
+    .code
+{
+	width: 500;
+	padding: 10px;
+	margin: 20px;
+	color: #333;
+	font-size: 11px;
+	font-weight: normal;
+	line-height: 14px;
+	background-color: #EEEEEE;
+	border: 1px solid #999;
+    }
 
+</style>
 </head>
 
 <body>
@@ -79,7 +93,7 @@ The same we do for sum 4, and get a solution of 2 coins - 1+3. And so on.
 <br/><br/>
 <b>Pseudocode:</b>
 <br/><br/>
-<pre>
+<pre class="code">
 Set Min[i] equal to Infinity for all of i
 Min[0]=0
 
@@ -253,7 +267,7 @@ From the above, a recurrent relation can be easily obtained:<br/>
 <b>S[i][j] </b> must be calculated by going first from left to right in each row and process the rows from top to bottom, or by going first from top to bottom in each column and process the columns from left to right.
 <br/><br/>
 Pseudocode:
-<pre>
+<pre class="code">
 For i = 0 to N - 1
 	For j = 0 to M - 1
 	S[i][j] = A[i][j] +
@@ -287,7 +301,7 @@ We repeat this step until there will remain no unmarked state to which a path wa
 <br/><br/>
 Pseudocode:
 
-<pre>
+<pre class="code">
 Set states(i,j) as unvisited for all (i,j)
 Set Min[i][j] to Infinity for all (i,j)
 
