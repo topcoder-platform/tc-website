@@ -341,6 +341,7 @@
         <antcall target="package-EJB-ProjectServicesBean"/>
         <antcall target="package-EJB-JobPostingServicesBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
+        <antcall target="package-EJB-QueryServicesBean"/>
    </target>
 
 <target name="package-EJB-QueryServicesBean" depends="compile,init-QueryServicesBean-properties,package-EJB-GenericBean"/>

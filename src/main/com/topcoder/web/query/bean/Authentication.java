@@ -10,7 +10,6 @@ import com.topcoder.web.query.common.AuthenticationException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.http.*;
-import javax.ejb.EJBException;
 import javax.ejb.CreateException;
 import java.io.Serializable;
 import java.rmi.RemoteException;
@@ -81,7 +80,7 @@ public class Authentication implements Serializable {
 
             // record in this session that we have authenticated a user.
             auth.setUserId(((Long)rsc.getItem(0, "user_id").getResultData()).intValue());
-        } catch (EJBException e) {
+        } catch (RemoteException e) {
             throw new AuthenticationException(e.getMessage());
         } catch (NamingException e) {
             throw new AuthenticationException("Could not find ejb with name: " +

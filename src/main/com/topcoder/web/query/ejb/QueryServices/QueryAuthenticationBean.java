@@ -20,7 +20,7 @@ public class QueryAuthenticationBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(QueryAuthenticationBean.class);
 
-    public ResultSetContainer getLoginInfo(String handle) throws EJBException {
+    public ResultSetContainer getLoginInfo(String handle) throws RemoteException {
         log.debug("In getLoginInfo(String)...");
         ResultSet rs = null;
         PreparedStatement ps = null;
