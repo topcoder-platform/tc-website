@@ -70,7 +70,7 @@ public final class TaskJob {
                 EmailEngine.send(mail);
                 xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
             } else {
-                if (nav.getLoggedIn()) {
+                if (nav.isIdentified()) {
                     HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
                     CoderRegistration reg = (CoderRegistration) userTypeDetails.get("Coder");
                     devTag.addTag(new ValueTag("Rating", reg.getRating().getRating()));
@@ -95,7 +95,7 @@ public final class TaskJob {
 
     private static void checkPermission(XMLDocument document, HttpServletRequest request, Navigation nav)
             throws NavigationException {
-        if (!nav.getLoggedIn()) {
+        if (!nav.isIdentified()) {
             throw new NavigationException(
                     "You must login to inquire about a job" // MESSAGE WILL APPEAR ABOVE LOGIN
                     , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE

@@ -79,7 +79,7 @@ public class UserProfileHeader implements PactsConstants, java.io.Serializable {
 *
 */
     public UserProfileHeader(Navigation nav) throws Exception {
-        if (nav.getLoggedIn()) {
+        if (nav.isIdentified()) {
             _id = nav.getUserId();
             log.debug("UPH - Have nav object.");
             DataInterfaceBean bean = new DataInterfaceBean();

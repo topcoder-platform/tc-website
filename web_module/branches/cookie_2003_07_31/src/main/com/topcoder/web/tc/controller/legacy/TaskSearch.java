@@ -61,7 +61,7 @@ public final class TaskSearch {
 
             //***************THIS CODE RUNS PRIOR TO COMMAND BEING SET********************
             if (command.equals("")) {
-                if (!(nav.getLoggedIn()))
+                if (!(nav.isIdentified()))
                     throw new NavigationException(
                             "You must login to view the member search page" // MESSAGE WILL APPEAR ABOVE LOGIN
                             , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
@@ -71,7 +71,7 @@ public final class TaskSearch {
             }
             //****************************Get Coders*********************************
             else if (command.equals("member_search")) {
-                if (!(nav.getLoggedIn()))
+                if (!(nav.isIdentified()))
                     throw new NavigationException(
                             "You must login to view the member search page" // MESSAGE WILL APPEAR ABOVE LOGIN
                             , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
@@ -89,7 +89,7 @@ public final class TaskSearch {
             }
             //****************************refer*********************************
             else if (command.equals("refer")) {
-                if (!(nav.getLoggedIn()))
+                if (!(nav.isIdentified()))
                     throw new NavigationException(
                             "You must login to view the member search page" // MESSAGE WILL APPEAR ABOVE LOGIN
                             , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE

@@ -38,7 +38,7 @@ public final class TaskArena {
             String command = Conversion.checkNull(request.getParameter("c"));
             /********************** inquire *******************/
             if (command.equals("source")) {
-                if (!nav.getLoggedIn()) {
+                if (!nav.isIdentified()) {
                     throw new NavigationException(
                             "You must login to request the arena source" // MESSAGE WILL APPEAR ABOVE LOGIN
                             , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE
@@ -50,7 +50,7 @@ public final class TaskArena {
                 document.addTag(new ValueTag("Code", reg.getActivationCode()));
                 xsldocURLString = XSL_DIR + command + ".xsl";
             } else if (command.equals("source_agree")) {
-                if (!nav.getLoggedIn()) {
+                if (!nav.isIdentified()) {
                     throw new NavigationException(
                             "You must login to request the arena source" // MESSAGE WILL APPEAR ABOVE LOGIN
                             , TCServlet.LOGIN_PAGE // THE LOGIN PAGE FILE

@@ -66,7 +66,7 @@ public final class TourneyRegServlet extends HttpServlet {
         try {
             HttpSession session = request.getSession(true);
             Navigation nav = (Navigation) session.getAttribute("navigation");
-            if (nav == null || !nav.getLoggedIn()) {
+            if (nav == null || !nav.isIdentified()) {
                 response.sendRedirect("http://" + request.getServerName() +
                         "/?t=authentication&c=login&errorMsg=" +
                         "You must be logged in to register for the Invitational.&errorURL=http://" +

@@ -58,7 +58,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             String url = request.getParameter("errorURL");
 
             // check to see if the user has not logged in
-            if ((nav == null) || (!nav.getLoggedIn())) {
+            if ((nav == null) || (!nav.isIdentified())) {
                 // forward to login page
                 String errorURL = request.getRequestURI();
                 errorURL += (request.getQueryString() == null) ? "" : "?" + request.getQueryString();
@@ -156,7 +156,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
             Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
 
             // check to see if the user has not logged in
-            if ((nav == null) || (!nav.getLoggedIn())) {
+            if ((nav == null) || (!nav.isIdentified())) {
                 // forward to login page
                 //String loginHref = "/?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
                 //forward(loginHref,request,response);

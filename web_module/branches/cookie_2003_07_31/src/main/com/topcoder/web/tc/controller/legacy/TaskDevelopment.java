@@ -155,7 +155,7 @@ public final class TaskDevelopment {
 
 
             if (command.equals("inquire")) {
-                if (nav.getLoggedIn()) {
+                if (nav.isIdentified()) {
                     String to = Conversion.checkNull(request.getParameter("To"));
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
@@ -167,7 +167,7 @@ public final class TaskDevelopment {
             }
             /********************** tcs_inquire *******************/
             else if (command.equals("tcs_inquire")  || command.equals("tcs_app_inquire")) {
-                if (nav.getLoggedIn()) {
+                if (nav.isIdentified()) {
                Request dataRequest = null;
                ResultSetContainer rsc = null;
                Map resultMap = null;
@@ -251,7 +251,7 @@ public final class TaskDevelopment {
             }
             /********************** send *******************/
             else if (command.equals("send")) {
-                if (nav.getLoggedIn()) {
+                if (nav.isIdentified()) {
                     devTag.addTag(new ValueTag("Project", project));
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
@@ -348,7 +348,7 @@ public final class TaskDevelopment {
                       log.debug("rsc is null");
                    devTag.addTag(rsc.getTag("projects", "project"));
 
-                if (nav.getLoggedIn()) {
+                if (nav.isIdentified()) {
                     String version = Conversion.checkNull(request.getParameter("version"));
                     String phase = Conversion.checkNull(request.getParameter("phase"));
                     long userId;

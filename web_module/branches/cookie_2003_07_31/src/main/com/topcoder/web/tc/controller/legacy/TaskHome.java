@@ -75,7 +75,7 @@ public final class TaskHome {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
                 transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                if (nav.getLoggedIn()) {
+                if (nav.isIdentified()) {
 
                     dataRequest = new Request();
                     dataRequest.setContentHandle("member_profile");

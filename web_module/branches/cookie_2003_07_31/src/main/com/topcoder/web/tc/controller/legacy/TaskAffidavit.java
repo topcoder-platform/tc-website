@@ -43,7 +43,7 @@ public final class TaskAffidavit {
         String requestTask = null;
         String requestCommand = null;
         try {
-            if (nav == null || !nav.getLoggedIn()) {
+            if (nav == null || !nav.isIdentified()) {
                 StringBuffer url = new StringBuffer(request.getRequestURI());
                 String query = request.getQueryString();
                 if (query != null) {

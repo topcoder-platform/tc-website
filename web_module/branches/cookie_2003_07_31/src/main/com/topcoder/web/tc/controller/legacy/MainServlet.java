@@ -169,7 +169,7 @@ public final class MainServlet extends HttpServlet {
             } else {
                 user = nav.getUser();
             }
-            if (nav.isIdentified()) {
+            if (nav.isLoggedIn()) {
                 // CHECK TO SEE IF THE SERIALIZED NAV OBJECT
                 // IN SESSION HAS LOGGED IN ATTRIB = TRUE.
                 // IF THE USER'S SESSION INDICATES LOGGED IN,

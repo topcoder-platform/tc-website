@@ -86,7 +86,7 @@ public final class TaskStatic {
         if (!requestOther.equals("")) requestOther += "/";
 
         if (requestAccess.equals(SECURE_DIR_NAME)) {
-            if (nav.getLoggedIn()) {
+            if (nav.isIdentified()) {
                 xsldocURLString = TCServlet.XSL_ROOT + requestTask + SECURE_DIR_NAME + "/" + requestCommand + ".xsl";
             } else {
                 StringBuffer url = new StringBuffer(request.getRequestURI());

@@ -136,7 +136,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                 if (nav == null) nav = new Navigation(request, response);
                 session.setAttribute("navigation", nav);;
 
-                if (nav.getLoggedIn())
+                if (nav.isIdentified())
                     com.topcoder.common.web.util.Data.loadUser(nav);
                 if (nav.getUser() == null)
                     log.info("[**** stats **** " + dataRequest.getContentHandle() + " ****  **** " + request.getRemoteHost() + " ****]");
@@ -149,7 +149,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                     return;
                 }
 
-                if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.getLoggedIn())) {
+                if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.isIdentified())) {
                     response.sendRedirect("http://" + request.getServerName() +
                             "/?t=authentication&c=login&errorMsg=" +
                             "You must log in to view this portion of the site.&errorURL=http://" +
