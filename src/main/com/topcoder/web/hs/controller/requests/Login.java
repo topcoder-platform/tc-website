@@ -81,7 +81,7 @@ public class Login extends Base {
 
         if(map != null && map.size() == 1) {
             ResultSetContainer result = (ResultSetContainer)map.get("active_user");
-            return !result.isEmpty();
+            return !(result==null || result.isEmpty());
         } else {
             return false;
         }
