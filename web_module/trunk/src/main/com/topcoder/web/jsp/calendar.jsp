@@ -1,6 +1,6 @@
 <%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 
-            <table width="100%" bgcolor="#4A4A4A" cellspacing="0" cellpadding="0" border="0">
+            <table width="170" bgcolor="#4A4A4A" cellspacing="0" cellpadding="0" border="0">
                 <tr> 
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
