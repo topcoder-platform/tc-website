@@ -1447,11 +1447,16 @@ public class Registration
         } 
         if (users !=  null)
         {
-            for ( Iterator i=users.values().iterator(); i.hasNext(); )
+            String tempHandle = null;
+            Map.Entry me = null;
+            for ( Iterator i=users.entrySet().iterator(); i.hasNext(); )
             {
-                User user = (User) i.next();
-                if (user.getHandle().equalsIgnoreCase(handle))
+                me = (Map.Entry)i.next();
+                if (((String)me.getValue()).equalsIgnoreCase(handle))
                 {
+                    User user = new User();
+                    user.setHandle((String)me.getValue());
+                    user.setUserId(((Integer)me.getKey()).intValue());
                     return user;
                 }
             }
