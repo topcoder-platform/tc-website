@@ -34,7 +34,7 @@ public final class TaskStatic {
 
     static String process(HttpServletRequest request, HttpServletResponse response,
                           HTMLRenderer HTMLmaker, Navigation nav, XMLDocument document)
-            throws NavigationException {
+            throws NavigationException, PermissionException {
         String result = null;
         try {
             String requestCommand = Conversion.checkNull(request.getParameter("c"));
@@ -43,6 +43,8 @@ public final class TaskStatic {
             } else {
                 result = displayStatic(HTMLmaker, request, nav, document);
             }
+        } catch (PermissionException ne) {
+            throw ne;
         } catch (NavigationException ne) {
             log.error("TaskStatic:ERROR:\n" + ne);
             throw ne;
