@@ -125,8 +125,8 @@
             <xsl:variable name="numericSecondPayment" select="/TC/DEVELOPMENT/second_payment" />  
             
                         <p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
-                           First Deliverable - $<xsl:value-of select="/TC/DEVELOPMENT_payment"/><br/>
-                               Project Completion - $<xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
+                           First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT_payment"/><br/>
+                               Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
             
             <xsl:variable name="dollarFormat" select="'###,###.00'" />
