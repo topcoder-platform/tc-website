@@ -11,7 +11,7 @@ public class ConfirmProfile extends PopulateProfileSetup {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
-        super.businessProcessing();
+        super.screeningProcessing();
 
         //validate the info
         try {
