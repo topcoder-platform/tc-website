@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
+                        <img src="/i/m/Running_Wild_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=274760"><strong>Running Wild</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,15 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm183_prob">SRM 183 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, February 11, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm184_prob">SRM 184 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, February 17, 2004</p>
 
                         <p>
- Division 1 had a pretty hard set last night, with a slightly harder easy problem, and a 
- tricky medium geometry problem that stumped most coders. Only 24 of them where 
- able to successfully pass the medium, though many tried. The hard involved dynamic 
- programming/memoization, and though it had a higher success rate, many fewer 
- people submitted it.
+ Both divisions faced a harder set of problems than usual in SRM 183.  Most notable was the Division 1 hard, which only <b>tomek</b> was able to solve
+successfully, and for only 322 points, but it was still enough to give him the win for the match.  There were plenty of challenges to be had on that problem,  and although
+<b>bladerunner's</b> solution was not successful, 4 of his challenges were.
 
-                       <a href="/?t=statistics&amp;c=srm183_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=srm184_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
