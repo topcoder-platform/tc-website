@@ -18,7 +18,8 @@ public class Constants {
   public static String REPORT_ID_KEY = "report_id";
   public static String PROCESSED_KEY = "processed";
   public static String REFRESH_SCHOOL_KEY = "refresh";
-  public static String REPORT_PROFILE_KEY = "profile_detail";
+  public static String REPORT_PROFILE_KEY = "profile";
+  public static String REPORT_PROFILE_DETAIL_KEY = "profile_detail";
   public static String REPORT_PROFILE_LIST_KEY = "profile_list";
   public static String REPORT_PROFILE_LIST_MENU_KEY = "profile_list_menu";
   public static String REPORT_HANDLE_KEY = "ha";
