@@ -60,7 +60,7 @@
 	%>
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">&#160;
-			<tc-webtag:item row="<%=resultRow%>" name="user_id"/></TD>
+			<tc-webtag:item row="<%=resultRow%>" name="handle"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
 			<tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
