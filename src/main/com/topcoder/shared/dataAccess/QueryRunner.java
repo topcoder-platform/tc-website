@@ -90,8 +90,6 @@ public class QueryRunner implements DataRetrieverInt {
     public Map executeCommand(Map inputs) throws Exception {
         Iterator queryIterator = null;
         Map.Entry me = null;
-        String key = null;
-        String value = null;
         ResultSetContainer rsc = null;
         String queryText = null;
         String queryName = null;
@@ -103,6 +101,12 @@ public class QueryRunner implements DataRetrieverInt {
         }
 
         try {
+
+            int startRank =inputs.containsKey(DataAccessConstants.START_RANK)?
+                    Integer.parseInt((String)inputs.get(DataAccessConstants.START_RANK)):1;
+            int endRank =inputs.containsKey(DataAccessConstants.END_RANK)?
+                    Integer.parseInt((String)inputs.get(DataAccessConstants.END_RANK)):Integer.MAX_VALUE;
+
             resultMap = new HashMap();
             queryMap = (Map) inputs.get(DataAccessConstants.QUERY_KEY);
             queryIterator = queryMap.entrySet().iterator();
@@ -112,7 +116,7 @@ public class QueryRunner implements DataRetrieverInt {
                 queryName = (String) me.getKey();
                 ps = conn.prepareStatement(queryText);
                 rs = ps.executeQuery();
-                rsc = new ResultSetContainer(rs);
+                rsc = new ResultSetContainer(rs, startRank, endRank);
                 rs.close();
                 rs = null;
                 ps.close();
