@@ -34,7 +34,7 @@
      * Ug, can't think of any other way to do this...
      * Go through the request and pull out all the parameters that would otherwise be lost by
      * clicking on one of the sort links.
-     * @param request
+     * @param String
      * @return
      */
     String addParams(String queryString) {
