@@ -29,6 +29,8 @@ import com.topcoder.shared.problem.UserConstraint;
 import com.topcoder.shared.problem.TestCase;
 import java.io.FileOutputStream;
 
+import com.topcoder.web.ejb.resume.ResumeServices;
+import com.topcoder.web.ejb.fileconversion.*;
 import com.topcoder.shared.language.*;
 
 import com.topcoder.web.common.MultipartRequest;
@@ -163,9 +165,7 @@ public class PDFGenerator extends BaseProcessor {
         } else if(rsc.getIntItem(0, "language_id") == 5) {
             config.setLanguage(VBLanguage.VB_LANGUAGE);
         }
-        
-        //get resume
-        
+                
         return config;
     }
     
@@ -755,10 +755,41 @@ public class PDFGenerator extends BaseProcessor {
         doc.add(submission);
         doc.add(new Phrase(info.getSubmissionText(), FontFactory.getFont(FontFactory.COURIER, 10, Font.NORMAL, Color.black)));
 
-        doc.newPage();
     }
     
-    public void drawResume(Document doc, PlacementConfig info) throws Exception {
+    public void drawResume(Document doc, PlacementConfig info, PdfWriter writer) throws Exception {
+        InitialContext ctx = TCContext.getInitial(); 
+        ResumeServices resumebean = (ResumeServices)createEJB(ctx, ResumeServices.class);
+        
+        if(resumebean.hasResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME)) {
+            byte[] rawBytes = resumebean.getResume(info.getUserID(), DBMS.OLTP_DATASOURCE_NAME).getFile();
+            //pass through the converter
+            
+            ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.FILE_CONVERSION_PROVIDER_URL);
+            
+            FileConversion filebean = (FileConversion)createEJB(ctx, FileConversion.class);
+            byte[] result = filebean.convertDoc(rawBytes);
+            
+            PdfReader reader = new PdfReader(result);
+            
+            int n = reader.getNumberOfPages();
+            
+            PdfImportedPage page;
+            PdfContentByte cb = writer.getDirectContent();
+            
+            for (int i = 0; i < n; ) {
+                ++i;
+                doc.newPage();
+
+                page = writer.getImportedPage(reader, i);
+
+                cb.addTemplate(page, 0,0);
+                
+            }
+            
+        }
+        
+        doc.newPage();
         doc.add(new Phrase("RESUME HERE"));    
     }
     
