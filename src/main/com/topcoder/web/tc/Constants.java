@@ -20,11 +20,13 @@ public class Constants {
 
     /* request parameters */
     public static String SURVEY_ID;
+    public static String MODULE_KEY;
 
     /* pages */
     public static String SURVEY_RESULTS;
     public static String SURVEY_VIEW;
     public static String SURVEY_LIST;
+
 
     private Constants() {
     }
