@@ -26,6 +26,10 @@ public interface DataCache extends EJBObject {
 
     public void resetContestNavs() throws TCException, RemoteException;
 
+    public void resetOrganizations() throws TCException, RemoteException;
+                                                                                                                       
+    public ArrayList getOrganizations() throws TCException, RemoteException;
+
     public void resetMemberCount() throws TCException, RemoteException;
 
     public void resetContestNavs(String strContestNo) throws TCException, RemoteException;
