@@ -115,7 +115,7 @@ return false;
 			</tr>
 		</table>
 
-		<div width="100%" align=center><br/><br/><a href="/tc?module=ContactingPreferences"><img src="/i/submit.jpg" border=0/></a></div>
+		<div width="100%" align=center><br/><br/><a href="/tc?module=ContractingPreferences"><img src="/i/submit.jpg" border=0/></a></div>
 
 		</FORM>
 
