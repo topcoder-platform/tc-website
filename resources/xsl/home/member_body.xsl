@@ -52,9 +52,9 @@
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr><td colspan="3" height="60"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_title.gif" alt="Introducing the TopCoder Software Component Catalog" width="556" height="60" border="0" /></A></td></tr>
                 <tr>
-                    <td width="220" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp#personal" target="_top"><img src="/i/promos/catalog_intro_personal.gif" alt="Personal" width="220" height="90" border="0" /></A></td>
-                    <td width="126" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_icon.gif" alt="" width="126" height="90" border="0" /></A></td>
-                    <td width="210" height="90"><A href="http://software.topcoder.com/pages/s_learn.jsp#professional" target="_top"><img src="/i/promos/catalog_intro_professional.gif" alt="Professional" width="210" height="90" border="0" /></A></td>
+                    <td width="220" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#personal" target="_top"><img src="/i/promos/catalog_intro_personal.gif" alt="Personal" width="220" height="100" border="0" /></A></td>
+                    <td width="126" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_icon.gif" alt="" width="126" height="100" border="0" /></A></td>
+                    <td width="210" height="100"><A href="http://software.topcoder.com/pages/s_learn.jsp#professional" target="_top"><img src="/i/promos/catalog_intro_professional.gif" alt="Professional" width="210" height="100" border="0" /></A></td>
                 </tr>
                 <tr><td colspan="3" height="20"><img src="/i/promos/catalog_intro_nav.gif" alt="" width="556" height="20" border="0" usemap="#catalog_intro_map" /></td></tr>
             </table>
