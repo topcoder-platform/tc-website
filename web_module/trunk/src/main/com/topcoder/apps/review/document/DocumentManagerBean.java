@@ -1418,7 +1418,7 @@ public class DocumentManagerBean implements SessionBean {
                         "s.final_score, s.placement, s.passed_screening, " +
                         "s.submission_v_id, " +
                         "su.login_id, su.user_id, " +
-                        "uc.first_name, uc.last_name, e.address email_address " +
+                        "uc.first_name, uc.last_name, e.address email_address, rur.r_user_role_id " +
                         "FROM submission s, security_user su, user uc, r_user_role rur, " +
                         "email e  " +
                         "WHERE s.cur_version = 1 AND " +
