@@ -55,66 +55,24 @@
             <span class="leadPhotoCaption">bstanescu enjoying the moment<br/><br/></span>
             </div>
             
-            <h2>Room 1</h2>
+            <h2>bstansescu outcodes number one seed to take Room 1</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             Thursday, December 4, 2003</p>
 
-            <p>Text <strong>handle</strong> text, text, text.</p>
+            <p>Opting for strategy over speed, bstanescu is the first coder to qualify for the TCO final round.  When approached after his victory was announced, he played it cool saying, "The guy who solves the first and the third problems usually beats the guy who solves the first and the second.  But it doesn't always work."  Well, it worked today.</p>
 
-            <p>Text <strong>handle</strong> text, text, text.</p>
+            <p>This morning's contest started out identical to most others.  All four competitors opened the 250-point problem and began coding.  As more and more spectators began to trickle in, however, things quickly became more exciting.  venco submitted his solution for the first problem just 15 minutes after opening it, earning him a strong 199.08 points.  bstanescu answered with his submission only two minutes later, giving him a score of 191.79.  SnapDragon and dpecora followed closely, earning 184.28 and 169.50 points, respectively.</p>
 
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-            </table>
-            </div>	
+             <p>With three coders working on the 500-point problem and bstanescu pegging away at the 1000, it still looked like anyone could win.  Suddenly, SnapDragon submitted the level two problem in less than 13 minutes for 421.68 points and moved quickly to the 1000 pointer.  venco submitted next for 361.45 points.</p>
 
-            <p>Text <strong>handle</strong> text, text, text.</p>
+            <p>Time was running out and bstanescu was writing feverishly on his scratch paper.  With 15 minutes left in the coding phase, dpecora submitted the level two problem and earned himself 169.50 points.  All eyes were on SnapDragon, venco and bstanescu as they fought to solve the final problem.  Finally, with only 10 points left to give, bstanescu submitted his 1000-point solution and claimed first place with an additional 424.23 points.  The remaining 6 minutes of the coding phase passed without any further submissions.</p>
 
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xx</td>
-                </tr>
-            </table>
-            </div>	
+            <p>The challenge phase was considerably less exciting than the coding phase.  All of the coders flocked to view bstanescu's solution for the hardest problem but no challenges were made during the entire phase.  System tests proved that this was a wise choice made by all competitors as every single submitted solution for each problem passed the system tests with flying colors.  It was official - bstanescu was the winner!</p>
 
-            <p>Text <strong>handle</strong> text, text, text.</p>
+            <p>The round's outcome was quite an upset.  SnapDragon, the second highest rated member and number one seed for the tournament, was the favorite pick-to-win for the match.  Additionally, many spectators were rooting for dpecora as he was the underdog of all 16 semi-finalists.</p>
+
+            <p>Stay tuned for the next round, as we wait to see if there are more upsets to come. </p> 
 
             <p><br/></p>
         </td>
