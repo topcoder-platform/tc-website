@@ -128,7 +128,7 @@
                             topcoder.com, and an email is sent out notifying members of the new development opportunity.  The posting includes the payment details and 
                             submission deadline for all design submissions.</li>
                             
-                            <li>Eligible rated TopCoder members who inquire about Design Projects are granted secure access to the Project Specification and Project 
+                            <li>Eligible TopCoder members who inquire about Design Projects are granted secure access to the Project Specification and Project 
                             Deliverable documents in the online Development Forums.</li>
                         </ol></p></td>
                 </tr>
@@ -148,7 +148,7 @@
                 
                 <tr valign="top">
                     <td class="bodyText">
-                        <p>Eligible rated TopCoder Members submit design proposals, which are scored by an Architecture Review Board in a peer review process to 
+                        <p>Eligible TopCoder Members submit design proposals, which are scored by an Architecture Review Board in a peer review process to 
                         determine the best design. If an acceptable design is not found the phase is restarted.</p>
                                     
                         <p><strong>Participants</strong><br />
@@ -169,7 +169,7 @@
                             Screening Score Card for each submitted design.  The score card consists of two parts: first is a checklist for required elements of the 
                             design submission; second is a series of objective questions used by the Primary Reviewer to score the designs. </li>
                             
-                            <li>All eligible rated TopCoder members can submit design proposals.</li>
+                            <li>All eligible TopCoder members can submit design proposals.</li>
                             
                             <li>At a minimum, proposals consist of: Use-Case Diagram, Class Diagram, Sequence Diagram, Component Specification, Test Cases. </li>
                             
@@ -200,7 +200,7 @@
                             remaining 25% of the payment is sent out following the Development Phase.</li>
                             
                             <li>Once a winning design is determined, the PM posts the Development Phase of the project in the Development Section of topcoder.com.  
-                            The posting includes the submission deadline and the payment details.  Once eligible rated TopCoder members inquire about the project they 
+                            The posting includes the submission deadline and the payment details.  Once eligible TopCoder members inquire about the project they 
                             are granted access to the design and specification documents in a secure online forum.</li>
                         </ol></p>
                         
@@ -224,7 +224,7 @@
                     <td class="bodyText">
                         <p><strong>Please note: Members who submit the winning design for a project are not eligible to submit development solutions for that project.</strong></p>
                         
-                        <p>Eligible rated TopCoder Members submit development solutions, which are reviewed by the Development Review Board in a peer review process to determine 
+                        <p>Eligible TopCoder Members submit development solutions, which are reviewed by the Development Review Board in a peer review process to determine 
                         the winning solution.  If an acceptable solution is not found the phase starts over.</p>
                                     
                         <p><strong>Participants</strong><br />
@@ -247,7 +247,7 @@
                             questions used by the Primary Reviewer to score the submission. At a minimum, submissions consist of: Source Code, Executable Code, Build 
                             Script, Unit Test Cases, Developer Guide. Any submissions that do not pass the checklist or the designer's test cases are rejected.</li>
                             
-                            <li>All eligible rated TopCoder members can submit development solutions for the project.</li>
+                            <li>All eligible TopCoder members can submit development solutions for the project.</li>
                             
                             <li>Development submissions that do not pass** the screening are sent back to the Developer with the Development Screening Score card.</li>
                             
