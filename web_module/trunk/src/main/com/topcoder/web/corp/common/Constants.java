@@ -71,6 +71,9 @@ public class Constants
     
     public static String FIRST_NAME;
     public static String LAST_NAME;
+    
+    public static String CITY;
+    public static int AREA_OF_INTEREST_ID;
 
     //Candidate constants
     public static String CANDIDATE_INFO;
