@@ -226,8 +226,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         memberInfo.put(TCESConstants.MEM_INFO_MAJOR_KEY,
                             memProfRow.getItem("major").toString() );
         memberInfo.put(TCESConstants.MEM_INFO_GRADDATE_KEY,
-                            memProfRow.getItem("grad_month").toString() +
-                            ", "+
+                            ((memProfRow.getItem("grad_month").toString.trim().length()>0)?
+                                memProfRow.getItem("grad_month").toString() + ", " : "" ) +
                             memProfRow.getItem("grad_year").toString() );
 
         dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats");
