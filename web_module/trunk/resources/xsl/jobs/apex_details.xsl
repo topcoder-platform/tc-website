@@ -196,6 +196,8 @@
 <P>If all this sounds intriguing, we'd like to hear from you.  The first step is taking our programming test, but that should fun, right?</P>
 
 
+<P><A HREF="#">Click here to apply</A></P>
+
 <!--end contextual links-->
 
           
