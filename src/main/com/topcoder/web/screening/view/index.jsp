@@ -9,7 +9,11 @@
 </head>
 
 <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
-<jsp:include page="includes/top.jsp"/>
+
+<jsp:include page="includes/top.jsp" >
+  <jsp:param name="isHomePage" value="true"/>
+</jsp:include>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
     <!-- Left Column Begins -->

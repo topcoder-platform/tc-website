@@ -11,12 +11,18 @@
 <%} else {%>
         <screen:servletLink processor="Login" target="_top" styleclass="globalNavSmall">Login</screen:servletLink>&#160;&#160;|&#160;&#160;
 <%}%>
-        <screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" hspace="5" border="0"/></td>
-   </tr>   
-   <tr>
-      <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></td>
-      <td width="206" bgcolor="#000000"><screen:servletLink target="_top"><img src="/i/ev/logo.gif" width="206" height="49" border="0" vspace="13"/></screen:servletLink></td>
-      <td width="100%" bgcolor="#000000"><img src="/i/ev/clear.gif" width="1" height="1" border="0"/></td>        
+        <screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" border="0"/></td>
+    </tr>   
+    <tr>
+        <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="206" bgcolor="#000000">
+<% if (isHomePage) { %>
+            <img src="/i/ev/logo_testing.gif" width="206" height="49" border="0" vspace="13"/>
+<% } else { %>
+            <screen:servletLink target="_top"><img src="/i/ev/logo_testing.gif" width="206" height="49" border="0" vspace="13"/></screen:servletLink>
+<%  } %>
+        </td>
+        <td width="100%" bgcolor="#000000"><img src="/i/ev/clear.gif" width="1" height="1" border="0"/></td>        
    </tr>             
 </table>
 
