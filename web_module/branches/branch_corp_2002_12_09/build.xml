@@ -543,10 +543,11 @@
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
             </classes>
+<!--
             <classes dir="${resources}/${corp.war.name}">
                 <include name="*.properties"/>
             </classes>
-
+-->
             <!-- libraries to be included in servlet classpath -->
             <!--
             <lib dir="${jars.dir}">

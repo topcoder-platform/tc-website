@@ -82,7 +82,7 @@ public class Constants {
         new Hashtable();
 
     static {
-        store = new TCResourceBundle("Constants");
+        store = new TCResourceBundle("CorpConstants");
 
         JTA_TX_MANAGER = store.getProperty(KEY_JTA_TX_MANAGER,
                                            DEF_JTA_TX_MANAGER
