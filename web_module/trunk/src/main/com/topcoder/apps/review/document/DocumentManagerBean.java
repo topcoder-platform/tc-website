@@ -4168,6 +4168,7 @@ public class DocumentManagerBean implements SessionBean {
             "     , r_user_role rur " +
             " WHERE ";
 
+    // Joins reorganized for speed.
     private static String SQLGetAppealsTail =
             "   AND a.cur_version = 1 " +
             "   AND a.question_id = sq.question_id " +
