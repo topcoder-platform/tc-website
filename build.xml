@@ -1040,7 +1040,16 @@
          <delete dir="${public_html}/admin/META-INF"/>
      </target>
 
-     <target name="build-security" depends="compile">
+     <target name="build-security" depends="compile_shared">
+         <javac
+             srcdir="${java}"
+             destdir="${classes}"
+             classpathref="class.path"
+             deprecation="${deprecation}"
+             debug="${debug}"
+             >
+             <include name="com/topcoder/security/**"/>
+         </javac>
          <jar jarfile="${ejb_jars}/security.jar">
              <zipfileset dir="${classes}" includes="com/topcoder/security/**"/>
              <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/**"/>
