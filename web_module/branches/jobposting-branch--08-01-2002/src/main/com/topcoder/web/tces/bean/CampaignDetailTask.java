@@ -142,7 +142,7 @@ log.debug("setting most recent hit = "+mostRecentHit);
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_Info");
         ResultSetContainer.ResultSetRow cpgnHitsRow = rsc.getRow(0);
         setTotalHits( ((Long)cpgnHitsRow.getItem("total_hits").getResultData()).toString() );
-        setMostRecentHit( getDate(cpgnHitsRow,"most_recent") );
+        setMostRecentHit( (getTotalHits()==0)?"N/A":getDate(cpgnHitsRow,"most_recent") );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
         if (rsc.getRowCount() == 0) {
