@@ -11,20 +11,20 @@
 
 <jsp:include page="../script.jsp" />
 
-<script>
+<script type="text/javascript" language="javascript">
 var style="pc";
 if (is_mac){style = "mac_ns4"
 	if (is_ie5up)
 		style="mac_ie"
 	if (is_ie4)
 		style="mac_ie4"}
-else{if (is_nav){
-	if(is_nav5up)
+else { if (is_nav) {
+	if (is_nav5up)
 		style+="ns6"
 	else
 		style+="ns4"}}
         alert(finalstyle);
-var finalstyle = '<link rel="stylesheet" type="text/css" href="/css/verizon/vcc_' + style + '.css">'
+var finalstyle = '<link rel="stylesheet" type="text/css" href="/css/verizon/vcc_' + style + '.css">';
 document.write(finalstyle);
 </script>
 </head>
