@@ -21,7 +21,24 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=bigTitle>2004 TopCoder Open - Overview</p>
+        <p class=bigTitle>Description of the Component Design and Development Competition</p>
+
+        <p>Eight Component finalists will be invited to attend the onsite finals in Santa Clara, CA, USA.</p>
+            <ul>
+                <li><strong>Registration</strong><br />
+                    STARTS: Monday, August 9 at 9:00 AM ET<br/>
+                    ENDS: Tuesday, September 7 at 9:00 AM ET</li>
+                <li><strong>Competition Starts</strong><br />
+                    August 10, 2004<br />
+                <li><strong>Onsite Review of Competition</strong><br />
+                    November 12, 2004 at the Santa Clara Marriott in Santa Clara, CA, USA</li>
+                <li><strong>Free Competition</strong><br />
+                <li><strong>Open to all registered TopCoder members over the age of 18.</strong></li>
+            </ul>
+            
+            <p>See the official rules and regulations for more details.</p>
+
+         <p><br/></p>
 
         </div>
 		</td>
