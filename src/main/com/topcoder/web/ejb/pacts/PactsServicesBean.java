@@ -457,7 +457,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     public Map getNote(long noteId) throws SQLException {
         StringBuffer selectNoteHeader = new StringBuffer(300);
         selectNoteHeader.append("SELECT n.note_id, n.create_date, n.note_type_id, nt.note_type_desc, ");
-        selectNoteHeader.append("n.submitted_by, u.handle, n.user_id ");
+        selectNoteHeader.append("n.submitted_by, u.handle");
         selectNoteHeader.append("FROM note n, note_type_lu nt, user u ");
         selectNoteHeader.append("WHERE n.note_id = " + noteId + " ");
         selectNoteHeader.append("AND nt.note_type_id = n.note_type_id ");
@@ -920,7 +920,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
         StringBuffer selectNoteHeaders = new StringBuffer(300);
         selectNoteHeaders.append("SELECT n.note_id, n.create_date, n.note_type_id, nt.note_type_desc, ");
-        selectNoteHeaders.append("n.submitted_by, u.handle, n.user_id ");
+        selectNoteHeaders.append("n.submitted_by, u.handle ");
         selectNoteHeaders.append("FROM " + tableName + ", note n, note_type_lu nt, user u ");
         selectNoteHeaders.append(whereClause + " ");
         selectNoteHeaders.append("AND n.note_id = xr.note_id ");
@@ -1461,8 +1461,9 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                     whereClauses.append(" AND UPPER(u.handle) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(IN_DEPTH_HANDLE)) {
-                    from.append(", user u3");
-                    whereClauses.append(" AND u3.user_id = n.user_id");
+                    from.append(", user u3, user_note_xref x");
+                    whereClauses.append(" AND u3.user_id = x.user_id");
+                    whereClauses.append(" AND n.note_id = x.note_id");
                     whereClauses.append(" AND UPPER(u3.handle) LIKE ?");
                     objects.add(value);
                 } else if (key.equals(SUBMITTING_USER_ID)) {
