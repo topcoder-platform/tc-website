@@ -360,6 +360,27 @@ public class Constants
      */
     public static String SORT_BY;
 
+    /**
+     * <p>An <code>int</code> representing the number of a records to be displayed at <code>Campaign Resutlts</code> and
+     * <code>Position Results</code> JSPs at one time.
+     *
+     * <p>The controller servlet configuration file must have a "page_size" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static int PAGE_SIZE = 20;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * parameter of incoming request containing the index of a starting element in the list of campaign/position results
+     * to render the results from.</p>
+     *
+     * <p>The controller servlet configuration file must have a "page_start_index" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String PAGE_START_INDEX;
+
     //Profile constants
     public static String PROFILE_INFO;
     public static String PROFILE_LOOKUP_COMMAND;

@@ -26,6 +26,19 @@
             results.sortByColumn(sortBy, true);
         }
     }
+
+    int startIndex = 0;
+
+    try {
+        startIndex = Integer.parseInt(request.getParameter(Constants.PAGE_START_INDEX));
+    } catch(Exception e) {
+        startIndex = 0;
+    }
+
+    if (startIndex >= results.size()) {
+        startIndex = 0;
+    }
+
 %>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -65,7 +78,19 @@
                     <td class="bodyText">Total Candidates:
                         <b><%= info.size()%></b>
                     </td>
-                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
+                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;
+                    <%
+                        if (startIndex > 0) {
+                    %>
+                    <A href="/">Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%></A>
+                    <%  } %>
+
+                    <%
+                        if (startIndex + Constants.PAGE_SIZE > info.size()) {
+                    %>
+                    | <A href="/">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a><
+                    <%  } %>
+                    /td>
                 </tr>
             </table>
 
@@ -74,29 +99,29 @@
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=first_name">
+                        <A class=screeningHeader href="/corp/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=first_name">
                             Name
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=state_code">
+                        <A class=screeningHeader href="/corp/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=state_code">
                             State/<br/>Province
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=country_name">Country</A>
+                        <A class=screeningHeader href="/corp/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=country_name">Country</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=coder_type_desc">Type</A>
+                        <A class=screeningHeader href="/corp/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=coder_type_desc">Type</A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=job_desc">Position</A>
+                        <A class=screeningHeader href="/corp/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=job_desc">Position</A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=problem_name">Problem</A>
+                        <A class=screeningHeader href="/corp/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=problem_name">Problem</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=total_time">
+                        <A class=screeningHeader href="/corp/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=total_time">
                             Time
                         </A>
                     </td>
@@ -116,7 +141,7 @@
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
 
-                    for (int i = 0; i < info.size(); i++) {
+                    for (int i = startIndex; i < startIndex + Constants.PAGE_SIZE&& i < info.size(); i++) {
                         row = (ResultSetContainer.ResultSetRow) info.get(i);
                 %>
                 <tr>
@@ -208,8 +233,19 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText" align=right>
-                    Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
+                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;
+                    <%
+                        if (startIndex > 0) {
+                    %>
+                    <A href="/">Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%></A>
+                    <%  } %>
+
+                    <%
+                        if (startIndex + Constants.PAGE_SIZE > info.size()) {
+                    %>
+                    | <A href="/">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a><
+                    <%  } %>
+                    /td>
                 </tr>
             </table>
 
