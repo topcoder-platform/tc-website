@@ -58,6 +58,7 @@
 
 	<!-- file conversion component -->
 	<pathelement location="${jars.dir}/fileconvert.jar"/>
+	<pathelement location="${jars.dir}/httpunit.jar"/>
     </path>
 
     <target name="init">

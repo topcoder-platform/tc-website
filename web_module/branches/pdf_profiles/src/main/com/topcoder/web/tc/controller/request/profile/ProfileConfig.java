@@ -30,6 +30,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.ArrayList;
 import java.util.Map;
+
+import com.meterware.httpunit.*;
 /**
  *
  * @author rfairfax
@@ -41,63 +43,78 @@ public class ProfileConfig extends BaseProcessor {
             //lookup user id
             int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
 
-            PlacementConfigInfo info = new PlacementConfigInfo();
-            
-            info.setUserID(uid);
-            
-            InitialContext ctx = TCContext.getInitial();
-            User userbean = (User)createEJB(ctx, User.class);
-            Email emailbean = (Email)createEJB(ctx, Email.class);
-            
-            info.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            info.setName(userbean.getFirstName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            
-            info.setPresentedBy(userbean.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
-            info.setPresentedByEmail(emailbean.getAddress(emailbean.getPrimaryEmailId(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+            if(getRequest().getParameter("process") == null || !getRequest().getParameter("process").equals("true")) {
+                PlacementConfigInfo info = new PlacementConfigInfo();
 
-            setDefault("presentedBy", info.getPresentedBy());
-            setDefault("presentedByEmail", info.getPresentedByEmail());
+                info.setUserID(uid);
 
-            //set images list - todo
-            
-            //load skills
-            CoderSkill skillbean = (CoderSkill)createEJB(ctx, CoderSkill.class);
-        
-            Request r = new Request();
-            r.setContentHandle("skill_types");
+                InitialContext ctx = TCContext.getInitial();
+                User userbean = (User)createEJB(ctx, User.class);
+                Email emailbean = (Email)createEJB(ctx, Email.class);
 
-            ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
-            for(int i = 0; i < rsc.size(); i++) {
-                ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
-                for(int j = 0; j < rscSkills.size(); j++) {
-                    Skill s = new Skill(); 
-                    s.setID(rscSkills.getIntItem(j, "skill_id"));
-                    s.setText(rscSkills.getStringItem(j, "skill_desc"));
-                    
-                    info.createSkill(rsc.getStringItem(i, "skill_type_desc"), s, rscSkills.getIntItem(j, "ranking"));
+                info.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+                info.setName(userbean.getFirstName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
+
+                info.setPresentedBy(userbean.getFirstName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+                info.setPresentedByEmail(emailbean.getAddress(emailbean.getPrimaryEmailId(getUser().getId(), DBMS.COMMON_OLTP_DATASOURCE_NAME), DBMS.COMMON_OLTP_DATASOURCE_NAME));
+
+                setDefault("presentedBy", info.getPresentedBy());
+                setDefault("presentedByEmail", info.getPresentedByEmail());
+
+                //set images list - todo
+
+                //load skills
+                CoderSkill skillbean = (CoderSkill)createEJB(ctx, CoderSkill.class);
+
+                Request r = new Request();
+                r.setContentHandle("skill_types");
+
+                ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("skill_types");
+                for(int i = 0; i < rsc.size(); i++) {
+                    ResultSetContainer rscSkills = skillbean.getSkillsByType(info.getUserID(), rsc.getIntItem(i, "skill_type_id"),DBMS.OLTP_DATASOURCE_NAME);
+                    for(int j = 0; j < rscSkills.size(); j++) {
+                        Skill s = new Skill(); 
+                        s.setID(rscSkills.getIntItem(j, "skill_id"));
+                        s.setText(rscSkills.getStringItem(j, "skill_desc"));
+
+                        info.createSkill(rsc.getStringItem(i, "skill_type_desc"), s, rscSkills.getIntItem(j, "ranking"));
+                    }
                 }
+
+                //load problems list for coder
+
+                r = new Request();
+                r.setContentHandle("successful_problems");
+                r.setProperty("cr", String.valueOf(uid));
+
+                rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("successful_problems");
+                info.setProblems(rsc);
+
+                //get default selected problem
+                r = new Request();
+                r.setContentHandle("best_problem");
+                r.setProperty("cr", String.valueOf(uid));
+
+                rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("best_problem");
+                if(rsc.size() != 0) {
+                    setDefault("component", rsc.getStringItem(0, "problem_id"));
+                }
+
+                getRequest().setAttribute("configInfo", info);
+            } else {
+                String url = "http://172.16.20.23/stat?c=member_profile&cr=7267401";
+                WebConversation wc = new WebConversation();
+                Cookie[] cookies = getRequest().getCookies();
+                for(int i = 0; i < cookies.length; i++) {
+                    wc.addCookie(cookies[i].getName(), cookies[i].getValue());
+                }
+                
+                WebRequest wr = new GetMethodWebRequest(url);
+                WebResponse resp = wc.getResponse(wr);
+                
+                System.out.println(resp.getText());
             }
             
-            //load problems list for coder
-            
-            r = new Request();
-            r.setContentHandle("successful_problems");
-            r.setProperty("cr", String.valueOf(uid));
-
-            rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("successful_problems");
-            info.setProblems(rsc);
-            
-            //get default selected problem
-            r = new Request();
-            r.setContentHandle("best_problem");
-            r.setProperty("cr", String.valueOf(uid));
-
-            rsc = (ResultSetContainer)getDWDataAccess().getData(r).get("best_problem");
-            if(rsc.size() != 0) {
-                setDefault("component", rsc.getStringItem(0, "problem_id"));
-            }
-            
-            getRequest().setAttribute("configInfo", info);
             
             //debugging / probably want to pass these cookies in for processing
             Cookie[] cookies = getRequest().getCookies();
