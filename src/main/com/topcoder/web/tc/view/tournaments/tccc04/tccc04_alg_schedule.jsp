@@ -61,11 +61,8 @@
                         CLOSES: Monday, February 23 at 9:00 AM EST
                     </td>
                 </tr>
-            </table><br />
+            </table>
             
-            OPENS: Monday, February 1 at 9:00 AM<br/>
-            CLOSES: Monday, February 23 at 9:00 AM</p>
-
             <p><span class="bodySubtitle">Open Qualification Round</span><br/>
             All registered competitors will attempt to qualify for the Algorithm Competition at any time during the following
             24-hour period:</p>

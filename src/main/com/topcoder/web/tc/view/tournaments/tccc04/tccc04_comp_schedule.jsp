@@ -46,10 +46,8 @@
             <h2>Schedule</h2>
             
             <p>Both the design and development competitions will have two (2) online rounds and one (1) onsite Championship round.</p>
-            
-            <p>NOTE: All times are EST.</p>
 
-            <p>Each contestant in an online round must submit his/her design and/or development submissions by the deadlines indicated below:</p>
+            <p>Each contestant in an online round must submit his/her design and/or development submissions by the deadlines indicated below (NOTE: All times are EST):</p>
             
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
