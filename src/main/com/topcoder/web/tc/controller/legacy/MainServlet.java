@@ -376,22 +376,6 @@ public final class MainServlet extends BaseServlet {
         return nav;
     }
 
-    protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
-                                          boolean forward) throws Exception {
-
-        if (forward) {
-            if (!dest.startsWith("/")) {
-                dest = "/" + dest;
-            }
-            log.debug("forwarding to " + dest);
-            getServletContext().getRequestDispatcher(response.encodeURL(dest)).forward(request, response);
-        } else {
-            log.debug("redirecting to " + dest);
-            response.sendRedirect(response.encodeRedirectURL(dest));
-        }
-    }
-
-
     private void showInternalError(HttpServletResponse response) {
         response.setStatus(500);
         try {
