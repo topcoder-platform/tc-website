@@ -63,7 +63,7 @@
                         <screen:resultSetItem row="<%=row%>" name="most_recent_activity" />
                     </td>
                     <td class="<%=cssClasses[counter % 2]%>" nowrap="right">
-                        <screen:resultSetItem row="<%=row%>" name="candidates_num" />
+                        <screen:resultSetItem format="MM/dd/yyyy hh:mm:ss a" row="<%=row%>" name="candidates_num" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_LIST_PROCESSOR%>&<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="<%=row%>" name="campaign_id" />'>view</A>
