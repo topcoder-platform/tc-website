@@ -81,9 +81,7 @@
 					<A HREF="#" CLASS="bodyText">Go directly to [TC] Arena Applet</A><BR/><BR/>
 					As always, you can compete in Java and/or C++. There will be TopCoder Administrators in the Lobby and available via AOL, MSN and Yahoo Instant Messaging under the screen name "TopCoder1."<BR/><BR/>
 					Best of luck to you in the Arena!<BR/>
-					Tom Longo<BR/>
-					Vice President of Membership<BR/>
-					TopCoder, Inc.<BR/>
+					TopCoder Competitions<BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>

@@ -62,9 +62,7 @@
                         and Yahoo Instant Messaging under the screen name "TopCoder1."</p>
                         
                         <p>Best of luck to you in the Arena!<br/>
-                        Tom Longo<br/>
-                        Vice President of Membership<br/>
-                        TopCoder, Inc.</p>
+                        TopCoder Competitions<br/>
                         </tt>
 
                         <p><br/></p>
