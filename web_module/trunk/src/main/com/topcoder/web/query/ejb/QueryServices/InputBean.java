@@ -180,7 +180,7 @@ public class InputBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" SELECT input_code");
-            query.append(  " FROM input");
+            query.append(  " FROM input_lu");
             query.append( " WHERE input_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
@@ -218,7 +218,7 @@ public class InputBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" SELECT data_type_id");
-            query.append(  " FROM input");
+            query.append(  " FROM input_lu");
             query.append( " WHERE input_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
@@ -256,7 +256,7 @@ public class InputBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" SELECT input_desc");
-            query.append(  " FROM input");
+            query.append(  " FROM input_lu");
             query.append( " WHERE input_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
@@ -331,7 +331,7 @@ public class InputBean extends BaseEJB {
          try {
              StringBuffer query = new StringBuffer();
              query.append(" SELECT input_id");
-             query.append(  " FROM input");
+             query.append(  " FROM input_lu");
              query.append( " WHERE input_code = ?");
              ctx = new InitialContext();
              if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
