@@ -71,7 +71,7 @@ public class AutoPilotTimer
             
             try {
                 //setup user
-                TCSubject user = new TCSubject(100129);
+                TCSubject user = new TCSubject(156859);
 
                 //get projects that are in submission phase and have submission end time > current
                 ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
