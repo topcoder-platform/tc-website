@@ -1,7 +1,8 @@
 <%@  page
   language="java"
   import="com.topcoder.common.web.data.report.*,
-          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
+          com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+          com.topcoder.web.common.StringUtils"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <jsp:useBean id="note_list" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"/>
@@ -28,7 +29,7 @@
 
         <rsc:iterator list="<%=note_list%>" id="resultRow">
             <tr>
-                <td><rsc:item row="<%=resultRow%>" name="text"/></td>
+                <td><%=StringUtils.htmlEncode(resultRow.getItem("text"))%></td>
                 <td><rsc:item row="<%=resultRow%>" name="submitted_by"/><td>
                 <td><rsc:item row="<%=resultRow%>" name="date"/><td>
 
