@@ -42,7 +42,7 @@ function getProblemDetail(id) {
 
 <!-- Middle column begins -->
         <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="10%">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Test Profile List</h1>
@@ -64,8 +64,8 @@ function getProblemDetail(id) {
 
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                 <tr>
-                    <td colspan="2" class="testTableTitle">&#160;</td>
-                    <td colspan="4" align="center" class="testTableTitle" align="center">Candidates</td>
+                    <td colspan="2" class="testTableTitleSmall">&#160;</td>
+                    <td colspan="4" align="center" class="testTableTitleSmall">Candidates</td>
                 </tr>
                 
                 <tr>
@@ -92,9 +92,9 @@ function getProblemDetail(id) {
                 <tr>
                    <td align="center" class="testHeadSmall">Candidate</td>               
                    <td align="center" class="testHeadSmall">Status</td>        
-                   <td align="center" class="testTableEven">Presented</td>        
-                   <td align="center" class="testTableEven">Submitted</td>        
-                   <td align="center" class="testTableEven">Passed</td>        
+                   <td align="center" class="testFormHeader">Presented</td>        
+                   <td align="center" class="testFormHeader">Submitted</td>        
+                   <td align="center" class="testFormHeader">Passed</td>        
                    <td align="center" class="testHeadSmall">&#160;</td>                          
                 </tr>
            
