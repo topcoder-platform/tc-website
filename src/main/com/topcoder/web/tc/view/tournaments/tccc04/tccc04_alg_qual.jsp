@@ -53,7 +53,7 @@
                   <td class="header" width="100%" colspan="5">Qualification Round</td>
                </tr>
                 <tr>
-                   <td class="testTableTitle_off" width="10%" align="center">
+                   <td class="testTableTitle_off" width="10%" align="right">
                        <a class="statTextBig" href="">
                            Seed
                        </a>
