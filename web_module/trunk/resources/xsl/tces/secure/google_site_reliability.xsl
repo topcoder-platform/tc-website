@@ -70,26 +70,23 @@
 
                            <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
-<p><B>Engineering Tools</B><br/>
+<p><B>Site Reliability Engineer</B><br/>
 Position available in Mountain View, CA.</p>
 
-<p>Google is looking for an experienced software engineer to help build the tools we use to ensure the quality of our software. 
-You should have a strong understanding and appreciation of good software development processes. You will be working closely 
-with different project teams to improve our tools for unit testing, regression testing, and problem isolation. Here's an 
-excellent opportunity for you to use your talents to help us develop, test, and maintain quality products that improve the web 
-experience for millions of users.</p>
+<p>Do you enjoy being at the center of things? Pride yourself on being thorough and paying attention to the details? As we continue to grow, we're looking for a Site Reliability Engineer to help maintain Google's stellar uptime record. You will work closely with our cluster management team to keep things running ever more smoothly. You will be involved in all aspects or running our site, including configuring new applications, monitoring and upgrading application clusters, troubleshooting problems, and extending existing automation scripts where necessary. Since problems arising in large-scale clusters are often complex, this position requires a deep understanding of networks and operating systems and the ability to quickly learn about our applications. The idea candidate is self organizing, detailed oriented, and combines excellent debugging and scripting skills with great networking and Linux knowledge. </p>
 
-<p><B>Requirements</B></p>
+<p><b>Requirements:</b></p>
 <ul>
-<li>3+ years of development experience</li>
-<li>Excellent Python or C++ programming skills</li>
-<li>Excellent Unix/Linux and shell scripting skills</li>
-<li>Perl and Java a plus</li>
-<li>Excellent communication skills</li>
-<li>BSCS or MSCS</li>
+<li>BA/BS in CS or EE</li>
+<li>3+ years experience in a similar position</li>
+<li>Excellent written and verbal communication skills</li>
+<li>In-depth knowledge of Linux, networking, and shell scripting</li>
+<li>Experience with Unix systems administration a plus</li>
+<li>Proven technical troubleshooting experience</li>
+<li>Flexibility regarding on-call responsibilities</li>
 </ul>
 	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=140&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=142&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 <br/><br/>
                            
 

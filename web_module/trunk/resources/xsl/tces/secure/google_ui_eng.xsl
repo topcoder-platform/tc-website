@@ -70,26 +70,29 @@
 
                            <A href="/?&amp;t=tces&amp;c=google"><IMG SRC="/i/es/google_sm.gif" WIDTH="143" HEIGHT="59" BORDER="0"/></A><BR/>       
 
-<p><B>Engineering Tools</B><br/>
-Position available in Mountain View, CA.</p>
+<p><B>User Interface Engineer</B><br/>
+Positions available in Mountain View, CA.</p>
 
-<p>Google is looking for an experienced software engineer to help build the tools we use to ensure the quality of our software. 
-You should have a strong understanding and appreciation of good software development processes. You will be working closely 
-with different project teams to improve our tools for unit testing, regression testing, and problem isolation. Here's an 
-excellent opportunity for you to use your talents to help us develop, test, and maintain quality products that improve the web 
-experience for millions of users.</p>
+<p>"Focus on the user, and all else will follow". That's one of the key philosophies behind everything that Google does, and we're looking for a UI Designer to help drive the design process for new Google products and features. As UI Designer, you will work closely with engineers and product managers throughout all stages of the product cycle. If you're a critical thinker with a good design sense, a strong technical background, and an eye for making things better, and if you're looking for a job where your work can have an impact on the web experience of millions of Google users, then this is the role for you.</p>
 
-<p><B>Requirements</B></p>
+<p><b>Responsibilities:</b></p>
 <ul>
-<li>3+ years of development experience</li>
-<li>Excellent Python or C++ programming skills</li>
-<li>Excellent Unix/Linux and shell scripting skills</li>
-<li>Perl and Java a plus</li>
-<li>Excellent communication skills</li>
-<li>BSCS or MSCS</li>
+<li>Helping to define the user model and user interface for new Google products and features</li>
+<li>Developing high level and/or detailed storyboards, mockups and prototypes to effectively communicate interaction and design ideas</li>
+<li>Gauging the usability of new and existing products, and making constructive suggestions for change</li>
 </ul>
-	
-<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=140&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
+
+<p><b>Requirements:</b></p>
+<ul>
+<li>Solid academic background in human-computer interaction or related field (BS or MS in Computer Science or related field a big plus)</li>
+<li>3 or more years of demonstrated experience in designing usable web-based interfaces</li>
+<li>Expert HTML skills</li>
+<li>Excellent knowledge of JavaScript for rapid prototyping purposes</li>
+<li>Strong visual design sense</li>
+<li>Excellent leadership, communication and teamwork skills</li>
+</ul>
+
+<p ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=142&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=google_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></p>
 <br/><br/>
                            
 
