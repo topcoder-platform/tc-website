@@ -41,9 +41,9 @@
 			</span>
 
 			<br/><br/>
-			Do you have exceptional programming skills? Can you make computers perform like silicon puppets with just a few well-expressed commands? Are you at ease when faced with a hard stop and a group of peers evaluating every line of your code? Here’s your opportunity to display the grace of the true professional in a reward-rich environment.
+			Do you have exceptional programming skills? Can you make computers perform cleverly crafted code with just a few well-expressed commands? Are you at ease when faced with a hard deadline and a group of peers scrutinizing your work? Here’s your opportunity to display the art of Computer Science in a reward-rich environment.
 			<br/><br/>
-			Google is looking for engineers with the programming skill to rewrite the world's information infrastructure. The Google India Code Jam 2005 is one way we hope to find them. While we don't impose arbitrary deadlines on our engineers, we do put a premium on well-implemented code. And we appreciate the thought process required to create it. In fact, we appreciate clear thinking in all its forms, from puzzle solving to chess mastery (one of our interns was an International Grand Master).
+			Google is looking for engineers with the programming skill to rewrite the world's information infrastructure. The Google India Code Jam 2005 is one way we hope to find them. While we don't impose arbitrary deadlines on our engineers, we do put a premium on well-implemented code. And we appreciate the thought process required to create it. In fact, we appreciate clear thinking in all its forms, from puzzle solving to chess mastery (one of our engineers is an International Grand Master).
 			<br/><br/>
 			<span class=greenSubtitle>Say it your way</span>
 			<br/><br/>
@@ -73,7 +73,7 @@
 			<br/>
 			<span class=greenSubtitle>Are You Ready?</span>
 			<br/><br/>
-			Registration for the Google India Code Jam 2005 opens on February 8th and ends on February, 2005. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the India Code Jam 2005 on March 5th.
+			Registration for the Google India Code Jam 2005 opens on February 8th and ends on February 25, 2005. Registration is unlimited, but only the top 500 scorers from the Qualification Round will advance to Round 1 of the India Code Jam 2005 on March 5th.  Click on the Registration link at the top of the page to enter.
 			<br/><br/>
 			The top 50 performers in Round 1 will be invited to compete for cash prizes in the Championship Round onsite at Google's office in Bangalore, India on March 26th.
 			<br/><br/>
@@ -98,14 +98,14 @@
                            </tr>
                 
                            <tr valign="top">
-                              <td class="sidebarText">Saturday, February 26</td>
-                              <td class="sidebarText">12:00 PM</td>
+                              <td class="sidebarText">Sunday, February 27</td>
+                              <td class="sidebarText">9:00 AM</td>
                               <td class="sidebarText">Qualification Round begins</td>
                            </tr>
 
                            <tr valign="top">
                               <td class="sidebarText">Sunday, February 27</td>
-                              <td class="sidebarText">12:00 PM</td>
+                              <td class="sidebarText">2:00 PM</td>
                               <td class="sidebarText">Qualification Round ends</td>
                            </tr>
 
@@ -132,14 +132,14 @@
 			The 500 participants in Round 1 will receive a "Google India Code Jam 2005, Powered by TopCoder" t-shirt. The top five scorers in the Championship Round will receive the following cash prizes:
 			<br/><br/>
 			<div class=indented>
-			      <b>1st Place - 300,000 INR</b><br/>
-			      2nd Place - 200,000 INR<br/>
-			      3rd Place - 125,000 INR<br/>
-			      4th Place - 75,000 INR<br/>
-			      5th Place - 50,000 INR<br/>
+			      <b>1st Place - Rs. 300,000</b><br/>
+			      2nd Place - Rs. 200,000<br/>
+			      3rd Place - Rs. 125,000<br/>
+			      4th Place - Rs. 75,000<br/>
+			      5th Place - Rs. 50,000<br/>
 			</div>
 			<br/>
-			Those finalists not finishing as one of the top five scorers in the Championship Round will share 850,000 INR.
+			Those finalists not finishing as one of the top five scorers in the Championship Round will share Rs. 850,000.
 
 			<br/><br/>
 			To find out more detailed information about the Google India Code Jam 2005, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=gicj05&d2=rules">Terms and Conditions</a>.

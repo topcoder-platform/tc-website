@@ -57,7 +57,7 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Qualification Round</td>
-					<td class="sidebarText" nowrap=nowrap>12:00 PM Saturday, February 26<br/> through<br />12:00 PM Sunday, February 27<br /></td>
+					<td class="sidebarText" nowrap=nowrap>9:00 AM through<br>12:00 PM<br>Sunday, February 27<br /></td>
 					<td class="sidebarText" align="center">All eligible members</td>
 					<td class="sidebarText" align="center">500</td>
 				</tr>
@@ -82,7 +82,7 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Online Round 1</td>
-					<td class="sidebarText">Saturday, March 5th<br />Register: 9:00 AM<br />START: 12:00 PM (noon) <br /></td>
+					<td class="sidebarText">Saturday, March 5th<br />Register: 9:00 AM<br />START: 12:00 PM (noon) <br />DURATION: Approx. 2 hours</td>
 					<td class="sidebarText" align="center">500</td>
 					<td class="sidebarText" align="center">50</td>
 				</tr>
@@ -96,7 +96,7 @@
 
 			<!-- Onsite Championship Round begins -->
 			<span class=greenSubtitle>Onsite Championship Round</span><br/>
-			Up to 50 coders will compete in the Championship Round being held onsite at Google's Bangalore office.  Each finalist is responsible for arriving at Google's Bangalore office to compete.
+			Up to 50 coders will compete in the Championship Round being held onsite in Bangalore, India.  Each finalist is responsible for arriving in Bangalore to compete.
 			<br/><br/>
 
 			<table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -108,7 +108,7 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Championship Round</td>
-					<td class="sidebarText">Saturday, March 26th<br />START: 9:00 AM<br /></td>
+					<td class="sidebarText">Saturday, March 26th<br />START: 9:00 AM<br />DURATION: Approx. 2.5 hours</td>
 					<td class="sidebarText" align="center">50</td>
 					<td class="sidebarText" align="center">n/a</td>
 				</tr>
