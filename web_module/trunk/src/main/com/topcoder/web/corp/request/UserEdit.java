@@ -81,12 +81,6 @@ public class UserEdit extends BaseProcessor {
         verifyAllowed();
         log.debug(secTok.createNew ?"verification passed: create" :"verification passed: edit");
 
-        if (authToken.getActiveUser().getId() != authToken.getUser().getId()) {
-            throw new NotAuthorizedException(
-                    "Log in if logged off, and vice versa"
-            );
-        }
-
         InitialContext icEJB = null;
         PrincipalMgrRemote mgr = secTok.man;
         if (!"POST".equalsIgnoreCase(request.getMethod())) {
@@ -706,6 +700,14 @@ public class UserEdit extends BaseProcessor {
                 loggedUserCompanyID = contactTable.getCompanyId(loggedUserID);
                 Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
+
+                if (Util.retrieveTCSubject(loggedUserID)==null)
+                    log.debug("subject returned was null id was: " + loggedUserID);
+                if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID))==null)
+                    log.debug("roles were null");
+                if (secTok.man==null)
+                    log.debug("principal manager was null");
+
                 if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID)).contains(Constants.CORP_ADMIN_ROLE)) {
                     isAccountAdmin = true;
                     primaryUserCompanyID = loggedUserCompanyID;
