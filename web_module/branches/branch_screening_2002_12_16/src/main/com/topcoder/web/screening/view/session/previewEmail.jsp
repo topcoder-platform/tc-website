@@ -43,7 +43,7 @@
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><%
 if(emailInfo.getSessionInfo() != null) {
 %>The following will be sent to <%
-    if(emailInfo.getSessionInfo().useCandidateEmail() && emailInfo.getSessionInfo.useRepEmail()) { 
+    if(emailInfo.getSessionInfo().useCandidateEmail() && emailInfo.getSessionInfo().useRepEmail()) { 
     %> <jsp:getProperty name="emailInfo" property="candidateAddress" /> and <jsp:getProperty name="emailInfo" property="repAddress" /><%
     } 
     else if(emailInfo.getSessionInfo().useCandidateEmail()) {
