@@ -48,7 +48,7 @@ public class ReliabilityRating {
                 return;
             }
         }
-
+	
         String jdbcDriver;
         String connectionURL;
         try {
@@ -69,11 +69,13 @@ public class ReliabilityRating {
             return;
         }
 
+	System.out.println("1");
         Connection c = null;
         try {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
 
+	    System.out.println("2");
             c.setAutoCommit(true);
             tmp.runAllScores(c, historyLength);
         } catch (Exception e) {
@@ -124,15 +126,14 @@ public class ReliabilityRating {
                     "project p " +
                     "where p.project_id = pr.project_id " +
                     "and p.cur_version = 1 " +
-                    "and p.project_stat_id = 4 " +
                     "and pr.reliability_ind = 1 " +
                     "order by 4";
             
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
-            
+	    
             while(rs.next())
-            {
+            {   
                 if(!ratings.containsKey("" + rs.getLong("user_id")))
                 {
                     rating r = new rating(rs.getLong("user_id"), 0, 0);
