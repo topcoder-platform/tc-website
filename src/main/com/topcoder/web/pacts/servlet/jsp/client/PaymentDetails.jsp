@@ -5,6 +5,7 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
+  import="java.text.DecimalFormat"
 %>
 
 <HTML>
