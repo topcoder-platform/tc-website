@@ -67,15 +67,17 @@
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
 					<td class="statText" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
-						<p><strong>Your inquiry has been sent. Thank You!</strong></p>
-						Thanks for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
+						<!--<p><strong>Your inquiry has been sent. Thank You!</strong></p>-->
+        
+    						Thank you <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
     						<a class="statText">
     						    <xsl:attribute name="href">
     						        <xsl:value-of select="concat('http://www.topcodersoftware.com/pages/c_forum.jsp?f=',$FORUMID)"/>
                                 </xsl:attribute>
                                 Specification Forum
-    						</a>
-    						<xsl:choose>
+    						</a>.  
+
+       						<xsl:choose>
     						    <!-- xsl:when test="$design=1" -->
     						    <xsl:when test="contains($Project, 'Design')">
     						        which can be used to obtain design documentation and ask any questions you may have regarding the component design.  Please post your questions at any time and a product manager will respond within 24 hours.  However, any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
@@ -86,8 +88,8 @@
     						        <p>The deadline for submitting a solution is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your solution to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.  Your submission should consist of a jar file populated with the required documents in /docs and appropriate source and test code in /src/java.  Do not modify the test cases that come with the design.  If you have problems getting the tests to run, please post a comment to the forum.  Any late submissions will be ignored.  Also, a reminder that this is a competition, and only the winning developer will receive payment.</p>
     						    </xsl:otherwise>
     						</xsl:choose>
-                        
-						
+
+						<p>If you have any problems please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 						<p><br /></p>
 					</td>
 					<td background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="10"><img src="/i/clear.gif" alt="" width="1" height="30" border="0" /></td>
