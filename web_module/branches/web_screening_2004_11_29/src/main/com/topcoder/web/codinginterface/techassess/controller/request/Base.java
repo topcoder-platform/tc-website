@@ -1,7 +1,6 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
@@ -14,7 +13,6 @@ import com.topcoder.shared.security.User;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Iterator;
-import java.util.ArrayList;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -26,6 +24,7 @@ public abstract class Base extends BaseProcessor {
     private QueueMessageSender sender = null;
     private WebQueueResponseManager receiver = null;
     private String messageId = null;
+    private long sessionId=-1;
 
 
     public void setReceiver(WebQueueResponseManager receiver) {
@@ -52,6 +51,24 @@ public abstract class Base extends BaseProcessor {
 
     public String getMessageId() {
         return messageId;
+    }
+
+    public void setSessionId(long sessionId) {
+        this.sessionId = sessionId;
+        getRequest().getSession().setAttribute(Constants.SESSION_ID, new Long(sessionId));
+    }
+
+    public long getSessionId() {
+        if (sessionId<0) {
+            Long temp = (Long)getRequest().getSession().getAttribute(Constants.SESSION_ID);
+            if (temp == null)
+                throw new RuntimeException("session id has not be set");
+            else {
+                sessionId = temp.longValue();
+            }
+        }
+        return sessionId;
+
     }
 
     protected void clearSessionErrors(String messageId) {

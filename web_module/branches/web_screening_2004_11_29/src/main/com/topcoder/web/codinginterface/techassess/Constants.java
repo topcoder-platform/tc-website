@@ -36,6 +36,7 @@ public class Constants {
     public static String MODULE;
     public static String STATIC_PREFIX;
     public static String MESSAGE_ID;
+    public static String SESSION_ID;
 
     //request processors
     public static String RP_LOGIN;

@@ -76,6 +76,7 @@ public class Login extends Base {
 
                     getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
                     getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
+                    setSessionId(response.getSessionID());
 
                 } else {
                     addError(Constants.HANDLE, response.getMessage());
