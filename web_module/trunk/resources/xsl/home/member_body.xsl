@@ -456,6 +456,11 @@
                 </tr>
             </table>
 
+            <xsl:call-template name="top_10_coders" />
+            <xsl:call-template name="top_10_schools" />
+<!--             <xsl:call-template name="top_5_states" />  -->
+            <xsl:call-template name="top_5_countries" />
+
 <!-- Statistics Begins -->
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001935" width="100%">
                 <tr><td colspan="3" bgcolor="#093158"><img src="/i/label_quick_stats_home.gif" alt="Statistics" width="244" height="20" border="0" /></td></tr>
