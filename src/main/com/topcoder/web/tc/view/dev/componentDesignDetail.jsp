@@ -161,7 +161,7 @@
                 </tr>
             </table>
                         <p>
-                        All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
+                        All submissions are required to be submitted by the Initial Submission Due Date.  Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
                         <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="250">
                             <tr>
