@@ -16,7 +16,7 @@ import java.sql.SQLException;
 /**
  *
  * @author Fred Wang (silentmobius)
- * @version $Revision$ 
+ * @version $Revision$
  * Jan 1, 2003 1:51:52 AM
  */
 public class UserNoteBean extends BaseEJB {
@@ -124,7 +124,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("AND note_id = ? ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource)ctx.lookup(transDsName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 

@@ -95,7 +95,7 @@ public class UserBean implements SessionBean {
             query.append("SET first_name=? ");
             query.append("WHERE user_id=?");
 
-            conn = ds.getConnection();
+            conn = transDs.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, _first_name);
             ps.setLong(2, _user_id);
@@ -137,7 +137,7 @@ public class UserBean implements SessionBean {
             query.append("SET last_name=? ");
             query.append("WHERE user_id=?");
 
-            conn = ds.getConnection();
+            conn = transDs.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, _last_name);
             ps.setLong(2, _user_id);
@@ -179,7 +179,7 @@ public class UserBean implements SessionBean {
             query.append("SET user_status_id=? ");
             query.append("WHERE user_id=?");
 
-            conn = ds.getConnection();
+            conn = transDs.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, _user_status_id);
             ps.setLong(2, _user_id);
