@@ -26,8 +26,8 @@
     ResultSetContainer states = (ResultSetContainer)m.get("state_list");
     ResultSetContainer countries = (ResultSetContainer)m.get("country_list");
     ResultSetContainer languages = (ResultSetContainer)m.get("languages");
-    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographic_questions");
-    ResultSetContainer demographic_answers = (ResultSetContainer)m.get("demographic_answers");
+    ResultSetContainer demographic_questions = (ResultSetContainer)m.get("demographic_questionss");
+    ResultSetContainer demographic_answers = (ResultSetContainer)m.get("demographics_answers");
     ResultSetContainer.ResultSetRow answer;
     int idx = 0;
 %>
