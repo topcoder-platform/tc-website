@@ -556,12 +556,12 @@ new lobbies and list sorting....
     </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="bodyText" WIDTH="244">
-    <IMG SRC="/i/jack_chat_promo3.gif" alt="" width="244" height="201" border="0"/><BR/><BR/>
-<!--
+<!--    <IMG SRC="/i/jack_chat_promo3.gif" alt="" width="244" height="201" border="0"/><BR/><BR/>
+
       <A>
         <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm98</xsl:attribute>
         <IMG SRC="/i/sponspromo_motorola.gif" ALT="" WIDTH="244" HEIGHT="172" BORDER="0"/>
-      </A><BR/><BR/>
+      </A><BR/><BR/>-->
       <A HREF="/index?t=about_tc&amp;c=membr_teams">
         <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
         <IMG SRC="/i/promo_teams.gif" ALT="" WIDTH="244" HEIGHT="81" BORDER="0"/>
@@ -570,16 +570,14 @@ new lobbies and list sorting....
         <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
         <IMG SRC="/i/promo_jobs.gif" ALT="" WIDTH="244" HEIGHT="80" BORDER="0"/>
       </A><BR/><BR/>
-      <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams">
+<!--      <A TARGET="_parent" HREF="/?t=about_tc&amp;c=membr_teams">
         <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=membr_teams</xsl:attribute>
         <IMG SRC="/i/teams_banner.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/>
       </A><BR/>
       <A TARGET="_parent" HREF="/?t=jobs&amp;c=index">
         <xsl:attribute name="">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=jobs&amp;c=index</xsl:attribute>
         <IMG SRC="/i/jobs_banner2.gif" WIDTH="170" HEIGHT="46" BORDER="0" HSPACE="5" VSPACE="5"/>
-      </A>
--->
-
+      </A>-->
 <xsl:call-template name="my_stats"/>
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/>
      <xsl:choose>
