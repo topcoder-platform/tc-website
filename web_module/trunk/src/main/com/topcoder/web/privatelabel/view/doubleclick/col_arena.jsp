@@ -8,7 +8,7 @@
 
 <jsp:include page="../script.jsp" />
 
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
 
 </head>
 <body align="center">
@@ -27,13 +27,13 @@
          <p class="pageTitle">Practice Arena</p>
 
                         <p>
-                        Click <a href="Javascript:openWin('?module=Static&d1=doubleclick&d2=doubleclick_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a Java Applet.
+                        Click <a class="bodyText_link" href="Javascript:openWin('?module=Static&d1=doubleclick&d2=dc_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a Java Applet.
                         <br/><br/>
-                        Click <a href="/contest/arena/ContestAppletGoogle.jnlp" target="_blank">here</a> to run the Competition Arena as a Java Web Start Application.
+                        Click <a class="bodyText_link" href="/contest/arena/ContestAppletDblClk.jnlp" target="_blank">here</a> to run the Competition Arena as a Java Web Start Application.
                         <br/><br/>
-                        Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
+                        Note:  If you wish to install Java Web Start click <a class="bodyText_link" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
                         <br/><br/>
-                        If you experience problems loading or running the Competition Arena please contact  <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
+                        If you experience problems loading or running the Competition Arena please contact  <A class="bodyText_link" href="mailto:service@topcoder.com">service@topcoder.com</A>.
                         </p>
 
 		</td>
