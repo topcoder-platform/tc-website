@@ -51,6 +51,7 @@
          <pathelement location="${jars.dir}/jboss/xalan.jar"/>
          <pathelement location="${jars.dir}/jboss/xercesImpl.jar"/>
          <pathelement location="${jars.dir}/jboss/xml-apis.jar"/>
+         <pathelement location="${jars.dir}/jboss/mail.jar"/>
 
          <!-- TCS Components -->
          <pathelement location="${jars.dir}/configmanager2.jar"/>
