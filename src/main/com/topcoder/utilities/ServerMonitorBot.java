@@ -134,6 +134,7 @@ public class ServerMonitorBot {
     }
 
     public void sendError() {
+        return;
         if (!errorText.equals("")) {
             System.out.println("SENDING ERROR LOG");
             try {
