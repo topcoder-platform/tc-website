@@ -25,14 +25,12 @@
                 <xsl:call-template name="corp_label_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="press_row"/>
-                <xsl:call-template name="contacts_row"/>
             </table>
 
             <xsl:call-template name="srm_dates"/>
             <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="intro"/>
-            <xsl:call-template name="countries"/>
         </xsl:when>
       
         <xsl:when test="/TC/Task='home'">
@@ -55,7 +53,6 @@
             <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="intro"/>
-            <xsl:call-template name="countries"/>
         </xsl:when>
       
 <!-- Schedule pages -->
@@ -1218,7 +1215,6 @@
             <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="intro"/>
-            <xsl:call-template name="countries"/>
         </xsl:otherwise>
     </xsl:choose>
 </xsl:template>
