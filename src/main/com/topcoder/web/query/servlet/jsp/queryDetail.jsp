@@ -42,6 +42,13 @@
             </A>
           </TD></TR>
           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
+          <TR>
+            <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
+            <TD CLASS="statText" ALIGN="left">
+              <jsp:getProperty name="CommandDetailTask" property="Db"/>
+            </TD>
+          </TR>
+          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
           <TR BGCOLOR="#333333" COLSPAN="2">
             <TD CLASS="statTextBig">Query Text</TD>
           </TR>
