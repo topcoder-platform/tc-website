@@ -89,13 +89,6 @@
                 <tr><td colspan="3" class="statText" valign="middle">&nbsp;</td></tr>  
 
                 <tr valign="top">
-                    <tc:getProperty id="editor" name="Registration" property="Editor" />
-                    <td class="statText" align="right"><strong>Default Editor:</strong></td>
-                    <td class="statText"><tc:editorSelect name="editor" selectedValue="<%=editor%>" selectedOnly="true" /></td>
-                    <td></td>
-                </tr>
-  
-                <tr valign="top">
                     <tc:getProperty id="language" name="Registration" property="Language" />
                     <td class="statText" align="right"><strong>Default Language:</strong></td>
                     <td class="statText"><tc:languageSelect name="language" selectedValue="<%=language%>" selectedOnly="true" /></td>
