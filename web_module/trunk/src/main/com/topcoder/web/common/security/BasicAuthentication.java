@@ -33,7 +33,7 @@ public class BasicAuthentication implements WebAuthentication {
     private static final String USER_COOKIE_NAME = "user_id";
 
     private Persistor persistor;
-    private HttpServletRequest request;
+    private TCRequest request;
     private HttpServletResponse response;
     private User guest = SimpleUser.createGuest();
     private Resource defaultCookiePath;
@@ -47,10 +47,10 @@ public class BasicAuthentication implements WebAuthentication {
      * Construct an authentication instance backed by the given persistor
      * and HTTP request and response.
      */
-    public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response) throws Exception {
+    public BasicAuthentication(Persistor userPersistor, TCRequest request, ServletResponse response) throws Exception {
         this.defaultCookiePath = MAIN_SITE;
         this.persistor = userPersistor;
-        this.request = (HttpServletRequest) request;
+        this.request = request;
         this.response = (HttpServletResponse) response;
         log.debug("cookie path: " + defaultCookiePath.getName());
     }
@@ -61,7 +61,7 @@ public class BasicAuthentication implements WebAuthentication {
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, ServletResponse response, Resource r) throws Exception {
         this.persistor = userPersistor;
-        this.request = (HttpServletRequest) request;
+        this.request = request;
         this.response = (HttpServletResponse) response;
         this.defaultCookiePath = r;
     }
