@@ -113,10 +113,28 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
 
-        if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
+        if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
             setDb(value);
-        else if (paramName.equalsIgnoreCase(Constants.QUERY_ID_PARAM))
-            setQueryId(Long.parseLong(value));
+        } else if (paramName.equalsIgnoreCase(Constants.QUERY_ID_PARAM)) {
+            try {
+                setQueryId(Long.parseLong(value));
+            } catch (NumberFormatException e) {
+                super.addError(Constants.QUERY_ID_PARAM, e);
+            }
+        } else if (paramName.equalsIgnoreCase(Constants.QUERY_NAME_PARAM)) {
+            setName(value);
+        } else if (paramName.equalsIgnoreCase(Constants.RANKING_PARAM)) {
+            setRanking(Boolean.getBoolean(value));
+        } else if (paramName.equalsIgnoreCase(Constants.COLUMN_INDEX_PARAM)) {
+            try {
+                setColumnIndex(Integer.parseInt(value));
+            } catch (NumberFormatException e) {
+                super.addError(Constants.COLUMN_INDEX_PARAM, e);
+            }
+        } else if (paramName.equalsIgnoreCase(Constants.QUERY_TEXT_PARAM)) {
+            setText(value);
+        }
+
     }
 
     private void checkName(String name) {
