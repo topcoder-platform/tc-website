@@ -44,7 +44,7 @@
       </td></tr>
       <tr><td><select name="countries" multiple size=5>
         <rsc:iterator list="<%=countries%>" id="resultRow">
-          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"</option>
+          <option value="<rsc:item name="country_name" row="<%=resultRow%>"/>"</option>
         </rsc:iterator>
         </select>
       </td></tr>
