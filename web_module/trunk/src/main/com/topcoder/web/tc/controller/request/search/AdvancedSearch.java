@@ -41,6 +41,7 @@ public class AdvancedSearch extends SimpleSearch {
         setDefault(Constants.MAX_RATING, m.getMaxRating()==null?"":m.getMaxRating().toString());
         setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings()==null?"":m.getMinNumRatings().toString());
         setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings()==null?"":m.getMaxNumRatings().toString());
+        setDefault(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp()==null?"":m.getMaxDaysSinceLastComp().toString());
     }
 
     /**
@@ -74,6 +75,11 @@ public class AdvancedSearch extends SimpleSearch {
         if (!maxNumRatings.equals(""))
             ret.setMaxNumRatings(new Integer(maxNumRatings));
 
+        String maxDaysSinceLastComp = StringUtils.checkNull(getRequest().getParameter(Constants.MAX_DAYS_SINCE_LAST_COMP));
+        if (!maxNumRatings.equals(""))
+            ret.setMaxDaysSinceLastComp(new Integer(maxDaysSinceLastComp));
+
+
         ret.setStateList(getStateList());
         ret.setCountryList(getCountryList());
         return ret;
@@ -84,7 +90,12 @@ public class AdvancedSearch extends SimpleSearch {
         MemberSearch m = buildMemberSearch();
 
         Request r = new Request();
-        r.setContentHandle("member_search");
+        if (m.getMaxDaysSinceLastComp()==null) {
+            r.setContentHandle("member_search");
+        } else {
+            r.setContentHandle("member_search_last_comp");
+            r.setProperty(Constants.MAX_DAYS_SINCE_LAST_COMP, m.getMaxDaysSinceLastComp().toString());
+        }
         r.setProperty(DataAccessConstants.START_RANK, m.getStart().toString());
         r.setProperty(DataAccessConstants.END_RANK, m.getEnd().toString());
         if (m.getHandle()!=null) r.setProperty(Constants.HANDLE, m.getHandle());
