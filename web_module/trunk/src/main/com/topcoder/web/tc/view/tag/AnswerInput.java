@@ -6,7 +6,6 @@ import com.topcoder.web.tc.model.Answer;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
-import java.util.*;
 import java.io.IOException;
 
 public class AnswerInput extends BaseTag {
@@ -39,10 +38,10 @@ public class AnswerInput extends BaseTag {
             case Question.SINGLE_CHOICE:
                 output.append(buildRadioButton());
                 break;
-            case Question.LONG_ANSWER
+            case Question.LONG_ANSWER:
                 output.append(buildText());
                 break;
-            case Question.SHORT_ANSWER
+            case Question.SHORT_ANSWER:
                 output.append(buildText());
                 break;
             default:
