@@ -46,10 +46,26 @@
 
 
 <!-- Tab bar links-->
+<%
+if( rscContest.getIntItem(0, "phase_id") == 112)
+{
+%>
 <jsp:include page="usdc_links.jsp" >
    <jsp:param name="selectedTab" value="results"/>
    <jsp:param name="selectedTab2" value="design"/>
 </jsp:include>
+<%
+}
+else
+{
+%>
+<jsp:include page="usdc_links.jsp" >
+   <jsp:param name="selectedTab" value="results"/>
+   <jsp:param name="selectedTab2" value="development"/>
+</jsp:include>
+<%
+}
+%>
 
 <%--
 <h2><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /> <br><span class=bodyText><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /> Results</span></h2>
@@ -59,8 +75,20 @@
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
                                 <td class="usdcTitle" colspan=5 align=left>
-                                <A href="/" class=usdcTitle><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></A> - 
-                                <A href="/" class=usdcTitle><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /></A>
+                                <%if (Integer.parseInt(request.getParameter("from")) == 1)
+                                    {
+                                %>
+                                <A href="/tc?module=USDCContestDetails&type=3&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></A> - 
+                                <%
+                                }
+                                else
+                                {
+                                %>
+                                <A href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>" class=usdcTitle><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>" /></A> - 
+                                <%
+                                }
+                                %>
+                                <A href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=rscUser.getRow(0)%>" />" class=usdcTitle><rsc:item name="handle" row="<%=rscUser.getRow(0)%>" /></A>
                                 </td>
                             </tr>
                         </table>

@@ -46,10 +46,26 @@
 
 
 <!-- Tab bar links-->
+<%
+if( rscContest.getIntItem(0, "phase_id") == 112)
+{
+%>
 <jsp:include page="usdc_links.jsp" >
    <jsp:param name="selectedTab" value="results"/>
    <jsp:param name="selectedTab2" value="design"/>
 </jsp:include>
+<%
+}
+else
+{
+%>
+<jsp:include page="usdc_links.jsp" >
+   <jsp:param name="selectedTab" value="results"/>
+   <jsp:param name="selectedTab2" value="development"/>
+</jsp:include>
+<%
+}
+%>
 
                         <br/>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
