@@ -75,9 +75,9 @@ public class TermsOfUseBean implements SessionBean {
             ret = IdGenerator.nextId("TERMSOFUSE_SEQ");
 
             StringBuffer query = new StringBuffer(100);
-            query.append("INSERT INTO company (terms_of_use_id, create_date, modify_date) VALUES (");
+            query.append("INSERT INTO company (terms_of_use_id) VALUES (");
             query.append(Long.toString(ret));
-            query.append(",'now','now')");
+            query.append(")");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
@@ -111,7 +111,7 @@ public class TermsOfUseBean implements SessionBean {
 
         try {
             StringBuffer query = new StringBuffer(100);
-            query.append("UPDATE terms_of_use SET terms_text = '" + text + "', modify_date = 'now' WHERE terms_of_use_id = ");
+            query.append("UPDATE terms_of_use SET terms_text = '" + text + "' WHERE terms_of_use_id = ");
             query.append(Long.toString(termsOfUseId));
 
             ctx = new InitialContext();
@@ -146,7 +146,7 @@ public class TermsOfUseBean implements SessionBean {
 
             try {
                 StringBuffer query = new StringBuffer(100);
-                query.append("UPDATE company SET terms_of_use_type_id = " + id + ", modify_date = 'now' WHERE terms_of_use_id = ");
+                query.append("UPDATE company SET terms_of_use_type_id = " + id + " WHERE terms_of_use_id = ");
                 query.append(Long.toString(termsOfUseId));
 
                 ctx = new InitialContext();
