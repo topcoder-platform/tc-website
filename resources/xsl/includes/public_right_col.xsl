@@ -3,32 +3,34 @@
   <xsl:import href="modules/practice_room.xsl"/>
   <xsl:import href="modules/calendar.xsl"/>
   <xsl:import href="modules/my_stats.xsl"/>
-  <!-- <xsl:import href="../includes/modules/module_login.xsl"/> -->   
   <xsl:template name="public_right_col">
-            <img alt="" width="1" height="3" src="/i/clear.gif" border="0"/><br/>
+  <xsl:param name="sectionName"></xsl:param>
+
+<xsl:choose>
+    <xsl:when test="$sectionName='tco03'">
+            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
             
             <xsl:call-template name="calendar"/>
             
-            <img src="/i/clear.gif" alt="" width="170" height="5" border="0" /><br />
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <a href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/tces_sidebar.gif" alt="" width="170" height="95" border="0"/></a><br />
+            <A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tco03_overview"><img src="/i/promos/tco03/sponsor_tco03_rcol.gif" alt="Sponsor the TCO03" width="170" height="210" border="0" /></A><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+    </xsl:when>
 
-<map name="tcesMapSm">
-    <area shape="rect" alt="" coords="88,84,161,98" href="/?t=schedule&amp;c=index"></area>
-    <area shape="rect" alt="" coords="10,96,63,110" href="/?t=tces&amp;c=index"></area>
-    <area shape="rect" alt="" coords="1,3,169,23" href="/?t=tces&amp;c=index"></area>
-</map>
-                <!-- <xsl:choose>
-                  <xsl:when test="/TC/LoggedIn='true'">
-                     <xsl:call-template name="my_stats"/>
-                     <xsl:call-template name="calendar"/>
-                  </xsl:when>                  
-                  <xsl:otherwise>
-                     <xsl:call-template name="module_login"/>
-                     
-                     <xsl:call-template name="calendar"/>
-                  </xsl:otherwise>
-                </xsl:choose>  -->
+    <xsl:otherwise>
+            <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
+            
+            <xsl:call-template name="calendar"/>
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <A href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/tces_sidebar.gif" alt="" width="170" height="95" border="0"/></A><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+    </xsl:otherwise>
+</xsl:choose>
 
   </xsl:template>
 </xsl:stylesheet>
