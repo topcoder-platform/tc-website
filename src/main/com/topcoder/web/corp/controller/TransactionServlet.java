@@ -594,8 +594,28 @@ public class TransactionServlet extends HttpServlet {
                 .append(loginApplicationPage).append('?')
                 .append(Login.KEY_DESTINATION_PAGE).append('=')
                 .append(originatingPage);
-        fetchRegularPage(req, resp, URLEncoder.encode(loginPageDest.toString()), true);
+        fetchRegularPage(req, resp, replace(loginPageDest.toString()), true);
     }
+
+
+    private String replace(String s) {
+        if (s == null) {
+            return "";
+        } else {
+            StringBuffer buffer = new StringBuffer(s);
+            for (int i = 0; i < buffer.length(); i++) {
+                if (buffer.charAt(i) == '&') {
+                    buffer.replace(i, i + 1, "%26");
+                    i += 3;
+                } else if (buffer.charAt(i) == '/') {
+                    buffer.replace(i, i + 1, "%2F");
+                    i += 3;
+                }
+            }
+            return buffer.toString();
+        }
+    }
+
 
 
 }
