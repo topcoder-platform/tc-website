@@ -42,6 +42,8 @@ public class ApplicationServer {
     public static String JOB_POSTING_SERVICES = bundle.getProperty("JOB_POSTING_SERVICES", "com.topcoder.web.tces.ejb.JobPostingServicesHome");
     public static String RESUME_SERVICES = bundle.getProperty("RESUME_SERVICES", "com.topcoder.web.resume.ejb.ResumeServicesHome");
 
+    public static String QUERY_AUTHENTICATION = bundle.getProperty("QUERY_AUTHENTICATION", "com.topcoder.web.query.ejb.QueryServices.QueryAuthentication");
+
     private static String[] getClusterArray(String s) {
         StringTokenizer st = new StringTokenizer(s, ",");
         String[] ret = new String[st.countTokens()];
