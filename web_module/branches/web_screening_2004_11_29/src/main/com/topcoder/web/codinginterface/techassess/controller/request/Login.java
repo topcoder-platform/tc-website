@@ -5,6 +5,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.SimpleUser;
 
 /**
  * User: dok
@@ -55,6 +56,7 @@ public class Login extends Base {
                 log.debug("response " + response);
 
                 if (response.isSuccess()) {
+                    getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
                     setNextPage(Constants.PAGE_INDEX);
                     setIsNextPageInContext(true);
 

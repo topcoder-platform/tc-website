@@ -27,7 +27,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     private HashMap errors;
     private HashMap defaults;
 
-    private User user;
+    protected User user;
 
     public static final String ERRORS_KEY = "processor_errors";
     public static final String DEFAULTS_KEY = "processor_defaults";

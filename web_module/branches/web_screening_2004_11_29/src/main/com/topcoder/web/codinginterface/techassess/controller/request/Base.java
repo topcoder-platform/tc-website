@@ -5,6 +5,7 @@ import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
+import com.topcoder.shared.security.User;
 
 import java.util.HashMap;
 import java.io.PrintWriter;
@@ -25,6 +26,12 @@ public abstract class Base extends BaseProcessor {
 
     public void setSender(QueueMessageSender sender) {
         this.sender = sender;
+    }
+
+    protected User getUser() {
+        if (user==null)
+            user=getAuthentication().getUser();
+        return user;
     }
 
     protected String send(Message m) {

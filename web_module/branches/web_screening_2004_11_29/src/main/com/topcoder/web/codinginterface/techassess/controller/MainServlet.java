@@ -112,21 +112,4 @@ public class MainServlet extends BaseServlet {
     }
 
 
-
-
-    //get request
-    //instantiate appropriate processor
-        //create appropriate request
-        //if "request" request
-            //put request on request queue
-            //wait for response
-            //put up waiting page and make it stay up
-            //receive response
-            //redirect to a "response" processor
-            //respond to user
-        //else if "response' request
-            //lookup data by id (some kind of 1-way hash?)
-            //load necessary data into request
-    //forward to appropriate jsp
-
 }
