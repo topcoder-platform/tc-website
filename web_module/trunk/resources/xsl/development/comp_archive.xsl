@@ -212,7 +212,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244">
+        <td width="244" bgcolor="#001B35">
             <xsl:call-template name="public_dev_right"><xsl:with-param name="projects" select="."/></xsl:call-template>
         </td>
 <!-- Right Column Ends -->

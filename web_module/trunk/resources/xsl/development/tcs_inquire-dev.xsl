@@ -199,7 +199,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" valign="top">
+        <td width="244" bgcolor="#001B35">
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
