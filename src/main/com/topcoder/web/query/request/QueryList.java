@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.query.common.Util;
 
 import java.util.Enumeration;
@@ -28,29 +29,36 @@ public class QueryList extends BaseProcessor {
     }
 
 
-	protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
+        super.baseProcessing();
 
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
-        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
-        setQueryList(q.getAllQueries(false, getDb()));
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+    protected void businessProcessing() throws TCWebException {
+        try {
+            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+            setQueryList(q.getAllQueries(false, getDb()));
+            getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
         setNextPage(Constants.QUERY_LIST_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
             setDb(value);

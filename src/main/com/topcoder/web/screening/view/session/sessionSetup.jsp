@@ -1,4 +1,3 @@
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
@@ -27,23 +26,23 @@ function showEmail() {
     if(document.sessionSetupForm.repEmail.checked) {
         rEmail = "YES";
     }
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PreviewEmail"; %>
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PreviewEmail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+ cid + "&<%=Constants.REP_EMAIL%>=" + rEmail + "&<%=Constants.CANDIDATE_EMAIL%>=" + cEmail,name,cmd);
     return;
   }
 
 function submitProfile() {
-    document.sessionSetupForm.rp.value="<%=Constants.CREATE_PROFILE_PROCESSOR%>";
+    document.sessionSetupForm.<%=Constants.MODULE_KEY%>.value="<%=Constants.CREATE_PROFILE_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
 
 function submitCandidate() {
-    document.sessionSetupForm.rp.value="<%=Constants.CREATE_CANDIDATE_PROCESSOR%>";
+    document.sessionSetupForm.<%=Constants.MODULE_KEY%>.value="<%=Constants.CREATE_CANDIDATE_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
 
 function submitSession() {
-    document.sessionSetupForm.rp.value="<%=Constants.CONFIRM_SESSION_PROCESSOR%>";
+    document.sessionSetupForm.<%=Constants.MODULE_KEY%>.value="<%=Constants.CONFIRM_SESSION_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
 //-->
@@ -85,10 +84,10 @@ function submitSession() {
                 </tr>
             </table>
 
-            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
+            <jsp:useBean id="testSessionInfo" type="com.topcoder.web.screening.model.TestSessionInfo" scope="session" />
             
             <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-            <input type="HIDDEN" name="rp" value="" >
+            <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
@@ -96,8 +95,8 @@ function submitSession() {
                     <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
                     <td class="testTableOdd">
                         <select name ="profileId">
-                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
-                        <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
+                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getProfileList()%>">
+                        <% if(testSessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
                             <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option>
                         <% } else { %>
                             <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
@@ -119,8 +118,8 @@ function submitSession() {
                     <td class="testTableOdd">&#160;</td>
                     <td class="testTableOdd">
                         <select name="cid">
-                        <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
-                        <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
+                        <screen:resultSetRowIterator id="row" list="<%=testSessionInfo.getCandidateList()%>">
+                        <% if(testSessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
                             <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="handle" /></option>
                         <% } else { %>
                             <option class="dropdown" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />"><screen:resultSetItem row="<%=row%>" name="handle" /></option>
@@ -143,26 +142,26 @@ function submitSession() {
                     
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
-                    <td class="testTableOdd"><screen:month name="beginMonth" selected="<%=sessionInfo.getBeginMonth()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="beginMonth" /></TD>
+                    <td class="testTableOdd"><screen:month name="beginMonth" selected="<%=testSessionInfo.getBeginMonth()%>" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="beginMonth" ><%=err%></screen:errors></TD>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
-                    <td class="testTableEven"><screen:day name="beginDay" selected="<%=sessionInfo.getBeginDay()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="beginDay" /></td>
+                    <td class="testTableEven"><screen:day name="beginDay" selected="<%=testSessionInfo.getBeginDay()%>" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="beginDay" ><%=err%></screen:errors></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
-                    <td class="testTableOdd"><screen:year name="beginYear" selected="<%=sessionInfo.getBeginYear()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="beginYear" /></td>
+                    <td class="testTableOdd"><screen:year name="beginYear" selected="<%=testSessionInfo.getBeginYear()%>" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="beginYear" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
-                    <td class="testTableEven"><screen:hour name="beginHour" selected="<%=sessionInfo.getBeginHour()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="beginHour" /></td>
+                    <td class="testTableEven"><screen:hour name="beginHour" selected="<%=testSessionInfo.getBeginHour()%>" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="beginHour" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
@@ -177,31 +176,31 @@ function submitSession() {
                     
                 <tr>
                     <td class="testTableSubtitleOdd">Month</td>
-                    <td class="testTableOdd"><screen:month name="endMonth" selected="<%=sessionInfo.getEndMonth()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="endMonth" /></td>
+                    <td class="testTableOdd"><screen:month name="endMonth" selected="<%=testSessionInfo.getEndMonth()%>" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="endMonth" ><%=err%></screen:errors></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleEven">Day</td>
-                    <td class="testTableEven"><screen:day name="endDay" selected="<%=sessionInfo.getEndDay()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="endDay" /></td>
+                    <td class="testTableEven"><screen:day name="endDay" selected="<%=testSessionInfo.getEndDay()%>" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="endDay" ><%=err%></screen:errors></td>
                 </tr>
                 
                 <tr>
                     <td class="testTableSubtitleOdd">Year</td>
-                    <td class="testTableOdd"><screen:year name="endYear" selected="<%=sessionInfo.getEndYear()%>" /></td>
-                    <td class="errorTextOdd"><screen:errors name="endYear" /></td>
+                    <td class="testTableOdd"><screen:year name="endYear" selected="<%=testSessionInfo.getEndYear()%>" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="endYear" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Hour</td>
-                    <td class="testTableEven"><screen:hour name="endHour" selected="<%=sessionInfo.getEndHour()%>" /></td>
-                    <td class="errorTextEven"><screen:errors name="endHour" /></td>
+                    <td class="testTableEven"><screen:hour name="endHour" selected="<%=testSessionInfo.getEndHour()%>" /></td>
+                    <td class="errorTextEven"><screen:errors id="err" name="endHour" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
                     <td><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
-                    <td colspan="2" class="errortextOdd"><screen:errors name="dateCompare" /></td>
+                    <td colspan="2" class="errortextOdd"><screen:errors id="err" name="dateCompare" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
@@ -209,11 +208,11 @@ function submitSession() {
                 </tr>
                     
                 <tr valign="middle">
-                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=testSessionInfo.getCandidateEmail()%>" /><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=testSessionInfo.getRepEmail()%>" /><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
                 <tr valign="middle">

@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <%@  page contentType="text/html"%>
 <SCRIPT type="text/javascript">
 if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
@@ -11,7 +12,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <SCRIPT TYPE="text/javascript">
   function getGraph(url,wd,ht) {
-    url='http://www.topcoder.com'+url;
+    url='http://<%=ApplicationServer.SERVER_NAME%>'+url;
     var wht = parseInt(ht)+49;
     var features = 'width='+wd+',height='+wht+'status=0';
     var win = window.open('', 'graph', features);

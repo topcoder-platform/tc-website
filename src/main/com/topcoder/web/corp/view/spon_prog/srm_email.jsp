@@ -57,11 +57,11 @@
                         
                         <p><span class="bodySubtitle">Match Announcment</span><br>
                         Sponsors are given space within the email for company name, forty words of copy and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_annc" target="_blank">View sample</a></nobr></p>
+                        <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_annc" target="_blank">View sample</a></nobr></p>
                         
                         <p><span class="bodySubtitle">Match Results</span><br>
                         Sponsors are given space within the email for company name and a desired URL. 
-                        <nobr><a href="<?module=Static&d1=corp&d2=spon_prog&d3=email_results" target="_blank">View sample</a></nobr></p>
+                        <nobr><a href="?module=Static&d1=corp&d2=spon_prog&d3=email_results" target="_blank">View sample</a></nobr></p>
                         
                         <p><strong>Note</strong> - TopCoder marketing will work with a sponsor's internal or external creative team to develop 
                         the desired copy points.</p>

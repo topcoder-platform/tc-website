@@ -3,14 +3,18 @@ package com.topcoder.web.screening.request;
 import com.topcoder.security.UserPrincipal;
 
 import com.topcoder.web.common.security.PrincipalMgr;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.CandidateInfo;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpUtils;
 import java.util.Map;
 
 /** 
@@ -30,12 +34,12 @@ import java.util.Map;
  * @version 1.0
  */
 public class PopulateCandidate extends BaseProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         ServletRequest request = getRequest();
         String uId = request.getParameter(Constants.CANDIDATE_ID);
-        if(request.getAttribute(Constants.CANDIDATE_INFO) == null) { 
+        if (request.getAttribute(Constants.CANDIDATE_INFO) == null) {
             CandidateInfo info = new CandidateInfo();
-            if(uId != null) {
+            if (uId != null) {
                 info.setIsNew(false);
                 long userId = Long.parseLong(uId);
 
@@ -46,29 +50,35 @@ public class PopulateCandidate extends BaseProcessor {
                 info.setUserId(new Long(userId));
 
                 UserPrincipal user = principalMgr.getUser(userId);
-                if(user != null) {
+                if (user != null) {
                     info.setUserName(user.getName());
                     info.setPassword(principalMgr.getPassword(userId));
                 }
 
-                DataAccessInt dAccess = getDataAccess();
+                try {
+                    DataAccessInt dAccess = Util.getDataAccess();
 
-                Request dr = new Request();
-                dr.setProperties(getParameterMap());
-                dr.setContentHandle("noteList");
-                dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
+                    Request dr = new Request();
+                    dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+                    dr.setContentHandle("noteList");
+                    dr.setProperty("uid", String.valueOf(getUser().getId()));
 
-                Map map = dAccess.getData(dr);
+                    Map map = dAccess.getData(dr);
 
-                if(map != null) {
-                    ResultSetContainer result = (ResultSetContainer)map.get("candidateInfo");
-                    if(result.getRowCount() == 0){
-                        throw new PermissionDeniedException(getAuthentication().getActiveUser(),
-                            "User not authorized to view information about candidate: " +
-                                dr.getProperty("cid")==null?"?":dr.getProperty("cid"));
+                    if (map != null) {
+                        ResultSetContainer result = (ResultSetContainer) map.get("candidateInfo");
+                        if (result.getRowCount() == 0) {
+                            throw new PermissionDeniedException(getAuthentication().getActiveUser(),
+                                    "User not authorized to view information about candidate: " +
+                                    dr.getProperty("cid") == null ? "?" : dr.getProperty("cid"));
+                        }
+                        result = (ResultSetContainer) map.get("noteList");
+                        info.setNoteList(result);
                     }
-                    result = (ResultSetContainer)map.get("noteList");
-                    info.setNoteList(result);
+                } catch (TCWebException e) {
+                    throw e;
+                } catch (Exception e) {
+                    throw(new TCWebException(e));
                 }
             }
 
@@ -79,6 +89,6 @@ public class PopulateCandidate extends BaseProcessor {
         }
 
         setNextPage(Constants.CANDIDATE_SETUP_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }

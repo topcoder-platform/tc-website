@@ -62,16 +62,16 @@
                         sponsor to present its support of the event and promote brand awareness amongst the demographic. In 
                         addition to the individual media, a survey question &#40;to members&#41; is made exclusive to a sponsor.</p>
                     
-                        <p><span class="bodySubtitle"><a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">TopCoder Web Site</a></span><br>
+                        <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_web">TopCoder Web Site</a></span><br>
                         The TopCoder web site is the primary vehicle for the competitions. In addition to providing the content, statistics, and features 
                         applicable to a match, the Web site is the primary point of entry for any match.</p>
                             
-                        <p><span class="bodySubtitle"><a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Arena Applet</a></span><br>
+                        <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Arena Applet</a></span><br>
                         The Arena Applet is where all of the excitement takes place. <strong>Competitors spend an average 2.5 hours online</strong> 
                         before, during and after a match! During the three phases (Coding, Challenge, and System Test) coders go 
                         head-to-head vying for points, ratings, and ultimately the cash prize.</p>
                             
-                        <p><span class="bodySubtitle"><a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Opt-In Email</a></span><br>
+                        <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Opt-In Email</a></span><br>
                         Approximately 70&#37; of the membership opts-in for match notification. The email program is designed to inform 
                         members of the match sponsors, their key points, and the appropriate URL references.</p>
                         

@@ -5,7 +5,7 @@ import java.util.Date;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-public class SessionInfo extends BaseModel {
+public class TestSessionInfo extends BaseModel {
     private static int[] months = 
         new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH, 
                   Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY, 
@@ -26,7 +26,7 @@ public class SessionInfo extends BaseModel {
     private String candidateEmail;
     private String repEmail;
 
-    public SessionInfo() {
+    public TestSessionInfo() {
         candidateEmail="YES";
         repEmail="YES";
 

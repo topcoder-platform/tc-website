@@ -3,6 +3,7 @@ package com.topcoder.web.hs.controller.requests;
 import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.*;
 
@@ -25,53 +26,51 @@ public class CoachRegistration extends Base {
 
     private final static Logger log = Logger.getLogger(CoachRegistration.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
-        String cmd = request.getParameter("cmd");
+        String cmd = getRequest().getParameter("cmd");
 
         log.info("CoachRegistration: cmd=" + cmd);
+        try {
+            /* If there is no command, then we are trying to display the main coach
+             * registration page
+             */
+            if (cmd == null || cmd.equals("")) {
+                log.debug("CoachRegistration processing '' command.");
 
-        /* If there is no command, then we are trying to display the main coach
-         * registration page
-         */
-        if (cmd == null || cmd.equals("")) {
-            log.debug("CoachRegistration processing '' command.");
+                CoachRegistrationBean crb = new CoachRegistrationBean();
 
-            CoachRegistrationBean crb = new CoachRegistrationBean();
+                RegistrationHelper.populateCoachWithDefaults(crb);
+                RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
+                RegistrationHelper.populateCoachStaticContent(crb);
 
-            RegistrationHelper.populateCoachWithDefaults(crb);
-            RegistrationHelper.populateCoachFromRequest(request, crb);
-            RegistrationHelper.populateCoachStaticContent(crb);
+                getRequest().setAttribute("coach", crb);
 
-            request.setAttribute("coach", crb);
+                setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
+                setIsNextPageInContext(true);
+            }
 
-            setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
-            setIsNextPageInContext(true);
-        }
-
-        /* If the user clicks the "Continute" button after entering his registration
-         * information, then perform some data validation and redirect to the
-         * confirmation page
-         */
-        else
-            if (cmd.equals(REGISTER_CMD)) {
+            /* If the user clicks the "Continute" button after entering his registration
+             * information, then perform some data validation and redirect to the
+             * confirmation page
+             */
+            else if (cmd.equals(REGISTER_CMD)) {
                 log.debug("CoachRegistration processing 'register' command.");
 
                 CoachRegistrationBean crb = new CoachRegistrationBean();
 
                 RegistrationHelper.populateCoachWithDefaults(crb);
-                RegistrationHelper.populateCoachFromRequest(request, crb);
+                RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
                 RegistrationHelper.populateCoachStaticContent(crb);
 
-                request.setAttribute("coach", crb);
+                getRequest().setAttribute("coach", crb);
 
                 HashMap errors = new HashMap();
-                request.setAttribute("form_errors", errors);
+                getRequest().setAttribute("form_errors", errors);
 
                 if (RegistrationHelper.isValidCoach(errors, crb)) {
                     setNextPage(REGISTRATION_BASE + CONFIRM_PAGE);
-                }
-                else {
+                } else {
                     setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
                 }
 
@@ -81,40 +80,46 @@ public class CoachRegistration extends Base {
             /* When the user confirms his registration information, perform data
              * validation again, and persist it to the database
              */
-            else
-                if (cmd.equals(CONFIRM_CMD)) {
-                    log.debug("CoachRegistration processing 'confirm' command.");
+            else if (cmd.equals(CONFIRM_CMD)) {
+                log.debug("CoachRegistration processing 'confirm' command.");
 
-                    CoachRegistrationBean crb = new CoachRegistrationBean();
+                CoachRegistrationBean crb = new CoachRegistrationBean();
 
-                    RegistrationHelper.populateCoachWithDefaults(crb);
-                    RegistrationHelper.populateCoachFromRequest(request, crb);
-                    RegistrationHelper.populateCoachStaticContent(crb);
+                RegistrationHelper.populateCoachWithDefaults(crb);
+                RegistrationHelper.populateCoachFromRequest(getRequest(), crb);
+                RegistrationHelper.populateCoachStaticContent(crb);
 
-                    request.setAttribute("coach", crb);
+                getRequest().setAttribute("coach", crb);
 
-                    HashMap errors = new HashMap();
-                    request.setAttribute("form_errors", errors);
+                HashMap errors = new HashMap();
+                getRequest().setAttribute("form_errors", errors);
 
-                    if (RegistrationHelper.isValidCoach(errors, crb)) {
-                        RegistrationHelper.createCoach(crb);
-                        setNextPage(REGISTRATION_BASE + THANK_YOU_PAGE);
-                    }
-                    else {
-                        setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
-                    }
-
-                    setIsNextPageInContext(true);
+                if (RegistrationHelper.isValidCoach(errors, crb)) {
+                    RegistrationHelper.createCoach(crb);
+                    setNextPage(REGISTRATION_BASE + THANK_YOU_PAGE);
+                } else {
+                    setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
                 }
 
-                /* If any other command is given, redirect to the errorPage and display a
-                 * meaningful message
-                 */
-                else {
-                    log.debug("CoachRegistration illegal command.");
+                setIsNextPageInContext(true);
+            }
 
-                    throw(new IllegalArgumentException(INVALID_COMMAND + cmd));
-                }
+            /* If any other command is given, redirect to the errorPage and display a
+             * meaningful message
+             */
+            else {
+                log.debug("CoachRegistration illegal command.");
+
+                throw(new IllegalArgumentException(INVALID_COMMAND + cmd));
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
+
     }
 
-};
+}
+
+;

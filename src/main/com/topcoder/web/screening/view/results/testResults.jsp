@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
@@ -17,7 +16,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
@@ -26,7 +25,7 @@ function getProblemDetail(id) {
 
 </head>
 
-<jsp:useBean id="sessionInfo" class="com.topcoder.web.screening.model.SessionInfo" />
+<jsp:useBean id="testSessionInfo" class="com.topcoder.web.screening.model.TestSessionInfo" />
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 <jsp:useBean id="testResultsInfo" class="com.topcoder.web.screening.model.TestResultsInfo" />
@@ -67,20 +66,21 @@ function getProblemDetail(id) {
                         <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
                     </td>
                 </tr>
-                
+            <% if (profileInfo.hasTestSetA()) { %>
                 <tr>
                     <td class="bodyText">
                         <strong>Problem Set:</strong> <jsp:getProperty name='profileInfo' property='testSetAName'/>
                     </td>
 	        </tr>
+            <% } %>
                 <tr>
                     <td class="bodyText">
-                        <strong>Begin:</strong> <screen:beanWrite name='sessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
+                        <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
                     </td>
 	        </tr>
                 <tr>
                     <td class="bodyText">
-                        <strong>End:</strong> <screen:beanWrite name='sessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
+                        <strong>End:</strong> <screen:beanWrite name='testSessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
                     </td>
 	        </tr>
 	    </table>
@@ -97,7 +97,8 @@ function getProblemDetail(id) {
             </table>
 
         <p></p>
-
+        <% boolean even = false; %>
+        <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <tr>
 		       <td colspan="9" class="testTableTitle">Test Set A Results:</td>
@@ -115,7 +116,6 @@ function getProblemDetail(id) {
 		       <td width="11%" align="center" class="testFormHeader">&#160;</td>
                 </tr>
 	        
-                <% boolean even = false; %>
                 <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
                     <%
                      String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
@@ -123,6 +123,7 @@ function getProblemDetail(id) {
                      Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
                      Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                      boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
+                     boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
                      %>
                      
                 <tr>
@@ -135,7 +136,7 @@ function getProblemDetail(id) {
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>">
-                 <% if (isSubmitted) {%>
+                 <% if (isSubmitted || isCompiled) {%>
                  <screen:servletLink processor="ProblemResult" param="<%=prparam%>" >Details</screen:servletLink>
                  <% } %>
                </td>
@@ -185,6 +186,7 @@ function getProblemDetail(id) {
                 <% } %>
          </table>
          <p></p>
+    <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
@@ -208,6 +210,7 @@ function getProblemDetail(id) {
                                          Constants.PROBLEM_ID + '=' + row.getItem("problem_id") + '&' +
                                          Constants.PROBLEM_TYPE_ID + '=' + row.getItem("problem_type_id");
                         boolean isSubmitted = row.getItem("is_submitted").toString().equals("1");
+                        boolean isCompiled = row.getItem("is_compiled").toString().equals("1");
                      %>
 	             <TR>
 		       <TD CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />')" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="problem_name" /></A></TD>
@@ -217,7 +220,7 @@ function getProblemDetail(id) {
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
 		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
-               <% if (isSubmitted) { %>
+               <% if (isSubmitted || isCompiled) { %>
 		         <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:servletLink processor="ProblemResult" param="<%=prparam%>" styleClass="bodyText">Details</screen:servletLink></TD>
                <% } %>
 	             </TR>
@@ -227,6 +230,7 @@ function getProblemDetail(id) {
 	        </table>
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
+  <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
               <TD COLSPAN="4" CLASS="testTableTitle">Test Set A</TD>
@@ -247,6 +251,7 @@ function getProblemDetail(id) {
             </screen:problemInfoIterator>
          </table>
          <p></p>
+   <% } %>
 <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>

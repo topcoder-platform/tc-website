@@ -5,6 +5,9 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
+import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -14,30 +17,36 @@ import java.util.Map;
  * @author Porgery
  */
 public class ProfileList extends BaseProcessor {
-    
+
     /** Implements the processing step.
-     * @throws Exception
+     * @throws TCWebException
      */
-    public void process() throws Exception {
-        DataAccessInt dAccess = getDataAccess();
-        
-        Request dr = new Request();
-        dr.setContentHandle("profileList");
-        dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
-        
-        Map map = dAccess.getData(dr);
+    protected void businessProcessing() throws TCWebException {
+        try {
+            DataAccessInt dAccess = Util.getDataAccess();
 
-        if(map == null || map.size() != 1)
-            throw new ScreeningException("Data retrieval error");
-        
-        ResultSetContainer result = 
-            (ResultSetContainer)map.get("profileList");
+            Request dr = new Request();
+            dr.setContentHandle("profileList");
+            dr.setProperty("uid", String.valueOf(getUser().getId()));
+
+            Map map = dAccess.getData(dr);
+
+            if (map == null || map.size() != 1)
+                throw new ScreeningException("Data retrieval error");
+
+            ResultSetContainer result =
+                    (ResultSetContainer) map.get("profileList");
 
 
-        getRequest().setAttribute("profileList", result);
+            getRequest().setAttribute("profileList", result);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
 
         setNextPage(Constants.PROFILE_LIST_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 
 }

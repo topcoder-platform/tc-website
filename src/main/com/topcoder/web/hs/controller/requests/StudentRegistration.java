@@ -3,6 +3,7 @@ package com.topcoder.web.hs.controller.requests;
 import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.common.*;
 import com.topcoder.web.hs.model.*;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.*;
 
@@ -32,53 +33,52 @@ public class StudentRegistration extends Base {
 
     private final static Logger log = Logger.getLogger(StudentRegistration.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
-        String cmd = request.getParameter("cmd");
+        String cmd = getRequest().getParameter("cmd");
 
         log.info("StudentRegistration: cmd=" + cmd);
 
         /* If there is no command, then we are trying to display the main student
          * registration page
          */
-        if (cmd == null || cmd.equals("")) {
-            log.debug("StudentRegistration processing '' command.");
+        try {
+            if (cmd == null || cmd.equals("")) {
+                log.debug("StudentRegistration processing '' command.");
 
-            StudentRegistrationBean srb = new StudentRegistrationBean();
+                StudentRegistrationBean srb = new StudentRegistrationBean();
 
-            RegistrationHelper.populateStudentWithDefaults(srb);
-            RegistrationHelper.populateStudentFromRequest(request, srb);
-            RegistrationHelper.populateStudentStaticContent(srb);
+                RegistrationHelper.populateStudentWithDefaults(srb);
+                RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
+                RegistrationHelper.populateStudentStaticContent(srb);
 
-            request.setAttribute("student", srb);
+                getRequest().setAttribute("student", srb);
 
-            setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
-            setIsNextPageInContext(true);
-        }
+                setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
+                setIsNextPageInContext(true);
+            }
 
-        /* If the user clicks the "Continute" button after entering his registration
-         * information, then perform some data validation and redirect to the
-         * confirmation page
-         */
-        else
-            if (cmd.equals(REGISTER_CMD)) {
+            /* If the user clicks the "Continute" button after entering his registration
+             * information, then perform some data validation and redirect to the
+             * confirmation page
+             */
+            else if (cmd.equals(REGISTER_CMD)) {
                 log.debug("StudentRegistration processing 'register' command.");
 
                 StudentRegistrationBean srb = new StudentRegistrationBean();
 
                 RegistrationHelper.populateStudentWithDefaults(srb);
-                RegistrationHelper.populateStudentFromRequest(request, srb);
+                RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
                 RegistrationHelper.populateStudentStaticContent(srb);
 
-                request.setAttribute("student", srb);
+                getRequest().setAttribute("student", srb);
 
                 HashMap errors = new HashMap();
-                request.setAttribute("form_errors", errors);
+                getRequest().setAttribute("form_errors", errors);
 
                 if (RegistrationHelper.isValidStudent(errors, srb)) {
                     setNextPage(REGISTRATION_BASE + CONFIRM_PAGE);
-                }
-                else {
+                } else {
                     setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
                 }
 
@@ -88,41 +88,47 @@ public class StudentRegistration extends Base {
             /* When the user confirms his registration information, perform data
              * validation again, and persist it to the database
              */
-            else
-                if (cmd.equals(CONFIRM_CMD)) {
-                    log.debug("StudentRegistration processing 'confirm' command.");
+            else if (cmd.equals(CONFIRM_CMD)) {
+                log.debug("StudentRegistration processing 'confirm' command.");
 
-                    StudentRegistrationBean srb = new StudentRegistrationBean();
+                StudentRegistrationBean srb = new StudentRegistrationBean();
 
-                    RegistrationHelper.populateStudentWithDefaults(srb);
-                    RegistrationHelper.populateStudentFromRequest(request, srb);
-                    RegistrationHelper.populateStudentStaticContent(srb);
+                RegistrationHelper.populateStudentWithDefaults(srb);
+                RegistrationHelper.populateStudentFromRequest(getRequest(), srb);
+                RegistrationHelper.populateStudentStaticContent(srb);
 
-                    request.setAttribute("student", srb);
+                getRequest().setAttribute("student", srb);
 
-                    HashMap errors = new HashMap();
-                    request.setAttribute("form_errors", errors);
+                HashMap errors = new HashMap();
+                getRequest().setAttribute("form_errors", errors);
 
-                    if (RegistrationHelper.isValidStudent(errors, srb)) {
-                        RegistrationHelper.createStudent(srb);
-                        RegistrationHelper.populateSchoolCoachCount(srb);
-                        setNextPage(REGISTRATION_BASE + THANK_YOU_PAGE);
-                    }
-                    else {
-                        setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
-                    }
-
-                    setIsNextPageInContext(true);
+                if (RegistrationHelper.isValidStudent(errors, srb)) {
+                    RegistrationHelper.createStudent(srb);
+                    RegistrationHelper.populateSchoolCoachCount(srb);
+                    setNextPage(REGISTRATION_BASE + THANK_YOU_PAGE);
+                } else {
+                    setNextPage(REGISTRATION_BASE + REGISTRATION_PAGE);
                 }
 
-                /* If any other command is given, redirect to the errorPage and display a
-                 * meaningful message
-                 */
-                else {
-                    log.debug("StudentRegistration illegal command.");
+                setIsNextPageInContext(true);
+            }
 
-                    throw(new IllegalArgumentException(INVALID_COMMAND + cmd));
-                }
+            /* If any other command is given, redirect to the errorPage and display a
+             * meaningful message
+             */
+            else {
+                log.debug("StudentRegistration illegal command.");
+
+                throw(new IllegalArgumentException(INVALID_COMMAND + cmd));
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
+
     }
 
-};
+}
+
+;

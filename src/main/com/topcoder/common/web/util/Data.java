@@ -114,7 +114,7 @@ public final class Data {
                 nav.setUser(user);
                 log.debug("tc: user loaded from entity bean");
             } catch (Exception e) {
-                throw new NavigationException("tc:processCommands:ERROR READING DATABASE\n" + e, TCServlet.INTERNAL_ERROR_PAGE);
+                throw new TCException("tc:processCommands:ERROR READING DATABASE\n" + e);
             } finally {
                 if (ctx != null) {
                     try {

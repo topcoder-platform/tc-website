@@ -4,10 +4,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.ejb.SessionBean;
-import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -21,12 +20,10 @@ import java.sql.*;
  * @author Greg Paul
  * @version $Revision$
  */
-public class UnitBean implements SessionBean {
+public class UnitBean extends BaseEJB {
     private static Logger log = Logger.getLogger(UnitBean.class);
-    private SessionContext ctx;
-
-
-    //business methods
+    private static final String DATA_SOURCE = "java:comp/env/datasource_name";
+    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     public long createUnit(int unitTypeId) {
         log.debug("createUnit called...");
@@ -43,9 +40,7 @@ public class UnitBean implements SessionBean {
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
                         new SimpleDB(),
-                        (DataSource) ctx.lookup((String)
-                        ctx.lookup(
-                                "java:comp/env/idgen_datasource_name")),
+                        (DataSource) ctx.lookup(DATA_SOURCE),
                         "sequence_object",
                         "name",
                         "current_value",
@@ -57,8 +52,7 @@ public class UnitBean implements SessionBean {
 
             ret = IdGenerator.nextId("UNIT_SEQ");
 
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO unit (unit_id, " +
@@ -72,9 +66,7 @@ public class UnitBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in insert: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating unit");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating unit");
@@ -82,30 +74,9 @@ public class UnitBean implements SessionBean {
             throw new EJBException("Exception creating unit:\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "createUnit");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in createUnit");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in createUnit");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -123,8 +94,7 @@ public class UnitBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT unit_desc FROM unit " +
@@ -136,9 +106,7 @@ public class UnitBean implements SessionBean {
             if (rs.next())
                 ret = rs.getString("unit_desc");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting unit_desc");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting unit_desc");
@@ -146,38 +114,10 @@ public class UnitBean implements SessionBean {
             throw new EJBException("Exception getting unit_desc\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getUnitDesc");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getUnitDesc");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getUnitDesc");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getUnitDesc");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -195,8 +135,7 @@ public class UnitBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT unit_type_id FROM unit " +
@@ -208,9 +147,7 @@ public class UnitBean implements SessionBean {
             if (rs.next())
                 ret = rs.getInt("unit_type_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting cost");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting cost");
@@ -218,37 +155,10 @@ public class UnitBean implements SessionBean {
             throw new EJBException("Exception getting cost\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getCost");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in getCost");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getCost");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getCost");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -265,8 +175,7 @@ public class UnitBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE unit SET unit_desc = ?" +
@@ -280,9 +189,7 @@ public class UnitBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating unitDesc");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating unitDesc");
@@ -290,30 +197,9 @@ public class UnitBean implements SessionBean {
             throw new EJBException("Exception updating unitDesc\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setUnitDesc");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setUnitDesc");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setUnitDesc");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -328,8 +214,7 @@ public class UnitBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE unit SET unit_type_id = ? " +
@@ -343,9 +228,7 @@ public class UnitBean implements SessionBean {
                 throw new EJBException("Wrong cost of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating cost");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating cost");
@@ -353,63 +236,10 @@ public class UnitBean implements SessionBean {
             throw new EJBException("Exception updating cost\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in setCost");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setCost");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setCost");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
-
-    //required ejb methods
-    public void ejbActivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbPassivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbCreate() {
-        //InitContext = new InitialContext(); // from BaseEJB
-    }
-
-    /**
-     *
-     */
-    public void ejbRemove() {
-    }
-
-    /**
-     *
-     *
-     */
-    public void setSessionContext(SessionContext ctx) {
-        this.ctx = ctx;
-    }
-
-
 
 }

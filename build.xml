@@ -788,7 +788,7 @@
         <delete dir="${public_html}/admin/META-INF"/>
     </target>
 
-    <target name="build-security    " depends="compile">
+    <target name="build-security" depends="compile">
         <jar
             jarfile="${ejb_jars}/security.jar"
             basedir="${classes}"
@@ -806,6 +806,25 @@
                 <include name="security.jar"/>
             </fileset>
         </ear>
+    </target>
+
+    <target name="deploy-privatelabel" depends="compile">
+        <war warfile="${war.dir}/privatelabel.war" webxml="${resources}/privatelabel/web.xml">
+            <fileset dir="${java}/com/topcoder/web/privatelabel/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/shared/util/"/>
+                <include name="com/topcoder/shared/dataAccess/"/>
+                <include name="com/topcoder/web/common/" />
+                <include name="com/topcoder/web/privatelabel/" />
+            </classes>
+            <webinf dir="${resources}/taglib">
+                <include name="tc-webtags.tld"/>
+            </webinf>
+        </war>
+        <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
+        <delete dir="${public_html}/privatelabel/META-INF"/>
     </target>
 
     <target name="moveQueries" depends="compile">

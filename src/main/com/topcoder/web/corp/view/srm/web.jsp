@@ -57,10 +57,10 @@
                             
                             <tr valign="top">
                                 <td class="sidebarText">
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Overview</a><br />
                                     <strong>Web site coverage</strong><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
                                 </td>
                             </tr>
                         </table></td></tr>

@@ -4,10 +4,9 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.ejb.SessionBean;
-import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -21,43 +20,11 @@ import java.sql.*;
  * @author George Nassar
  * @version $Revision$
  */
-public class PurchaseBean implements SessionBean {
+public class PurchaseBean extends BaseEJB {
     private static Logger log = Logger.getLogger(PurchaseBean.class);
-    private SessionContext ctx;
+    private static final String DATA_SOURCE = "java:comp/env/datasource_name";
+    private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
-    //required ejb methods
-    public void ejbActivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbPassivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbCreate() {
-        //InitContext = new InitialContext(); // from BaseEJB
-    }
-
-    /**
-     *
-     */
-    public void ejbRemove() {
-    }
-
-    /**
-     *
-     *
-     * @param ctx
-     */
-    public void setSessionContext(SessionContext ctx) {
-        this.ctx = ctx;
-    }
-
-    //business methods
 
     /**
      *
@@ -82,9 +49,7 @@ public class PurchaseBean implements SessionBean {
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(
                         new SimpleDB(),
-                        (DataSource) ctx.lookup((String)
-                        ctx.lookup(
-                                "java:comp/env/idgen_datasource_name")),
+                        (DataSource) ctx.lookup(DATA_SOURCE),
                         "sequence_object",
                         "name",
                         "current_value",
@@ -96,8 +61,7 @@ public class PurchaseBean implements SessionBean {
 
             ret = IdGenerator.nextId("PURCHASE_SEQ");
 
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement(
@@ -114,7 +78,7 @@ public class PurchaseBean implements SessionBean {
             if (rows != 1)
                 throw new EJBException("Wrong number of rows in insert: " + rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating purchase");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating purchase");
@@ -122,30 +86,9 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception creating purchase:\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "createPurchase");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in createPurchase");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in createPurchase");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -168,8 +111,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET company_id = ? " +
@@ -191,30 +133,9 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception updating company_id\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setCompanyId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setCompanyId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setCompanyId");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -235,8 +156,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET product_id = ? " +
@@ -250,9 +170,7 @@ public class PurchaseBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating product_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating product_id");
@@ -260,30 +178,9 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception updating product_id\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setProductId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setProductId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setProductId");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -304,8 +201,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET contact_id = ? " +
@@ -319,9 +215,7 @@ public class PurchaseBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating contact_id");
@@ -329,30 +223,9 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception updating contact_id\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setContactId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setContactId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setContactId");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -373,8 +246,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET start_date = ? " +
@@ -388,9 +260,7 @@ public class PurchaseBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating start_date");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating start_date");
@@ -398,30 +268,9 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception updating start_date\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setStartDate");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setStartDate");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setStartDate");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -442,8 +291,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET end_date = ? " +
@@ -457,9 +305,7 @@ public class PurchaseBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating end_date");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating end_date");
@@ -467,30 +313,9 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception updating end_date\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setEndDate");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setEndDate");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setEndDate");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -513,8 +338,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT company_id FROM purchase " +
@@ -526,9 +350,7 @@ public class PurchaseBean implements SessionBean {
             if (rs.next())
                 ret = rs.getLong("company_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting companyId");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting companyId");
@@ -536,38 +358,10 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception getting companyId\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getCompanyId");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getCompanyId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getCompanyId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getCompanyId");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -592,8 +386,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT product_id FROM purchase " +
@@ -605,9 +398,7 @@ public class PurchaseBean implements SessionBean {
             if (rs.next())
                 ret = rs.getLong("product_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting productId");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting productId");
@@ -615,38 +406,10 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception getting productId\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getProductId");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getProductId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getProductId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getProductId");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -671,8 +434,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT contact_id FROM purchase " +
@@ -684,9 +446,7 @@ public class PurchaseBean implements SessionBean {
             if (rs.next())
                 ret = rs.getLong("contact_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting contactId");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting contactId");
@@ -694,38 +454,10 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception getting contactId\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getContactId");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getContactId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getContactId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getContactId");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -750,8 +482,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT start_date FROM purchase " +
@@ -763,9 +494,7 @@ public class PurchaseBean implements SessionBean {
             if (rs.next())
                 ret = rs.getDate("start_date");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting startDate");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting startDate");
@@ -773,38 +502,10 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception getting startDate\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getStartDate");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getStartDate");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getStartDate");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getStartDate");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -829,8 +530,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT end_date FROM purchase " +
@@ -842,9 +542,7 @@ public class PurchaseBean implements SessionBean {
             if (rs.next())
                 ret = rs.getDate("end_date");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting endDate");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting endDate");
@@ -852,38 +550,10 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception getting endDate\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getEndDate");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getEndDate");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getEndDate");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getEndDate");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -901,8 +571,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT paid FROM purchase " +
@@ -914,9 +583,7 @@ public class PurchaseBean implements SessionBean {
             if (rs.next())
                 ret = rs.getDouble("paid");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting paid");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting paid");
@@ -924,38 +591,10 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception getting paid\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getPaid");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getPaid");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getPaid");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getPaid");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -981,8 +620,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT create_date FROM purchase WHERE " +
@@ -1002,38 +640,10 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception getting create_date\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getCreateDate");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getCreateDate");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getCreateDate");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getCreateDate");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -1057,8 +667,7 @@ public class PurchaseBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE purchase SET paid = ? " +
@@ -1072,9 +681,7 @@ public class PurchaseBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating paid");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating paid");
@@ -1082,30 +689,9 @@ public class PurchaseBean implements SessionBean {
             throw new EJBException("Exception updating paid\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setPaid");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setPaid");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setPaid");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 }

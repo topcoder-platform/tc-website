@@ -1,9 +1,10 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.web.common.BaseProcessor;
+
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.BodyTag;
-import java.io.IOException;
-import java.util.Iterator;
+import java.util.HashMap;
+import java.util.List;
 
 /**
  *
@@ -11,69 +12,18 @@ import java.util.Iterator;
  * @version 1.02
  *
  */
-public class ErrorIteratorTag extends BaseTag {
-    private Iterator errIter = null;
-    private String id = null;
+public class ErrorIteratorTag extends IteratorTag {
 
-    /**
-     *
-     * @see javax.servlet.jsp.tagext.Tag#doStartTag()
-     */
-    public int doStartTag() {
-        errIter = getErrIterator();
-        if (errIter == null || !errIter.hasNext()) {
-            return SKIP_BODY;
-        }
-        return BodyTag.EVAL_BODY_TAG;
+    private String name = null;
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    /**
-     * Sets the name of referenced input tag.
-     * @param refName name of referenced input tag
-     */
-    public void setRefName(String refName) {
-        name = refName;
-    }
+    public int doStartTag() throws JspException {
+        HashMap errors = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.ERRORS_KEY);
+        setCollection((List)errors.get(name));
 
-    /**
-     * @see javax.servlet.jsp.tagext.BodyTag#doAfterBody()
-     */
-    public int doAfterBody() throws JspException {
-        String err = fetchNext();
-        if (err != null) {
-            pageContext.setAttribute(getId(), err);
-            return EVAL_BODY_TAG;
-        }
-        try {
-            if (bodyContent != null) {
-                bodyContent.writeOut(getPreviousOut());
-            }
-        } catch (IOException e) {
-            throw new JspException(e.getMessage());
-        }
-        return SKIP_BODY;
-    }
-
-    /**
-     * @see javax.servlet.jsp.tagext.BodyTag#doInitBody()
-     */
-    public void doInitBody() throws JspException {
-        String err = fetchNext();
-        if (err != null) {
-            pageContext.setAttribute(getId(), err);
-        }
-    }
-
-    /**
-     * Fetches next element from container.
-     * @return String
-     */
-    private String fetchNext() {
-        String ret = null;
-        try {
-            ret = (String) errIter.next();
-        } catch (Exception ignore) {
-        }
-        return ret;
+        return super.doStartTag();
     }
 }

@@ -5,7 +5,7 @@
 %>
 <%@ taglib uri="/query-taglib.tld" prefix="query"%>
 <jsp:useBean id="ModifyInput" scope="request" class="com.topcoder.web.query.request.ModifyInput" />
-<jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
+<jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -22,12 +22,12 @@
       <td width="170" bgcolor="#000000" valign="top">
         <jsp:include page="left.jsp" flush="true">
           <jsp:param name="<%=Constants.DB_PARAM%>" value="<%=ModifyInput.getDb()%>"/>
-          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=SessionInfo.getServletPath()%>"/>
+          <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<%=sessionInfo.getServletPath()%>"/>
         </jsp:include>      </td>
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top" ALIGN="left">
         <table width="60%" border="0" cellpadding="0" cellspacing="0">
-          <FORM ACTION="<jsp:getProperty name="SessionInfo" property="ServletPath"/>" method="post" name="ModInputForm" >
+          <FORM ACTION="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="post" name="ModInputForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_INPUT_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.INPUT_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyInput" property="InputId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
@@ -41,8 +41,8 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_ID_PARAM%>"/></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_DESC_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.INPUT_ID_PARAM%>"><%=err%></query:error></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.INPUT_DESC_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right" width="50%">Description: </td>
               <td class="statText" ALIGN="left" width="50%">
@@ -50,7 +50,7 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.INPUT_CODE_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.INPUT_CODE_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right">Code: </td>
               <td class="statText" ALIGN="left">
@@ -58,7 +58,7 @@
               </td>
             </tr>
             <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyInput%>" key="<%=Constants.DATA_TYPE_ID_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error id="err" name="<%=Constants.DATA_TYPE_ID_PARAM%>"><%=err%></query:error></td></tr>
             <tr>
               <td class="statText" ALIGN="right">Data Type: </td>
               <td class="statText" ALIGN="left">

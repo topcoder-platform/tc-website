@@ -1,7 +1,9 @@
 package com.topcoder.common.web.error;
 
+import com.topcoder.web.common.TCWebException;
 
-public class NavigationException extends TCException {
+
+public class NavigationException extends TCWebException {
 
 
     private String url;

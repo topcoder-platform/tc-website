@@ -2,10 +2,9 @@ package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.ejb.SessionBean;
-import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -22,42 +21,11 @@ import java.sql.SQLException;
  * @author George Nassar
  * @version $Revision$
  */
-public class ContactBean implements SessionBean {
+public class ContactBean extends BaseEJB {
     private static Logger log = Logger.getLogger(ContactBean.class);
-    private SessionContext ctx;
+    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
+    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
-    //required ejb methods
-    public void ejbActivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbPassivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbCreate() {
-        //InitContext = new InitialContext(); // from BaseEJB
-    }
-
-    /**
-     *
-     */
-    public void ejbRemove() {
-    }
-
-    /**
-     *
-     *
-     */
-    public void setSessionContext(SessionContext ctx) {
-        this.ctx = ctx;
-    }
-
-    //business methods
 
     /**
      *
@@ -75,8 +43,7 @@ public class ContactBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO contact (contact_id, " +
@@ -90,9 +57,7 @@ public class ContactBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in insert: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating contact");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating contact");
@@ -100,30 +65,9 @@ public class ContactBean implements SessionBean {
             throw new EJBException("Exception creating contact:\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "createContact");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in createContact");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in createContact");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -141,12 +85,10 @@ public class ContactBean implements SessionBean {
         PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
-        long ret = 0;
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE contact SET company_id = ? " +
@@ -161,9 +103,7 @@ public class ContactBean implements SessionBean {
                         rows + " for contact_id: " + contactId +
                         " company_id: " + companyId);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id: " +
                     contactId + " company_id: " + companyId);
         } catch (NamingException e) {
@@ -173,30 +113,9 @@ public class ContactBean implements SessionBean {
                     contactId + " company_id: " + companyId +
                     "\n" + e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "setCompanyId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setCompanyId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setCompanyId");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -219,8 +138,7 @@ public class ContactBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT company_id FROM contact " +
@@ -232,9 +150,7 @@ public class ContactBean implements SessionBean {
             if (rs.next())
                 ret = rs.getLong("company_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting company_id for " +
                     "contact_id: " + contactId);
         } catch (NamingException e) {
@@ -244,38 +160,10 @@ public class ContactBean implements SessionBean {
                     "contact_id: " + contactId + "\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getCompanyId");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getCompanyId");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getCompanyId");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getCompanyId");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -300,8 +188,7 @@ public class ContactBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT title FROM contact " +
@@ -324,37 +211,10 @@ public class ContactBean implements SessionBean {
             throw new EJBException("Exception getting title for contact_id: " +
                     contactId + "\n" + e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getTitle");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in getTitle");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in getTitle");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in getTitle");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return (ret);
@@ -377,8 +237,7 @@ public class ContactBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("UPDATE contact SET title = ? " +
@@ -393,9 +252,7 @@ public class ContactBean implements SessionBean {
                         rows + " for contact_id: " + contactId +
                         " title: " + title);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id: " +
                     contactId + " title: " + title);
         } catch (NamingException e) {
@@ -405,29 +262,9 @@ public class ContactBean implements SessionBean {
                     contactId + " title: " + title + "\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in setTitle");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in setTitle");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in setTitle");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 }

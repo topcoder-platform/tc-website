@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+ "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+<web-app>
+    <servlet>
+        <servlet-name>privatelabel</servlet-name>
+        <display-name>privatelabel</display-name>
+        <description>The main controller servlet</description>
+        <servlet-class>com.topcoder.web.privatelabel.controller.MainServlet</servlet-class>
+
+        <!-- begin parameters required by BaseServlet -->
+        <init-param>
+            <param-name>module_key</param-name>
+            <param-value>module</param-value>
+            <description>the url parameter that defines which processor to execute</description>
+        </init-param>
+        <init-param>
+            <param-name>default_processor</param-name>
+            <param-value>Static</param-value>
+            <description>the processor to execute if non is specified in the request</description>
+        </init-param>
+<!--
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+-->
+<!--
+        <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/</param-value>
+            <description>the servlet path to use when we need to direct the user to login</description>
+        </init-param>
+-->
+        <init-param>
+            <param-name>processor_path</param-name>
+            <param-value>com.topcoder.web.privatelabel.controller.request.</param-value>
+            <description>the path to the processors for this app</description>
+        </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/errorPage.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
+        <!-- end  parameters required by BaseServlet -->
+
+
+
+        <!-- pages -->
+        <init-param>
+            <param-name>registration_page</param-name>
+            <param-value>/reg/registration.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_confirm_page</param-name>
+            <param-value>/reg/registrationConfirm.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_success_page</param-name>
+            <param-value>/reg/registrationSuccess.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>default_page</param-name>
+            <param-value>/index.jsp</param-value>
+            <description></description>
+        </init-param>
+
+
+        <!-- parameter keys -->
+        <init-param>
+            <param-name>handle</param-name>
+            <param-value>ha</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>password</param-name>
+            <param-value>pa</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>password_confirm</param-name>
+            <param-value>pac</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>password_confirm</param-name>
+            <param-value>pac</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>email</param-name>
+            <param-value>em</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>email_confirm</param-name>
+            <param-value>emc</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>first_name</param-name>
+            <param-value>fn</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>last_name</param-name>
+            <param-value>ln</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>address1</param-name>
+            <param-value>a1</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>address2</param-name>
+            <param-value>a2</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>country_code</param-name>
+            <param-value>cc</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>state_code</param-name>
+            <param-value>sc</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>city</param-name>
+            <param-value>city</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>zip</param-name>
+            <param-value>zip</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>static_prefix</param-name>
+            <param-value>d</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>company_id</param-name>
+            <param-value>cid</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- reg rules -->
+        <init-param>
+            <param-name>max_password_length</param-name>
+            <param-value>15</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>min_password_length</param-name>
+            <param-value>7</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>max_handle_length</param-name>
+            <param-value>15</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>min_handle_length</param-name>
+            <param-value>1</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>max_email_length</param-name>
+            <param-value>100</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>handle_alphabet</param-name>
+            <param-value>ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_.{}[]()</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- dbs -->
+        <init-param>
+            <param-name>registration_db</param-name>
+            <param-value>OLTP</param-value>
+            <description></description>
+        </init-param>
+
+        <!-- processors -->
+        <init-param>
+            <param-name>registration_main</param-name>
+            <param-value>Registration</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_main</param-name>
+            <param-value>Registration</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_confirm</param-name>
+            <param-value>RegistrationConfirm</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
+            <param-name>registration_submit</param-name>
+            <param-value>RegistrationSubmit</param-value>
+            <description></description>
+        </init-param>
+
+
+
+
+    </servlet>
+
+
+    <servlet-mapping>
+        <servlet-name>privatelabel</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+</web-app>

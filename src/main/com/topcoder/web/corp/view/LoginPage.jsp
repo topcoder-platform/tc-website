@@ -6,7 +6,7 @@
                  com.topcoder.web.corp.model.SessionInfo,
                  com.topcoder.web.corp.Constants" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="SessionInfo" class="com.topcoder.web.corp.model.SessionInfo" scope="request" />
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -55,10 +55,10 @@
                         %>
 
                         <p><%= message %></p>
-                        <% if (SessionInfo.isGuest()) { %>
+                        <% if (sessionInfo.isAnonymous()) { %>
                             <p>New to TopCoder? <a href="/?module=Registration" class="bodyText">Register</a> today!</p>
                         <% } else { %>
-                            <p>If you are not <%=SessionInfo.getHandle()%>, and would like to create a new account <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
+                            <p>If you are not <%=sessionInfo.getHandle()%>, and would like to create a new account <a href="/?module=Logout&<%=Login.KEY_DESTINATION_PAGE%>=/?<%=Constants.KEY_MODULE+"=Registration"%>" class="bodyText">click here</a>.
                         <% } %>
 
                     </td>

@@ -3,10 +3,9 @@ package com.topcoder.web.ejb.user;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
-import javax.ejb.SessionBean;
-import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -23,42 +22,11 @@ import java.sql.SQLException;
  * @author George Nassar
  * @version $Revision$
  */
-public class UserAddressBean implements SessionBean {
+public class UserAddressBean extends BaseEJB {
     private static Logger log = Logger.getLogger(UserAddressBean.class);
-    private SessionContext ctx;
+    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
+    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
-    //required ejb methods
-    public void ejbActivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbPassivate() {
-    }
-
-    /**
-     *
-     */
-    public void ejbCreate() {
-        //InitContext = new InitialContext(); // from BaseEJB
-    }
-
-    /**
-     *
-     */
-    public void ejbRemove() {
-    }
-
-    /**
-     *
-     *
-     */
-    public void setSessionContext(SessionContext ctx) {
-        this.ctx = ctx;
-    }
-
-    //business methods
 
     /**
      *
@@ -76,8 +44,7 @@ public class UserAddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("INSERT INTO user_address_xref " +
@@ -91,9 +58,7 @@ public class UserAddressBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in insert: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating user address");
         } catch (NamingException e) {
             throw new EJBException("NamingException creating user address");
@@ -101,31 +66,9 @@ public class UserAddressBean implements SessionBean {
             throw new EJBException("Exception creating user address:\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "createUserAddress");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in " +
-                            "createUserAddress");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in createUserAddress");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -145,8 +88,7 @@ public class UserAddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("DELETE FROM user_address_xref " +
@@ -160,9 +102,7 @@ public class UserAddressBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in remove: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException removing user address");
         } catch (NamingException e) {
             throw new EJBException("NamingException removing user address");
@@ -170,31 +110,9 @@ public class UserAddressBean implements SessionBean {
             throw new EJBException("Exception removing user address:\n" +
                     e.getMessage());
         } finally {
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "removeUserAddress");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in " +
-                            "removeUserAddress");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in removeUserAddress");
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -210,8 +128,7 @@ public class UserAddressBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup((String) ctx.lookup(
-                    "java:comp/env/datasource_name"));
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
             ps = conn.prepareStatement("SELECT address_id FROM user_address_xref " +
@@ -222,9 +139,7 @@ public class UserAddressBean implements SessionBean {
             rsc = new ResultSetContainer(rs);
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(
-                    true,
-                    sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting user addresses");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting user addresses");
@@ -232,39 +147,10 @@ public class UserAddressBean implements SessionBean {
             throw new EJBException("Exception getting user addresses:\n" +
                     e.getMessage());
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet in getUserAddresses");
-                }
-            }
-
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement in " +
-                            "getUserAddresses");
-                }
-            }
-
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection in " +
-                            "createUserAddress");
-                }
-            }
-
-            if (ctx != null) {
-                try {
-                    ctx.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Context in createUserAddress");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return (rsc);
     }

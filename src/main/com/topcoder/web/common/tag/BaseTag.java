@@ -1,9 +1,9 @@
 package com.topcoder.web.common.tag;
 
+import com.topcoder.web.common.BaseProcessor;
+
 import javax.servlet.jsp.tagext.BodyTagSupport;
-import java.util.Collection;
 import java.util.HashMap;
-import java.util.Iterator;
 
 
 /**
@@ -16,8 +16,6 @@ import java.util.Iterator;
  *
  */
 public abstract class BaseTag extends BodyTagSupport {
-    public static final String CONTAINER_NAME_FOR_ERRORS = "form-errors";
-    public static final String CONTAINER_NAME_FOR_DEFAULTS = "form-defaults";
 
     protected String name;
 
@@ -31,19 +29,11 @@ public abstract class BaseTag extends BodyTagSupport {
 
     protected Object getDefaultValue() {
         try {
-            HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(CONTAINER_NAME_FOR_DEFAULTS);
+            HashMap defaults = (HashMap) pageContext.getRequest().getAttribute(BaseProcessor.DEFAULTS_KEY);
             return defaults.get(name);
         } catch (Exception e) {
             return null;
         }
     }
 
-    protected Iterator getErrIterator() {
-        try {
-            HashMap errors = (HashMap) pageContext.getRequest().getAttribute(CONTAINER_NAME_FOR_ERRORS);
-            return ((Collection) errors.get(name)).iterator();
-        } catch (Exception e) {
-            return null;
-        }
-    }
 }

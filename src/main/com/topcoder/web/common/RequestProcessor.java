@@ -3,12 +3,13 @@ package com.topcoder.web.common;
 import com.topcoder.web.common.security.WebAuthentication;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Classes that implement RequestProcessor should contain the
  * business logic to process a request from a servlet controller.
  *
- * Call {@link #setRequest(javax.servlet.ServletRequest)}
+ * Call {@link #setRequest(javax.servlet.http.HttpServletRequest)}
  * and {@link #setAuthentication(com.topcoder.web.common.security.WebAuthentication)}
  * first, then {@link #process()} to process the request, and finally use
  * the accessor methods to see the result.
@@ -17,7 +18,7 @@ import javax.servlet.ServletRequest;
  */
 public interface RequestProcessor {
 
-    void setRequest(ServletRequest sr);
+    void setRequest(HttpServletRequest sr);
 
     void setAuthentication(WebAuthentication sr);
 
@@ -33,7 +34,7 @@ public interface RequestProcessor {
     /** where the controller should go next, to render this request */
     String getNextPage();
 
-    String getError(String key);
+    Object getError(String key);
 
     boolean hasError(String key);
 

@@ -27,6 +27,7 @@ public class SubmissionInfo implements java.io.Serializable {
     private static Logger log = Logger.getLogger(SubmissionInfo.class);
 
     private static final int[] DONE_STATUSES = {130, 150, 160};
+    private static final int COMPILED = 121;
     static { Arrays.sort(DONE_STATUSES); }
     private static DataAccessInt cached;
     private static DataAccessInt dwAccess;
@@ -107,7 +108,11 @@ public class SubmissionInfo implements java.io.Serializable {
         if(map == null)
             throw new ScreeningException("getData failed!");
 
-        this.setCode(result.getItem(0,"submission_text").toString());
+        String code = (String)result.getItem(0,"submission_text").getResultData();
+        if (code==null) {
+            code = (String)result.getItem(0,"compilation_text").getResultData();
+        }
+        this.setCode(code);
         this.setTestResults((ResultSetContainer)map.get("systemTestResults"));
         //consider doing this better, ie, limit the results in the db.
         this.setTopTCSolutions(((List)dwMap.get("topProblemSolutions")).subList(0,3));
@@ -121,6 +126,10 @@ public class SubmissionInfo implements java.io.Serializable {
 
     public boolean isSubmitted() {
         return Arrays.binarySearch(DONE_STATUSES, getStatusId())>=0;
+    }
+
+    public boolean isCompiled() {
+        return getStatusId() == COMPILED;
     }
 
     /** Getter for property code.

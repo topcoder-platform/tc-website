@@ -5,6 +5,8 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.model.*;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.common.web.error.NavigationException;
 
 import java.util.*;
 import javax.naming.*;
@@ -35,47 +37,53 @@ public class Search extends Base {
     private final static Logger log = Logger.getLogger(Search.class);
 
 
-    protected void businessProcessing() throws Exception {
-        String cmd = request.getParameter("cmd");
+    protected void businessProcessing() throws TCWebException {
+        String cmd = getRequest().getParameter("cmd");
         log.info("Search: cmd=" + cmd);
 
+        try {
+            if (cmd == null || cmd.equals("")) {
+                log.debug("Search processing '' command.");
 
-        if (cmd == null || cmd.equals("")) {
-            log.debug("Search processing '' command.");
+                SearchBean sb = new SearchBean();
+                populateSearchWithDefaults(sb);
+                populateSearchFromRequest(getRequest(), sb);
+                populateSearchStaticContent(sb);
+                getRequest().setAttribute("search", sb);
+                setNextPage(SEARCH_BASE + ADVANCED_SEARCH_PAGE);
+                setIsNextPageInContext(true);
+            } else if (cmd.equals(SEARCH_CMD)) {
+                log.debug("Search processing 'adv' command.");
 
-            SearchBean sb = new SearchBean();
-            populateSearchWithDefaults(sb);
-            populateSearchFromRequest(request, sb);
-            populateSearchStaticContent(sb);
-            request.setAttribute("search", sb);
-            setNextPage(SEARCH_BASE + ADVANCED_SEARCH_PAGE);
-            setIsNextPageInContext(true);
-        } else if (cmd.equals(SEARCH_CMD)) {
-            log.debug("Search processing 'adv' command.");
+                SearchBean sb = new SearchBean();
+                populateSearchWithDefaults(sb);
+                populateSearchFromRequest(getRequest(), sb);
+                populateSearchStaticContent(sb);
+                getRequest().setAttribute("search", sb);
 
-            SearchBean sb = new SearchBean();
-            populateSearchWithDefaults(sb);
-            populateSearchFromRequest(request, sb);
-            populateSearchStaticContent(sb);
-            request.setAttribute("search", sb);
+                HashMap errors = new HashMap();
+                getRequest().setAttribute("form_errors", errors);
 
-            HashMap errors = new HashMap();
-            request.setAttribute("form_errors", errors);
+                if (isValidSearch(errors, sb)) {
+                    int count = findMembers(sb);
+                    log.debug("Search found '" + count + "' matching members");
+                } else {
+                    log.debug("invalid");
+                }
 
-            if (isValidSearch(errors, sb)) {
-                int count = findMembers(sb);
-                log.debug("Search found '" + count + "' matching members");
+                setNextPage(SEARCH_BASE + ADVANCED_SEARCH_PAGE);
+                setIsNextPageInContext(true);
+
             } else {
-                log.debug("invalid");
+
+                throw new NavigationException("invalid command to search processor", getRequest().getQueryString());
+
             }
 
-            setNextPage(SEARCH_BASE + ADVANCED_SEARCH_PAGE);
-            setIsNextPageInContext(true);
-
-        } else {
-
-            /* this is an error */
-
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
 
     }
@@ -137,12 +145,12 @@ public class Search extends Base {
     }
 
 
-    private String getParameter(ServletRequest request, String param,String def) {
+    private String getParameter(ServletRequest request, String param, String def) {
         String value = request.getParameter(param);
         return (value == null || value.trim().length() == 0 ? def : value.trim());
     }
 
-    private Long getParameterLong(ServletRequest request, String param,Long _default) {
+    private Long getParameterLong(ServletRequest request, String param, Long _default) {
         Long value = _default;
         try {
             value = new Long(request.getParameter(param));
@@ -152,7 +160,7 @@ public class Search extends Base {
         return (value);
     }
 
-    private Integer getParameterInteger(ServletRequest request, String param,Integer def) {
+    private Integer getParameterInteger(ServletRequest request, String param, Integer def) {
         Integer value = def;
         try {
             value = new Integer(request.getParameter(param));
@@ -168,7 +176,7 @@ public class Search extends Base {
             return (false);
         }
         for (Iterator iterator = list.iterator(); iterator.hasNext();) {
-            ResultSetContainer.ResultSetRow rsr= (ResultSetContainer.ResultSetRow) iterator.next();
+            ResultSetContainer.ResultSetRow rsr = (ResultSetContainer.ResultSetRow) iterator.next();
             if (value.equals(rsr.getItem(col).getResultData())) {
                 return (true);
             }
@@ -252,7 +260,7 @@ public class Search extends Base {
     /**
      * Check for valid state/school combination
      */
-    private boolean checkValidStateSchool(Map errors, String stateCode,Long schoolId) {
+    private boolean checkValidStateSchool(Map errors, String stateCode, Long schoolId) {
         if (stateCode.equals("") && schoolId.longValue() != -1) {
             addErrorMessage(errors, "StateCode", INVALID_STATE_SCHOOL);
             return (false);
@@ -299,7 +307,7 @@ public class Search extends Base {
     }
 
 
-    private boolean checkValidMinMax(Map errors, String minRating,String maxRating) {
+    private boolean checkValidMinMax(Map errors, String minRating, String maxRating) {
         try {
             Integer min = new Integer(minRating);
             Integer max = new Integer(maxRating);
@@ -333,7 +341,7 @@ public class Search extends Base {
             }
 
             if (!"".equals(sb.getMinRating())) {
-               minRating = new Integer(sb.getMinRating());
+                minRating = new Integer(sb.getMinRating());
             }
 
             if (!"".equals(sb.getMaxRating())) {

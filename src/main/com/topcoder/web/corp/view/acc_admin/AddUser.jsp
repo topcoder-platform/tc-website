@@ -63,7 +63,7 @@
 <!-- LOGIN -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" refname="username"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="username"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
@@ -76,7 +76,7 @@
 <!-- PASSWORD -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" refname="password"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="password"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 
@@ -89,7 +89,7 @@
 <!-- PASSWORD VERIFICATION -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" refname="password-once-more"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="password-once-more"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
@@ -102,7 +102,7 @@
 <!-- FIRST NAME -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" refname="first-name"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="first-name"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 
@@ -115,7 +115,7 @@
 <!-- LAST NAME -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" refname="last-name"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="last-name"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
@@ -128,7 +128,7 @@
 <!-- EMAIL -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" refname="email"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="email"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 
@@ -141,7 +141,7 @@
   <!-- EMAIL VERIFICATION -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" refname="email-once-more"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="email-once-more"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableOdd"></td>
                 </tr>
 
@@ -154,7 +154,7 @@
 <!-- PHONE -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" refname="phone"><%=err%></tc-webtag:errorIterator></td>
+                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="phone"><%=err%></tc-webtag:errorIterator></td>
                     <td class="testTableEven"></td>
                 </tr>
 

@@ -8,6 +8,7 @@ import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.ejb.QueryServices.QueryInput;
 import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 
@@ -34,38 +35,45 @@ public class QueryDetail extends BaseProcessor {
         super();
     }
 
-	protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
+        super.baseProcessing();
 
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
-        QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
-        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
-        CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
+    protected void businessProcessing() throws TCWebException {
+        try {
+            QueryInput qi = (QueryInput) Util.createEJB(getInitialContext(), QueryInput.class);
+            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
 
-        setQueryText(q.getText(getQueryId(), getDb()));
-        setQueryName(q.getName(getQueryId(), getDb()));
-        setRankingQuery(q.getRanking(getQueryId(), getDb())==1?true:false);
-        setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
-        setInputList(qi.getInputsForQuery(getQueryId(), getDb()));
-        setCommandList(cq.getCommandsForQuery(getQueryId(), getDb()));
+            setQueryText(q.getText(getQueryId(), getDb()));
+            setQueryName(q.getName(getQueryId(), getDb()));
+            setRankingQuery(q.getRanking(getQueryId(), getDb()) == 1 ? true : false);
+            setColumnIndex(q.getColumnIndex(getQueryId(), getDb()));
+            setInputList(qi.getInputsForQuery(getQueryId(), getDb()));
+            setCommandList(cq.getCommandsForQuery(getQueryId(), getDb()));
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.QUERY_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
             setDb(value);

@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.sessionprofile;
 
-import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -24,8 +24,8 @@ import java.sql.ResultSet;
 public class SessionProfileProblemBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(SessionProfileProblemBean.class);
-    private static final String dsName = "java:comp/env/datasource";
-    private static final String transDsName = "java:comp/env/jts_datasource";
+    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
+    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     /**
      *
@@ -60,7 +60,7 @@ public class SessionProfileProblemBean extends BaseEJB {
         log.debug(debugBuf.toString());
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -73,20 +73,20 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("session_round_id) VALUES(?,?,?,?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1,sessionProfileId);
-            pstmt.setLong(2,problemId);
-            pstmt.setInt(3,problemTypeId);
-            pstmt.setInt(4,sortOrder);
-            pstmt.setLong(5,sessionRoundId);
+            ps.setLong(1, sessionProfileId);
+            ps.setLong(2, problemId);
+            ps.setInt(3, problemTypeId);
+            ps.setInt(4, sortOrder);
+            ps.setLong(5, sessionRoundId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createSessionProfileProblem. ");
             exceptionBuf.append(varBuf.toString());
@@ -102,9 +102,9 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createSessionProfileProblem");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createSessionProfileProblem");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createSessionProfileProblem");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -135,7 +135,7 @@ public class SessionProfileProblemBean extends BaseEJB {
 
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -147,18 +147,18 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setInt(1, problemTypeId);
-            pstmt.setLong(2, sessionProfileId);
-            pstmt.setLong(3, problemId);
+            ps.setInt(1, problemTypeId);
+            ps.setLong(2, sessionProfileId);
+            ps.setLong(3, problemId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setProblemTypeId. ");
             exceptionBuf.append(varBuf.toString());
@@ -174,9 +174,9 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setProblemTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setProblemTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setProblemTypeId");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -210,7 +210,7 @@ public class SessionProfileProblemBean extends BaseEJB {
 
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -222,19 +222,19 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setInt(1, sortOrder);
-            pstmt.setLong(2, sessionProfileId);
-            pstmt.setLong(3, problemId);
-            pstmt.setInt(4, problemTypeId);
+            ps.setInt(1, sortOrder);
+            ps.setLong(2, sessionProfileId);
+            ps.setLong(3, problemId);
+            ps.setInt(4, problemTypeId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setSortOrder. ");
             exceptionBuf.append(varBuf.toString());
@@ -250,9 +250,9 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSortOrder");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSortOrder");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setSortOrder");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -287,7 +287,7 @@ public class SessionProfileProblemBean extends BaseEJB {
 
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -299,19 +299,19 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1, sessionRoundId);
-            pstmt.setLong(2, sessionProfileId);
-            pstmt.setLong(3, problemId);
-            pstmt.setInt(4, problemTypeId);
+            ps.setLong(1, sessionRoundId);
+            ps.setLong(2, sessionProfileId);
+            ps.setLong(3, problemId);
+            ps.setInt(4, problemTypeId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
@@ -327,9 +327,9 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSessionRoundId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSessionRoundId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setSessionRoundId");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -356,7 +356,7 @@ public class SessionProfileProblemBean extends BaseEJB {
 
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -369,20 +369,20 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("WHERE session_profile_id = ? AND problem_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, sessionProfileId);
-            pstmt.setLong(2, problemId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, sessionProfileId);
+            ps.setLong(2, problemId);
 
-            rs = pstmt.executeQuery();
-            if ( rs.next() ) {
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 problemTypeId = rs.getInt(1);
             }
 
         } catch (SQLException e) {
-            DBMS.printSqlException(true,e);
+            DBMS.printSqlException(true, e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in getProblemTypeId. ");
             exceptionBuf.append(varBuf.toString());
@@ -398,10 +398,10 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getProblemTypeId");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in getProblemTypeId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getProblemTypeId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getProblemTypeId");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return problemTypeId;
@@ -434,7 +434,7 @@ public class SessionProfileProblemBean extends BaseEJB {
 
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -448,21 +448,21 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, sessionProfileId);
-            pstmt.setLong(2, problemId);
-            pstmt.setInt(3, problemTypeId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, sessionProfileId);
+            ps.setLong(2, problemId);
+            ps.setInt(3, problemTypeId);
 
-            rs = pstmt.executeQuery();
-            if ( rs.next() ) {
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 sortOrder = rs.getInt(1);
             }
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in getSortOrder. ");
             exceptionBuf.append(varBuf.toString());
@@ -478,10 +478,10 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSortOrder");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in getSortOrder");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in getSortOrder");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in getSortOrder");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return sortOrder;
@@ -512,7 +512,7 @@ public class SessionProfileProblemBean extends BaseEJB {
 
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -526,21 +526,21 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, sessionProfileId);
-            pstmt.setLong(2, problemId);
-            pstmt.setInt(3, problemTypeId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, sessionProfileId);
+            ps.setLong(2, problemId);
+            ps.setInt(3, problemTypeId);
 
-            rs = pstmt.executeQuery();
-            if ( rs.next() ) {
+            rs = ps.executeQuery();
+            if (rs.next()) {
                 sessionRoundId = rs.getLong(1);
             }
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in getSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
@@ -556,10 +556,10 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getSessionRoundId");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in getSessionRoundId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in getSessionRoundId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in getSessionRoundId");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return sessionRoundId;
@@ -584,7 +584,7 @@ public class SessionProfileProblemBean extends BaseEJB {
 
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
         DataSource ds = null;
@@ -599,17 +599,17 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" WHERE session_profile_id = ?");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(DATA_SOURCE);
             conn = ds.getConnection();
 
-            pstmt = conn.prepareStatement(query.toString());
-            pstmt.setLong(1, sessionProfileId);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, sessionProfileId);
 
-            rs = pstmt.executeQuery();
+            rs = ps.executeQuery();
             ret = new ResultSetContainer(rs);
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in getProblems. ");
             exceptionBuf.append(varBuf.toString());
@@ -625,15 +625,14 @@ public class SessionProfileProblemBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getProblems");}}
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore){log.error("FAILED to close PreparedStatement in getProblems");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore){log.error("FAILED to close Connection in getProblems");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore){log.error("FAILED to close Context in getProblems");}}
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
 
         return ret;
     }
-
 
 
 }

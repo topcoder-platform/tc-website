@@ -86,31 +86,31 @@
                     
                         <p>A tournament sponsorship package includes:</p>
                         <ul>
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web Site</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_web">Web Site</a><br/>
                             In addition to the areas covered by a Single Round Match sponsorship &#40;as the sole sponsor&#41;, 
                             the sponsor is also given the dedicated pages associated to a tournament which include the rules and 
                             regulations, schedule of rounds &#40;listed above&#41;, and a dedicated page as the tournament 
                             sponsor for product or services promotion.</li><br/>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Arena Applet & Survey</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_applet">Arena Applet & Survey</a><br/>
                             Sponsors are given sole promotion on all match related windows in the applet. Additionally, the sponsor 
                             is able to use all three of the online matches &#40;listed above&#41; for survey opportunities.</li><br/>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email Program</a><br/>
-                            As with the <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Package</a>, emails 
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_email">Email Program</a><br/>
+                            As with the <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_index">SRM Package</a>, emails
                             are distributed announcing match dates and results. The sponsor is given dedicated space in each email 
                             &#40;for minimal copy&#41; and an accompanying URL.</li><br/>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_mktg">Tournament Marketing</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_mktg">Tournament Marketing</a><br/>
                             TopCoder conducts several programs before, during and after a tournament in order to bring the tournament 
                             to the attention of members, prospective members, media, and more. All of which are co-branded with the 
                             tournament sponsor.</li><br/>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_on-site">on-site Arena</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_on-site">on-site Arena</a><br/>
                             The on-site arena offers several points of co-branding for a sponsor including physical displays/signage, 
                             space for a sponsor booth, and video promotion.</li><br/>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public Relations</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=tourny_pr">Public Relations</a><br/>
                             In addition to releases regarding the sponsorship itself, sponsors are promoted in all releases and alerts 
                             relevant to the Regional Quarter-Finals, Regional Finals, Regional Championship, Semifinals and of course 
                             the Championship. In addition, TopCoder conducts a Video News Release &#40;VNR&#41; program 

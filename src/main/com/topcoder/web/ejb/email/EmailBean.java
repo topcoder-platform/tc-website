@@ -4,11 +4,9 @@ import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.ejb.BaseEJB;
 
-import javax.ejb.CreateException;
 import javax.ejb.EJBException;
-import javax.ejb.SessionBean;
-import javax.ejb.SessionContext;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
@@ -18,54 +16,27 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class EmailBean implements SessionBean {
+public class EmailBean extends BaseEJB {
     private static Logger log = Logger.getLogger(EmailBean.class);
 
     private final static String DATA_SOURCE = "java:comp/env/datasource_name";
     private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
-    private transient InitialContext init_ctx = null;
-
-    private SessionContext ctx;
-
-    public void ejbActivate() {
-        /* do nothing */
-    }
-
-    public void ejbPassivate() {
-        /* do nothing */
-    }
-
-    public void ejbCreate() throws CreateException {
-        try {
-            init_ctx = new InitialContext();
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-        }
-    }
-
-    public void ejbRemove() {
-        /* do nothing */
-    }
-
-    public void setSessionContext(SessionContext _ctx) {
-        ctx = _ctx;
-    }
-
     public long createEmail(long userId) throws EJBException, RemoteException {
 
         long email_id = 0;
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
+        InitialContext ctx = null;
 
         try {
 
-            String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
-            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), ds, "sequence_object", "name",
+                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(DATA_SOURCE), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
             }
 
@@ -76,8 +47,8 @@ public class EmailBean implements SessionBean {
             query.append("INTO email (email_id,user_id) ");
             query.append("VALUES (?,?)");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, email_id);
             ps.setLong(2, userId);
 
@@ -87,26 +58,15 @@ public class EmailBean implements SessionBean {
                         "Inserted " + rc + ", should have inserted 1."));
             }
         } catch (SQLException _sqle) {
-            DBMS.printSqlException(true,_sqle);
+            DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return (email_id);
     }
@@ -114,21 +74,21 @@ public class EmailBean implements SessionBean {
     public void setPrimaryEmailId(long userId, long _email_id)
             throws EJBException, RemoteException {
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
+        InitialContext ctx = null;
 
         try {
-
-            String ds_name = (String) init_ctx.lookup(JTS_DATA_SOURCE);
-            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
             query.append("SET primary=0 ");
             query.append("WHERE user_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
 
             int rc = ps.executeUpdate();
@@ -143,7 +103,7 @@ public class EmailBean implements SessionBean {
             query.append("SET primary=1 ");
             query.append("WHERE user_id=? AND email_id=?");
 
-            ps = con.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, _email_id);
 
@@ -153,26 +113,15 @@ public class EmailBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            DBMS.printSqlException(true,_sqle);
+            DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -183,11 +132,11 @@ public class EmailBean implements SessionBean {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        InitialContext ctx = null;
 
         try {
-
-            String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
-            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT email_id ");
@@ -206,33 +155,16 @@ public class EmailBean implements SessionBean {
                         "with user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
-            DBMS.printSqlException(true,_sqle);
+            DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet");
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement");
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return (email_id);
     }
@@ -240,21 +172,22 @@ public class EmailBean implements SessionBean {
     public void setEmailTypeId(long _email_id, long _email_type_id)
             throws EJBException, RemoteException {
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
 
-        try {
+        InitialContext ctx = null;
 
-            String ds_name = (String) init_ctx.lookup(JTS_DATA_SOURCE);
-            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+        try {
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
             query.append("SET email_type_id=? ");
             query.append("WHERE email_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, _email_type_id);
             ps.setLong(2, _email_id);
 
@@ -264,26 +197,15 @@ public class EmailBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            DBMS.printSqlException(true,_sqle);
+            DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -295,10 +217,11 @@ public class EmailBean implements SessionBean {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try {
+        InitialContext ctx = null;
 
-            String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
-            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+        try {
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT email_type_id ");
@@ -317,33 +240,16 @@ public class EmailBean implements SessionBean {
                         "with email_id=" + _email_id + "."));
             }
         } catch (SQLException _sqle) {
-            DBMS.printSqlException(true,_sqle);
+            DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet");
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement");
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return (email_type_id);
     }
@@ -351,21 +257,22 @@ public class EmailBean implements SessionBean {
     public void setAddress(long _email_id, String _address)
             throws EJBException, RemoteException {
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
 
-        try {
+        InitialContext ctx = null;
 
-            String ds_name = (String) init_ctx.lookup(JTS_DATA_SOURCE);
-            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+        try {
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE email ");
             query.append("SET address=? ");
             query.append("WHERE email_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setString(1, _address);
             ps.setLong(2, _email_id);
 
@@ -375,26 +282,15 @@ public class EmailBean implements SessionBean {
                         "Updated " + rc + ", should have updated 1."));
             }
         } catch (SQLException _sqle) {
-            DBMS.printSqlException(true,_sqle);
+            DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (con != null) {
-                try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
-                }
-            }
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -406,10 +302,11 @@ public class EmailBean implements SessionBean {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        try {
+        InitialContext ctx = null;
 
-            String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
-            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+        try {
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT address ");
@@ -428,37 +325,18 @@ public class EmailBean implements SessionBean {
                         "with email_id=" + _email_id + "."));
             }
         } catch (SQLException _sqle) {
-            DBMS.printSqlException(true,_sqle);
+            DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
         } catch (NamingException _ne) {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
-            if (rs != null) {
-                try {
-                    rs.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close ResultSet");
-                }
-            }
-            if (ps != null) {
-                try {
-                    ps.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close PreparedStatement");
-                }
-            }
-            if (conn != null) {
-                try {
-                    conn.close();
-                } catch (Exception ignore) {
-                    log.error("FAILED to close Connection");
-                }
-            }
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
         }
         return (address);
     }
 
 }
-
-;

@@ -58,9 +58,9 @@
                             <tr valign="top">
                                 <td class="sidebarText">
                                     <strong>SRM Overview</strong><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
-                                    <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
+                                    <a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
                                 </td>
                             </tr>
                         </table></td></tr>
@@ -83,16 +83,16 @@
                         addition to the individual media, a survey question &#40;to members&#41; is made exclusive to a sponsor.</p>
                     
                         <ul>
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web Site</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web Site</a><br/>
                             The Web site is the primary vehicle for the competitions. In addition to providing the content, statistics, and features 
                             applicable to a match, the Web site is the primary point of entry for any match.</li>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">TC Arena Applet</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">TC Arena Applet</a><br/>
                             The Arena Applet is where all of the excitement takes place. <strong>Competitors spend an average 2.5 hours online</strong> 
                             before, during and after a match! During the three phases (Coding, Challenge, and System Test) coders go 
                             head-to-head vying for points, ratings, and ultimately the cash prize.</li>
                             
-                            <li><a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Opt-In Email</a><br/>
+                            <li><a href="?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Opt-In Email</a><br/>
                             Over 80&#37; of the membership opts-in for match notification. The email program is designed to inform 
                             members of the match sponsors, key points about them, and the appropriate URL references per sponsor.</li>
                         </ul>

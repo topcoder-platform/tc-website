@@ -1,6 +1,6 @@
 package com.topcoder.web.ejb.user;
 
-import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
@@ -9,7 +9,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import javax.ejb.EJBException;
-import java.rmi.RemoteException;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -23,17 +22,15 @@ import java.sql.SQLException;
 public class UserNoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(UserNoteBean.class);
-    private static final String dsName = "java:comp/env/datasource";
-    private static final String transDsName = "java:comp/env/jts_datasource";
+    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
+    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
     /**
      *
      * @param userId
      * @param noteId
-     * @throws RemoteException
      */
-    public void createUserNote(long userId, long noteId)
-            throws RemoteException {
+    public void createUserNote(long userId, long noteId) {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
         StringBuffer varBuf = new StringBuffer(200);
@@ -49,7 +46,7 @@ public class UserNoteBean extends BaseEJB {
         log.debug(debugBuf.toString());
         // begin method
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -60,17 +57,17 @@ public class UserNoteBean extends BaseEJB {
             query.append("values(?,?) ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(transDsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1,userId);
-            pstmt.setLong(2,noteId);
+            ps.setLong(1, userId);
+            ps.setLong(2, noteId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException e) {
-            DBMS.printSqlException(true,e);
+            DBMS.printSqlException(true, e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createUserNote. ");
             exceptionBuf.append(varBuf.toString());
@@ -86,9 +83,9 @@ public class UserNoteBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createUserNote");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createUserNote");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createUserNote");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 
@@ -96,10 +93,8 @@ public class UserNoteBean extends BaseEJB {
      *
      * @param userId
      * @param noteId
-     * @throws RemoteException
      */
-    public void removeUserNote(long userId, long noteId)
-            throws RemoteException {
+    public void removeUserNote(long userId, long noteId) {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
         StringBuffer varBuf = new StringBuffer(200);
@@ -116,7 +111,7 @@ public class UserNoteBean extends BaseEJB {
         // begin method
 
         Context ctx = null;
-        PreparedStatement pstmt = null;
+        PreparedStatement ps = null;
         Connection conn = null;
         DataSource ds = null;
 
@@ -126,17 +121,17 @@ public class UserNoteBean extends BaseEJB {
             query.append("AND note_id = ? ");
 
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dsName);
+            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
             conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
+            ps = conn.prepareStatement(query.toString());
 
-            pstmt.setLong(1,userId);
-            pstmt.setLong(2,noteId);
+            ps.setLong(1, userId);
+            ps.setLong(2, noteId);
 
-            pstmt.executeUpdate();
+            ps.executeUpdate();
 
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in removeUserNote. ");
             exceptionBuf.append(varBuf.toString());
@@ -152,9 +147,9 @@ public class UserNoteBean extends BaseEJB {
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in removeUserNote");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in removeUserNote");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in removeUserNote");}}
+            close(ps);
+            close(conn);
+            close(ctx);
         }
     }
 }

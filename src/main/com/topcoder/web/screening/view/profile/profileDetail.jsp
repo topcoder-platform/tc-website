@@ -1,5 +1,4 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
@@ -16,7 +15,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
@@ -73,6 +72,7 @@ function getProblemDetail(id) {
             </table>
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+              <% if (profile.hasTestSetA()) { %>
                 <tr><td class="testTableTitle" colspan="6">Test Set A</td></tr>
                 <tr>
                     <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
@@ -95,6 +95,8 @@ function getProblemDetail(id) {
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+              <% } %>
+
                 <% if (!profile.getTestSetBList().isEmpty()) { %>
                     <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
 

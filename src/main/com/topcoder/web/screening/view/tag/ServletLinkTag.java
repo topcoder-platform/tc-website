@@ -138,7 +138,7 @@ public class ServletLinkTag extends TagSupport {
         if(processor != null || param != null){
             buffer.append("?");
             if(processor != null){
-                buffer.append(Constants.REQUEST_PROCESSOR + "=");
+                buffer.append(Constants.MODULE_KEY + "=");
                 buffer.append(processor);
             }
             if(param != null){

@@ -8,6 +8,7 @@ import com.topcoder.web.query.bean.InputBean;
 import com.topcoder.web.query.bean.QueryInputBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.*;
 
@@ -44,64 +45,71 @@ public class ModifyQueryInput extends BaseProcessor {
         attributeQueue = new HashMap();
     }
 
-	protected void baseProcessing() throws Exception {
-        Enumeration parameterNames = request.getParameterNames();
+    protected void baseProcessing() throws TCWebException {
+        super.baseProcessing();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
-        String step = request.getParameter(Constants.STEP_PARAM);
+    protected void businessProcessing() throws TCWebException {
+        String step = getRequest().getParameter(Constants.STEP_PARAM);
 
-        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
-        QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
-        Input i = (Input)Util.createEJB(getInitialContext(), Input.class);
+        try {
+            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+            QueryInput qi = (QueryInput) Util.createEJB(getInitialContext(), QueryInput.class);
+            Input i = (Input) Util.createEJB(getInitialContext(), Input.class);
 
-        processAttributeQueue();
+            processAttributeQueue();
 
-        setQueryName(q.getName(getQueryId(), getDb()));
+            setQueryName(q.getName(getQueryId(), getDb()));
 
-        checkQueryId(getQueryId(), q);
-        if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            checkSortOrder(getCurrentInputList());
-            checkDefaultValue(getCurrentInputList());
-            if (!hasErrors()) {
-                QueryInputBean qib = null;
-                for (int j=0; j<getCurrentInputList().size(); j++) {
-                    qib = (QueryInputBean)getCurrentInputList().get(j);
-                    if (qib.isOptional()) {
-                        qi.setDefaultValue(qib.getQueryId(), qib.getInputId(), qib.getDefaultValue(), getDb());
-                    } else {
-                        qib.setDefaultValue(qi.getDefaultValue(qib.getQueryId(), qib.getInputId(), getDb()));
+            checkQueryId(getQueryId(), q);
+            if (step != null && step.equals(Constants.SAVE_STEP)) {
+                checkSortOrder(getCurrentInputList());
+                checkDefaultValue(getCurrentInputList());
+                if (!hasErrors()) {
+                    QueryInputBean qib = null;
+                    for (int j = 0; j < getCurrentInputList().size(); j++) {
+                        qib = (QueryInputBean) getCurrentInputList().get(j);
+                        if (qib.isOptional()) {
+                            qi.setDefaultValue(qib.getQueryId(), qib.getInputId(), qib.getDefaultValue(), getDb());
+                        } else {
+                            qib.setDefaultValue(qi.getDefaultValue(qib.getQueryId(), qib.getInputId(), getDb()));
+                        }
+                        qi.setOptional(qib.getQueryId(), qib.getInputId(), qib.isOptional() ? 'Y' : 'N', getDb());
+                        qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder(), getDb());
                     }
-                    qi.setOptional(qib.getQueryId(), qib.getInputId(), qib.isOptional()?'Y':'N', getDb());
-                    qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder(), getDb());
                 }
+            } else if (step != null && step.equals(Constants.NEW_STEP)) {
+                checkInputId(getInputId(), i);
+                qi.createQueryInput(getQueryId(), getInputId(), getDb());
+            } else if (step != null && step.equals(Constants.REMOVE_STEP)) {
+                checkInputId(getInputId(), i);
+                qi.removeQueryInput(getQueryId(), getInputId(), getDb());
             }
-        } else if (step!=null && step.equals(Constants.NEW_STEP)) {
-            checkInputId(getInputId(), i);
-            qi.createQueryInput(getQueryId(), getInputId(), getDb());
-        } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
-            checkInputId(getInputId(), i);
-            qi.removeQueryInput(getQueryId(), getInputId(), getDb());
+
+            setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
+            setOtherInputList(i.getAllInputs(getDb()));
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
 
-        setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
-        setOtherInputList(i.getAllInputs(getDb()));
-
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.MODIFY_QUERY_INPUT_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         log.debug("setAttributes called...param: " + paramName + " value: " + value);
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
@@ -134,8 +142,8 @@ public class ModifyQueryInput extends BaseProcessor {
         String value = null;
         Map.Entry me = null;
 
-        for ( ; it.hasNext(); ) {
-            me = (Map.Entry)it.next();
+        for (; it.hasNext();) {
+            me = (Map.Entry) it.next();
             paramName = me.getKey().toString();
             value = me.getValue().toString();
             if (paramName.startsWith(Constants.OPTIONAL_PARAM)) {
@@ -170,13 +178,13 @@ public class ModifyQueryInput extends BaseProcessor {
     }
 
     private void checkQueryId(long queryId, Query q) throws Exception {
-        if (q.getName(queryId, getDb())==null) {
+        if (q.getName(queryId, getDb()) == null) {
             addError(Constants.QUERY_ID_PARAM, "Invalid query id");
         }
     }
 
     private void checkInputId(long inputId, Input i) throws Exception {
-        if (i.getInputCode(inputId, getDb())==null) {
+        if (i.getInputCode(inputId, getDb()) == null) {
             addError(Constants.INPUT_ID_PARAM, "Invalid input id");
         }
     }
@@ -227,10 +235,10 @@ public class ModifyQueryInput extends BaseProcessor {
         for (int i = 0; i < list.size() - 1 && !found; i++) {
             curr = (QueryInputBean) list.get(i);
             if (curr.isOptional()) {
-                if (curr.getDefaultValue().length()==0) {
-                    addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Missing default value");
+                if (curr.getDefaultValue().length() == 0) {
+                    addError(Constants.DEFAULT_VALUE_PARAM + curr.getInputId(), "Missing default value");
                 } else if (curr.getDefaultValue().length() > 100) {
-                    addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Default value too long");
+                    addError(Constants.DEFAULT_VALUE_PARAM + curr.getInputId(), "Default value too long");
                 }
             }
         }
@@ -250,9 +258,9 @@ public class ModifyQueryInput extends BaseProcessor {
     private QueryInputBean getQueryInput(ArrayList list, long id) {
         QueryInputBean temp = null;
         boolean found = false;
-        for (int i=0; i<list.size() && !found; i++) {
-            found = ((QueryInputBean)list.get(i)).getInputId()==id;
-            if (found) temp = ((QueryInputBean)list.get(i));
+        for (int i = 0; i < list.size() && !found; i++) {
+            found = ((QueryInputBean) list.get(i)).getInputId() == id;
+            if (found) temp = ((QueryInputBean) list.get(i));
         }
         return temp;
     }
@@ -288,8 +296,8 @@ public class ModifyQueryInput extends BaseProcessor {
      * @throws Exception
      */
     public ArrayList getCurrentInputList() throws Exception {
-        if (currentInputList==null) {
-            QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
+        if (currentInputList == null) {
+            QueryInput qi = (QueryInput) Util.createEJB(getInitialContext(), QueryInput.class);
             setCurrentInputList(qi.getInputsForQuery(getQueryId(), getDb()));
         }
         return currentInputList;
@@ -304,8 +312,8 @@ public class ModifyQueryInput extends BaseProcessor {
         ResultSetContainer.ResultSetRow rsr = null;
         ArrayList list = new ArrayList(currentInputList.size());
         QueryInputBean qib = null;
-        for ( ; it.hasNext(); ) {
-            rsr = (ResultSetContainer.ResultSetRow)it.next();
+        for (; it.hasNext();) {
+            rsr = (ResultSetContainer.ResultSetRow) it.next();
             qib = new QueryInputBean();
             qib.setInputId(Long.parseLong(rsr.getItem("input_id").toString()));
             qib.setQueryId(Long.parseLong(rsr.getItem("query_id").toString()));
@@ -340,15 +348,15 @@ public class ModifyQueryInput extends BaseProcessor {
         ResultSetContainer.ResultSetRow rsr = null;
         ArrayList list = new ArrayList(otherInputList.size());
         InputBean ib = null;
-        for ( ; it.hasNext(); ) {
-            rsr = (ResultSetContainer.ResultSetRow)it.next();
+        for (; it.hasNext();) {
+            rsr = (ResultSetContainer.ResultSetRow) it.next();
             ib = new InputBean();
             ib.setInputId(Long.parseLong(rsr.getItem("input_id").toString()));
             ib.setInputCode(rsr.getItem("input_code").toString());
             ib.setInputDesc(rsr.getItem("input_desc").toString());
             ib.setDataTypeId(Integer.parseInt(rsr.getItem("data_type_id").toString()));
             // if this input is not associated with this query already, add it to the OtherInputList
-            if (getQueryInput(getCurrentInputList(), ib.getInputId())==null) {
+            if (getQueryInput(getCurrentInputList(), ib.getInputId()) == null) {
                 list.add(ib);
             }
         }
@@ -362,7 +370,6 @@ public class ModifyQueryInput extends BaseProcessor {
     public void setQueryName(String queryName) {
         this.queryName = queryName;
     }
-
 
 
 }

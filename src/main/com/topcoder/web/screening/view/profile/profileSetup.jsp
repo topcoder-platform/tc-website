@@ -1,4 +1,3 @@
-<%@ page errorPage="../errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
@@ -18,32 +17,32 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
 
 function submitReload() {
-    document.profileSetupForm.rp.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
 
 function submitAdd() {
-    document.profileSetupForm.rp.value = "<%=Constants.PROFILE_ADD_PROBLEM_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.PROFILE_ADD_PROBLEM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
 
 function submitRemove(id) {
     document.profileSetupForm.testSetBRemove.value = id;
-    document.profileSetupForm.rp.value = "<%=Constants.PROFILE_REMOVE_PROBLEM_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.PROFILE_REMOVE_PROBLEM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
 
 function submitConfirm() {
-    document.profileSetupForm.rp.value = "<%=Constants.PROFILE_CONFIRM_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.PROFILE_CONFIRM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
@@ -90,9 +89,9 @@ function submitConfirm() {
             </table>
 
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-            
+
             <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
-            <input type="hidden" name="rp" value="" >
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="" >
             <% if(!profile.isNew()) { %>
                <input type="hidden" name="profileId" value="<jsp:getProperty name="profile" property="profileId" />" >
             <% } %>
@@ -103,13 +102,13 @@ function submitConfirm() {
                 <tr>
                     <td class="testTableSubtitleOdd">Name</td>
                     <td class="testTableOdd"><input type="text" name="profileName" value ="<jsp:getProperty name="profile" property="profileName" />" size="30" maxlength="100"></td>
-                    <td class="errorTextOdd"><screen:errors name="profileName" /></td>
+                    <td class="errorTextOdd"><screen:errors id="err" name="profileName" ><%=err%></screen:errors></td>
                 </tr>
 
                 <tr>
                     <td class="testTableSubtitleEven">Problem Set</td>
                     <td class="testTableEven">
-                        <select name="testSetA" onChange="submitReload()">
+                        <select name="<%=Constants.TEST_SET_A%>" onChange="submitReload()">
                             <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><%
                             if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) {
                                 %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />" SELECTED><screen:resultSetItem row="<%=row%>" name="name" /></option><%
@@ -117,16 +116,18 @@ function submitConfirm() {
                                 %><option value="<screen:resultSetItem row="<%=row%>" name="round_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option><%
                             } %>
                             </screen:resultSetRowIterator>
+                            <option value="<%=Constants.NO_TEST_SET_A%>" <%=profile.isSelectedTestSetA(String.valueOf(Constants.NO_TEST_SET_A))?"SELECTED":""%> name="round_id">No Test Set A</option>
                         </select>
                     <td class="errorTextEven">&#160;</td>
                 </tr>
             </table>
-            
+
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            </table>
- 
+                </table>
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
+              <% if (profile.hasTestSetA()) { %>
                 <tr><td class="testTableTitle" colspan="7">Test Set A</td></tr>
 
                 <tr>
@@ -137,7 +138,7 @@ function submitConfirm() {
                     <td colspan="2" align="center" class="testFormHeader">Algorithmic Categories</td>
                      <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
-            
+
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
 
                 <tr>
@@ -149,9 +150,10 @@ function submitConfirm() {
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>
-           
+
                 <tr><td colspan="7"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-            
+
+              <% } %>
                 <tr><td class="testTableTitle" colspan="7">Test Set B</td></tr>
 
                 <tr>
@@ -182,7 +184,7 @@ function submitConfirm() {
 
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td colspan="5" class="errorTextOdd"><screen:errors name="testSetB" /></td>
+                    <td colspan="5" class="errorTextOdd"><screen:errors id="err" name="testSetB" ><%=err%></screen:errors></td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             
@@ -228,7 +230,7 @@ function submitConfirm() {
                 
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td colspan="5" class="errorTextOdd"><screen:errors name="language" /></td>
+                    <td colspan="5" class="errorTextOdd"><screen:errors id="err" name="language" ><%=err%></screen:errors></td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             </table>

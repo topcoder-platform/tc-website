@@ -7,6 +7,7 @@ import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 import java.util.List;
@@ -32,34 +33,42 @@ public class QuerySearch extends BaseProcessor {
         super();
     }
 
-	protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
+        super.baseProcessing();
 
-        Enumeration parameterNames = request.getParameterNames();
+        Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
             String parameterName = parameterNames.nextElement().toString();
-            String[] parameterValues = request.getParameterValues(parameterName);
+            String[] parameterValues = getRequest().getParameterValues(parameterName);
             if (parameterValues != null) {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
-        Query q = (Query)Util.createEJB(getInitialContext(), Query.class);
+    protected void businessProcessing() throws TCWebException {
+        try {
 
-        ResultSetContainer rsc = q.getAllQueries(true, getDb());
-        if (getSearchCriteria()!=null&&!getSearchCriteria().equals("")) {
-            setSearchResults(find(rsc, getSearchCriteria()));
+            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+
+            ResultSetContainer rsc = q.getAllQueries(true, getDb());
+            if (getSearchCriteria() != null && !getSearchCriteria().equals("")) {
+                setSearchResults(find(rsc, getSearchCriteria()));
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
 
-        request.setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.QUERY_SEARCH_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM))
             setDb(value);
@@ -105,41 +114,41 @@ public class QuerySearch extends BaseProcessor {
          * a single word.  given the following input:  search for "this word"
          * we would have the search terms:  "search" , "for", "this word"
         */
-        for (int i=0; i<temp.length(); i++) {
-            if ((temp.charAt(i)=='\"' && inQuote) || (temp.charAt(i)==' ' && word.length()>0 && !inQuote)) {
+        for (int i = 0; i < temp.length(); i++) {
+            if ((temp.charAt(i) == '\"' && inQuote) || (temp.charAt(i) == ' ' && word.length() > 0 && !inQuote)) {
                 searchList.add(word.toString());
                 word = new StringBuffer(10);
                 if (inQuote) inQuote = false;
                 continue;
             }
-            if (temp.charAt(i)=='\"') {
+            if (temp.charAt(i) == '\"') {
                 inQuote = !inQuote;
             } else {
-                if (inQuote || temp.charAt(i)!=' ')
+                if (inQuote || temp.charAt(i) != ' ')
                     word.append(temp.charAt(i));
             }
         }
         //add the last chunk that's remaining
-        if (word.length()>0)
+        if (word.length() > 0)
             searchList.add(word.toString());
         log.debug("searching for: " + searchList);
 
         ResultSetContainer.ResultSetRow row = null;
         String text = null;
         for (Iterator it = list.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
-            text = (String)row.getItem("text").getResultData();
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            text = (String) row.getItem("text").getResultData();
             boolean found = true;
-            for (int i = 0; i<searchList.size(); i++) {
-                found &= text.indexOf((String)searchList.get(i))>-1;
+            for (int i = 0; i < searchList.size(); i++) {
+                found &= text.indexOf((String) searchList.get(i)) > -1;
             }
             QueryBean query = null;
             if (found) {
                 query = new QueryBean();
-                query.setColumnIndex(((Integer)row.getItem("column_index").getResultData()).intValue());
-                query.setName(((String)row.getItem("name").getResultData()));
-                query.setQueryId(((Long)row.getItem("query_id").getResultData()).longValue());
-                query.setRanking(((Integer)row.getItem("ranking").getResultData()).intValue()==1);
+                query.setColumnIndex(((Integer) row.getItem("column_index").getResultData()).intValue());
+                query.setName(((String) row.getItem("name").getResultData()));
+                query.setQueryId(((Long) row.getItem("query_id").getResultData()).longValue());
+                query.setRanking(((Integer) row.getItem("ranking").getResultData()).intValue() == 1);
                 ret.add(query);
             }
         }

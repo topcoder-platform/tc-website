@@ -201,15 +201,20 @@
 
     <tag>
         <name>errors</name>
-        <tagclass>com.topcoder.web.screening.view.tag.ErrorsTag</tagclass>
-        <bodycontent>Empty</bodycontent>
+        <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
         <info>
-            Tag to write out error messages for a give key or all if no key is
-            specified.  Does nothing if there is no map of errors.
+            Tag to get an errors associated with a key
         </info>
         <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
             <name>name</name>
-            <required>false</required>
+            <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
