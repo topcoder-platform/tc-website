@@ -20,6 +20,7 @@ public class SearchModel extends BaseModel {
     
     private ResultSetContainer rsc;
     private long total;
+    private long userId;
     
     /** Creates a new instance of SearchModel */
     public SearchModel() {
@@ -27,6 +28,15 @@ public class SearchModel extends BaseModel {
         lastName = "";
         emailAddress = "";
         total = 0;
+        userId = 0;
+    }
+    
+    public void setUserId(long i) {
+        userId = i;
+    }
+    
+    public long getUserId() {
+        return userId;
     }
     
     public void setFirstName(String s) {

@@ -72,7 +72,7 @@ function getProblemDetail(id) {
                     <param name="quality" value="high" />
                     <param name="bgcolor" value="#ffffff" />
                     <param name="preference" value="3" />
-                    <param name="link" value="/corp/testing/?module=UpdatePreference&userId=<%=request.getUserPrincipal().getName()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>" />
+                    <param name="link" value="/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>" />
                     <embed
                     src="/i/corp/screeningRatingOdd.swf"
                     menu="false"
