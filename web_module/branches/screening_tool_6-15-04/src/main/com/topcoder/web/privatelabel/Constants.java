@@ -80,6 +80,7 @@ public class Constants {
     public static String PROVINCE;
     public static String CITY;
     public static String ZIP;
+    public static String PHONE_NUMBER;
 
     //secondary reg parameters
     public static String CODER_TYPE;

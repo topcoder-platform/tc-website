@@ -63,8 +63,12 @@
                         </tr>
                         <tr>
                             <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator>
+                                <tc-webtag:errorIterator id="err" name="<%=Constants.PHONE_NUMBER%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
+                        </tr>
+                        <tr>
+                            <td class="brRegTableQuestion">Phone Number</td>
+                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.PHONE_NUMBER%>"  size="15" maxlength="50"/></td>
                         </tr>
                         <tr>
                             <td class="brErrorText" colspan="2">

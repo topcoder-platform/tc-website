@@ -76,6 +76,11 @@ public class Demog extends FullRegDemog {
         
         log.info("CHOSEN PASSWORD IS " + info.getPassword());
         
+        if(info.getPhoneNumber().trim().length()==0)
+        {
+            addError(Constants.PHONE_NUMBER, "Please enter your phone number.");
+        }
+        
         //we're not bothering with an email confirmation field, so don't require it 
         removeError(Constants.EMAIL_CONFIRM);
     }
