@@ -1,7 +1,8 @@
 package com.topcoder.security.admin;
 
-import java.util.Collection;
 import com.topcoder.security.*;
+
+import java.util.Collection;
 
 /**
  * @author Heather Van Aelst
@@ -10,68 +11,68 @@ import com.topcoder.security.*;
 public interface PrincipalMgrLocal extends javax.ejb.EJBLocalObject {
 
     public abstract Collection getUsers(TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract UserPrincipal getUser(String s)
-        throws GeneralSecurityException, NoSuchUserException;
+            throws GeneralSecurityException, NoSuchUserException;
 
     public abstract UserPrincipal getUser(long l)
-        throws GeneralSecurityException, NoSuchUserException;
+            throws GeneralSecurityException, NoSuchUserException;
 
     public abstract TCSubject getUserSubject(long l)
-        throws GeneralSecurityException, NoSuchUserException;
+            throws GeneralSecurityException, NoSuchUserException;
 
     public abstract String getPassword(long l)
-        throws GeneralSecurityException, NoSuchUserException;
+            throws GeneralSecurityException, NoSuchUserException;
 
     public abstract UserPrincipal createUser(String s, String s1, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void removeUser(UserPrincipal userprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract UserPrincipal editPassword(UserPrincipal userprincipal, String s, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract Collection getGroups(TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract GroupPrincipal getGroup(long l)
-        throws GeneralSecurityException, NoSuchGroupException;
+            throws GeneralSecurityException, NoSuchGroupException;
 
     public abstract GroupPrincipal createGroup(String s, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void removeGroup(GroupPrincipal groupprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void addUserToGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void removeUserFromGroup(GroupPrincipal groupprincipal, UserPrincipal userprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract Collection getRoles(TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract RolePrincipal getRole(long l)
-        throws GeneralSecurityException, NoSuchRoleException;
+            throws GeneralSecurityException, NoSuchRoleException;
 
     public abstract RolePrincipal createRole(String s, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void removeRole(RolePrincipal roleprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void assignRole(UserPrincipal userprincipal, RolePrincipal roleprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void unAssignRole(UserPrincipal userprincipal, RolePrincipal roleprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void assignRole(GroupPrincipal groupprincipal, RolePrincipal roleprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 
     public abstract void unAssignRole(GroupPrincipal groupprincipal, RolePrincipal roleprincipal, TCSubject tcsubject)
-        throws GeneralSecurityException;
+            throws GeneralSecurityException;
 }

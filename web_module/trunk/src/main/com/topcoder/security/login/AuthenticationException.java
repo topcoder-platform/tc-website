@@ -1,6 +1,7 @@
 package com.topcoder.security.login;
 
 import com.topcoder.security.GeneralSecurityException;
+
 /**
  * @author Heather Van Aelst
  * @version 0.1
@@ -8,11 +9,11 @@ import com.topcoder.security.GeneralSecurityException;
 public class AuthenticationException extends GeneralSecurityException {
 
     public AuthenticationException() {
-	super();
+        super();
     }
-    
+
     public AuthenticationException(String message) {
-	super(message);
+        super(message);
     }
 
 }

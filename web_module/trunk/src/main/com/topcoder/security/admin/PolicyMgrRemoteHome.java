@@ -1,9 +1,8 @@
 package com.topcoder.security.admin;
 
-import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
-import com.topcoder.security.GeneralSecurityException;
+import java.rmi.RemoteException;
 
 /**
  * @author Heather Van Aelst
@@ -11,9 +10,9 @@ import com.topcoder.security.GeneralSecurityException;
  */
 public interface PolicyMgrRemoteHome extends javax.ejb.EJBHome {
 
-    public static final String EJB_REF_NAME="security/PolicyMgr";
+    public static final String EJB_REF_NAME = "security/PolicyMgr";
 
     public PolicyMgrRemote create()
-        throws RemoteException, CreateException, EJBException;
+            throws RemoteException, CreateException, EJBException;
 
 }

@@ -8,13 +8,14 @@ package com.topcoder.security;
  */
 
 //currently not used
+
 public class NoSuchUserException extends GeneralSecurityException {
-    
+
     /**
      * Class constructor
      */
     public NoSuchUserException() {
-	super();
+        super();
     }
 
     /**
@@ -24,6 +25,6 @@ public class NoSuchUserException extends GeneralSecurityException {
      *                specified message that describes the exception
      */
     public NoSuchUserException(String message) {
-	super(message);
+        super(message);
     }
 }

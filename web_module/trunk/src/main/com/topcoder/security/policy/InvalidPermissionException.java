@@ -1,6 +1,6 @@
 package com.topcoder.security.policy;
 
-import com.topcoder.security.*;
+import com.topcoder.security.GeneralSecurityException;
 
 /**
  * Thrown when an invalid permission type is used.
@@ -14,7 +14,7 @@ public class InvalidPermissionException extends GeneralSecurityException {
      * Class constructor
      */
     public InvalidPermissionException() {
-	super();
+        super();
     }
 
     /**
@@ -24,6 +24,6 @@ public class InvalidPermissionException extends GeneralSecurityException {
      *                specified message that describes the exception
      */
     public InvalidPermissionException(String message) {
-	super(message);
+        super(message);
     }
 }

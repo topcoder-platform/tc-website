@@ -20,7 +20,7 @@ public class GenericPermission extends TCPermission {
 
     /**
      * Determine if this equals the given object.  Returns false if the object
-     * is null or not a GenericPermission.  Two Generic Perimssions are equal if 
+     * is null or not a GenericPermission.  Two Generic Perimssions are equal if
      * their names are equal.
      *
      * @param o

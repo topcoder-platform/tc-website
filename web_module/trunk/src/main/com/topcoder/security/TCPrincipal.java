@@ -3,15 +3,15 @@ package com.topcoder.security;
 import java.io.Serializable;
 
 /**
- * The TCPrincipal is an abstract class that represents an entity. The 
- * security manager supports the User, Group, and Role entities (which 
+ * The TCPrincipal is an abstract class that represents an entity. The
+ * security manager supports the User, Group, and Role entities (which
  * are subclasses of TCPrincipal).
  *
  * @author Heather Van Aelst
  * @version 1.0
  */
 public abstract class TCPrincipal implements Serializable {
-    
+
     private long id;
     private String name;
 
@@ -35,7 +35,7 @@ public abstract class TCPrincipal implements Serializable {
     public long getId() {
         return id;
     }
- 
+
     /**
      * @return The principal's description or name
      */

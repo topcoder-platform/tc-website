@@ -1,7 +1,7 @@
 package com.topcoder.security;
 
 /**
- * Represents permission based roles. The roles are the only entity that 
+ * Represents permission based roles. The roles are the only entity that
  * permissions are assigned to.
  *
  * @author Heather Van Aelst
@@ -18,7 +18,7 @@ public class RolePrincipal extends TCPrincipal {
     public RolePrincipal(String name, long id) {
         super(name, id);
     }
-    
+
     /**
      * Determine if this RolePrincipal is equal to another object.  They
      * are only equal if they are both instances of RolePrincipal and their

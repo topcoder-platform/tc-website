@@ -7,7 +7,7 @@ package com.topcoder.security;
  * @version 0.1
  */
 public class GroupPrincipal extends TCPrincipal {
-    
+
     /**
      * Class constructor
      *

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 /**
  * An abstract class representing a permission.  All classes
- * representing specific types of permissions should extend 
+ * representing specific types of permissions should extend
  * this class.
  *
  * @author Heather Van Aelst
@@ -44,16 +44,16 @@ public abstract class TCPermission implements Serializable {
      * @param obj
      * @return True if this equals obj, false otherwise
      */
-    public boolean equals(Object obj) { 
-        if (this == obj) { 
-            return true; 
-        } 
-        
-        if (obj != null && getClass() == obj.getClass()) { 
-            if (name.equals(((TCPermission)obj).getName())) { 
-                return true; 
-            } 
-        } 
-        return false; 
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+
+        if (obj != null && getClass() == obj.getClass()) {
+            if (name.equals(((TCPermission) obj).getName())) {
+                return true;
+            }
+        }
+        return false;
     }
 }

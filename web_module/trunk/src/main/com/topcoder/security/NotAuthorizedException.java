@@ -12,7 +12,7 @@ public class NotAuthorizedException extends GeneralSecurityException {
      * Class constructor
      */
     public NotAuthorizedException() {
-	super();
+        super();
     }
 
     /**
@@ -22,7 +22,7 @@ public class NotAuthorizedException extends GeneralSecurityException {
      *                specified message that describes the exception
      */
     public NotAuthorizedException(String message) {
-	super(message);
+        super(message);
     }
 
 }
