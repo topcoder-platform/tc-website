@@ -41,16 +41,29 @@
 
 <!-- Upcoming Tournaments begins -->
 
-<%--
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google04&d2=overview" target="_blank"><img src="/i/events/google2004/indexLogo.gif" alt="2003 GECC" width="274" height="66" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>Google&#153; Code Jam 2004 </strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        October 15th, 2004<br />
+                        Google headquarters<br/>
+                        Mountain View, California<br />
+                        <A href="/pl/?&module=Static&d1=google04&d2=overview" target="_blank">Summary</A>
+                    </td>
+                </tr>
+            </table>
 
 
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
---%>
 
 <!-- Past Tournaments begins -->
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
