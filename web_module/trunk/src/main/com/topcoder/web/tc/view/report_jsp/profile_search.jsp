@@ -46,9 +46,9 @@
         <option value="840">United States</option>
         <rsc:iterator list="<%=countries%>" id="resultRow">
           <% 
-            int countryCode = resultRow.getStringItem("country_code");
+            String countryCode = resultRow.getStringItem("country_code");
             if(countryCode == null || countryCode.equals(840))continue;//put the US first for convenience 
-            %>
+          %>
           <option value="<rsc:item name="country_code" row="<%=resultRow%>"/>"><rsc:item name="country_name" row="<%=resultRow%>"/></option>
         </rsc:iterator>
         </select>
