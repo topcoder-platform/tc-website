@@ -1,9 +1,4 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page import="com.topcoder.web.privatelabel.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
-<%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
-<jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.SimpleRegInfo" scope="session" />
+<%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -15,25 +10,9 @@
 
 <body>
 
-<!-- TCO Header -->
-
-<a name="top_page"></a>
-<!--
-            <object 
-            type="application/x-shockwave-flash"
-            data="/i/tournament/vcc03/vcc03.swf"
-            width="100%"
-            height="125"
-            border="0">           
-            <param name="movie" value="/i/tournament/vcc03/vcc03.swf" />
-            <param name="quality" value="high" />
-            <param name="salign" value="t">
-            </object>
--->
-       <img src="/i/tournament/vcc03/vcc03.jpg" width="750" height="120" border="0"/>
-       <area shape="rect" alt="TC" coords="1,1,243,85" href="/" />
-
-
+<jsp:include page="../top.jsp" >
+    <jsp:param name="level1" value="review_board"/>
+</jsp:include>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
@@ -43,12 +22,12 @@
 <!-- Gutter Ends -->
 
 <!-- Left Column Begins-->
-         <td>
-         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
-         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
-         <img src="/i/clear.gif" width="180" height="40" border="0"/>
-         </p>
-         </td>         
+        <td width="180">
+            <jsp:include page="../includes/global_left.jsp">
+                <jsp:param name="level1" value="review_board"/>
+                <jsp:param name="level2" value="competition"/> 
+            </jsp:include>
+        </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
@@ -58,18 +37,12 @@
 <!-- Center Column Begins -->  
         <td class="bodyText" width="100%">
 
-<!-- Tab bar links-->
-<jsp:include page="verizonLinks.jsp" >
-   <jsp:param name="selectedTab" value="overview"/>
-</jsp:include>
-
-<!-- Tab bar sublinks-->
-<jsp:include page="verizonSublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
-</jsp:include>
-
-
+<!--CRPF Header-->
+            <table align="center">
+               <tr>
+                  <td><img src="/i/tournament/crpf03/crpf_banner.gif" width="601" height="152" border="0" /></td>
+               </tr>
+            </table>
 
             <blockquote>
             <h2>The Best of the Best</h2>
