@@ -87,14 +87,16 @@ public final class TourneyRegServlet extends HttpServlet {
                 }
                 try {
                     dataRequest = new Request();
-                    dataRequest.setContentHandle("invitational_info");
+//                    dataRequest.setContentHandle("invitational_info");
+                    dataRequest.setContentHandle("collegiate_info");
                     dataRequest.setProperty("cr", "" + nav.getUserId());
                     dataRequest.setProperty("rd", "" + roundId);
                     dataRequest.setProperty("cd", "" + contestId);
                     transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                     resultMap = transDai.getData(dataRequest);
-                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
-                    if (rsc.getItem(0, "is_eligible").toString().trim().equals("true")) {
+//                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
+                    rsc = (ResultSetContainer) resultMap.get("Collegiate_Eligibility");
+                    if (rsc.getItem(0, "is_eligible").toString().trim().equals("T")) {
                         UtilHome uHome = (UtilHome) ctx.lookup(ApplicationServer.UTIL);
                         Util util = uHome.create();
                         util.registerForTourny(nav.getUserId(), intContestId, intRoundId);
@@ -121,8 +123,8 @@ public final class TourneyRegServlet extends HttpServlet {
     /**
      * Forwards to the navigation error page.
      *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
+     * @param  request the servlet request object
+     * @param  response servlet response object
      *
      * @throws ServletException
      */

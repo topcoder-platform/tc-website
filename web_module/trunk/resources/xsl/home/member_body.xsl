@@ -384,7 +384,7 @@
 
     <!-- My Stats Ends -->
 <img src="/i/clear.gif" alt="" width="1" height="1" border="0"/><br/>
-<table border="0" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
+<table border="1" cellspacing="0" cellpadding="0" width="100%" bgcolor="#FFFFFF">
   <tr>
     <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
     <td VALIGN="top" WIDTH="1" bgcolor="#000000"><A HREF="/?&amp;t=tournaments&amp;c=tccc03_sched"><IMG SRC="/i/tournament/tccc03/tccc03_home.gif" ALT="" WIDTH="138" HEIGHT="90" BORDER="0"/></A></td>
@@ -397,6 +397,48 @@
 for more information.<BR/><BR/>
     </td>
     <td VALIGN="top" WIDTH="1"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></td>
+  </tr>
+
+  <tr>
+    <td VALIGN="top" WIDTH="1" COLSPAN="4">
+      <xsl:choose>
+      <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/is_eligible='T'">
+        <xsl:choose>
+        <xsl:when test="/TC/HOME/CollegiateInfo/IsRegistered='1'">
+          bully for you, you're registered.
+        </xsl:when>
+        <xsl:otherwise>
+          doh, you are eligible but not yet registered       
+          <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462">register</A>
+        </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:choose>
+        <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/has_enough_ratings='F'">
+          you don't have enough ratings, compete
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:choose>
+          <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/has_recent_competition='F'">
+            you haven't competed recently, compete
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:choose>
+            <xsl:when test="/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/is_student='F'or/TC/HOME/CollegiateInfo/Collegiate_Eligibility/Info/in_school='F'">
+              you are not a student, you can not compete
+            </xsl:when>
+            <xsl:otherwise>
+              something is wrong
+            </xsl:otherwise>
+            </xsl:choose>
+          </xsl:otherwise>
+          </xsl:choose>
+        </xsl:otherwise>
+        </xsl:choose>
+      </xsl:otherwise>
+      </xsl:choose>
+    </td>
   </tr>
 </table>
 

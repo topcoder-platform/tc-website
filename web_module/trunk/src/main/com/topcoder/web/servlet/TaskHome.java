@@ -123,18 +123,23 @@ public final class TaskHome {
                     homeTag.addTag(rsc.getTag("Div2TopScorers", "Coder"));
 
                     dataRequest = new Request();
-                    dataRequest.setContentHandle("invitational_info");
+//                    dataRequest.setContentHandle("invitational_info");
+                    dataRequest.setContentHandle("collegiate_info");
                     dataRequest.setProperty("cr", "" + nav.getUserId());
-                    dataRequest.setProperty("rd", "4320");
-                    dataRequest.setProperty("cd", "4320");
+                    dataRequest.setProperty("rd", "4462");
+                    dataRequest.setProperty("cd", "4462");
                     transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                     resultMap = transDai.getData(dataRequest);
-                    RecordTag invitationalInfo = new RecordTag("InvitationalInfo");
-                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
-                    invitationalInfo.addTag(rsc.getTag("Invitational_Eligibility", "Info"));
+//                    RecordTag invitationalInfo = new RecordTag("CollegiateInfo");
+                    RecordTag collegiateInfo = new RecordTag("CollegiateInfo");
+                    rsc = (ResultSetContainer) resultMap.get("Collegiate_Eligibility");
+                    collegiateInfo.addTag(rsc.getTag("Collegiate_Eligibility", "Info"));
+//                    RecordTag invitationalInfo = new RecordTag("InvitationalInfo");
+//                    rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
+//                    invitationalInfo.addTag(rsc.getTag("Invitational_Eligibility", "Info"));
                     rsc = (ResultSetContainer) resultMap.get("Is_Registered");
-                    invitationalInfo.addTag(new ValueTag("IsRegistered", rsc.getItem(0, "is_registered").toString()));
-                    homeTag.addTag(invitationalInfo);
+                    collegiateInfo.addTag(new ValueTag("IsRegistered", rsc.getItem(0, "is_registered").toString()));
+                    homeTag.addTag(collegiateInfo);
 
 /*
                     dataRequest = new Request();
