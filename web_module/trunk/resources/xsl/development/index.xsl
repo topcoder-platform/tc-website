@@ -67,6 +67,22 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
+Project: <A HREF="/index?t=development&amp;c=chat" CLASS="statTextBig">Moderated Chat Session</A><BR/>
+Start Date: May 3, 2002<BR/>
+End Date: July 17, 2002<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: May 3, 2002 12:00 PM EDT<BR/>
+</P>
+
+<P>
+Project: <A HREF="/index?t=development&amp;c=team" CLASS="statTextBig">Teams</A><BR/>
+Start Date: May 7, 2002<BR/>
+End Date: July 12, 2002<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: May 3, 2002 12:00 PM EDT<BR/>
+</P>
+
+<P>
 Project: <A HREF="/index?t=development&amp;c=notify" CLASS="statTextBig">Notification Component</A><BR/>
 Start Date: May 3, 2002<BR/>
 End Date: May 28, 2002<BR/>
