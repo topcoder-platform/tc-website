@@ -127,7 +127,6 @@ function openWin(url, name, w, h) {
 
                         </form>
                         <br/>
-                        <br/>
                         If you are not currently a TopCoder member or do not want to use your TopCoder account, please click <a href="<%=sessionInfo.getServletPath()%>?&module=GoogleReg&cid=1865&eid=1">here</a>.
                         </font>
                         </p>
