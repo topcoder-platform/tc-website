@@ -128,23 +128,21 @@
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
 <!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
-<IMG SRC="/i/m/KaiEl_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
-By&#160;KaiEl<BR/><I>[TC] Member</I><BR/></TD>
+<IMG SRC="/i/m/polgara_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>
+By&#160;polgara<BR/><I>[TC] Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
 <A CLASS="bodyGeneric">
-  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_080702</xsl:attribute>
-  <B>Match Strategy</B></A><BR/>
-<I>"If you take it slow you'll move up."</I><BR/>
-August 7, 2002<BR/>
+  <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_082102</xsl:attribute>
+  <B>Wireless Woes and Winners</B></A><BR/>
+<!-- <I>"If you take it slow you'll move up."</I><BR/> -->
+August 21, 2002<BR/>
 
 <P>
-If you ask most coders about their strategy for TopCoder matches, they'll probably 
-answer with something like "score a lot of points" or "code the problems correctly." 
-This isn't chess after all; it's computer programming. No need for deep strategy here, 
-just code quickly and accurately. Dig a little deeper, though, and you'll find that little 
-differences in style and approach can be all that separates a top-tier coder from a 
-low-level gray-name...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_080702</xsl:attribute>full&#160;story</A></P>
+I have a laptop with a wireless card in it. Before you get jealous, you should know that the range 
+is 150 km (100 miles) from the core Toronto area, and it is SLOW!  Dialing-up and pcanywhere-ing 
+to my machine will waste anywhere from 2-4 minutes in connection time, while performing any routine 
+tasks will bring back unwelcome memories of a 300-baud modem...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=feat_082102</xsl:attribute>full&#160;story</A></P>
 <!-- <P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P> -->
   </TD>
     <TD VALIGN="top" WIDTH="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -185,13 +183,13 @@ Wednesday, August 12, 2002<BR/><BR/>
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="25%" NOWRAP="0" HEIGHT="15">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#leaders</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=index#leaders</xsl:attribute>
         Div. Leaders
       </A>
     </TD>
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="35%" NOWRAP="0">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview#problem_stats</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=index#problem_stats</xsl:attribute>
         Problem Stats
       </A>
     </TD> 
@@ -210,8 +208,8 @@ Wednesday, August 12, 2002<BR/><BR/>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
     <!-- <TD VALIGN="top" WIDTH="50%"><xsl:call-template name="last_srm"/></TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
-    <TD VALIGN="middle" CLASS="bodyText" WIDTH="100%">    
-       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFF99">  
+    <TD VALIGN="middle" CLASS="bodyText" WIDTH="100%"> &#160;   
+       <!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFF99">  
           <TR>
              <TD VALIGN="middle" HEIGHT="17" ALIGN="center" COLSPAN="5" CLASS="bodyText"><B>Best/Worst Rating Change</B></TD> 
           </TR>
@@ -242,9 +240,8 @@ Wednesday, August 12, 2002<BR/><BR/>
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;&#160;snapper</TD>
              <TD VALIGN="middle" CLASS="bodyText" ALIGN="center">-230</TD>
              <TD VALIGN="middle" CLASS="bodyText" NOWRAP="0">&#160;Room 10</TD>
-          </TR>
-          <!-- <TR><TD VALIGN="middle" HEIGHT="15" COLSPAN="5" BGCOLOR="#FFFFFF" CLASS="smallText">&#160;Login is required to view room details.</TD></TR>   -->                                
-       </TABLE>   
+          </TR>                                
+       </TABLE> -->  
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
@@ -258,10 +255,10 @@ Wednesday, August 12, 2002<BR/><BR/>
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
-    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;Logan<BR/><I>[TC]&#160;Member</I><BR/></TD>
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/slavik_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/> By&#160;slavik<BR/><I>[TC]&#160;Member</I><BR/></TD>
     <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2">
-    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 108</B></FONT>
+    <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>SRM 109</B></FONT>
     </TD>
   </TR>      
   <TR>    
@@ -278,22 +275,22 @@ Wednesday, August 12, 2002<BR/><BR/>
     <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD> -->
     <TD VALIGN="top" CLASS="bodyText" WIDTH="100%">
       <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm108_prob</xsl:attribute>
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm109_prob</xsl:attribute>
         <B>Problem Set Analysis &amp; Opinion</B>
       </A><BR/>
-<P>This set of problems was unusually easy, and correct solutions mostly came 
-about from an ability to follow directions. Surprisingly, considering the low 
-level of difficulty of the problems, only one person (out of 167) successfully 
-solved the Division-II Level 3 problem. The remaining problems generally showed 
-high success rates. </P>
-<P>Despite the easiness of the problems, only four coders solved all three of 
-their problems (all in Division-I): <B>bstanescu</B>, with a final score of 
-1421.7; <B>Yarin</B> with 1347.74; <B>ZorbaTHut</B> with 1302.99; and 
-<B>ShakeSpace</B> with 1077.79. In Division-II the competition was much more 
-intense, with most room leaders scoring in the 600s. </P>
 <P>
-<A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm108_prob</xsl:attribute>get&#160;analysis
+SRM109 was unusually easy of both divisions. All problems were clearly stated with no hidden cases or 
+ambiguities. There were 29 out of 184 (15.76%) coders who have submitted all the problems correctly in 
+Division-II. Division-I had 99 coders participating and there were 12 coders who have submitted correct 
+solutions for all three problems. 
+</P>
+
+<P><B>ZorbaTHut</B> was Division-I leader with impressive 1611.91 points. It took him only 31 minutes to complete 
+all problems and become a Division-I winner. It took 14:27 minutes for <B>javaisthe_unwin</B> to complete all 
+problems in Division-II to become a division leader with impressive 1676.42 points. This victory places him 
+well into Div-I with 1826 rating points (1826 rating counts as 21st impressive debut overall)
+...<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm109_prob</xsl:attribute>get&#160;analysis
       </A></P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
@@ -493,3 +490,4 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
 
   </xsl:template>
 </xsl:stylesheet>
+
