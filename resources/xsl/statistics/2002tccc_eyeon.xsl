@@ -118,7 +118,7 @@ Of the four MIT students to make the Regional Finals, only <A HREF="/?t=statisti
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="ColinMacLeod"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;Southeast Region</TD>
@@ -290,7 +290,7 @@ Although <A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=252076" CLASS
             
             <!-- begin fav -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="4"><A NAME="malpt"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD>
             </TR>                                              
             <TR>
               <TD VALIGN="middle" COLSPAN="4" HEIGHT="15" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;West Region</TD>
