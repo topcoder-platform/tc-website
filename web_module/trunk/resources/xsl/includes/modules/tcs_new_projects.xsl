@@ -178,7 +178,7 @@
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 								<td background="" class="statText" colspan="2">There are no new Application Projects this week.</td>
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-							</tr> -->
+							</tr>
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
 							<tr valign="top">
@@ -188,7 +188,7 @@
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 							</tr>							
 							
-							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr> -->
 
 							<tr valign="top">
 								<td background="" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
