@@ -61,7 +61,7 @@ public class Controller
             CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());
             nav.setCoderSessionInfo(info);
 
-            if (!nav.isLoggedIn())
+            if (nav.isIdentified() && !nav.isLoggedIn())
                 throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
 
 
