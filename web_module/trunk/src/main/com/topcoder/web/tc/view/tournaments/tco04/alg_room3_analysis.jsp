@@ -21,13 +21,13 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Page Title</p>
+        <p class=pageTitle>reid takes the hard problem on his way to the finals</p>
 
 		<img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
 		<div class="leadPhoto">
 		<span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos">See more photos!</a></p></span>
-		<img src="/i/tournament/tco04/onsite_photos/room1.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-		<span class="leadPhotoCaption">Caption<br/><br/></span>
+		<img src="/i/tournament/tco04/onsite_photos/shot_room3.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+		<span class="leadPhotoCaption">Welcome to the finals reid<br/><br/></span>
 		</div>
 
 		<a href="/stat?c=member_profile&cr=287269"><img src="/i/m/legakis_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
@@ -38,6 +38,14 @@
 		<br/><br/>
 		</p>
 <p>
+The last event of the day was semifinal round 3.  haha was the first to submit, solving the 200 point problem in about 7 minutes. snewman was right on his tail though, submitting about 1 minute later.  Three other coders submitted within 10 minutes, and they all moved on to the medium.  reid was quickest, but snewman made it a race, getting 0.08 fewer points on the first two problems.
+<br/><br/>
+After an hour of coding, snewman became the first coder of the event to submit all three problems, giving him a total of over 1100 points.  reid opened the hard later though, and the audience watched with baited breath as reid's potential score slowly ticked down below snewman, and then to 50 points below snewman's score before he submitted, a hair over 50 points behind.
+<br/><br/>
+At this point, snewman controlled his own destiny, as the problems didn't give much opportunity for challenging.  However, his solution wasn't quite fast enough on the medium, and so reid advanced to the finals, once again.
+<br/><br/>
+Tomorrow, bstanescu, antimatter, monsoon, John Dethridge, snewman, and haha will vie for the final spot in the finals, where tomek, SnapDragon, and reid are waiting.
+<br/><br/>
 <span class=bodySubtitle>Unblur</span>
 
 <p>
