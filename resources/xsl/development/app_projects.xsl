@@ -70,21 +70,47 @@
 					</td>
 				</tr>
 					-->		
-				<tr>
-					<td valign="top" class="statText" width="50%">
-						<p>
-						Project: <a class="statText" href="/index?t=development&amp;c=screening">Online Review</a><br/>
-						Posted: 12.09.2002<br/>
-						Inquiry Deadline: 12.14.2002<br/>
-						</p>   
-                        <P><BR/></P>
-					</td>
+                <tr>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" colspan="3"><a name="design"></a><h1 class="devSubhead">Open Application Design Projects</h1></td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
 
-					<td valign="top" class="statText" width="50%">&#160;   
-					</td>
-				</tr> 
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
+
+                    <td background="/i/steel_bluebv_bg.gif" class="statText">Application Design Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Payment*</td>
+                    <td background="/i/steel_bluebv_bg.gif" class="statText" align="center">Submit by</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="18" border="0" /></td>
+                </tr>
+
 				
-														
+                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                <tr valign="top">
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    
+                    <!--
+                    <td background="" class="statText">
+                        <a class="statText" href="http://www.topcoder.com">Online Review
+                    <!--
+                            <xsl:attribute name="href"> 
+                                <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
+                            </xsl:attribute><xsl:value-of select="./component_name"/>
+                            <xsl:if test="number(./version) &gt;  number('1')">
+                                version <xsl:value-of select="./version"/>
+                            </xsl:if>
+                            -->
+                        </a>
+                    </td>
+                    <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
+                    <td background="" class="statText" align="center">$1,500.00</td>
+                    <td background="" class="statText" align="center">03.03.03</td>
+                    <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
 			</table>
 				
 			<table border="0" cellspacing="0" cellpadding="0" background="/i/steel_darkblue_bg.gif" bgcolor="#000033" width="100%">
