@@ -116,6 +116,7 @@
     int messageCount = forum.getMessageCount();
     String handle = forum.getUser().getUsername();
 %>
+String sLink = "/stat?c=member_profile&cr=";
                       <TR>
                         <TD VALIGN="top" class="statText" HEIGHT="13">
                           <A HREF="/rtables/viewForum.jsp?forum=<%= forumID %>&mc=<%=messageCount%>" class="statText"><%= forumName %></A>
@@ -125,6 +126,7 @@
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                         <TD VALIGN="top" class="statText"><I><%=(forumDescription!=null)?forumDescription:"&nbsp;"%></I></TD>
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                        <TD VALIGN="top" ALIGN="left" CLASS="statText"><tc:ratingImage link='<%=sLink + coderIDs[j][i]%>' bg='B' cid='<%=Integer.parseInt(coderIDs[j][i])%>' /></TD>
                         <TD VALIGN="top" ALIGN="left" CLASS="statText"><%=dateFormatter.format(forum.getModifiedDate())+(handle==null?"":" by "+getUserDisplay(forum.getUser()))%></TD>
                       </TR>
     <TR>
