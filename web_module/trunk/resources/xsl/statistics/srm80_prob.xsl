@@ -153,7 +153,7 @@ the nearest competitor.
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
 	<TD CLASS="bodyText" ALIGN="right">95.28%</TD>
 	<TD CLASS="bodyText" ALIGN="right">80.26%</TD>
-	<TD CLASS="bodyText" ALIGN="right">185.33156</TD>
+	<TD CLASS="bodyText" ALIGN="right">185.33</TD>
 	<TD CLASS="bodyText" ALIGN="center">ZorbaTHut<BR/>239.67</TD> 
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
@@ -162,7 +162,7 @@ the nearest competitor.
 	<TD CLASS="bodyText" ALIGN="right">500</TD>
 	<TD CLASS="bodyText" ALIGN="right">78.11%</TD>
 	<TD CLASS="bodyText" ALIGN="right">32.19%</TD>
-	<TD CLASS="bodyText" ALIGN="right">302.54666</TD>
+	<TD CLASS="bodyText" ALIGN="right">302.55</TD>
 	<TD CLASS="bodyText" ALIGN="center">Garzahd<BR/>446.88</TD> 
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
