@@ -2,8 +2,10 @@
 <%@ page import="com.topcoder.web.privatelabel.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="/privatelabel.tld" prefix="pl" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <jsp:usebean id="regInfo" class="com.topcoder.web.privatelabel.model.FullRegInfo" scope="session" />
+<jsp:usebean id="questionList" class="java.util.List" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
@@ -31,7 +33,7 @@
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Registration</p>
-         <p>Registration is open until 12:00 PM (noon) on Sunday, February 15, 2004.</p>
+         <p>Registration is open until 6:00 PM on Tuesday, Match 1st, 2005.</p>
 
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="<%=Constants.DC05_REG_CONFIRM%>"/>
@@ -95,7 +97,22 @@
                    </td>
                 </tr>
 
+                <pl:questionIterator id="question" list="<%=questionList%>">
                 <tr>
+                    <td colspan="2" class="dc_errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="dc_regTableQuestion">
+                        <%=question.getText()%>
+                    </td>
+                    <td class="dc_regTableAnswer">
+                        <pl:demographicInput question="<%=question%>"/>
+                    </td>
+                </tr>
+                </pl:questionIterator>
+                
                 <tr>
                    <td class="dc_regTableQuestion"></td>
                    <td class="dc_regTableAnswer"><a class="bodyText_link" href="javascript: document.regForm.submit();">Submit</a>

@@ -51,6 +51,7 @@ public class Reg extends FullReg {
             List l = getQuestionList(((FullRegInfo) info).getCoderType());
             Collections.sort(l);
             getRequest().setAttribute("questionList", l);
+            log.error("RYAN:" + l.size());
         } catch (Exception e) {
             throw new TCWebException(e);
         }
