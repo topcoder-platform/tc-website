@@ -55,7 +55,7 @@
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
-<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>&quot;Graphics Programming for Motion Capture&quot; </B></FONT><BR/>
+<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Graphics Programming for Motion Capture</B></FONT><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/><BR/> -->
 Wednesday, October 9, 2002<BR/>
 By&#160;Penwiper,<I>TopCoder Member</I><BR/>
