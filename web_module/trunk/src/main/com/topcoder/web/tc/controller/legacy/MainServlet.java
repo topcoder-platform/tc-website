@@ -21,7 +21,6 @@ import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.TCSubject;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
@@ -72,17 +71,6 @@ public final class MainServlet extends HttpServlet {
     }
 
 
-    private void goTo(String addr, HttpServletRequest request, HttpServletResponse response) {
-        try {
-            log.debug("goTo called...");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(addr);
-            dispatcher.forward(request, response);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         if (!xslCaching) {
@@ -100,7 +88,6 @@ public final class MainServlet extends HttpServlet {
 
 
     private void processCommands(HttpServletRequest request, HttpServletResponse response) {
-        PrintWriter out = null;
         ServletOutputStream o = null;
         OutputStream outputStream = null;
         GZIPOutputStream gzipStream = null;
@@ -327,14 +314,7 @@ public final class MainServlet extends HttpServlet {
                  }
             } catch (Exception e) {
                 e.printStackTrace();
-                try {
-                    showInternalError(request, response);
-                } catch (Exception end) {
-                    try {
-                        goTo("general_error.html", request, response);
-                    } catch (Exception ignore) {
-                    }
-                }
+                showInternalError(response);
             }
         } catch (Exception e) {
             try {
@@ -342,18 +322,7 @@ public final class MainServlet extends HttpServlet {
             } catch (Exception ex) {
                 log.fatal("forwarding to error page failed", e);
                 ex.printStackTrace();
-
-                response.setStatus(500);
-                try {
-                    PrintWriter ot = response.getWriter();
-                    ot.println("<html><head><title>Internal Error</title></head>");
-                    ot.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
-                    ot.println("</body></html>");
-                    ot.flush();
-                } catch (IOException ie) {
-                    //what more can i do captain?
-                    ie.printStackTrace();
-                }
+                showInternalError(response);
             }
         } finally {
             session = request.getSession(false);
@@ -427,47 +396,21 @@ public final class MainServlet extends HttpServlet {
     }
 
 
-    private void showInternalError(HttpServletRequest request, HttpServletResponse response)
-            throws TCException {
-        PrintWriter out = null;
-        String HTMLString = null;
-        XMLDocument document = null;
-        Navigation nav = null;
+    private void showInternalError(HttpServletResponse response) {
+        response.setStatus(500);
         try {
-            String requestTask = Conversion.checkNull(request.getParameter("t"));
-            String requestCommand = Conversion.checkNull(request.getParameter("c"));
-            nav = new Navigation(request, response);
-            out = response.getWriter();
-            StringBuffer msg = new StringBuffer();
-            msg.append("\n***************");
-            msg.append("\nINTERNAL ERROR:");
-            msg.append("\n***************");
-            msg.append("\nTask = ");
-            msg.append(requestTask);
-            msg.append("\nCommand = ");
-            msg.append(requestCommand);
-            msg.append("\nUserId = ");
-            msg.append(nav.getUserId());
-            try {
-                msg.append("\nUserName = ");
-                msg.append(nav.getUser().getHandle());
-            } catch (Exception ignore) {
-            }
-            msg.append("\n***************");
-            log.debug(msg.toString());
-            document = new XMLDocument("TC");
-            addURLTags(nav, request, response, document);
-            HTMLString = htmlMaker.render(document, TCServlet.INTERNAL_ERROR_PAGE);
-            out.print(HTMLString);
-        } catch (Exception e) {
-            throw new TCException("MainServlet.showInternalError:" + e.getMessage());
+            PrintWriter ot = response.getWriter();
+            ot.println("<html><head><title>Internal Error</title></head>");
+            ot.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            ot.println("</body></html>");
+            ot.flush();
+        } catch (IOException ie) {
+            //what more can i do captain?
+            ie.printStackTrace();
         }
     }
 
 
-    /*********************************************************************************
-     SETUP/CLEANING METHODS...
-     *********************************************************************************/
 
 
 
