@@ -776,9 +776,8 @@ public final class TaskDevelopment {
         log.debug("creating user");
         UserPrincipal up = principalMgr.getUser(userId);
 
-        Context homeBindings = new InitialContext();
         ProjectTrackerHome ptHome = (ProjectTrackerHome) PortableRemoteObject.narrow(
-                homeBindings.lookup(ProjectTrackerHome.EJB_REF_NAME),
+                ctx.lookup(ProjectTrackerHome.EJB_REF_NAME),
                 ProjectTrackerHome.class);
         ProjectTracker pt = ptHome.create();
 
