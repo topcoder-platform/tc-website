@@ -70,21 +70,32 @@
                         </table>
 
                         <table border="0" cellspacing="10" cellpadding="0" width="100%">
+                        
 
-
-
-
-<!-- Google begins -->
+<!-- Yahoo begins-->
                             <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=google"><img src="/i/es/google_sm.gif" width="143" height="59" border="0"/></a></td>
-                                <td width="99%" class="bodyText">Google is looking for exceptional people who like to develop innovative new products, especially software 
-                                    engineers and tech-savvy product managers. Are you exceptional at what you do? 
-                                    <a href="/?&amp;t=tces&amp;c=google" class="bodyText">Click here</a> to view current 
-                                    positions available at Google.<br /><br /></td>
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=yahoo"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></a></td>
+                                <td width="99%" class="bodyText">You know Yahoo! as an Internet media company, and the hottest guide to everything on the 
+                                World Wide Web, but what can you do at a company like this? How can you contribute to the "behind the scenes" action? 
+                                Yahoo! has openings for <a href="/?&amp;t=tces&amp;c=yahoo" class="bodyText">Software Engineers.</a><br /><br /></td>
                             </tr>
-<!-- Google ends -->
+<!-- Yahoo ends -->                            
+
+							<tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+
+
+<!-- PayPal begins-->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=paypal"><img src="/i/es/paypal/paypal_logo.gif" width="150" height="50" alt="PayPal" border="0" /></a></td>
+                                <td width="99%" class="bodyText">PayPal is looking for talented professionals who thrive in a fast paced, exciting environment, and want to constantly 
+                                improve a service used by millions each month. PayPal careers offer competitive salary and benefits, an exciting and high-profile product, outstanding 
+                                career and growth opportunities and an energetic, team-oriented atmosphere. <a href="/?&amp;t=tces&amp;c=paypal" class="bodyText">Join</a> the online payments revolution!<br /><br /></td>
+                            </tr>
+<!-- PayPal ends -->
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+                        
+                            
 
 <!-- Nvidia begins-->
                             <tr valign="top">
@@ -98,27 +109,17 @@
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 
-<!-- PayPal begins-->
+
+
+<!-- Google begins -->
                             <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=paypal"><img src="/i/es/paypal/paypal_logo.gif" width="150" height="50" alt="PayPal" border="0" /></a></td>
-                                <td width="99%" class="bodyText">PayPal is looking for talented professionals who thrive in a fast paced, exciting environment, and want to constantly 
-                                improve a service used by millions each month. PayPal careers offer competitive salary and benefits, an exciting and high-profile product, outstanding 
-                                career and growth opportunities and an energetic, team-oriented atmosphere. <a href="/?&amp;t=tces&amp;c=paypal" class="bodyText">Join</a> the online payments revolution!<br /><br /></td>
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=google"><img src="/i/es/google_sm.gif" width="143" height="59" border="0"/></a></td>
+                                <td width="99%" class="bodyText">Google is looking for exceptional people who like to develop innovative new products, especially software 
+                                    engineers and tech-savvy product managers. Are you exceptional at what you do? 
+                                    <a href="/?&amp;t=tces&amp;c=google" class="bodyText">Click here</a> to view current 
+                                    positions available at Google.<br /><br /></td>
                             </tr>
-<!-- PayPal ends -->
-                        
-                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
-
-<!-- Yahoo begins-->
-                            <tr valign="top">
-                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=yahoo"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></a></td>
-                                <td width="99%" class="bodyText">You know Yahoo! as an Internet media company, and the hottest guide to everything on the 
-                                World Wide Web, but what can you do at a company like this? How can you contribute to the "behind the scenes" action? 
-                                Yahoo! has openings for <a href="/?&amp;t=tces&amp;c=yahoo" class="bodyText">Software Engineers.</a><br /><br /></td>
-                            </tr>
-<!-- Yahoo ends -->                            
-
-
+<!-- Google ends -->
 
 
                         </table>
