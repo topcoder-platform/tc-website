@@ -5,7 +5,6 @@
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
-<% ResultSetContainer results = memberSearch.getResults();%>
 
 <html>
 
@@ -16,16 +15,6 @@
 <jsp:include page="../script.jsp"/>
 
 <script language="JavaScript"><!--
-  function next() {
-    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()+Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.submit();
-  }
-  function previous() {
-    document.searchForm.<%=DataAccessConstants.START_RANK%>.value=<%=results.getStartRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.<%=DataAccessConstants.END_RANK%>.value=<%=results.getEndRow()-Constants.SEARCH_SCROLL_SIZE%>;
-    document.searchForm.submit();
-  }
                         var search=document.searchForm;
                         function submitEnter(e) {
                             var keycode;
