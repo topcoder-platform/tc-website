@@ -125,9 +125,9 @@
                             
                         <p><strong>Winning Designer</strong><br />
                         Royalty Percentage - 25%</p>
-            <xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment,'$','')" />  
-            <xsl:variable name="numericFirstPayment" select="translate(/TC/DEVELOPMENT/first_payment,'$','')" />  
-            <xsl:variable name="numericSecondPayment" select="translate(/TC/DEVELOPMENT/second_payment,'$','')" />  
+            <xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment,'$,','')" />  
+            <xsl:variable name="numericFirstPayment" select="translate(/TC/DEVELOPMENT/first_payment,'$,','')" />  
+            <xsl:variable name="numericSecondPayment" select="translate(/TC/DEVELOPMENT/second_payment,'$,','')" />  
             
                         <p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
                            First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
