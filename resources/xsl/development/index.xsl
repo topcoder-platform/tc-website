@@ -117,6 +117,14 @@ Project: <A HREF="/index?t=development&amp;c=unique_key" CLASS="statText">Unique
 Component Posting: 11/8/2002<BR/>
 Component Submission Due Date: 11/26/2002<BR/>
 </P>
+        
+<P>
+Project: <A HREF="/index?t=development&amp;c=object_pool" CLASS="statText">Object Pool Component Design</A><BR/>
+Component Posting: 10/25/2002<BR/>
+Component Submission Due Date: 11/11/2002<BR/>
+Member Selection: Open<BR/>
+</P>   
+
         </TD>
     </TR>
     <TR><TD CLASS="statText"><B>Closed Postings</B></TD></TR>	
@@ -126,35 +134,28 @@ Component Submission Due Date: 11/26/2002<BR/>
 Project: <A HREF="/index?t=development&amp;c=utg" CLASS="statText">Unit Test Generator Component Design</A><BR/>
 Component Posting: 10/25/2002<BR/>
 Component Submission Due Date: 11/7/2002<BR/>
-Member Selection: Open<BR/>
+Member Selection: Closed<BR/>
 </P>   
 
 <P>
 Project: <A HREF="/index?t=development&amp;c=timer" CLASS="statText">Timer Component Design</A><BR/>
 Component Posting: 10/25/2002<BR/>
 Component Submission Due Date: 11/7/2002<BR/>
-Member Selection: Open<BR/>
-</P>   
-        
-<P>
-Project: <A HREF="/index?t=development&amp;c=object_pool" CLASS="statText">Object Pool Component Design</A><BR/>
-Component Posting: 10/25/2002<BR/>
-Component Submission Due Date: 11/11/2002<BR/>
-Member Selection: Open<BR/>
+Member Selection: Closed<BR/>
 </P>   
 
 <P>
 Project: <A HREF="/index?t=development&amp;c=log_interface" CLASS="statText">Logging Wrapper Component Design</A><BR/>
 Component Posting: 10/25/2002<BR/>
 Component Submission Due Date: 11/6/2002<BR/>
-Member Selection: Open<BR/>
+Member Selection: Closed<BR/>
 </P>   
 
 <P>
 Project: <A HREF="/index?t=development&amp;c=email_engine" CLASS="statText">Email Engine Component Design</A><BR/>
 Component Posting: 10/25/2002<BR/>
 Component Submission Due Date: 11/6/2002<BR/>
-Member Selection: Open<BR/>
+Member Selection: Closed<BR/>
 </P>        
         </TD>
 		<TD  VALIGN="top" CLASS="statText">
