@@ -12,7 +12,7 @@ public class SimpleUser implements User {
     private String password;
 
     /** Construct a User object having the given values. */
-    public SimpleUser(long userid, String username, String password) {
+    public SimpleUser(long id, String username, String password) {
         this.id = id;
         this.username = username;
         this.password = password;
