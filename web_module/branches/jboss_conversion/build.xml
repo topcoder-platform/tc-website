@@ -73,8 +73,14 @@
          <pathelement location="${jars.dir}/itext-1.1.jar"/>
 
          <!-- these are just so we can deploy the tcs ejbs on our side.  we can wack when we don't anymore-->
-         <pathelement location="${jars.dir}/tcs/render.jar"/>
+         <pathelement location="${jars.dir}/render.jar"/>
          <pathelement location="${jars.dir}/tcs/forum.jar"/>
+         <pathelement location="${jars.dir}/tcs/logging_wrapper.jar"/>
+         <pathelement location="${jars.dir}/tcs/simple_cache.jar"/>
+         <pathelement location="${jars.dir}/tcs/refreshable_cache.jar"/>
+         <pathelement location="${jars.dir}/tcs/email_engine.jar"/>
+         <pathelement location="${jars.dir}/searchengine.jar"/>
+         <pathelement location="${jars.dir}/tcs/base_exception.jar"/>
 
      </path>
 
@@ -120,7 +126,6 @@
              debug="${debug}"
              deprecation="${deprecation}">
              <include name="com/topcoder/dde/**"/>
-             <include name="com/topcoder/util/**"/>
              <include name="com/topcoder/web/common/**"/>
              <exclude name="com/topcoder/web/common/render/**"/>
              <exclude name="com/topcoder/web/common/tag/**"/>
