@@ -1,5 +1,7 @@
 package com.topcoder.web.hs.model;
 
+import java.io.*;
+
 /**
  * This is not model.  Other JSPs use it to tell left_nav what submenu to render open.
  */

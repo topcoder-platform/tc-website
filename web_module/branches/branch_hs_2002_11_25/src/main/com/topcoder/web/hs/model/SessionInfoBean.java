@@ -1,5 +1,7 @@
 package com.topcoder.web.hs.model;
 
+import java.io.*;
+
 /**
  * Holds some details about the current user for the benefit of curious JSPs.
  */
