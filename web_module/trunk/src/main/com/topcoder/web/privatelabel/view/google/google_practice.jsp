@@ -70,9 +70,9 @@ body,td,font,p,a
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
 
                         <p><font size="-1"><br/>
-                        Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a> to Launch the Practive Arena as a Java Applet.
+                        Click <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,275);">here</a> to run the Practice Arena as a Java Applet.
                         <br/><br/>
-                        Click <a href="/contest/arena/ContestAppletGoogle.jnlp" target="_blank">here</a> to Load the Practice Arena as a Java Web Start Application.
+                        Click <a href="/contest/arena/ContestAppletGoogle.jnlp" target="_blank">here</a> to run the Practice Arena as a Java Web Start Application.
                         <br/><br/>
                         Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
                         </font></p>
