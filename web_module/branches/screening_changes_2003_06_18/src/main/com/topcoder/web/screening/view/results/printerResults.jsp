@@ -127,7 +127,7 @@
 
             <p></p>
 
-`            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
 		       <TD COLSPAN="10" VALIGN="top" CLASS="testTableTitle">TopCoder Stats</TD>
 	        </TR>
@@ -237,7 +237,7 @@
               <% for (int j=0; j<statementsA.size(); j++) { %>
                   <% problem = (ProblemInfo)statementsA.get(j); %>
                   <% solution = (SubmissionInfo)solutionA.get(j); %>
-                  <% if (!(solution.isSubmitted()||solution.isCompiled())) continue; %>
+                  <% //if (!(solution.isSubmitted()||solution.isCompiled())) continue; %>
                   <div style="page-break-before:always"/>
                   <%=j==0&&(solution.isSubmitted()||solution.isCompiled())?"<h3>Test Set A</h3>":""%>
                   <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
