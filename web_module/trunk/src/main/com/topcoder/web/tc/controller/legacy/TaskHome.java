@@ -38,6 +38,7 @@ public final class TaskHome {
         Context ctx = null;
         DataAccessInt dai = null;
         DataAccessInt transDai = null;
+        DataAccessInt cTransDai = null;
         Request dataRequest = null;
         ResultSetContainer rsc = null;
         Map resultMap = null;
@@ -75,6 +76,7 @@ public final class TaskHome {
                 ctx = TCContext.getInitial();
                 dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
                 transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                cTransDai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                 if (nav.isIdentified()) {
 
                     dataRequest = new Request();
@@ -172,7 +174,7 @@ public final class TaskHome {
 
                 dataRequest = new Request();
                 dataRequest.setContentHandle("recent_srm_survey_question");
-                resultMap = transDai.getData(dataRequest);
+                resultMap = cTransDai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("recent_srm_survey_question");
                 homeTag.addTag(rsc.getTag("SurveyInfo", "QuestionInfo"));
 
