@@ -35,16 +35,13 @@ public class Generator {
         try {
 
             Generator g = new Generator();
-            for (int i=0; i<colors.length; i++) {
-                for (int j=0; j<colors.length; j++) {
-                    for (int k=0; k<colors.length; k++) {
-                        if (i==0||j==0||k==0) {
-                            g.makeImage("./ri/"+colorNames[i]+colorNames[i]+colorNames[i]+".png",
-                                    new Color[] {colors[ADMIN], colors[ADMIN], colors[ADMIN]});
-                        } else {
-                            g.makeImage("./ri/"+colorNames[i]+colorNames[j]+colorNames[k]+".png",
-                                    new Color[] {colors[i], colors[j], colors[k]});
-                        }
+            g.makeImage("./ri/"+colorNames[ADMIN]+colorNames[ADMIN]+colorNames[ADMIN]+".png",
+                    new Color[] {colors[ADMIN], colors[ADMIN], colors[ADMIN]});
+            for (int i=1; i<colors.length; i++) {
+                for (int j=1; j<colors.length; j++) {
+                    for (int k=1; k<colors.length; k++) {
+                        g.makeImage("./ri/"+colorNames[i]+colorNames[j]+colorNames[k]+".png",
+                                new Color[] {colors[i], colors[j], colors[k]});
                     }
                 }
             }
