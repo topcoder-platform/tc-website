@@ -131,7 +131,7 @@ long ways(int x, int y){
             <h3>RookAttack<br/>
             <span class="bodyText">Used as: Division 1 - Level 2:</span></h3>
 
-            <img src="/contest/problem/rooks.png" align="left"/>
+            <img src="/contest/problem/RookAttack/rooks.png" align="left"/>
             <p>Speaking of sources and sinks, this problem is best solved using a max flow algorithm, though the reduction is a little tricky.  
             As in all max flow reductions, we'll start by adding a source node and a sink node.  Since we can have at most one rook per row, we 
             add a node corresponding to each row, and an edge from the source to each of these nodes, with capacity 1.  We also add a node 
@@ -141,7 +141,7 @@ long ways(int x, int y){
             row node to the column node for that location.  This has the effect of allowing us to place a rook at that location, which fills up the 
             capacity for the corresponding row and column.  As an example, consider the board to the left.</p>
             
-            <img src="/contest/problem/flow.png" align="right"/>
+            <img src="/contest/problem/RookAttack/flow.png" align="right"/>
             <p>From this board, we can construct the network to the right, where each edge has capacity 1.  Each edge from the row nodes to 
             the column nodes represents an empty space in the board.  So, since row 1, column 1 is empty, there is an edge from from the 
             row 1 node to the column 1 node.  If we run a max flow algorithm on this graph, we find the flow defined by the bold, red edges 
