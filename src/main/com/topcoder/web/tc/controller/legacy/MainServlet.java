@@ -450,8 +450,7 @@ public final class MainServlet extends HttpServlet {
             document.addTag(new ValueTag("Task", Conversion.checkNull(request.getParameter("t"))));
             document.addTag(new ValueTag("Command", Conversion.checkNull(request.getParameter("c"))));
             document.addTag(new ValueTag("Today", DateTime.getCurrentDate().getTime()));
-            DataCache cache = Cache.get();
-            document.addTag(new ValueTag("MemberCount", cache.getMemberCount()));
+            document.addTag(new ValueTag("MemberCount", nav.getSessionInfo().getMemberCount()));
             if (nav.isIdentified()) {
                 document.addTag(new ValueTag("UserId", nav.getUserId()));
                 document.addTag(new ValueTag("Handle", nav.getSessionInfo().getHandle()));
