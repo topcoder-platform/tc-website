@@ -5,28 +5,18 @@ import java.io.*;
 import javax.naming.*;
 import javax.transaction.*;
 import java.sql.*;
+import com.topcoder.server.util.TCResourceBundle;
 
 
 public class DBMS {
     
-    
-    //Databases
-    public static final int INFORMIX = 1;
-    public static final int POSTGRES = 2;
-    
-    public static final int DEV_DB = INFORMIX;
-    public static final int QA_DB = POSTGRES;
-    public static final int PROD_DB = POSTGRES;
-    
-    
-    //** MEMBER DEV **/
-    
-    public static int                   DB                           = INFORMIX;
-    //  public static String                INFORMIX_CONNECT_STRING      = "jdbc:informix-sqli://172.16.20.19:1526/informixoltp:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder";
-    public static String                INFORMIX_CONNECT_STRING      = "jdbc:informix-sqli://172.16.20.19:1526/projecttracker:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder";
-    public static String                INFORMIX_DW_CONNECT_STRING   = "jdbc:informix-sqli://172.16.20.19:1526/coderdevdw:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder";
-    
-    
+
+    private static final TCResourceBundle bundle = new TCResourceBundle("DBMS");    
+
+    private static String DEFAULT_INFORMIX_CONNECT_STRING = "jdbc:informix-sqli://172.16.20.25:1526/devoltp:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=coder";
+    private static String INFORMIX_CONNECT_STRING = getProperty("INFORMIX_CONNECT_STRING", DEFAULT_INFORMIX_CONNECT_STRING);
+    private final static String JDBC_DRIVER = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
+
     public final static String POOL_DRIVER              = "weblogic.jdbc.pool.Driver";
     public final static String INFORMIX_DRIVER          = "com.informix.jdbc.IfxDriver";
     public final static String JMA_INFORMIX_POOL        = "jdbc:weblogic:pool:JMAInformixPool";
@@ -43,8 +33,6 @@ public class DBMS {
     public final static String TOPIC                    = "contestTopic";
     public final static String PACTS_QUEUE              = "pactsQueue";
 
-    
-    
     // Sequence Ids
     public static final int JMA_SEQ                     = 1;
     public static final int CORPORATE_SEQ               = 2;
@@ -56,18 +44,17 @@ public class DBMS {
     public static final int EDUCATION_SEQ               = 8;
     public static final int RESPONSE_SEQ                = 9;
     public static final int PROBLEMSTATE_SEQ            = 11;
-  public static final int SECTOR_SEQ                  = 13;
+    public static final int SECTOR_SEQ                  = 13;
 
 
-  // Sequence ID's for PACTS
-  public static final int AFFIDAVIT_SEQ               = 50;
-  public static final int CONTRACT_SEQ                = 51;
-  public static final int NOTE_SEQ                    = 52;
-  public static final int PAYMENT_SEQ                 = 53;
-  public static final int PAYMENT_ADDRESS_SEQ         = 54;
-  public static final int PAYMENT_DETAIL_SEQ          = 55;
-  public static final int TAX_FORM_SEQ                = 56;
-
+    // Sequence ID's for PACTS
+    public static final int AFFIDAVIT_SEQ               = 50;
+    public static final int CONTRACT_SEQ                = 51;
+    public static final int NOTE_SEQ                    = 52;
+    public static final int PAYMENT_SEQ                 = 53;
+    public static final int PAYMENT_ADDRESS_SEQ         = 54;
+    public static final int PAYMENT_DETAIL_SEQ          = 55;
+    public static final int TAX_FORM_SEQ                = 56;
 
     public static final int PT_LOGIN_SEQ                = 20;
     public static final int PT_PROJ_SEQ                 = 21;
@@ -90,7 +77,15 @@ public class DBMS {
     // User types
     public static int CODER_USER_TYPE_ID                = 1;
     public static int SUBSCRIBER_USER_TYPE_ID           = 3;
-    
+
+
+    private static String getProperty(String key, String defaultValue) {
+        return bundle.getProperty(key, defaultValue);
+    }
+
+    private static int getIntProperty(String key, int defaultValue) {
+        return bundle.getIntProperty(key, defaultValue);
+    } 
     
     ////////////////////////////////////////////////////////////////////////////////
     public static final java.sql.Connection getInformixConnection() throws SQLException {
@@ -212,31 +207,6 @@ public class DBMS {
         return result;
     }
     
-    
-    
-    
-    ////////////////////////////////////////////////////////////////////////////////
-    public static final java.sql.Connection getDirectConnection() throws Exception {
-        ////////////////////////////////////////////////////////////////////////////////
-        java.sql.Connection result = null;
-        try {
-            Class.forName( DBMS.INFORMIX_DRIVER );
-        } catch ( Exception ex ) { throw ex; }
-        result = DriverManager.getConnection( DBMS.INFORMIX_CONNECT_STRING );
-        return result;
-    }
-    
-    
-    ////////////////////////////////////////////////////////////////////////////////
-    public static final java.sql.Connection getDirectDWConnection() throws Exception {
-        ////////////////////////////////////////////////////////////////////////////////
-        java.sql.Connection result = null;
-        try {
-            Class.forName( DBMS.INFORMIX_DRIVER );
-        } catch ( Exception ex ) { throw ex; }
-        result = DriverManager.getConnection( DBMS.INFORMIX_DW_CONNECT_STRING );
-        return result;
-    }
     
     
     ////////////////////////////////////////////////////////////////////////////////
@@ -417,21 +387,12 @@ public class DBMS {
         
         try {
             
-            if (DBMS.DB == POSTGRES) {
-                bs = (ByteArrayInputStream) rs.getBinaryStream(column);
-                if(bs != null) {
-                    ois = new ObjectInputStream(bs);
-                }
-            } else if (DBMS.DB == INFORMIX) {
-                InputStream is = rs.getBinaryStream(column);
-                if (is != null)
-                    ois = new ObjectInputStream(is);
-            }
+            InputStream is = rs.getBinaryStream(column);
+            if (is != null)
+              ois = new ObjectInputStream(is);
             if(ois != null) {
                 retVal = ois.readObject();
             }
-            //        System.out.println("RetVal :"+ retVal.toString());
-            //        System.out.println("RetVal Class: "+ retVal.getClass());
             
             if(ois != null) {
                 ois.close();
@@ -486,13 +447,14 @@ public class DBMS {
     // SQL. An SQL update is used to update an existing row that matches the whereClause. Tables that
     // might be using this method include SYSTEM_TEST_CASES (args) and PROBLEMS (param_types)
     //////////////////////////////////////////////////////////////////////////////////////////////////
+/*
     public static void insertBlobObject(String tableName, String fieldName, Object obj, String whereClause) {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
         String sqlStr = "";
         
         try {
-            conn = DBMS.getDirectConnection();
+
             conn.setAutoCommit(false);
             sqlStr = "UPDATE " + tableName + " SET " + fieldName + " = ? WHERE " + whereClause;
             
@@ -517,11 +479,13 @@ public class DBMS {
             } catch (Exception ignore) { }
         }
     }
-    
+
+ */   
     ///////////////////////////////////////////////////////////////////////////////////////
     // This is a generic method deserializes a Blob from the database and returns the
     // deserialized object.
     ///////////////////////////////////////////////////////////////////////////////////////
+/*
     public static Object getBlobObject(String tableName, String fieldName, String whereClause) {
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
@@ -565,7 +529,7 @@ public class DBMS {
         return retVal;
         
     }
-    
+ */   
     /*****************************************************************************************
      * This method is used for serializing text Strings because it can't be done through
      * SQL. This method should be called when updating or inserting text data types into

@@ -39,7 +39,7 @@ public class Shortest {
     ArrayList problems = null;
 
     try {
-      conn = DBMS.getDirectConnection();
+      conn = DBMS.getConnection();
       query = new StringBuffer(300);
 
       query = new StringBuffer(300);

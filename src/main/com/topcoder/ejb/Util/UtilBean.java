@@ -33,18 +33,7 @@ public class UtilBean extends BaseEJB {
       ctx = new javax.naming.InitialContext();
       javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
       conn = ds.getConnection();
-      /*********************************************************/
-      /*************************Postgres************************/
-      /*********************************************************/
-      if ( DBMS.DB == DBMS.POSTGRES ) {
-        ps = conn.prepareStatement( "SELECT CURRENT_TIMESTAMP" );
-      }
-      /*********************************************************/
-      /*************************Informix************************/
-      /*********************************************************/
-      else if ( DBMS.DB == DBMS.INFORMIX ) {
-        ps = conn.prepareStatement( "SELECT CURRENT FROM dual" );
-      }
+      ps = conn.prepareStatement( "SELECT CURRENT FROM dual" );
       rs = ps.executeQuery();
       if ( rs.next() ) result = rs.getDate(1);
     } catch (Exception e) {
@@ -72,18 +61,7 @@ public class UtilBean extends BaseEJB {
       ctx = new javax.naming.InitialContext();
       javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
       conn = ds.getConnection();
-      /*********************************************************/
-      /*************************Postgres************************/
-      /*********************************************************/
-      if ( DBMS.DB == DBMS.POSTGRES ) {
-        ps = conn.prepareStatement( "SELECT CURRENT_TIME" );
-      }
-      /*********************************************************/
-      /*************************Informix************************/
-      /*********************************************************/
-      else if ( DBMS.DB == DBMS.INFORMIX ) {
-        ps = conn.prepareStatement( "SELECT CURRENT FROM dual" );
-      }
+      ps = conn.prepareStatement( "SELECT CURRENT FROM dual" );
       rs = ps.executeQuery();
       if ( rs.next() ) result = rs.getTime(1);
     } catch (Exception e) {
@@ -111,18 +89,7 @@ public class UtilBean extends BaseEJB {
       ctx = new javax.naming.InitialContext();
       javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup("OLTP");
       conn = ds.getConnection();
-      /*********************************************************/
-      /*************************Postgres************************/
-      /*********************************************************/
-      if ( DBMS.DB == DBMS.POSTGRES ) {
-        ps = conn.prepareStatement( "SELECT CURRENT_TIMESTAMP" );
-      }
-      /*********************************************************/
-      /*************************Informix************************/
-      /*********************************************************/
-      else if ( DBMS.DB == DBMS.INFORMIX ) {
-        ps = conn.prepareStatement( "SELECT CURRENT FROM dual" );
-      }
+      ps = conn.prepareStatement( "SELECT CURRENT FROM dual" );
       rs = ps.executeQuery();
       if ( rs.next() ) result = rs.getTimestamp(1);
     } catch (Exception e) {

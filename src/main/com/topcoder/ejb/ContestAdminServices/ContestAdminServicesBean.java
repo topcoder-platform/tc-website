@@ -61,41 +61,21 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
       conn = DBMS.getConnection();  
  
       StringBuffer query = new StringBuffer(120);
-      if(DBMS.DB == DBMS.POSTGRES) { 
-        if(ca.getModified() == "M") {
-          query.append( " UPDATE contest SET contest_name = ?, contest_start = ?, ").
-                append("                     contest_end = ?, status = ?, subject_id = ?, ").
-                append("                     ad_start = ?, ad_end = ? ").
-                append("  WHERE  contest_id = ? ");
+      if(ca.getModified() == "M") {
+        query.append( " UPDATE contest SET name = ?, start_date = ?, ").
+              append("                     end_date = ?, status = ?, language_id = ?, ").
+              append("                     ad_start = ?, ad_end = ? ").
+              append("  WHERE  contest_id = ? ");
 
-          contest_id = ca.getContestId();
-        }
-        else {
-          query.append( " INSERT INTO contest (contest_name, contest_start, contest_end, status, ").
-                append( " subject_id, ad_start, ad_end, contest_id) ").
-                append( " VALUES (?,?,?,?,?,?,?,?) ");
-
-          //contest_id = getNextContestId();
-          contest_id = DBMS.getSeqId(conn, DBMS.JMA_SEQ);
-        }
+        contest_id = ca.getContestId();
       }
       else {
-        if(ca.getModified() == "M") {
-          query.append( " UPDATE contest SET name = ?, start_date = ?, ").
-                append("                     end_date = ?, status = ?, language_id = ?, ").
-                append("                     ad_start = ?, ad_end = ? ").
-                append("  WHERE  contest_id = ? ");
+        query.append( " INSERT INTO contest (name, start_date, end_date, status, ").
+              append( " language_id, ad_start, ad_end, contest_id) ").
+              append( " VALUES (?,?,?,?,?,?,?,?) ");
 
-          contest_id = ca.getContestId();
-        }
-        else {
-          query.append( " INSERT INTO contest (name, start_date, end_date, status, ").
-                append( " language_id, ad_start, ad_end, contest_id) ").
-                append( " VALUES (?,?,?,?,?,?,?,?) ");
-
-          //contest_id = getNextContestId();
-          contest_id = DBMS.getSeqId(conn, DBMS.JMA_SEQ);
-        }
+        //contest_id = getNextContestId();
+        contest_id = DBMS.getSeqId(conn, DBMS.JMA_SEQ);
       }
 
       ps = conn.prepareStatement( query.toString() ) ;
@@ -1062,12 +1042,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
          try {
            if (conn != null) {  conn.close(); conn = null; }
          } catch (Exception ignore) { ignore.printStackTrace(); }
-   
-         if ( DBMS.DB == DBMS.POSTGRES ) {
-            try {
-              if (conn != null) {  conn.commit(); conn.setAutoCommit(true); conn.close(); conn = null; }
-            } catch (Exception ignore) { ignore.printStackTrace(); }
-         }
        }
 
        return systemTestCaseReportList;
@@ -1236,9 +1210,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
          ps = conn.prepareStatement(txtGetRoundProblems.toString());
          ps.setInt(1, round_id);
-         if(DBMS.DB == DBMS.POSTGRES) {
-           ps.setInt(2, contest_id);
-         }
 
          rs = ps.executeQuery();
 
@@ -1597,26 +1568,11 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
 
       try {
         query = new StringBuffer(300);
-        /*************************************************************************************/
-        /********************************** Postgres *****************************************/
-        /*************************************************************************************/
-        if (DBMS.DB == DBMS.POSTGRES) {
-          query.append(" SELECT distinct c.coder_id, u.user_name");
-          query.append("   FROM users u");
-          query.append("  JOIN coder_compilations c");
-          query.append("     ON c.coder_id = u.user_id");
-          query.append("   AND c.round_id = ?");
-        }
-        /*************************************************************************************/
-        /********************************** Informix *****************************************/
-        /*************************************************************************************/
-        else if (DBMS.DB == DBMS.INFORMIX) {
-          query.append(" SELECT distinct ps.coder_id, u.handle");
-          query.append("   FROM user u");
-          query.append("  JOIN problem_state ps");
-          query.append("     ON ps.coder_id = u.user_id");
-          query.append("   AND ps.round_id = ?");
-        }
+        query.append(" SELECT distinct ps.coder_id, u.handle");
+        query.append("   FROM user u");
+        query.append("  JOIN problem_state ps");
+        query.append("     ON ps.coder_id = u.user_id");
+        query.append("   AND ps.round_id = ?");
         conn = DBMS.getConnection();
         Log.msg(VERBOSE,"\n" + query.toString());
         ps = conn.prepareStatement(query.toString());
@@ -1873,31 +1829,23 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
        PreparedStatement ps = null;
        ResultSet rs = null;
 
-      StringBuffer txtGetSystemTestResult = new StringBuffer(500);
-      if (DBMS.DB == DBMS.INFORMIX) {
-         txtGetSystemTestResult.append(" select str.coder_id, str.round_id, str.problem_id, str.test_case_id,    ");
-         txtGetSystemTestResult.append("  u.handle, rs.room_id, p.problem_id, p.class_name,  ");
-         txtGetSystemTestResult.append("  str.num_iterations, str.processing_time,  ");
-         txtGetSystemTestResult.append("  str.deduction_amount, str.timestamp, str.viewable, stc.args, stc.expected_result, str.received ");
-         txtGetSystemTestResult.append("  from system_test_result str, system_test_case stc , room_result rs, room r , problem p, user u ");
-      } else if (DBMS.DB == DBMS.POSTGRES) {
-         txtGetSystemTestResult.append(" select str.coder_id, str.round_id, str.problem_id, str.test_case_id,    ");
-         txtGetSystemTestResult.append("  u.user_name, rs.room_id, p.problem_id, p.class_name,  ");
-         txtGetSystemTestResult.append("  str.num_iterations, str.processing_time,  ");
-         txtGetSystemTestResult.append("  str.deduction_amount, str.timestamp, str.viewable, stc.args, stc.expected_result, str.actual_result ");
-         txtGetSystemTestResult.append("  from system_test_results str, system_test_cases stc , room_status rs, room r , problems p, users u");
-      }
-         txtGetSystemTestResult.append("  where  ");
-         txtGetSystemTestResult.append("  str.test_case_id = stc.test_case_id  ");
-         txtGetSystemTestResult.append("  and str.coder_id = ?  ");
-         txtGetSystemTestResult.append("  and str.problem_id = stc.problem_id  ");
-         txtGetSystemTestResult.append("  and stc.problem_id = p.problem_id  ");
-         txtGetSystemTestResult.append("  and str.round_id = ?  ");
-         txtGetSystemTestResult.append("  and str.round_id = rs.round_id  ");
-         txtGetSystemTestResult.append("  and str.coder_id = rs.coder_id  ");
-         txtGetSystemTestResult.append("  and rs.room_id = r.room_id  ");
-         txtGetSystemTestResult.append("  and str.coder_id = u.user_id  ");
-         txtGetSystemTestResult.append("  and p.problem_id = ?  ");
+       StringBuffer txtGetSystemTestResult = new StringBuffer(500);
+       txtGetSystemTestResult.append(" select str.coder_id, str.round_id, str.problem_id, str.test_case_id,    ");
+       txtGetSystemTestResult.append("  u.handle, rs.room_id, p.problem_id, p.class_name,  ");
+       txtGetSystemTestResult.append("  str.num_iterations, str.processing_time,  ");
+       txtGetSystemTestResult.append("  str.deduction_amount, str.timestamp, str.viewable, stc.args, stc.expected_result, str.received ");
+       txtGetSystemTestResult.append("  from system_test_result str, system_test_case stc , room_result rs, room r , problem p, user u ");
+       txtGetSystemTestResult.append("  where  ");
+       txtGetSystemTestResult.append("  str.test_case_id = stc.test_case_id  ");
+       txtGetSystemTestResult.append("  and str.coder_id = ?  ");
+       txtGetSystemTestResult.append("  and str.problem_id = stc.problem_id  ");
+       txtGetSystemTestResult.append("  and stc.problem_id = p.problem_id  ");
+       txtGetSystemTestResult.append("  and str.round_id = ?  ");
+       txtGetSystemTestResult.append("  and str.round_id = rs.round_id  ");
+       txtGetSystemTestResult.append("  and str.coder_id = rs.coder_id  ");
+       txtGetSystemTestResult.append("  and rs.room_id = r.room_id  ");
+       txtGetSystemTestResult.append("  and str.coder_id = u.user_id  ");
+       txtGetSystemTestResult.append("  and p.problem_id = ?  ");
 
        switch (filter) {
          case 1 :
@@ -1938,11 +1886,7 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
             systemTestCaseReportAttr.setViewable        (rs.getString (13));
             systemTestCaseReportAttr.setArgs            (DBMS.getBlobObject(rs,14));
             systemTestCaseReportAttr.setExpected        (DBMS.getBlobObject(rs,15));
-            if (DBMS.DB == DBMS.INFORMIX) {
-               systemTestCaseReportAttr.setReceived     (DBMS.getBlobObject(rs,16));
-            } else if (DBMS.DB == DBMS.POSTGRES) {
-               systemTestCaseReportAttr.setReceived     (rs.getString(16));
-            }
+            systemTestCaseReportAttr.setReceived     (DBMS.getBlobObject(rs,16));
             systemTestCaseReportAttr.setProblem         ( problemAttr );
             systemTestCaseReportList.add(systemTestCaseReportAttr);
          }
@@ -1962,11 +1906,6 @@ public class ContestAdminServicesBean extends com.topcoder.ejb.BaseEJB {
            if (conn != null) {  conn.close(); conn = null; }
          } catch (Exception ignore) { ignore.printStackTrace(); }
 
-         if ( DBMS.DB == DBMS.POSTGRES ) {
-            try {
-              if (conn != null) {  conn.commit(); conn.setAutoCommit(true); conn.close(); conn = null; }
-            } catch (Exception ignore) { ignore.printStackTrace(); }
-         }
        }
 
        return systemTestCaseReportList;

@@ -183,26 +183,14 @@ public final class PProblem {
       Set keys = dataTypeHash.keySet();
       Iterator iterator = keys.iterator();
 
-      if(DBMS.DB == DBMS.POSTGRES) {
-        while(iterator.hasNext()) {
-          dataType =  (String)iterator.next();
-          //dataType = (String)dataTypeHash.get(dataTypeId);
-          dataTypeTag = new RecordTag("DataType");
-          dataTypeTag.addTag( new ValueTag("DataTypeName", dataType) );
-          dataTypeTag.addTag( new ValueTag("DataTypeID", dataType) );
-          problemTag.addTag(dataTypeTag);
-        }
-      }
-      else {
-        Integer dataTypeId = null;
-        while(iterator.hasNext()) {
-          dataTypeId = (Integer)iterator.next();
-          dataType = (String)dataTypeHash.get(dataTypeId);
-          dataTypeTag = new RecordTag("DataType");
-          dataTypeTag.addTag( new ValueTag("DataTypeName", dataType) );
-          dataTypeTag.addTag( new ValueTag("DataTypeID", dataTypeId.intValue()) );
-          problemTag.addTag(dataTypeTag);
-        }
+      Integer dataTypeId = null;
+      while(iterator.hasNext()) {
+        dataTypeId = (Integer)iterator.next();
+        dataType = (String)dataTypeHash.get(dataTypeId);
+        dataTypeTag = new RecordTag("DataType");
+        dataTypeTag.addTag( new ValueTag("DataTypeName", dataType) );
+        dataTypeTag.addTag( new ValueTag("DataTypeID", dataTypeId.intValue()) );
+        problemTag.addTag(dataTypeTag);
       }
 
     } catch (NavigationException ne) {
@@ -264,13 +252,7 @@ public final class PProblem {
 
     String resultType = "";
     int resultTypeId = 0;
-    if(DBMS.DB == DBMS.POSTGRES) {
-      resultType = request.getParameter("resulttype");
-      System.out.println("resultType: " + resultType);
-    }
-    else {
-      resultTypeId = Integer.parseInt(request.getParameter("resulttype"));
-    }
+    resultTypeId = Integer.parseInt(request.getParameter("resulttype"));
     problem.setProblemText(request.getParameter("problemtext"));
     problem.setDifficultyId(Integer.parseInt(request.getParameter("difflevel")));
     String paramTypesString = request.getParameter("paramtypes");
@@ -282,15 +264,8 @@ public final class PProblem {
       existingArgs = buildCommaString(problem.getParamTypes());
       System.out.println("existingArgs: " + existingArgs);
 
-      if(DBMS.DB == DBMS.POSTGRES) {
-        if(!resultType.equals(problem.getResultType())) {
-          resultTypeModified = true;
-        }
-      }
-      else {
-        if(resultTypeId != problem.getResultTypeId()) {
-          resultTypeModified = true;
-        }
+      if(resultTypeId != problem.getResultTypeId()) {
+        resultTypeModified = true;
       }
 
       if(!existingArgs.equals(paramTypesString)) {
@@ -301,12 +276,7 @@ public final class PProblem {
  
     try {
       problem.setParamTypes(parseCommaString(paramTypesString, "String"));
-      if(DBMS.DB == DBMS.POSTGRES) {
-        problem.setResultType(resultType);
-      }
-      else {
-        problem.setResultTypeId(resultTypeId);
-      }
+      problem.setResultTypeId(resultTypeId);
       
       Context ctx = TCContext.getInitial();
       UserTransaction ux = Transaction.get();

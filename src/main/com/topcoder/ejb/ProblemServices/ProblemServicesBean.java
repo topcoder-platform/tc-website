@@ -128,9 +128,7 @@
         ps.setString(3, problem.getMethodName());
         ps.setString(4, problem.getClassName ());
         ps.setInt(5, problem.getDifficultyId());
-        if(DBMS.DB == DBMS.INFORMIX) {
-          ps.setString(6, "A"); /**** for now ****/
-        }
+        ps.setString(6, "A"); /**** for now ****/
 
         int RetVal = ps.executeUpdate();
         if (RetVal != 1)  {
@@ -195,9 +193,7 @@
           ps.setInt(2, problem_id);
           //ps.setBytes(1, baos.toByteArray());
 
-          if (DBMS.DB == DBMS.INFORMIX) {
-            ps.setBytes(1, DBMS.serializeTextString(problemText));
-          }
+          ps.setBytes(1, DBMS.serializeTextString(problemText));
 
           int RetVal = ps.executeUpdate();
           if (RetVal != 1) {
