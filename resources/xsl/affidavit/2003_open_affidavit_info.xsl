@@ -8,6 +8,11 @@
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/news_events/public_news_left.xsl"/>
   <xsl:import href="../includes/public_right_col.xsl"/>
+  <xsl:import href="../includes/modules/tco03_head.xsl"/>
+  <xsl:import href="../includes/modules/tco03_links.xsl"/>
+  <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 
@@ -36,27 +41,21 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC"><img src="/i/spacer.gif" height="1" width="170"/></td>
+        <td width="180">
+              <xsl:call-template name="global_left"/>
+        </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="6"><img src="/i/spacer.gif" height="1" width="6"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column begins -->
-        <td class="bodyText" width="100%">
-            <xsl:call-template name="BodyTop">
-                <xsl:with-param name="image1">steelgray</xsl:with-param>
-                <xsl:with-param name="image">invitation_gray</xsl:with-param>
-                <xsl:with-param name="title">2003 TopCoder Open</xsl:with-param>
-            </xsl:call-template>
+<!-- Center Column Begins -->
+        <td class="bodyText">
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tccc_bkgd">
-                <tr valign="top">
-                    <td width="50%" align="right"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
-                    <td width="50%" align="left"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
-                </tr>
-            </table>
+<!-- TCO Head Begins -->
+<xsl:call-template name="tco03_head"/>
+<!-- TCO Head Ends -->
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
@@ -175,8 +174,10 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
-            <xsl:call-template name="public_right_col"/>
+        <td width="170">
+            <xsl:call-template name="public_right_col">
+                <xsl:with-param name="sectionName">tco03</xsl:with-param>
+            </xsl:call-template>
         </td>
 <!-- Right Column Ends -->
 
