@@ -573,6 +573,9 @@ public class Registration
 
     public String getNextPage() {
         log.debug("Registration.getNextPage()");
+        if (step==null) {
+            return PAGE_1;
+        }
         if (isStep(STEP_0)) {
             log.debug("STEP_0 REG");
             if (isValid()) {
