@@ -19,7 +19,7 @@ function getProblemDetail(id) {
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
     <% String url = sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
-    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
+    window.open('<%=url%>&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
 function getTCProblemResults(coderId, roundId, problemId) {
@@ -33,7 +33,7 @@ function getTCProblemResults(coderId, roundId, problemId) {
     var params = '&<%=Constants.USER_ID%>=' + coderId +
                  '&<%=Constants.ROUND_ID%>=' + roundId +
                  '&<%=Constants.PROBLEM_ID%>=' + problemId;
-    window.open('<screen:rewrite page="<%=tcurl%>" />'+params,name,cmd);
+    window.open('<%=tcurl%>'+params,name,cmd);
     return;
   }
 </SCRIPT>
