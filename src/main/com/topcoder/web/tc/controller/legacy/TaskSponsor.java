@@ -54,13 +54,7 @@ public final class TaskSponsor {
             }
             result = TaskStatic.displayStatic(HTMLmaker, request, nav, document);
         } catch (Exception e) {
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("TaskSponsor:process:");
-            msg.append(command);
-            msg.append(":ERROR:");
-            msg.append(e.getMessage());
-            throw new NavigationException(msg.toString(),
-                    TCServlet.XSL_ROOT + TCServlet.XSL_ROOT + TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }

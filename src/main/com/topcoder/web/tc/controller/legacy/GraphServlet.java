@@ -154,7 +154,7 @@ public final class GraphServlet extends HttpServlet {
             }
             /***********************************************************************/
             else {
-                throw new NavigationException(e);
+                throw new NavigationException("unknown graph: " + dataRequest.getContentHandle());
             }
             response.setContentType("image/gif");
             response.setHeader("content-disposition","inline; filename=graph.png");

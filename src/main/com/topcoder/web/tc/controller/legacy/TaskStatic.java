@@ -41,11 +41,7 @@ public final class TaskStatic {
             log.error("TaskStatic:ERROR:\n" + ne);
             throw ne;
         } catch (Exception e) {
-            StringBuffer msg = new StringBuffer(150);
-            msg.append("TaskStatic:process:");
-            msg.append(":ERROR:\n");
-            msg.append(e);
-            throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
+            throw new NavigationException(e);
         }
         return result;
     }
@@ -71,11 +67,11 @@ public final class TaskStatic {
         requestAccess = Conversion.checkNull(request.getParameter("a"));
 
         if (!isLegal(requestTask)) {
-            throw new NavigationException("Illegal task t: " + requestTask, TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException("Illegal task t: " + requestTask);
         } else if (!isLegal(requestCommand)) {
-            throw new NavigationException("Illegal command c: " + requestCommand, TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException("Illegal command c: " + requestCommand);
         } else if (!isLegal(requestOther) || requestOther.equals(SECURE_DIR_NAME)) { //don't let folks get to supposedly "secure" files
-            throw new NavigationException("Illegal other o: " + requestOther, TCServlet.NAVIGATION_ERROR_PAGE);
+            throw new NavigationException("Illegal other o: " + requestOther);
         }
 
         if (!requestTask.equals("")) requestTask += "/";

@@ -151,7 +151,7 @@ public final class TaskSearch {
      * @param search
      * @param listTag
      * @return String - the generated HTML page
-     * @throws com.topcoder.common.web.error.NavigationException
+     * @throws com.topcoder.web.common.NavigationException
      */
     private static String search(HTMLRenderer HTMLmaker, HttpServletRequest request,
                                  Navigation nav, XMLDocument document, MemberSearch search, RecordTag listTag)
@@ -239,7 +239,7 @@ public final class TaskSearch {
      * @param search
      * @param listTag
      * @return String - the generated HTML page
-     * @throws com.topcoder.common.web.error.NavigationException
+     * @throws com.topcoder.web.common.NavigationException
      */
     private static String scroll(HTMLRenderer HTMLmaker, HttpServletRequest request,
                                  Navigation nav, XMLDocument document, MemberSearch search, RecordTag listTag)
