@@ -114,10 +114,9 @@ return false;
 	            <td class=bodyText valign=middle>Additional Comments:</td>
 				<td class=bodyText colspan=11>
 				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_LANGUAGES%>" rows="3" cols="40"/>
-				<TEXTAREA NAME="comments" ROWS="3" COLS="40"></TEXTAREA>
 				</td>
 			</tr>
-			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=technologies"><img src="/i/submit.jpg" border=0/></a></td></tr>
+			<tr><td colspan=12 align=center><br/><br/><a href="javascript:goToPage('ContractingTechnologies');"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
 		</FORM>
 
