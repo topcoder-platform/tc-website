@@ -76,7 +76,7 @@ public class TCCC05Payments {
 
 
     private void makePayments() throws Exception {
-        log.debug("makePayments running...");
+        log.debug("makePayments running for round " + roundId + " money " + money[1] + " " + money[2] + " " + money[3]);
         //figure out all the winners
         //figure out what they all won
         //insert all the records
