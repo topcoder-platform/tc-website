@@ -46,40 +46,28 @@ public abstract class Base implements RequestProcessor {
       return user.getId() == -1;  // hardcoded userid for anonymous user
     }
 
-    /** sets up some beans visible to subclasses and the jsp which ultimately renders the request */
-    protected void addBeans() {
-
-        info = new SessionInfoBean();
-        try {  // in case auth was bypassed
-            info.setUserId((int)user.getId());
-            info.setHandle(isUserGuest() ? "" : user.getUserName());
-            info.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
-            info.setRating(2500);  //@@@
-        } catch(Exception e) { }
-
-        nav = new NavZoneBean();
-
-        request.setAttribute("SessionInfo", info);
-        request.setAttribute("NavZone", nav);
-    }
-
-    /** override this to disable auth setup */
-    protected void doAuth() throws Exception {
-
+    /**
+     * Some things we want to do for most subclassed request processors.
+     * Override this to disable auth setup and adding default beans.
+     */
+    protected void baseProcessing() throws Exception {
         Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
         auth = new BasicAuthentication(persistor, request, response);
         user = auth.getUser();
 
+        info = new SessionInfoBean();
+        request.setAttribute("SessionInfo", info);
+        info.setUserId((int)user.getId());
+        info.setHandle(isUserGuest() ? "" : user.getUserName());
+        info.setGroup(isUserGuest() ? 'G' : 'S');  //@@@
+        info.setRating(2500);  //@@@
+
         hsa = new HSAuthorization(user);
         if(!hsa.hasPermission(new ClassResource(this.getClass())))
             throw new PermissionException("You must login to view this page.");
-    }
 
-    /** Some things we want to do for all subclassed request processors. */
-    protected void baseProcessing() throws Exception {
-
-        doAuth();
-        addBeans();
+        nav = new NavZoneBean();
+        request.setAttribute("NavZone", nav);
     }
 
     /** Override this to specialize. */

@@ -12,8 +12,11 @@ import com.topcoder.web.hs.common.*;
  */
 public class Error extends Base {
 
-    /** Override this to avoid all the auth stuff. */
-    protected void doAuth() throws Exception {
+    /**
+     * Overriding this to avoid all the auth stuff.
+     * The beans from the first attempt at processing will hang around in the request.
+     */
+    protected void baseProcessing() throws Exception {
     }
 
     protected void businessProcessing() throws Exception {
