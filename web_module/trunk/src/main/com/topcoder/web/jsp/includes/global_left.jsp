@@ -148,7 +148,7 @@
 <%-- Events ends --%>
 
 <%-- Round Tables begins --%>
-                <tr><td id="<%=level1.equals("rtables")?"leftNavOn":"leftNav"%>"><a href="/rtables/index.jsp" class="<%=level1.equals("rtables")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("rtables")?"bottom":"right"%>.gif" border="0"/>Round Tables/Forums</a></td></tr>
+                <tr><td id="<%=level1.equals("rtables")?"leftNavOn":"leftNav"%>"><a href="/rtables/index.jsp" class="<%=level1.equals("rtables")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("rtables")?"bottom":"right"%>.gif" border="0"/>Round Tables / Forums</a></td></tr>
 
                 <% if (level1.equals("rtables")) {
                     String temp = request.getParameter("forum");
@@ -200,7 +200,7 @@
                     <% } %>
             <% } %>
     <%-- Round Tables ends --%>
-    
+
  <%-- TopCoder Gear begins --%>
                     <tr><td id="<%=level1.equals("store")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=store&d2=store_home" class="<%=level1.equals("store")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("store")?"bottom":"right"%>.gif" border="0"/>TopCoder Gear</a></td></tr>
     <%-- TopCoder Gear ends --%>
