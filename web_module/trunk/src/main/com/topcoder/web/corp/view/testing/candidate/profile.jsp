@@ -179,9 +179,10 @@ function getProblemDetail(id) {
                         </tr>
                         </screen:resultSetRowIterator>
 
+                        <% long uid;%>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)%>">
-                                <% long uid = row.getIntItem("user_id");%>
+                                <% uid = row.getIntItem("user_id");%>
                         <tr>
                             <td class="screeningCellEven" align=right>Preference Level:</td>
                             <td class="screeningCellEven" valign=middle>
