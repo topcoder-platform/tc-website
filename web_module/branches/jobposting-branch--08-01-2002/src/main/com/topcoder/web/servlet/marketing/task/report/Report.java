@@ -69,7 +69,7 @@ public final class Report {
                 if (tag != null) {
                     document.addTag(tag);
                 }
-                result = renderer.render(document, DIR + "day_reg.xsl", null);
+                result = renderer.render(document, DIR + "day_reg.xsl");
             }
             //************************ school_count ************************
             else if (requestCommand.equals("school_count")) {
@@ -83,7 +83,7 @@ public final class Report {
                 if (tag != null) {
                     document.addTag(tag);
                 }
-                result = renderer.render(document, DIR + "school_count.xsl", null);
+                result = renderer.render(document, DIR + "school_count.xsl");
             } else {
                 StringBuffer msg = new StringBuffer(150);
                 msg.append("com.topcoder.web.servlet.marketing.task.corp.Request:processCommands:ERROR:invalid task:");

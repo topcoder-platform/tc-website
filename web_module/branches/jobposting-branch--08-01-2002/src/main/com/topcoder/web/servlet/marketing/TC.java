@@ -68,7 +68,7 @@ public final class TC extends HttpServlet {
                 if (requestCommand.equals("")) {
                     html = com.topcoder.web.servlet.marketing.task.Home.process(request, response, renderer, nav, document);
                 } else {
-                    html = renderer.render(document, XSL.DIR + requestCommand, null);
+                    html = renderer.render(document, XSL.DIR + requestCommand);
                 }
             }
             //************************ request ************************
@@ -107,7 +107,7 @@ public final class TC extends HttpServlet {
                     document = new XMLDocument("TC");
                     addURLTags(nav, request, response, document);
                 }
-                html = renderer.render(document, ne.getUrl(), null);
+                html = renderer.render(document, ne.getUrl());
                 out.print(html);
                 out.flush();
                 log.debug("com.topcoder.web.servlet.marketing.TC:NAVIGATION ERROR:\n" + ne.getMessage());
@@ -130,7 +130,7 @@ public final class TC extends HttpServlet {
                     document = new XMLDocument("TC");
                     addURLTags(nav, request, response, document);
                 }
-                html = renderer.render(document, XSL.INTERNAL_ERROR_URL, null);
+                html = renderer.render(document, XSL.INTERNAL_ERROR_URL);
                 out.print(html);
                 out.flush();
                 log.debug("com.topcoder.web.servlet.marketing.TC:INTERNAL ERROR:\n" + e);

@@ -123,7 +123,7 @@ public final class Challenge {
             log.debug(document.getXML(2));
             String xsldocURLString = ROOM_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -222,7 +222,7 @@ public final class Challenge {
             log.debug("This is the code that is running");
             String xsldocURLString = CHALLENGE_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -323,7 +323,7 @@ public final class Challenge {
             log.debug(document.getXML(2));
             String xsldocURLString = CHALLENGE_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -426,7 +426,7 @@ public final class Challenge {
             log.debug(document.getXML(2));
             String xsldocURLString = CHALLENGE_MENU_PAGE;
             nav.setScreen(xsldocURLString);
-            result = HTMLmaker.render(document, xsldocURLString, null);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
         } catch (Exception e) {
@@ -567,7 +567,7 @@ public final class Challenge {
                 log.debug(document.getXML(2));
                 String xsldocURLString = PROBLEM_MENU_PAGE;
                 nav.setScreen(xsldocURLString);
-                result = HTMLmaker.render(document, xsldocURLString, null);
+                result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
                 ei.printStackTrace();
             }
@@ -660,7 +660,7 @@ public final class Challenge {
                 log.debug(document.getXML(2));
                 String xsldocURLString = CODER_MENU_PAGE;
                 nav.setScreen(xsldocURLString);
-                result = HTMLmaker.render(document, xsldocURLString, null);
+                result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
                 ei.printStackTrace();
             }
@@ -716,7 +716,7 @@ public final class Challenge {
                 log.debug(document.getXML(2));
                 String xsldocURLString = ROUND_MENU_PAGE;
                 nav.setScreen(xsldocURLString);
-                result = HTMLmaker.render(document, xsldocURLString, null);
+                result = HTMLmaker.render(document, xsldocURLString);
             } catch (Exception ei) {
                 ei.printStackTrace();
             }

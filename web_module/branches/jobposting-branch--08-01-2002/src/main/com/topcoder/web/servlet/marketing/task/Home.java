@@ -17,7 +17,7 @@ public final class Home {
             throws NavigationException {
         String result = null;
         try {
-            result = renderer.render(document, XSL.DIR + "home.xsl", null);
+            result = renderer.render(document, XSL.DIR + "home.xsl");
         } catch (Exception e) {
             StringBuffer msg = new StringBuffer(150);
             msg.append("marketing.task.Home:process:");

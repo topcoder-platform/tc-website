@@ -20,7 +20,7 @@ public class HTMLRenderer {
      * Use the provided XML and file to generate html.
      * Note that cacheKey is not used.
      */
-    public String render(XMLDocument xmldocObject, String xsldocURLString, String cacheKey)
+    public String render(XMLDocument xmldocObject, String xsldocURLString)
             throws TCException {
 
         ByteArrayOutputStream baos = null;
