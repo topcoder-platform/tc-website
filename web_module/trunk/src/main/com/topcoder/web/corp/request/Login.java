@@ -2,8 +2,20 @@ package com.topcoder.web.corp.request;
 
 import com.topcoder.shared.security.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
+
+import javax.servlet.ServletRequest;
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
+import java.util.Map;
 
 /**
  * A RequestProcessor used to handle logins.  If the login fails or the necessary parameters are not
@@ -37,6 +49,8 @@ public class Login extends BaseProcessor {
 
                     authToken.login(new SimpleUser(0, username, password));
 
+                    if (!hasActiveAccount(username)) throw new LoginException("Account is not active.");
+
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
                     String dest = StringUtils.checkNull(request.getParameter(KEY_DESTINATION_PAGE));
                     if (dest==null) dest = StringUtils.checkNull((String)request.getAttribute(Login.KEY_DESTINATION_PAGE));
@@ -59,4 +73,24 @@ public class Login extends BaseProcessor {
         setNextPage(Constants.LOGIN_PAGE);
         setIsNextPageInContext(true);
     }
+
+    private boolean hasActiveAccount(String userName) throws Exception {
+        InitialContext context = new InitialContext();
+        DataSource ds = (DataSource) PortableRemoteObject.narrow(context.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME), DataSource.class);
+        DataAccessInt dAccess = new DataAccess(ds);
+
+        Request dataRequest = new Request();
+        dataRequest.setProperty("ha", userName);
+        dataRequest.setContentHandle("active_user");
+
+        Map map = dAccess.getData(dataRequest);
+
+        if(map != null && map.size() == 1) {
+            ResultSetContainer result = (ResultSetContainer)map.get("active_user");
+            return !result.isEmpty();
+        } else {
+            return false;
+        }
+    }
+
 }
