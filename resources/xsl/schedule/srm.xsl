@@ -176,7 +176,7 @@
                       <TR><TD COLSPAN="3" ALIGN="left" VALIGN="top" CLASS="bodyText">
                         <B>Single Round Match Description</B>
                       <UL>
-                      <LI>Maximum of 10 coders per room</LI>
+                      <LI>Maximum of 20 coders per room</LI>
                       <LI>Ratings will be adjusted post-match</LI>
                       <LI>Members will be emailed prior to the match with date and time (opt-in)</LI>
                       </UL>

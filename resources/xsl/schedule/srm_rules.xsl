@@ -272,7 +272,7 @@ Employees of TopCoder and those involved in the development, production (includi
  <xsl:otherwise>
 
         <b>Rooms</b><br/>
-Each competition room will have a maximum of 10 coders. There will be 2 divisions. Division I is 1200 rating and up, while Division II is below 1200. The single round match room assignments will only place members of like divisions together. Any member who changes divisions as a result of a rating change will compete in their new division in the next rated event following the rating change.
+Each competition room will have a maximum of 20 coders. There will be 2 divisions. Division I is 1200 rating and up, while Division II is below 1200. The single round match room assignments will only place members of like divisions together. Any member who changes divisions as a result of a rating change will compete in their new division in the next rated event following the rating change.
         <br /><br />
         <b>About the Tournament</b>
         <br/>
