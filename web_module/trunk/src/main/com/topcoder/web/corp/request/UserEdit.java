@@ -697,14 +697,15 @@ public class UserEdit extends BaseProcessor {
                     throw new MisconfigurationException("Can't retrieve TCSubject for: " +
                             getAuthentication().getUser().getId() + cause.getMessage());
                 }
-                log.debug(requestor.getPrincipals());
-                log.debug(man.getRoles(requestor));
-                if (man.getRoles(requestor).contains(Constants.CORP_ADMIN_ROLE)) {
-                    isAccountAdmin = true;
-                    primaryUserCompanyID = loggedUserCompanyID;
-                } else {
-                    isAccountAdmin = false;
-                    primaryUserCompanyID = contactTable.getCompanyId(primaryUserID);
+                RolePrincipal[] roles = (RolePrincipal[])requestor.getPrincipals().toArray(new RolePrincipal[0]);
+                for (int i=0; i<roles.length && !isAccountAdmin; i++) {
+                    if (roles[i].getName().equals(Constants.CORP_ADMIN_ROLE)) {
+                        isAccountAdmin = true;
+                        primaryUserCompanyID = loggedUserCompanyID;
+                    } else {
+                        isAccountAdmin = false;
+                        primaryUserCompanyID = contactTable.getCompanyId(primaryUserID);
+                    }
                 }
                 renewTargetUser();
             } catch (Exception ex) {
