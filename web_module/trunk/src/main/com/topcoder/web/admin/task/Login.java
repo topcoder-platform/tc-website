@@ -19,7 +19,7 @@ public class Login {
     private static final String LOGIN_PAGE = "login.jsp";
     private static final String MAIN_PAGE = "/";
 
-    private String nextPage = MAIN_PAGE;
+    private String nextPage = "";
     private boolean pageInContext = true;
 
     public void process(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -30,9 +30,7 @@ public class Login {
             nextPage = LOGIN_PAGE;
         } else {
             log.debug("login attempt[login/passw]: " + handle + "/" + passw);
-
             User possibleUser = new SimpleUser(0, handle, passw);
-
             try {
                 WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
                 authToken.login(possibleUser);
