@@ -216,6 +216,8 @@ public class UserAddressBean implements SessionBean {
 
             rs = ps.executeQuery();
 
+            return(new ResultSetContainer(rs));
+
         } catch (SQLException sqe) {
             DBMS.printSqlException(
                                    true,
@@ -261,6 +263,5 @@ public class UserAddressBean implements SessionBean {
                 }
             }
         }
-    return(new ResultSetContainer(rs));
     }
 }
