@@ -86,8 +86,8 @@ COMING SOON - TCES CANDIDATE RECRUITING PROGRAM
 
 <P>
 In an effort to greater assist members in finding employment, TopCoder Employment Services 
-(TCES) will be rolling out its Candidate Recruiting Program in September.  
-Through this program, TCES is actively soliciting companies who are looking to 
+[TCES] will be rolling out its Candidate Recruiting Program in September.  
+Through this program, [TCES] is actively soliciting companies who are looking to 
 hire software engineers and developers.  The targeted companies value programming 
 talent and are interested in hiring TopCoder members.  All TopCoder members will have 
 the ability to express interest in open positions at these top companies through job 
@@ -96,7 +96,7 @@ competition achievements and be able to upload resumes as part of the process.
 </P>
 
 <P>
-TCES will provide employers with innovative programs designed to attract, identify, 
+[TCES] will provide employers with innovative programs designed to attract, identify, 
 evaluate and package collegiate candidates, as well as experienced professionals, 
 for full-time employment consideration.  <A HREF="/?&amp;t=about_tc&amp;c=empl_tces" CLASS="bodyText">Employers</A> will have the opportunity to 
 introduce their company, the benefits of working in their organization and display 
@@ -116,7 +116,7 @@ for the next Single Round Match date.
 </P>
 
 <P>
-If you would like more information about the TCES Candidate Recruiting Program, please 
+If you would like more information about the [TCES] Candidate Recruiting Program, please 
 contact us at <A HREF="mailto:tces@topcoder.com" CLASS="bodyText">tces@topcoder.com</A>.
 </P>
 

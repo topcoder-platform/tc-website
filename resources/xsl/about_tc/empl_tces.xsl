@@ -77,23 +77,68 @@
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
 <!--end contextual links-->
-					<P>TopCoder Employment Services (TCES) are designed to help bring employers and members together.</P>
-					<P>The TCES team offers extensive recruiting experience for companies in the technology consulting and development industry. TCES understands how to locate, review, and align the candidate(s) best suited to a company's technology needs.</P>
-					<P>Through TCES, employers are given access to review member statistics, history, submissions and more. Personal information such as first and last name, means of contact, and address are not available without the interaction of TCES and consent of the member.</P>
-					<B>Membership Employment Demographics</B><BR/><UL>
-					All members:
-					<LI>79&#37; have opted for notification of employment opportunities</LI>
-					<LI>78&#37; have indicated an interest in new employment</LI>
-					<LI>65&#37; are willing to relocate</LI><BR/>
-					Professionals:
-					<LI>59&#37; are looking for full-time work</LI>
-					<LI>8&#37;&#160;&#160;&#160;are looking for full-time contract work</LI>
-					<LI>8&#37; are looking for part-time contract work</LI><BR/>
-					Students:
-					<LI>31&#37; are looking for full-time work</LI>
-					<LI>24&#37; are looking for part-time work</LI>
-					<LI>35&#37; are looking for an internship</LI>
-					</UL><BR/>
+<P>
+TopCoder [TC], a site designed for programmers by programmers, builds 
+opportunity and community through computer programming tournaments.  
+Weekly, hundreds of programmers from around the world gather online at 
+TopCoder to participate in Single Round Matches (SRMs).  The SRMs are 
+designed to objectively assess a coder's ability by having them solve 
+three algorithmic problems, scrutinize other competitors' code, and 
+withstand a system-generated test for correctness.  Additionally, [TC] 
+orchestrates major programming tournaments with prize purses up to $150,000.  
+Upon completion of each competition, a coder's rating is adjusted to reflect 
+his/her ability as compared to all other rated TopCoder members.  It is this 
+rating that will help potential employers differentiate talent during the hiring process.
+</P>
+
+<P>
+TopCoder Employment Services [TCES] provides employers with innovative programs 
+designed to attract, identify, evaluate and package collegiate candidates, 
+as well as experienced professionals, for full time employment consideration.  
+[TCES] provides select employers with intelligence about both graduating students 
+and experienced professionals.  With a member base in excess of 17,000 - 
+including more than 10,000 students from over 750 schools - select employers 
+obtain objective measurement and detail about candidates not found elsewhere.
+</P>
+
+<P>
+The select employer receives the following:
+</P>
+
+<P>
+<B>Employment Advertisement and Job Postings</B><BR/>
+[TCES] will launch a page in the Jobs section of the [TC] site allowing employers to 
+introduce their company, the benefits of working in their organization and display 
+a list of job openings.  [TCES] will include a link for a member to indicate interest 
+in the position advertised.
+</P>
+
+<P>
+<B>Targeted Email Campaign</B><BR/>
+[TCES] will broadcast an email to the entire member base notifying them of the employer's 
+page in the Jobs section.  Additionally, the employer will have the opportunity to send 
+one targeted email per month during the contract.  The employer can focus on one or 
+multiple criteria, including rating status, rating level, state, professional/student 
+status, school, and competition language.
+</P>
+
+<P>
+<B>SRM Job Advertisement</B><BR/>
+During the membership term, the employer will have advertising time in the applet 
+during one match per month.  As part of the employment package, the employer will 
+be noted as a sponsor on the [TC] homepage, member homepage, SRM summary page, and 
+competition schedule page, as well as in the applet and practice rooms.
+</P>
+
+<P>
+<B>Reporting Access</B><BR/>
+[TCES] will present the employer with reports on member responses to the employer's 
+job advertisements and targeted emails. In addition, the employer will be provided 
+with the ability to view and download resumes and access member profiles, contact 
+information and competition detail, which includes comparative statistics and code 
+samples for rated TopCoder members.
+</P>
+<P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
