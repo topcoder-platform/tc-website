@@ -21,7 +21,7 @@ public class ProblemInfo implements Serializable {
     private long startTime = 0;
     private String statusDesc = null;
     private String className = null;
-    private int time = 0;
+    private long time = 0;
 
     public ProblemInfo() {
 
@@ -99,11 +99,11 @@ public class ProblemInfo implements Serializable {
         this.className = className;
     }
 
-    public int getTime() {
+    public long getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(long time) {
         this.time = time;
     }
 
