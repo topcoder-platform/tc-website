@@ -8,8 +8,14 @@
   <tr><td class="statText" align="center" colspan="3"><b><xsl:value-of select="/TC/Affidavit/round"/></b></td></tr>
   <tr><td class="statText" width="1" colspan="3"><br/><br/></td></tr>
   <tr><td class="statText" colspan="3"> I&#160;<xsl:value-of select="/TC/Affidavit/first_name"/>&#160;<xsl:value-of select="/TC/Affidavit/last_name"/>,&#160;hereby state: I am at least 18 years of age.  My date of birth is
-    <xsl:choose><xsl:when test="/TC/Affidavit/date_of_birth!=''"><xsl:value-of select="/TC/Affidavit/date_of_birth"/>       </xsl:when>  <xsl:when test="/TC/Affidavit/date_of_birth=''">______________________</xsl:when> </xsl:choose>.<br/><br/>.
-      My home telephone number is <xsl:value-of select="/TC/Affidavit/home_phone"/>,&#160;and I reside at <xsl:value-of select="/TC/Affidavit/address1"/>&#160;,&#160;<xsl:if test="/TC/Affidavit/address2!=''"><xsl:value-of select="/TC/Affidavit/address2"/>&#160;,&#160;</xsl:if><xsl:value-of select="/TC/Affidavit/city"/>,&#160;<xsl:if test="/TC/Affidavit/state_name!=''">&#160;<xsl:value-of select="/TC/Affidavit/state_name"/>,</xsl:if>&#160;<xsl:value-of select="/TC/Affidavit/zip"/>,&#160;<xsl:value-of select="/TC/Affidavit/country_name"/>
+    <xsl:choose><xsl:when test="/TC/Affidavit/date_of_birth!=''"><xsl:value-of select="/TC/Affidavit/date_of_birth"/></xsl:when><xsl:when test="/TC/Affidavit/date_of_birth=''">______________________</xsl:when></xsl:choose>.<br/><br/>
+      My home telephone number is <xsl:value-of select="/TC/Affidavit/home_phone"/>,&#160;and I reside at
+        <xsl:value-of select="/TC/Affidavit/address1"/>&#160;,&#160;
+        <xsl:if test="/TC/Affidavit/address2!=''"><xsl:value-of select="/TC/Affidavit/address2"/>&#160;,&#160;</xsl:if>
+        <xsl:value-of select="/TC/Affidavit/city"/>,&#160;
+        <xsl:if test="/TC/Affidavit/state_code!='ZZ'">&#160;<xsl:value-of select="/TC/Affidavit/state_name"/>,&#160;</xsl:if>
+        <xsl:value-of select="/TC/Affidavit/zip"/>,&#160;
+        <xsl:value-of select="/TC/Affidavit/country_name"/>.
       </td></tr>
   <tr><td class="statText" width="1" colspan="3"><br/></td></tr>
   <tr><td class="statText" colspan="3"> I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the <xsl:value-of select="/TC/Affidavit/round"/> (the &quot;Contest&quot;).</td></tr>
