@@ -121,7 +121,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">6/23/2004 5:00 PM ET</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
