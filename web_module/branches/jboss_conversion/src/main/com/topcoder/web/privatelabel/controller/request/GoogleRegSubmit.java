@@ -31,7 +31,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
                 UserTransaction uTx = null;
                 try {
                     UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) useId));
+                    UserServices userEJB = userHome.findByPrimaryKey(new Long(useId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
 
                     u.setPassword(regInfo.getPassword());

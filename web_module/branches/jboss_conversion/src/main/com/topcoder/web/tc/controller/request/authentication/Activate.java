@@ -82,7 +82,7 @@ public class Activate extends Base {
         try {
             ctx = TCContext.getInitial();
             UserServicesHome userHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-            UserServices userEJB = userHome.findByPrimaryKey(new Integer(userId));
+            UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
             user = userEJB.getUser();
             log.debug("tc: user loaded from entity bean");
 

@@ -65,7 +65,7 @@ public class Submit extends FullRegSubmit {
                 UserTransaction uTx = null;
                 try {
                     UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) userId));
+                    UserServices userEJB = userHome.findByPrimaryKey(new Long(userId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
 
                     u.setPassword(regInfo.getPassword());
