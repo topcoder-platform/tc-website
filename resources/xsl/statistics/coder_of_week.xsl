@@ -91,7 +91,7 @@ the second highest total ever in Division-I (<A HREF="/stat?c=biggest_rating_gai
  won the room with 1214.24 final points.  He earned 198.36 points on the Level One problem, 273.44 on the Level 
 Two problem, and 692.33 on the Level Three problem, for a total of 1164.24 points in the "Coding Phase", which placed him 
 second in the room behind Bender (1184.01).  <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
- successfully challenged the Level Three submission of Bob9000 
+ successfully challenged the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=152713" CLASS="coderTextBlue">Bob9000</A> 
 for 50 additional points in the "Challenge Phase", earning enough points for the room win. 
 </P>
 
