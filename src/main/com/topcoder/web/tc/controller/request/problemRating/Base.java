@@ -44,6 +44,7 @@ abstract public class Base extends BaseProcessor {
         return dAccess;
     }
     protected void processResults() throws Exception{
+        System.out.println("in processResults()");
         Request r = new Request();
         r.setContentHandle("Problem Rating Results");
         r.setProperty("pm", getRequest().getParameter(Constants.PROBLEM_ID));
@@ -57,6 +58,7 @@ abstract public class Base extends BaseProcessor {
     }
 
     protected void processQuestions() throws Exception{
+        System.out.println("in processQuestions()");
         long userID = getUser().getId();
         Request r = new Request();
         r.setContentHandle("Problem Rating Questions");
