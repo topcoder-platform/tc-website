@@ -633,7 +633,7 @@ Project End Date:  January 29, 2003<BR/>
         </TD>
   <!-- Right Column Ends -->
   <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+    <!-- <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD> -->
     <!-- Gutter Ends -->
   </TR>
 </TABLE>
