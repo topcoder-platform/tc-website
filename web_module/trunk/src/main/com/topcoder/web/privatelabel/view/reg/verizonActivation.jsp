@@ -67,7 +67,7 @@
                             Good luck to you in the Arena!<br/><br/><br/><br/><br/><br/><br/>
 
                             <p style="font-size:10px">If you have any questions about how to participate, please email them
-                            to <a href="mailto:service@topcoder.com">service@topcoder.com</a></p>
+                            to <a href="mailto:vcc@topcoder.com?subject=VCC Question">vcc@topcoder.com</a></p>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
