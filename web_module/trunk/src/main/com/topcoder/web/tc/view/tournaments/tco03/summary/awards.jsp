@@ -64,55 +64,7 @@
 
             <p>Text <strong>handle</strong> text, text, text.</p>
 
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-            </table>
-            </div>	
-
             <p>Text <strong>handle</strong> text, text, text.</p>
-
-            <div align="center">
-            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-                               			
-                <tr>
-                    <td  class="pointsName">handle</td>
-                    <td class="pointsScore">xxx.xxx</td>
-                </tr>
-            </table>
-            </div>	
 
             <p>Text <strong>handle</strong> text, text, text.</p>
 
