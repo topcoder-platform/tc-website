@@ -89,7 +89,7 @@ abstract public class ContractingBase extends BaseProcessor {
                     //get id from end of string
                     String prefId = param.substring(Constants.PREFERENCE_PREFIX.length());
                         
-                    String val = getRequestParamater(param);
+                    String val = getRequestParameter(param);
                     
                     info.setPreference(prefId, val);
                     log.debug("SET PREFERENCE " + prefId + " TO " + val);

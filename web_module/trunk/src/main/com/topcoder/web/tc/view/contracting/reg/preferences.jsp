@@ -114,7 +114,7 @@ return false;
 			<tr>
 				<td width=100%><input type=file name="Resume"></td>
 			</tr>
-		</table>
+		</table> 
 
 		<div width="100%" align=center><br/><br/><a href="javascript:document.frmPref.submit();"><img src="/i/submit.jpg" border=0/></a></div>
 
