@@ -255,7 +255,7 @@ public class ProfileInfo extends BaseModel {
         this.sessionList = sessionList;
     }
 
-    public boolean hasTestSetA() {
+    private boolean hasTestSetA() {
         /* basically what we want to do here is figure out if the profile
          * has a test set a.  if it's a new one, we don't really care if it's
          * null, because it's new, we can assume that it has a test set a
@@ -264,7 +264,9 @@ public class ProfileInfo extends BaseModel {
          */
         log.debug("isnew: " + isNew() + " testseta: " + testSetA);
 
-        return !(testSetA==null&&!isNew()) || testSetA.equals(new Long(Constants.NO_TEST_SET_A));
+        if (testSetA==null&&!isNew()) return false;
+        else return !testSetA.equals(new Long(Constants.NO_TEST_SET_A));
     }
+
 
 }
