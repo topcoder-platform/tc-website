@@ -69,6 +69,7 @@ public class JobPostingServicesBean extends BaseEJB {
                 }
             }
         } catch (SQLException se) {
+            log.error("user_id: " + userId + " job_id: " + jobId + " hit_type_id: " + hitTypeId);
             DBMS.printSqlException(true, se);
             throw new RemoteException("JobPostingServicesBean.addJobHit(int, int, int):ERROR: " + se);
         } catch (Exception e) {
