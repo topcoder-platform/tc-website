@@ -50,18 +50,9 @@
     <tr valign="top">
         <td>
             <p><strong>Website</strong><br/>
-            <a href="/i/es/yahoo/public_home.gif" class="bodyText" target="_blank">Public Home Page</a><br/>
-            <a href="/i/es/yahoo/member_home.gif" class="bodyText" target="_blank">Member Home Page</a><br/>
-            <a href="/i/es/yahoo/TCES_home.gif" class="bodyText" target="_blank">TCES Main Page</a><br/>
+            <a href="/i/es/yahoo/tces_preview.gif" class="bodyText" target="_blank">TCES Main Page</a><br/>
             <a href="/?t=tces&amp;c=yahoo" class="bodyText" target="_blank">Yahoo Main Page</a><br/>
             <a href="/?t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText" target="_blank">Yahoo Job Listing Page</a></p>
-
-            <p><strong>Arena Applet</strong><br/>
-            <a href="/i/es/yahoo/applet_login.gif" class="bodyText" target="_blank">Login Window</a><br/>
-            <a href="/i/es/yahoo/applet_lobby.gif" class="bodyText" target="_blank">Lobby Window</a><br/>
-            <a href="/i/es/yahoo/applet_coding.gif" class="bodyText" target="_blank">Coding Window</a><br/>
-            <a href="/i/es/yahoo/applet_status.gif" class="bodyText" target="_blank">Status Window</a><br/>
-            <a href="/i/es/yahoo/applet_leaderboard.gif" class="bodyText" target="_blank">Leaderboard Window</a></p>
 
             <p><strong>Email</strong><br/>
             <a href="/?t=tces&amp;c=yahoo_em" class="bodyText" target="_blank">Employment Announcement</a></p>
