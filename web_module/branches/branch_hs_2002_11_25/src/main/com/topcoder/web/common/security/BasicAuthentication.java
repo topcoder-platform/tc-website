@@ -59,7 +59,7 @@ public class BasicAuthentication implements WebAuthentication {
             persistor.setObject(request.getSession().getId()+"session_verified", "yes");
 
         } catch (Exception e) {
-            throw new AuthenticationException(e);
+            throw new com.topcoder.shared.security.AuthenticationException(e);
         }
     }
 
@@ -86,7 +86,7 @@ public class BasicAuthentication implements WebAuthentication {
     public User getUser() {
 
         /* check each cookie in the request header */
-        Cookies[] ca = request.getCookies();
+        Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
             if(ca[i].getName().equals("user_id"))
                 return new SimpleUser(Long.parseLong(ca[i].getValue()));
@@ -104,7 +104,7 @@ public class BasicAuthentication implements WebAuthentication {
         /* check the persistor */
         Long uid = (Long)persistor.getObject(request.getSession().getId()+"user_id");
         if(uid != null)
-            return new SimpleUser(o.longValue());
+            return new SimpleUser(uid.longValue());
 
         /* found nothing */
         return new SimpleUser();

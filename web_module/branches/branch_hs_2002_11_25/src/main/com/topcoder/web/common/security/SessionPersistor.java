@@ -1,5 +1,6 @@
 package com.topcoder.web.common.security;
 
+import javax.servlet.http.*;
 import com.topcoder.shared.security.*;
 
 /**

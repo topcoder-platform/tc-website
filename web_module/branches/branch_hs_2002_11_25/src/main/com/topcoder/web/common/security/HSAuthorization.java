@@ -23,18 +23,20 @@ public class HSAuthorization implements Authorization {
 
     /** Construct an instance which can be used to check access for the given user. */
     public HSAuthorization(TCSubject user) {
+
         this.user = user;
 
-    try {
-        Hashtable env = new Hashtable();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-        env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
-        InitialContext context = new InitialContext(env);
-        PolicyRemoteHome policyHome = (PolicyRemoteHome)context.lookup(PolicyRemoteHome.EJB_REF_NAME);
-        policy = policyHome.create();
+        try {
+            Hashtable env = new Hashtable();
+            env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+            env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
+            InitialContext context = new InitialContext(env);
+            PolicyRemoteHome policyHome = (PolicyRemoteHome)context.lookup(PolicyRemoteHome.EJB_REF_NAME);
+            policy = policyHome.create();
 
-    } catch(Exception e) {
-        throw new AuthenticationException(e);
+        } catch(Exception e) {
+            throw new com.topcoder.shared.security.AuthenticationException(e);
+        }
     }
 
     /* Query the security component to determine whether the user can access this resource. */
@@ -45,7 +47,7 @@ public class HSAuthorization implements Authorization {
             return policy.checkPermission(user, perm);
 
         } catch(Exception e) {
-            throw new AuthenticationException(e);
+            throw new com.topcoder.shared.security.AuthenticationException(e);
         }
     }
 }
