@@ -69,7 +69,7 @@ function find(n) {
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft_joblisting"><img src="/i/tournament/tco04/microsoft_jobs.jpg" alt="" width="170" height="90" border="0" /></a><br />
+            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=joblisting"><img src="/i/tournament/tco04/microsoft_jobs.jpg" alt="" width="170" height="90" border="0" /></a><br />
 
             <p><br/></p>
 
