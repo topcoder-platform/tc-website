@@ -56,10 +56,18 @@ function openWin(url, name, w, h) {
                             
                         </table>
 
-<!-- Competition Arena tab -->
+<!-- Competition Arena tab 
                         <table border="0" cellpadding="0" cellspacing="0" width="133">
                             <tr valign="middle">
-                                <td align="right" width="99%"><a href="/pl/?&module=Static&d1=verizon&d2=vcc03_practice">Competition Arena</a></td>
+                                <td align="right" width="99%"><a href="/pl/?&module=Static&d1=verizon&d2=vcc03_competition">Competition Arena</a></td>
+                                <td align="right" width="18"><a href="/pl/?&module=Static&d1=verizon&d2=vcc03_practice"><img src="/i/events/verizon2003/icn_go.gif" alt="&gt;" width="18" height="18" border="0" hspace="5"></a></td>
+                            </tr>
+                        </table>-->
+                        
+<!-- Practice Arena tab -->
+                        <table border="0" cellpadding="0" cellspacing="0" width="133">
+                            <tr valign="middle">
+                                <td align="right" width="99%"><a href="/pl/?&module=Static&d1=verizon&d2=vcc03_practice">Practice Arena</a></td>
                                 <td align="right" width="18"><a href="/pl/?&module=Static&d1=verizon&d2=vcc03_practice"><img src="/i/events/verizon2003/icn_go.gif" alt="&gt;" width="18" height="18" border="0" hspace="5"></a></td>
                             </tr>
                         </table>
