@@ -29,6 +29,9 @@
          styleClass = "coderTextOrange";
        }
      }
+
+    String level1 = request.getParameter("level1")==null?"competition":request.getParameter("level1");
+
 %>
 
 <a name="top"/>
@@ -74,5 +77,5 @@
 </table>
 
 <jsp:include page="menu.jsp">
-    <jsp:param name="level1" value="competition"/>
+    <jsp:param name="level1" value="<%=level1%>"/>
 </jsp:include>
