@@ -177,9 +177,10 @@ public final class TaskAuthentication {
                                 , loginURL
                         );
                     }
-                    user.setLoggedIn("Y");
-                    user.setModified("U");
-                    userServicesEJB.setUser(user);
+//don't update after login, who friggin cares!!!!!
+//                    user.setLoggedIn("Y");
+//                    user.setModified("U");
+//                    userServicesEJB.setUser(user);
                 } catch (NavigationException ne) {
                     throw ne;
                 } catch (Exception e) {
