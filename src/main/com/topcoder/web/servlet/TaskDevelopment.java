@@ -25,8 +25,12 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 
+import com.topcoder.dde.catalog.CatalogException;
+import com.topcoder.dde.catalog.ComponentInfo;
 import com.topcoder.dde.catalog.ComponentManagerHome;
 import com.topcoder.dde.catalog.ComponentManager;
+import com.topcoder.dde.catalog.ComponentVersionInfo;
+import com.topcoder.dde.catalog.Document;
 import com.topcoder.dde.user.RegistrationInfo;
 import com.topcoder.dde.forum.DDEForumHome;
 import com.topcoder.dde.forum.DDEForum;
@@ -40,6 +44,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import javax.naming.Context;
 import java.util.Calendar;
+import java.util.Collection;
 import java.util.Date;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
@@ -93,8 +98,8 @@ public final class TaskDevelopment {
     {
         while(formatName.indexOf(" ") != -1)
         {
-            formatName = formatName.substring(0, formatName.indexOf(" ") - 1) +
-                         formatName.substring(formatName.indexOf(" ") + 1) +
+            formatName = formatName.substring(0, formatName.indexOf(" ")  ) + "%20" + 
+                         formatName.substring(formatName.indexOf(" ") + 1); 
         }
         return formatName;
     }
@@ -105,21 +110,15 @@ public final class TaskDevelopment {
         String result = null;
         String cacheKey = null;
         try {
-            System.out.println("HEEEEEEEEEEEEEEEEEELLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
             String command = Conversion.checkNull(request.getParameter("c"));
             log.debug("command is: " + command);
             boolean requiresLogin = false;
             RecordTag devTag = new RecordTag("DEVELOPMENT");
             String comp = Conversion.checkNull(request.getParameter("comp"));
+            devTag.addTag(new ValueTag("comp", comp));
             String date = Conversion.checkNull(request.getParameter("date"));
             String payment = Conversion.checkNull(request.getParameter("payment"));
-            String version = Conversion.checkNull(request.getParameter("version"));
-            String phase = Conversion.checkNull(request.getParameter("phase"));
-            devTag.addTag(new ValueTag("comp", comp));
-            devTag.addTag(new ValueTag("version", version));
-            devTag.addTag(new ValueTag("phase", phase));
 
-            devTag.addTag(new ValueTag("documentId", "234"));
             
             
             
@@ -197,16 +196,83 @@ public final class TaskDevelopment {
                     requiresLogin = true;
                 }
             }
+            /********************** comp_projects2 *******************/
+            else if (command.equals("comp_projects2")) {
+                if (nav.getLoggedIn()) {
+                    java.lang.StringBuffer compProjects = new java.lang.StringBuffer("<tr><td colspan=\"5\" background=\"\"><img src=\"/i/clear.gif\" width=\"1\" height=\"5\" alt=\"\" border=\"0\" /></td></tr>\n");
+                    compProjects.append("\n");
+                    compProjects.append("<tr valign=\"top\">\n");
+                    compProjects.append("    <td background=\"\" width=\"10\" class=\"statText\"><img src=\"/i/clear.gif\" alt=\"\" width=\"10\" height=\"1\" border=\"0\" /></td>\n");
+                    compProjects.append("    <td background=\"\" class=\"statText\"><a class=\"statText\" href=\"/index?t=development&amp;c=tcs_inquire-design&amp;payment=280&amp;date=2&#47;19&#47;2003\">");
+                    compProjects.append("componentName");
+                    compProjects.append("</a></td>\n");
+                    compProjects.append("    <td background=\"\" width=\"10\" class=\"statText\"><img src=\"/i/clear.gif\" alt=\"\" width=\"10\" height=\"1\" border=\"0\" /></td>");
+                    compProjects.append("</tr>\n");
+                    devTag.addTag(new ValueTag("ProjectName", project));
+                    devTag.addTag(new ValueTag("Project", project));
+                    devTag.addTag(new ValueTag("To", to));
+                    xsldocURLString = XSL_DIR + command + ".xsl";
+                } else {
+                    requiresLogin = true;
+                }
+            }
             /********************** tcs_inquire-design *******************/
             else if (command.equals("tcs_inquire-design")) {
                 if(request.getParameter("comp") != null)
                 {
                     long componentId = Long.parseLong(request.getParameter("comp"));
-                    ComponentManager componentMgr = home.create(componentId);
-                    ComponentInfo componentInfo  = componentMgr.componentInfo();
+
+                    ComponentManager componentManager  = getComponentManager(componentId);
+                    ComponentInfo componentInfo  = componentManager.getComponentInfo();
                     
                     devTag.addTag(new ValueTag("componentName", componentInfo.getName()));
-                    devTag.addTag(new ValueTag("formattedName", formatName("This is a test"));
+                    devTag.addTag(new ValueTag("formattedName", formatName("This is a test")));
+                    devTag.addTag(new ValueTag("overview", componentInfo.getDescription()));
+
+                    try {
+    
+                        
+                        Collection colVersions = componentManager.getAllVersionInfo();
+                        ComponentVersionInfo versions[] = (ComponentVersionInfo[])colVersions.toArray(new ComponentVersionInfo[0]);
+   
+                        long versionId = 0L;
+                        long phaseId = 0L;
+                        for(int i=0;i<versions.length;i++)
+                        {
+                            if(versions[i].getVersion() > versionId && ((versions[i].getPhase() == ComponentVersionInfo.SPECIFICATION) || 
+                                    (versions[i].getPhase() == ComponentVersionInfo.DEVELOPMENT)))
+                            {
+                                versionId = versions[i].getVersion();
+                                phaseId = versions[i].getPhase();
+                            }
+                        }
+                        componentManager = getComponentManager(componentId, versionId);
+                        java.util.Collection colTempDocuments = componentManager.getDocuments();
+
+                        java.util.Iterator itr = colTempDocuments.iterator();
+                        Document requirementsDoc = null; 
+                        while( itr.hasNext() && requirementsDoc == null) {
+                            Document doc = (Document) itr.next();
+                            if(doc.getType() == 0)
+                            {
+                                requirementsDoc = doc;
+                            }
+                        }
+                        if(requirementsDoc != null){
+                            devTag.addTag(new ValueTag("documentId", requirementsDoc.getId()));
+                        }
+                        log.debug("Phase: " + phaseId);
+                        log.debug("version: " + versionId);
+                        devTag.addTag(new ValueTag("phase", phaseId));
+                        devTag.addTag(new ValueTag("version", versionId));
+                    } catch (CatalogException e) {
+                        System.out.println(e.getMessage());
+        
+                    } catch (Exception e) {
+                        System.out.println("here:" + e.getMessage());
+                    }        
+
+                    xsldocURLString = XSL_DIR + command + ".xsl";
                 }
                 else{
                     log.error("Missing component id");
@@ -255,6 +321,10 @@ public final class TaskDevelopment {
             else if (command.equals("tcs_send")) {
                 
                 if (nav.getLoggedIn()) {
+                    String version = Conversion.checkNull(request.getParameter("version"));
+                    String phase = Conversion.checkNull(request.getParameter("phase"));
+                    devTag.addTag(new ValueTag("version", version));
+                    devTag.addTag(new ValueTag("phase", phase));
                     long userId;
                     devTag.addTag(new ValueTag("Project", project));
 
@@ -289,7 +359,6 @@ public final class TaskDevelopment {
 
 
 	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
-                    //Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,"172.16.20.222:1099");
 
 
                     com.topcoder.security.UserPrincipal selectedPrincipal = null;
@@ -541,5 +610,51 @@ public final class TaskDevelopment {
         return result;
     }
 
-    
+    static ComponentManager getComponentManager(long componentId){
+
+       ComponentManager componentMgr = null;
+       try{
+	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+                    Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
+                    ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
+                    componentMgr = home.create(componentId);
+       }
+       catch(javax.naming.NamingException namingException)
+       {
+          log.error("Could not create context: " + namingException.getMessage());
+       }
+       catch(javax.ejb.CreateException createException)
+       {
+          log.error("Could not create component Manager: " + createException.getMessage());
+       }
+       catch(java.rmi.RemoteException remoteException)
+       {
+          log.error("Could not create component Manager: " + remoteException.getMessage());
+       }
+          return componentMgr;
+    }    
+
+    static ComponentManager getComponentManager(long componentId, long version){
+
+       ComponentManager componentMgr = null;
+       try{
+	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+                    Object objTechTypes = CONTEXT.lookup("ComponentManagerEJB");
+                    ComponentManagerHome home = (ComponentManagerHome) PortableRemoteObject.narrow(objTechTypes, ComponentManagerHome.class);
+                    componentMgr = home.create(componentId, version);
+       }
+       catch(javax.naming.NamingException namingException)
+       {
+          log.error("Could not create context: " + namingException.getMessage());
+       }
+       catch(javax.ejb.CreateException createException)
+       {
+          log.error("Could not create component Manager: " + createException.getMessage());
+       }
+       catch(java.rmi.RemoteException remoteException)
+       {
+          log.error("Could not create component Manager: " + remoteException.getMessage());
+       }
+          return componentMgr;
+    }    
 }
