@@ -92,7 +92,7 @@ public class NoteCreate extends BaseProcessor {
         ut.commit();
             
         setNextPage(Constants.CONTROLLER_URL + '?' +
-                    Constants.REQUEST_PROCESSOR + '=' + "NoteList" + '&' +
+                    Constants.REQUEST_PROCESSOR + '=' + "PopulateCandidate" + '&' +
                     Constants.CANDIDATE_ID + '=' + candId);
         setNextPageInContext(false);
     }
