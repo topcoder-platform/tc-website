@@ -28,6 +28,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
     private int campaignID;
     private int positionID;
+    private String companyName;
     private String campaignName;
     private String positionName;
     private int studentCoderCount;
@@ -140,7 +141,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
+        ResultSetConatiner rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
         setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
 
@@ -150,7 +151,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
             setPositionName( posNameRow.getItem("job_desc").toString() );
         }
 
-        if (getPosition()>0) {
+        if (getPositionID()>0) {
             // Position Demographics
 
 //            dataRequest.setProperty("pid", Integer.toString(getPositionID()) );

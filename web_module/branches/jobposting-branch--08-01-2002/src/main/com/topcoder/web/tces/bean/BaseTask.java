@@ -68,7 +68,7 @@ log.debug("next page -> "+nextPage);
 
     public String dateToString(TCTimestampResult timestamp) {
         StringTokenizer tok1 = new StringTokenizer(
-                (timestamp.toString());
+                (timestamp.toString()));
         StringTokenizer token = new StringTokenizer(
                 (String) tok1.nextElement(), "-");
 
