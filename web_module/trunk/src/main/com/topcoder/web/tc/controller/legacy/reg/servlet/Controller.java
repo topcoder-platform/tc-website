@@ -62,6 +62,7 @@ public class Controller
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             CoderSessionInfo info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
             nav.setCoderSessionInfo(info);
+            request.setAttribute(BaseServlet.SESSION_INFO_KEY, info);
 
             if (nav.isIdentified() && !nav.isLoggedIn())
                 throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new ClassResource(this.getClass()));
