@@ -44,7 +44,7 @@
         <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->	
+<!-- Center Column Begins -->    
         <td class="bodyText" width="99%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
@@ -87,12 +87,12 @@ The Championship Round finalists of the Coding tournament were as follows:
 <td class="sidebarTitle" align="center" colspan="2">Algorithm Competitors</td>
 </tr>
 <tr class="sidebarText">
-<td width="50%">Jan Kuipers, The Netherlands</td>
-<td width="50%">*Tomasz Czajka, Poland</td>
+<td>Jan Kuipers, The Netherlands</td>
+<td>Tomasz Czajka, Poland</td>
 </tr>
 <tr class="sidebarText">
-<td>Erik-Jan Krijgsman, The Netherlands</td>
-<td>Luka Kalinovcic, Croatia</td>
+<td width="50%">Erik-Jan Krijgsman, The Netherlands</td>
+<td width="50%">Luka Kalinovcic, Croatia</td>
 </tr>
 <tr class="sidebarText">
 <td>Michal Forisek, Slovak Republic</td>
@@ -119,7 +119,7 @@ The Championship Round finalists of the Coding tournament were as follows:
 <td>Tomasz Idziaszek, Poland</td>
 </tr>
 <tr class="sidebarText">
-<td>Zheng Shao, USA</td>
+<td>Zheng Shao, China</td>
 <td>Eryk Kopczynski, Poland</td>
 </tr>
 <tr class="sidebarText">
@@ -144,16 +144,16 @@ The Championship Round finalists of the Coding tournament were as follows:
 <td class="sidebarTitle" width="50%" align="center">Development Competitors</td>
 </tr>
 <tr class="sidebarText">
-<td>*Adrian Carcu, Romania</td>
+<td>Adrian Carcu, Romania</td>
 <td>Zheng Zhang, China</td>
 </tr>
 <tr class="sidebarText">
-<td>*Mihai Pasca, Romania</td>
+<td>Mihai Pasca, Romania</td>
 <td>Xu Chuan, China</td>
 </tr>
 <tr class="sidebarText">
 <td>Kyle Littlefield, USA</td>
-<td>*Gary Linscott, Canada</td>
+<td>Gary Linscott, Canada</td>
 </tr>
 <tr class="sidebarText">
 <td>&#160;</td>
@@ -170,7 +170,7 @@ The results of TopCoder's major tournaments, weekly competitions and component d
 TopCoder is the recognized leader in identifying, evaluating and mobilizing effective software development resources. Through its proprietary programming competitions and rating system, TopCoder recognizes and promotes the abilities of the best programmers around the world.  TopCoder Software harnesses the talent of these developers to design, develop and deploy software through its revolutionary competitive development methodology. TopCoder's methodology emphasizes thorough specification and design, distributed development using reusable components, and a rigorous quality assurance review process and results in higher quality, lower cost software solutions than traditional software development methodologies.  For more information about sponsoring TopCoder Events, recruiting TopCoder members and utilizing TopCoder Software, visit www.topcoder.com.
 <br /><br />
 TopCoder is a registered trademark of TopCoder, Inc. in the United States and other countries.
-      						</p>
+                              </p>
                         <p>###</p>
                         <p><br /></p>
                         
