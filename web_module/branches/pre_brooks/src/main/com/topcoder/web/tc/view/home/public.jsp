@@ -33,14 +33,13 @@
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br/>
             <jsp:include page="big_promo.jsp" />
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" />
-        	<jsp:include page="small_promos.jsp" />
+            <jsp:include page="small_promos.jsp" />
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
             <jsp:include page="corp_promos.jsp" />
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
             <jsp:include page="terciary_nav.jsp" />
             <a name="matchDates"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
             <jsp:include page="next_match.jsp" />
-           
             <a name="memberSurveys"><img src="/i/clear.gif" alt="" width="1" height="15" border="0" /></a>
             <jsp:include page="member_surveys.jsp" />
             <a name="algoArena"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></a>
@@ -62,10 +61,6 @@
 <!-- Right Column Begins -->
          <td width="180">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-<%--
-               <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
-               <tr><td><jsp:include page="message.jsp" /></td></tr>
---%>
                <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
                <tr><td><img src="/i/top_10_lists_top.gif" alt="Competition Leaders" width="180" height="11" border="0"></td></tr>
                <tr><td><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="180" height="20" border="0" /></td></tr>

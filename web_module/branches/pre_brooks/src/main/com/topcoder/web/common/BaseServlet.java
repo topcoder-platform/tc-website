@@ -103,7 +103,7 @@ public abstract class BaseServlet extends HttpServlet {
             authentication = createAuthentication(tcRequest, tcResponse);
             TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
-            request.setAttribute(SESSION_INFO_KEY, info);
+            tcRequest.setAttribute(SESSION_INFO_KEY, info);
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
@@ -119,9 +119,13 @@ public abstract class BaseServlet extends HttpServlet {
 
             try {
                 try {
-                    String cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
+                    String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
                     if (cmd.equals(""))
-                        cmd = StringUtils.checkNull(getParameter(request, MODULE));
+                        cmd = StringUtils.checkNull(tcRequest.getParameter(MODULE));
+                    
+                    log.info("RYAN: COMMAND IS " + cmd);
+                    log.info("RYAN: REQUEST TYPE IS " + tcRequest.getClass().getName());
+
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
                     if (!isLegalCommand(cmd))
@@ -243,6 +247,16 @@ public abstract class BaseServlet extends HttpServlet {
                 request.setAttribute(URL_KEY, ((NavigationException)e).getUrl());
         } else {
             request.setAttribute(MESSAGE_KEY, "An error has occurred when attempting to process your request.");
+
+            // A code to be removed once the application is tested
+//            StringBuffer buf = new StringBuffer();
+//            buf.append("An error has occurred when attempting to process your request.<BR>");
+//            buf.append(e.toString() + "<BR> Stack trace follows: <BR>");
+//            StackTraceElement[] stackTrace = e.getStackTrace();
+//            for (int i = 0; i < stackTrace.length; i++) {
+//                buf.append(stackTrace[i].toString() + "<BR>");
+//            }
+//            request.setAttribute(MESSAGE_KEY, buf.toString());
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);

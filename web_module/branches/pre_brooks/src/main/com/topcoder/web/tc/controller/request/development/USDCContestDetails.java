@@ -6,19 +6,8 @@
 
 package com.topcoder.web.tc.controller.request.development;
 
-import java.util.Map;
-import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.StringUtils;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.tc.Constants;
-import com.topcoder.web.tc.controller.legacy.TaskDevelopment;
-import com.topcoder.web.tc.model.SoftwareComponent;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
-import javax.servlet.http.HttpUtils;
+import java.util.Map;
 
 /**
  *
@@ -26,102 +15,60 @@ import javax.servlet.http.HttpUtils;
  */
 public class USDCContestDetails extends StatBase {
     
-    private int type = 0;
-    
-    private void getType() throws TCWebException
-    {
-        if(type != 0)
-            return;
-        
-        Request dataRequest = new Request();
-        Map map = HttpUtils.parseQueryString(getRequest().getQueryString()); 
-        map.remove(Constants.MODULE_KEY); 
-        map.remove(DataAccessConstants.SORT_COLUMN);
-        map.remove(DataAccessConstants.SORT_DIRECTION);
-
-        try {
-            dataRequest.setProperties(map);
-            dataRequest.setContentHandle("usdc_contest_info");
-            DataAccessInt dai = getDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME, true);
-            Map result = dai.getData(dataRequest);
-            
-            ResultSetContainer rsc = (ResultSetContainer)result.get("contest_info");
-            
-            type = rsc.getIntItem(0, "prize_type_id");
-            
-        } catch (TCWebException e) {
-            throw new TCWebException(e);
-        } catch (Exception e) {
-            throw new TCWebException(e);
-        }
-    }
-    
-    String getCommandName() throws TCWebException {
-        getType();
-
-        if(type == 1)
+    String getCommandName() {
+        if(getRequest().getParameter("type").equals("1"))
         {
+            //first winning submission
             return "usdc_contest_details_first_winner";
         }
-        else if(type == 2 || type == 3)
+        else if(getRequest().getParameter("type").equals("3"))
         {
-            return "usdc_contest_details";
-        }
-        else if(type == 4)
-        {
+            //most submissions (min 2, passing score)
             return "usdc_contest_details_most_submissions";
         }
-        else
+        else if(getRequest().getParameter("type").equals("4"))
         {
+            //most submissions (min 2, passing score)
             return "usdc_contest_details_monthly";
         }
+        else
+            return "usdc_contest_details";
     }
     
-    String getDataSourceName() throws TCWebException {
-        getType();
-            
-        if(type == 5 || type == 6)
+    String getDataSourceName() {
+        if(getRequest().getParameter("type").equals("4"))
         {
             return DBMS.TCS_OLTP_DATASOURCE_NAME;
         }
         else
-        {
             return DBMS.DW_DATASOURCE_NAME;
-        }
-        
     }
     
-    String getPageName() throws TCWebException {
-       getType();
-            
-        if(type == 4)
+    String getPageName() {
+        if(getRequest().getParameter("type").equals("3"))
         {
             return "/dev/usdc_contest_det_most_submissions.jsp";
         }
-        else if(type == 5 || type == 6)
+        else if(getRequest().getParameter("type").equals("4"))
         {
             return "/dev/usdc_contest_det_monthly.jsp";
         }
         else
-        {
             return "/dev/usdc_contest_det.jsp";
-        }
     }
     
     void statProcessing() throws com.topcoder.web.common.TCWebException {
-        
-       getType();
-
-        if(type == 1 )
+        if(getRequest().getParameter("type").equals("1"))
         {
             //reposition result->resultMap->contest_results_only_winners to contest_results so that the page doesn't have to know what
             //type of contest this is
-            Map result2 =  (Map)getRequest().getAttribute("resultMap");
-
-            result2.put("contest_results", result2.get("contest_results_only_winners"));
+            Map result =  (Map)getRequest().getAttribute("resultMap");
+            
+            result.put("contest_results", result.get("contest_results_only_winners"));
             //result.remove("contest_results_only_winners");
-
-            getRequest().setAttribute("resultMap", result2);
+            
+            getRequest().setAttribute("resultMap", result);
         }
-    }    
+    }
+    
 }

@@ -471,7 +471,7 @@ public class ProjectAdministration implements Model {
             for (int i = 0; i < oldRoles.length && i < newRoles.length; i++) {
                 if (!oldRoles[i].getRole().equals(newRoles[i].getRole())
                         || !equals(newRoles[i].getUser(), oldRoles[i].getUser())) {
-                    changeType |= MailHelper.ROLE_CHANGE;
+                    changeType = MailHelper.ROLE_CHANGE;
                     isRoleChange = true;
                     if (submitterSet.contains(newRoles[i].getUser())) {
                         problemSet.add(newRoles[i].getUser());
@@ -496,19 +496,6 @@ public class ProjectAdministration implements Model {
                 handleRollback(shouldRollback, ut);
                 return new SubmitterRemovalResult(problemSet);
             }
-
-/*
-            if ((changeType & MailHelper.PHASE_CHANGE) != MailHelper.NO_CHANGE) {
-                LogHelper.log("PHASE CHANGE DETECTED");
-            }
-            if ((changeType & MailHelper.TIMELINE_CHANGE) != MailHelper.NO_CHANGE) {
-                LogHelper.log("TIMELINE CHANGE DETECTED");
-            }
-            if ((changeType & MailHelper.ROLE_CHANGE) != MailHelper.NO_CHANGE) {
-                LogHelper.log("ROLE CHANGE DETECTED");
-            }
-            LogHelper.log("CHANGE TYPE = " + changeType);
- */
 
             // if all old roles are unassigned then set the weekly notification flag to false
             // (in case it isn't set that way by default for a new project)
@@ -562,8 +549,8 @@ public class ProjectAdministration implements Model {
                     User rev = (User) it.next();
                     // after the review phase do not send mails to losers (non-winners)
                     PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
-                    if (newProject.getCurrentPhase().getOrder() > phaseManager.getPhase(Phase.ID_APPEALS).getOrder()
-                                && RoleHelper.isSubmitterOnly(rev, newProject) 
+                    if (newProject.getCurrentPhase().getOrder() > phaseManager.getPhase(Phase.ID_REVIEW).getOrder()
+                                && RoleHelper.isSubmitterOnly(rev, newProject)
                                 && !rev.equals(newProject.getWinner())) {
                         LogHelper.log("Not sending mail to submitter " + rev.getHandle()
                                     + " because the phase is past review and he is not a winner");

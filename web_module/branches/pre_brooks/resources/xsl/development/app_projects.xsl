@@ -73,40 +73,6 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_StockCount_App_Design">Palm Stock Count Application</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>	
-                                
-				                <tr valign="top">
-				                    <td class="projectCells" colspan="4"><a href="?t=development&amp;c=PMD_v10_des">Project Management Dashboard</a></td>
-				                </tr>
-				                <tr valign="top">
-				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Service</td>
-				                    <td class="projectCells" align="center">$2,730</td>
-				                    <td class="projectCells" align="center">$870</td>
-				                    <td class="projectCells" align="right">Closed</td>
-				                </tr>
-
-				                <tr valign="top">
-				                    <td class="projectCells">&#160;&#160;&#160;&#160;Dashboard Reports</td>
-				                    <td class="projectCells" align="center">$2,634</td>
-				                    <td class="projectCells" align="center">$840</td>
-				                    <td class="projectCells" align="right">Closed</td>
-				                </tr>
-				                
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=GeneChip_Data_Interface">GeneChip Data Interface</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
 
 
                                 <tr valign="top">
@@ -115,7 +81,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$1,290 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$375 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -123,15 +89,15 @@
                                     </td>
                                     <td class="projectCells" align="right">$500&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">N/A &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Universal_Registration_Design">Universal Registration Design</a>
+                                        <a href="?t=development&amp;c=Universal_Registration_Design">Universal Registation Design</a>
                                     </td>
                                     <td class="projectCells" align="right">$2,900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -139,9 +105,32 @@
                                     </td>
                                     <td class="projectCells" align="right">$810 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$225 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">closed</td>
                                 </tr>
-
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_Common_Connectivity_Design ">Palm Common Connectivity Application</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">closed</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_Transfers_App_Design ">Palm Transfers Application</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">06/17/2004 9:00 AM ET</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_Receiving_App_Design ">Palm Receiving Application</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">06/17/2004 9:00 AM ET</td>
+                                </tr>                                                                
                             </table>
 
                             <br/>
@@ -157,81 +146,13 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
-
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Universal_Registration_Development-FE">Universal Registration Development - Front End</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Universal_Registration_Development-Services">Universal Registration Development - Services</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Universal_Registration_Development-Util">Universal Registration Development - Utilities</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-
-
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_Transfers_Receiving_App_Dev">Palm Transfers and Receiving</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>                                
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_Common_Connectivity_Dev">Palm Common Connectivity</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Content_Syndication_ASP_Dev">Content Syndication: ASP</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Content_Syndication_Java_Dev">Content Syndication: Java</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=Testing_Tool_App">Screening Tool</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">n/a &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
-                                </tr>
-
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=XML_Import_Dev">XML Import</a>
                                     </td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
                                 </tr>
 
                                 <tr valign="top">
@@ -240,7 +161,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -248,7 +169,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -256,7 +177,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -264,7 +185,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$150 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">06/14/2004 9:00 AM ET</td>
                                 </tr>
 
                                 <!--

@@ -16,13 +16,14 @@ import javax.servlet.http.HttpUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.HashMap;
 import java.util.Date;
 
 /**
  * Processing for the Test Results page.
  * @author Porgery
  */
-public class TestResults extends BaseProcessor {
+public class TestResults extends BaseScreeningProcessor {
     private final static Logger log = Logger.getLogger(TestResults.class);
 
     protected CandidateInfo cinfo = new CandidateInfo();
@@ -32,8 +33,9 @@ public class TestResults extends BaseProcessor {
     /** Implements the processing step.
      * @throws com.topcoder.web.common.TCWebException
      */
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         try {
+           
             DataAccessInt dAccess = Util.getDataAccess();
             Request dr = new Request();
             dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
@@ -96,6 +98,34 @@ public class TestResults extends BaseProcessor {
             tinfo.setSessionComplete(Math.min(maxEnd.getTime(), end.getTime()) < curr.getTime());
             tinfo.setProblemSetBCount(Integer.parseInt(result.getItem(0, "num_set_b").toString()));
             tinfo.setProblemSetBResults((ResultSetContainer) map.get("testSetBResults"));
+
+            ResultSetContainer rscB = (ResultSetContainer) map.get("testSetBResults");
+            Map percents = new HashMap();
+            for(int i = 0; i < tinfo.getProblemSetBCount(); i++)
+            {
+                dAccess = Util.getDataAccess();
+                //get percentile info
+                Request dr2 = new Request();
+                dr2.setContentHandle("candidate_percentile");
+                dr2.setProperty("cid", String.valueOf( cinfo.getUserId() ));
+                dr2.setProperty("pid", String.valueOf( rscB.getLongItem(i, "problem_id" )));
+                dr2.setProperty("tm", String.valueOf( rscB.getLongItem(i, "total_time" )));
+                Map m2 = dAccess.getData(dr2);
+                
+                percents.put(String.valueOf( rscB.getLongItem(i, "problem_id" )), new Double(((ResultSetContainer)m2.get("candidate_percentile")).getDoubleItem(0, "percentile") ));
+                
+            }
+            
+            tinfo.setProblemSetBPercentiles(percents);
+            
+            //lookup stats
+            Request dr3 = new Request();
+            dr3.setContentHandle("problem_statistics");
+            dr3.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
+            Map map3 = dAccess.getData(dr3);
+            
+            tinfo.setProblemSetBStats((ResultSetContainer)map3.get("problem_statistics"));
+            
             getRequest().setAttribute("testResultsInfo", tinfo);
 
             pinfo.setProfileName(result.getItem(0, "session_profile_desc").toString());
@@ -120,5 +150,5 @@ public class TestResults extends BaseProcessor {
         setNextPage(Constants.TEST_RESULTS_PAGE);
         setIsNextPageInContext(true);
     }
-
+    
 }

@@ -345,7 +345,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Closed
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Order%20Fulfillment%20DAO%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>

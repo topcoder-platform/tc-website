@@ -1,11 +1,4 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
-<%@ page
-  language="java"
-  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          java.util.Map,com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
-%>
-<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
-<META HTTP-EQUIV="refresh" content="10">
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
@@ -36,7 +29,7 @@ H3 { font-size: 125%; }
 
 .problem
 { 
-	font-size: 20px;
+	font-size: 16px;
 	font-weight: bold;
 	text-decoration: none;
     padding: 10px;
@@ -71,7 +64,7 @@ H3 { font-size: 125%; }
 { 
     background-color: #594FBF;	
 	color: #FFFFFF;
-	font-size: 17px;
+	font-size: 14px;
 	font-weight: bold;
 	text-decoration: none;
     margin: 0px;
@@ -85,7 +78,7 @@ H3 { font-size: 125%; }
 { 
     background-color: #CCCCCC;	
 	color: #333333;
-	font-size: 17px;
+	font-size: 11px;
 	font-weight: bold;
 	text-decoration: none;
 	padding-top: 3px;
@@ -97,7 +90,7 @@ H3 { font-size: 125%; }
 .leaderCell
 {
 	color: #333333;
-	font-size: 17px;
+	font-size: 11px;
 	font-weight: normal;
 	text-decoration: none;
 	padding-top: 5px;
@@ -109,142 +102,118 @@ H3 { font-size: 125%; }
 
 .winners
 {
-	color: #000000;
-	font-size: 17px;
+	color: #FF0000;
+	font-size: 12px;
 	font-weight: bold;
 	text-decoration: none;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	padding-left: 5px;
-	padding-right: 5px;
-    vertical-align: top;
 }
 
 -->
  </STYLE>
 
 </head>
-
-<%
-
-com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
-dataRequest.setContentHandle("javaone_scoreboard");
-DataAccessInt dai = new DataAccess("OLTP");
-Map dataMap = null;
-dataMap = dai.getData(dataRequest);
-ResultSetContainer rscTopA = (ResultSetContainer)dataMap.get("top_set_a");
-ResultSetContainer rscRecentA = (ResultSetContainer)dataMap.get("recent_set_a");
-ResultSetContainer rscTopB = (ResultSetContainer)dataMap.get("top_set_b");
-ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("recent_set_b");
-
-
-
-%>
-
-
-
-
-
     <body>
-            <table border=0 cellspacing=0 width="100%" align=center>
+            <table border=0 cellspacing=0 width="1100" align=center>
                 <tr>
                     <td align="left" valign="middle"><img src="/i/events/javaone04/javaone04_logo.gif" width="166" height="80" border="0"/></td>
-                    <td align="center" valign="middle"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0"/></td>
-                    <td align="right" valign="middle"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></td>
+                    <td align="right" valign="middle"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="166" height="80" border="0"/></a></td>
                 </tr>
                 <tr>
-                    <td align="left" valign="middle" colspan="3"><img src="/i/events/javaone04/purple_dot.gif" width="100%" height="25" border="0"></td>
+                    <td align="left" valign="middle" colspan="2"><img src="/i/events/javaone04/purple_dot.gif" width="100%" height="25" border="0"></td>
                 </tr>
             </table>
 
-            <table class="leaderTable" cellspacing=0 cellpadding=0 align=center width="95%">
+            <table class="leaderTable" cellspacing=0 cellpadding=0 align=center width="800">
                 <tr>
-                    <td class="problem" align=center colspan=2>Problem 1</td>
+                    <td class="problem" align=center colspan=2>Problem A</td>
                     <td class="problem" ></td>
-                    <td class="problem" align=center colspan=2>Problem 2</td>
+                    <td class="problem" align=center colspan=2>Problem B</td>
                 </tr>
                 <tr>
-                    <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
+                    <td valign=top class="leaderParentL" style="border-collapse: collapse">
 
 <%-- Problem A Leaders --%>
-                        <table cellspacing=0 align=center width="100%">
+                        <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Current Leaders</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
-                            <% int i=1;%>
-                            <rsc:iterator list="<%=rscTopA%>" id="Row" >
-                                <tr>
-                                    <td class="<%=i<3?"winners":"leaderCell"%>"><rsc:item name="rank" row="<%=Row%>"/><%=". "+JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
-                                    <td class="<%=i<3?"winners":"leaderCell"%>" align="right"><rsc:item name='score' row='<%=Row%>' format="0.00"/></td>
-                                </tr>
-                            <% i++; %>
-                            </rsc:iterator>
+                            <tr>
+                                <td class="leaderCell"><span class="winners">place, first</span></td>
+                                <td class="leaderCell" align="right"><span class="winners">1234</span></td>
+                            </tr>
+                            <tr>
+                                <td class="leaderCell"><span class="winners">place, second</span></td>
+                                <td class="leaderCell" align="right"><span class="winners">1234</span></td>
+                            </tr>
+                            <tr>
+                                <td class="leaderCell">FreakinWickedLong, mystupidnameis</td>
+                                <td class="leaderCell" align="right">1234</td>
+                            </tr>
                         </table>
                     </td>
+                    <td valign=top class="leaderParentR" style="border-collapse: collapse">
 
 <%-- Problem A Recent Submissions --%>
-                    <td valign=top class="leaderParentR" style="border-collapse: collapse" width="25%">
-
-                        <table cellspacing=0 align=center width="100%">
+                        <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Recent Submissions</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
-                            <rsc:iterator list="<%=rscRecentA%>" id="Row" >
-                                <tr>
-                                    <td class="leaderCell"><%=JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
-                                    <td class="leaderCell" align="right"><rsc:item name='status' row='<%=Row%>' format="0.00"/></td>
-                                </tr>
-                            </rsc:iterator>
+                            <tr>
+                                <td class="leaderCell">FreakinWickedLong, mystupidnameis</td>
+                                <td class="leaderCell" align="right">passed<br/>(1234)</td>
+                            </tr>
+                            <tr>
+                                <td class="leaderCell">dude, some</td>
+                                <td class="leaderCell" align="right">failed</td>
+                            </tr>
+                            <tr>
+                                <td class="leaderCell">dude, some</td>
+                                <td class="leaderCell" align="right">pending</td>
+                            </tr>
                         </table>
                     </td>
                     <td class="spacer">&#160;</td>
-<%-- Problem B Leaders --%>
+                    <td valign=top class="leaderParentL" style="border-collapse: collapse">
 
-                    <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
-                        <table cellspacing=0 align=center width="100%">
+
+<%-- Problem B Leaders --%>
+                        <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Current Leaders</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
-                            <% int j=1;%>
-                            <rsc:iterator list="<%=rscTopB%>" id="Row" >
-                                <tr>
-                                    <td class="<%=j<3?"winners":"leaderCell"%>"><rsc:item name="rank" row="<%=Row%>"/><%=". "+JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
-                                    <td class="<%=j<3?"winners":"leaderCell"%>" align="right"><rsc:item name='score' row='<%=Row%>' format="0.00"/></td>
-                                </tr>
-                            <% j++;%>
-                            </rsc:iterator>
+                            <tr>
+                                <td class="leaderCell"><span class="winners">FreakinWickedLong, mystupidnameis</span></td>
+                                <td class="leaderCell" align="right"><span class="winners">1234</span></td>
+                            </tr>
                         </table>
                     </td>
+                    <td valign=top class="leaderParentR" style="border-collapse: collapse">
 
 <%-- Problem B Recent Submissions --%>
-
-                    <td valign=top class="leaderParentR" style="border-collapse: collapse" width="25%">
-                        <table cellspacing=0 align=center width="100%">
+                        <table cellspacing=0 align=center>
                             <tr>
                                 <td class="leaderTitle" colspan="2">Recent Submissions</td>
                             </tr>
                             <tr>
-                                <td class="leaderHeader">Name</td>
+                                <td class="leaderHeader">Handle</td>
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
-                            <rsc:iterator list="<%=rscRecentB%>" id="Row" >
-                                <tr>
-                                    <td class="leaderCell"><%=JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
-                                    <td class="leaderCell" align="right"><rsc:item name='status' row='<%=Row%>' format="0.00"/></td>
-                                </tr>
-                            </rsc:iterator>
+                            <tr>
+                                <td class="leaderCell">FreakinWickedLong, mystupidnameis</td>
+                                <td class="leaderCell" align="right">1234</td>
+                            </tr>
                         </table>
                     </td>
                 </tr>

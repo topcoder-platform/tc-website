@@ -50,7 +50,7 @@ public class Simple extends Static {
             }
 
         } catch (TCWebException e) {
-            throw e;
+            throw new TCWebException(e);
         } catch (Exception e) {
             throw new TCWebException(e);
         }

@@ -67,7 +67,7 @@ persons living in the same household as such persons, are ineligible to enter th
 
 <h3>Registration</h3>
 
-<p>All members who are participating in each weekly contest must register for at least one component within 48 hours 
+<p>All members who are participating in each weekly contest must register for at least one component within 24 hours 
 of the weekly posting date to be eligible for that week's prizes.</p>
 
 <h3>Placement Scoring</h3>

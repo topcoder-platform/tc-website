@@ -20,9 +20,10 @@
     <tr><td width="100%" class="footer">
             <A href="/" class="footerLinks">Competition</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=development&c=index" class="footerLinks">Development</A>&#160;&#160;|&#160;&#160;
+            <A href="/?t=tces&c=index" class="footerLinks">Job Listings</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="footerLinks">Software</A>&#160;&#160;|&#160;&#160;
             <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home" class="footerLinks">Employment Services</A>&#160;&#160;|&#160;&#160;
-            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="footerLinks">Marketing Services</A></td></tr>
+            <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="footerLinks">Sponsorship</A></td></tr>
 <!-- Member Sites Ends -->
 
     <tr><td height="4" class="footerStripe"><img src="/i/corp/clear.gif" width="10" height="4" border="0"/></td></tr>

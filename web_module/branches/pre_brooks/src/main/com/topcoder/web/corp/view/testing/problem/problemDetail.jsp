@@ -29,46 +29,46 @@
 
 <!-- Middle column begins -->
         <td width="70%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrameNB">
                 <tr valign="top">
                     <td class="bodyText">
-            <h1 class="testHead">Problem Detail</h1>
+            <p class="testHead">Problem Detail</p>
                     </td>
                 </tr>
             </table>
             <p></p>
 
-            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
             <jsp:useBean id="problemInfo" type="com.topcoder.web.corp.model.ProblemInfo" scope="request" />
             <TR>
-              <TD COLSPAN="6" CLASS="testTableTitle">&#160;<jsp:getProperty name="problemInfo" property="problemName" /></TD>
+              <TD COLSPAN="6" CLASS="screeningTitle"><jsp:getProperty name="problemInfo" property="problemName" /></TD>
            </TR>
             <TR>
-               <TD ALIGN="center" CLASS="testFormHeader">Division</TD>
-               <TD ALIGN="center" CLASS="testFormHeader">Difficulty</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Overall Accuracy %</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Sub. Acc. %</TD>
-		       <TD ALIGN="center" CLASS="testFormHeader">Sub. %</TD>
-               <TD ALIGN="center" CLASS="testFormHeader">Algorithmic Categories</TD>
+               <TD ALIGN="left" CLASS="screeningHeader">Division</TD>
+               <TD ALIGN="center" CLASS="screeningHeader">Difficulty</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Overall Accuracy %</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Sub. Acc. %</TD>
+		       <TD ALIGN="center" CLASS="screeningHeader">Sub. %</TD>
+               <TD ALIGN="center" CLASS="screeningHeader">Algorithmic Categories</TD>
             </TR>
             <TR>
-               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="divisionDesc" /></TD>
-               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="difficultyDesc" /></TD>
-               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="overallAccuracy" />%</TD>
-               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="submissionAccuracy" />%</TD>
-               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="submission" />%</TD>
-               <TD ALIGN="center" CLASS="bodyText"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
+               <TD ALIGN="left" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="divisionDesc" /></TD>
+               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="difficultyDesc" /></TD>
+               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="overallAccuracy" />%</TD>
+               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="submissionAccuracy" />%</TD>
+               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="submission" />%</TD>
+               <TD ALIGN="center" CLASS="screeningCellOdd"><jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
             </TR>
          </table>
 
          <p></p>
 
-            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+            <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
            <TR>
-              <TD CLASS="testTableTitle">Problem Statement:</TD>
+              <TD CLASS="screeningTitle">Problem Statement:</TD>
            </TR>
            <TR>
-              <TD CLASS="bodyText" VALIGN="top">
+              <TD CLASS="screeningCellOdd" VALIGN="top">
 <screen:problemStatement text="<%=problemInfo.getProblemStatement()%>" language="Java" class="bodyText"/>
               </TD>
            </TR>

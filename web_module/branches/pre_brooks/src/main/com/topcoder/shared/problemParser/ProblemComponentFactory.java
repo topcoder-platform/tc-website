@@ -387,7 +387,6 @@ public class ProblemComponentFactory
         DataType t_int = new DataType(1, "int");
         DataType t_aint = new DataType(20, "int[]");
         DataType t_long = new DataType(14, "long");
-        DataType t_matrix2d = new DataType(23, "Matrix2D");
         HashMap map = new HashMap();
 
         map.put(new Integer(java.ID), "String");
@@ -433,7 +432,6 @@ public class ProblemComponentFactory
         types.put("int", t_int);
         types.put("int[]", t_aint);
         types.put("long", t_long);
-        types.put("Matrix2D", t_matrix2d);
 
         FileReader reader = new FileReader(args[0]);
 

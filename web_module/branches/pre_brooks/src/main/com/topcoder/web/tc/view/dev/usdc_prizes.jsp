@@ -59,8 +59,8 @@
                     The following Weekly Prizes will be awarded to the designer who:
                     <ol>
                     <li>Is the first to submit a component with a winning review score:	$300</li>
-                    <li>Receives the highest passing score for a Level 1 component: $250</li>
-                    <li>Receives the highest passing score for a Level 2 component:	$350</li>
+                    <li>Receives the highest score for a Level 1 component: $250</li>
+                    <li>Receives the highest score for a Level 2 component:	$350</li>
                     <li>Submits the most solutions with passing scores (min. of 2):	$300</li>
                     </ol>
                     </td>
@@ -109,8 +109,8 @@
                     The following Weekly Prizes will be awarded to the Developer who:
                     <ol>
                     <li>Is the first to submit a component with a winning review score:	$100</li>
-                    <li>Receives the highest passing score for a Level 1 component: $75</li>
-                    <li>Receives the highest passing score for a Level 2 component:	$125</li>
+                    <li>Receives the highest score for a Level 1 component: $75</li>
+                    <li>Receives the highest score for a Level 2 component:	$125</li>
                     <li>Submits the most solutions with passing scores (min. of 2):	$100</li>
                     </ol>
                     </td>

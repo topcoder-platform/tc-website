@@ -82,14 +82,14 @@ else
                                 <td class="sidebarTitle">Handle</td>
                                 <td class="sidebarTitle" align=center>Position Points</td>
                                 <td class="sidebarTitle" align=right>Contest Prize</td>
-                                <td class="sidebarTitle" align=center>Results</td>
+                                <td class="sidebarTitle" align=center>Details</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
                                 <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
                                 <td class="sidebarText" align=center ><rsc:item name="position_points" format="0" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=right>$<rsc:item name="prize_payment" format="#,##0" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><a href="/tc?module=USDCMemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">results</a></td>
+                                <td class="sidebarText" align=center><a href="/tc?module=USDCMemberResults&from=2&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>">details</a></td>
                             </tr>
                             </rsc:iterator>
                         </table>

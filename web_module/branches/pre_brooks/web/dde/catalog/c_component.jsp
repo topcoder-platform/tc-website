@@ -375,9 +375,9 @@
                         <table border="0" cellspacing="0" cellpadding="0" width="100%">
 <%  for (int i=0; i < versions.length; i++) {
             if (collaborations[i] != null) {  %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= collaborations[i].getId() %>">Customer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
+                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= collaborations[i].getId() %>">Customer Forum Version <%= "" + versions[i].getVersion() %></a></td></tr>
             <%  }  if (specifications[i] != null) {  %>
-                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= specifications[i].getId() %>">Developer Forum Version <%= "" + versions[i].getVersionLabel() %></a></td></tr>
+                            <tr><td class="rightColDisplay"><a href="/forum/c_forum.jsp?f=<%= specifications[i].getId() %>">Developer Forum Version <%= "" + versions[i].getVersion() %></a></td></tr>
             <%  }
 }  %>
                             <tr><td height="5"><img src="/images/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>

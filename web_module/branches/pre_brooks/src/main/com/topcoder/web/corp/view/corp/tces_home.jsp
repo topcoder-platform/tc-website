@@ -51,7 +51,7 @@
                     <img src="/i/corp/tces_image.jpg" width="530" height="220" alt="" border="0"></div>
                       
                       <p>TopCoder has created an online venue that brings together some of the most talented developers from over 
-                      160 countries around the world.  This enterprising group of over 40,000 developers joins TopCoder to compete 
+                      160 countries around the world.  This enterprising group of over 38,000 developers joins TopCoder to compete 
                       against, learn from and interact with one another.  For those companies looking to hire developers, we offer 
                       a variety of employment services.  Our competition model ensures that the best candidates are separated from the rest.</p>
                       
@@ -84,11 +84,12 @@
                         		<td><img src="/i/corp/tcesclient_microsoft.gif" width="132" height="50" alt="Microsoft" border="0" align="right"></td>
                         		<td><img src="/i/corp/tcesclient_fbi.gif" width="132" height="50" alt="FBI" border="0" align="right"></td>
                         		<td><img src="/i/corp/tcesclient_verizon.gif" width="132" height="50" alt="Verizon" border="0" align="right"></td>
-                        		<td><img src="/i/corp/tcesclient_apex.gif" width="132" height="50" alt="Appex" border="0" align="centers"></td>
+                        		<td><img src="/i/corp/tcesclient_doubleclick.gif" width="132" height="50" alt="DoubleClick" border="0" align="right"></td>
                         	</tr>
                         	<tr>
                         		<td><img src="/i/corp/tcesclient_cryptic.gif" width="132" height="50" alt="Cryptic" border="0" align="right"></td>
-                        		<td colspan="2"><div align="center"><img src="/i/corp/tcesclient_doubleclick.gif" width="132" height="50" alt="DoubleClick" border="0" align="center"></div></td>
+                        		<td><img src="/i/corp/tcesclient_amazon.gif" width="132" height="50" alt="Amazon" border="0" align="right"></td>
+                        		<td><img src="/i/corp/tcesclient_apex.gif" width="132" height="50" alt="Appex" border="0" align="right"></td>
                         		<td><img src="/i/corp/tcesclient_appian.gif" width="132" height="50" alt="Appian" border="0" align="right"></td>
                         	</tr>
                         </table>

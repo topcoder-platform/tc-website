@@ -94,18 +94,18 @@
                                                         real-time basis as they are being scanned on the Palm at the store.
                                                         <br/>
                                                         <br/>
-                                                        The existing Palm-based Transfers and Receiving Applications will be modified 
-                                                        to not only write its data to a local Palm database (PDB), but to also connect 
-                                                        via a socket to an instance of TopCoder's Data Access Socket Server Component 
-                                                        running on a corporate server to persist the data to a central RDMBS. There are 
-                                                        also some enhancements to the overall functionality of the Transfers and Receiving 
-                                                        Applications, including a signature capture screen.                                                    
-                                                        </p>
+                                                        The existing Palm-based Transfers Application will be modified to not
+                                                        only write its data to a local Palm database (PDB), but to also connect
+                                                        via a socket to an instance of TopCoder's Data Access Socket Server 
+                                                        Component running on a corporate server to persist the data to a central
+                                                        RDMBS.  There are also some enhancements to the overall functionality of 
+                                                        the Transfers Application.
+                                                    </p>
 
                                                     <p>
                                                         <strong>Business Requirements Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Palm_Transfers_Receiving_App_Req_Spec062204.pdf">Business Requirements Specification</a> for this project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Palm_Transfers_App_Req_Spec.pdf">Business Requirements Specification</a> for this project.
                                                     </p>
 
 
@@ -262,52 +262,35 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.23.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.17.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.24.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.17.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.25.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.18.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.01.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.01.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.06.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.06.2004 &#160;&#160;5:00 PM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.25.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">06.30.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.09.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.02.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.10.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.03.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.29.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.22.2004</td>
                                                         </tr>
                                                     </table>
 
@@ -323,9 +306,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        <!--Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
-                                                        -->
-                                                        Closed
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20Application">here</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>

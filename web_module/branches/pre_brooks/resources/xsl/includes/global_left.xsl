@@ -307,20 +307,7 @@
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="tc_gear_row"/>
 
-                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support / FAQs</A></td></tr>
-
-<!-- Alg Competition Guide -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='competition_guide'">leftSubnavOn</xsl:when>
-                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute>Algorithm Competition Guide</A>
-                    </td>
-                </tr>
+                <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support / FAQs</A></td></tr>
 
 <!-- General FAQs -->
                 <tr>
@@ -361,6 +348,45 @@
                     </td>
                 </tr>
 
+<!-- Divisions -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='divisions'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=divisions</xsl:attribute>Divisions</A>
+                    </td>
+                </tr>
+
+<!-- Competition Preview -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='comp_preview'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=comp_preview</xsl:attribute>Competition Preview</A>
+                    </td>
+                </tr>
+
+<!-- Competition Process -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='comp_process'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=comp_process</xsl:attribute>Competition Process</A>
+                    </td>
+                </tr>
+
 <!-- Ratings Overview -->
                 <tr>
                     <td id="leftSubnav">
@@ -371,6 +397,58 @@
                         </xsl:choose>
                         </xsl:attribute>
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=ratings</xsl:attribute>Ratings Overview</A>
+                    </td>
+                </tr>
+
+<!-- Editor Information -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='editor_info'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=editor_info</xsl:attribute>Editor Information</A>
+                    </td>
+                </tr>
+
+<!-- Software Requirements -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='software_req'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=software_req</xsl:attribute>Software Requirements</A>
+                    </td>
+                </tr>
+
+<!-- Rules &amp; Qualifications -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='rules_qual'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=rules_qual</xsl:attribute>Rules &amp; Qualification</A>
+                    </td>
+                </tr>
+
+<!-- Visual Guide -->
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                        <xsl:when test="/TC/Command='guide'">leftSubnavOn</xsl:when>
+                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=guide</xsl:attribute>Visual Guide</A>
                     </td>
                 </tr>
 
@@ -725,7 +803,7 @@
 </xsl:template>
 
 <xsl:template name="rules_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=help&amp;d2=index</xsl:attribute>Support / FAQs</A></td></tr>
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=index</xsl:attribute>Support / FAQs</A></td></tr>
 </xsl:template>
 
 <xsl:template name="reg_row">

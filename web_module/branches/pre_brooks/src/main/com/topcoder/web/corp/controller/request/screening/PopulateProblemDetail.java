@@ -5,10 +5,13 @@ import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.model.ProblemInfo;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.shared.util.logging.Logger;
 
-public class PopulateProblemDetail extends BaseProcessor {
+public class PopulateProblemDetail extends BaseScreeningProcessor {
+    
+    private static Logger log = Logger.getLogger(PopulateProblemDetail.class);
 
-    protected void businessProcessing() throws TCWebException {
+    protected void screeningProcessing() throws TCWebException {
         String roundProblemId =
                 getRequest().getParameter(Constants.ROUND_PROBLEM_ID);
 
@@ -25,8 +28,18 @@ public class PopulateProblemDetail extends BaseProcessor {
         long problemId = Long.parseLong(roundProblemId.substring(index + 1));
         ProblemInfo info = null;
         try {
-            info =
+            if(super.getUsageType() == Constants.USAGE_TYPE_SCREENING)
+            {
+                log.info("GOOD");
+                info =
+                    ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
+            }
+            else
+            {
+                log.info("BAD");
+                info =
                     ProblemInfo.createProblemInfo(getUser(), roundId, problemId);
+            }
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {

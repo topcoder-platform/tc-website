@@ -72,6 +72,11 @@
                         for these challenging and potentially lucrative projects. Winning solutions are rewarded with cash payouts and royalties. For every 
                         commercial sale, TopCoder will pay the members who designed and developed the component a percentage of the sale. </li><br />
                         
+                        <li><A href="/?&t=tces&c=index"><strong>Job Listing</strong></A><br />
+                        We are actively soliciting top companies who are looking to hire software engineers and developers. These companies value programming 
+                        talent and are interested in hiring TopCoder members. All TopCoder members can choose to be notified via email of new job postings, and 
+                        rated members may express interest in open positions at these top companies through the job postings and employment advertisements 
+                        on TopCoder's web site.</li>
                     </ul>
 
                     <p><span class="bodySubtitle">How Companies Benefit</span></p>
@@ -91,7 +96,7 @@
                         <li><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index"><strong>Sponsorship</strong></A><br />
                         Reaching the developer community is a difficult task at best. Marketing budgets are limited and with the advent of the Internet, 
                         the expectation for measuring results has only grown. TopCoder offers companies a means of targeting this desired community 
-                        through the targeted sponsorship of Single Round Matches
+                        through the targeted sponsorship of <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=srm_index">Single Round Matches</A>
                         and <A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=tourny_index">Tournaments.</A></li><br />
                     </ul>
 

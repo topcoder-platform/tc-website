@@ -10,7 +10,7 @@
 
 <HTML>
  <HEAD>
-   <TITLE>TopCoder Statistics - Top Ranked Designers</TITLE>
+   <TITLE>TopCoder Statistics - Top Ranked States</TITLE>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
    <jsp:include page="../script.jsp" />

@@ -71,19 +71,17 @@
                 <tr><td colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                 <tr valign="middle">
-                    <td class="bodyText" valign="top"><strong>TopCoder Software ant build global properties</strong><br />
-                        The ant build files distributed with the design and development distributions will 
-                        use this file to override certain parts of the build.xml.  This file can be modified
-                        to suit your local environment, the build file TopCoder distributes should not be
-                        modified.  If you think it needs to be, contact your project manager.  Keep in mind
-                        that the reviewers will be using the build.xml that was distributed.</td>
+                    <td class="bodyText" valign="top"><strong>TopCoder Software Development Environment</strong><br />
+                        The TopCoder Software Development Environment is intended to facilitate the component design and
+                        development process.  Anyone interested in working on component design or development
+                        should download this file and configure their environment before getting started.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">06.16.2004</td>
+                                <td class="bodyText">05.28.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/topcoder_global.properties" class="bodyText">topcoder_global.properties</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/topcoder_env.jar" class="bodyText">topcoder_env.jar</a></td>
                             </tr>
                         </table>
                     </td>
@@ -98,7 +96,7 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">06.16.2004</td>
+                                <td class="bodyText">03.10.2004</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Member_Guide.pdf" class="bodyText">TopCoder Software Member Guide.pdf</a></td>
                             </tr>
@@ -139,7 +137,7 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">06.16.2004</td>
+                                <td class="bodyText">08.28.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Component_Specification.rtf" class="bodyText">Component Specification.rtf</a></td>
                             </tr>
@@ -160,14 +158,19 @@
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
                             <tr valign="top">
-                                <td class="bodyText">06.30.2004</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a target="tcsdocs" href="/tc?module=Static&amp;d1=dev&amp;d2=desScreeningSample" class="bodyText">Sample Design Screening Scorecard</a></td>
+                                <td class="bodyText"><a target="tcsdocs" href="/i/development/downloads/Sample_Design_Screening_Scorecard.pdf" class="bodyText">Sample Design Screening Scorecard.pdf</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">06.30.2004</td>
+                                <td class="bodyText">11.10.2003</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
                                 <td class="bodyText"><a target="tcsdocs" href="/tc?module=Static&amp;d1=dev&amp;d2=desReviewSample" class="bodyText">Sample Design Review Scorecard</a></td>
+                            </tr>
+                            <tr valign="top">
+                                <td class="bodyText">04.01.2003</td>
+                                <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
+                                <td class="bodyText"><a href="/tc?module=DevStatic&amp;d1=dev&amp;d2=desReviewScoring" class="bodyText">Design Review Scoring</a></td>
                             </tr>
                             <tr valign="top">
                                 <td class="bodyText">11.10.2003</td>

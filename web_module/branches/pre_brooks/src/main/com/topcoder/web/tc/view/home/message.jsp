@@ -4,7 +4,7 @@
     </table>
     <table cellspacing="0" cellpadding="5" class="messageBoxFrame">
         <tr>
-            <td class="messageBoxText">The <b>Project Management Dashboard</b> application project is looking for .NET designers!  Total member payments total more than $10,000, so get <A href="/?t=development&c=PMD_v10_des">more details</A> now.</A>
+            <td class="messageBoxText">
             </td>
         </tr>
     </table>

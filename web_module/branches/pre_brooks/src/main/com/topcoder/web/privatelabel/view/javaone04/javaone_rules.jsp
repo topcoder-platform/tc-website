@@ -54,7 +54,8 @@
 						
 						<blockquote><ul class="regmiddle">
 						<li>Conference Plus Pass</li>
-						<li>Conference Pass</li></ul></blockquote>
+						<li>Conference Pass</li>
+						<li>JavaOne Pavilion Guest Pass</li></ul></blockquote>
 
   						<p class="regmiddle">To register for the JavaOne Conference, visit 
   						<a href="http://javaone.medialiveinternational.com/sf2004/registration.html" target="_blank">http://javaone.medialiveinternational.com/sf2004/registration.html</a></p>

@@ -59,8 +59,6 @@ public class Constants {
     public static String PROBLEM_RATING_QUESTION_INFO;
 
     public static String HIGHEST_RATING;
-    public static String PROBLEM_ARCHIVE;
-    public static String PROBLEM_DETAIL;
 
     public static String LOGIN;
     public static String ACTIVATE;
@@ -94,7 +92,6 @@ public class Constants {
     public static int SRM_SURVEY_QUESTION;
     public static int TOURNAMENT_SURVEY_QUESTION;
     public static int SEARCH_SCROLL_SIZE;
-    public static int PROBLEM_ARCHIVE_SCROLL_SIZE;
     public static String STATISTICS_PATH;
     public static int TCCC04_TERMS_OF_USE_ID;
     public static int UNLOCK_CARD_PREFERENCE_ID;

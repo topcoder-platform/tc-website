@@ -287,7 +287,7 @@ if (!rsc.isEmpty()) {
                                 <TD CLASS="statText" >&#160;&#160;Reliability Rating:</TD>
                                 <TD CLASS="statText" ALIGN="right"><rsc:item set="<%=rsc%>" name="reliability" ifNull="Not Rated" format="##0.##%"/></TD>
                                 <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD CLASS="statText" ALIGN="left">&#160;</TD>
+                                <TD CLASS="statText" ALIGN="left"><A HREF="/stat?c=reliability_history&cr=<bean:write name="resultRow" property='<%= "item[" + 1 /*"id"*/ + "]" %>'/>" CLASS="statText">[ history ]</A></TD>
                             </TR>
 
                             <TR>
