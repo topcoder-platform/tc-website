@@ -48,11 +48,11 @@
                 <tr valign="top">
                     <td width="99%" class="bodyText">
 
-            <div align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=room1"><img src="/i/promos/tco_promo_big.gif" alt="2003 TopCoder Open sponsored by Intel&#174;" width="530" height="164" border="0" /></A></div>
+            <div align="center"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=room2"><img src="/i/promos/tco_promo_big.gif" alt="2003 TopCoder Open sponsored by Intel&#174;" width="530" height="164" border="0" /></A></div>
 
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
-                            <tr valign="top"><td align="left"><img src="/i/tournament/tco03/room1/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">bstanescu enjoying the moment</td></tr>
+                            <tr valign="top"><td align="left"><img src="/i/tournament/tco03/room2/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /></td></tr>
+                            <tr valign="top"><td align="left" class="smallText">tomek is all smiles after taking Room 2</td></tr>
                         </table>
             
             <h2>bstansescu outcodes number one seed to take Room 1</h2>
@@ -60,19 +60,29 @@
             <p>by Matt Murphy (veredox), <em>TopCoder Staff</em><br />
             Thursday, December 4, 2003</p>
 
-            <p>Opting for strategy over speed, bstanescu is the first coder to qualify for the TCO final round.  When approached after his victory was announced, he played it cool saying, "The guy who solves the first and the third problems usually beats the guy who solves the first and the second.  But it doesn't always work."  Well, it worked today.</p>
+             <p>It's not too surprising that tomek is moving on to the finals.  He is the highest rated TopCoder member and has beat all of his "roommates" in every round of the TCO to date.</p>
 
-            <p>This morning's contest started out identical to most others.  All four competitors opened the 250-point problem and began coding.  As more and more spectators began to trickle in, however, things quickly became more exciting.  venco submitted his solution for the first problem just 15 minutes after opening it, earning him a strong 199.08 points.  bstanescu answered with his submission only two minutes later, giving him a score of 191.79.  SnapDragon and dpecora followed closely, earning 184.28 and 169.50 points, respectively.</p>
+            <p>"At the beginning, I was very scared," said tomek.  "After I checked the second problem, I saw the score and knew that I would win.  I did the last problem just in case one of the others failed."</p>
 
-             <p>With three coders working on the 500-point problem and bstanescu pegging away at the 1000, it still looked like anyone could win.  Suddenly, SnapDragon submitted the level two problem in less than 13 minutes for 421.68 points and moved quickly to the 1000 pointer.  venco submitted next for 361.45 points.</p>
+            <p>tomek was the first to submit the 250-point problem, and did so in less than 10 minutes.  The rest of the level one submissions came in five minute intervals in the order of bladerunner, madking and ambrose.</p>
 
-            <p>Time was running out and bstanescu was writing feverishly on his scratch paper.  With 15 minutes left in the coding phase, dpecora submitted the level two problem and earned himself 169.50 points.  All eyes were on SnapDragon, venco and bstanescu as they fought to solve the final problem.  Finally, with only 10 points left to give, bstanescu submitted his 1000-point solution and claimed first place with an additional 424.23 points.  The remaining 6 minutes of the coding phase passed without any further submissions.</p>
+            <p>ambrose was the only competitor to open the level three problem next.  After four minutes of viewing the problem statement, he opted for the 500-pointer instead.  A short 82 seconds later, tomek submitted his solution for the same problem.  At this point in the game, bladerunner and madking began to lag behind the leader.  bladerunner submitted his level two solution with half an hour left in the coding phase; madking 15 minutes after that.</p>
 
-            <p>The challenge phase was considerably less exciting than the coding phase.  All of the coders flocked to view bstanescu's solution for the hardest problem but no challenges were made during the entire phase.  System tests proved that this was a wise choice made by all competitors as every single submitted solution for each problem passed the system tests with flying colors.  It was official - bstanescu was the winner!</p>
+            <p>With 8¸ minutes to spare, tomek made his final submission, sealing the win.  Lastly, with one minute left to code, ambrose submitted his level two solution.</p>
 
-            <p>The round's outcome was quite an upset.  SnapDragon, the second highest rated member and number one seed for the tournament, was the favorite pick-to-win for the match.  Additionally, many spectators were rooting for dpecora as he was the underdog of all 16 semi-finalists.</p>
+            <p>Once again, the quality of the semi-finalists' submissions was evidenced by the lack of activity during the challenge phase.  All solutions passed the system tests.</p>
 
-            <p>Stay tuned for the next round, as we wait to see if there are more upsets to come. </p>
+            <p>The final scoreboard looked like this:</p>
+
+            <ul>
+            <li>tomek            1113.62</li>
+            <li>bladerunner    479.59</li>
+            <li>madking          415.04</li>
+            <li>ambrose          382.65</li>
+            </ul>
+
+            <p>Will tomek continue his winning streak all the way to the top?  Who will confront him in the final round?  Don't touch that dial...</p>
+
                     </td>
                 </tr>
             </table>
@@ -82,25 +92,25 @@
             <table border="0" cellspacing="0" cellpadding="3" width="100%">            
                 <tr>
                     <td class="thumbnails" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/01.jpg');"><img src="/i/tournament/tco03/room1/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/02.jpg');"><img src="/i/tournament/tco03/room1/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/03.jpg');"><img src="/i/tournament/tco03/room1/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/04.jpg');"><img src="/i/tournament/tco03/room1/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/05.jpg');"><img src="/i/tournament/tco03/room1/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/01.jpg');"><img src="/i/tournament/tco03/room2/01_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/02.jpg');"><img src="/i/tournament/tco03/room2/02_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/03.jpg');"><img src="/i/tournament/tco03/room2/03_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/04.jpg');"><img src="/i/tournament/tco03/room2/04_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/05.jpg');"><img src="/i/tournament/tco03/room2/05_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" align="center"><img src="/i/tournament/tco03/room1/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
+                    <td class="bodyText" align="center"><img src="/i/tournament/tco03/room2/01.jpg" name="bigVersion" width="432" height="288" class="photoFrameBig" /></td>
                 </tr>            
                 
                 <tr>
                     <td class="thumbnails" align="center">
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/06.jpg');"><img src="/i/tournament/tco03/room1/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/07.jpg');"><img src="/i/tournament/tco03/room1/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/08.jpg');"><img src="/i/tournament/tco03/room1/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/09.jpg');"><img src="/i/tournament/tco03/room1/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
-                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room1/10.jpg');"><img src="/i/tournament/tco03/room1/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/06.jpg');"><img src="/i/tournament/tco03/room2/06_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/07.jpg');"><img src="/i/tournament/tco03/room2/07_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/08.jpg');"><img src="/i/tournament/tco03/room2/08_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/09.jpg');"><img src="/i/tournament/tco03/room2/09_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
+                        <a href="Javascript:void changeImage('bigVersion', '/i/tournament/tco03/room2/10.jpg');"><img src="/i/tournament/tco03/room2/10_sm.jpg" alt="" width="96" height="64" class="photoFrameSmall" /></a>             
                     </td>
                 </tr>
             </table>
