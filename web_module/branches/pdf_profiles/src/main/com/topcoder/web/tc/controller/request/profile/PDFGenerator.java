@@ -288,7 +288,7 @@ public class PDFGenerator extends BaseProcessor {
             byte[] b = new byte[(int)info.getCompanyLogo().getSize()];
             info.getCompanyLogo().getInputStream().read(b);
             Image companyLogo = Image.getInstance(b);
-            float scale = 150 / companyLogo.plainWidth();
+            float scale = 150.0f / companyLogo.plainWidth();
             companyLogo.scaleAbsoluteWidth(150);
             companyLogo.scaleAbsoluteHeight(companyLogo.plainHeight() * scale);
 
