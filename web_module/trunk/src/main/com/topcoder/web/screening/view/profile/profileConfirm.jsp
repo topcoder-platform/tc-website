@@ -79,14 +79,14 @@ function submitUpdate() {
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
 
                 <tr>
-                    <td class="testTableSubtitleOdd">Name</td>
+                    <td class="testTableSubtitleOdd"><strong>Name:</strong></td>
                     <INPUT TYPE="HIDDEN" name="profileName" value="<jsp:getProperty name="profile" property="profileName" />" >
                     <td class="testTableOdd"><jsp:getProperty name="profile" property="profileName" /></td>
                     <td class="errorTextOdd">&#160;</td>
                 </tr>
 
                 <tr>
-                    <td class="testTableSubtitleEven">Problem Set</td>
+                    <td class="testTableSubtitleEven"><strong>Problem Set:</strong></td>
                 <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>"><% 
                 if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { 
                     %><INPUT type="HIDDEN" name="testSetA" value="<screen:resultSetItem row="<%=row%>" name="round_id" />" >
@@ -149,7 +149,6 @@ function submitUpdate() {
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="difficultyDesc" /></td>
                     <td align="center" class="testTableOdd"><screen:beanWrite name="testB" property="algorithmicCategoryList" /></td>
  <%--               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:beanWrite name="testB" property="businessCategoryList" /></TD> --%>
-                    <td align="center" class="testTableOdd"><a href="JavaScript:submitRemove('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" CLASS="bodyText">Remove</a></td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>
@@ -170,11 +169,13 @@ function submitUpdate() {
                 </tr>
                 <% } %>
                 </screen:resultSetRowIterator>
+
+                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
 
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
                  <tr>
-                    <td><div align="center"><p class="button"><a href="JavaScript:submitEdit()" CLASS="bodyText">Edit</a>&#160;&#160;<a href="JavaScript:submitUpdate()" class="bodyText">Submit</a></p></div></td>
+                    <td><div align="center"><p class="button"><a href="JavaScript:submitEdit()" class="button">Edit</a>&#160;&#160;<a href="JavaScript:submitUpdate()" class="button">Submit</a></p></div></td>
                 </screen:form></tr>
             </table>
             <p><br></p>
