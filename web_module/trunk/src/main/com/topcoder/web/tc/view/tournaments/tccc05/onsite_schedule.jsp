@@ -21,7 +21,7 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=bigTitle>2004 TopCoder Open - Overview</p>
+        <p class=bigTitle>Schedule of Onsite Events</p>
 
 		<p class="smallText">Note: Times and scheduled events are subject to change.</p>
 

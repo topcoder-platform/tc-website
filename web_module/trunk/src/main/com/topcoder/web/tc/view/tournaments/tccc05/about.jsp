@@ -44,7 +44,7 @@
 		</li>
 
 		<li>
-		<span class=bodySubtitle>When</span>
+		<span class=bodySubtitle>When</span><br/>
 		Registration opens December 20, 2004<br/>
 		Component Development Competition starts January 4, 2005<br/>
 		Component Design Competition starts January 6, 2005<br/>
@@ -53,8 +53,8 @@
 
 		<li>
 		<span class=bodySubtitle>How much</span><br/>
-		$90,000 will be awarded to Component Design & Development competitors<br/>
-		$60,000 will be awarded to Algorithm competitors
+		$90,000 for Component Design & Development competitors<br/>
+		$60,000 for Algorithm competitors
 		</li>
 		</ul>
 
