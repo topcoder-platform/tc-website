@@ -89,7 +89,15 @@ public final class TaskDevelopment {
         return phoneElements;
     }
 
-
+    static String formatName(String formatName)
+    {
+        while(formatName.indexOf(" ") != -1)
+        {
+            formatName = formatName.substring(0, formatName.indexOf(" ") - 1) +
+                         formatName.substring(formatName.indexOf(" ") + 1) +
+        }
+        return formatName;
+    }
 
     static String process(HttpServletRequest request, HttpServletResponse response,
                           HTMLRenderer HTMLmaker, Navigation nav, XMLDocument document)
@@ -110,9 +118,8 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("comp", comp));
             devTag.addTag(new ValueTag("version", version));
             devTag.addTag(new ValueTag("phase", phase));
-            devTag.addTag(new ValueTag("formattedName", "formattedName"));
+
             devTag.addTag(new ValueTag("documentId", "234"));
-            devTag.addTag(new ValueTag("componentName", "Comp Name"));
             
             
             
@@ -190,6 +197,21 @@ public final class TaskDevelopment {
                     requiresLogin = true;
                 }
             }
+            /********************** tcs_inquire-design *******************/
+            else if (command.equals("tcs_inquire-design")) {
+                if(request.getParameter("comp") != null)
+                {
+                    long componentId = Long.parseLong(request.getParameter("comp"));
+                    ComponentManager componentMgr = home.create(componentId);
+                    ComponentInfo componentInfo  = componentMgr.componentInfo();
+                    
+                    devTag.addTag(new ValueTag("componentName", componentInfo.getName()));
+                    devTag.addTag(new ValueTag("formattedName", formatName("This is a test"));
+                }
+                else{
+                    log.error("Missing component id");
+                }
+            }
             /********************** send *******************/
             else if (command.equals("send")) {
                 if (nav.getLoggedIn()) {
@@ -231,6 +253,7 @@ public final class TaskDevelopment {
             }
             /********************** tcs_send *******************/
             else if (command.equals("tcs_send")) {
+                
                 if (nav.getLoggedIn()) {
                     long userId;
                     devTag.addTag(new ValueTag("Project", project));
@@ -518,5 +541,5 @@ public final class TaskDevelopment {
         return result;
     }
 
-
+    
 }
