@@ -52,6 +52,7 @@
                     <td colspan="2" class="testTableTitle">Campaign Name</td>
                     <td class="testTableTitle" nowrap="nowrap">Start Date</td>
                     <td class="testTableTitle" nowrap="nowrap">End Date</td>
+                    <td class="testTableTitle" nowrap="nowrap">Most Recent Hit</td>
                 </tr>
     
                 <%
@@ -74,17 +75,18 @@
                    currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
                    if (currCompany != lastCompany || (MainTask.hasManyCompanies() && i==1)) { %> 
                 
-                <tr><td colspan="4"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
-                <tr><td colspan="4" class="testFormHeader"><%= campaignInfo.getItem("company_name").toString() %></td></tr>
+                <tr><td colspan="5"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+                <tr><td colspan="5" class="testFormHeader"><%= campaignInfo.getItem("company_name").toString() %></td></tr>
                 
                 <% lastCompany = currCompany;
                    } %>
 
                 <tr>
                     <td width="5" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><img src="/i/corp/clear.gif" alt="" width="5" height="1" border="0"></td>
-                    <td width="60%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
+                    <td width="40%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></td>
                     <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></td>
                     <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></td>
+                    <td width="20%" class="<%=i%2==1?"testTableOdd":"testTableEven"%>" nowrap="nowrap"><%=campaignInfo.getItem("most_recent_hit").toString()%></td>
                 </tr>
 
                 </tces:rowIterator>
@@ -92,7 +94,7 @@
                 <% if(MainTask.getCampaignInfoList().isEmpty()){ %>
                 
                 <tr>
-                    <td class="testTableOdd" colspan="4">
+                    <td class="testTableOdd" colspan="5">
                         <img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"><br>
                         Your job campaigns have expired. Contact <A HREF="mailto:tces@topcoder.com" class="bodyText">tces@topcoder.com</A> to renew your contract.<br>
                         <img src="/i/corp/clear.gif" alt="" width="10" height="10" border="0"></td>
