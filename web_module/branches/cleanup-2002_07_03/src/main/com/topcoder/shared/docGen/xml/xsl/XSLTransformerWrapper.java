@@ -27,11 +27,11 @@ public class XSLTransformerWrapper
    *
    * @param xslInputStream  the input stream containing the XSL template
    *
-   * @throws XSLTransformerWrapperException
+   * @throws Exception
    */
 
   public XSLTransformerWrapper(InputStream xslInputStream)
-    throws XSLTransformerWrapperException
+    throws Exception
   {
     try {
       TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -39,7 +39,7 @@ public class XSLTransformerWrapper
 
       this.transformer = transformerFactory.newTransformer(xslSource);
     } catch (TransformerConfigurationException e) {
-      throw new XSLTransformerWrapperException(e);
+      throw e;
     }
   }
 
@@ -51,10 +51,10 @@ public class XSLTransformerWrapper
    *
    * @param xslFile  the input file containing the XSL template
    *
-   * @throws XSLTransformerWrapperException
+   * @throws Exception
    */
   public XSLTransformerWrapper(File xslFile)
-    throws XSLTransformerWrapperException
+    throws Exception
   {
     try {
       TransformerFactory transformerFactory = TransformerFactory.newInstance();
@@ -62,7 +62,7 @@ public class XSLTransformerWrapper
 
       this.transformer = transformerFactory.newTransformer(xslSource);
     } catch (TransformerConfigurationException e) {
-      throw new XSLTransformerWrapperException(e);
+      throw e;
     }
   }
 
@@ -73,18 +73,18 @@ public class XSLTransformerWrapper
    * @param xmlInputStream  the input stream containing source XML data
    * @param targetOutputStream  the output stream that receives the transformed result
    *
-   * @throws XSLTransformerWrapperException
+   * @throws Exception
    */
 
   public void transform(InputStream xmlInputStream, OutputStream targetOutputStream)
-    throws XSLTransformerWrapperException
+    throws Exception
   {
     try {
       Source xmlSource = new StreamSource(xmlInputStream);
       Result result = new StreamResult(targetOutputStream);
       transformer.transform(xmlSource, result);
     } catch (TransformerException e) {
-      throw new XSLTransformerWrapperException(e);
+      throw e;
     }
   }
 
@@ -95,18 +95,18 @@ public class XSLTransformerWrapper
    * @param xmlInputReader  the input reader containing source XML data
    * @param targetOutputStream  the output stream that receives the transformed result
    *
-   * @throws XSLTransformerWrapperException
+   * @throws Exception
    */
 
   public void transform(Reader xmlInputReader, OutputStream targetOutputStream)
-    throws XSLTransformerWrapperException
+    throws Exception
   {
     try {
       Source xmlSource = new StreamSource(xmlInputReader);
       Result result = new StreamResult(targetOutputStream);
       transformer.transform(xmlSource, result);
     } catch (TransformerException e) {
-      throw new XSLTransformerWrapperException(e);
+      throw e;
     }
   }
 

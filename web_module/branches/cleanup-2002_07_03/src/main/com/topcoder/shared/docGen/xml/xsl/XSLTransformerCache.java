@@ -45,14 +45,14 @@ public class XSLTransformerCache {
    *     
    * @return a XSLTransformerWrapper identified by the cacheKey.
    *     
-   * @throws XSLTransformerWrapperException
+   * @throws Exception
    */
   public XSLTransformerWrapper getXSLTransformerWrapper ( String cacheKey )
-    throws XSLTransformerWrapperException {
+    throws Exception {
     log.debug("XSLTransformerCache.getXSLTransformerWrapper for " + cacheKey);
     XSLTransformerWrapper result = null;
     try {
-      if ( cacheKey == null ) throw new XSLTransformerWrapperException ( "The cacheKey can not be null." );
+      if ( cacheKey == null ) throw new Exception ( "The cacheKey can not be null." );
       if ( cache.containsKey(cacheKey) )
       {
         result = ( XSLTransformerWrapper ) cache.get ( cacheKey );
@@ -60,11 +60,11 @@ public class XSLTransformerCache {
       else
       {
         java.io.File file = new java.io.File(cacheKey);
-        if ( !file.exists()) throw new XSLTransformerWrapperException ( "Unable to find file " + cacheKey + "." );
+        if ( !file.exists()) throw new Exception ( "Unable to find file " + cacheKey + "." );
         cache.put ( cacheKey, new XSLTransformerWrapper(file) );
       }
     } catch ( Exception e ) {
-      throw new XSLTransformerWrapperException ( e.getMessage() );
+      throw  e;
     }
     return result;
   }
