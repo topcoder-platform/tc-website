@@ -309,6 +309,8 @@
                 <include name="com/topcoder/dde/util/**"/>
                 <include name="com/topcoder/shared/**/*.class"/>
                 <include name="com/topcoder/web/common/**/*.class"/>
+                <include name="com/topcoder/date/workdays/**"/>
+                <include name="com/topcoder/project/phases/**"/>
             </classes>
         </war>
 
