@@ -33,9 +33,9 @@
 
         <td class="topNav" nowrap><A href="http://software.topcoder.com" class="topLink" target="_parent">Software</A></td>
 
-        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home" class="topLink" target="_parent">Employment Services</A></td>
+        <td class="<%=level1.equals("employment_services")?"topNavOn":"topNav"%>" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=tces_home" class="topLink" target="_parent">Employment Services</A></td>
 
-        <td class="topNav" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink" target="_parent">Sponsorship</A></td>
+        <td class="<%=level1.equals("sponsorship")?"topNavOn":"topNav"%>" nowrap><A href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink" target="_parent">Sponsorship</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>
