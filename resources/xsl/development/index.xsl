@@ -75,7 +75,7 @@ Inquiry Deadline: May 14, 2002 12:00 PM EDT<BR/>
 </P>
 
 <P>
-Project: <A HREF="/index?t=development&amp;c=admin_cmd" CLASS="statTextBig">Admin Commands</A><BR/>
+Project: <A HREF="/index?t=development&amp;c=admin_cmd" CLASS="statText">Admin Commands</A><BR/>
 Start Date: May 9, 2002<BR/>
 End Date: June 20, 2002<BR/>
 Member Selection: Closed<BR/>
