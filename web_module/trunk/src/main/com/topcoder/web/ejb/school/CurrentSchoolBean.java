@@ -10,6 +10,7 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class CurrentSchoolBean extends BaseEJB {
     public void createCurrentSchool(long coderId, String dataSource) throws EJBException {
@@ -123,6 +124,41 @@ public class CurrentSchoolBean extends BaseEJB {
 
     }
 
+
+    public boolean exists(long coderId, String dataSource) throws EJBException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+
+        try {
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT '1' ");
+            query.append( " FROM current_school");
+            query.append(" WHERE coder_id = ?");
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, coderId);
+
+            rs = ps.executeQuery();
+            return rs.next();
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw(new EJBException(sqle.getMessage()));
+        } catch (NamingException e) {
+            e.printStackTrace();
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+
+    }
 
 
 }
