@@ -32,6 +32,12 @@
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm2_1.MPG"><img src="/i/tournament/tco04/onsite_movies/rm2_1.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tco04/onsite_movies/rm2_1.MPG">SnapDragon celebrates (11 MB)</A><br/></td>
             </tr>
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tco04/onsite_movies/rm3_1.MPG"><img src="/i/tournament/tco04/onsite_movies/rm3_1.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tco04/onsite_movies/rm3_1.MPG">the crowd cheers<br/>for reid (15 MB)</A><br/></td>
+				<td></td>
+				<td></td>
+            </tr>
 		</table>
 
         </div>
