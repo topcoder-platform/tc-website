@@ -55,7 +55,8 @@
                                     </FORM>
                                     <B>Timer Component Design</B>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='Timer';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
+<!--                                    <a href="Javascript:document.frmInquire.Project.value='Timer';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
+-->
                                     <BR/>
 <P><B>Overview</B></P>
 
@@ -115,7 +116,8 @@ Initial Submission Due Date: 11/7/2002<BR/>
 Final Submission Due Date: 11/15/2002<BR/>
 Estimated Development End Date: 12/10/2002<BR/>
 </P>
-<a href="Javascript:document.frmInquire.Project.value='Timer';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+<!-- <a href="Javascript:document.frmInquire.Project.value='Timer';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+-->
           <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
