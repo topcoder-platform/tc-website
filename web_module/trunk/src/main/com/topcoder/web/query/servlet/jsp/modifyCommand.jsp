@@ -39,7 +39,7 @@
                   [edit command query]
                 </A>
               </TD></TR>
-            <% { %>
+            <% } %>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">DB:&#160;</TD>
