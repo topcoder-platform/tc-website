@@ -1,0 +1,519 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+    <tlibversion>1.0</tlibversion>
+    <jspversion>1.1</jspversion>
+    <shortname>TopCoder Screening Tags</shortname>
+    <info>
+    </info>
+
+    <tag>
+        <name>form</name>
+        <tagclass>com.topcoder.web.common.tag.FormTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to write out the form tag smartly (i.e. using webapp context)
+        </info>
+        <attribute>
+            <name>action</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>method</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onSubmit</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>img</name>
+        <tagclass>com.topcoder.web.common.tag.ImgTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag to write out an html image src smartly (i.e. using webapp context)
+        </info>
+        <attribute>
+            <name>page</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>href</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>height</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>width</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>vspace</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>border</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>alt</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>hspace</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>link</name>
+        <tagclass>com.topcoder.web.common.tag.LinkTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to write out anchors smartly (i.e. using webapp context)
+        </info>
+        <attribute>
+            <name>page</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>href</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onClick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>target</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>rewrite</name>
+        <tagclass>com.topcoder.web.common.tag.RewriteTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag to write out urls smartly (i.e. using webapp context)
+        </info>
+        <attribute>
+            <name>page</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>href</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>beanWrite</name>
+        <tagclass>com.topcoder.web.common.tag.BeanWriteTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag to write out properties of beans stored in a scope attribute
+            variable
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>property</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>servletLink</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.ServletLinkTag</tagclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to make it easier to link to the servlet
+        </info>
+        <attribute>
+            <name>processor</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>param</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onClick</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>styleClass</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>target</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>errors</name>
+        <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to get an errors associated with a key
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>month</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.MonthTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write out a select drop down for the months of the year
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>day</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.DayTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write out a select drop down for the days of the month
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>year</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.YearTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write out a select drop down for Years. Count is number of years
+            out to write.  start is the starting year, default starting year
+            is current year
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>count</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>start</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>hour</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.HourTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write out a select drop down for the hours of the day
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>sessionStatus</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.SessionStatusTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write the status of a session given a resultsetcontainer row
+        </info>
+        <attribute>
+            <name>row</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>sessionStatusLink</name>
+        <tagclass>com.topcoder.web.corp.view.testing.tag.SessionStatusLinkTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write the link text of a session given a resultsetcontainer row
+        </info>
+        <attribute>
+            <name>row</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+    <tag>
+        <name>listIterator</name>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to iterate through a List
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>nestedListIterator</name>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.NestedListIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to iterate through a List of Lists
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>problemInfoIterator</name>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.corp.view.testing.tag.ProblemInfoIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to iterate through a List of ProblemInfo beans
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+    <tag>
+        <name>resultSetRowIterator</name>
+        <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
+        <teiclass>com.topcoder.web.common.tag.ResultSetRowIteratorTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info>
+            Tag to iterate through a ResultSetContainer
+        </info>
+        <attribute>
+            <name>id</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>resultSetItem</name>
+        <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag to get the value of a ResultSetContainer.ResultSetRow
+        </info>
+        <attribute>
+            <name>row</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>ifNull</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>format</name>
+        <tagclass>com.topcoder.web.common.tag.FormatTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for format objects
+        </info>
+        <attribute>
+            <name>object</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>ifNull</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
+    <tag>
+        <name>problemStatement</name>
+        <tagclass>com.topcoder.web.common.tag.ProblemStatementTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag for generating html output of a given problem statement xml string
+        </info>
+        <attribute>
+            <name>text</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>language</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>class</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+    <tag>
+        <name>checkbox</name>
+        <tagclass>com.topcoder.web.common.tag.CheckboxTag</tagclass>
+        <bodycontent>Empty</bodycontent>
+        <info>
+            Write out a checkbox input tag given name, value and optional checked
+            value.  checked is compared to value, and input tag is set CHECKED
+            if they are equal
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>value</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>checked</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+</taglib>

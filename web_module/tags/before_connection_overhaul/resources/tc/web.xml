@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+ "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+<web-app>
+    <servlet>
+        <servlet-name>tc</servlet-name>
+        <display-name>tc</display-name>
+        <description>The main controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.MainServlet</servlet-class>
+
+        <!-- begin parameters required by BaseServlet -->
+        <init-param>
+            <param-name>module_key</param-name>
+            <param-value>module</param-value>
+            <description>the url parameter that defines which processor to execute</description>
+        </init-param>
+        <init-param>
+            <param-name>default_processor</param-name>
+            <param-value>Home</param-value>
+            <description>the processor to execute if non is specified in the request</description>
+        </init-param>
+        <init-param>
+            <param-name>login_processor</param-name>
+            <param-value>Login</param-value>
+            <description>the processor to execute when we need to direct the user to login</description>
+        </init-param>
+<!--
+        <init-param>
+            <param-name>login_servlet</param-name>
+            <param-value>/tc</param-value>
+            <description>the servlet path to use when we need to direct the user to login</description>
+        </init-param>
+-->
+        <init-param>
+            <param-name>processor_path</param-name>
+            <param-value>com.topcoder.web.tc.controller.request.</param-value>
+            <description>the path to the processors for this app</description>
+        </init-param>
+        <init-param>
+            <param-name>error_page</param-name>
+            <param-value>/errorPage.jsp</param-value>
+            <description>where to forward for errors</description>
+        </init-param>
+        <!-- end  parameters required by BaseServlet -->
+
+    </servlet>
+
+    <servlet>
+        <servlet-name>legacyMain</servlet-name>
+        <display-name>legacyMain</display-name>
+        <description>The main controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.MainServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+      <servlet-name>stat</servlet-name>
+      <servlet-class>com.topcoder.web.tc.controller.legacy.stat.servlet.StatisticsHttpServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Registration</servlet-name>
+        <display-name>Registration</display-name>
+        <description>The registration controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.reg.servlet.Controller</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>jobposting</servlet-name>
+        <display-name>jobposting</display-name>
+        <description>The jobposting controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.jobposting.servlet.Controller</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>Resume</servlet-name>
+        <display-name>Resume</display-name>
+        <description>The Resume controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.resume.servlet.Controller</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>graph</servlet-name>
+        <display-name>graph</display-name>
+        <description>The graph controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.GraphServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>javadocs</servlet-name>
+        <display-name>javadocs</display-name>
+        <description>The javadocs controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.JavaDocServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>report</servlet-name>
+        <display-name>report</display-name>
+        <description>The report controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.ReportServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PactsMemberServlet</servlet-name>
+        <display-name>PactsMemberServlet</display-name>
+        <description>The PactsMemberServlet controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsMemberServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>PactsInternalServlet</servlet-name>
+        <display-name>PactsInternalServlet</display-name>
+        <description>The PactsInternalServlet controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.pacts.servlet.PactsInternalServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>PactsInternalServlet</servlet-name>
+      <url-pattern>/PactsInternalServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>PactsMemberServlet</servlet-name>
+      <url-pattern>/PactsMemberServlet</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>report</servlet-name>
+      <url-pattern>/report</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>javadocs</servlet-name>
+      <url-pattern>/javadocs</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>graph</servlet-name>
+      <url-pattern>/graph</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>Resume</servlet-name>
+      <url-pattern>/Resume</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>stat</servlet-name>
+      <url-pattern>/stat</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>legacyMain</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>tc</servlet-name>
+        <url-pattern>/tc</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>Registration</servlet-name>
+        <url-pattern>/Registration</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>jobposting</servlet-name>
+        <url-pattern>/jobposting</url-pattern>
+    </servlet-mapping>
+
+</web-app>
