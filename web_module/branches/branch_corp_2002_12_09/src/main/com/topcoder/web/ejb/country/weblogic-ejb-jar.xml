@@ -6,6 +6,6 @@
         <caching-descriptor>
             <max-beans-in-free-pool>20</max-beans-in-free-pool>
         </caching-descriptor>
-        <jndi-name>com.topcoder.web.ejb.country.CountryMgr</jndi-name>
+        <jndi-name>com.topcoder.web.ejb.country.CountryMgrHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

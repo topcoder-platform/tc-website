@@ -10,13 +10,13 @@ import javax.ejb.SessionContext;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 import javax.ejb.EJBException;
 import javax.naming.NamingException;
-import java.rmi.RemoteException;
 import java.sql.SQLException;
 
 /**
@@ -32,6 +32,7 @@ public class CompanyBean implements SessionBean {
     private static Logger log = Logger.getLogger(CompanyBean.class);
     private static final String dataSourceName = "CORP_OLTP";
     private static final String idGenDataSourceName = "CORP_OLTP";
+
 
     //required ejb methods
 
@@ -68,6 +69,7 @@ public class CompanyBean implements SessionBean {
 
         try {
             ctx = new InitialContext();
+            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource)ctx.lookup(idGenDataSourceName), "sequence_object", "name", "current_value", 9999999999L, 1, true);
             }
@@ -116,6 +118,7 @@ public class CompanyBean implements SessionBean {
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
+            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
@@ -155,6 +158,7 @@ public class CompanyBean implements SessionBean {
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
+            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
@@ -192,6 +196,7 @@ public class CompanyBean implements SessionBean {
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
+            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
@@ -227,6 +232,7 @@ public class CompanyBean implements SessionBean {
             query.append(Long.toString(companyId));
 
             ctx = new InitialContext();
+            log.debug("user transaction "+ctx.lookup("javax/transaction/UserTransaction"));
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());

@@ -11,6 +11,9 @@ import java.rmi.RemoteException;
 */
 
 public interface CompanyHome extends javax.ejb.EJBHome {
+    public static final String EJB_REF_NAME = CompanyHome.class.getName();
+    
+    
     /**
     *
     * @return

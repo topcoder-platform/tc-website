@@ -88,7 +88,7 @@ public class CountryMgrBean implements SessionBean {
 			}
 		}
 	}
-	
+    
 	/**
 	 * @see com.topcoder.web.ejb.country.CountryMgr#create(java.lang.String, java.lang.String)
 	 */
@@ -104,6 +104,7 @@ public class CountryMgrBean implements SessionBean {
 
 		try {
 			ic = new InitialContext();
+            log.debug("user transaction "+ic.lookup("javax/transaction/UserTransaction"));
 			ds = (DataSource)ic.lookup(dataSourceName);
 			conn = ds.getConnection();
 			pstmt = conn.prepareStatement("insert into country(country_code, country_name) values (?, ?)");
@@ -112,9 +113,11 @@ public class CountryMgrBean implements SessionBean {
 			int rc = pstmt.executeUpdate();
 		}
 		catch(SQLException sqle) {
+            sqle.printStackTrace();
 			throw new EJBException(sqle.getMessage());
 		}
 		catch(NamingException ne) {
+            ne.printStackTrace();
 			throw new EJBException(ne.getMessage());
 		}
 		finally {
@@ -144,6 +147,7 @@ public class CountryMgrBean implements SessionBean {
 		
         try {
 	        ic = new InitialContext();
+            log.debug("user transaction "+ic.lookup("javax/transaction/UserTransaction"));
 	        ds = (DataSource)ic.lookup(dataSourceName);
 	        conn = ds.getConnection();
 	        if( byCode ) {
@@ -159,9 +163,11 @@ public class CountryMgrBean implements SessionBean {
 	        }
         }
         catch(SQLException sqle) {
+            sqle.printStackTrace();
         	throw new EJBException(sqle.getMessage());
         }
         catch(NamingException ne) {
+            ne.printStackTrace();
         	throw new EJBException(ne.getMessage());
         }
         finally {

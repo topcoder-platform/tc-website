@@ -1,7 +1,16 @@
 package com.topcoder.web.corp.request;
 
+import javax.naming.InitialContext;
+import javax.transaction.Transaction;
+
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.AppContext;
 import com.topcoder.web.common.StringUtils;
+//import com.topcoder.web.ejb.company.Company;
+//import com.topcoder.web.ejb.company.CompanyHome;
+//import com.topcoder.web.ejb.country.Country;
+//import com.topcoder.web.ejb.country.CountryMgr;
+//import com.topcoder.web.ejb.country.CountryMgrHome;
 
 /**
  * This class contains logic Primary registration.
@@ -204,6 +213,51 @@ public class Registration extends BaseProcessor {
      * ready).
      */
     private void makePersistent() throws Exception {
+        //well, general scheme is
+        
+        
+        // trying to start transaction
+        Transaction tx = null;
+        try {
+            tx = AppContext.getInstance().beginTransaction();
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+            throw e;    
+        }
+        
+        // trying to store data
+        InitialContext ic = null;
+        try {
+            // store data in DB via EJB, eg.
+            
+//            // working with first ejb
+//            ic = new InitialContext();
+//            Object  l = ic.lookup(CountryMgrHome.EJB_REF_NAME);
+//            CountryMgrHome cmgrHome = (CountryMgrHome)l;
+//            CountryMgr mgr = cmgrHome.create();
+//            mgr.create("US", "United States of America");
+//
+//            Country [] lst = mgr.listByName("%");
+//            for( int i=0; i<lst.length; ++i ) {
+//                // some actions here
+//            }
+//
+//            // now working with other ejb
+//            l = ic.lookup(CompanyHome.EJB_REF_NAME);
+//            CompanyHome cmpHome = (CompanyHome)l;
+//            Company cmp = cmpHome.create();
+//            tx.commit(); // confirm tarnsaction - if all is ok
+        }
+        catch(Exception e) {
+            tx.rollback(); // roll failed transaction back
+            throw e; 
+        }
+        finally {
+            if( ic!=null ) {
+                ic.close();
+            }
+        }
     }
     
     /**

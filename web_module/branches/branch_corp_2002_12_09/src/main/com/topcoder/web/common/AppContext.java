@@ -1,6 +1,5 @@
 package com.topcoder.web.common;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -11,6 +10,10 @@ import java.util.Properties;
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.transaction.NotSupportedException;
+import javax.transaction.SystemException;
+import javax.transaction.Transaction;
+import javax.transaction.TransactionManager;
 
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
@@ -28,14 +31,14 @@ import com.topcoder.web.corp.stub.PersistStore;
  * @version  $Revision$
  */
 public class AppContext {
-    private static Logger log = Logger.getLogger(AppContext.class);
+    private static final Logger log = Logger.getLogger(AppContext.class);
     private static AppContext me = null;
     private Properties appProperties = null;
-//    private InitialContext jndiInitialContext = null;
-//    private PrincipalMgrRemoteHome principalMgrRemoteHome = null;
     private DatabaseContext databaseContext = null;
     private PersistStore persistStore = null;
-    Hashtable jndiContextEnvironment = null;
+    private Hashtable securityContextEnvironment = null;
+    private Hashtable transactionContextEnvironment = null;
+    private String txManagerJndiName = null;
     
 
 	/**
@@ -52,7 +55,7 @@ public class AppContext {
 	 * @throws NamingException
 	 */
 	public static AppContext getInstance()
-    throws IOException, FileNotFoundException, NamingException
+    throws IOException, FileNotFoundException
     {
 		return getInstance(null);
 	}
@@ -68,7 +71,9 @@ public class AppContext {
     public LoginRemote getRemoteLogin()
     throws NamingException, CreateException, RemoteException
     {
-        Object  l = getJndiInitialContext().lookup(LoginRemoteHome.EJB_REF_NAME);
+        InitialContext ic = getSecurityContext(); 
+        Object  l = ic.lookup(LoginRemoteHome.EJB_REF_NAME);
+        ic.close();
         return ((LoginRemoteHome) l).create();
     }
     
@@ -81,7 +86,7 @@ public class AppContext {
      * @throws NamingException
      */
 	public static AppContext getInstance(String propertiesFileName) 
-										throws IOException, FileNotFoundException, NamingException
+    throws IOException, FileNotFoundException
 	{
 		if( me != null ) return me;
 		synchronized( log ) {
@@ -102,44 +107,60 @@ public class AppContext {
 	 * 
 	 * @throws NamingException
 	 */
-	private void doInit(String propertiesFileName) throws NamingException, FileNotFoundException {
-        // DEBUG - TIME //
-        // instantiate persistent store
-        if( propertiesFileName != null ) {
-            File dir = new File((new File(propertiesFileName)).getParent());
-            persistStore = PersistStore.getInstance(dir);
-        } 
+	private void doInit(String propertiesFileName) {
+//        // DEBUG - TIME //
+//        // instantiate persistent store
+//        if( propertiesFileName != null ) {
+//            File dir = new File((new File(propertiesFileName)).getParent());
+//            persistStore = PersistStore.getInstance(dir);
+//        } 
         
-        jndiContextEnvironment = new Hashtable();
+        securityContextEnvironment = new Hashtable();
+        transactionContextEnvironment = new Hashtable();
         
         // if these will be nulls then current ejb container will provide own default stuff
-        String initialContextFactory = appProperties.getProperty("jndi-initial-context-factory"); 
+        String initialContextFactory = appProperties.getProperty("security-initial-context-factory"); 
 		if( initialContextFactory != null ) {
-            jndiContextEnvironment.put(
+            securityContextEnvironment.put(
                 javax.naming.Context.INITIAL_CONTEXT_FACTORY,
                 initialContextFactory
             );
         }
 
-        String providerURL = appProperties.getProperty("jndi-provider-url");
+        String providerURL = appProperties.getProperty("security-provider-url");
         if( providerURL != null ) {
-    		jndiContextEnvironment.put(
+    		securityContextEnvironment.put(
                 javax.naming.Context.PROVIDER_URL,
                 providerURL
             );
         }
-//		jndiInitialContext = new InitialContext(envir);
+        
+        // if these will be nulls then current ejb container will provide own default stuff
+        initialContextFactory = appProperties.getProperty("jta-initial-context-factory");
+        if( initialContextFactory != null ) {
+            transactionContextEnvironment.put(
+                javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+                initialContextFactory
+            );
+        }
 
-//        Object  l = jndiInitialContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-//        principalMgrRemoteHome = (PrincipalMgrRemoteHome)l;
+        providerURL = appProperties.getProperty("jta-provider-url");
+        if( providerURL != null ) {
+            transactionContextEnvironment.put(
+                javax.naming.Context.PROVIDER_URL,
+                providerURL
+            );
+        }
+        
+        txManagerJndiName = appProperties.getProperty("jta-tx-manager-name");
 	}
 
 	/**
 	 * Returns the jndiInitialContext.
 	 * @return InitialContext
 	 */
-	public InitialContext getJndiInitialContext() throws NamingException {
-		return new InitialContext(jndiContextEnvironment);
+	public InitialContext getSecurityContext() throws NamingException {
+		return new InitialContext(securityContextEnvironment);
 	}
 
     /**
@@ -151,7 +172,9 @@ public class AppContext {
      */    
     public PrincipalMgrRemote getRemotePrincipalManager() throws CreateException, RemoteException, NamingException, FileNotFoundException
     {
-        Object  l = getJndiInitialContext().lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        InitialContext ic = getSecurityContext(); 
+        Object  l = ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        ic.close();
         PrincipalMgrRemoteHome principalMgrRemoteHome = (PrincipalMgrRemoteHome)l;
         return principalMgrRemoteHome.create(); 
     }
@@ -171,6 +194,32 @@ public class AppContext {
      */
     public PersistStore getStore() {
         return persistStore;
+    }
+    
+    /**
+     * Begins remote transaction in EJB container. To give EJB to work in the
+     * managed transactional environment they must have &lt;transaction-type&gt;
+     * Container&lt;/transaction-type&gt; in deployment descriptor (DD) and,
+     * (optionally) have per-method transactions modes set in assembly
+     * descriptor of DD.
+     * 
+     * @return Transaction newly started transaction transaction 
+     * 
+     * @throws NamingException There were some problems when trying to find
+     * remote tarnsaction manager
+     * @throws SystemException most probably there was failure trying to start
+     * transaction in the DB
+     * @throws NotSupportedException underlying DB does not support transactions
+     */
+    public Transaction beginTransaction()
+    throws NamingException, SystemException, NotSupportedException
+    {
+        InitialContext ic = new InitialContext(transactionContextEnvironment);
+        TransactionManager tm;
+        tm = (TransactionManager) ic.lookup(txManagerJndiName);
+        ic.close();
+        tm.begin();
+        return tm.getTransaction();
     }
 }
 

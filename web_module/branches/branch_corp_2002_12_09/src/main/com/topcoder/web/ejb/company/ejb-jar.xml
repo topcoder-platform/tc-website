@@ -18,6 +18,14 @@
                 <ejb-name>Company</ejb-name>
                 <method-name>createCompany</method-name>
             </method>
+            <method>
+                <ejb-name>Company</ejb-name>
+                <method-name>setName</method-name>
+            </method>
+            <method>
+                <ejb-name>Company</ejb-name>
+                <method-name>setPrimaryContactId</method-name>
+            </method>
             <trans-attribute>Mandatory</trans-attribute>
         </container-transaction>
         <container-transaction>
@@ -28,14 +36,6 @@
             <method>
                 <ejb-name>Company</ejb-name>
                 <method-name>getPrimaryContactId</method-name>
-            </method>
-            <method>
-                <ejb-name>Company</ejb-name>
-                <method-name>setName</method-name>
-            </method>
-            <method>
-                <ejb-name>Company</ejb-name>
-                <method-name>setPrimaryContactId</method-name>
             </method>
             <trans-attribute>Supports</trans-attribute>
         </container-transaction>

@@ -12,7 +12,7 @@ import java.rmi.RemoteException;
  * @author djFD molc@mail.ru<br>
  */
 public interface CountryMgrHome extends EJBHome {
-	public static final String EJB_REF_NAME = "com.topcoder.web.ejb.country.CountryMgr";
+	public static final String EJB_REF_NAME = CountryMgrHome.class.getName();
 	
 	/**
 	 * Creates instance of home for Country manager

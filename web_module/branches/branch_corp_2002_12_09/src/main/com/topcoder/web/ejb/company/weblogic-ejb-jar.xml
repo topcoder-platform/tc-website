@@ -1,5 +1,4 @@
 <?xml version="1.0"?>
-<!-- edited with XML Spy v4.2 U (http://www.xmlspy.com) by Ba-k (ZonaWarez.com) -->
 <!DOCTYPE weblogic-ejb-jar PUBLIC '-//BEA Systems, Inc.//DTD WebLogic 5.1.0 EJB//EN' 'http://www.bea.com/servers/wls510/dtd/weblogic-ejb-jar.dtd'>
 <weblogic-ejb-jar>
     <weblogic-enterprise-bean>
@@ -7,6 +6,6 @@
         <caching-descriptor>
             <max-beans-in-free-pool>20</max-beans-in-free-pool>
         </caching-descriptor>
-        <jndi-name>com.topcoder.web.ejb.CompanyHome</jndi-name>
+        <jndi-name>com.topcoder.web.ejb.company.CompanyHome</jndi-name>
     </weblogic-enterprise-bean>
 </weblogic-ejb-jar>

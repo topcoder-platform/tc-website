@@ -586,7 +586,12 @@
             </webinf>
         </war>
     </target>
-    <target name="deploy-corp" depends="war_corp">
+
+    <target name="war-idgen" depends="compile">
+       
+    </target>
+
+    <target name="deploy-corp" depends="war_corp, war-idgen">
         <copy todir="${public_html}" file="${war.dir}/${corp.war.name}.war"/>
         <unwar src="${public_html}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
         <delete file="${public_html}/${corp.war.name}.war"/>

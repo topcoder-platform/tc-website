@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.util.HashSet;
 import java.util.Iterator;
 
-import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.Cookie;
@@ -53,7 +52,6 @@ public class MainServlet extends HttpServlet {
     private static final String PFX_PAGE        = "page-";
     
     private ServletConfig servletConfig;
-    private InitialContext jndiInitialContext = null;
     
     /**
      * Initializes the servlet. Primary goal is to set up application context. 
@@ -65,13 +63,14 @@ public class MainServlet extends HttpServlet {
     	servletConfig = getServletConfig();
     	String propsFileName = servletConfig.getServletContext().getRealPath(servletConfig.getInitParameter(KEY_CFG_CONTEXT));
     	
-    	try {
-	    	jndiInitialContext = AppContext.getInstance(propsFileName).getJndiInitialContext();
-            log.debug("initial context successfully instantiated");
-    	}
-    	catch(Exception e) {
-    		log.error("can't get initial context", e);
-    	}
+        // just creates AppContext
+        try {
+            AppContext.getInstance(propsFileName);
+            log.debug("Web-application context instantiated");
+        }
+        catch(Exception e) {
+            log.fatal("Can't get web-application context", e);
+        }
         //com.topcoder.web.query.common.Constants.init(getServletConfig());
     }
 
