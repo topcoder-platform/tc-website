@@ -66,6 +66,9 @@ public abstract class BaseSubmitTravelInfo extends BaseProcessor {
             mail.setFromAddress(email.getAddress(email.getPrimaryEmailId(getUser().getId(),
                     DBMS.OLTP_DATASOURCE_NAME), DBMS.OLTP_DATASOURCE_NAME));
             EmailEngine.send(mail);
+            setNextPage(getSuccessPage());
+            setIsNextPageInContext(false);
+
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
