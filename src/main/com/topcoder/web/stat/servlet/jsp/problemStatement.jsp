@@ -1,7 +1,13 @@
 <%@ page 
   language="java"
   errorPage="/errorPage.jsp"
-  import="com.topcoder.web.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,com.topcoder.shared.problem.*,com.topcoder.shared.language.*,com.topcoder.shared.problemParser.*"
+  import="com.topcoder.web.stat.common.JSPUtils
+         ,com.topcoder.shared.dataAccess.*
+         ,com.topcoder.shared.dataAccess.resultSet.*
+         ,com.topcoder.shared.problem.*
+         ,com.topcoder.shared.language.*
+         ,com.topcoder.shared.problemParser.*
+         ,com.topcoder.common.web.render.ProblemRenderer"
 
 %>
 
@@ -83,7 +89,7 @@ if (rsc!=null && !rsc.isEmpty()) {
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
                       <% if (problem!=null) { %>
-              		<%= problem.toHTML(JavaLanguage.JAVA_LANGUAGE, true) %>
+              		<%= new ProblemRenderer(problem).toHTML(JavaLanguage.JAVA_LANGUAGE) %>
                       <% } else { %>
                         Problem Statement not available.
                       <% } %>
