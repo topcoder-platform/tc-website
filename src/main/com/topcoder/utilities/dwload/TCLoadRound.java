@@ -222,6 +222,7 @@ public class TCLoadRound extends TCLoad {
                 a.add(new String("DELETE FROM coder_problem_summary"));
                 a.add(new String("DELETE FROM system_test_case WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)"));
                 a.add(new String("DELETE FROM round_problem"));
+                a.add(new String("DELETE FROM problem_language"));
                 a.add(new String("DELETE FROM challenge WHERE round_id = ?"));
                 a.add(new String("DELETE FROM coder_problem WHERE round_id = ?"));
                 a.add(new String("DELETE FROM room WHERE round_id = ?"));
@@ -240,6 +241,7 @@ public class TCLoadRound extends TCLoad {
                 a.add(new String("DELETE FROM round_division WHERE round_id = ?"));
                 a.add(new String("DELETE FROM system_test_case WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)"));
                 a.add(new String("DELETE FROM round_problem WHERE round_id = ?"));
+                a.add(new String("DELETE FROM problem_language WHERE round_id = ?"));
                 a.add(new String("DELETE FROM challenge WHERE round_id = ?"));
                 a.add(new String("DELETE FROM coder_problem WHERE round_id = ?"));
                 a.add(new String("DELETE FROM system_test_result WHERE round_id = ?"));
