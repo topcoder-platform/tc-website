@@ -13,8 +13,10 @@
         <xs:enumeration value="int"/>
         <xs:enumeration value="int[]"/>
         <xs:enumeration value="long"/>
+        <xs:enumeration value="long[]"/>
         <xs:enumeration value="float"/>
         <xs:enumeration value="double"/>
+        <xs:enumeration value="double[]"/>
         <xs:enumeration value="String"/>
         <xs:enumeration value="String[]"/>
         <xs:enumeration value="String[][]"/>
@@ -44,6 +46,7 @@
 
 <xs:group name="heading">
     <xs:choice>
+        <xs:element ref="center"/>
         <xs:element ref="h1"/>
         <xs:element ref="h2"/>
         <xs:element ref="h3"/>
@@ -55,6 +58,7 @@
 <xs:group name="special">
     <xs:choice>
         <xs:element ref="a"/>
+        <xs:element ref="font"/>
         <xs:element ref="img"/>
         <xs:element ref="br"/>
         <xs:element ref="sub"/>
@@ -102,6 +106,7 @@
 <xs:element name="tt" type="inline"/>
 <xs:element name="i" type="inline"/>
 <xs:element name="b" type="inline"/>
+<xs:element name="center" type="inline"/>
 <xs:element name="h1" type="inline"/>
 <xs:element name="h2" type="inline"/>
 <xs:element name="h3" type="inline"/>
@@ -112,11 +117,19 @@
 
 <xs:element name="a">
     <xs:complexType>
-        <xs:choice minOccurs="1" maxOccurs="unbounded">
+        <xs:choice minOccurs="0" maxOccurs="unbounded">
             <xs:group ref="inline"/>
         </xs:choice>
         <xs:attribute name="name" type="xs:anyURI"/>
         <xs:attribute name="href" type="xs:anyURI"/>
+    </xs:complexType>
+</xs:element>
+
+<xs:element name="font">
+    <xs:complexType>
+        <xs:attribute name="type" type="xs:string"/>
+        <xs:attribute name="color" type="xs:string"/>
+        <xs:attribute name="size" type="xs:string"/>
     </xs:complexType>
 </xs:element>
 
