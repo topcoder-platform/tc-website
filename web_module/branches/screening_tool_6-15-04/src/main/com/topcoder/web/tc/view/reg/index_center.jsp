@@ -81,7 +81,7 @@ function checkInputs(){
 </SCRIPT>
 
             <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
-            <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" enctype="multipart/form-data">
+            <form action="<%=response.encodeURL(Controller.ALIAS)%>" method="post" name="frmReg" >
             <input type="hidden" name="<%=Controller.TASK%>" value="Registration">
             <input type="hidden" name="<%=Controller.STEP%>" value="<%=Registration.STEP_1%>" />
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
