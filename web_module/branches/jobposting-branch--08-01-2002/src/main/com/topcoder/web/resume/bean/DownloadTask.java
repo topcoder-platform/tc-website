@@ -5,6 +5,7 @@ import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.data.Navigation;
+import com.topcoder.web.resume.common.Constants;
 
 import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
