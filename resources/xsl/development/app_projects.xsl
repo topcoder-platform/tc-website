@@ -73,16 +73,6 @@
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
 
-                                <tr valign="middle">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=SSO_Helper_Design">Simplified Sign-on Design</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">10.14.2004</td>
-                                </tr>
-
-
                             </table>
 
                             <br/>
@@ -128,6 +118,13 @@
                                         <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     </tr>
                                 </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=SSO_Helper_Design">Simplified Sign-on Design</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>                                
                                 <tr valign="middle">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Seat_Service_Persistence_Design">Seat Service Persistence Design</a>
