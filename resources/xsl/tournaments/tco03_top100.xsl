@@ -76,7 +76,7 @@
             
             <p>The following TopCoder members have received byes in the qualification round of the 2003 TopCoder Open:</p>
             
-            <table width="300" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+            <table width="300" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr>
                   <td class="header" width="100%" colspan="2">Top 100</td>
                </tr>
