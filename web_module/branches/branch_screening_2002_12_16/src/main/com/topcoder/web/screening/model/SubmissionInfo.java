@@ -1,6 +1,6 @@
 package com.topcoder.web.screening.model;
 
-import java.beans.*;
+import java.util.List;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 /**
@@ -16,7 +16,7 @@ public class SubmissionInfo implements java.io.Serializable {
     private ResultSetContainer testResults;
     
     /** Holds value of property topTCSolutions. */
-    private ResultSetContainer topTCSolutions;
+    private List topTCSolutions;
     
     /** Getter for property code.
      * @return Value of property code.
@@ -49,14 +49,14 @@ public class SubmissionInfo implements java.io.Serializable {
     /** Getter for property topTCSolutions.
      * @return Value of property topTCSolutions.
      */
-    public ResultSetContainer getTopTCSolutions() {
+    public List getTopTCSolutions() {
         return this.topTCSolutions;
     }
     
     /** Setter for property topTCSolutions.
      * @param topTCSolutions New value of property topTCSolutions.
      */
-    public void setTopTCSolutions(ResultSetContainer topTCSolutions) {
+    public void setTopTCSolutions(List topTCSolutions) {
         this.topTCSolutions = topTCSolutions;
     }
     

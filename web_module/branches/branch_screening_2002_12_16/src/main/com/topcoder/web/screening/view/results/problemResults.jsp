@@ -7,7 +7,7 @@
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
-function getTCProblemResult(coderId, roundId, problemId, divisionId) {
+function getTCProblemResult(coderId, roundId, problemId) {
     var width = screen.availWidth * 2 / 3;
     var height = screen.availHeight / 2;
     var left = (screen.availWidth - width) / 2;
@@ -17,8 +17,7 @@ function getTCProblemResult(coderId, roundId, problemId, divisionId) {
     <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=TCProblemResult"; %>
     var params = '&<%=Constants.USER_ID%>=' + coderId +
                  '&<%=Constants.ROUND_ID%>=' + roundId +
-                 '&<%=Constants.PROBLEM_ID%>=' + problemId +
-                 '&<%=Constants.DIVISION_ID%>=' + divisionId;
+                 '&<%=Constants.PROBLEM_ID%>=' + problemId;
     window.open('<screen:rewrite page="<%=url%>" />'+params,name,cmd);
     return;
   }
@@ -136,9 +135,13 @@ function getTCProblemResult(coderId, roundId, problemId, divisionId) {
            </TR>	        
            <screen:resultSetRowIterator id="solution" list="<%= submissionInfo.getTopTCSolutions() %>">
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getTCProblemResults('0','0','0','0')" CLASS="bodyText"><screen:resultSetItem row="<%=solution%>" name="final_points" /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;I</TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Level 2</TD>		       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;
+                           <A HREF="JavaScript:getTCProblemResults('<screen:resultSetItem row="<%=solution%>" name="coder_id" />','<screen:resultSetItem row="<%=solution%>" name="round_id" />','<screen:resultSetItem row="<%=solution%>" name="problem_id" />')" CLASS="bodyText">
+                               <screen:resultSetItem row="<%=solution%>" name="final_points" />
+                           </A>
+                       </TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=solution%>" name="level_desc" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=solution%>" name="division_desc" /></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;Category Name</TD>		       	        
 	        </TR>	        
            <TR>

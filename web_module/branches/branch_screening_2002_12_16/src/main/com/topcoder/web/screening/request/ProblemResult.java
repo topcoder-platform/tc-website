@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.util.Map;
+import java.util.List;
 
 /**
  * Processing for the Problem Result page.
@@ -64,7 +65,7 @@ public class ProblemResult extends BaseProcessor {
         SubmissionInfo sinfo = new SubmissionInfo();
         sinfo.setCode(result.getItem(0,"submission_text").toString());
         sinfo.setTestResults((ResultSetContainer)map.get("systemTestResults"));
-        sinfo.setTopTCSolutions((ResultSetContainer)dwMap.get("topProblemSolutions"));
+        sinfo.setTopTCSolutions(((List)dwMap.get("topProblemSolutions")).subList(0,3));
         getRequest().setAttribute("submissionInfo",sinfo);
         
         setNextPage(Constants.PROBLEM_RESULT_PAGE);

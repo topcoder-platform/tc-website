@@ -78,13 +78,7 @@
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="args" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="expected_result" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="received" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">
-                           <% if(testResult.getItem("succeeded").toString().equals("0")){ %>
-                               Failed
-                           <% } else { %>
-                               Succeeded
-                           <% } %>
-                       </TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=testResult%>" name="status" /></TD>
 	        </TR>	        
            <TR>
               <TD COLSPAN="3"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
