@@ -38,6 +38,19 @@ public final class Controller extends HttpServlet {
             RequestProcessor rp;
             try {
 
+System.out.println("getRemoteHost() = "+request.getRemoteHost());
+System.out.println("getMethod() = "+request.getMethod());
+System.out.println("getProtocol() = "+request.getProtocol());
+
+System.out.println("getRequestURI() = "+request.getRequestURI());
+System.out.println("getRequestURL() = "+request.getRequestURL());
+
+System.out.println("getContextPath() = "+request.getContextPath());
+System.out.println("getServletPath() = "+request.getServletPath());
+System.out.println("getPathInfo() = "+request.getPathInfo());
+System.out.println("getPathTranslated() = "+request.getPathTranslated());
+System.out.println("getQueryString() = "+request.getQueryString());
+
                 String query = request.getQueryString();
                 System.out.println("query \"" + query + "\" from host " + request.getRemoteHost());
 
