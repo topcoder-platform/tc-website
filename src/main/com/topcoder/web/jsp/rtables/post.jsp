@@ -298,7 +298,7 @@
             <tr>
               <td valign="middle" class="statText">
                 <a href="/rtables/index.jsp" class="statText" class="statText">[ view round tables ]</a>&nbsp;
-                <a href="/rtables/viewForum.jsp&forum=<%= forumID %>" class="statText">[ view messages ]</a>
+                <a href="/rtables/viewForum.jsp?&forum=<%= forumID %>" class="statText">[ view messages ]</a>
               </td>
             </tr>
 <%
@@ -321,8 +321,8 @@
             <tr>
               <td valign="middle" class="statText">
                 <a href="/rtables/index.jsp" class="statText">[ view round tables ]</a>&nbsp;
-                <a href="/rtables/viewForum.jsp&forum=<%= forumID %>" class="statText">[ view messages ]</a>&nbsp;
-                <a href="/rtables/search.jsp&forum=<%=forumID%>" class="statText">[ search ]</a>
+                <a href="/rtables/viewForum.jsp?&forum=<%= forumID %>" class="statText">[ view messages ]</a>&nbsp;
+                <a href="/rtables/search.jsp?&forum=<%=forumID%>" class="statText">[ search ]</a>
               </td>
             </tr>
 <%

@@ -119,7 +119,7 @@
 
     <tr>
 
-      <td valign="middle" class="statText"><a class="statText" href="/rtables/index.jsp">[view round tables]</a> &#160;<a class="statText" href="/rtables/post.jsp&mode=new&forum=<%=forumID%>">[post new message]</a>  &#160;</td>
+      <td valign="middle" class="statText"><a class="statText" href="/rtables/index.jsp">[view round tables]</a> &#160;<a class="statText" href="/rtables/post.jsp?&mode=new&forum=<%=forumID%>">[post new message]</a>  &#160;</td>
 
     </tr>
 
