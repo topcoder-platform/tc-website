@@ -10,6 +10,9 @@
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
     <xsl:template match="/">
 
+                <xsl:variable name="design-phase" select="112" />
+                <xsl:variable name="dev-phase" select="113" />
+                <xsl:variable name="priceFormat" select="'$###,###,###.##'" />
 <html>
 <head>
 
@@ -139,17 +142,15 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="right">Total&#160;&#160;<br/>Earnings*</td>
                 </tr>
 
-                <xsl:variable name="design-phase" select="'112'" />
-                <xsl:variable name="dev-phase" select="'113'" />
-                <xsl:variable name="priceFormat" select="'$###,###,###.##'" />
-                <xsl:for-each select="/TC/DEVELOPMENT/projects/project">  
+                <xsl:for-each select="/TC/DEVELOPMENT/component_winners/winner">
+                       
                    <xsl:if test="./phase_id=$design-phase" >
                        <tr valign="middle">
                           <td class="formHandleOdd">
                               <a class="statText">
                                   <xsl:attribute name="href">
                                       <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/> 
-                                  </xsl:attribute>
+                                  </xsl:attribute><xsl:value-of select="./component_name"/>
                               </a>
                           </td>
                           <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
@@ -165,24 +166,8 @@
                          <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
                          <td class="formHandleOdd" align="center"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
                      </tr>
-                   </xsl:if>
+                   </xsl:if> 
                 </xsl:for-each>
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7324513" class="statText">CSS Style Object</a></td>
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=302018"><strong>Tomson</strong></a></td>
-                    <td class="formHandleOdd" align="center">86.7</td>
-                    <td class="formHandleOdd" align="right">$726.50&#160;&#160;</td>
-                </tr>
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=5904558" class="statText">Generic Service</a></td>
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356"><strong>aksonov</strong></a></td>
-                    <td class="formHandleOdd" align="center">90.73</td>
-                    <td class="formHandleOdd" align="right">$1,944.80&#160;&#160;</td>
-                </tr>
 
             </table>
             
@@ -204,23 +189,32 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="right">Total&#160;&#160;<br/>Earnings*</td>
                 </tr>
 
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7213295" class="statText">File Replace</a></td>
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=309786"><strong>Yi_Zhang</strong></a></td>
-                    <td class="formHandleOdd" align="center">81.96</td>
-                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=3201991" class="statText">Socket Server Manager</a></td>
-                    <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904"><strong>mishagam</strong></a></td>
-                    <td class="formHandleOdd" align="center">94.83</td>
-                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
-                </tr>
+                <xsl:for-each select="/TC/DEVELOPMENT/component_winners/winner">
+                       
+                   <xsl:if test="./phase_id=$dev-phase" >
+                       <tr valign="middle">
+                          <td class="formHandleOdd">
+                              <a class="statText">
+                                  <xsl:attribute name="href">
+                                      <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/> 
+                                  </xsl:attribute><xsl:value-of select="./component_name"/>
+                              </a>
+                          </td>
+                          <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
+                         <td class="formHandleOdd" align="center"><xsl:value-of select="./place"/></td>
+                         <td class="formHandleOdd">
+                            <a class="coderTextBlue">
+                                <xsl:attribute name="href">
+                                      <xsl:value-of select="concat('/stat?c=member_profile&amp;cr=', ./coder_id)"/>
+                                </xsl:attribute>
+                                <strong><xsl:value-of select="./user_id"/></strong>
+                            </a>
+                         </td>
+                         <td class="formHandleOdd" align="center"><xsl:value-of select="./score"/></td>
+                         <td class="formHandleOdd" align="center"><xsl:value-of select="format-number(./money, $priceFormat)"/></td>
+                     </tr>
+                   </xsl:if> 
+                </xsl:for-each>
 
 
             </table>
