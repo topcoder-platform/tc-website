@@ -19,7 +19,7 @@ public interface SessionProfile extends EJBObject {
      * @return session profile id (int)
      * @throws RemoteException
      */
-    public long createSessionProfile(String desc, long roundId)
+    public long createSessionProfile(String desc, long roundId, int divisionId, long companyId)
             throws RemoteException;
 
     /**
