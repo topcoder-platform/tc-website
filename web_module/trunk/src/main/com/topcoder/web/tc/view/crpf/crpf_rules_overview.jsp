@@ -62,8 +62,8 @@
                <p>The 2003 TopCoder Charity Challenge will benefit the Christopher Reeve Paralysis Foundation ("CRPF").  TopCoder 
                members will gather donations, and TopCoder will match all donations up to $50,000.</p>
                <p>The tournament will take place between November 11th and November 24th.  It will consist of three (3) online rounds, 
-               with the top 4 finishers in Round #3 and the top 4 fundraisers winning a grand prize.  In addition, 2 other fundraisers 
-               who raise more than $100 will win a grand prize.  Each grand prize is an expenses paid trip to A Magical Evening, the 
+               with the top 4 finishers in Round 3 and the top 4 fundraisers winning a grand prize.  In addition, 2 other fundraisers 
+               who raise $100 or more will be chosen to win a grand prize.  Each grand prize is an expenses paid trip to <i>A Magical Evening</i>, the 
                annual star-studded gala ball benefiting the CRPF.  The ball will be held at the Marriott Marquis in New York City on 
                November 24th.</p>
 
