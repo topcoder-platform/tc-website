@@ -8,7 +8,7 @@
 <jsp:include page="../includes/script.jsp"/>
 </HEAD>
 
-<jsp:useBean id="submissionInfo" class="com.topcoder.web.corp.model.SubmissionInfo" />
+<jsp:useBean id="submissionInfo" class="com.topcoder.web.corp.model.SubmissionInfo" scope="request"/>
 
 <body>
 

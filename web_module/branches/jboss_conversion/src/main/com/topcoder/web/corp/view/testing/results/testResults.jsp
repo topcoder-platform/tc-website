@@ -53,10 +53,10 @@ if ( plugin ) {
 
 </head>
 
-<jsp:useBean id="testSessionInfo" class="com.topcoder.web.corp.model.TestSessionInfo" />
-<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" />
-<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" />
-<jsp:useBean id="testResultsInfo" class="com.topcoder.web.corp.model.TestResultsInfo" />
+<jsp:useBean id="testSessionInfo" class="com.topcoder.web.corp.model.TestSessionInfo" scope="request"/>
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.corp.model.CandidateInfo" scope="request"/>
+<jsp:useBean id="profileInfo" class="com.topcoder.web.corp.model.ProfileInfo" scope="request"/>
+<jsp:useBean id="testResultsInfo" class="com.topcoder.web.corp.model.TestResultsInfo" scope="request"/>
 
 <body>
 
