@@ -97,11 +97,11 @@ public class SearchBean {
         school_list = _school_list;
     }
 
-    public List getMemberList() {
+    public ResultSetContainer getMemberList() {
         return (member_list);
     }
 
-    public void setMemberList(List _member_list) {
+    public void setMemberList(ResultSetContainer _member_list) {
         member_list = _member_list;
     }
 
