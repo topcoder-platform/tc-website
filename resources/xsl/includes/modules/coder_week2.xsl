@@ -10,18 +10,14 @@
 	<!-- Coder of the Week Pulldown Ends -->          			
           			</TD>       		
         		</TR>
-        		<!-- <TR> 
-          			<TD WIDTH="73" VALIGN="top"><IMG SRC="/i/tc_lines.gif" WIDTH="73" HEIGHT="11" BORDER="0"/></TD>
-          			<TD WIDTH="263"><IMG SRC="/i/tc_lines2.gif" WIDTH="263" HEIGHT="11" BORDER="0"/></TD>
-        		</TR> -->
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD WIDTH="73" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/eduar09_mug.gif" ALT="Coder of the Week" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3"/></TD>
+          			<TD WIDTH="73" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/Yarin_mug.gif" ALT="Coder of the Week" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3"/></TD>
           			<TD WIDTH="100%" CLASS="bodyTextBold" HEIGHT="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;April 8 - 14, 2002</TD>
+          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;April 22 - 28, 2002</TD>
         		<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
@@ -35,32 +31,23 @@
                   Member&#160;Since:<BR/>
                   Competitions:<BR/></TD>
                					 <TD CLASS="bodyText" HEIGHT="53" WIDTH="50%" ALIGN="right" VALIGN="top" NOWRAP="">
-               	  <!-- <A HREF="/stat?c=member_profile&amp;cr=273457" CLASS="coderTextYellow">jesser</A><BR/> -->
-               	  eduar09<BR/>
-               	  1773<BR/>
-                  March&#160;8,&#160;2002<BR/>
-                  7<BR/></TD>
+
+               	  Yarin<BR/>
+               	  2090<BR/>
+                  February &#160;28,&#160;2002<BR/>
+                  2<BR/></TD>
               				</TR>
         		<TR> 
           			<TD COLSPAN="2" CLASS="bodyText" VALIGN="top">
 <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Click here</A> to read about
 
-the impressive Rating Point Gain of <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">eduar09</A> in Single Round Match 79.
+the record Rating Point Gain of <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Yarin</A> in Single Round Match 83.
          			</TD>
         		</TR>              				              				
             			</TABLE>
           			</TD>
           			<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-        		</TR>
-        		<!-- <TR> 
-          			<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD CLASS="bodyText" VALIGN="top">
-<A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Click here</A> to read about
-
-the impressive come-from-behind win back by <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">seashadow</A> in Single Round Match 77.
-         			</TD>
-          			<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-        		</TR> -->       		        		
+        		</TR>       		        		
        			<TR> 
           			<TD COLSPAN="4" HEIGHT="10"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
         		</TR>

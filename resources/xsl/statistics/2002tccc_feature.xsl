@@ -70,10 +70,10 @@
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-<P>
-<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Headline</B></FONT><BR/>
-<I>subhead</I><BR/><BR/>
-Tuesday, April 20, 2002<BR/>
+<P><IMG SRC="/i/2002tccc/tourney_feat_photo.jpg" ALT="" WIDTH="200" HEIGHT="435" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>A Matter of Time</B></FONT><BR/>
+<I>dmwright Began Journey To Title At Age Six</I><BR/><BR/>
+Wednesday, April 24, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 </P>
 <!-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
@@ -82,7 +82,7 @@ By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 <IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 <IMG SRC="/i/2002tccc/coder_quote2.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/> -->
 <P>
-A pump of his fists, a loud hand clap, and exclamation of "Yes!" was the reaction of evd when it was 
+A pump of his fists, a loud hand clap, and exclamation of "Yes!" was the reaction of <A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A> when it was 
 announced that fellow Stanford University student <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> had won the 2002 Sun Microsystems and TopCoder 
 Collegiate Challenge on Saturday April 20, at the University Park Hotel @ MIT in Cambridge, MA.
 </P>
@@ -139,7 +139,7 @@ Two and Three problems are worth more points, so I figured I could outscore the 
 the Level One and Two problems in succession." 
 </P>
 
-<P>
+<P><IMG SRC="/i/2002tccc/tourney_feat_photo2.jpg" ALT="" WIDTH="300" HEIGHT="200" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/>
 His strategy paid off, even though he had to leave the Level Three problem to go back to code the Level 
 One problem, as all three of his opponents could only submit code for the Level One problem.  After some 
 pretty tense moments in the Challenge Phase, when both of his submissions were thoroughly examined by 
@@ -272,6 +272,11 @@ Stanford isn't exactly inexpensive.  Then, maybe I'll buy a car or something lik
 I'll try to save it for the future."  Assuming that future means more competitions, the TopCoder 
 accounting staff might want to keep their checkbook handy.
 </P>
+
+<P>
+<A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A>
+</P>
+
               </TD>
             </TR>                               
           </TABLE>
