@@ -204,7 +204,7 @@
                                         <!-- Register at TCS -->
                                         <p>
                                             <strong>View the
-                                                <a target="_new" class="bodyText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
+                                                <a target="_new" class="bodyText" href="/i/development/downloads/EmailToolRequirementsSpecification-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
                                             </strong>
                                         </p>
                                         <p>
