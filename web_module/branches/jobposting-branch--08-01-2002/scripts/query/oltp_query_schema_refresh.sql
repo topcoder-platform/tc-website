@@ -115,6 +115,7 @@ INSERT INTO command_query_xref VALUES(1010, 1050, 1);
 INSERT INTO command_query_xref VALUES(1010, 1006, 2);
 INSERT INTO command_query_xref VALUES(1010, 1051, 3);
 INSERT INTO command_query_xref VALUES(1010, 1097, 4);
+INSERT INTO command_query_xref VALUES(1010, 1000, 5);
 INSERT INTO command_query_xref VALUES(1011, 1050, 1);
 INSERT INTO command_query_xref VALUES(1011, 1097, 2);
 INSERT INTO command_query_xref VALUES(1012, 1050, 1);
