@@ -18,21 +18,6 @@ public class ProblemRenderer implements ElementRenderer {
     }
     
     public String toHTML(Language language) {
-        StringBuffer html = new StringBuffer("<html>");
-//        html.append("<body bgcolor=\"#000000\" text=\"#ffffff\">");
-        html.append("<body");
-        if (backgroundColor != null) {
-            html.append(" bgcolor=\"#");
-            html.append(rgbColor(backgroundColor));
-            html.append("\"");
-        }
-        if (foregroundColor != null) {
-            html.append(" text=\"#");
-            html.append(rgbColor(foregroundColor));
-            html.append("\"");
-        }
-        html.append(">");
-
         if (!problem.getProblemText().equals("")) {
             html.append(problem.getProblemText());
             html.append("<hr>");
@@ -45,7 +30,6 @@ public class ProblemRenderer implements ElementRenderer {
         html.append("<p>");
         html.append(LEGAL);
         html.append("</p>");
-        html.append("</body></html>");
 
         return html.toString();
     }
