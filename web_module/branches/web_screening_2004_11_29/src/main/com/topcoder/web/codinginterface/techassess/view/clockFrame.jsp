@@ -74,6 +74,7 @@
                 } else {
                     text = "Expired";
                 }
+                alert(ids[i]);
                 updateDivOrSpan(top.mainFrame.document, ids[i], text);
             }
             <% } %>
