@@ -206,7 +206,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         r.setProperty("eid", String.valueOf(regInfo.getEventId()));
         r.setProperty("cm", String.valueOf(regInfo.getCompanyId()));
         ResultSetContainer ret = (ResultSetContainer)getDataAccess(db, true).getData(r).get("config_info");
-        if (ret==null)
+        if (ret==null || ret.isEmpty())
             throw new Exception ("Missing config info for company: " +
                     regInfo.getCompanyId() + " event_id " + regInfo.getEventId());
         return ret;
