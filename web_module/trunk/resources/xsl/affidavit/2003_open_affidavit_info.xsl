@@ -101,7 +101,7 @@
                                 <p><strong>TAX FORM</strong> - must be faxed to (860.657.4276) or postmarked on or before Midnight, Eastern Time, Wednesday, November 12th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
-                                        <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) to the address below.  If you don't know the form
+                                        <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) via fax or mail to the address below.  If you don't know the form
                                         that applies to you, please refer to the instructions below:</p>
 
                                         <p>Instructions<br/>
