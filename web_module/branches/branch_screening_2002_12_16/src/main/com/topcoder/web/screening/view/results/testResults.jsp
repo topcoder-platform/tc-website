@@ -64,7 +64,7 @@ function getProblemDetail(id) {
 	        <TR>
 		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>
-<% if(testResultsInfo.isSessionComplete()){ %>
+<% if(testResultsInfo.isSessionComplete()) { %>
 	        <TR>
 		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyTextBold"><B>Test Set A Results:</B></TD>
 	        </TR>
@@ -108,7 +108,7 @@ function getProblemDetail(id) {
 <% } // isSessionComplete %>
 	        </TABLE>
 
-<% if(testResultsInfo.isSessionComplete()){ %>
+<% if(testResultsInfo.isSessionComplete()) { %>
 	        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 	        <TR>
 		       <TD COLSPAN="10" VALIGN="top" CLASS="bodyTextBold"><B>TopCoder Stats</B></TD>
@@ -199,9 +199,7 @@ function getProblemDetail(id) {
 	        </TR>
 	        </TABLE>
     <% } // getProblemSetBCount() > 0 %>
-<% } // isSessionComplete %>
-
-<% if(!testResultsInfo.isSessionComplete()){ %>
+<% } else { //isSessionComplete %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
            <TR>
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
