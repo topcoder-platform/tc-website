@@ -6,6 +6,8 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
+                <tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_04_04">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament</A> [August 4]</td></tr>  
+
                 <tr><td class="prHead"><A href="/?&t=news_events&c=pr_07_28_04">TopCoder Announces Microsoft as Title Sponsor for 2004 TopCoder Open Tournament</A> [July 28]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://www.devx.com/Java/Article/21602" target="_blank">The Smart Choice for Smart Clients: J2EE or .NET?</A> [July 27 - devX]</td></tr>  
@@ -15,8 +17,6 @@
                 <tr><td class="prHead"><A href="http://builder.com.com/5100-6370_14-5260946.html" target="_blank">CNET engineer wins JavaOne Coding Challenge</A> [July 9 - Builder.com]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://java.sun.com/javaone/top_coder.html" target="_blank">JavaOne Coding Challenge: Meet the Best</A> [July 1 - Sun]</td></tr>  
-
-                <tr><td class="prHead"><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=65934" target="_blank">Focus on software talent</A> [June 21 - Mass High Tech]</td></tr>  
 
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
