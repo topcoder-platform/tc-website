@@ -1036,8 +1036,8 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,division_id ");       // 16
             query.append("       ,points) ");           // 17
             query.append("VALUES (");
-            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            query.append("?,?,?,?,?,?)");          // 15 total values
+            query.append("?,?,?,?,?,?,?,?,?,?,");
+            query.append("?,?,?,?,?,?,?)");         
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
