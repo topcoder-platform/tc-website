@@ -90,23 +90,25 @@ if (!bEmpty) {
 
                                 <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
                                     <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
+                                    | 
+                                    <A HREF="/stat?pi=112&c=tcs_ratings_history&pi=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A> 
+                                    | 
 
-                                     | 
-<% 
-   if(srb.getProperty("pi").equals("113"))
-   {
-%>
-                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design History</A>
-<%
-   }
-   else{
-%>
-                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development History</A>
-<%}%>
+    <% if(srb.getProperty("pi").equals("112")) { %>
+                                    <strong>Design Earnings</strong>
+    <% } else { %>
+                                    <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Earnings</A>
+    <% } %>
 
+                                    | 
+                                    <A HREF="/stat?pi=113&c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating</A> 
+                                    | 
 
-                             | <A HREF="/stat?pi=112&c=tcs_ratings_history&pi=112&&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating History</A> 
-                             | <A HREF="/stat?pi=113&c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating History</A> 
+    <% if(srb.getProperty("pi").equals("113")) { %>
+                                    <strong>Development Earnings</strong>
+    <% } else { %>
+                                    <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Earnings</A>
+    <% } %>
                                 </TD>
                             </TR>
                             
@@ -148,16 +150,12 @@ if (srb.getProperty("sq")!=null){
 }
 String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+srb.getProperty("cr")+"&sq=component_history";
 %>
-                        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+                        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="3" WIDTH="100%">
 		  		<% if (!bEmpty) { %>	
                             <TR>
-                                <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="7" HEIGHT="18">&#160;Component History</TD>		
+                                <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="7">Component History</TD>		
                             </TR>   
                             
-                            <TR>
-                                <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>    
-                            </TR>
-			
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
 			
 			<TR>
