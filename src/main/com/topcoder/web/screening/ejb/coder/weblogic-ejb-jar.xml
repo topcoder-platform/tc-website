@@ -13,7 +13,7 @@
         <reference-descriptor>
             <resource-description>
                 <res-ref-name>datasource</res-ref-name>
-                <jndi-name>SCREENING_OLTP</jndi-name>
+                <jndi-name>JTS_SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
         <jndi-name>com.topcoder.web.screening.ejb.coder.CoderHome</jndi-name>
@@ -26,7 +26,7 @@
         <reference-descriptor>
             <resource-description>
                 <res-ref-name>datasource</res-ref-name>
-                <jndi-name>SCREENING_OLTP</jndi-name>
+                <jndi-name>JTS_SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
         <jndi-name>com.topcoder.web.screening.ejb.coder.CompanyCandidateHome</jndi-name>
