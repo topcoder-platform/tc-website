@@ -79,7 +79,7 @@ public class SponsorImage extends TagSupport {
             }
             buffer.append("<img src=\"");
             buffer.append(src);
-            buffer.append("\" ");
+            buffer.append("\"");
 
             if (alt != null) {
                 buffer.append(" alt=\"" + alt + "\"");
