@@ -535,9 +535,17 @@ public final class TaskDevelopment {
                    }
                    
 
+                    TCSEmailMessage mail = new TCSEmailMessage();
+                    mail.addToAddress(from, TCSEmailMessage.TO);
+                    mail.setFromAddress(to, TCSEmailMessage.FROM);
+                    mail.setSubject(project);
+
 
                     if (rating <= 0)
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
+                        mail.setBody("Your inquiry has been sent. Thank You!\r\n" +
+                                     "If you have any questions please contact service@topcodersoftware.com");
+                        EmailEngine.send(mail);
                     else{
 
                         //log.debug("http://172.16.20.222:8080/pages/c_forum.jsp?f=" +activeForumId);
@@ -545,6 +553,20 @@ public final class TaskDevelopment {
                         //log.debug("afterwards?");
                         xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                         //return "";
+                        
+                        mail.setBody("Thank you, " + handle + ", for your inquiry.\r\n" +
+                                     "Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit TopCoder Software. Your TopCoder handle and password will give you access to post questions or comments on the Customer Forums.\r\n" +
+                                     "If you have any problems please contact service@topcodersoftware.com");
+                        EmailEngine.send(mail);
+                        
+                        
+
+
+
+
+
+
+
                     }
                  }
                  else{
