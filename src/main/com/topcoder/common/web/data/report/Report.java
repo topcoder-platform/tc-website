@@ -1,5 +1,7 @@
 package com.topcoder.common.web.data.report;
 
+import com.topcoder.web.common.TCRequest;
+
 import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -112,7 +114,7 @@ public class Report implements Serializable {
         return title;
     }
 
-    public void fillParameters(HttpServletRequest request) {
+    public void fillParameters(TCRequest request) {
         for (int i = 0; i < parameters.length; i++)
             parameters[i].setValue(request.getParameter(parameters[i].getColumnName()));
     }
