@@ -60,7 +60,7 @@
 						<li>Exceptional C, C++, and object oriented programming skills.</li>
 					</ul>
 					<p>EOE</p>
-					<p><span class="bodySubtitle"><a href="/tc?JobHit?jid=217&jt=1">Apply Now!</a></span></p>
+					<p><span class="bodySubtitle"><a href="/tc?module=JobHit&jid=217&jt=1">Apply Now!</a></span></p>
 					
 				   </td>
    				</tr>
