@@ -39,6 +39,26 @@ public class HSAuthorization implements Authorization {
         }
     }
 
+    /** Constructor which takes a userid and fetches the TCSubject for that user. */
+    public HSAuthorization(long userid) {
+
+        try {
+            Hashtable env = new Hashtable();
+            env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+            env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
+            InitialContext context = new InitialContext(env);
+            PolicyRemoteHome policyHome = (PolicyRemoteHome)context.lookup(PolicyRemoteHome.EJB_REF_NAME);
+            policy = policyHome.create();
+
+            PrincipalMgrRemoteHome pmgrHome = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemote pmgr = pmgrHome.create();
+            this.user = pmgr.getUserSubject(userid);
+
+        } catch(Exception e) {
+            throw new RuntimeException(e.getMessage());  //@@@ use authexception?
+        }
+    }
+
     /* Query the security component to determine whether the user can access this resource. */
     public boolean hasPermission(Resource r) {
 

@@ -42,12 +42,7 @@ public class BasicAuthentication implements WebAuthentication {
     public void login(User u) throws com.topcoder.shared.security.AuthenticationException {
 
         try {
-            Hashtable env = new Hashtable();
-            env.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-            env.put(Context.PROVIDER_URL, "172.16.20.40:1099");
-            InitialContext context = new InitialContext(env);
-            LoginRemoteHome loginHome = (LoginRemoteHome)context.lookup(LoginRemoteHome.EJB_REF_NAME);
-            LoginRemote loginRemote = loginHome.create();
+            LoginRemote loginRemote = (LoginRemote)Constants.createEJB("loginRemoteHome");
 
             TCSubject sub = loginRemote.login(u.getUserName(),u.getPassword());
             Long uid = new Long(sub.getUserId());
