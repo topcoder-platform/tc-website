@@ -35,8 +35,8 @@ public class MainServlet extends BaseServlet {
     protected String getParameter(HttpServletRequest request, String name) throws Exception {
         String ret = null;
         try {
-            String contentType = StringUtils.checkNull(request.getContentType().toLowerCase());
-            if (contentType.startsWith("multipart/form-data")) {
+            String contentType = StringUtils.checkNull(request.getContentType());
+            if (contentType.toLowerCase().startsWith("multipart/form-data")) {
                 FileUpload fu = new FileUpload(request, false);
                 ret = fu.getParameter(name);
             }
