@@ -37,7 +37,12 @@ public class IdGeneratorClient {
      */
 
     public static long getSeqId(String seqName) {
-        log.debug("getSeqId called");
+        log.debug("getSeqId(String) called");
+        return getSeqId(seqName, dataSourceName);
+    }
+
+    public static long getSeqId(String seqName, String dataSourceName) {
+        log.debug("getSeqId(String, String) called");
         long retVal = -1;
         try {
             ctx = new InitialContext();
@@ -62,6 +67,4 @@ public class IdGeneratorClient {
         return retVal;
     }
 
-    public static void main(String[] args) {
-    }
 }
