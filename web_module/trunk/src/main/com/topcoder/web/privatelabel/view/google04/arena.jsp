@@ -22,7 +22,7 @@
 				<tr>
 					<td width="49%"></td>
 					<td valign=bottom align=center><img border=0 src="/i/events/google2004/codejamLogo.gif" alt="Google Code Jam logo"></td>
-					<td width="49%" valign=bottom align=right><a href="/"><img align="right" src="/i/events/google2003/google_pbtc.gif" border="0"></a></td>
+					<td width="49%"></td>
 				</tr>
 			</table>
 		</td>
@@ -55,7 +55,7 @@
 			Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
 			<br/><br/>
 			If you experience problems loading or running the Competition Arena please contact  <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>.
-			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+			<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 			<br/><br/>
 			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
