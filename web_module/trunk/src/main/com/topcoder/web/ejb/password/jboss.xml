@@ -1,7 +1,7 @@
 <jboss>
     <enterprise-beans>
         <session>
-            <ejb-name>PolicyMgrEJB</ejb-name>
+            <ejb-name>PasswordEJB</ejb-name>
             <jndi-name>com/topcoder/web/ejb/password/PasswordEJB</jndi-name>
             <resource-ref>
                 <res-ref-name>jdbc/DefaultDS</res-ref-name>

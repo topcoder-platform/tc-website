@@ -535,6 +535,16 @@
         <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
    </target>
 
+    <target name="package-EJB-PasswordBean" depends="compile">
+           <jar
+            jarfile="${ejb_jars}/password.jar"
+            basedir="${classes}">
+            <metainf dir="${java}/com/topcoder/web/ejb/password" includes="*.xml"/>
+        </jar>
+    </target>
+
+
+
 
 
    <target name="initGenericBean" >
