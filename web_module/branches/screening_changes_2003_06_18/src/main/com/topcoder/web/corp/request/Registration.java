@@ -9,7 +9,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.MisconfigurationException;
@@ -252,7 +254,7 @@ public final class Registration extends UserEdit {
     /**
      */
     protected void verifyAllowed()
-            throws NotAuthorizedException, Exception {
+            throws PermissionException, Exception {
         com.topcoder.shared.security.User loggedInUser = getAuthentication().getUser();
         com.topcoder.shared.security.User knownUser = getAuthentication().getActiveUser();
 
@@ -260,7 +262,9 @@ public final class Registration extends UserEdit {
         if (secTok.createNew) {
             if (!knownUser.isAnonymous()) {
                 if (loggedInUser.isAnonymous()) {
-                    throw new NotAuthorizedException("You must be logged on, in order to continue");
+                    throw new PermissionException(knownUser,
+                            new ClassResource(this.getClass()), new Exception("You must be logged on, in order to access your account."));
+
                 } else {
                     targetUserID = loggedInUser.getId();
                     secTok.createNew = false;
@@ -269,7 +273,8 @@ public final class Registration extends UserEdit {
             }
         } else {
             if (loggedInUser.isAnonymous()) {
-                throw new NotAuthorizedException("You must be logged on, in order to continue");
+                throw new PermissionException(knownUser,
+                        new ClassResource(this.getClass()), new Exception("You must be logged on, in order to access your account."));
             }
         }
     }

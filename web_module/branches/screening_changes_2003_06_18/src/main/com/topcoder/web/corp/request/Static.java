@@ -1,12 +1,12 @@
 package com.topcoder.web.corp.request;
 
-import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.PathResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.Constants;
 
@@ -48,7 +48,8 @@ public class Static extends BaseProcessor {
         Authorization authorization = new TCSAuthorization(Util.retrieveTCSubject(getAuthentication().getActiveUser().getId()));
         /* check whether the path is allowed for this type of user */
         if(!authorization.hasPermission(new PathResource(path.toString())))
-            throw new NotAuthorizedException("access to page denied");
+        throw new PermissionException(getAuthentication().getActiveUser(),
+                new PathResource(path.toString()), new Exception("access to page denied"));
 
         setNextPage(path.toString());
         setIsNextPageInContext(true);

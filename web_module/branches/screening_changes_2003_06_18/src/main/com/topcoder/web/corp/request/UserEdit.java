@@ -9,8 +9,10 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.MisconfigurationException;
@@ -231,15 +233,16 @@ public class UserEdit extends BaseProcessor {
 
     /**
      *
-     * @throws NotAuthorizedException
+     * @throws PermissionException
      * @throws Exception
      */
     protected void verifyAllowed()
-            throws NotAuthorizedException, Exception {
+            throws PermissionException, Exception {
         if (secTok.createNew) { // only primary persons are allowed to do it
             // so all others get switched into editor mode
             if (getAuthentication().getUser().isAnonymous()) { // not logged in
-                throw new NotAuthorizedException("You must be logged in, in order to create new users");
+                throw new PermissionException(getAuthentication().getActiveUser(),
+                        new ClassResource(this.getClass()), new Exception("You must be logged in to create a user."));
             }
 
             // user is logged in
@@ -258,11 +261,13 @@ public class UserEdit extends BaseProcessor {
             if (secTok.isAccountAdmin) {
                 // check if user belongs same company
                 if (secTok.targetUserCompanyID != secTok.loggedUserCompanyID) {
-                    throw new NotAuthorizedException("You are allowed only edit of your company persons");
+                    throw new PermissionException(getAuthentication().getActiveUser(),
+                            new ClassResource(this.getClass()), new Exception("You may only edit the accounts of employees at your company."));
                 }
             } else { // regular member tries to edit user
                 if (targetUserID != getAuthentication().getUser().getId()) {
-                    throw new NotAuthorizedException("You are not allowed to modify other users");
+                    throw new PermissionException(getAuthentication().getActiveUser(),
+                            new ClassResource(this.getClass()), new Exception("You are not allowed to modify other users."));
                 }
             }
         }
