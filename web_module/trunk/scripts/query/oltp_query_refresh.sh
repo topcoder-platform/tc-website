@@ -151,3 +151,38 @@ SELECT cs.school_name as school_name
 HAVING count(*) > 30
  ORDER BY 2 DESC
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 64 "Prize Winner" 0 0 "
+SELECT
+  u.email as email_address
+  ,c.name as contest_name
+  ,u.handle
+  ,r.name as round_name
+  ,rr.room_placed
+  ,rm.unrated
+  ,rm.division_id
+  ,rp.payment_type_id
+  ,rp.paid
+FROM
+  user u
+  ,room_result rr
+  ,round_payment rp
+  ,round r
+  ,contest c
+  ,room rm
+WHERE
+  rm.round_id = @rd@
+  AND rp.paid > 0
+  AND u.user_id = rr.coder_id
+  AND u.user_id = rp.coder_id
+  AND rr.coder_id = rp.coder_id
+  AND rr.round_id = rp.round_id
+  AND rr.round_id = r.round_id
+  AND rr.round_id = rm.round_id
+  AND rp.round_id = r.round_id
+  AND rp.round_id = rm.round_id
+  AND r.contest_id = c.contest_id
+  AND r.round_id = rm.round_id
+  AND rr.room_id = rm.room_id
+"
+
