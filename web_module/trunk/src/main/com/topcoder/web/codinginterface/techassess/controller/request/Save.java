@@ -61,12 +61,8 @@ public class Save extends Base {
             try {
                 send(request);
             } catch (ServerBusyException e) {
-                setNextPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
-                        new String[]{Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
-                        new String[]{getRequest().getParameter(Constants.PROBLEM_TYPE_ID),
-                                     getRequest().getParameter(Constants.COMPONENT_ID)}));
-                setIsNextPageInContext(false);
-                return;
+                throw new NavigationException("Sorry, the server is busy with a previous request.  " +
+                        "When using this tool, please wait for a response before you attempt to proceed.");
             }
 
             //log.debug("problemtype : " + problemTypeId);

@@ -46,9 +46,8 @@ public class ViewProblemSet extends Base {
             try {
                 send(request);
             } catch (ServerBusyException e) {
-                setNextPage(buildProcessorRequestString(Constants.RP_INDEX, null, null));
-                setIsNextPageInContext(false);
-                return;
+                throw new NavigationException("Sorry, the server is busy with a previous request.  " +
+                        "When using this tool, please wait for a response before you attempt to proceed.");
             }
 
             //need the problem type id in there so that one can hit refresh and have it work on the response.
