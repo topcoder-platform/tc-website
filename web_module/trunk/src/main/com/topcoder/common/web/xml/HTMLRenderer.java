@@ -8,6 +8,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import java.io.ByteArrayOutputStream;
 import java.io.StringReader;
+import java.io.FileReader;
 
 public class HTMLRenderer {
 
@@ -47,13 +48,12 @@ public class HTMLRenderer {
                     ch=(char)fr.read();
                     if (ch=='\n') lineCount++;
                     if (!(ch > 0 && ch < 128)) {
-                        System.out.println("possible bad char: " ch + " found on line " + lineCount);
+                        System.out.println("possible bad char: " + ch + " found on line " + lineCount);
                     }
                 }
                 fr.close();
-                return;
-            } catch (Exception e) {
-                log.error("failed to read through file looking for bad characters: " + e.getMessage());
+            } catch (Exception ex) {
+                log.error("failed to read through file looking for bad characters: " + ex.getMessage());
             }
             throw new TCException("ejb.HTMLRenderer.HTMLRendererBean:render:ERROR:\n" + e);
         }
