@@ -180,11 +180,11 @@ public class SessionSegmentBean extends BaseEJB {
      * @param segmentLength
      * @throws RemoteException
      */
-    public void setSessionSegment(long sessionId,
+    public void setSegmentLength(long sessionId,
                                  long sessionSegmentId,
                                  long segmentLength)
             throws RemoteException {
-        log.debug("setSessionSegment called. sessionId: "
+        log.debug("setSegmentLength called. sessionId: "
                  + sessionId + " sessionSegmentId: " + sessionSegmentId
                 + " segmentLength: " + segmentLength);
 
@@ -210,15 +210,15 @@ public class SessionSegmentBean extends BaseEJB {
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setSessionSegment sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
+            throw new EJBException("SQLException in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } catch (NamingException e) {
-            throw new EJBException("NamingException in setSessionSegment sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
+            throw new EJBException("NamingException in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } catch (Exception e) {
-            throw new EJBException("Exception in setSessionSegment sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
+            throw new EJBException("Exception in setSegmentLength sessionId: " + sessionId + "sessionSegmentId: " + sessionSegmentId + " segmentLength: " + segmentLength);
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSessionSegment");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSessionSegment");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setSessionSegment");}}
+            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setSegmentLength");}}
+            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setSegmentLength");}}
+            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setSegmentLength");}}
         }
     }
 
