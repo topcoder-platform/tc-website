@@ -8,8 +8,6 @@
     <% if ((level1.equals("index"))) { %>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <img src="/images/headFeaturedClients.gif" width="170" height="29" alt="Featured Clients" border="0"><br>
-                <img src="/images/thomson_promo.gif" width="170" height="147" alt="Thomson Prometric" border="0"><br>
-                <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <img src="/images/praxair_promo.gif" width="170" height="147" alt="Praxair" border="0"><br>
                 <img src="/images/clear.gif" width="1" height="10" alt="" border="0"><br>
                 <img src="/images/abb_promo.gif" width="170" height="147" alt="ABB" border="0"><br>
