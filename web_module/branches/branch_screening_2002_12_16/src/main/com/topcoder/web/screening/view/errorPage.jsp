@@ -1,4 +1,5 @@
 <%@ page language="java" isErrorPage="true" %>
+<%@ page import="com.topcoder.web.screening.common.Constants"%>
 <%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
 <% if(request.getAttribute("Exception") != null)
    {
