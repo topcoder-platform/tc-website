@@ -43,10 +43,10 @@
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><PRE>
 <strong>FROM:</strong><jsp:getProperty name="emailInfo" property="repAddress" /><%
 if(emailInfo.getSessionInfo() != null) {
-if(emailinfo.getSessionInfo().useCandidateEmail()) { %>
+if(emailInfo.getSessionInfo().useCandidateEmail()) { %>
 <strong>TO:</strong><jsp:getProperty name="emailInfo" property="candidateAddress" /><%
 } 
-if(emailinfo.getSessionInfo().useRepEmail()) { %>
+if(emailInfo.getSessionInfo().useRepEmail()) { %>
 <strong>TO:</strong><jsp:getProperty name="emailInfo" property="repAddress" /><%
 }
 }%>
