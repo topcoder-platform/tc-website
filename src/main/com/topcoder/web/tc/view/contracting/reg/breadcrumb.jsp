@@ -29,7 +29,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("confirm")) {%><td class=vbcON>Confirm 7</td>
-	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingIndustries');" class=vbcLINK>Confirmation 7</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('ContractingConfirm');" class=vbcLINK>Confirmation 7</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("success")) {%><td class=vbcON>Done 8</td>

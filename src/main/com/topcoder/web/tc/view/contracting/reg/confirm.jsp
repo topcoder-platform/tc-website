@@ -1,10 +1,18 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 java.util.Hashtable" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Contract</title>
 
 <jsp:include page="../../../script.jsp" />
+
+<%
+Hashtable skillList = (Hashtable)request.getAttribute("prefs");
+%>
 
 </head>
 
@@ -35,6 +43,18 @@
         </jsp:include>
 
 <!-- Breadcrumb-->
+<script language="javascript">
+        function goToPage(s)
+        {
+            document.frmConfirm.module.value = s;
+            document.frmConfirm.submit();
+        }
+    </script>
+
+		<FORM ACTION="/tc" METHOD=POST onSubmit="" name="frmConfirm">
+		<input type="hidden" name="module" value="ContractingConfirm"/>
+		<input type="hidden" name="previouspage" value="confirm" />
+
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>
@@ -326,7 +346,7 @@
 		</tr>
 		<tr><td colspan=2 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=success"><img src="/i/submit.jpg" border=0/></a></td></tr>
 		</table>
-
+		</form>
 
         </div>
 		<p align=center class=bodyText><b>Please check to make sure that your information is up-to-date.</b></p>
