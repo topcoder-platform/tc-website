@@ -20,9 +20,6 @@ public class Controller
     static final String MULTIPART_FORM_DATA = "multipart/form-data";
     public static final String EXCEPTION = "exception";
     public static final String NAVIGATION = "navigation";
-    public static final String TASK = "task";
-    public static final String RESUME = "ResumeUploadTask";
-    public static final String ACTION = "/resume/resume";
     static final String CONTROLLER_ERROR_URL = "error.jsp";
     static final String TASK_PACKAGE = "com.topcoder.web.resume.bean";
 
