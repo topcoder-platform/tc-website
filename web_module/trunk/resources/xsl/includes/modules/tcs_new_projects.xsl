@@ -256,10 +256,10 @@
 
             <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
-                    <td width="100%" class="statTextSmall">
-                        <p>Please read the Component Development <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component Design or Development solution.</p>
-                        <p>Please read the Application Development <a class="statTextSmall" href="/index?t=development&amp;c=app_meth">Methodology</a> before submitting an Application Design or Development solution.</p>
-                        <p>Not sure what to submit? Go to <a class="statTextSmall" href="/index?t=development&amp;c=tcs_sample_docs">Documentation and Sample Submissions</a> for the information that you need.</p>
+                    <td width="100%" class="smallText">
+                        <p>Please read the Component Development <a href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component Design or Development solution.</p>
+                        <p>Please read the Application Development <a href="/index?t=development&amp;c=app_meth">Methodology</a> before submitting an Application Design or Development solution.</p>
+                        <p>Not sure what to submit? Go to <a href="/index?t=development&amp;c=tcs_sample_docs">Documentation and Sample Submissions</a> for the information that you need.</p>
                     </td>
                 </tr>
             </table>
