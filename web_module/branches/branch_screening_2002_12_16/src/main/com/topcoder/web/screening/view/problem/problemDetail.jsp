@@ -43,31 +43,33 @@
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
            <TR>
-              <TD COLSPAN="5"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD COLSPAN="6"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
 
 
             <jsp:useBean id="problemInfo" type="com.topcoder.web.screening.model.ProblemInfo" scope="request" />
             <TR>
-              <TD COLSPAN="5" CLASS="statText" HEIGHT="15" BGCOLOR="#666666">&#160;<B><jsp:getProperty name="problemInfo" property="problemName" /></B></TD>
+              <TD COLSPAN="6" CLASS="statText" HEIGHT="15" BGCOLOR="#666666">&#160;<B><jsp:getProperty name="problemInfo" property="problemName" /></B></TD>
            </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Submission Accuracy %</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Category</B></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Category</B></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Category</B></TD>
 	        </TR>
            <TR>
-              <TD COLSPAN="5"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD COLSPAN="6"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="divisionDesc" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="difficultyDesc" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="accuracy" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="categoryDesc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="businessCategoryList" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="problemInfo" property="algorithmicCategoryList" /></TD>
 	        </TR>
            <TR>
-              <TD COLSPAN="5"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30" BORDER="0"></TD>
+              <TD COLSPAN="6"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30" BORDER="0"></TD>
            </TR>
          </TABLE>
 
@@ -77,21 +79,7 @@
            </TR>
            <TR>
               <TD CLASS="bodyText" VALIGN="top">
-<p>
 <jsp:getProperty name="problemInfo" property="problemStatement" />
-</P>
-<P>
-              Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-		       ut laoreet dolore magna aliquam eLorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-		       rat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.xerci.
-</P>
-
-<P>
-              Dolor sit amet, consectetuer  ipsum dolor sit amet, consectetuer adiim veniam, quis nostrud exerci.xerci.
-              piscadipisbh euismod tincidunt
-		       ut cing elit, sed diam nonummy nilaoreet dolore magna aliquam eLoreming elit, sed diam nonummy nibh euismod tincidunt
-		       rat volutpat. Ut wisi enim admin
-</P>
               </TD>
            </TR>
            <TR>

@@ -10,7 +10,7 @@
 function getProblemDetail(id) {
     var size = "top=2,left=2,width=600,height=549,status=0";
     var name="graph";
-    window.open('<%=Constants.CONTROLLER_URL%>?<%=Constants.REQUEST_PROCESSOR%>=PopulateProblemDetail&<%=Constants.PROBLEM_ID%>='+id,name,size);
+    window.open('<%=Constants.CONTROLLER_URL%>?<%=Constants.REQUEST_PROCESSOR%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,size);
     return;
   }
 
@@ -100,69 +100,75 @@ function submitConfirm() {
 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="80%">
            <TR>
-              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="4" CLASS="bodyText"><B>Test Set A</B></TD>
+              <TD COLSPAN="5" CLASS="bodyText"><B>Test Set A</B></TD>
            </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Category</B></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Category</B></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Category</B></TD>
 	        </TR>
            <TR>
-              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>
-            <screen:resultSetRowIterator id="row" list="<%=profile.getTestSetAList()%>">
+            <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
+            <jsp:useBean id="testA" type="com.topcoder.web.screening.model.ProblemInfo" />
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="name" /></a></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="category_desc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<jsp:getProperty name="testA" property="roundId" />,<jsp:getProperty name="testA" property="problemId"/>')" class="bodyText"><jsp:getProperty name="testA" property="problemName"/></a></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testA" property="divisionDesc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testA" property="difficultyDesc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testA" property="businessCategoryList" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testA" property="algorithmicCategoryList" /></TD>
 	        </TR>
-            </screen:resultSetRowIterator>
+            </screen:listIterator>
            <TR>
-              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>
          </TABLE>
 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="80%">
            <TR>
-              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="5" CLASS="bodyText"><B>Test Set B</B></TD>
+              <TD COLSPAN="6" CLASS="bodyText"><B>Test Set B</B></TD>
            </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Name</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Division</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Difficulty</B></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Category</B></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Category</B></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Algorithmic Category</B></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC">&#160;</TD>
 	        </TR>
            <TR>
-              <TD COLSPAN="4"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>
             <INPUT TYPE="HIDDEN" name="testSetBRemove" value="" >
-            <screen:resultSetRowIterator id="row" list="<%=profile.getTestSetBList()%>">
-            <INPUT TYPE="HIDDEN" name="testSetB" value="<screen:resultSetItem row="<%=row%>" name="problem_id" />" >
+            <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
+            <jsp:useBean id="testB" type="com.topcoder.web.screening.model.ProblemInfo" />
+            <INPUT TYPE="HIDDEN" name="testSetB" value="<jsp:getProperty name="testB" property="roundId" />,<jsp:getProperty name="testB" property="problemId"/>" >
 	        <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="problem_id" />')" class="bodyText"><screen:resultSetItem row="<%=row%>" name="name" /></a></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="difficulty_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="category_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#" CLASS="bodyText" onClick="submitRemove(<screen:resultSetItem row="<%=row%>" name="problem_id" />)" >Remove</A></TD>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<A HREF="JavaScript:getProblemDetail('<jsp:getProperty name="testB" property="roundId" />,<jsp:getProperty name="testB" property="problemId"/>')" class="bodyText"><jsp:getProperty name="testB" property="problemName"/></a></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testB" property="divisionDesc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testB" property="difficultyDesc" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testB" property="businessCategoryList" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<jsp:getProperty name="testB" property="algorithmicCategoryList" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<A HREF="#" CLASS="bodyText" onClick="submitRemove(<jsp:getProperty name="testB" property="roundId" />,<jsp:getProperty name="testB" property="problemId"/>)" >Remove</A></TD>
 	        </TR>
-            </screen:resultSetRowIterator>
+            </screen:listIterator>
            <TR>
-              <TD COLSPAN="5"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
+              <TD COLSPAN="6"><img src="/i/ev/clear.gif" width="1" height="30" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="5" ALIGN="center">
+              <TD COLSPAN="6" ALIGN="center">
 <select name="testSetBAdd" class="dropdown" size="10" multiple="true">
 <screen:resultSetRowIterator id="row" list="<%=profile.getCompanyProblemList()%>">
-<option value="<screen:resultSetItem row="<%=row%>" name="problem_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
+<option value="<screen:resultSetItem row="<%=row%>" name="round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />"><screen:resultSetItem row="<%=row%>" name="name" /></option>
 </screen:resultSetRowIterator>
 </select>
               </TD>

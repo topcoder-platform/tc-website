@@ -1,5 +1,7 @@
 package com.topcoder.web.screening.request;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Map;
 
 import javax.naming.InitialContext;
@@ -14,13 +16,13 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.screening.model.ProfileInfo;
 
 public class PopulateProfileSetup extends BaseProfileProcessor {
     private ServletRequest request;
     private Request profileProblemSet;
     private Request profileTestSetA;
-    private Request profileTestSetB;
     private Request profileCompanyProblem;
     private Request profileLanguage;
 
@@ -32,10 +34,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         profileTestSetA = new Request();
         profileTestSetA.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_TEST_SET_A_QUERY_KEY);
-
-        profileTestSetB = new Request();
-        profileTestSetB.setProperty(DataAccessConstants.COMMAND,
-                Constants.PROFILE_TEST_SET_B_QUERY_KEY);
 
         profileCompanyProblem = new Request();
         profileCompanyProblem.setProperty(DataAccessConstants.COMMAND,
@@ -73,6 +71,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
                 map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
         }
 
+        profileTestSetA.setProperty("uid", String.valueOf(user.getId()));
         if(info.getTestSetA() != null) {
             profileTestSetA.setProperty("rid", 
                     info.getTestSetA().toString());
@@ -90,21 +89,38 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         map = dAccess.getData(profileTestSetA);
 
         if(map != null) {
-            info.setTestSetAList((ResultSetContainer)
-                map.get(Constants.PROFILE_TEST_SET_A_QUERY_KEY));
+            ResultSetContainer rsc = (ResultSetContainer) 
+                map.get(Constants.PROFILE_TEST_SET_A_QUERY_KEY);
+            ArrayList list = new ArrayList();
+            if(rsc.size() > 0) {
+                for(Iterator i = rsc.iterator(); i.hasNext();) {
+                    ResultSetContainer.ResultSetRow row = 
+                        (ResultSetContainer.ResultSetRow)i.next();
+                    long roundId = Long.parseLong(
+                            row.getItem("round_id").toString());
+                    long problemId = Long.parseLong(
+                            row.getItem("problem_id").toString()); 
+                    list.add(
+                      ProblemInfo.createProblemInfo(user, roundId, problemId));
+                }
+            }
+            info.setTestSetAList(list);
         }
 
-        Long [] testSetBArr = info.getTestSetB();
-        if(testSetBArr.length > 0) {
-            profileTestSetB.setProperty("uid", String.valueOf(user.getId()));
-            profileTestSetB.setProperty("pidlist", 
-                    buildProblemIdList(testSetBArr));
-            map = dAccess.getData(profileTestSetB);
-            if(map != null) {
-                info.setTestSetBList((ResultSetContainer)
-                    map.get(Constants.PROFILE_TEST_SET_B_QUERY_KEY));
+        String[] testSetBArr = info.getTestSetB();
+        ArrayList list = new ArrayList();
+        for(int i = 0; i < testSetBArr.length; ++i){
+            String problem = testSetBArr[i];
+            int index = problem.indexOf(',');
+            if(index == -1) {
+                //bad data
+                continue;
             }
+            long roundId = Long.parseLong(problem.substring(0,index));
+            long problemId = Long.parseLong(problem.substring(index+1));
+            list.add(ProblemInfo.createProblemInfo(user, roundId, problemId));
         }
+        info.setTestSetBList(list);
 
         profileCompanyProblem.setProperty("uid", 
                                             String.valueOf(user.getId()));
@@ -122,19 +138,5 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
 
         setNextPage(Constants.PROFILE_SETUP_PAGE);
         setNextPageInContext(true);
-    }
-
-    public String buildProblemIdList(Long [] list) {
-        StringBuffer buffer = new StringBuffer();
-        for(int i = 0; i < list.length; ++i) {
-            buffer.append(list[i]);
-            
-            //comma delimit it
-            if(i < list.length - 1) {
-                buffer.append(",");
-            }
-        }
-
-        return buffer.toString();
     }
 }

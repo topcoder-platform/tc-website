@@ -47,6 +47,7 @@ public class Constants
     public static String CANDIDATE_EMAIL;
     public static String REP_EMAIL;
     public static String NOTE_TEXT;
+    public static String ROUND_PROBLEM_ID;
     public static String SESSION_ID;
 
     //Candidate constants
@@ -90,6 +91,8 @@ public class Constants
     public static String PROBLEM_INFO;
     public static String PROBLEM_DETAIL_COMMAND;
     public static String PROBLEM_INFO_QUERY_KEY;
+    public static String PROBLEM_ALGORITHMIC_CATEGORY_QUERY_KEY;
+    public static String PROBLEM_BUSINESS_CATEGORY_QUERY_KEY;
     
     //Results constants
     public static String PROBLEM_RESULT_PAGE;
@@ -148,6 +151,8 @@ public class Constants
         CANDIDATE_EMAIL = config.getInitParameter("candidate_email_parameter");
         REP_EMAIL = config.getInitParameter("rep_email_parameter");
         NOTE_TEXT = config.getInitParameter("note_text_parameter");
+        ROUND_PROBLEM_ID = 
+            config.getInitParameter("round_problem_id_parameter");
         SESSION_ID = config.getInitParameter("session_id_parameter");
 
         //Candidate constants
@@ -215,6 +220,10 @@ public class Constants
             config.getInitParameter("problem_detail_command");
         PROBLEM_INFO_QUERY_KEY = 
             config.getInitParameter("problem_info_query_key");
+        PROBLEM_ALGORITHMIC_CATEGORY_QUERY_KEY = 
+            config.getInitParameter("problem_algorithmic_category_query_key");
+        PROBLEM_BUSINESS_CATEGORY_QUERY_KEY = 
+            config.getInitParameter("problem_business_category_query_key");
         
         //Result constants
         PROBLEM_RESULT_PAGE = config.getInitParameter("problem_result_page");
@@ -224,7 +233,7 @@ public class Constants
 
         //Session constants
         UPDATE_SESSION_PROCESSOR = 
-            config.getInitParameter("update_sesesion_processor");
+            config.getInitParameter("update_session_processor");
         PREVIEW_EMAIL_PAGE = 
             config.getInitParameter("preview_email_page");
         SESSION_SETUP_PAGE = 

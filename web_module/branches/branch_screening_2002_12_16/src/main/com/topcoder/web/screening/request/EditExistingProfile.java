@@ -44,7 +44,9 @@ public class EditExistingProfile extends BaseProfileProcessor {
 
         info.setIsNew(false);
         info.setProfileId(new Long(profileId));
-        profileLookup.setProperty("profileId", profileId);
+        profileLookup.setProperty("spid", profileId);
+        profileLookup.setProperty("uid", 
+                String.valueOf(getAuthentication().getUser().getId()));
         Map map = dAccess.getData(profileLookup);
         if(map != null) {
             ResultSetContainer rsc = (ResultSetContainer)

@@ -2,6 +2,7 @@ package com.topcoder.web.screening.model;
 
 import java.util.HashSet;
 import java.util.ArrayList;
+import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
@@ -10,8 +11,8 @@ public class ProfileInfo extends BaseModel {
     private String profileName;
     private Long testSetA;
     private ResultSetContainer problemSetList;
-    private ResultSetContainer testSetAList;
-    private ResultSetContainer testSetBList;
+    private List testSetAList;
+    private List testSetBList;
     private ResultSetContainer companyProblemList;
     private ResultSetContainer languageList;
     private HashSet testSetB;
@@ -121,7 +122,7 @@ public class ProfileInfo extends BaseModel {
      *
      * @param testSetAList
      */
-    public void setTestSetAList( ResultSetContainer val )
+    public void setTestSetAList( List val )
     {
         testSetAList = val;
     }
@@ -131,7 +132,7 @@ public class ProfileInfo extends BaseModel {
      *
      * @return 
      */
-    public ResultSetContainer getTestSetAList()
+    public List getTestSetAList()
     {
         return testSetAList;
     }
@@ -141,7 +142,7 @@ public class ProfileInfo extends BaseModel {
      *
      * @param testSetBList
      */
-    public void setTestSetBList( ResultSetContainer val )
+    public void setTestSetBList( List val )
     {
         testSetBList = val;
     }
@@ -151,7 +152,7 @@ public class ProfileInfo extends BaseModel {
      *
      * @return 
      */
-    public ResultSetContainer getTestSetBList()
+    public List getTestSetBList()
     {
         return testSetBList;
     }
@@ -201,25 +202,25 @@ public class ProfileInfo extends BaseModel {
         if(testSetBArray == null) return;
         for(int i = 0; i < testSetBArray.length; ++i)
         {
-            testSetB.add(new Long(testSetBArray[i]));
+            testSetB.add(testSetBArray[i]);
         }
     }
 
     public void addTestSetB(String aTestSetB)
     {
         if(aTestSetB == null) return;
-        testSetB.add(new Long(aTestSetB));
+        testSetB.add(aTestSetB);
     }
 
     public void removeTestSetB(String aTestSetB)
     {
         if(aTestSetB == null) return;
-        testSetB.remove(new Long(aTestSetB));
+        testSetB.remove(aTestSetB);
     }
 
-    public Long[] getTestSetB()
+    public String[] getTestSetB()
     {
-        return (Long [])testSetB.toArray(new Long [testSetB.size()]);
+        return (String [])testSetB.toArray(new String [testSetB.size()]);
     }
 
     public void addLanguage(String[] languages)

@@ -226,6 +226,12 @@
   </init-param>
 
   <init-param>
+    <param-name>round_problem_id_parameter</param-name>
+    <param-value>roundProblemId</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
     <param-name>session_id_parameter</param-name>
     <param-value>sid</param-value>
     <description></description>
@@ -444,6 +450,18 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>problem_algorithmic_category_query_key</param-name>
+    <param-value>problemAlgorithmicCategory</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>problem_business_category_query_key</param-name>
+    <param-value>problemBusinessCategory</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Results constants -->
   <init-param>
     <param-name>problem_result_page</param-name>
@@ -506,6 +524,8 @@
     <param-value>DW</param-value>
     <description></description>
   </init-param>
+
+  <load-on-startup>2</load-on-startup>
 
 </servlet>
 

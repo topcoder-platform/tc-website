@@ -68,12 +68,10 @@ public class UpdateCandidate extends BaseProcessor
         TCSubject requestor = 
             principalMgr.getUserSubject(getAuthentication().getUser().getId());
 
+        UserPrincipal userPrincipal = null;
         try {
-            principalMgr.getUser(info.getEmailAddress());
-
-            //if we get here, then that user exists already and we should
-            //give error to page
-            throw new ScreeningException("User already exists");
+            //check to see if user already exists
+            userPrincipal = principalMgr.getUser(info.getEmailAddress());
         }
         catch(PrincipalMgrException e) {
             Throwable nested = e.getNestedException();
@@ -81,14 +79,14 @@ public class UpdateCandidate extends BaseProcessor
                !(nested instanceof NoSuchUserException)) {
                    throw e;
             }
-            //do nothing, we want to get here
-        }
 
-        //create new user
-        UserPrincipal userPrincipal = 
-            principalMgr.createUser(info.getEmailAddress(), 
+            //do nothing, we want to get here
+            //create new user
+            userPrincipal = principalMgr.createUser(info.getEmailAddress(), 
                                     info.getPassword(),
                                     requestor);
+        }
+
         long userId = userPrincipal.getId();
         
         UserHome uHome = (UserHome)

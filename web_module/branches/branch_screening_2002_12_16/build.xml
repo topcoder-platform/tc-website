@@ -786,6 +786,7 @@
                 <include name="com/topcoder/shared/util/"/>
                 <include name="com/topcoder/shared/docGen/"/>
                 <include name="com/topcoder/shared/dataAccess/"/>
+                <include name="com/topcoder/shared/security/"/>
 
                 <exclude name="com/topcoder/web/screening/ejb/" />
             </classes>
