@@ -7,6 +7,7 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.*;
 import com.topcoder.web.hs.model.*;
 
+import java.rmi.*;
 import java.util.*;
 import javax.ejb.*;
 import javax.naming.*;
@@ -337,16 +338,18 @@ public class StudentRegistration extends Base {
         is_valid=false;
       }
       else {
-        boolean handle_taken=true;
         try {
           Context ctx=TCContext.getInitial();
           PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
                                 ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
           PrincipalMgrRemote pmr=pmrh.create();
           try {
+            UserPrincipal up=pmr.getUser(handle);
+            addErrorMessage(errors,"Handle",HANDLE_TAKEN);
+            is_valid=false;
           }
           catch (NoSuchUserException _nsue) {
-            handle_take=false;
+            /* do nothing */
           }
         }
         catch (RemoteException _re) {
@@ -360,10 +363,6 @@ public class StudentRegistration extends Base {
         }
         catch (GeneralSecurityException _gse) {
           _gse.printStackTrace();
-        }
-        if (handle_taken) {
-          addErrorMessage(errors,"Handle",HANDLE_TAKEN);
-          is_valid=false;
         }
       }
     }
