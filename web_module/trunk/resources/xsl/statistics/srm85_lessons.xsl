@@ -137,13 +137,12 @@ Issues:<BR/>Many of the issues involved either failing to deal with the negative
 <IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
-<P>
-In the article on Div2 there is a case in the Rules for level two that fails.  '*aa" would drop out of the ifs.  I can't figure out if these 4 rules are meant to be complete, but at the least it is confusing, and probably not the most readable way of doing the problem.
-</P>
+
+<P><B>Member Comments</B></P>
+
+<P>In the article on Div2 there is a case in the Rules for level two that fails.  '*aa" would drop out of the ifs.  I can't figure out if these 4 rules are meant to be complete, but at the least it is confusing, and probably not the most readable way of doing the problem.</P>
  
-<P>
-The two variants I would choose would be
-</P>
+<P>The two variants I would choose would be</P>
  
 <P>
 1. a == '*' &amp;&amp; b == '*'; return c;<BR/>
@@ -155,10 +154,7 @@ The two variants I would choose would be
 return '*';<BR/>
 </P>
  
-<P>
-this separates the two aspects of the problem hence increasing readability
-or
-</P>
+<P>this separates the two aspects of the problem hence increasing readability or</P>
  
 <P>
 1. a != '*' &amp;&amp; (a==b || a==c || (b == '*' &amp;&amp; c == '*')); return a;<BR/>
@@ -167,26 +163,67 @@ or
 4. return '*';<BR/>
 </P>
  
-<P>
-this gives a fall through on what will produce each result.  As a more instructive way of solving the problem I would make:
-</P>
+<P>this gives a fall through on what will produce each result.  As a more instructive way of solving the problem I would make:</P> 
+<P>3. c != '*' &amp;&amp; (b == '*' &amp;&amp; a == '*'); return c;</P>
+ 
+<P>as this shows a trend of the equalities decreasing, and improves coder's ability to see patterns and analyse problems.</P>
+ 
+<P>Other than that an excellent article that should be continued.</P>
+ 
+<P><A HREF="/stat?c=member_profile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A></P>
+ 
+ <HR/>
  
 <P>
-3. c != '*' &amp;&amp; (b == '*' &amp;&amp; a == '*'); return c;
+He also forgot to mention the approach to sort each triple first (I've
+also put this into practice room 109):
 </P>
- 
+
 <P>
-as this shows a trend of the equalities decreasing, and improves coder's ability to see patterns and analyse problems.
+  string handle ( string t ) {<BR/>
+    string r;<BR/>
+    for( int i=0; i&#60;t.size(); i&#43;=3 ){<BR/>
+      sort( &amp;t[i], &amp;t[i]&#43;3 );<BR/>
+      if( t[i&#43;1]=='*' ) r &#43;= t[i&#43;2];<BR/>
+      else if( t[i&#43;1]==t[i] || t[i&#43;1]==t[i&#43;2] ) r &#43;= t[i&#43;1];<BR/>
+      else r &#43;= '*';<BR/>
+    }<BR/>
+    return r;<BR/>
+  }<BR/>
 </P>
- 
+
 <P>
-Other than that an excellent article that should be continued.
+Problem Set Analysis &amp; Opinion
 </P>
- 
+
+
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=280735" CLASS="bodyGeneric">Shammah</A>
+Div. 2 - Easy: Evil
 </P>
-          
+
+<P>
+Would be nice to also mention these two variants to count the number of bits:
+</P>
+
+
+<P>
+int bitCount ( int n ) {<BR/>
+  return (n&#62;0) ? 1&#43;bitCount( n&amp;(n-1) ) : 0;<BR/>
+}<BR/>
+</P>
+
+<P>
+int bitCount ( int n ) {<BR/>
+  return (n&#62;0) ? (n&amp;1) &#43; bitCount( n/2 ) : 0;<BR/>
+}<BR/>
+</P>
+
+<P>
+I got the first variant from the book "The C Programming Language" by
+Brian Kernighan and Dennis Ritchie.
+</P>
+
+<A HREF="/stat?c=member_profile&amp;cr=269889" CLASS="bodyGeneric">Stefan</A>          
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
