@@ -5,10 +5,7 @@ import java.io.StringReader;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
 
-import com.topcoder.shared.language.CPPLanguage;
-import com.topcoder.shared.language.CSharpLanguage;
-import com.topcoder.shared.language.JavaLanguage;
-import com.topcoder.shared.language.Language;
+import com.topcoder.shared.language.*;
 
 import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.problem.ProblemComponent;
@@ -22,6 +19,16 @@ public class ProblemStatementTag extends TagSupport {
     private String tdClass = null;
     private String text;
     private Language language;
+    private Problem problem;
+
+
+    public void setProblem(Problem p) {
+        this.problem = p;
+    }
+
+    public void setProblem(String p) {
+        this.problem  = (Problem)pageContext.findAttribute(p);
+    }
 
     /**
      * Sets the value of <code>textColor</code>.
@@ -54,6 +61,8 @@ public class ProblemStatementTag extends TagSupport {
                 language = CPPLanguage.CPP_LANGUAGE;
             } else if (val.equals(CSharpLanguage.DESCRIPTION)) {
                 language = CSharpLanguage.CSHARP_LANGUAGE;
+            } else if (val.equals(VBLanguage.DESCRIPTION)) {
+                language = VBLanguage.VB_LANGUAGE;
             }
         }
     }
@@ -69,19 +78,21 @@ public class ProblemStatementTag extends TagSupport {
      *                  there is IO trouble writing out the tag.
      */
     public int doStartTag() throws JspException {
-        if (text == null) {
-            throw new JspException("Text must be set");
+        if (text == null&&problem==null) {
+            throw new JspException("Text or Problem must be set");
         }
         if (language == null) {
             throw new JspException(
                     "Language is not set or set to invalid value");
         }
-        StringReader reader = new StringReader(text);
-        ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
-        arrProblemComponent[0] =
-                new ProblemComponentFactory().buildFromXML(reader, true);
-        Problem problem = new Problem();
-        problem.setProblemComponents(arrProblemComponent);
+        if (problem==null) {
+            StringReader reader = new StringReader(text);
+            ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
+            arrProblemComponent[0] =
+                    new ProblemComponentFactory().buildFromXML(reader, true);
+            problem.setProblemComponents(arrProblemComponent);
+        }
+
         ProblemRenderer pr = new ProblemRenderer(problem);
         pr.setTdClass(tdClass);
 
@@ -103,6 +114,7 @@ public class ProblemStatementTag extends TagSupport {
         this.tdClass = null;
         this.text = null;
         this.language = null;
+        this.problem =null;
         return super.doEndTag();
     }
 }
