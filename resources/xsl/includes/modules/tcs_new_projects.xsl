@@ -174,7 +174,7 @@
 				<tr valign="top">
 					<td width="100%" bgcolor="#000000"> 
 						<table width="100%" border="0" cellspacing="0" cellpadding="5" bgcolor="#003366">                
-							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366"><span class="messageSmall">The <a class="messageSmall" href="#">methodology</a> for Component Development has changed. Please read it before submitting a Component Design or Development Solution.</span></td></tr>
+							<tr valign="top"><td width="100%" background="/i/steel_blue_bg.gif" bgcolor="#003366" class="messageSmall">The <a class="messageSmall" href="#">methodology</a> for Component Development has changed. Please read it before submitting a Component Design or Development Solution.</td></tr>
 						</table>
 					</td>
 				</tr>
