@@ -18,6 +18,10 @@
 	</TR>
 </TABLE>
 <P>
+<BR/>
+<BR/>
+<BR/>
+<BR/>
   <FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>Below are the handles of those who have advanced to the Championship Round.</B>
 </FONT></P>
 <TABLE BORDER="0" CELLSPACING="2" CELLPADDING="5" WIDTH="95%">
@@ -27,6 +31,10 @@
 	<TR>
 		<TD COLSPAN="4" BGCOLOR="#666666" HEIGHT="22"><FONT SIZE="4" COLOR="#FFFFFF" FACE="arial, verdana, tahoma"><B>&#160;&#160;Championship Round</B></FONT></TD>
 	</TR>
+<TR><TD COLSPAN="4">
+<BR/><BR/>
+<BR/><BR/>
+</TD></TR>
        <TR>
           <TD CLASS="statText" WIDTH="25%">
 <FONT SIZE="4" COLOR="#FFFFFF" FACE="verdana, arial, tahoma"><B>
