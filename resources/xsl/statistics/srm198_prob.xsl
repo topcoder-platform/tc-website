@@ -106,6 +106,7 @@ in division-I on their next SRMs.
 <H1>
 The Problems
 </H1>
+</p>
 <font size="+2">
 <b><a href="/stat?c=problem_statement&amp;pm=2314&amp;rd=5073">Reppity</a></b>
 </font>
@@ -354,7 +355,7 @@ for(int k=0;&lt;realPart.length;k++)
    else if ( norm == 1 ) 
       answer [k] = "unit" ;
    else if ( a*b == 0 )
-      if ( Math.abs(a+b)%4==3 && 
+      if ( Math.abs(a+b)%4==3 &amp;&amp; 
            is_prime(Math.abs(a+b)))
          answer [k] = "prime" ;
       else
@@ -434,7 +435,8 @@ Also int arrays UP, DN, EA and WE are created which contain the parsed
 time for the passageways leaving the room, in the buffered coordinate system.
 "x"s are replaced by "infinity".
 </p>
-<p> The room represented by [startLevel, startEasting] ( now rm[startLevel+1][startEasting+1] because of the buffers) is set to zero. And you begin iterating.
+<p>
+The room represented by [startLevel, startEasting] ( now rm[startLevel+1][startEasting+1] because of the buffers) is set to zero. And you begin iterating.
 I loop through each room, checking to see if a move to an adjacent room
 yields a better earliest possible time for the adjacent room (and that the 
 adjacent room is not filled with water). If so, you record that you made a change, set the time in the adjacent room, and keep going.
@@ -458,7 +460,7 @@ while(change)
     for(int e=1,e&lt;=n;e++)
        {
        if ( rm[lev-1][e] &gt; 
-              rm[lev][e]+UP[lev][e] &&
+              rm[lev][e]+UP[lev][e] &amp;&amp;
           floodTime(lev-1) &gt; 
              rm[lev][e]+UP[lev][e] )
           { 
@@ -467,7 +469,7 @@ while(change)
           change=true;
           }
        if ( rm[lev+1][e] &gt; 
-              rm[lev][e]+DN[lev][e] &&
+              rm[lev][e]+DN[lev][e] &amp;&amp;
           floodTime(lev+1) &gt; 
               rm[lev][e]+UP[lev][e] )
           { 
@@ -476,7 +478,7 @@ while(change)
           change=true;
           }
        if ( rm[lev][e+1] &gt; 
-              rm[lev][e]+EA[lev][e] &&
+              rm[lev][e]+EA[lev][e] &amp;&amp;
           floodTime(lev) &gt; 
               rm[lev][e]+UP[lev][e] )
           { 
@@ -485,7 +487,7 @@ while(change)
           change=true;
           }
        if ( rm[lev][e-1] &gt; 
-              rm[lev][e]+WE[lev][e] &&
+              rm[lev][e]+WE[lev][e] &amp;&amp;
           floodTime(lev) &gt; 
               rm[lev][e]+UP[lev][e] )
           {
@@ -595,7 +597,8 @@ Now here is the algorithm, simple brute-force search with backtracking.
 Initially all cubes in the pattern are "empty" and cubes in the 3d array but not in the pattern are
 "illegal". As the algorithm progresses
 some "empty" cubes will be "filled" by pieces. Start at the first empty cube in the pattern (lexicographically) and use the set of all seven pieces.
-</p><p>
+</p>
+<p>
 Examine each orientation of each piece (which I will refer to as a piece/orientation) in the current set (which are all pre-calculated). Conceptually, place the "first" cube (coordinates (0,0,0) pre-calculated) in the current piece/orientation on the "first" open cube of the pattern (this actually involves no computation). Using the pre-calculated relative coordinates, determine if all the cubes in the piece/orientation under consideration 
 fall on empty cubes in the pattern. This is only two or three simple comparisons now. If it fits and this is the last piece in the set, we increment the count of solutions and return, If it fits and there are more pieces in the set, we place the piece, marking the pattern cubes as filled, removing the piece from the current set, and recurse, passing in the new set and the index of the first empty cube in the now more filled pattern.
 When we return from the recursion, we put the piece back into the current set, mark the pattern cubes for that piece/orientation empty and continue with other piece/orientations to consider at this level of recursion.
@@ -634,13 +637,13 @@ for(p=0;p&lt;7;p++) if (!used[p])
       bad = false ;
       for(c=1;c&lt;4;c++)
         if (piece[p][or][c][X]
-                     != invalid_flag &&
+                     != invalid_flag &amp;&amp;
             pat3d[piece[p][or][c][X]+fx]
                  [piece[p][or][c][Y]+fy]
                  [piece[p][or][c][Z]+fz]
                               != empty )
            bad = true ;
-      if (!bad && usedCount == 6)  
+      if (!bad &amp;&amp; usedCount == 6)  
          { solutions ++ ; return ; }
       if (!bad)
          {
