@@ -342,7 +342,8 @@ a person's code that invalidate their entire solution and make their 75 minutes 
 
 <!-- <A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
-
+<a><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute>
+<img src="/i/tces_quote.gif" alt="" width="244" height="174" border="0"/></a>
 <!-- <A HREF="/?&amp;t=tournaments&amp;c=invit02_cnn"><IMG SRC="/i/tournament/invit02/invit02_cnn_home.gif" ALT="TC on CNN" WIDTH="244" HEIGHT="145" BORDER="0"/></A> -->
 
 <!-- Software Promo Begins -->
@@ -564,5 +565,5 @@ in order to participate in the SunNetwork<sup>sm</sup> Coding Challenge.</TD>
 	</tr>   
 </table>
 
-</xsl:template>
+  </xsl:template>
 </xsl:stylesheet>
