@@ -857,6 +857,7 @@
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
                 <include name="rsc-taglib.tld"/>
+                <include name="tc-webtags.tld"/>
             </webinf>
         </war>
         <unwar src="${war.dir}/tc.war" dest="${public_html}/tc/" overwrite="yes"/>
