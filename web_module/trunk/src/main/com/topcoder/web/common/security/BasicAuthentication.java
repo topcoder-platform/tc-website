@@ -132,6 +132,7 @@ public class BasicAuthentication implements WebAuthentication {
      *
      * Calling this function is quite expensive; it runs a query on OLTP,
      * which cannot be cached and still get immediate behavior 2 above.
+     * note: greg paul - i've changed it to cache the password for 30 minutes to avoid the db hit.
      */
     private String hashForUser(long uid) throws Exception {
         log.debug("hashForUser called...");
