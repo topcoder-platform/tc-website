@@ -26,7 +26,7 @@
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
   <TR valign="top">
     <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+    <TD WIDTH="180" VALIGN="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
         <xsl:call-template name="global_left"/>
@@ -501,7 +501,7 @@ Project End Date:  January 22, 2003<BR/>
     <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+    <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <!-- Right Column Include Begins -->        
 			<xsl:call-template name="public_dev_right" />        
 <!-- Right Column Include Ends -->        

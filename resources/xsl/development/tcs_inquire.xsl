@@ -28,7 +28,7 @@
     <tr valign="top">
 
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC" valign="top">
+        <TD WIDTH="180" valign="top">
             <xsl:call-template name="global_left"/>
         </td>
 <!-- Left Column Ends -->

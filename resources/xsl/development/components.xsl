@@ -30,7 +30,7 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
     <tr valign="top">
 <!-- Left Column Begins -->
-        <td width="170" bgcolor="#CCCCCC">
+        <td width="180">
             <xsl:call-template name="global_left"/>
           </td>
 <!-- Left Column Ends -->
