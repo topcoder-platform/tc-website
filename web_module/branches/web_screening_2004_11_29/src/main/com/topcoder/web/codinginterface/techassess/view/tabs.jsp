@@ -1,10 +1,9 @@
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
 <%
     String tabLev1 = request.getParameter("tabLev1")==null?"":request.getParameter("tabLev1");
 %>
 
-<%--
-<div class=pbtcBox><img src="/i/corp/screening/pbtcLogo.gif" alt=""/></div>
---%>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <table cellspacing=0 cellpadding=0 class=tabTable>
    <tr>
       <td class=logoBox rowspan=2><img src="/i/corp/screening/clientLogo.gif" alt=""/></td>
@@ -15,6 +14,6 @@
    <tr>
       <td class=tabBar><a href="/mockup/directions.jsp"><img src="/i/corp/screening/mainTab.gif" alt=""/></a></td>
       <td class=tabBar><a href="/mockup/help.jsp"><img src="/i/corp/screening/helpTab.gif" alt=""/></a></td>
-      <td class=tabBar><a href="/mockup/login.jsp"><img src="/i/corp/screening/logoutTab.gif" alt=""/></a></td>
+      <td class=tabBar><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_LOGOUT%>"><img src="/i/corp/screening/logoutTab.gif" alt=""/></a></td>
    </tr>
 </table>

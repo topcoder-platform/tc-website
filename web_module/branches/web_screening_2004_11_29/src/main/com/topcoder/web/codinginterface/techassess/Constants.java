@@ -42,6 +42,7 @@ public class Constants {
     public static String RP_LOGIN;
     public static String RP_INDEX;
     public static String RP_LOGIN_RESPONSE;
+    public static String RP_LOGOUT;
 
     //session keys
     public static String TEST_SET_A;
