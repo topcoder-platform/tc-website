@@ -38,7 +38,7 @@
         hspace="0"
         codebase="http://java.sun.com/products/plugin/1.3/jinstall-13-win32.cab#Version=1,3,0,0">
         <PARAM value="LaunchApplet" name="name">
-        <PARAM value="com.topcoder.client.ContestApplet.LaunchApplet.class" name="code">
+        <PARAM value="com.topcoder.client.contestApplet.LaunchApplet.class" name="code">
         <PARAM name="codebase" value="http://www.topcoder.com/contest/classes">
         <PARAM value="VerizonContestApplet.jar" name="archive">
         <PARAM value="application/x-java-applet;version=1.3" name="type">
@@ -51,7 +51,7 @@
         <PARAM name="com.topcoder.client.contestApplet.editors.NoPluginManager" value="true">
 
         <EMBED type="application/x-java-applet;version=1.3"
-        code="com.topcoder.client.ContestApplet.LaunchApplet.class"
+        code="com.topcoder.client.contestApplet.LaunchApplet.class"
         codebase="http://www.topcoder.com/contest/classes"
         name="LaunchApplet"
         archive="VerizonContestApplet.jar"
