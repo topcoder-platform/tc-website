@@ -188,39 +188,39 @@
                             
                            <!-- <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>1st Place</strong></td></tr>-->
 
-                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextRed" href="/stat?c=member_profile&amp;cr=112438">Pablo Gilberto</a></span></strong></td></tr>
+                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=268546">TangentZ</a></span></strong></td></tr>
 
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                             <tr valign="top">
-                                <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=112438" class="coderTextRed"><img src="/i/m/stevevai_small.jpg" alt="Pablo Gilberto" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
+                                <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=268546" class="coderTextRed"><img src="/i/m/TangentZ.jpg" alt="TangentZ" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
                                 <td class="statText" width="65%">Designer Level:</td>
-                                <td class="statText" align="right" width="10%">I</td>
+                                <td class="statText" align="right" width="10%">II</td>
                                 <td class="statText" width="25%"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Rating:</td>
-                                <td class="statText" align="right">2361</td>
-                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=112438" class="statText">[ ratings history ]</a></td>
+                                <td class="statText" align="right">1401</td>
+                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=268546" class="statText">[ ratings history ]</a></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Total Earnings for All Component Projects*:</td>
-                                <td class="statText" align="right">$60.00</td>
+                                <td class="statText" align="right">$920.50</td>
                                 <td class="statText"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Review Board Score for this Project:</td>
-                                <td class="statText" align="right">94.94</td>
+                                <td class="statText" align="right">94.09</td>
                                 <td class="statText"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Total Submissions for this Project:</td>
-                                <td class="statText" align="right">3</td>
+                                <td class="statText" align="right">2</td>
                                 <td class="statText"></td>
                             </tr>
                             
@@ -276,12 +276,12 @@
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="middle">
                     <td class="statText">
-                        <p><strong>File Class</strong><br />
-                         Provides common functionality required for file and directory management. Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=6509957" target="parent" class="statText">File Class</a> on the TopCoder Software web site.</p>
+                        <p><strong>Standard Class</strong><br />
+                         Defines an object representation of a class.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=5800878" target="parent" class="statText">Standard Class</a> on the TopCoder Software web site.</p>
                         
                         <p><strong>Review Board Comments</strong><br />
-                        "... the implementation is very good and the testing is exemplary"
-                        <a href="/stat?c=member_profile&amp;cr=278342" class="coderTextYellow">&#160;&#151;adic</a></p></td>
+                        "Very nicely done.  Easy to understand."
+                        <a href="/stat?c=member_profile&amp;cr=274323" class="coderTextBlue">&#160;&#151;pearl</a></p></td>
                 </tr>
             </table>
 
