@@ -1,3 +1,6 @@
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 java.util.Map,
+                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -6,6 +9,11 @@
 <title>Ultimate Software Development Contest</title>
 
 <jsp:include page="../script.jsp" />
+
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+
+<% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
 
 </head>
 
@@ -45,7 +53,7 @@
 
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class=header colspan=6>Week 1 Projects</td>
+                                <td class=header colspan=6><rsc:item name="contest_name" > Projects</td>
                             </tr>
                             <tr>
                                 <td class="sidebarTitle" nowrap=nowrap>Component Name</td>
