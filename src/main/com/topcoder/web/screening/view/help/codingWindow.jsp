@@ -137,7 +137,7 @@ public class <class-name> {
                         will send the code that is currently in the coding window to the TopCoder compiler.  If a compilation is successful, you will be 
                         notified of such.  If the compilation is not successful, the errors that are returned by the compiler will be displayed to you in the 
                         compilation results window.  Once a successful compilation is accomplished, the resultant compiled object will be stored on 
-                        TopCoder’s server.  Any user test or code submission will always utilize the most recent successfully compiled code.</p>
+                        TopCoder's server.  Any user test or code submission will always utilize the most recent successfully compiled code.</p>
                         
                         <a name="tested"></a><p class="bodySubtitle">User Testing</p>
                         <p>Once your code has been successfully compiled, you have the option of executing a user test against the compiled code.  The user 
@@ -150,7 +150,7 @@ public class <class-name> {
                         produce the proper result for other input parameters.  Think about potential border cases that may cause variations in the 
                         behavior of your solution and test these cases thoroughly.</p>
                         
-                        <p>If your compiled code executes successfully (without errors) for the input parameters that you’ve provided, you will be 
+                        <p>If your compiled code executes successfully (without errors) for the input parameters that you've provided, you will be 
                         presented with the return value(s) that your code produced.  In the event that an error occurs during the execution of your code, 
                         you will be presented with the error message(s) that the execution of your code produced.</p>
                         
@@ -161,16 +161,16 @@ public class <class-name> {
                         is an array (complex data type).</p>
                         
                         <p class="bodySubtitle">Simple Data Types</p>
-                        <p>For all non-array data types - such as int, long, char and String - the test box input dialog will present you with a field to 
+                        <p>For all non-array data types&#151;such as int, long, char and String&#151;the test box input dialog will present you with a field to 
                         input the data.  The data should be input without any quotes or other extra characters.  So, if you want to test with the String 
                         "abc" you should just type abc into the input field, not "abc".</p>
                         
                         <p class="bodySubtitle">Complex Data Types</p>
                         <p>When one of the inputs is an array such as int[] (vector<int> in C++), the test case dialog will present you with a button 
                         to create the array.  Clicking this will bring up a new dialog box where you can enter the data elements.  There are a couple 
-                        of ways to enter data here.  The most obvious is to enter the elements of the array one at a time and click the ‘+’ button 
-                        (or press enter) after each one.  You can move the elements up or down using the ‘^’ and ‘v’ buttons, respectively.  You can 
-                        also remove items either one at a time, with the ‘-‘ button, or all at once with the ‘C’ button.  If you want to modify an 
+                        of ways to enter data here.  The most obvious is to enter the elements of the array one at a time and click the <strong>+</strong> button 
+                        (or press enter) after each one.  You can move the elements up or down using the <strong>^</strong> and <strong>v</strong> buttons, respectively.  You can 
+                        also remove items either one at a time, with the <strong>-</strong> button, or all at once with the <strong>C</strong> button.  If you want to modify an 
                         element that is already entered, you can double click on the element in the panel above the entry field and modify it.</p>
                         
                         <p>Adding elements one at a time can be slow, so there are also two buttons that allow batch adding of elements.  The simpler 

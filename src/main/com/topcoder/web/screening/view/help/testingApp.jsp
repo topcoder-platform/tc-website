@@ -72,12 +72,14 @@
             <table border="0" cellpadding="0" cellspacing="10" width="75%">
                 <tr>
                     <td class="bodyText">
-                        <h1 class="bodyTitle">Loading the Testing App</h1>
+                        <h1 class="bodyTitle">Loading the Testing Application</h1>
                         
                         <p>The Testing Application is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the 
                         application by using the URL that has been provided to you.  Once you click on the URL, you will be notified if you need to 
                         upgrade your Java runtime.  If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade 
-                        is not required, the application will load automatically and present you with a red <strong>Launch Testing Application</strong> button.</p>
+                        is not required, the application will load automatically and present you with an orange <strong>Launch Testing Application</strong> button.</p>
+                        
+                        <p><a href="http://java.sun.com/products/plugin/" target="_blank">Get further information on Java 1.4 runtime</a></p>
 
                     </td>
                 </tr>

@@ -88,7 +88,7 @@
                             <li>Click on the Launch Testing Application button.
                                 <ul>
                                     <li>If a button that says Launch Testing Application does not appear, then you do not have the Java 1.4 runtime installed.  Get additional  
-                                    information on installing <a href="">Java 1.4 runtime.</a></li>
+                                    information on installing <a href="testingApp.jsp">Java 1.4 runtime.</a></li>
                                 </ul>
                             </li>
                         </ul>
