@@ -20,11 +20,11 @@ import java.util.*;
 public class QueryMover {
     private static Logger log = Logger.getLogger(QueryMover.class);
 
-//    private static final String sourceDataSourceName = "JTS_OLTP";
-//    private static final String targetDataSourceName = "JTS_HS_OLTP";
+//    private static final String sourceDSN = "JTS_OLTP";
+//    private static final String targetDSN = "JTS_HS_OLTP";
 
-    private static final String sourceDataSourceName = "HS_DW";
-    private static final String targetDataSourceName = "DW";
+    private static final String sourceDSN = "HS_DW";
+    private static final String targetDSN = "DW";
 
     private static final String sourceContextFactory = "weblogic.jndi.WLInitialContextFactory";
     private static final String targetContextFactory = "weblogic.jndi.WLInitialContextFactory";
@@ -150,12 +150,12 @@ public class QueryMover {
     private void moveCommand(long sourceCommandId) throws RemoteException {
         try {
             CommandBean sourceCommand = new CommandBean(sourceCommandId,
-                    sourceC.getCommandDesc(sourceCommandId), sourceC.getCommandGroupId(sourceCommandId));
+                    sourceC.getCommandDesc(sourceCommandId, sourceDSN), sourceC.getCommandGroupId(sourceCommandId, sourceDSN));
             CommandGroupBean sourceCommandGroup = new CommandGroupBean(sourceCommand.getCommandGroupId(),
-                    sourceCG.getCommandGroupName(sourceCommand.getCommandGroupId()));
+                    sourceCG.getCommandGroupName(sourceCommand.getCommandGroupId(), sourceDSN));
             CommandGroupBean targetCommandGroup = findCommandGroup(targetCG,
-                    sourceCommandGroup.getCommandGroupDesc());
-            CommandBean targetCommand = findCommand(targetC, sourceCommand.getCommandDesc());
+                    sourceCommandGroup.getCommandGroupDesc(), targetDSN);
+            CommandBean targetCommand = findCommand(targetC, sourceCommand.getCommandDesc(), targetDSN);
 
             int newCommandGroupId = 0;
 
@@ -163,16 +163,16 @@ public class QueryMover {
             if (targetCommand == null) {
                 log.info("command " + sourceCommand.getCommandDesc() + " not found, creating...");
                 long newCommandId = targetC.createCommand(sourceCommand.getCommandDesc(),
-                        (int) sourceCommand.getCommandId());
+                        (int) sourceCommand.getCommandId(), targetDSN);
 
                 /* it's a new command group */
                 if (targetCommandGroup == null) {
                     log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " not found, creating...");
-                    newCommandGroupId = targetCG.createCommandGroup(sourceCommandGroup.getCommandGroupDesc());
-                    targetC.setCommandGroupId(newCommandId, newCommandGroupId);
+                    newCommandGroupId = targetCG.createCommandGroup(sourceCommandGroup.getCommandGroupDesc(), targetDSN);
+                    targetC.setCommandGroupId(newCommandId, newCommandGroupId, targetDSN);
                 } else {
                     log.info("command group " + sourceCommandGroup.getCommandGroupDesc() + " found, updating command...");
-                    targetC.setCommandGroupId(newCommandId, targetCommandGroup.getCommandGroupId());
+                    targetC.setCommandGroupId(newCommandId, targetCommandGroup.getCommandGroupId(), targetDSN);
                 }
                 commandMap.put(new Long(newCommandId), new Long(sourceCommandId));
                 moveQueries(sourceCommandId);
@@ -194,29 +194,29 @@ public class QueryMover {
      * @throws java.rmi.RemoteException
      */
     private void moveQueries(long sourceCommandId) throws RemoteException {
-        ArrayList sourceQueries = getQueriesForCommand(sourceCQ, sourceQ, sourceCommandId);
+        ArrayList sourceQueries = getQueriesForCommand(sourceCQ, sourceQ, sourceCommandId, sourceDSN);
         QueryBean targetQuery = null;
         QueryBean sourceQuery = null;
 
         for (int i = 0; i < sourceQueries.size(); i++) {
             sourceQuery = (QueryBean) sourceQueries.get(i);
-            targetQuery = findQuery(targetQ, sourceQuery.getName());
+            targetQuery = findQuery(targetQ, sourceQuery.getName(), targetDSN);
             if (targetQuery == null) {
                 log.info("query " + sourceQuery.getName() + " not found, creating");
                 long newQueryId = targetQ.createQuery(sourceQuery.getText(), sourceQuery.getName(),
-                        sourceQuery.isRanking() ? 1 : 0);
+                        sourceQuery.isRanking() ? 1 : 0, targetDSN);
                 if (sourceQuery.isRanking()) {
-                    targetQ.setColumnIndex(newQueryId, sourceQuery.getColumnIndex());
+                    targetQ.setColumnIndex(newQueryId, sourceQuery.getColumnIndex(), targetDSN);
                 }
                 queryMap.put(new Long(newQueryId), new Long(sourceQuery.getQueryId()));
                 moveInputs(newQueryId);
                 moveQueryInputs(newQueryId);
             } else {
                 log.info("query " + ((QueryBean) sourceQueries.get(i)).getName() + " found, updating");
-                targetQ.setText(targetQuery.getQueryId(), sourceQuery.getText());
-                targetQ.setRanking(targetQuery.getQueryId(), sourceQuery.isRanking() ? 1 : 0);
+                targetQ.setText(targetQuery.getQueryId(), sourceQuery.getText(), targetDSN);
+                targetQ.setRanking(targetQuery.getQueryId(), sourceQuery.isRanking() ? 1 : 0, targetDSN);
                 if (sourceQuery.isRanking()) {
-                    targetQ.setColumnIndex(targetQuery.getQueryId(), sourceQuery.getColumnIndex());
+                    targetQ.setColumnIndex(targetQuery.getQueryId(), sourceQuery.getColumnIndex(), targetDSN);
                 }
                 queryMap.put(new Long(targetQuery.getQueryId()), new Long(sourceQuery.getQueryId()));
                 moveInputs(targetQuery.getQueryId());
@@ -232,13 +232,13 @@ public class QueryMover {
      */
     private void moveInputs(long targetQueryId) throws RemoteException {
         ArrayList sourceInputs = getInputsForQuery(sourceQI,
-                ((Long) queryMap.get(new Long(targetQueryId))).longValue());
+                ((Long) queryMap.get(new Long(targetQueryId))).longValue(), sourceDSN);
         InputBean targetInput = null;
         InputBean sourceInput = null;
 
         for (int i = 0; i < sourceInputs.size(); i++) {
             sourceInput = (InputBean) sourceInputs.get(i);
-            targetInput = findInput(targetI, sourceInput.getInputCode());
+            targetInput = findInput(targetI, sourceInput.getInputCode(), targetDSN);
             if (targetInput == null) {
                 log.info("input " + sourceInput.getInputCode() + " not found, creating");
                 long newInputId = targetI.createInput(sourceInput.getInputCode(),
@@ -246,8 +246,8 @@ public class QueryMover {
                 inputMap.put(new Long(sourceInput.getInputId()), new Long(newInputId));
             } else {
                 log.info("input " + sourceInput.getInputCode() + " found, updating");
-                targetI.setDataTypeId(targetInput.getInputId(), sourceInput.getDataTypeId());
-                targetI.setInputDesc(targetInput.getInputId(), sourceInput.getInputDesc());
+                targetI.setDataTypeId(targetInput.getInputId(), sourceInput.getDataTypeId(), targetDSN);
+                targetI.setInputDesc(targetInput.getInputId(), sourceInput.getInputDesc(), targetDSN);
                 inputMap.put(new Long(sourceInput.getInputId()), new Long(targetInput.getInputId()));
             }
         }
@@ -262,21 +262,21 @@ public class QueryMover {
     private void moveCommandQueries(long targetCommandId) throws RemoteException {
         //remove all the command query entries for this command
         QueryBean qb = null;
-        for (Iterator it = getQueriesForCommand(targetCQ, targetQ, targetCommandId).iterator(); it.hasNext();) {
+        for (Iterator it = getQueriesForCommand(targetCQ, targetQ, targetCommandId, targetDSN).iterator(); it.hasNext();) {
             log.info("deleting command query record command id: " + targetCommandId + " query id: " + qb.getQueryId());
             qb = (QueryBean) it.next();
-            targetCQ.removeCommandQuery(targetCommandId, qb.getQueryId());
+            targetCQ.removeCommandQuery(targetCommandId, qb.getQueryId(), targetDSN);
         }
 
         long sourceCommandId = ((Long) commandMap.get(new Long(targetCommandId))).longValue();
-        for (Iterator it = getQueriesForCommand(sourceCQ, sourceQ, sourceCommandId).iterator(); it.hasNext();) {
+        for (Iterator it = getQueriesForCommand(sourceCQ, sourceQ, sourceCommandId, targetDSN).iterator(); it.hasNext();) {
             qb = (QueryBean) it.next();
             long sourceQueryId = qb.getQueryId();
             long targetQueryId = ((Long) getKey(queryMap, new Long(sourceQueryId))).longValue();
             log.info("creating command query record command id: " + targetCommandId + " query id: " + targetQueryId);
-            targetCQ.createCommandQuery(targetCommandId, targetQueryId);
+            targetCQ.createCommandQuery(targetCommandId, targetQueryId, targetDSN);
             targetCQ.setSortOrder(targetCommandId, targetQueryId,
-                    sourceCQ.getSortOrder(sourceCommandId, sourceQueryId));
+                    sourceCQ.getSortOrder(sourceCommandId, sourceQueryId, sourceDSN), targetDSN);
         }
     }
 
@@ -290,26 +290,26 @@ public class QueryMover {
         QueryInputBean qib = null;
 
         //remove all the current query input records for the given query
-        for (Iterator it = getQueryInputs(targetQI, targetQueryId).iterator(); it.hasNext();) {
+        for (Iterator it = getQueryInputs(targetQI, targetQueryId, targetDSN).iterator(); it.hasNext();) {
             qib = (QueryInputBean) it.next();
             log.info("deleting query input record query id: " + targetQueryId + " input id: " + qib.getInputId());
-            targetQI.removeQueryInput(targetQueryId, qib.getInputId());
+            targetQI.removeQueryInput(targetQueryId, qib.getInputId(), targetDSN);
         }
 
-        for (Iterator it = getQueryInputs(sourceQI, sourceQueryId).iterator(); it.hasNext();) {
+        for (Iterator it = getQueryInputs(sourceQI, sourceQueryId, sourceDSN).iterator(); it.hasNext();) {
             qib = (QueryInputBean) it.next();
             long sourceInputId = qib.getInputId();
             long targetInputId = ((Long) inputMap.get(new Long(sourceInputId))).longValue();
 
             log.info("creating query input record query id: " + targetQueryId + " input id: " + targetInputId);
-            targetQI.createQueryInput(targetQueryId, targetInputId);
+            targetQI.createQueryInput(targetQueryId, targetInputId, targetDSN);
             targetQI.setSortOrder(targetQueryId, targetInputId,
-                    sourceQI.getSortOrder(sourceQueryId, sourceInputId));
-            boolean isOptional = sourceQI.getOptional(sourceQueryId, sourceInputId) == 'Y';
-            targetQI.setOptional(targetQueryId, targetInputId, isOptional ? 'Y' : 'N');
+                    sourceQI.getSortOrder(sourceQueryId, sourceInputId, sourceDSN), targetDSN);
+            boolean isOptional = sourceQI.getOptional(sourceQueryId, sourceInputId, sourceDSN) == 'Y';
+            targetQI.setOptional(targetQueryId, targetInputId, isOptional ? 'Y' : 'N', targetDSN);
             if (isOptional) {
                 targetQI.setDefaultValue(targetQueryId, targetInputId,
-                        sourceQI.getDefaultValue(sourceQueryId, sourceInputId));
+                        sourceQI.getDefaultValue(sourceQueryId, sourceInputId, sourceDSN), targetDSN);
             }
 
         }
@@ -323,8 +323,8 @@ public class QueryMover {
      * @return
      * @throws java.rmi.RemoteException
      */
-    private ArrayList getQueryInputs(QueryInput qi, long queryId) throws RemoteException {
-        ResultSetContainer queryInputs = qi.getInputsForQuery(queryId);
+    private ArrayList getQueryInputs(QueryInput qi, long queryId, String dsn) throws RemoteException {
+        ResultSetContainer queryInputs = qi.getInputsForQuery(queryId, dsn);
         ArrayList ret = new ArrayList(queryInputs.size());
         ResultSetContainer.ResultSetRow row = null;
 
@@ -353,20 +353,20 @@ public class QueryMover {
      * @return
      * @throws java.rmi.RemoteException
      */
-    private ArrayList getQueriesForCommand(CommandQuery cq, Query q, long commandId) throws RemoteException {
+    private ArrayList getQueriesForCommand(CommandQuery cq, Query q, long commandId, String dsn) throws RemoteException {
         ArrayList ret = null;
         QueryBean query = null;
-        ResultSetContainer queryList = cq.getQueriesForCommand(commandId);
+        ResultSetContainer queryList = cq.getQueriesForCommand(commandId, dsn);
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = queryList.iterator(); it.hasNext();) {
             ret = new ArrayList(queryList.size());
             row = (ResultSetContainer.ResultSetRow) it.next();
             query = new QueryBean();
             query.setQueryId(((Long) row.getItem("query_id").getResultData()).longValue());
-            query.setName(q.getName(query.getQueryId()));
-            query.setColumnIndex(q.getColumnIndex(query.getQueryId()));
-            query.setText(q.getText(query.getQueryId()));
-            query.setRanking(q.getRanking(query.getQueryId()) == 1);
+            query.setName(q.getName(query.getQueryId(), dsn));
+            query.setColumnIndex(q.getColumnIndex(query.getQueryId(), dsn));
+            query.setText(q.getText(query.getQueryId(), dsn));
+            query.setRanking(q.getRanking(query.getQueryId(), dsn) == 1);
             ret.add(query);
         }
         return ret;
@@ -379,10 +379,10 @@ public class QueryMover {
      * @return
      * @throws java.rmi.RemoteException
      */
-    private ArrayList getInputsForQuery(QueryInput qi, long queryId) throws RemoteException {
+    private ArrayList getInputsForQuery(QueryInput qi, long queryId, String dsn) throws RemoteException {
         ArrayList ret = null;
         InputBean input = null;
-        ResultSetContainer inputList = qi.getInputsForQuery(queryId);
+        ResultSetContainer inputList = qi.getInputsForQuery(queryId, dsn);
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = inputList.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
@@ -404,20 +404,20 @@ public class QueryMover {
      * @return
      * @throws java.rmi.RemoteException
      */
-    private InputBean findInput(Input i, String code) throws RemoteException {
+    private InputBean findInput(Input i, String code, String dsn) throws RemoteException {
         ResultSetContainer inputList = null;
         InputBean ret = null;
 
-        inputList = i.getAllInputs();
+        inputList = i.getAllInputs(dsn);
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = inputList.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             if (row.getItem("input_code").getResultData().equals(code)) {
                 ret = new InputBean();
                 ret.setInputId(((Long) row.getItem("input_id").getResultData()).longValue());
-                ret.setDataTypeId(i.getDataTypeId(ret.getInputId()));
-                ret.setInputCode(i.getInputCode(ret.getInputId()));
-                ret.setInputDesc(i.getInputDesc(ret.getInputId()));
+                ret.setDataTypeId(i.getDataTypeId(ret.getInputId(), dsn));
+                ret.setInputCode(i.getInputCode(ret.getInputId(), dsn));
+                ret.setInputDesc(i.getInputDesc(ret.getInputId(), dsn));
             }
         }
         return ret;
@@ -431,21 +431,21 @@ public class QueryMover {
      * @return
      * @throws java.rmi.RemoteException
      */
-    private QueryBean findQuery(Query q, String name) throws RemoteException {
+    private QueryBean findQuery(Query q, String name, String dsn) throws RemoteException {
         ResultSetContainer queryList = null;
         QueryBean ret = null;
 
-        queryList = q.getAllQueries(false);
+        queryList = q.getAllQueries(false, dsn);
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = queryList.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
             if (row.getItem("name").getResultData().equals(name)) {
                 ret = new QueryBean();
                 ret.setQueryId(((Long) row.getItem("query_id").getResultData()).longValue());
-                ret.setName(q.getName(ret.getQueryId()));
-                ret.setColumnIndex(q.getColumnIndex(ret.getQueryId()));
-                ret.setText(q.getText(ret.getQueryId()));
-                ret.setRanking(q.getRanking(ret.getQueryId()) == 1);
+                ret.setName(q.getName(ret.getQueryId(), dsn));
+                ret.setColumnIndex(q.getColumnIndex(ret.getQueryId(), dsn));
+                ret.setText(q.getText(ret.getQueryId(), dsn));
+                ret.setRanking(q.getRanking(ret.getQueryId(), dsn) == 1);
             }
         }
         return ret;
@@ -458,10 +458,10 @@ public class QueryMover {
      * @param name
      * @return
      */
-    private CommandGroupBean findCommandGroup(CommandGroup cg, String name) throws RemoteException {
+    private CommandGroupBean findCommandGroup(CommandGroup cg, String name, String dsn) throws RemoteException {
         CommandGroupBean ret = null;
 
-        ResultSetContainer rsc = cg.getAllCommandGroups();
+        ResultSetContainer rsc = cg.getAllCommandGroups(dsn);
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
@@ -480,9 +480,9 @@ public class QueryMover {
      * @param desc
      * @return
      */
-    private CommandBean findCommand(Command c, String desc) throws RemoteException {
+    private CommandBean findCommand(Command c, String desc, String dsn) throws RemoteException {
         CommandBean ret = null;
-        ResultSetContainer rsc = c.getCommandList();
+        ResultSetContainer rsc = c.getCommandList(dsn);
         ResultSetContainer.ResultSetRow row = null;
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
@@ -523,27 +523,21 @@ public class QueryMover {
 
         QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
         targetQ = qHome.create();
-        targetQ.setDataSource(targetDataSourceName);
 
         QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
         targetQI = qiHome.create();
-        targetQI.setDataSource(targetDataSourceName);
 
         CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
         targetCQ = cqHome.create();
-        targetCQ.setDataSource(targetDataSourceName);
 
         CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
         targetC = cHome.create();
-        targetC.setDataSource(targetDataSourceName);
 
         InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
         targetI = iHome.create();
-        targetI.setDataSource(targetDataSourceName);
 
         CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
         targetCG = cgHome.create();
-        targetCG.setDataSource(targetDataSourceName);
     }
 
     /**
@@ -554,27 +548,21 @@ public class QueryMover {
 
         QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
         sourceQ = qHome.create();
-        sourceQ.setDataSource(sourceDataSourceName);
 
         QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
         sourceQI = qiHome.create();
-        sourceQI.setDataSource(sourceDataSourceName);
 
         CommandQueryHome cqHome = (CommandQueryHome) ctx.lookup(ApplicationServer.Q_COMMAND_QUERY);
         sourceCQ = cqHome.create();
-        sourceCQ.setDataSource(sourceDataSourceName);
 
         CommandHome cHome = (CommandHome) ctx.lookup(ApplicationServer.Q_COMMAND);
         sourceC = cHome.create();
-        sourceC.setDataSource(sourceDataSourceName);
 
         InputHome iHome = (InputHome) ctx.lookup(ApplicationServer.Q_INPUT);
         sourceI = iHome.create();
-        sourceI.setDataSource(sourceDataSourceName);
 
         CommandGroupHome cgHome = (CommandGroupHome) ctx.lookup(ApplicationServer.Q_COMMAND_GROUP);
         sourceCG = cgHome.create();
-        sourceCG.setDataSource(sourceDataSourceName);
 
     }
 }

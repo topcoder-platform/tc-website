@@ -24,9 +24,8 @@ import java.sql.SQLException;
 public class QueryBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(QueryBean.class);
-    private String dataSourceName;
 
-    public long createQuery(String text, String name, int ranking)
+    public long createQuery(String text, String name, int ranking, String dataSourceName)
             throws RemoteException, EJBException {
         log.debug("createQuery called...\ntext: " + text + "\nname: " +
                 name + " ranking: " + ranking );
@@ -73,7 +72,7 @@ public class QueryBean extends BaseEJB {
         }
     }
 
-    public void setText(long queryId, String text) throws RemoteException, EJBException {
+    public void setText(long queryId, String text, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setText called...query: " + queryId + "\ntext: " + text);
 
         PreparedStatement ps = null;
@@ -109,7 +108,7 @@ public class QueryBean extends BaseEJB {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
     }
-    public void setName(long queryId, String name) throws RemoteException, EJBException {
+    public void setName(long queryId, String name, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setName called...query: " + queryId + " name: " + name);
 
         PreparedStatement ps = null;
@@ -145,7 +144,7 @@ public class QueryBean extends BaseEJB {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
     }
-    public void setRanking(long queryId, int ranking) throws RemoteException, EJBException {
+    public void setRanking(long queryId, int ranking, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setRanking called...query: " + queryId + " ranking: " + ranking);
 
         PreparedStatement ps = null;
@@ -182,7 +181,7 @@ public class QueryBean extends BaseEJB {
         }
 
     }
-    public void setColumnIndex(long queryId, int columnIndex) throws RemoteException, EJBException {
+    public void setColumnIndex(long queryId, int columnIndex, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setColumnIndex called...query: " + queryId + " column index: " + columnIndex);
 
         PreparedStatement ps = null;
@@ -219,7 +218,7 @@ public class QueryBean extends BaseEJB {
         }
     }
 
-    public String getText(long queryId) throws RemoteException, EJBException {
+    public String getText(long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getText called...query: " + queryId);
 
         ResultSet rs = null;
@@ -258,7 +257,7 @@ public class QueryBean extends BaseEJB {
         return ret;
     }
 
-    public String getName(long queryId) throws RemoteException, EJBException {
+    public String getName(long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getName called...query: " + queryId);
 
         ResultSet rs = null;
@@ -297,7 +296,7 @@ public class QueryBean extends BaseEJB {
         return ret;
 
     }
-    public int getRanking(long queryId) throws RemoteException, EJBException {
+    public int getRanking(long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getRanking called...query: " + queryId);
 
         ResultSet rs = null;
@@ -336,7 +335,7 @@ public class QueryBean extends BaseEJB {
         return ret;
 
     }
-    public int getColumnIndex(long queryId) throws RemoteException, EJBException {
+    public int getColumnIndex(long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getColumnIndex called...query: " + queryId);
 
         ResultSet rs = null;
@@ -376,7 +375,7 @@ public class QueryBean extends BaseEJB {
 
     }
 
-     public ResultSetContainer getAllQueries(boolean includeText) throws RemoteException, EJBException {
+     public ResultSetContainer getAllQueries(boolean includeText, String dataSourceName) throws RemoteException, EJBException {
          log.debug("getAllQueries called...includeText: " + includeText);
 
          ResultSet rs = null;
@@ -447,7 +446,7 @@ public class QueryBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence");
         } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
@@ -460,10 +459,6 @@ public class QueryBean extends BaseEJB {
     }
 
 
-    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        if (dataSourceName.trim().length()>0)
-            this.dataSourceName = dataSourceName;
-    }
 
 
 }

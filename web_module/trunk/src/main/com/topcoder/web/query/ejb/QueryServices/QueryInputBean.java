@@ -24,9 +24,8 @@ import java.sql.SQLException;
 public class QueryInputBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(QueryInputBean.class);
-    private String dataSourceName;
 
-    public void createQueryInput(long queryId, long inputId)
+    public void createQueryInput(long queryId, long inputId, String dataSourceName)
             throws RemoteException, EJBException {
         log.debug("createQueryInput called...query: " + queryId + " input: " + inputId);
 
@@ -67,7 +66,7 @@ public class QueryInputBean extends BaseEJB {
 
     }
 
-    public void setOptional(long queryId, long inputId, char optional) throws RemoteException, EJBException {
+    public void setOptional(long queryId, long inputId, char optional, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setOptional called...query: " + queryId + " input: " + inputId + " optional: " + optional);
 
         PreparedStatement ps = null;
@@ -109,7 +108,7 @@ public class QueryInputBean extends BaseEJB {
 
     }
 
-    public void setDefaultValue(long queryId, long inputId, String defaultValue) throws RemoteException, EJBException {
+    public void setDefaultValue(long queryId, long inputId, String defaultValue, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setDefaultValue called...query: " + queryId + " input: " + inputId + " default value: " + defaultValue);
 
         PreparedStatement ps = null;
@@ -149,7 +148,7 @@ public class QueryInputBean extends BaseEJB {
         }
     }
 
-    public void setSortOrder(long queryId, long inputId, int sortOrder) throws RemoteException, EJBException {
+    public void setSortOrder(long queryId, long inputId, int sortOrder, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setSortOrder called...query: " + queryId + " input: " + inputId + " sort order: " + sortOrder);
 
         PreparedStatement ps = null;
@@ -189,7 +188,7 @@ public class QueryInputBean extends BaseEJB {
         }
     }
 
-    public char getOptional(long queryId, long inputId) throws RemoteException, EJBException {
+    public char getOptional(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getOptional called...query: " + queryId + " input: " + inputId);
 
         ResultSet rs = null;
@@ -231,7 +230,7 @@ public class QueryInputBean extends BaseEJB {
         return ret;
     }
 
-    public String getDefaultValue(long queryId, long inputId) throws RemoteException, EJBException {
+    public String getDefaultValue(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getDefaultValue called...query: " + queryId + " input: " + inputId);
 
         ResultSet rs = null;
@@ -273,7 +272,7 @@ public class QueryInputBean extends BaseEJB {
         return ret;
     }
 
-    public int getSortOrder(long queryId, long inputId) throws RemoteException, EJBException {
+    public int getSortOrder(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getSortOrder called...query: " + queryId + " input: " + inputId);
 
         ResultSet rs = null;
@@ -315,7 +314,7 @@ public class QueryInputBean extends BaseEJB {
         return ret;
     }
 
-    public void removeQueryInput(long queryId, long inputId) throws RemoteException, EJBException {
+    public void removeQueryInput(long queryId, long inputId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("removeQueryInput called...query: " + queryId + " input: " + inputId);
 
          PreparedStatement ps = null;
@@ -354,7 +353,7 @@ public class QueryInputBean extends BaseEJB {
          }
      }
 
-    public ResultSetContainer getInputsForCommand(long commandId) throws RemoteException, EJBException {
+    public ResultSetContainer getInputsForCommand(long commandId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getInputsForCommand called...command: " + commandId);
 
         ResultSet rs = null;
@@ -401,7 +400,7 @@ public class QueryInputBean extends BaseEJB {
         return ret;
     }
 
-    public ResultSetContainer getInputsForQuery(long queryId) throws RemoteException, EJBException {
+    public ResultSetContainer getInputsForQuery(long queryId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getInputsForquery called...query: " + queryId);
 
         ResultSet rs = null;
@@ -450,10 +449,6 @@ public class QueryInputBean extends BaseEJB {
     }
 
 
-    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        if (dataSourceName.trim().length()>0)
-            this.dataSourceName = dataSourceName;
-    }
 }
 
 

@@ -67,11 +67,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         CommandHome cHome = (CommandHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND);
         Command c = cHome.create();
 
-        q.setDataSource(getDb());
-        cq.setDataSource(getDb());
-        c.setDataSource(getDb());
-
-        setCommandDesc(c.getCommandDesc(getCommandId()));
+        setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
 
         processAttributeQueue();
 
@@ -82,18 +78,18 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             if (!super.hasErrors()) {
                 for (int j=0; j<getCurrentQueryList().size(); j++) {
                     cqb = (CommandQueryBean)getCurrentQueryList().get(j);
-                    cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder());
+                    cq.setSortOrder(cqb.getCommandId(), cqb.getQueryId(), cqb.getSortOrder(), getDb());
                 }
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
             checkQueryIds(getCurrentQueryList(), q);
-            cq.createCommandQuery(getCommandId(), getQueryId());
+            cq.createCommandQuery(getCommandId(), getQueryId(), getDb());
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             checkQueryIds(getCurrentQueryList(), q);
-            cq.removeCommandQuery(getCommandId(), getQueryId());
+            cq.removeCommandQuery(getCommandId(), getQueryId(), getDb());
         }
-        setCurrentQueryList(cq.getQueriesForCommand(getCommandId()));
-        setOtherQueryList(q.getAllQueries(false));
+        setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
+        setOtherQueryList(q.getAllQueries(false, getDb()));
 
         super.setNextPage(Constants.MODIFY_COMMAND_QUERY_PAGE);
     }
@@ -151,7 +147,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
     }
 
     private void checkCommandId(long commandId, Command c) throws Exception {
-        if (c.getCommandDesc(commandId)==null) {
+        if (c.getCommandDesc(commandId, getDb())==null) {
             super.addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
         }
     }
@@ -160,7 +156,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         long queryId = 0;
         for(int i=0; i<list.size(); i++) {
             queryId = ((CommandQueryBean)list.get(i)).getQueryId();
-            if (q.getName(queryId)==null) {
+            if (q.getName(queryId, getDb())==null) {
                 super.addError(Constants.QUERY_ID_PARAM+queryId, "Invalid query id");
             }
         }
@@ -303,8 +299,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
         if (currentQueryList==null) {
             CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
             CommandQuery cq = cqHome.create();
-            cq.setDataSource(getDb());
-            setCurrentQueryList(cq.getQueriesForCommand(getCommandId()));
+            setCurrentQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
         }
         return currentQueryList;
     }

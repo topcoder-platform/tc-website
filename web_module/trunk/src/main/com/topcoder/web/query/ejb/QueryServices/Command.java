@@ -13,17 +13,15 @@ import java.rmi.RemoteException;
  */
 public interface Command extends EJBObject {
 
-    long createCommand(String commandDesc, int commandGroupId) throws RemoteException, EJBException;
+    long createCommand(String commandDesc, int commandGroupId, String dataSourceName) throws RemoteException, EJBException;
 
-    void setCommandDesc(long commandId, String commandDesc) throws RemoteException, EJBException;
-    void setCommandGroupId(long commandId, int commandGroupId) throws RemoteException, EJBException;
+    void setCommandDesc(long commandId, String commandDesc, String dataSourceName) throws RemoteException, EJBException;
+    void setCommandGroupId(long commandId, int commandGroupId, String dataSourceName) throws RemoteException, EJBException;
 
-    String getCommandDesc(long commandId) throws RemoteException, EJBException;
-    int getCommandGroupId(long commandId) throws RemoteException, EJBException;
+    String getCommandDesc(long commandId, String dataSourceName) throws RemoteException, EJBException;
+    int getCommandGroupId(long commandId, String dataSourceName) throws RemoteException, EJBException;
 
-    void setDataSource(String dataSourceName) throws RemoteException, EJBException;
-
-    ResultSetContainer getCommandList() throws RemoteException, EJBException;
+    ResultSetContainer getCommandList(String dataSourceName) throws RemoteException, EJBException;
 
 }
 

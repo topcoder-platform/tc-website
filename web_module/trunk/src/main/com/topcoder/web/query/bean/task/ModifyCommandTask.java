@@ -56,10 +56,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
         CommandGroupHome cgHome = (CommandGroupHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_GROUP);
         CommandGroup cg = cgHome.create();
 
-        c.setDataSource(getDb());
-        cg.setDataSource(getDb());
-
-        setGroups(cg.getAllCommandGroups());
+        setGroups(cg.getAllCommandGroups(getDb()));
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkCommandDesc(getCommandDesc());
@@ -67,16 +64,16 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
             checkCommandId(getCommandId(), c);
             if (!super.hasErrors()) {
                 if (isNewCommand()) {
-                    setCommandId(c.createCommand(getCommandDesc(), getGroupId()));
+                    setCommandId(c.createCommand(getCommandDesc(), getGroupId(), getDb()));
                 } else {
-                    c.setCommandDesc(getCommandId(), getCommandDesc());
-                    c.setCommandGroupId(getCommandId(), getGroupId());
+                    c.setCommandDesc(getCommandId(), getCommandDesc(), getDb());
+                    c.setCommandGroupId(getCommandId(), getGroupId(), getDb());
                 }
             }
         } else {
             if (!isNewCommand()) {
-                setCommandDesc(c.getCommandDesc(getCommandId()));
-                setGroupId(c.getCommandGroupId(getCommandId()));
+                setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
+                setGroupId(c.getCommandGroupId(getCommandId(), getDb()));
             }
         }
 
@@ -112,14 +109,14 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
     }
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
-        if (cg.getCommandGroupName(groupId)==null) {
+        if (cg.getCommandGroupName(groupId, getDb())==null) {
             super.addError(Constants.GROUP_ID_PARAM, "Invalid Group");
         }
     }
 
     private void checkCommandId(long commandId, Command c) throws Exception {
         if (!isNewCommand()) {
-            if (c.getCommandDesc(commandId)==null) {
+            if (c.getCommandDesc(commandId, getDb())==null) {
                 super.addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
             }
         }

@@ -30,7 +30,7 @@
          <ejb-name>Command</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.CommandHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.Command</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandBean</ejb-class>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.com.topcoder.utilities.querymover.CommandBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
@@ -38,7 +38,7 @@
          <ejb-name>CommandGroup</ejb-name>
          <home>com.topcoder.web.query.ejb.QueryServices.CommandGroupHome</home>
          <remote>com.topcoder.web.query.ejb.QueryServices.CommandGroup</remote>
-         <ejb-class>com.topcoder.web.query.ejb.QueryServices.CommandGroupBean</ejb-class>
+         <ejb-class>com.topcoder.web.query.ejb.QueryServices.com.topcoder.utilities.querymover.CommandGroupBean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>

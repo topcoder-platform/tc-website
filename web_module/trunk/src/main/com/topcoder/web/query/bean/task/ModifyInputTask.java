@@ -50,8 +50,6 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
         InputHome iHome = (InputHome) getInitialContext().lookup(ApplicationServer.Q_INPUT);
         Input i = iHome.create();
 
-        i.setDataSource(getDb());
-
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
             checkInputCode(getInputCode(), i);
             checkInputDesc(getInputDesc());
@@ -61,16 +59,16 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
                 if (isNewInput()) {
                     setInputId(i.createInput(getInputCode(), getDataTypeId(), getInputDesc()));
                 } else {
-                    i.setInputCode(getInputId(), getInputCode());
-                    i.setInputDesc(getInputId(), getInputDesc());
-                    i.setDataTypeId(getInputId(), getDataTypeId());
+                    i.setInputCode(getInputId(), getInputCode(), getDb());
+                    i.setInputDesc(getInputId(), getInputDesc(), getDb());
+                    i.setDataTypeId(getInputId(), getDataTypeId(), getDb());
                 }
             }
         } else {
             if (!isNewInput()) {
-                setInputCode(i.getInputCode(getInputId()));
-                setInputDesc(i.getInputDesc(getInputId()));
-                setDataTypeId(i.getDataTypeId(getInputId()));
+                setInputCode(i.getInputCode(getInputId(), getDb()));
+                setInputDesc(i.getInputDesc(getInputId(), getDb()));
+                setDataTypeId(i.getDataTypeId(getInputId(), getDb()));
             }
 
         }
@@ -107,7 +105,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
     private void checkInputCode(String inputCode, Input i) throws Exception {
         if (super.isEmpty(inputCode)) {
             super.addError(Constants.INPUT_CODE_PARAM, "You must enter an input code");
-        } else if (i.inputCodeExists(inputCode) && isNewInput()) {
+        } else if (i.inputCodeExists(inputCode, getDb()) && isNewInput()) {
             super.addError(Constants.INPUT_CODE_PARAM, "Input Code already exists");
         } else if (inputCode.length() > 25) {
             super.addError(Constants.INPUT_CODE_PARAM, "Input Code too long");
@@ -138,7 +136,7 @@ public class ModifyInputTask extends BaseTask implements Task, Serializable {
 
     private void checkInputId(long inputId, Input i) throws Exception {
         if (!isNewInput()) {
-            if (i.getInputCode(inputId)==null) {
+            if (i.getInputCode(inputId, getDb())==null) {
                 super.addError(Constants.INPUT_ID_PARAM, "Invalid input id");
             }
         }

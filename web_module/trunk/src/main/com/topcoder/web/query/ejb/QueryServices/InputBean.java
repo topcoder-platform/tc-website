@@ -24,9 +24,8 @@ import java.sql.SQLException;
 public class InputBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(InputBean.class);
-    private String dataSourceName;
 
-    public long createInput(String inputCode, int dataTypeId, String inputDesc)
+    public long createInput(String inputCode, int dataTypeId, String inputDesc, String dataSourceName)
             throws RemoteException, EJBException {
         log.debug("createInput called...input code: " + inputCode + " data type: " +
                 dataTypeId + " desc: " + inputDesc);
@@ -73,7 +72,7 @@ public class InputBean extends BaseEJB {
         }
     }
 
-    public void setInputCode(long inputId, String inputCode) throws RemoteException, EJBException {
+    public void setInputCode(long inputId, String inputCode, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setInputCode called...input: " + inputId + " code: " + inputCode);
 
         PreparedStatement ps = null;
@@ -109,7 +108,7 @@ public class InputBean extends BaseEJB {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
     }
-    public void setDataTypeId(long inputId, int dataTypeId) throws RemoteException, EJBException {
+    public void setDataTypeId(long inputId, int dataTypeId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setDataTypeId called...input: " + inputId + " data type: " + dataTypeId);
 
         PreparedStatement ps = null;
@@ -145,7 +144,7 @@ public class InputBean extends BaseEJB {
             if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context");}}
         }
     }
-    public void setInputDesc(long inputId, String inputDesc) throws RemoteException, EJBException {
+    public void setInputDesc(long inputId, String inputDesc, String dataSourceName) throws RemoteException, EJBException {
         log.debug("setInputDesc called...input: " + inputId + " code: " + inputDesc);
 
         PreparedStatement ps = null;
@@ -183,7 +182,7 @@ public class InputBean extends BaseEJB {
 
     }
 
-    public String getInputCode(long inputId) throws RemoteException, EJBException {
+    public String getInputCode(long inputId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getInputCode called...input: " + inputId);
 
         ResultSet rs = null;
@@ -223,7 +222,7 @@ public class InputBean extends BaseEJB {
 
     }
 
-    public int getDataTypeId(long inputId) throws RemoteException, EJBException {
+    public int getDataTypeId(long inputId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getDataTypeId called...input: " + inputId);
 
         ResultSet rs = null;
@@ -263,7 +262,7 @@ public class InputBean extends BaseEJB {
 
     }
 
-    public String getInputDesc(long inputId) throws RemoteException, EJBException {
+    public String getInputDesc(long inputId, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getInputDesc called...input: " + inputId);
 
         ResultSet rs = null;
@@ -302,7 +301,7 @@ public class InputBean extends BaseEJB {
         return ret;
     }
 
-    public ResultSetContainer getAllInputs() throws RemoteException, EJBException {
+    public ResultSetContainer getAllInputs(String dataSourceName) throws RemoteException, EJBException {
         log.debug("getAllInputs called...");
 
         ResultSet rs = null;
@@ -344,7 +343,7 @@ public class InputBean extends BaseEJB {
     }
 
 
-    public boolean inputCodeExists(String inputCode) throws RemoteException, EJBException {
+    public boolean inputCodeExists(String inputCode, String dataSourceName) throws RemoteException, EJBException {
         log.debug("getInputId called...input code: " + inputCode);
 
          ResultSet rs = null;
@@ -408,7 +407,7 @@ public class InputBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting sequence");
         } catch (NamingException e) {
-            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + dataSourceName);
+            throw new EJBException("Naming exception, probably couldn't find DataSource named: " + DBMS.OLTP_DATASOURCE_NAME);
         } catch (Exception e) {
             throw new EJBException("Exception getting sequence\n " + e.getMessage());
         } finally {
@@ -420,10 +419,6 @@ public class InputBean extends BaseEJB {
         return ret;
     }
 
-    public void setDataSource(String dataSourceName) throws RemoteException, EJBException {
-        if (dataSourceName.trim().length()>0)
-            this.dataSourceName = dataSourceName;
-    }
 
 
 }
