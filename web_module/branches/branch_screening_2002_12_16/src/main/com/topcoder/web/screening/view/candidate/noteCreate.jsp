@@ -1,9 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page errorPage="/errorPage.jsp" %>
+<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 </HEAD>
+
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="/includes/top.jsp"/>
@@ -31,7 +36,7 @@
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">           
            <TR>
-              <TD ALIGN="center" CLASS="bodyText"><A HREF="/eval/cand_setup.jsp" CLASS="bodyText">tturner@rolling.com</A></TD>
+              <TD ALIGN="center" CLASS="bodyText"><A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><jsp:getProperty name="candidateInfo" property="emailAddress"/></A></TD>
            </TR>           
            <TR>
               <TD ALIGN="center"><TEXTAREA NAME="" COLS="80" ROWS="4"></TEXTAREA></TD>

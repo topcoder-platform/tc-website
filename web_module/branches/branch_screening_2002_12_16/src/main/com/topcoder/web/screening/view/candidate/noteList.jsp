@@ -1,9 +1,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page errorPage="/errorPage.jsp" %>
+<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 </HEAD>
+
+<jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="/includes/top.jsp"/>
@@ -31,32 +36,26 @@
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">           
            <TR>
-              <TD COLSPAN="3" ALIGN="center"><A HREF="/eval/cand_setup.jsp" CLASS="bodyText">tturner@rolling.com</A></TD>
+              <TD COLSPAN="3" ALIGN="center"><A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><jsp:getProperty name="candidateInfo" property="emailAddress"/></A></TD>
            </TR>
            <TR>
               <TD COLSPAN="3"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
-              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666" HEIGHT="15">&#160;<B>Date Created</B></TD><TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Author</B></TD><TD CLASS="statText" VALIGN="top" BGCOLOR="#666666">&#160;</TD>
+              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666" HEIGHT="15">&#160;<B>Date Created</B></TD>
+              <TD ALIGN="center" VALIGN="middle" CLASS="statText" BGCOLOR="#666666">&#160;<B>Author</B></TD>
+              <TD CLASS="statText" VALIGN="top" BGCOLOR="#666666">&#160;</TD>
            </TR>                      
-           <TR>
-              <TD ALIGN="center" VALIGN="top" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B>10.12.02</B>&#160;&#160;</TD>
-              <TD ALIGN="center" VALIGN="top" CLASS="bodyText"  HEIGHT="15">&#160;John Doe&#160;&#160;</TD>
-              <TD CLASS="bodyText" VALIGN="top" >Lore, sed diar m ipsum dolodipiscing elit
-              sit amet, consectetuer am ipsum dolodipm dolodtipiscing eli</TD>
-           </TR>                       
-           <TR>
-              <TD ALIGN="center" VALIGN="top" CLASS="bodyText" HEIGHT="15">&#160;<B>10.09.02</B>&#160;&#160;</TD>
-              <TD ALIGN="center" VALIGN="top" CLASS="bodyText"  HEIGHT="15">&#160;John Doe&#160;&#160;</TD>
-              <TD CLASS="bodyText" VALIGN="top" >Re, sed diarLo m idipiscing elitpsum dolo
-              sit amet, consipsum dolodipm dolodtipiscing eliectetuer am</TD>
-           </TR>                   
-           <TR>
-              <TD ALIGN="center" VALIGN="top" CLASS="bodyText" BGCOLOR="#CCCCCC" HEIGHT="15">&#160;<B>09.05.02</B>&#160;&#160;</TD>
-              <TD ALIGN="center" VALIGN="top" CLASS="bodyText"  HEIGHT="15">&#160;John Doe&#160;&#160;</TD>              
-              <TD CLASS="bodyText" VALIGN="top" >Lore, sed diar m ipsum dolodipiscing elit
-              sit amet, consectetuer am ipsum dolodipm dolodtipiscing eli</TD>
-           </TR>
+           <% { boolean even = true; %>
+              <screen:resultSetRowIterator id="row" list="<%=candidateInfo.getNoteList()%>">
+                 <TR>
+                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;<B>10.12.02</B>&#160;&#160;</TD>
+                    <TD ALIGN="center" VALIGN="top" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %> HEIGHT="15">&#160;John Doe&#160;&#160;</TD>
+                    <TD CLASS="bodyText" VALIGN="top" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>Lore, sed diar m ipsum dolodipiscing elit sit amet, consectetuer am ipsum dolodipm dolodtipiscing eli</TD>
+                 </TR>
+                 <% even = !even; %>
+              </screen:resultSetRowIterator>
+           <% } %>
            <TR>
               <TD COLSPAN="3"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>                    
