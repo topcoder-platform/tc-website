@@ -42,13 +42,16 @@ public class Controller
             log.debug("In com.topcoder.web.resume.servlet.Controller.service()");
             log.debug(request.getContentType().indexOf(MULTIPART_FORM_DATA)+"");
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
+                log.debug("in if");
                 FileUpload fu = new FileUpload(request, false);
                 String taskName = fu.getParameter(TASK);
+                log.debug(taskName);
                 if (taskName == null || !isWord(taskName)) {
                     log.debug(TASK + " not found in request. - "+taskName);
                     forwardToError(request, response, new Exception(TASK + " not found in request."));
                     return;
                 }
+                log.debug("task is word");
                 session = request.getSession();
                 ResumeTask task = null;
                 Class taskClass = null;
@@ -59,6 +62,7 @@ public class Controller
                     forwardToError(request, response, e);
                     return;
                 }
+                log.debug("task is word");
                 log.debug("about to make task: "+taskName);
                 try {
                     task = (ResumeTask) taskClass.getConstructor(new Class[]{FileUpload.class}).newInstance(new Object[]{fu});
