@@ -14,6 +14,8 @@ public class ReviewBoardApplication {
     private String reviewerType = "";
     private int reviewerTypeId = 0;
 
+    private int phaseId = 0;
+
     private SoftwareComponent component = null;
 
     protected ReviewBoardApplication() {
@@ -21,10 +23,12 @@ public class ReviewBoardApplication {
 
     public ReviewBoardApplication(int phaseId, int level, int submissionCount, int submissionsPassedScreening) {
         this.component = new DefaultPriceComponent(level, submissionCount, submissionsPassedScreening, phaseId);
+        this.phaseId = phaseId;
     }
 
     public ReviewBoardApplication(int phaseId, float primaryReviewerPrice, float reviewerPrice) {
         this.component = new CustomPriceComponent(primaryReviewerPrice, reviewerPrice, phaseId);
+        this.phaseId = phaseId;
     }
 
 
@@ -74,6 +78,10 @@ public class ReviewBoardApplication {
 
     public void setReviewerTypeId(int reviewerTypeId) {
         this.reviewerTypeId = reviewerTypeId;
+    }
+
+    public int getPhaseId() {
+        return phaseId;
     }
 
 
