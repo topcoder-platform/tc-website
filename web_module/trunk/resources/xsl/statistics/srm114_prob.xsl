@@ -137,7 +137,7 @@ int days=0;
 while (depth>0) {
 	days++;
 	depth-=dayUp;
-	if (depth<=0) return days;
+	if (depth&lt;=0) return days;
 	depth+=nightDown;	
 }
 </PRE>
