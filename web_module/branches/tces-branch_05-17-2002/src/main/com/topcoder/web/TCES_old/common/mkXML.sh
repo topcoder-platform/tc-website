@@ -23,22 +23,22 @@ cat beans.lst | while read CLASS_NAME
 do
 	cat >> META-INF/ejb-jar.xml <<EOF
       <session id="Session_$SESS_ID">
-         <ejb-name>${CLASS_NAME}</ejb-name>
-         <home>com.topcoder.web.TCES.common.${CLASS_NAME}Home</home>
-         <remote>com.topcoder.web.TCES.common.${CLASS_NAME}</remote>
-         <ejb-class>com.topcoder.web.TCES.common.${CLASS_NAME}Bean</ejb-class>
+         <ejb-name>${CLASS_NAME}2</ejb-name>
+         <home>com.topcoder.web.TCES.ejb.${CLASS_NAME}2Home</home>
+         <remote>com.topcoder.web.TCES.ejb.${CLASS_NAME}2</remote>
+         <ejb-class>com.topcoder.web.TCES.ejb.${CLASS_NAME}2Bean</ejb-class>
          <session-type>Stateless</session-type>
          <transaction-type>Container</transaction-type>
       </session>
 EOF
 	cat >> META-INF/weblogic-ejb-jar.xml <<EOF
    <weblogic-enterprise-bean>
-      <ejb-name>${CLASS_NAME}</ejb-name>
+      <ejb-name>${CLASS_NAME}2</ejb-name>
       <caching-descriptor>
          <max-beans-in-free-pool>200</max-beans-in-free-pool>
          <initial-beans-in-free-pool>10</initial-beans-in-free-pool>
       </caching-descriptor>
-      <jndi-name>com.topcoder.web.TCES.common.${CLASS_NAME}</jndi-name>
+      <jndi-name>com.topcoder.web.TCES.ejb.${CLASS_NAME}2</jndi-name>
    </weblogic-enterprise-bean>
 EOF
 	SESS_ID=`expr $SESS_ID + 1`
