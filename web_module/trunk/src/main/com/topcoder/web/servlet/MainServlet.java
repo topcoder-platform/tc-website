@@ -243,6 +243,10 @@ public final class MainServlet extends HttpServlet {
             else if (requestTask.equals("development")) {
                 HTMLString = TaskDevelopment.process(request, response, htmlMaker, nav, document);
             }
+            //************************ xsl cache refresh ************************
+            else if (requestTask.equals("refresh_xsl")) {
+                htmlMaker.refresh();
+            }
             //************************ statistics ************************
             else if (requestTask.equals("statistics") && requestCommand.equals("member_profile")) {
                 //if we get a "old" version of a member_profile request, just send it off to the new version
