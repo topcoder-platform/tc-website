@@ -74,12 +74,20 @@
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=project_name">Thing</a>
+                                        <a href="?t=development&amp;c=Team_App_EDI_Certification_Website">EDI Certification Website</a>
                                     </td>
-                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">01/01/2005</td>
-                                </tr>                                
+                                    <td class="projectCells" align="right">$12,600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$8,400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">10.20.2004</td>
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Team_App_EDI_Transaction_Processor">EDI Transaction Processor</a>
+                                    </td>
+                                    <td class="projectCells" align="right">9,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$6,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">10.20.2004</td>
+                                </tr>
 
                             </table>
 
@@ -103,7 +111,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$4,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                </tr> 
+                                </tr>
                             </table>
 
                             <br/>
