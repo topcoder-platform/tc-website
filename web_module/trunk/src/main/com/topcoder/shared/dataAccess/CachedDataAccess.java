@@ -77,7 +77,7 @@ public class CachedDataAccess extends DataAccess {
             boolean hasCacheConnection = true;
             String key = request.getCacheKey();
             Map map = null;
-            DataRetriever dr = null;
+            DataRetrieverInt dr = null;
             CacheClient cc = null;
             try {
                 cc = CacheClientFactory.createCacheClient();
@@ -89,7 +89,7 @@ public class CachedDataAccess extends DataAccess {
             /* if it was not found in the cache */
             if (map == null) {
                 conn = DBMS.getConnection(dataSource);
-                dr = new DataRetriever(conn);
+                dr = getDataRetriever(conn);
                 map = dr.executeCommand(request.getProperties());
                 /* attempt to add this object to the cache */
                 if (hasCacheConnection) {
