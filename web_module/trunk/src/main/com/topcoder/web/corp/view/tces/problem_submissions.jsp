@@ -31,7 +31,7 @@
 			<img src="/i/corp/clear.gif" width="400" height="11" alt="" border=0><br/>
             <table cellspacing="0" cellpadding="0" width="100%" class="screeningFrameNB">
                 <tr valign="top">
-                    <td class=bodyText colspan=2>
+                    <td class=bodyText>
 					<p>
                         <tces:trailIterator id="trailItem" trailList="<%=ProblemSubmissionsTask.getTrail()%>">
                             <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
