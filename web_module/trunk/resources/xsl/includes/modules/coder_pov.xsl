@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin </strong></a><br/>
+                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>schveiguy </strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,15 +32,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm157_prob">Problem Set Analysis &amp; Opinion: SRM 157</a></font></strong><br />
-                        Monday, July 28, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm157_prob">Problem Set Analysis &amp; Opinion: SRM 158</a></font></strong><br />
+                        Wednesday, August 6, 2003</p>
 
                        <p>
-                        Winner in Division-I by a very small margin was <b>radeye</b>, after having successfully
-                        challenged two solutions. Because of an - again! - too hard last problem in Division-I
-                        by yours truly, everything depended on the speed on the first two problems. Fastest
-                        on these two were <b>SnapDragon</b>, which earned him a second place. Notably
-                        is also that <b>tomek's</b> streak of correct submissions ended in this SRM.
+                        SRM 158 had a well balanced set, with almost no confusion issues.  Division 1
+                        saw <strong>ZorbaTHut</strong> easily taking first place, with the highest score on the level 3,
+                        and a good 50 points ahead of <strong>schveiguy</strong>, without the help of challenges.  Newbie
+                        coder <strong>gevak</strong> edged out <strong>DimaGer</strong> by 20 points to win division 2, and got a nice
+                        1815 debut rating.  <strong>gevak</strong> also got the high score for his level 3 solution.  Also of note, <strong>raquib</strong> 
+                        pulled off 6 successful challenges in room 9, and <strong>radeye</strong> got 4 successful challenges in room 4, all with the same test case.
                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm157_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
