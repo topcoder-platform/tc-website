@@ -156,7 +156,13 @@ public class Constants
         for (int i = 0; i < f.length; i++) {
             try {
                 log.debug(f[i].getType());
-                f[i].set(null, config.getInitParameter(f[i].getName().toLowerCase()));
+                if (f[i].getType().getName().equals("int")) {
+                    f[i].setInt(null, Integer.parseInt(config.getInitParameter(f[i].getName().toLowerCase())));
+                } else if (f[i].getType().getName().equals("int")) {
+                    f[i].set(null, config.getInitParameter(f[i].getName().toLowerCase()));
+                } else {
+                    throw new Exception("Unrecognized type: " + f[i].getType().getName());
+                }
                 if (f[i].get(null)==null)
                     log.error("**DID NOT LOAD** " + f[i].getName() + " constant");
                 else log.debug("loaded " + f[i].getName() + " constant with value " + f[i].get(null));
