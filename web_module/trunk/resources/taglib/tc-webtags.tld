@@ -316,6 +316,11 @@
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
+        <attribute>
+            <name>useTopValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
     </tag>
 
     <tag>
@@ -379,6 +384,11 @@
         </attribute>
         <attribute>
             <name>selected</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>useTopValue</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
