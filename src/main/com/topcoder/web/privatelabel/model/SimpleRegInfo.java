@@ -30,6 +30,27 @@ public class SimpleRegInfo extends Base {
     private long eventId;
 
     public SimpleRegInfo() {
+        userId = 0;
+        handle = "";
+        password = "";
+        passwordConfirm = "";
+        email = "";
+        emailConfirm = "";
+        firstName = "";
+        middleName = "";
+        lastName = "";
+        address1 = "";
+        address2 = "";
+        address3 = "";
+        countryCode = "";
+        countryName = "";
+        stateCode = "";
+        stateName = "";
+        province = "";
+        city = "";
+        zip = "";
+        companyId = 0;
+        eventId = 0;
     }
 
     public SimpleRegInfo(SimpleRegInfo info) {
