@@ -49,13 +49,6 @@ public class SoftwareComponent {
         return Math.round(ret);
     }
 
-    private float getDevCost() {
-        return DEV_PRICE_LOOKUP[level];
-    }
-
-    private float getDesignCost() {
-        return DESIGN_PRICE_LOOKUP[level];
-    }
 
     public float getPrimaryReviewCost() {
         float ret = 0.0f;
@@ -67,6 +60,34 @@ public class SoftwareComponent {
             throw new RuntimeException("invalid phase " + phase);
         }
         return Math.round(ret);
+    }
+
+    public float getReviewCost() {
+        float ret = 0.0f;
+        if (phase == DEV_PHASE) {
+            ret = getDevReviewCost();
+        } else if (phase == DESIGN_PHASE) {
+            ret = getDesignReviewCost();
+        } else {
+            throw new RuntimeException("invalid phase " + phase);
+        }
+        return Math.round(ret);
+    }
+
+    /**
+     * Return the price for the winning developer
+     * @return
+     */
+    private float getDevCost() {
+        return DEV_PRICE_LOOKUP[level];
+    }
+
+    /**
+     * Return the price for the winning designer
+     * @return
+     */
+    private float getDesignCost() {
+        return DESIGN_PRICE_LOOKUP[level];
     }
 
     /**
@@ -165,13 +186,13 @@ public class SoftwareComponent {
             if (sc.phase==DEV_PHASE) {
                 System.out.println("        Dev Cost:            |      " + sc.getCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("     Dev Review Cost:        |      " + sc.getDevReviewCost());
+                System.out.println("     Dev Review Cost:        |      " + sc.getReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println("  Dev Primary Review Cost    |      " + sc.getPrimaryReviewCost());
             } else if (sc.phase==DESIGN_PHASE) {
                 System.out.println("      Design Cost:           |      " + sc.getCost());
                 System.out.println("-----------------------------+-------------------------------");
-                System.out.println("   Design Review Cost:       |      " + sc.getDesignReviewCost());
+                System.out.println("   Design Review Cost:       |      " + sc.getReviewCost());
                 System.out.println("-----------------------------+-------------------------------");
                 System.out.println(" Design Primary Review Cost: |      " + sc.getPrimaryReviewCost());
             } else {
