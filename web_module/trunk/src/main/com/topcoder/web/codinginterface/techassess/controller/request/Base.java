@@ -23,7 +23,6 @@ import com.topcoder.web.common.*;
 
 import javax.servlet.http.HttpSessionBindingEvent;
 import javax.servlet.http.HttpSessionBindingListener;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.Serializable;
 import java.util.*;
@@ -42,6 +41,7 @@ public abstract class Base extends BaseProcessor {
     private long sessionId = -1;
     private long companyId = -1;
     private List languages = null;
+    private static final Set locks = new HashSet();
 
     protected void businessProcessing() throws Exception {
         //log.debug("session timeout is " + getRequest().getSession().getMaxInactiveInterval());
@@ -89,18 +89,17 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void send(ScreeningBaseRequest m) throws TCWebException {
-        HttpSession session = getRequest().getSession();
         log.debug("sync: " + m.isSynchronous());
         if (m.isSynchronous()) {
-            if (session.getAttribute(Constants.SERVER_BUSY + getSessionId()) == null) {
+            if (!isBusy()) {
                 log.debug("lock it up, it's a syncronous request");
-                session.setAttribute(Constants.SERVER_BUSY + getSessionId(), "");
+                lock();
                 this.messageId = sender.sendMessageGetID(new HashMap(), m);
             } else {
                 //we need to mark it not busy anymore because if we don't
                 //they won't be able to make any more requests.
                 log.debug("unlock it and let them go to the error page");
-                session.removeAttribute(Constants.SERVER_BUSY + getSessionId());
+                unlock();
                 throw new ServerBusyException();
             }
         } else {
@@ -371,7 +370,7 @@ public abstract class Base extends BaseProcessor {
 
         if (m.isSynchronous()) {
             log.debug("unlock it and send response");
-            getRequest().getSession().removeAttribute(Constants.SERVER_BUSY + getSessionId());
+            unlock();
         }
 
         return m;
@@ -390,6 +389,25 @@ public abstract class Base extends BaseProcessor {
         getRequest().setAttribute(Constants.MESSAGE, message);
     }
 
+
+
+    protected boolean isBusy() throws TCWebException {
+        synchronized(locks) {
+            return locks.contains(Constants.SERVER_BUSY + getSessionId());
+        }
+    }
+
+    protected void lock() throws TCWebException {
+        synchronized(locks) {
+            locks.add(Constants.SERVER_BUSY + getSessionId());
+        }
+    }
+
+    protected void unlock() throws TCWebException {
+        synchronized(locks) {
+            locks.remove(Constants.SERVER_BUSY + getSessionId());
+        }
+    }
 
     private final class Logouter implements Serializable, HttpSessionBindingListener {
 
@@ -422,5 +440,6 @@ public abstract class Base extends BaseProcessor {
             this.sessionId = sessionId;
         }
     }
+
 }
 
