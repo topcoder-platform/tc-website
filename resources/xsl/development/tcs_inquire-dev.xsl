@@ -152,7 +152,7 @@
                                 <strong>
                                 <a class="statText">
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Design&amp;date=', /TC/DEVELOPMENT/date)"/>
+                                        <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Development&amp;date=', /TC/DEVELOPMENT/date)"/>
                                     </xsl:attribute>
                                     Register for the Component Project
                                 </a>
