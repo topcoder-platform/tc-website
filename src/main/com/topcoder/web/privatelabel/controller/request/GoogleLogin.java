@@ -12,6 +12,7 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -92,10 +93,12 @@ public class GoogleLogin extends FullLogin {
         } catch (LoginException e) {
             addError(Constants.HANDLE, e.getMessage());
         }
+
         User user = (User) createEJB(getInitialContext(), User.class);
         char status = user.getStatus(getAuthentication().getActiveUser().getId(), db);
         if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
-            ret = true;
+            Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
+            ret = coder.exists(getAuthentication().getActiveUser().getId(), db);
         }
         return ret;
 
