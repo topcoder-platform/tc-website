@@ -92,7 +92,6 @@ public class Controller
                 try {
                     task.process();
                 } catch (TaskException e) {
-                    log.error(e.getMessage());
                     forwardToError(request, response, e);
                     return;
                 }
@@ -144,6 +143,7 @@ public class Controller
 
     void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
             throws ServletException {
+        exception.printStackTrace();
         if (request != null) {
             request.setAttribute(EXCEPTION, exception);
         }
