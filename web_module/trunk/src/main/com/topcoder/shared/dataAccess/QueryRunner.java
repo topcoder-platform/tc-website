@@ -20,6 +20,9 @@ import com.topcoder.shared.util.TCResourceBundle;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/18 23:57:53  gpaul
+ *           added so that one could dynamically create queries on the front end and then get result sets back
+ *
  * @author  Greg Paul
  * @see     ResultSetContainer
  */
@@ -63,16 +66,9 @@ public class QueryRunner implements DataRetrieverInt {
 
     private void handleException(Exception e, String lastQuery, Map inputs) {
         try {
-            System.out.println( "Statistics EJB: Exception caught: " + e.toString());
+            System.out.println( "Exception caught: " + e.toString());
             System.out.println( "The last query run was: ");
             System.out.println( lastQuery);
-            System.out.println( "Function inputs were: ");
-            Iterator i = inputs.keySet().iterator();
-            while (i.hasNext()) {
-                String key = (String)i.next();
-                String value = (String)inputs.get(key);
-                System.out.println( "Input code: " + key + " --- Input value: " + value);
-            }
             System.out.println( "Exception details:");
             if (e instanceof SQLException)
                 DBMS.printSqlException(true, (SQLException)e);
