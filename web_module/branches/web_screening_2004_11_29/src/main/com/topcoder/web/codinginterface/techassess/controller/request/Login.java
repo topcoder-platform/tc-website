@@ -21,7 +21,7 @@ public class Login extends Base {
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE).trim();
         } else {
-            addError(Constants.HANDLE, "Please enter your user name");
+            addError(Constants.HANDLE, "Please enter your login");
         }
 
         if (hasParameter(Constants.PASSWORD)) {
