@@ -38,7 +38,7 @@
 		out.print("<input type=hidden name=\"query\" value=\""+(String) request.getAttribute("query")+"\">");
 %>
 
-		<table border="0" cellpadding="5" cellspacing="5">
+		<table border="0" cellpadding="5" cellspacing="0">
 		<tr>
 		<td></td>
 		<td><b>ID</b></td>
