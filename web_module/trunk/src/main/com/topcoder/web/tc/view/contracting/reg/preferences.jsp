@@ -77,7 +77,7 @@ return false;
 			</tr>
 		</table>
 		
-		<FORM ACTION="" METHOD=POST onSubmit="">
+		<FORM ACTION="" METHOD=POST onSubmit="" enctype="multipart/form-data">
 		
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
                     <span class=bodySubtitle><%=prefGroup.getName()%></span>
