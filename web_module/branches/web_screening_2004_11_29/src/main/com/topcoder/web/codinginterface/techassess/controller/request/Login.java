@@ -19,7 +19,7 @@ public class Login extends Base {
         long companyId = 0;
 
         if (hasParameter(Constants.HANDLE)) {
-            handle = getRequest().getParameter(Constants.HANDLE).trim();
+            handle = getRequest().getParameter(Constants.HANDLE);
         } else {
             addError(Constants.HANDLE, "Please enter your login");
         }
