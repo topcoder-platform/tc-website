@@ -158,7 +158,7 @@
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
 
 <!-- Vertex begins -->
-                            <tr valign="top">
+<!--<script>                            <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
                                 <td width="99%" class="bodyText">Vertex Pharmaceuticals Incorporated is a global biotechnology company focused on the 
                                 discovery, development and commercialization of breakthrough drugs for a range of serious diseases. We are looking for an 
@@ -166,6 +166,7 @@
                             </tr>
                             
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+</script>-->
  <!--Vertex ends -->
 
 <!-- TopCoder begins-->
