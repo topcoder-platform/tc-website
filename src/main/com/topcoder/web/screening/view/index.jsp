@@ -53,7 +53,7 @@
                 <tr><td colspan="3" class="bodyText" align="center"><screen:servletlink processor="PopulateSession" styleclass="bodyText">Create a New Session</screen:servletlink></td></tr>                                                       
             </table>
             <p><br/></p>    
-        </td>
+        </td> 
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
