@@ -73,7 +73,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         return statsByLang;
     }
 
-    public void setStatsByLang() {
+    public void setStatsByLang(List statsByLang) {
         this.statsByLang = statsByLang;
     }
 
@@ -140,7 +140,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     private void viewMemberProfile() throws Exception
     {
-        NumberFormat decFmt = new DecimalFormat("#.##");
+        NumberFormat decFmt = TCESConstants.NUMBER_FORMAT;
 
         Map memberInfo = new HashMap();
         ArrayList statsByLevel = new ArrayList();
@@ -343,13 +343,13 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[1],
                        memStatLangRow.getItem("submitted").toString() );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[2],
-                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("submit_percent").toString()) + "%" );
+                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("submit_percent").toString())) + "%" );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[3],
                        memStatLangRow.getItem("num_correct").toString() );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[4],
-                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("submission_accuracy").toString())+"%" );
+                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("submission_accuracy").toString())) +"%" );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
-                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("avg_submission_points").toString()) );
+                       memStatLangRow.getItem(decFmt.format( Double.parseDouble("avg_submission_points").toString())) );
             language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
                        memStatLangRow.getItem("avg_submit_time").toString() );
 
