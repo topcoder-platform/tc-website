@@ -67,7 +67,7 @@ TopCoder and TopCoder Software are now creating software components and applicat
 </P>
 
 <P>
-Each project team will consist of a TopCoder Software Product Manager along with an architect, developer(s) and QA developer(s) from the member base.  They will follow TopCoder Software’s iterative development methodology to lead them through a number of phases of design, development and deployment.
+Each project team will consist of a TopCoder Software Product Manager along with an architect, developer(s) and QA developer(s) from the member base.  They will follow TopCoder Software's iterative development methodology to lead them through a number of phases of design, development and deployment.
 </P>
 
 <P>
@@ -85,7 +85,7 @@ The intention of this posting is to amass a group of members interested in the a
   product manager.</LI>
   <LI>Design the technical architecture for software components and software applications.</LI>
   <LI>The design must adhere to Object Oriented design principles.</LI>
-  <LI>The design must maintain TopCoder Software’s reusable component focus.</LI>
+  <LI>The design must maintain TopCoder Software's reusable component focus.</LI>
   <LI>Designs must be provided in industry standard formats, such as UML.</LI>
   <LI>Communicate architecture design and vision with the product manager and project team.</LI>
   <LI>Manage the project team to ensure the on-time development of a quality component.</LI>
@@ -133,7 +133,7 @@ The intention of this posting is to amass a group of members interested in the a
 </P>
 
 <P>
-TopCoder will compensate all team members for their work on a project.  Compensation will consist of both initial payments and royalties on the sale of the component or software application developed during the project.  The royalty amount is determined using the company royalty pool percentage, currently set as 5% of the component’s revenue, and the percentage of the developer’s contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
+TopCoder will compensate all team members for their work on a project.  Compensation will consist of both initial payments and royalties on the sale of the component or software application developed during the project.  The royalty amount is determined using the company royalty pool percentage, currently set as 5% of the component's revenue, and the percentage of the developer's contribution to the total contribution for the development of the component.  For example if a developer contributes 50% of the work effort for a component (is paid 50% of the total member cost of developing the component) that developer will receive 50% of the royalty pool for that component.  Royalties may be diluted if additional work is done to the component, as the total cost of the component will increase. 
 </P>
 
 <P>
