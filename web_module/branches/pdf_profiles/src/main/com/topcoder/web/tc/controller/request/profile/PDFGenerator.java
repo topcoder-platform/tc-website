@@ -55,8 +55,6 @@ public class PDFGenerator extends BaseProcessor {
     
     private PlacementConfig getConfig() throws Exception {
         int uid = Integer.parseInt(StringUtils.checkNull(getRequest().getParameter("uid")));
-        
-        log.debug("UID="+ uid);
 
         PlacementConfig config = new PlacementConfig();
 
@@ -141,7 +139,7 @@ public class PDFGenerator extends BaseProcessor {
         config.setSubmissionTime(formatTime(rsc.getIntItem(0, "time_elapsed")));
         config.setSubmissionText(rsc.getStringItem(0, "submission_text"));
         
-        ProblemComponent[] arrProblemComponent = new ProblemComponent[0];
+        ProblemComponent[] arrProblemComponent = new ProblemComponent[1];
         arrProblemComponent[0] = new ProblemComponentFactory().build(rsc.getStringItem(0, "problem_text"), true);
         Problem problem = new Problem();
         problem.setProblemComponents(arrProblemComponent);
