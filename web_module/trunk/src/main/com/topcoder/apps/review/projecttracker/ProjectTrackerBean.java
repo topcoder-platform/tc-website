@@ -825,6 +825,18 @@ public class ProjectTrackerBean implements SessionBean {
                     Common.close(ps);
                 }
                 
+                //aggregate scores for stats
+                if(currentPhase.getId() == Phase.ID_FINAL_FIXES || currentPhase.getId() == Phase.ID_FINAL_REVIEW || currentPhase.getId() == Phase.ID_COMPONENT_PREPARATION)
+                {
+                    try{
+                       finalizeScores(project.getId());
+                    }
+                    catch(Exception e)
+                    {
+                       throw new InvalidEditException("Finalize Score Exception: " + e.getMessage());
+                    }
+                }
+                
                 if (oldStatusId != project.getProjectStatus().getId() && (
                    project.getProjectStatus().getId() == ProjectStatus.ID_TERMINATED ||
                    project.getProjectStatus().getId() == ProjectStatus.ID_COMPLETED ||
@@ -833,6 +845,7 @@ public class ProjectTrackerBean implements SessionBean {
                     //save score
                     try{
                        finalizeScores(project.getId());
+                       setComplete(project.getId());
                     }
                     catch(Exception e)
                     {
@@ -2646,6 +2659,69 @@ public class ProjectTrackerBean implements SessionBean {
     public void setSessionContext(SessionContext ctx) throws EJBException, RemoteException {
         this.ejbContext = ctx;
     }
+    
+    public void setComplete(long projectId)  throws Exception, RemoteException
+    {
+        
+        final String setCompleteDate = "update project set complete_date = CURRENT where project_id = ? and cur_version = 1";
+        final String setRatingInd = "update project_result set rating_ind = 1 where project_id = ? and valid_submission_ind = 1";
+        
+        PreparedStatement psCompleteDate = null;
+        PreparedStatement psRatingInd = null;
+        Connection conn = null;
+        try{
+            conn = dataSource.getConnection();
+            
+            psCompleteDate = conn.prepareStatement(setCompleteDate);
+            psCompleteDate.setLong(1, projectId);
+            psCompleteDate.execute();
+            
+            psRatingInd = conn.prepareStatement(setRatingInd);
+            psRatingInd.setLong(1, projectId);
+            psRatingInd.execute();
+            
+
+        }
+        catch(SQLException sqe)
+        {
+           throw new Exception(sqe);
+        }
+        finally {
+            if(psCompleteDate != null)
+            {
+                try{
+                    psCompleteDate.close();
+                }
+                catch(SQLException sqe)
+                {
+                    System.err.println("Tried to close completed date ps: " +
+                        sqe);
+                }
+            }
+            if(psRatingInd != null)
+            {
+                try{
+                    psRatingInd.close();
+                }
+                catch(SQLException sqe)
+                {
+                    System.err.println("Tried to close ratind ind ps: " +
+                        sqe);
+                }
+            }
+            if(conn != null)
+            {
+                try{
+                    conn.close();
+                }
+                catch(SQLException sqe)
+                {
+                    System.err.println("Tried to close insert scores ps: " +
+                        sqe);
+                }
+            }
+        }
+    }
 
     public void finalizeScores(long projectId)  throws Exception, RemoteException
     {
@@ -2707,27 +2783,14 @@ public class ProjectTrackerBean implements SessionBean {
                                     "            payment = ?" +
                                     "      where user_id = ?"+
                                     "             and project_id = ?";
-        
-        final String setCompleteDate = "update project set complete_date = CURRENT where project_id = ? and cur_version = 1";
-        final String setRatingInd = "update project_result set rating_ind = 1 where project_id = ? and valid_submission_ind = 1";
-        
+       
         PreparedStatement psRetrieveScores = null;
         PreparedStatement psInsertScores = null;
-        PreparedStatement psCompleteDate = null;
-        PreparedStatement psRatingInd = null;
         ResultSet rsScores = null;
         Connection conn = null;
         try{
             conn = dataSource.getConnection();
-            
-            psCompleteDate = conn.prepareStatement(setCompleteDate);
-            psCompleteDate.setLong(1, projectId);
-            psCompleteDate.execute();
-            
-            psRatingInd = conn.prepareStatement(setRatingInd);
-            psRatingInd.setLong(1, projectId);
-            psRatingInd.execute();
-            
+                       
             psRetrieveScores = conn.prepareStatement(retrieveScores);
             psRetrieveScores.setLong(1, projectId);
             rsScores = psRetrieveScores.executeQuery();
@@ -2752,8 +2815,6 @@ public class ProjectTrackerBean implements SessionBean {
                     money = 0;
                 }
 
-                
-                
                 //score
                 psInsertScores.setDouble(1, score);
 
@@ -2814,28 +2875,6 @@ public class ProjectTrackerBean implements SessionBean {
                 catch(SQLException sqe)
                 {
                     System.err.println("Tried to close insert scores ps: " +
-                        sqe);
-                }
-            }
-            if(psCompleteDate != null)
-            {
-                try{
-                    psCompleteDate.close();
-                }
-                catch(SQLException sqe)
-                {
-                    System.err.println("Tried to close completed date ps: " +
-                        sqe);
-                }
-            }
-            if(psRatingInd != null)
-            {
-                try{
-                    psRatingInd.close();
-                }
-                catch(SQLException sqe)
-                {
-                    System.err.println("Tried to close ratind ind ps: " +
                         sqe);
                 }
             }
