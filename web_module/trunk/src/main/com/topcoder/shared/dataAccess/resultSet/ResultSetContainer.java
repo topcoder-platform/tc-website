@@ -202,6 +202,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         System.arraycopy(columns, 0, tempColumns, 0, columns.length);
         tempColumns[columns.length] = new ResultColumn(Types.INTEGER, "rank", 9, 0, "");
         columns = tempColumns;
+        columnNameMap.put("rank", new Integer(ranklistCol));
 
         if (start > end)
             return;
