@@ -10,6 +10,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/04/02 21:54:14  gpaul
+ *           moving the load over from 153 cvs
+ *
  *           Revision 1.1.2.4  2002/03/19 18:30:42  gpaul
  *           Log.msg instead of system.out.println
  *
@@ -421,6 +424,36 @@ public abstract class TCLoad {
                       ".\n" + ex.getMessage());
     }
   }
+
+
+  /**
+   * Convenience method for retrieving an integer parameter from
+   * the Hashtable of parameters passed to this load.
+   */
+  protected Boolean retrieveBooleanParam(String paramName, Hashtable params,
+                                     boolean optional)
+    throws Exception
+  {
+    String tmp = (String)params.get(paramName);
+    if(tmp == null) {
+      if(!optional)
+        throw new Exception("Please specify a "+ paramName + ".\n"+
+                            USAGE_MESSAGE);
+      else
+        return null;
+    }
+
+    try {
+      return Boolean.valueOf(tmp);
+    }
+    catch(Exception ex) {
+      throw new Exception("Invalid "+ paramName + ": " + tmp +
+                      ".\n" + ex.getMessage());
+    }
+  }
+
+
+
 
   /**
    * This method executes a given statement and returns the

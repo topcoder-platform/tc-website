@@ -27,6 +27,9 @@ package com.topcoder.utilities.dwload;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/04/02 21:54:14  gpaul
+ *           moving the load over from 153 cvs
+ *
  *           Revision 1.1.2.12  2002/03/22 03:50:00  gpaul
  *           fix so problems submitted shows 0, not null
  *
@@ -92,6 +95,7 @@ public class TCLoadAggregate extends TCLoad {
   // The following set of variables are all configureable from the command
   // line by specifying -variable (where the variable is after the //)
   // followed by the new value
+  private int fRoundId = -1;                 // roundid
   private int STATUS_FAILED          = 0;    // failed
   private int STATUS_SUCCEEDED       = 1;    // succeeded
   private int SINGLE_ROUND_MATCH     = 1;    // singrndmatch
@@ -102,6 +106,7 @@ public class TCLoadAggregate extends TCLoad {
   private int STATUS_CHLNG_SUCCEEDED = 140;  // chlngsucceeded
   private int STATUS_PASSED_SYS_TEST = 150;  // passsystest
   private int STATUS_FAILED_SYS_TEST = 160;  // failsystest
+  private boolean FULL_LOAD          = false;//fullload
 
   /**
    * Constructor. Set our usage message here.
@@ -109,16 +114,18 @@ public class TCLoadAggregate extends TCLoad {
   public TCLoadAggregate() {
     USAGE_MESSAGE = new String(
 "TCLoadAggregate parameters - defaults in ():\n"+
+"  -roundid number       : Round ID to load\n"+
 "  [-failed number]         : Failed status for succeeded column    (0)\n"+
 "  [-succeeded number]      : Succeeded status for succeeded column (1)\n"+
+"  [-singrndmatch number]   : Round_type_id for single round matches   (1)\n"+
+"  [-conswinsdiv1 number]   : Streak_type_id for consecutive div1 wins (1)\n"+
+"  [-conswinsdiv2 number]   : Streak_type_id for consecutive div2 wins (2)\n"+
 "  [-opened number]         : Problem_status of opened              (120)\n"+
 "  [-submitted number]      : Problem_status of submitted           (130)\n"+
 "  [-chlngsucceeded number] : Problem_status of challenge succeeded (140)\n"+
 "  [-passsystest number]    : Problem_status of passed system test  (150)\n"+
 "  [-failsystest number]    : Problem_status of failed system test  (160)\n"+
-"  [-conswinsdiv1 number]   : Streak_type_id for consecutive div1 wins (1)\n"+
-"  [-conswinsdiv2 number]   : Streak_type_id for consecutive div2 wins (2)\n"+
-"  [-singrndmatch number]   : Round_type_id for single round matches   (1)\n");
+"  [-fullload boolean] : true-clean round load, false-selective  (false)\n");
   }
 
   /**
@@ -127,6 +134,9 @@ public class TCLoadAggregate extends TCLoad {
   public boolean setParameters(Hashtable params) {
     try {
       Integer tmp;
+      Boolean tmpBool;
+
+      fRoundId = retrieveIntParam("roundid", params, false, true).intValue();
 
       tmp = retrieveIntParam("failed", params, true, true);
       if(tmp != null) {
@@ -187,6 +197,13 @@ public class TCLoadAggregate extends TCLoad {
         SINGLE_ROUND_MATCH = tmp.intValue();
         System.out.println("New singrndmatch is " + SINGLE_ROUND_MATCH);
       }
+
+      tmpBool = retrieveBooleanParam("fullload", params, true);
+      if(tmpBool != null) {
+        FULL_LOAD = tmpBool.booleanValue();
+        Log.msg("New fullload flag is " + FULL_LOAD);
+      }
+      
     }
     catch(Exception ex) {
       setReasonFailed(ex.getMessage());
@@ -514,9 +531,15 @@ public class TCLoadAggregate extends TCLoad {
       fSql.append( " ,SUM(cp.defense_points)");   //16
       fSql.append( " ,AVG(cp.time_elapsed)");     //17
       fSql.append( " FROM coder_problem cp");
-      fSql.append( " group by 1,2,3");
+      if (!FULL_LOAD) {   //if it's not a full load, just load up the people that competed in the round we're loading
+        fSql.append( " WHERE cp.coder_id IN");
+        fSql.append(                " (SELECT coder_id");
+        fSql.append(                   " FROM room_result");
+        fSql.append(                  " WHERE attended = 'Y'");
+        fSql.append(                    " AND round_id = " + fRoundId + ")");
+      }
+      fSql.append( " GROUP BY 1,2,3");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
-
       fSql.setLength(0);
       fSql.append("INSERT INTO coder_level ");
       fSql.append("      (coder_id ");                         // 1
@@ -1229,20 +1252,17 @@ public class TCLoadAggregate extends TCLoad {
 		   STATUS_OPENED + " and 121 THEN 1 ELSE 0 END)");
       // 10: submission_points
       fSql.append("  ,SUM(cp.submission_points) ");
-      // 11: challenge_points
-      fSql.append( " ,SUM(cp.challenge_points)");
-      // 12: system_test_points
-      fSql.append( " ,SUM(cp.system_test_points)");
-      // 13: defense_points
-      fSql.append( " ,SUM(cp.defense_points)");
-      // 14: average_points
-      fSql.append( " ,AVG(cp.final_points)");
-      // 15: point_standard_deviation
-      fSql.append("       ,STDEV(final_points) ");
-      // 16: final_points
-      fSql.append("       ,SUM(final_points) ");
+      fSql.append( " ,SUM(cp.challenge_points)"); // 11: challenge_points
+      fSql.append( " ,SUM(cp.system_test_points)"); // 12: system_test_points
+      fSql.append( " ,SUM(cp.defense_points)"); // 13: defense_points
+      fSql.append( " ,AVG(cp.final_points)"); // 14: average_points
+      fSql.append("       ,STDEV(final_points) "); // 15: point_standard_deviation
+      fSql.append("       ,SUM(final_points) "); // 16: final_points
       fSql.append("       ,AVG(time_elapsed) ");     //17
       fSql.append("  FROM coder_problem cp ");
+      if (!FULL_LOAD) {   //if it's not a full load, just load up the problems from this round
+        fSql.append( " WHERE cp.round_id =" + fRoundId);
+      }
       fSql.append(" GROUP BY 1,2,3 ");
       psSel = prepareStatement(fSql.toString(), SOURCE_DB);
       
