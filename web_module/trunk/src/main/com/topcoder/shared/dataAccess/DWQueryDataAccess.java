@@ -3,8 +3,9 @@ package com.topcoder.shared.dataAccess;
 import java.util.*;
 import javax.naming.*;
 import java.sql.Connection;
+import javax.sql.DataSource;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 
 /** 
  * This bean processes a Request and returns the data from the data warehouse.
@@ -13,6 +14,9 @@ import com.topcoder.shared.util.DBMS;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/07/19 00:07:17  gpaul
+ *           a DataAccessInt to handle running QueryRequests
+ *
  * @see     RequestInt
  */
 public class DWQueryDataAccess implements DataAccessInt {
@@ -32,7 +36,9 @@ public class DWQueryDataAccess implements DataAccessInt {
      */
     public Map getData(RequestInt request) throws Exception {
         try {
-            Connection conn = DBMS.getDWConnection();
+            Context ctx = TCContext.getInitial();
+            DataSource ds = (DataSource)ctx.lookup("DW");
+            Connection conn = ds.getConnection();
             QueryRunner qr = new QueryRunner(conn);
             Map map = qr.executeCommand(request.getProperties());
             if (conn != null && !conn.isClosed()) {

@@ -4,8 +4,9 @@ import java.util.*;
 import java.rmi.RemoteException;
 import javax.naming.*;
 import java.sql.Connection;
+import javax.sql.DataSource;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.shared.distCache.CacheClientFactory;
 
@@ -18,6 +19,9 @@ import com.topcoder.shared.distCache.CacheClientFactory;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/07/12 17:15:46  gpaul
+ *           merged baby
+ *
  *           Revision 1.1.2.2  2002/07/11 17:05:55  gpaul
  *           check if connection is closed before attempting to do it.
  *
@@ -80,7 +84,9 @@ public class OLTPCachedDataAccess implements DataAccessInt {
             }
             /* it was not in the cache */
             if (map == null) {
-              conn = DBMS.getConnection();
+              Context ctx = TCContext.getInitial();
+              DataSource ds = (DataSource)ctx.lookup("OLTP");
+              conn = ds.getConnection();
               dr = new DataRetriever(conn);
               map = dr.executeCommand(request.getProperties());
               if (conn != null && !conn.isClosed()) {
