@@ -80,25 +80,35 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
 
         checkQueryId(getQueryId(), q);
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            QueryInputBean qib = null;
-            for (int j=0; j<getCurrentInputList().size(); j++) {
-                qib = (QueryInputBean)getCurrentInputList().get(j);
-                qi.setDefaultValue(qib.getQueryId(), qib.getInputId(), qib.getDefaultValue());
-                qi.setOptional(qib.getQueryId(), qib.getInputId(), qib.isOptional()?'Y':'N');
-                qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder());
+            checkSortOrder(getCurrentInputList());
+            checkDefaultValue(getCurrentInputList());
+            if (!super.hasErrors()) {
+                QueryInputBean qib = null;
+                for (int j=0; j<getCurrentInputList().size(); j++) {
+                    qib = (QueryInputBean)getCurrentInputList().get(j);
+                    if (qib.isOptional()) {
+                        qi.setDefaultValue(qib.getQueryId(), qib.getInputId(), qib.getDefaultValue());
+                    }
+                    qi.setOptional(qib.getQueryId(), qib.getInputId(), qib.isOptional()?'Y':'N');
+                    qi.setSortOrder(qib.getQueryId(), qib.getInputId(), qib.getSortOrder());
+                }
             }
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
             checkInputId(getInputId(), i);
             if (isInputAssociated(getQueryId(), getInputId(), qi)) {
                 super.addError(Constants.INPUT_ID_PARAM, "Input already associated with Query");
             }
-            qi.createQueryInput(getQueryId(), getInputId());
+            if (!super.hasErrors()) {
+                qi.createQueryInput(getQueryId(), getInputId());
+            }
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             checkInputId(getInputId(), i);
             if (!isInputAssociated(getQueryId(), getInputId(), qi)) {
                 super.addError(Constants.INPUT_ID_PARAM, "Input not associated with Query");
             }
-            qi.removeQueryInput(getQueryId(), getInputId());
+            if (!super.hasErrors()) {
+                qi.removeQueryInput(getQueryId(), getInputId());
+            }
         }
 
         setCurrentInputList(qi.getInputsForQuery(getQueryId()));
@@ -229,8 +239,21 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
                     found = true;
                     super.addError(Constants.SORT_ORDER_PARAM + next.getInputId(), "Invalid sortorder specified");
                 }
+            }
+        }
+    }
 
-
+    private void checkDefaultValue(List list) {
+        QueryInputBean curr = null;
+        boolean found = false;
+        for (int i = 0; i < list.size() - 1 && !found; i++) {
+            curr = (QueryInputBean) list.get(i);
+            if (curr.isOptional()) {
+                if (curr.getDefaultValue().length()==0) {
+                    super.addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Missing default value");
+                } else if (curr.getDefaultValue().length() > 100) {
+                    super.addError(Constants.DEFAULT_VALUE_PARAM+ curr.getInputId(), "Default value too long");
+                }
             }
         }
     }
