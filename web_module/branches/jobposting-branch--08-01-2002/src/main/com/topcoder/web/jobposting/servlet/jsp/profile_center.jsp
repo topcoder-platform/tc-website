@@ -1,7 +1,7 @@
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 <jsp:useBean id="JobHitTask" scope="request" class="com.topcoder.web.jobposting.bean.JobHitTask" />
-<tc:getProperty id="coderType" name="JobHitTask" property="CoderType" />
+<tc:getProperty id="coderType" name="JobHitTask" property="CoderTypeId" />
 <img src="/i/clear.gif" width="240" height="1" vspace="5" border="0"><br>
   <div align="center">
   <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">

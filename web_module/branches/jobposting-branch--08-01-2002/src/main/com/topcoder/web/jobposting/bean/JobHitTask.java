@@ -2,18 +2,19 @@ package com.topcoder.web.jobposting.bean;
 
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.jobposting.common.Constants;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServicesHome;
 import com.topcoder.web.jobposting.ejb.JobPostingServices.JobPostingServices;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
-import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.util.Cache;
+import com.topcoder.common.web.data.*;
 import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.ejb.DataCache.DataCache;
 
 import javax.servlet.http.*;
-import javax.naming.InitialContext;
 import javax.naming.Context;
 import java.io.Serializable;
 import java.util.*;
@@ -42,49 +43,42 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     private String country;
     private String phone;
     private String handle;
-    private String password;
-    private String quote;
     private String email;
-    private String editor;
-    private String language;
-    private HashMap demographics;
-    private HashSet notifications;
-    private String schoolState;
-    private String school;
-    private String schoolName;
     private String coderType;
+    private String coderTypeId;
+    private String school;
+    private String degree;
+    private String major;
+    private String gradYear;
+    private String gradMonth;
+    private HashMap demographics;
     private boolean hasResume;
 
 
     /** Creates new JobHitTask */
     public JobHitTask() {
         super();
-        jobId = -1;
-        userId = -1;
-        hitType = -1;
-        jobHits = new ArrayList();
-        firstName = "";
-        lastName = "";
-        address1 = "";
-        address2 = "";
-        city = "";
-        state = "";
-        zip = "";
-        country = "";
-        phone = "";
-        handle = "";
-        password = "";
-        quote = "";
-        email = "";
-        editor = "";
-        language = "";
-        coderType = "";
-        demographics = new HashMap();
-        notifications = new HashSet();
-        schoolState = "";
-        school = "";
-        schoolName = "";
-        hasResume = false;
+        setUserId(-1);
+        setFirstName("");
+        setLastName("");
+        setAddress1("");
+        setAddress2("");
+        setCity("");
+        setState("");
+        setZip("");
+        setCountry("");
+        setPhone("");
+        setHandle("");
+        setEmail("");
+        setCoderType("");
+        setCoderTypeId("");
+        setSchool("");
+        setDegree("");
+        setMajor("");
+        setGradYear("");
+        setGradMonth("");
+        setDemographics(null);
+        setHasResume(false);
     }
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
@@ -159,6 +153,14 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     }
 
     private void loadUserInfo(com.topcoder.ejb.AuthenticationServices.User user) throws Exception {
+
+        Request oltpDataRequest = new Request();
+        oltpDataRequest.setContentHandle("member_profile_info");
+        oltpDataRequest.setProperty("mid", ""+getUserId());
+        DataAccess data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        Map resultMap = data.getData(oltpDataRequest);
+        ResultSetContainer rsc = (ResultSetContainer)resultMap.get("TCES_Member_Profile");
+
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
         setUserId(user.getUserId());
         setFirstName(coder.getFirstName());
@@ -171,16 +173,14 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setCountry(coder.getHomeCountry().getCountryCode());
         setPhone(coder.getHomePhone());
         setHandle(user.getHandle());
-        setQuote(coder.getQuote());
         setEmail(user.getEmail());
-        setEditor(Integer.toString(coder.getEditor().getEditorId()));
-        setLanguage(Integer.toString(coder.getLanguage().getLanguageId()));
-        setCoderType(Integer.toString(coder.getCoderType().getCoderTypeId()));
-        ArrayList notificationObjects = coder.getNotifications();
-        for (int i = 0; i < notificationObjects.size(); i++) {
-            Notify notify = (Notify) notificationObjects.get(i);
-            notifications.add(Integer.toString(notify.getNotifyId()));
-        }
+        setCoderType(coder.getCoderType().getCoderTypeDesc());
+        setCoderTypeId(Integer.toString(coder.getCoderType().getCoderTypeId()));
+        setSchool(coder.getCurrentSchool().getName());
+        setDegree(rsc.getItem(0, "degree").toString());
+        setMajor(rsc.getItem(0, "major").toString());
+        setGradYear(rsc.getItem(0, "grad_year").toString());
+        setGradMonth(rsc.getItem(0, "grad_month").toString());
 
         ArrayList assignments = getDemographicAssignments(coder.getCoderType().getCoderTypeId());
         for (int i = 0; i < assignments.size(); i++) {
@@ -201,9 +201,6 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
                 }
              }
         }
-        schoolState = coder.getCurrentSchool().getState().getStateCode();
-        school = Integer.toString(coder.getCurrentSchool().getSchoolId());
-        schoolName = coder.getCurrentSchool().getName();
 
         ResumeServicesHome rHome = null;
         ResumeServices rServices = null;
@@ -337,44 +334,12 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         this.handle = handle;
     }
 
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getQuote() {
-        return quote;
-    }
-
-    public void setQuote(String quote) {
-        this.quote = quote;
-    }
-
     public String getEmail() {
         return email;
     }
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getEditor() {
-        return editor;
-    }
-
-    public void setEditor(String editor) {
-        this.editor = editor;
-    }
-
-    public String getLanguage() {
-        return language;
-    }
-
-    public void setLanguage(String language) {
-        this.language = language;
     }
 
     public HashMap getDemographics() {
@@ -385,22 +350,6 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         this.demographics = demographics;
     }
 
-    public HashSet getNotifications() {
-        return notifications;
-    }
-
-    public void setNotifications(HashSet notifications) {
-        this.notifications = notifications;
-    }
-
-    public String getSchoolState() {
-        return schoolState;
-    }
-
-    public void setSchoolState(String schoolState) {
-        this.schoolState = schoolState;
-    }
-
     public String getSchool() {
         return school;
     }
@@ -409,20 +358,52 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         this.school = school;
     }
 
-    public String getSchoolName() {
-        return schoolName;
-    }
-
-    public void setSchoolName(String schoolName) {
-        this.schoolName = schoolName;
-    }
-
     public String getCoderType() {
         return coderType;
     }
 
     public void setCoderType(String coderType) {
         this.coderType = coderType;
+    }
+
+    public String getCoderTypeId() {
+        return coderTypeId;
+    }
+
+    public void setCoderTypeId(String coderTypeId) {
+        this.coderTypeId = coderTypeId;
+    }
+
+    public String getDegree() {
+        return degree;
+    }
+
+    public void setDegree(String degree) {
+        this.degree = degree;
+    }
+
+    public String getMajor() {
+        return major;
+    }
+
+    public void setMajor(String major) {
+        this.major = major;
+    }
+
+    public String getGradYear() {
+        return gradYear;
+    }
+
+    public void setGradYear(String gradYear) {
+        this.gradYear = gradYear;
+    }
+
+    public String getGradMonth() {
+        return gradMonth;
+    }
+
+    public void setGradMonth(String gradMonth) {
+        this.gradMonth = gradMonth;
     }
 
 
