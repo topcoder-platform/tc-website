@@ -1,7 +1,7 @@
 /*
- * ProblemStatisticsTask.java
+ * ProblemStatementTask.java
  *
- * Created on August 27, 2002, 1:07 PM
+ * Created on August 27, 2002, 2:38 PM
  */
 
 package com.topcoder.web.tces.bean;
@@ -23,9 +23,9 @@ import java.util.Map;
  *
  * @author  George Dean
  */
-public class ProblemStatisticsTask extends BaseTask implements Task, Serializable {
+public class ProblemStatementTask extends Object implements java.io.Serializable {
     
-    private static Logger log = Logger.getLogger(ProblemStatisticsTask.class);
+    private static Logger log = Logger.getLogger(ProblemStatementTask.class);
 
     private int uid;
     private int cid;
@@ -35,44 +35,51 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
     /** Holds value of property problemID. */
     private int problemID;
     
-    /** Holds value of property handle. */
-    private String handle;
+    /** Holds value of property contestName. */
+    private String contestName;
     
-    /** Holds value of property problemStats. */
-    private ResultSetContainer.ResultSetRow problemStats;
+    /** Holds value of property divisionName. */
+    private String divisionName;
     
-    /** Holds value of property problemStatsByLanguage. */
-    private List problemStatsByLanguage;
+    /** Holds value of property problemName. */
+    private String problemName;
     
-    public String timeFormat(TCResultItem result){
-        double millisec = Double.parseDouble(result.toString());
-        int sec = (int)(millisec / 1000);
-        int min = sec/60;
-        sec %= 60;
-        return min + " mins " + sec + " secs";
-    }
+    /** Holds value of property problemText. */
+    private String problemText;
     
-    public String autoFormat(TCResultItem result){
-        switch(result.getType()){
-            case TCResultItem.DOUBLE:
-                return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue());
-            case TCResultItem.FLOAT:
-                return TCESConstants.NUMBER_FORMAT.format(((Float)result.getResultData()).floatValue());
-            case TCResultItem.BIGDECIMAL:
-                return TCESConstants.NUMBER_FORMAT.format(((BigDecimal)result.getResultData()).doubleValue());
-            default:
-                return result.toString();
+    private String formatProblemText(String sProblemText){
+        //here is where we make the problem-text readable
+        int i=-1;
+        while((i = sProblemText.indexOf("\n\n"))>=0){
+            sProblemText = sProblemText.substring(0,i+1) + "&nbsp;" + sProblemText.substring(i+1);
         }
-    }
-    
-    public String getStatistic(String name){
-        try{
-            return autoFormat(getProblemStats().getItem(name));
-        }catch(NullPointerException npe){
-            log.debug("Null pointer exception in ProblemStatisticsTask.getStatistic(\""
-                      + name + "\")");
-            return "";
+        java.util.StringTokenizer strtok = new java.util.StringTokenizer(sProblemText,"\n");
+        StringBuffer stBuffer = new StringBuffer(sProblemText.length());
+        String sTemp = "";
+        boolean bAsciiArt = false;
+        while (strtok.hasMoreTokens()){
+            sTemp = strtok.nextToken();
+            bAsciiArt = (sTemp.length() < 100);	 
+            for (i=0; i < sTemp.length() && sTemp.charAt(i)==' '; i++){
+                bAsciiArt = true;
+                stBuffer.append("&nbsp;");
+            }
+            sTemp = sTemp.substring(i);
+            if (!bAsciiArt) stBuffer.append(JSPUtils.htmlEncode(sTemp));
+            else{
+                for (i=0;i<sTemp.length(); i++){
+                    if (sTemp.charAt(i)==' ')
+                        stBuffer.append("&nbsp;");
+                    else if (sTemp.charAt(i)=='\t')
+                        stBuffer.append("&nbsp;&nbsp;&nbsp;");
+                    else
+                        stBuffer.append(JSPUtils.htmlEncode(sTemp.substring(i, i+1)));
+                }
+            }
+            stBuffer.append("<BR>");
         }
+        
+        return stBuffer.toString();
     }
     
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
@@ -90,10 +97,10 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
     }
 
     public void processStep(String step) throws Exception {
-        viewProblemStatistics();
+        viewProblemStatement();
     }
     
-    private void viewProblemStatistics() throws Exception {
+    private void viewProblemStatement() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_problem_statistics");
 
@@ -106,14 +113,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
         
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
-        if (rsc.getRowCount() == 0) {
-            throw new Exception ("No member handle!");
-        }
-        ResultSetContainer.ResultSetRow handleRow = rsc.getRow(0);
-        setHandle( handleRow.getItem("handle").toString() );
-
-        rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
+        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("mid="+Integer.toString(getMemberID())+
                                  " jid="+Integer.toString(getJobID())+
@@ -124,16 +124,17 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         resultMap = dai.getData(dataRequest);
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Problem_Stats");
+        rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Statement");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("No problem data!");
         }
-        setProblemStats( rsc.getRow(0) );
-
-        rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Stats_by_Language");
-        setProblemStatsByLanguage( (List)rsc );
+        ResultSetContainer.ResultSetRow problemRow = rsc.getRow(0);
+        setContestName( problemRow.getItem("contest_name").toString() );
+        setDivisionName( problemRow.getItem("division_desc").toString() );
+        setProblemName( problemRow.getItem("class_name").toString() );
+        setProblemText( formatProblemText(problemRow.getItem("problem_text").toString()) );
         
-        setNextPage( TCESConstants.PROBLEM_STATISTICS_PAGE );
+        setNextPage( TCESConstants.PROBLEM_STATEMENT_PAGE );
     }
     
     public void setAttributes(String paramName, String[] paramValues) {
@@ -150,10 +151,10 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
             setProblemID(Integer.parseInt(value));
     }
     
-    /** Creates new ProblemStatisticsTask */
-    public ProblemStatisticsTask() {
+    /** Creates new ProblemStatementTask */
+    public ProblemStatementTask() {
         super();
-        setNextPage(TCESConstants.PROBLEM_STATISTICS_PAGE);
+        setNextPage(TCESConstants.PROBLEM_STATEMENT_PAGE);
 
         uid=-1;
     }
@@ -214,46 +215,60 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         this.problemID = problemID;
     }
     
-    /** Getter for property handle.
-     * @return Value of property handle.
+    /** Getter for property contestName.
+     * @return Value of property contestName.
      */
-    public String getHandle() {
-        return this.handle;
+    public String getContestName() {
+        return this.contestName;
     }
     
-    /** Setter for property handle.
-     * @param handle New value of property handle.
+    /** Setter for property contestName.
+     * @param contestName New value of property contestName.
      */
-    public void setHandle(String handle) {
-        this.handle = handle;
+    public void setContestName(String contestName) {
+        this.contestName = contestName;
     }
     
-    /** Getter for property problemStats.
-     * @return Value of property problemStats.
+    /** Getter for property divisionName.
+     * @return Value of property divisionName.
      */
-    public ResultSetContainer.ResultSetRow getProblemStats() {
-        return this.problemStats;
+    public String getDivisionName() {
+        return this.divisionName;
     }
     
-    /** Setter for property problemStats.
-     * @param problemStats New value of property problemStats.
+    /** Setter for property divisionName.
+     * @param divisionName New value of property divisionName.
      */
-    public void setProblemStats(ResultSetContainer.ResultSetRow problemStats) {
-        this.problemStats = problemStats;
+    public void setDivisionName(String divisionName) {
+        this.divisionName = divisionName;
     }
     
-    /** Getter for property problemStatsByLanguage.
-     * @return Value of property problemStatsByLanguage.
+    /** Getter for property problemName.
+     * @return Value of property problemName.
      */
-    public List getProblemStatsByLanguage() {
-        return this.problemStatsByLanguage;
+    public String getProblemName() {
+        return this.problemName;
     }
     
-    /** Setter for property problemStatsByLanguage.
-     * @param problemStatsByLanguage New value of property problemStatsByLanguage.
+    /** Setter for property problemName.
+     * @param problemName New value of property problemName.
      */
-    public void setProblemStatsByLanguage(List problemStatsByLanguage) {
-        this.problemStatsByLanguage = problemStatsByLanguage;
+    public void setProblemName(String problemName) {
+        this.problemName = problemName;
+    }
+    
+    /** Getter for property problemText.
+     * @return Value of property problemText.
+     */
+    public String getProblemText() {
+        return this.problemText;
+    }
+    
+    /** Setter for property problemText.
+     * @param problemText New value of property problemText.
+     */
+    public void setProblemText(String problemText) {
+        this.problemText = problemText;
     }
     
 }
