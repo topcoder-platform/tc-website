@@ -38,7 +38,7 @@
   LIABILITY AND PUBLICITY RELEASE<BR/>
   <BR/>
   <BR/>
-  2002 TopCoder Invitational<BR/> 
+  2003 TopCoder Collegiate Challenge<BR/>
   <BR/> 
   <BR/>
   </CENTER>
@@ -55,26 +55,19 @@
   <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
   <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
   &#160;
-   hereby state:  I am at least 18 years of age.  My date of birth is _________.  I hereby represent I am either:<BR/>
+   hereby state:  I am at least 18 years of age.  I am matriculated full-time at <xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/school_name"/>, which is an accredited college or university.
+   My date of birth is _________.  I hereby represent I am either:<BR/>
   <BR/>
   &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(a) a U.S.* citizen;<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(b) a lawful permanent resident of the U.S.*;<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(c) a non-immigrant residing in the U.S.* with a  valid visa; or<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(d) a citizen or legal permanent resident of one of the following countries:<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;a. Australia<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;b. Canada (but not Quebec)<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;c. China <BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;d. India<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;e. New Zealand<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;f. the United Kingdom<BR/>
-  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;g. Ireland<BR/>
+  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(b) a lawful permanent resident of the U.S.*; or<BR/>
+  &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(c) a non-immigrant residing in the U.S.* with a  valid visa;<BR/>
   <BR/>
   <BR/>
   (*Including the U.S. territories of Guam, Puerto Rico, and the U.S. Virgin Islands.)<BR/>
   <BR/>
-  I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2002 TopCoder Invitational (the "Contest").<BR/>
+  I am submitting this affidavit with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 TopCoder Collegiate Challenge (the "Contest").<BR/>
   <BR/>
-  I hereby represent that I am 18 years of age or older and that I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me.  I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone. <BR/>
+  I hereby represent that I am 18 years of age or older, that I am matriculated full-time at an accredited college or university, and that I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me.  I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone. <BR/>
   <BR/>
   Further, I represent that the following information contained in TopCoder's member database represents my personal, identifying information, and that such information is true, accurate and comprehensive:<BR/>
   <BR/>
@@ -171,7 +164,7 @@
     COUNTY OF&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;)
     <BR/>
     <BR/>
-    On this ___ day of ________, 2002, before me, ____________________, (notary name) personally appeared ____________________ (name of contestant) to me personally known, who, being by me duly sworn, did depose and say that he/she signed the foregoing instrument and he/she acknowledged the same to be his/her free act and deed.
+    On this ___ day of ________, 2003, before me, ____________________, (notary name) personally appeared ____________________ (name of contestant) to me personally known, who, being by me duly sworn, did depose and say that he/she signed the foregoing instrument and he/she acknowledged the same to be his/her free act and deed.
     <BR/>
     <BR/>
     <BR/>
@@ -202,7 +195,7 @@
 STATUTORY DECLARAION<BR/>
 <BR/>
 <BR/>
-2002 TopCoder Invitational<BR/> 
+2003 TopCoder Collegiate Challenge<BR/>
 <BR/> 
 <BR/>
 </CENTER>
@@ -233,8 +226,9 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
     <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
     <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
   </LI>
-  <LI>I am submitting this statutory declaration with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2002 TopCoder Invitational (the "Contest").</LI>
-  <LI>I hereby represent that I am 18 years of age or older and have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me.  I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.</LI>
+  <LI>I am matriculated full-time at <xsl:value-of select="/TC/AFFIDAVIT/Member/Profile/school_name"/>, which is an accredited college or university.</LI>
+  <LI>I am submitting this statutory declaration with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 TopCoder Collegiate Challenge (the "Contest").</LI>
+  <LI>I hereby represent that I am 18 years of age or older, that I am matriculated full-time at an accredited college or university,  and that I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me.  I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.</LI>
   <LI>Further, I represent that the following information contained in TopCoder's member database represents my personal, identifying information, and that such information is true, accurate and comprehensive:</LI>
   <HR/>
   Demographic Information<BR/>
@@ -296,7 +290,7 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
   <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
     <TABLE WIDTH="500" BORDER="0">
       <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2002 before me:</TD>
+        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
         <TD>)<BR/>)<BR/>)<BR/></TD>
         <TD></TD>
       </TR>
@@ -320,7 +314,7 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
   <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
     <TABLE WIDTH="500" BORDER="0">
       <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2002 before me:</TD>
+        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
         <TD>)<BR/>)<BR/>)<BR/></TD>
         <TD></TD>
       </TR>
@@ -344,7 +338,7 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
   <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit=0">
     <TABLE WIDTH="500" BORDER="0">
       <TR>
-        <TD>Declared before me at the _______________  this ___________ day of _____________ 2002 before me:</TD>
+        <TD>Declared before me at the _______________  this ___________ day of _____________ 2003 before me:</TD>
         <TD>)<BR/>)<BR/>)<BR/></TD>
         <TD></TD>
       </TR>
