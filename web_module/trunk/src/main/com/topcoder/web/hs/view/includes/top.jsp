@@ -8,6 +8,10 @@ function openWin(url, name, w, h) {
 }
 </script>
 
+<%
+   boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
+%>
+
 <a name="top"/>
 <!-- Global Links begins -->
 <table border="0" cellspacing="0" cellpadding="3" width="100%">
@@ -55,17 +59,21 @@ function openWin(url, name, w, h) {
 </table>
 
 <!-- Main Links begins -->
-<table cellspacing="0" cellpadding="3" width="100%" class="rednavBar" border="0">
+<table cellspacing="0" cellpadding="0" width="100%" class="rednavBar" border="0">
     <tr valign="middle">
         <td width="49%" class="rednav">&#160;</td>
 
-        <td class="rednav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="?module=Home" class="rednav">Home</a></td>
+<% if (isHomePage) { %>
+        <td class="rednavOn" nowrap>Home</td>
+<% } else { %>
+        <td class="rednav" nowrap><a href="?module=Home" class="rednavLink">Home</a></td>
+<%  } %>
 
 <% if(SessionInfo.isLoggedIn()) { %>
-        <td class="rednav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="?module=Static&d1=tour&d2=mem_tour" class="rednav">Competition Guide</a></td>
+        <td class="rednav" nowrap><a href="?module=Static&d1=tour&d2=mem_tour" class="rednavLink">Competition Guide</a></td>
 <% } %>
 
-        <td class="rednav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);" class="rednav">Quick Launch&#160;&gt;&gt;</a></td>
+        <td class="rednav" nowrap><a href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);" class="rednavLink">Quick Launch&#160;&gt;&gt;</a></td>
 
         <td width="49%" class="rednav">&#160;</td>
     </tr>
