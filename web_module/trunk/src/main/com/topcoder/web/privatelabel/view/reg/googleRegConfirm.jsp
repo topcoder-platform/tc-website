@@ -12,7 +12,8 @@
 <title>Google Code Jam 2003</title>
 <link rel=stylesheet href="http://www.google.com/google.css">
 
-<jsp:include page="../script.jsp" />
+<jsp:include page="../nocache.jsp"/>
+ <jsp:include page="../script.jsp" />
 
 <style><!--
 body,td,font,p,a

@@ -2,6 +2,7 @@
 <head>
 <title>Verizon Coding Contest Powered by TopCoder - Registration</title>
 
+<jsp:include page="../nocache.jsp"/>
 <jsp:include page="../script.jsp" />
 
 <script language="JavaScript" type="text/javascript" src="/js/verizon.js"></script>

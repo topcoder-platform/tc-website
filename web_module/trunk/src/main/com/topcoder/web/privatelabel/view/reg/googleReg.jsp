@@ -12,6 +12,7 @@
 
 <title>Google Code Jam 2003</title>
 
+
 <style><!--
 body,td,font,p,a
 {
@@ -35,7 +36,8 @@ body,td,font,p,a
 //-->
 </style>
 
-<jsp:include page="../script.jsp" /> 
+<jsp:include page="../script.jsp" />
+<jsp:include page="../nocache.jsp"/>
 
 <script>
 function openWin(url, name, w, h) {
@@ -48,7 +50,7 @@ function openWin(url, name, w, h) {
 </head>
 
     <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
-	
+
 	<div align="center">
 <%-- Google Header--%>
 <img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif">
