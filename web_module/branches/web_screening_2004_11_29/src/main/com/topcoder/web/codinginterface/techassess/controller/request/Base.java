@@ -144,6 +144,8 @@ public abstract class Base extends BaseProcessor {
 
     protected Message receive(int waitTime) throws TimeOutException {
 
+        if (messageId==null) throw new RuntimeException("You must call send before receive dummy");
+
         log.debug("setting up session errors");
         getRequest().getSession().setAttribute(ERRORS_KEY+messageId, errors);
         getRequest().removeAttribute(ERRORS_KEY);

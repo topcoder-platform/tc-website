@@ -55,12 +55,14 @@ public class Login extends Base {
             } else {
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
+
                 send(request);
 
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
                 showProcessingPage(info.getServletPath()+"?"+Constants.MODULE+"="+Constants.RP_LOGIN_RESPONSE);
 
                 ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000);
+
 
                 if (response.isSuccess()) {
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
