@@ -76,10 +76,6 @@ public class ReviewBoardApplication {
         this.reviewerTypeId = reviewerTypeId;
     }
 
-    public int getPhaseId() {
-        return component.getPhaseId();
-    }
-
 
     public boolean isSpotFilled() {
         return userId!=0;
