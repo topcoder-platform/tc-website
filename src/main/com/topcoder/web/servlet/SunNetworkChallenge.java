@@ -2,14 +2,12 @@ package com.topcoder.web.servlet;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.awt.*;
-import java.io.ByteArrayOutputStream;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  *  A servlet to allow us a pretty link to give sun

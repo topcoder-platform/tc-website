@@ -1,29 +1,44 @@
 package com.topcoder.web.servlet;
 
 import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.Browser;
+import com.topcoder.common.web.data.CoderRegistration;
+import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.common.web.util.*;
+import com.topcoder.common.web.util.Cache;
+import com.topcoder.common.web.util.Conversion;
+import com.topcoder.common.web.util.DateTime;
 import com.topcoder.common.web.xml.ExcludeRange;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.RequestInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCResourceBundle;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.ServletOutputStream;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import java.io.IOException;
+import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.util.*;
 import java.util.zip.GZIPOutputStream;
 
@@ -48,7 +63,7 @@ public final class MainServlet extends HttpServlet {
         super.init(config);
         bundle = new TCResourceBundle("ApplicationServer");
         xslCaching = new Boolean(bundle.getProperty("XSL_CACHING", "false")).booleanValue();
-        
+
     }
 
 
@@ -166,7 +181,7 @@ public final class MainServlet extends HttpServlet {
                         log.debug(msg.toString());
                         ctx = TCContext.getInitial();
                         UserServicesHome userHome = (UserServicesHome) ctx.lookup("UserServicesHome");
-                        UserServices userEJB = (UserServices) userHome.findByPrimaryKey(new Integer(nav.getUserId()));
+                        UserServices userEJB = userHome.findByPrimaryKey(new Integer(nav.getUserId()));
                         user = userEJB.getUser();
                         nav.setUser(user);
                         log.debug("MainServlet: user loaded from entity bean");
@@ -262,7 +277,7 @@ public final class MainServlet extends HttpServlet {
             else if (requestTask.equals("image")) {
                 response.setContentType("image/gif");
                 o = response.getOutputStream();
-                o.write(TaskImage.process(request, response, nav));
+                o.write(TaskImage.process(request));
             }
             //************************ search ************************
             else if (requestTask.equals("search")) {
@@ -278,7 +293,7 @@ public final class MainServlet extends HttpServlet {
                     Map resultMap = null;
 
                     dataRequest = new Request();
-                    dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+                    dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
                     dataRequest.setProperty("c", "top_room_winners");
                     dataRequest.setProperty("dn", "1");
                     dataRequest.setProperty("sr", "1");

@@ -1,16 +1,18 @@
 package com.topcoder.web.servlet;
 
 import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.CoderRegistration;
+import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.ejb.AuthenticationServices.User;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -110,7 +112,7 @@ public final class TaskDevelopment {
 
                     CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
                     int rating = coder.getRating().getRating();
-                    
+
                     TCSEmailMessage mail = new TCSEmailMessage();
                     mail.setSubject(project + " -- " + handle);
                     StringBuffer msgText = new StringBuffer(1000);
@@ -131,14 +133,15 @@ public final class TaskDevelopment {
                     mail.addToAddress(to, TCSEmailMessage.TO);
                     mail.setFromAddress(from);
                     EmailEngine.send(mail);
-                    
-                    if(rating <= 0)
+
+                    if (rating <= 0)
                         xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
-                    else xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
+                    else
+                        xsldocURLString = XSL_DIR + "inquiry_sent_pos.xsl";
                 } else {
                     requiresLogin = true;
                 }
-            } else if (command.length()>0) {
+            } else if (command.length() > 0) {
                 xsldocURLString = XSL_DIR + command + ".xsl";
             } else {
                 throw new Exception("Invalid command: " + command);

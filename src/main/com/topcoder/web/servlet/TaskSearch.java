@@ -2,7 +2,10 @@ package com.topcoder.web.servlet;
 
 import com.topcoder.common.web.constant.Sort;
 import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.MemberSearch;
+import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.data.Scroll;
+import com.topcoder.common.web.data.SortKey;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Cache;
 import com.topcoder.common.web.util.Conversion;
@@ -12,7 +15,10 @@ import com.topcoder.ejb.CoderStatistics.CoderStatisticsHome;
 import com.topcoder.ejb.DataCache.DataCache;
 import com.topcoder.ejb.Search.Search;
 import com.topcoder.ejb.Search.SearchHome;
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.TagRenderer;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
@@ -20,7 +26,10 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.List;
 
 
 public final class TaskSearch {

@@ -10,12 +10,19 @@ import com.topcoder.ejb.AuthenticationServices.Authentication;
 import com.topcoder.ejb.AuthenticationServices.User;
 import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
-import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.shared.util.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
+import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.EmailEngine;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.web.reg.bean.Registration;
 
 import javax.naming.Context;
-import javax.servlet.http.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 
 

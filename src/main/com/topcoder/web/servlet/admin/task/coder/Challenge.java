@@ -1,12 +1,17 @@
 package com.topcoder.web.servlet.admin.task.coder;
 
-import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.Navigation;
+import com.topcoder.common.web.data.Problem;
+import com.topcoder.common.web.data.Room;
+import com.topcoder.common.web.data.Round;
 import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServices;
 import com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome;
-import com.topcoder.shared.docGen.xml.*;
+import com.topcoder.shared.docGen.xml.RecordTag;
+import com.topcoder.shared.docGen.xml.ValueTag;
+import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;

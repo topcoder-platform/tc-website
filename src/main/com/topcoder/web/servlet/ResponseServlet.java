@@ -1,20 +1,21 @@
 package com.topcoder.web.servlet;
 
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
+import com.topcoder.ejb.AuthenticationServices.Authentication;
+import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
+import com.topcoder.ejb.AuthenticationServices.AuthenticationServicesHome;
+import com.topcoder.ejb.Util.Util;
+import com.topcoder.ejb.Util.UtilHome;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.ejb.AuthenticationServices.*;
-import com.topcoder.ejb.Util.*;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
 import javax.naming.InitialContext;
-import java.awt.*;
-import java.io.ByteArrayOutputStream;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Iterator;
-import java.util.Map;
 
 /**
  *  A servlet to insert a person's response to a question.
@@ -46,34 +47,34 @@ public final class ResponseServlet extends HttpServlet {
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
+            throws ServletException, IOException {
         int coderId = 0;
         String activationCode = null;
         int answerId = 0;
         int questionId = 0;
-        InitialContext ctx  = null;
+        InitialContext ctx = null;
         try {
-            coderId = request.getParameter("cr")==null?0:Integer.parseInt(request.getParameter("cr"));
-            activationCode = request.getParameter("code")==null?"":request.getParameter("code");
-            answerId = request.getParameter("ad")==null?0:Integer.parseInt(request.getParameter("ad"));
-            questionId = request.getParameter("qd")==null?0:Integer.parseInt(request.getParameter("qd"));
-            if (coderId==0) {
+            coderId = request.getParameter("cr") == null ? 0 : Integer.parseInt(request.getParameter("cr"));
+            activationCode = request.getParameter("code") == null ? "" : request.getParameter("code");
+            answerId = request.getParameter("ad") == null ? 0 : Integer.parseInt(request.getParameter("ad"));
+            questionId = request.getParameter("qd") == null ? 0 : Integer.parseInt(request.getParameter("qd"));
+            if (coderId == 0) {
                 forwardToErrorPage(request, response,
-                    new Exception("request missing coder id"),
-                    "Sorry, invalid request, it could not be processed.");
-            } else if (answerId==0) {
+                        new Exception("request missing coder id"),
+                        "Sorry, invalid request, it could not be processed.");
+            } else if (answerId == 0) {
                 forwardToErrorPage(request, response,
-                    new Exception("request missing answer id"),
-                    "Sorry, invalid request, it could not be processed.");
-            } else if (questionId==0) {
+                        new Exception("request missing answer id"),
+                        "Sorry, invalid request, it could not be processed.");
+            } else if (questionId == 0) {
                 forwardToErrorPage(request, response,
-                    new Exception("request missing question id"),
-                    "Sorry, invalid request, it could not be processed.");
+                        new Exception("request missing question id"),
+                        "Sorry, invalid request, it could not be processed.");
             }
-            
-            ctx = (InitialContext)TCContext.getInitial();
+
+            ctx = (InitialContext) TCContext.getInitial();
             AuthenticationServicesHome home =
-                (AuthenticationServicesHome) ctx.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
+                    (AuthenticationServicesHome) ctx.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
             AuthenticationServices authServices = home.create();
             Authentication authentication = authServices.getActivation(coderId);
             if (authentication.getActivationCode().equals(activationCode)) {
@@ -85,18 +86,18 @@ public final class ResponseServlet extends HttpServlet {
                     forwardToErrorPage(request, response, new Exception(), "Thank you for your response.");
                 } catch (Exception ex) {
                     forwardToErrorPage(request, response, ex,
-                         "Sorry, you can only answer a question once.");
+                            "Sorry, you can only answer a question once.");
                 }
             } else {
                 forwardToErrorPage(request, response,
-                    new Exception ("their activation code doesn't match what we have.\n" +
-                    "coder: " + coderId + " provided code: " + activationCode),
-                    "Sorry, invalid request, it could not be processed.");
+                        new Exception("their activation code doesn't match what we have.\n" +
+                        "coder: " + coderId + " provided code: " + activationCode),
+                        "Sorry, invalid request, it could not be processed.");
             }
-          
+
         } catch (Exception e) {
-          forwardToErrorPage(request, response, e,
-                  "Sorry, invalid request, it could not be processed.");
+            forwardToErrorPage(request, response, e,
+                    "Sorry, invalid request, it could not be processed.");
         }
 
     }

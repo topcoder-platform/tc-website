@@ -1,22 +1,25 @@
 package com.topcoder.web.servlet;
 
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.TCContext;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.ejb.Util.Util;
+import com.topcoder.ejb.Util.UtilHome;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.ejb.Util.*;
+import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.logging.Logger;
 
-import javax.servlet.*;
-import javax.servlet.http.*;
 import javax.naming.InitialContext;
-import java.awt.*;
-import java.io.ByteArrayOutputStream;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -49,46 +52,46 @@ public final class TourneyRegServlet extends HttpServlet {
     }
 
     public void process(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-        InitialContext ctx  = null;
+            throws ServletException, IOException {
+        InitialContext ctx = null;
         String roundId = null;
         String contestId = null;
-        int intRoundId = -1; 
-        int intContestId = -1; 
+        int intRoundId = -1;
+        int intContestId = -1;
         DataAccessInt transDai = null;
         Request dataRequest = null;
         ResultSetContainer rsc = null;
         Map resultMap = null;
         try {
             HttpSession session = request.getSession(true);
-            Navigation nav = (Navigation)session.getAttribute("navigation");
-            if (nav==null || !nav.getLoggedIn()) {
+            Navigation nav = (Navigation) session.getAttribute("navigation");
+            if (nav == null || !nav.getLoggedIn()) {
                 response.sendRedirect("http://" + request.getServerName() +
                         "/?t=authentication&c=login&errorMsg=" +
                         "You must be logged in to register for the Invitational.&errorURL=http://" +
                         request.getServerName() + request.getContextPath() + request.getServletPath() + "?" + replace(request.getQueryString()));
             } else {
-                ctx = (InitialContext)TCContext.getInitial();
+                ctx = (InitialContext) TCContext.getInitial();
                 roundId = request.getParameter("rd");
                 contestId = request.getParameter("cd");
                 if (roundId == null || contestId == null) {
                     forwardToErrorPage(request, response, new Exception("missing round id or contest id in request"),
-                         "Invalid request, your registration failed.");
+                            "Invalid request, your registration failed.");
                 }
                 try {
                     intRoundId = Integer.parseInt(roundId);
                     intContestId = Integer.parseInt(contestId);
                 } catch (Exception e) {
                     forwardToErrorPage(request, response, new Exception("non-numeric round id or contest id in request"),
-                         "Invalid request, your registration failed.");
-                } 
+                            "Invalid request, your registration failed.");
+                }
                 try {
                     dataRequest = new Request();
                     dataRequest.setContentHandle("invitational_info");
-                    dataRequest.setProperty("cr", ""+nav.getUserId());
-                    dataRequest.setProperty("rd", ""+roundId);
-                    dataRequest.setProperty("cd", ""+contestId);
-                    transDai = new DataAccess((javax.sql.DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                    dataRequest.setProperty("cr", "" + nav.getUserId());
+                    dataRequest.setProperty("rd", "" + roundId);
+                    dataRequest.setProperty("cd", "" + contestId);
+                    transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
                     resultMap = transDai.getData(dataRequest);
                     rsc = (ResultSetContainer) resultMap.get("Invitational_Eligibility");
                     if (rsc.getItem(0, "is_eligible").toString().trim().equals("true")) {
@@ -97,20 +100,20 @@ public final class TourneyRegServlet extends HttpServlet {
                         util.registerForTourny(nav.getUserId(), intContestId, intRoundId);
                     } else {
                         forwardToErrorPage(request, response, new Exception(nav.getUserId() + " was not registered because they are not eligible."),
-                             "Your registration failed because you are not eligible.");
+                                "Your registration failed because you are not eligible.");
                     }
                     //forward to success page
 //                    getServletContext().getContext("/").getRequestDispatcher("/index").forward(request, response);
-                    response.sendRedirect("http://" + request.getServerName()); 
+                    response.sendRedirect("http://" + request.getServerName());
                 } catch (Exception ex) {
                     forwardToErrorPage(request, response, ex,
-                         "Your registration failed.  Please contact TopCoder.");
+                            "Your registration failed.  Please contact TopCoder.");
                 }
             }
-          
+
         } catch (Exception e) {
-          forwardToErrorPage(request, response, e,
-              "Your registration failed.  Please contact TopCoder.");
+            forwardToErrorPage(request, response, e,
+                    "Your registration failed.  Please contact TopCoder.");
         }
 
     }
