@@ -79,34 +79,9 @@
                         </p>
                     </td>
                 </tr>
-                <tr><td><img src="/i/clear.gif" width="1" height="20" alt="" border="0" /></td></tr>
-                <tr>
-                    <td class="bodyText" colspan="5">
-
-                        <ul><strong>Multiplier Rules</strong>
-                        <li>
-                            The member with the first submission for each component will be given the multiplier.
-                        </li>
-                        <li>
-                            The multiplier will be used to double the component payment <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
-                            There will be no 3rd place prizes.
-                        </li>
-                        <li>
-                            If a member resubmits a solution, the new submission date is used to determine who has recieved the multiplier.
-                        </li>
-                        <li>
-                            As with the standard competition, 1st and 2nd place is limited to those submissions that pass screening <br />
-                           and receive a review score greater than 75.
-                        </li>
-                        </ul>
-
-                        <p>If you have specific questions about any projects,
-                        email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p>
-                    </td>
-                </tr>
-
-                <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
             </table>
+
+            <br/><br/>
 
 <!-- Component Design Projects begin -->
             <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
@@ -249,6 +224,36 @@
                     </xsl:if>
             </table>
 <!-- Component Dev Projects ends -->
+
+            <br/><br/>
+
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td class="bodyText" colspan="5">
+
+                        <ul><strong>Multiplier Rules</strong>
+                        <li>
+                            The member with the first submission for each component will be given the multiplier.
+                        </li>
+                        <li>
+                            The multiplier will be used to double the component payment <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
+                            There will be no 3rd place prizes.
+                        </li>
+                        <li>
+                            If a member resubmits a solution, the new submission date is used to determine who has recieved the multiplier.
+                        </li>
+                        <li>
+                            As with the standard competition, 1st and 2nd place is limited to those submissions that pass screening <br />
+                           and receive a review score greater than 75.
+                        </li>
+                        </ul>
+
+                        <p>If you have specific questions about any projects,
+                        email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p>
+                    </td>
+                </tr>
+            </table>
+                
 
             <p><br /></p>
         </td>

@@ -82,7 +82,7 @@
 <!-- TCCC Design Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
-                    <td colspan="9" class="tccc04SubNav"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects</td>
+                    <td colspan="9" class="tccc04SubNav"><a name="design"></a>2004 TopCoder Collegiate Challenge Component Design Projects**</td>
                 </tr>
 
                 <tr valign="middle">
@@ -169,7 +169,7 @@
 <!-- TCCC Development Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                 <tr>
-                    <td class="tccc04SubNav" colspan="9">2004 TopCoder Collegiate Challenge Component Development Projects</td>
+                    <td class="tccc04SubNav" colspan="9">2004 TopCoder Collegiate Challenge Component Development Projects**</td>
                 </tr>
 
                 <tr valign="middle">
@@ -249,7 +249,7 @@
             </table>
 <!-- TCCC Development Ends -->
 
-            <br/><br/>
+            <br/><br/><br/>
 
 <!-- Open Component Design Projects begins -->
 
