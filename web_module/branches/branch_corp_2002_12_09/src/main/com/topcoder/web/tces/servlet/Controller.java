@@ -10,7 +10,7 @@ import com.topcoder.common.web.util.Data;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.web.common.security.TCESAuthorization;
+import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
@@ -105,7 +105,7 @@ public class Controller extends HttpServlet {
                 TCSubject tcUser = Util.retrieveTCSubject(
                     authToken.getActiveUser().getId()
                 );
-                Authorization authorize = new TCESAuthorization(tcUser);
+                Authorization authorize = new TCSAuthorization(tcUser);
                 Resource taskResource = new SimpleResource(taskClassName);
                 if (!authorize.hasPermission(taskResource)) {
                     if (authToken.getActiveUser().isAnonymous()) {

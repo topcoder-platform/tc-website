@@ -6,6 +6,8 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
@@ -101,7 +103,7 @@ public class UserEdit extends BaseProcessor {
                     password = mgr.getPassword(targetUserID);
                     password2 = password;
                     userName = secTok.targetUser.getName();
-                    icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+                    icEJB = (InitialContext)TCContext.getInitial();
                     retrieveUserDataFromDB(icEJB);
                 } finally {
                     Util.closeIC(icEJB);
@@ -137,7 +139,7 @@ public class UserEdit extends BaseProcessor {
                 mgr.editPassword(secTok.targetUser, password, secTok.requestor);
             }
 
-            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+            icEJB = (InitialContext)TCContext.getInitial();
             storeUserDataIntoDB(icEJB);
 
             tx.commit();
@@ -193,7 +195,7 @@ public class UserEdit extends BaseProcessor {
             } catch (Exception ignore) {
                 continue;
             }
-            String pValue = (String) request.getParameter("perm-" + permID);
+            String pValue = request.getParameter("perm-" + permID);
             boolean set = "on".equalsIgnoreCase(pValue);
             RolePrincipal role = mgr.getRole(permID);
             if (set) {
@@ -237,8 +239,6 @@ public class UserEdit extends BaseProcessor {
 
     /**
      *
-     * @param createNew
-     * @return boolean
      * @throws NotAuthorizedException
      * @throws Exception
      */
@@ -292,14 +292,14 @@ public class UserEdit extends BaseProcessor {
      * must be fetched from the DB by targetUserID value
      */
     protected boolean getFormFields() throws Exception {
-        firstName = (String) request.getParameter(KEY_FIRSTNAME);
-        lastName = (String) request.getParameter(KEY_LASTNAME);
-        phone = (String) request.getParameter(KEY_PHONE);
-        password = (String) request.getParameter(KEY_PASSWORD);
-        password2 = (String) request.getParameter(KEY_PASSWORD2);
-        email = (String) request.getParameter(KEY_EMAIL);
-        email2 = (String) request.getParameter(KEY_EMAIL2);
-        userName = (String) request.getParameter(KEY_LOGIN);
+        firstName = request.getParameter(KEY_FIRSTNAME);
+        lastName = request.getParameter(KEY_LASTNAME);
+        phone = request.getParameter(KEY_PHONE);
+        password = request.getParameter(KEY_PASSWORD);
+        password2 = request.getParameter(KEY_PASSWORD2);
+        email = request.getParameter(KEY_EMAIL);
+        email2 = request.getParameter(KEY_EMAIL2);
+        userName = request.getParameter(KEY_LOGIN);
 
         // retrieve ID of user requested to be modified
         targetUserID = -1;
@@ -342,7 +342,6 @@ public class UserEdit extends BaseProcessor {
 
     /**
      *
-     * @param createNew
      * @return boolean
      */
     protected boolean verifyFormFieldsValidity() {
@@ -535,7 +534,6 @@ public class UserEdit extends BaseProcessor {
      * Performs transaction rollback
      *
      * @param tx
-     * @param secToken
      */
     private final void rollbackHelper(Transaction tx) {
         if (tx != null) {
@@ -565,8 +563,6 @@ public class UserEdit extends BaseProcessor {
      * Creates new UserPrincipal by means of security manager component and add
      * it to the related groups
      *
-     * @param mgr
-     * @param requestor
      * @return UserPrincipal
      * @throws RemoteException
      * @throws GeneralSecurityException
@@ -712,7 +708,7 @@ public class UserEdit extends BaseProcessor {
             loggedUserID = authToken.getActiveUser().getId();
 
             try {
-                icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+                icEJB = (InitialContext)TCContext.getInitial();
                 contactTable = (
                         (ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)
                         ).create();
@@ -754,9 +750,7 @@ public class UserEdit extends BaseProcessor {
                     InitialContext ic = null;
 
                     try {
-                        ic = new InitialContext(
-                                Constants.EJB_CONTEXT_ENVIRONMENT
-                        );
+                        ic = (InitialContext)TCContext.getInitial();
                         contactTable = (
                                 (ContactHome) ic.lookup(ContactHome.EJB_REF_NAME)
                                 ).create();
@@ -789,10 +783,8 @@ public class UserEdit extends BaseProcessor {
         InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(
-                    Constants.NDS_DATA_SOURCE)
-            );
+            ic = (InitialContext)TCContext.getInitial();
+            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_DATASOURCE_NAME));
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");
             request.setAttribute(KEY_USER_PERMS, rsc);

@@ -18,7 +18,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
-import com.topcoder.web.common.security.TCESAuthorization;
+import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
@@ -123,7 +123,7 @@ public class MainServlet extends HttpServlet {
         try {
             TCSubject tcUser;
             tcUser = Util.retrieveTCSubject(authToken.getActiveUser().getId());
-            Authorization authorization = new TCESAuthorization(tcUser);
+            Authorization authorization = new TCSAuthorization(tcUser);
             boolean allowedToRun = false;
             allowedToRun = authorization.hasPermission(
                 new SimpleResource(processorClassName)

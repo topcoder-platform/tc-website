@@ -4,7 +4,8 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.web.corp.Constants;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.corp.Util;
 
 import javax.naming.InitialContext;
@@ -16,7 +17,7 @@ import java.util.*;
 
 /**
  * My comments/description/notes go here
- *
+ * @deprecated
  * @author djFD molc@mail.ru
  * @version 1.02
  *
@@ -33,10 +34,9 @@ public class QueryIteratorTag extends IteratorTag {
     public int doStartTag() throws JspException {
         InitialContext ic = null;
         try {
-            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
+            ic = (InitialContext)TCContext.getInitial();
             DataAccessInt dai = new DataAccess((DataSource)
-                    new InitialContext().lookup(Constants.NDS_DATA_SOURCE)
-            );
+                    new InitialContext().lookup(DBMS.CORP_DATASOURCE_NAME));
             Request dataRequest = new Request();
             dataRequest.setContentHandle(command);
 
@@ -78,7 +78,7 @@ public class QueryIteratorTag extends IteratorTag {
     /**
      * Sets the query name.
      *
-     * @param query The query to set
+     * @param cmd The query to set
      */
     public void setCommand(String cmd) {
         command = cmd;
@@ -87,7 +87,7 @@ public class QueryIteratorTag extends IteratorTag {
     /**
      * Sets the query parameters. Format is: 'name:value, name:value, ...'.
      *
-     * @param params The params to set
+     * @param param The params to set
      */
     public void setParam(String param) {
         params = new Hashtable();

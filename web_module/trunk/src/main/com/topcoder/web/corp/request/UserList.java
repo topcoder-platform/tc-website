@@ -6,6 +6,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 
@@ -33,7 +35,6 @@ public class UserList extends BaseProcessor {
      *  <p> A ResultSetContainer is created to hold the information about
      *  the companies users and is put into the request attribute named:
      *  "companyUsers" for use in the userlist jsp page.
-     *  @throws AuthenticationException
      *  @throws Exception
      *  @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
@@ -55,8 +56,8 @@ public class UserList extends BaseProcessor {
         InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(Constants.NDS_DATA_SOURCE));
+            ic = (InitialContext)TCContext.getInitial();
+            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_DATASOURCE_NAME));
 
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("CORP_user_list");
