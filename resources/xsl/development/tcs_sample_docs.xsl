@@ -87,8 +87,10 @@
                     				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/topcoder_env.jar" class="statText">topcoder_env.jar</a>
                     				</td>
                 				</tr>	
-                				<tr>
-                					<td colspan="3"><img src="/i/clear.gif" alt="" height="5" border="0" /></td>
+
+                			    <tr>
+                					<td colspan="3">
+                					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
 
                 				<tr valign="middle">
@@ -99,8 +101,8 @@
                     				<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
-									03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
+                    				04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Designer_Component_Deliverables.pdf" class="statText">Java Design Deliverables.pdf</a><br />
+									04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/.NET_Designer_Component_Deliverables.pdf" class="statText">.NET Design Deliverables.pdf</a>
                     				</td>
                     				
                 				</tr>
@@ -118,9 +120,9 @@
                     				<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" valign="top">
                     				<br />
-                    				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Java Development Deliverables.pdf</a>
+                    				04.14.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Component_Deliverables.pdf" class="statText">Java Development Deliverables.pdf</a>
                     				<br />
-                    				04.03.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/DOTNET_Developer_Component_Deliverables.pdf" class="statText">.NET Development Deliverables.pdf</a>
+                    				04.14.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/DOTNET_Developer_Component_Deliverables.pdf" class="statText">.NET Development Deliverables.pdf</a>
                     				</td>
                 				</tr>
                 				
@@ -149,27 +151,6 @@
                 					<td colspan="3">
                 					<hr width="100%" size="1px" color="666666" /></td>
                 				</tr>
-
-                				<tr valign="middle">
-                    				<td class="statText" valign="top"><strong>Deployment Guide</strong><br />
-                    				The purpose of the deployment guide is to provide additional details 
-                    				about the solution, including configuration details which may not be not be evident to the end-user. This template 
-                    				should be filled out and submitted with each development submission.<br /><br />
-									If you do not have Microsoft Word 2000, please submit a Deployment Guide in rtf or txt format. Please use the PDF 
-									version as a reference.
-									</td>
-									<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
-                    				<td class="statText" valign="top">
-                    				<br />
-                    				01.19.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.dot" class="statText">Deployment Guide.dot</a><br />
-                    				01.19.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.pdf" class="statText">Deployment Guide.pdf</a>
-                    				</td>
-                				</tr>
-                				
-                				<tr>
-                					<td colspan="3">
-                					<hr width="100%" size="1px" color="666666" /></td>
-                				</tr>
                 				
                 				<tr valign="middle">
                     				<td class="statText" height="15" valign="top"><strong>Screening and Review Scorecards</strong><br />
@@ -180,8 +161,8 @@
 									<td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
                     				<td class="statText" height="15" valign="top">
                     				<br />
-                    				03.06.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="statText">Design Screening Scorecard.pdf</a><br />
-                    				03.06.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="statText">Design Review Scorecard.pdf</a><br />
+                    				04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="statText">Design Screening Scorecard.pdf</a><br />
+                    				04.10.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="statText">Design Review Scorecard.pdf</a><br />
                     				03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Screening_Scorecard.pdf" class="statText">Development Screening Scorecard.pdf</a><br />
 									03.20.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Review_Scorecard.pdf" class="statText">Development Review Scorecard.pdf</a>
                     				</td>
@@ -304,7 +285,7 @@
 								<td class="statText" width="100%">
 									<p><strong>Completed Component</strong><br/>
 									This is the completed <a href="/i/development/downloads/logging_wrapper-1_0.jar" class="statText">Logging Wrapper</a> component that has gone through the Component Development Methodology.
-									You are encouraged to download and install this component for personal, non-commercial use and to incorporate it into future components.
+									You are encouraged to download and install this component for personal, non-commercial use and to incorporate it into future TopCoder Software components.
 							    </p></td>
 							</tr>
 						</table></td>
