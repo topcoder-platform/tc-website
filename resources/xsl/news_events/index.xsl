@@ -63,7 +63,23 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
-<!-- Intel TCO-->
+<!-- Talbots-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_10_14_03"><img src="/i/pressroom/talbots.gif" alt="talbots" width="135" height="70" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_10_14_03">Talbots Licenses Component Catalog From TopCoder Software</A></strong></font><br />
+                        TopCoder, Inc., the leader in on-line programming competition, skills assessment and competitive software development today announced 
+                        that Talbots, a large clothing and specialty retailer, has subscribed to the TopCoder Software .NET Component Catalog. <span class="prHead">[October 14]</span></p>
+
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- artifact northface TCO-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_10_01_03"><img src="/i/pressroom/northface_artifact.gif" alt="intel" width="135" height="60" border="0" /></A></td>
