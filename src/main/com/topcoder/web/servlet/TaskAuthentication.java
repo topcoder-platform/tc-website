@@ -19,6 +19,8 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.bean.Registration;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
@@ -87,13 +89,13 @@ public final class TaskAuthentication {
                 } else if (command.equals("recover_password")) {
                     result = TaskStatic.displayStatic(HTMLmaker, request, nav, document);
                 } else if (command.equals("submit_login")) {
-                    result = submitLogin(request, login, nav, document);
+                    result = submitLogin(request, login, nav, document, response);
                 } else if (command.equals("mail_activation")) {
-                    result = sendMail(HTMLmaker, request, login, document);
+                    result = sendMail(HTMLmaker, login, document);
                 } else if (command.equals("send_password")) {
                     result = sendPassword(HTMLmaker, request, login, document);
                 } else if (command.equals("submit_logout")) {
-                    result = submitLogout(request);
+                    result = submitLogout(request, response);
                 } else {
                     throw new NavigationException("TaskAuthentication:INVALID COMMAND:" + command, TCServlet.NAVIGATION_ERROR_PAGE);
                 }
@@ -134,7 +136,7 @@ public final class TaskAuthentication {
 
 
     private static String submitLogin(HttpServletRequest request,
-                                      Authentication login, Navigation nav, XMLDocument document)
+                                      Authentication login, Navigation nav, XMLDocument document, HttpServletResponse response)
             throws Exception, NavigationException {
         String result = null;
         String loginURL = null;
@@ -168,7 +170,7 @@ public final class TaskAuthentication {
                 try {
                     ctx = TCContext.getInitial();
                     UserServicesHome userServicesHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userServicesEJB = (UserServices) userServicesHome.findByPrimaryKey(login.getUserId());
+                    UserServices userServicesEJB = userServicesHome.findByPrimaryKey(login.getUserId());
                     user = userServicesEJB.getUser();
                     if (!ProcessAuthentication.hasMinimumPermission(user)) {
                         throw new NavigationException(
@@ -219,15 +221,13 @@ public final class TaskAuthentication {
                     nav.setUser(user);
                     nav.setLoggedIn(true);
                     document.addTag(new ValueTag("LoggedIn", "true"));
-                    //RecordTag authTag = new RecordTag("STATIC");
-                    //authTag.addTag( user.getXML() );
-                    //document.addTag( authTag );
 
-                    HashMap userTypeDetails = nav.getUser().getUserTypeDetails();
-                    CoderRegistration reg = (CoderRegistration) userTypeDetails.get("Coder");
-                    if ((reg == null) || (reg.getDemographicResponses().size() < 4)) {
-                        document.addTag(new ValueTag("NeedDemographics", "true"));
-                    }
+                    /* set up a cookie so we can persist their logged in state */
+                    BasicAuthentication auth = new BasicAuthentication(
+                            new SessionPersistor(request.getSession()), request, response);
+                    //we're gonna cheat and not do the actual login, just set the cookie
+                    auth.setCookie(nav.getUserId());
+
 
                     if (loginURL.equals("")) {
                         result = "home";
@@ -301,13 +301,20 @@ public final class TaskAuthentication {
     }
 
 
-    private static String submitLogout(HttpServletRequest request) throws Exception {
+    private static String submitLogout(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String result = null;
         try {
             HttpSession session = request.getSession(true);
             session.removeAttribute("navigation");
             session.invalidate();
             result = "logout";
+
+            /* remove their cookie...*/
+            BasicAuthentication auth = new BasicAuthentication(
+                    new SessionPersistor(request.getSession()), request, response);
+            auth.logout();
+
+
         } catch (Exception e) {
             throw new Exception("TaskAuthentication:submitLogout:ERROR:\n" + e);
         }
@@ -315,7 +322,7 @@ public final class TaskAuthentication {
     }
 
 
-    private static String sendMail(HTMLRenderer HTMLmaker, HttpServletRequest request,
+    private static String sendMail(HTMLRenderer HTMLmaker,
                                    Authentication login, XMLDocument document) throws NavigationException {
         String result = null;
         try {
