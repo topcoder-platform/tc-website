@@ -9,8 +9,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class Google {
     private static Logger log = Logger.getLogger(Contest.class);
@@ -30,6 +29,7 @@ public class Google {
         }
 
         try {
+            ArrayList allPotentialViolators = new ArrayList();
             Fraud fraud = null;
             List submissions = getSubmissions(dataSourceName, rounds[0], componentId);
             for (int i = 1; i < rounds.length; i++) {
@@ -77,36 +77,65 @@ public class Google {
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new EditDistance(normalizedSource, submissions, 1000);
                 log.info("****************** EDIT DISTANCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new SimilarHistogram(nonNormalizedSource, submissions, 100);
                 log.info("****************** SIMILAR HISTOGRAM **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new Similar(nonNormalizedSource, submissions, 1000);
                 log.info("****************** SIMILAR SOURCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new Same(normalizedSource, submissions, 100000);
                 log.info("****************** SAME NORMALIZED SOURCE**************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
 
                 fraud = new CPS(submissions, 1000);
                 log.info("****************** CPS **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
+                allPotentialViolators.addAll(fraud.getPotentialViolators());
+
+                Histogram h = new Histogram(allPotentialViolators);
+                Set worst = h.getSortedSet();
+                log.debug("worst " + worst);
+                StringBuffer worstBuf = new StringBuffer(1000);
+                int i = 0;
+                Map.Entry me = null;
+                worstBuf.append("\n");
+                for (Iterator it = worst.iterator(); it.hasNext() && i < Fraud.MAX_REPORT; i++) {
+                    me = (Map.Entry) it.next();
+                    worstBuf.append(((User) me.getKey()).getHandle());
+                    worstBuf.append("(");
+                    worstBuf.append(((User) me.getKey()).getUserId());
+                    worstBuf.append(")");
+                    worstBuf.append(" showed up ").append(me.getValue()).append(" times");
+                    worstBuf.append("\n");
+                }
+                log.info("****************** Aggregate **************************");
+                log.info(worstBuf);
+                log.info("**********************************************************");
+
+
+
 
             }
 
