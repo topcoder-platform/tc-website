@@ -3,17 +3,12 @@ package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
-//import com.topcoder.common.web.data.report.Constants;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.security.RolePrincipal;
 import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.policy.PolicyRemote;
-import com.topcoder.security.policy.TCPermission;
-import com.topcoder.security.policy.GenericPermission;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.docGen.xml.RecordTag;
@@ -197,7 +192,7 @@ public final class TaskDevelopment {
 
                 DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
 
-                ResultSetContainer rscStatus = (ResultSetContainer)dai.getData(dataRequest).get("project_status");
+                ResultSetContainer rscStatus = (ResultSetContainer) dai.getData(dataRequest).get("project_status");
                 devTag.addTag(rscStatus.getTag("reviews", "status"));
 
                 xsldocURLString = XSL_DIR + command + ".xsl";
@@ -264,8 +259,6 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("comp", componentId));
                 }
                 devTag.addTag(new ValueTag("projectId", projectId));
-
-
 
 
                 if (nav.isLoggedIn()) {
@@ -376,7 +369,6 @@ public final class TaskDevelopment {
                         }
                         msgText.append("\n\nComment:\n");
                         msgText.append(comment);
-
 
 
                         TCSEmailMessage mail = new TCSEmailMessage();
@@ -754,22 +746,25 @@ public final class TaskDevelopment {
 
         USER_MANAGER.registerInquiry(userId, componentId, rating, userId, comment, agreedToTerms, phase, version, projectId);
 
-        //add the user to the appropriate role to view the forum
 
         String roleName = "ForumUser " + getActiveForumId(componentId);
-        PolicyRemote policy = (PolicyRemote) com.topcoder.web.common.security.Constants.createEJB(PolicyRemote.class);
-        if (!policy.checkPermission(new TCSubject(userId), new GenericPermission(roleName))) {
-            Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
-            PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
-            PrincipalMgrRemote principalMgr = principalManagerHome.create();
-            Collection roles = principalMgr.getRoles(null);
-            RolePrincipal role = null;
-            for (Iterator it = roles.iterator(); it.hasNext(); ) {
-                role = (RolePrincipal)it.next();
-                if (role.getName().equalsIgnoreCase(roleName)) {
-                    log.debug("--->got a match");
-                    UserPrincipal up = principalMgr.getUser(userId);
+
+        //add the user to the appropriate role to view the forum
+        Object objPrincipalManager = ctx.lookup("security/PrincipalMgr");
+        PrincipalMgrRemoteHome principalManagerHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(objPrincipalManager, PrincipalMgrRemoteHome.class);
+        PrincipalMgrRemote principalMgr = principalManagerHome.create();
+        Collection roles = principalMgr.getRoles(null);
+        RolePrincipal role = null;
+        for (Iterator it = roles.iterator(); it.hasNext();) {
+            role = (RolePrincipal) it.next();
+            if (role.getName().equalsIgnoreCase(roleName)) {
+                log.debug("--->got a match");
+                UserPrincipal up = principalMgr.getUser(userId);
+                try {
                     principalMgr.assignRole(up, role, null);
+                } catch (Exception e) {
+                    //ignoring, most likely they already have the role, so all is well
+                    log.info("userId " + userId + " already had role: " + roleName + " so not adding again");
                 }
             }
         }
