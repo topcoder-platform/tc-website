@@ -2,18 +2,18 @@ package com.topcoder.web.corp.request;
 
 import com.topcoder.shared.util.logging.Logger;
 
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.WebAuthentication;
-import com.topcoder.shared.util.DBMS;
+import com.topcoder.web.corp.Constants;
+import com.topcoder.web.corp.Util;
+import com.topcoder.shared.security.User;
 
-import com.topcoder.security.login.AuthenticationException;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
 
-import java.util.*;
+import java.util.Map;
 import javax.naming.InitialContext;
+import javax.sql.DataSource;
 
 /**
 * Processor for user list page, contains logic for setting up a
@@ -45,7 +45,7 @@ public class UserList extends BaseProcessor {
         log.debug("Attempting to set up user list");
         pageInContext = true;
         long userId;
-        WebAuthentication authToken = getAuthenticityToken();
+//        WebAuthentication authToken = getAuthenticityToken();
 
         /* Find the current logged in users ID number.  */
         User currentUser = authToken.getActiveUser();
@@ -55,16 +55,23 @@ public class UserList extends BaseProcessor {
         dataRequest.setContentHandle("corp_company_user_listing");
         
         dataRequest.setProperty("uid", Long.toString(userId) );
-        
-        DataAccessInt dai = new DataAccess(
-            (javax.sql.DataSource)new InitialContext().lookup("CORP_OLTP"));
 
-        Map resultMap = dai.getData(dataRequest);
-        
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("CORP_user_list");
-        if (rsc.getRowCount() == 0) {
-            throw new Exception("User list invalid. userId="+userId);
+        InitialContext ic = null;
+        ResultSetContainer rsc = null;
+        try {
+            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
+            DataAccessInt dai = new DataAccess((DataSource)ic.lookup(Constants.NDS_DATA_SOURCE));
+
+            Map resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("CORP_user_list");
         }
+        finally {
+            Util.closeIC(ic);
+        }
+        
+//        if (rsc.getRowCount() == 0) {
+//            throw new Exception("User list invalid. userId="+userId);
+//        }
         request.setAttribute("companyUsers",rsc);
         nextPage = USER_LIST_PAGE;
     }
