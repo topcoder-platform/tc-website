@@ -115,8 +115,12 @@ public class EmailInfo extends BaseModel {
         msgText.append(candidatePassword);
         msgText.append("\n\n");
         msgText.append("On average, you should expect to spend 3 hours using the Testing Application.  ");
-        msgText.append("You can access the Testing Application here: ");
-        msgText.append("http://corporate.topcoder.com/testing/screeningApp.jsp?company=");
+        msgText.append("Windows, Linux and Unix users can access the Testing Application here: ");
+        msgText.append("http://corporate.topcoder.com/testing/TestingApp.jsp?company=");
+        msgText.append(companyId);
+        msgText.append("\n\n");
+        msgText.append("Mac OS X users (with the Java Web Start installed) can access the Testing Application ");
+        msgText.append("here: http://corporate.topcoder.com/testing/JNLPServlet?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
         msgText.append("Best of luck!\n");
