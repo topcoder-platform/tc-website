@@ -269,7 +269,7 @@
                                                             <td class="bodyText" nowrap="nowrap" align="left">08.17.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Development Due:</td>
+                                                            <td class="bodyText" nowrap="nowrap">Development Due: (completed project)</td>
                                                             <td class="bodyText" nowrap="nowrap" align="left">08.24.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
