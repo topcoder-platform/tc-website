@@ -179,7 +179,7 @@ pageContext.setAttribute("resultSetDates", rsc);
 
 %>
                  <TR>
-                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="16"><%@include file="/coderLegend.html" %><BR><BR>
+                   <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText" COLSPAN="16"><%@include file="coderLegend.html" %><BR><BR>
                      Click the <IMG SRC="/i/coders_icon.gif" ALT="" WIDTH="10" HEIGHT="10" HSPACE="2" BORDER="0"/> icon to view problem information or Room # for Room details.
                    </TD>
                  </TR>
