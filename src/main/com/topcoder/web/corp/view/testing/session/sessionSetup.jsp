@@ -77,8 +77,8 @@ function submitSession() {
                         <ol>
                             <li>Select a Test Profile. If you wish to create a new Test Profile, click <strong>Create a New Test Profile</strong>.</li>
                             <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click <strong>Add a Candidate</strong>.</li>
-                            <li>Set the timeframe for when the candidate can access the Testing Application. Be sure to allow at least a 24-hour window during which the candidate can participate.</li>
-                            <li>Candidates must receive an email in order to access the Testing Application. You can choose to receive emails reminding you when the candidate is scheduled to participate,
+                            <li>Set the timeframe for when the candidate can access the Technical Assessment Application. Be sure to allow at least a 24-hour window during which the candidate can participate.</li>
+                            <li>Candidates must receive an email in order to access the Technical Assessment Application. You can choose to receive emails reminding you when the candidate is scheduled to participate,
                             as well as when the results are ready.</li>
                         </ol>
                     </td>
@@ -211,7 +211,7 @@ function submitSession() {
                 </tr>
 
                 <tr valign="middle">
-                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="<%=Constants.CANDIDATE_EMAIL%>" value="YES" checked="<%=testSessionInfo.getCandidateEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="3">Invite candidate to Technical Assessment Application&#160;<screen:checkbox name="<%=Constants.CANDIDATE_EMAIL%>" value="YES" checked="<%=testSessionInfo.getCandidateEmail()%>" /><img src="/i/corp/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
 
                 <tr valign="middle">
