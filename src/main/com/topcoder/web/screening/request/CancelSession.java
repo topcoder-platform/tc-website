@@ -7,7 +7,7 @@ public class CancelSession extends BaseSessionProcessor {
         requireLogin();
         clearSessionInfo();
 
-        setNextPage(Constants.DEFAULT_PAGE);
+        setNextPage(Constants.CONTROLLER_URL);
         setNextPageInContext(false);
     }
 }
