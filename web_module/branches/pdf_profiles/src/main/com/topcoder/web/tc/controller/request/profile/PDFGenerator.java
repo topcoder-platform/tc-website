@@ -864,8 +864,8 @@ public class PDFGenerator extends BaseProcessor {
                     footerimg.setAbsolutePosition(45,30);
                     
                     cb.beginText();
-                    cb.setColorFill(Color.white);
-                    cb.setColorStroke(Color.white);
+                    cb.setColorFill(Color.gray);
+                    cb.setColorStroke(Color.gray);
                     cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED ), 14);
                     cb.setTextMatrix(200, 20);
                     cb.showText("-" + writer.getPageNumber() + "-");
