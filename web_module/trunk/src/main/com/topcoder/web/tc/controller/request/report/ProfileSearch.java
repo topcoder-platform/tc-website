@@ -243,9 +243,16 @@ public class ProfileSearch extends Base {
         }
         columns = new String[]{"c.state_code","c.country_code","c.comp_country_code"};
         fields = new String[]{"states","country","countryoforigin"};
+        boolean usa = false;
         for(int i = 0; i<columns.length; i++){
             String[] vals = request.getParameterValues(fields[i]);
+            if(i == 1 && usa){
+                vals = new String[]{"840"};
+            }
             if(vals!=null && vals.length>0){
+                if(i == 0){//states
+                    usa = true;
+                }
                 query.append("    AND ");
                 query.append(columns[i]);
                 if(vals.length == 1){
@@ -267,7 +274,8 @@ public class ProfileSearch extends Base {
                 query.append('\n');
             }
         }
-        query.append("    AND c.language_id IN (-1");
+        query.append("    AND c.language_id IN (");
+        boolean first = true;
         Enumeration e = request.getParameterNames();
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
@@ -275,28 +283,29 @@ public class ProfileSearch extends Base {
                 int id = Integer.parseInt(param.substring(5));
                 String val = request.getParameter(param);
                 if(val.equals("on")){
-                    query.append(", ");
+                    if(!first){
+                        query.append(", ");
+                    }
+                    first = false;
                     query.append(id);
                 }
             }
         }
         query.append(")\n");
+        if(!first){
+            query.delete(query.length()-"    AND c.language_id IN ()\n".length(),query.length());
+        }
         String[] bounds = {"maxdayssincerating","mindays","maxdays","minevents","minrating","maxrating"};
         String[] value = {"current-r.last_rated_event <= \'","current-c.member_since >= \'","current-c.member_since <= \'","r.num_ratings >= ","r.rating >= ","r.rating <= "};
         for(int i = 0; i<bounds.length; i++){
             String b = request.getParameter(bounds[i]);
-            try{
-                int x = Integer.parseInt(b);
-                query.append("    AND ");
-                query.append(value[i]);
-                query.append(x);
-                if(i < 3){
-                    query.append(" 00:00:00.0'\n");
-                }else{
-                    query.append('\n');
-                }
-            }catch(Exception exp){
-                //what to do here? For now just ignore this field.
+            query.append("    AND ");
+            query.append(value[i]);
+            query.append(b);
+            if(i < 3){
+                query.append(" 00:00:00.0'\n");
+            }else{
+                query.append('\n');
             }
         }
         boolean pro = "on".equals(request.getParameter("pro"));
