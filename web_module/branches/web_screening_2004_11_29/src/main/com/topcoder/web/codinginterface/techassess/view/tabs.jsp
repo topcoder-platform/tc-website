@@ -9,6 +9,10 @@
 
 <%
     System.out.println("path: " + ((SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath());
+    System.out.println("path: " + ((SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY)).getQueryString());
+    System.out.println("path: " + ((SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY)).getRequestString());
+    System.out.println("path: " + ((SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY))==null);
+    System.out.println("path: " + ((SessionInfo)request.getAttribute(BaseServlet.SESSION_INFO_KEY)).getSecureAbsoluteServletPath());
 %>
 
 

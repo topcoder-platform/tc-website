@@ -1,6 +1,8 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.codinginterface.techassess.Constants;
 
 /**
@@ -16,6 +18,7 @@ public class Index extends Base {
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
         } else {
+            log.debug("path: " + ((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath());
             setNextPage(Constants.PAGE_INDEX);
             setIsNextPageInContext(true);
 
