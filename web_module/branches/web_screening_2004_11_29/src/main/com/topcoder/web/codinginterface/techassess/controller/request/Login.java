@@ -56,6 +56,7 @@ public class Login extends Base {
                 log.debug("response " + response);
 
                 if (response.isSuccess()) {
+                    log.debug("logged in " + response.getUserID() + " successfully");
                     getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
                     setNextPage(Constants.PAGE_INDEX);
                     setIsNextPageInContext(true);
