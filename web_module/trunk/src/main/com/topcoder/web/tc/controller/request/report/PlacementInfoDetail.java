@@ -210,7 +210,7 @@ public class PlacementInfoDetail extends Base {
             ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
 
             User user = (User)createEJB(getInitialContext(), User.class);
-            getRequest().setAttribute("handle", user.getHandle(userId, DBMS.OLTP_DATASOURCE_NAME));
+            getRequest().setAttribute(Constants.HANDLE, user.getHandle(userId, DBMS.OLTP_DATASOURCE_NAME));
             getRequest().setAttribute("has_resume", String.valueOf(resumeServices.hasResume(userId, DBMS.OLTP_DATASOURCE_NAME)));
             getRequest().setAttribute("contractingInfo", info);
 
