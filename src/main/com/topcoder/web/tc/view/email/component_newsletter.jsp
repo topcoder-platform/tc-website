@@ -21,8 +21,8 @@
         	<tr>
         		<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
         		<td class="bodyText">Welcome to the first edition of the TopCoder Component Newsletter. We are happy to provide this newsletter to you as 
-        		a way to stay abreast of the latest happening at TopCoder. As always we continue to improve our component methodology and grow our catalog 
-        		based on invaluable feedback from customers such as your self. We appreciate your continued support.</td>
+        		a way to stay abreast of the latest happenings at TopCoder. As always we continue to improve our component methodology and grow our catalog 
+        		based on invaluable feedback from customers such as yourself. We appreciate your continued support.</td>
         		<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
         	</tr>
         </table>
@@ -309,7 +309,7 @@
 			</tr>
 			<tr>
 			<td><img src="/i/clear.gif" alt="" width="20" height="1" border="0"/></td>
-			<td colspan="5" class="bodyText"><strong>If a component is missing, please request a component on <A href="http://software.topcoder.com/index.jsp" target="blank">software.topcoder.com.</A></strong></td></tr>
+			<td colspan="5" class="bodyText"><strong>If a component is missing, please request a component on <A href="http://software.topcoder.com/components/request.jsp" target="blank">software.topcoder.com.</A></strong></td></tr>
 						</tr>
 			<tr><td colspan="6"><img src="/i/clear.gif" width="1" height="5" border="0"/></td></tr>
 			<tr>
