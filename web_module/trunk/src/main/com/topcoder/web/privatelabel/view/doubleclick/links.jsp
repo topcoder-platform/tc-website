@@ -35,7 +35,7 @@
             </td>
 --%>
             <td align="center" class="<%=tl2.equals("arena")?"dc_subnav_on":"dc_subnav"%>">
-                <a class="<%=tl2.equals("arena")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=col_arena">Practice Arena</a>
+                <a class="<%=tl2.equals("arena")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=col_arena">Competition Arena</a>
             </td>
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
         </tr>
@@ -73,7 +73,7 @@
             </td>
 --%>
             <td align="center" class="<%=tl2.equals("arena")?"dc_subnav_on":"dc_subnav"%>">
-                <a class="<%=tl2.equals("arena")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=int_arena">Practice Arena</a>
+                <a class="<%=tl2.equals("arena")?"dc_subnav_on_link":"dc_subnav_link"%>" href="/pl/?&module=Static&d1=doubleclick&d2=int_arena">Competition Arena</a>
             </td>
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
         </tr>
