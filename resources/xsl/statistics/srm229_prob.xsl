@@ -71,7 +71,7 @@ function openWin(url, name, w, h) {
 <!--body contextual links-->
                 <table width="100%" border="0" cellspacing="0" cellpadding="3">
                    <tr valign="middle">
-                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 228</font></td>
+                      <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Single Round Match 229</font></td>
                       <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/index?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>Archive</strong></a></td>
                    </tr>
 
