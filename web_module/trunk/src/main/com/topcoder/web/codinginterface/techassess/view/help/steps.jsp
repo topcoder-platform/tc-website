@@ -48,28 +48,18 @@
                             <li>Load the <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=testingApp">Technical Assessment Application</a> by going to the URL provided in the email from the Employer.</li>
                         </ul>
 
-                        <span class="bodySmallTitle"><strong>Step 2 - Launching the Application</strong></span><br>
-                        <ul>
-                            <li>Click on the Launch Technical Assessment button.
-                                <ul>
-                                    <li>If a button that says Launch Technical Assessment does not appear, then you do not have the Java 1.4 runtime installed.  Get additional
-                                    information on installing <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=testingApp">Java 1.4 runtime.</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-
-                        <span class="bodySmallTitle"><strong>Step 3 - Login</strong></span><br>
+                        <span class="bodySmallTitle"><strong>Step 2 - Login</strong></span><br>
                         <ul>
                             <li>Login using the login name and password provided to you in the email from the Employer.</li>
                         </ul>
 
-                        <span class="bodySmallTitle"><strong>Step 4 - Welcome Screen</strong></span><br>
+                        <span class="bodySmallTitle"><strong>Step 3 - Welcome Screen</strong></span><br>
                         <ul>
                             <li>The Welcome Screen of the Technical Assessment Application contains explanatory information about each phase of the Application.
                             Please read it thoroughly.</li>
                         </ul>
 
-                        <span class="bodySmallTitle"><strong>Step 5 - Example Problem Set</strong></span><br>
+                        <span class="bodySmallTitle"><strong>Step 4 - Example Problem Set</strong></span><br>
                         <ul>
                             <li>Start with the Example Problem.</li>
                             <li>Click on the button labeled <strong>Enter</strong> next to the Example Set in the lower part of your screen.</li>
@@ -85,7 +75,7 @@
                             will move you to the live portion of the test.</li>
                         </ul>
 
-                        <span class="bodySmallTitle"><strong>Step 6 - Test Set A (if presented)</strong></span><br>
+                        <span class="bodySmallTitle"><strong>Step 5 - Test Set A (if presented)</strong></span><br>
                         <ul>
                             <li>The problems in this test will be similar in nature to the example problem.</li>
                             <li>Test Set A is made up of 3 algorithmic problems for you to solve in 75 minutes.
@@ -103,7 +93,7 @@
                             </li>
                         </ul>
 
-                        <span class="bodySmallTitle"><strong>Step 7 - Test Set B (if presented)</strong></span><br>
+                        <span class="bodySmallTitle"><strong>Step 6 - Test Set B (if presented)</strong></span><br>
                         <ul>
                             <li>Test Set B contains at least one algorithmic problem that you are asked to solve.</li>
                             <li>You are given 60 minutes times the number of problems assigned to complete this set. For example, if there are 3 problems
@@ -122,7 +112,7 @@
                             </li>
                         </ul>
 
-                        <span class="bodySmallTitle"><strong>Step 8 - Finishing Up</strong></span><br>
+                        <span class="bodySmallTitle"><strong>Step 7 - Finishing Up</strong></span><br>
                         <ul>
                             <li>Congratulations!  You are done! Once you have completed all sections of the Application, you can logout.</li>
                         </ul>

@@ -18,13 +18,12 @@
                             <tr>
                                 <td class=helpSubtitle>
                                     Step 1 - Loading the Application<br>
-                                    Step 2 - Launching the Application<br>
-                                    Step 3 - Login<br>
-                                    Step 4 - Welcome Screen<br>
-                                    Step 5 - Example Problem Set<br>
-                                    Step 6 - Test Set A (if presented)<br>
-                                    Step 7 - Test Set B (if presented)<br>
-                                    Step 8 - Finishing up
+                                    Step 2 - Login<br>
+                                    Step 3 - Welcome Screen<br>
+                                    Step 4 - Example Problem Set<br>
+                                    Step 5 - Test Set A (if presented)<br>
+                                    Step 6 - Test Set B (if presented)<br>
+                                    Step 7 - Finishing up
                                     <br><br>
                                 </td>
                             </tr>

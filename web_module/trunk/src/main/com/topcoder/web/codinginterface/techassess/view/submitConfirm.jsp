@@ -55,12 +55,12 @@
                         <p class=pL>
                         <span class=bodyBigTitle>Submit Confirmation</span>
                         <br /><br />
-
-                        <%=StringUtils.checkNull((String)request.getAttribute(Constants.MESSAGE))%>
-
-
-                        <a href="JavaScript:doSubmit('<%=Constants.RP_SUBMIT%>')">Yes</a> <a href="JavaScript:doSubmit('<%=Constants.RP_VIEW_PROBLEM%>')">No</a>
                         </p>
+
+                        <p><%=StringUtils.checkNull((String)request.getAttribute(Constants.MESSAGE))%></p>
+
+
+                        <p><a href="JavaScript:doSubmit('<%=Constants.RP_SUBMIT%>')"><img src="/i/corp/screening/buttonYes.gif" alt="" /></a> <a href="JavaScript:doSubmit('<%=Constants.RP_VIEW_PROBLEM%>')"><img src="/i/corp/screening/buttonNo.gif" alt="" /></a></p>
 
                     </td>
                     <td class=bodyR>&#160;</td>
