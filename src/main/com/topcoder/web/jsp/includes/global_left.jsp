@@ -420,7 +420,7 @@
       String rtPassword = "";
       String Redirect_URL = "http://" + request.getServerName();
       String responseURL = response.encodeURL("");
-      SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d 'at' hh:mm a z");
+      SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' hh:mm a z");
       Navigation n = null;
       try {
         n = (Navigation) session.getAttribute("navigation");
@@ -489,9 +489,10 @@
     Forum f = (Forum)forums.next();
     int fID = f.getID();
     String fName = f.getName();
-%>    
+    int messageCount = f.getMessageCount();
+%>
     
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A HREF="/rtables/viewForum.jsp?forum=<%= fID %>" class="statText"><%=(fName!=null)?fName:"&nbsp;"%></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
+    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A HREF="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="statText"><%=(fName!=null)?fName:"&nbsp;"%></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
     <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> 
 <%
   }
