@@ -24,7 +24,7 @@
 		  <td colspan=2><jsp:include page="srm_info.jsp" /></td>
 		</tr>
         <tr>
-          <td colspan=2><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_demo_general"/></jsp:include></td>
+          <td colspan=2><jsp:include page="srm_chooser.jsp" ><jsp:param name="link" value="srm_demo_general_two"/></jsp:include></td>
         </tr>
 		<tr valign="top">
           <td>&nbsp;</td>
