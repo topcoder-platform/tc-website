@@ -81,12 +81,12 @@
                   </td>
                   <td width = "28%" align = "left" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=handle&amp;sdir=asc">Handle</a></td>
                   <td width = "28%" align = "right" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=rating&amp;sdir=desc">Rating</a></td>
-                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round1&amp;sdir=asc">Round 1</a></td>
-                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round2&amp;sdir=asc">Round 2</a></td>
-                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round3&amp;sdir=asc">Round 3</a></td>
-                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round4&amp;sdir=asc">Round 4</a></td>
-                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=semi&amp;sdir=asc">Semi</a></td>
-                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=final&amp;sdir=asc">Final</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round1_sort&amp;sdir=asc">Round 1</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round2_sort&amp;sdir=asc">Round 2</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round3_sort&amp;sdir=asc">Round 3</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round4_sort&amp;sdir=asc">Round 4</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=semi_sort&amp;sdir=asc">Semi</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=final_sort&amp;sdir=asc">Final</a></td>
                </tr>
                <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
                    <tr>
