@@ -16,7 +16,7 @@
 <% } %>
 
 <% if (tabLev1.equals("algorithm")) {%>
-                 <img src="/i/tournament/tccc04/headline_algorithm.gif" alt="Algorithm Headline" width="540" height="30" border="0" vspace="0" hspace="0"/>
+                 <A href="/tc?module=TCCC04Terms "><img src="/i/tournament/tccc04/headline_algorithm.gif" alt="Algorithm Headline" width="540" height="30" border="0" vspace="0" hspace="0"/></A>
 <% } else { %>
                  
 <% } %>
