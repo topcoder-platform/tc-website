@@ -83,7 +83,7 @@
             <% } %>
 
     <% } else if (tabLev1.equals("overview")) { %>
-
+<%--
             <% if (tabLev2.equals("details")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_about" class="statTextBig"><img src="/i/tournament/tccc04/tab_details_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
@@ -95,7 +95,7 @@
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=spectator_package" class="statTextBig"><img src="/i/tournament/tccc04/tab_joinus_off.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } %>
-<%--            
+            
             <% if (tabLev2.equals("sponsors")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_sponsors" class="statTextBig"><img src="/i/tournament/tccc04/tab_sponsors_on.gif" alt="about" width="88" height="22" border="0" /></A></td>
             <% } else { %>
