@@ -306,7 +306,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Health%20Care%20Order%20Processing%20Back%20End&phase=112">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Health%20Care%20Order%20Processing%20Back%20End&amp;phase=112">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
