@@ -55,17 +55,17 @@
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2">
 <!-- <IMG SRC="/i/f/feat_050102_tn3.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="right" BORDER="0"/> -->
 
-<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Article on finding a job... </B></FONT><BR/>
+<P><FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>"Finding a Job is a Job" </B></FONT><BR/>
 <!-- <I>"If you take it slow you'll move up."</I><BR/><BR/> -->
 Wednesday, October 2, 2002<BR/>
 By&#160;pearl,<I>TopCoder Member</I><BR/>
 </P>
 
 <P>
-I am not sure I am really qualified to write this article, since I have not had to look for a job in 20+ years (and, hopefully, won't have to for another 20!).  Back in those ancient days, there were few avenues open to job-seekers:  we had newspaper ads, professional recruiters, college recruitment centers, and word of mouth.  That has all changed with the information age, of course.  Out of curiosity, I decided to look into the modern world of job-hunting.
+Back in the ancient days, there were few avenues open to job-seekers:  we had newspaper ads, professional recruiters, college recruitment centers, and word of mouth.  That has all changed with the information age, of course.  Out of curiosity, I decided to look into the modern world of job-hunting.
 </P>
 <P>
-Talking with recent job-hunters, the first thing I learned was that finding a job IS a job.  They spent at least 40 hours a week following up leads, sending resumes, and searching for job openings.  In the current economy, most companies are being very cautions about expanding.  It doesn't help that there have been large layoffs as well (American Airlines, etc.), so in addition to the usual influx of college graduates, there are a lot of seasoned professionals out there looking too.  The competition can be fierce.  One company I know recently put an ad in the local paper for an opening for a data base management position, and got over 4000 applications over the course of three days for a position that was hard to fill just a few years ago.
+Talking with recent job-hunters, the first thing I learned was that finding a job is a job.  They spent at least 40 hours a week following up leads, sending resumes, and searching for job openings.  In the current economy, most companies are being very cautions about expanding.  It doesn't help that there have been large layoffs as well (American Airlines, etc.), so in addition to the usual influx of college graduates, there are a lot of seasoned professionals out there looking too.  The competition can be fierce.  One company I know recently put an ad in the local paper for an opening for a data base management position, and got over 4,000 applications over the course of three days for a position that was hard to fill just a few years ago.
 </P>
 <P>
 The first step in your job search is writing your resume.  This article is too small to go into all the details of writing a resume-it will be well worth your while to buy a book on resume writing or to borrow one from your local library.  There are several things worth mentioning here, however. 
@@ -74,7 +74,7 @@ The first step in your job search is writing your resume.  This article is too s
 <LI>List all your relevant experience.  This means that if you apply for jobs in different fields (say, one job as a games programmer, another as a database management professional), you will need more than one resume-one that emphasizes your programming skills, another your database skills.</LI>
 <LI>List all your relevant skills.  Be sure to include any acronyms somewhere on the resume (such as JAVA, ASP, etc.)  Many companies will scan resumes electronically for these and other buzz-words.</LI>
 <LI>List all your education.</LI>
-<LI>5.	Keep it honest.  That should go without saying...</LI>
+<LI>Keep it honest.  That should go without saying...</LI>
 </OL>
 </P>
 <P>
@@ -120,7 +120,7 @@ These sites allow you to post your resume for everyone to see.  It is very impor
 <B>Option 7:  On-line sites such as TopCoder</B>
 </P>
 <P>
-Then there is TopCoder, an online community like no other.  At this site, a potential employer can view actual samples of your work, and see that you really do have the skills your resume lists.  This is very important to potential employers, as all too often applicants who are great at interviewing and have all the correct buzzwords on their resume, have absolutely no programming skill whatsoever.  TopCoder is rolling out the new TCES (TopCoder Employment Services) in September-check out the details at <A HREF="/?&amp;t=jobs&amp;c=index"  CLASS="bodyGeneric">Job section of http://www.topcoder.com/</A>
+Then there is TopCoder, an online community like no other.  At this site, a potential employer can view actual samples of your work, and see that you really do have the skills your resume lists.  This is very important to potential employers, as all too often applicants who are great at interviewing and have all the correct buzzwords on their resume, have absolutely no programming skill whatsoever.  TopCoder launched TCES (TopCoder Employment Services) in September. <A HREF="/?&amp;t=tces&amp;c=index"  CLASS="bodyGeneric">Click here</A> for details.
 </P>
 <P>
 <B>Other Options</B>
