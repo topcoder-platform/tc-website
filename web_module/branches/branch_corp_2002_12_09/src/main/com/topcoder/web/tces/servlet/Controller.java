@@ -3,7 +3,6 @@ package com.topcoder.web.tces.servlet;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.bean.Task;
-//import com.topcoder.web.tces.bean.LoginTask;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.common.web.util.Data;
@@ -16,7 +15,7 @@ import com.topcoder.security.NotAuthorizedException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.security.ProcessorResource;
+import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.web.corp.request.Login;
 import com.topcoder.web.corp.Util;
 
@@ -92,11 +91,36 @@ public class Controller extends HttpServlet {
             if (taskName != null && taskName.trim().length() > 0) {
                 log.info("[**** tces **** " + taskName + " **** " +
                           request.getRemoteHost() + " ****]");  
+
+                String taskClassName = TCESConstants.TCES_PACKAGE + "." 
+                                           + taskName
+
+                /* Initializing WebAuthentication tokens in each task */
+                SessionPersistor persistor = SessionPersistor.getInstance(
+                    request.getSession(true)
+                );
+                WebAuthentication authToken
+                    = new BasicAuthentication(persistor, request, response); 
+
+                TCSubject tcUser = Util.retrieveTCSubject(
+                    authToken.getActiveUser().getId()
+                );
+                Authorization authorize = new TCESAuthorization(tcUser);
+                Resource taskResource = new SimpleResource(taskClassName);
+                if (!authorize.hasPermission(taskResource)) {
+                    if (authToken.getActiveUser().isAnonymous()) {
+                        throw new TCESAuthenticationException(
+                            "Anonymous user does not have permision");
+                    }
+                    throw new NotAuthorizedException(
+                        "User not Authorized for access to resource: "
+                            + taskName);
+                }
+
                 // process a task
                 Task task = null;
                 Class taskClass = null;
-                taskClass = Class.forName(TCESConstants.TCES_PACKAGE + "." 
-                                          + taskName);
+                taskClass = Class.forName(TaskClassName);
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
 
@@ -114,29 +138,7 @@ public class Controller extends HttpServlet {
                 task.setServletPath(request.getContextPath() 
                                     + request.getServletPath());
 
-                /* Initializing WebAuthentication tokens in each task */
-                SessionPersistor persistor = SessionPersistor.getInstance(
-                    request.getSession(true)
-                );
-                WebAuthentication authToken;
-                authToken = new BasicAuthentication(persistor, request,
-                                                    response); 
                 task.setAuthToken(authToken);
-
-                TCSubject tcUser = Util.retrieveTCSubject(
-                    authToken.getActiveUser().getId()
-                );
-                Authorization authorize = new TCESAuthorization(tcUser);
-                Resource taskResource = new ProcessorResource(task);
-                if (!authorize.hasPermission(taskResource)) {
-                    if (authToken.getActiveUser().isAnonymous()) {
-                        throw new TCESAuthenticationException(
-                            "Anonymous user does not have permision");
-                    }
-                    throw new NotAuthorizedException(
-                        "User not Authorized for access to resource: "
-                            + taskName);
-                }
 
                 task.servletPreAction(request, response);
 
