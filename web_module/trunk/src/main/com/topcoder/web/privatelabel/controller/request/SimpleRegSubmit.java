@@ -176,6 +176,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         long emailId = 0;
         if (regInfo.isNew()) {
             emailId = email.createEmail(newUser.getId(), transDb, db);
+            email.setStatusId(emailId, 1, transDb);
         } else {
             emailId = email.getPrimaryEmailId(newUser.getId(), transDb);
         }
