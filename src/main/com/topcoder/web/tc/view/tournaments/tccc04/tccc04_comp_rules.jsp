@@ -180,14 +180,14 @@
 
                 <tr>
                     <td class="sidebarText">3rd place finisher* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$2,000</td>
+                    <td class="sidebarText" align="right">$4,000</td>
                     <td class="sidebarText">3rd place finisher* in the Championship Round</td>
                     <td class="sidebarText" align="right">$1,500</td>
                 </tr>
 
                 <tr>
                     <td class="sidebarText">4th place finisher* in the Championship Round</td>
-                    <td class="sidebarText" align="right">$1,000</td>
+                    <td class="sidebarText" align="right">$2,000</td>
                     <td class="sidebarText">4th place finisher* in the Championship Round</td>
                     <td class="sidebarText" align="right">$1,000</td>
                 </tr>

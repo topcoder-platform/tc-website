@@ -55,7 +55,7 @@ with "Coach" in the subject line.
 <ul>
 <li>Must be a rated TopCoder or TopCoder Software member</li>
 <li>Must be available to provide design guidance or technical explanations to the competitors for the duration of the Design Contest</li>
-<li>Members of the Component Architect Review Board are NOT eligible to participate as coaches</li>
+<li>Coaches that are Component Architect Review Board members cannot participate as reviewers for the Component Competition</li>
 </ul>
 
 <p><span class="bodySubtitle">Selection</span><br/>
