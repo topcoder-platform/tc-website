@@ -66,6 +66,18 @@
       <mkdir dir="${servlets}/${jobpostingservlets}" />
       <mkdir dir="${servlets}/${tcesservlets}" />
    </target>
+
+   <target name="move_file_upload_xml">
+      <property name="toDir" value="${resources}/com/topcoder/servlet/request" />
+      <mkdir dir="${toDir}" />
+      <copy todir="$(toDir}">
+         <fileset dir="${resources}" >
+                 <include name="FileUpload.xml" />
+         </fileset>
+      </copy>
+   </target>
+      
+
    <target name="create_public_html">
       <mkdir dir="${public_html}/WEB-INF/lib" />
    </target>
@@ -97,7 +109,7 @@
    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES">
    </target>
 
-   <target name="servlets" depends="compile">
+   <target name="servlets" depends="compile,move_file_upload_xml">
       <move todir="${servlets}/${statservlets}">
          <fileset dir="${classes}/${statservlets}" >
                  <include name="**/*.class" />
