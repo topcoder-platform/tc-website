@@ -63,8 +63,13 @@ public class StringUtilities {
             }
         } else if (result.getClass().isArray()) {
             buf.append(makePrettier(result));
-        } else
+        } else if (result instanceof String) {
+            buf.append("\"");
             buf.append(result.toString());
+            buf.append("\"");
+        } else {
+            buf.append(result.toString());
+        }
         return buf.toString();
     }
 
@@ -91,7 +96,10 @@ public class StringUtilities {
                 } else if (type.equals("class java.lang.String")) {
                     String[] temp = (String[]) result;
                     for (int i = 0; i < temp.length - 1; i++) {
-                        buf.append(temp[i] + ", ");
+                        buf.append("\"");
+                        buf.append(temp[i]);
+                        buf.append("\"");
+                        buf.append(", ");
                     }
                     buf.append(temp[temp.length - 1]);
                 } else if (type.equals("float")) {
