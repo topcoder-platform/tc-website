@@ -66,7 +66,7 @@
                     
                         <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#999999">
                             <tr valign="middle"><form name="selectform">
-                                <td class="statTextLarge" width="99%"><font size="3">&#160;August 2004</font></td>
+                                <td class="statTextLarge" width="99%"><font size="3">&#160;September 2004</font></td>
                                 <td align="right" width="1%">
 <!-- Calendar Pulldown Begins -->	
                         <xsl:call-template name="calendar_view_pulldown"/>
@@ -87,83 +87,147 @@
                             </tr>
                           
                             <tr> 
-                                <td id="calendar">1</td>
-                                <td id="calendar">2</td>
-                                <td id="calendar">3</td>
+                                <td id="calendarBlank">
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;</td>
+                                <td id="calendarBlank"></td>
+                                <td id="calendarBlank"></td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">4</span><br />
-                                    <strong>Match 206</strong><br />
+                                    <span id="calendarSRMDate">1</span><br />
+                                    <strong>Match 210</strong><br />
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
+                                    Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=intel">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5852&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">5</td>
-                                <td id="calendar">6</td>
-                                <td id="calendar">7</td>
+                                    <A href="/?RoundId=5856&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendar">2</td>
+                                <td id="calendar">3</td>
+                                <td id="calendar">4</td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">8</td>
+                                <td id="calendar">5
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;<br />
+                                    &#160;</td>
+                                <td id="calendar">6</td>
                                 <td id="calendarTCO04">
-                                    <span id="calendarTCO04Date">9</span><br/>
+                                    <span id="calendarTCO04Date">7</span><br/>
                                     <strong>2004 TopCoder Open</strong><br/>
-                                    Registration Opens: 9:00 AM ET<br/>
+                                    Registration Closes: 9:00 AM ET<br/>
+                                    Qualification Round<br/>
+                                    START: 12:00 PM ET (noon)<br/>
                                     &#160;<br />
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
                                     </td>
-                                <td id="calendarSRM">
-                                    <span id="calendarSRMDate">10</span><br />
-                                    <strong>Match 207</strong><br />
-                                    Register: 10:00&#160;AM<br />
-                                    Compete: 1:00&#160;PM<br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5853&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                                <td id="calendar">11</td>
-                                <td id="calendar">12</td>
-                                <td id="calendar">13</td>
-                                <td id="calendar">14</td>
+                                <td id="calendarTCO04">
+                                    <span id="calendarTCO04Date">8</span><br/>
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    Qualification Round<br/>
+                                    END: 12:00 PM ET (noon)<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
+                                    </td>
+                                <td id="calendar">9</td>
+                                <td id="calendar">10</td>
+                                <td id="calendarTCO04">
+                                    <span id="calendarTCO04Date">11</span><br/>
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    Online Round #1<br/>
+                                    Registration: 9:00 AM<br/>
+                                    Compete: 12:00 PM(noon)<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
+                                    </td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">15</td>
-                                <td id="calendar">16</td>
-                                <td id="calendar">17</td>
+                                <td id="calendar" rowspan="2">12</td>
+                                <td id="calendar" rowspan="2">13</td>
                                 <td id="calendarSRM">
-                                    <span id="calendarSRMDate">18</span><br />
-                                    <strong>Match 208</strong><br />
-                                    Register: 6:00&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
+                                    <span id="calendarSRMDate">14</span><br />
+                                    <strong>Match 211</strong><br />
+                                    Register: 6:00&#160;AM<br />
+                                    Compete: 9:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5854&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                    <A href="/?RoundId=5857&amp;t=schedule&amp;c=srm">Details</A></td>
+                                <td id="calendar" rowspan="2">15</td>
+                                <td id="calendar" rowspan="2">16</td>
+                                <td id="calendar" rowspan="2">17</td>
+                                <td id="calendar" rowspan="2">18</td>
+                            </tr>
+                            
+                            <tr>
+                                <td id="calendarTCO04">
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    Online Round #2<br/>
+                                    Login by: 9:20 PM<br/>
+                                    Compete: 9:30 PM<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
+                                    </td>
+							</tr>                            	
+                            
+                            <tr> 
                                 <td id="calendar">19</td>
                                 <td id="calendar">20</td>
                                 <td id="calendar">21</td>
+                                <td id="calendarTCO04">
+                                    <span id="calendarTCO04Date">22</span><br/>
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    Online Round #3<br/>
+                                    Login by: 9:20 PM<br/>
+                                    Compete: 9:30 PM<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
+                                    </td>
+                                <td id="calendar">23</td>
+                                <td id="calendar">24</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">25</span><br />
+                                    <strong>Match 212</strong><br />
+                                    Register: 9:00&#160;AM<br />
+                                    Compete: 12:00&#160;PM<br />
+                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
+                                    <A href="/?RoundId=5858&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                             </tr>
                             
                             <tr> 
-                                <td id="calendar">22</td>
-                                <td id="calendar">23</td>
-                                <td id="calendar">24</td>
-                                <td id="calendar">25</td>
                                 <td id="calendar">26</td>
                                 <td id="calendar">27</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">28</span><br />
-                                    <strong>Match 209</strong><br />
-                                    Register: 9:00&#160;AM<br />
-                                    Compete: 12:00&#160;PM<br />
+                                    <strong>Match 213</strong><br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
+									Sponsored by: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=microsoft">Microsoft</A><br/>
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/?RoundId=5855&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
-                            </tr>
-                            
-                            <tr> 
-                                <td id="calendar">29</td>
+                                    <A href="/?RoundId=5859&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
+                                <td id="calendarTCO04">
+                                    <span id="calendarTCO04Date">29</span><br/>
+                                    <strong>2004 TopCoder Open</strong><br/>
+                                    Online Round #4<br/>
+                                    Login by: 9:20 PM<br/>
+                                    Compete: 9:30 PM<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCO04Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=alg_schedule">Details</A>
+                                    </td>
                                 <td id="calendar">30</td>
-                                <td id="calendar">31</td>
-                                <td id="calendarBlank"></td>
-                                <td id="calendarBlank"></td>
                                 <td id="calendarBlank"></td>
                                 <td id="calendarBlank">
                                     &#160;<br />
