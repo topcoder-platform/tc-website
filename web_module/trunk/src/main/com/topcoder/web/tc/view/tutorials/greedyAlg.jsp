@@ -172,7 +172,7 @@ Let N denote the number of activities and
 {I}  the activity I  ( 1 <= I <= N )
 For each {I}, consider S[I] and F[I] its starting and finishing time
 Sort the activities in the increasing order of their finishing time
-- that is, for every I < J we must have <strong>F</strong> [I] <= <strong>F</strong> [J]
+- that is, for every I < J we must have F [I] <= F [J]
 
 <font color="blue">//  A denotes the set of the activities that will be selected</font>
 A = {1}
@@ -181,7 +181,7 @@ J = 1
 For I = 2  to N                 
 <font color="blue">// we can select activity 'I' only if the last activity
 // selected has already been finished</font>
-      If S [I] >= <strong>F</strong> [J]
+      If S [I] >= F [J]
 <font color="blue">//  select activity 'I'</font>
                 A = A + {I}
 <font color="blue">// Activity 'I' now becomes the last activity selected</font>
