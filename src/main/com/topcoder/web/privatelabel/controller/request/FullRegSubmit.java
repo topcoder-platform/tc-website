@@ -37,6 +37,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
           so it should be good
         */
         commit(regInfo);
+        handleActivation();
         setNextPage();
         clearRegInfo();
     }
@@ -94,7 +95,21 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
         return ret;
     }
 
-    protected abstract boolean isEligible();
+    /**
+     * default is true, subclasses can implement something more interesting
+     * @return
+     */
+    protected boolean isEligible() {
+        return true;
+    }
+
+    /**
+     * default is do nothing, subclasses can implement something more interesting
+     * @throws TCWebException
+     */
+    protected void handleActivation() throws TCWebException {
+
+    }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         //get all reg info from the session, no changes should have been made at this point
