@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>03.18.05<br>3:45 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">Small change to Unused Code Rule, new problem timeout limit, and more...</A></span><br><br>
+      For the first SRM in April (April 2) we're going to be making a few changes and adding some new features.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/rtables/viewThread.jsp?forum=7167&thread=488979&mc=1">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_alg">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>03.17.05<br>10:30 AM</td>
       <td class="newsTextCell">
       <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
@@ -236,21 +248,6 @@
    <tr><td class="newsLinksCell">
          <A href="/rtables/viewThread.jsp?forum=244237&thread=443165&mc=1">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>03.02.05<br>4:15 PM</td>
-      <td class="newsTextCell">
-      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
-      <td valign="top"><span class="newsTitle"><A href="/index?t=features&c=feat_030205">Performance and Optimization in the "Real World"</A></span><br><br>
-      "So, higher performance code is always better, right?  Fortunately, wrong."</td>
-      <td class="newsPhoto"><img src="/i/m/n0vice_mug.gif" /><br>by <A href="/stat?c=member_profile&cr=269886">n0vice</A></td></tr></table>
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/index?t=features&c=feat_030205">full article</A>&#160;|&#160;
-         <A href="/?&t=features&c=index">archive</A>
    </td></tr>
 
 </table>
