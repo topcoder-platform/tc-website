@@ -55,8 +55,8 @@
 <!-- Center Column Begins -->
         <td class="bodyText" width="99%">
             <jsp:include page="../body_top.jsp" >
-                <jsp:param name="image" value="statistics"/>
-                <jsp:param name="image1" value="steelblue"/>
+                <jsp:param name="image" value="statisticsw"/>
+                <jsp:param name="image1" value="white"/>
                 <jsp:param name="title" value="Advanced Member Search"/>
             </jsp:include>
 
