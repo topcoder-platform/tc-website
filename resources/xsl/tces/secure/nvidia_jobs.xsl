@@ -55,7 +55,15 @@
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
 
 <!-- Nvidia Links Begins -->
-      <td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Main</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=products" class="bodyText" target="_blank">Products</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=benefits" class="bodyText" target="_blank">Benefits</a></td>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+   <tr>
+      <td valign="middle" height="18" bgcolor="#43515E" class="statText"><b>&#160;NVIDIA Jobs</b></td>
+  </tr>
+  
+  <tr>
+      <td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Main Page</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=products" class="bodyText" target="_blank">Products</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=benefits" class="bodyText" target="_blank">Benefits</a></td>
+  </tr>
+</table> 
 <!-- Nvidia Ends -->
 
 <DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/main_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>

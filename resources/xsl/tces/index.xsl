@@ -114,7 +114,7 @@
                                 <td width="99%" class="bodyText">NVIDIA&#174; Corporation (Nasdaq: NVDA) is the worldwide leader in 
                                     graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We 
                                     define the cutting-edge. We deliver to the nth degree. <a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Click here</a> 
-                                    to check out our open Software Engineering positions.<br /><br /></td>
+                                    to check out our open positions.<br /><br /></td>
                             </tr>
 <!-- Nvidia ends -->
                         
