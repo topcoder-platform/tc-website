@@ -12,6 +12,7 @@ package com.topcoder.dde.catalog;
 
 import com.topcoder.apps.review.projecttracker.ProjectTracker;
 import com.topcoder.apps.review.projecttracker.ProjectTrackerHome;
+import com.topcoder.apps.review.projecttracker.ProjectType;
 import com.topcoder.apps.review.document.DocumentManager;
 import com.topcoder.apps.review.document.DocumentManagerHome;
 import com.topcoder.dde.forum.*;
@@ -151,17 +152,17 @@ public class ComponentManagerBean
             homeBindings.lookup(ForumAdminLocalHome.EJB_REF_NAME);
 /*
             /** SECURITY MANAGER
-		Hashtable principalMgrEnvironment=new Hashtable();
-		principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
-		try{
-		    principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
-		} catch(ConfigManagerException exception) {
+        Hashtable principalMgrEnvironment=new Hashtable();
+        principalMgrEnvironment.put(Context.INITIAL_CONTEXT_FACTORY, "org.jnp.interfaces.NamingContextFactory");
+        try{
+            principalMgrEnvironment.put(Context.PROVIDER_URL, getConfigValue("securitymanagerip"));
+        } catch(ConfigManagerException exception) {
             throw new NamingException(
             "Unable to access configuration file: " + exception.toString());
         }
 
 
-		Context principalMgrContext = new InitialContext(principalMgrEnvironment);
+        Context principalMgrContext = new InitialContext(principalMgrEnvironment);
   */
         principalmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(
             homeBindings.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME),
@@ -267,8 +268,8 @@ public class ComponentManagerBean
             catalogRole = principalManager.getRole( JAVA_CAT == rootCategory ? JAVA_PERM : NET_PERM );
             oldCatalogRole = principalManager.getRole( JAVA_CAT == rootCategory ? NET_PERM : JAVA_PERM );
 
-		//I don't think you need the line below since it will be created already
-		//role = principalManager.createRole("DDEComponentDownload " + componentId, null);
+        //I don't think you need the line below since it will be created already
+        //role = principalManager.createRole("DDEComponentDownload " + componentId, null);
             perms = new PermissionCollection();
             perms.addPermission(new DownloadPermission(componentId));
             policyManager.addPermissions(catalogRole, perms, null);
@@ -921,10 +922,10 @@ public class ComponentManagerBean
             throw new CatalogException(
             "Null specified for version info");
         }
-	if(ComponentVersionInfo.SPECIFICATION == versionDateInfo.getPhaseId() ||
+    if(ComponentVersionInfo.SPECIFICATION == versionDateInfo.getPhaseId() ||
            ComponentVersionInfo.DEVELOPMENT == versionDateInfo.getPhaseId() ||
            ComponentVersionInfo.COMPLETED == versionDateInfo.getPhaseId())
-	{
+    {
            if(versionDateInfo.getPostingDate() == null ||
               versionDateInfo.getInitialSubmissionDate() == null ||
               versionDateInfo.getFinalSubmissionDate() == null ||
@@ -2104,12 +2105,12 @@ public class ComponentManagerBean
             Connection conn = null;
             PreparedStatement ps = null;
             ResultSet rs = null;
-    		try{
-    	        con = new InitialContext();
-    	        DataSource ds = (DataSource)con.lookup("java:InformixDS");
-    	        conn = ds.getConnection();
-        	    String query = "SELECT cv.component_id, " +
-        	                   "       cv.version " +
+            try{
+                con = new InitialContext();
+                DataSource ds = (DataSource)con.lookup("java:InformixDS");
+                conn = ds.getConnection();
+                String query = "SELECT cv.component_id, " +
+                               "       cv.version " +
                                "  FROM comp_version_dates cvd, " +
                                "       comp_versions cv" +
                                " WHERE initial_submission_date = EXTEND(CURRENT - 1 UNITS DAY, YEAR TO DAY)" +
@@ -2206,6 +2207,25 @@ public class ComponentManagerBean
             throw new CatalogException(e.toString());
         }
     }
+
+    /**
+     * qq
+     */
+     public long getWinnerId(TCSubject requestor) throws CatalogException {
+        try {
+            ProjectTracker pt = projectTrackerHome.create();
+
+
+            return pt.getProjectById(getProjectId(ProjectType.ID_DESIGN),requestor).getWinner().getId();
+
+        } catch(RemoteException e) {
+            ejbContext.setRollbackOnly();
+            throw new CatalogException(e.toString());
+        } catch (CreateException e) {
+            ejbContext.setRollbackOnly();
+            throw new CatalogException(e.toString());
+        }
+     }
 
     /**
      * Determines whether or not the project of the given type for this component version has yielded a

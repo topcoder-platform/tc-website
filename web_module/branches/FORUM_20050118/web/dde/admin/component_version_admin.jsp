@@ -439,6 +439,29 @@ if (action != null) {
         ver.setPhaseDate(gcDate.getTime());
         ver.setPhase(Long.parseLong(phase));
 
+	// qq
+	debug.addMsg("qq phase = "+Long.parseLong(phase) );
+	if (Long.parseLong(phase) == 113) {
+	    try {
+	    	long winnerId = componentManager.getWinnerId(tcSubject);
+		
+		debug.addMsg("winnerId = "+winnerId );
+		
+                NotificationHome notificationHome = (NotificationHome)
+                            PortableRemoteObject.narrow(
+                            CONTEXT.lookup(NotificationHome.EJB_REF_NAME),
+                            NotificationHome.class);
+
+                Notification notification = notificationHome.create();
+
+                notification.createNotification("forum post " + newProject.getForumId(), winnerId, notification.FORUM_POST_TYPE_ID);
+	    	
+	    } catch (Exception e) {
+	        // can't get winner
+	        debug.addMsg(e);
+	    }
+	}
+	
         try {
             if (colTechnology != null) {
                 Iterator iter = colTechnology.iterator();
