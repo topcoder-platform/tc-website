@@ -8,8 +8,14 @@
     <tr valign="middle">
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap>
-            <strong><jsp:getproperty name="requestInfo" property="Handle" /> is logged in.</strong>
-            &#160;&#160;|&#160;&#160;<screen:servletLink target="_top" styleclass="loginLinks">Home</screen:servletLink></td>
+<% if(requestInfo.isLoggedIn()) { %>
+             <strong>Hello, <jsp:getproperty name="requestInfo" property="Handle" />.</strong>
+            &#160;&#160;|&#160;&#160;<screen:servletLink processor="Logout" target="_top" styleclass="loginLinks">Logout</screen:servletLink>
+<%} else {%>
+            &#160;&#160;|&#160;&#160;<screen:servletLink processor="Login" target="_top" styleclass="loginLinks">Login</screen:servletLink>
+<%}%>
+            <screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/clear.gif" width="20" height="1" border="0"/>
+        </td>
         <td class="login" width="10">&nbsp;</td>
     </tr>
 </table>
