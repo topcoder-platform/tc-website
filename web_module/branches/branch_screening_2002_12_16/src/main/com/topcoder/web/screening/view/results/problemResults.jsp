@@ -7,6 +7,17 @@
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="/script.jsp"/>
 <SCRIPT TYPE="text/javascript">
+function getProblemDetail(id) {
+    var width = screen.availWidth * 2 / 3;
+    var height = screen.availHeight / 2;
+    var left = (screen.availWidth - width) / 2;
+    var top = 0;
+    var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
+    var name="problemDetail";
+    <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PopulateProblemDetail"; %>
+    window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
+    return;
+  }
 function getTCProblemResults(coderId, roundId, problemId) {
     var width = screen.availWidth * 2 / 3;
     var height = screen.availHeight / 2;
@@ -71,6 +82,11 @@ function getTCProblemResults(coderId, roundId, problemId) {
                        </TD>
 	        </TR>
 	        <TR>
+		       <TD VALIGN="top" CLASS="bodyText">
+                           <B>Problem:</B> <A HREF="JavaScript:getProblemDetail('<jsp:getProperty name='problemInfo' property='roundId' />,<jsp:getProperty name='problemInfo' property='problemId' />')" CLASS="bodyText"><jsp:getProperty name='problemInfo' property='problemName'/></A>
+                       </TD>
+	        </TR>
+	        <TR>
 		       <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>                       
          </TABLE>           
@@ -116,6 +132,13 @@ function getTCProblemResults(coderId, roundId, problemId) {
               <TD COLSPAN="3"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>
            </screen:resultSetRowIterator>
+           <% if(submissionInfo.getTestResults().isEmpty()){ %>
+	        <TR>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" colspan='4'>
+                           No system tests were performed on this problem.
+                       </TD>
+	        </TR>	        
+           <% } %>
          </TABLE>
          
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
@@ -151,6 +174,13 @@ function getTCProblemResults(coderId, roundId, problemId) {
               <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>          	        	        	        
            </screen:resultSetRowIterator>
+           <% if(submissionInfo.getTopTCSolutions().isEmpty()){ %>
+	        <TR>
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" colspan='5'>
+                           No TopCoder solutions available for this problem.
+                       </TD>
+	        </TR>	        
+           <% } %>
          </TABLE>                 
 </FORM>         
 <P><BR/></P>    
