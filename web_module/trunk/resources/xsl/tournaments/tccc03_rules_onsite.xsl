@@ -77,7 +77,7 @@ All competitors who have qualified for an online round will be assigned to a spe
 						<DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="1" CELLPADDING="6" CELLSPACING="0">
 						<TR>
 							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Round of Competition</TD>
-							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Date &amp; *Time</TD>
+							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Date &amp; **Time</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" class="statText"> - Regional Online Round #1</TD>
@@ -117,7 +117,7 @@ START:  9:00 PM</TD>
 START:  9:00 PM</TD>
 						</TR>												
 						<TR>
-							<TD COLSPAN="2" VALIGN="top" BGCOLOR="#666666" class="statText">*NOTE:  In the event that a round must be cancelled for any reason, the "raindate" for the cancelled match will be the following day at the same time.</TD>
+							<TD COLSPAN="2" VALIGN="top" BGCOLOR="#666666" class="statText">**NOTE:  In the event that a round must be cancelled for any reason, the "raindate" for the cancelled match will be the following day at the same time.</TD>
 						</TR>								
 						</TABLE></DIV><BR/>
 						
@@ -175,7 +175,7 @@ are the responsibility of the contestant and his/her guest.
 						<DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="1" CELLPADDING="6" CELLSPACING="0">
 						<TR>
 							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Round of Competition</TD>
-							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Date &amp; *Time</TD>
+							<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="21" BGCOLOR="#000000" CLASS="statText">Date &amp; **Time</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">- Semifinal Room #1</TD>
@@ -198,7 +198,7 @@ are the responsibility of the contestant and his/her guest.
 							<TD VALIGN="top" BGCOLOR="#666666" CLASS="statText">April 5, 2003 at 12:00 PM EST</TD>
 						</TR>
 						<TR>
-							<TD COLSPAN="2" VALIGN="top" BGCOLOR="#666666" CLASS="statText">*Times are subject to change.</TD>
+							<TD COLSPAN="2" VALIGN="top" BGCOLOR="#666666" CLASS="statText">**Times are subject to change.</TD>
 						</TR>							
 						</TABLE></DIV><BR/>
 						The Semifinal Round will consist of four (4) rooms of four (4) coders each.  The winner in each room will advance to the Championship Round.<BR/><BR/>
