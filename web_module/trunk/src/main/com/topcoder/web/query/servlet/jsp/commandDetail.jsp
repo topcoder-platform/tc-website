@@ -15,7 +15,6 @@
   </HEAD>
   <BODY BGCOLOR="#333333" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0"">
   <jsp:include page="top.jsp" />
-
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
@@ -108,5 +107,6 @@
       <TD WIDTH="25" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
     </TR>
   </TABLE>
+  <jsp:include page="bottom.jsp" />
   </BODY>
 </HTML>
