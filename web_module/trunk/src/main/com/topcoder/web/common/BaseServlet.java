@@ -91,26 +91,31 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+        resp.setContentType("text/html");
         resp.flushBuffer();
     }
 
     protected void doHead(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+        resp.setContentType("text/html");
         resp.flushBuffer();
     }
 
     protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+        resp.setContentType("text/html");
         resp.flushBuffer();
     }
 
     protected void doPut(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+        resp.setContentType("text/html");
         resp.flushBuffer();
     }
 
     protected void doTrace(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
+        resp.setContentType("text/html");
         resp.flushBuffer();
     }
 
