@@ -9,7 +9,7 @@
 <head>
 
 <link rel=stylesheet href="http://java.sun.com/javaone/javaone2004.css">
-<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
+
 
 <title>2004 JavaOne Coding Challenge</title>
 
@@ -19,17 +19,15 @@
 
 </head>
 	<body>
-		<div align="center">
-			<table border=0 cellspacing=0 width="800">
+			<table border=0 cellspacing=0 width="800" align="center">
 				<tr>
-					<td colspan="2" align="left" valign="middle"> <img src="/i/events/javaone04/javaone04_logo.gif" width="166" height="80" border="0"/>
-					<img src="/i/clear.gif" width="420" height="80" border="0"/>
-					<a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="166" height="80" border="0"/></a><br/>
-					<img src="/i/events/javaone04/purple_dot.gif" width="800" height="25" border="0"></td></tr>
+					<td colspan="2" align="left" valign="middle">
+					<img src="/i/events/javaone04/banner_top.gif" width="800" height="106" border="0"/>
+					</td>
+				</tr>
 				<tr>
-					<td valign="top" width="164">
-						<jsp:include page="links.jsp" />
-					<td>
+					<td valign="top" width="164"><jsp:include page="links.jsp" /></td>
+					<td valign="top" >
 				<!-- start breadcrumb -->
   						<table border="0" cellspacing="0" cellpadding="0" bgcolor="#F0F0F0" >
    							<tr><td width="19"><img src="/i/clear.gif" width="634" height="20"></td></tr>
@@ -37,6 +35,7 @@
   				<!-- end breadcrumb -->
   					<p></p>
   					<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0">
+  					<img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>
   					<p></p>
   					
 					<p class ="regmiddle"><strong><font size="4">Code - Compete - Win!</font></strong></p>
@@ -68,10 +67,15 @@
 					The winners of each day's competition will be recognized by posting their name on the Coding Challenge Scoreboard.</p>
 					
 					
+					
+					</td>
+				<tr>
+					<td colspan="2" align="left" valign="middle">
+						<jsp:include page="foot.jsp" />
 					</td>
 				</tr>
+				
 			</table>
-			<jsp:include page="foot.jsp" />
-		</div>
+			
 	</body>
 </html>
