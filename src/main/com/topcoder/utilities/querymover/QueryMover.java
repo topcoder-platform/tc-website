@@ -72,7 +72,7 @@ public class QueryMover {
 
     public static void main(String args[]) {
         QueryMover q = new QueryMover();
-        UserTransaction utx = null;
+//        UserTransaction utx = null;
         Context ctx = null;
         try {
             q.initSource();
@@ -89,46 +89,46 @@ public class QueryMover {
 //            utx.commit();
         } catch (SecurityException e) {
             try {
-                utx.rollback();
+//                utx.rollback();
             } catch (IllegalStateException e1) {
                 e1.printStackTrace();
             } catch (SecurityException e1) {
                 e1.printStackTrace();
-            } catch (SystemException e1) {
-                e1.printStackTrace();
+//            } catch (SystemException e1) {
+//                e1.printStackTrace();
             }
             e.printStackTrace();
         } catch (IllegalStateException e) {
             try {
-                utx.rollback();
+//                utx.rollback();
             } catch (IllegalStateException e1) {
                 e1.printStackTrace();
             } catch (SecurityException e1) {
                 e1.printStackTrace();
-            } catch (SystemException e1) {
-                e1.printStackTrace();
+//            } catch (SystemException e1) {
+//                e1.printStackTrace();
             }
             e.printStackTrace();
         } catch (NamingException e) {
             try {
-                utx.rollback();
+//                utx.rollback();
             } catch (IllegalStateException e1) {
                 e1.printStackTrace();
             } catch (SecurityException e1) {
                 e1.printStackTrace();
-            } catch (SystemException e1) {
-                e1.printStackTrace();
+//            } catch (SystemException e1) {
+//                e1.printStackTrace();
             }
             e.printStackTrace();
         } catch (RemoteException e) {
             try {
-                utx.rollback();
+//                utx.rollback();
             } catch (IllegalStateException e1) {
                 e1.printStackTrace();
             } catch (SecurityException e1) {
                 e1.printStackTrace();
-            } catch (SystemException e1) {
-                e1.printStackTrace();
+//            } catch (SystemException e1) {
+//                e1.printStackTrace();
             }
             e.printStackTrace();
 /*
