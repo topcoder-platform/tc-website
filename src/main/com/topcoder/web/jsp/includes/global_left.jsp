@@ -75,6 +75,8 @@
             <% if (level1.equals("statistics")) { %>
             <%
                 //this can probably go if we can standardize the MVC.  rtables is the current exception
+                //this hoses up registration if it's executed for all of global_left.  haven't figured out
+                //why though...????
                 if (info==null) {
                     Navigation nav = (Navigation)session.getAttribute("navigation");
                     if (nav==null) info = new Navigation(request, response).getSessionInfo();
