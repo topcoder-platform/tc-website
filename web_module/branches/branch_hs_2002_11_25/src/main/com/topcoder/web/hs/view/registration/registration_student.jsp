@@ -61,7 +61,7 @@
    </TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
-   <TD CLASS="bodyText" ALIGN="right" VALIGN="middle"><A HREF="state"></A>State&nbsp;</TD>
+   <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">State&nbsp;</TD>
    <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle">
 <reg:listSelect name="state_code" class="dropdown" onChange="Javascript:changeState()" list="<%=student.getStateList()%>" selected="<%=student.getStateCode()%>"/>
@@ -257,7 +257,6 @@
  </TABLE>
  <SCRIPT type="text/javascript">
   function changeState() {
-   document.regForm.action="#state";
    document.regForm.cmd.value="";
    document.regForm.submit();
   }
