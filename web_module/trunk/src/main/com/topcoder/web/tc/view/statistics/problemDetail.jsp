@@ -210,36 +210,37 @@
                  <tr>
                    <td class="statText">Best Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td class="statText"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))).toString() %></TD>
+<%--                     <td class="statText"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></TD>--%>
+                     <td class="statText"><%= new java.sql.Time(resultRow.getLongItem("best_time")) %></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td class="statText"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></TD>
+                     <td class="statText"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></td>
                    </rsc:iterator>
                  </tr>
                  <tr>
-                   <td class="statText">High Scorer</TD>
+                   <td class="statText">High Scorer</td>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
                      <td class="statText">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                      <% } %>
-                     </TD>
+                     </td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td class="statText">
                      <% if (resultRow.getItem("coder_id").getResultData()!=null) { %>
                          <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                      <% } %>
-                     </TD>
+                     </td>
                    </rsc:iterator>
                  </tr>
                  <tr>
-                   <td class="statText">Average Correct Time</TD>
+                   <td class="statText">Average Correct Time</td>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
-                     <td class="statText"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></TD>
+                     <td class="statText"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
-                     <td class="statText"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></TD>
+                     <td class="statText"><%= resultRow.getItem("avg_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("avg_time"))) %></td>
                    </rsc:iterator>
                  </tr>
                </table>
@@ -253,9 +254,9 @@
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <tr><td class="statText">Division II</td></tr>
                  <tr>
-                   <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText"></TD>
+                   <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText"></td>
                    <rsc:iterator list="<%=div2Lang%>" id="resultRow">
-                     <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText"><rsc:item name="language_name" row="<%=resultRow%>"/></TD>
+                     <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText"><rsc:item name="language_name" row="<%=resultRow%>"/></td>
                    </rsc:iterator>
                    <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statText">Overall</td>
                  </tr>
