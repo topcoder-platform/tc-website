@@ -258,7 +258,7 @@ public class Registration
         //we're doing this because when we get the input
         //from the request, we'll only have the notifications
         //that are chosen, not the ones that are not chosen
-        if (isStep(STEP_1) && step == null) {
+        if (step!=null&&step.equalsIgnoreCase(STEP_1)) {
             notifications.clear();
             log.debug("notifications cleared...");
         }
