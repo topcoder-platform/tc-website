@@ -64,8 +64,8 @@ public class FullRegConfirm extends FullRegBase {
         String key = null;
         List responses = new ArrayList(getQuestions().size());
         for (Iterator it = getQuestions().iterator(); it.hasNext();) {
-            key = DemographicInput.PREFIX + q.getId();
             q = (DemographicQuestion) it.next();
+            key = DemographicInput.PREFIX + q.getId();
             value = StringUtils.checkNull(getRequest().getParameter(key));
             r = new DemographicResponse();
             r.setQuestionId(q.getId());
