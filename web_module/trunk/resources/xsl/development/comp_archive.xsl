@@ -109,6 +109,9 @@
                                 <xsl:when test="./catalog_name = 'Flash' ">
                                     <img src="/i/development/flashSm.gif"/>
                                 </xsl:when>
+                                <xsl:when test="./catalog_name = 'Applications' ">
+                                    <img src="/i/development/smApp.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
@@ -119,9 +122,7 @@
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
-                                    <xsl:if test="number(./version) &gt;  number('1')">
-                                        Version&#160;<xsl:value-of select="./version"/>
-                                    </xsl:if>
+                                    <xsl:value-of select="./version_text"/>
                                 </a>
                             </td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
@@ -160,6 +161,9 @@
                                 <xsl:when test="./catalog_name = 'Flash' ">
                                     <img src="/i/development/flashSm.gif"/>
                                 </xsl:when>
+                                <xsl:when test="./catalog_name = 'Applications' ">
+                                    <img src="/i/development/smApp.gif"/>
+                                </xsl:when>
                                <xsl:otherwise>
                                   <img src="/i/development/netSm.gif"/>
                                </xsl:otherwise>
@@ -170,9 +174,7 @@
                                     <xsl:attribute name="href">
                                         <xsl:value-of select="concat('http://software.topcoder.com/catalog/c_component.jsp?comp=', ./component_id)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
-                                    <xsl:if test="number(./version) &gt;  number('1')">
-                                        Version&#160;<xsl:value-of select="./version"/>
-                                    </xsl:if>
+                                    <xsl:value-of select="./version_text"/>
                                 </a>
                             </td>
                             <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
