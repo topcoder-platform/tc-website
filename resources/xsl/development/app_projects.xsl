@@ -71,21 +71,12 @@
                 </tr>
 
 				
-                <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
+                
                 <tr valign="top">
                     
 
                     <td background="" class="statText">
-                        <a class="statText" href="http://www.topcoder.com">Online Review
-                    <!--
-                            <xsl:attribute name="href"> 
-                                <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;phase=', ./phase_id, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
-                            </xsl:attribute><xsl:value-of select="./component_name"/>
-                            <xsl:if test="number(./version) &gt;  number('1')">
-                                version <xsl:value-of select="./version"/>
-                            </xsl:if>
-                            -->
-                        </a>
+                        <a class="statText" href="/index?t=development&amp;c=online_review&amp;t=app">Online Review</a>
                     </td>
                     <td background="" class="statText" align="center">$1,500.00</td>
                     <td background="" class="statText" align="center">03.03.03</td>
