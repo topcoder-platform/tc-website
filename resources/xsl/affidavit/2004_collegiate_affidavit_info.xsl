@@ -69,7 +69,7 @@
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on your performance in the 2004 TopCoder Collegiate Challenge, sponsored by Yahoo!&#174;
+                            Congratulations on your performance in the 2004 TopCoder Collegiate Challenge, Sponsored by Yahoo!&#174;
                         </p>
 
                         <p><strong>A.  To be completed by everyone by 9:00 PM ET Wednesday, March 17:</strong></p>
@@ -85,7 +85,7 @@
                                 <p>
                                     <strong>QUESTIONNAIRE</strong> - Form must be completed and submitted by 9:00 PM ET on Wednesday, March 17.
                                     View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=202">2004 TopCoder Collegiate Challenge Questionnaire</a>.
-                                    Complete ALL questions.  Please note that responses to the questions will be used in te TCCC program.
+                                    Complete ALL questions.  Please note that responses to the questions will be used in the TCCC04 program.
                                 </p>
                                 </li>
                             </ol>
@@ -159,7 +159,7 @@
                         </div>
 
                         <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, March 24.  Any
-                        items that need to be mailed via the postal service must be received by this date.</strong></p>
+                        items that need to be mailed via the postal service must be postmaarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.</p>
                         <p><br/></p>
