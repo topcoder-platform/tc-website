@@ -35,10 +35,11 @@ public class ReviewProjectDetail extends Base {
                 throw new NavigationException("Could not find information on the project selected.");
             } else {
                 //set submission count to 1 for zero submissions
-                int submission_count = detail.getIntItem(0, "submission_count");
-                if(submission_count == 0)
-                    submission_count = 1;
-                
+                int numSubmissions = detail.getIntItem(0, "submission_count");
+                int numSubmissionsPassed = detail.getIntItem(0, "submission_passed_screening_count");
+                if(numSubmissions == 0)
+                    numSubmissions = 1;
+
                 if (detail.getLongItem(0, "phase_id") == SoftwareComponent.DEV_PHASE) {
                     ResultSetContainer reviewers = (ResultSetContainer) results.get("development_reviewers");
                     ResultSetContainer.ResultSetRow row = null;
@@ -48,7 +49,8 @@ public class ReviewProjectDetail extends Base {
                         //this one has not been assigned yet
                         if (row.getStringItem("handle") == null) {
                             reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                    submission_count,
+                                    numSubmissions,
+                                    numSubmissionsPassed,
                                     detail.getIntItem(0, "phase_id"),
                                     detail.getIntItem(0, "level_id"),
                                     detail.getLongItem(0, "project_id"),
@@ -56,7 +58,8 @@ public class ReviewProjectDetail extends Base {
                         } else {
                             //this one has been assigned
                             reviewerList.add(makeApp(row.getStringItem("reviewer_type"),
-                                    submission_count,
+                                    numSubmissions,
+                                    numSubmissionsPassed,
                                     detail.getIntItem(0, "phase_id"),
                                     detail.getIntItem(0, "level_id"),
                                     row.getLongItem("user_id"),
@@ -97,7 +100,8 @@ public class ReviewProjectDetail extends Base {
                         count++;
                         row = (ResultSetContainer.ResultSetRow) it.next();
                         reviewerList.add(makeApp("Reviewer",
-                                submission_count,
+                                numSubmissions,
+                                numSubmissionsPassed,
                                 detail.getIntItem(0, "phase_id"),
                                 detail.getIntItem(0, "level_id"),
                                 row.getLongItem("user_id"),
@@ -109,7 +113,8 @@ public class ReviewProjectDetail extends Base {
                     for (int i = count; i < 3; i++) {
                         //add empty positions until the list is 3 long
                         reviewerList.add(makeApp("Reviewer",
-                                submission_count,
+                                numSubmissions,
+                                numSubmissionsPassed,
                                 detail.getIntItem(0, "phase_id"),
                                 detail.getIntItem(0, "level_id"),
                                 detail.getLongItem(0, "project_id"),
@@ -147,17 +152,17 @@ public class ReviewProjectDetail extends Base {
 
     }
 
-    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
                                            int levelId, long userId, String handle, boolean primary,
                                            long projectId, int reviewerTypeId) throws Exception {
-        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, phaseId, levelId, projectId, reviewerTypeId);
+        ReviewBoardApplication ret = makeApp(reviewerType, numSubmissions, numSubmissionsPassed, phaseId, levelId, projectId, reviewerTypeId);
         ret.setHandle(handle);
         ret.setPrimary(primary);
         ret.setUserId(userId);
         return ret;
     }
 
-    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
+    protected ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int numSubmissionsPassed, int phaseId,
                                            int levelId, long projectId, int reviewerTypeId) throws Exception {
         //figure out if we have default money values for the reviewers
         Request r = new Request();
@@ -175,7 +180,7 @@ public class ReviewProjectDetail extends Base {
         ReviewBoardApplication ret = null;
         if (detail.isEmpty()) {
             //we'll always assume all submission gets through screening
-            ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissions);
+            ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissionsPassed);
         } else {
             ret = new ReviewBoardApplication(phaseId, detail.getFloatItem(0, "primary_amount"), detail.getFloatItem(0, "amount"));
         }

@@ -24,18 +24,15 @@ public class ViewReviewProjects extends ReviewProjectDetail {
             ResultSetContainer.ResultSetRow rsr = null;
             ArrayList prices = new ArrayList();
             for (Iterator it = rsc.iterator(); it.hasNext();) {
-                rsr = (ResultSetContainer.ResultSetRow)it.next();
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
                 //we don't really care what the reviewer type nor review responsibility, we really just want to know
                 //what it costs.
-                if(rsr.getIntItem("submission_count") == 0)
-                {
+                if (rsr.getIntItem("submission_count") == 0) {
                     //default to 1 submission if no one has submitted yet - rfairfax
-                    prices.add(makeApp("", 1,
-                            rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"), rsr.getLongItem("project_id"), 0).getComponent());                    
-                }
-                else
-                {
-                    prices.add(makeApp("", rsr.getIntItem("submission_count"),
+                    prices.add(makeApp("", 1, 1,
+                            rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"), rsr.getLongItem("project_id"), 0).getComponent());
+                } else {
+                    prices.add(makeApp("", rsr.getIntItem("submission_count"), rsr.getIntItem("submission_passed_screening_count"),
                             rsr.getIntItem("phase_id"), rsr.getIntItem("level_id"), rsr.getLongItem("project_id"), 0).getComponent());
                 }
             }
