@@ -123,8 +123,6 @@ public final class TaskDevelopment {
             } else {
                 throw new Exception("Invalid command: " + command);
             }
-            document.addTag(devTag);
-            result = HTMLmaker.render(document, xsldocURLString);
             if (requiresLogin) {
                 StringBuffer url = new StringBuffer(request.getRequestURI());
                 String query = request.getQueryString();
@@ -138,6 +136,8 @@ public final class TaskDevelopment {
                         , url.toString()
                 );
             }
+            document.addTag(devTag);
+            result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             log.error("TaskDevelopment:ERROR:\n" + ne);
             throw ne;
