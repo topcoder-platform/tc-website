@@ -1,4 +1,3 @@
-
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -36,12 +35,12 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="help"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Competition Manual"/>  
+           <jsp:param name="title" value="Algorithm Competition Guide"/>  
         </jsp:include>
 
         <h2>Algorithm Competition Guide</h2>
 
-        <p><span class="bodySubtitle">General TopCoder Arena Usage / Getting Started</span><br/>
+        <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=getStarted">General TopCoder Arena Usage / Getting Started</a></span><br/>
             <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=getStarted#becomemember">Become a TopCoder Member</a></span><br/>
             <span class="outline1">2 <a href="/tc?module=Static&d1=help&d2=getStarted#whatisarena">What is the TopCoder Arena?</a></span><br/>
             <span class="outline1">3 <a href="/tc?module=Static&d1=help&d2=getStarted#howtorun">How to Run the TopCoder Arena</a></span><br/>
@@ -65,67 +64,61 @@
             <span class="outline1">8 <a href="/tc?module=Static&d1=help&d2=getStarted#movingaround">Moving Around</a></span><br/>
             <span class="outline1">9 <a href="/tc?module=Static&d1=help&d2=getStarted#leaderboard">The Leader Board</a></span><br/>
 
-        <p><span class="bodySubtitle">Practicing / Training in the TopCoder Arena</a></span><br/>
-            <span class="outline1">1 <a href="/">The Practice Rooms</a></span><br/>
-                <span class="outline2">1.1 <a href="/">Timing in the Practice Room</a></span><br/>
-                <span class="outline2">1.2 <a href="/">Selecting a Problem</a></span><br/>
-                <span class="outline2">1.3 <a href="/">System Testing</a></span><br/>
-                <span class="outline2">1.4 <a href="/">The Room Summary</a></span><br/>
-                <span class="outline2">1.5 <a href="/">Challenging</a></span><br/>
-                <span class="outline2">1.6 <a href="/">Clearing Problems</a></span><br/>
+        <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=pracArena">Practicing / Training in the TopCoder Arena</a></span><br/>
+            <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=pracArena#practicerooms">The Practice Rooms</a></span><br/>
+                <span class="outline2">1.1 <a href="/tc?module=Static&d1=help&d2=pracArena#timing">Timing in the Practice Room</a></span><br/>
+                <span class="outline2">1.2 <a href="/tc?module=Static&d1=help&d2=pracArena#selectingproblems">Selecting a Problem</a></span><br/>
+                <span class="outline2">1.3 <a href="/tc?module=Static&d1=help&d2=pracArena#systemtesting">System Testing</a></span><br/>
+                <span class="outline2">1.4 <a href="/tc?module=Static&d1=help&d2=pracArena#roomsummary">The Room Summary</a></span><br/>
+                <span class="outline2">1.5 <a href="/tc?module=Static&d1=help&d2=pracArena#challenging">Challenging</a></span><br/>
+                <span class="outline2">1.6 <a href="/tc?module=Static&d1=help&d2=pracArena#clearingproblems">Clearing Problems</a></span><br/>
 
-        <p><span class="bodySubtitle">Practicing / Training in the TopCoder Arena</a></span><br/>
-            <span class="outline1">1. <a href="/">The Practice Rooms</a></span><br/>
-                <span class="outline2">1.1. <a href="/">Selecting a Problem</a></span><br/>
-                <span class="outline2">1.2. <a href="/">The Coding Window</a></span><br/>
-                    <span class="outline3">1.2.1. <a href="/">Choosing an Editor</a></span><br/>
-                    <span class="outline3">1.2.2. <a href="/">Choosing a Language</a></span><br/>
-                    <span class="outline3">1.2.3. <a href="/">The Solution Interface</a></span><br/>
-                    <span class="outline3">1.2.4. <a href="/">The Problem Statement</a></span><br/>
-                    <span class="outline3">1.2.5. <a href="/">Compiling</a></span><br/>
-                    <span class="outline3">1.2.6. <a href="/">User Testing</a></span><br/>
-                        <span class="outline4">1.2.6.1. <a href="/">Using the Argument Window</a></span><br/>
-                    <span class="outline3">1.2.7. <a href="/">Submitting</a></span><br/>
-                    <span class="outline3">1.2.8. <a href="/">Saving</a></span><br/>
-                    <span class="outline3">1.2.9. <a href="/">Clearing the code</a></span><br/>
-                    <span class="outline3">1.2.10. <a href="/">The Timer</a></span><br/>
-                <span class="outline2">1.3. <a href="/">System Testing</a></span><br/>
-                <span class="outline2">1.4. <a href="/">The Room Summary</a></span><br/>
-                <span class="outline2">1.5. <a href="/">Challenging</a></span><br/>
-                    <span class="outline3">1.5.1. <a href="/">Using the Argument Window</a></span><br/>
-                <span class="outline2">1.6. <a href="/">Clearing Problems</a></span><br/>
-                <span class="outline2">1.7. <a href="/">Viewing a Coder’s History</a></span></p>
+        <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=ratedEvent">Competing in a Rated Event</a></span><br/>
+            <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=ratedEvent#when">When are the Rated Events?</a></span><br/>
+            <span class="outline1">2 <a href="/tc?module=Static&d1=help&d2=ratedEvent#differ">How does a Rated Event Differ from the Practice Room?</a></span><br/>
+            <span class="outline1">3 <a href="/tc?module=Static&d1=help&d2=ratedEvent#registration">Registration for a Single Round Match</a></span><br/>
+            <span class="outline1">4 <a href="/tc?module=Static&d1=help&d2=ratedEvent#divisions">Division One versus Division Two</a></span><br/>
+            <span class="outline1">5 <a href="/tc?module=Static&d1=help&d2=ratedEvent#roomassignments">Room Assignments - Getting to Your Room</a></span><br/>
+            <span class="outline1">6 <a href="/tc?module=Static&d1=help&d2=ratedEvent#phases">The Phases of a Rated Event</a></span><br/>
+                <span class="outline2">6.1 <a href="/tc?module=Static&d1=help&d2=ratedEvent#coding">The Coding Phase</a></span><br/>
+                <span class="outline2">6.2 <a href="/tc?module=Static&d1=help&d2=ratedEvent#challenge">The Challenge Phase</a></span><br/>
+                <span class="outline2">6.3 <a href="/tc?module=Static&d1=help&d2=ratedEvent#systemtesting">The System-Testing Phase</a></span><br/>
+            <span class="outline1">7 <a href="/tc?module=Static&d1=help&d2=ratedEvent#codeobfuscation">Code Obfuscation</a></span><br/>
+            <span class="outline1">8 <a href="/tc?module=Static&d1=help&d2=ratedEvent#broadcastmessages">Broadcast Messages</a></span><br/>
+            <span class="outline1">9 <a href="/tc?module=Static&d1=help&d2=ratedEvent#status">Getting the Status of Other Competitors</a></span><br/>
+                <span class="outline2">9.1 <a href="/tc?module=Static&d1=help&d2=ratedEvent#leaderboard">The Leader Board</a></span><br/>
+                <span class="outline2">9.2 <a href="/tc?module=Static&d1=help&d2=ratedEvent#roomsummary">The Room Summary Window</a></span><br/>
+            <span class="outline1">10 <a href="/tc?module=Static&d1=help&d2=ratedEvent#gettinghelp">Getting Help</a></span><br/>
+            <span class="outline1">11 <a href="/tc?module=Static&d1=help&d2=ratedEvent#ratingchanges">Rating Changes</a></span><br/>
+            <span class="outline1">12 <a href="/tc?module=Static&d1=help&d2=ratedEvent#websitestats">Web Site Statistics</a></span><br/>
+            <span class="outline1">13 <a href="/tc?module=Static&d1=help&d2=ratedEvent#problems">Problems in the Practice Rooms</a></span><br/>
+            <span class="outline1">14 <a href="/tc?module=Static&d1=help&d2=ratedEvent#donotagree">What if You Do Not Agree with the Results?</a></span><br/>
+            <span class="outline1">15 <a href="/tc?module=Static&d1=help&d2=ratedEvent#problemanalysis">Problem Set Analysis and Discussion</a></span><br/>
+            <span class="outline1">16 <a href="/tc?module=Static&d1=help&d2=ratedEvent#disconnected">Getting Disconnected from the Arena</a></span><br/>
+            <span class="outline1">17 <a href="/tc?module=Static&d1=help&d2=ratedEvent#cheating">Cheating at TopCoder</a></span><br/>
+            <span class="outline1">18 <a href="/tc?module=Static&d1=help&d2=ratedEvent#prewrittencode">Using Pre-Written Code</a></span><br/>
+            <span class="outline1">19 <a href="/tc?module=Static&d1=help&d2=ratedEvent#arenaplugins">TopCoder Arena Plug-ins</a></span><br/>
+        
+        <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=codingWindow">The Coding Window</a></span><br/>
+            <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=codingWindow#problemstatement">The Problem Statement</a></span><br/>
+            <span class="outline1">2 <a href="/tc?module=Static&d1=help&d2=codingWindow#language">Choosing a Language</a></span><br/>
+            <span class="outline1">3 <a href="/tc?module=Static&d1=help&d2=codingWindow#createsolution">Creating a Solution</a></span><br/>
+            <span class="outline1">4 <a href="/tc?module=Static&d1=help&d2=codingWindow#compiling">Compiling</a></span><br/>
+            <span class="outline1">5 <a href="/tc?module=Static&d1=help&d2=codingWindow#usertesting">User Testing</a></span><br/>
+            <span class="outline1">6 <a href="/tc?module=Static&d1=help&d2=codingWindow#submitting">Submitting</a></span><br/>
+            <span class="outline1">7 <a href="/tc?module=Static&d1=help&d2=codingWindow#saving">Saving</a></span><br/>
+            <span class="outline1">8 <a href="/tc?module=Static&d1=help&d2=codingWindow#clearingcode">Clearing the Code</a></span><br/>
+            <span class="outline1">9 <a href="/tc?module=Static&d1=help&d2=codingWindow#thetimer">The Timer</a></span><br/>
 
-        <p><span class="bodySubtitle">Competing in a TopCoder Rated Event</a></span><br/>
-            <span class="outline1">1. <a href="/tc?module=Static&d1=help&d2=competing#when">When are the Rated Events?</a></span><br/>
-            <span class="outline1">2. <a href="/tc?module=Static&d1=help&d2=competing#rated">How does a Rated Event Differ from the Practice Room?</a></span><br/>
-            <span class="outline1">3. <a href="/tc?module=Static&d1=help&d2=competing#registration">Registration for a Rated Event</a></span><br/>
-                <span class="outline2">3.1. <a href="/tc?module=Static&d1=help&d2=competing#logout">Can I log out after I register?</a></span><br/>
-            <span class="outline1">4. <a href="/tc?module=Static&d1=help&d2=competing#rooms">Room Assignments – Getting to Your Room</a></span><br/>
-            <span class="outline1">5. <a href="/tc?module=Static&d1=help&d2=competing#phases">The Phases of a Rated Event (Including Scoring and Length of Time)</a></span><br/>
-                <span class="outline2">5.1. <a href="/tc?module=Static&d1=help&d2=competing#coding">Coding Phase</a></span><br/>
-                    <span class="outline3">5.1.1. <a href="/tc?module=Static&d1=help&d2=competing#scoring">Scoring</a></span><br/>
-                    <span class="outline3">5.1.2. <a href="/tc?module=Static&d1=help&d2=competing#submissions">Multiple Submission</a></span><br/>
-                <span class="outline2">5.2. <a href="/tc?module=Static&d1=help&d2=competing#intermission">Intermission</a></span><br/>
-                <span class="outline2">5.3. <a href="/tc?module=Static&d1=help&d2=competing#challenge">Challenge Phase</a></span><br/>
-                    <span class="outline3">5.3.1. <a href="/tc?module=Static&d1=help&d2=competing#multChall">Multiple Challenge</a></span><br/>
-                    <span class="outline3">5.3.2. <a href="/tc?module=Static&d1=help&d2=competing#zero">Challenge with Zero Points</a></span><br/>
-                    <span class="outline3">5.3.3. <a href="/tc?module=Static&d1=help&d2=competing#scoring">Scoring</a></span><br/>
-                <span class="outline2">5.4. <a href="/tc?module=Static&d1=help&d2=competing#sysTests">System Testing</a></span><br/>
-                    <span class="outline3">5.4.1. <a href="/tc?module=Static&d1=help&d2=competing#testCases">Test Cases from Challenges</a></span><br/>
-            <span class="outline1">6. <a href="/tc?module=Static&d1=help&d2=competing#broadcast">Broadcast Messages</a></span><br/>
-            <span class="outline1">7. <a href="/tc?module=Static&d1=help&d2=competing#help">Getting Help</a></span><br/>
-                <span class="outline2">7.1. <a href="/tc?module=Static&d1=help&d2=competing#help">Using “admins: “</a></span><br/>
-                <span class="outline2">7.2. <a href="/tc?module=Static&d1=help&d2=competing#help">The Admin Lobby Room</a></span><br/>
-                <span class="outline2">7.3. <a href="/tc?module=Static&d1=help&d2=competing#help">IM</a></span><br/>
-            <span class="outline1">8. <a href="/tc?module=Static&d1=help&d2=competing#disconnected">What If You Get Disconnected from the Arena?</a></span><br/>
-            <span class="outline1">9. <a href="/tc?module=Static&d1=help&d2=competing#rating">Rating Changes</a></span><br/>
-            <span class="outline1">10. <a href="/tc?module=Static&d1=help&d2=competing#statistics">Web Site Statistics</a></span><br/>
-            <span class="outline1">11. <a href="/tc?module=Static&d1=help&d2=competing#practice">Problems in the Practice Rooms</a></span><br/>
-            <span class="outline1">12. <a href="/tc?module=Static&d1=help&d2=competing#results">What if You Do Not Agree with the Results?</a></span><br/>
-            <span class="outline1">13. <a href="/tc?module=Static&d1=help&d2=competing#cheating">Cheating at TopCoder</a></span><br/>
-            <span class="outline1">14. <a href="/tc?module=Static&d1=help&d2=competing#prewritten">Using Pre-Written Code</a></span></p>
-            
+        <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=problemArguments">The Problem Arguments Window</a></span><br/>
+            <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=problemArguments#examples">Examples</a></span><br/>
+            <span class="outline1">2 <a href="/tc?module=Static&d1=help&d2=problemArguments#simpledata">Simple Data Types</a></span><br/>
+            <span class="outline1">3 <a href="/tc?module=Static&d1=help&d2=problemArguments#complexdata">Complex Data Types</a></span><br/>
+                                            
+        <p><span class="bodySubtitle"><a href="/tc?module=Static&d1=help&d2=roomSummary">The Room Summary Window</a></span><br/>
+            <span class="outline1">1 <a href="/tc?module=Static&d1=help&d2=roomSummary#spectating">Spectating</a></span><br/>
+            <span class="outline1">2 <a href="/tc?module=Static&d1=help&d2=roomSummary#challenging">Challenging</a></span><br/>
+            <span class="outline1">3 <a href="/tc?module=Static&d1=help&d2=roomSummary#divisionsummary">Division Summary</a></span><br/>
 
          <p><br/></p>
          </td>
