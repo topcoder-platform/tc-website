@@ -9,6 +9,7 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
+
     <HTML>
       <HEAD>
         <xsl:call-template name="Preload"/>      
