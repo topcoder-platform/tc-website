@@ -31,6 +31,7 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 
+
 /**
  *  A servlet to generate reports.
  *
@@ -586,6 +587,7 @@ public final class ReportServlet extends HttpServlet {
             Query collegeStatsByRegionQuery = new Query(COLLEGE_STATS_BY_REGION, COLLEGE_STATS_BY_REGION_TYPES);
             Query memberCountsQuery = new Query(MEMBER_COUNTS, MEMBER_COUNTS_TYPES, Query.WAREHOUSE);
             Query memberCountsDailyQuery = new Query(MEMBER_COUNTS_DAILY, MEMBER_COUNTS_DAILY_TYPES);
+            Query memberCountsWeeklyQuery = new Query(MEMBER_COUNTS_WEEKLY, MEMBER_COUNTS_WEEKLY_TYPES, Query.WAREHOUSE);
             Query registrationBySchoolQuery = new Query(REGISTRATION_BY_SCHOOL, REGISTRATION_BY_SCHOOL_TYPES);
             Query matchSummaryQuery = new Query(MATCH_SUMMARY, MATCH_SUMMARY_TYPES);
             Query referralQuery = new Query(REFERRAL, REFERRAL_TYPES);
@@ -685,6 +687,13 @@ public final class ReportServlet extends HttpServlet {
             report.setTitle(MEMBER_COUNTS_DAILY_TITLE);
             report.setColumnHeadings(MEMBER_COUNTS_DAILY_HEADINGS);
             report.setQuery(memberCountsDailyQuery);
+            registrationInfo.addChild(new ReportNode(report));
+
+            report = new Report();
+            report.setId(MEMBER_COUNTS_WEEKLY_ID);
+            report.setTitle(MEMBER_COUNTS_WEEKLY_TITLE);
+            report.setColumnHeadings(MEMBER_COUNTS_WEEKLY_HEADINGS);
+            report.setQuery(memberCountsWeeklyQuery);
             registrationInfo.addChild(new ReportNode(report));
 
             report = new Report();
@@ -1019,6 +1028,28 @@ public final class ReportServlet extends HttpServlet {
             " WHERE group_id = 13)" +
             " GROUP BY 1" +
             " ORDER BY 1 DESC";
+
+    private static final Integer MEMBER_COUNTS_WEEKLY_ID = new Integer(19);
+    private static final String MEMBER_COUNTS_WEEKLY_TITLE = "Member Counts By Week";
+    private static final int[] MEMBER_COUNTS_WEEKLY_TYPES = {ResultItem.STRING, ResultItem.INT, ResultItem.STRING, ResultItem.STRING, ResultItem.INT, ResultItem.INT, ResultItem.INT};
+    private static final String[] MEMBER_COUNTS_WEEKLY_HEADINGS = {"Year", "Week", "Start Date", "End Date", "Count", "Active", "International"};
+    private static final String MEMBER_COUNTS_WEEKLY =
+       " select" +
+        "  cal.year," +
+        "  cal.week_of_year week_number," +
+         " min(cal.date) date_starting," +
+         " max(cal.date) date_ending," +
+         " count(*) total_reg," +
+         " sum(case when c.status = 'A' then 1 else 0 end) active_count," +
+         " sum(case when c.country_code in ('840','124') then 0 else 1 end) intl_count" +
+       " from" +
+       "   coder c," +
+        "  calendar cal" +
+        "where" +
+        "  date(c.member_since) = cal.date and" +
+        "  cal.date >= today - 730" +
+        "group by 1,2" +
+        "order by 1 desc, 2 desc";
 
 
     private static final Integer REGISTRATION_BY_SCHOOL_ID = new Integer(8);
