@@ -411,8 +411,12 @@ Founder and Chairman, TopCoder, Inc.
     <td colspan="4" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="2" border="0"></td>
   </tr>  
   <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Sun Confirmation Code&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.SUN_CONFIRMATION%>" value ="<jsp:getProperty name="Registration" property="SunConfirm" />" size="30" maxlength="100"></td>
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">SunNetwork Confirmation Code&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colpsan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.SUN_CONFIRMATION%>" value ="<jsp:getProperty name="Registration" property="SunConfirm" />" size="20" maxlength="100"></td>
+  </tr>
+  <tr>
+    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+    <td colspan="2" class="statText" align="left" valign="top">If you plan to compete in the SunNetowork Coding Challenge and are already registered, please enter your confirmation code here.</td>
   </tr>
 
 
