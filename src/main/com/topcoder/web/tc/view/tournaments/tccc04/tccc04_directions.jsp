@@ -44,73 +44,32 @@
 </jsp:include>
 
 <!-- Onsite Semifinal and Championship Rounds begins -->
-            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br />
-            The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round
-            of the tournament being held on Thursday, December 4th.</p>
+            <h2>Directions to The Boston Park Plaza Hotel & Towers</h2>
+            
+            <div align="center"><img src="/i/tournament/tccc04/top_locat.jpg" alt="Boston Park Plaza Hotel & Towers" width="322" height="232" border="0"></div>
+            
+            <p><strong>From the West</strong><br/>
+            Take Massachusetts Turnpike (Rte. 90 East) into the city. Exit at Copley Square (22) and follow straight onto Stuart St. 
+            Follow to the 5th set of light and turn left for the hotel.</p>
+            
+            <p><strong>From the North</strong><br/>
+            Take Rte. I-93 South into city. Exit at Storrow Drive (26). Follow Storrow Drive towards Back Bay. Take Back Bay/Copley 
+            exit on left. Take left turn onto Beacon St., then immediate right onto Arlington St. The hotel is the 2nd building on the left 
+            after the park.</p>
 
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #1</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 10:00 AM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
+            <p><strong>From the South</strong><br/>
+            Take Rte. I-93 North into the city. Take exit 26 and follow signs to Storrow Drivetowards Back Bay. Take left turn onto 
+            Beacon St., then immediate right onto Arlington St. The hotel is the 2nd building on the left after the park.I you prefer to 
+            use Kneeland Street exit, take exit 20 (Logan Airport), bear left. Follow signs to South Station (not downtown Boston). 
+            At the lights, take left onto Kneeland St. Kneeland Street will become Stuart Street. Follow Stuart Street, then take a right 
+            onto South Charles Street. Take 1st left onto Park Plaza. Hotel will be in front of you.</p>
 
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #2</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 1:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #3</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 4:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #4</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 7:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="bodyText" bgcolor="#006666"><strong><font color="#FFFFFF">Championship Round</font></strong></td>
-                    <td class="bodyText" bgcolor="#006666">
-                        <strong><font color="#FFFFFF">Friday, December 5th<br />
-                        Compete: 3:00 PM<br /></font></strong>
-                    </td>
-                    <td class="bodyText" bgcolor="#006666" align="center"><strong><font color="#FFFFFF">4</font></strong></td>
-                    <td class="bodyText" bgcolor="#006666" align="center"><strong><font color="#FFFFFF">1</font></strong></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
-                    </td>
-                </tr>
-            </table><br />
+            <p><strong>From Logan International Airport</strong><br/>
+            Follow signs to Summer Tunnel/Boston. After exiting the tunnel, follow Rte. I-93 North. Exit at Storrow Drive (26) and 
+            follow Storrow Drive towards the Back Bay/Copley Exit. At lights, take left onto Beacon St. Take first right onto Arlington 
+            St. The hotel is the 2nd building on the left after the park.</p>
+            
+            <p>See more <A href="http://www.bostonparkplaza.com/default.asp?sID=locat" target="_blank">transportation info</a> on the Boston Park Plaza Hotel & Towers web site.</p>
 
          <p><br/></p>
          </td>
