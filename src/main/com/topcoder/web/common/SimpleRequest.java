@@ -2,6 +2,7 @@ package com.topcoder.web.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Cookie;
 import java.util.Enumeration;
 
 /**
@@ -62,5 +63,9 @@ public class SimpleRequest implements TCRequest {
 
     public String getServerName() {
         return request.getServerName();
+    }
+
+    public Cookie[] getCookies() {
+        return request.getCookies();
     }
 }
