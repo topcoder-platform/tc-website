@@ -329,7 +329,7 @@ public final class MainServlet extends HttpServlet {
         } catch (PermissionException pe) {
             log.debug("caught PermissionException");
             try {
-                if (!nav.isIdentified()) {
+                if (!nav.isLoggedIn()) {
                     CoderSessionInfo info = nav.getSessionInfo();
                     /* forward to the login page, with a message and a way back */
                     request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
