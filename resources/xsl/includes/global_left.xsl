@@ -3,7 +3,7 @@
   <xsl:import href="../includes/modules/module_login.xsl"/>
   <xsl:template name="global_left">
     <xsl:choose>
-      <xsl:when test="/TC/task='public_home'">
+      <xsl:when test="/TC/Task='public_home'">
          <xsl:call-template name="module_login"/>
       </xsl:when>                  
       <xsl:otherwise>
