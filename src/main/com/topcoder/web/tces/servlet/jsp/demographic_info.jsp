@@ -75,18 +75,20 @@
                         </TR>
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                        </TR>                
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                        </TR>
 
-                        <tces:mapIterator id="responseRow" MapList="<%=(List)StudentResponseList%>">                    
+                        <% int i=0; %>
+                        <tces:mapIterator id="responseRow" MapList="<%=StudentResponseList%>">
+                        <% i++; %>
                             <TR>
-                              <TD class="bodyText" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
                                 <%=(String)responseRow.get("title")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)responseRow.get("percent")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)responseRow.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -127,19 +129,21 @@
                         </TR>                
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
-                        </TR>                
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>
+                        </TR>
 
 
-                        <tces:mapIterator id="resp" MapList="<%=(List)StudentResponsesList%>">                                
+                        <% i=0; %>
+                        <tces:mapIterator id="resp" MapList="<%=StudentResponsesList%>">
+                        <% i++; %>
                             <TR>
-                              <TD class="bodyText" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -187,18 +191,20 @@
                         </TR>
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
-                        </TR>                
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                        </TR>
 
-                        <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">                    
+                        <% int i=0; %>
+                        <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">
+                        <% i++; %>
                             <TR>
-                              <TD class="bodyText" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
                                 <%=(String)responseRow.get("title")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)responseRow.get("percent")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)responseRow.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -244,16 +250,17 @@
                           <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
                         </TR>                
 
-
-                        <tces:mapIterator id="resp" MapList="<%=(List)ProResponsesList%>">                                
+                        <% i=0; %>
+                        <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
+                        <% i++; %>
                             <TR>
-                              <TD class="bodyText" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="bodyText">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("count")%>
                               </TD>                  
                             </TR>                     
