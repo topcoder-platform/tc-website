@@ -77,10 +77,10 @@
 <LI>Only rated TopCoder members are allowed to inquire about the development project on the Development section of the TopCoder website.</LI>
 <LI>The TopCoder product manager will grant all eligible members access to an online forum on <A HREF="http://www.topcodersoftware.com" CLASS="statText">www.topcodersoftware.com</A>.  This forum is used for the developers to ask questions of the designer and the product manager.</LI>
 <LI>All developers are required to submit the component solutions to the product manager by the end of the development phase as stated on the project posting.  </LI>
-<LI>The product manager will assemble a quality assurance review board consisting of 3 TopCoder Software QA pool members to review, test and certify solutions submitted by the developers.</LI>
-<LI>A member of the QA board will screen the submitted solutions to verify that all required elements are included and will perform a high-level review of the designs to narrow down to the top 5 component solutions.</LI>
-<LI>The component solutions are then reviewed by the QA board and scored.  The QA board will submit a development scorecard along with any bugs and the corresponding test cases.</LI>
-<LI>The developer with the winning solution will be given additional time to fix bugs and incorporate design suggestions from the QA board.  The additional time period will be set as a percentage (currently 20%) of the initial development period.  For example, a component with a 10 day design period will allow an additional 2 days after the due date for the developer to incorporate the suggestions.  If the completed solution is submitted on time and passes all regression testing the developer is paid the entire development payment as stated in the development project posting.  Also at that time, the designer is paid the final payment for the design contract as detailed in the design project posting.</LI>
+<LI>The product manager will assemble a development review board consisting of 3 TopCoder Software Development Reviewers to review, test and certify solutions submitted by the developers.</LI>
+<LI>A member of the Development Review board will screen the submitted solutions to verify that all required elements are included and will perform a high-level review of the designs to narrow down to the top 5 component solutions.</LI>
+<LI>The component solutions are then reviewed by the Development Review board and scored.  The Development Review board will submit a development scorecard along with any bugs and the corresponding test cases.</LI>
+<LI>The developer with the winning solution will be given additional time to fix bugs and incorporate design suggestions from the Development Review board.  The additional time period will be set as a percentage (currently 20%) of the initial development period.  For example, a component with a 10 day design period will allow an additional 2 days after the due date for the developer to incorporate the suggestions.  If the completed solution is submitted on time and passes all regression testing the developer is paid the entire development payment as stated in the development project posting.  Also at that time, the designer is paid the final payment for the design contract as detailed in the design project posting.</LI>
 </OL>
 <TABLE BORDER="0" CELLSPACING="5" CELLPADDING="5" WIDTH="100%">
         <TR><TD CLASS="statText"><B>Most Recent Postings</B></TD></TR>
@@ -109,7 +109,7 @@ Component Submission Due Date: 11/25/2002<BR/>
 <P>
 Project: <A HREF="/index?t=development&amp;c=resourcebundle" CLASS="statText">ResourceBundle Component Design</A><BR/>
 Component Posting: 11/8/2002<BR/>
-Component Submission Due Date: 11/25/2002<BR/>
+Component Submission Due Date: 11/12/2002<BR/>
 </P>
 
 <P>
@@ -122,7 +122,6 @@ Component Submission Due Date: 11/26/2002<BR/>
 Project: <A HREF="/index?t=development&amp;c=object_pool" CLASS="statText">Object Pool Component Design</A><BR/>
 Component Posting: 10/25/2002<BR/>
 Component Submission Due Date: 11/11/2002<BR/>
-Member Selection: Open<BR/>
 </P>   
 
         </TD>
@@ -143,6 +142,9 @@ Component Posting: 10/25/2002<BR/>
 Component Submission Due Date: 11/7/2002<BR/>
 Member Selection: Closed<BR/>
 </P>   
+       
+        </TD>
+		<TD  VALIGN="top" CLASS="statText">
 
 <P>
 Project: <A HREF="/index?t=development&amp;c=log_interface" CLASS="statText">Logging Wrapper Component Design</A><BR/>
@@ -156,9 +158,12 @@ Project: <A HREF="/index?t=development&amp;c=email_engine" CLASS="statText">Emai
 Component Posting: 10/25/2002<BR/>
 Component Submission Due Date: 11/6/2002<BR/>
 Member Selection: Closed<BR/>
-</P>        
+</P> 
         </TD>
-		<TD  VALIGN="top" CLASS="statText">
+    </TR>
+    </TABLE>
+    
+<!--
 <P>
 Project: <A HREF="/index?t=development&amp;c=ssoc" CLASS="statText">Single Sign On Components</A><BR/>
 Start Date: September 27, 2002<BR/>
@@ -193,9 +198,7 @@ Start Date: June 19, 2002<BR/>
 End Date: June 25, 2002<BR/>
 Member Selection: Closed<BR/>
 </P>
-        </TD>
-    </TR>
-    </TABLE>
+-->
 <!--<P>
 Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statText">Architect</A><BR/>
 Member Selection: Closed<BR/>
