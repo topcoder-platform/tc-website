@@ -75,6 +75,8 @@ public class Login extends Base {
         QueueMessageReceiver receiver = new QueueMessageReceiver(ScreeningApplicationServer.JMS_FACTORY,
                 DBMS.RESPONSE_QUEUE, context, "server="+Constants.SERVER_ID);
         ObjectMessage resp = receiver.getMessage(100);
+        receiver.setFaultTolerant(false);
+        receiver.setPersistent(false);
         log.debug("got " + resp);
 
 
