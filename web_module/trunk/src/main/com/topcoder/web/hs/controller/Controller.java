@@ -20,6 +20,7 @@ import com.topcoder.shared.util.logging.Logger;
 public class Controller extends HttpServlet {
 
     private static Logger log = Logger.getLogger(Controller.class);
+    private WebAuthentication auth = null;
 
     /**
      * Initializes the servlet.
@@ -37,9 +38,13 @@ public class Controller extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        Persistor persistor = null;
 
         /* for exceptions we surely cannot correct */
         try {
+            persistor = new SessionPersistor(request.getSession());
+            auth = new BasicAuthentication(persistor, request, response);
+
             RequestProcessor rp;
 
             String canonpath = request.getContextPath() + request.getServletPath();
@@ -50,10 +55,18 @@ public class Controller extends HttpServlet {
             String query = request.getQueryString();
             String qtail = (query==null) ? ("") : ("?"+query);
 
-            String loginfo = request.getRemoteHost()+" **** "+request.getMethod()+" "+HttpUtils.getRequestURL(request)+qtail+" ****]";
-            log.debug("[**** "+loginfo);
-            /* it gets logged again at info level once we have the user to prepend */
-            request.setAttribute("loginfo", loginfo);
+            StringBuffer loginfo = new StringBuffer(100);
+            loginfo.append("[**** ");
+            loginfo.append(auth.getActiveUser().getUserName());
+            loginfo.append(" **** ");
+            loginfo.append(request.getRemoteHost());
+            loginfo.append(" **** ");
+            loginfo.append(request.getMethod());
+            loginfo.append(" ");
+            loginfo.append(HttpUtils.getRequestURL(request));
+            loginfo.append(qtail);
+            loginfo.append(" ****]");
+            log.info(loginfo);
 
             /* and those we perhaps can */
             try {
@@ -73,7 +86,7 @@ public class Controller extends HttpServlet {
                         log.debug("calling Class.forName()", e);
                         throw new NavigationException("no such module");
                     }
-                    callProcess(rp, request, response);
+                    callProcess(rp, request);
 
                 } catch(PermissionException pe) {
                     log.debug("caught PermissionException");  // no stack trace to the logs
@@ -88,7 +101,7 @@ public class Controller extends HttpServlet {
                     request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + qtail);
 
                     rp = new com.topcoder.web.hs.controller.requests.Login();
-                    callProcess(rp, request, response);
+                    callProcess(rp, request);
                 }
 
                 /* try this once here and hopefully display a pretty error if it fails */
@@ -105,7 +118,7 @@ public class Controller extends HttpServlet {
                 request.setAttribute("exception", e);
 
                 rp = new com.topcoder.web.hs.controller.requests.Error();
-                callProcess(rp, request, response);
+                callProcess(rp, request);
             }
 
             /* only reporting errors at this point */
@@ -134,10 +147,7 @@ public class Controller extends HttpServlet {
     }
 
     /** invoke the given RequestProcessor */
-    private void callProcess(RequestProcessor rp, HttpServletRequest request, HttpServletResponse response) throws Exception {
-        Persistor persistor = new SessionPersistor(request.getSession());
-        WebAuthentication auth = new BasicAuthentication(persistor, request, response);
-
+    private void callProcess(RequestProcessor rp, HttpServletRequest request) throws Exception {
         rp.setRequest(request);
         rp.setAuthentication(auth);
         rp.process();
