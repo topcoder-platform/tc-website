@@ -626,80 +626,187 @@ else if (command.equals("send")) {
                             xsldocURLString = XSL_DIR + "suspended.xsl";
                         }
                     } else {
-                        TCSEmailMessage mail = new TCSEmailMessage();
-                        mail.addToAddress(to, TCSEmailMessage.TO);
-                        mail.setFromAddress(from);
 
-                        mail.setSubject("APPLICATION: " + project + " -- " + handle);
+                        //todo ug, nasty!, make this a bit smarter one day
+                        if (project.toLowerCase().startsWith("team_app_")) {
 
-                        Request r = new Request();
-                        r.setContentHandle("member_profile");
-                        r.setProperty("cr", String.valueOf(nav.getUserId()));
-                        DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-                        ResultSetContainer appRsc = (ResultSetContainer)appDai.getData(r).get("Coder_Data");
+                        } else {
+                            TCSEmailMessage mail = new TCSEmailMessage();
+                            mail.addToAddress(to, TCSEmailMessage.TO);
+                            mail.setFromAddress(from);
 
-                        int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData()==null
-                                ?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
-                        int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData()==null
-                                ?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
+                            mail.setSubject("APPLICATION: " + project + " -- " + handle);
 
-                        msgText.append("\n\nAlgorithm Rating:\n");
-                        msgText.append(rating);
-                        msgText.append("\n\nDev Rating:\n");
-                        msgText.append(devRating);
-                        msgText.append("\n\nDesign Rating:\n");
-                        msgText.append(desRating);
-                        msgText.append("\n\n").append("http://");
-                        msgText.append(ApplicationServer.SERVER_NAME);
-                        msgText.append("/stat?c=member_profile&cr=");
-                        msgText.append(nav.getUserId());
-                        msgText.append("\n");
+                            Request r = new Request();
+                            r.setContentHandle("member_profile");
+                            r.setProperty("cr", String.valueOf(nav.getUserId()));
+                            DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+                            ResultSetContainer appRsc = (ResultSetContainer)appDai.getData(r).get("Coder_Data");
 
-                        mail.setBody(msgText.toString());
-                        xsldocURLString = XSL_DIR + "inquiry_app.xsl";
-                        EmailEngine.send(mail);
+                            int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData()==null
+                                    ?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
+                            int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData()==null
+                                    ?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
 
-                        //send an email to the person that applied
-                        TCSEmailMessage resp = new TCSEmailMessage();
-                        resp.addToAddress(from, TCSEmailMessage.TO);
-                        resp.setFromAddress(to);
-                        resp.setSubject(project);
-                        StringBuffer respBody = new StringBuffer(100);
-                        respBody.append("Hello ");
-                        respBody.append(handle);
-                        respBody.append(", \n\n");
-                        respBody.append("Your application for more information on the ");
-                        respBody.append(project);
-                        respBody.append(" application project has been received.\n\n");
-                        respBody.append("If you are chosen, you will receive an email containing more details about ");
-                        respBody.append("the project.  Once you have read that information, you will be expected to ");
-                        respBody.append("respond indicating whether or not you will commit to completing the work.\n\n");
-                        if (desRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
-                                respBody.append("Since you do not have a component design rating, it is unlikely that ");
-                                respBody.append("you will be chosen to work on this application.  You may look at ");
-                                respBody.append("the current component design opportunities here ");
-                                respBody.append("http://");
-                                respBody.append(ApplicationServer.SERVER_NAME);
-                                respBody.append("/?t=development&c=comp_projects\n\n");
-                        } else if (devRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
-                                respBody.append("Since you do not have a component development rating, it is unlikely that ");
-                                respBody.append("you will be chosen to work on this application.  You may look at ");
-                                respBody.append("the current component development opportunities here ");
-                                respBody.append("http://");
-                                respBody.append(ApplicationServer.SERVER_NAME);
-                                respBody.append("/?t=development&c=comp_projects\n\n");
+                            msgText.append("\n\nAlgorithm Rating:\n");
+                            msgText.append(rating);
+                            msgText.append("\n\nDev Rating:\n");
+                            msgText.append(devRating);
+                            msgText.append("\n\nDesign Rating:\n");
+                            msgText.append(desRating);
+                            msgText.append("\n\n").append("http://");
+                            msgText.append(ApplicationServer.SERVER_NAME);
+                            msgText.append("/stat?c=member_profile&cr=");
+                            msgText.append(nav.getUserId());
+                            msgText.append("\n");
+
+                            mail.setBody(msgText.toString());
+                            xsldocURLString = XSL_DIR + "inquiry_app.xsl";
+                            EmailEngine.send(mail);
+
+                            //send an email to the person that applied
+                            TCSEmailMessage resp = new TCSEmailMessage();
+                            resp.addToAddress(from, TCSEmailMessage.TO);
+                            resp.setFromAddress(to);
+                            resp.setSubject(project);
+                            StringBuffer respBody = new StringBuffer(100);
+                            respBody.append("Hello ");
+                            respBody.append(handle);
+                            respBody.append(", \n\n");
+                            respBody.append("Your application for more information on the ");
+                            respBody.append(project);
+                            respBody.append(" application project has been received.\n\n");
+                            respBody.append("If you are chosen, you will receive an email containing more details about ");
+                            respBody.append("the project.  Once you have read that information, you will be expected to ");
+                            respBody.append("respond indicating whether or not you will commit to completing the work.\n\n");
+                            if (desRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+                                    respBody.append("Since you do not have a component design rating, it is unlikely that ");
+                                    respBody.append("you will be chosen to work on this application.  You may look at ");
+                                    respBody.append("the current component design opportunities here ");
+                                    respBody.append("http://");
+                                    respBody.append(ApplicationServer.SERVER_NAME);
+                                    respBody.append("/?t=development&c=comp_projects\n\n");
+                            } else if (devRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
+                                    respBody.append("Since you do not have a component development rating, it is unlikely that ");
+                                    respBody.append("you will be chosen to work on this application.  You may look at ");
+                                    respBody.append("the current component development opportunities here ");
+                                    respBody.append("http://");
+                                    respBody.append(ApplicationServer.SERVER_NAME);
+                                    respBody.append("/?t=development&c=comp_projects\n\n");
+                            }
+                            respBody.append("TopCoder Software Service");
+                            resp.setBody(respBody.toString());
+                            EmailEngine.send(resp);
+
                         }
-                        respBody.append("TopCoder Software Service");
-                        resp.setBody(respBody.toString());
-                        EmailEngine.send(resp);
                     }
                 } else {
                     requiresLogin = true;
                 }
+            } else if (command.equals("tcs_team_app_send")) {
+                if (nav.isLoggedIn()) {
+
+                    devTag.addTag(new ValueTag("Project", project));
+
+                    //String handle = nav.getUser().getHandle();
+                    String handle = nav.getSessionInfo().getHandle();
+                    devTag.addTag(new ValueTag("handle", handle));
+
+                    Data.loadUser(nav);
+                    String from = nav.getUser().getEmail();
+                    String to = Conversion.checkNull(request.getParameter("To"));
+                    String comment = Conversion.clean(request.getParameter("Comment"));
+
+
+                    StringBuffer msgText = new StringBuffer(1000);
+                    msgText.append(handle);
+                    msgText.append(" inquiry for project:  ");
+                    msgText.append(project);
+                    msgText.append("\n\n");
+                    if (request.getParameter("terms") == null) {
+                        msgText.append("\n\nDid not agree to terms.\n");
+                    } else {
+                        msgText.append("\n\nAgreed to terms.\n");
+                    }
+                    msgText.append("\n\nComment:\n");
+                    msgText.append(comment);
+
+                    log.debug("Get Rating");
+                    int rating = nav.getSessionInfo().getRating();
+                    log.debug("Got Rating");
+
+                            TCSEmailMessage mail = new TCSEmailMessage();
+                            mail.addToAddress(to, TCSEmailMessage.TO);
+                            mail.setFromAddress(from);
+
+                            mail.setSubject("TEAM APPLICATION: " + project + " -- " + handle);
+
+                            Request r = new Request();
+                            r.setContentHandle("member_profile");
+                            r.setProperty("cr", String.valueOf(nav.getUserId()));
+                            DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+                            ResultSetContainer appRsc = (ResultSetContainer)appDai.getData(r).get("Coder_Data");
+
+                            int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData()==null
+                                    ?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
+                            int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData()==null
+                                    ?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
+
+                            msgText.append("\n\nAlgorithm Rating:\n");
+                            msgText.append(rating);
+                            msgText.append("\n\nDev Rating:\n");
+                            msgText.append(devRating);
+                            msgText.append("\n\nDesign Rating:\n");
+                            msgText.append(desRating);
+                            msgText.append("\n\n").append("http://");
+                            msgText.append(ApplicationServer.SERVER_NAME);
+                            msgText.append("/stat?c=member_profile&cr=");
+                            msgText.append(nav.getUserId());
+                            msgText.append("\n");
+
+                            mail.setBody(msgText.toString());
+                            xsldocURLString = XSL_DIR + "inquiry_teamp_app.xsl";
+                            EmailEngine.send(mail);
+
+                            //send an email to the person that applied
+                            TCSEmailMessage resp = new TCSEmailMessage();
+                            resp.addToAddress(from, TCSEmailMessage.TO);
+                            resp.setFromAddress(to);
+                            resp.setSubject(project);
+                            StringBuffer respBody = new StringBuffer(100);
+                            respBody.append("Hello ");
+                            respBody.append(handle);
+                            respBody.append(", \n\n");
+
+                            respBody.append("Thank you for registering for the ");
+                            respBody.append(project);
+                            respBody.append(" Team Application Project.  Since this is a team project, please remember that ");
+                            respBody.append("if you registered without providing the TopCoder handle of a teammate, we will ");
+                            respBody.append("assume that you are looking for TopCoder to assign a teammate for you.  If this ");
+                            respBody.append("is not correct, you may reply to this email with the TopCoder handle of your ");
+                            respBody.append("teammate.\n\n");
+                            respBody.append("In addition, if you are not familiar with the TopCoder Team Application process, ");
+                            respBody.append("please read this information: ");
+                            respBody.append("http://");
+                            respBody.append(ApplicationServer.SERVER_NAME);
+                            respBody.append("/?t=development&c=app_team_meth");
+                            respBody.append("\n\n");
+                            respBody.append("Please note the deadline for proposal submissions, as this is the first ");
+                            respBody.append("deliverable in the new Team Application process.\n\n");
+                            respBody.append("Access to all of the project specification documentation will be provided to ");
+                            respBody.append("you shortly.\n\n");
+                            respBody.append("We will contact you in the near future to ensure that you plan to participate ");
+                            respBody.append("in the proposal phase of this application project.\n\n");
+
+                            respBody.append("TopCoder Software Service");
+                            resp.setBody(respBody.toString());
+                            EmailEngine.send(resp);
+
+                } else {
+                    requiresLogin = true;
+                }
             } else if (command.length() > 0 && !request.getParameter("t").equals("app")) {
-                /********** SHOULD BE A FUNCTION ****************/
                 devTag.addTag(Base.getOpenProjects().getTag("projects", "project"));
-//                devTag.addTag(Base.getProjectTotals().getTag("Project", "Total"));
                 xsldocURLString = XSL_DIR + command + ".xsl";
             } else {
                 throw new Exception("Invalid command: " + command);
