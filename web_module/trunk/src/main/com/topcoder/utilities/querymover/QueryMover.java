@@ -401,9 +401,9 @@ log.debug("inputMap: " + inputMap.toString());
         InputBean input = null;
         ResultSetContainer inputList = qi.getInputsForQuery(queryId, dsn);
         ResultSetContainer.ResultSetRow row = null;
+        ret = new ArrayList(inputList.size());
         for (Iterator it = inputList.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            ret = new ArrayList(inputList.size());
             input = new InputBean();
             input.setInputId(((Long) row.getItem("input_id").getResultData()).longValue());
             input.setDataTypeId(((Integer) row.getItem("data_type_id").getResultData()).intValue());
