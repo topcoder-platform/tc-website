@@ -173,6 +173,7 @@ public class MainServlet extends HttpServlet {
                             String page,
                             boolean forward)
             throws ServletException, IOException {
+        log.debug("sending to page " + page);
         if (forward) {
             javax.servlet.RequestDispatcher disp =
                     getServletContext().getRequestDispatcher(response.encodeURL(page));
