@@ -81,7 +81,7 @@ abstract class SimpleRegBase extends RegistrationBase {
         if (hasRequestParameter(Constants.COMPANY_ID))
             info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.COMPANY_ID))));
         if (hasRequestParameter(Constants.EVENT_ID))
-            info.setCompanyId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
+            info.setEventId(Long.parseLong(StringUtils.checkNull(getRequestParameter(Constants.EVENT_ID))));
 
         return info;
     }
