@@ -22,6 +22,8 @@ public class Constants {
 
     /* request parameters */
     public static String PROBLEM_ID;
+    public static String ROUND_ID;
+    public static String DIVISION_ID;
     public static String SURVEY_ID;
     public static String MODULE_KEY;
     public static String FIRST_NAME;
