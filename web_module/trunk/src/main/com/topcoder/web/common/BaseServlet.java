@@ -5,7 +5,8 @@ import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.shared.distCache.CacheClientPool;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.distCache.CacheClient;
 import com.topcoder.web.common.security.*;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.admin.PrincipalMgrRemote;
@@ -282,16 +283,24 @@ public abstract class BaseServlet extends HttpServlet {
         buf.append(USER_SUBJECT_PREFIX);
         buf.append(id);
 
+        CacheClient cc = null;
+        boolean hasCacheConnection = true;
         try {
-            user = (TCSubject)(CacheClientPool.getPool().getClient().get(buf.toString()));
+            cc = CacheClientFactory.createCacheClient();
+            user = (TCSubject)(cc.get(buf.toString()));
         } catch (Exception e) {
             log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+            hasCacheConnection = false;
         }
         if (user == null) {
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             user = pmgr.getUserSubject(id);
             try {
-                CacheClientPool.getPool().getClient().set(buf.toString(), user, 30*60*1000);
+                if (hasCacheConnection) {
+                    cc.set(buf.toString(), user, 30*60*1000);
+                } else {
+                    log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: ");
+                }
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
             }

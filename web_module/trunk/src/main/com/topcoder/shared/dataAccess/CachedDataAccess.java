@@ -1,7 +1,7 @@
 package com.topcoder.shared.dataAccess;
 
-import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
@@ -80,11 +80,10 @@ public class CachedDataAccess implements DataAccessInt {
             String key = ((Request)request).getCacheKey();
             Map map = null;
             DataRetriever dr = null;
+            CacheClient cc = null;
             try {
-                log.debug("before");
-                CacheClient c =CacheClientPool.getPool().getClient();
-                log.debug("after");
-                map = (Map) (c.get(key));
+                cc = CacheClientFactory.createCacheClient();
+                map = (Map) (cc.get(key));
             } catch (Exception e) {
                 log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 hasCacheConnection = false;
@@ -97,7 +96,7 @@ public class CachedDataAccess implements DataAccessInt {
                 /* attempt to add this object to the cache */
                 if (hasCacheConnection) {
                     try {
-                        CacheClientPool.getPool().getClient().set(key, map, expireTime);
+                        cc.set(key, map, expireTime);
                     } catch (Exception e) {
                         log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                     }
