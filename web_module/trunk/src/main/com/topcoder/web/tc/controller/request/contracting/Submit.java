@@ -167,6 +167,7 @@ public class Submit  extends ContractingBase {
                     //get user's notes for contracting, add update where appropriate
                     Request r = new Request();
                     r.setContentHandle("contracting_user_notes");
+                    r.setProperty("uid", String.valueOf(info.getUserID()));
 
                     ResultSetContainer rsc = (ResultSetContainer)getDataAccess().getData(r).get("contracting_user_notes");
                     for(int i = 0; i < rsc.size(); i++) {
