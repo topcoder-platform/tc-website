@@ -40,20 +40,27 @@ function getProblemDetail(url,wd,ht) {
 
 <jsp:useBean id="profileList" type="java.util.List" scope="request" />
 
-<% { String curProfile = "NONE"; boolean first = true; boolean even = true; %>
-     <screen:resultSetRowIterator id="row" list="<%= profileList %>">
-       <% if(!curProfile.equals(row.getItem("session_profile_id").toString())){ %>
+<% String curProfile = "NONE"; boolean first = true; boolean even = true; %>
+
+    <screen:resultSetRowIterator id="row" list="<%= profileList %>">
+
+      <% if(!curProfile.equals(row.getItem("session_profile_id").toString())){ %>
+
         <% if(!first){ %>
-         <%-- End previous table --%>
+          <%-- End previous table --%>
 	        <TR>
 		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>         
-         </TABLE>                
+          </TABLE>                
         <% } %>
 
-         <%-- Start a fresh table --%>
-         <% even = true; curProfile = row.getItem("session_profile_id").toString(); %>
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
+        <%-- Start a fresh table --%>
+        <%
+            even = true;
+            curProfile = row.getItem("session_profile_id").toString();
+            first = false;
+        %>
+        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%"> 
 	        <TR>
 		       <TD COLSPAN="3" VALIGN="middle" HEIGHT="15" CLASS="bodyText">&#160;<FONT SIZE="3" COLOR="#000000"><B><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></B></FONT></TD>		       	       		       
 	        </TR>	        
@@ -71,8 +78,8 @@ function getProblemDetail(url,wd,ht) {
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></TD>	
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="num_complete" /></TD>			       	       		       
 	        </TR>	        	        	        
-         </TABLE>         
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
+        </TABLE>         
+        <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
 	        <TR>
 		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="4"></TD>
 	        </TR>	        
@@ -91,32 +98,39 @@ function getProblemDetail(url,wd,ht) {
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="statText" BGCOLOR="#999999"><B>Passed</B></TD>		       
 		       <TD VALIGN="middle" ALIGN="center" WIDTH="15%" CLASS="bodyTextBold"><B>&#160;</B></TD>		       
 	        </TR>
-           <% first = false; %>
-        <% } %>
-        <%-- Do a main body row --%>
-	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" BGCOLOR="#CCCCCC">&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></A></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="status" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="presented" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><screen:resultSetItem row="<%=row%>" name="passed" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC"><A HREF="/eval/test_results.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></A></TD>		       
-	        </TR>
-	<% even = !even; %>
-     </screen:resultSetRowIterator>
+      <% } %>
 
-        <% if(!first){ %>
-         <%-- End final table --%>
+      <%-- Do a main body row --%>
+      <% if(row.getItem("num_sessions").toString().equals("0")){ %>
+	        <TR>
+		       <TD COLSPAN="6" VALIGN="middle" ALIGN="center" CLASS="bodyText" BGCOLOR="#CCCCCC">
+                            No sessions scheduled for this profile.
+                       </TD>		       
+	        </TR>
+      <% }else{ %>
+	        <TR>
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>>&#160;<A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></A></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="status" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="presented" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="submitted" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><screen:resultSetItem row="<%=row%>" name="passed" /></TD>		       
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText" <% if(even){ %>BGCOLOR="#CCCCCC"<% } %>><A HREF="/eval/test_results.jsp" CLASS="bodyText"><screen:resultSetItem row="<%=row%>" name="results_label" /></A></TD>		       
+	        </TR>
+      <% } %>
+      <% even = !even; %>
+    </screen:resultSetRowIterator>
+
+    <% if(!first){ %>
+         <%-- End the final table --%>
 	        <TR>
 		       <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>         
          </TABLE>                
-        <% }else{ %>
+    <% }else{ %>
          <%-- No tables means no profiles --%>
-         No test profiles found.
-        <% } %>
-<% } %>
-         
+              No test profiles found.
+    <% } %>
+
          
 <P><BR/></P>    
      </TD>
