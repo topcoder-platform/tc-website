@@ -54,7 +54,7 @@
             <img src="/i/clear.gif" alt="" width="240" height="10" border="0" />
             <table width="100%" border="0">
                <tr>
-                  <td width="100%" align="center"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_des_rd1"><img src="/i/tournament/tco03/winners_page_ad.gif" alt="" width="510" height="200" border="0" align="center"/></a></td>
+                  <td width="100%" align="center"><a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_finals"><img src="/i/tournament/tco03/winners_page_ad.gif" alt="" width="530" height="148" border="0" align="center"/></a></td>
                </tr>
             </table>
             
