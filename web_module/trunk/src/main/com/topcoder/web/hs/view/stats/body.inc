@@ -16,6 +16,6 @@
                 
                 <tr valign="top">
                     <td align="left" width="99%" class="statText">
-                        <img src="/i/headinginside_stats.gif" width="348" height="44" border="0">
+                        <img src="/i/hs/headinginside_stats.gif" width="348" height="44" border="0">
 
 <!-- Start Body-->
