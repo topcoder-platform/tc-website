@@ -98,7 +98,7 @@ return false;
         <% if (!request.getAttribute("isRated").equals("true")) { %>
             <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
                 <tr>
-                    <td class=oppDesc width="100%" valign=top>
+                    <td class=bodySubtitle width="100%" valign=top>
                         <% ResultSetContainer nextSRM= (ResultSetContainer)request.getAttribute("Next_SRM");%>
                         You currently do not have a TopCoder rating.  Establishing a TopCoder rating will significantly increase your chance of being contacted for potential employment positions.  <br /><br />
                         Your next chance to become rated in an algorithm competition is <rsc:item set="<%=nextSRM%>" name="registration_start" format="EEEE, MMMM d"/>
