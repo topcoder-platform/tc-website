@@ -164,7 +164,7 @@ public class Constants {
     public static String STATIC;
     public static String DC_REG_MAIN;
     public static String DC_REG_DEMOG;
-    public static String DC_REG_CONFIRM;                    s
+    public static String DC_REG_CONFIRM;
     public static String DC_REG_SUBMIT;
     public static String DC_ACTIVATION;
     public static String BROOKS_REG_MAIN;
