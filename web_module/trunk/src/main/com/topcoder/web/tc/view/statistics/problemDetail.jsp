@@ -53,7 +53,7 @@
            </tr>
          </table>
 
-         <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35">
+         <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <tr>
              <td class="statTextBig">
                Problem Name:
@@ -80,9 +80,6 @@
                <rsc:item set="<%=generalInfo%>" name="div1_use" /> <%=generalInfo.getItem(0, "div2_use").getResultData()!=null&&generalInfo.getItem(0, "div1_use").getResultData()!=null?", ":""%><rsc:item set="<%=generalInfo%>" name="div2_use" />
              </td>
            </tr>
-         <table>
-
-         <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
 
            <tr>
              <td BACKGROUND="/i/steel_bluebv_bg.gif" ></td>
