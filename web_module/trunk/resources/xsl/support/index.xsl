@@ -252,7 +252,7 @@ pointers to appropriate docs for each<BR/>
                         <TR><TD CLASS="bodyText"><A NAME="184"><B>What compiler options are used?</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">
 <P>The compiler is invoked as:</P>
-<P>g++ -Wall -W -Wshadow -O2 -s -pipe</P>           
+<P>g++ -Wall -W -O2 -s -pipe</P>           
                         </TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
                         <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
