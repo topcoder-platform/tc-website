@@ -67,7 +67,7 @@ function openWin(url, name, w, h) {
                         <p>Membership gives you <strong>FREE</strong> access to code samples, demos, software documentation, online training, developer 
                         forums, technical content and more.  <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_sample','comp',545,655);">Check out</A> what Intel Developer Services offers you. Then  <A href="https://welcome.intel.com/login.aspx?TARGET=https://ssl.intel.com/form-app/6135.aspx ">join today. </A></p>
                         
-                        <p align="center"><strong>Compete in TopCoder Single-Round Matches = Be Eligible to Win Intel Prizes.</strong></p> 
+                        <p align="center"><strong>Compete in TopCoder Single Round Matches = Be Eligible to Win Intel Prizes.</strong></p> 
                         
                         <p>Now through March 2004, if you're a member of Intel Developer Services AND take part in any of the five (5) Intel-sponsored 
                         TopCoder Single-Round Matches, you'll be eligible for a chance to win one the following (each SRM will have a unique drawing):</p>
@@ -77,7 +77,7 @@ function openWin(url, name, w, h) {
                            <td valign="top" width="1%"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /> </td>
                              <td valign="top" width="34%">
                                     <p>Intel&#174; Centrino&#153; mobile technology-based notebook! <A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_specs','comp',545,655);">View Specs.</A></p>
-                                    <p><font color="#0033CC">Register Now! Use promottiion code TCO2003.</font></p></td>
+                                    <p><font color="#0033CC">Register Now! Use promotion code TCO2003.</font></p></td>
           
                              <td valign="top" width="65%">
                              
