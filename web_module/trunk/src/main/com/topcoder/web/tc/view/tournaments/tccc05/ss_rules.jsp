@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2004 TCO Spectator Showdown - Official Rules and Regulations</title>
+<title>2005 TCCC Spectator Showdown - Official Rules and Regulations</title>
 
 <jsp:include page="../../script.jsp" />
 
@@ -14,31 +14,32 @@
     <tr valign="top">
         <td width="510" class="bodyText">
 
-            <h2>2004 TCO Spectator Showdown<br/>
+            <h2>2005 TCCC Spectator Showdown<br/>
             Official Rules and Regulations</h2>
 
             <p><span class="bodySubtitle">Overview</span><br/>
-            The 2004 TCO Spectator Showdown will take place entirely at the TopCoder Open at the Santa Clara Marriott in Santa Clara,
-            CA on Friday, November 12, 2004.  Two (2) grand prizes will be awarded at the end of the day to the highest scorer on
+            The 2005 TCCC Spectator Showdown will take place entirely at the TopCoder Collegiate Challenge at the Santa Clara Marriott in Santa Clara,
+            CA on Thursday, March 10 and Friday, March 11, 2005. Two (2) grand prizes will be awarded at the end of each day’s competition to the highest scorer on
             each of the two (2) problems presented.</span>
 
-			<p>All expenses to attend the TopCoder Open are the responsibility of the individual.</p>
+			<p>All expenses to attend the TopCoder Collegiate Challenge are the responsibility of the individual.</p>
 
 			<p><span class="bodySubtitle">Eligibility</span><br/>
-			The TCO Spectator Showdown is open to all registered TopCoder members who are at least 18 years of age.
-			Individuals may register as a TopCoder member at the TopCoder Open.</p>
+			The TCCC Spectator Showdown is open to all registered TopCoder members who are at least 18 years of age.
+			Individuals may register as a TopCoder member at the TopCoder Collegiate Challenge.</p>
 
 			<p>Employees of TopCoder, Inc., and members of the immediate families and/or persons living in the same household as
 			such persons, are ineligible to enter the tournament.  Finalists in the Algorithm and Component Competitions of the
-			TopCoder Open are also ineligible to enter the tournament.</p>
+			TopCoder Collegiate Challenge are also ineligible to enter the tournament.</p>
 
-			<p><span class="bodySubtitle">Competition Structure</span><br/>
+         <p>The winner of Thursday’s competition may not compete in Friday’s competition.</p>
+			
+         <p><span class="bodySubtitle">Competition Structure</span><br/>
 			The allowable programming languages in the competition will be Java, C++, C# and VB.NET.  Each competition will have 2
 			phases - the Coding Phase and the System Testing Phase.  The following describes the different phases of competition:</p>
 
 			<ul>
-				<li><strong>The Coding Phase</strong> is a timed event where all contestants are presented with a set of two questions
-                that is automatically selected from two possible sets.  A solution to each question may be submitted only one time.
+				<li><strong>The Coding Phase</strong> is a timed event where all contestants are presented with a set of two questions.  A solution to each problem may be submitted only one time.
 				Points for a problem are awarded upon submission of any
 				solution that successfully compiles and are calculated based on the total time elapsed from the time the problem
 				was opened to the time it was submitted, regardless of the time it took to submit any previous solutions to
@@ -56,7 +57,7 @@
 
 			<p><span class="bodySubtitle">About the Prizes</span><br/>
 			Prizes will be awarded to the first 100 people who participate in the competition. The highest scorer in each of the
-			two (2) presented sets will be awarded a grand prize.  The prizes are as follows:</p>
+			daily sets will be awarded a grand prize.  The prizes are as follows:</p>
 
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -67,22 +68,22 @@
                 <tr>
                     <td width="50%" class="sidebarText">Grand Prize (2)</td>
                     <td width="50%" class="sidebarText">
-                    One (1) Microsoft&#174; Xbox Game Console<br/>
-					One (1) NVIDIA&#174; Graphics Card<br/>
-					One (1) Yahoo!&#174; Gift Pack
+One (1) Yahoo!&#174; Gift Pack<br>
+One (1) Motorola&#174; Cell Phone<br>
+One (1) NVIDIA&#174; Gift Pack<br>
+One (1) TopCoder&#174; Gift Pack
 					</td>
                 </tr>
 
                 <tr>
                     <td width="50%" class="sidebarText">First 100 Participants</td>
-                    <td width="50%" class="sidebarText">One (1) TCO Spectator Showdown T-Shirt</td>
+                    <td width="50%" class="sidebarText">One (1) TCCC Spectator Showdown T-Shirt</td>
                 </tr>
             </table>
 
 
 
-			<p>Prizes will be awarded at the conclusion of the competition, immediately preceding the announcement of the Algorithm
-			and Component Competition winners. Winners must be onsite to receive a grand prize.  Any and all applicable taxes on
+			<p>Prizes will be awarded at the conclusion of each day's competition. Winners must be onsite to receive a grand prize.  Any and all applicable taxes on
 			prizes are the sole responsibility of the prizewinner.</p>
 
 			<p><span class="bodySubtitle">Conditions of Participation</span><br/>
@@ -118,9 +119,6 @@
 
 			<p><span class="bodySubtitle">Other</span><br/>
 			The tournament is void in whole or in part where prohibited by law.</p>
-
-			</p>A list of tournament winners will be available on the web site at <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=about">www.topcoder.com/tco04</a> and will be displayed
-			for at least 3 months after the end of the tournament.</p>
 
 			<p>This tournament is brought to you by TopCoder, Inc. (<a href="/">http://www.topcoder.com</a>) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
