@@ -517,7 +517,7 @@
 </TABLE>
 
 <!-- Footer begins -->
-<jsp:include page="../foot.jsp" />
+<jsp:include page="../corp/foot.jsp" />
 <!-- Footer ends -->
 
 </BODY>
