@@ -63,24 +63,31 @@ function openWin(url, name, w, h) {
                   <div align="center">
 	            <font size="-1">
                      <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
-                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">schedule</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
                      <font color="006633">Register Now</font> &nbsp;|&nbsp; 
                      <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
                   </font>
                   </div><br><br>
-                  <b><font size="+1">Registration</font></b>
-
+                  
                   <table border=0 cellspacing=0 width="100%">
                      <tr>
-                        <td valign="top"><p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p></td>
-                        <td align="right" valign="top"><img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0"></td>
+                        <td valign="top">
+                        <b><font size="+1">Registration</font></b>
+                        <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
+
+                        <p><font size="-1"><br/>Registration will open on Wednesday, October 1 at 8:00AM EDT and will close on Wednesday, October 15 at 5:00PM EDT.  Registration is unlimited.</font></p>
+
+                        </td>
                      </tr>
-                  </table
-                  <p><br /></p>
-                  <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-                  <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
-                  </font></p>
+                     <tr>
+                        <td><p><br /></p>
+                              <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
+                              <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
+                              </font></p>
+                        </td>
+                     </tr>
+                  </table>
                   </div>
                </td>
             </tr>

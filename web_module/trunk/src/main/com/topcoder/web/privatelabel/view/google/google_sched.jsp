@@ -67,11 +67,15 @@ function openWin(url, name, w, h) {
                      <a href="/pl/?&module=Static&d1=google&d2=google_rules_overview">Rules</a> &nbsp;|&nbsp; 
                      <a href="/pl/?&module=Static&d1=google&d2=google_registration">Register Now</a> &nbsp;|&nbsp; 
                      <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
-                     </font>
+                  </font>
                   </div><br><br>
-                  <b><font size="+1">Schedule</font></b>
-                  <img align="right" hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0">
-            
+                  
+                  <table border=0 cellspacing=0 width="100%">
+                     <tr>
+                        <td valign="top">
+                        <b><font size="+1">Schedule</font></b>
+                        <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
+                        
 <!-- Qualification Rounds begins -->
                   <p><font color="006633" size="3"><b>Qualification Rounds</b></font></p>
                   <p><font size="-1">The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jam 2003.</font></p>
@@ -175,10 +179,16 @@ function openWin(url, name, w, h) {
                      </tr>
                   </table>
             
-                  <p><br /></p>
-                  <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
-                  <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
-                  </font></p>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td><p><br /></p>
+                              <p><a href="http://www.topcoder.com"><img align="right" src="/i/events/google2003/google_pbtc.gif" width="100" height="33" border="0" hspace="5"></a>
+                              <font size="-1">To find out more detailed information about the Google Code Jam 2003, including a list of the prizes, please read the <a href="http://www.topcoder.com/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions</a>.
+                              </font></p>
+                        </td>
+                     </tr>
+                  </table>
                   </div>
                </td>
             </tr>
@@ -186,8 +196,8 @@ function openWin(url, name, w, h) {
       </td>
    </tr>
 </table>
-<p>
-<div class=footer> 
+</div>
+<p><div class=footer> 
 <small> &copy;2003 Google - 
 <a href="http://www.google.com/">Home</a> - 
 <a href="http://www.google.com/about.html">All About Google</a> - 
