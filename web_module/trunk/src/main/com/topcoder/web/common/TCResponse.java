@@ -28,5 +28,6 @@ public interface TCResponse {
 
     void setContentType(String type);
 
+    void flushBuffer();
 
 }
