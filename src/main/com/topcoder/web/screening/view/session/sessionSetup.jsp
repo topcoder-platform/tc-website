@@ -78,7 +78,7 @@ function submitSession() {
                             <li>Select a Test Profile. If you wish to create a new Test Profile, click <strong>Create a New Test Profile</strong>.</li>
                             <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click <strong>Add a Candidate</strong>.</li>
                             <li>Set the timeframe for when the candidate can access the Testing Application. Be sure to allow at least a 24-hour window during which the candidate can participate.</li>
-                            <li>Candidates must receive an email in order to access the Testing Application.Ê You can choose to receive emails reminding you when the candidate is scheduled to participate, 
+                            <li>Candidates must receive an email in order to access the Testing Application. You can choose to receive emails reminding you when the candidate is scheduled to participate, 
                             as well as when the results are ready</li>
                         </ol>
                     </td>
