@@ -31,6 +31,7 @@ import java.util.Map;
  */
 abstract class RegistrationBase extends BaseProcessor {
 
+    protected String transDb;
     protected String db;
     protected SimpleRegInfo regInfo;
     protected Persistor p;
@@ -41,7 +42,9 @@ abstract class RegistrationBase extends BaseProcessor {
             p = new SessionPersistor(getRequest().getSession(true));
             //gotta do first just in case makeRegInfo() needs the database
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
-            db = getCompanyDb(companyId);
+            transDb = getCompanyDb(companyId, Constants.JTS_TRANSACTIONAL);
+            db = getCompanyDb(companyId, Constants.TRANSACTIONAL);
+            log.debug("trans database set to: " + transDb);
             log.debug("database set to: " + db);
 
             regInfo = makeRegInfo();
@@ -71,10 +74,11 @@ abstract class RegistrationBase extends BaseProcessor {
      */
     protected abstract void registrationProcessing() throws TCWebException;
 
-    protected String getCompanyDb(long companyId) throws Exception {
+    protected String getCompanyDb(long companyId, int type) throws Exception {
         Request r = new Request();
         r.setContentHandle("company_datasource");
         r.setProperty("cm", String.valueOf(companyId));
+        r.setProperty("dsid", String.valueOf(type));
         //not sure if this db is ok...we'll see
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
         ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");
@@ -131,7 +135,7 @@ abstract class RegistrationBase extends BaseProcessor {
         try {
             Request request = new Request();
             request.setContentHandle("country_list");
-            Map map = getDataAccess(db, true).getData(request);
+            Map map = getDataAccess(transDb, true).getData(request);
             if (map == null)
                 throw new Exception("error getting country list from db");
             else
@@ -145,7 +149,7 @@ abstract class RegistrationBase extends BaseProcessor {
         try {
             Request request = new Request();
             request.setContentHandle("state_list");
-            Map map = getDataAccess(db, true).getData(request);
+            Map map = getDataAccess(transDb, true).getData(request);
             if (map == null)
                 throw new Exception("error getting state list from db");
             else

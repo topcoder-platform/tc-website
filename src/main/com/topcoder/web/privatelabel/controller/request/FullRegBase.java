@@ -30,9 +30,12 @@ abstract class FullRegBase extends SimpleRegBase {
             p = new SessionPersistor(getRequest().getSession(true));
             //gotta do first just in case makeRegInfo() needs the database
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
-            db = getCompanyDb(companyId);
+            transDb = getCompanyDb(companyId, Constants.JTS_TRANSACTIONAL);
+            db = getCompanyDb(companyId, Constants.TRANSACTIONAL);
+            log.debug("trans database set to: " + transDb);
+            log.debug("database set to: " + db);
 
-            questions = getQuestions(db);
+            questions = getQuestions(transDb);
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();

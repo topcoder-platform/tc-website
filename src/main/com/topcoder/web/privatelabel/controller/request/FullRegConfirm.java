@@ -90,7 +90,7 @@ public class FullRegConfirm extends FullRegBase {
     }
 
     private boolean validResponse(DemographicResponse response) throws Exception {
-        DataAccessInt dataAccess = getDataAccess(db, true);
+        DataAccessInt dataAccess = getDataAccess(transDb, true);
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(response.getQuestionId()));

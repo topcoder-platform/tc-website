@@ -5,7 +5,8 @@ import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.ejb.demographic.Response;
-import com.topcoder.web.ejb.currentschool.CurrentSchool;
+import com.topcoder.web.ejb.school.CurrentSchool;
+import com.topcoder.web.ejb.school.School;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
@@ -40,25 +41,28 @@ public class FullRegSubmit extends SimpleRegSubmit {
         Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
         Response response = (Response)createEJB(getInitialContext(), Response.class);
 
-        coder.setCoderTypeId(ret.getId(), ((FullRegInfo)regInfo).getCoderType(), db);
+        coder.setCoderTypeId(ret.getId(), ((FullRegInfo)regInfo).getCoderType(), transDb);
 
         DemographicResponse r = null;
         DemographicQuestion q = null;
-        Map questions = FullRegBase.getQuestions(db);
+        Map questions = FullRegBase.getQuestions(transDb);
         for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
             r = (DemographicResponse) it.next();
             q = (DemographicQuestion) questions.get(new Long(r.getQuestionId()));
-            response.createResponse(ret.getId(), r.getQuestionId(), db);
+            response.createResponse(ret.getId(), r.getQuestionId(), transDb);
             if (q.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
                     q.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT ) {
-                response.setAnswerId(ret.getId(), r.getQuestionId(), r.getAnswerId(), db);
+                response.setAnswerId(ret.getId(), r.getQuestionId(), r.getAnswerId(), transDb);
             } else {
-                response.setResponseText(ret.getId(), r.getQuestionId(), r.getText(), db);
+                response.setResponseText(ret.getId(), r.getQuestionId(), r.getText(), transDb);
             }
             //if this is the "what school did you go to" question, add a record to the current school table for TCES
             if (q.getId()==Constants.SCHOOL_QUESTION && ((FullRegInfo)regInfo).isStudent()) {
                 CurrentSchool cs = (CurrentSchool) createEJB(getInitialContext(), CurrentSchool.class);
-                cs.createCurrentSchool(ret.getId(), r.getText(), db);
+                School s = (School) createEJB(getInitialContext(), School.class);
+                long schoolId = s.createSchool(transDb, db);
+                cs.createCurrentSchool(ret.getId(), r.getText(), schoolId, transDb);
+
             }
         }
 
