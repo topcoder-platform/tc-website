@@ -860,7 +860,6 @@ final class UserDbCoder {
 
     /**
      * Update coder_confirmation table for this user.
-     * @author Greg Paul
      */
     private static void updateCoderConfirmations(Connection conn, ArrayList coderConfirmations)
             throws TCException {

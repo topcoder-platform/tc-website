@@ -4,11 +4,21 @@ import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.Util;
 
+import javax.naming.InitialContext;
+import javax.naming.Context;
+import javax.sql.DataSource;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Hashtable;
 
 
 final class UserDb {
@@ -66,6 +76,30 @@ final class UserDb {
                 UserDbCoder.insertCoder(conn, coder);
                 coder.setAllModifiedStable();
             }
+
+            /* make insert into common database containing this information.  this will
+               allow other applications to use our login/password for authentication.
+               have to do manual insert because you can't force the id in the common db
+               through the security component.
+             */
+            InitialContext context = new InitialContext();
+            DataSource ds = (DataSource) context.lookup("java:comp/env/common_datasource");
+            query = new StringBuffer(100);
+            query.append(" INSERT INTO security_user");
+            query.append(       " (login_id, user_id, password)");
+            query.append(" VALUES (?, ?, ?)");
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, user.getUserId());
+            ps.setString(2, user.getHandle());
+            ps.setString(3, "placeholder");
+            regVal = ps.executeUpdate();
+            if (regVal != 1) {
+                throw new TCException("ejb.User.UserDb:updateUser():did not update security user record:\n");
+            }
+
+            updateSecurityPassword(user.getUserId(), user.getHandle(), user.getPassword());
+
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new TCException("ejb.DataCache.DataCacheBean.insertUser: ERROR \n " + sqe.getMessage());
@@ -124,7 +158,25 @@ final class UserDb {
                 if (regVal != 1) {
                     throw new TCException("ejb.User.UserDb:updateUser():did not update record:\n");
                 }
+
+                /* update their user name manually, cuz security user doesn't allow it */
+                InitialContext context = new InitialContext();
+                DataSource ds = (DataSource) context.lookup("java:comp/env/common_datasource");
+                query = new StringBuffer(100);
+                query.append(" UPDATE user");
+                query.append(   " SET user_id = ?");
+                query.append( " WHERE login_id = ?");
+                conn = ds.getConnection();
+                ps = conn.prepareStatement(query.toString());
+                ps.setString(1, user.getHandle());
+                ps.setLong(2, user.getUserId());
+                regVal = ps.executeUpdate();
+                if (regVal != 1) {
+                    throw new TCException("ejb.User.UserDb:updateUser():did not update security user record:\n");
+                }
+                updateSecurityPassword(user.getUserId(), user.getHandle(), user.getPassword());
                 user.setModified("S");
+
             }
             updateDefaultUserType(conn, user);
             updateGroupUsers(conn, user);
@@ -134,6 +186,7 @@ final class UserDb {
                 UserDbCoder.updateCoder(conn, coder);
                 coder.setAllModifiedStable();
             }
+
         } catch (Exception ex) {
             ex.printStackTrace();
             throw new TCException("ejb.User.UserDb:updateUser():failed:" + ex.getMessage());
@@ -587,7 +640,7 @@ final class UserDb {
             ps = conn.prepareStatement(query);
             ps.setInt(1, user.getUserId());
             ps.setString(2, user.getSIdType());
-            int regVal = ps.executeUpdate();
+            ps.executeUpdate();
         } catch (Exception ex) {
             throw new TCException(
                     "ejb.User.UserDb:insertSecureObject():failed:\n" + ex
@@ -654,78 +707,6 @@ final class UserDb {
             }
         }
     }
-
-
-    private static void updatePermissions(Connection conn, User user)
-            throws TCException {
-        log.debug("ejb.User.UserDb:updatePermissions() called ...");
-        PreparedStatement ps = null;
-        try {
-            ArrayList permissions = user.getPermissions();
-            for (int i = 0; i < permissions.size(); i++) {
-                Permission permission = (Permission) permissions.get(i);
-                String modified = permission.getModified();
-                if (!modified.equals("S")) {
-                    if (modified.equals("A")) {
-                        insertPermission(conn, permission);
-                    } else if (modified.equals("U")) {
-                        /**************************************************************/
-                        /***********************Informix*******************************/
-                        /**************************************************************/
-                        String query = "UPDATE permission SET secure_object_id=?, sector_id=?, access_id=? WHERE secure_object_id=? AND sector_id=?";
-                        /**************************************************************/
-                        ps = conn.prepareStatement(query);
-                        ps.setInt(1, user.getUserId());
-                        ps.setInt(2, permission.getSector().getSectorId());
-                        ps.setInt(3, permission.getAccessLevel().getAccessLevelId());
-                        ps.setInt(4, user.getUserId());
-                        ps.setInt(5, permission.getSector().getSectorId());
-                        int regVal = ps.executeUpdate();
-                        if (regVal != 1) {
-                            StringBuffer msg = new StringBuffer(200);
-                            msg.append("ejb.User.UserDb.updatePermissions():update error:sid=");
-                            msg.append(user.getUserId());
-                            msg.append(":sector_id=");
-                            msg.append(permission.getSector().getSectorId());
-                            msg.append(":sector_desc=");
-                            msg.append(permission.getSector().getSectorDesc());
-                            msg.append(":\n");
-                            throw new TCException(msg.toString());
-                        }
-                    } else if (modified.equals("D")) {
-                        /**************************************************************/
-                        /***********************Informix*******************************/
-                        /**************************************************************/
-                        String query = "DELETE FROM permission WHERE secure_object_id=? AND sector_id=?";
-                        /**************************************************************/
-                        ps = conn.prepareStatement(query);
-                        ps.setInt(1, user.getUserId());
-                        ps.setInt(2, permission.getSector().getSectorId());
-                        int regVal = ps.executeUpdate();
-                        if (regVal != 1) {
-                            StringBuffer msg = new StringBuffer(200);
-                            msg.append("ejb.User.UserDb.updatePermissions():delete error:sid=");
-                            msg.append(user.getUserId());
-                            msg.append(":sector_id=");
-                            msg.append(permission.getSector().getSectorId());
-                            msg.append(":sector_desc=");
-                            msg.append(permission.getSector().getSectorDesc());
-                            msg.append(":\n");
-                            throw new TCException(msg.toString());
-                        }
-                    }
-                }
-            }
-        } catch (Exception ex) {
-            throw new TCException("ejb.User.UserDb:updatePermissions():failed:\n" + ex);
-        } finally {
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception ignore) {
-            }
-        }
-    }
-
 
     private static void insertGroupUsers(Connection conn, User user)
             throws TCException {
@@ -889,5 +870,15 @@ final class UserDb {
         }
     }
 
+    private static void updateSecurityPassword(long userId, String handle, String password) throws Exception {
+        Hashtable env = new Hashtable();
+        env.put(Context.INITIAL_CONTEXT_FACTORY, ApplicationServer.SECURITY_CONTEXT_FACTORY);
+        env.put(Context.PROVIDER_URL, ApplicationServer.SECURITY_PROVIDER_URL);
+        InitialContext context = new InitialContext(env);
+        PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
+                context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote principalMgr = principalMgrHome.create();
+        principalMgr.editPassword(new UserPrincipal(handle, userId), password, new TCSubject(0));
+    }
 
 }
