@@ -1,11 +1,12 @@
 <%@ page language="java" isErrorPage="true" %>
-<%@ page import="com.topcoder.web.screening.common.Constants"%>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.web.common.BaseServlet"%>
 <%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
 <% if(request.getAttribute("Exception") != null)
    {
        exception = (Throwable)request.getAttribute("Exception");
    }
-   String message = (String)request.getAttribute("message");
+   String message = (String)request.getAttribute(BaseServlet.MESSAGE_KEY);
  %>
 <html>
 <head>
