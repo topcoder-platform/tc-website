@@ -4,7 +4,7 @@
 <%@ page import="java.util.ArrayList" %>
 
 <jsp:useBean id="ViewUploadTask" scope="request" class="com.topcoder.web.resume.bean.ViewUploadTask" />
-
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <HTML>
 <HEAD><TITLE>Resume Upload</TITLE></HEAD>
    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
@@ -17,12 +17,9 @@
             <input type="hidden" name="<%=Constants.TASK_KEY%>" value="UploadTask">
             <br/>Resume: <input type=file name=file1>
             <br/>File Type: <select name="fileType" class="dropdown">
-            <%
-                ArrayList al = ViewUploadTask.getFileTypes();
-                for(int i = 0; i<al.size();i++){
-            %>
-            <option value="<%= al.get(i++) %>"><%= al.get(i) %></option>
-            <%}%>
+            <rsc:iterator list="<%=ViewUploadTask.getFileTypes()%>" id="row">
+              <option value="<rsc:item name="file_type_id" row="row"/>"><rsc:item name="file_type_desc" row="row"/></option>
+            </rsc:iterator>
             </select>
             <br/><input type="submit" value="Upload">
             </form>
