@@ -1223,6 +1223,13 @@
         <servlet-class>com.topcoder.web.corp.controller.JNLPServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>GraphServlet</servlet-name>
+        <display-name>GraphServlet</display-name>
+        <description></description>
+        <servlet-class>com.topcoder.web.corp.controller.GraphServlet</servlet-class>
+    </servlet>
+
 
     <servlet-mapping>
         <servlet-name>MainServlet</servlet-name>
