@@ -617,12 +617,12 @@
             <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
-            <webinf dir="${resources}/query">
-                <include name="query-taglib.tld"/>
-            </webinf>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/query/**"/>
             </classes>
+            <webinf dir="${resources}/query">
+                <include name="query-taglib.tld"/>
+            </webinf>
         </war>
     </target>
 
