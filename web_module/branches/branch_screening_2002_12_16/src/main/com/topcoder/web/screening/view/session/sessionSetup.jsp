@@ -334,7 +334,7 @@ function submitSession() {
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
-              <TD ALIGN="center"><a name="save" /><A HREF="JavaScript:submitSession()" CLASS="bodyText" >Save</A></TD>
+              <TD ALIGN="center"><a name="save" /><A HREF="JavaScript:submitSession()" CLASS="bodyText" >Confirm</A></TD>
            </TR>
          </TABLE>
 </screen:form>

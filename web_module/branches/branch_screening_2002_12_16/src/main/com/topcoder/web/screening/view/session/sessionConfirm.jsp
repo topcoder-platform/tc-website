@@ -9,12 +9,12 @@
 
 <SCRIPT type="text/javascript"><!--
 function submitEdit() {
-document.sessionConfirmForm.rp = "<%=Constants.POPULATE_SESSION_PROCESSOR%>";
+document.sessionConfirmForm.rp.value = "<%=Constants.POPULATE_SESSION_PROCESSOR%>";
 document.sessionConfirmForm.submit();
 }
 
 function submitUpdate() {
-document.sessionConfirmForm.rp = "<%=Constants.UPDATE_SESSION_PROCESSOR%>";
+document.sessionConfirmForm.rp.value = "<%=Constants.UPDATE_SESSION_PROCESSOR%>";
 document.sessionConfirmForm.submit();
 }
 //--></SCRIPT>
