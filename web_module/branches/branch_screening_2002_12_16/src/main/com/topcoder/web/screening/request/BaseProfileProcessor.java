@@ -1,8 +1,14 @@
 package com.topcoder.web.screening.request;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.ServletRequest;
+
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProfileInfo;
@@ -34,7 +40,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         return info;
     }
 
-    protected boolean validateProfileInfo() {
+    protected boolean validateProfileInfo() throws Exception {
         boolean success = true;
         ServletRequest request = getRequest();
         ProfileInfo info = (ProfileInfo)
@@ -60,6 +66,26 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                 errorMap.put(Constants.LANGUAGE, 
                         "At least one language must be selected");
             }
+
+            if(success) {
+                Request dRequest = new Request();
+                dRequest.setProperty(DataAccessConstants.COMMAND, 
+                        Constants.PROFILE_CHECK_NAME_QUERY_KEY);
+                dRequest.setProperty("tpname", info.getProfileName());
+                dRequest.setProperty("uid", 
+                   String.valueOf(getAuthentication().getActiveUser().getId()));
+                DataAccess dataAccess = getDataAccess();
+                Map map = dataAccess.getData(dRequest);
+
+                ResultSetContainer rsc = (ResultSetContainer)
+                    map.get(Constants.PROFILE_CHECK_NAME_QUERY_KEY);
+                if(rsc.size() > 0) {
+                    success = false;
+                    errorMap.put(Constants.PROFILE_NAME, 
+                        "This profile name is already in use for your company");
+                }
+            }
+
         }
 
         if(!success) {

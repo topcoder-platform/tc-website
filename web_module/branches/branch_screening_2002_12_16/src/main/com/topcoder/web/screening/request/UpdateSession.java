@@ -30,6 +30,15 @@ public class UpdateSession extends BaseSessionProcessor {
         requireLogin();
         
         updateSessionInfo(); // we need this just in case of session timeout
+        
+        //validate the info just in case someone tries to skip over
+        //setup page and commit no info from confirm page
+        if(!validateSessionInfo()) {
+            setNextPage(Constants.SESSION_SETUP_PAGE);
+            setNextPageInContext(true);
+            return;
+        }
+
         SessionInfo info = getSessionInfo();
         InitialContext context = new InitialContext();
         SessionHome sHome = (SessionHome)

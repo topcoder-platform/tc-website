@@ -448,6 +448,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>profile_check_name_query_key</param-name>
+    <param-value>profileCheckName</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Problem constants -->
   <init-param>
     <param-name>problem_list_page</param-name>
@@ -641,6 +647,12 @@
     <param-name>test_set_b_segment_interval</param-name>
     <param-value>3600000</param-value>
     <description>amount of time allowed for each test set b problem in milliseconds</description>
+  </init-param>
+
+  <init-param>
+    <param-name>session_check_candidate_time_query_key</param-name>
+    <param-value>sessionCheckCandidateTime</param-value>
+    <description></description>
   </init-param>
 
   <!-- Preview Email Constants -->

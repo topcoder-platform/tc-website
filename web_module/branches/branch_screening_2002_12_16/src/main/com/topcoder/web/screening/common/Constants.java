@@ -88,6 +88,7 @@ public class Constants
     public static String PROFILE_CONFIRM_PROCESSOR;
     public static String UPDATE_PROFILE_PROCESSOR;
     public static String CREATE_PROFILE_PROCESSOR;
+    public static String PROFILE_CHECK_NAME_QUERY_KEY;
     
     //Problem constants
     public static String PROBLEM_LIST_PAGE;
@@ -126,6 +127,7 @@ public class Constants
     public static String SESSION_SEGMENT_TEST_SET_B_QUERY_KEY;
     public static String SESSION_SEGMENT_TEST_SET_B_ID;
     public static String TEST_SET_B_SEGMENT_INTERVAL;
+    public static String SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY;
 
     //Preivew email constants
     public static String EMAIL_LOOKUP_COMMAND;
@@ -245,6 +247,8 @@ public class Constants
             config.getInitParameter("update_profile_processor");
         CREATE_PROFILE_PROCESSOR =
             config.getInitParameter("create_profile_processor");
+        PROFILE_CHECK_NAME_QUERY_KEY = 
+            config.getInitParameter("profile_check_name_query_key");
         
         //Problem constants
         PROBLEM_LIST_PAGE = config.getInitParameter("problem_list_page");
@@ -310,6 +314,8 @@ public class Constants
             config.getInitParameter("session_segment_test_set_b_id");
         TEST_SET_B_SEGMENT_INTERVAL = 
             config.getInitParameter("test_set_b_segment_interval");
+        SESSION_CHECK_CANDIDATE_TIME_QUERY_KEY = 
+            config.getInitParameter("session_check_candidate_time_query_key");
 
         //Preview Email Constants
         EMAIL_LOOKUP_COMMAND = config.getInitParameter("email_lookup_command");
