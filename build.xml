@@ -937,6 +937,8 @@
                 <include name="menu.jsp"/>
                 <include name="includes/global_left.jsp"/>
                 <include name="includes/modules/simpleSearch.jsp"/>
+                <include name="calendar.jsp"/>
+                <include name="public_right.jsp"/>
             </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/shared/**/*.class"/>
