@@ -32,7 +32,7 @@
     </tr>
     <tr>
         <td>SRM 222</td>
-        <td>Dec 6</td>
+        <td>Dec 7</td>
         <td>1:00pm</td>
     </tr>
 </table> 
