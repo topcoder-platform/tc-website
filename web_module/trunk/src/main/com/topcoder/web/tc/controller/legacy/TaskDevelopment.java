@@ -600,7 +600,7 @@ public final class TaskDevelopment {
             } else if (command.length() > 0 && !request.getParameter("t").equals("app")) {
                 /********** SHOULD BE A FUNCTION ****************/
                 devTag.addTag(Base.getOpenProjects().getTag("projects", "project"));
-                devTag.addTag(Base.getProjectTotals().getTag("Project", "Total"));
+//                devTag.addTag(Base.getProjectTotals().getTag("Project", "Total"));
                 xsldocURLString = XSL_DIR + command + ".xsl";
             } else {
                 throw new Exception("Invalid command: " + command);

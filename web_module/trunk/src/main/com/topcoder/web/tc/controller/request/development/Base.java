@@ -63,16 +63,6 @@ public abstract class Base extends BaseProcessor {
         return (ResultSetContainer) resultMap.get("Retrieve open projects");
     }
 
-    public static ResultSetContainer getProjectTotals() throws Exception {
-        Request dataRequest = null;
-        Map resultMap = null;
-        DataAccessInt tcsDai = new CachedDataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-        dataRequest = new Request();
-        dataRequest.setContentHandle("project_totals");
-        resultMap = tcsDai.getData(dataRequest);
-        return (ResultSetContainer) resultMap.get("total_component_prices");
-    }
-
     abstract protected void developmentProcessing() throws TCWebException;
 
     public DataAccessInt getDataAccess() throws Exception {
