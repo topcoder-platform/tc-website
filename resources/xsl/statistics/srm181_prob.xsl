@@ -84,7 +84,10 @@ function openWin(url, name, w, h) {
 
 <h2>Match summary</h2> 
 
-<p>This SRM seemed significantly easier than the last few for Division I coders, with seven coders within 50 points of leader <b>tomek</b> after the coding phase.  After challenge phase, however, <b>SnapDragon</b> barely pulled ahead by picking up a successful challenge, and he won the match with an impressive 1629.45 points.</p> 
+<p>This SRM seemed significantly easier than the last few for Division I coders, with seven 
+coders within 50 points of leader <b>tomek</b> after the coding phase.  After challenge phase, 
+however, <b>SnapDragon</b> barely pulled ahead by picking up a successful challenge, and he 
+won the match with an impressive 1629.45 points.</p> 
 
 <p>On the Division II side of things, the success rates for the easy and medium problems were very high, but many coders were stopped by the hard.  The winner of it all was <b>RandySaint</b>, who used his high score on the 950 to finish in first place in Division II by over 100 points over <b>sanjay31</b>.</p>
  
