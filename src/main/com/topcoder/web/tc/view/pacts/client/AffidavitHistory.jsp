@@ -41,7 +41,7 @@ function goTo(selection){
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 	<TR>
-		<TD CLASS="affidavitCell" COLSPAN="2">
+		<TD CLASS="affidavitText" COLSPAN="2">
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*,java.util.*,java.text.*" %>
 
 <%

@@ -34,18 +34,16 @@ function goTo(selection){
 				<jsp:param name="level2" value="pacts"/>
 			</jsp:include>
        </TD>
-       <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
-        <jsp:include page="/body_top.jsp" >
-           <jsp:param name="image" value="pacts"/>
-           <jsp:param name="image1" value="steelblue"/>
-           <jsp:param name="title" value="Payment Detail"/>
+         <td class="affidavitCell" width="100%" align="center">
+
+        <jsp:include page="../../page_title.jsp" >
+            <jsp:param name="image" value="pact_s"/>
+            <jsp:param name="title" value="Payment Details"/>
         </jsp:include>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-	<TR>
-		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<BR/>
+
+         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+         	<TR>
+         		<TD CLASS="affidavitText" COLSPAN="2" VALIGN="top" WIDTH="100%">
 <%@ page import="com.topcoder.web.tc.controller.legacy.pacts.common.*" %>
 
 <%
@@ -90,7 +88,7 @@ function goTo(selection){
 
 
 	PactsHtmlTable table = new PactsHtmlTable(tableData);
- 	table.setBgcolor("\"#001935\"");
+ 	table.setBgcolor("\"#FFFFFF\"");
  	table.setCellSpacing("2");
  	table.setCellPadding("2");
  	table.setBorder("0");
@@ -98,7 +96,7 @@ function goTo(selection){
  	table.setColumnWidth(0, "40%");
  	table.setColumnWidth(1, "60%");
  	table.setRowColor(0,"\"#093158\"");
- 	table.setClassName("statText");
+ 	table.setClassName("bodyText");
  	table.setRowBold(0,true);
 
 	out.print(table.getHtml());
@@ -110,28 +108,11 @@ no payment info
 %>
 
 
-<P><BR/></P>
-		</TD>
-		<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-	<TR>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="11" ALIGN="right" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-		<TD VALIGN="top" BACKGROUND="" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-	</TR>
-</TABLE>
+         <P><BR/></P>
+         		</TD>
+         	</TR>
+         </TABLE>
        </TD>
-       <TD WIDTH="4" ><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
        <TD WIDTH="170" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0">
          <jsp:include page="/public_right.jsp" />
        </TD>
