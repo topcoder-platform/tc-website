@@ -32,10 +32,10 @@
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
-        <td id="testTitleBkgd"><img border="0" height="45" width="10" src="/i/testTitleLeft.gif" alt=""></td>
-        <td id="testTitleBkgd"><img alt="Help Manual" border="0" height="45" width="155" src="/i/testHelpManual.gif"></td>
-        <td id="testTitleBkgd" width="100%"><img alt="0" border="0" height="45" width="10" src="/images/clear.gif"></td>
-        <td id="testTitleBkgd"><img border="0" height="45" width="10" src="/i/testTitleRight.gif" alt=""></td>
+        <td background="/i/testTitleBkgd.gif"><img border="0" height="45" width="10" src="/i/testTitleLeft.gif" alt=""></td>
+        <td background="/i/testTitleBkgd.gif"><img alt="Help Manual" border="0" height="45" width="155" src="/i/testHelpManual.gif"></td>
+        <td background="/i/testTitleBkgd.gif" width="100%"><img alt="0" border="0" height="45" width="10" src="/images/clear.gif"></td>
+        <td background="/i/testTitleBkgd.gif"><img border="0" height="45" width="10" src="/i/testTitleRight.gif" alt=""></td>
       </tr>
 </table>
 
