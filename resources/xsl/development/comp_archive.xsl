@@ -109,7 +109,7 @@
                                 <xsl:when test="./catalog_name = 'Flash' ">
                                     <img src="/i/development/flashSm.gif"/>
                                 </xsl:when>
-                                <xsl:when test="./catalog_name = 'Applications' ">
+                                <xsl:when test="./catalog_name = 'Application' ">
                                     <img src="/i/development/smApp.gif"/>
                                 </xsl:when>
                                <xsl:otherwise>
@@ -161,7 +161,7 @@
                                 <xsl:when test="./catalog_name = 'Flash' ">
                                     <img src="/i/development/flashSm.gif"/>
                                 </xsl:when>
-                                <xsl:when test="./catalog_name = 'Applications' ">
+                                <xsl:when test="./catalog_name = 'Application' ">
                                     <img src="/i/development/smApp.gif"/>
                                 </xsl:when>
                                <xsl:otherwise>
