@@ -269,10 +269,26 @@ Founder and Chairman, TopCoder, Inc.
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="HandleError" /></td>
     </tr>
-  <tr align="right" valign="middle">
-    <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Handle</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15"></td>
-  </tr>
+
+  <% if (Registration.isRegister()) { %>
+    <tr>
+      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+      <td colspan="2" class="statText" align="left" valign="top">Please choose your handle carefully, because once your account is created, your handle can not be changed.  Also note that creating more than one account is a violation of our terms of use.<br></td>
+    </tr>
+    <tr align="right" valign="middle">
+      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Handle</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+      <td colspan="2" class="statTextBig" align="left" valign="middle"><input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15"></td>
+    </tr>
+  <% } else { %>
+    <tr align="right" valign="middle">
+      <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Handle</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+      <td colspan="2" class="statTextBig" align="left" valign="middle"><jsp:getProperty name="Registration" property="Handle" /></td>
+    </tr>
+  <% } %>
+
+
+
+
     <tr>
         <td></td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td><td colspan="2" class="errorText" align="left" valign="middle"><jsp:getProperty name="Registration" property="PasswordError" /></td>
     </tr>
