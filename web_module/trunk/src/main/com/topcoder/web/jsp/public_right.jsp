@@ -33,7 +33,7 @@
             <p><br/></p>
 
 <!-- Review Board begins -->
-<% } else if (request.getServletPath().indexOf("review_board")>-1) { %>
+<% } else if (level1.equals("review_board")) { %>
 
             <jsp:include page="calendar.jsp"/>
             <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br>
