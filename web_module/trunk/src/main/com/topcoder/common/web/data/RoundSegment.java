@@ -5,6 +5,7 @@ import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.error.*;
 import java.util.*;
 import java.sql.Timestamp;
+import java.text.DecimalFormat;
 
 
 public final class RoundSegment implements Serializable, Base {
@@ -337,30 +338,30 @@ public final class RoundSegment implements Serializable, Base {
   public RecordTag getXML() throws TCException {
     RecordTag result = null;
     try {
+      DecimalFormat fmt = new DecimalFormat ( "00" );
       result = new RecordTag("RoundSegment");
       result.addTag( new ValueTag("SegmentId", segmentId) );
       result.addTag( new ValueTag("ContestId", contestId) );
       result.addTag( new ValueTag("RoundId", roundId) );
-      result.addTag( new ValueTag("SegmentId", segmentId) );
       result.addTag( new ValueTag("SegmentDesc", segmentDesc) );
       result.addTag( new ValueTag("Start", start) );
       result.addTag( new ValueTag("StartYear", startYear) );
-      result.addTag( new ValueTag("StartMonthNum", startMonthNum) );
-      result.addTag( new ValueTag("StartDay", startDay) );
-      result.addTag( new ValueTag("StartHour", startHour) );
-      result.addTag( new ValueTag("StartMinute", startMinute) );
-      result.addTag( new ValueTag("StartSecond", startSecond) );
+      result.addTag( new ValueTag("StartMonthNum", fmt.format(startMonthNum)) );
+      result.addTag( new ValueTag("StartDay", fmt.format(startDay)) );
+      result.addTag( new ValueTag("StartHour", fmt.format(startHour)) );
+      result.addTag( new ValueTag("StartMinute", fmt.format(startMinute)) );
+      result.addTag( new ValueTag("StartSecond", fmt.format(startSecond)) );
       result.addTag( new ValueTag("StartAMPM", startAMPM) );
       result.addTag( new ValueTag("StartTimeZoneLong", startTimeZoneLong) );
       result.addTag( new ValueTag("StartTimeZoneShort", startTimeZoneShort) );
       result.addTag( new ValueTag("StartTime", startTime) );
       result.addTag( new ValueTag("End", end) );
       result.addTag( new ValueTag("EndYear", endYear) );
-      result.addTag( new ValueTag("EndMonthNum", endMonthNum) );
-      result.addTag( new ValueTag("EndDay", endDay) );
-      result.addTag( new ValueTag("EndHour", endHour) );
-      result.addTag( new ValueTag("EndMinute", endMinute) );
-      result.addTag( new ValueTag("EndSecond", endSecond) );
+      result.addTag( new ValueTag("EndMonthNum", fmt.format(endMonthNum)) );
+      result.addTag( new ValueTag("EndDay", fmt.format(endDay)) );
+      result.addTag( new ValueTag("EndHour", fmt.format(endHour)) );
+      result.addTag( new ValueTag("EndMinute", fmt.format(endMinute)) );
+      result.addTag( new ValueTag("EndSecond", fmt.format(endSecond)) );
       result.addTag( new ValueTag("EndAMPM", endAMPM) );
       result.addTag( new ValueTag("EndTimeZoneLong", endTimeZoneLong) );
       result.addTag( new ValueTag("EndTimeZoneShort", endTimeZoneShort) );
