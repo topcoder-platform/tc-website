@@ -296,16 +296,15 @@
 
 <% } %>     
 
-                <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support / FAQs</a></td></tr>
+                <tr><td id="leftNav"><a class="left" href="/?&t=support&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Support/FAQs</a></td></tr>
 
 <!-- TopCoder Info begins -->
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About TopCoder</a></td></tr>
 
-    <% if ((level1.equals("review_board")) { %> 
+    <% if ((level1.equals("review_board"))) { %> 
 
                 <tr><td id="leftNavOn"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Review Boards</a></td></tr>
-            <% if (level1.equals("review_board")) { %>
                 <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?d1=review_board&d2=competition">Competition</a></td></tr>  
                 <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?d1=review_board&d2=development">Development</a></td></tr>  
 
