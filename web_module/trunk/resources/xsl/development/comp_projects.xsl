@@ -269,7 +269,7 @@
                 <xsl:variable name="devTCCC" select="//TC/DEVELOPMENT/projects/project[phase_id=$dev-phase and status_id=303]"/>
                 <xsl:if test="not($devTCCC)">
                         <tr valign="top">
-                            <td class="projectCells" colspan="9">The third round of the 2004 TCCC Component Development Competition begins on 3/22/2004</td>
+                            <td class="projectCells" colspan="9">The third round of the 2004 TCCC Component Development Competition begins on 3/30/2004</td>
                         </tr>
                 </xsl:if>
             </table>
