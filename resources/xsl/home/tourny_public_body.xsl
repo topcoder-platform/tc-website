@@ -87,11 +87,28 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
     <TD VALIGN="top" WIDTH="8" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-    <TD VALIGN="middle" COLSPAN="2" WIDTH="100%" BGCOLOR="#666666" CLASS="bodyText" ALIGN="center" HEIGHT="21"><FONT SIZE="3" COLOR="#FFFFFF" FACE="arial, verdana, tahoma"><B>Currently Underway...</B></FONT>
+    <TD VALIGN="middle" COLSPAN="2" WIDTH="100%" BGCOLOR="#666666" CLASS="bodyText" ALIGN="center" HEIGHT="21"><FONT SIZE="3" COLOR="#FFFFFF" FACE="arial, verdana, tahoma"><B>2002 SunNetwork Coding Challenge Winner is...</B></FONT>
     </TD>  
     <TD VALIGN="top" WIDTH="8" BGCOLOR="#666666"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>    
   </TR>
-</TABLE> 
+</TABLE>
+
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">   
+  <TR>
+    <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
+    <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText" ROWSPAN="2"><IMG SRC="/i/m/jonmac_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="5"/></TD>
+    <TD VALIGN="top" WIDTH="8" ROWSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText" COLSPAN="2"><BR/>
+    Handle: <B>jonmac</B><BR/>
+    Member Since: <B>03.04.01</B><BR/>
+      <A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=114443</xsl:attribute>
+View Profile
+      </A><BR/>
+    </TD>
+  </TR> 
+</TABLE>
+ 
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR> 
     <TD VALIGN="top" WIDTH="4"><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/></TD> 
