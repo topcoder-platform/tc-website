@@ -33,14 +33,14 @@
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
-                        OPENS: Monday, August 16 at 9:00 AM EST<br /><br/>
-                        CLOSES: Tuesday, September 7 at 9:00 AM EST
+                        OPENS: Monday, August 16 at 9:00 AM<br /><br/>
+                        CLOSES: Tuesday, September 7 at 9:00 AM
                     </td>
                 </tr>
             </table>
             
             <p><span class="bodySubtitle">Qualification Round</span><br/>
-            All registered competitors will attempt to qualify for the Algorithm Competition at any time during the following
+            All registered competitors can attempt to qualify for the Algorithm Competition at any time during the following
             24-hour period:</p>
             
             <a name="sched"></a>
@@ -55,12 +55,12 @@
                     <td class="sidebarText">Qualification Round</td>
                     <td class="sidebarText">
                         START: Tuesday, September 7<br />
-                        12:00 PM EST(noon)<br /><br/>
+                        12:00 PM (noon)<br /><br/>
                         END: Wednesday, September 8<br />
-                        12:00 PM EST(noon)
+                        12:00 PM (noon)
                     </td>
                     <td class="sidebarText">All eligible registered competitors</td>
-                    <td class="sidebarText">Top 100 scorers in each of 5 Qualification Round Problems</td>
+                    <td class="sidebarText">Top 100 scorers in each of 5 Qualification Round Problem Sets</td>
                 </tr>
 
             </table><br />
@@ -79,8 +79,8 @@
                     <td class="sidebarText">Online Round #1</td>
                     <td class="sidebarText">
                         Saturday, September 11th<br />
-                        Registration:  9:00 AM - 11:55 AM EST<br />
-                        Compete: 12:00 PM EST(noon)<br />
+                        Registration:  9:00 AM - 11:55 AM<br />
+                        Compete: 12:00 PM (noon)<br />
                     <td class="sidebarText">500</td>
                     <td class="sidebarText">200</td>
                     </td>
@@ -90,8 +90,8 @@
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
                         Tuesday, September 14th<br />
-                        Login by:  9:20 PM EST<br />
-                        Compete: 9:30 PM EST<br />
+                        Login by:  9:20 PM <br />
+                        Compete: 9:30 PM <br />
                     </td>
                     <td class="sidebarText">200</td>
                     <td class="sidebarText">100</td>
@@ -101,8 +101,8 @@
                     <td class="sidebarText">Online Round #3</td>
                     <td class="sidebarText">
                         Wednesday, September 22nd<br />
-                        Login by:  9:20 PM EST<br />
-                        Compete: 9:30 PM EST<br />
+                        Login by:  9:20 PM <br />
+                        Compete: 9:30 PM <br />
                     </td>
                     <td class="sidebarText">100</td>
                     <td class="sidebarText">50</td>
@@ -112,8 +112,8 @@
                     <td class="sidebarText">Online Round #4</td>
                     <td class="sidebarText">
                         Wednesday, September 29th<br />
-                        Login by:  9:20 PM EST<br />
-                        Compete: 9:30 PM EST<br />
+                        Login by:  9:20 PM<br />
+                        Compete: 9:30 PM<br />
                     </td>
                     <td class="sidebarText">50</td>
                     <td class="sidebarText">24</td>
@@ -139,7 +139,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Semifinal Room #1</td>
                     <td class="sidebarText">
-                        Thursday, November, 11<br />
+                        Thursday, November 11th<br />
                         Compete: 10:00 AM PT<br />
                     </td>
                     <td class="sidebarText">8</td>
@@ -150,7 +150,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Semifinal Room #2</td>
                     <td class="sidebarText">
-                        Thursday, November, 11<br />
+                        Thursday, November 11th<br />
                         Compete: 1:00 PM PT<br />
                     </td>
                     <td class="sidebarText">8</td>
@@ -161,7 +161,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Semifinal Room #3</td>
                     <td class="sidebarText">
-                        Thursday, November, 11<br />
+                        Thursday, November 11th<br />
                         Compete: 4:00 PM PT<br />
                     </td>
                     <td class="sidebarText">8</td>
@@ -172,7 +172,7 @@
                 <tr valign="top">
                     <td class="sidebarText">Wildcard Round</td>
                     <td class="sidebarText">
-                        Friday, November 12<br />
+                        Friday, November 12th<br />
                         Compete: 10:00 AM PT<br />
                     </td>
                     <td class="sidebarText">6</td>
@@ -182,7 +182,7 @@
                 <tr valign="top">
                     <td class="sidebarText"><strong>Championship Round</strong></td>
                     <td class="sidebarText">
-                        <strong>Friday, November 12<br />
+                        <strong>Friday, November 12th<br />
                         Compete: 2:30 PM PT<br /></strong>
                     </td>
                     <td class="sidebarText"><strong>4</strong></td>

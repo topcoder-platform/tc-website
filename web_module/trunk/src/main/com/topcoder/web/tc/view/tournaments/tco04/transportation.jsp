@@ -21,9 +21,8 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Transportation</p>
+        <p class=pageTitle>I need to get to the TCO!</p>
         
-        <h3>I need to get to the TCO!</h3>
 
         <p><span class="bodySubtitle">By Car:</span><br/>
 		The Santa Clara Marriott is conveniently located only minutes off Highway 101 in Santa 
@@ -33,10 +32,10 @@
 		The Mineta San Jose International Airport (SJC) is located just 2 miles north of downtown 
 		San Jose and 3 miles north of the Santa Clara Marriott. SJC is serviced by several national 
 		and regional airlines, including American, Continental, Delta, jetBlue, Northwest, Southwest, 
-		United Airlines, US Airways and others. Visit www.sjc.org for specific information.</p>
+		United Airlines, US Airways and others. Visit <a href="http://www.sjc.org/" target="_blank">www.sjc.org</a> for specific information.</p>
 
 		<p><span class="bodySubtitle">By Bus:</span><br/>
-		Go to the Greyhound web site (to get to San Jose, CA).</p>
+		Go to the <a href="http://www.greyhound.com/" target="_blank">Greyhound</a> web site (to get to San Jose, CA).</p>
             
         </div>
 		</td>

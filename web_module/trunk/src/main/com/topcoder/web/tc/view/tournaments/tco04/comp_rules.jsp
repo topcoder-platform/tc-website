@@ -43,10 +43,10 @@
             between August 10th and November 12th, 2004.  It will consist of two competitions - the design competition 
             and the development competition.  Each competition will consist of three (3) online rounds taking place over 
             the course of six (6) weeks and one (1) final online round, being the Championship Round.  The prize purse 
-            for this tournament is $100,000 in cash, with $64,200 being awarded for the design competition and $35,800 
-            for the development competition.  The four (4) competitors in each competition with the highest cumulative 
+            for this tournament is $100,000 in cash, with $64,200 being awarded in the design competition and $35,800 
+            in the development competition.  The four (4) competitors in each competition with the highest cumulative 
             placement scores after the three (3) online rounds will advance to the online Championship Round, the 
-            results of which will be announced at the Santa Clara Marriott in Santa Clara, California on November 
+            results of which will be announced at the Santa Clara Marriott in Santa Clara, California, USA on November 
             12th, 2004.</p>
             
 <!-- eligibility -->
@@ -81,7 +81,7 @@
 				will choose the competition in which he/she will compete.</li>
 			</ol>
 			
-			<p>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation 
+			<p>Employees of TopCoder, Inc. and Microsoft, Inc. and those involved in the production (including prize suppliers), implementation 
 			and distribution of this contest and their advertising or promotion agencies, parent companies, service providers, 
 			agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the contest 
 			and members of the immediate families and/or persons living in the same household as such persons, are ineligible to 
@@ -127,7 +127,9 @@
             
             <p>Both the design and development competitions will have three (3) online rounds and one (1) online 
             Championship Round.  Each contestant participating in an online round must submit his/her design and/or 
-            development submissions for components as scheduled. (See Competition Schedule.)  </p>
+            development submissions for components as scheduled. <strong>TopCoder members from around the world may 
+            be participating in the online rounds, but all start times will be communicated as Eastern Time, so 
+            contestants in different time zones must adjust accordingly.</strong>  </p>
 <!-- design schedule -->            
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
@@ -331,18 +333,18 @@
             VIABLE ENTRY.  THERE WILL BE NO EXCEPTIONS.</strong></p>
             
             
-            <p>There will be no elimination of contestants during the online rounds.  Round winners will be those participants 
+            <p>There will be no elimination of contestants during the three (3) online rounds.  Round winners will be those participants 
             with the highest cumulative placement score for each round.  Prizes will be awarded to the 1st and 2nd place finishers 
             in each round.  In the case of a tie for any prize-winning position in any online round other than the Championship Round, 
             the prize money will be distributed equally among the tied participants.</p>
             
             <p>Up to the three (3) highest individual placement scores that each contestant receives for his/her submissions throughout 
             the six (6) weeks of competition will be added together for a cumulative placement score.  The four (4) competitors in each 
-            competition with the highest cumulative placement score after the three (3) online rounds will advance to the online Championship 
-            Round.  There will be no onsite portion of the Championship Round.  Announcement of the winners in each competition will be made 
-            onsite on November 12th.</p>
+            competition with the highest cumulative placement score will advance to the online Championship 
+            Round.  There will be no onsite portion of the Championship Round. A review of the CDDC by TopCoder Review Board members and 
+            the announcement of the winners in each competition will be made onsite on November 12th.</p>
             
-            <p>In the event of a tie of cumulative placement score for the advancers to the Championship Round, the tie will 
+            <p>In the event of a tie of cumulative placement score among the advancers to the Championship Round, the tie will 
             be resolved in the following manner:</p>
             
             <ol>
@@ -395,7 +397,7 @@
             </ol>
             
             <p><span class="bodySubtitle">Onsite Participation</span><br/>
-            The four (4) participants in each competition in the Championship Round will travel to the Santa Clara 
+            The four (4) participants in the Championship Round in each competition will travel to the Santa Clara 
             Marriott on Wednesday, November 10th.  Announcement of the CDDC winners will be made on November 12th.  
             All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM PT on Wednesday, November 10th.  
             If a contestant is unable to attend the onsite event, he/she will forfeit his/her eligibility to receive a prize.</p>
@@ -404,7 +406,7 @@
             (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference 
             between the cost of the airfare and $1,000.)  TopCoder will provide ground transportation to and from the airport, as well 
             as accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  
-            TopCoder will not provide travel or lodging accommodations for competitor guests at the 2004 TCO.</p>
+            TopCoder will not provide travel or lodging accommodations for competitor guests at the 2004 TopCoder Open.</p>
             
 <!-- Prizes -->
             <a name="prizes"></a>
@@ -412,8 +414,8 @@
             </a>Prizes</h3>
             
             <p>All contestants who submit components that pass screening during at least one online round will receive a prize.  
-           	The tournament will award $100,000 in cash prizes, with $64,200 being awarded for the design competition and $35,800 
-           	for the development competition.  If the minimum criteria for 1st or 2nd place are not met during the weekly competitions, 
+           	The tournament will award $100,000 in cash prizes, with $64,200 being awarded in the design competition and $35,800 
+           	in the development competition.  If the minimum criteria for 1st or 2nd place are not met during any weekly competition, 
            	then the associated prizes will be forfeited.  Any and all applicable taxes on prizes are the sole responsibility of 
            	the prizewinner.  Prizes will be distributed as follows:</p>
            	
@@ -465,13 +467,13 @@
                 <tr>
                     <td width="25%" class="sidebarText">Weekly 1st place component designer</td>
                     <td width="25%" class="sidebarText">$600</td>
-                    <td width="25%" class="sidebarText">Weekly 1st place component designer</td>
+                    <td width="25%" class="sidebarText">Weekly 1st place component developer</td>
                     <td width="25%" class="sidebarText">$400</td>
                 </tr>
                 <tr>
                     <td width="25%" class="sidebarText">Weekly 2nd place component designer</td>
                     <td width="25%" class="sidebarText">$300</td>
-                    <td width="25%" class="sidebarText">Weekly 2nd place component designer</td>
+                    <td width="25%" class="sidebarText">Weekly 2nd place component developer</td>
                     <td width="25%" class="sidebarText">$200</td>
                 </tr>
                 <tr>
@@ -531,7 +533,7 @@
 		includes the agreement to use their name, handle, address (city and state) and likeness for publicity purposes, where legal, 
 		for this or similar future tournaments, and to use the statements made by, or attributed to, the winners relating to TopCoder 
 		and any and all rights to said use, without further compensation.  Furthermore, all prizewinners agree to promptly notify 
-		TopCoder if a third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of 
+		TopCoder if a non-sponsor third-party contacts the prizewinner regarding employment opportunities and/or media interest as a result of 
 		the prizewinner's participation in the tournament.</p>
 
 		<p>TopCoder reserves the right, in its sole discretion, to revoke any and all privileges associated with competing in this 
