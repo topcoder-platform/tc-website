@@ -92,7 +92,7 @@
 
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <tr>
-		       <td colspan="7" class="testHeadSmall">Test Set A Results:</td>
+		       <td colspan="8" class="testTableTitle">Test Set A Results:</td>
 	        </tr>
 
 	        <tr>
@@ -102,6 +102,7 @@
 		       <td width="15%" align="center" class="testFormHeader">Test Passed</td>
 		       <td width="15%" align="center" class="testFormHeader">Test Failed</td>
 		       <td width="15%" align="center" class="testFormHeader">% Test Passed</td>
+		       <td width="11%" align="center" class="testFormHeader">Points</td>
 		       <td width="15%" align="center" class="testFormHeader">Time</td>
                 </tr>
 
@@ -114,6 +115,7 @@
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</td>
+		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="points" format="#.##" ifNull="N/A" /></td>
 		       <td align="center" class="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></td>
                 </tr>
                 <% even = !even; %>
@@ -124,37 +126,37 @@
 
 `            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-		       <TD COLSPAN="10" VALIGN="top" CLASS="testHeadSmall">TopCoder Stats</TD>
+		       <TD COLSPAN="10" VALIGN="top" CLASS="testTableTitle">TopCoder Stats</TD>
 	        </TR>
 	        <TR>
 		       <TD WIDTH="10%" CLASS="testFormHeader"><B>Name</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Division</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Difficulty</B></TD>
-		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Coders</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Submissions</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Sub %</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Correct</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Submit Corr. %</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Overall Corr. %</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Avg. Pts.</B></TD>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Time</B></TD>
 	        </TR>
                 <% if(testResultsInfo.getProblemSetATCStats().isEmpty()){ %>
 	             <TR>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText" colspan='10'>No statistics available for this round.</TD>
+		       <TD ALIGN="center" CLASS="bodyText" colspan='10'>No statistics available for this round.</TD>
 	             </TR>
                 <% } else{ even = false; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetATCStats()%>">
 	             <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="level_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="coders" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submissions" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="correct" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct_correct" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="overall_pct_correct" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="time_elapsed" /></TD>
+		       <TD CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="division_desc" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="level_desc" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submissions" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="correct" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_pct_correct" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="overall_pct_correct" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="avg_points" format="#.##"/></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="time_elapsed" /></TD>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
@@ -164,7 +166,7 @@
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-		       <TD COLSPAN="7" VALIGN="top" CLASS="testHeadSmall">Test Set B Results:</TD>
+		       <TD COLSPAN="7" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
 	        </TR>
 	        <TR>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Problem</B></TD>
@@ -178,13 +180,13 @@
                 <% { even = false; %>
                    <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBResults()%>">
 	             <TR>
-		       <TD VALIGN="middle" CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="problem_name" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
+		       <TD CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="problem_name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="language_name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="status_desc" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_succeeded" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_failed" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="pct_passed" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="elapsed" /></TD>
 	             </TR>
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
@@ -198,7 +200,7 @@
             <% if (!notes.isEmpty()) { %>
               <table cellspacing="0" cellpadding="3" width="100%" class="testFrame">
                 <TR>
-                   <TD COLSPAN="3" VALIGN="top" CLASS="testHeadSmall">Notes:</TD>
+                   <TD COLSPAN="3" VALIGN="top" CLASS="testTableTitle">Notes:</TD>
                 </TR>
                 <tr>
                     <td width="70%" class="testFormHeader">Note</td>
