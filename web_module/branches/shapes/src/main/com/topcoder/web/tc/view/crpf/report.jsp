@@ -98,7 +98,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
                 </td>
             </tr>
-		    <% boolean even= true; %>
+		    <% String sLink = "/stat?c=member_profile&cr=";%>
             <rsc:iterator list="<%=donationInfo%>" id="info">
                 <tr>
                     <td class="tourney_subnav" align="left">
