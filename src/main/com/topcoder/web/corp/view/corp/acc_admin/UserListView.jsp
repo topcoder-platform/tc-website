@@ -4,8 +4,6 @@
                  com.topcoder.shared.dataAccess.resultSet.*,
                  java.util.Map,
                  com.topcoder.web.corp.Constants"
-         autoFlush="false"
-         buffer="64kb"
          %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />

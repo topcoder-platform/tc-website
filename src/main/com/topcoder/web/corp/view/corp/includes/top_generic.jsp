@@ -4,7 +4,7 @@
                  com.topcoder.shared.security.User,
                  com.topcoder.web.common.security.SessionPersistor,
                  com.topcoder.web.common.security.BasicAuthentication"
-         autoFlush="false" %>
+         %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));

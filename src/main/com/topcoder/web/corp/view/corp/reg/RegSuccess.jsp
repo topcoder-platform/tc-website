@@ -1,6 +1,4 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
-         autoFlush="false"
-         buffer="64kb"
          import="com.topcoder.web.corp.controller.request.Registration,
                  com.topcoder.shared.util.ApplicationServer" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>

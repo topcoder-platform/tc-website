@@ -6,7 +6,7 @@
                  com.topcoder.web.common.security.BasicAuthentication,
                  com.topcoder.web.corp.model.SessionInfo,
                  com.topcoder.shared.util.ApplicationServer"
-         autoFlush="false" %>
+         %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <%
