@@ -62,31 +62,14 @@
 
 
 
-<P><B>SOFTWARE ENGINEER</B><br/>
-The platform storage software team designs system software for NVIDIA's Athlon motherboard chipsets (nForce, nForce2,  nForce3 Pro).  We work on cutting-edge storage technologies actively used by millions of enthusiasts.  We are looking for a brilliant and enthusiastic candidate who is excited about taking consumer disk performance to the next level.</P>
+<P><B>PERFORMANCE ANALYSIS SOFTWARE ENGINEER</B><br/>
+Performance Analysis Software Engineers are responsible for performance analysis and improvement of 3D graphics applications.  Applications include industry standard benchmarks and third party software products.
+<BR/><BR/>
+Minimum GPA: 3.5
+<BR/><BR/>
+Must have BS in Computer Science or equivalent.  Experience with graphics application development experience and familiarity with PC development environments.  Ideal candidates will have an understanding of PC hardware architectures and their impact on application performance.  Experience with 3D graphics programming interfaces (Direct 3D and OpenGL) is desired.</p>
 
-<p>Responsibilities:</p>
-<ul>
-<li>Windows driver development for nForce platform chipset  storage solutions (ATA, ATAPI, Serial ATA,  RAID)</li>
-<li>Storage system performance benchmarking and optimization</li>
-<li>Bringup and emulation of next generation chipset hardware</li>
-</ul>
-
-<p>Requirements:</p>
-<ul>
-<li>MS or BS in Computer or Electrical Engineering.</li>
-</ul>
-
-<p>Candidate must have experience in the following areas:</p>
-<ul>
-<li>System software development in C and C++</li>
-<li>Extensive knowledge of filesystems and disk performance</li>
-<li>Knowledge of PC hardware architecture and bus standards (FSB, PCI, ATA)</li>
-<li>Thorough understanding of modern OS design and performance issues (multiprocessing, packet based communications, memory management, synchronization)</li>
-<li>Windows driver experience a plus</li>
-</ul>
-
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=194&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=196&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
