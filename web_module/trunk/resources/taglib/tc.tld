@@ -245,4 +245,30 @@
     </tag>
 
 
+    <tag>
+        <name>beanWrite</name>
+        <tagclass>com.topcoder.web.common.tag.BeanWriteTag</tagclass>
+        <bodycontent>empty</bodycontent>
+        <info>
+            Tag to write out properties of beans stored in a scope attribute
+            variable
+        </info>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>property</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>format</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
+
 </taglib>

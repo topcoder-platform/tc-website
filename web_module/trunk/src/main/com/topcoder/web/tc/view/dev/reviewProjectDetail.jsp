@@ -3,7 +3,9 @@
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer projectDetail= (ResultSetContainer)request.getAttribute("projectDetail");%>
+<% ResultSetContainer reviewerList= (ResultSetContainer)request.getAttribute("reviewerList");%>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
 
@@ -93,10 +95,28 @@
                     <td class="bodyText">Final Review End: <rsc:item set="<%=projectDetail%>" name="final_review_end" format="MM.dd.yyyy"/></td>
                 </tr>
 
-
-
             </table>
 
+
+            <table border="0" cellspacing="3" cellpadding="0" width="530">
+                <tc:listIterator id="reviewer" list="<%=reviewerList%>">
+                    <tr>
+                        <td class="bodyText">
+                            <tc:beanWrite name="reviewer" property="reviewerType"/>
+                        </td>
+                        <td class="bodyText">
+                            <% if (reviewer.isSpotFilled()) { %>
+                                <tc:beanWrite name="reviewer" property="handle"/>
+                            <% } else { %>
+                                link here
+                            <% } %>
+                        </td>
+                        <td class="bodyText">
+                            <tc:beanWrite name="reviewer" property="reviewPrice"/>
+                        </td>
+                    </tr>
+                </tc:listIterator>
+            </table>
 
 
         </td>
