@@ -232,11 +232,9 @@ public class Controller extends HttpServlet {
 
         exception.printStackTrace();
         request.setAttribute("caught-exception", exception);
-        if (!authorizeError) {
-            log.error("Controller error - going to error page", exception);
-        }
         String forwardPage = authorizeError ? TCESConstants.AUTH_FAILED_PAGE
                 : TCESConstants.ERROR_PAGE;
+        log.error("Controller error - going to error page " + forwardPage, exception);
 
         getServletContext().getRequestDispatcher(
                 response.encodeURL(forwardPage)).forward(request, response);
