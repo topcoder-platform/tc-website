@@ -45,6 +45,19 @@ function find(n) {
                 </xsl:otherwise>
             </xsl:choose>
 
+            <xsl:choose>
+                <xsl:when test="$sectionSubname='nvidia'">
+
+                </xsl:when>
+                <xsl:otherwise>
+
+            <A href="/?t=tournaments&amp;c=tco03_nvidia"><img src="/i/tournament/tco03/promo_sm_nvidia.gif" alt="NVIDIA" width="170" height="95" border="0" /></A><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+
+                </xsl:otherwise>
+            </xsl:choose>
+
             <A href="" name="changerHref"><img src="" name="changerImg" width="170" height="84" border="0" /></A><br />
 
             <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br />

@@ -118,6 +118,7 @@
         <td width="170">
             <xsl:call-template name="public_right_col">
                 <xsl:with-param name="sectionName">tco03</xsl:with-param>
+                <xsl:with-param name="sectionSubname">nvidia</xsl:with-param>
             </xsl:call-template>
         </td>
 <!-- Right Column Ends -->
