@@ -13,7 +13,7 @@
                 <tr valign="middle">
                     <td class="statText" align="right" background="/i/graybv_lite_bg.gif" height="18">&#160;Rank</td>  
                     <td class="statText" background="/i/graybv_lite_bg.gif" height="18">Name</td>
-                    <td class="statText" align="right" background="/i/graybv_lite_bg.gif" height="18">Avg. Rating&#160;</td>            
+                    <td class="statText" align="right" background="/i/graybv_lite_bg.gif" height="18">Rating&#160;</td>
                 </tr>                  
                 
                 <xsl:for-each select="/TC/HOME/TopRankedCountries/Country">
