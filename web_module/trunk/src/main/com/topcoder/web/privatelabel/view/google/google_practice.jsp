@@ -75,6 +75,8 @@ body,td,font,p,a
                         Click <a href="/contest/arena/ContestAppletGoogle.jnlp" target="_blank">here</a> to run the Practice Arena as a Java Web Start Application.
                         <br/><br/>
                         Note:  If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html" target="_blank">here</a>.
+                        <br/><br/>
+                        If you experience problems loading or running the competition arena please contact  <A href="mailto:service@topcoder.com">service@topcoder.com</A>.
                         </font></p>
 
                         </td>
