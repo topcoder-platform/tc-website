@@ -60,14 +60,12 @@ public class Controller
 
                 task.setInitialContext(ctx);
        
-                if (fu==null) {
-                    Enumeration parameterNames = request.getParameterNames();
-                    while (parameterNames.hasMoreElements()) {
-                        String parameterName = parameterNames.nextElement().toString();
-                        String[] parameterValues = request.getParameterValues(parameterName);
-                        if (parameterValues != null) {
-                            task.setAttributes(parameterName, parameterValues);
-                        }
+                Enumeration parameterNames = request.getParameterNames();
+                while (parameterNames.hasMoreElements()) {
+                    String parameterName = parameterNames.nextElement().toString();
+                    String[] parameterValues = request.getParameterValues(parameterName);
+                    if (parameterValues != null) {
+                        task.setAttributes(parameterName, parameterValues);
                     }
                 }
 

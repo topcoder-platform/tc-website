@@ -64,6 +64,7 @@ public abstract class ResumeTask {
         return this.nextPageInternal;
     }
 
-    public abstract void setAttributes(String paramName, String paramValues[]);
+    public void setAttributes(String paramName, String paramValues[]) {
+    }
 
 }

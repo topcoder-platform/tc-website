@@ -85,7 +85,7 @@ public class CorporateDownloadTask extends ResumeTask{
             ResumeServicesHome resumeServicesHome =
                     (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
             ResumeServices resumeServices = resumeServicesHome.create();
-            resume = resumeServices.getResume(userId);
+            resume = resumeServices.getResume(getMemberId());
         }catch(Exception e){
             throw new ResumeTaskException(e);
         }
