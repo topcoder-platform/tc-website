@@ -5,6 +5,7 @@
           com.topcoder.web.query.common.*,
           com.topcoder.web.query.bean.task.*" %>
 <jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.bean.task.LoginTask" />
+<jsp:useBean id="SessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -28,7 +29,7 @@
               <p CLASS="statText">
                 <jsp:getProperty name="LoginTask" property="ErrorMessage" />
               </p>
-              <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>">
+              <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="SessionInfo" property="ServletPath"/>">
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>"/>
                 <INPUT TYPE="HIDDEN" NAME="<%= Constants.STEP_PARAM%>" VALUE="<%=Constants.NEW_STEP%>"/>
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
