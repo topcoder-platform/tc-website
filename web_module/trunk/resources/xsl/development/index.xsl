@@ -66,11 +66,13 @@ The Component Development Methodology combines the best of traditional software 
 <LI>All designers are required to submit their designs to the product manager by the end of the design phase as stated on the project posting.  Any designs received after the design phase end date will be ignored.  </LI>
 <LI>The product manager will assemble an architecture review board consisting of 3 TopCoder Software architects to review proposals submitted by the designers.</LI>
 <LI>A member of the architecture review board first screens the design documents to verify that the proposal includes all required elements and performs a high-level review of the designs to narrow down to the top 5 component designs.</LI>
-<LI>Accepted designs are then reviewed by the architecture board and scored. The architecture board will submit a design scorecard for each design, which includes suggestions for improvements.</LI> </LI>
+<LI>Accepted designs are then reviewed by the architecture board and scored. The architecture board will submit a design scorecard for each design, which includes suggestions for improvements.</LI>
 <LI>The member with the winning design will be given additional time to incorporate design suggestions received from the architecture board.  The additional time period will be set as a percentage (currently 20%) of the initial design period.  For example, a component with a 5 day design period will allow an additional 1 day after the due date for the designer to incorporate the suggestions.  If the completed design is submitted on time, the designer is paid the first of two payments for the project as stated in the project posting.</LI>
 <LI>The winning designer is required to answer questions regarding the design during the development project.  At the completion of the development project the designer will be paid the final payment.</LI>
+</OL>
 
-Component Development Project
+<P><B>Component Development Project</B></P>
+<OL>
 <LI>TopCoder Software product manager posts a development project on the Development section of the TopCoder website.  This posting includes a high-level functional description of the component, deliverables for the component solution, a timeline for submissions and project payment information.  Completed design documents from the design phase will be sent to all members who inquire about the project. </LI>
 <LI>Only rated TopCoder members are allowed to inquire about the development project on the Development section of the TopCoder website.</LI>
 <LI>The TopCoder product manager will grant all eligible members access to an online forum on <A HREF="http://www.topcodersoftware.com" CLASS="statText">www.topcodersoftware.com</A>.  This forum is used for the developers to ask questions of the designer and the product manager.</LI>
@@ -79,7 +81,7 @@ Component Development Project
 <LI>A member of the QA board will screen the submitted solutions to verify that all required elements are included and will perform a high-level review of the designs to narrow down to the top 5 component solutions.</LI>
 <LI>The component solutions are then reviewed by the QA board and scored.  The QA board will submit a development scorecard along with any bugs and the corresponding test cases.</LI>
 <LI>The developer with the winning solution will be given additional time to fix bugs and incorporate design suggestions from the QA board.  The additional time period will be set as a percentage (currently 20%) of the initial development period.  For example, a component with a 10 day design period will allow an additional 2 days after the due date for the developer to incorporate the suggestions.  If the completed solution is submitted on time and passes all regression testing the developer is paid the entire development payment as stated in the development project posting.  Also at that time, the designer is paid the final payment for the design contract as detailed in the design project posting.</LI>
-
+</OL>
 <TABLE BORDER="0" CELLSPACING="5" CELLPADDING="5" WIDTH="100%">
 	<TR>
 		<TD  VALIGN="top">

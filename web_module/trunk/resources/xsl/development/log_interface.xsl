@@ -86,8 +86,8 @@ Please review the <a href="http://www.topcoder.com/?&amp;t=development&amp;c=ind
 </P>
 <P>
 TopCoder will compensate the member with the winning solution.  Compensation will consist of both initial payments and royalties on the sale of the component.  The initial payment will be distributed in two installments.
-<br>First Milestone: When the winning solution is submitted and review board suggestions are integrated.
-<br>Second Milestone: At the completion of the development project.  
+<BR/>First Milestone: When the winning solution is submitted and review board suggestions are integrated.
+<BR/>Second Milestone: At the completion of the development project.  
 </P>
 
 <P>
