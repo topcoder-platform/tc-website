@@ -119,7 +119,7 @@
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_Transfers_App_Design2">Palm Transfers and Receiving Application</a>
                                     </td>
-                                    <td class="projectCells" align="right">$2800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">6/23/2004 9:00 AM ET</td>
                                 </tr>
