@@ -38,7 +38,7 @@
 
 <!-- Sponsorship begins-->
 <% if ((level1.equals("sponsor")) || (level1.equals("srm")) || (level1.equals("tourny")) || (level1.equals("pbtc")) || (level1.equals("private_labelxs"))) { %>
-                        <div class="corpRight"><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tournaments&c=tco03_overview"><img src="/i/corp/promo_2003_open.gif" alt="2003 TopCoder Open" width="170" height="195" border="0"></a></div>
+                        <div class="corpRight"><a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_overview"><img src="/i/corp/promo_2003_open.gif" alt="2003 TopCoder Open" width="170" height="195" border="0"></a></div>
                         <div class="corpRight"><a href="mailto:sponsorships@topcoder.com?"><img src="/i/corp/promo_contact_sponsor.gif" alt="Contact Sponsorship sales" width="170" height="76" border="0"></a></div>
                         <div class="corpRight"><a href="/i/corp/downloads/tc_demo_spon.pdf"><img src="/i/corp/promos/tc_demo_spon.gif" alt="Download Sponsorship Demographics" width="170" height="218" border="0"></a></div>
 <% } %>
