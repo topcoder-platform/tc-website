@@ -15,19 +15,6 @@
 
 <jsp:include page="../script.jsp"/>
 
-<script language="JavaScript"><!--
-                        function submitEnter(e) {
-                            var keycode;
-                            if (window.event) keycode = window.event.keyCode;
-                            else if (e) keycode = e.which;
-                            else return true;
-                            if (keycode == 13) {
-                                document.searchForm.submit();
-                                return false;
-                            } else return true;
-                        }
-//--></script>
-
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 

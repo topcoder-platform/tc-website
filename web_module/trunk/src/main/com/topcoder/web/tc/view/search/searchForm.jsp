@@ -6,6 +6,19 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
 
+<script language="JavaScript"><!--
+                        function submitEnter(e) {
+                            var keycode;
+                            if (window.event) keycode = window.event.keyCode;
+                            else if (e) keycode = e.which;
+                            else return true;
+                            if (keycode == 13) {
+                                document.searchForm.submit();
+                                return false;
+                            } else return true;
+                        }
+//--></script>
+
 <br/>
                 <table border="0" cellspacing="0" cellpadding="0" align="center" width="510">
                     <input type="hidden" name="module" value="AdvancedSearch"/>
