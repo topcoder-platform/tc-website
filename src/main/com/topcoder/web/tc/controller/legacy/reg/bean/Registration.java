@@ -11,6 +11,8 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
 import com.topcoder.web.ejb.resume.ResumeServices;
@@ -28,6 +30,7 @@ import javax.transaction.UserTransaction;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.*;
+import java.rmi.RemoteException;
 
 
 public class Registration
@@ -1704,6 +1707,22 @@ public class Registration
                 log.info(e.toString());
                 //throw new TaskException(e);
                 addError(REGISTER, "There was a problem sending the activation email. Please contact service@topcoder.com");
+            }
+        } else {
+            //refresh their cache stuff in case they changed their quote or somthing else that is relevant.
+            String tempKey = null;
+            try {
+                String key = String.valueOf(user.getUserId());
+                CacheClient client = CacheClientFactory.createCacheClient();
+                ArrayList list = client.getKeys();
+                for (int i=0; i<list.size(); i++) {
+                    tempKey = (String)list.get(i);
+                    if (tempKey.indexOf(key) > -1 && tempKey.indexOf("member_profile") > -1) {
+                        client.remove(tempKey);
+                    }
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
             }
         }
     }
