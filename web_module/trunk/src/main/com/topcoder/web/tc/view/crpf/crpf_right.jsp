@@ -92,7 +92,7 @@
                             <SCRIPT LANGUAGE="JavaScript">
                             <!--
                             if (flashinstalled<2){
-                               document.write('<a href="http://www.macromedia.com/go/getflashplayer"><img src="/i/getflash.gif" width="15" heigh="15" border="0" hspace="2"></a>To view the graphical analysis, please install the latest Macromedia Flash <a href="http://www.macromedia.com/go/getflashplayer">plugin</a>.');
+                               document.write('<a href="/tc?&module=CRPFReport"><img src="/i/events/crpf03/fundraisers.gif" width="180" height="100" border="0" hspace="0"></a>');
                             }
                             // -->
                             </SCRIPT>
