@@ -42,6 +42,7 @@ abstract class RegistrationBase extends BaseProcessor {
             //gotta do first just in case makeRegInfo() needs the database
             long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
             db = getCompanyDb(companyId);
+            log.debug("database set to: " + db);
 
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
