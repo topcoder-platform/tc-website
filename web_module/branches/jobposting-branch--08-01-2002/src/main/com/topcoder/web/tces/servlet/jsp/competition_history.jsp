@@ -15,7 +15,7 @@
     <TITLE>TopCoder Employment Services</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    
+    <jsp:include page="script.jsp"/>
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
   
@@ -84,7 +84,7 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&rd=<%= (String)comp.get("round_id") %>" class="statText">
+                      <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= (String)comp.get("round_id") %>" class="statText">
                         <%= (String)comp.get("contest_name") %>
                       </A>
                     </TD>
