@@ -94,10 +94,17 @@ public class UserMover {
             PrincipalMgrRemote pmr = pmrh.create();
             TCSubject tcs = new TCSubject(132456);
             Collection groups = pmr.getGroups(tcs);
-            GroupPrincipal gp = null;
+            GroupPrincipal anonGroup = null;
+            GroupPrincipal userGroup = null;
             for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
-                gp = (GroupPrincipal) iterator.next();
-                if (gp.getName().equals("Anonymous")) {
+                anonGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Anonymous")) {
+                    break;
+                }
+            }
+            for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
+                userGroup = (GroupPrincipal) iterator.next();
+                if (anonGroup.getName().equals("Users")) {
                     break;
                 }
             }
@@ -158,7 +165,8 @@ public class UserMover {
                     phoneEJB.setPhoneTypeId(phoneId, 2);
 
                     UserPrincipal up = pmr.getUser(userId);
-                    pmr.addUserToGroup(gp, up, tcs);
+                    pmr.addUserToGroup(anonGroup, up, tcs);
+                    pmr.addUserToGroup(userGroup, up, tcs);
 
                 } catch (Exception e) {
                     log.error("error moving over " + handle + "(" + userId + ")");
