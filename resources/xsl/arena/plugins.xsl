@@ -55,6 +55,20 @@
 </P>
 
 <P CLASS="statText">
+Plugin Name: ProblemParser<BR/>
+Description: A plugin to parse the problem statement.<BR/>
+Author: kyky<BR/>
+Date: 6/11/2002<BR/>
+Instructions: <A HREF="/contest/classes/ProblemParser.htm" CLASS="statText">Documentation >></A><BR/>
+Upgrade Release Notes: <A HREF="/contest/classes/ProblemParser_1_0_0a.htm" CLASS="statText">Release Notes >></A><BR/>
+Version: 1.00a<BR/>
+EntryPoint: codeprocessor.EntryPoint (case sensitive)<BR/>
+ClassPath: CodeProcessor.jar; FileEdit.jar; ProblemParser.jar<BR/>
+<A HREF="/contest/classes/ProblemParser.jar" CLASS="statText">ProblemParser.jar Plugin >></A><BR/>
+</P>
+
+
+<P CLASS="statText">
 Plugin Name: CodeProcessor<BR/>
 Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<BR/>
 Author: Pops<BR/>
