@@ -56,7 +56,7 @@
                                     <td class="screeningCellEven" width="25%" align=right>First Name:</td>
                                     <td class="screeningCellEven" width="75%">
                                         <%-- FIRST NAME TEXT BOX--%>
-                                        <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="50" onkeypress="submitEnter(event)" />
+                                        <tc-webtag:textInput name="<%=Constants.FIRST_NAME%>" size="30" maxlength="50" onKeyPress="submitEnter(event)" />
                                     </td>
                                 </tr>
 
@@ -65,7 +65,7 @@
                                 <tr>
                                     <td class="screeningCellOdd" align=right>Last Name:</td>
                                     <td class="screeningCellOdd">
-                                        <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="50"  onkeypress="submitEnter(event)"/>
+                                        <tc-webtag:textInput name="<%=Constants.LAST_NAME%>" size="30" maxlength="50"  onKeyPress="submitEnter(event)"/>
                                     </td>
                                 </tr>
 
@@ -74,7 +74,7 @@
                                 <tr>
                                     <td class="screeningCellEven" align=right>Email Address:</td>
                                     <td class="screeningCellEven">
-                                        <tc-webtag:textInput name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" onkeypress="submitEnter(event)" />
+                                        <tc-webtag:textInput name="<%=Constants.EMAIL_ADDRESS%>" size="30" maxlength="50" onKeyPress="submitEnter(event)" />
                                     </td>
                                 </tr>
                                 <%
