@@ -42,7 +42,7 @@
 
 <h2>Overview</h2>
 
-<p>TopCoder is excited to announce the Ultimate Software Development Contest (USDC)!  Now, TopCoder members can compete for 
+<p><img src="/i/development/usdc/gladius.jpg" width="200" height="136" border="0" align="right">TopCoder is excited to announce the Ultimate Software Development Contest (USDC)!  Now, TopCoder members can compete for 
 numerous prizes while designing and developing software components.  Long gone are the days of waiting to see if new projects 
 are available, rushing to register for the newest components, or anxiously awaiting the next major TopCoder tournament.  
 Now, consistent competitive software development is at your finger-tips, with more prizes than ever!</p>
