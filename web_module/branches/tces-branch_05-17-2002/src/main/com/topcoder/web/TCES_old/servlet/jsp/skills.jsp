@@ -43,7 +43,7 @@
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 							<BR><BR><BR>
-							User is <%= user %><BR>
+							User is ?<%= user %><BR>
 							<%= user.getHandle() %> (<%= user.getUserId() %>)
 							<BR><BR>
 		    		</TD>
