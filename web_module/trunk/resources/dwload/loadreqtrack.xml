@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-  <loadDefinition>
-    <sourcedb>jdbc:informix-sqli://172.16.20.19:1526/iron_man:INFORMIXSERVER=informixoltp_tcp;user=coder;password=coder</sourcedb>
-    <targetdb>jdbc:informix-sqli://172.16.20.25:1526/coderdevdw:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=coder</targetdb>
-    <load>
-      <classname>com.topcoder.utilities.dwload.TCLoadRequests</classname>
-    </load>
-  </loadDefinition>

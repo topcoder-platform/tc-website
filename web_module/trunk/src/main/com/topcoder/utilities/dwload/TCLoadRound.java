@@ -1007,6 +1007,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,d.difficulty_id ");                         // 14
             query.append("       ,d.difficulty_desc ");                       // 15
             query.append("       ,rp.division_id ");                          // 16
+            query.append("       ,rp.points ");                               // 17
             query.append("  FROM problem p ");
             query.append("       ,round_problem rp ");
             query.append("       ,difficulty d ");
@@ -1032,7 +1033,8 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,result_type_desc ");  // 13
             query.append("       ,level_id ");          // 14
             query.append("       ,level_desc ");        // 15
-            query.append("       ,division_id) ");      // 16
+            query.append("       ,division_id ");       // 16
+            query.append("       ,points) ");           // 17
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("?,?,?,?,?,?)");          // 15 total values
@@ -1053,9 +1055,10 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,result_type_desc = ? ");  // 11
             query.append("       ,level_id = ? ");          // 12
             query.append("       ,level_desc = ? ");        // 13
-            query.append(" WHERE problem_id = ? ");         // 14
-            query.append("   AND round_id = ? ");           // 15
-            query.append("   AND division_id = ? ");        // 16
+            query.append("       ,points = ? ");            // 14
+            query.append(" WHERE problem_id = ? ");         // 15
+            query.append("   AND round_id = ? ");           // 16
+            query.append("   AND division_id = ? ");        // 17
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1097,9 +1100,10 @@ public class TCLoadRound extends TCLoad {
                     psUpd.setString(11, rs.getString(13));  // result_type_desc
                     psUpd.setInt(12, rs.getInt(14));  // level_id
                     psUpd.setString(13, rs.getString(15));  // level_desc
-                    psUpd.setInt(14, rs.getInt(1));  // problem_id
-                    psUpd.setInt(15, rs.getInt(2));  // round_id
-                    psUpd.setInt(16, rs.getInt(16));  // division_id
+                    psUpd.setFloat(14, rs.getFloat(17)); // points
+                    psUpd.setInt(15, rs.getInt(1));  // problem_id
+                    psUpd.setInt(16, rs.getInt(2));  // round_id
+                    psUpd.setInt(17, rs.getInt(16));  // division_id
 
                     retVal = psUpd.executeUpdate();
                     count += retVal;
@@ -1126,6 +1130,7 @@ public class TCLoadRound extends TCLoad {
                     psIns.setInt(14, rs.getInt(14));  // level_id
                     psIns.setString(15, rs.getString(15));  // level_desc
                     psIns.setInt(16, rs.getInt(16));  // division_id
+                    psIns.setFloat(17, rs.getFloat(17)); //points
 
                     retVal = psIns.executeUpdate();
                     count += retVal;
