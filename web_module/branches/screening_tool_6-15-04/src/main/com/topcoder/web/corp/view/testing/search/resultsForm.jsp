@@ -8,7 +8,7 @@
 <jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
         <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
               <tr valign="middle">
-                  <td colspan="6" class="bodyText" align=center>Search Results:##to##of<%= searchResults.getTotal()%>
+                  <td colspan="6" class="bodyText" align=center>Search Results:##to##of <%= searchResults.getTotal()%>
                   </td>
               </tr>
         </table>
@@ -32,7 +32,7 @@
               </tr>
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
-                  <td class="screeningCellOdd" nowrap=nowrap><A href="">John Doe</A></td>
+                  <td class="screeningCellOdd" nowrap=nowrap><A href=""><rsc:item row="<%=resultRow%>" name="name"/></A></td>
                   <td class="screeningCellOdd"><A href="">jdoe@topcoder.com</A></td>
                   <td class="screeningCellOdd" align=center>CT</td>
                   <td class="screeningCellOdd" align=center>USA</td>
