@@ -9,14 +9,30 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.corp.request.PrimaryRegistrationProcessor;
 
 /**
- * The servlet to handle requests to corporate site. For now it is a stub only.
- * It is supposed, that all requests to corporate site will go thru it.
- * It implements next simple logic. Request is valid if URI has next
+ * Final class comment will go gere
+ * 
+ * 
+ * ----- some realization notes (to be removed upon completion) ---------<br>
+ * 
+ * 2002/12/17 by djFD
+ * 
+ * Well, that step has gone. I do not know how it will be implemented in
+ * reality, so I am placing the simplest code the only goal of which is to call
+ * my primary registration processor. Neoturi, just let me know when u will
+ * check in your controller stuff, so I will be able to get things synchronized.
+ * 
+ * initial by djFD
+ * 
+ * The servlet to handle requests to corporate site. For now it
+ * is a stub only. It is supposed, that all requests to corporate site will go
+ * thru it. It implements next simple logic. Request is valid if URI has next
  * representation: /portal/?N where n is number from 1 to 2. Any other requests
- * supposed to be invalid and will result as 404 not found. What content wiil
+ * supposed to be invalid and will result as 404 not found. What content will
  * send to user is defined by web.xml.
+ * 
  * 
  * @author Greg Paul , modified by djFD
  * @version 1.1.2.2
@@ -25,8 +41,8 @@ import com.topcoder.web.common.RequestProcessor;
 public class MainServlet extends HttpServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
     
-    private RequestProcessor proc1 = null;
-    private RequestProcessor proc2 = null;
+//    private RequestProcessor proc1 = null;
+//    private RequestProcessor proc2 = null;
 
     /**
      * Initializes the servlet. What content will be feed is defined from
@@ -37,47 +53,59 @@ public class MainServlet extends HttpServlet {
     public void init(ServletConfig config) throws ServletException {
         super.init(config);
         //com.topcoder.web.query.common.Constants.init(getServletConfig());
-        try {
-            proc1 = (RequestProcessor)Class.forName(config.getInitParameter("processor-1")).newInstance();
-            log.debug("destination 1 ok");
-        }
-        catch (Exception e) {
-            log.error("destination1 disabled ("+e.getMessage()+")");
-        }
-
-        try {
-            proc2 = (RequestProcessor)Class.forName(config.getInitParameter("processor-2")).newInstance();
-            log.debug("destination 2 ok");
-        }
-        catch (Exception e) {
-            log.error("destination2 disabled ("+e.getMessage()+")");
-        }
+//        try {
+//            proc1 = (RequestProcessor)Class.forName(config.getInitParameter("processor-1")).newInstance();
+//            log.debug("destination 1 ok");
+//        }
+//        catch (Exception e) {
+//            log.error("destination1 disabled ("+e.getMessage()+")");
+//        }
+//
+//        try {
+//            proc2 = (RequestProcessor)Class.forName(config.getInitParameter("processor-2")).newInstance();
+//            log.debug("destination 2 ok");
+//        }
+//        catch (Exception e) {
+//            log.error("destination2 disabled ("+e.getMessage()+")");
+//        }
     }
 
-    /**
-     * Returns -1 when URI specified is invalid (look at class description to
-     * see what requests are valid). 
-     * @param req request to the content
-     * @return int destination: eiter 1 or two when URI is valid, otherwise -1
-     */
-    private int getDestination(HttpServletRequest req) {
-        int n = req.getContextPath().trim().length();
-        String reqRelURI = req.getRequestURI().trim().substring(n);
-        if( ! "/".equals(reqRelURI) ) {
-            return -1;
-        }
-        try {
-            int dest = Integer.parseInt(req.getQueryString());
-            if( dest == 1 || dest ==2 ) {
-                return dest;
-            }
-        }
-        catch(Exception e) {
-        }
-        return -1;
-    }
+//    /**
+//     * Returns -1 when URI specified is invalid (look at class description to
+//     * see what requests are valid). 
+//     * @param req request to the content
+//     * @return int destination: eiter 1 or two when URI is valid, otherwise -1
+//     */
+//    private int getDestination(HttpServletRequest req) {
+//        int n = req.getContextPath().trim().length();
+//        String reqRelURI = req.getRequestURI().trim().substring(n);
+//        if( ! "/".equals(reqRelURI) ) {
+//            return -1;
+//        }
+//        try {
+//            int dest = Integer.parseInt(req.getQueryString());
+//            if( dest == 1 || dest ==2 ) {
+//                return dest;
+//            }
+//        }
+//        catch(Exception e) {
+//        }
+//        return -1;
+//    }
 
     /**
+     * Method comments will go here  
+     * 
+     * 
+     * 
+     * ----- some realization notes (to be removed upon completion) ---------<br>
+     * 
+     * -- 2002/12/17 by djFD
+     * for now I just filtering mine (to be processed by me) URIs to be fed into
+     * my primary Registrations processor. All others are processed by default
+     * processing scheme (through servlet dispatcher).
+     * 
+     * initial by djFD
      * First of all checks if URI is valid. If it is not, then responds by HTTP
      * 404 not found. When request is valid, method process it with either of
      * two supplied request processors (if they were successfuly instantiated at
@@ -87,61 +115,40 @@ public class MainServlet extends HttpServlet {
      * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest, HttpServletResponse)
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int destination = 0;
-        if( (destination=getDestination(request)) < 0 ) {
-            log.debug("invalid uri: "+request.getRequestURI()+"?"+request.getQueryString());
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            return;
-        }
-        
-        RequestProcessor currentProc = null;
-        // so uri is valid
-        switch (destination) {
-            case 1 :
-                log.debug("uri1 received");
-                if( proc1 == null ) {
-                    log.debug("processor for given uri not found: "+request.getRequestURI()+"?"+request.getQueryString());
-                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    return;
-                }
-                else {
-                    currentProc = proc1;
-                }
-                break;
-
-            default :
-                log.debug("uri2 received");
-                if( proc2 == null ) {
-                    log.debug("processor for given uri not found: "+request.getRequestURI()+"?"+request.getQueryString());
-                    response.sendError(HttpServletResponse.SC_NOT_FOUND);
-                    return;
-                }
-                else {
-                    currentProc = proc2;
-                }
-                break;
-        }
-
-        currentProc.setRequest(request);
-        try {
-            currentProc.process();
-        }
-        catch (Exception e) {
-            // failed to process
-            log.debug("uri received failed to process: "+e.getMessage());
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_NOT_FOUND);
-            return;
-        }
-        
-        //well, request has processed 
-        //stub implementations of RequestProcessor will set
-        //'where-to-go' attribute of request. So we will return to user same jsp page.
-        //It is template.jsp and it will fill responese with real content using that tag
-        getServletContext().getRequestDispatcher("/content.jsp").forward(request, response);
-        return;
+    	
+    	// I suppose for testing purposes that 'pr' request parameter defines
+    	// what action to pefrorm, so if it is 'prim_reg' literal then my
+    	// processor must be called.
+    	// all others parameters (if any) in that case is my responsibility
+    	String param1 = request.getParameter("pr");
+    	if( "prim-reg".equalsIgnoreCase(param1) ) {
+    		RequestProcessor proc = new PrimaryRegistrationProcessor();
+    		proc.setRequest(request);
+    		try {
+    			proc.process();
+    		}
+    		catch(Exception e) {
+    			String errPage = proc.getNextPage();
+    			if( proc.isNextPageInContext() ) {
+    				getServletContext().getRequestDispatcher(errPage).forward(request, response);
+    			}
+    			else {
+    				response.sendRedirect(errPage);
+    			}
+    		}
+    	}
+    	else {
+    		String entireUri = request.getRequestURI();
+    		if( null != request.getQueryString() ) {
+    			entireUri += "?"+request.getQueryString();
+    		}
+    		//possible situations when dispatcher for the given URI is absent,
+    		// and then dispatcher will be null  
+    		getServletContext().getRequestDispatcher(entireUri).forward(request, response);
+    	}
+    	return;
     }
-
+    
     /**
      * For now it is just synonym for doGet.
      *

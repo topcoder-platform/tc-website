@@ -12,10 +12,18 @@ public final class StringUtils {
     public static final String ALPHABET_ALPHA_UPPER_EN = "_ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     public static final String ALPHABET_ALPHA_LOWER_EN = "abcdefghijklmnopqrstuvwxyz";
+
+    public static final String ALPHABET_ALPHA_EN =
+        ALPHABET_ALPHA_LOWER_EN +
+        ALPHABET_ALPHA_UPPER_EN;
     
     public static final String ALPHABET_DIGITS_EN = "0123456789";
     
     public static final String ALPHABET_PUNCTUATION_EN = "-,.";
+    
+    public static final String ALPHABET_ALPHA_PUNCT_EN =
+        ALPHABET_ALPHA_EN +
+        ALPHABET_PUNCTUATION_EN;   
     
     public static final String ALPHABET_WHITESPACE_EN = " \t\r\n";
     

@@ -47,7 +47,14 @@ public abstract class BaseProcessor implements RequestProcessor {
         // some request post processing goes here 
         // (may include scrambling of cookies, plain texts, etc)
         // ..
-        //
+
+        // if it is form, then place default values of form fields and possible errors into request
+        if( formDefaults != null ) {
+            request.setAttribute("form-defaults", formDefaults);
+        }  
+        if( formErrors != null ) {
+            request.setAttribute("form-errors", formErrors);
+        }
     }
 
     /**
@@ -93,5 +100,18 @@ public abstract class BaseProcessor implements RequestProcessor {
      * but at the moment they undefined yet.
      * 
      */
-    abstract void businessProcessing() throws Exception;  
+    abstract void businessProcessing() throws Exception;
+    
+    /**
+     * Sets next page as current one. May be useful in form processing when
+     * there is the need to get back and correct some errors in user data.
+     */
+    protected void setRollback() {
+        String entireUri = request.getRequestURI();
+        if( null != request.getQueryString() ) {
+            entireUri += "?"+request.getQueryString();
+        }
+        nextPage = entireUri;
+        pageInContext = true;
+    }  
 }
