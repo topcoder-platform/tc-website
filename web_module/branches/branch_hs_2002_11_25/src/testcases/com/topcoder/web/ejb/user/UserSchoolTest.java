@@ -112,7 +112,7 @@ public class UserSchoolTest extends EJBTestCase {
 
         us.createUserSchool(uid, sid);
 
-        assertTrue(!us.isCurrent(uid, sid));
+        assertTrue(!us.isCurrentUserSchoolId(uid, sid));
 
         try {
             us.createUserSchool(uid, sid);
@@ -146,35 +146,39 @@ public class UserSchoolTest extends EJBTestCase {
         long uid = createSecurityUser(handle);
         u.createUser(uid, handle, 'A');
         long sid = s.createSchool();
+        long sid2 = s.createSchool();
 
         us.createUserSchool(uid, sid);
+        us.createUserSchool(uid, sid2);
 
-        us.setCurrent(uid, sid, true);
-        assertTrue(us.isCurrent(uid, sid));
+        us.setCurrentUserSchoolId(uid, sid);
+        assertTrue(us.isCurrentUserSchoolId(uid, sid));
+        assertTrue(!us.isCurrentUserSchoolId(uid, sid2));
 
-        us.setCurrent(uid, sid, false);
-        assertTrue(!us.isCurrent(uid, sid));
+        us.setCurrentUserSchoolId(uid, sid2);
+        assertTrue(!us.isCurrentUserSchoolId(uid, sid));
+        assertTrue(us.isCurrentUserSchoolId(uid, sid2));
 
         try {
-            us.setCurrent(uid, -1, false);
+            us.setCurrentUserSchoolId(uid, -1);
             fail("no exception when school id < 0");
         } catch (Exception e) {
         }
 
         try {
-            us.setCurrent(-1, sid, false);
+            us.setCurrentUserSchoolId(-1, sid);
             fail("no exception when user id < 0");
         } catch (Exception e) {
         }
 
         try {
-            us.isCurrent(uid, -1);
+            us.isCurrentUserSchoolId(uid, -1);
             fail("no exception when school id < 0");
         } catch (Exception e) {
         }
 
         try {
-            us.isCurrent(-1, sid);
+            us.isCurrentUserSchoolId(-1, sid);
             fail("no exception when user id < 0");
         } catch (Exception e) {
         }
@@ -199,13 +203,13 @@ public class UserSchoolTest extends EJBTestCase {
         us.removeUserSchool(uid, sid);
 
         try {
-            us.setCurrent(uid, sid, false);
+            us.setCurrentUserSchoolId(uid, sid);
             fail("no exception after relationship removed");
         } catch (Exception e) {
         }
 
         try {
-            us.isCurrent(uid, sid);
+            us.isCurrentUserSchoolId(uid, sid);
             fail("no exception after relationship removed");
         } catch (Exception e) {
         }
