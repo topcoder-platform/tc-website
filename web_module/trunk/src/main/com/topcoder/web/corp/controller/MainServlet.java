@@ -114,62 +114,40 @@ public class MainServlet extends HttpServlet {
                     append(authToken.getActiveUser().getUserName()).append(" **** ").
                     append(request.getRemoteHost() + " ****]"));
 
+            try {
+                boolean allowedToRun = false;
+                allowedToRun = authorization.hasPermission(new SimpleResource(processorClassName));
+                if (!allowedToRun) {
+                    log.debug("user [id=" + tcUser.getUserId() + "] has not enough " +
+                            "permissions to work with module " + processorClassName);
+                    throw new NotAuthorizedException("Not enough permissions to work with requested module");
+                }
+                processorModule = (RequestProcessor) Class.forName(processorClassName).newInstance();
+                log.debug("processing module " + processorClassName + " instantiated");
+                callProcess(processorModule, request, authToken);
+            } catch (NotAuthorizedException nae) {
+                if (authToken.getUser().isAnonymous()) {
+                    /* If the user is anonymous and tries to access a resource they
+                       are not authorized to access, send them to login page.    */
+                    log.debug("user unauthorized to access resource and user " +
+                            "not logged in, forwarding to login page.");
 
-            boolean allowedToRun = false;
-            allowedToRun = authorization.hasPermission(
-                    new SimpleResource(processorClassName)
-            );
-            if (!allowedToRun) {
-                log.debug("user [id=" + tcUser.getUserId() + "] has not enough " +
-                        "permissions to work with module " + processorClassName
-                );
-                throw new NotAuthorizedException(
-                        "Not enough permissions to work with requested module"
-                );
+                    /* forward to the login page, with a message and a way back */
+                    request.setAttribute("message", "You must login to view this page.");
+                    request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + request.getQueryString());
+                    processorModule = new Login();
+                    callProcess(processorModule, request, authToken);
+                } else {
+                    /* If the user is logged-in and is not authorized to access
+                       the resource, send them to an authorization failed page */
+                    log.error("Unauthorized Access to [" + processorName + "]", nae);
+                    fetchErrorPage(request, response, errorPageSecurity, nae);
+                    return;
+                }
             }
-
-            processorModule = (RequestProcessor) Class.forName(
-                    processorClassName
-            ).newInstance();
-            log.debug("processing module " + processorClassName + " instantiated");
-
-            processorModule.setRequest(request);
-            processorModule.setAuthentication(authToken);
-            processorModule.process();
             boolean forward = processorModule.isNextPageInContext();
             String destination = processorModule.getNextPage();
-            if (destination != null) {
-                String lastUserPage = request.getRequestURI();
-                if (request.getQueryString() != null) {
-                    lastUserPage += "?" + request.getQueryString();
-                }
-                persistor.pushLastPage(lastUserPage);
-            }
             fetchRegularPage(request, response, destination, forward);
-        } catch (NotAuthorizedException nae) {
-            if (authToken.getUser().isAnonymous()) {
-                /* If the user is anonymous and tries to access a resource they
-                   are not authorized to access, send them to login page.    */
-                log.debug("user unauthorized to access resource and user " +
-                        "not logged in, forwarding to login page.");
-
-                /* forward to the login page, with a message and a way back */
-                request.setAttribute("message", "You must login to view this page.");
-                request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + request.getQueryString());
-                processorModule = new Login();
-                try {
-                    callProcess(processorModule, request, authToken);
-                } catch (Exception e) {
-                    log.error("exception during request processing [Login]", e);
-                    fetchErrorPage(request, response, errorPageInternal, e);
-                }
-            } else {
-                /* If the user is logged-in and is not authorized to access
-                   the resource, send them to an authorization failed page */
-                log.error("Unauthorized Access to [" + processorName + "]", nae);
-                fetchErrorPage(request, response, errorPageSecurity, nae);
-                //fetchAuthorizationFailedPage(request, response, nae);
-            }
         } catch (AuthenticationException aex) {
             log.error("probably wrong username/password", aex);
             fetchErrorPage(request, response, errorPageSecurity, aex);
@@ -205,12 +183,7 @@ public class MainServlet extends HttpServlet {
             )
             throws IOException, ServletException {
         if (dest == null) {
-            // it is supposed when processor returns null as next page, then
-            // controller must use defaul page
-            dest = new SessionPersistor(req.getSession(true)).popLastPage();
-            if (dest == null) { //still null
-                dest = req.getContextPath() + "/"; // default page is web app root
-            }
+            dest = req.getContextPath() + "/"; // default page is web app root
         }
         log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
 
