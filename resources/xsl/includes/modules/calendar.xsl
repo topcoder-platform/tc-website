@@ -21,7 +21,7 @@
                                 <td id="calendarBlankMini">&#160;</td> 
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4745&amp;t=schedule&amp;c=srm">1</A></td>
                                 <td id="calendarMini">2</td>
-                                <td id="calendarTCCC04Mini"><A id="miniTCCCDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">17</A></td>
+                                <td id="calendarTCCC04Mini"><A id="miniTCCCDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">3</A></td>
                                 <td id="calendarMini">4</td>
                                 <td id="calendarMini">5</td>
                                 <td id="calendarMini">6</td>
@@ -31,7 +31,7 @@
                                 <td id="calendarMini">7</td>
                                 <td id="calendarMini">8</td>
                                 <td id="calendarMini">9</td>
-                                <td id="calendarTCCC04Mini"><A id="miniTCCCDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">17</A></td>
+                                <td id="calendarTCCC04Mini"><A id="miniTCCCDate" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">10</A></td>
                                 <td id="calendarMini">11</td>
                                 <td id="calendarMini">12</td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4750&amp;t=schedule&amp;c=srm">13</A></td>

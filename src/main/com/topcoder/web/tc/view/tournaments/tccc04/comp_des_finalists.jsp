@@ -86,7 +86,7 @@
         <p align="center">** Cumulative score = Highest individual component score from Online Round #1 + <br/>
         (Highest individual component score from Online Round #2 x 1.3)</p>
         
-        <p></p>
+        <p align="center">Note: The onsite competitors may change due to travel restrictions.</p>
 
          <p><br/></p>
          </td>

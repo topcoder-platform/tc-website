@@ -119,7 +119,7 @@ The Problems
 <font size="+2"> 
 <b>Hawaiian</b> 
 </font> 
-<A href="_Javascript:openProblemRating(2358)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(2358)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Level One: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -196,7 +196,7 @@ return that array.
 <font size="+2"> 
 <b>FlowerGarden</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1918)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(1918)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
@@ -275,7 +275,7 @@ used to place the entire garden.
 <font size="+2"> 
 <b>RockSkipping</b> 
 </font> 
-<A href="_Javascript:openProblemRating(1954)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
+<A href="Javascript:openProblemRating(1954)"><img hspace="10" border="0" height="18" width="60" src="/i/rate_it.gif"/></A><br/> 
 
 Used as: Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
