@@ -12,7 +12,7 @@
 
 <head>
 
-<title>TopCoder Survey</title>
+<title>Member Surveys</title>
 
 <jsp:include page="../script.jsp" />
 
