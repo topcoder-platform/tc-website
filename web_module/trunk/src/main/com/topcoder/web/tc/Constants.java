@@ -84,6 +84,7 @@ public class Constants {
 
     public static String TCCC04_TERMS;
     public static String TCO04_TERMS;
+    public static String TCCC05_TERMS;
 
     public static String CARD_PREVIEW;
     public static String CARD_INSTRUCTIONS;
@@ -116,8 +117,12 @@ public class Constants {
     public static int PROBLEM_ARCHIVE_SCROLL_SIZE;
     public static String STATISTICS_PATH;
     public static int TCCC04_TERMS_OF_USE_ID;
+    public static int TCO04_EVENT_ID;
     public static int TCO04_ALGORITHM_TERMS_OF_USE_ID;
     public static int TCO04_COMPONENT_TERMS_OF_USE_ID;
+    public static int TCCC05_EVENT_ID;
+    public static int TCCC05_ALGORITHM_TERMS_OF_USE_ID;
+    public static int TCCC05_COMPONENT_TERMS_OF_USE_ID;
     public static int UNLOCK_CARD_PREFERENCE_ID;
     public static int JAVA_CATALOG_ID;
     public static int DOT_NET_CATALOG_ID;
@@ -146,9 +151,6 @@ public class Constants {
     public static String PROFILE_PAGE;
     public static String UNRATED_PAGE;
     public static String NO_RESUME_PAGE;
-
-    //tco04 constant
-    public static int TCO04_EVENT_ID;
 
     public static String CLASS_NAME;
     public static String CATEGORY;

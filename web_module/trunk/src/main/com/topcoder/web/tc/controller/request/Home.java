@@ -2,6 +2,8 @@ package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.util.TCCC05ComponentTerms;
+import com.topcoder.web.tc.controller.request.util.TCCC05AlgorithmTerms;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
@@ -77,20 +79,18 @@ public class Home extends Base {
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
             getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
 
-/*            TCO04ComponentTerms compTerms = new TCO04ComponentTerms();
+            TCCC05ComponentTerms compTerms = new TCCC05ComponentTerms();
             compTerms.setRequest(getRequest());
             compTerms.setResponse(getResponse());
             compTerms.setAuthentication(getAuthentication());
 
-            TCO04AlgorithmTerms algoTerms = new TCO04AlgorithmTerms();
+            TCCC05AlgorithmTerms algoTerms = new TCCC05AlgorithmTerms();
             algoTerms.setRequest(getRequest());
             algoTerms.setResponse(getResponse());
             algoTerms.setAuthentication(getAuthentication());
 
             getRequest().setAttribute("compTerms", compTerms);
-            getRequest().setAttribute("algoTerms", algoTerms);*/
-
-
+            getRequest().setAttribute("algoTerms", algoTerms);
 
         } catch (TCWebException e) {
             throw e;
