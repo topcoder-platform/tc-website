@@ -4,7 +4,6 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
@@ -80,7 +79,9 @@ abstract class FullRegBase extends SimpleRegBase {
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        return new FullRegInfo(super.makeRegInfo());
+        FullRegInfo ret = new FullRegInfo(super.makeRegInfo());
+        log.debug("responses: " + ret.getResponses());
+        return ret;
     }
 
     /**
