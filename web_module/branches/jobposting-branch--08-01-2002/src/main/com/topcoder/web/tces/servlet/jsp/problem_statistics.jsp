@@ -11,7 +11,7 @@
 <!-- Begin
 
 function openWnd(pageUrl) {
-  OpenWin=this.open(page,"CtrlWindow","toolbar=yes,menubar=yes,location=yes,scrollbars=yes,resizable=yes");
+  OpenWin=this.open(pageUrl,"CtrlWindow","toolbar=yes,menubar=yes,location=yes,scrollbars=yes,resizable=yes");
 }
 // End -->
 </SCRIPT>
