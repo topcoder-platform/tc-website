@@ -84,7 +84,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All documentation for this project is available on the TopCoder web site.</p>
+						All <a href="/?&t=development&c=app_projects">documentation</a> for this project is available on the TopCoder web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br /></p>
@@ -94,7 +94,6 @@
                             Final Payment: At the completion of the development project*.<br />
                             <p>Compensation for the runner-up will be paid in one installment following the completion of the design project.</p>
 
-						<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 							
 						<p><strong>Designer</strong><br />
 						Total Payment - $210.00<br />
