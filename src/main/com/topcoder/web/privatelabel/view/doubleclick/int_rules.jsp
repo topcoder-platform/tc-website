@@ -106,6 +106,10 @@
                     <td width="50%" class="sidebarText" align="right">DoubleClick 2004 Coding Challenge T-shirt</td>
                 </tr>
 
+                <tr>
+                    <td colspan="2" class="sidebarText">In the event that the exact prize is not available in a particular country, DoubleClick will replace it with a similar prize of equal value.</td>
+                </tr>
+
             </table>
 
          <a name="conditions"></a>
