@@ -148,11 +148,13 @@ public class FullRegConfirm extends FullRegBase {
                             r.setQuestionId(q.getId());
                             if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
                                 r.setText(values[i]);
+                                r.setSort(q.getSort());
                                 info.addResponse(r);
                             } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
                                     q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                                 try {
                                     r.setAnswerId(Long.parseLong(values[i]));
+                                    r.setSort(q.getSort());
                                     info.addResponse(r);
                                 } catch (NumberFormatException e) {
                                     //skip it, it's invalid, checking will have to pick it up later

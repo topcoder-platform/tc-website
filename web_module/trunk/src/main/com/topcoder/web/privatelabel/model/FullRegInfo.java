@@ -4,6 +4,7 @@ import com.topcoder.web.privatelabel.Constants;
 
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class FullRegInfo extends SimpleRegInfo {
 
@@ -43,6 +44,7 @@ public class FullRegInfo extends SimpleRegInfo {
                 list.add(((DemographicResponse)responses.get(i)).clone());
             }
         }
+        Collections.sort(list);
         return list;
     }
 

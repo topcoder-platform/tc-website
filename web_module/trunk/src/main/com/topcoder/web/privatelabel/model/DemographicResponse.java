@@ -1,12 +1,10 @@
 package com.topcoder.web.privatelabel.model;
 
-import java.util.List;
-import java.util.ArrayList;
-
-public class DemographicResponse extends Base {
+public class DemographicResponse extends Base implements Comparable {
     private long questionId;
     private long answerId;
     private String text;
+    private int sort;
 
     public DemographicResponse() {}
 
@@ -15,6 +13,7 @@ public class DemographicResponse extends Base {
         ret.setQuestionId(questionId);
         ret.setText(text);
         ret.setAnswerId(answerId);
+        ret.setSort(sort);
         return ret;
     }
     public long getQuestionId() {
@@ -39,5 +38,18 @@ public class DemographicResponse extends Base {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public int getSort() {
+        return sort;
+    }
+
+    public void setSort(int sort) {
+        this.sort = sort;
+    }
+
+    public int compareTo(Object o) {
+        DemographicResponse other = (DemographicResponse)o;
+        return new Integer(getSort()).compareTo(new Integer(other.getSort()));
     }
 }
