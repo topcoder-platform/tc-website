@@ -9,7 +9,7 @@
 <a name="top_page"></a>
             <object 
             type="application/x-shockwave-flash"
-            data="/i/tournament/vcc03/vcc03.swf"
+            data="/i/tournament/vcc03/vcc03_still.swf"
             width="100%"
             height="125"
             border="0">           
@@ -53,13 +53,16 @@
 </jsp:include>
 
 <blockquote>
+<h2>Registration</h2>
 <p>
 atta boy, you registered!
 <br/>
 <br/>
 </p>
 <p>
+<!--
 If you would like to upload a resume, click <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask&compid=1','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statTextBig">here</a>
+-->
 </p>
 </blockquote>
 <p><br /></p>
@@ -76,16 +79,16 @@ If you would like to upload a resume, click <a href="JavaScript:void window.open
 <!-- Right Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/>
-        </td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
     </tr>
 </table>
 
 <!-- Footer Begins -->
-<jsp:include page="verizon_foot.jsp" />
+<jsp:include page="/verizon/verizon_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>
+
 </html>
