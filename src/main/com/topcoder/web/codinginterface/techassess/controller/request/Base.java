@@ -88,19 +88,13 @@ public abstract class Base extends BaseProcessor {
         return user;
     }
 
-    protected void send(ScreeningBaseRequest m) throws TCWebException {
+    protected void send(ScreeningBaseRequest m) throws TCWebException, ServerBusyException {
         log.debug("sync: " + m.isSynchronous());
         if (m.isSynchronous()) {
-            if (!isBusy()) {
-                log.debug("lock it up, it's a syncronous request");
-                lock();
-                this.messageId = sender.sendMessageGetID(new HashMap(), m);
-            } else {
-                throw new ServerBusyException();
-            }
-        } else {
-            this.messageId = sender.sendMessageGetID(new HashMap(), m);
+            log.debug("lock it up, it's a syncronous request");
+            lock();
         }
+        this.messageId = sender.sendMessageGetID(new HashMap(), m);
 
     }
 
