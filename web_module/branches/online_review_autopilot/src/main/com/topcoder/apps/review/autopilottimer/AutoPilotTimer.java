@@ -22,6 +22,8 @@ import com.topcoder.apps.review.BusinessDelegate;
 import com.topcoder.apps.review.ResultData;
 import com.topcoder.apps.review.SuccessResult;
 
+import javax.naming.NameNotFoundException;
+
 import java.util.*;
 /********************************************************************
  * This class creates a timer that will perform auto pilot logic.
@@ -169,8 +171,8 @@ public class AutoPilotTimer
                     }
                 }
             } catch(Exception e) {
-                logger.error(e.getMessage());
-                e.printStackTrace();
+                if(!(e instanceof NameNotFoundException))
+                    logger.error(e.getMessage());
             }
         }
     }
