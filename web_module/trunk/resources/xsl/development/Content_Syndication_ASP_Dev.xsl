@@ -352,8 +352,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Content%20Syndication%20ASP%20Development">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
-                                                        Once you have registered for the project you will be given more information on the project including the design, prototype and other additional information.  After viewing this information, you will have 12 hours to accept the position.
+                                                        Closed
                                                     </p>
                                                 </td>
                                             </tr>

@@ -79,7 +79,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$1800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$600 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">6/28/2004 9:00 AM ET</td>
+                                    <td class="projectCells" align="right">Closed</td>
                                 </tr>
 
 
@@ -145,7 +145,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">6/26/2004 9:00 AM</td>
+                                    <td class="projectCells" align="right">Closed</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
@@ -153,7 +153,7 @@
                                     </td>
                                     <td class="projectCells" align="right">$1,200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$250 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">6/25/2004 9:00 AM</td>
+                                    <td class="projectCells" align="right">Closed</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
