@@ -37,6 +37,8 @@ public class StudentRegistrationBean implements Serializable {
 
   private List language_list=null;
 
+  private String terms_of_use=null;
+
   public StudentRegistrationBean() {
     /* do nothing */
   }
@@ -167,6 +169,14 @@ public class StudentRegistrationBean implements Serializable {
 
   public void setLanguageList(List _language_list) {
     language_list=_language_list;
+  }
+
+  public String getTermsOfUse() {
+    return(terms_of_use);
+  }
+
+  public void setTermsOfUse(String _terms_of_use) {
+    terms_of_use=_terms_of_use;
   }
 
 };
