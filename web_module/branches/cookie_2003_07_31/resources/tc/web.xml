@@ -279,6 +279,30 @@
         <servlet-class>com.topcoder.web.tc.controller.legacy.GraphServlet</servlet-class>
     </servlet>
 
+    <servlet>
+        <servlet-name>javadocs</servlet-name>
+        <display-name>javadocs</display-name>
+        <description>The javadocs controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.JavaDocServlet</servlet-class>
+    </servlet>
+
+    <servlet>
+        <servlet-name>report</servlet-name>
+        <display-name>report</display-name>
+        <description>The report controller servlet</description>
+        <servlet-class>com.topcoder.web.tc.controller.legacy.ReportServlet</servlet-class>
+    </servlet>
+
+    <servlet-mapping>
+      <servlet-name>report</servlet-name>
+      <url-pattern>/report</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+      <servlet-name>javadocs</servlet-name>
+      <url-pattern>/javadocs</url-pattern>
+    </servlet-mapping>
+
     <servlet-mapping>
       <servlet-name>graph</servlet-name>
       <url-pattern>/graph</url-pattern>

@@ -1,12 +1,14 @@
 package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.data.report.*;
+import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.util.Conversion;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.BaseServlet;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletConfig;
@@ -56,117 +58,142 @@ public final class ReportServlet extends HttpServlet {
         Integer reportId = null;
         ReportNode reportList = null;
         try {
-            task = request.getParameter(Constants.TASK_NAME_KEY);
-            response_addr = request.getParameter(Constants.RESPONSE_ADDR_KEY);
-
-            if (response_addr == null) response_addr = Constants.REPORT_HOME_ADDR;
-
-            log.info("*** report_task *** " + task + " ***");
-
-            /**************************************************************************/
-            /**************************** null or empty *******************************/
-            /**************************************************************************/
-            if (task == null || task.equals("")) {
-                response_addr = Constants.REPORT_HOME_ADDR;
-                request.setAttribute(Constants.REPORT_LIST_KEY, getReportList());
-                request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
-            } else if (task.equals(Constants.NEW_REPORT_KEY)) {
-                Request dataRequest = null;
-                dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
-                if (dataRequest.getContentHandle() == null || dataRequest.getContentHandle().equals("")) {
-                    response_addr = Constants.NEW_REPORT_HOME_ADDR;
-                } else {
-                    DataAccessInt dai = new DataAccess((javax.sql.DataSource)
-                            TCContext.getInitial().lookup(
-                                    dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
-                    Map dataMap = null;
-                    dataMap = dai.getData(dataRequest);
-                    request.setAttribute(Constants.REPORT_RESULT_KEY, dataMap);
-                    response_addr = Constants.NEW_RESULT_ADDR;
-                }
-            } else if (task.equals(Constants.REPORT_LIST_KEY)) {
-                response_addr = Constants.REPORT_HOME_ADDR;
-                request.setAttribute(Constants.REPORT_LIST_KEY, getReportList());
-                request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
-            } else if (task.equals(Constants.REPORT_RESULT_KEY)) {
-                // get the list of reports from the request if it's there, then get
-                // the name of the report we want from the request.
-                reportList = (ReportNode) request.getAttribute(Constants.REPORT_LIST_KEY);
-                if (reportList == null) {
-                    reportList = getReportList();
-                    request.setAttribute(Constants.REPORT_LIST_KEY, reportList);
-                }
-                if (request.getParameter(Constants.REPORT_ID_KEY) == null)
-                    throw new Exception("no report id given");
-                else
-                    reportId = new Integer(request.getParameter(Constants.REPORT_ID_KEY));
-
-                // get the report, if the report requires more info, send them to the
-                // parameter page, otherwise show the report
-                report = reportList.findReport(reportId);
-                report.fillParameters(request);
-                if (!report.hasParameters()) {
-                    response_addr = getReport(request, report);
-                } else if (report.hasParameters() && report.hasNullParameter()) {
-                    response_addr = Constants.REPORT_PARAM_ADDR;
-                } else {
-                    report.fillQueryParameters();
-                    getReport(request, report);
-                    response_addr = Constants.REPORT_RESULT_ADDR;
-                }
-
-                request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
-
-                /**************************************************************************/
-                /**************************** profile *************************************/
-                /**************************************************************************/
-            } else if (task.equals(Constants.REPORT_PROFILE_KEY)) {
-                response_addr = Constants.REPORT_PROFILE_ADDR;
-                try {
-                    getProfile(request);
-                } catch (Exception e) {
-                    forwardToErrorPage(request, response, e);
-                    return;
-                }
-                request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
-                /**************************************************************************/
-                /************************** profile list **********************************/
-                /**************************************************************************/
-            } else if (task.equals(Constants.REPORT_PROFILE_LIST_KEY)) {
-                response_addr = Constants.REPORT_PROFILE_LIST_ADDR;
-                try {
-                    getProfileList(request);
-                } catch (Exception e) {
-                    forwardToErrorPage(request, response, e);
-                    return;
-                }
-                /**************************************************************************/
-                /************************ profile list menu *******************************/
-                /**************************************************************************/
-            } else if (task.equals(Constants.REPORT_PROFILE_LIST_MENU_KEY)) {
-                response_addr = Constants.REPORT_PROFILE_LIST_ADDR;
-                try {
-                    getProfileListMenu(request);
-                } catch (Exception e) {
-                    forwardToErrorPage(request, response, e);
-                    return;
-                }
-                /**************************************************************************/
-                /************************ profile detail **********************************/
-                /**************************************************************************/
-            } else if (task.equals(Constants.REPORT_PROFILE_DETAIL_KEY)) {
-                response_addr = Constants.REPORT_PROFILE_DETAIL_ADDR;
-                try {
-                    getProfileDetail(request);
-                } catch (Exception e) {
-                    forwardToErrorPage(request, response, e);
-                    return;
-                }
-            } else {
-                forwardToErrorPage(request, response, new Exception("INVALID TASK"));
-                return;
+            Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+            if (nav==null) {
+                nav = new Navigation(request, response);
+                request.getSession(true).setAttribute("navigation", nav);
             }
-            goTo(Constants.JSP_ADDR + response_addr, request, response);
+            task = request.getParameter(Constants.TASK_NAME_KEY);
+
+            StringBuffer trail = new StringBuffer(1000);
+            trail.append("[**** ");
+            trail.append(task);
+            trail.append(" **** ");
+            trail.append(nav.getSessionInfo().getHandle());
+            trail.append(" **** ");
+            trail.append(request.getRemoteHost());
+            trail.append(" ****]");
+            log.info(trail.toString());
+
+            if (nav.getSessionInfo().isAdmin()) {
+                response_addr = request.getParameter(Constants.RESPONSE_ADDR_KEY);
+
+                if (response_addr == null) response_addr = Constants.REPORT_HOME_ADDR;
+
+
+                /**************************************************************************/
+                /**************************** null or empty *******************************/
+                /**************************************************************************/
+                if (task == null || task.equals("")) {
+                    response_addr = Constants.REPORT_HOME_ADDR;
+                    request.setAttribute(Constants.REPORT_LIST_KEY, getReportList());
+                    request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
+                } else if (task.equals(Constants.NEW_REPORT_KEY)) {
+                    Request dataRequest = null;
+                    dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
+                    if (dataRequest.getContentHandle() == null || dataRequest.getContentHandle().equals("")) {
+                        response_addr = Constants.NEW_REPORT_HOME_ADDR;
+                    } else {
+                        DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                                TCContext.getInitial().lookup(
+                                        dataRequest.getProperty(Constants.DB_KEY, Query.TRANSACTIONAL)));
+                        Map dataMap = null;
+                        dataMap = dai.getData(dataRequest);
+                        request.setAttribute(Constants.REPORT_RESULT_KEY, dataMap);
+                        response_addr = Constants.NEW_RESULT_ADDR;
+                    }
+                } else if (task.equals(Constants.REPORT_LIST_KEY)) {
+                    response_addr = Constants.REPORT_HOME_ADDR;
+                    request.setAttribute(Constants.REPORT_LIST_KEY, getReportList());
+                    request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
+                } else if (task.equals(Constants.REPORT_RESULT_KEY)) {
+                    // get the list of reports from the request if it's there, then get
+                    // the name of the report we want from the request.
+                    reportList = (ReportNode) request.getAttribute(Constants.REPORT_LIST_KEY);
+                    if (reportList == null) {
+                        reportList = getReportList();
+                        request.setAttribute(Constants.REPORT_LIST_KEY, reportList);
+                    }
+                    if (request.getParameter(Constants.REPORT_ID_KEY) == null)
+                        throw new Exception("no report id given");
+                    else
+                        reportId = new Integer(request.getParameter(Constants.REPORT_ID_KEY));
+
+                    // get the report, if the report requires more info, send them to the
+                    // parameter page, otherwise show the report
+                    report = reportList.findReport(reportId);
+                    report.fillParameters(request);
+                    if (!report.hasParameters()) {
+                        response_addr = getReport(request, report);
+                    } else if (report.hasParameters() && report.hasNullParameter()) {
+                        response_addr = Constants.REPORT_PARAM_ADDR;
+                    } else {
+                        report.fillQueryParameters();
+                        getReport(request, report);
+                        response_addr = Constants.REPORT_RESULT_ADDR;
+                    }
+
+                    request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
+
+                    /**************************************************************************/
+                    /**************************** profile *************************************/
+                    /**************************************************************************/
+                } else if (task.equals(Constants.REPORT_PROFILE_KEY)) {
+                    response_addr = Constants.REPORT_PROFILE_ADDR;
+                    try {
+                        getProfile(request);
+                    } catch (Exception e) {
+                        forwardToErrorPage(request, response, e);
+                        return;
+                    }
+                    request.setAttribute(Constants.PROCESSED_KEY, new Boolean(true));
+                    /**************************************************************************/
+                    /************************** profile list **********************************/
+                    /**************************************************************************/
+                } else if (task.equals(Constants.REPORT_PROFILE_LIST_KEY)) {
+                    response_addr = Constants.REPORT_PROFILE_LIST_ADDR;
+                    try {
+                        getProfileList(request);
+                    } catch (Exception e) {
+                        forwardToErrorPage(request, response, e);
+                        return;
+                    }
+                    /**************************************************************************/
+                    /************************ profile list menu *******************************/
+                    /**************************************************************************/
+                } else if (task.equals(Constants.REPORT_PROFILE_LIST_MENU_KEY)) {
+                    response_addr = Constants.REPORT_PROFILE_LIST_ADDR;
+                    try {
+                        getProfileListMenu(request);
+                    } catch (Exception e) {
+                        forwardToErrorPage(request, response, e);
+                        return;
+                    }
+                    /**************************************************************************/
+                    /************************ profile detail **********************************/
+                    /**************************************************************************/
+                } else if (task.equals(Constants.REPORT_PROFILE_DETAIL_KEY)) {
+                    response_addr = Constants.REPORT_PROFILE_DETAIL_ADDR;
+                    try {
+                        getProfileDetail(request);
+                    } catch (Exception e) {
+                        forwardToErrorPage(request, response, e);
+                        return;
+                    }
+                } else {
+                    forwardToErrorPage(request, response, new Exception("INVALID TASK"));
+                    return;
+                }
+                goTo(Constants.JSP_ADDR + response_addr, request, response);
+            } else {
+                request.setAttribute(BaseServlet.MESSAGE_KEY, "In order to continue, you must provide your user name " +
+                        "and password.");
+                request.setAttribute(BaseServlet.NEXT_PAGE_KEY, nav.getSessionInfo().getRequestString());
+
+                request.setAttribute("module", "Login");
+                goTo("/tc", request, response);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
             try {

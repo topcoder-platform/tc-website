@@ -110,11 +110,6 @@ public final class MainServlet extends HttpServlet {
         String requestCommand = null;
         boolean responseWritten = false;
         try {
-            //referral
-            if (request.getRequestURI().indexOf("/referral") != -1) {
-                goTo("/index?t=about_tc&c=membr_referrals", request, response);
-                return;
-            }
             // CHECK FOR SESSION TIMEOUT
             if (request.isRequestedSessionIdValid() == false && request.getRequestedSessionId() != null) {
                 timedOut = true;
