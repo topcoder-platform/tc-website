@@ -133,6 +133,9 @@
    <target name="deploy" depends="build_wars,servlets">
    </target>
 
+   <target name="deploy_hs" depends="dev_war_hs,build_hs_ejbs">
+   </target>
+
    <target name="servlets" depends="compile,move_file_upload_xml">
       <move todir="${servlets}/${statservlets}">
          <fileset dir="${classes}/${statservlets}" >
@@ -408,6 +411,14 @@
 -->
         <antcall target="package-EJB-JobPostingServicesBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
+        <antcall target="package-EJB-QueryServicesBean"/>
+        <antcall target="package-EJB-UserBean"/>
+        <antcall target="package-EJB-TermsOfUseBean"/>
+        <antcall target="package-EJB-EmailBean"/>
+        <antcall target="package-EJB-SchoolBean"/>
+   </target>
+
+   <target name="build_hs_ejbs" depends="compile">
         <antcall target="package-EJB-QueryServicesBean"/>
         <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-TermsOfUseBean"/>
