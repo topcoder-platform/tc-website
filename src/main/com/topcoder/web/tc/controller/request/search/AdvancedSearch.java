@@ -18,7 +18,8 @@ public class AdvancedSearch extends SimpleSearch {
         super.businessProcessing();
         try {
 
-            getRequest().setAttribute("memberSearch", getResults());
+            MemberSearch m = getResults();
+            getRequest().setAttribute("memberSearch", m);
             setNextPage(Constants.ADVANCED_SEARCH_RESULTS);
             setIsNextPageInContext(true);
 
@@ -29,6 +30,16 @@ public class AdvancedSearch extends SimpleSearch {
         }
 
 
+    }
+
+    protected void setDefaults(MemberSearch m) {
+        super.setDefaults(m);
+        if (m.getStateCode()!=null) setDefault(Constants.STATE_CODE, m.getStateCode());
+        if (m.getStateCode()!=null) setDefault(Constants.COUNTRY_CODE, m.getStateCode());
+        if (m.getStateCode()!=null) setDefault(Constants.MIN_RATING, m.getStateCode());
+        if (m.getStateCode()!=null) setDefault(Constants.MAX_RATING, m.getStateCode());
+        if (m.getStateCode()!=null) setDefault(Constants.MIN_NUM_RATINGS, m.getStateCode());
+        if (m.getStateCode()!=null) setDefault(Constants.MAX_NUM_RATINGS, m.getStateCode());
     }
 
     /**
