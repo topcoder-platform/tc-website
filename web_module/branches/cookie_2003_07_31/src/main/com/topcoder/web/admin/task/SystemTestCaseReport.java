@@ -40,9 +40,6 @@ public final class SystemTestCaseReport {
         String result = null;
         RecordTag contestTag = new RecordTag("SYSTEMTESTCASEREPORT");
         HashMap sessionObjects = nav.getSessionObjects();
-        ArrayList roundList = null;
-        ArrayList STRList = null;
-        int problemId = -1;
 
         Authentication login = null;
         if (!sessionObjects.containsKey("login")) {
@@ -152,7 +149,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = SYSTEMTESTCASEREPORT_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -179,7 +175,6 @@ public final class SystemTestCaseReport {
                 contestEJB = contestHome.create();
                 int roundId = 0;
                 int problemId = 0;
-                int coderId = 0;
                 try {
                     roundId = Integer.parseInt(request.getParameter("roundid"));
                 } catch (Exception e) {
@@ -227,7 +222,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = CODERLIST_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -298,7 +292,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = PROBLEMLIST_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;
@@ -384,7 +377,6 @@ public final class SystemTestCaseReport {
             document.addTag(contestTag);
             log.debug(document.getXML(2));
             String xsldocURLString = ROUND_MENU_PAGE;
-            nav.setScreen(xsldocURLString);
             result = HTMLmaker.render(document, xsldocURLString);
         } catch (NavigationException ne) {
             throw ne;

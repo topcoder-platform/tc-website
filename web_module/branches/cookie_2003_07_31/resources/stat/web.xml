@@ -6,17 +6,7 @@
 
 <web-app>
 
-  <servlet>
-    <servlet-name>stat</servlet-name>
-    <servlet-class>com.topcoder.web.stat.servlet.StatisticsHttpServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
 
-  <servlet-mapping>
-    <servlet-name>stat</servlet-name>
-    <url-pattern>stat</url-pattern>
-  </servlet-mapping>
-  
   <security-constraint>
     <web-resource-collection>
       <web-resource-name>stats</web-resource-name> 

@@ -167,22 +167,27 @@
             <param-value>sid</param-value>
             <description></description>
         </init-param>
-
-
-
     </servlet>
-
 
     <servlet>
         <servlet-name>legacyMain</servlet-name>
         <display-name>legacyMain</display-name>
         <description>The main controller servlet</description>
         <servlet-class>com.topcoder.web.tc.controller.legacy.MainServlet</servlet-class>
+    </servlet>
 
-
+    <servlet>
+      <servlet-name>stat</servlet-name>
+      <servlet-class>com.topcoder.web.tc.controller.legacy.stat.servlet.StatisticsHttpServlet</servlet-class>
+      <load-on-startup>1</load-on-startup>
     </servlet>
 
 
+
+    <servlet-mapping>
+      <servlet-name>stat</servlet-name>
+      <url-pattern>/stat</url-pattern>
+    </servlet-mapping>
 
     <servlet-mapping>
         <servlet-name>legacyMain</servlet-name>

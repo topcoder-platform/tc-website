@@ -36,6 +36,10 @@ public class Constants {
 
     public static String HIGHEST_RATING;
 
+    public static String LOGIN;
+    public static String ACTIVATE;
+    public static String RECOVER_PASSWORD;
+
     private Constants() {
     }
 
