@@ -188,33 +188,33 @@
                             
                            <!-- <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>1st Place</strong></td></tr>-->
 
-                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=157582"><strong>msuhocki</strong></a></span></strong></td></tr>
+                            <tr valign="top"><td class="statText" colspan="4">&#160;&#160;<strong>Coder: <span class="statText"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a></span></strong></td></tr>
 
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                             <tr valign="top">
-                                <td class="statText" rowspan="5" width="55"><!-- <a href="/stat?c=member_profile&amp;cr=2058651" class="coderTextRed"><img src="/i/m/nophoto_login.gif" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a> --></td>
+                                <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=154754" class="coderTextRed"><img src="/i/m/nophoto_login.gif" alt="None" width="62" height="70" border="0" hspace="5" vspace="5" /></a></td>
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
                                 <td class="statText" width="65%">Developer Level:</td>
-                                <td class="statText" align="right" width="10%">I</td>
+                                <td class="statText" align="right" width="10%">III</td>
                                 <td class="statText" width="25%"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Rating:</td>
-                                <td class="statText" align="right">1455</td>
-                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=157582" class="statText">[ ratings history ]</a></td>
+                                <td class="statText" align="right">1143</td>
+                                <td class="statText">&#160;&#160;<a href="/stat?c=ratings_history&amp;cr=154754" class="statText">[ ratings history ]</a></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Total Earnings for All Component Projects*:</td>
-                                <td class="statText" align="right">$0.00</td>
+                                <td class="statText" align="right">$2,002.30</td>
                                 <td class="statText"></td>
                             </tr>
 
                             <tr valign="top">
                                 <td class="statText">Review Board Score for this Project:</td>
-                                <td class="statText" align="right">90.83</td>
+                                <td class="statText" align="right">93.08</td>
                                 <td class="statText"></td>
                             </tr>
 
@@ -276,13 +276,13 @@
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr valign="middle">
                     <td class="statText">
-                        <p><strong>HTTP Utility</strong><br />
-                         Simplifies interaction with any HTTP server including HTML pages, servlets, ASPs, JSPs and CGI scripts.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=5501553" target="parent" class="statText">HTTP Utility</a> on the TopCoder Software web site.</p>
+                        <p><strong>Data Paging Tag</strong><br />
+                         Simplifies the task of paging data in a JSP interface.  Check out <a href="http://software.topcoder.com/pages/c_component.jsp?comp=7339708" target="parent" class="statText">Data Paging Tag</a> on the TopCoder Software web site.</p>
 
 
                         
                         <p><strong>Review Board Comments</strong><br />
-                        "This is a high quality implementation.  Benchmarks show a minimal overhead to using this component with single digit millisecond counts per execution when utilizing all features of the component and next to zero overhead when strictly retrieving a page."
+                        "The design not only addresses all functionalities specified in the Requirements Specification, but also includes nice features, such as link and extra tags."
                         <a href="/stat?c=member_profile&amp;cr=299761" class="coderTextYellow">&#160;&#151;techie1</a></p></td>
                 </tr>
             </table>
@@ -313,14 +313,78 @@
 
                 <tr valign="middle">
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6401733" class="statText" target="parent">.NET Date Utility</a></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7339708" class="statText" target="parent">Data Paging Tag</a></td>
                     <td class="statText" height="15" align="center">1</td>
                     <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=154754"><strong>Ken Vogel</strong></a></td>
-                    <td class="statText" height="15" align="center">87.16</td>
-                    <td class="statText" height="15" align="right">$1,949.80&#160;&#160;</td>
+                    <td class="statText" height="15" align="center">93.08</td>
+                    <td class="statText" height="15" align="right">$2,002.30&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
                 
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7323105" class="statText" target="parent">Asynchronous Processing Wrapper</a></td>
+                    <td class="statText" height="15" align="center">2</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=296145"><strong>srowen</strong></a></td>
+                    <td class="statText" height="15" align="center">85.77</td>
+                    <td class="statText" height="15" align="right">$3,548.60&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+                
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7339417" class="statText" target="parent">Synchronous Processing Wrapper</a></td>
+                    <td class="statText" height="15" align="center">5</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a></td>
+                    <td class="statText" height="15" align="center">88.85</td>
+                    <td class="statText" height="15" align="right">$1,869.60&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=5800322" class="statText" target="parent">NNTP Client</a></td>
+                    <td class="statText" height="15" align="center">1</td>
+                    <td class="statText" height="15"><a class="coderTextGreen" href="/stat?c=member_profile&amp;cr=304697"><strong>ozzie</strong></a></td>
+                    <td class="statText" height="15" align="center">81.75</td>
+                    <td class="statText" height="15" align="right">$1,581.25&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=7263827" class="statText" target="parent">DNS Query</a></td>
+                    <td class="statText" height="15" align="center">3</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=150498"><strong>ThinMan</strong></a></td>
+                    <td class="statText" height="15" align="center">95.79</td>
+                    <td class="statText" height="15" align="right">$709.80&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+                
+                <tr><td height="3" colspan="7"><img src="/i/clear.gif" alt="" height="3" border="0" /></td></tr>
+
+                <tr valign="middle">
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td class="statText" height="15">&#160;&#160;<a href="http://software.topcoder.com/pages/c_component.jsp?comp=6511797" class="statText" target="parent">Chat User Profile</a></td>
+                    <td class="statText" height="15" align="center">1</td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299180"><strong>isv</strong></a></td>
+                    <td class="statText" height="15" align="center">85.65</td>
+                    <td class="statText" height="15" align="right">$1,869.00&#160;&#160;</td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+
+
                 <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                 <tr valign="middle">
