@@ -85,7 +85,7 @@ public class CampaignList extends BaseProcessor {
                 // if so redirect the user to campaign position list
                 row = (ResultSetContainer.ResultSetRow) result.get(0);
                 request.setAttribute(Constants.CAMPAIGN_ID, String.valueOf(row.getLongItem("campaign_id")));
-                setNextPage(Constants.POSITION_LIST_PAGE);
+                setNextPage(Constants.CAMPAIGN_POSITIONS_PAGE);
                 setIsNextPageInContext(false);
                 return;
             } else {
