@@ -278,14 +278,23 @@ public abstract class BaseServlet extends HttpServlet {
     protected TCSubject getUser(long id) throws Exception {
         TCSubject user = null;
 
+        StringBuffer buf = new StringBuffer(40);
+        buf.append(USER_SUBJECT_PREFIX);
+        buf.append(id);
+
         try {
-            user = (TCSubject)(CacheClientPool.getPool().getClient().get(USER_SUBJECT_PREFIX+id));
+            user = (TCSubject)(CacheClientPool.getPool().getClient().get(buf.toString()));
         } catch (Exception e) {
             log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
         }
         if (user == null) {
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             user = pmgr.getUserSubject(id);
+            try {
+                CacheClientPool.getPool().getClient().set(buf.toString(), user, 30*60*1000);
+            } catch (Exception e) {
+                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+            }
         }
         return user;
     }
