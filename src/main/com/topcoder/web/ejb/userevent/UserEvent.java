@@ -12,7 +12,7 @@ import java.sql.Date;
  */
 public interface UserEvent extends EJBObject {
 
-    void createUserEvent(long userId, int statusId, long eventId, Date eventDate, String dataSource) throws RemoteException;
+    void createUserEvent(long userId, int statusId, int eventId, Date eventDate, String dataSource) throws RemoteException;
 
     ResultSetContainer getUserEventsByStatus(int statusId, String dataSource) throws RemoteException;
 
@@ -22,7 +22,7 @@ public interface UserEvent extends EJBObject {
 
     void setEventId(long userEventId, int eventId, String dataSource) throws RemoteException;
 
-    void setEventDate(long userEventId, Date eventDate) throws RemoteException;
+    void setEventDate(long userEventId, Date eventDate, String dataSource) throws RemoteException;
 
     int getUserEventStatus(long userEventId, String dataSource) throws RemoteException;
 
