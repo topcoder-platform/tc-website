@@ -426,12 +426,9 @@ public class TransactionServlet extends HttpServlet {
                     txInfo.getContactID(),
                     txInfo.getQtty() * txInfo.getCost()
             );
-            if (txInfo.getStart() != 0) {
-                purchaseTable.setStartDate(purchaseID, new Date(txInfo.getStart()));
-            }
-            if (txInfo.getEnd() != 0) {
-                purchaseTable.setEndDate(purchaseID, new Date(txInfo.getEnd()));
-            }
+            Date startDate = purchaseTable.getCreateDate(purchaseID);
+            purchaseTable.setStartDate(purchaseID, startDate);
+            purchaseTable.setEndDate(purchaseID, txInfo.getEnd(startDate));
             //purchaseTable.setSumPaid(purchaseID, txInfo.sum);
             dbTx.commit();
             log.debug("CcTx completed");
