@@ -158,7 +158,7 @@ public class UserBean extends BaseEJB {
     public void setMiddleName(long userId, String middleName, String dataSource)
             throws EJBException {
 
-        log.debug("setLastName called. user_id=" + userId + " " +
+        log.debug("setMiddleName called. user_id=" + userId + " " +
                 "middle_name=" + middleName);
 
         Connection conn = null;
@@ -179,6 +179,51 @@ public class UserBean extends BaseEJB {
 
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, middleName);
+            ps.setLong(2, userId);
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'user'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+            throw(new EJBException(_ne.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+
+    public void setActivationCode(long userId, String code, String dataSource)
+            throws EJBException {
+
+        log.debug("setActivationCode called. user_id=" + userId + " " +
+                "code=" + code);
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        InitialContext ctx = null;
+
+        try {
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
+            conn = ds.getConnection();
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("UPDATE user ");
+            query.append("SET activation_code=? ");
+            query.append("WHERE user_id=?");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, code);
             ps.setLong(2, userId);
 
             int rc = ps.executeUpdate();
@@ -392,6 +437,57 @@ public class UserBean extends BaseEJB {
         }
         return (last_name);
     }
+
+
+    public String getActivationCode(long userId, String dataSource)
+            throws EJBException {
+
+        log.debug("getActivationCode called. user_id=" + userId);
+
+        String code = null;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+
+        InitialContext ctx = null;
+
+        try {
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
+            conn = ds.getConnection();
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT activation_code ");
+            query.append("FROM user ");
+            query.append("WHERE user_id=?");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                code = rs.getString(1);
+            } else {
+                throw(new EJBException("No rows found when selecting from 'user' with " +
+                        "user_id=" + userId + "."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+            throw(new EJBException(_ne.getMessage()));
+        } finally {
+            close(rs);
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return (code);
+    }
+
 
     public char getStatus(long userId, String dataSource)
             throws EJBException {

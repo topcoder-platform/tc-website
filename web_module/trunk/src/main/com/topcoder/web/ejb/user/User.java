@@ -22,12 +22,17 @@ public interface User extends EJBObject {
     void setStatus(long userId, char status, String dataSource)
             throws EJBException, RemoteException;
 
+    void setActivationCode(long userId, String code, String dataSource)
+            throws EJBException, RemoteException;
+
     String getFirstName(long userId, String dataSource)
             throws EJBException, RemoteException;
 
     String getLastName(long userId, String dataSource) throws EJBException, RemoteException;
 
     String getMiddleName(long userId, String dataSource) throws EJBException, RemoteException;
+
+    String getActivationCode(long userId, String dataSource) throws EJBException, RemoteException;
 
     char getStatus(long userId, String dataSource)
             throws EJBException, RemoteException;
