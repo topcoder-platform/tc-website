@@ -52,11 +52,11 @@ public class DOCConversionProcessing extends BaseProcessor {
                     file.getInputStream().close();
                     
                     byte[] result = filebean.convertDoc(b);
-                    
+                                      
                     PrintWriter out = getResponse().getWriter();
                     getResponse().setContentType("application/x-pdf");
-                    for(int i = 0; i < b.length; i++) {
-                        out.print((char)b[i]);
+                    for(int i = 0; i < result.length; i++) {
+                        out.print((char)result[i]);
                     }
                     
                     
