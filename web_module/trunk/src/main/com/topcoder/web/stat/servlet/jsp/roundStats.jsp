@@ -139,6 +139,7 @@ pageContext.setAttribute("resultSetDates", rsc);
         <TR>
                    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
                      <SPAN CLASS="statTextBig"><B>Please select a round:</B><BR/></SPAN>
+                     <FORM name="">
                      <SELECT NAME="Contest" onchange="goTo(this)">
            <OPTION value="#">Select a Round:</OPTION>
          <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
@@ -149,6 +150,7 @@ pageContext.setAttribute("resultSetDates", rsc);
         <% } %>   
         </logic:iterate>
            </SELECT>
+                   </FORM>
                    </TD>
                  </TR>
                  <TR>
