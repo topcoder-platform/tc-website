@@ -59,7 +59,7 @@ function submitEnter(e) {
 
 	<div align="center">
 <%-- Google Header--%>
-<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
+<img src="/i/events/google2003/codejam_logo.gif" alt="Google Code Jam logo">
 
 <table border=0 cellspacing=5 width="740">
    <tr>
