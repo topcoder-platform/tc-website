@@ -253,6 +253,12 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>search_criteria_param</param-name>
+            <param-value>SearchCriteria</param-value>
+            <description></description>
+        </init-param>
+
 
         <init-param>
             <param-name>login_task</param-name>
@@ -332,6 +338,13 @@
             <description></description>
         </init-param>
 
+        <init-param>
+            <param-name>query_search_task</param-name>
+            <param-value>QuerySearch</param-value>
+            <description></description>
+        </init-param>
+
+
 
         <init-param>
             <param-name>login_name</param-name>
@@ -404,6 +417,13 @@
             <param-value>Command Query Associations Edit</param-value>
             <description></description>
         </init-param>
+
+        <init-param>
+            <param-name>query_search_name</param-name>
+            <param-value>Query Search</param-value>
+            <description></description>
+        </init-param>
+
 
 
         <init-param>
