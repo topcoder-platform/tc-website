@@ -293,15 +293,17 @@
                 }
                 return false;
               }
-              function itemMove(select, col, othercol) 
+              function itemMove(select, col, othercol)
               {
                 sl = document.profileListForm[col].selectedIndex;
                 ocl = document.profileListForm[othercol].length;
                 cl = document.profileListForm[col].length;
-                if (sl != -1 && document.profileListForm[col].options[sl].value > "") {
+                var n;
+                for(n=0;n < document.profileListForm[col].options.length;n++){
+                  if(!document.profileListForm[col].options[n].selected || !(document.profileListForm[col].options[n].value > ""))continue;
                   pText = document.profileListForm[col].options[sl].text;
                   pValue = document.profileListForm[col].options[sl].value;
-                  if (document.profileListForm[col].options[sl].value > "" && select == 0) { 
+                  if (document.profileListForm[col].options[sl].value > "" && select == 0) {
                     var arrFbox = new Array();
                     var arrLookup = new Array();
                     var i;
@@ -312,7 +314,7 @@
                     for(i = 0; i < document.profileListForm[col].options.length; i++) {
                       arrLookup[document.profileListForm[col].options[i].text] = document.profileListForm[col].options[i].value;
                       if (document.profileListForm[col].options[i].selected && document.profileListForm[col].options[i].value != "") {
-                      } 
+                      }
                       else {
                         arrFbox[fLength] = document.profileListForm[col].options[i].text;
                         fLength++;
@@ -341,7 +343,7 @@
           </FORM>
         </TD>
       </TR>
-<%       
+<%
           columns = request.getParameterValues("selectedColumns");
           if(profiles!=null&&columns!=null) {
 %>
