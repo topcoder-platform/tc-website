@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.Transaction;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.note.NoteHome;
@@ -89,10 +90,10 @@ public class NoteCreate extends BaseProcessor {
 
                 long noteId = note.createNote(noteText, getAuthentication().getUser().getId(), 1);
 
-                UserNoteHome uHome = (UserNoteHome) context.lookup("screening:" + UserNoteHome.class.getName());
+                UserNoteHome uHome = (UserNoteHome) context.lookup(UserNoteHome.class.getName());
                 UserNote unote = uHome.create();
 
-                unote.createUserNote(Long.parseLong(candId), noteId);
+                unote.createUserNote(Long.parseLong(candId), noteId, DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME);
             } catch (Exception e) {
                 ut.rollback();
                 throw e;

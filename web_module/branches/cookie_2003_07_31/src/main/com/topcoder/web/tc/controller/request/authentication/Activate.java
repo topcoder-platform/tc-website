@@ -32,9 +32,9 @@ public class Activate extends Base {
             if (dbCode.equals(code)) {
                 //activate account
                 User user = (User) createEJB(ctx, User.class);
-                char status = user.getStatus(userId);
+                char status = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
                 if (status==Constants.UNACTIVE_STATUS.charAt(0)) {
-                    user.setStatus(userId, Constants.ACTIVE_STATUS.charAt(0));
+                    user.setStatus(userId, Constants.ACTIVE_STATUS.charAt(0), DBMS.OLTP_DATASOURCE_NAME);
                     setNextPage(Constants.ACTIVATE);
                 } else if (status == Constants.ACTIVE_STATUS.charAt(0)) {
                     throw new NavigationException("Account has already been activated.");
