@@ -232,6 +232,7 @@
                List statementsA = profileInfo.getTestSetAList();
        if (statementsA==null) System.out.println("fuckin null!!!!");
                List statementsB = profileInfo.getTestSetBList();
+       if (statementsB==null) System.out.println("fuckin null!!!!");
                ProblemInfo problem = null;
                SubmissionInfo solution = null; %>
 
