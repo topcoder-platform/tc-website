@@ -24,14 +24,18 @@
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Advancers</p>
+         
+         <p>Qualification Round - Session #1</p>
 
-                      <table class="formFrame" cellpadding=5 cellspacing=2 width="250">
+                      <table class="formFrame" cellpadding=5 cellspacing=2 width="400">
                         <tr>
-                           <td class="sidebarTitle">Round</td>
+                           <td class="sidebarTitle" width="40%">Handle</td>
+                           <td class="sidebarTitle" width="30%">Problem Set</td>
+                           <td class="sidebarTitle" width="30%">Score</td>
                         </tr>
-                        <tr>
-                           <td class="sidebarText" nowrap="nowrap"><a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_adv_main">Main Competition Round</a></td>
-                        </tr>
+
+<tr><td class="sidebarText"></td><td class="sidebarText" nowrap></td><td class="sidebarText"></td></tr>
+
                      </table>
 
 		</td>
