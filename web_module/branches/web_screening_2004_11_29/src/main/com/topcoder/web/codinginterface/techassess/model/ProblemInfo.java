@@ -4,12 +4,14 @@ import com.topcoder.shared.problem.Problem;
 import com.topcoder.shared.language.Language;
 import com.topcoder.shared.language.BaseLanguage;
 
+import java.io.Serializable;
+
 /**
  * User: dok
  * Date: Dec 23, 2004
  * Time: 2:32:42 PM
  */
-public class ProblemInfo {
+public class ProblemInfo implements Serializable {
 
     private String code = null;
     private long componentId = 0;

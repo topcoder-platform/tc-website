@@ -198,9 +198,9 @@ public abstract class Base extends BaseProcessor {
         out.println("<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" >");
         out.println("<link type=\"text/css\" rel=\"stylesheet\" href=\"/css/screening.css\" >");
         out.println("</head>");
-        out.print("<body onLoad=\"window.location.href=\'");
+        out.print("<body onLoad=\"window.location.replace(\'");
         out.print(nextPage);
-        out.print("\'\">");
+        out.print("\')\">");
         out.println("<table class=bodyCenter cellspacing=0 cellpadding=0>");
         out.println("<tr>");
         out.println("      <td align=center>");
