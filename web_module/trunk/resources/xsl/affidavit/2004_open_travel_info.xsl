@@ -244,7 +244,7 @@
 
         <TR>
           <TD align="right"><INPUT TYPE="hidden" NAME="q26" VALUE="Roommate preference"/>Roommate preference:</TD>
-          <TD align="left"><INPUT TYPE="text" NAME="a26" size="50"/></TD>
+          <TD align="left"><INPUT TYPE="text" NAME="a26" size="20"/></TD>
         </TR>
 
 
