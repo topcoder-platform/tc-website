@@ -26,7 +26,7 @@
     <resource-managers>
         <resource-manager res-class="">
             <res-name>datasource</res-name>
-            <res-jndi-name>SCREENING_OLTP</res-jndi-name>
+            <res-jndi-name>java:SCREENING_OLTP</res-jndi-name>
         </resource-manager>
     </resource-managers>
 </jboss>
