@@ -6,6 +6,18 @@
 <HEAD>
 <TITLE>TopCoder - Candidate Evaluation</TITLE>
 <jsp:include page="script.jsp"/>
+<script language="JavaScript">
+  function submitEnter(e){
+    var keycode;
+    if (window.event) keycode = window.event.keyCode;
+    else if (e) keycode = e.which;
+    else return true;
+    if (keycode == 13) {
+     login.submit();
+     return false;
+    } else return true;
+  }
+</script>
 </HEAD>
 
 <BODY BGCOLOR="#000000" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -61,11 +73,11 @@
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right" NOWRAP="">&#160;&#160;User Name:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Constants.HANDLE%>" TYPE="TEXT" VALUE=""/></TD>
+                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Constants.HANDLE%>" TYPE="TEXT" onKeyPress="submitEnter(event)" VALUE=""/></TD>
                                  </TR>
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">&#160;&#160;Password:&#160;&#160;</TD>
-                                    <TD HEIGHT="20" VALIGN="TOP"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Constants.PASSWORD%>" TYPE="Password" VALUE=""/></TD>
+                                    <TD HEIGHT="20" VALIGN="TOP"><INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Constants.PASSWORD%>" TYPE="Password" onKeyPress="submitEnter(event)" VALUE=""/></TD>
                                     <TD CLASS="statTextBig" VALIGN="top" NOWRAP="">&#160;<A HREF="Javascript:document.login.submit()" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login &gt;</FONT></A>&#160;&#160;</TD>                    
                                  </TR>
                               </TABLE>
