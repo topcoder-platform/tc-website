@@ -93,6 +93,7 @@ public class StudentRegistration extends Base {
 
     rsc=(ResultSetContainer)data.get("state_list");
     List state_list=new ArrayList();
+    state_list.add(new ListPairBean("ZZ","Pick a state"));
     for (Iterator i=rsc.iterator();i.hasNext();) {
       rsr=(ResultSetContainer.ResultSetRow)i.next();
       String state_code=(String)rsr.getItem("state_code").getResultData();
@@ -135,6 +136,8 @@ public class StudentRegistration extends Base {
 
     /* add error checking here */
 
+    List school_list=new ArrayList();
+    school_list.add(new ListPairBean("-1","Pick a school"));
     if (!_srb.getStateCode().equals("")) {
       map.put(DataAccessConstants.COMMAND,"state_schools");
       map.put(STATE_INPUT_CODE,_srb.getStateCode());
@@ -142,7 +145,6 @@ public class StudentRegistration extends Base {
       Map schools=dai.getData(req);
 
       rsc=(ResultSetContainer)data.get("state_schools");
-      List school_list=new ArrayList();
       for (Iterator i=rsc.iterator();i.hasNext();) {
         rsr=(ResultSetContainer.ResultSetRow)i.next();
         Integer school_id=(Integer)rsr.getItem("school_id").getResultData();
@@ -150,11 +152,8 @@ public class StudentRegistration extends Base {
         school_list.add(new ListPairBean(school_id.toString(),short_name));
       }
 
-      _srb.setSchoolList(school_list);
     }
-    else {
-      _srb.setSchoolList(new ArrayList());
-    }
+    _srb.setSchoolList(school_list);
       
   }
 
