@@ -47,9 +47,8 @@
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-
-<jsp:useBean id="LoginTask" scope="request"
-class="com.topcoder.web.tces.servlet.LoginTask" />
+            
+<jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.tces.servlet.LoginTask" />
 
 <p class='notice'>
 <jsp:getProperty name="LoginTask" property="Message" />
