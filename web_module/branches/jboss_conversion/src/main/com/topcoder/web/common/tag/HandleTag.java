@@ -34,18 +34,18 @@ public class HandleTag extends TagSupport {
              "coderTextGreen", "coderTextBlue", "coderTextYellow", "coderTextRed"};
 
     public void setCoderId(long coderId) {
-        log.debug("setting coderid " + coderId);
+        //log.debug("setting coderid " + coderId);
         this.coderId = coderId;
     }
 
     public void setCoderId(int coderId) {
-        log.debug("setting coderid " + coderId);
+        //log.debug("setting coderid " + coderId);
         this.coderId = coderId;
     }
 
 
     public void setCoderId(String coderId) {
-        log.debug("setting coderid " + coderId);
+        //log.debug("setting coderid " + coderId);
         this.coderId = Long.parseLong(coderId);
     }
 
@@ -68,7 +68,7 @@ public class HandleTag extends TagSupport {
     }
 
     public int doStartTag() throws JspException {
-        log.debug("doStartTag with coderid " + coderId);
+        //log.debug("doStartTag with coderid " + coderId);
 
         try {
             //lookup ratings from cache
