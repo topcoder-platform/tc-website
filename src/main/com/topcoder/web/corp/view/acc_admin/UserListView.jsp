@@ -8,7 +8,7 @@
          buffer="64kb"
          errorPage="../exc/InternalError.jsp" %>
 <%@ taglib uri="/tc-webtags.tld" prefix="tc-webtag" %>
-<%    
+<%
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -52,11 +52,11 @@
                         <h1 class="testHead">Manage Users</h1>
                     </td>
                 <tr>
-                
+
                 <tr valign="top">
                     <td class="bodyText" width="100%">
-                        <p>Use this page to manage the access that users at your company are given. By clicking <strong>Edit</strong> you can give users 
-                        overall Administrative access, full access to the Testing Application, results access to the Testing Application, or reporting access 
+                        <p>Use this page to manage the access that users at your company are given. By clicking <strong>Edit</strong> you can give users
+                        overall Administrative access, full access to the Testing Application, results access to the Testing Application, or reporting access
                         to the Recruiting Application, depending on which TopCoder programs you have purchased.</p>
                     </td>
                 </tr>
@@ -67,7 +67,7 @@
                     <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
                 </tr>
             </table>
-            
+
             <table border="0" cellspacing="0" cellpadding="3" width="80%" class="testFrame">
                 <tr valign="middle">
                     <td class="testTableTitle">&#160;Handle</td>
@@ -77,12 +77,12 @@
                 </tr>
 
         <% /* Setup variables used for row alternating background colors */
-                boolean isGreyBGCOLOR = true; 
+                boolean isGreyBGCOLOR = true;
                 String bgColor = new String();
         %>
 
             <tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
-        <% 
+        <%
                 bgColor = isGreyBGCOLOR ? "#EEEEEE" : "#FFFFFF";
                 isGreyBGCOLOR = !isGreyBGCOLOR; // change BGCOLOR for next row.
         %>
@@ -93,8 +93,7 @@
                         <tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
                     <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
              <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-             <% boolean isPrim = Double.parseDouble(resultRow.getItem("isnot_admin").toString())==0.0; %>
-                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=<%= isPrim? "Registration" : "UserEdit" %>&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>          
+                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>
                 </tr>
         </tc-webtag:iterator>
 
@@ -103,7 +102,7 @@
                     <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
                 </tr>
             </table>
-            
+
             <p><br></p>
 
         </td>
