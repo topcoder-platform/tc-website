@@ -89,178 +89,147 @@
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
 <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
-<P><B>Single Round Match 93</B><BR/>
-May 30, 2002</P>
-<P><B>Room 1 Review</B></P>
+<P>June 3, 2002</P>
+<P><B>Lessons Learned the Hard Way</B></P>
 
-    <b>Coding Phase</b>
-  <p>
-            The Coding Phase begain as usual, with everybody starting on the Level 1 problem
-            except for <b>dmwright</b>, who began with his regular strategy of starting
-            on the Level 2 problem.  <b>doeth</b>, <b>John Dehtridge</b>,
-            and <b>reid</b> did not start until over five minutes into the contest.
-        </p>
-  <p>
-            Twenty seconds after <b>reid</b> opened the Level 1 problem,
-            <b>SnapDragon</b> made the first submission, for 286.08 points.
-            <b>ZorbaTHut</b> followed close behind with 281.42 points
-            Next in line for Level 1 submissions were (in order of scores rather
-            than chronology):
-            <b>John Dethridge</b> (283.46 points);
-            <b>malpt</b>;
-            <b>doeth</b>;
-            <b>venco</b>;
-            and <b>ambrose</b>.
-            At this point in time, this left <b>dmwright</b> and <b>reid</b> without
-            any submissions yet.
-        </p>
-  <p>
-            <b>SnapDragon</b> also made the first submission of the Level 2 problem,
-            submitting his solution at the 18 minute mark for 437.76 points.  This was
-            shortly followed by <b>reid</b>'s relatively poor showing of 252.74 points for
-            the Level 1 problem.  Next in line for Level 2 submissions were (in order of score again):
-            <b>malpt</b>;
-            <b>reid</b>;
-            <b>ambrose</b>;
-            <b>doeth</b>;
-            <b>John Dethridge</b>;
-            <b>ZorbaTHut</b>;
-            <b>venco</b>;
-            <b>and far behind, dmwright, for a mere 260.05 points</b>.
-            At this point everyone had solutions for the Level 1 and Level 2 problems except for <b>dmwright</b>.
-        </p>
-  <p>
-            The Level 3 problem proved especially difficult.  <b>ZorbaTHut</b> had the quickest time,
-            spending 35 minutes on the problem for 521.33 points.  <b>SnapDragon</b> had the next
-            submission, for 435.33.
-            With three minutes remaining, <b>reid</b> submitted his Level 3 solution for 481.55 points,
-            and <b>dmwright</b> submitted his Level 1 solution for 260.05 points.
-        </p>
-  <p>
-        At the end of the Coding Phase, the scores were:
-    </p>
-  <ol>
-    <li>
-      <b>ZorbaTHut</b>
-            - 1161.94</li>
-    <li>
-      <b>reid</b>
-            - 1160.36</li>
-    <li>
-      <b>SnapDragon</b>
-            - 1159.17</li>
-    <li>
-      <b>malpt</b>
-            - 706.80</li>
-    <li>
-      <b>John Dethridge</b>
-            - 667.77</li>
-    <li>
-      <b>doeth</b>
-            - 659.65</li>
-    <li>
-      <b>ambrose</b>
-            - 652.55</li>
-    <li>
-      <b>venco</b>
-            - 568.59</li>
-    <li>
-      <b>dmwright</b>
-            - 557.80</li>
-  </ol>
+<P>
+SRM 93 was a Thursday night contest.  As a landmark, it was the night
+before the 2002 Soccer World Cup kicked off.  There were 
+653 coders for the match, with 392 coders and 42 rooms in Div-II.  
+</P>
 
-    <b>Challenge Phase</b>
-  <p>
-        The first challenge of the night came from <b>dmwright</b> against
-        <b>SnapDragon</b>.  <b>dmwright</b> successfully challenged <b>SnapDragon</b>'s
-        Level 1 problem with a test case with repeated values for the purchased tickets.
-        <b>SnapDragon</b> obviously did not test his solution on all the sample cases, else he would have
-        caught this simple mistake.  <b>dmwright</b> then lost the 50 points he had just gained by
-        unsuccessfully challenging <b>ambrose</b>'s Level 1 problem with a similar test case.
-        Unfortunately <b>dmwright</b> made a minor mistake in constructing his test case, accidentally
-        building a case for which <b>ambrose</b>'s flawed solution actually succeeds.
-        </p>
-  <p>
-        <b>venco</b> was next to pick on <b>ambrose</b>, attacking his Level 2 problem.
-        Perhaps <b>venco</b> actually spotted <b>ambrose</b>'s mistake, but if so, he failed
-        to form a good test case to exploit it, because his challenge failed.
-        The last challenge came from <b>John Dethridge</b>, who succeeded against <b>ambrose</b>'s
-        Level 1 problem where <b>dmwright</b> had failed.
-        </p>
-  <p>
-        At the end of the Challenge Phase, the scores were:
-    </p>
-  <ol>
-    <li>
-      <b>ZorbaTHut</b>
-            - 1161.94</li>
-    <li>
-      <b>reid</b>
-            - 1160.36</li>
-    <li>
-      <b>SnapDragon</b>
-            - 873.09</li>
-    <li>
-      <b>John Dethridge</b>
-            - 717.77</li>
-    <li>
-      <b>malpt</b>
-            - 706.80</li>
-    <li>
-      <b>doeth</b>
-            - 659.65</li>
-    <li>
-      <b>dmwright</b>
-            - 557.80</li>
-    <li>
-      <b>venco</b>
-            - 518.59</li>
-    <li>
-      <b>ambrose</b>
-            - 393.00</li>
-  </ol>
+<P>
+The problem slate appeared relatively simple, but each of the problems
+tripped up at least 40% of submissions.  One thing that springs out is
+that the problem slate was not as diverse as usual: the 250 and 500 both
+required rounding calculations, and the 500 and 1050 both required looping
+on r objects selected from a pool of n objects.
+</P>
 
-    <b>System Test Phase</b>
-  <p>Three submissions failed to pass all of the system tests.  As alluded to before, <b>ambrose</b>'s
-        Level 2 submission was flawed, due to a mistake in <b>ambrose</b>'s treatment of aces.
-        <b>dmwright</b>'s Level 1 problem, like <b>SnapDragon</b>'s and <b>ambrose</b>'s,
-        failed to address duplicate purchases properly (which perhaps explains why he was first to spot the same
-        mistake in the submissions of others).
-        Finally, <b>ZorbaTHut</b>'s Level 2 submission failed due to a very obscure fence-post error.
-        </p>
-  <b>Final Results</b>
-  <ol>
-    <li>
-      <b>reid</b>
-            - 1160.36</li>
-    <li>
-      <b>SnapDragon</b>
-            - 873.09</li>
-    <li>
-      <b>ZorbaTHut</b>
-            - 802.75</li>
-    <li>
-      <b>John Dethridge</b>
-            - 717.77</li>
-    <li>
-      <b>malpt</b>
-            - 706.80</li>
-    <li>
-      <b>doeth</b>
-            - 659.65</li>
-    <li>
-      <b>venco</b>
-            - 518.59</li>
-    <li>
-      <b>dmwright</b>
-            - 297.75</li>
-    <li>
-      <b>ambrose</b>
-            - 0.00</li>
-  </ol>
-  
-<IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+<P>
+<B>250 (Median):</B>
+</P>
+
+<P>
+This problem was to return the middle value(s) of an array of ints.
+In the case of even length, return the mean of the two middle-most
+values.  All rounding should be upward.
+</P>
+
+<P>
+This problem appears to have been approached as a speed-typing test.
+Unfortunately, the result was a car-wreck.  Of the submitted solutions,
+less than 50% passed systest.  This was consistent in all three groupings
+(greens, greys and rookies.)  
+</P>
+
+<P>
+The solution to this problem is extremely simple: 
+Sort the array, then either return the mid value if length is odd, 
+or take the two inner values and combine them.  The following should 
+work.
+</P>
+
+
+<pre>
+Arrays.sort(input);
+if (input.length % 2 ==1) {
+	return input[input.length/2];
+} else {
+	int sum = input[input.length/2] + input[input.length -1];
+	int av = sum/2;
+	if (2*av &lt; sum) return av+1;
+	return av;
+}
+</pre>
+
+<P>
+Problems:
+<OL>
+	<LI> Failing to sort the array.  Such a solution would not have passed 
+	    two of the examples.</LI>
+	<LI> Failing to deal with negative numbers correctly.  Problem is that
+	     -(2n + 1)/2 = -n so any solution that relied on adding 1 failed.
+	     This problem appears to have been the main cause of failure.</LI>
+	<LI> Incorrect calculation of the mean (by using the input[n/2] and 
+	     input[n/2+1] instead of input[n/2-1].</LI>
+	<LI> Having two variables with similar names, and working with one in
+	     one loop branch, and another in a second.</LI>
+	<LI> Not rounding at all.</LI>
+</OL>
+</P>
+
+<P>
+What I find fascinating about this problem was that only 25% of problems
+which failed were actually successfully challenged.  Since most solutions
+required less than 15 lines of code....
+</P>
+
+<P>
+<B>500 (Hiring):</B> 
+</P>
+
+<P>
+Given an array containing the exam results and salary requirements of
+prospective employees, along with a salary cap, calculate the best 3
+candidates whose total salaries do not exceed the cap.  Because the
+average is taken of three values, rounding is to the nearest integer.
+</P>
+
+<P>
+This problem is best tackled as an exhaustive search, using fixed
+loops.  Notable was the fact that the pass rate varied from 58% among
+the greens to 47% in the grey rooms.
+</P>
+
+<P>
+Problems:
+<OL>
+	<LI> Not making any attempt to generate the possible solutions.</LI>
+	<LI> Not checking that you aren't using the same entry/employee
+	     more than once</LI>
+	<LI> Not rounding correctly.</LI>
+	<LI> Concentrating on rounding the average, then actually returning
+	     the sum.</LI>
+	<LI> Looping over the possible solutions correctly, but then returning
+	     then first one found.</LI>
+</OL>
+</P>
+
+<P>
+<B>1050 (Big2):</B>
+</P>
+
+<P>
+This was a simulation problem based on the card game poker.
+Given 13 cards, count the number of poker hands which can be made
+with these cards, which contain a straight or better.
+</P>
+
+<P>
+The solution requires the generation of the hands, and then their
+analysis.  For hand generation, fixed loops is the easiest way to
+go.  The key to the problem, of course is the hand evaluator.
+</P>
+
+<P>
+The number of submissions for this problem was tiny: only 15% of 
+the Div-II coders submitted.  As with most simulation problems, the
+complexity of the solution was the main problem.
+</P>
+
+<P>
+Problems:
+<OL>
+	<LI> Failing to deal with the fact that (for straights), and Ace is
+	     both high and low.</LI>
+	<LI> Typos in lookup tables.</LI>
+	<LI> Not looping over possible hands correctly.</LI>
+</OL>
+</P>
+
+<IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;slowjoe<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=271917" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -289,10 +258,8 @@ By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/st
     <TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm92"><IMG SRC="/i/motorola_sidebar.gif" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A> -->
-<A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm91_room1','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A>
-<BR/>
+    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
+<center><A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=srm91_rookie','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A></center><BR/>
 <!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
