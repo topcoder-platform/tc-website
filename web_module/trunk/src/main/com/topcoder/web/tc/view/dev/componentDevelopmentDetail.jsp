@@ -178,7 +178,7 @@
                            <% if (projectDetail.getStringItem(0, "project_status").equals("closed")) { %>
                                Registration is closed.
                            <% } else { %>
-                               <% if (projectDetail.getIntItem(0, "status_id")!=Constants.TOURNAMENT_COMPONENT &&
+                               <% if (projectDetail.getIntItem(0, "status_id")==Constants.TOURNAMENT_COMPONENT ||
                                        projectDetail.getIntItem(0,"num_inquiries")<Constants.MAX_INQUIRIES) { %>
                             <p class="bigRed">
                             **Important Note:
