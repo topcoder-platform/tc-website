@@ -81,7 +81,7 @@ public class Submit extends FullRegSubmit {
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/pl/?&module=Static&d1=doubleclick&d2=col_overview");
                 buf.append(" and downloading the competition manual.\n\n");
-                buf.append("If you have any questions about how to participate, please email them to \n\n\n\n\n\n\n\n\n\n<dedicated email address>.\n\n");
+                buf.append("If you have any questions about how to participate, please email them to dccc@topcoder.com\n\n");
                 buf.append("Thank you for registering for the DoubleClick 2004 Coding Challenge.  We look forward to seeing you in the Arena!\n\n");
 
                 mail.setBody(buf.toString());
