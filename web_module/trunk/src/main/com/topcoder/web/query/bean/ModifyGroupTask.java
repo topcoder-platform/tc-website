@@ -55,12 +55,12 @@ public class ModifyGroupTask extends BaseTask implements Task, Serializable {
                 if (isNewGroup()) {
                     cg.createCommandGroup(getGroupDesc());
                 } else {
-                    cg.setCommandGroupDesc(getGroupId(), getGroupDesc());
+                    cg.setCommandGroupName(getGroupId(), getGroupDesc());
                 }
             }
         } else {
             if (!isNewGroup()) {
-                setGroupDesc(cg.getCommandGroupDesc(getGroupId()));
+                setGroupDesc(cg.getCommandGroupName(getGroupId()));
             }
         }
         super.setNextPage(Constants.MODIFY_COMMAND_PAGE);

@@ -23,8 +23,8 @@ public class CommandGroupBean extends BaseEJB {
     private static Logger log = Logger.getLogger(CommandGroupBean.class);
     private String dataSourceName;
 
-    public void createCommandGroup(String commandGroupDesc) throws RemoteException, EJBException {
-        log.debug("createCommandGroup called...desc: " + commandGroupDesc);
+    public void createCommandGroup(String commandGroupName) throws RemoteException, EJBException {
+        log.debug("createCommandGroup called...name: " + commandGroupName);
 
         PreparedStatement ps = null;
         Connection conn = null;
@@ -34,7 +34,7 @@ public class CommandGroupBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" INSERT INTO command_group_lu");
-            query.append(" (command_group_id, command_group_desc)");
+            query.append(" (command_group_id, command_group_name)");
             query.append(" VALUES (?, ?)");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
@@ -42,15 +42,15 @@ public class CommandGroupBean extends BaseEJB {
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, getNextValue());
-            ps.setString(2, commandGroupDesc);
+            ps.setString(2, commandGroupName);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in insert: " + rows +
-                    " desc: " + commandGroupDesc);
+                    " name: " + commandGroupName);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException creating desc: " + commandGroupDesc);
+            throw new EJBException("SQLException creating command group: " + commandGroupName);
         } catch (Exception e) {
-            throw new EJBException("Exception creating desc: " + commandGroupDesc +
+            throw new EJBException("Exception creating command group: " + commandGroupName +
                     "\n " + e.getMessage());
         } finally {
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -60,8 +60,8 @@ public class CommandGroupBean extends BaseEJB {
 
     }
 
-    public void setCommandGroupDesc(int commandGroupId, String commandGroupDesc) throws RemoteException, EJBException {
-        log.debug("setCommandGroupDesc called...group: " + commandGroupId + " desc: " + commandGroupDesc);
+    public void setCommandGroupName(int commandGroupId, String commandGroupName) throws RemoteException, EJBException {
+        log.debug("setCommandGroupName called...group: " + commandGroupId + " name: " + commandGroupName);
 
         PreparedStatement ps = null;
         Connection conn = null;
@@ -70,22 +70,22 @@ public class CommandGroupBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer();
             query.append(" UPDATE command_group_lu");
-            query.append(   " SET command_group_desc = ?");
+            query.append(   " SET command_group_name = ?");
             query.append( " WHERE command_group_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, commandGroupDesc);
+            ps.setString(1, commandGroupName);
             ps.setInt(2, commandGroupId);
             int rows = ps.executeUpdate();
             if (rows!=1) throw new EJBException("Wrong number of rows in update: " + rows + " for group: " + commandGroupId);
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException updating command desc: " + commandGroupId + " desc: " + commandGroupDesc);
+            throw new EJBException("SQLException updating command name, command: " + commandGroupId + " name: " + commandGroupName);
         } catch (Exception e) {
-            throw new EJBException("Exception updating command desc: " + commandGroupId + " desc: " + commandGroupDesc +
+            throw new EJBException("Exception updating command name, command: " + commandGroupId + " name: " + commandGroupName +
                     "\n " + e.getMessage());
         } finally {
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -95,8 +95,8 @@ public class CommandGroupBean extends BaseEJB {
 
     }
 
-    public String getCommandGroupDesc(int commandGroupId) throws RemoteException, EJBException {
-        log.debug("getCommandGroupDesc called...command: " + commandGroupId);
+    public String getCommandGroupName(int commandGroupId) throws RemoteException, EJBException {
+        log.debug("getCommandGroupName called...command: " + commandGroupId);
 
         ResultSet rs = null;
         PreparedStatement ps = null;
@@ -106,7 +106,7 @@ public class CommandGroupBean extends BaseEJB {
         String ret = null;
         try {
             StringBuffer query = new StringBuffer();
-            query.append(" SELECT command_group_desc");
+            query.append(" SELECT command_group_name");
             query.append(  " FROM command_group_lu");
             query.append( " WHERE command_group_id = ?");
             ctx = new InitialContext();
@@ -117,12 +117,12 @@ public class CommandGroupBean extends BaseEJB {
             ps.setInt(1, commandGroupId);
             rs = ps.executeQuery();
             if (rs.next())
-                ret = rs.getString("command_group_desc");
+                ret = rs.getString("command_group_name");
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new EJBException("SQLException getting group desc: " + commandGroupId);
+            throw new EJBException("SQLException getting group name for command: " + commandGroupId);
         } catch (Exception e) {
-            throw new EJBException("Exception getting group desc: " + commandGroupId + "\n " + e.getMessage());
+            throw new EJBException("Exception getting group name for command: " + commandGroupId + "\n " + e.getMessage());
         } finally {
             if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet");}}
             if (ps != null) {try {ps.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement");}}
@@ -143,7 +143,7 @@ public class CommandGroupBean extends BaseEJB {
         ResultSetContainer ret = null;
         try {
             StringBuffer query = new StringBuffer();
-            query.append(" SELECT command_group_desc");
+            query.append(" SELECT command_group_name");
             query.append(     " , command_group_id");
             query.append(  " FROM command_group_lu");
             ctx = new InitialContext();

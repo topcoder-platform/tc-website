@@ -64,7 +64,7 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         qi.setDataSource(getDb());
 
         setQueryList(cq.getQueriesForCommand(getCommandId()));
-        setGroupDesc(cg.getCommandGroupDesc(c.getCommandGroupId(getCommandId())));
+        setGroupDesc(cg.getCommandGroupName(c.getCommandGroupId(getCommandId())));
         setCommandDesc(c.getCommandDesc(getCommandId()));
         setInputList(qi.getInputsForCommand(getCommandId()));
 

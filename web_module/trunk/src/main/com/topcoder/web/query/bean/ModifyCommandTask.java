@@ -105,7 +105,7 @@ public class ModifyCommandTask extends BaseTask implements Task, Serializable {
     }
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
-        if (cg.getCommandGroupDesc(groupId)==null) {
+        if (cg.getCommandGroupName(groupId)==null) {
             super.addError(Constants.GROUP_ID_PARAM, "Invalid Group");
         }
     }
