@@ -180,7 +180,7 @@
                 </tr>
                 <TR>
                     <TD background="TopCoder  Application_files/172.16.20[30]" colSpan="4">
-	  	        <IMG height=3 alt="" src="/i/clear.gif" width=1 border=0>
+	  	        <IMG height="3" alt="" src="/i/clear.gif" width="1" border="0">
 	            </TD>
 		</TR>
 
@@ -192,7 +192,7 @@
                 </tr>
                 <TR>
                     <TD background="TopCoder  Application_files/172.16.20[30]" colSpan="4">
-	  	        <IMG height=3 alt="" src="/i/clear.gif" width=1 border=0>
+	  	        <IMG height="3" alt="" src="/i/clear.gif" width="1" border="0">
 	            </TD>
 		</TR>
 
@@ -204,7 +204,7 @@
                 </tr>
                 <TR>
                     <TD background="TopCoder  Application_files/172.16.20[30]" colSpan="4">
-	  	        <IMG height=3 alt="" src="/i/clear.gif" width=1 border=0>
+	  	        <IMG height="3" alt="" src="/i/clear.gif" width="1" border="0">
 	            </TD>
 		</TR>
 
