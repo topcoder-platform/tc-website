@@ -65,7 +65,7 @@
                         <span class="smallText"><em>TopCoder Member</em></span></p>
                         
 <p><b>Introduction</b><br/>
-I admit it: I'm an addict. The first thing I do after staggering out
+I admit it: I'm an addict. The first thing I do upon staggering out
 of bed, mere seconds after rebooting my consciousness and even before
 switching on the kettle for tea, is to jack into the web for my morning
 fix of information. I scan the international headlines, read up on
@@ -168,7 +168,7 @@ Tables over the unexpected results of certain floating-point calculations,
 administrators soon responded with a software update. Although pointed
 complaints are best directed to management via email, the Round Tables
 offer a theater for lamentations of a freewheeling kind. These sometimes
-result in prompt, palpable change. When a thread pondered why member
+result in prompt, palpable change. When <b>dplass</b> pondered why member
 handles weren't clickable in the Round Tables, <b>dok</b> added this
 feature in a jiffy. Changes in the calculation of country rankings
 were brought about after protracted Round Table discussion involving

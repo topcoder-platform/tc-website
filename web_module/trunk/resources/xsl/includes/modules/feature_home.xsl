@@ -25,7 +25,7 @@
 
                         <p>
 
-I admit it: I'm an addict. The first thing I do after staggering out
+I admit it: I'm an addict. The first thing I do upon staggering out
 of bed, mere seconds after rebooting my consciousness and even before
 switching on the kettle for tea, is to jack into the web for my morning
 fix of information. I scan the international headlines, read up on
