@@ -59,7 +59,7 @@
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" target="_blank"><img src="/i/events/doubleclick/index_dccc.gif" alt="Verizon" width="274" height="100" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText"><font size="3"><strong>DoubleClick 2004 Coding Challenge</strong></font></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>DoubleClick&#153; 2004 Coding Challenge</strong></font></td>
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
