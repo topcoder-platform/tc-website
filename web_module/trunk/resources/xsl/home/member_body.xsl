@@ -537,10 +537,10 @@ across the board...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl
 <AREA ALT="" SHAPE="POLY" COORDS="23,193,112,193,121,201,234,201,234,240,38,240,12,216,12,193" HREF="/stat?&amp;c=last_match"/>
 </MAP> -->
 
-					<IMG USEMAP="#cryptic_home" SRC="/i/es/cryptic/cryptic_home.gif" ALT="" WIDTH="244" HEIGHT="160" BORDER="0"/><BR/>
-					<MAP NAME="cryptic_home">
-						<AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=cryptic"/>
-						<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4420&amp;t=schedule&amp;c=srm"/>
+					<IMG USEMAP="#fbi_home" SRC="/i/es/fbi/fbi_home.gif" ALT="" WIDTH="244" HEIGHT="160" BORDER="0"/><BR/>
+					<MAP NAME="fbi_home">
+						<AREA ALT="TCES" SHAPE="poly" COORDS="17,33,17,60,141,60,141,92,228,92,228,25,17,25" HREF="/?&amp;t=tces&amp;c=fbi"/>
+						<AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/?RoundId=4425&amp;t=schedule&amp;c=srm"/>
 						<!-- <AREA ALT="" SHAPE="poly" COORDS="229,104,120,105,105,94,11,95,10,120,36,146,229,148" HREF="/stat?&amp;c=last_match"/> --> 
 					</MAP>
 <!--SRM Sponsor Ends-->
