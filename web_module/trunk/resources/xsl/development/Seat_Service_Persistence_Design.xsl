@@ -100,13 +100,13 @@
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Persistence_Spec.pdf">Requirement Specification</a> for this application project.
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Persistence_Spec.pdf">Requirement Specification</a> for this application project.<br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Data_Classes_Spec.pdf">Requirement Specification</a> for the Seat Service Data Classes application project.
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Data_Classes_Spec.pdf">Requirement Specification</a> for the Seat Service Data Classes application project.<br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Scheduling_Spec.pdf">Requirement Specification</a> for the Seat Service Scheduling application project.
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Scheduling_Spec.pdf">Requirement Specification</a> for the Seat Service Scheduling application project.<br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Inventory_Spec.pdf">Requirement Specification</a> for the Seat Service Inventory application project.
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Inventory_Spec.pdf">Requirement Specification</a> for the Seat Service Inventory application project.<br/>
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
