@@ -3,6 +3,12 @@ package com.topcoder.security;
 import com.topcoder.util.config.ConfigManager;
 import com.topcoder.util.config.ConfigManagerException;
 import com.topcoder.util.config.ConfigManagerInterface;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
+import com.topcoder.shared.distCache.CacheClient;
+import com.topcoder.shared.distCache.CacheClientFactory;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import org.apache.log4j.Logger;
 
 import javax.crypto.Cipher;
@@ -10,6 +16,7 @@ import javax.crypto.KeyGenerator;
 import javax.crypto.spec.SecretKeySpec;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.naming.Context;
 import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
 import java.io.File;
@@ -24,6 +31,7 @@ import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Enumeration;
 import java.util.Vector;
+import java.lang.reflect.Method;
 
 /**
  * A bunch of static methods used in various com.topcoder.security (and subpackage)
@@ -130,7 +138,7 @@ public class Util implements ConfigManagerInterface {
         KeyStore ks;
         Key key;
         //logger.debug("Util - loadKey");
-        ConfigManager cm = getConfigManager();
+        //ConfigManager cm = getConfigManager();
         //logger.debug("got ConfigManager from getConfigManager");
         String keyStoreFileName = getProperty("keystore");
         String cryptPswd = getProperty("kspassword");
@@ -144,7 +152,7 @@ public class Util implements ConfigManagerInterface {
             try {
                 ks.load(new FileInputStream(keyStoreFileName), cryptPswd.toCharArray());
                 //logger.debug("ks.load");
-                key = (Key) ks.getKey(alias, cryptPswd.toCharArray());
+                key = ks.getKey(alias, cryptPswd.toCharArray());
                 //logger.debug("got key");
             } catch (java.io.EOFException e) {
                 //logger.debug("in catch");
@@ -171,10 +179,10 @@ public class Util implements ConfigManagerInterface {
             throws ConfigManagerException, GeneralSecurityException {
 
         //logger.debug("in storeKeyStore");
-        ConfigManager cm = getConfigManager();
+        //ConfigManager cm = getConfigManager();
         String keyStoreFileName = getProperty("keystore");
         String cryptPswd = getProperty("kspassword");
-        String keyString = getProperty("keystring");
+        //String keyString = getProperty("keystring");
         try {
             KeyGenerator kgen = KeyGenerator.getInstance("Blowfish");
             Key skey = kgen.generateKey();
@@ -200,7 +208,7 @@ public class Util implements ConfigManagerInterface {
      * Depending on cipherMode, encrypt or decrypt password using the key
      * retrieved or created with alias
      *
-     * @param password
+     * @param passwd
      * @param alias Used to look up a particular key within the keystore.
      * @param cipherMode
      * @return Returns the encrypted or decrypted password string
@@ -395,5 +403,49 @@ public class Util implements ConfigManagerInterface {
         ps.close();
         return conn;
     }
+
+    public static final TCSubject getUserSubject(long l)
+            throws Exception, NoSuchUserException, NamingException {
+        TCSubject ret = null;
+
+        String key = "subject_" + new Long(l);
+        Context ctx = null;
+        try {
+            boolean hasCacheConnection = true;
+            CacheClient cc = null;
+            try {
+                cc = CacheClientFactory.createCacheClient();
+                ret = (TCSubject) (cc.get(key));
+            } catch (Exception e) {
+                logger.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+                hasCacheConnection = false;
+            }
+            /* if it was not found in the cache */
+            if (ret == null) {
+                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                        ApplicationServer.SECURITY_PROVIDER_URL);
+                PrincipalMgrRemoteHome pmgrHome = (PrincipalMgrRemoteHome) PortableRemoteObject.narrow(ctx.lookup(
+                        PrincipalMgrRemoteHome.EJB_REF_NAME),
+                        PrincipalMgrRemoteHome.class);
+                PrincipalMgrRemote pmgr = pmgrHome.create();
+                ret = pmgr.getUserSubject(l);
+                if (hasCacheConnection) {
+                    try {
+                        cc.set(key, ret, 1000 * 60 * 30);
+                    } catch (Exception e) {
+                        logger.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+                    }
+                }
+            }
+            return ret;
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            try {
+                if (ctx!=null) ctx.close();
+            } catch (Exception e) {}
+        }
+    }
+
 
 }
