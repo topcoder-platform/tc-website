@@ -64,6 +64,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void loadSponsorImage() throws Exception {
+        log.debug("loadSponsorImage called...");
         Request dataRequest = new Request();
         dataRequest.setContentHandle("sponsor_image");
         try {
