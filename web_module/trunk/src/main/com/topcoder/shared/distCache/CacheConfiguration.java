@@ -53,7 +53,7 @@ public class CacheConfiguration {
      * @return
      */
     public static String[] getURLS() {
-        log.debug("primary: " + getPrimaryClientURL() + " secondary: " + getSecondaryClientURL());
+        //log.debug("primary: " + getPrimaryClientURL() + " secondary: " + getSecondaryClientURL());
         return new String[]{
             getPrimaryClientURL(),
             getSecondaryClientURL()
