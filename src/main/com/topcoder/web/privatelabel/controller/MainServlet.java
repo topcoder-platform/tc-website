@@ -33,6 +33,7 @@ public class MainServlet extends BaseServlet {
     }
 
     protected String getParameter(HttpServletRequest request, String name) throws Exception {
+        log.debug("parameter: " + name);
         String ret = null;
         try {
             String contentType = StringUtils.checkNull(request.getContentType());
