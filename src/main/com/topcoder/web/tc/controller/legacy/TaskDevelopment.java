@@ -668,7 +668,7 @@ public final class TaskDevelopment {
                     msgText.append("\n");
 
                     mail.setBody(msgText.toString());
-                    xsldocURLString = XSL_DIR + "inquiry_teamp_app.xsl";
+                    xsldocURLString = XSL_DIR + "inquiry_team_app.xsl";
                     EmailEngine.send(mail);
 
                     //send an email to the person that applied

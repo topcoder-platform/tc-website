@@ -245,7 +245,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        <a href="/index?t=development&amp;c=tcs_team_app_inquire&amp;Project=EDI%20Transaction%20Processor">here</a> to obtain the information necessary to submit a solution.
+                                                        Click <a href="/index?t=development&amp;c=tcs_team_app_inquire&amp;Project=EDI%20Transaction%20Processor">here</a> to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
