@@ -9,6 +9,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.Constants;
@@ -22,6 +23,8 @@ import javax.rmi.PortableRemoteObject;
  * @author Porgery
  */
 public class SubmissionInfo implements java.io.Serializable {
+
+    private static Logger log = Logger.getLogger(SubmissionInfo.class);
 
     private static final int[] DONE_STATUSES = {131, 140, 150, 160};
     private static DataAccessInt cached;
@@ -48,6 +51,8 @@ public class SubmissionInfo implements java.io.Serializable {
     public SubmissionInfo(User user, long sessionId, long sessionRoundId,
                                                       long problemId, int problemTypeId) throws Exception {
 
+        log.debug("getting sumbmission info for session: " + sessionId + " round: " + sessionRoundId +
+                " problem: " + problemId + " probletype: " + problemTypeId);
         if(cached == null) {
             InitialContext context = new InitialContext();
             DataSource ds = (DataSource)
