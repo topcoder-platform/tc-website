@@ -117,7 +117,7 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_Transfers_App_Design ">Palm Common Connectivity Application</a>
+                                        <a href="?t=development&amp;c=Palm_Transfers_App_Design ">Palm Transfers Application</a>
                                     </td>
                                     <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
@@ -125,7 +125,7 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=Palm_Receiving_App_Design ">Palm Common Connectivity Application</a>
+                                        <a href="?t=development&amp;c=Palm_Receiving_App_Design ">Palm Receiving Application</a>
                                     </td>
                                     <td class="projectCells" align="right">$1200 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$400 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
