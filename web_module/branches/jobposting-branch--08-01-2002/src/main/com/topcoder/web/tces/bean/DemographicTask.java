@@ -187,9 +187,9 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                       : (ResultSetContainer) resultMap.get("TCES_Campaign_Coders_By_Type");
             ResultSetContainer.ResultSetRow coderCountRow = rsc.getRow(0);
             if (types[typeI]==TCESConstants.STUDENT_CODER_TYPE)
-                setStudentCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
+                setStudentCoderCount( coderCountRow.getItem("coder_type_count").toString() );
             else if (types[typeI]==TCESConstants.PRO_CODER_TYPE)
-                setProCoderCount( ((Integer)coderCountRow.getItem("coder_type_count").getResultData()).intValue() );
+                setProCoderCount( coderCountRow.getItem("coder_type_count").toString() );
 
             HashMap demoInfoMap = new HashMap();
 
