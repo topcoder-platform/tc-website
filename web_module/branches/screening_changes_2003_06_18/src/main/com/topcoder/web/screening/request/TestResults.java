@@ -50,7 +50,9 @@ public class TestResults extends BaseProcessor {
         ResultSetContainer result = (ResultSetContainer)map.get("sessionInfo");
         TestResultsInfo tinfo = new TestResultsInfo();
         ProfileInfo pinfo = new ProfileInfo();
-        pinfo.setTestSetA(new Long(Constants.NO_TEST_SET_A));
+        if (result.isEmpty()) {
+            pinfo.setTestSetA(new Long(Constants.NO_TEST_SET_A));
+        }
         if (pinfo.hasTestSetA()) {
             String roundId = result.getItem(0,"contest_round_id").toString();
             String divisionId = result.getItem(0,"contest_division_id").toString();

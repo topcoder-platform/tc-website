@@ -54,9 +54,9 @@
                   </tr>
                   <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
                   <query:queryInputIterator id="queryInput" list="<%=ModifyQueryInput.getCurrentInputList()%>">
-                    <tr><td class="errorText" colspan="7"><query:error id="err" key="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>"><%=err%></query:error></td></tr>
-                    <tr><td class="errorText" colspan="7"><query:error id="err" key="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>"><%=err%></query:error></td></tr>
-                    <tr><td class="errorText" colspan="7"><query:error id="err" key="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>"><%=err%></query:error></td></tr>
+                    <tr><td class="errorText" colspan="7"><query:error id="err" name="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>"><%=err%></query:error></td></tr>
+                    <tr><td class="errorText" colspan="7"><query:error id="err" name="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>"><%=err%></query:error></td></tr>
+                    <tr><td class="errorText" colspan="7"><query:error id="err" name="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>"><%=err%></query:error></td></tr>
                     <tr>
                       <td class="statTextBig">
                         <A href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyQueryInput" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<jsp:getProperty name="queryInput" property="InputId"/>" class="statText">

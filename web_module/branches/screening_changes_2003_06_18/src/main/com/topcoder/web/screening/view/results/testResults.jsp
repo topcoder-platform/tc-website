@@ -97,6 +97,7 @@ function getProblemDetail(id) {
             </table>
 
         <p></p>
+        <% boolean even = false; %>
         <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <tr>
@@ -115,7 +116,6 @@ function getProblemDetail(id) {
 		       <td width="11%" align="center" class="testFormHeader">&#160;</td>
                 </tr>
 	        
-                <% boolean even = false; %>
                 <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetAResults()%>">
                     <%
                      String prparam = Constants.SESSION_ID + '=' + testResultsInfo.getSessionId() + '&' +
