@@ -10,7 +10,7 @@
         <reference-descriptor>
             <resource-description>
                 <res-ref-name>datasource</res-ref-name>
-                <jndi-name>COMMON_OLTP</jndi-name>
+                <jndi-name>SCREENING_OLTP</jndi-name>
             </resource-description>
         </reference-descriptor>
         <jndi-name>com.topcoder.web.ejb.email.EmailHome</jndi-name>
