@@ -128,7 +128,7 @@ li {
 
 			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr valign="top">
-					<td width="100%" background="/i/steel_darkblue_bg.gif"><a name="collaboration"></a>
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
 						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
 							<tr valign="top">
 								<td class="statText" width="100%">
@@ -138,6 +138,24 @@ li {
 										<li>Component Specification</li>
 										<li>Test Cases</li>
 										<li>UML project created with Poseidon UML Community Edition version 1.5 from <a class="statText" href="http://www.gentleware.com" target="_new">Gentleware</a></li>
+									</ul></p></td>
+							</tr>
+						</table></td>
+				</tr>
+			</table>
+			
+			<table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+				<tr valign="top">
+					<td width="100%" background="/i/steel_darkblue_bg.gif">
+						<table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#333333">
+							<tr valign="top">
+								<td class="statText" width="100%">
+									<p><strong>Sample Development Submission</strong><br />
+									This is the <a href="/i/development/downloads/devsubmission-sample.jar" class="statText">winning development submission</a> from <a href="/stat?c=member_profile&amp;cr=281876" class="coderTextGreen">garyk</a> for the Timer component. It should only be used as a guide for creating a development submission. Contents of this submission include:
+									<ul>
+										<li>Compilable Source Code</li>
+										<li>Unit Test Cases: Developer's should submit unit test cases called from the UnitTests.java and placed in the base package test directory.</li>
+										<li>Deployment Guide</li>
 									</ul></p></td>
 							</tr>
 						</table></td>
