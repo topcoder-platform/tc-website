@@ -23,6 +23,10 @@
   <table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
          <td>
+            <p class="bodyText">
+            Country rankings are based on an aggregation of the TopCoder members within in a particular
+            country that have competed within the last 180 days, in other words, those that are "active".
+            </p>
 
             <p class="bodyText">
             The formula below has the property that if all the coders from a particular country have
@@ -42,8 +46,7 @@
 
             <p class="bodyText">Where:
             <br/>
-            <b><i>M</i></b> is the number of coders from a particular
-            country that have competed within the last 180 days
+            <b><i>M</i></b> is the number of active coders from a particular country
             <br/>
             <b><i>i</i></b> is a 1 based index of active coders from a
             particular country when sorted by rating in descending order, in other words,
