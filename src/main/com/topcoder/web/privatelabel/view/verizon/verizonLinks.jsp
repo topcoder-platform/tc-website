@@ -4,6 +4,14 @@
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
 %>
 
+<script>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=no,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</script>
+
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
         <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
