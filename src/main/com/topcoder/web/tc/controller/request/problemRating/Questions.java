@@ -3,7 +3,7 @@ package com.topcoder.web.tc.controller.request.problemRating;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.web.tc.model.ProblemRatingResult;
+import com.topcoder.web.tc.model.ProblemRatingQuestion;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -30,8 +30,15 @@ public class Questions extends Base {
                 setIsNextPageInContext(true);
                 return;
             }
-            ResultSetContainer questions = (ResultSetContainer) qMap.get("problem rating questions");
+            ResultSetContainer questionRSC = (ResultSetContainer) qMap.get("problem rating questions");
             ResultSetContainer problemName = (ResultSetContainer) qMap.get("problem name");
+            Iterator it = questionRSC.iterator();
+            List questions = new ArrayList(10);
+            for(ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next(); it.hasNext(); row = (ResultSetContainer.ResultSetRow)it.next()){
+                ProblemRatingQuestion prq = new ProblemRatingQuestion();
+                prq.setQuestion(row.getStringItem("question"));
+                prq.setID(row.getIntItem("question_id"));
+            }
             getRequest().setAttribute("problemRatingQuestions",questions);
             getRequest().setAttribute("problemName",problemName.getRow(0).getStringItem("name"));
             setNextPage(Constants.PROBLEM_RATING_QUESTIONS);

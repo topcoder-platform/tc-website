@@ -68,6 +68,19 @@
         </attribute>
     </tag>
 
+    <tag>
+        <name>problemRatingInput</name>
+        <tagclass>com.topcoder.web.tc.view.tag.ProblemRatingInput</tagclass>
+        <teiclass>com.topcoder.web.tc.view.tag.ProblemRatingTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
+        <info></info>
+        <attribute>
+            <name>question</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
+
    <tag>
         <name>ratingStyle</name>
         <tagclass>com.topcoder.web.common.tag.RatingStyleTag</tagclass>
