@@ -44,9 +44,10 @@ public class ServerMonitorBot {
 
                 Process p = r.exec(callAndArgs);
                 p.waitFor();
+                
+                String ret = getData(p.getErrorStream());
                 p.destroy();
 
-                String ret = getData(p.getErrorStream());
 
                 System.out.println("1:" + ret);
                 System.out.println(p.exitValue());
