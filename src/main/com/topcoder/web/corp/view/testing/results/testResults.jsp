@@ -88,32 +88,10 @@ if ( plugin ) {
                         <strong>Candidate:</strong> <screen:servletLink processor="PopulateCandidate" param="<%=params%>"><jsp:getProperty name="candidateInfo" property="userName"/></screen:servletLink>
                        </td>
 	        </tr>
-	        
+                <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
 	        <tr>
                     <td class="bodyText">
-                        <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
-                    </td>
-                </tr>
-            <% if (profileInfo.hasTestSetA()) { %>
-                <tr>
-                    <td class="bodyText">
-                        <strong>Problem Set:</strong> <jsp:getProperty name='profileInfo' property='testSetAName'/>
-                    </td>
-	        </tr>
-            <% } %>
-                <tr>
-                    <td class="bodyText">
-                        <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
-                    </td>
-	        </tr>
-                <tr>
-                    <td class="bodyText">
-                        <strong>End:</strong> <screen:beanWrite name='testSessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
-                    </td>
-	        </tr>
-	        <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
-	        <tr>
-                    <td class="bodyText">
+                        <strong>Preference Level:</strong> 
                         <SCRIPT language="JavaScript">
                         <!--
                         if ( MM_FlashCanPlay ) {
@@ -149,7 +127,29 @@ if ( plugin ) {
                         </SCRIPT>
                     </td>
 	        </tr>
-	        <% } %>
+	        <% } %>	        
+	        <tr>
+                    <td class="bodyText">
+                        <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
+                    </td>
+                </tr>
+            <% if (profileInfo.hasTestSetA()) { %>
+                <tr>
+                    <td class="bodyText">
+                        <strong>Problem Set:</strong> <jsp:getProperty name='profileInfo' property='testSetAName'/>
+                    </td>
+	        </tr>
+            <% } %>
+                <tr>
+                    <td class="bodyText">
+                        <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
+                    </td>
+	        </tr>
+                <tr>
+                    <td class="bodyText">
+                        <strong>End:</strong> <screen:beanWrite name='testSessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
+                    </td>
+	        </tr>
 	    </table>
    <% if(testResultsInfo.isSessionComplete()) { %>
 

@@ -62,7 +62,46 @@
                         <strong>Candidate:</strong> <jsp:getProperty name="candidateInfo" property="userName"/>
                        </td>
 	        </tr>
-
+<%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+	        <tr>
+                    <td class="bodyText">
+                        <strong>Preference Level:</strong> 
+                        <SCRIPT language="JavaScript">
+                        <!--
+                        if ( MM_FlashCanPlay ) {
+                            document.write(' <object ');
+                            document.write(' classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" ');
+                            document.write(' codebase="http://fpdownload.macromedia.com" ');
+                            document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
+                            document.write(' width="80" ');
+                            document.write(' height="12" ');
+                            document.write(' id="tc_card" ');
+                            document.write(' align="middle">');
+                            document.write(' <param name="allowScriptAccess" value="sameDomain" />');
+                            document.write(' <param name="movie" ');
+                            document.write(' value="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>"/>');
+                            document.write(' <param name="menu" value="false" />');
+                            document.write(' <param name="quality" value="high" />');
+                            document.write(' <param name="bgcolor" value="#ffffff" />');
+                            document.write(' <embed ');
+                            document.write(' src="/i/corp/screeningRatingEven.swf?preference=<jsp:getProperty name="candidateInfo" property="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<jsp:getProperty name="candidateInfo" property="userId"/>" ');
+                            document.write(' menu="false" ');
+                            document.write(' quality="high" ');
+                            document.write(' bgcolor="#ffffff" ');
+                            document.write(' width="80" ');
+                            document.write(' height="12" ');
+                            document.write(' name="tc_card" ');
+                            document.write(' align="middle" ');
+                            document.write(' allowScriptAccess="sameDomain" ');
+                            document.write(' type="application/x-shockwave-flash" ');
+                            document.write(' pluginspage="http://www.macromedia.com/go/getflashplayer" /> ');
+                            document.write(' </object> ');
+                        }
+                        // -->
+                        </SCRIPT>
+                    </td>
+	        </tr>
+	        <% } %>	 
 	        <tr>
                     <td class="bodyText">
                         <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
