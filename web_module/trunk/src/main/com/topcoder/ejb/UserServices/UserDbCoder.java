@@ -116,7 +116,8 @@ final class UserDbCoder {
             coder.getCoderReferral().setCoderId(coder.getCoderId());
             insertCoderReferral(conn, coder.getCoderReferral());
             coder.getCurrentSchool().setUserId(coder.getCoderId());
-            insertCurrentSchool(conn, coder.getCurrentSchool());
+            if (coder.getCoderType().getCoderTypeId()==1) //if they're a student
+                insertCurrentSchool(conn, coder.getCurrentSchool());
             demographicResponses = coder.getDemographicResponses();
 //            coderConfirmations = coder.getCoderConfirmations();
             HashSet qIdsForCoderType = getDemographicQuestionIds(conn, coder.getCoderType().getCoderTypeId());
@@ -568,7 +569,8 @@ final class UserDbCoder {
 */
                 updateCoderNotify(conn, coder);
                 updateCoderReferral(conn, coder.getCoderReferral());
-                updateCurrentSchool(conn, coder.getCurrentSchool());
+                if (coder.getCoderType().getCoderTypeId()==1) //if they're a student
+                    updateCurrentSchool(conn, coder.getCurrentSchool());
                 ArrayList demographicResponses = coder.getDemographicResponses();
                 updateDemographicResponses(conn, coder.getCoderType().getCoderTypeId(), demographicResponses);
 //                updateCoderConfirmations(conn, coder.getCoderConfirmations());
@@ -1097,7 +1099,8 @@ final class UserDbCoder {
                 loadRating(conn, coder);
                 loadRanking(coder);
                 loadDemographicResponses(conn, coder);
-                loadCurrentSchool(conn, coder);
+                if (coder.getCoderType().getCoderTypeId()==1) //if they're a student
+                    loadCurrentSchool(conn, coder);
 //                loadCoderConfirmations(conn, coder);
                 Coder tempCoder = (Coder)user.getUserTypeDetails().get("Coder");
                 log.debug("loaded coder " + tempCoder.getFirstName() + " " + tempCoder.getLastName());
