@@ -15,17 +15,15 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * User: dok
- * Date: Nov 18, 2004
- * Time: 3:28:26 PM
+ * User: lars
  */
-public class Legacy extends Base {
+public class ProfileSearch extends Base {
 
     protected void businessProcessing() throws TCWebException {
         log.debug("process called....");
         try {
             if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
-                response_addr = Constants.REPORT_PROFILE_SEARCH_RESULTS_ADDR;
+                String response_addr = Constants.REPORT_PROFILE_SEARCH_RESULTS_ADDR;
                 Map m = parseQueryString(getRequest());
                 getRequest().setAttribute("XYZ",m);
                 setNextPage(Constants.JSP_ADDR + response_addr);
@@ -46,7 +44,6 @@ public class Legacy extends Base {
     private Map parseQueryString(TCRequest request) {
         log.debug("parseQueryString called...");
         Enumeration e = null;
-        String param = null;
         String[] values = null;
         Map m = null;
 
@@ -56,7 +53,7 @@ public class Legacy extends Base {
         while (e.hasMoreElements()) {
             param = (String) e.nextElement();
             values = request.getParameterValues(param);
-            if (value != null && value.length > 0) {
+            if (values != null && values.length > 0) {
                 m.put(param, request.getParameter(param));
             }
         }
