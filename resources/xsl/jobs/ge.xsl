@@ -161,13 +161,13 @@
 <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
 
 <TR>
-<TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&nbsp;Great Jobs at Google</B></TD>
+<TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Great Jobs at GE</B></TD>
 </TR>
 
 <TR>
 <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">
-&nbsp;&nbsp;<A CLASS="bodyText" HREF="/?t=jobs&c=ge" TARGET="_blank">Jobs</A>&nbsp;|&nbsp;
-<A TARGET="_blank" CLASS="bodyText" HREF="/?t=jobs&c=ge_faq" TARGET="_blank">GE IMLP FAQ</A>&nbsp;|&nbsp;
+&#160;&#160;<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge">Jobs</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_faq">GE IMLP FAQ</A>&#160;|&#160;
 </TD>
 </TR>
 
@@ -212,7 +212,7 @@
 
 <P>If you are interested in IMLP or an IMLP internship apply below"</P>
 
-<A HREF="http://www.gecareers.com/campus/filled.cfm?FilledDate=September%202"><IMG SRC="/i/es/ge/ge_apply_btn.gif" WIDTH="51" HEIGHT="28" ALT="Apply" BORDER="0"/></A>
+<P><B><A HREF="http://www.gecareers.com/campus/filled.cfm?FilledDate=September%202">Apply</A></B></P>
 
 
 <!--end contextual links-->

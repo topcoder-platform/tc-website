@@ -161,17 +161,18 @@
 <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
 
 <TR>
-<TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText">&nbsp;&nbsp;<B>Great Jobs at Google</B></TD>
+<TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Great Jobs at GE</B></TD>
 </TR>
 
 <TR>
 <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">
-&nbsp;&nbsp;<A CLASS="bodyText" HREF="/?t=jobs&c=ge" TARGET="_blank">Jobs</A>&nbsp;|&nbsp;
-<A TARGET="_blank" CLASS="bodyText" HREF="/?t=jobs&c=ge_faq" TARGET="_blank">GE IMLP FAQ</A>&nbsp;|&nbsp;
+&#160;&#160;<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge">Jobs</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?t=jobs&amp;c=ge_faq">GE IMLP FAQ</A>&#160;|&#160;
 </TD>
 </TR>
 
 </TABLE>
+
 
 <IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="39" HEIGHT="41" ALT="" BORDER="0"/>
 
