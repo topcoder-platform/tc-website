@@ -25,7 +25,7 @@
 <!-- TC Round Tables begins -->
                 <tr>
                     <td id="<%=level2.equals("tcRoundtables")?"leftNavOn":"leftNav"%>">
-                        <img src="images/nav_arrow_<%=level2.equals("tcRoundtables")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=157655&mc=239" class="<%=level2.equals("tcRoundtables")?"leftOn":"left"%>">TC Developer Round Tables</a>
+                        <img src="images/nav_arrow_<%=level2.equals("tcRoundtables")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="http://www.topcoder.com/rtables/viewForum.jsp?forum=205768&mc=239" class="<%=level2.equals("tcRoundtables")?"leftOn":"left"%>">TC Developer Round Tables</a>
                     </td>
                 </tr>
 
