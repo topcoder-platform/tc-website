@@ -56,10 +56,10 @@
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_start"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_end"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="agg_review_start"/></td>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="agg_review_end"/></td>
+                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
+                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
+                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="agg_review_start" format="MM.dd.yyyy"/></td>
+                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="agg_review_end" format="MM.dd.yyyy"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
                     </tr>
                 </rsc:iterator>
