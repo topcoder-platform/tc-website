@@ -6,8 +6,11 @@
 <html>
 <head>
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+
 <jsp:include page="/script.jsp">
-<SCRIPT TYPE="text/javascript"><!--
+
+<script type="text/javascript" language="Javascript">
+<!--
 function showEmail() {
     var width = screen.availWidth * 2 / 3;
     var height = screen.availHeight / 2;
@@ -43,7 +46,7 @@ function submitSession() {
     document.sessionSetupForm.rp.value="<%=Constants.CONFIRM_SESSION_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
-//--></SCRIPT>
+//--></script>
 </head>
 
 <body>
