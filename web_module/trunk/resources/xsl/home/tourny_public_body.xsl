@@ -109,9 +109,10 @@
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
-	<P><IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
-	<A HREF="/index?t=news_events&amp;c=feat_050802" CLASS="bodyGeneric"><B>Headline here</B></A><BR/>
-	<I>Subhead here</I><BR/><BR/>
+<!-- <IMG SRC="/i/f/feat_050102_tn2.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/> -->   
+	<P>
+	<A HREF="/index?t=news_events&amp;c=feat_050802" CLASS="bodyGeneric"><B>Working Their Way Up</B></A><BR/>
+	<I>A LooK at Division-II Veterans and Their Dedication to Coding</I><BR/><BR/>
 	Wednesday, May 8, 2002<BR/>
 	By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 	</P>
