@@ -81,7 +81,7 @@ public class CachedDataAccess implements DataAccessInt {
             try {
                 map = (Map) (CacheClientPool.getPool().getClient().get(key));
             } catch (Exception e) {
-                System.out.println("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
+                log.error("UNABLE TO ESTABLISH A CONNECTION TO THE CACHE: " + e.getMessage());
                 cached = false;
             }
             /* if it was not found in the cache */
@@ -95,7 +95,7 @@ public class CachedDataAccess implements DataAccessInt {
                 try {
                     CacheClientPool.getPool().getClient().set(key, map, expireTime);
                 } catch (Exception e) {
-                    System.out.println("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
+                    log.error("UNABLE TO INSERT INTO CACHE: " + e.getMessage());
                 }
             }
             return map;
