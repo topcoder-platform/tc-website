@@ -1,16 +1,13 @@
 package com.topcoder.web.test;
 
 import com.topcoder.shared.security.*;
+import com.topcoder.web.common.security.*;
 
 /**
  * @author Misha
  *
- * To change this generated comment edit the template variable "typecomment":
- * Window>Preferences>Java>Templates.
- * To enable and disable the creation of type comments go to
- * Window>Preferences>Java>Code Generation.
  */
-public class AuthenticationHelper implements Authentication {
+public class AuthenticationHelper implements WebAuthentication {
 	
 	public User myUser=null;
 
@@ -42,6 +39,13 @@ public class AuthenticationHelper implements Authentication {
      * @return A User object representing the current user.
      */    
     public User getUser(){
+    	return myUser;
+    }    
+    /**
+     * Gets the current user's information.
+     * @return A User object representing the current user.
+     */    
+    public User getActiveUser(){
     	return myUser;
     }    
 }

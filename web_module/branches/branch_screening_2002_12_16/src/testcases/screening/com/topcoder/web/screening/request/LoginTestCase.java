@@ -8,6 +8,7 @@ import com.topcoder.web.common.security.*;
 import com.topcoder.web.test.*;
 import com.topcoder.web.test.wsf.*;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.common.security.*;
 
 import org.apache.log4j.*;
 // imports for HTTP testing

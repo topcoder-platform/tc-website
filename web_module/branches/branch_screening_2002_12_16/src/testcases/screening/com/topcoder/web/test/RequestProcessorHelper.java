@@ -3,6 +3,8 @@ package com.topcoder.web.test;
 import com.topcoder.shared.security.Authentication;
 import com.topcoder.web.common.RequestProcessor;
 import javax.servlet.*;
+import com.topcoder.web.common.security.*;
+
 
 /**
  * Helper class implementing RequestProcessor interface for
@@ -47,7 +49,7 @@ public class RequestProcessorHelper implements RequestProcessor {
     /** Sets the authentication object that will be used.
      * @param sr The Authentication object to be used.
      */    
-    public void setAuthentication(Authentication auth) {
+    public void setAuthentication(WebAuthentication auth) {
         // do nothing
     }   
 }
