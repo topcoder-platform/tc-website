@@ -292,6 +292,74 @@
   </init-param>
 
   <init-param>
+    <param-name>login_name</param-name>
+    <param-value>Login</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>db_selection_name</param-name>
+    <param-value>DB Selection</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>command_list_name</param-name>
+    <param-value>Command List</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>command_detail_name</param-name>
+    <param-value>Command Detail</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>query_detail_name</param-name>
+    <param-value>Query Detail</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>modify_group_name</param-name>
+    <param-value>Command Group Edit</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>modify_command_name</param-name>
+    <param-value>Command Edit</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>modify_query_name</param-name>
+    <param-value>Query Edit</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>modify_query_input_name</param-name>
+    <param-value>Query Input Associations Edit</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>modify_input_name</param-name>
+    <param-value>Input Edit</param-value>
+    <description></description>
+  </init-param>
+
+  <init-param>
+    <param-name>modify_command_query_name</param-name>
+    <param-value>Command Query Associations Edit</param-value>
+    <description></description>
+  </init-param>
+
+
+
+  <init-param>
     <param-name>new_step</param-name>
     <param-value>new</param-value>
     <description></description>

@@ -57,6 +57,18 @@ public class Constants {
     public static String MODIFY_QUERY_INPUT_TASK;
     public static String MODIFY_INPUT_TASK;
 
+    public static String LOGIN_NAME;
+    public static String DB_SELECTION_NAME;
+    public static String COMMAND_LIST_NAME;
+    public static String COMMAND_DETAIL_NAME;
+    public static String QUERY_DETAIL_NAME;
+    public static String MODIFY_GROUP_NAME;
+    public static String MODIFY_COMMAND_NAME;
+    public static String MODIFY_QUERY_NAME;
+    public static String MODIFY_QUERY_INPUT_NAME;
+    public static String MODIFY_INPUT_NAME;
+    public static String MODIFY_COMMAND_QUERY_NAME;
+
     public static String NEW_STEP;
     public static String SAVE_STEP;
     public static String REMOVE_STEP;
@@ -119,6 +131,18 @@ public class Constants {
         MODIFY_QUERY_TASK = servletConfig.getInitParameter("modify_query_task");
         MODIFY_QUERY_INPUT_TASK = servletConfig.getInitParameter("modify_query_input_task");
         MODIFY_INPUT_TASK = servletConfig.getInitParameter("modify_input_task");
+
+        LOGIN_NAME = servletConfig.getInitParameter("login_name");
+        DB_SELECTION_NAME = servletConfig.getInitParameter("db_selection_name");
+        COMMAND_LIST_NAME = servletConfig.getInitParameter("command_list_name");
+        COMMAND_DETAIL_NAME = servletConfig.getInitParameter("command_detail_name");
+        QUERY_DETAIL_NAME = servletConfig.getInitParameter("query_detail_name");
+        MODIFY_GROUP_NAME = servletConfig.getInitParameter("modify_group_name");
+        MODIFY_COMMAND_NAME = servletConfig.getInitParameter("modify_command_name");
+        MODIFY_QUERY_NAME = servletConfig.getInitParameter("modify_query_name");
+        MODIFY_QUERY_INPUT_NAME = servletConfig.getInitParameter("modify_query_input_name");
+        MODIFY_INPUT_NAME = servletConfig.getInitParameter("modify_input_name");
+        MODIFY_COMMAND_QUERY_NAME = servletConfig.getInitParameter("modify_command_query_name");
 
         NEW_STEP = servletConfig.getInitParameter("new_step");
         SAVE_STEP = servletConfig.getInitParameter("save_step");

@@ -29,6 +29,25 @@
     </attribute>
   </tag>
 
+  <tag>
+    <name>linkIterator</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.LinkIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.LinkIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a List of link items
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
 
   <tag>
     <name>resultSetRowIterator</name>
