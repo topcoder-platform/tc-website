@@ -19,13 +19,6 @@ public class DBSelection extends BaseProcessor {
         super();
     }
 
-
-	protected void baseProcessing() throws Exception {
-        if (userIdentified()) {
-            throw new AuthenticationException("User not authenticated for access to query tool resource.");
-        }
- 	}
-
     protected void businessProcessing() throws Exception {
         super.setNextPage(Constants.DB_SELECTION_PAGE);
     }
