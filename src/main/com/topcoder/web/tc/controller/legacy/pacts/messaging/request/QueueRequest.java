@@ -42,7 +42,7 @@ public class QueueRequest {
      *
      * @param queueType       Name of the queue to listen on.
      */
-    QueueRequest(String queueType) throws Exception {
+    public QueueRequest(String queueType) throws Exception {
         this.queueType = queueType;
 
         mh = MessageHandlerFactory.getMessageHandler(queueType);
@@ -177,8 +177,8 @@ public class QueueRequest {
      * @params args[0]      Queue type to initialize
      */
     public static void main(String args[]) throws Exception {
-        if (args.length != 2) {
-            System.out.println("USAGE: java services.message.QueueRequest 'queue' 'id'");
+        if (args.length != 1) {
+            System.out.println("USAGE: java services.message.QueueRequest 'queue'");
             System.exit(1);
         }
 
