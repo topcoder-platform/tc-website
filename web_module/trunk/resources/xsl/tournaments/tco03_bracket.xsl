@@ -25,14 +25,6 @@
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
-<script>
-function openWin(url, name, w, h) {
-    win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
-    win.location.href = url;
-    win.focus();
-}
-</script>
-
 </head>
 
 <body onLoad="timer(1);">
@@ -84,203 +76,40 @@ function openWin(url, name, w, h) {
             
             <table width="500" align="center" border="0" cellpadding="5" cellspacing="0" class="formFrame">
                <tr>
-                  <td width = "28%" align = "right" class="advancers_header"><A class="statTextBig" href="/">Seed</A></td>
-                  <td width = "28%" align = "left" class="advancers_header"><A class="statTextBig" href="/">Handle</A></td>
-                  <td width = "28%" align = "right" class="advancers_header"><A class="statTextBig" href="/">Rating</A></td>
-                  <td width = "12%" align = "center" class="advancers_header"><A class="statTextBig" href="/">Round 1</A></td>
-                  <td width = "12%" align = "center" class="advancers_header"><A class="statTextBig" href="/">Round 2</A></td>
-                  <td width = "12%" align = "center" class="advancers_header"><A class="statTextBig" href="/">Round 3</A></td>
-                  <td width = "12%" align = "center" class="advancers_header"><A class="statTextBig" href="/">Round 4</A></td>
-                  <td width = "12%" align = "center" class="advancers_header"><A class="statTextBig" href="/">Semifinals</A></td>
-                  <td width = "12%" align = "center" class="advancers_header"><A class="statTextBig" href="/">Finals</A></td>
+                  <td width = "28%" align = "right" class="advancers_header">
+                      <a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=seed&amp;sdir=asc">Seed</a>
+                  </td>
+                  <td width = "28%" align = "left" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=handle&amp;sdir=asc">Handle</a></td>
+                  <td width = "28%" align = "right" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=rating&amp;sdir=asc">Rating</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round1&amp;sdir=asc">Round 1</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round2&amp;sdir=asc">Round 2</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round3&amp;sdir=asc">Round 3</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=round4&amp;sdir=asc">Round 4</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=semi&amp;sdir=asc">Semi</a></td>
+                  <td width = "12%" align = "center" class="advancers_header"><a class="statTextBig" href="/?&amp;t=tournaments&amp;c=tco03_bracket&amp;sc=final&amp;sdir=asc">Final</a></td>
                </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">2</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">John Dethridge</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">champion</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">1</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">SnapDragon</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">3</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">moira</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">4</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">dgarthur</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">somedude</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">somedude</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
-               <tr>
-                  <td align = "right" class="advancers_list">10</td>
-                  <td align = "left" class="advancers_list"><A class="coderTextRed">andSoOn</A></td>
-                  <td align = "right" class="advancers_list">3359</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong">advanced</td>
-                  <td class="advancers_strong"><font color="#FF0000">eliminated</font></td>
-                  <td class="advancers_strong">&#160;</td>
-                  <td class="advancers_strong">&#160;</td>
-               </tr>
+               <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
+                   <tr>
+                      <td align = "right" class="advancers_list"><xsl:value-of select="seed"/></td>
+                      <td align = "left" class="advancers_list">
+                           <a>
+                                    <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
+                                    <xsl:attribute name="CLASS">
+                                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                                      </xsl:attribute>
+                                      <xsl:value-of select="handle"/>
+                                  </a>
+                      </td>
+                      <td align = "right" class="advancers_list"><xsl:value-of select="rating"/></td>
+                      <td class="advancers_strong"><xsl:value-of select="round1"/></td>
+                      <td class="advancers_strong"><xsl:value-of select="round2"/></td>
+                      <td class="advancers_strong"><xsl:value-of select="round3"/></td>
+                      <td class="advancers_strong"><xsl:value-of select="round4"/></td>
+                      <td class="advancers_strong"><xsl:value-of select="semi"/></td>
+                      <td class="advancers_strong"><xsl:value-of select="final"/></td>
+                   </tr>
+                </xsl:for-each>
+
             </table>
             <br/><br/>
             
