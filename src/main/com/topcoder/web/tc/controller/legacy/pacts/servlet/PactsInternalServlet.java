@@ -1526,8 +1526,8 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
         }
     }
 
-    private void doLogout(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        log.debug("doLogout<br>");
+    private void doLogout(HttpServletRequest request, HttpServletResponse response) {
+        log.debug("doLogout");
         HttpSession session = request.getSession(true);
         session.setAttribute(NAV_OBJECT_ATTR, null);
         forward(LOGIN_URL, request, response);
@@ -1685,7 +1685,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchUsers(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    private void doSearchUsers(HttpServletRequest request, HttpServletResponse response) {
         log.debug("doSearchUsers<br>");
 
         forward(INTERNAL_SEARCH_USERS_JSP, request, response);
@@ -2169,10 +2169,9 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
     private void doAddNotePost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         log.debug("doAddNotePost<br>");
 
-        HttpSession session = request.getSession(true);
-        Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
-
-        long user_id = nav.getUserId();
+        WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
+                HttpObjectFactory.createResponse(response));
+        long user_id = auth.getActiveUser().getId();
 
         Note n = new Note(
                 request.getParameter("text"),
@@ -2447,11 +2446,10 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
     private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
-            HttpSession session = request.getSession(true);
+            WebAuthentication auth = createAuthentication(HttpObjectFactory.createRequest(request),
+                    HttpObjectFactory.createResponse(response));
 
-            Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
-
-            long userId = nav.getUserId();
+            long userId = auth.getActiveUser().getId();
 
             log.debug("doPaymentStatus<br>");
 
