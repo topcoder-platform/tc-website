@@ -243,7 +243,7 @@ public class ReliabilityRating {
             if(num_components == 0)
                 return 1;
             else
-                return successful / num_components;
+                return (double)successful / (double)num_components;
         }
     }
 }
