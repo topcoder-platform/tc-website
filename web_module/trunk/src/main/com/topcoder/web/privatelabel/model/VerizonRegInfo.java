@@ -2,6 +2,7 @@ package com.topcoder.web.privatelabel.model;
 
 public class VerizonRegInfo extends FullRegInfo {
     private boolean isRegFull;
+    private boolean isEligible;
 
     public VerizonRegInfo() {
         super();
@@ -21,4 +22,12 @@ public class VerizonRegInfo extends FullRegInfo {
         isRegFull = regFull;
     }
 
+
+    public boolean isEligible() {
+        return isEligible;
+    }
+
+    public void setEligible(boolean eligible) {
+        isEligible = eligible;
+    }
 }
