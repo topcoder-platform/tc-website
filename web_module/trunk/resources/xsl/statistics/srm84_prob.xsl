@@ -90,13 +90,13 @@ April 30, 2002</P>
 <P>Div 1 - 250 - ChatParser<BR/>
 There was nothing tricky about this problem.  All you had to do was scan the string, and remove the patterns as necessary. There were a few approaches to this. 
 The most common was probably to scan the string from left to right, and if an eye is found, then check the next characters to see they match a face. 
-If they do, then just remove it and check again from the same position.  The highest scoring approach was that of <A HREF="/?stats&amp;c=last_match" CLASS="bodyGeneric">SnapDragon</A>.</P>
+If they do, then just remove it and check again from the same position.  The highest scoring approach was that of <A HREF="/?stat&amp;c=last_match" CLASS="bodyGeneric">SnapDragon</A>.</P>
 
 <P>Div 1 - 600 - VirtualMachine<BR/>
 This problem was pretty simple, in that it didn't require knowledge of any particular algorithms. However, it was a bit of code, and there were some opportunities to make mistakes. 
 The basic approach is simple, you just have a loop that increments your PC at each iteration and in the loop you have a bunch of else-if statements to perform all of the various 
 operations.  There were a couple special cases that you have to handle - overflow and memory access out of bounds - but these were simple to check.  All in all it was a pretty 
-easy problem, and all that it took was care and time.  See <A HREF="/?stats&amp;c=last_match" CLASS="bodyGeneric">NDBronson's</A> solution for the fastest submission of this problem.</P>
+easy problem, and all that it took was care and time.  See <A HREF="/?stat&amp;c=last_match" CLASS="bodyGeneric">NDBronson's</A> solution for the fastest submission of this problem.</P>
 
 <P>Div 1 - 900 - FillRate<BR/>
 If the image is valid (the return is not -1) then it is very simple to find the minimum number of pixels required. For each color that is in the picture, you find the smallest 
@@ -107,7 +107,7 @@ areas of all these rectangles.</P>
 The second is that there are no sets of colors where A is on top of B is on top of C is É on top of A.  Determining this is exactly analogous to finding loops in a graph. 
 Directed edges in the graph are constructed from every color to every other color that it must be on top of (have at least one pixel within a particular color's bounding rectangle). 
 Once all of the edges are constructed, there are a number of ways to find loops.  The fastest to code is probably the a variant of the Floyd-Warshall algorithm 
-(see <A HREF="/?stats&amp;c=last_match" CLASS="bodyGeneric">John Dethridge's</A> solution for an example).  If a path is found from a pixel to itself, then there is a loop in the 
+(see <A HREF="/?stat&amp;c=last_match" CLASS="bodyGeneric">John Dethridge's</A> solution for an example).  If a path is found from a pixel to itself, then there is a loop in the 
 graph, and hence the picture is not valid.</P>
 <!--<P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
 <TR>
