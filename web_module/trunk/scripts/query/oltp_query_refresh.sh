@@ -1137,7 +1137,7 @@ order by 1
 
 java com.topcoder.utilities.QueryLoader "OLTP" 88 "Invitational Sign Up List" 0 0 "
 select
-  email, handle
+  email AS email_address, handle
 from
   coder c,
   user u,
