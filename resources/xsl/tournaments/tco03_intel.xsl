@@ -93,8 +93,8 @@ function openWin(url, name, w, h) {
                         <p><strong>Remember to use promotion code <font color="#CC0000"><strong>TCO2003</strong></font> and compete in the TopCoder Open for a chance to win an Intel&#174; Centrino&#8482; 
                         mobile technology-based notebook!</strong></p>
                     
-<!--                        <p><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',545,655);">Official Drawing Rules</A> for Intel&#174; 
-                        Centrino&#8482; mobile technology-based notebook.</p> -->
+                        <p><A href="Javascript:openWin('?t=tournaments&#38;c=tco03_intel_rules','comp',545,655);">Official Drawing Rules</A> for Intel&#174; 
+                        Centrino&#8482; mobile technology-based notebook.</p>
                     
                         <p class="smallText">*Intel, the Intel Inside logo, Intel Centrino and the Intel Centrino logo are trademarks or registered trademarks of Intel Corporation or its subsidiaries in the United States and other countries.</p>
                     
