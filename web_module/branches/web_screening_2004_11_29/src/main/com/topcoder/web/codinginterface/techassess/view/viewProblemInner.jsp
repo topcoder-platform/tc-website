@@ -62,7 +62,7 @@
                           <td align=right>
                           Choose your language:
                           <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
-                            <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="<jsp:getProperty name="language" property="id"/>">&#160;<jsp:getProperty name="language" property="name"/>&#160;
+                            <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>"/>&#160;<jsp:getProperty name="language" property="name"/>&#160;
                           </tc-webtag:listIterator>
                           </td>
                        </tr>

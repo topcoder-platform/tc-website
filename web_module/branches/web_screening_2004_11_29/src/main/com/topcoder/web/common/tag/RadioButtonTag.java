@@ -17,11 +17,9 @@ public class RadioButtonTag extends BaseTag {
             if (selected==null) {
                 selected = getDefaultValue()==null?null:getDefaultValue().toString();
             }
-            if (value != null) {
-                boolean checked = value.equalsIgnoreCase(selected)||"true".equalsIgnoreCase(selected);
-                if (checked) {
-                    ret.append("checked=\"").append(value).append("\" ");
-                }
+            boolean checked = value.equalsIgnoreCase(selected)||"true".equalsIgnoreCase(selected);
+            if (checked) {
+                ret.append("checked=\"").append(value).append("\" ");
             }
             ret.append("/>");
             pageContext.getOut().print(ret.toString());
@@ -36,10 +34,6 @@ public class RadioButtonTag extends BaseTag {
      */
     public void setValue(String value) {
         this.value = value;
-    }
-
-    public void setValue(boolean value) {
-        this.value = new Boolean(value).toString();
     }
 
     public void setSelected(String selected) {

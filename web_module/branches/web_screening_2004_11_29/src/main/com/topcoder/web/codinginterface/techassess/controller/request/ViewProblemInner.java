@@ -1,6 +1,7 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 
 /**
  * User: dok
@@ -26,7 +27,9 @@ public class ViewProblemInner extends Base {
                 loadSessionErrorsIntoRequest(messageId);
                 if (hasDefault(Constants.PROBLEM)) {
                     getRequest().setAttribute(Constants.MESSAGE_ID, messageId);
-                    getRequest().setAttribute(Constants.PROBLEM, getDefault(Constants.PROBLEM));
+                    ProblemInfo problem = (ProblemInfo)getDefault(Constants.PROBLEM);
+                    getRequest().setAttribute(Constants.PROBLEM, problem);
+                    setDefault(Constants.LANGUAGE_ID, String.valueOf(problem.getLanguage().getId()));
                     setNextPage(Constants.PAGE_VIEW_PROBLEM_INNER);
                     setIsNextPageInContext(true);
                 //this logic is mostly for the case that they hit refresh
