@@ -120,7 +120,7 @@ public class Controller extends HttpServlet {
                 // process a task
                 Task task = null;
                 Class taskClass = null;
-                taskClass = Class.forName(TaskClassName);
+                taskClass = Class.forName(taskClassName);
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
 
