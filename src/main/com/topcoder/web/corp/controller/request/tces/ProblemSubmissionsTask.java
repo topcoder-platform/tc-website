@@ -143,10 +143,22 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
                 getItem(0, "job_desc").toString());
 
-
-        resultMap = getDataAccess(getDw()).getData(dataRequest);
-
-        rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Submissions");
+        Request dwRequest = new Request();
+        if (restricted) {
+            dwRequest.setContentHandle("restricted_tces_problem_submissions");
+            dwRequest.setProperty("mid", Integer.toString(getMemberID()));
+            dwRequest.setProperty("rds", getRoundList(getCampaignID()));
+            resultMap = getDataAccess(getDw()).getData(dwRequest);
+            rsc = (ResultSetContainer) resultMap.get("restricted_TCES_Problem_Submissions");
+        } else {
+            dwRequest.setContentHandle("tces_problem_submissions");
+            dwRequest.setProperty("uid", Long.toString(uid));
+            dwRequest.setProperty("cid", Integer.toString(getCampaignID()));
+            dwRequest.setProperty("jid", Integer.toString(getJobID()));
+            dwRequest.setProperty("mid", Integer.toString(getMemberID()));
+            resultMap = getDataAccess(getDw()).getData(dwRequest);
+            rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Submissions");
+        }
         setSubmissionList(rsc);
 
         setNextPage(TCESConstants.PROBLEM_SUBMISSIONS_PAGE);
