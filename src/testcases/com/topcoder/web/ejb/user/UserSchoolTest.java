@@ -14,6 +14,7 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 
 public class UserSchoolTest extends EJBTestCase {
 
@@ -107,27 +108,27 @@ public class UserSchoolTest extends EJBTestCase {
 
         String handle = createHandle() + "testCreateUserSchool";
         long uid = createSecurityUser(handle);
-        u.createUser(uid, handle, 'A');
-        long sid = s.createSchool();
+        u.createUser(uid, handle, 'A',DBMS.HS_OLTP_DATASOURCE_NAME);
+        long sid = s.createSchool(DBMS.HS_OLTP_DATASOURCE_NAME,DBMS.HS_OLTP_DATASOURCE_NAME);
 
-        us.createUserSchool(uid, sid);
+        us.createUserSchool(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
 
-        assertTrue(!us.isCurrentUserSchoolId(uid, sid));
+        assertTrue(!us.isCurrentUserSchoolId(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME));
 
         try {
-            us.createUserSchool(uid, sid);
+            us.createUserSchool(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("created repeat");
         } catch (Exception e) {
         }
 
         try {
-            us.createUserSchool(uid, -1);
+            us.createUserSchool(uid, -1,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception when school id < 0");
         } catch (Exception e) {
         }
 
         try {
-            us.createUserSchool(-1, sid);
+            us.createUserSchool(-1, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception when user id < 0");
         } catch (Exception e) {
         }
@@ -144,41 +145,41 @@ public class UserSchoolTest extends EJBTestCase {
 
         String handle = createHandle() + "testCurrent";
         long uid = createSecurityUser(handle);
-        u.createUser(uid, handle, 'A');
-        long sid = s.createSchool();
-        long sid2 = s.createSchool();
+        u.createUser(uid, handle, 'A', DBMS.HS_OLTP_DATASOURCE_NAME);
+        long sid = s.createSchool(DBMS.HS_OLTP_DATASOURCE_NAME,DBMS.HS_OLTP_DATASOURCE_NAME);
+        long sid2 = s.createSchool(DBMS.HS_OLTP_DATASOURCE_NAME,DBMS.HS_OLTP_DATASOURCE_NAME);
 
-        us.createUserSchool(uid, sid);
-        us.createUserSchool(uid, sid2);
+        us.createUserSchool(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
+        us.createUserSchool(uid, sid2,DBMS.HS_OLTP_DATASOURCE_NAME);
 
-        us.setCurrentUserSchoolId(uid, sid);
-        assertTrue(us.isCurrentUserSchoolId(uid, sid));
-        assertTrue(!us.isCurrentUserSchoolId(uid, sid2));
+        us.setCurrentUserSchoolId(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
+        assertTrue(us.isCurrentUserSchoolId(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME));
+        assertTrue(!us.isCurrentUserSchoolId(uid, sid2,DBMS.HS_OLTP_DATASOURCE_NAME));
 
-        us.setCurrentUserSchoolId(uid, sid2);
-        assertTrue(!us.isCurrentUserSchoolId(uid, sid));
-        assertTrue(us.isCurrentUserSchoolId(uid, sid2));
+        us.setCurrentUserSchoolId(uid, sid2,DBMS.HS_OLTP_DATASOURCE_NAME);
+        assertTrue(!us.isCurrentUserSchoolId(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME));
+        assertTrue(us.isCurrentUserSchoolId(uid, sid2,DBMS.HS_OLTP_DATASOURCE_NAME));
 
         try {
-            us.setCurrentUserSchoolId(uid, -1);
+            us.setCurrentUserSchoolId(uid, -1,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception when school id < 0");
         } catch (Exception e) {
         }
 
         try {
-            us.setCurrentUserSchoolId(-1, sid);
+            us.setCurrentUserSchoolId(-1, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception when user id < 0");
         } catch (Exception e) {
         }
 
         try {
-            us.isCurrentUserSchoolId(uid, -1);
+            us.isCurrentUserSchoolId(uid, -1,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception when school id < 0");
         } catch (Exception e) {
         }
 
         try {
-            us.isCurrentUserSchoolId(-1, sid);
+            us.isCurrentUserSchoolId(-1, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception when user id < 0");
         } catch (Exception e) {
         }
@@ -196,20 +197,20 @@ public class UserSchoolTest extends EJBTestCase {
 
         String handle = createHandle() + "testRemoveUserSchool";
         long uid = createSecurityUser(handle);
-        u.createUser(uid, handle, 'A');
-        long sid = s.createSchool();
+        u.createUser(uid, handle, 'A',DBMS.HS_OLTP_DATASOURCE_NAME);
+        long sid = s.createSchool(DBMS.HS_OLTP_DATASOURCE_NAME,DBMS.HS_OLTP_DATASOURCE_NAME);
 
-        us.createUserSchool(uid, sid);
-        us.removeUserSchool(uid, sid);
+        us.createUserSchool(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
+        us.removeUserSchool(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
 
         try {
-            us.setCurrentUserSchoolId(uid, sid);
+            us.setCurrentUserSchoolId(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception after relationship removed");
         } catch (Exception e) {
         }
 
         try {
-            us.isCurrentUserSchoolId(uid, sid);
+            us.isCurrentUserSchoolId(uid, sid,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("no exception after relationship removed");
         } catch (Exception e) {
         }
