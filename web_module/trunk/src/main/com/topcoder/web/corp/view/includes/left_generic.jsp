@@ -4,7 +4,7 @@
 
 <!-- Left Column begins -->
             <img src="/i/clear.gif" width="170" height="6" border="0" alt=""><br>
-            <img src="/i/left_nav_top.gif" width="170" height="300" border="0" alt=""><br>
+            <img src="/i/spacer.gif" width="170" height="300" border="0" alt=""><br>
             <img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10" /><br><br>
 <!-- Left Column ends -->
 
