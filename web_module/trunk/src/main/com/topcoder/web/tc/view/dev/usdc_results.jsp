@@ -77,7 +77,7 @@
                                 String sURL;
                                 if(resultRow.getIntItem("prize_type_id") == 1)
                                 {
-                                    sURL = "/tc?module=USDCContestDetails&sc=3";
+                                    sURL = "/tc?module=USDCContestDetails&type=1";
                                 }
                                 else
                                 {

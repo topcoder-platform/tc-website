@@ -7,6 +7,7 @@
 package com.topcoder.web.tc.controller.request.development;
 
 import com.topcoder.shared.util.DBMS;
+import java.util.Map;
 
 /**
  *
@@ -15,7 +16,12 @@ import com.topcoder.shared.util.DBMS;
 public class USDCContestDetails extends StatBase {
     
     String getCommandName() {
-        return "usdc_contest_details";
+        if(getRequest().getParameter("type").equals("1"))
+        {
+            return "usdc_contest_details_first_winner";
+        }
+        else
+            return "usdc_contest_details";
     }
     
     String getDataSourceName() {
@@ -27,6 +33,15 @@ public class USDCContestDetails extends StatBase {
     }
     
     void statProcessing() throws com.topcoder.web.common.TCWebException {
+        if(getRequest().getParameter("type").equals("1"))
+        {
+            Map result =  (Map)getRequest().getAttribute("resultMap");
+            
+            result.put("contest_results", result.get("contest_results_only_winners"));
+            result.remove("contest_results_only_winners");
+            
+            getRequest().setAttribute("resultMap", result);
+        }
     }
     
 }
