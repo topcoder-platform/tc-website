@@ -65,11 +65,7 @@ public class NoteBean extends BaseEJB {
             pstmt.setLong(3,submittedBy);
             pstmt.setInt(4,noteTypeId);
 
-            int rowNum = pstmt.executeUpdate();
-            if (rowNum != noteId)
-                throw new EJBException("row number does not match with primary key note id. row num: "
-                        + rowNum + " noteId: "
-                        + noteId + " in createNote");
+            pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
             throw new EJBException("SQLException in createNote noteId: " + noteId + " text: " + text);
