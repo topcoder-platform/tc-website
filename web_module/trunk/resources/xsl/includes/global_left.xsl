@@ -933,6 +933,19 @@
         </td>
     </tr>
 
+<!-- App Team Methodology -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='app_team_meth'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=app_team_meth</xsl:attribute>Team Development Methodology</A>
+        </td>
+    </tr>
+
 <!-- Development Methodology -->
     <tr>
         <td id="leftSubnav">
