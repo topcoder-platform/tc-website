@@ -24,7 +24,7 @@ import java.util.*;
 
 public class CampaignDetailTask extends BaseTask implements Task, Serializable {
 
-    private static Logger log = Logger.getLogger(MainTask.class);
+    private static Logger log = Logger.getLogger(CampaignDetailTask.class);
 
     private int campaignID;
     private String companyName;

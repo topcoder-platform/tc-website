@@ -15,7 +15,7 @@ public class TCESConstants {
     public static String MAIN_PAGE = "/main.jsp";
     public static String MAIN_GODETAIL_PAGE = "/tces?task=CampaignDetailTask";
     public static String CAMPAIGN_DETAIL_PAGE = "/campaign_detail.jsp";
-
+    public static String POSITION_INTEREST_PAGE = "/position_interest.jsp";
     public static String CAMPAIGN_INTEREST_PAGE = "/campaign_interest.jsp";
 
     public static String LOGIN_TASK = "LoginTask";
@@ -24,6 +24,7 @@ public class TCESConstants {
     public static String MAIN_TASK = "MainTask";
     public static String CAMPAIGN_DETAIL_TASK = "CampaignDetailTask";
     public static String CAMPAIGN_INTEREST_TASK = "CampaignInterestTask";
+    public static String POSITION_INTEREST_TASK = "PositionInterestTask";
     public static String DEMOGRAPHIC_TASK = "DemographicTask";
 
     public static String TASK_PARAM = "task";
@@ -33,6 +34,7 @@ public class TCESConstants {
     public static String HANDLE_PARAM = null;
     public static String PASSWORD_PARAM = null;
     public static String CAMPAIGN_ID_PARAM = "campid";
+    public static String JOB_ID_PARAM = "jid";
 
     public static String MSG_ATTR_KEY = null;
     public static String COMPANY_NAME_ATTR_KEY = "CompanyName";

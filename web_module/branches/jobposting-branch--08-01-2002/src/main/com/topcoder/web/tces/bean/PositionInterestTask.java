@@ -17,26 +17,28 @@ import java.io.*;
 import java.util.*;
 
 /**
- * Processes the campaign interest task.
+ * Processes the position interest task.
  * @author bigjake <kitz@mit.edu>
  *
  */
 
-public class CampaignInterestTask extends BaseTask implements Task, Serializable {
+public class PositionInterestTask extends BaseTask implements Task, Serializable {
 
-    private static Logger log = Logger.getLogger(CampaignInterestTask.class);
+    private static Logger log = Logger.getLogger(PositionInterest.class);
 
     private int campaignID;
     private String companyName;
     private String campaignName;
+    private String positionName;
     private String campaignStatus;
     private ArrayList hitList;
 
     private int uid;
+    private int jid;
 
-    public CampaignInterestTask() {
+    public PositionInterestTask() {
         super();
-        setNextPage(TCESConstants.CAMPAIGN_INTEREST_PAGE);
+        setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
 
         uid=-1;
     }
@@ -59,6 +61,14 @@ log.debug("Setting CampaignStatus = "+campaignStatus);
         return campaignStatus;
     }
 
+    public void setPositionName( String positionName ) {
+        this.positionName = positionName;
+    }
+
+    public String getPositionName() {
+        return positionName;
+    }
+
     public void setHitList( ArrayList hitList ) {
         this.hitList=hitList;
     }
@@ -74,6 +84,14 @@ log.debug("Setting CampaignID = "+Integer.toString(campaignID));
 
     public void setCampaignID(int campaignID) {
         this.campaignID = campaignID;
+    }
+
+    public int getJobID() {
+        return jid;
+    }
+
+    public void setJobID(int jid) {
+        this.jid=jid;
     }
 
     public String getCompanyName() {
@@ -102,13 +120,13 @@ log.debug("Setting Companyname = "+companyName);
     public void processStep(String step)
         throws Exception
     {
-        viewCampaignInterest();
+        viewPositionInterest();
     }
 
-    private void viewCampaignInterest() throws Exception
+    private void viewPositionInterest() throws Exception
     {
         Request dataRequest = new Request();
-        dataRequest.setContentHandle("tces_campaign_interest");
+        dataRequest.setContentHandle("tces_position_interest");
 
         dataRequest.setProperty("uid", Integer.toString(uid) );
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
@@ -122,6 +140,13 @@ log.debug("Setting Companyname = "+companyName);
         ResultSetContainer.ResultSetRow cmpyNameRow = rsc.getRow(0);
         setCompanyName( TCData.getTCString(cmpyNameRow, "company_name") );
 
+        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Position_Name");
+        if (rsc.getRowCount() == 0) {
+            throw new Exception ("No company name!");
+        }
+        ResultSetContainer.ResultSetRow posNameRow = rsc.getRow(0);
+        setPositionName( TCData.getTCString(posNameRow, "job_desc") );
+
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("Bad campaign ID or campaign does not belong to user.");
@@ -130,8 +155,7 @@ log.debug("Setting Companyname = "+companyName);
         setCampaignName( TCData.getTCString(cpgnInfRow, "campaign_name") );
         setCampaignStatus( TCData.getTCString(cpgnInfRow, "status_desc") );
 
-
-        rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Hit_List");
+        rsc = (ResultSetContainer) resultMap.get("TCES_Position_Hit_List");
         ArrayList hitList = new ArrayList();
         ResultSetContainer.ResultSetRow hitListRow = null;
         for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
@@ -145,14 +169,13 @@ log.debug("Setting Companyname = "+companyName);
             hit.put("country", TCData.getTCString(hitListRow, "country_code") );
             hit.put("type", TCData.getTCString(hitListRow, "coder_type_desc") );
             hit.put("school", TCData.getTCString(hitListRow, "school_name") );
-            hit.put("position", TCData.getTCString(hitListRow, "job_desc") );
             hit.put("hit_date", TCData.getTCDate(hitListRow, "timestamp") );
 
             hitList.add(hit);
         }
         setHitList( hitList );
 
-        setNextPage( TCESConstants.CAMPAIGN_INTEREST_PAGE );
+        setNextPage( TCESConstants.POSITION_INTEREST_PAGE );
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
@@ -161,6 +184,8 @@ log.debug("Setting Companyname = "+companyName);
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
+        if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
+            setJobID(Integer.parseInt(value));
     }
 
 }
