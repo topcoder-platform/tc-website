@@ -27,8 +27,8 @@
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
             <jsp:include page="../includes/left.jsp">
-                <jsp:param name="level1" value="recruiting"/>
-                <jsp:param name="level2" value="overview"/> 
+                <jsp:param name="level1" value="sponsorship"/>
+                <jsp:param name="level2" value="srm_index"/> 
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -49,17 +49,19 @@
                         
                         <h2 class="corpHead">Single Round Matches</h2>
 
-                        <table width="170" border="0" cellpadding="6" cellspacing="0" class="sidebarBoxRight" align="right">
-                            <tr><td class="sidebarTitle" width="100%">SRM PACKAGE LINKS:</td></tr>
+                        <table cellpadding="10" cellspacing="0" border="0" align="right">
+                        <tr><td><table border="0" cellpadding="6" cellspacing="0" class="sidebarBox">
+                            <tr><td class="sidebarTitle">SRM PACKAGE LINKS:</td></tr>
                             
                             <tr valign="top">
-                                <td class="sidebarText" width="100%">
+                                <td class="sidebarText">
+                                    <strong>SRM Overview</strong><br />
                                     <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_web">Web site coverage</a><br />
                                     <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_applet">Applet coverage</a><br />
                                     <a href="<?module=Static&d1=corp&d2=spon_prog&d3=srm_email">Email distribution</a><br />
-                                    <a href="mailto:sponsorships@topcoder.com">Contact sponsor sales</a><br />
                                 </td>
                             </tr>
+                        </table></td></tr>
                         </table>
                         
                         <p>The Single Round Match is the key component for TopCoder's membership. Every time a match is hosted, coders take 
@@ -72,7 +74,7 @@
                         <p>Ultimately, a match becomes the developer's equivalent of any major league sporting event where the "win or loss" 
                         affects standings &#40;in this case ratings&#41; and a possible playoff seed.</p>
                     
-                        <strong>An Integrated Approach</strong><br/>
+                        <h3>An Integrated Approach</h3>
                     
                         <p>TopCoder reaches members through three distinct media. Each of the media venues is a unique opportunity for the 
                         sponsoring company to present its support of the event and promote brand awareness amongst the demographic. In 
@@ -95,7 +97,7 @@
                         
                         <p><div align="center"><img src="/i/srm_time.gif" alt="" width="396" height="108" border="0"/></div></p>
                         
-                        <p>&#42;TopCoder does not guarantee the number of impressions per single round match</p>
+                        <p>&#42;TopCoder does not guarantee the number of impressions per Single Round Match</p>
                         
                         <p><br/></p>
                     </td>
@@ -106,8 +108,8 @@
 
 <!-- Right Column begins -->
                     <jsp:include page="../includes/right.jsp">
-                        <jsp:param name="level1" value="recruiting"/>
-                        <jsp:param name="level2" value="overview"/> 
+                        <jsp:param name="level1" value="sponsor"/>
+                        <jsp:param name="level2" value="srm_index"/> 
                     </jsp:include>
 <!-- Right Column ends -->
 
