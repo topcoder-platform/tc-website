@@ -435,35 +435,35 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
   <TR><TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
-      <!-- <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
+      <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_lessons.gif" ALT="Lessons Learned the Hard Way" WIDTH="205" HEIGHT="26" BORDER="0"/></TD>    
-      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> --> 
+      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD> 
   </TR>  
   <TR>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
-    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">    
+    <TD VALIGN="top" WIDTH="40%" ALIGN="left" CLASS="bodyText">    
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
     <B>SRM 95</B></FONT><BR/>
 	By&#160;ZorbaTHut,<I>[TC] Member</I><BR/>
 	<A HREF="/?t=statistics&amp;c=srm95_room1" CLASS="bodyGeneric">Room One Review</A><BR/>
 	<A HREF="/?t=statistics&amp;c=srm95_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
 	<A HREF="/?t=statistics&amp;c=srm95_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
-    <!-- <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
+    <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
     <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="60%" ALIGN="left" CLASS="bodyText">
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>May 30, 2002</B><BR/>    
+    <B>June 7, 2002</B><BR/>    
 	By&#160;slowjoe,<I>[TC] Member</I></FONT><BR/>
-SRM 93 was a Thursday night contest.  As a landmark, it was the night
-before the 2002 Soccer World Cup kicked off.  There were 
-653 coders for the match, with 392 coders and 42 rooms in Div-II...<A HREF="/?t=statistics&amp;c=srm93_lessons" CLASS="bodyGeneric">full story</A>
+Single Round match 95 was a Wednesday night contest.  For the cognoscenti,
+it was the first match with the spiffing new arena, complete with shiny
+new lobbies and list sorting....<A HREF="/?t=statistics&amp;c=srm95_lessons" CLASS="bodyGeneric">full&#160;story</A>
 	</TD>
-     --><TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
+    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
   </TR>
   <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>  
   <TR>  
