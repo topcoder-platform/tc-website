@@ -52,7 +52,7 @@ Now, consistent competitive software development is at your finger-tips, with mo
 <li><strong>Dates:</strong><br/>
 June 1, 2004 through September 2, 2004</li>
 <li><strong>Prizes:</strong><br/>
-$1,200 each week, $3,500 each month, and $9,000 each quarter in addition to current component project payments.* </li>
+$1,600 each week, $5,250 each month, and $13,500 each quarter for a total of $50,000 in addition to current component project payments.*</li>
 <p>*See official rules for details</p>
         </td>
 <!-- Center Column Ends -->

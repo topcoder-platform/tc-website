@@ -78,8 +78,7 @@ Failure to register for one component will result in disqualification for that w
 <p><strong>Reliability Rating</strong><br/>
 Member profiles will be modified to reflect a reliability factor for component design and development competitions. 
 The reliability factor will be calculated as the percent of projects that a member registers for in which that same 
-member presents a timely submission that achieves the minimum score.  This will be calculated based on the previous 
-10 projects that a member has registered for.</p>
+member presents a timely submission that achieves the minimum passing component score of 70.</p>
 
 <p>Members will be eligible to receive a bonus on top of the prize money if their Reliability Ratings are equal to or 
 exceed 80%.  Winning members with Reliability Ratings ranging from 80% to 89% will receive a bonus equal to 10% of the prize.  
