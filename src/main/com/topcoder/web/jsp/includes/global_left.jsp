@@ -22,10 +22,10 @@
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
 
 <%-- About TopCoder begins --%>
-                <tr><td id="<%=level1.equals("about")?"leftNavOn":"leftNav"%>"><a href="/?&t=about_tc&c=index" class="<%=level1.equals("about")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("about")?"bottom":"right"%>.gif" border="0"/>About TopCoder</a></td></tr>
+                <tr><td id="<%=level1.equals("about")?"leftNavOn":"leftNav"%>"><a href="/tc?module=Static&d1=about&d2=index" class="<%=level1.equals("about")?"leftOn":"left"%>"><img alt="" width="10" height="10" src="/images/nav_arrow_<%=level1.equals("about")?"bottom":"right"%>.gif" border="0"/>About TopCoder</a></td></tr>
 
             <% if (level1.equals("about")) { %>
-                <tr><td id="<%=level2.equals("overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=overview">Overview</a></td></tr>
+                <tr><td id="<%=level2.equals("overview")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=index">Overview</a></td></tr>
                 <tr><td id="<%=level2.equals("whyjoin")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=whyjoin">Why Join TopCoder?</a></td></tr>
                 <tr><td id="<%=level2.equals("jobs")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=jobs">Working at TopCoder</a></td></tr>
                 <tr><td id="<%=level2.equals("student_rep")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=Static&d1=about&d2=student_rep">Student Reps</a></td></tr>
