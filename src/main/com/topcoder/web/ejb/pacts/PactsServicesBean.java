@@ -3741,66 +3741,82 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      * @throws  SQLException If there is some problem querying the database
      */
     public boolean canAffirmAffidavit(long userId, int affidavitTypeId) throws SQLException {
-        StringBuffer checkNotarized = new StringBuffer(300);
-        checkNotarized.append("SELECT COUNT(*) FROM affidavit WHERE user_id = " + userId);
-        checkNotarized.append(" AND affidavit_type_id = " + affidavitTypeId);
-        checkNotarized.append(" AND notarized = 1");
+        return hasNotarizedAffidavit(userId, affidavitTypeId)&&hasAllDemographicAnswers(userId)&&hasTaxForm(userId);
+    }
 
-        StringBuffer checkDemographics = new StringBuffer(300);
-        checkDemographics.append("SELECT COUNT(*) FROM demographic_assignment da, demographic_question dq ");
-        checkDemographics.append("WHERE da.coder_type_id = ");
-        checkDemographics.append("  (SELECT coder_type_id from coder where coder_id = " + userId + ") ");
-        checkDemographics.append(" AND dq.demographic_question_id = da.demographic_question_id ");
-        checkDemographics.append(" and da.status = 'A'");
-        checkDemographics.append(" AND dq.demographic_question_id NOT IN ");
-        checkDemographics.append("  (SELECT demographic_question_id FROM demographic_response ");
-        checkDemographics.append("   WHERE coder_id = " + userId + ") ");
 
-        // Change to also check for tax forms on file
-        StringBuffer checkTaxForm = new StringBuffer(300);
-        checkTaxForm.append("SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = " + userId);
+    public boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws SQLException {
 
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT COUNT(*) FROM affidavit WHERE user_id = " + userId);
+        query.append(" AND affidavit_type_id = " + affidavitTypeId);
+        query.append(" AND notarized = 1");
         Connection c = null;
+        boolean ret = false;
         try {
             c = DBMS.getConnection();
-            setLockTimeout(c);
+            ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+            ret = Integer.parseInt(rsc.getItem(0, 0).toString())>0;
 
-            ResultSetContainer rsc = runSelectQuery(c, checkNotarized.toString(), false);
-            int notarizedCount = Integer.parseInt(rsc.getItem(0, 0).toString());
-
-            if (notarizedCount == 0) {
-                c.close();
-                c = null;
-                return false;
-            }
-
-            rsc = runSelectQuery(c, checkDemographics.toString(), false);
-            int questionsLeftBlank = Integer.parseInt(rsc.getItem(0, 0).toString());
-
-            if (questionsLeftBlank > 0) {
-                c.close();
-                c = null;
-                return false;
-            }
-
-            rsc = runSelectQuery(c, checkTaxForm.toString(), false);
-            int taxFormCount = Integer.parseInt(rsc.getItem(0, 0).toString());
-
-            c.close();
-            c = null;
-
-            return (taxFormCount > 0);
         } catch (SQLException e) {
-            printException(e);
-            try {
-                if (c != null) c.close();
-            } catch (Exception e1) {
-                printException(e1);
-            }
-            c = null;
-            throw e;
+            close(c);
+        } finally {
+            close(c);
         }
+        return ret;
+
     }
+
+    public boolean hasAllDemographicAnswers(long userId) throws  SQLException {
+
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT COUNT(*) FROM demographic_assignment da, demographic_question dq ");
+        query.append("WHERE da.coder_type_id = ");
+        query.append("  (SELECT coder_type_id from coder where coder_id = " + userId + ") ");
+        query.append(" AND dq.demographic_question_id = da.demographic_question_id ");
+        query.append(" and da.status = 'A'");
+        query.append(" AND dq.demographic_question_id NOT IN ");
+        query.append("  (SELECT demographic_question_id FROM demographic_response ");
+        query.append("   WHERE coder_id = " + userId + ") ");
+
+        Connection c = null;
+        boolean ret = false;
+        try {
+            c = DBMS.getConnection();
+            ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+            ret = Integer.parseInt(rsc.getItem(0, 0).toString())==0;
+
+        } catch (SQLException e) {
+            close(c);
+        } finally {
+            close(c);
+        }
+        return ret;
+
+    }
+
+    public boolean hasTaxForm(long userId) throws SQLException {
+
+        // Change to also check for tax forms on file
+        StringBuffer query = new StringBuffer(300);
+        query.append("SELECT COUNT(*) FROM user_tax_form_xref WHERE user_id = " + userId);
+
+        Connection c = null;
+        boolean ret = false;
+        try {
+            c = DBMS.getConnection();
+            ResultSetContainer rsc = runSelectQuery(c, query.toString(), false);
+            ret = Integer.parseInt(rsc.getItem(0, 0).toString())>0;
+
+        } catch (SQLException e) {
+            close(c);
+        } finally {
+            close(c);
+        }
+        return ret;
+    }
+
+
 
     // Surrounds with "" if the string contains a comma, as QuickBooks won't like
     // a CSV file with this String otherwise.

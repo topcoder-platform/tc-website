@@ -16,7 +16,7 @@ import java.util.Map;
  * @version 1.00, 03/06/2002
  *
  * @see PactsServicesBean
- * @see DataInterfaceBean
+ * @see com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean
  */
 
 public interface PactsServices extends EJBObject {
@@ -168,6 +168,15 @@ public interface PactsServices extends EJBObject {
     public int expireOldAffidavits() throws RemoteException, SQLException;
 
     public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException;
+
+    public boolean hasNotarizedAffidavit(long userId, int affidavitTypeId) throws RemoteException, SQLException;
+
+    public boolean hasAllDemographicAnswers(long userId) throws RemoteException, SQLException;
+
+    public boolean hasTaxForm(long userId) throws RemoteException, SQLException;
+
+
+
 
 }
 
