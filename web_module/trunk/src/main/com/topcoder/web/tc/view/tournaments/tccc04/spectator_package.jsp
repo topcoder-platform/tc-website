@@ -54,8 +54,8 @@
                 <li><b>See the action live and in-person -</b> Attendence to all the onsite rounds of competition.</li>
                 <li><b>Learn tricks of the trade from the experts -</b> Attendance at all onsite events (sponsor and member presentations).</li>
                 <li><b>Stay at a great hotel -</b> 2 nights hotel accomodations at the <A href="http://www.bostonparkplaza.com/default.asp?sID=home" target="_blank">Boston Park Plaza Hotel & Towers.</A></li>
-                <li><b>Hang-out and dine with the semifinalists -</b> All meals are included.</li>
-                <li><b>Take home TopCoder collectables -</b> Program, T-shirt and other TCCC items.</li> 
+                <li><b>Hang-out and dine with the semifinalists -</b> 2 meals with the competitors and free beverages throughout the competitions.</li>
+                <li><b>Take home TopCoder collectables -</b> T-shirt, program and other TCCC items.</li> 
                 </ul>
             
             
@@ -64,10 +64,10 @@
                 <ul>
                     <li><strong> April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</strong></li>
                     <li><strong>Price: $495.00</strong></li>
-                    <li><strong>Offer valid until 9 AM March 22, 2004</strong></li>
+                    <li><strong>Offer valid until 9:00 AM March 22, 2004</strong></li>
                     <li><strong>Does not include transportation</strong></li>
                </ul>
-               <p>Sign up for the spectator package. <strong>Buy Now</strong></p>
+               <p>Sign up for the spectator package. <strong>Buy Now!</strong></p>
                
               <div align="left"><img src="/i/tournament/tccc04/cc_ae.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_cb.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_ds.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_dc.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_mc.gif" width="50" height="32" border="0"><img src="/i/tournament/tccc04/cc_vs.gif" width="50" height="32" border="0"></div>
             
