@@ -55,7 +55,7 @@
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Articles - 2002</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;08.07.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_business20" CLASS="bodyText">Show Me the C++</A></TD></TR>		
-		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_drdobbs2" CLASS="bodyText">And the winner is...</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_drdobbs2" CLASS="bodyText">And the winner is...</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.10.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_contratimes" CLASS="bodyText">Computer wiz takes on high on-line stakes</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.08.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_stanforddaily4" CLASS="bodyText">Students advance to TopCoders finals</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.06.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_marietta" CLASS="bodyText">Georgia Tech computer science major to compete in TopCoder . . .</A></TD></TR>
