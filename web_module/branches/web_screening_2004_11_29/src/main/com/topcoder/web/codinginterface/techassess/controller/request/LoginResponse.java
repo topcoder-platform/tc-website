@@ -17,6 +17,7 @@ public class LoginResponse extends Base {
             String messageId = getRequest().getParameter(Constants.MESSAGE_ID);
             loadSessionErrorsIntoRequest(messageId);
             loadSessionDefaultsIntoRequest(messageId);
+            setDefault(Constants.PASSWORD, "lkajdsflkjadflkj");
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
         } else {
