@@ -702,15 +702,11 @@ public class UserEdit extends BaseProcessor {
 
             try {
                 icEJB = (InitialContext)TCContext.getInitial();
-                contactTable = (
-                        (ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)
-                        ).create();
+                contactTable = ((ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
                 loggedUserCompanyID = contactTable.getCompanyId(loggedUserID);
-                Company companyTable = (
-                        (CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)
-                        ).create();
+                Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
-                if (secTok.man.getRoles(secTok.requestor).contains(Constants.CORP_ADMIN_ROLE)) {
+                if (secTok.man.getRoles(Util.retrieveTCSubject(loggedUserID)).contains(Constants.CORP_ADMIN_ROLE)) {
                     isAccountAdmin = true;
                     primaryUserCompanyID = loggedUserCompanyID;
                 } else {
