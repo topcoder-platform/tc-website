@@ -154,7 +154,7 @@
         <option>4</option>
         <option>5</option>
         </select>
-        <tc-webtag:listSelect name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="10" list="<%=(List)skillSetMap.get(new Integer(skillType))%>"/>
+        <tc-webtag:listSelect name='<%="skillset"+skillType%>' multiple="true" useTopValue="false" multiple="true" size="10" list='<%=(List)skillSetMap.get("skillset"+skillType)%>'/>
         <a href="JavaScript:itemAdd('skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>','skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Add skill</a><br/>
         <a href="JavaScript:remove('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Remove skills</a>
         <a href="JavaScript:clear('skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>')">Clear</a>
