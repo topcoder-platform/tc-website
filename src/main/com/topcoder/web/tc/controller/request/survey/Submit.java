@@ -38,8 +38,8 @@ public class Submit extends View {
                         if (l != null)
                             responses.addAll(l);
                     }
-                    checkRequiredQuestions(responses);
                 }
+                checkRequiredQuestions(responses);
                 boolean hasAllFreeForm = true;
                 if (!hasErrors()) {
                     ctx = new InitialContext();
@@ -179,10 +179,8 @@ public class Submit extends View {
     private void checkRequiredQuestions(List responses) {
         Question q = null;
         for (Iterator it = questionInfo.iterator(); it.hasNext();) {
-            log.debug("iterate");
             q = (Question) it.next();
             if (q.isRequired() && !containsQuestion(responses, q)) {
-                log.debug("adding error: " + q.getId());
                 addError(AnswerInput.PREFIX + q.getId(), "Please respond to this question.");
             }
 
