@@ -34,7 +34,7 @@
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
                   <td align="left" class="formHandleEven" valign="top" nowrap>
-                      <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                      <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getStringItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
                   </td>
                   <td class="formHandleEven" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
                   <td class="formHandleEven" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
