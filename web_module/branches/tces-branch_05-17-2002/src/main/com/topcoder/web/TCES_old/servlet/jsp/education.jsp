@@ -162,20 +162,22 @@ String selectedGradYear = "";
 </tr>
 
 <tr>
-<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 3: Select Degree Type<br>
+<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 3: Select Degree Type</b><br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= degreeTypes.getSelectBox("", "", "", "") %>
-</b><br><br>
-<b>GPA:</b><img src="/i/clear.gif" width="20" height="1"><%= gpas.getSelectBox("", "", "", "") %>
+<br><br>
+&nbsp;<b>GPA:</b><br>
+<img src="/i/clear.gif" height="3" width="1" border="0"><br>
+&nbsp;<%= gpas.getSelectBox("", "", "", "") %>
 <br><br>
 </td>
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
 <td align="center"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Major<br>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Major</b><br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 <%= majors.getSelectBox("", "", "", "") %>
-</b>&nbsp;</td>
+</td>
 </tr>
 
 
@@ -196,7 +198,7 @@ String selectedGradYear = "";
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
 <br><br>
-</b>&nbsp;</td>
+</b></td>
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
 <td align="center"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
@@ -204,7 +206,7 @@ String selectedGradYear = "";
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
 <br><br>
-</b>&nbsp;</td>
+</b></td>
 </tr>
 
 
