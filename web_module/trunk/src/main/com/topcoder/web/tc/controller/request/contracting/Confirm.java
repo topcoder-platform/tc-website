@@ -123,7 +123,6 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("techSkills", techSkills);
-            getRequest().setAttribute("techNote", info.getNote(String.valueOf(Constants.TECH_NOTE_TYPE_ID)));
 
             //database skill
             ArrayList dbSkills = new ArrayList();
@@ -148,7 +147,6 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("dbSkills", dbSkills);
-            getRequest().setAttribute("dbNote", info.getNote(String.valueOf(Constants.DB_NOTE_TYPE_ID)));
 
             //languages skill
             ArrayList langSkills = new ArrayList();
@@ -173,7 +171,6 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("langSkills", langSkills);
-            getRequest().setAttribute("langNote", info.getNote(String.valueOf(Constants.LANGUAGE_NOTE_TYPE_ID)));
 
             //os skill
             ArrayList osSkills = new ArrayList();
@@ -198,7 +195,6 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("osSkills", osSkills);
-            getRequest().setAttribute("osNote", info.getNote(String.valueOf(Constants.OS_NOTE_TYPE_ID)));
 
             //industries skill
             ArrayList industrySkills = new ArrayList();
@@ -223,7 +219,6 @@ public class Confirm  extends ContractingBase {
             }
 
             getRequest().setAttribute("industrySkills", industrySkills);
-            getRequest().setAttribute("industryNote", info.getNote(String.valueOf(Constants.INDUSTRY_NOTE_TYPE_ID)));
 
         } catch(TCWebException tce) {
             throw tce;
