@@ -147,7 +147,7 @@ public class StudentRegistration extends Base {
       rsc=(ResultSetContainer)schools.get("state_schools");
       for (Iterator i=rsc.iterator();i.hasNext();) {
         rsr=(ResultSetContainer.ResultSetRow)i.next();
-        Integer school_id=(Integer)rsr.getItem("school_id").getResultData();
+        Long school_id=(Long)rsr.getItem("school_id").getResultData();
         String short_name=(String)rsr.getItem("short_name").getResultData();
         school_list.add(new ListPairBean(school_id.toString(),short_name));
       }
