@@ -1,12 +1,7 @@
 package com.topcoder.web.common.tag;
 
-import java.io.IOException;
 import java.lang.reflect.Method;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.jsp.JspException;
-import javax.servlet.jsp.tagext.TagSupport;
 
 /** 
  * <p>
@@ -18,46 +13,33 @@ import javax.servlet.jsp.tagext.TagSupport;
  *
  * @author Grimicus
  * @version 1.0
- * @copyright Copyright (C) 2002, TopCoder, Inc. All rights reserved
  */
-public class BeanWriteTag extends TagSupport {
-    private static Class[] NO_PARAMS = new Class [0];
-    private static Object[] NO_ARGS = new Object [0];
+public class BeanWriteTag extends FormatTag {
+    private static Class[] NO_PARAMS = new Class[0];
+    private static Object[] NO_ARGS = new Object[0];
 
     private String name;
     private String property;
-    private String format;
 
 
     /**
      * Sets the value of <code>name</code>.
      *
-     * @param name
+     * @param val
      */
-    public void setName( String val )
-    {
+    public void setName(String val) {
         name = val;
     }
 
     /**
      * Sets the value of <code>property</code>.
      *
-     * @param property
+     * @param val
      */
-    public void setProperty( String val )
-    {
+    public void setProperty(String val) {
         property = val;
     }
 
-    /**
-     * Sets the value of <code>format</code>.
-     *
-     * @param format
-     */
-    public void setFormat( String val )
-    {
-        format = val;
-    }
 
     /** 
      * Method specific to JSP Tags.  Validates inputs and writes out property
@@ -70,59 +52,30 @@ public class BeanWriteTag extends TagSupport {
      *                  there is IO trouble writing out the tag.
      */
     public int doStartTag() throws JspException {
-        if(name == null || property == null) {
+        if (name == null || property == null) {
             throw new JspException("Name and property must both be set");
         }
 
         Object bean = pageContext.findAttribute(name);
 
-        if(bean == null) {
+        if (bean == null) {
             return SKIP_BODY;
         }
 
         String methodName = buildGetMethodName(property);
 
-        String output = null;
-        try
-        {
+        try {
             Method method = bean.getClass().getMethod(methodName, NO_PARAMS);
             Object out = method.invoke(bean, NO_ARGS);
-            if(out != null) {
-                if(out instanceof Date && format != null) {
-                    try {
-                        SimpleDateFormat sdf = new SimpleDateFormat(format);
-                        output = sdf.format(out);
-                    }
-                    catch(Exception e) {
-                        output = out.toString();
-                    }
-                }
-                else {
-                    output = out.toString();
-                }
-            }
-        }
-        catch(Exception e) {
+            setObject(out);
+        } catch (Exception e) {
             //do we care? we exit quietly either way
         }
-        if(output == null) {
-            return SKIP_BODY;
-        }
-
-        try
-        {
-            pageContext.getOut().print(output);
-        }
-        catch(IOException e)
-        {
-            throw new JspException(e.getMessage());
-        }
-
-        return SKIP_BODY;
+        return super.doStartTag();
     }
 
     private String buildGetMethodName(String property) {
-        if(property == null) {
+        if (property == null) {
             return null;
         }
 
