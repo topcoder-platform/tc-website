@@ -29,10 +29,7 @@ public class ResponseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, answer_id) VALUES (?,?,?)");
             ps.setLong(1, userId);
@@ -46,8 +43,6 @@ public class ResponseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating response user_id="+userId+" questionId="+questionId+" answerId="+answerId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating response user_id="+userId+" questionId="+questionId+" answerId="+answerId);
         } catch (Exception e) {
             throw new EJBException("Exception creating response user_id="+userId+" questionId="+questionId+" answerId="+answerId+
                     ":\n" + e.getMessage());
@@ -67,10 +62,7 @@ public class ResponseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("INSERT INTO response (user_id, question_id, response) VALUES (?,?,?)");
             ps.setLong(1, userId);
@@ -107,10 +99,7 @@ public class ResponseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT '1' FROM response WHERE user_id = ? AND question_id = ?");
             ps.setLong(1, userId);
@@ -121,8 +110,6 @@ public class ResponseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating user_id="+userId+" questionId="+questionId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating user_id="+userId+" questionId="+questionId);
         } catch (Exception e) {
             throw new EJBException("Exception creating user_id="+userId+" questionId="+questionId+":\n" + e.getMessage());
         } finally {

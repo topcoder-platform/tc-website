@@ -40,9 +40,7 @@ public class UserAddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("INSERT INTO user_address_xref " +
                     "(user_id, address_id) VALUES (?,?)");
@@ -57,8 +55,6 @@ public class UserAddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating user address");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating user address");
         } catch (Exception e) {
             throw new EJBException("Exception creating user address:\n" +
                     e.getMessage());
@@ -84,9 +80,7 @@ public class UserAddressBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("DELETE FROM user_address_xref " +
                     "WHERE user_id = ? AND address_id = ?");
@@ -101,8 +95,6 @@ public class UserAddressBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException removing user address");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException removing user address");
         } catch (Exception e) {
             throw new EJBException("Exception removing user address:\n" +
                     e.getMessage());
@@ -124,9 +116,7 @@ public class UserAddressBean extends BaseEJB {
         ResultSetContainer rsc = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("SELECT address_id FROM user_address_xref " +
                     "WHERE user_id = ?");

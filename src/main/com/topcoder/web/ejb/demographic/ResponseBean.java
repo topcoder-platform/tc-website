@@ -28,10 +28,7 @@ public class ResponseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("INSERT INTO demographic_response (coder_id, demographic_question_id, demographic_answer_id) VALUES (?,?,?)");
             ps.setLong(1, userId);
@@ -45,8 +42,6 @@ public class ResponseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating response user_id="+userId+" questionId="+questionId+" answerId="+answerId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating response user_id="+userId+" questionId="+questionId+" answerId="+answerId);
         } catch (Exception e) {
             throw new EJBException("Exception creating response user_id="+userId+" questionId="+
                     questionId+" answerId="+answerId+":\n" + e.getMessage());
@@ -67,10 +62,7 @@ public class ResponseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement("INSERT INTO demographic_response (coder_id, demographic_question_id, demographic_response) VALUES (?,?,?)");
             ps.setLong(1, userId);
@@ -84,8 +76,6 @@ public class ResponseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating response user_id="+userId+" questionId="+questionId+" answerText="+answerText);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating response user_id="+userId+" questionId="+questionId+" answerText="+answerText);
         } catch (Exception e) {
             throw new EJBException("Exception creating response user_id="+userId+" questionId="+
                     questionId+" answerText="+answerText+":\n" + e.getMessage());
@@ -107,10 +97,7 @@ public class ResponseBean extends BaseEJB {
         ResultSet rs = null;
 
         try {
-            ctx = new InitialContext();
-
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(500);
             query.append("SELECT dr.demographic_question_id");
@@ -159,10 +146,7 @@ public class ResponseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
 
             StringBuffer query = new StringBuffer(500);
             query.append("DELETE FROM demographic_response WHERE demographic_question_id = ? AND coder_id = ?");
@@ -176,8 +160,6 @@ public class ResponseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting responses for user="+userId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting responses for user="+userId);
         } catch (Exception e) {
             throw new EJBException("Exception getting responses for user="+userId+":\n" + e.getMessage());
         } finally {

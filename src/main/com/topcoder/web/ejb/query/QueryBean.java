@@ -45,8 +45,7 @@ public class QueryBean extends BaseEJB {
             query.append(" VALUES (?, ?, ?, ?)");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ret = getNextValue();
             ps.setLong(1, ret);
@@ -88,8 +87,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setBytes(1, DBMS.serializeTextString(text));
             ps.setLong(2, queryId);
@@ -124,8 +122,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, name);
             ps.setLong(2, queryId);
@@ -160,8 +157,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, ranking);
             ps.setLong(2, queryId);
@@ -197,8 +193,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, columnIndex);
             ps.setLong(2, queryId);
@@ -236,8 +231,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, queryId);
             rs = ps.executeQuery();
@@ -275,8 +269,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, queryId);
             rs = ps.executeQuery();
@@ -314,8 +307,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, queryId);
             rs = ps.executeQuery();
@@ -353,8 +345,7 @@ public class QueryBean extends BaseEJB {
             query.append( " WHERE query_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, queryId);
             rs = ps.executeQuery();
@@ -399,8 +390,7 @@ public class QueryBean extends BaseEJB {
              query.append( " ORDER BY 2 ASC");
              ctx = new InitialContext();
              if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-             ds = (DataSource)ctx.lookup(dataSourceName);
-             conn = ds.getConnection();
+             conn = DBMS.getConnection(dataSourceName);
              ps = conn.prepareStatement(query.toString());
              rs = ps.executeQuery();
              ret = new ResultSetContainer(rs);

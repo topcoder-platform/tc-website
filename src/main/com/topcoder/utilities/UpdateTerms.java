@@ -29,9 +29,7 @@ public class UpdateTerms {
         Connection conn = null;
 
         try {
-            ctx = TCContext.getInitial();
-            DataSource ds = (DataSource)ctx.lookup("DS");
-            conn = ds.getConnection();
+            conn = DBMS.getConnection("DS");
 
             StringBuffer query = new StringBuffer(200);
             query.append("SELECT 'X'");

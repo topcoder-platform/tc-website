@@ -31,15 +31,12 @@ public class UserSchoolBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("INSERT ");
             query.append("INTO user_school_xref (user_id,school_id) ");
             query.append("VALUES (?,?)");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, schoolId);
@@ -53,9 +50,6 @@ public class UserSchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -75,15 +69,13 @@ public class UserSchoolBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("DELETE ");
             query.append("FROM user_school_xref ");
             query.append("WHERE user_id=? AND school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, schoolId);
@@ -97,9 +89,6 @@ public class UserSchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -119,15 +108,13 @@ public class UserSchoolBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user_school_xref ");
             query.append("SET current_ind=0 ");
             query.append("WHERE user_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
 
@@ -156,9 +143,6 @@ public class UserSchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -180,15 +164,13 @@ public class UserSchoolBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT school_id ");
             query.append("FROM user_school_xref ");
             query.append("WHERE user_id=? AND current_ind=1");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
 
@@ -203,9 +185,6 @@ public class UserSchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -229,15 +208,13 @@ public class UserSchoolBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT current_ind ");
             query.append("FROM user_school_xref ");
             query.append("WHERE user_id=? AND school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, schoolId);
@@ -253,9 +230,6 @@ public class UserSchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -279,15 +253,13 @@ public class UserSchoolBean extends BaseEJB {
         InitialContext ctx = null;
         try {
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT current_ind ");
             query.append("FROM user_school_xref ");
             query.append("WHERE user_id=? AND school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, schoolId);
@@ -299,9 +271,6 @@ public class UserSchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);

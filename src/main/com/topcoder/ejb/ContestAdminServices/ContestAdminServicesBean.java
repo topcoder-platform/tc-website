@@ -55,8 +55,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         int contest_id = 0;
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             StringBuffer query = new StringBuffer(120);
             if (ca.getModified() == "M") {
@@ -175,8 +174,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 append("  (c.status = 'A' OR c.status = 'P') ").
                 append(" ORDER BY c.contest_id ");
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             ps = conn.prepareStatement(queryContestInfo.toString());
             rs = ps.executeQuery();
             while (rs.next()) {
@@ -298,8 +296,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         String sqlStr = "";
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             conn.setAutoCommit(false);
             sqlStr = "UPDATE " + tableName + " SET " + fieldName + " = ? WHERE " + whereClause;
 
@@ -360,8 +357,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
       conn = DriverManager.getConnection(infxURL.toString());
 */
 
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             conn.setAutoCommit(false);
 
             if (whereClause.equals(""))
@@ -405,7 +401,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      *
      * @exception RemoteException
      * @return ArrayList of Round
-     * @author jason n evans
      ***************************************************************************************
      **/
     public ArrayList getRoundList() throws RemoteException {
@@ -417,7 +412,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all rounds, for a given contest, and corresponding characteristics from the
      * round table
      *
-     * @param - contest_id - int that uniquely identifies a Contest
      * @exception RemoteException
      * @return ArrayList of Round
      ***************************************************************************************
@@ -444,8 +438,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             ps = conn.prepareStatement(txtGetRounds.toString());
             if (contest_id != 0) {
@@ -465,8 +458,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             DBMS.printSqlException(true, e);
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (ps != null) ps.close();
@@ -504,8 +495,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         query.append(" and test_case_id = ? ");
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             ps = conn.prepareStatement(query.toString());
             ps.execute();
         } catch (Exception e) {
@@ -567,8 +557,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         try {
             try {
-                DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-                conn = ds.getConnection();
+                conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
                 conn.setAutoCommit(false);
                 ps = conn.prepareStatement(queryGetChallengeInfo.toString());
                 ps.setInt(1, challengeId);
@@ -741,7 +730,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all system test results, for a given round, and corresponding characteristics from the
      * system test result table
      *
-     * @param - round_id - int that uniquely identifies a round
      * @exception RemoteException
      * @return ArrayList of Challenge
      ***************************************************************************************
@@ -789,8 +777,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         }
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             ps = conn.prepareStatement(txtGetSystemTestResult.toString());
             ps.setInt(1, round_id);
 
@@ -850,8 +837,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all challenges, for a given round, and corresponding characteristics from the
      * challenge table
      *
-     * @author - jason n. evans
-     * @param - round_id - int that uniquely identifies a round
      * @exception RemoteException
      * @return ArrayList of Challenge
      ***************************************************************************************
@@ -920,8 +905,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         txtGetChallenges.append(" ORDER BY r.room_id, cp.component_id, c.challenge_id ");
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             log.debug("txtGetChallenges: " + txtGetChallenges.toString());
             ps = conn.prepareStatement(txtGetChallenges.toString());
             ps.setInt(1, round_id);
@@ -992,8 +976,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all round problem_ids from the
      * ROUND_PROBLEMS table for a contest round
      *
-     * @param - round_id - int that uniquely identifies a Round
-     * @param - contest_id - int that uniquely identifies a Contest
      * @exception RemoteException
      * @return ArrayList of problem_ids
      *****************************************************************************************
@@ -1014,8 +996,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 append(" ORDER  BY round_id ");
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             ps = conn.prepareStatement(txtGetRoundProblems.toString());
             ps.setInt(1, round_id);
@@ -1028,8 +1009,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (ps != null) ps.close();
@@ -1063,8 +1042,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         Language languageAttr = null;
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             sqlStr.append("SELECT language_id, language_name, status FROM language ");
 
             ps = conn.prepareStatement(sqlStr.toString());
@@ -1080,8 +1058,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -1112,8 +1088,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         StringBuffer sqlStr = new StringBuffer(100);
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             sqlStr.append("SELECT MAX(contest_id) + 1 as contest_id FROM contest ");
 
@@ -1130,8 +1105,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -1162,8 +1135,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         StringBuffer sqlStr = new StringBuffer(100);
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             sqlStr.append("SELECT MAX(round_id) + 1 as round_id FROM round ");
 
@@ -1180,8 +1152,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (rs != null) rs.close();
@@ -1261,8 +1231,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" ORDER BY d.difficulty_id ASC, s.submission_number ASC");
 
 
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             log.debug("\n" + query.toString());
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, roundId);
@@ -1343,8 +1312,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append("   JOIN round r");
             query.append("     ON c.contest_id = r.contest_id");
             query.append("  ORDER By round_id DESC");
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             log.debug("\n" + query.toString());
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
@@ -1409,8 +1377,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append("  JOIN component_state cs");
             query.append("     ON cs.coder_id = u.user_id");
             query.append("   AND cs.round_id = ?");
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             log.debug("\n" + query.toString());
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, roundId);
@@ -1451,7 +1418,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
     }
 
     /*****************************************************************************************
-     * @param - round_id - int that uniquely identifies a round
      * @exception RemoteException
      * @return ArrayList of Rooms
      ***************************************************************************************
@@ -1473,8 +1439,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             ps = conn.prepareStatement(txtGetRooms.toString());
             ps.setInt(1, round_id);
             rs = ps.executeQuery();
@@ -1531,8 +1496,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         txtGetCoders.append(" and coder_id = user_id ORDER BY u2 ");
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             ps = conn.prepareStatement(txtGetCoders.toString());
             ps.setInt(1, roundId);
@@ -1548,8 +1512,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -1588,8 +1550,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         txtGetCoders.append(" coder_id = user_id ORDER BY u2 ");
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             ps = conn.prepareStatement(txtGetCoders.toString());
             ps.setInt(1, roundId);
@@ -1606,8 +1567,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -1651,8 +1610,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             ps = conn.prepareStatement(txtGetProblems.toString());
             ps.setInt(1, round_id);
@@ -1673,8 +1631,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
 
         } catch (SQLException e) {
             e.printStackTrace();
-        } catch (NamingException ne) {
-            throw new RemoteException(ne.getMessage());
         } finally {
             try {
                 if (rs != null) {
@@ -1703,7 +1659,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * Retrieves all system test results, for a given round, and corresponding characteristics from the
      * system test result table
      *
-     * @param - round_id - int that uniquely identifies a round
      * @exception RemoteException
      * @return ArrayList of Challenge
      ***************************************************************************************
@@ -1714,7 +1669,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         ArrayList systemTestCaseReportList = new ArrayList();
         SystemTestCaseReport systemTestCaseReportAttr = null;
         Problem problemAttr = null;
-        Room roomAttr = null;
 
         java.sql.Connection conn = null;
         PreparedStatement ps = null;
@@ -1752,8 +1706,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         }
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
             ps = conn.prepareStatement(txtGetSystemTestResult.toString());
             ps.setInt(1, coderId);
             ps.setInt(2, roundId);
@@ -1821,7 +1774,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * overturnUnsucceededChallenge method.
      *
      * @param challenge_id - int representing a unique challenge_id
-     * @author ademich
      */
     public void overturnChallenge(int challenge_id) throws RemoteException {
 
@@ -1839,8 +1791,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         double submission_points;
 
         try {
-            DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(DBMS.CONTEST_ADMIN_DATASOURCE);
 
             sqlStr.append(" SELECT c.component_id, c.round_id, c.defendant_id, c.challenger_id, ").
                     append("        c.succeeded, c.message, s.submission_points ").
@@ -1915,7 +1866,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param challenge_id - int representing a unique challenge
      * @param message - String representing the challenge message
      * @param submission_points - double representing a defendant's points earned for a problem submission
-     * @author ademich
      */
     private static void overturnSucceededChallenge(java.sql.Connection conn, int problem_id, int round_id,
                                                    int defendant_id, int challenger_id, int challenge_id,
@@ -1956,7 +1906,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param challenger_id - int representing a unique challenger
      * @param message - String representing the challenge message
      * @param submission_points - double representing a defendant's points earned for a problem submission
-     * @author ademich
      */
     private static void overturnUnsucceededChallenge(java.sql.Connection conn, int problem_id, int round_id,
                                                      int defendant_id, int challenger_id, int challenge_id,
@@ -1997,7 +1946,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param defendant_points - double representing the amount of points the defendant should earn
      * @param message - String representing the new challenge message
      * @param challenge_id - int representing a unique challenge
-     * @author ademich
      */
     private static void updateChallenge(java.sql.Connection conn, int succeeded, double challenger_points,
                                         double defendant_points, String message, int challenge_id)
@@ -2049,7 +1997,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param round_id - int representing a unique round
      * @param coder_id - int representing a unique coder
      * @param point_change - double representing the amount of points the users point_total should change
-     * @author ademich
      */
     private static void updateRoomResult(java.sql.Connection conn, int round_id, int coder_id, double point_change)
             throws RemoteException {
@@ -2098,8 +2045,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      * @param status_id - int representing a status of a problem
      * @param round_id - int representing a unique round
      * @param coder_id - int representing a unique coder
-     * @param problem_id - int representing a unique problem
-     * @author ademich
      */
     private static void updateComponentState(java.sql.Connection conn, double submission_points, int status_id,
                                            int round_id, int coder_id, int component_id)
@@ -2147,7 +2092,6 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
      *
      * @param succeeded - int - 0 = unsuccessful challenge, 1 = successful challenge
      * @param message - String representing the old challenge message
-     * @author ademich
      */
     private static String modifyMessage(int succeeded, String message) throws RemoteException {
 

@@ -44,8 +44,7 @@ public class CommandGroupBean extends BaseEJB {
             query.append(" VALUES (?, ?)");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ret = (int)getNextValue();
             ps.setInt(1, ret);
@@ -84,8 +83,7 @@ public class CommandGroupBean extends BaseEJB {
             query.append( " WHERE command_group_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, commandGroupName);
             ps.setInt(2, commandGroupId);
@@ -123,8 +121,7 @@ public class CommandGroupBean extends BaseEJB {
             query.append( " WHERE command_group_id = ?");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             ps.setInt(1, commandGroupId);
             rs = ps.executeQuery();
@@ -164,8 +161,7 @@ public class CommandGroupBean extends BaseEJB {
             query.append( " ORDER BY 3 ASC");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
             ret = new ResultSetContainer(rs);

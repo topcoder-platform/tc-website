@@ -72,9 +72,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("sort_order, ");
             query.append("session_round_id) VALUES(?,?,?,?,?) ");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, sessionProfileId);
@@ -89,11 +87,6 @@ public class SessionProfileProblemBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createSessionProfileProblem. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in createSessionProfileProblem. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -146,9 +139,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("SET problem_type_id = ? WHERE ");
             query.append("session_profile_id = ? AND problem_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setInt(1, problemTypeId);
@@ -161,11 +152,6 @@ public class SessionProfileProblemBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setProblemTypeId. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in setProblemTypeId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -221,9 +207,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("session_profile_id = ? AND problem_id = ?");
             query.append(" AND problem_type_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setInt(1, sortOrder);
@@ -237,11 +221,6 @@ public class SessionProfileProblemBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setSortOrder. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in setSortOrder. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -298,9 +277,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("session_profile_id = ? AND problem_id = ?");
             query.append(" AND problem_type_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, sessionRoundId);
@@ -314,11 +291,6 @@ public class SessionProfileProblemBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in setSessionRoundId. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in setSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -368,9 +340,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("FROM session_profile_problem_xref ");
             query.append("WHERE session_profile_id = ? AND problem_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionProfileId);
@@ -385,11 +355,6 @@ public class SessionProfileProblemBean extends BaseEJB {
             DBMS.printSqlException(true, e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in getProblemTypeId. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in getProblemTypeId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -447,9 +412,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("WHERE session_profile_id = ? AND problem_id = ?");
             query.append(" AND problem_type_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionProfileId);
@@ -465,11 +428,6 @@ public class SessionProfileProblemBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in getSortOrder. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in getSortOrder. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -525,9 +483,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("WHERE session_profile_id = ? AND problem_id = ?");
             query.append(" AND problem_type_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionProfileId);
@@ -543,11 +499,6 @@ public class SessionProfileProblemBean extends BaseEJB {
             DBMS.printSqlException(true, sqe);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in getSessionRoundId. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in getSessionRoundId. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -598,9 +549,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append(" FROM session_profile_problem_xref");
             query.append(" WHERE session_profile_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, sessionProfileId);

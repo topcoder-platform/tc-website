@@ -54,9 +54,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("note_id) ");
             query.append("values(?,?) ");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, userId);
@@ -68,11 +66,6 @@ public class UserNoteBean extends BaseEJB {
             DBMS.printSqlException(true, e);
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in createUserNote. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("NamingException in createUserNote. ");
             exceptionBuf.append(varBuf.toString());
             throw new EJBException(exceptionBuf.toString());
         } catch (Exception e) {
@@ -118,9 +111,7 @@ public class UserNoteBean extends BaseEJB {
             query.append("DELETE FROM user_note_xref WHERE user_id = ? ");
             query.append("AND note_id = ? ");
 
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, userId);
@@ -130,11 +121,6 @@ public class UserNoteBean extends BaseEJB {
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            StringBuffer exceptionBuf = new StringBuffer(200);
-            exceptionBuf.append("SQLException in removeUserNote. ");
-            exceptionBuf.append(varBuf.toString());
-            throw new EJBException(exceptionBuf.toString());
-        } catch (NamingException e) {
             StringBuffer exceptionBuf = new StringBuffer(200);
             exceptionBuf.append("SQLException in removeUserNote. ");
             exceptionBuf.append(varBuf.toString());

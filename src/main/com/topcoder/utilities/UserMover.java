@@ -21,7 +21,6 @@ import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.GroupPrincipal;
 
 import javax.naming.Context;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -51,12 +50,11 @@ public class UserMover {
 
     private int getUsers(Context ctx) throws Exception {
 
-        DataSource ds = (DataSource) ctx.lookup(SOURCE_DS);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(SOURCE_DS);
             StringBuffer query = new StringBuffer();
             query.append(" select u.user_id");
             query.append(" , u.handle");

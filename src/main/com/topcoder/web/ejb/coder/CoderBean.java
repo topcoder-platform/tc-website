@@ -37,9 +37,7 @@ public class CoderBean extends BaseEJB {
             query.append( " INTO coder (coder_id)");
             query.append(" VALUES (?) ");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setLong(1, coderId);
@@ -73,9 +71,7 @@ public class CoderBean extends BaseEJB {
             query.append(   " SET member_since = ?");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setDate(1, memberSince);
@@ -116,9 +112,7 @@ public class CoderBean extends BaseEJB {
             query.append(   " SET quote = ?");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setString(1, quote);
@@ -154,9 +148,7 @@ public class CoderBean extends BaseEJB {
             query.append(   " SET editor_id = ?");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setInt(1, editorId);
@@ -192,9 +184,7 @@ public class CoderBean extends BaseEJB {
             query.append(   " SET language_id = ?");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setInt(1, languageId);
@@ -229,9 +219,7 @@ public class CoderBean extends BaseEJB {
             query.append(   " SET coder_type_id = ?");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             pstmt = conn.prepareStatement(query.toString());
 
             pstmt.setInt(1, coderTypeId);
@@ -274,9 +262,7 @@ public class CoderBean extends BaseEJB {
             query.append( " FROM coder ");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
 
             stmt.setLong(1, coderId);
@@ -319,9 +305,7 @@ public class CoderBean extends BaseEJB {
             query.append( " FROM coder ");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
 
             stmt.setLong(1, coderId);
@@ -364,9 +348,7 @@ public class CoderBean extends BaseEJB {
             query.append( " FROM coder ");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
 
             stmt.setLong(1, coderId);
@@ -410,9 +392,7 @@ public class CoderBean extends BaseEJB {
             query.append( " FROM coder ");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
 
             stmt.setLong(1, coderId);
@@ -455,9 +435,7 @@ public class CoderBean extends BaseEJB {
             query.append( " FROM coder ");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
 
             stmt.setLong(1, coderId);
@@ -500,9 +478,7 @@ public class CoderBean extends BaseEJB {
             query.append( " FROM coder ");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
 
             stmt.setLong(1, coderId);
@@ -547,9 +523,7 @@ public class CoderBean extends BaseEJB {
             query.append( " FROM coder ");
             query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             stmt = conn.prepareStatement(query.toString());
 
             stmt.setLong(1, coderId);

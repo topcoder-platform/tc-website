@@ -44,9 +44,7 @@ public class ProductUnitBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("INSERT INTO product_unit_xref (product_id, " +
                     "unit_id, num_units) " +
@@ -63,8 +61,6 @@ public class ProductUnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException creating unit");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating unit");
         } catch (Exception e) {
             throw new EJBException("Exception creating unit:\n" +
                     e.getMessage());
@@ -96,9 +92,7 @@ public class ProductUnitBean extends BaseEJB {
         int ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT num_units FROM product_unit_xref WHERE " +
                     "product_id = ? AND unit_id = ?");
@@ -112,8 +106,6 @@ public class ProductUnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting unit_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting unit_id");
         } catch (Exception e) {
             throw new EJBException("Exception getting unit_id\n" +
                     e.getMessage());
@@ -147,9 +139,7 @@ public class ProductUnitBean extends BaseEJB {
         ResultSetContainer ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             StringBuffer query = new StringBuffer(150);
             query.append("SELECT u.unit_id");
@@ -167,8 +157,6 @@ public class ProductUnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting unit_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting unit_id");
         } catch (Exception e) {
             throw new EJBException("Exception getting unit_id\n" + e.getMessage());
         } finally {
@@ -200,9 +188,7 @@ public class ProductUnitBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE product_unit_xref SET num_units = ? " +
                     "WHERE product_id = ? AND " +
@@ -219,8 +205,6 @@ public class ProductUnitBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating num_units");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating num_units");
         } catch (Exception e) {
             throw new EJBException("Exception updating num_units\n" +
                     e.getMessage());

@@ -29,8 +29,6 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             if (!IdGenerator.isInitialized()) {
                 IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
@@ -43,7 +41,7 @@ public class SchoolBean extends BaseEJB {
             query.append("INTO school (school_id) ");
             query.append("VALUES (?)");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, school_id);
 
@@ -77,16 +75,12 @@ public class SchoolBean extends BaseEJB {
 
         InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE school ");
             query.append("SET school_division_code=? ");
             query.append("WHERE school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, schoolDivisionCode);
             ps.setLong(2, schoolId);
@@ -99,9 +93,6 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -117,16 +108,13 @@ public class SchoolBean extends BaseEJB {
 
         InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE school ");
             query.append("SET full_name=? ");
             query.append("WHERE school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, fullName);
             ps.setLong(2, schoolId);
@@ -139,9 +127,6 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -158,16 +143,13 @@ public class SchoolBean extends BaseEJB {
 
         InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE school ");
             query.append("SET short_name=? ");
             query.append("WHERE school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setString(1, shortName);
             ps.setLong(2, schoolId);
@@ -180,9 +162,6 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(ps);
             close(conn);
@@ -201,16 +180,13 @@ public class SchoolBean extends BaseEJB {
         ResultSet rs = null;
         InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT school_division_code ");
             query.append("FROM school ");
             query.append("WHERE school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, schoolId);
 
@@ -224,9 +200,6 @@ public class SchoolBean extends BaseEJB {
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true, _sqle);
             throw(new EJBException(_sqle.getMessage()));
-        } catch (NamingException _ne) {
-            _ne.printStackTrace();
-            throw(new EJBException(_ne.getMessage()));
         } finally {
             close(rs);
             close(ps);
@@ -246,16 +219,13 @@ public class SchoolBean extends BaseEJB {
         ResultSet rs = null;
         InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT full_name ");
             query.append("FROM school ");
             query.append("WHERE school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, schoolId);
 
@@ -291,16 +261,13 @@ public class SchoolBean extends BaseEJB {
         ResultSet rs = null;
         InitialContext ctx = null;
         try {
-            ctx = new InitialContext();
-
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT short_name ");
             query.append("FROM school ");
             query.append("WHERE school_id=?");
 
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, schoolId);
 

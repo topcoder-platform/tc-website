@@ -128,8 +128,7 @@ public class Google {
         DataSource ds = null;
 
         try {
-            ds = (DataSource) TCContext.getInitial().lookup(dataSourceName);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSourceName);
             StringBuffer query = new StringBuffer(500);
 
             query.append(" SELECT cc.coder_id ");

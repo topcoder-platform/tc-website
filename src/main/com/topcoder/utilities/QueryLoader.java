@@ -83,7 +83,7 @@ public class QueryLoader {
         ResultSet rs = null;
         String sqlStr = "";
         char quote = '"';
-        Context ctx = null;
+        InitialContext ctx = null;
 
         try {
 
@@ -91,8 +91,7 @@ public class QueryLoader {
             ht.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
             ht.put(Context.PROVIDER_URL, ApplicationServer.HOST_URL);
             ctx = new InitialContext(ht);
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(this.data_source);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(ctx, this.data_source);
 
             //conn = DBMS.getDirectDWConnection();
 
@@ -174,7 +173,7 @@ public class QueryLoader {
         ResultSet rs = null;
         String sqlStr = "";
         String retVal = "";
-        Context ctx = null;
+        InitialContext ctx = null;
 
         try {
 
@@ -182,8 +181,7 @@ public class QueryLoader {
             ht.put(Context.INITIAL_CONTEXT_FACTORY, "weblogic.jndi.WLInitialContextFactory");
             ht.put(Context.PROVIDER_URL, ApplicationServer.HOST_URL);
             ctx = new InitialContext(ht);
-            javax.sql.DataSource ds = (javax.sql.DataSource) ctx.lookup(this.data_source);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(ctx, this.data_source);
 
             //conn = DBMS.getDirectDWConnection();
 

@@ -3,6 +3,7 @@ package com.topcoder.utilities;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
+import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.password.PasswordRemoteHome;
 import com.topcoder.web.ejb.password.PasswordRemote;
 
@@ -53,12 +54,11 @@ public class PasswordFix {
 
             }
             log.debug("next");
-            DataSource ds = (DataSource) ctx.lookup(SOURCE_DS);
             Connection conn = null;
             PreparedStatement ps = null;
             ResultSet rs = null;
             try {
-                conn = ds.getConnection();
+                conn = DBMS.getConnection(SOURCE_DS);
                 StringBuffer query = new StringBuffer();
                 query.append("select u.user_id, u.password");
                 query.append("  from user u");

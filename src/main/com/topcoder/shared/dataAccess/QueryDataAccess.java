@@ -1,8 +1,8 @@
 package com.topcoder.shared.dataAccess;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.DBMS;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Map;
 
@@ -15,7 +15,7 @@ import java.util.Map;
  */
 public class QueryDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(QueryDataAccess.class);
-    private DataSource dataSource;
+    private String dataSource;
     /**
      * Default Constructor
      */
@@ -26,7 +26,7 @@ public class QueryDataAccess implements DataAccessInt {
      * Construtor that takes a data source to be used.
      * @param dataSource
      */
-    public QueryDataAccess(DataSource dataSource) {
+    public QueryDataAccess(String dataSource) {
         this.dataSource = dataSource;
     }
 
@@ -43,7 +43,7 @@ public class QueryDataAccess implements DataAccessInt {
      * the data.
      */
     public Map getData(RequestInt request) throws Exception {
-        Connection conn = dataSource.getConnection();
+        Connection conn = DBMS.getConnection(dataSource);
         try {
             QueryRunner qr = new QueryRunner(conn);
             Map map = qr.executeCommand(request.getProperties());
@@ -64,14 +64,14 @@ public class QueryDataAccess implements DataAccessInt {
     /**
      * @param dataSource
      */
-    public void setDataSource(DataSource dataSource) {
+    public void setDataSource(String dataSource) {
         this.dataSource = dataSource;
     }
 
     /**
      * @return this object's data source
      */
-    public DataSource getDataSource() {
+    public String getDataSource() {
         return dataSource;
     }
 }

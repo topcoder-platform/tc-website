@@ -61,8 +61,7 @@ public class PurchaseBean extends BaseEJB {
 
             ret = IdGenerator.nextId("PURCHASE_SEQ");
 
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement(
                     "INSERT INTO purchase (purchase_id, product_id, " +
@@ -110,9 +109,7 @@ public class PurchaseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE purchase SET company_id = ? " +
                     "WHERE purchase_id = ?");
@@ -127,8 +124,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating company_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating company_id");
         } catch (Exception e) {
             throw new EJBException("Exception updating company_id\n" +
                     e.getMessage());
@@ -155,9 +150,7 @@ public class PurchaseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE purchase SET product_id = ? " +
                     "WHERE purchase_id = ?");
@@ -172,8 +165,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating product_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating product_id");
         } catch (Exception e) {
             throw new EJBException("Exception updating product_id\n" +
                     e.getMessage());
@@ -200,9 +191,7 @@ public class PurchaseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE purchase SET contact_id = ? " +
                     "WHERE purchase_id = ?");
@@ -217,8 +206,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating contact_id");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating contact_id");
         } catch (Exception e) {
             throw new EJBException("Exception updating contact_id\n" +
                     e.getMessage());
@@ -245,9 +232,7 @@ public class PurchaseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE purchase SET start_date = ? " +
                     "WHERE purchase_id = ?");
@@ -262,8 +247,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating start_date");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating start_date");
         } catch (Exception e) {
             throw new EJBException("Exception updating start_date\n" +
                     e.getMessage());
@@ -290,9 +273,7 @@ public class PurchaseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE purchase SET end_date = ? " +
                     "WHERE purchase_id = ?");
@@ -307,8 +288,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating end_date");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating end_date");
         } catch (Exception e) {
             throw new EJBException("Exception updating end_date\n" +
                     e.getMessage());
@@ -337,9 +316,7 @@ public class PurchaseBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT company_id FROM purchase " +
                     "WHERE purchase_id = ?");
@@ -352,8 +329,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting companyId");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting companyId");
         } catch (Exception e) {
             throw new EJBException("Exception getting companyId\n" +
                     e.getMessage());
@@ -385,9 +360,7 @@ public class PurchaseBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT product_id FROM purchase " +
                     "WHERE purchase_id = ?");
@@ -400,8 +373,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting productId");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting productId");
         } catch (Exception e) {
             throw new EJBException("Exception getting productId\n" +
                     e.getMessage());
@@ -433,9 +404,7 @@ public class PurchaseBean extends BaseEJB {
         long ret = 0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT contact_id FROM purchase " +
                     "WHERE purchase_id = ?");
@@ -448,8 +417,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting contactId");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting contactId");
         } catch (Exception e) {
             throw new EJBException("Exception getting contactId\n" +
                     e.getMessage());
@@ -481,9 +448,7 @@ public class PurchaseBean extends BaseEJB {
         Date ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT start_date FROM purchase " +
                     "WHERE purchase_id = ?");
@@ -496,8 +461,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting startDate");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting startDate");
         } catch (Exception e) {
             throw new EJBException("Exception getting startDate\n" +
                     e.getMessage());
@@ -529,9 +492,7 @@ public class PurchaseBean extends BaseEJB {
         Date ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT end_date FROM purchase " +
                     "WHERE purchase_id = ?");
@@ -544,8 +505,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting endDate");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting endDate");
         } catch (Exception e) {
             throw new EJBException("Exception getting endDate\n" +
                     e.getMessage());
@@ -570,9 +529,7 @@ public class PurchaseBean extends BaseEJB {
         double ret = 0.0;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT paid FROM purchase " +
                     "WHERE purchase_id = ?");
@@ -585,8 +542,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting paid");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting paid");
         } catch (Exception e) {
             throw new EJBException("Exception getting paid\n" +
                     e.getMessage());
@@ -619,9 +574,7 @@ public class PurchaseBean extends BaseEJB {
         Date ret = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("SELECT create_date FROM purchase WHERE " +
                     "purchase_id = ?");
@@ -634,8 +587,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting create_date");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException getting create_date");
         } catch (Exception e) {
             throw new EJBException("Exception getting create_date\n" +
                     e.getMessage());
@@ -666,9 +617,7 @@ public class PurchaseBean extends BaseEJB {
         DataSource ds = null;
 
         try {
-            ctx = new InitialContext();
-            ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
             ps = conn.prepareStatement("UPDATE purchase SET paid = ? " +
                     "WHERE purchase_id = ?");
@@ -683,8 +632,6 @@ public class PurchaseBean extends BaseEJB {
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating paid");
-        } catch (NamingException e) {
-            throw new EJBException("NamingException updating paid");
         } catch (Exception e) {
             throw new EJBException("Exception updating paid\n" +
                     e.getMessage());

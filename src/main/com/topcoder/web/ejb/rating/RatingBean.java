@@ -24,9 +24,7 @@ public class RatingBean extends BaseEJB {
             query.append(  "INTO rating (coder_id, num_ratings) ");
             query.append("VALUES (?, ?)");
 
-            ctx = new InitialContext();
-            DataSource ds = (DataSource) ctx.lookup(dataSource);
-            conn = ds.getConnection();
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, coderId);
             ps.setInt(2, 0);
@@ -40,8 +38,6 @@ public class RatingBean extends BaseEJB {
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
             throw(new EJBException(sqle.getMessage()));
-        } catch (NamingException e) {
-            e.printStackTrace();
         } finally {
             close(ps);
             close(conn);
