@@ -41,4 +41,5 @@ public interface UserManagerLocal extends javax.ejb.EJBLocalObject {
             throws EJBException, DDEException, NoSuchUserException;
 
     public void agreeToComponentTerms(long userId) throws EJBException;
+    public String getComponentTerms() throws EJBException;
 }
