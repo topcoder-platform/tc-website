@@ -69,7 +69,7 @@ function back() {
                 <tr>
                     <td class="testTableSubtitleEven">Password:</td>
                     <td class="testTableEven"><jsp:getProperty name="candidateInfo" property="password" /></td>
-                    <td class="errorTextOdd" align="left" valign="middle"></td>
+                    <td class="errorTextEven" align="left" valign="middle"></td>
                 </tr>
                     <% } %>
                     
@@ -77,12 +77,6 @@ function back() {
             </table>
                     
             <table border="0" cellspacing="10" cellpadding="0" width="70%">
-                <% if (candidateInfo.isNew()) { %>
-                 <tr><td><div align="center"><p class="button"><a href="JavaScript:document.candidateSetupForm.submit()" class="button">Save</a></p></div></td></tr>
-                    <% } else { %>
-                 <tr><td><div align="center"><p class="button"><a href="JavaScript:back()" class="button">Go Back</a></p></div></td></tr>
-                    <% } %>
-            
                 <%
                      if(!candidateInfo.isNew())
                     { 
@@ -91,6 +85,11 @@ function back() {
                  <tr><td class="bodyText" align="center"><screen:servletLink processor="NoteList" param="<%=params%>">Add a note</screen:servletLink> for this candidate</p></td></tr>
                 <% }  %>
 
+                <% if (candidateInfo.isNew()) { %>
+                 <tr><td><div align="center"><p class="button"><a href="JavaScript:document.candidateSetupForm.submit()" class="button">Save</a></p></div></td></tr>
+                    <% } else { %>
+                 <tr><td><div align="center"><p class="button"><a href="JavaScript:back()" class="button">Go Back</a></p></div></td></tr>
+                    <% } %>
             </table>
                             
             </screen:form>
