@@ -139,8 +139,6 @@
              debug="${debug}"
              deprecation="${deprecation}">
              <include name="com/topcoder/apps/review/projecttracker/**"/>
-             <include name="com/topcoder/dde/util/ApplicationServer.java" />
-             <include name="com/topcoder/dde/util/Cookies.java" />
          </javac>
      </target>
 
