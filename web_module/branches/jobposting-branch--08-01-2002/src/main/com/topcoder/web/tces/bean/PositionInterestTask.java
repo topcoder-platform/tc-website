@@ -39,6 +39,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
 
         uid=-1;
+        sortBy="";
     }
 
     public void setCampaignName( String campaignName ) {

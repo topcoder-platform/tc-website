@@ -96,7 +96,7 @@ public class JSPUtils {
         }
     }
 
-    public static List sortMapList(List mapList, String fieldName, boolean ascending) {
+    public static ArrayList sortMapList(List mapList, String fieldName, boolean ascending) {
         TreeMap mapsMap = new TreeMap();
         ArrayList sortedMapList = new ArrayList();
 
