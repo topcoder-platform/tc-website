@@ -5,8 +5,6 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import java.io.IOException;
-
 public class ResultSetItemTag extends BodyTagSupport {
 
     private ResultSetContainer.ResultSetRow row;
@@ -21,13 +19,7 @@ public class ResultSetItemTag extends BodyTagSupport {
     }
 
     public int doStartTag() throws JspException {
-        if (row!=null) {
-            try {
-                pageContext.getOut().print(row.getItem(name).toString());
-            } catch (IOException e) {
-                throw new JspException(e.getMessage());
-            }
-        }
+        pageContext.setAttribute(getId(), row.getItem(name));
         return SKIP_BODY;
     }
 
