@@ -12,6 +12,8 @@ import javax.sql.*;
 
 public class EmailBean implements SessionBean {
 
+  private final static String DATA_SOURCE="java:comp/env/datasource_name";
+
   private transient InitialContext init_ctx=null;
 
   private SessionContext ctx;
@@ -50,7 +52,8 @@ public class EmailBean implements SessionBean {
 
     try {
 
-      DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
 
       if (!IdGenerator.isInitialized()) {
         IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
@@ -64,7 +67,7 @@ public class EmailBean implements SessionBean {
       query.append("INTO email (email_id,user_id) ");
       query.append("VALUES (?,?)");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,email_id);
       ps.setLong(2,_user_id);
@@ -114,12 +117,15 @@ public class EmailBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT email_type_id ");
       query.append("FROM email ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_email_id);
       ps.setLong(2,_user_id);
@@ -137,6 +143,10 @@ public class EmailBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -169,12 +179,15 @@ public class EmailBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("SELECT address ");
       query.append("FROM email ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_email_id);
       ps.setLong(2,_user_id);
@@ -192,6 +205,10 @@ public class EmailBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -222,12 +239,15 @@ public class EmailBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE email ");
       query.append("SET email_type_id=? ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setLong(1,_email_type_id);
       ps.setLong(2,_email_id);
@@ -242,6 +262,10 @@ public class EmailBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
@@ -271,12 +295,15 @@ public class EmailBean implements SessionBean {
 
     try {
 
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
       StringBuffer query=new StringBuffer(1024);
       query.append("UPDATE email ");
       query.append("SET address=? ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      con=DBMS.getHighSchoolConnection();
+      con=ds.getConnection();
       ps=con.prepareStatement(query.toString());
       ps.setString(1,_address);
       ps.setLong(2,_email_id);
@@ -291,6 +318,10 @@ public class EmailBean implements SessionBean {
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
       throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
     }
     finally {
       if (con!=null) {
