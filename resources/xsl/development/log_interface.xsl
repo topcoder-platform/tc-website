@@ -64,7 +64,7 @@
 <P>
 The Logging Interface component provides a standard logging API with support for pluggable back-end logging solutions. Components utilizing the Logging Interface are not tied to a specific logging solution.  A change to the pluggable back-end logging solution does not require a code change to the Logging Interface component.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015&amp;cat=14" CLASS="statText">Logging Interface Component</A> at <A HREF="www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
+For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300015&amp;cat=14" CLASS="statText">Logging Interface Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>

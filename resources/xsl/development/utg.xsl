@@ -62,7 +62,7 @@
 </P>
 <P>The Unit Test Generator component programmatically generates unit test source code under the JUnit test framework. The component increases the productivity of Developers and Quality Assurance Developers by automating the creation of unit test case skeletons.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060&amp;cat=14" CLASS="statText">Unit Test Generator Component</A> at <A HREF="www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
+For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2100060&amp;cat=14" CLASS="statText">Unit Test Generator Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P><B>Project Type</B></P>
