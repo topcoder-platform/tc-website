@@ -18,6 +18,7 @@
 
 <% ResultSetContainer rscProject = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_results"); %>
+<% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
 
 <body>
 
@@ -51,9 +52,9 @@
 </jsp:include>
 
 <p>
-<a href="/">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="/">Contest Details</a>&nbsp;&nbsp;|&nbsp;&nbsp;
-<a href="/">Project Details</a>
+<a href="/tc?module=USDCResults">Contest Results</a>&nbsp;&nbsp;|&nbsp;&nbsp;
+<a href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>">Contest Details - <rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></a>&nbsp;&nbsp;|&nbsp;&nbsp;
+Project Details - <rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/>
 </p>
 
 <h2>Results</h2>
