@@ -65,23 +65,20 @@
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on your performance in the 2003 Sun Microsystems and TopCoder Collegiate Challenge! You are eligible for a
-                            cash award of at least $50.  If you are a resident of a country that we do not pay cash prizes to, then your prize
-                            will be donated to a charity of your choice in your name.  In order for you or your charity to receive your prize, you MUST complete the
-                            APPROPRIATE items below by Midnight, Eastern Time, Monday, April 14th: IF WE DO NOT RECEIVE ALL OF THE APPROPRIATE ITEMS
-                            BY 12:00 PM EST ON FRIDAY, MARCH 28th, 2003, YOU WILL FORFEIT YOUR PRIZE.  If you are one of the final 16 and have
-                            been invited to the on site semifinals in Cambridge, MA, then you must complete item #4, the Travel Info Page, before
-                            Midnight, Eastern Time, Monday, April 14th.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
+                            Congratulations on your performance in the 2003 TopCoder Open Sponsored by Intel&#174;!
+                            You are eligible for a cash award of at least $25. IF WE DO NOT RECEIVE ALL OF THE
+                            APPROPRIATE ITEMS BELOW BY MIDNIGHT, EASTERN TIME, WEDNESDAY, NOVEMBER 12th, YOU
+                            WILL FORFEIT YOUR PRIZE.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
                         </p>
 
-                        <ol>
-                            <li>
-                                <p><strong>To be completed by everyone:</strong></p>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Monday, April 14th</p>
+                        <p><strong>To be completed by everyone:</strong></p>
+
+                        <blockquote>
+                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th</p>
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_affidavit">
+                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_open_affidavit">
                                         printable version</a> of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                                     </xsl:when>
                                     <xsl:otherwise>
@@ -91,28 +88,21 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 </p>
-                            </li>
-                            <li>
-                                <p><strong>To be completed by everyone:</strong></p>
-
                                 <p>
-                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by Midnight, Eastern Time, Monday, April 14th:
-                                    View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2003 TopCoder Collegiate Challenge Questionnaire</a>.  Complete ALL questions.
+                                    <strong>2003 TOPCODER OPEN QUESTIONNAIRE</strong> - Form must be completed by Midnight, Eastern Time, Wednesday, Novemeber 12th:
+                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=201">2003 TopCoder Open Questionnaire</a>.  Complete ALL questions.
                                 </p>
-                            </li>
-                            <li>
-                                <p><strong>To be completed by those who will personally receive a cash prize:</strong></p>
-                                <p><strong>TAX FORM</strong> - must be postmarked on or before Midnight, Eastern Time, Monday, April 14th:</p>
+                                <p><strong>TAX FORM</strong> - must be postmarked on or before Midnight, Eastern Time, Wednesday, November 12th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) to the address below.  If you don't know the form
                                         that applies to you, please refer to the instructions below:</p>
 
-                                        <p><strong>Instructions</strong><br/>
+                                        <p>Instructions<br/>
                                         Form W-9 Instructions: <a href="/contest/iw9.pdf">here (W9)</a><br/>
                                         Form W-8BEN Instructions: <a href="/contest/iw8ben.pdf">here (W8)</a></p>
 
-                                        <p><strong>Tax Forms</strong><br/>
+                                        <p>Tax Forms<br/>
                                         Form W-9 <a href="/contest/fw9.pdf">here (W9)</a><br/>
                                         Form W-8BEN <a href="/contest/fw8ben.pdf">here (W8)</a></p>
                                     </xsl:when>
@@ -120,16 +110,14 @@
                                         We already have your tax form on file.  You do NOT need to complete and return another form.
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </li>
-                            <li>
-                                <p><strong>To be completed by those who will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed by Midnight, Eastern Time, Monday, April 14th:</p>
+                            </blockquote>
+                            <p><strong>To be completed only by those who will be traveling to the onsite semifinal rounds on December 4th and 5th in Uncasville, CT in the USA.</strong></p>
+                            <blockquote>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed by Midnight, Eastern Time, Wednesday, November 12th:</p>
 
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
-                            </li>
-                            <li>
-                                <p><strong>To be completed by those who will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by Midnight, Eastern Time, Monday, April 14th:</p>
+                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_open_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+
+                                <p><strong>HEAD SHOT</strong> - must be emailed by Midnight, Eastern Time, November, November 12th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -139,16 +127,14 @@
                                         We have a head shot on file. If you'd like to change it click <a><xsl:attribute name="HREF">mailto:memberphotos@topcoder.com?subject=<xsl:value-of select="/TC/ActivationCode"/> | [ <xsl:value-of select="/TC/Handle"/> ] | <xsl:value-of select="/TC/UserId"/> RE-SUBMIT IMAGE: PLEASE DO NOT CHANGE SUBJECT</xsl:attribute>here</a>
                                     </xsl:otherwise>
                                 </xsl:choose>
-                            </li>
-                        </ol>
-
+                            </blockquote>
                         <div align="center">
                             TopCoder Attn: Tom Longo<br/>
                             703 Hebron Avenue<br/>
                             Glastonbury, CT 06033
                         </div>
 
-                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Midnight, Eastern Time, Monday, April 14th.  Any
+                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Midnight, Eastern Time, Wednesday, November 12th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
