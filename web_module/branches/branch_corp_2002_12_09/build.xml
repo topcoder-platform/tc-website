@@ -618,7 +618,7 @@
             <classes dir="${classes}">
                 <include name="com/topcoder/web/tces/**"/>
                 <include name="com/topcoder/web/common/**"/>
-<!--                <include name="com/topcoder/web/ejb/**"/>            -->
+                <include name="com/topcoder/web/ejb/**"/>            
                 <include name="com/topcoder/shared/**"/>
                 <exclude name="**/*Bean.class"/>
                 <exclude name="**/*Impl.class"/>
@@ -626,8 +626,8 @@
             <webinf dir="${resources}/${tces.war.name}">
                 <include name="tces-taglib.tld"/>
             </webinf>
-            <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp" includes="*" prefix=""/>
-<!--            <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/> -->
+            <zipfileset dir="${java}/com/topcoder/web/tces/servlet/jsp" includes="*/**" prefix=""/>
+            <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>
         </war>
     </target>
 
@@ -641,7 +641,7 @@
         <delete file="${public_html}/${tces.war.name}.war"/>
         <delete dir="${public_html}/${tces.war.name}/META-INF"/>
 
-		<!-- libraries to be included in weblogic classpath 
+		<!-- libraries to be included in weblogic classpath -->
         <copy todir="${public_html}/../ext-lib">
             <fileset dir="${jars.dir}">
                 <include name="idgenerator.jar"/>
@@ -650,7 +650,7 @@
                 <include name="log4j-boot.jar"/>
                 <include name="jdom.jar"/>
             </fileset>
-        </copy> -->
+        </copy> 
 
     </target>
 
