@@ -71,7 +71,9 @@ List industryList = (List)request.getAttribute("industrySkills");
 				<br/><br/>
 				Please confirm that the information below is correct, then click SUBMIT.
 				<br/><br/>
-				<span class=bigRed>NOTE: You are not registered yet.  You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
+                <% if (!"true".equals(request.getAttribute("isEdit"))) { %>
+				    <span class=bigRed>NOTE: You are not registered yet.  You MUST click SUBMIT at the bottom of this page to complete the registration.</span>
+                <% }%>
 				</td>
 				<td valign=top>
 				<jsp:include page="breadcrumb.jsp" >
