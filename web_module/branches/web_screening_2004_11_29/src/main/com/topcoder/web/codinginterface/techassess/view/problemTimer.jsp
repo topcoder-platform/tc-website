@@ -71,7 +71,7 @@ if (o!=null) {
                     } else {
                       if (countDown==true)
                         myTime = endTimes[i] - correctedLocalTime.getTime();
-                        alert(endTimes[i]+"\n"+correctedLocalTime.getTime()+"\n"+myTime);
+                        //alert(endTimes[i]+"\n"+correctedLocalTime.getTime()+"\n"+myTime);
                         if (myTime < 0) myTime = 0;
                       else {
                         myTime = correctedLocalTime.getTime()-startTimes[i];
