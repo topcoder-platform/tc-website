@@ -1,7 +1,6 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.Browser;
 import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.error.NavigationException;
@@ -136,7 +135,10 @@ public final class MainServlet extends HttpServlet {
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
             document = new XMLDocument("TC");
-            nav = setupSession(request, response, session);
+            nav = getNav(request);
+            if (nav==null) {
+                nav = new Navigation(request);
+            }
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             requestTask = request.getParameter("t");
@@ -227,7 +229,7 @@ public final class MainServlet extends HttpServlet {
                     nav = null;
                     document = new XMLDocument("TC");
                     session = request.getSession(true);
-                    nav = setupSession(request, response, session);
+                    nav = new Navigation(request);
                     addURLTags(nav, request, response, document);
                     HTMLString = "home";
                 }
@@ -371,7 +373,7 @@ public final class MainServlet extends HttpServlet {
                 ne.printStackTrace();
                 if (nav == null) {
                     session = request.getSession(true);
-                    nav = setupSession(request, response, session);
+                    nav = new Navigation(request);
                 }
                 if (document == null) {
                     document = new XMLDocument("TC");
@@ -427,19 +429,21 @@ public final class MainServlet extends HttpServlet {
         }
     }
 
+    private Navigation getNav(HttpServletRequest request) {
+        return (Navigation)request.getSession(true).getAttribute("navigation");
+    }
+
 
     private void showInternalError(HttpServletRequest request, HttpServletResponse response)
             throws TCException {
         PrintWriter out = null;
         String HTMLString = null;
         XMLDocument document = null;
-        HttpSession session = null;
         Navigation nav = null;
         try {
             String requestTask = Conversion.checkNull(request.getParameter("t"));
             String requestCommand = Conversion.checkNull(request.getParameter("c"));
-            session = request.getSession(true);
-            nav = setupSession(request, response, session);
+            nav = new Navigation(request);
             out = response.getWriter();
             StringBuffer msg = new StringBuffer();
             msg.append("\n***************");
@@ -476,37 +480,6 @@ public final class MainServlet extends HttpServlet {
      *********************************************************************************/
 
 
-    private Navigation setupSession(HttpServletRequest request,
-                                    HttpServletResponse response, HttpSession session)
-            throws TCException {
-        Navigation result = null;
-        try {
-            // SET THE CONTENT TYPE OF THE RESPONSE
-            response.setContentType("text/html");
-            // GET/SET ALL BROWSER INFO
-            String appName = Conversion.checkNull(request.getParameter("AppName"));
-            Browser browser = null;
-            if (session.getAttribute("navigation") == null) {
-                result = new Navigation();
-                browser = new Browser();
-                browser.setAppName(appName);
-                browser.setAppVersion(Conversion.checkNull(request.getParameter("AppVersion")));
-                browser.setUserAgent(Conversion.checkNull(request.getParameter("UserAgent")));
-                result.setBrowser(browser);
-            } else {
-                result = (Navigation) session.getAttribute("navigation");
-                browser = result.getBrowser();
-                if (!appName.equals("") && browser.getAppName().equals("")) {
-                    browser.setAppName(appName);
-                    browser.setAppVersion(Conversion.checkNull(request.getParameter("AppVersion")));
-                    browser.setUserAgent(Conversion.checkNull(request.getParameter("UserAgent")));
-                }
-            }
-        } catch (Exception e) {
-            throw new TCException("MainServlet:setupSession:ERROR:\n" + e);
-        }
-        return result;
-    }
 
     private void addURLTags(Navigation nav, HttpServletRequest request,
                             HttpServletResponse response, XMLDocument document) throws TCException {

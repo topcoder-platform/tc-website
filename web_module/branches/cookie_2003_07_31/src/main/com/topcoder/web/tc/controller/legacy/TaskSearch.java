@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.Sort;
 import com.topcoder.common.web.constant.TCServlet;
@@ -25,6 +25,7 @@ import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.tc.controller.legacy.ProcessAuthentication;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
@@ -169,7 +170,7 @@ public final class TaskSearch {
      * @param search
      * @param listTag
      * @return String - the generated HTML page
-     * @throws NavigationException
+     * @throws com.topcoder.common.web.error.NavigationException
      */
     private static String search(HTMLRenderer HTMLmaker, HttpServletRequest request,
                                  Navigation nav, XMLDocument document, MemberSearch search, RecordTag listTag)
@@ -260,7 +261,7 @@ public final class TaskSearch {
      * @param search
      * @param listTag
      * @return String - the generated HTML page
-     * @throws NavigationException
+     * @throws com.topcoder.common.web.error.NavigationException
      */
     private static String scroll(HTMLRenderer HTMLmaker, HttpServletRequest request,
                                  Navigation nav, XMLDocument document, MemberSearch search, RecordTag listTag)

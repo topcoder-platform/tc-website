@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.ejb.UserServices.UserServices;
@@ -146,34 +146,6 @@ public final class ProcessAuthentication {
             } catch (Exception ignore) {
             }
         }
-    }
-
-
-    static final boolean hasMinimumPermission(User user)
-            throws Exception {
-        boolean result = false;
-        if (user == null) return result;
-        //we dont' really have security set up right now, so lets not pretend and waste cycles
-        else return true;
-        /*
-        javax.naming.Context ctx = null;
-        try {
-            ctx = new InitialContext();
-            AuthenticationServicesHome asHome = (AuthenticationServicesHome) ctx.lookup(ApplicationServer.AUTHENTICATION_SERVICES);
-            AuthenticationServices as = (AuthenticationServices) asHome.create();
-            Permission permission = as.getSectorPermission(CODER_SITE_SECTOR, user);
-            int level = permission.getAccessLevel().getAccessLevelId();
-            if (level > 0) {
-                result = true;
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new Exception(
-                    "ProcessAuthentication:hasMinimumPermission:ERROR" + e.getMessage()
-            );
-        }
-        return result;
-        */
     }
 
 

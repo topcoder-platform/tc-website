@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.ejb.AuthenticationServices.Authentication;
 import com.topcoder.ejb.AuthenticationServices.AuthenticationServices;
@@ -108,7 +108,7 @@ public final class ResponseServlet extends HttpServlet {
      * @param HttpServletRequest    the servlet request object
      * @param HttpServletResponse    the servlet response object
      *
-     * @throws ServletException
+     * @throws javax.servlet.ServletException
      */
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,

@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.CoderRegistration;
@@ -18,10 +18,12 @@ import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.web.reg.bean.Registration;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.tc.controller.legacy.ProcessAuthentication;
 
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
@@ -179,19 +181,6 @@ public final class TaskAuthentication {
                     UserServicesHome userServicesHome = (UserServicesHome) ctx.lookup(ApplicationServer.USER_SERVICES);
                     UserServices userServicesEJB = userServicesHome.findByPrimaryKey(login.getUserId());
                     user = userServicesEJB.getUser();
-                    if (!ProcessAuthentication.hasMinimumPermission(user)) {
-                        throw new NavigationException(
-                                "INVALID LOGIN: INACTIVE ACCOUNT:\n"
-                                , INVALID_LOGIN_PAGE
-                                , loginURL
-                        );
-                    }
-//don't update after login, who friggin cares!!!!!
-//                    user.setLoggedIn("Y");
-//                    user.setModified("U");
-//                    userServicesEJB.setUser(user);
-                } catch (NavigationException ne) {
-                    throw ne;
                 } catch (Exception e) {
                     throw new NavigationException(
                             "TaskAuthentication:submitLogin:ERROR:\n" + e
@@ -226,14 +215,14 @@ public final class TaskAuthentication {
                 try {
                     nav.setUserId(login.getUserId().intValue());
                     nav.setUser(user);
-                    nav.setLoggedIn(true);
                     document.addTag(new ValueTag("LoggedIn", "true"));
 
                     /* set up a cookie so we can persist their logged in state */
                     BasicAuthentication auth = new BasicAuthentication(
                             new SessionPersistor(request.getSession()), request, response);
                     //we're gonna cheat and not do the actual login, just set the cookie
-                    auth.setCookie(nav.getUserId());
+                    auth.login(new SimpleUser(0, handle, password));
+                    nav.setAuthentication(auth);
 
                     if (loginURL.equals("")) {
                         result = "home";

@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 
 import com.topcoder.common.web.constant.TCServlet;
@@ -544,7 +544,7 @@ public final class TaskDevelopment {
                     }
                  }
                  else{
-                        TCSEmailMessage mail = new TCSEmailMessage();                         
+                        TCSEmailMessage mail = new TCSEmailMessage();
                         mail.addToAddress(to, TCSEmailMessage.TO);
                         mail.setFromAddress(from);
 

@@ -1,4 +1,4 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.ejb.Util.Util;
@@ -127,7 +127,7 @@ public final class TourneyRegServlet extends HttpServlet {
      * @param  request the servlet request object
      * @param  response servlet response object
      *
-     * @throws ServletException
+     * @throws javax.servlet.ServletException
      */
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,

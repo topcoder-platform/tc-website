@@ -1,10 +1,11 @@
-package com.topcoder.web.servlet;
+package com.topcoder.web.tc.controller.legacy;
 
 import com.topcoder.ejb.JavaDocServices.JavaDocServices;
 import com.topcoder.ejb.JavaDocServices.JavaDocServicesHome;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.tc.controller.legacy.HTMLLinkChanger;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
@@ -197,7 +198,7 @@ public final class JavaDocServlet extends HttpServlet {
      * @param HttpServletRequest    the servlet request object
      * @param HttpServletResponse    the servlet response object
      *
-     * @throws ServletException
+     * @throws javax.servlet.ServletException
      */
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
                                     Throwable exception, String message) throws ServletException, IOException {
