@@ -82,60 +82,23 @@
             <blockquote>
             <h2>About the Prizes</h2>
             
-            <p>The tournament will award prizes to all competitors in Online Round #1 and $100,000 in cash prizes. Up to 500 competitors will
-            receive a prize for competing in Online Round #1, and up to 200 eligible competitors will receive cash prizes.  
-            Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole 
-            responsibility of the prizewinner. Prizes will be distributed as follows:</p>
+            <p>The tournament will award $20,000 in cash prizes.  $10,000 will be awarded for each the design and development competitions.  
+            Any and all applicable taxes on prizes, including the cost of a guest attending the onsite rounds, are the sole responsibility of the 
+            prizewinner.  Prizes will be distributed as follows:</p>
             
             <table width="100%" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="50%" class="sidebarTitle">Competitor(s)</td>
                     <td width="50%" class="sidebarTitle" align="right">Prize</td>
                 </tr>
-
                 <tr>
-                    <td width="50%" class="sidebarText">500 competitors who compete in Online Round #1</td>
-                    <td width="50%" class="sidebarText" align="right">Limited edition 2003 TopCoder Open t-shirt</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">200 competitors who advance to and compete in Online Round #2</td>
-                    <td width="50%" class="sidebarText" align="right">$25 each</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">100 competitors who advance to and compete in Online Round #3</td>
-                    <td width="50%" class="sidebarText" align="right">$50 each</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">50 competitors who advance to and compete in Online Round #4</td>
-                    <td width="50%" class="sidebarText" align="right">$100 each</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">12 Semifinalists* who compete in one of four Semifinal rounds but do not advance to the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">$1,000 each</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">4<span class="super">th</span> place finisher* in the Championship Round</td>
+                    <td width="50%" class="sidebarText">2<span class="super">nd</span> place finisher* in the Championship Round</td>
                     <td width="50%" class="sidebarText" align="right">$3,000</td>
                 </tr>
 
                 <tr>
-                    <td width="50%" class="sidebarText">3<span class="super">rd</span> place finisher* in the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">$5,000</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">2<span class="super">nd</span> place finisher* in the Championship Round</td>
-                    <td width="50%" class="sidebarText" align="right">$15,000</td>
-                </tr>
-
-                <tr>
-                    <td width="50%" class="sidebarText">1<span class="super">st</span> place finisher* - Tournament Champion</td>
-                    <td width="50%" class="sidebarText" align="right">$50,000</td>
+                    <td width="50%" class="sidebarText">1<span class="super">st</span> place finisher* - CDC Champion</td>
+                    <td width="50%" class="sidebarText" align="right">$7,000</td>
                 </tr>
 
                 <tr>
