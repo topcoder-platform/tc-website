@@ -34,6 +34,7 @@
     } %>
  function changeState() {
   var idx=document.regForm.state.selectedIndex
+  assert(idx);
   if (idx==-1) {
    document.regForm.school.disabled=true
    document.regForm.school.selectedIndex=0
@@ -41,10 +42,10 @@
   }
   else {
    document.regForm.school.disabled=false
-   document.regForm.school.options.length=schools(idx).length+1
-   for (i=0;i<schools(idx).length;i++) {
-    document.regForm.school.options(i+1).text=schools(idx)(i)
-    document.regForm.school.options(i+1).value=codes(idx)(i)
+   document.regForm.school.options.length=schools[idx].length+1
+   for (i=0;i<schools[idx].length;i++) {
+    document.regForm.school.options[i+1].text=schools[idx][i]
+    document.regForm.school.options[i+1].value=codes[idx][i]
    } 
   }
  }
