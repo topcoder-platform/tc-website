@@ -6,6 +6,8 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_16_04">TopCoder Announces Yahoo! as Title Sponsor for TCCC04</A> [February 16]</td></tr>  
+
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_02_04">TopCoder Announces DoubleClick 2004 Coding Challenge</A> [February 2]</td></tr>  
 
                 <tr><td class="prHead"><A href="http://www.computerworld.com/developmenttopics/development/story/0,10801,89274,00.html?SKC=development-89274" target="_blank">Standards penetrate telecom industry</A> [January 26 - Computer World]</td></tr> 
@@ -15,8 +17,6 @@
                 <tr><td class="prHead"><A href="http://gazette.gmu.edu/articles/index.php?id=5180" target="_blank">George Mason Student Wins Third Place in International Coding Competition</A> [January 9 - Mason Gazette]</td></tr> 
                 
                 <tr><td class="prHead"><A href="http://newsobserver.com/business/technology/story/3118862p-2824913c.html" target="_blank">Cary coder wins contest's top prize</A> [December 10 - News &amp; Observer]</td></tr>  
-
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_12_08_03">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</A> [December 8]</td></tr>  
 
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>
