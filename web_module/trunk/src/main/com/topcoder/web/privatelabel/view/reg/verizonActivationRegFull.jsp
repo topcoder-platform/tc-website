@@ -54,19 +54,17 @@
                     <td width="427" class="bodyCopy">
 
                         <h2 class="pgTitle">Activation Successful</h2>
-                            Congratulations!  You have successfully activated your account for participation in
-                            the Verizon Coding Challenge.<br/><br/>
+                            Thank you for providing your information in order to be notified of future
+                            Verizon coding events. Unfortunately, registration for the Verizon Coding
+                            Challenge has exceeded the 500-person limit and you are unable to participate.<br/><br/>
 
-                            You will receive an email regarding details of Round #1 of the Challenge, scheduled for
-                            October 31, 2003 at 7:00pm IST.<br/><br/>
+                            You can use your handle and password to login to the Practice Arena to
+                            hone your skills for future Verizon coding events – just click the
+                            "Practice Arena" link to the left.<br/><br/>
 
-                            Be sure to spend some time in the Practice Room prior to the Challenge.  You can access
-                            the Practice Room by clicking the “Practice Arena” link to the left.<br/><br/>
+                            Thank you for your interest.<br/><br/>
 
-                            Good luck to you in the Arena!<br/><br/>
-
-                            If you have any questions about how to participate, please email them
-                            to <a class="bodyCopy" href="mailto:service@topcoder.com">service@topcoder.com</a>
+                            Questions?  Contact us at <a class="bodyCopy" href="mailto:service@topcoder.com">service@topcoder.com</a>
 
                         <p><img src="/i/clear.gif" width="427" height="20" border="0"/></p>
                     </td>
