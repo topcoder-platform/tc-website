@@ -108,7 +108,7 @@ function getProblemDetail(id) {
                         </tr>
                         </screen:resultSetRowIterator>
 
-                        <%=request.getAttribute(Constants.CANDIDATE_EMAIL)%>
+                        AAA<%=request.getAttribute(Constants.CANDIDATE_EMAIL)%>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_EMAIL)%>">
                         <tr>
