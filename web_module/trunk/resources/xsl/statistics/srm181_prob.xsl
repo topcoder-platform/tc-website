@@ -88,6 +88,7 @@ function openWin(url, name, w, h) {
 
 <p>On the Division II side of things, the success rates for the easy and medium problems were very high, but many coders were stopped by the hard.  The winner of it all was <b>RandySaint</b>, who used his high score on the 950 to finish in first place in Division II by over 100 points over <b>sanjay31</b>.</p>
  
+<p>
 <H1> 
 The Problems 
 </H1>
@@ -146,8 +147,8 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
 <pre>
     hits = 0;
     for (int i = 0; i &lt; pattern.size(); i++) {
-        if (pattern[i] &gt; 2 && jumps[i] == 'J') hits++;
-        else if (pattern[i] &lt;= 2 && jumps[i] == 'S') hits++;
+        if (pattern[i] &gt; 2 &amp;&amp; jumps[i] == 'J') hits++;
+        else if (pattern[i] &lt;= 2 &amp;&amp; jumps[i] == 'S') hits++;
     }
     return hits;
 </pre>
@@ -326,7 +327,7 @@ What we want is the smallest non-prime that isn't divisible by any of the first 
     int at = 0;
 
     bool prime (int k) {
-        for (int i = 0; i &lt; at && p[i] * p[i] &lt;= k; i++)
+        for (int i = 0; i &lt; at &amp;&amp; p[i] * p[i] &lt;= k; i++)
 	    if (k % p[i] == 0) return false;
 	p[at++] = k;
         return true;
@@ -462,10 +463,10 @@ z<pre>
         if (best[x] != 0) return best[x];
 	int ret = 2000000000;
 	for (int i = 0; i &lt; N; i++) {
-	    if ((x & (1 &lt;&lt; i)) != 0) {
+	    if ((x &amp; (1 &lt;&lt; i)) != 0) {
 	        int s = health[i];
 		for (int j = 0; j &lt; N; j++) {
-		    if (i != j && (x & 1 &lt;&lt; j) != 0 && shots[i+1][j+1] &lt; s)
+		    if (i != j &amp;&amp; (x &amp; 1 &lt;&lt; j) != 0 &amp;&amp; shots[i+1][j+1] &lt; s)
 		        s = shots[j+1][i+1];
 		}
 		int q = go(x ^ (1 &lt;&lt; i)) + s;
