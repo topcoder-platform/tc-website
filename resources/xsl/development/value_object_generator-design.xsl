@@ -63,7 +63,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Value Object Generator component generates value object which can be used to wrap small pieces of information into one component, such as a customer's name, address and phone number into a CustomerObject.  This fine grained object provides an easy mechanism to serialize data to transport remotely or between software layers.   
+						The Value Object Generator component creates value objects which can be used to encapsulate information into a java class, such as a customer's name, address and phone number into one CustomerObject class.  This resulting fine grained object provides an easy mechanism to serialize data for transport remotely or between software layers.  In addition, this component is modeled after the J2EE Value object pattern.   
 						</p>
 
 <!-- Project Type -->
