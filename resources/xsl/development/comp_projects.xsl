@@ -86,8 +86,8 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td width="15%" class="projectHeaders">Design Projects</td>
                     <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="15%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Inquiries</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
@@ -118,6 +118,16 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
                         <tr valign="top">
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./catalog_name = 'Java' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="projectCells">
                                 <a>
                                     <xsl:attribute name="href">
@@ -128,7 +138,6 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_inquiries"/>
                             </td>
@@ -137,7 +146,7 @@
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="projectCells" align="center" nowrap="0"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                            <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
@@ -173,8 +182,8 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td width="15%" class="projectHeaders">Development Projects</td>
                     <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="15%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Inquiries</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
@@ -203,6 +212,16 @@
                         </xsl:variable>
 
                         <tr valign="top">
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./catalog_name = 'Java' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="projectCells">
                                 <a>
                                     <xsl:attribute name="href">
@@ -213,7 +232,6 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_inquiries"/>
                             </td>
@@ -222,7 +240,7 @@
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="projectCells" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                            <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
@@ -258,8 +276,8 @@
                     <td class="projectTitles" colspan="9">Component Design Projects</td>
                 </tr>
                 <tr valign="middle">
-                    <td width="15%" class="projectHeaders">Design Projects</td>
                     <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="15%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Inquiries</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
@@ -291,6 +309,16 @@
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
                         <tr valign="top">
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./catalog_name = 'Java' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="projectCells">
                                 <a>
                                     <xsl:attribute name="href">
@@ -301,7 +329,6 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="projectCells" align="center">
                                 <xsl:value-of select="./total_inquiries"/>
                             </td>
@@ -310,7 +337,7 @@
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="projectCells" align="center" nowrap="0"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                            <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>
@@ -340,8 +367,8 @@
                 </tr>
 
                 <tr valign="middle">
-                    <td width="15%" class="projectHeaders">Development Projects</td>
                     <td class="projectHeaders" align="center">Catalog</td>
+                    <td width="15%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Inquiries</td>
                     <td class="projectHeaders" align="center">Submissions</td>
                     <td class="projectHeaders" align="center">Payment*</td>
@@ -370,6 +397,16 @@
                         </xsl:variable>
 
                         <tr valign="top">
+                            <td class="projectCells" align="center">
+                            <xsl:choose>
+                               <xsl:when test="./catalog_name = 'Java' ">
+                                  <img src="/i/development/smJava.gif"/>
+                               </xsl:when>
+                               <xsl:otherwise>
+                                  <img src="/i/development/netSm.gif"/>
+                               </xsl:otherwise>
+                            </xsl:choose>
+                            </td>
                             <td class="projectCells">
                                 <a>
                                     <xsl:attribute name="href">
@@ -380,7 +417,6 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            <td class="projectCells" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="projectCells" align="center">
                                <xsl:value-of select="./total_inquiries"/>
                             </td>
@@ -389,7 +425,7 @@
                             </td>
                             <td class="projectCells" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
                             <td class="projectCells" align="center"><xsl:value-of select="./description"/></td>
-                            <td class="projectCells" align="center" nowrap="0"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
+                            <td class="projectCells" align="center" nowrap="nowrap"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template> 9:00 AM ET</td>
                     <td class="projectCells" align="center">
                     <xsl:if test="./total_submissions &gt; 0">
                              <a>

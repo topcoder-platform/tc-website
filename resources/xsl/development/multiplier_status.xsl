@@ -90,7 +90,7 @@
 
                 <tr valign="middle">
                     <td width="35" class="projectHeaders" align="center">Catalog</td>
-                    <td width="30%" class="projectHeaders">Design Projects</td>
+                    <td width="30%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Designer</td>
                     <td class="projectHeaders" align="center">Design<br />Rating</td>
                     <td class="projectHeaders" align="center">Inquiry<br />Date</td>
@@ -161,7 +161,7 @@
 
                 <tr valign="middle">
                     <td width ="35" class="projectHeaders" align="center">Catalog</td>
-                    <td width="30%" class="projectHeaders">Development Projects</td>
+                    <td width="30%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Developer</td>
                     <td class="projectHeaders" align="center">Developer<br />Rating</td>
                     <td class="projectHeaders" align="center">Inquiry<br />Date</td>
