@@ -67,7 +67,7 @@
 <p><b>Introduction</b><br/>
 In the real world, I teach graduate and undergraduate algorithms at an
 upstate New York university; for the past year, I've been requiring my
-students to compete in SRMs.  While there's a wide range on how well
+students to compete in SRMs (Single Round Matches).  While there's a wide range on how well
 the students do, and I've destroyed the university TopCoder rating,
 most are better off for the experience.</p>
 
@@ -75,7 +75,7 @@ most are better off for the experience.</p>
 flurry of "why do you make us do this" questions, it's a good time
 to talk about the benefits (and also pitfalls) of TopCoding.
 My objective is to make my students smarter and more
-competative in the job market.  While writing software is by no means
+competitive in the job market.  While writing software is by no means
 the only thing a computer scientist needs to do, it is a fundamental
 skill.  A weak coder is sure to have problems in many other areas, and
 the best way to improve is to buckle down and start writing.</p>
