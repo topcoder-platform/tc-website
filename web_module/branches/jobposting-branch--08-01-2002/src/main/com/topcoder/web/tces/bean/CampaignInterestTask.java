@@ -96,6 +96,21 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
         uid = Authentication.userLoggedIn(session);
     }
 
+    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
+        throws Exception {
+
+        //TODO add constants for names
+        ArrayList a = new ArrayList();
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + getCampaignID(), "Main"));
+        a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
+            "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" + 
+            TCESConstants.CAMPAIGN_ID_PARAM + getCampaignID(), "Campaign Detail"));
+        setTrail(a);
+
+    }
+
     public void processStep(String step)
         throws Exception
     {
