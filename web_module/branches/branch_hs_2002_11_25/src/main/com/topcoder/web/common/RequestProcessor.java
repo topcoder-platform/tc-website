@@ -1,7 +1,6 @@
 package com.topcoder.web.common;
 
 import javax.servlet.*;
-import javax.servlet.http.*;
 
 /**
  * Classes that implement RequestProcessor should contain the
