@@ -6,7 +6,7 @@
          <tr>
              <td valign="middle" background="/i/surveyBorderLeft.gif"><img src="/i/clear.gif" width="10" height="1" border="0"/>
              </td>
-             <td class="surveyText"><img src="/i/clear.gif" width="200" height="10" border="0"/>
+             <td class="surveyText"><img src="/i/clear.gif" width="200" height="10" border="0"/><br/>
                   <span class="surveyTextBig"><xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/date"/> - </span>
                   <xsl:value-of select="/TC/HOME/SurveyInfo/QuestionInfo/question_text"/>
               </td>
