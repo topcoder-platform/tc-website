@@ -222,7 +222,7 @@
 </table>
 
 <!-- Footer Begins -->
-        <xsl:call-template name="Foot" />
+        <xsl:call-template name="Foot" /> 
 <!-- Footer Endss -->
 
 </body>
