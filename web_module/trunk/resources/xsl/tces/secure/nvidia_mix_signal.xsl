@@ -62,27 +62,20 @@
 
 
 
-<P><B>TECHNICAL MARKETING ENGINEER INTERN</B></P>
-<p>Evaluating our latest GPU characteristics:</p>
+<P><B>MIXED SIGNAL DESIGN ENGINEER</B></P>
+<p>Develop high-speed IC interfaces and complex analog functions.  Circuit Design Projects may include working with the following: high speed interfaces, gigabit ethernet, video digital-to-analog converters, video analog-to-digital converters, high speed phase-locked loops, high speed I/O design or wireless chips (802.11x).  Opportunity to work on and be a part of shipping a multimillion dollar revenue generating product </p>
+
+<p>Job Requirements:</p>
 <ul>
-<li>Power consumption</li>
-<li>Power reduction features</li>
-<li>Display interfaces</li>
-<li>Video BIOS</li>
-<li>Drivers</li>
+<li>BS in Electrical Engineering, currently enrolled in MS or PhD (preferred) program. Minimum GPA 3.5 </li>
+<li>Candidate must have experience in more than one of the following areas:</li>
+<li>Clock/data recovery for highspeed channels (SERDES, OC48/192(sonet/fiber channel), Gigabit Ethernet etc</li>
+<li>Other analog design for high/speed channels (SERDES, OC48/192(sonet/fiber channel) </li>
+<li>Experience designing PLL's (analog), CMOS A/D converters, high speed I/O design. high speed interfaces.</li>
 </ul>
 
-<p>Interfacing with design engineering, failure analysis, marketing and sales organizations.  
-Verification of schematics and PCB layout.  Ensuring that LCD supplier displays are validated 
-with NVIDIA GPU's.  Interfacing with NVIDIA partners during the design process.  Ensuring 
-that the documentation (datasheets, design guides, and application notes) is accurate and up to date.</p>
 
-<p>Minimum GPA: 3.5</p>
-
-<p>BSEE or Senior standing at an accredited Electrical Engineering program.  Knowledge of PC platform, AGP and PCI interface, LCD displays, display interfaces, LVDS, TMDS, spread-spectrum are plus.  Must have excellent communication skills, be a strong leader, and must be comfortable driving the process to meet deadlines.</p>
-
-
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=203&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=205&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           

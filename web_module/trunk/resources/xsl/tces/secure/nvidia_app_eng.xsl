@@ -62,27 +62,17 @@
 
 
 
-<P><B>TECHNICAL MARKETING ENGINEER INTERN</B></P>
-<p>Evaluating our latest GPU characteristics:</p>
-<ul>
-<li>Power consumption</li>
-<li>Power reduction features</li>
-<li>Display interfaces</li>
-<li>Video BIOS</li>
-<li>Drivers</li>
-</ul>
+<P><B>APPLICATIONS ENGINEER</B></P>
+<p>This is an opportunity to work on the hottest GPUs (Graphics Processing Units) before they’ve been shown to the world!  The Applications Engineer is involved in all aspects of New Product Introduction such as PCB (printed circuit board) design, silicon and PCB characterization, stress testing, hardware failure analysis, tuning high performance memory subsystems, solving complex system problems, and consulting on customer designs.  Issues such as noise, power, thermals, AC timing, EMI, display output quality, and transmission line effects, are explored.</p>
 
-<p>Interfacing with design engineering, failure analysis, marketing and sales organizations.  
-Verification of schematics and PCB layout.  Ensuring that LCD supplier displays are validated 
-with NVIDIA GPU's.  Interfacing with NVIDIA partners during the design process.  Ensuring 
-that the documentation (datasheets, design guides, and application notes) is accurate and up to date.</p>
+<p>As an Applications Engineer, you will be interfacing with hardware designers, software engineers, sales, and the operations team to ensure the timely rollout of new products.  At your disposal are the highest bandwidth DSO (digital storage oscilloscopes) and logic analyzers available.  Powerful in-house tools empower Applications Engineers with the ability to develop custom routines, which are compiled on the fly during run-time, to fully exercise any and all functions of the GPU.  You will be learning and helping to develop the best systems engineering practices in the industry.</p>
 
-<p>Minimum GPA: 3.5</p>
+<p>Minimum GPA:  3.5.</p>
 
-<p>BSEE or Senior standing at an accredited Electrical Engineering program.  Knowledge of PC platform, AGP and PCI interface, LCD displays, display interfaces, LVDS, TMDS, spread-spectrum are plus.  Must have excellent communication skills, be a strong leader, and must be comfortable driving the process to meet deadlines.</p>
+<p>Senior and junior level positions available.  The ideal candidate will be working towards a degree in EE, CE, CS, Systems Engineering or Engineering Science/Physics, with an emphasis in computer architecture, digital design, circuit analysis, and device physics.  Knowledge of PC architecture and high-speed digital design concepts a must.  Knowledge of graphics system preferred.  Experience in hardware development or testing is highly desirable.</p>
 
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=203&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=206&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
