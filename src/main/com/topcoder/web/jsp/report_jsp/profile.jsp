@@ -152,7 +152,7 @@
       <td>&#160;&#160;&#160;</td>
       <td><%=p.getMemberSince()%></td>
     </tr>
-<% if (p.getSchollName()!=null && !p.getSchoolName().equals("")) { %>
+<% if (p.getSchoolName()!=null && !p.getSchoolName().equals("")) { %>
     <tr>
       <td>School</td>
       <td>&#160;&#160;&#160;</td>
