@@ -24,7 +24,6 @@ public class Save extends Base {
             setIsNextPageInContext(false);
         } else {
 
-
             long componentId = 0;
             int problemTypeId = 0;
             int languageId = 0;
