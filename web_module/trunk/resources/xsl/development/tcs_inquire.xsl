@@ -1,4 +1,4 @@
-<?xml version="1.0"?>
+xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
@@ -58,7 +58,6 @@
 
             <FORM name="frmSend" method="POST" action="/?&amp;t=development">
               <INPUT TYPE="hidden" NAME="t" VALUE="development"/>
-              <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
               <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
               
               <INPUT TYPE="hidden" NAME="comp">
