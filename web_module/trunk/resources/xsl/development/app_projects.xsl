@@ -93,7 +93,7 @@
                     <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
                     <td class="formTextOdd" align="center">$810</td>
                     <td class="formTextOdd" align="center">$225</td>
-                    <td class="formTextOdd" align="center">12.03.03</td>
+                    <td class="formTextOdd" align="center">12.03.03 6:00 PM ET</td>
                 </tr>
 
                 <tr valign="top">
