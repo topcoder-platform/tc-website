@@ -17,8 +17,8 @@
             <input type="hidden" name="<%=Constants.TASK_KEY%>" value="UploadTask">
             <br/>Resume: <input type=file name=file1>
             <br/>File Type: <select name="fileType" class="dropdown">
-            <rsc:iterator list="<%=ViewUploadTask.getFileTypes()%>" id="row">
-              <option value="<rsc:item name="file_type_id" row="row"/>"><rsc:item name="file_type_desc" row="row"/></option>
+            <rsc:iterator list="<%=ViewUploadTask.getFileTypes()%>" id="fileType">
+              <option value="<rsc:item name="file_type_id" row="fileType"/>"><rsc:item name="file_type_desc" row="fileType"/></option>
             </rsc:iterator>
             </select>
             <br/><input type="submit" value="Upload">
