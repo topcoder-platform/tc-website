@@ -72,7 +72,7 @@ function submitSession() {
 
 <!-- Middle column begins -->
         <td class="bodyText" width="100%"><img src="/i/ev/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="60%">
+            <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session</h1>
@@ -86,11 +86,15 @@ function submitSession() {
                 </tr>
             </table>
 
+             <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+            </table>
+ 
             <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
             <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
             <input type="HIDDEN" name="rp" value="" >
 
-            <table cellspacing="0" cellpadding="3" width="70%" align="left" class="testFrame">
+            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/ev/clear.gif" width="60" height="1" alt="" border="0"></td>
@@ -234,8 +238,8 @@ function submitSession() {
 
            </screen:form>
  
-             <table border="0" cellspacing="0" cellpadding="3" width="30%">
-                <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td></tr>
+             <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr><td width="100%"><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
             </table>
  
             <p><br></p>
