@@ -1,4 +1,11 @@
-<%@  page language="java"  %>
+<%@ page contentType="text/html; charset=ISO-8859-1" %>
+<%@ page
+  language="java"
+  import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          java.util.Map,com.topcoder.web.tc.controller.legacy.stat.common.JSPUtils"
+%>
+<%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -123,7 +130,21 @@ H3 { font-size: 125%; }
 
 </head>
  
+<%
 
+com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+dataRequest.setContentHandle("javaone_scoreboard");
+DataAccessInt dai = new DataAccess("OLTP");
+Map dataMap = null;
+dataMap = dai.getData(dataRequest);
+ResultSetContainer rscTopA = (ResultSetContainer)dataMap.get("top_set_a");
+ResultSetContainer rscRecentA = (ResultSetContainer)dataMap.get("recent_set_a");
+ResultSetContainer rscTopB = (ResultSetContainer)dataMap.get("top_set_b");
+ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("recent_set_b");
+
+
+
+%>
 
     <body>
             <table border=0 cellspacing=0 width="100%" align=center bgcolor="#EBEBEB">
@@ -147,6 +168,7 @@ H3 { font-size: 125%; }
                     <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
 
 <%-- Problem A Leaders --%>
+                            
                         <table cellspacing=0 align=center width="100%">
                             <tr>
                                 <td class="leaderTitle" colspan="2">Current Leaders</td>
@@ -155,10 +177,14 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Name</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
+                            <% int i=1;%>
+                            <rsc:iterator list="<%=rscTopA%>" id="Row" >
                                 <tr>
-                                    <td class="leaderCell">some dude</td>
-                                    <td class="leaderCell" align=right>555.55</td>
+                                    <td class="leaderCell"><rsc:item name="rank" row="<%=Row%>"/><%=". "+JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='score' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
+                            <% i++; %>
+                            </rsc:iterator>
                         </table>
                     </td>
 
@@ -173,14 +199,12 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Name</td>
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
+                             <rsc:iterator list="<%=rscRecentA%>" id="Row" >
                                 <tr>
-                                    <td class="leaderCell">some dude</td>
-                                    <td class="leaderCell" align=right>555.55</td>
+                                    <td class="leaderCell"><%=JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='status' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
-                                <tr>
-                                    <td class="leaderCell">some dude</td>
-                                    <td class="leaderCell" align=right>555.55</td>
-                                </tr>
+                            </rsc:iterator>
                         </table>
                     </td>
                     <td class="spacer">&#160;</td>
@@ -195,10 +219,13 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Name</td>
                                 <td class="leaderHeader" align="right">Score</td>
                             </tr>
+                            <% int j=1;%>
+                            <rsc:iterator list="<%=rscTopB%>" id="Row" >
                                 <tr>
-                                    <td class="leaderCell">some dude</td>
-                                    <td class="leaderCell" align=right>555.55</td>
+                                    <td class="leaderCell"><rsc:item name="rank" row="<%=Row%>"/><%=". "+JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='score' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
+                            <% j++;%>
                         </table>
                     </td>
 
@@ -213,10 +240,12 @@ H3 { font-size: 125%; }
                                 <td class="leaderHeader">Name</td>
                                 <td class="leaderHeader" align="right">Status</td>
                             </tr>
+                            <rsc:iterator list="<%=rscRecentB%>" id="Row" >
                                 <tr>
-                                    <td class="leaderCell">some dude</td>
-                                    <td class="leaderCell" align=right>555.55</td>
+                                    <td class="leaderCell"><%=JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
+                                    <td class="leaderCell" align="right"><rsc:item name='status' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
+                            </rsc:iterator>
                         </table>
                     </td>
                 </tr>
