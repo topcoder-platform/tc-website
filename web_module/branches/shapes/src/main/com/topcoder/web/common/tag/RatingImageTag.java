@@ -12,7 +12,7 @@ import com.topcoder.shared.dataAccess.resultSet.*;
 import java.util.Map;
 
 public class RatingImageTag extends TagSupport {
-    private int id;
+    private int cid;
     private String link = "";
     private String cssclass = "";
     private String imagecssclass = "";
@@ -24,8 +24,8 @@ public class RatingImageTag extends TagSupport {
     private static final String[] colors =
            {"o", "w", "g", "n", "b", "y", "r"};
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCid(int cid) {
+        this.cid = cid;
     }
     
     public void setBg(String bg) {
@@ -53,7 +53,7 @@ public class RatingImageTag extends TagSupport {
             
             Request r = new Request();
             r.setContentHandle("coder_all_ratings");
-            r.setProperty("cr", String.valueOf(id));
+            r.setProperty("cr", String.valueOf(cid));
             
             Map m = da.getData(r);
             
@@ -98,7 +98,7 @@ public class RatingImageTag extends TagSupport {
             
             output.append("\">");
             
-            output.append("<img src=\"");
+            output.append("<img src=\"/i/r/");
             
             output.append(getColorString(rsc.getIntItem(0, "algorithm_rating"))); 
             output.append(getColorString(rsc.getIntItem(0, "design_rating")));
@@ -125,7 +125,7 @@ public class RatingImageTag extends TagSupport {
             }
             
             pageContext.getOut().print(output.toString());
-        } catch (IOException e) {
+        } catch (Exception e) {
             throw new JspException(e.getMessage());
         }
         return SKIP_BODY;

@@ -110,7 +110,7 @@
         <name>ratingImage</name>
         <tagclass>com.topcoder.web.common.tag.RatingImageTag</tagclass>
         <attribute>
-            <name>id</name>
+            <name>cid</name>
             <required>true</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
