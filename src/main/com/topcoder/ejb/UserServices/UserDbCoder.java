@@ -41,7 +41,7 @@ final class UserDbCoder {
         PreparedStatement ps = null;
 
         ArrayList demographicResponses = null;
-        ArrayList coderConfirmations = null;
+//        ArrayList coderConfirmations = null;
         StringBuffer query = new StringBuffer(500);
         query.append(" INSERT INTO");
         query.append(" coder (");
@@ -137,12 +137,12 @@ final class UserDbCoder {
                     }
                 }
             }
-            for (int i = 0; i < coderConfirmations.size(); i++) {
+/*            for (int i = 0; i < coderConfirmations.size(); i++) {
                 CoderConfirmation cc = (CoderConfirmation) coderConfirmations.get(i);
                 cc.setCoderId(coder.getCoderId());
                 insertCoderConfirmation(conn, (CoderConfirmation) coderConfirmations.get(i));
             }
-
+*/
             InitialContext ctx = new InitialContext();
             Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
@@ -428,6 +428,7 @@ final class UserDbCoder {
     /**
      * Method to add a confirmation codes for this coder.
      */
+/*
     private static void insertCoderConfirmation(Connection conn, CoderConfirmation coderConfirmation)
             throws TCException {
         log.debug("ejb.User.UserDbCoder:insertCoderConfirmation() called ...");
@@ -469,7 +470,7 @@ final class UserDbCoder {
             }
         }
     }
-
+*/
 
 
 //                                 UPDATE
