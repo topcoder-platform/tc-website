@@ -235,9 +235,9 @@ public class TCLoadRound extends TCLoad {
             } else {
                 a.add(new String("DELETE FROM coder_level WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
                 a.add(new String("DELETE FROM coder_division WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
+                a.add(new String("DELETE FROM coder_problem_summary WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
                 a.add(new String("DELETE FROM room_result WHERE round_id = ?"));
                 a.add(new String("DELETE FROM round_division WHERE round_id = ?"));
-                a.add(new String("DELETE FROM coder_problem_summary WHERE coder_id IN (SELECT coder_id FROM room_result WHERE attended = 'Y' AND round_id = ?)"));
                 a.add(new String("DELETE FROM system_test_case WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)"));
                 a.add(new String("DELETE FROM round_problem WHERE round_id = ?"));
                 a.add(new String("DELETE FROM challenge WHERE round_id = ?"));
