@@ -1,13 +1,14 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
 
 <title>DoubleClick</title>
 
 <jsp:include page="../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
 
 </head>
 <body align="center">
@@ -17,13 +18,12 @@
    <jsp:param name="tabLev2" value="rules"/>
 </jsp:include>
 
-<div class="dc_bodyTable">
-
-   <div CLASS="dc_headerPic">
-      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
-   </div>
-
-   <div CLASS="dc_bodyText">
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dc_headerPic">
+	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	  	</td>
+		<td class="dc_bodyText">
          <p class="pageTitle">Rules</p>
          
             <h3>No purchase necessary to enter or win. The tournament is void where prohibited.</h3>
@@ -174,10 +174,13 @@
             <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033 and DoubleClick Inc. (http://www.doubleclick.net) 111 Eighth Avenue, New York, NY 10011.</p>
 
 
-   </div>
-</div>
+		</td>
+	</tr>
+</table>
    
-<jsp:include page="foot.jsp" />
+<jsp:include page="foot.jsp" >
+   <jsp:param name="contest" value="collegiate"/>
+</jsp:include>
 
 </body>
 </html>
