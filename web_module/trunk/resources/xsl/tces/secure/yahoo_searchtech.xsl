@@ -2,13 +2,12 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../../top.xsl"/>
   <xsl:import href="../../script.xsl"/>
-  <xsl:import href="../../includes/body_top.xsl"/>  
+  <xsl:import href="../../includes/body_top.xsl"/>
   <xsl:import href="../../foot.xsl"/>
   <xsl:import href="../../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../../includes/modules/module_login.xsl"/>  
   <xsl:import href="../../includes/modules/calendar.xsl"/>
-  <xsl:import href="../../includes/global_left.xsl"/> 
-  <xsl:import href="../../includes/public_right_col.xsl"/>     
+  <xsl:import href="../../includes/global_left.xsl"/>
+  <xsl:import href="../../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
 
@@ -16,11 +15,11 @@
 
 <head>
 
-<xsl:call-template name="Preload"/>      
+<xsl:call-template name="Preload"/>
 
 <title>TopCoder | Employment Services</title>
 
-<xsl:call-template name="CSS"/>      
+<xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -44,7 +43,7 @@
         <td width="4"><img src="/i/table_top_fill.gif" width="4" height="26" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
@@ -66,14 +65,14 @@
                         <p><A href="/?&amp;t=tces&amp;c=yahoo" class="bodyText"><img src="/i/es/yahoo/yahoo_logo.gif" width="137" height="35" alt="Yahoo!" border="0" /></A></p>
 
                         <h3>Technical Yahoo! Software Engineer (Search Technologies)</h3>
-                        
-                       <p>Yahoo! HotJobs is currently looking for a Software Engineer to design and develop HotJobs' current and future products in 
-                       the Sunnyvale or NYC office. A successful candidate for this position will set the technology direction for projects and 
+
+                       <p>Yahoo! HotJobs is currently looking for a Software Engineer to design and develop HotJobs' current and future products in
+                       the Sunnyvale or NYC office. A successful candidate for this position will set the technology direction for projects and
                        directly impact the delivery of products that drive HotJobs' business success! </p>
-                       
-                       						
+
+
 						<p>Specific requirements include:</p>
-						
+
 						<ul>
 						<li>M.S. in Computer Science or equivalent</li>
 						<li>5+ years developing high-quality high-performance Internet-based services including extensive track record of launching industry-leading applications</li>
@@ -85,18 +84,18 @@
 						</ul>
 
                         <p>Preferred Skills:</p>
-                        
+
                         <p>Experience with database schema design and query tuning is a plus and familiarity with search engine technologies is a strong plus!</p>
-                       
+
                         <p><strong>Job Location</strong><br/>
                         Sunnyvale, CA or New York, NY</p>
-                        
+
                         <p align="center"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=185&amp;jt=2" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
 
 <!-- Client Job List ends -->
 
                         <p><br/></p>
-                        
+
                     </td>
                 </tr>
             </table>
@@ -109,7 +108,7 @@
 
 <!-- Right Column Begins -->
         <td width="170"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
-            <xsl:call-template name="public_right_col"/>       
+            <xsl:call-template name="public_right_col"/>
         </td>
 <!-- Right Column Ends -->
 

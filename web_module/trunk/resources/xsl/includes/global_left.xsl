@@ -628,10 +628,6 @@
                 <tr><td id="leftNavTitle" >Competition:</td></tr>
 </xsl:template>
 
-<xsl:template name="jobs_row">
-                <tr><td id="leftNavTitle" >Job Listing:</td></tr>
-</xsl:template>
-
 <xsl:template name="development_row">
                 <tr><td id="leftNavTitle" >Development:</td></tr>
 </xsl:template>
@@ -696,11 +692,6 @@
 
 <xsl:template name="tc_gear_row">
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=store&amp;d2=store_home</xsl:attribute>TopCoder Gear</A></td></tr>
-</xsl:template>
-
-
-<xsl:template name="listings_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=tces&amp;c=index</xsl:attribute>Job Listing</A></td></tr>
 </xsl:template>
 
 <xsl:template name="rules_row">

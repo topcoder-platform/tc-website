@@ -2,20 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../../top.xsl"/>
   <xsl:import href="../../script.xsl"/>
-  <xsl:import href="../../includes/body_top.xsl"/>  
+  <xsl:import href="../../includes/body_top.xsl"/>
   <xsl:import href="../../foot.xsl"/>
   <xsl:import href="../../includes/modules/practice_room.xsl"/>
-  <xsl:import href="../../includes/modules/module_login.xsl"/>  
   <xsl:import href="../../includes/modules/calendar.xsl"/>
-  <xsl:import href="../../includes/global_left.xsl"/> 
-  <xsl:import href="../../includes/public_right_col.xsl"/>     
+  <xsl:import href="../../includes/global_left.xsl"/>
+  <xsl:import href="../../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>TopCoder :: Employment Services</TITLE>
-        <xsl:call-template name="CSS"/>      
+        <xsl:call-template name="CSS"/>
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
@@ -28,7 +27,7 @@
   <TR>
     <!-- Left Column Begins -->
     <TD WIDTH="180" VALIGN="top">
-  <!-- Global Seconday Nav Begins -->    
+  <!-- Global Seconday Nav Begins -->
 <!-- Left Column Begins -->
         <td width="180" valign="top">
             <xsl:call-template name="global_left"/>
@@ -41,7 +40,7 @@
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-  <!-- Center Column Begins -->  
+  <!-- Center Column Begins -->
 		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
@@ -65,8 +64,8 @@
 </P>
 
 <p>
-TopCoder is looking to hire a full-time software developer to administer, enhance, and maintain the TopCoder 
-competition engine. Candidates must work well under pressure in a high-risk environment and must 
+TopCoder is looking to hire a full-time software developer to administer, enhance, and maintain the TopCoder
+competition engine. Candidates must work well under pressure in a high-risk environment and must
 have excellent communication skills.
 </p>
 
@@ -107,8 +106,8 @@ have excellent communication skills.
     <!-- Gutter Ends -->
 	<!-- Right Column Begins -->
 		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><br/>
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
+        <xsl:call-template name="public_right_col"/>
+<!-- Right Column Include Ends -->
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
