@@ -69,7 +69,7 @@
             <description></description>
         </init-param>
         <init-param>
-            <param-name>survey_view</param-name>
+            <param-name>survey_list</param-name>
             <param-value>/survey/list.jsp</param-value>
             <description></description>
         </init-param>
