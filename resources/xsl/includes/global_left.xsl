@@ -855,7 +855,7 @@
                                         <xsl:otherwise>leftSubnav</xsl:otherwise>
                                     </xsl:choose>
                                     </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://software.topcoder.com/review</xsl:attribute>Project Submit &amp; Review</A>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/SoftwareHost"/>/review</xsl:attribute>Project Submit &amp; Review</A>
                                 </td>
                             </tr>
 
