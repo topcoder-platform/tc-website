@@ -295,10 +295,11 @@
               }
               function itemMove(select, col, othercol)
               {
-                sl = document.profileListForm[col].selectedIndex;
                 ocl = document.profileListForm[othercol].length;
                 cl = document.profileListForm[col].length;
-                if (sl != -1 && document.profileListForm[col].options[sl].value > "") {
+                var s1;
+                for(s1=0;s1 < document.profileListForm[col].options.length;s1++){
+                if (!document.profileListForm[col].options[sl].selected || !(document.profileListForm[col].options[sl].value > "")) {continue;}
                   pText = document.profileListForm[col].options[sl].text;
                   pValue = document.profileListForm[col].options[sl].value;
                   if (document.profileListForm[col].options[sl].value > "" && select == 0) {
