@@ -13,13 +13,9 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
     var daHt = parseInt(ht) + parseInt('49');
     var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
     var name="graph";
-    window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
-    return;
-  }
-  function getGraph(url,wd,ht,name) {
-    var last=0;
-    var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
+    for (i=0; i<window.frames.length; i++) {
+      if (frames[i].name==name) frames[i].close();
+    }
     window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
     return;
   }
