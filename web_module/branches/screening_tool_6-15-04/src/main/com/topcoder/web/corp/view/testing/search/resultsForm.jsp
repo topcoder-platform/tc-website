@@ -40,12 +40,14 @@
                     height="12"
                     id="tc_card"
                     align="middle">');
-                    <param name="allowScriptAccess" value="sameDomain" />');
+                    <param name="allowScriptAccess" value="sameDomain" />
                     <param name="movie"
-                    value="/i/corp/screeningRatingOdd.swf"/>');
-                    <param name="menu" value="false" />');
-                    <param name="quality" value="high" />');
-                    <param name="bgcolor" value="#ffffff" />');
+                    value="/i/corp/screeningRatingOdd.swf"/>
+                    <param name="menu" value="false" />
+                    <param name="quality" value="high" />
+                    <param name="bgcolor" value="#ffffff" />
+                    <param name="preference" value="3" />
+                    <param name="link" value="/corp/testing/?module=UpdatePreference&userId=7267401&cid=9102106" />
                     <embed
                     src="/i/corp/screeningRatingOdd.swf"
                     menu="false"
