@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br/>
+                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm194_prob">SRM 194 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, May 15, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm195_prob">SRM 195 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, May 18, 2004</p>
 
                         <p>
-<p>Division 1 coders had little trouble completing their easy. Once this
-was out of the way, coders faced a puzzling medium. The medium turned out 
-to be easy to code once the solution became apparent. As often
-<b>Antimatter</b> started the match in great style with fast submissions
-on the first two problems. He was closely followed by a hungry pack of
-reds.
-                        <a href="/?t=statistics&amp;c=srm194_prob" class="bodyText"><strong>full&#160;story</strong></a>
+<p>
+In an exciting matchup between tomek and SnapDragon, the two coders at TopCoder
+who keep swapping first and second place, SnapDragon walked away the clear
+winner, even though he didn't win the division.  Instead that honor went to
+venco, whose coding alone carried him to the top of the chart.  
+
+                        <a href="/?t=statistics&amp;c=srm195_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
