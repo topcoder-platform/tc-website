@@ -22,12 +22,12 @@ public abstract class Base extends BaseProcessor {
 
     final protected void businessProcessing() throws TCWebException {
         //get the data for the right side
-        try {
+        /*try {
 
             log.debug("ENTERING businessProcessing");
             
             //no longer using, removed - rfairfax 6-9-2004
-            /*
+            
              ResultSetContainer openProjects = getOpenProjects();
 
             double devSum = 0.0d;
@@ -48,14 +48,14 @@ public abstract class Base extends BaseProcessor {
             getRequest().setAttribute("DesignSum", new Double(designSum));
             getRequest().setAttribute("OpenProjects", openProjects);
 
-             */
+             
             log.debug("LEAVING businessProcessing");
 
         } catch (TCWebException e) {
             throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
-        }
+        }*/
         developmentProcessing();
     }
 
