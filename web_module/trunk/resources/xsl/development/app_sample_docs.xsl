@@ -245,7 +245,7 @@
                                         <br/>
                                         The application development review scorecard is completed by each member of the Application Development Review
                                         Board that is assigned to the application development project.  All members who submit a development
-                                        solution will receive the populated scorecards from the review board member.
+                                        solution will receive the populated scorecards from the review board members.
                                     </td>
                                     <td></td>
                                     <td class="bodyText" valign="top">
