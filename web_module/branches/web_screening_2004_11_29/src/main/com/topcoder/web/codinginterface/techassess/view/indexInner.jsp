@@ -10,10 +10,6 @@
 <body>
 <tc-webtag:useBean id="problemSets" name="<%=Constants.PROBLEM_SETS%>" type="java.util.ArrayList" scope="page" />
 
-<% System.out.println("sets: " + problemSets);
-    System.out.println("sets1: " + session.getAttribute(Constants.PROBLEM_SETS));
-    %>
-
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
       <td align=center>
@@ -65,7 +61,7 @@
                   <td class=tableHeader>Test Status</td>
                   <td class=tableHeader align=right>Time Available</td>
                </tr>
-               <tc-webtag:listIterator id="problem" list="<%=problemSets%>">
+               <tc-webtag:listIterator id="problem" list="problemSets">
                    <tr>
                       <td class=tableTextOdd><a href="/mockup/exampleDirections.jsp"><img src="/i/corp/screening/buttonEnter.gif" alt="" /></a></td>
                       <td class=tableTextOdd>asdfasdf</td>
