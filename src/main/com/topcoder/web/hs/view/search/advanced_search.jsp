@@ -1,57 +1,51 @@
 <%@ taglib uri="/search-taglib.tld" prefix="adv" %>
 <%@ page import="com.topcoder.web.hs.model.*,java.util.*" %>
+
 <jsp:usebean id="search" type="com.topcoder.web.hs.model.SearchBean" scope="request"/>
+
 <jsp:usebean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
-<jsp:setproperty name="NavZone" property="Level0" value="stats" />
-<jsp:setproperty name="NavZone" property="Level1" value="advanced_search" />
+<jsp:setproperty name="NavZone" property="Level0" value="advanced_search" />
+<jsp:setproperty name="NavZone" property="Level1" value="" />
 
 <html>
+
 <head>
 
 <title>TopCoder | High School</title>
 
-<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
-<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
-<jsp:include page="../includes/css.jsp"/>
+<jsp:include page="../includes/css.jsp" />
 
 </head>
 
 <body>
 
-<jsp:include page="../includes/top.jsp"/>
+<!-- Top begins -->
+<jsp:include page="../includes/top.jsp" />
+<!-- Top ends -->
 
-<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr valign="top">
-        <td width="170" bgcolor="#001934">
 
 <!-- Left Column begins -->
-<jsp:include page="../includes/left_nav.jsp"/>
-<jsp:include page="../includes/left_calendar.jsp"/>
-<!-- Left Column ends -->
-
+        <td width="170" bgcolor="#001934">
+            <jsp:include page="../includes/left_nav.jsp" />
+            <jsp:include page="../includes/left_calendar.jsp" />
         </td>
+<!-- Left Column begins -->
         
 <!-- Center Column begins -->
-        
-        
-        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF">
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td align="left" height="44" width="348"><img src="/i/headinginside_search.gif" width="348" height="44" alt="" border="0"></td>
-                    <td background="/i/headinginside_1pix_bg.gif" align="left" width="99%" height="44">&nbsp;</td>
-                </tr>
-
-                <tr>
-                    <td colspan="2" height="10"><img src="/i/clear_10_pix_width.gif" width="10" height="10" alt="" border="0"></td>
-                </tr>
-            </table>
-
-            <form method="get" name="advForm">
+        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
+            <table cellspacing="0" cellpadding="10" border="0" width="100%">
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_search.gif" width="348" height="44" alt="" border="0"></td></tr>
+                
+                <tr valign="top"><form method="get" name="advForm">
+                    <td width="100%">
             
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr>
-                    <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
                     <td height="100%" class="bodyText">
                         <p>Enter search criteria below then click the go button. Search results matching the criteria selections will be returned. Click on a Handle 
                         to view information about the Coder.</p>
@@ -207,24 +201,22 @@ function submitEnter(_event) {
 
 </script>
 
+                                </td></form>
+                            </tr>
+                        </table>
                     </td>
-                    <td><img src="/i/clear_10_pix_width.gif" width="10" height="1" alt="" order="0"></td>
                 </tr>
             </table>
-            
-            </form>
 <!-- Center Column ends -->
 
         </td>
-        
-        
-        <td bgcolor="#001934" valign="top">
 
 <!-- Right Column begins -->
-<jsp:include page="../includes/right_resources.jsp"/>
+        <td bgcolor="#001934" valign="top">
+            <jsp:include page="../includes/right_resources.jsp"/>
+        </td>
 <!-- Right Column ends -->
 
-        </td>
     </tr>
 </table>
 
