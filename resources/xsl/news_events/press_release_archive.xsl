@@ -61,6 +61,8 @@
 <!-- 2005 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2005</font></td></tr>
                             
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_15_05">TopCoder Software&#153; Opens Access to Reusable Java&#153; and .NET&#153; Component Catalogs</A> [February 15]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_09_05">Google Code Jam Comes to India</A> [February 9]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_07_05">TC Community Surpasses 50,000 Worldwide Nears 10,000 Rated Member Mark</A> [February 7]<br/></td></tr>
