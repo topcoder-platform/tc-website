@@ -51,6 +51,8 @@ function openWin(url, name, w, h) {
 			<br/><br/>
          <A href="/pl/?module=GoogleIndia05Credentials&cid=8039">Forgot your password?</A>
 			<br/><br/>
+         You need at least <A href="http://java.sun.com/getjava/index.jsp " target="_blank">Java Runtime version 1.4</A> to run the Arena.  Click <A href="http://java.sun.com/getjava/index.jsp " target="_blank">here</A> if you do not have Java Runtime 1.4 installed.
+			<br/><br/>
          Using a proxy server? Click <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">here</A> to read how to <A href="http://www.java.com/en/download/help/proxy_setup.xml" target="_blank">configure Java</A>.
 			<br/><br/>
          Click <A href="/pl/?&module=Static&d1=gicj05&d2=instructions">here</A> to read to the <A href="/pl/?&module=Static&d1=gicj05&d2=instructions">competition instructions</A>.
