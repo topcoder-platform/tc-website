@@ -36,7 +36,7 @@
                 </tr>
             </table>
             <table width="100%" border="0" cellpadding="0" cellspacing="0" class="bodyText">
-               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr>
+               <tr><td bgcolor="#666666" width="100%" height="3" class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="3" border="0" /></td></tr> 
             </table>
 
     <% } else if (list.equals("coding_advancers")) { %>
