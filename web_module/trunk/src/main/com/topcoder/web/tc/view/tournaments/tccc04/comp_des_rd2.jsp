@@ -71,7 +71,7 @@
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
                     <td class="advCell" align="left">&#160;</td>
-                    <td class="advCell" align="right">77.25</td>
+                    <td class="advCell" align="right">77.29</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
@@ -164,7 +164,7 @@
                     <td class="advCell">&#160;</td>
                     <td class="advCell" align="center">2</td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
-                    <td class="advCell" align="center">77.25</td>
+                    <td class="advCell" align="center">77.29</td>
                     <td class="advCell" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
