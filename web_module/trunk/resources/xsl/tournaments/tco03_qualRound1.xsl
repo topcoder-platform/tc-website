@@ -74,17 +74,27 @@
             <blockquote>
             <h2>Advancers</h2>
             
-            <p>The following TopCoder members have received byes in the qualification round of the 2003 TopCoder Open:</p>
-            
-            <table width="300" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
+            <p>Click any of the category names to sort the list of advancers by that category.</p>
+
+            <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
-                    <td class="header" width="50%"><a href="sort">Handle</a></td>
-                    <td class="header" width="50%" align="right"><a href="sort">Rating</a></td>
+                  <td class="header" width="100%" colspan="4">Qualification Round 1</td>
+               </tr>
+                <tr>
+                   <td class="testTableTitle_off" width="10%" align="center"><a href="sort" class="statTextBig">Seed</a></td>
+                   <td class="testTableTitle_off" width="30%" align="left"><a href="sort" class="statTextBig">Handle</a></td>
+                   <td class="testTableTitle_off" width="30%" align="right"><a href="sort" class="statTextBig">Rating</a></td>
+                   <td class="testTableTitle_off" width="30%" align="right"><a href="sort" class="statTextBig">Points</a></td>
                 </tr>
-
+                <tr>
+                   <td class="formHandleEven" align="center">n/a</td>
+                   <td class="formHandleEven" align="left">SomeDude</td>
+                   <td class="formHandleEven" align="right">1000</td>
+                   <td class="formHandleEven" align="right">1000</td>
+               </tr>
              </table>
-            </blockquote>
 
+            </blockquote>
             <p><br/></p>
 
         </td>
