@@ -25,6 +25,8 @@ public class TCES extends Task implements Serializable {
     public static final String HOST = ApplicationServer.SERVER_NAME;
     public static final String PATH = "/tces/";
 
+		public static final String CODER = "Coder";
+		
 		public static TCESNavs navs = new TCESNavs();
 
 		static {

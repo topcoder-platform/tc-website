@@ -1,5 +1,4 @@
 package com.topcoder.web.tces.servlet;
-// package com.topcoder.web.servlet;
 
 import com.topcoder.common.*;
 import com.topcoder.common.web.data.*;
@@ -10,9 +9,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 
-public class TCESController
-    extends HttpServlet
-{
+public class TCESController extends HttpServlet {
     static final String MULTIPART_FORM_DATA = "multipart/form-data";
     public static final String ALIAS = "/tcesctx";
     public static final String EXCEPTION = "exception";
@@ -40,7 +37,7 @@ public class TCESController
         if (request.getContentType()==null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0)
         {
             String taskName = request.getParameter(TASK);
-            if (taskName == null || !TCES.htValidTasks.containsKey(taskName)) {
+            if (taskName == null || !TCES.navs.getHash().containsKey(taskName)) {
                 Log.msg(TASK+" not found in request.");
                 forwardToError(request,response,new TaskException(TASK+" not found in request."));
                 return;
@@ -49,7 +46,7 @@ public class TCESController
 						if (getUser(session) == null) {
 							response.sendRedirect("/?t=authentication&c=login");
 						} else {
-            	forward(request,response,TCES.PATH + taskName + ".jsp");
+            	forward(request,response, TCES.navs.getTCESNav(taskName).getFullPageName());
 						}
          } 
       } catch ( ServletException se ) {
@@ -64,20 +61,8 @@ public class TCESController
         }
       }
     }
-
-    boolean isWord(String s)
-    {
-        if (s==null || s.length() == 0) return false;
-        for (int i=0;i<s.length();i++)
-        {
-            if (!Character.isLetter(s.charAt(i))) return false;
-        }
-        return true;
-    }
     
-    void forward(HttpServletRequest request, HttpServletResponse response, String url)
-        throws ServletException, IOException
-    {
+    void forward(HttpServletRequest request, HttpServletResponse response, String url) throws ServletException, IOException {
         Log.msg(" => forward() to " + url);
         if (url == null || url.length() == 0) url = TCES.PATH + "error.jsp";
         RequestDispatcher rd = null;
@@ -97,23 +82,18 @@ public class TCESController
         rd.forward(request, response);
     }
    
-    void forwardToError(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException
-    {
+    void forwardToError(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
        forward(request,response,CONTROLLER_ERROR_URL);
     } 
    
-    void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception)
-        throws ServletException, IOException
-    {
+    void forwardToError(HttpServletRequest request, HttpServletResponse response, Throwable exception) throws ServletException, IOException {
         if (request != null) {
             request.setAttribute(EXCEPTION,exception);
         }
         forwardToError(request,response);
     } 
 
-    User getUser(HttpSession session)
-    {
+    User getUser(HttpSession session) {
         if (session != null)
         {
             Object navigation = session.getAttribute(NAVIGATION);
@@ -134,8 +114,7 @@ public class TCESController
     // this method may seem insane, but weblogic requires a setAttribute at the 
     // end of the request processing... SB 
 
-    void setNavigation ( HttpSession session ) 
-    {
+    void setNavigation ( HttpSession session ) {
         if (session != null)
         {
             Object navigation = session.getAttribute(NAVIGATION);

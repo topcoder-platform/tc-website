@@ -12,7 +12,7 @@ public class TCESNav {
 		pageName = pageNameIn;	
 	}
 
-	public String taskKey() { return taskKey; }
+	public String getTaskKey() { return taskKey; }
 	public String getPagePath() { return pagePath; }
 	public String getPageName() { return pageName; }
 	public String getFullPageName() { return pagePath + pageName; }

@@ -1,5 +1,7 @@
 package com.topcoder.web.tces.common;
 
+import java.util.*;
+
 public class TCESNavs {
 
 	Hashtable htNavs = new Hashtable();
