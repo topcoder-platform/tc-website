@@ -52,10 +52,11 @@ function find(n) {
 <!-- Review Board begins -->
 <% } else if (request.getServletPath().indexOf("review_board")>-1) { %>
 
+            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
             <jsp:include page="calendar.jsp"/>
-            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br>
-            <a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tournaments&c=tco03_overview"><img src="/i/promos/tco03/promo_2003_open_small.gif" alt="2003 TopCoder Open" width="170" height="117" border="0"></a><br>
-            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br>
+            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
+            <a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tournaments&c=tco03_schedule#online"><img src="/i/promos/tco_promo_third.gif" alt="2003 TopCoder Open" width="170" height="120" border="0"></a><br/>
+            <img alt="" width="1" height="10" src="/i/spacer.gif" border="0"><br/>
 <!-- Review Board ends -->
 
     <% } else { %>
