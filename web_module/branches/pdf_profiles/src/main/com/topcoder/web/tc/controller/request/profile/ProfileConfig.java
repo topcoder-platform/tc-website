@@ -25,6 +25,7 @@ import com.topcoder.web.tc.model.Skill;
 
 import java.lang.StringBuffer;
 
+import javax.servlet.http.Cookie;
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import java.util.ArrayList;
