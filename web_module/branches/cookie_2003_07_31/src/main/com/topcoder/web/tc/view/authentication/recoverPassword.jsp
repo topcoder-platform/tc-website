@@ -102,7 +102,7 @@ function submitEnter(e) {
                         </td>
                     </tr>
                     <tr>
-                        <td>
+                        <td colspan="2" align="center">
                             <p>(This must be the same information you used when you registered.)</p>
                         </td>
                     </tr>
