@@ -4,9 +4,13 @@ import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.security.Util;
+import com.topcoder.web.ejb.password.PasswordRemoteHome;
+import com.topcoder.web.ejb.password.PasswordRemote;
 
+import javax.naming.Context;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -80,7 +84,7 @@ final class UserDb {
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, user.getUserId());
             ps.setString(2, user.getHandle());
-            ps.setString(3, Util.encodePassword(user.getPassword(), "users"));
+            ps.setString(3, encodePassword(user.getPassword()));
             regVal = ps.executeUpdate();
             if (regVal != 1) {
                 throw new TCException("ejb.User.UserDb:insertUser():did not update security user record:\n");
@@ -152,7 +156,7 @@ final class UserDb {
                 query.append( " WHERE login_id = ?");
                 ps = conn.prepareStatement(query.toString());
                 ps.setString(1, user.getHandle());
-                ps.setString(2, Util.encodePassword(user.getPassword(), "users"));
+                ps.setString(2, encodePassword(user.getPassword()));
                 ps.setLong(3, user.getUserId());
                 regVal = ps.executeUpdate();
                 if (regVal != 1) {
@@ -853,6 +857,14 @@ final class UserDb {
         }
     }
 
+    private static String encodePassword(String password) throws Exception {
+        Context context = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+
+        PasswordRemoteHome passHome = (PasswordRemoteHome) context.lookup(PasswordRemoteHome.EJB_REF_NAME);
+        PasswordRemote pass = passHome.create();
+
+        return pass.encodePassword(password);
+    }
 
 
 }
