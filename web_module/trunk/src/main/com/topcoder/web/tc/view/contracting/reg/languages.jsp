@@ -52,10 +52,9 @@ return false;
             <jsp:param name="title" value="Registration"/>
         </jsp:include>
 
-		<p class=bodyText>This is a description paragraph with some instructions and some details about the questions asked.</p>
-
 		<FORM ACTION="" METHOD=POST onSubmit="">
         <table border=0 cellpadding=2 cellspacing=0 width="100%" class=bodyText>
+			<tr><td class=bodyText colspan=11>This is a description paragraph with some instructions and some details about the questions asked.</td></tr>
 			<tr><td>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>Novice</span></td><td class=bodyText colspan=5 align=right><span class=bodySubtitle>Expert</span></td>
         	<tr><td class=bodyText valign=top width="100%"><span class=bodySubtitle>Language</span></td>
             <% for(int i = 1; i<=10; i++){ %>
