@@ -218,6 +218,9 @@
                     <tr>
                         <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9"><img src="/i/development/up_arrow_gr.gif" border="0"/>: the payment for reviewing this component has increased</td>
                     </tr>
+                    <tr>
+                        <td class="projectHeaders" align="left" nowrap="nowrap" colspan="9">Please note that custom components do not get added to the catalog and therefore do not have royalties.</td>
+                    </tr>
            </table>
 
             <br/>
