@@ -64,7 +64,7 @@
          </table>
 
          <p>If you would like to post this image with a link on your site or resume, please use this to send a recruiter to the appropriate site:</p>
-         <p align=center>&lta href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;Image Thing here&lt;a&gt;</p>
+         <p align=center>&lt;a href="http://<%=ApplicationServer.SERVER_NAME%>/card?cr=<jsp:getProperty name="sessionInfo" property="UserId"/>"&gt;Image Thing here&lt;a&gt;</p>
 
 
         <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p>
