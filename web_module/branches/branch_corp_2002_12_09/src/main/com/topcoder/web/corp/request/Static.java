@@ -121,8 +121,8 @@ public class Static extends BaseProcessor {
      *  ie: /statistics/tourney_overview/myPage.jsp page is 3 
      *  static levels deep.                                       */
     private int levelsDeep(String request) {
-        int lastIndex = request.lastIndexOf(STATIC_PREFIX) 
-                        + STATIC_PREFIX.length();
+        int lastIndex = request.lastIndexOf("&"+STATIC_PREFIX) 
+                        + STATIC_PREFIX.length()+1;
         if (lastIndex == 1) { return -1; }
         int parseTill = request.indexOf("=",lastIndex);
         String deepest = request.substring(lastIndex, parseTill);
