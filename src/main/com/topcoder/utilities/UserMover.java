@@ -132,7 +132,7 @@ public class UserMover {
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
-            ds.getConnection();
+            conn = ds.getConnection();
             StringBuffer query = new StringBuffer();
             query.append("select u.user_id");
             query.append(     ", u.handle");
