@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Seat Service Inventory Design Project at TopCoder</title>
+                <title>IQM Integration Application Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Seat Service Inventory Design</td>
+                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - IQM Integration Application</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -86,38 +86,34 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        The seat service is broken up in to multiple modules for design.  The Seat Service Shell
-                                                        module receives and parses all consumer XML requests and then makes the appropriate call
-                                                        to either the Scheduling module or Admin module to execute business logic.  When the call
-                                                        returns, the Shell module constructs an XML response and sends it to the consumer.  The
-                                                        Scheduling module handles all core business logic related to scheduling functionality.
-                                                        The Admin module handles all core business logic related to inventory management
-                                                        (list, retrieve, add, update, delete).  The final module is the Seat Service Persistence
-                                                        module.  The Persistence layer handles all database transactions for both scheduling and
-                                                        inventory management.
-                                                    </p>
-                                                    <p>
-                                                        This document outlines the functional requirements for the core inventory business logic.
-                                                        The architect will be responsible for defining an API which will be called by the Seat
-                                                        Service Shell.  The architect is responsible for designing an implementation of the Seat
-                                                        Service Inventory Core which fulfills the functional requirements and calls the Seat Service
-                                                        Persistence Layer for persistence.
+                                                        The Information Quality Management (IQM) system allows users to analyze issues with various
+                                                        types of information handled by a set of databases.  It is effectively an error management
+                                                        system: errors are generated as data is moved between various databases, then IQM is used by
+                                                        support engineers to examine and resolve these errors.
 
+                                                        The IQM application project integrates several custom component projects that provide basic
+                                                        functionality with the Struts-based front-end.
                                                     </p>
+
                                                     <p>
-                                                        <strong>Business Requirement Specification </strong>
+                                                        <strong>Business Requirements Specification </strong>
                                                         <br/>
-                                                        View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Inventory_Spec.pdf">Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/IQM_Integration.pdf">Business Requirements Specification</a> for this project.
                                                     </p>
+
+
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>.NET 1.1</li>
-                                                        <li>C#</li>
-                                                        <li>MicroSoft SQL Server 2000</li>
+                                                        <li>Windows Server 2003</li>
+                                                        <li>Java 1.3</li>
+                                                        <li>Tomcat</li>
+                                                        <li>DB2</li>
+                                                        <li>Struts</li>
+                                                        <li>JAAS</li>
+                                                        <li>SQL v.92</li>
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -145,7 +141,7 @@
                                                         <br/>
                                                         &#160;&#160;&#160;&#160;&#160;2. Second Payment:
                                                         <br/>
-                                                        &#160;&#160;&#160;&#160;&#160;At the completion of the design project*.
+                                                        &#160;&#160;&#160;&#160;&#160;At the completion of the development project*.
                                                         <br/>
                                                         <br/>
                                                         <strong> Second Place Compensation: </strong>
@@ -160,15 +156,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$1,400.00</td>
+                                                            <td class="bodyText" align="right">$2,000.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$850.00</td>
+                                                            <td class="bodyText" align="right">$1,200.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$550.00</td>
+                                                            <td class="bodyText" align="right">$800.00</td>
                                                         </tr>
                                                     </table>
 
@@ -178,7 +174,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$470.00</td>
+                                                            <td class="bodyText" align="right">$700.00</td>
                                                         </tr>
                                                     </table>
 
@@ -188,15 +184,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$460.00</td>
+                                                            <td class="bodyText" align="right">$580.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$380.00</td>
+                                                            <td class="bodyText" align="right">$500.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer - </td>
-                                                            <td class="bodyText" align="right">$380.00</td>
+                                                            <td class="bodyText" align="right">$500.00</td>
                                                         </tr>
                                                     </table>
 
@@ -205,7 +201,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$3,090.00</td>
+                                                            <td class="bodyText" align="right">$4,280.00</td>
                                                         </tr>
                                                     </table>
 
@@ -249,7 +245,7 @@
                                                         </tr>
                                                     </table>
                                                     <p>
-                                                        The Design Submission must be submitted on time. All questions submitted
+                                                        The Development Submission must be submitted on time. All questions submitted
                                                         with more than 24 hours before the Submission Due Dates will be answered. Following review
                                                         from the board the winning member is given until the Updated Submission Due Date
                                                         to modify their submission.
@@ -258,55 +254,56 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.30.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.05.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.04.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.07.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.04.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.07.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.04.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.07.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.18.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.15.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.15.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
+
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.22.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.19.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.25.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.20.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.25.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.20.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.25.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.20.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.27.2004 &#160;&#160;9:00 AM ET</td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap">Updated Submission Due Date:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.22.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.26.2004 &#160;&#160;9:00 AM ET</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="bodyText" nowrap="nowrap">Estimated Development End Date:</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.29.2004</td>
                                                         </tr>
                                                     </table>
 
@@ -315,16 +312,14 @@
                                                         <a name="requirementspecification"></a>
                                                         <strong>Document and Templates </strong>
                                                         <br/>
-                                                        View the
-                                                        <a target="_new" class="bodyText" href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=appDocumentation">Documents and Templates</a> for the Application Development Methodology
-
+                                                        View the <a target="_new" class="bodyText" href="/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=appDocumentation">Documents and Templates</a> for the Application Development Methodology
 
                                                     </p>
 
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Closed.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=IQM%20Integration%20Design&amp;phase=112">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
