@@ -98,12 +98,7 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
             }
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             checkQueryIds(getCurrentQueryList(), q);
-            if (!isQueryAssociated(getCommandId(), getQueryId(), cq)) {
-                super.addError(Constants.QUERY_ID_PARAM, "Query not associated with command");
-            }
-            if (!super.hasErrors()) {
-                cq.removeCommandQuery(getCommandId(), getQueryId());
-            }
+            cq.removeCommandQuery(getCommandId(), getQueryId());
         }
         setCurrentQueryList(cq.getQueriesForCommand(getCommandId()));
         setOtherQueryList(q.getAllQueries(false));
@@ -177,10 +172,6 @@ public class ModifyCommandQueryTask extends BaseTask implements Task, Serializab
                 super.addError(Constants.QUERY_ID_PARAM+queryId, "Invalid query id");
             }
         }
-    }
-
-    private boolean isQueryAssociated(long commandId, long queryId, CommandQuery cq) throws Exception {
-        return cq.getSortOrder(commandId, queryId)!=0;
     }
 
     /**
