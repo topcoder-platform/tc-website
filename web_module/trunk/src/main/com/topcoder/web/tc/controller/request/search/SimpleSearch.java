@@ -30,6 +30,12 @@ public class SimpleSearch extends Base {
         }
     }
 
+
+    protected void setDefaults(MemberSearch m) {
+        if (m.getHandle()!=null) setDefault(Constants.HANDLE, m.getHandle());
+    }
+
+
     /**
      * pull the info out of the request and do some error checking
      * @return
