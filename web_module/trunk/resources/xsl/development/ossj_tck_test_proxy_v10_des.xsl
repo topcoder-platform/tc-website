@@ -256,7 +256,7 @@
 
                                             <tr>
                                                 <td class="sidebarText">Updated Submission Due Date:</td>
-                                                <td class="sidebarText" align="right">02.03.2004</td>
+                                                <td class="sidebarText" align="right">02.06.2004</td>
                                             </tr>
 
                                             <tr>

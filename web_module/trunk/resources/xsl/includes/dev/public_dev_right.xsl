@@ -28,14 +28,13 @@
             <img src="/i/clear.gif" width="1" height="10" alt="" border="0" /><br />
 
 <!-- Application projects begins -->
-<!--
             <A href="/?t=development&amp;c=app_projects"><img src="/i/development/head_app_projects.gif" alt="Application Projects" width="180" height="20" border="0" /></A>
             <table width="180" border="0" cellspacing="1" cellpadding="2" bgcolor="#838383">
                 <tr valign="top">
                     <td bgcolor="#EEEEEE">
                         <table width="100%" border="0" cellspacing="3" cellpadding="0">
                             <tr>
-                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$9,031</span> in payments.</td>
+                                <td class="devProjectText">Currently open projects total <span style="font-size:130%; font-weight:bold; color:#CC0000;">$2,205</span> in payments.</td>
                             </tr>
                         </table>
                     </td>
@@ -45,68 +44,16 @@
                     <td class="devProjectText">
                         <table width="100%" border="0" cellspacing="0" cellpadding="2">
                             <tr>
-                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=single_sign_on_v10_dev"><strong>Single Sign-On (SSO)</strong></A></td>
+                                <td class="devProjectText" colspan="2"><A href="/?&amp;t=development&amp;c=single_sign_on_v10_dev"><strong>Sun OSS/J TCK Test Proxy</strong></A></td>
                             </tr>
 
                             <tr>
-                                <td class="devProjectWinner">Security Server EJB Interface</td>
-                                <td class="devProjectWinnerMoney"></td>
-                            </tr>
-                            <tr>
                                 <td class="devProjectWinner">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney">$980.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectSecond2">Second Place:</td>
-                                <td class="devProjectSecondMoney2">$350.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner2">Security Server SAML Interface</td>
-                                <td class="devProjectWinnerMoney2"></td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner2">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney2">$980.00</td>
+                                <td class="devProjectWinnerMoney">$1,050.00</td>
                             </tr>
                             <tr>
                                 <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$350.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner">Portal Adapter</td>
-                                <td class="devProjectWinnerMoney"></td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney">$630.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectSecond2">Second Place:</td>
-                                <td class="devProjectSecondMoney2">$225.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner2">JSP-Based Application Authenticators</td>
-                                <td class="devProjectWinnerMoney2"></td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner2">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney2">$805.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$287.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner">WebConnect-based Application Authentication</td>
-                                <td class="devProjectWinnerMoney"></td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectWinner">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney">$805.00</td>
-                            </tr>
-                            <tr>
-                                <td class="devProjectSecond2">Second Place:</td>
-                                <td class="devProjectSecondMoney2">$287.00</td>
+                                <td class="devProjectSecondMoney">$300.00</td>
                             </tr>
                         </table>
                     </td>
@@ -132,7 +79,6 @@
                     </td>
                 </tr>
             </table>
--->
 <!-- Application projects ends -->            
 
             <img src="/i/clear.gif" width="1" height="5" alt="" border="0" /><br />
