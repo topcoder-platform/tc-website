@@ -449,7 +449,7 @@ public final class TaskDevelopment {
                                     isTournamentComponent(componentId, version, phase)) {*/
                              if(!isProjectRegClosed(Long.parseLong(request.getParameter("projectId")))) {
                                 if (!hasRegistered(Long.parseLong(request.getParameter("projectId")), nav.getSessionInfo().getUserId())) {
-                                    if (!reviewerCheck(Long.parseLong(request.getParameter("projectId")), nav.getSessionInfo().getUserId())) {
+                                    if (reviewerCheck(Long.parseLong(request.getParameter("projectId")), nav.getSessionInfo().getUserId())) {
 
                                         Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
