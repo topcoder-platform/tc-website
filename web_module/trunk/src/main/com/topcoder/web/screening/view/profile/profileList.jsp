@@ -36,10 +36,10 @@ function getProblemDetail(id) {
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-        <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+        <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
             <h1 class="testHead">Test Profile List</h1>
 
 <jsp:useBean id="profileList" type="java.util.List" scope="request" />
@@ -72,7 +72,7 @@ function getProblemDetail(id) {
         </TABLE>         
         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">       
             <TR>
-               <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="4"></TD>
+               <TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="4"></TD>
             </TR>            
             <TR>
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyTextBold"><B>&#160;</B></TD>               
@@ -116,7 +116,7 @@ function getProblemDetail(id) {
       <% even = !even; %>
      </screen:resultSetRowIterator>
             <TR>
-               <TD COLSPAN="6"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+               <TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10"><P><HR></P><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10"></TD>
             </TR>         
           </TABLE>                
     </screen:nestedListIterator>
@@ -130,7 +130,7 @@ function getProblemDetail(id) {
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>
