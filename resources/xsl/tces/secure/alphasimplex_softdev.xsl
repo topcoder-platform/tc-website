@@ -49,7 +49,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">jobs</xsl:with-param>
-                <xsl:with-param name="title">&#160;TopCoder Employment Services</xsl:with-param>
+                <xsl:with-param name="title">TopCoder Employment Services</xsl:with-param>
             </xsl:call-template>
 
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
@@ -59,7 +59,7 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;AlphaSimplexJobs</b></td></tr>
-                            <tr><td valign="middle" class="bodyText"><!--<A href="/?&amp;t=tces&amp;c=alphasimplex_openings&amp;a=secure" class="bodyText">Jobs</A>--></td></tr>
+                            <tr><td valign="middle" class="bodyText"></td></tr>
                         </table>
 
 <!-- Client Job List begins -->
@@ -87,7 +87,7 @@
                         feel that you are up to the challenge, we look forward to hearing from
                         you.</p>
                         
-                        <p><a href="#" class="bodyText">Apply now!</a> <!--| <a href="/?&amp;t=tces&amp;c=alphasimplex_openings&amp;a=secure" class="bodyText">Back to Jobs</a>--></p>
+                        <p><A href="/jobposting?&amp;t=JobHitTask&amp;jid=124&amp;jt=2" class="bodyText">Apply now!</A></p>
 
 <!-- Client Job List ends -->
 

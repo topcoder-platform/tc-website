@@ -57,7 +57,7 @@
                         soliciting top companies who are looking to hire software engineers and developers. These companies value programming 
                         talent and are interested in hiring TopCoder members. All TopCoder members can choose to be notified via email of new 
                         job postings, and rated members may express interest in open positions at these top companies through the job postings 
-                        and employment advertisements on TopCoder's website. Rated members can showcase their competition achievements and 
+                        and employment advertisements on TopCoder's web site. Rated members can showcase their competition achievements and 
                         upload their resume as part of the process.</p>
 
                         <p><strong>Only rated members can apply for jobs posted by TCES.</strong> This allows companies to differentiate coders 
@@ -71,6 +71,20 @@
                         </table>
 
                         <table border="0" cellspacing="5" cellpadding="0" width="100%">
+
+<!-- AlphaSimplex begins -->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
+                                <td width="99%" class="bodyText"><strong>AlphaSimplex Group, LLC (ASG)</strong> is a quantitative investment management 
+                                company based in Cambridge, Massachusetts which, together with its technology affiliate RiskPlex, Inc., develops and integrates 
+                                cutting-edge technologies from several disciplines to create risk-controlled quantitative investment strategies. If you are excited 
+                                by the prospect of changing the investment management industry by developing and implementing cutting-edge technologies that 
+                                span many diverse disciplines, and you are at the top of your field, we want to hear from you.  
+                                <A href="/?&amp;t=tces&amp;c=alphasimplex" class="bodyText" target="_top"> Click here</A><br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+<!-- AlphaSimplex ends -->
 
 <!-- Appian begins -->
                             <tr valign="top">
@@ -137,7 +151,9 @@ Microsoft ends -->
   <tr>
         <td valign="middle" class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=cryptic"><img src="/i/es/cryptic/cryptic_logo.gif" width="120" height="63" alt="" border="0" vspace="10"/></a></td>
         <td><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-        <td width="100%" valign="middle" class="bodyText">Want to be a part of creating the world's first super powered MMP experience?  Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We're looking for an Associate Game Designer and an entry level Level Designer.            
+        <td width="100%" valign="middle" class="bodyText">Want to be a part of creating the world's first super powered MMP experience?  
+        Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We're 
+        looking for an Associate Game Designer and an entry level Level Designer.            
           <a href="/?&amp;t=tces&amp;c=cryptic" class="bodyText">Click here</a> for more information.<br/><br/></td>
     </tr>
     <tr>
