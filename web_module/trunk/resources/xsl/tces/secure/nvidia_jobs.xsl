@@ -55,7 +55,7 @@
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
 
 <!-- Nvidia Links Begins -->
-                        <xsl:call-template name="nvidia_links"/>
+      <td valign="middle" height="18" class="bodyText"><a href="/?&amp;t=tces&amp;c=nvidia" class="bodyText">Main</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=products" class="bodyText" target="_blank">Products</a> |&#160;<a href="http://www.nvidia.com/view.asp?PAGE=benefits" class="bodyText" target="_blank">Benefits</a></td>
 <!-- Nvidia Ends -->
 
 <DIV ALIGN="CENTER"><IMG SRC="/i/es/nvidia/main_banner.gif" WIDTH="510" HEIGHT="100" ALT="" BORDER="0" VSPACE="10" /></DIV>
@@ -71,7 +71,7 @@
        <A HREF="/?&amp;t=tces&amp;c=nvidia_sys_soft_eng&amp;a=secure" CLASS="bodyText">Systems Software Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_perf_analysis&amp;a=secure" CLASS="bodyText">Performance Analysis Software Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_qa&amp;a=secure" CLASS="bodyText">Software QA Engineer</A><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_cad_eng&amp;a=secure" CLASS="bodyText">Cad Engineer (intern/co-op position only)</A><BR/><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_cad_eng&amp;a=secure" CLASS="bodyText">CAD Engineer (Intern/Co-op position only)</A><BR/><BR/>
        <b>ARCHITECTURE</b><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_grfx_arch&amp;a=secure" CLASS="bodyText">Graphics Architecture Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_3dgrfx_app&amp;a=secure" CLASS="bodyText">3D Graphics Applications Software Engineer</A><BR/>
