@@ -34,6 +34,15 @@
 
 <%@ include file="rating.jsp" %>
 
+<SCRIPT type="text/javascript">
+<!--
+  function getWidth(percent) {
+    document.write(Math.round((percent/100)*(screen.availWidth-180)));
+  }
+-->
+</SCRIPT>
+
+
 </HEAD>
 
 <BODY>
@@ -136,6 +145,11 @@
     buf.append("<table cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"100%\">");
         buf.append("<tr>");
             buf.append("<td width=\"").append(150-Math.round((float)147/((float)(indentation-1)/50+1))).append("%\">");
+//            buf.append("<img src=\"/i/clear.gif\" height=\"1\" width=\"").append(150-Math.round((float)147/((float)(indentation-1)/50+1))).append("\"/>");
+//            buf.append("<img src=\"/i/clear.gif\" height=\"1\" width=\"").append(indentation*20).append("\"/>");
+            buf.append("<img src=\"/i/clear.gif\" height=\"1\" width=\"").append("<SCRIPT LANGUAGE=\"JavaScript\"><!--doWidth(");
+            buf.append(150-Math.round((float)147/((float)(indentation-1)/50+1))).append(")--></SCRIPT>").append("/>");
+            buf.append("</td>");
             buf.append("<td colspan=\"2\"><img src=\"/i/clear.gif\" width=\"1\" height=\"5\" /></td>");
         buf.append("</tr>");
    if (messageID!=msgID) {
