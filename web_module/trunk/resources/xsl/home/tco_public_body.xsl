@@ -76,6 +76,8 @@
                         <p>The sociable student from Poland made his first appearance in TopCoder competitions just 3 months before the start of the
                         tournament. His friends back home did not think he would be able to come to America and win this kind of money. "I told them I
                         was going to win," tomek said with a grin. <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=final">Read the whole story</A></p>
+                        <p><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=summary&amp;d4=final_video">Watch video of tomek's win.</A>
+                        </p>
                     </td>
                 </tr>
             </table>
