@@ -83,12 +83,11 @@
 </TABLE> -->
 <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
    <TR>
-      <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;FBI Jobs</B></TD>
+      <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Back to FBI Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">
-&#160;&#160;<A HREF="/?&amp;t=tces&amp;c=fbi_agents&amp;a=secure" CLASS="bodyText">Special Agents</A>&#160;|&#160;
-<A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=fbi_support&amp;a=secure"></A>Professional Support
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">&#160;&#160;<A HREF="/?&amp;t=tces&amp;c=fbi_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A>&#160;|&#160;
+<A CLASS="bodyText" HREF="/?&amp;t=tces&amp;c=fbi">FBI Main Page</A>
       </TD>
   </TR>
 </TABLE>
@@ -208,7 +207,7 @@ applications for the first seven(7) days of each month. In order for your
 application to be reviewed, it must be submitted by 11:59 pm CST on the 7th
 day of each month.
 </P>
-<A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=29&amp;jt=1" TARGET="_blank" CLASS="bodyText">APPLY NOW</A>
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=29&amp;jt=1" TARGET="_blank" CLASS="bodyText">APPLY NOW</A> | <A HREF="/?&amp;t=tces&amp;c=fbi_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
 <!--end contextual links-->
           <P><BR/></P>
           </TD>
