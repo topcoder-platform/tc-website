@@ -53,7 +53,7 @@ function submitEnter(e) {
 			<!-- Tab bar links-->
 			<div align=center>
 			<jsp:include page="links.jsp" >
-			<jsp:param name="selectedTab" value="overview"/>
+			<jsp:param name="selectedTab" value="registration"/>
 			</jsp:include>
 			</div>
                           <table cellpadding="1" cellspacing="3" class="bodyText" align="center" width="100%" border="0">
