@@ -153,15 +153,15 @@
                                             <br/>Phase 1 Complete: 7.28.2003
                                                 <br/>Use Cases
                                                 <br/>Class Diagrams
-                                                <br/>Sequence Diagrams
+                                                <br/>Sequence Diagrams<br/>
                                             <br/>Phase 2 Complete: 8.04.2003
-                                                 <br/> Design Specification
+                                                 <br/> Design Specification<br/>
                                             <br/>Phase 3 Complete: 8.11.2003
                                                  <br/>Test Plan
-                                                 <br/>Development Scope Document
-                                            <br/>Winner Announced 8.13.3003
-                                            <br/>Updated Submission Due Date: 8.15.2003
-                                            <br/>Estimated Development End Date: 10.6.2003
+                                                 <br/>Development Scope Document<br/>
+                                            <br/>Winner Announced 8.13.3003<br/>
+                                            <br/>Updated Submission Due Date: 8.15.2003<br/>
+                                            <br/>Estimated Development End Date: 10.6.2003<br/>
                                             <br/>
                                         </p>
                                         <!-- Register at TCS -->
