@@ -41,60 +41,64 @@ public class TestResults extends BaseProcessor {
         Map map = dAccess.getData(dr);
         if(map == null)
             throw new ScreeningException("getData failed!");
-        
-        ResultSetContainer result = (ResultSetContainer)map.get("sessionInfo");
-        if(result.isEmpty()) {
+
+        ResultSetContainer access = (ResultSetContainer)map.get("checkSessionAccess");
+        if(access.isEmpty()) {
             throw new PermissionDeniedException(
                 "You are not authorized to view information about this session.");
         }
-        String roundId = result.getItem(0,"contest_round_id").toString();
-        String divisionId = result.getItem(0,"contest_division_id").toString();
+        ResultSetContainer result = (ResultSetContainer)map.get("sessionInfo");
+        TestResultsInfo tinfo = new TestResultsInfo();
+        ProfileInfo pinfo = new ProfileInfo();
+        pinfo.setTestSetA(new Long(Constants.NO_TEST_SET_A));
+        if (pinfo.hasTestSetA()) {
+            String roundId = result.getItem(0,"contest_round_id").toString();
+            String divisionId = result.getItem(0,"contest_division_id").toString();
+            dAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
+            dr = new Request();
+            dr.setContentHandle("roundProblemStats");
+            dr.setProperty("rd", roundId);
+            dr.setProperty("dn", divisionId);
+            Map dwMap = dAccess.getData(dr);
+            if(map == null)
+                throw new ScreeningException("getData failed!");
+            tinfo.setProblemSetAResults((ResultSetContainer)map.get("testSetAResults"));
+            tinfo.setProblemSetATCStats((ResultSetContainer)dwMap.get("roundProblemStats"));
+            pinfo.setTestSetAName(result.getItem(0,"session_round_name").toString());
+
+            problemSetAList = new ArrayList();
+            result = (ResultSetContainer)map.get("testSetAResults");
+            for(int i=0; i < result.size(); i++){
+                problemSetAList.add(
+                    ProblemInfo.createProblemInfo(
+                        getUser(),
+                        Long.parseLong(result.getItem(i,"session_round_id").toString()),
+                        Long.parseLong(result.getItem(i,"problem_id").toString())));
+            }
+            pinfo.setTestSetAList(problemSetAList);
+        }
+
         TestSessionInfo sessionInfo = new TestSessionInfo();
         sessionInfo.setBeginDate(((Date)result.getItem(0, "begin_time").getResultData()));
         sessionInfo.setEndDate(((Date)result.getItem(0, "end_time").getResultData()));
         getRequest().setAttribute("testSessionInfo",sessionInfo);
 
-        dAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
-        dr = new Request();
-        dr.setContentHandle("roundProblemStats");
-        dr.setProperty("rd", roundId);
-        dr.setProperty("dn", divisionId);
-        Map dwMap = dAccess.getData(dr);
-        if(map == null)
-            throw new ScreeningException("getData failed!");
-        
         cinfo = new CandidateInfo();
         cinfo.setUserName(result.getItem(0,"handle").toString());
         cinfo.setUserId(Long.valueOf(result.getItem(0,"user_id").toString()));
         getRequest().setAttribute("candidateInfo",cinfo);
             
-        TestResultsInfo tinfo = new TestResultsInfo();
         tinfo.setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
         Date curr = (Date)result.getItem(0, "current_time").getResultData();
         Date maxEnd = (Date)result.getItem(0, "max_end_time").getResultData();
         Date end = (Date)result.getItem(0, "end_time").getResultData();
         tinfo.setSessionComplete(Math.min(maxEnd.getTime(), end.getTime())<curr.getTime());
         tinfo.setProblemSetBCount(Integer.parseInt(result.getItem(0,"num_set_b").toString()));
-        tinfo.setProblemSetAResults((ResultSetContainer)map.get("testSetAResults"));        
         tinfo.setProblemSetBResults((ResultSetContainer)map.get("testSetBResults"));
-        tinfo.setProblemSetATCStats((ResultSetContainer)dwMap.get("roundProblemStats"));
         getRequest().setAttribute("testResultsInfo",tinfo);
 
-        ProfileInfo pinfo = new ProfileInfo();
         pinfo.setProfileName(result.getItem(0,"session_profile_desc").toString());
-        pinfo.setTestSetAName(result.getItem(0,"session_round_name").toString());
 
-        problemSetAList = new ArrayList();
-        result = (ResultSetContainer)map.get("testSetAResults");
-        for(int i=0; i < result.size(); i++){
-            problemSetAList.add(
-                ProblemInfo.createProblemInfo(
-                    getUser(),
-                    Long.parseLong(result.getItem(i,"session_round_id").toString()),
-                    Long.parseLong(result.getItem(i,"problem_id").toString())));
-        }
-        pinfo.setTestSetAList(problemSetAList);
-        
         problemSetBList = new ArrayList();
         result = (ResultSetContainer)map.get("testSetBResults");
         for(int i=0; i < result.size(); i++){

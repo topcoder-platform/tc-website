@@ -66,12 +66,13 @@ function getProblemDetail(id) {
                         <strong>Test Profile:</strong> <jsp:getProperty name='profileInfo' property='profileName'/>
                     </td>
                 </tr>
-                
+            <% if (profileInfo.hasTestSetA()) { %>
                 <tr>
                     <td class="bodyText">
                         <strong>Problem Set:</strong> <jsp:getProperty name='profileInfo' property='testSetAName'/>
                     </td>
 	        </tr>
+            <% } %>
                 <tr>
                     <td class="bodyText">
                         <strong>Begin:</strong> <screen:beanWrite name='testSessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
@@ -96,7 +97,7 @@ function getProblemDetail(id) {
             </table>
 
         <p></p>
-
+        <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <tr>
 		       <td colspan="9" class="testTableTitle">Test Set A Results:</td>
@@ -184,6 +185,7 @@ function getProblemDetail(id) {
                 <% } %>
          </table>
          <p></p>
+    <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
@@ -226,6 +228,7 @@ function getProblemDetail(id) {
 	        </table>
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
+  <% if (profileInfo.hasTestSetA()) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
               <TD COLSPAN="4" CLASS="testTableTitle">Test Set A</TD>
@@ -246,6 +249,7 @@ function getProblemDetail(id) {
             </screen:problemInfoIterator>
          </table>
          <p></p>
+   <% } %>
 <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
