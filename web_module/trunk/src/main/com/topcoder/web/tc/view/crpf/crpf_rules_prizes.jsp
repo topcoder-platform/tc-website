@@ -50,7 +50,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <table align="center">
                   <tr>
                      <td><img src="/i/events/crpf03/banner_online_rounds_start.gif" alt="Online rounds start November 11" width="510" height="41" border="0"><br/>
-                     <A href="/tc?&module=Static&d1=crpf&d2=crpf_overview"><img src="/i/events/crpf03/crpf_banner_2.jpg" width="510" height="135" border="0" alt="TopCoder Charity Challenge benefiting the CPPF"></A><br/>
+                     <A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview"><img src="/i/events/crpf03/crpf_banner_2.jpg" width="510" height="135" border="0" alt="TopCoder Charity Challenge benefiting the CPPF"></A><br/>
                      <img src="/i/clear.gif" width="10" height="15" border="0"/></td>
                   </tr>
                </table>
@@ -95,7 +95,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                <li>If a top four point scorer is also a top four fundraiser, then TopCoder will choose an additional wildcard from the random drawing.</li>
                </ul>
 
-               <p>The grand prize is an expenses paid trip to New York City on Monday, November 24th to attend <a href="/tc?module=Static&d1=crpf&d2=crpf_overview"><i>A Magical Evening</i></a>,
+               <p>The grand prize is an expenses paid trip to New York City on Monday, November 24th to attend <a href="/tc?module=CRPFStatic&d1=crpf&d2=crpf_overview"><i>A Magical Evening</i></a>,
                the annual star-studded gala ball benefiting CRPF. <i>A Magical Evening</i> will be held at the Marriott Marquis at 5:00pm. If a grand-prize winner is
                unable to attend <i>A Magical Evening</i>, he/she will forfeit his/her eligibility to receive a prize, and his/her prize will be given to the next eligible
                member (i.e. next highest scorer if a high-scorer can not attend, the next highest fund-raiser if a top fund-raiser can not attend, etc.). </p>
