@@ -148,7 +148,6 @@ public abstract class FullRegBase extends SimpleRegBase {
 
     protected Map getQuestions() {
         try {
-            log.error(((FullRegInfo)regInfo));
             if (questions==null)
                 questions=getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
         } catch (Exception e) {
