@@ -64,13 +64,13 @@ public class ProblemRatingServicesBean extends BaseEJB{
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(updateQuery.toString());
-            ps.setInt(1,questionID);
-            ps.setLong(2,coderID);
-            ps.setInt(3,problemID);
-            ps.setInt(4,rating);
+            ps.setInt(1,rating);
+            ps.setInt(2,questionID);
+            ps.setLong(3,coderID);
+            ps.setInt(4,problemID);
             int rows = ps.executeUpdate();
             if(rows!=1){
-                throw new EJBException("Wrong number of rows in insert: " + rows);
+                throw new EJBException("Wrong number of rows in update: " + rows);
             }
         } catch (Exception ex) {
             ex.printStackTrace();

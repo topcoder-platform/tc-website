@@ -91,6 +91,8 @@ public class Submit extends Base {
             }
             setNextPage("?" + Constants.MODULE_KEY + "=ProblemRatingResults&" + Constants.PROBLEM_ID + "=" + request.getParameter("pid"));
             setIsNextPageInContext(true);
+        }catch(NavigationException e){
+            throw e;
         }catch(Exception e){
             e.printStackTrace();
         }
