@@ -39,10 +39,18 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
-<!-- Upcoming Tournaments begins -->
+<!-- Upcoming Tournaments begins 
 
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="header">Upcoming Private Label Events</td></tr>
+            </table>
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+
+            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+-->
+<!-- Past Tournaments begins -->
+            <table width="100%" border="0" cellpadding="4" cellspacing="0">
+                <tr><td class="header">Past Private Label Events</td></tr>
             </table>
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -53,21 +61,15 @@
                 </tr>
                 <tr valign="top">
                     <td class="bodyText">
-                        March 25th, 2005<br />
+                        March 26th, 2005<br />
                         Bangalore, India<br/>
                         <A href="/pl/?&module=Static&d1=gicj05&d2=overview" target="_blank">Summary</A>
                     </td>
                 </tr>
             </table>
 
-
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
-
-<!-- Past Tournaments begins -->
-            <table width="100%" border="0" cellpadding="4" cellspacing="0">
-                <tr><td class="header">Past Private Label Events</td></tr>
-            </table>
-            <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
+                <hr width="100%" size="1" noshade="noshade" />
+                
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google04&d2=overview" target="_blank"><img src="/i/events/google2004/indexLogo.gif" alt="2003 GECC" width="274" height="66" border="0" /></A></td>
