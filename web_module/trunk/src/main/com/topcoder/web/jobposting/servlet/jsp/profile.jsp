@@ -14,9 +14,9 @@
 
     <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
       <TR>
-        <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-          <jsp:include page="left.jsp"/>
-        </TD>
+       <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+         <jsp:include page="../includes/global_left.jsp" />
+       </TD>
         <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
         <TD CLASS="statTextBig" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
           <jsp:include page="../body_top.jsp" >
