@@ -1,7 +1,6 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="calendar_view_pulldown">
-            <div align="right"><form name="selectform">
             <select name="quickstat" size="1" class="dropdown" onchange="window.location='/index?t=schedule&amp;c='+this.options[this.selectedIndex].value">
               <option value="" selected="selected">Choose Monthly View</option>
               <option value="">--- 2003 ---</option>
@@ -19,6 +18,5 @@
               <option value="jan_03">January</option>
               <option value=""></option>                           
             </select>
-            </form></div>
   </xsl:template>
 </xsl:stylesheet>
