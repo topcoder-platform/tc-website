@@ -1183,11 +1183,24 @@
         <td id="leftSubnav">
             <xsl:attribute name="id">
             <xsl:choose>
-                <xsl:when test="$level3='faq'">leftSubnavOn</xsl:when>
+                <xsl:when test="$level3='ratings'">leftSubnavOn</xsl:when>
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=devFaq</xsl:attribute>Development FAQ</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=ratings</xsl:attribute>Rating System</A>
+        </td>
+    </tr>
+
+<!-- dev faq -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='reliability'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=reliability</xsl:attribute>Reliability Rating</A>
         </td>
     </tr>
 
