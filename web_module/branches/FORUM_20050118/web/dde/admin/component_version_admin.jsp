@@ -446,7 +446,7 @@ if (action != null) {
 
 	// qq verify that it was not in dev before
 	debug.addMsg("component version admin", "qq phase = "+Long.parseLong(phase) );
-	if (Long.parseLong(phase) == 113) {
+/*	if (Long.parseLong(phase) == 113) {
 	    try {
 	        Project project =  componentManager.getProject(tcSubject);
 	        
@@ -468,8 +468,8 @@ if (action != null) {
 	        debug.addMsg("component version admin",e.toString());
 	    }
 	}
-	
-        try {
+*/
+	try {
             if (colTechnology != null) {
                 Iterator iter = colTechnology.iterator();
                 while (iter.hasNext()) {

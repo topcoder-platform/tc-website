@@ -909,10 +909,14 @@ log.debug("qq5");
 
                     Notification notification = notificationHome.create();
 log.debug("qq6");
+                    notification.createNotification("forum post " + project.getForumId(),
+                            project.getWinner().getId(),
+                            notification.FORUM_POST_TYPE_ID);
 
-                    notification.createNotification("forum post "+
-                              newForum,project.getProjectManager().getId(),
-                              notification.FORUM_POST_TYPE_ID);
+
+                    notification.createNotification("forum post "+ newForum,
+                            project.getProjectManager().getId(),
+                            notification.FORUM_POST_TYPE_ID);
 log.debug("qq7");
 
                 }
@@ -2240,7 +2244,7 @@ log.debug("qq7");
     /**
      * qq
      */
-     public Project getProject(TCSubject requestor) throws CatalogException {
+/*     public Project getProject(TCSubject requestor) throws CatalogException {
         try {
             ProjectTracker pt = projectTrackerHome.create();
 
@@ -2255,7 +2259,7 @@ log.debug("qq7");
             throw new CatalogException(e.toString());
         }
      }
-
+*/
     /**
      * Determines whether or not the project of the given type for this component version has yielded a
      * publicly readable aggregation worksheet
