@@ -143,7 +143,7 @@ public class Login extends BaseProcessor {
                     KEY_USER_PASS,
                     "Combination of handle/password entered is invalid"
                 );
-                nextPage = null;
+                nextPage = la.destination;
                 pageInContext = true;
                 return;
             }

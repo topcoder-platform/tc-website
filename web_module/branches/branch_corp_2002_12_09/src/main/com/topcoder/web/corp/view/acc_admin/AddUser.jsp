@@ -150,7 +150,7 @@
     }
     catch(Exception ignore) {}
 
-    BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request.getSession(true)), request, response);
+    BasicAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
     long puid = auth.getActiveUser().getId();
 
     String qryParam = "puid:" + puid + ", uid:" + uid;
