@@ -7,6 +7,7 @@ import com.topcoder.shared.security.SimpleResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.Constants;
 
 /**
  * <p> Title: Static </p>
@@ -98,7 +99,8 @@ public class Static extends BaseProcessor {
 
         boolean found = false;
         String cur = null;
-        StringBuffer ret = new StringBuffer();
+        StringBuffer ret = new StringBuffer(100);
+        ret.append(Constants.JSP_ROOT.substring(0, Constants.JSP_ROOT.length()-1));
 
         /* start generating the return string containing the URL */
         for (int i = 1; !found; i++) {
@@ -107,7 +109,7 @@ public class Static extends BaseProcessor {
                 /* if there is not a (STATIC_PREFIX+1) go to home page
                    (set in web.xml MainServlet init parameter "page-main") */
                 if (i == 1) {
-                    return (String) request.getAttribute("homePage");
+                    return Constants.WELCOME_PAGE;
                 }
                 found = true;
             } else {
