@@ -89,6 +89,8 @@ public class Constants {
 
     public static String DESIGN_REVIEWERS;
     public static String DEV_REVIEWERS;
+    
+    public static String RATING_SIM;
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
