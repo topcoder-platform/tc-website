@@ -7,7 +7,7 @@
     String list = request.getParameter("selectedList")==null?"":request.getParameter("selectedList");
 %>
 
-    <% } if (list.equals("rules")) { %>
+    <% if (list.equals("rules")) { %>
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>                
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -24,4 +24,3 @@
             <tr><td width="100%"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td></tr>
         </table>
     <% } %>
-    
