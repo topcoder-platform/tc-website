@@ -310,7 +310,7 @@
                                                     <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
                                                     <span class="bodyText">
                                                         <strong>Integration</strong>
-                                                    </span>&#160;&#160;&#160;&#160;
+                                                    </span>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#qa">QA</a>&#160;&#160;|&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
