@@ -34,6 +34,7 @@ abstract class FullRegBase extends SimpleRegBase {
             db = getCompanyDb(companyId);
 
             questions = getQuestions();
+            log.debug("questions" + questions.toString());
             regInfo = makeRegInfo();
             p.setObject(Constants.REGISTRATION_INFO, regInfo);
             registrationProcessing();
