@@ -40,12 +40,12 @@
            <jsp:param name="title" value=""/>  
         </jsp:include>
 
-<p class="header"><%= request.getAttribute("problemName") %></p>
+<p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
 <form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
-    <table BORDER="1" CELLSPACING="1" CELLPADDING="0" WIDTH="100%">
+    <table BORDER="0" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
         <tr><td></td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="bodyTextBig" align="center">
@@ -68,9 +68,9 @@
         </tc:problemRatingIterator>
         <tr><td></td>
         <td align="center" colspan="5" nowrap>
-            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="button">View Results</a>&nbsp;&nbsp;
+            <a href="/tc?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="button">View Results</a>
         </td><td align="center" colspan="5" nowrap>
-            <a href="javascript:document.ratings.submit()" class="button">Submit Ratings</a>&nbsp;&nbsp;
+            <a href="javascript:document.ratings.submit()" class="button">Submit Ratings</a>
         </td></tr>
     </table>
 </form>
