@@ -29,7 +29,7 @@
 		<td class=bodyL>&#160;</td>
 		<td class=bodyContent>
 
-        <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method=post name=loginForm>
+        <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method=post name=loginForm>
 		<table width="400" align=center cellspacing=0 cellpadding=0 class=tableFrame>
 			<tr>
 				<td class=tableTitle colspan=2>Login</td>
