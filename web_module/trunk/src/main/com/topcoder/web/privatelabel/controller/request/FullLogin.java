@@ -53,7 +53,7 @@ abstract class FullLogin extends FullReg {
     private char getStatus(long userId) throws Exception {
         char result;
         com.topcoder.web.ejb.user.User user = (com.topcoder.web.ejb.user.User)createEJB(getInitialContext(), com.topcoder.web.ejb.user.User.class);
-        result = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+        result = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
         return result;
 
     }
