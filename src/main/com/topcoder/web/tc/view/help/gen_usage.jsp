@@ -70,7 +70,6 @@
         The most basic form of chat is the "General" chat, which will simply allow you to type in a message.  A general chat 
         message will be sent to all of the coders currently in that room.  The general chat message type is equivalent to simply 
         typing a message in the chat line without the chat feature box expanded.
-        
         </li>
         <li>
         <a name="replyto"></a><span class="bodySubtitle">ReplyTo</span> - 
