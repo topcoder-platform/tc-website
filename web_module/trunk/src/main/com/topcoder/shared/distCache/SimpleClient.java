@@ -112,6 +112,29 @@ public class SimpleClient {
                 e.printStackTrace();
             }
 
+        } else if (line.startsWith("removelike ")) {
+            String tempKey = null;
+            Object o = null;
+            int count = 0;
+            try {
+                String key = line.substring(line.indexOf(' ') + 1);
+                ArrayList list = client.getKeys();
+                for (int i=0; i<list.size(); i++) {
+                    tempKey = (String)list.get(i);
+                    if (tempKey.indexOf(key) > -1) {
+                        o = client.remove(tempKey);
+                        if (o == null) {
+                            System.out.println("ATTEMPT TO REMOVE " + tempKey + " FAILED.  IT IS NOT IN THE CACHE.");
+                        } else {
+                            count++;
+                            System.out.println("SUCCESSFULLY REMOVED " + tempKey);
+                        }
+                    }
+                }
+            } catch (RemoteException e) {
+                e.printStackTrace();
+            }
+            System.out.println(count + " items removed from the cache.");
         } else if (line.startsWith("remove ")) {
             String key = line.substring(line.indexOf(' ') + 1);
             try {
@@ -124,13 +147,12 @@ public class SimpleClient {
                 System.out.println("Exception: " + e.getMessage());
                 e.printStackTrace();
             }
-
         } else if (line.equals("clear")) {
             confirm = true;
             System.out.println("Are you sure you want to clear the cache?");
         } else if (line.equals("values")) {
             try {
-                ArrayList al = client.getValues();
+                ArrayList al = client.getEntries();
                 for (int i = 0; i < al.size(); i++) {
                     CachedValue cv = (CachedValue) (al.get(i));
                     System.out.println("key = " + cv.getKey() + ", value = " + cv.getValue() + ", last used = " + new Date(cv.getLastUsed()));
@@ -141,10 +163,9 @@ public class SimpleClient {
             }
         } else if (line.equals("keys")) {
             try {
-                ArrayList al = client.getValues();
+                ArrayList al = client.getKeys();
                 for (int i = 0; i < al.size(); i++) {
-                    CachedValue cv = (CachedValue) (al.get(i));
-                    System.out.println("key = " + cv.getKey() + ", last used = " + new Date(cv.getLastUsed()) + ", expires on " + new Date(cv.getExpireTime()));
+                    System.out.println("key = " + (String)al.get(i));
                 }
             } catch (RemoteException e) {
                 System.out.println("Exception: " + e.getMessage());
