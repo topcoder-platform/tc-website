@@ -112,6 +112,7 @@ function submitSession() {
                 </tr>
 
                 <tr><td class="testTableTitle" colspan="3">Candidate</td></tr>
+                
                 <tr>
                     <td class="testTableOdd">&#160;</td>
                     <td class="testTableOdd">
