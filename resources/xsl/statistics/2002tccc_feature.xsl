@@ -147,12 +147,12 @@ malpt and derkuci, and a very quick system test, <A HREF="/index?t=statistics&am
 </P>
 
 <P>
-"I am very happy for <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>," said 2001 TopCoder Invitational champion and friend, jonmac.  
+"I am very happy for <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>," said 2001 TopCoder Invitational champion and friend, <A HREF="/stat?c=member_profile&amp;cr=114443" CLASS="bodyGeneric">jonmac</A>.  
 "He is very dedicated to these competitions and has arguably put more time and effort into TopCoder 
 than any other competitor during the last year.  This is an achievement that highlights Daniel's 
 unparalleled analytical capacity, and his ravenous competitive skills.  I felt this victory was 
 inevitable for Daniel; nonetheless, I am still overjoyed and ecstatic for Daniel, in a cathartic 
-sense.  Now we can finally introduce ourselves as ÔThe TopCoders'.  Perhaps we can pool our money 
+sense.  Now we can finally introduce ourselves as 'The TopCoders'.  Perhaps we can pool our money 
 together to purchase a solid gold couch."
 </P>
 
@@ -165,7 +165,7 @@ someone to keep an eye on!"
 </P>
 
 <P>
-<B><A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> - The Early Years</B>
+<B>dmwright - The Early Years</B>
 </P>
 
 <P>

@@ -45,13 +45,13 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">statisticsw</xsl:with-param>
-  <xsl:with-param name="title">&#160;Championship:&#160;Problems&#160;&amp;&#160;Chrono&#160;Logs</xsl:with-param>
+  <xsl:with-param name="title">&#160;Championship:&#160;Summary&#160;&amp;&#160;Photos</xsl:with-param>
 </xsl:call-template>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
   <TR>
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+    <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
 <SPAN>  
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%" ALIGN="right">
@@ -73,7 +73,7 @@
 		<TR>					
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Problems</A><BR/>			
+			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A><BR/>			
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A><BR/>
 			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A><BR/>
 			</TD>
@@ -89,71 +89,186 @@
  	<TR><TD COLSPAN="3" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE></SPAN> 
 <BR CLEAR="all"/>         
-          
-          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">         
+          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+            <!-- <TR>
+              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+            </TR> -->          
             <TR>
-              <TD VALIGN="top" COLSPAN="2" CLASS="bodyText"><IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" ALIGN="left" HSPACE="5" BORDER="0"/>Problems Statements are available for download.</TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Summary</TD>
             </TR>
             <TR>
-              <TD VALIGN="middle" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-            </TR>                         
-            <TR>
-              <TD VALIGN="middle" HEIGHT="18" WIDTH="50%" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Problems</TD>
-              <TD VALIGN="middle" HEIGHT="18" WIDTH="50%" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">Solutions</TD>              
-            </TR>
-            <TR>
-              <TD VALIGN="middle" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-            </TR>                                                                                         
-            <TR>
-              <TD VALIGN="top" CLASS="bodyText">             
-Level 1 (250) - <A HREF="/i/2002tccc/MuseumGuard_250.pdf" CLASS="bodyText">MuseumGuard</A> (.pdf)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rm=68&amp;rd=68&amp;pm=690&amp;cr=114853" CLASS="bodyText">Solution</A></TD>
-            </TR>                                             
-            <TR>              
-              <TD VALIGN="top" CLASS="bodyText">
-Level 2 (500) - <A HREF="/i/2002tccc/NumList_500.pdf" CLASS="bodyText">NumList</A> (.pdf)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rd=68&amp;rm=68&amp;cr=114853&amp;pm=565" CLASS="bodyText">Solution</A></TD>
-            </TR>                                             
-            <TR>              
-              <TD VALIGN="top" CLASS="bodyText">              
-Level 3 (1000) - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">PlanetX</A> (.pdf)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rd=68&amp;rm=68&amp;cr=114853&amp;pm=663" CLASS="bodyText">Solution</A></TD>
-            </TR>
-            <TR>
-              <TD VALIGN="middle" COLSPAN="2"><A NAME="log"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-            </TR>             
-            <TR>
-              <TD VALIGN="middle" COLSPAN="2" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Chrono Logs</TD>
-            </TR>
-            <TR>
-              <TD VALIGN="middle" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
             </TR>                                             
             <TR>
-              <TD VALIGN="top" CLASS="bodyText" COLSPAN="2">
-1:00:02 PM - derkuci opens the Level One problem <BR/>
-1:00:03 PM - Joe opens the Level One problem <BR/>
-1:00:04 PM - malpt opens the Level One problem <BR/>
-1:00:20 PM - dmwright opens the Level Two problem <BR/>
-1:08:54 PM - derkuci submits the Level One problem for 228.56 points <BR/>
-1:09:01 PM - derkuci opens the Level Two problem <BR/>
-1:09:04 PM - malpt submits the Level One problem for 227.96 points <BR/>
-1:09:43 PM - malpt opens the Level Two problem <BR/>
-1:10:09 PM - Joe submits the Level One problem for 223.09 points <BR/>
-1:10:17 PM - Joe opens the Level Two problem <BR/>
-1:27:53 PM - derkuci opens the Level Three problem <BR/>
-1:32:19 PM - dmwright submits the Level Two problem for 274.20 points <BR/>
-1:32:34 PM - dmwright opens the Level Three problem <BR/>
-1:38:16 PM - malpt opens the Level Three problem <BR/>
-1:50:15 PM - dmwright opens the Level One problem <BR/>
-2:01:14 PM - dmwright submits the Level One problem for 219.05 points <BR/>
-2:03:13 PM - Joe opens the Level Three problem <BR/><BR/>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
+<!-- TC top special promo --> 
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">          
+  <TR>  
+    <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>   
+  </TR>  
+  <TR>  
+    <!-- <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
+    <TD VALIGN="middle" WIDTH="100%" ALIGN="center" BGCOLOR="#CCCCCC" HEIGHT="50" CLASS="bodyText">
+    <FONT SIZE="5" COLOR="#000000" FACE="tahoma,verdana,arial"><B>The&#160;Sun/TopCoder&#160;Collegiate&#160;Challenge</B></FONT><BR/>
+    Stanford Junior Daniel Wright wins in 3rd tournament appearance</TD>   
+    <!-- <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
+  </TR>
+  <TR>  
+    <TD VALIGN="top" BGCOLOR="#FFFFFF" ALIGN="center"><IMG SRC="/i/2002tccc/tourney_photo6.jpg" ALT="" WIDTH="450" HEIGHT="155" HSPACE="2" VSPACE="3" BORDER="0"/></TD>   
+  </TR>  
+  <TR>  
+    <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
+<P>
+<!-- <FONT SIZE="5" COLOR="#000000" FACE="tahoma, verdana"><B>Room 4 - Go <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>!</B></FONT><BR/> 
+<I>3 from the West and 1 from the Midwest Advance to the Finals.</I><BR/><BR/> -->
+<BR/>
+Saturday, April 20, 2002<BR/>
+By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
+</P>
+<!-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A>
+<IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
+<IMG SRC="/i/2002tccc/coder_quote2.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/>
+<A HREF="/index?t=statistics&amp;c=2002tccc_cind#<A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_favs#<A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>" CLASS="bodyGeneric"><A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A></A>
+<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A>
+ -->
 
-<B>Challenges</B><BR/>
-2:28:11 PM - derkuci challenges Joe on the Level One problem successfully<BR/> 
 
+<P>
+Three times happened to be the charm for <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  After advancing to the semifinals in the 2001 
+Collegiate Challenge and the 2001 Invitational, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> finally came out on top and won the 2002 
+<IMG SRC="/i/2002tccc/coder_quote6.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/>
+Sun Microsystems and TopCoder Collegiate Challenge on Saturday, April 20, at the University Park Hotel @ MIT.
+</P>
+
+<P>
+Perhaps Stanford University should rename itself "TopCoder West".  That's because Stanford's 
+jonmac was the champion of the 2001 TopCoder Invitational, giving the school two of the first 
+three TopCoder major tournament champions.
+</P>
+
+<P>
+<A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, the number two-ranked TopCoder member, started the championship match off by opening
+ the Level Two problem, while <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> all tackled the Level One problem. <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> 
+ 
+ was the first to submit his code and earned 228.56 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> finished shortly 
+ thereafter, gaining 227.96 and 223.09, respectively.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> all headed for 
+ the Level Two problem next.
+</P>
+
+<P>
+Meanwhile, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> took a good amount of time on the Level Two problem, shocking most
+ spectators, who were expecting a top score.  "The Level Two problem was very technical," 
+ said <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  "I had to be careful because it was easy to make an error."  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> 
+ finally submitted the Level Two problem for 274.20 points, and opened the Level 
+ Three problem.  When asked about his strategy for opening the Level Two problem 
+ first, and then going for the Level Three problem, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> responded, "Even if 
+ it took a little longer to code, the Level Two and Three problems are worth more
+  points, so I figured I could outscore the coders who attempted to code the Level
+   One and Two problems in succession." 
+</P>
+
+<P>
+As the minutes passed the room became more animated as spectators watching soon
+ realized the difficulty of the problems that the competitors had been presented 
+ 
+ with. Twenty-seven minutes into the match, <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> abandoned his attempt at the 
+ Level Two problem and moved on to the Level Three problem.  <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> did exactly the same soon after. 
+</P>
+
+<P>
+Eighteen minutes into his effort on Level Three problem, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> made the decision 
+to move on to the Level One problem in an effort to secure points, as none of the other
+ coders had yet to submit on either the Level Two or Three.
+</P>
+
+<P>
+After a brief effort, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> submitted on the Level One problem for 219.05 points. 
+ As the "Coding Phase" ended, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> lead with 493.25 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> was second 
+ with 228.56, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> was third with 227.95, while <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> was fourth with 223.09.
+</P>
+
+<P>
+<A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> kicked off the "Challenge Phase" with a successful challenge of the Level 
+One submission of <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>.  Those additional 50 points gave <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> a total of 278.56 
+points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> then tried to break the Level One and Two codes of <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  If 
+he has been successful with either challenge, he would have won the championship. 
+ To his dismay and the delight of <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, however, he was unable to, and after 
+ everyone's remaining code passed the system test, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> was declared the winner
+  with 493.25 final points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> finished second with 278.56 points, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> was 
+  third with 227.96, while <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> finished fourth.  
+</P>
+
+<P>
+"It's really nice to win after making the semifinals in last year's Collegiate 
+Challenge and Invitational," said <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>.  "My adrenaline was flowing, and I
+ really got absorbed in the problems.  I was able to block out all of the spectator 
+ activity, and finally submit code without any bugs in it.  Bugs in my code have cost
+  me in past major tournaments."
+</P>
+
+
+    </TD>
+  </TR>
+
+  <TR>  
+    <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>    
+  </TR>  
+</TABLE> 
           </TD>
+            </TR>
+            <TR>
+              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><A NAME="photo"></A></TD>
+            </TR>          
+            
+          
+            <TR>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Photos</TD>
+            </TR>
+            <TR>
+              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+            </TR>                                             
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP01')"><IMG SRC="/i/2002tccc/CHMP01_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP02')"><IMG SRC="/i/2002tccc/CHMP02_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP03')"><IMG SRC="/i/2002tccc/CHMP03_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP04')"><IMG SRC="/i/2002tccc/CHMP04_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              </TD>
+            </TR>
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP05')"><IMG SRC="/i/2002tccc/CHMP05_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP06')"><IMG SRC="/i/2002tccc/CHMP06_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP07')"><IMG SRC="/i/2002tccc/CHMP07_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>             
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP08')"><IMG SRC="/i/2002tccc/CHMP08_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              </TD>
             </TR>            
-                                   
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP09')"><IMG SRC="/i/2002tccc/CHMP09_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP10')"><IMG SRC="/i/2002tccc/CHMP10_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP11')"><IMG SRC="/i/2002tccc/CHMP11_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP12')"><IMG SRC="/i/2002tccc/CHMP12_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A> 
+              </TD>
+            </TR>
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP13')"><IMG SRC="/i/2002tccc/CHMP13_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A> 
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP14')"><IMG SRC="/i/2002tccc/CHMP14_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>              
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP15')"><IMG SRC="/i/2002tccc/CHMP15_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A> 
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP16')"><IMG SRC="/i/2002tccc/CHMP16_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              </TD>
+            </TR>
+            <TR>
+              <TD VALIGN="top" COLSPAN="3" CLASS="bodyText" ALIGN="center"><BR/>
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP17')"><IMG SRC="/i/2002tccc/CHMP17_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A> 
+<A HREF="javascript:open_window('/?t=pic&amp;c=member&amp;img=CHMP18')"><IMG SRC="/i/2002tccc/CHMP18_tn.jpg" ALT="" WIDTH="96" HEIGHT="64" VSPACE="10" HSPACE="5" BORDER="0"/></A>
+              </TD>
+            </TR>                                           
           </TABLE>
           <P><BR/></P>
     </TD>
