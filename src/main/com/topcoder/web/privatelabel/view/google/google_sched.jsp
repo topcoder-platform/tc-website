@@ -116,7 +116,7 @@
             
 <!-- Qualification Rounds begins -->
            <p><span class="bodySubtitle">Qualification Rounds</span><br />
-           The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Extreme Challenge.</p>
+           The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Extreme Coding Challenge.</p>
 
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -133,13 +133,12 @@
                         8:00 AM Monday, October 20<br />
                     </td>
                     <td class="sidebarText" align="center">All eligible members</td>
-                    <td class="sidebarText" align="center">100</td>
+                    <td class="sidebarText" align="center">500</td>
                 </tr>
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
-                        will be the following day at the same time.
+                        *NOTE: All times are Eastern 
                     </td>
                 </tr>
             </table><br />
@@ -182,7 +181,7 @@
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
+                        *NOTE: All times are Eastern Time. In the event that an online round must be cancelled for any reason, the "raindate" 
                         will be the following day at the same time.
                     </td>
                 </tr>
@@ -200,7 +199,7 @@
                     <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText">Onsite Championship Round</td>
+                    <td class="sidebarText">Championship Round</td>
                     <td class="sidebarText">
                         Friday, November 14th<br />
                         START: 3:00 PM<br />
@@ -211,7 +210,7 @@
 
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
+                        *NOTE: All times are Eastern Time. The time of the onsite round is subject to change.
                     </td>
                 </tr>
             </table><br />

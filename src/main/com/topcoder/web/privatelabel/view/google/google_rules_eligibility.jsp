@@ -129,9 +129,27 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
        
             <h2>Eligibility</h2>
             
-            <p>The Google Extreme Challenge is open to citizens and lawful permanent residents of the U.S. (including the U.S. territories of Guam, 
-            Puerto Rico and the U.S. Virgin Islands), and to all non-immigrants currently in the U.S. with a valid visa, who are 18 years of 
-            age or older.</p>
+            <p>All citizens and lawful permanent residents of the following countries (and all non-immigrants currently 
+            residing in the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate 
+            affidavit and tax form:</p>
+
+            <ul>
+            <li>Australia</li>
+            <li>Canada (excluding Quebec)</li>
+            <li>China</li>
+            <li>India</li>
+            <li>Ireland</li>
+            <li>New Zealand</li>
+            <li>Sweden</li>
+            <li>United Kingdom</li>
+            <li>United States (including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands)</li>
+            </ul>
+
+            <p>Participants who do not meet the citizenship requirements to win prize money are eligible to compete, 
+            however will be required to donate any cash prizes to charity. Participants will choose a charity to receive their 
+            winnings from the TopCoder approved list of charities. A prize-winning participant may request a new charity 
+            for the list, however it shall remain in TopCoder's sole discretion to add that charity after reviewing the proposed 
+            charity's credentials.</p>
             
             <p><br /></p>
                         

@@ -114,9 +114,10 @@
             
             <h2>At Google, being the best is just the starting point.</h2>
 
-            <p>Are you exceptional at what you do?  Do you have word class programming skills?  Can you make computers do amazing things?  Show us!
-            Google is looking for engineers with the programming skills to change the world.  The Google Extreme Coding Challenge is designed as a premiere online recruiting event for us. We will utilize the technology platform and expertise developed by TopCoder for the exclusive purpose of objectively assessing programming skills.  We’ll use the results of this competition as the basis for our hiring decisions.
-            </p>
+            <p>Are you exceptional at what you do?  Do you have world class programming skills?  Can you make computers do amazing things?  Show us!</p>
+            
+            <p>Google is looking for engineers with the programming skills to change the world.  The Google Extreme Coding Challenge is designed as a premiere online recruiting event for us. We will utilize the technology platform and expertise developed by TopCoder for the exclusive purpose of objectively assessing programming skills.  We’ll use the results of this competition as the basis for our hiring decisions.</p>
+
             <p>Best of all, if you’re really the best, we’ll pay you $10,000 to boot!</p>
 
             <p><span class="bodySubtitle">Choose Your Weapon</span><br />
@@ -146,9 +147,9 @@
 
              <table width="450" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align="center">
                 <tr>
-                    <td class="sidebarTitle" width="25%">Date</td>
+                    <td class="sidebarTitle" width="30%">Date</td>
                     <td class="sidebarTitle" width="20%">Time</td>
-                    <td class="sidebarTitle" width="40%">Status</td>
+                    <td class="sidebarTitle" width="50%">Status</td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">Wednesday, October 1</td>
@@ -191,6 +192,10 @@
                     <td class="sidebarText">3:00 PM</td>
                     <td class="sidebarText">Championship Round - 25 participants</td>
                 </tr>
+                
+                <tr valign="top">
+                  <td class="sidebarText" colspan="3">*All times are Eastern Time</td>
+                </tr>
             </table>
 
             <p><span class="bodySubtitle">Prizes</span><br />
@@ -204,7 +209,8 @@
 
             <p>Those finalists not finishing as one of the top four scorers in the Championship Round will each receive $250.</p>
 
-            <p>To find out more detailed information about the Google Extreme Coding Challenge, including a list of the prizes, please read the Terms and Conditions.</p>
+            <p>To find out more detailed information about the Google Extreme Coding Challenge, including a list of the prizes, please read the 
+            <a href="/pl/?&module=Static&d1=google&d2=google_rules_conditions">Terms and Conditions.</a></p>
 
             <p><br /></p>
          </td>

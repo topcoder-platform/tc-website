@@ -135,7 +135,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             <h3><font color="#CC0000">Contestants must not cheat. All ideas for any code and/or challenge submitted must be 
             the contestant's alone.</font></h3>
 
-            <p>Winners in each round of competition will be those competitors who win the most points in their respective rooms. 
+            <p>Winners in each round of competition will be those competitors who score the most points in their respective rooms. 
             All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the 
             tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.</p>
 
@@ -160,7 +160,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             completed (i) Affidavit of Eligibility and Liability and Publicity Release (the "Affidavit"), and (ii) IRS Form W-9 or 
             W-8BEN, as appropriate.  In completing the Affidavit, a winner (i) confirms his/her eligibility, (ii) represents and 
             warrants that he/she has not cheated; that the idea for the code and/or challenge submitted is his/hers alone, (iii) verifies 
-            the accuracy of the information submitted in the Google Extreme Challenge registration process, (iv) authorizes TopCoder 
+            the accuracy of the information submitted in the Google Extreme Coding Challenge registration process, (iv) authorizes TopCoder 
             and Google to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities, (vi) 
             licenses to TopCoder and Google rights to all information submitted during the tournament (including rights to source code 
             and other executables), and (vii) releases TopCoder and Google from liability arising out of any prize won. Google requires 
@@ -184,7 +184,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
             TopCoder and any and all rights to said use, without further compensation.</p>
 
             <p>Google and TopCoder reserve the right, in their sole discretion, to revoke any and all privileges associated with competing in 
-            this tournament, and to take any other action it deems appropriate, for no reason or any reason whatsoever, including if TopCoder 
+            this tournament, and to take any other action they deem appropriate, for no reason or any reason whatsoever, including if TopCoder 
             suspects competitors of cheating, tampering with the entry process, the operation of the Web site, or the tournament process, or 
             otherwise being in violation of the rules. Google and TopCoder reserve the right to cancel, terminate or modify the tournament if it 
             is not capable of completion as planned for any reason, including infection by computer virus, bugs, tampering, unauthorized 

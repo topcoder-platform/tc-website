@@ -11,7 +11,7 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>                
                     <td width="49%" bgcolor="#3366cc"></td>
-                    <td class="<%=tab.equals("overview")?"google_subnav_on":"google_subnav"%>" width="1" nowrap="nowrap"><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview" class="topLink">Overview</a></td>
+                    <td class="<%=tab.equals("overview")?"google_subnav_on":"google_subnav"%>" width="1" nowrap="nowrap"><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview" class="topLink">General</a></td>
                     <td class="<%=tab.equals("eligibility")?"google_subnav_on":"google_subnav"%>" width="1" nowrap="nowrap"><a href="/pl/?&module=Static&d1=google&d2=google_rules_eligibility" class="topLink">Eligibility</a></td>
                     <td class="<%=tab.equals("conditions")?"google_subnav_on":"google_subnav"%>" width="1" nowrap="nowrap"><a href="/pl/?&module=Static&d1=google&d2=google_rules_conditions" class="topLink">Conditions of Participation</a></td>
                     <td class="<%=tab.equals("structure")?"google_subnav_on":"google_subnav"%>" width="1" nowrap="nowrap"><a href="/pl/?&module=Static&d1=google&d2=google_rules_structure" class="topLink">Structure</a></td>
