@@ -34,9 +34,9 @@
             <xsl:call-template name="calendar"/>
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row" />
-            
+
         </xsl:when>
-      
+
         <xsl:when test="/TC/Task='home'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
@@ -61,14 +61,14 @@
             <xsl:call-template name="left_nav_btm_row" />
         </xsl:when>
 <!-- Home page ends -->
-      
+
 <!-- Schedule begins -->
         <xsl:when test="/TC/Task='schedule'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                
+
                 <tr>
                     <td id="leftNavOn">
                         <xsl:attribute name="id">
@@ -250,7 +250,7 @@
                 <xsl:call-template name="applet_row"/>
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
-                
+
                 <tr>
                     <td id="leftNavOn"><A class="leftOn" href="/?&amp;t=features&amp;c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Features</A>
                     </td>
@@ -267,7 +267,7 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Archive</A>
                     </td>
                 </tr>
-                
+
                 <tr>
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
@@ -279,7 +279,7 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_topics</xsl:attribute>Want to Write?</A>
                     </td>
                 </tr>
-                
+
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
@@ -289,7 +289,7 @@
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
-          
+
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
@@ -344,7 +344,7 @@
 
 <!-- Components: -->
                 <tr><td id="leftNavSubtitle">Components:</td></tr>
-            
+
 <!-- Project Winners -->
                 <tr>
                     <td id="leftSubnav">
@@ -485,10 +485,15 @@
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-            
+
                 <tr>
                     <td id="leftNavOn">
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Events</A>
+                    </td>
+                </tr>
+                <tr>
+                    <td id="leftNavOn">
+                        <A class="leftOn"><xsl:attribute name="HREF">/tc/?&amp;module=Static&amp;</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Charity</A>
                     </td>
                 </tr>
 
@@ -510,7 +515,7 @@
                         </xsl:attribute>
                         <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_index">Tournaments</A></td>
                 </tr>
-                
+
 <!-- Private Label Events -->
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
@@ -520,7 +525,7 @@
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
-            
+
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
       </xsl:when>
@@ -537,9 +542,9 @@
                 <xsl:call-template name="feat_row"/>
                 <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
-                
+
                 <tr><td id="leftNavOn"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support/FAQ:</td></tr>
-                
+
 <!-- General FAQs -->
                 <tr>
                     <td id="leftSubnav">
@@ -721,7 +726,7 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=support&amp;c=sample_problems</xsl:attribute>Sample Problem Statements</A>
                     </td>
                 </tr>
-              
+
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="reviewboard_row"/>
@@ -744,7 +749,7 @@
                     <td id="leftNavOn">
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>About TopCoder</A></td>
                 </tr>
-                
+
 
 <!-- Members -->
                 <tr>
@@ -784,7 +789,7 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=jobs</xsl:attribute>Working at TopCoder</A>
                     </td>
                 </tr>
-               
+
 <!-- Terms -->
                 <tr>
                     <td id="leftSubnav">
@@ -815,7 +820,7 @@
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
-          
+
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
@@ -828,13 +833,13 @@
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="reviewboard_row"/>
-                
+
 <!-- Link -->
                 <tr>
                     <td id="leftNavOn">
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Press Room</A></td>
                 </tr>
-                
+
 <!-- Press Releases -->
                 <tr>
                     <td id="leftSubnav">
@@ -848,7 +853,7 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=index</xsl:attribute>Press Releases</A>
                     </td>
                 </tr>
-                
+
 <!-- Articles -->
                 <tr>
                     <td id="leftSubnav">
@@ -862,7 +867,7 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=articles</xsl:attribute>Articles</A>
                     </td>
                 </tr>
-                
+
                 <xsl:call-template name="contacts_row"/>
           </table>
 
@@ -904,7 +909,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="jobs_row"/>
                 <xsl:call-template name="applet_row"/>
-                
+
                 <tr>
                     <td id="leftNavOn">
                         <xsl:attribute name="id">
@@ -921,13 +926,13 @@
                         <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=recruiting&amp;d3=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Hiring for Employers</A>
                     </td>
                 </tr>
-            
+
                 <tr>
                     <td id="leftNav">
                         <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/tces/?task=MainTask</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TCES Reporting</A><br /><div style="font-size:11px; font-weight:normal; margin-left:10;">Employers log in to access Recruiting Reports</div>
                     </td>
                 </tr>
-                
+
                 <xsl:call-template name="tc_info_row"/>
                 <xsl:call-template name="about_row"/>
                 <xsl:call-template name="reviewboard_row"/>
@@ -984,7 +989,7 @@
                      <!-- <xsl:call-template name="module_login"/> -->
                 </xsl:otherwise>
             </xsl:choose>
-            
+
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
@@ -1001,7 +1006,7 @@
                 <xsl:call-template name="press_row"/>
                 <xsl:call-template name="contacts_row"/>
             </table>
-          
+
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:otherwise>

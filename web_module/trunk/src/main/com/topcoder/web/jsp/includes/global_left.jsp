@@ -290,11 +290,15 @@
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=contracts&amp;c=contract_history">Contracts</a></td></tr>
                 <tr><td id="leftSubnav"><a class="leftOn" href="/PactsMemberServlet?t=tax_forms&amp;c=tax_forms_history">Tax Forms</a></td></tr>
 
-<% } %>     
+<% } else if (level1.equals("tournaments")) { %>
+                <tr><td id="leftNavOn"><a class="leftOn" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Events</a></td></tr>
+                <tr><td id="<%=level2.equals("charity")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?d1=review_board&d2=design">Charity</a></td></tr>
+
+<% } %>
 
 <!-- TopCoder Info begins -->
 
-    <% if ((level1.equals("review_board"))) { %> 
+    <% if (level1.equals("review_board")) { %>
 
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
                 <tr><td id="leftNav"><a class="left" href="/?&t=about_tc&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>About TopCoder</a></td></tr>
@@ -302,7 +306,6 @@
                 <tr><td id="<%=level2.equals("competition")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?module=Static&d1=review_board&d2=competition">Competition</a></td></tr>
                 <tr><td id="<%=level2.equals("development")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?d1=review_board&d2=development">Development</a></td></tr>
                 <tr><td id="<%=level2.equals("design")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc/?d1=review_board&d2=design">Development</a></td></tr>
-
     <% } else { %>
 
                 <tr><td id="leftNavTitle">TopCoder Info:</td></tr>
