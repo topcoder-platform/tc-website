@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom </strong></a><br/>
+                        <img src="/i/m/Logan_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=112902"><strong>Logan </strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,18 +32,16 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm153_prob">Problem Set Analysis &amp; Opinion: SRM 153</a></font></strong><br />
-                        Tuesday, July 1, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm154_prob">Problem Set Analysis &amp; Opinion: SRM 154</a></font></strong><br />
+                        Wednesday, July 9, 2003</p>
 
-                        <p>
-                        Going into the system tests, it looked as though a yellow, <strong>gilbert</strong>, might win by a large margin.  
-                        However, a couple of small bugs cost him his medium and hard submissions.  But <strong>gilbert's</strong> loss 
-                        was <strong>tomek's</strong> gain, as <strong>tomek</strong> got his first SRM win tonight, and extended his flawless streak to 6 
-                        SRM's.  The record for the longest TopCoder perfection streak is currently held by <strong>Yarin</strong>, who 
-                        correctly submitted every problem for 7 straight SRMs between June 24 and August 12 of 
-                        2002.  <strong>tomek</strong> also managed to increase his rating to 2842.  No one has come anywhere close to 
-                        this rating in 6 SRM's suggesting that <strong>SnapDragon</strong> may soon be given a run for his money.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm153_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                        <P><b>Snapdragon</b> crushed the competition in Division One with an authoritative performance, winning the division by over 200 points.  
+                        <b>tomek</b> remains absolutely perfect, tying <b>Yarin</b> for the longest perfection streak ever (seven matches).  However all seven of 
+                        Yarin's matches were in Division One.  tomek has only competed in Division One six times to-date.  <strong>Veloso</strong>, back in Division One after a brief slump in Division 
+                        Two has turned up the heat again with a room win and the seventh highest score overall.  Division Two only saw four correct level three submissions.  
+                        The fastest of those was from <b>P.S</b> who submitted in just under 40 minutes. Although P.S was rewarded with a 274 point rating jump, both <b>fbird</b>'s and <b>ozzie</b>'s performances on the level one and two problems 
+                        were enough to make up for the deficit on the level three and P.S ended up in third place overall.  </P>
+                        <p><a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm154_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
