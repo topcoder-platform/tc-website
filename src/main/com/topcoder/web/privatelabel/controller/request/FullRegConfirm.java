@@ -4,6 +4,7 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.view.tag.DemographicInput;
 import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
@@ -76,22 +77,26 @@ public class FullRegConfirm extends FullRegBase {
                 //this is cheating, cuz really it should be done in the data checking method.
                 addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a valid answer, this question is required.");
             } else if (values != null) {
+                String value = null;
                 for (int i = 0; i < values.length; i++) {
-                    r = new DemographicResponse();
-                    r.setQuestionId(q.getId());
-                    if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                        r.setText(values[i]);
-                        responses.add(r);
-                    } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                            q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                        try {
-                            r.setAnswerId(Long.parseLong(values[i]));
+                    value = StringUtils.checkNull(values[i]).trim();
+                    if (value.length()>0) {
+                        r = new DemographicResponse();
+                        r.setQuestionId(q.getId());
+                        if (q.getAnswerType() == DemographicQuestion.FREE_FORM) {
+                            r.setText(values[i]);
                             responses.add(r);
-                        } catch (NumberFormatException e) {
-                            //skip it, it's invalid, checking will have to pick it up later
+                        } else if (q.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                            try {
+                                r.setAnswerId(Long.parseLong(values[i]));
+                                responses.add(r);
+                            } catch (NumberFormatException e) {
+                                //skip it, it's invalid, checking will have to pick it up later
+                            }
+                        } else {
+                            throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
                         }
-                    } else {
-                        throw new Exception("invalid answer type found: " + q.getAnswerType() + " for question " + q.getId());
                     }
                 }
             }
