@@ -2,17 +2,19 @@
                 com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@ page language="java"  %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 
 <jsp:usebean id="searchResults" class="com.topcoder.web.corp.model.SearchModel" scope="request" />
-<%= searchResults.getTotal()%>
         <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="bodyText">
               <tr valign="middle">
-                  <td colspan="6" class="bodyText" align=center>Search Results:##to##of##
+                  <td colspan="6" class="bodyText" align=center>Search Results:##to##of<%= searchResults.getTotal()%>
                   </td>
               </tr>
         </table>
 
           <table  border="0" cellspacing="0" cellpadding="5" width="600" align="center" class="screeningFrame">
+          <% ResultSetContainer results = searchResults.getResults();%>
+              
               <tr>
                   <td class="screeningHeader" valign="middle" width="50%">Name</td>
                   <td class="screeningHeader" valign="middle">Email</td>
@@ -27,7 +29,7 @@
                   <td class="screeningHeader" valign="middle" align=center>Notes</td>
                   <td class="screeningHeader" valign="middle" align=center>Results</td>
               </tr>
-
+              <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
                   <td class="screeningCellOdd" nowrap=nowrap><A href="">John Doe</A></td>
                   <td class="screeningCellOdd"><A href="">jdoe@topcoder.com</A></td>
@@ -74,48 +76,7 @@
                   <td class="screeningCellOdd" align=center><A href="">view</A></td>
                   <td class="screeningCellOdd" align=center><A href="">view</A></td>
               </tr>
-              <tr>
-                  <td class="screeningCellEven" nowrap=nowrap><A href="">John Doe</A></td>
-                  <td class="screeningCellEven"><A href="">jdoe@topcoder.com</A></td>
-                  <td class="screeningCellEven" align=center>CT</td>
-                  <td class="screeningCellEven" align=center>USA</td>
-                  <td class="screeningCellEven" align=center>Pro</td>
-                  <td class="screeningCellEven" align=center>Architect</td>
-                  <td class="screeningCellEven" align=center><A href="">Rain</A></td>
-                  <td class="screeningCellEven" align=center>01/01/04</td>
-                  <td class="screeningCellEven" align=center>00:40.20</td>
-                  <td class="screeningCellEven" align=center>
-                    <object
-                    classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-                    codebase="http://fpdownload.macromedia.com"
-                    document.write('/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
-                    width="80"
-                    height="12"
-                    id="tc_card"
-                    align="middle">');
-                    <param name="allowScriptAccess" value="sameDomain" />');
-                    <param name="movie"
-                    value="/i/corp/screeningRatingEven.swf"/>');
-                    <param name="menu" value="false" />');
-                    <param name="quality" value="high" />');
-                    <param name="bgcolor" value="#ffffff" />');
-                    <embed
-                    src="/i/corp/screeningRatingEven.swf"
-                    menu="false"
-                    quality="high"
-                    bgcolor="#ffffff"
-                    width="80"
-                    height="12"
-                    name="tc_card"
-                    align="middle"
-                    allowScriptAccess="sameDomain"
-                    type="application/x-shockwave-flash"
-                    pluginspage="http://www.macromedia.com/go/getflashplayer" />
-                    </object>
-                  </td>
-                  <td class="screeningCellEven" align=center><A href="">view</A></td>
-                  <td class="screeningCellEven" align=center><A href="">view</A></td>
-              </tr>
+              </rsc:iterator>
         </table>
 
           <table  border="0" cellspacing="0" cellpadding="0" width="600" align="center" class="screeningFrameNB">
