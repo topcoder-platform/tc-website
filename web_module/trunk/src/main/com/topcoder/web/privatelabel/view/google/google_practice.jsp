@@ -76,7 +76,7 @@ function openWin(url, name, w, h) {
                         <b><font size="+1">Practice Arena</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
 
-                        <p><font size="-1"><br/>The Practice Arena will open on Wednesday, October 1 at 8:00AM EDT and will be available for th remainder of the tournament.</font></p>
+                        <p><font size="-1"><br/>The Practice Arena will open on Wednesday, October 1 at 8:00AM EDT and will be available for the remainder of the tournament.</font></p>
 
                         </td>
                      </tr>
