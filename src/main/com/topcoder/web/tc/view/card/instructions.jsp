@@ -50,6 +50,9 @@
                 Even though <A href="http://www.macromedia.com/software/player_census/flashplayer/?promoid=pu1_homepage_flashubiquity_012804" target="_blank">98% of internet viewers</A>
                 have Flash-enabled browsers, you still might want your site to be able to
                 detect the presence of Flash and react accordingly.  Here's how:</p>
+            <% } else { %>
+                <p>The card is built on Macromedia&#174; Flash&#153; technology.  This makes it a little more complicated than inserting a .jpg or .gif into your website, but it is still a simple process.  This page presents 2 methods for posting the TopCoder Member Card on your personal site, one with Flash "detection" and one without it. Even though <A href="http://www.macromedia.com/software/player_census/flashplayer/?promoid=pu1_homepage_flashubiquity_012804" target="_blank">98% of internet viewers</A> have Flash-enabled browsers, you still might want your site to be able to detect the presence of Flash and react accordingly.</p>
+                <p>Keep in mind that your card will not display on your site until you have <a href="/card?module=Preview">unlocked it</a>.</p>
             <% } %>
 
             <p><a href="#detection">I want my TopCoder Card to have Macromedia Flash Detection.</a><br/>
