@@ -294,11 +294,11 @@ function goTo(selection)
   }  
   else if (sel == "june_02")
   {
-    window.location = "/index?t=schedule&c=index";
+    window.location = "/index?t=schedule&c=june_02";
   }  
   else if (sel == "july_02")
   {
-    window.location = "/index?t=schedule&c=july_02";
+    window.location = "/index?t=schedule&c=index";
   } 
   else if (sel == "aug_02")
   {
