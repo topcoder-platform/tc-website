@@ -204,10 +204,10 @@
 <!-- 2003 JavaOne Coding Challenge -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03"><img src="/i/pressroom/javaone_event.gif" alt="2003 JavaOne Coding Challenge" width="135" height="40" border="0" /></A></td>
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_javaone"><img src="/i/pressroom/javaone_event.gif" alt="2003 JavaOne Coding Challenge" width="135" height="40" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_21_03">JavaOne Coding Challenge is Powered by TopCoder</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_javaone">JavaOne Coding Challenge is Powered by TopCoder</A></strong></font><br />
                         "Sun is dedicated to making the JavaOne conference the essential source for Java technology education and innovation," said Mike Bellissimo, senior 
                         director, Sun Software Developer Marketing and Management. "We are excited that TopCoder will offer onsite attendees a practical application testing 
                         their knowledge of Java technology learned during the JavaOne conference." <span class="prHead">[May 21]</span></p>
@@ -227,10 +227,10 @@
 <!-- Amity Wins 2003 TCHS -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03"><img src="/i/pressroom/tchs_champions.jpg" alt="Amity wins TCHS" width="135" height="102" border="0" /></A></td>
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_hs"><img src="/i/pressroom/tchs_champions.jpg" alt="Amity wins TCHS" width="135" height="102" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_21_03">Amity clinches High School Challenge</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_05_21_03_hs">Amity clinches High School Challenge</A></strong></font><br />
                         Amity Regional Senior High School out-performed 7 other Connecticut high school teams to claim the victory in the tournament, which concluded 
                         yesterday at UConn's Homer Babbidge Library. The team's coach, Frank Barretta, said, "I'm proud of the whole team and we are all grateful to 
                         TopCoder, CAS and UConn for hosting such a great event. We are looking forward to next year." <span class="prHead">[May 21]</span></p>
