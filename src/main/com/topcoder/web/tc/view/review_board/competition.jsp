@@ -113,8 +113,8 @@
                     <td width="99%" class="bodyText">
                         <p>
                         <a class="bodyText" href="/stat?c=member_profile&amp;cr=272072"><strong>SnapDragon</strong></a><span class="smallText"></span>
-                        has participated in over 50 TopCoder rated events.  He is currently TopCoder's 
-                        highest rated member, and is one of only two members who have broken the 3300 rating 
+                        has participated in over 50 TopCoder rated events.  As of this writing, he is TopCoder's 
+                        highest rated member, and is the only member to have broken the 3400 rating 
                         mark.  SnapDragon is a graduate of the University of Waterloo and currently works for 
                         Bioinformatics Solutions Inc. in Ontario, Canada.</p>                       
                      </td>
