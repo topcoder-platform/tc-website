@@ -59,7 +59,7 @@ public class XSLTransformerCache {
       }
       else
       {
-        java.net.URL url = new URL ( cacheKey );
+        java.net.URL url = new java.net.URL ( cacheKey );
         java.io.InputStream iStream = url.openStream();
         if ( iStream == null ) throw new XSLTransformerWrapperException ( "Unable to getStream from XSLStrategy." );
         cache.put ( cacheKey, new XSLTransformerWrapper(iStream) );
