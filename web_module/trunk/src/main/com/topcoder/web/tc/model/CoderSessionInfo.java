@@ -49,7 +49,7 @@ public class CoderSessionInfo extends SessionInfo {
             if (!rsc.isEmpty()) {
                 rank = rsc.getIntItem(0, "rank");
             } else {
-                log.warn("couldn't find rank info for: " + authentication.getActiveUser().getId());
+                log.debug("couldn't find rank info for: " + authentication.getActiveUser().getId());
             }
         }
     }
