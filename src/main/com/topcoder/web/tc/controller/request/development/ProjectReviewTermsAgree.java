@@ -74,7 +74,7 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         String phaseId = StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID));
         r.setProperty(Constants.PROJECT_ID, projectId);
         r.setProperty(Constants.PHASE_ID, phaseId);
-        Map results = getDataAccess().getData(r);
+        Map results = getDataAccess(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, false).getData(r);
         ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
 
         String component_name = detail.getStringItem(0, "component_name");
