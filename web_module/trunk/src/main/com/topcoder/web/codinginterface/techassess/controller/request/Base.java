@@ -426,7 +426,7 @@ public abstract class Base extends BaseProcessor {
 
         public void valueUnbound(HttpSessionBindingEvent event) {
             //send a logout request
-            //log.debug("session unbound logging out session " + sessionId);
+            log.info("session unbound logging out session " + sessionId);
             ScreeningLogoutRequest request = new ScreeningLogoutRequest();
             request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
             request.setSessionID(sessionId);
