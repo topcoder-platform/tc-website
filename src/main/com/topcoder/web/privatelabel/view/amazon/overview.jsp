@@ -10,19 +10,19 @@
 </head>
 <body>
 
-<table width="100%" valign=top cellpadding=0 cellspacing=0 border=0 class=bodyFrame>
+<table width="100%" valign=top cellpadding=0 cellspacing=0 border=1 class=bodyFrame>
 	<tr>
 		<td colspan=4 align=center valign=bottom><jsp:include page="head.jsp" /></td>
 	</tr>
 	<tr>
-		<td class=blueBar colspan=4><img src="/i/clear.gif" width=1 height=29 border=0/></td>
+		<td class=blueBar colspan=4><img src="/i/clear.gif" width=1 height=29 border=1/></td>
 	</tr>
 	<tr>
-		<td class=foilTop colspan=4><img src="/i/screening/amazon/foil_top.gif" border=0/></td>
+		<td class=foilTop colspan=4><img src="/i/screening/amazon/foil_top.gif" border=1/></td>
 	</tr>
 	<tr>
-		<td class=foilLeft><img src="/i/clear.gif" width=13 height=1 border=0 /></td>
-		<td class=foilCorner><img src="/i/screening/amazon/foil_corner.gif" border=0 /></td>
+		<td class=foilLeft><img src="/i/clear.gif" width=13 height=1 border=1 /></td>
+		<td class=foilCorner><img src="/i/screening/amazon/foil_corner.gif" border=1 /></td>
 		<td class=bodyCol>
 			<div class=bodySpacer>
 
