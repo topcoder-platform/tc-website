@@ -141,11 +141,19 @@
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">
+                                        <a href="?t=development&amp;c=Palm_Transfers_Receiving_App_Dev">Palm Transfers and Receiving</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,800 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$700 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">07.09.2004 9:00 AM ET</td>
+                                </tr>                                
+                                <tr valign="top">
+                                    <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_Common_Connectivity_Dev">Palm Common Connectivity</a>
                                     </td>
                                     <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$300 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">Closed</td>
+                                    <td class="projectCells" align="right">07.08.2004 9:00 AM ET</td>
                                 </tr>
                                 <tr valign="top">
                                     <td class="projectCells">

@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Palm Common Connectivity Development Project at TopCoder</title>
+                <title>Palm Transfers and Receiving Application Development Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Palm Common Connectivity</td>
+                                                <td class="projectTitles" nowrap="nowrap">Development Application Project - Palm Transfers And Receiving Application</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -87,43 +87,30 @@
                                                     <!-- Overview -->
                                                     <p>
                                                         A TopCoder client has existing infrastructure and software to support
-                                                        certain in-store Palm applications at all of their stores.  One of these
-                                                        is a merchandise transfers and receiving application.   In order to minimize
-                                                        the number of transferred cartons that are lost or stolen, the client would
-                                                        like to begin storing transfers and receipts in a corporate database on a
+                                                        certain in-store Palm applications at all of their stores.  One of
+                                                        these is a merchandise transfers application.   In order to minimize
+                                                        the number of transferred cartons that are lost or stolen, the client
+                                                        would like to begin storing transfers in a corporate database on a 
                                                         real-time basis as they are being scanned on the Palm at the store.
                                                         <br/>
                                                         <br/>
-                                                        In order to support the connectivity between Palms at a store and the corporate
-                                                        server, a component called Data Access Socket Server is being developed.  This
-                                                        component will accept socket connections from the Palm applications, which will
-                                                        then pass through delimited strings in order to execute SQL queries/stored procedure
-                                                        calls within an Oracle database.  The Palm applications will also need to function in
-                                                        both a batch mode (which they currently do) and an online mode depending on network
-                                                        connectivity.
+                                                        The existing Palm-based Transfers and Receiving Applications will be modified 
+                                                        to not only write its data to a local Palm database (PDB), but to also connect 
+                                                        via a socket to an instance of TopCoder's Data Access Socket Server Component 
+                                                        running on a corporate server to persist the data to a central RDBMS. There are 
+                                                        also some enhancements to the overall functionality of the Transfers and Receiving 
+                                                        Applications, including a signature capture screen.                                                    
                                                         <br/>
-                                                        <br/>
-                                                        The Palm Common Remote Connectivity Application module will contain the various common Palm
-                                                        utilities and functions to support the connectivity requirements that are common among the various Palm
-                                                        applications that will be modified/developed. The scope of this project DOES NOT include the design
-                                                        and/or development of the individual Palm applications that will utilize the Common Library. However, the
-                                                        full application requirements will be provided to the developer as a reference to understand what the
-                                                        ultimate usage of the Common Remote Connectivity will be and how it fits into the overall application
-                                                        architecture.
-                                                        <br/>
-                                                        <br/>
-
+                                                        <br/>                                                        
                                                         <strong>Note:</strong>
                                                         <br/>
                                                         TopCoder will supply Code Warrior 8 to all participating members.
-
-
-                                                    </p>
-
+                                                        
+                                                        </p>                                                        
                                                     <p>
-                                                        <strong>Business Requirement Specification </strong>
+                                                        <strong>Business Requirements Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Palm_Common_Remote_Connectivity_App_Req_Spec2.pdf">Business Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Palm_Transfers_Receiving_App_Req_Spec062204.pdf">Business Requirements Specification</a> for this project.
                                                     </p>
 
 
@@ -132,8 +119,10 @@
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>Palm OS 3.5.2</li>
-                                                        <li>C++</li>
+                                                        <li>Palm OS 3.5.2 (C++/Metrowerks CodeWarrior 8)</li>
+                                                        <li>Java 1.4.1_06</li>
+                                                        <li>Oracle 8i/9i</li>
+                                                        <li>Windows 2003 Server</li>
                                                     </ul>
 
                                                     <!-- Payment -->
@@ -176,15 +165,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$900.00</td>
+                                                            <td class="bodyText" align="right">$2,800.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$600.00</td>
+                                                            <td class="bodyText" align="right">$2,100.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$300.00</td>
+                                                            <td class="bodyText" align="right">$700.00</td>
                                                         </tr>
                                                     </table>
 
@@ -194,7 +183,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$300.00</td>
+                                                            <td class="bodyText" align="right">$700.00</td>
                                                         </tr>
                                                     </table>
 
@@ -203,7 +192,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$1,200.00</td>
+                                                            <td class="bodyText" align="right">$3,500.00</td>
                                                         </tr>
                                                     </table>
 
@@ -258,44 +247,44 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">06.24.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.07.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.08.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.09.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.09.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.10.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.09.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.11.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.16.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.22.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.19.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.22.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
 
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.22.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.26.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.22.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.26.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.22.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.26.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.22.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.26.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
@@ -303,15 +292,15 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.27.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.28.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Development Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.27.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.29.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Integration Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">07.28.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">07.29.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Integration End:</td>
@@ -340,7 +329,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Common%20and%20Connectivity%20Application%20Dev">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Palm%20Transfers%20and%20Receiving%20Application%20Dev">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                                         Once you have registered for the project you will be given more information on the project including the requirements specification and other additional information.  After viewing this information, you will have 12 hours to accept the position.
                                                     </p>
                                                 </td>
