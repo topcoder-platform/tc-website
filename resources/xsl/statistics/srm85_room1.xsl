@@ -66,14 +66,18 @@
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_lessons">Lessons Learned</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/index?t=statistics&amp;c=editorial_archive" CLASS="bodyText">Editorial Archive</A></TD>
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments? Ideas?</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Comments? Ideas?</A></TD>
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com" CLASS="bodyText">Want to write a feature?</A></TD>
+		</TR>
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm85_lessons" CLASS="bodyText">&#160;&#160;Lessons Learned</A></TD>
 			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
