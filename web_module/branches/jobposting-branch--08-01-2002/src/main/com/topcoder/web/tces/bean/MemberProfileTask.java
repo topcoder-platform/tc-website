@@ -175,7 +175,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         // verify that campaign/job/tces user have access to this members's info.
         ResultSetContainer oltpRSC = (ResultSetContainer) oltpResultMap.get("TCES_Verify_Member_Access");
         if (oltpRSC.getRowCount() == 0) {
-            throw new Exception (" mid="+Integer.toString(getMemberID())
+            throw new TCESAuthenticationException (" mid="+Integer.toString(getMemberID())
                                  + " jid="+Integer.toString(getJobID())
                                  + " cid="+Integer.toString(getCampaignID())
                                  + "does not belong to uid="+Integer.toString(uid) );
