@@ -5,6 +5,7 @@
    <property name="hs.war.name"      value="hs"/>
    <property name="tces.war.name"      value="tces"/>
    <property name="email.war.name"      value="email"/>
+   <property name="corp.war.name"      value="query"/>
    <property name="query.war.name"      value="query"/>
    <property name="screening.war.name"      value="screening"/>
    <property name="ejb_jars"      value="${build}/ejb_jars" />
@@ -902,43 +903,43 @@
 
         <!-- Address ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="address"/>
+            <param name="unit-jar-name" value="Address"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
         </antcall>
 
         <!-- Company ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="company"/>
+            <param name="unit-jar-name" value="Company"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/company"/>
         </antcall>
 
         <!-- Email ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="email"/>
+            <param name="unit-jar-name" value="Email"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
         </antcall>
 
         <!-- Phone ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="phone"/>
+            <param name="unit-jar-name" value="Phone"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/phone"/>
         </antcall>
 
         <!-- Product ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="product"/>
+            <param name="unit-jar-name" value="Product"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/product"/>
         </antcall>
 
         <!-- TermsOfUse ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="termsofuse"/>
+            <param name="unit-jar-name" value="TermsOfUse"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
         </antcall>
 
         <!-- User ejb -->
         <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="user"/>
+            <param name="unit-jar-name" value="User"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
         </antcall>
 
@@ -1024,7 +1025,7 @@
 
     <target name="init-ScreeningCoderBean-properties" >
         <property name="bean.dir"          value="coder" />
-        <property name="bean.jar.name"     value="coder.jar" />
+        <property name="bean.jar.name"     value="Coder.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/screening/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
@@ -1037,7 +1038,7 @@
 
     <target name="init-NoteBean-properties" >
         <property name="bean.dir"          value="note" />
-        <property name="bean.jar.name"     value="note.jar" />
+        <property name="bean.jar.name"     value="Note.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
@@ -1048,7 +1049,7 @@
 
     <target name="init-SessionBean-properties" >
         <property name="bean.dir"          value="session" />
-        <property name="bean.jar.name"     value="session.jar" />
+        <property name="bean.jar.name"     value="Session.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
@@ -1059,7 +1060,7 @@
 
     <target name="init-SessionProfileBean-properties" >
         <property name="bean.dir"          value="sessionprofile" />
-        <property name="bean.jar.name"     value="sessionprofile.jar" />
+        <property name="bean.jar.name"     value="SessionProfile.jar" />
         <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
         <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
         <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
