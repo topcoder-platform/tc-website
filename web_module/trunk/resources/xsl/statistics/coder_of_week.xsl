@@ -60,7 +60,7 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>					
 						<TR>
-							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;April 29 - May 5, 2002</TD>
+							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 6 - May 12, 2002</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -69,67 +69,59 @@
 							<TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <!-- <A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
-<IMG SRC="/i/m/sandeepgupta_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
+<IMG SRC="/i/m/kpsmith_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A><br/>
-<b>Rating: </b>1788<br/>
-<b>Member Since: </b>April&#160;30,&#160;2002<br/>
+<b>Handle: </b><A HREF="/stat?c=member_profile&amp;cr=277956" CLASS="coderTextYellow">kpsmith</A><br/>
+<b>Rating: </b>1929<br/>
+<b>Member Since: </b>April&#160;20,&#160;2002<br/>
 <b>Total Competitions: </b>2<br/>
 </P>
 
 <P>
-TopCoder, Inc. announced today that <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
- has been named the "Coder of the Week" for Single 
-Round Matches 84 and 85, which took place between April 29 and May 5, 2002.  
+TopCoder, Inc. announced today that <B>kpsmith</B> has been named the "Coder of the Week" for 
+Single Round Matches 86 and 87, which took place between May 6 and May 12, 2002.  
 </P>
 
 <P>
-In Single Round Match 85, <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
- won Room 15 and gained 372 rating points, which is 
-the second highest total ever in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  
-<A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
- won the room with 1214.24 final points.  He earned 198.36 points on the Level One problem, 273.44 on the Level 
-Two problem, and 692.33 on the Level Three problem, for a total of 1164.24 points in the "Coding Phase", which placed him 
-second in the room behind Bender (1184.01).  <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
- successfully challenged the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=152713" CLASS="coderTextBlue">Bob9000</A> 
-for 50 additional points in the "Challenge Phase", earning enough points for the room win. 
+In Single Round Match 86, <B>kpsmith</B>, in his initial TopCoder competition, earned a 
+Division-II record 1935.74 final points 
+(<A HREF="/stat?c=biggest_rating_gains&amp;dn=2" CLASS="statText">View the list of Division-II Rating Point Gain</A>).  
+That point total broke the Division-II record of <A HREF="/stat?c=member_profile&amp;cr=155069" CLASS="coderTextBlue">chi</A>, 
+who earned 1898.64 final points in 
+Single Round Match 67 in February.  The final point total of <B>kpsmith</B> is also TopCoder's 
+all-time point record, 8.35 more than the 1927.39 total of <A HREF="/stat?c=member_profile&amp;cr=109965" CLASS="coderTextYellow">vulture</A> in Single Round Match 1, 
+which strangely enough occurred exactly one year to the date (May 8, 2001).  <B>kpsmith</B> also 
+broke the record for the most points earned in a debut match, which was held by <A HREF="/stat?c=member_profile&amp;cr=112630" CLASS="coderTextYellow">Aleksey</A>, 
+who earned 1787.55 final points in the Second Round of the 2001 TopCoder Collegiate Challenge.  
+Lastly, <B>kpsmith</B> had a debut rating of 1894, which is the seventh highest ever 
+(<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
 </P>
 
 <P>
-"My attention to detail helped me write code that required little rework before submission, 
-said <A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
-.  "More importantly, my wife took care of our two-year old daughter during 
-the competition!  This was my second match since registering with TopCoder.  This time I was 
-much more comfortable with the development environment provided by the applet."
+"I knew I had a good chance to do well, but you never know when a particular problem will cause 
+you grief," said <B>kpsmith</B>.  I figured I had a 50/50 chance of winning $100.
 </P>
  
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=280570" CLASS="coderTextYellow">sandeepgupta</A>
- has been a TopCoder member since April 30, 2002, and is a perfect six-for-six in 
-submissions and three-for-three in challenges in two overall matches.   
+<B>kpmsith</B> has been a TopCoder member since April 20, 2002, and is five-for-six in submissions and 
+a perfect five-for-five in challenges in two overall matches.   
 </P>
 
 <P>
-"In my honest opinion, TopCoder competitions are superior to other software development 
-competitions because there is an extra element of quality: If your submitted code has a bug, 
-you get 0 points; no second chance.  Other competitions allow you to resubmit after the system 
-test.  Delivering a quality solution to your customer the first time is extremely important."
+"I always loved both multi-player games as well as programming.  When I play other games on 
+the net, I find that I spend as much time hacking on a client for the game as playing 
+the game itself.  TopCoder seems to merge those two interests of mine really well"
 </P>
 
 <P>
-"It's an honor to be selected (Coder of the Week) among the awesome developers who participate 
-in the competitions.  I'm looking forward to participating in future events.  And if I'm fortunate 
-enough, I hope to participate in the Invitational."
+Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=281447" CLASS="coderTextYellow">Belle</A>, 
+who had a 1746.01 final 
+point total in Single Round Match 86, the fifth highest in Division-II; <A HREF="/stat?c=member_profile&amp;cr=275568" CLASS="coderTextBlue">stipe</A>, who had 
+a 1706.88 final point total in Single Round Match 86, the 10th highest in Division-II 
+debut rating of 1755, which is the 25th highest ever; and <A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="coderTextYellow">radeye</A>, who had a 301-point 
+rating gain in Single Round Match 87, which is the 10th highest in Division-I 
+(<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).
 </P>
- 
-<P>
-Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=279524" CLASS="coderTextYellow">currane</A>
-, who had a 363-point rating gain 
-in Single Round Match 84, the third highest in Division-I; and <A HREF="/stat?c=member_profile&amp;cr=279526" CLASS="coderTextYellow">cbthiess</A>
-, who had a debut rating 
-of 1755, which is the 25th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).
-</P>
-
 
 							</TD>						
 						</TR>						

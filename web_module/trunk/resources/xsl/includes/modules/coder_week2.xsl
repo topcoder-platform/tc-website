@@ -12,12 +12,12 @@
         		</TR>
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD WIDTH="73" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/sandeepgupta_mug.gif" ALT="Coder of the Week" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3"/></TD>
+          			<TD WIDTH="73" ROWSPAN="4" VALIGN="top"><IMG SRC="/i/m/kpsmith_mug.gif" ALT="Coder of the Week" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="3"/></TD>
           			<TD WIDTH="100%" CLASS="bodyTextBold" HEIGHT="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
         		    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;April 29 - May 5, 2002</TD>
+          			<TD BACKGROUND="/i/steel_gray_bg.gif" CLASS="registerNav" VALIGN="middle" HEIGHT="14">&#160;&#160;May 6 - May 12, 2002</TD>
         		<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
         		</TR>
         		<TR> 
@@ -32,16 +32,16 @@
                   Competitions:<BR/></TD>
                					 <TD CLASS="bodyText" HEIGHT="53" WIDTH="50%" ALIGN="right" VALIGN="top" NOWRAP="">
 
-               	  sandeepgupta<BR/>
-               	  1788<BR/>
-                  April &#160;30,&#160;2002<BR/>
+               	  kpsmith<BR/>
+               	  1929<BR/>
+                  April &#160;20,&#160;2002<BR/>
                   2<BR/></TD>
               				</TR>
         		<TR> 
           			<TD COLSPAN="2" CLASS="bodyText" VALIGN="top">
 <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">Click here</A> to read about the
 
-impressive Rating Point Gain of <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">sandeepgupta</A> in Single Round Match 85.
+record setting Division-II Point Total and the Impressive Debut point total of <A HREF="/index?t=statistics&amp;c=coder_of_week" CLASS="bodyGeneric">kpsmith</A> in Single Round Match 86.
          			</TD>
         		</TR>              				              				
             			</TABLE>
