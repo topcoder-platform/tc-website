@@ -120,6 +120,15 @@ public abstract class FullRegSubmit extends SimpleRegSubmit {
 
         return newUser;
     }
+    
+    protected void setCoderType(long coderId, long coderType)
+    {
+        Coder coder = (Coder)createEJB(getInitialContext(), Coder.class);
+
+        coder.setCoderTypeId(coderId, coderType, transDb);
+
+        return;
+    }
 
     protected UserPrincipal store(SimpleRegInfo regInfo, UserPrincipal newUser) throws Exception {
         UserPrincipal ret = super.store(regInfo, newUser);
