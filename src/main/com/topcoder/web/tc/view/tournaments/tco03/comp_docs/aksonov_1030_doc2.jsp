@@ -14,7 +14,7 @@
     <tr valign="top">
         <td width="190">
             <jsp:include page="aksonov_names.jsp">
-                <jsp:param name="time" value="1000" />
+                <jsp:param name="time" value="1030" />
                 <jsp:param name="doc" value="doc2" />
             </jsp:include>
         </td>
@@ -25,7 +25,7 @@
                     <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="aksonov" />
-                <jsp:param name="time" value="1000" />
+                <jsp:param name="time" value="1030" />
             </jsp:include>
                     </td>
                 </tr>
@@ -39,7 +39,7 @@
                     <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="aksonov" />
-                <jsp:param name="time" value="1000" />
+                <jsp:param name="time" value="1030" />
             </jsp:include>
                     </td>
                 </tr>

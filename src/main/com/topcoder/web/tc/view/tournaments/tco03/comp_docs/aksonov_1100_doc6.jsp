@@ -8,14 +8,14 @@
 
 <body class="compDocs">
 
-<h2>2003 TCO Component Finals - aksonov</h2>
+<h2 class="compDocs">2003 TCO Component Finals - aksonov</h2>
 
 <table border="0" cellspacing="0" cellpadding="0">
     <tr valign="top">
         <td width="190">
             <jsp:include page="aksonov_names.jsp">
-                <jsp:param name="time" value="1030" />
-                <jsp:param name="doc" value="doc8" />
+                <jsp:param name="time" value="1100" />
+                <jsp:param name="doc" value="doc6" />
             </jsp:include>
         </td>
 
@@ -25,13 +25,13 @@
                     <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="aksonov" />
-                <jsp:param name="time" value="1030" />
+                <jsp:param name="time" value="1100" />
             </jsp:include>
                     </td>
                 </tr>
 
                 <tr>
-                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/aksonov/UseCaseDiagram1.gif" alt="" width="426" height="404" border="0"></div></td>
+                    <td width="99%"><div class="compDocs"><img src="/i/tournament/tco03/comp_docs/aksonov/SequenceDiagram4.gif" alt="" width="1555" height="1074" border="0"></div></td>
                     <td width="20"><img src="/i/clear.gif" alt="" width="20" height="20" border="0"></td>
                 </tr>
 
@@ -39,7 +39,7 @@
                     <td colspan="2">
             <jsp:include page="times.jsp">
                 <jsp:param name="member" value="aksonov" />
-                <jsp:param name="time" value="1030" />
+                <jsp:param name="time" value="1100" />
             </jsp:include>
                     </td>
                 </tr>

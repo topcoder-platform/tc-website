@@ -106,8 +106,8 @@ the Arena applet.
                 </tr>
                <tr>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1000_doc1','pops',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_1000_doc1','kyky',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc1','pops',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_final_doc1','kyky',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
                
@@ -145,8 +145,8 @@ the Arena applet.
                 </tr>
                <tr>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_1000_doc1','aksonov',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_1000_doc1','rnielsen',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=aksonov_final_doc1','aksonov',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=rnielsen_final_doc1','rnielsen',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
             
