@@ -239,48 +239,6 @@
                                                 </table>
                                             </blockquote>
                                         </font>
-                                        <font size="-1">
-                                            Used as: Division-I, Level 1:
-                                            <blockquote>
-                                                <table cellspacing="2">
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Value</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">300</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Submission Rate</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">126
-                                                            /
-                                                            136
-                                                            (92.65%)
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Success Rate</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">109
-                                                            /
-                                                            126
-                                                            (86.51%)
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>High Score</b>
-                                                        </td>
-                                                        <td style="background: #eee;" class="bodyText">
-                                                            <b>Yi Zhang</b> for
-                                                            298.28 points
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </blockquote>
-                                        </font>
                                         <P> Reference Solution: brett1479 in the practice room</P>
                                         <h4>Implementation</h4>
                                         <p>
