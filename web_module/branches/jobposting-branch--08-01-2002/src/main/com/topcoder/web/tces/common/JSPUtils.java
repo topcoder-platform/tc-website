@@ -124,7 +124,7 @@ public class JSPUtils {
                 sortedMapList.add( keyDups.next() );
             }
 
-            sortedMapList.remove( ascending?mapsMap.firstKey():mapsMap.lastKey() );
+            mapsMap.remove( ascending?mapsMap.firstKey():mapsMap.lastKey() );
         }
 
         mapList = sortedMapList;
