@@ -123,7 +123,7 @@ public final class TaskHome {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("top_ranked_div_1");
                 dataRequest.setProperty("sr", "1");
-                dataRequest.setProperty("er", "5");   // just get the top 10
+                dataRequest.setProperty("er", "10");   // just get the top 10
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Top_Ranked_Div_1");
                 homeTag.addTag(rsc.getTag("TopDiv1RankedCoders", "Coder"));
@@ -131,7 +131,7 @@ public final class TaskHome {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("top_ranked_div_2");
                 dataRequest.setProperty("sr", "1");
-                dataRequest.setProperty("er", "5");   // just get the top 10
+                dataRequest.setProperty("er", "10");   // just get the top 10
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Top_Ranked_Div_2");
                 homeTag.addTag(rsc.getTag("TopDiv2RankedCoders", "Coder"));
@@ -139,11 +139,12 @@ public final class TaskHome {
                 dataRequest = new Request();
                 dataRequest.setContentHandle("school_avg_rating");
                 dataRequest.setProperty("sr", "1");
-                dataRequest.setProperty("er", "5");   // just get the top 10
+                dataRequest.setProperty("er", "10");   // just get the top 10
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("School_Avg_Rating");
                 homeTag.addTag(rsc.getTag("TopRankedSchools", "School"));
 
+/*
                 dataRequest = new Request();
                 dataRequest.setContentHandle("state_avg_rating");
                 dataRequest.setProperty("sr", "1");
@@ -151,11 +152,12 @@ public final class TaskHome {
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("State_Avg_Rating");
                 homeTag.addTag(rsc.getTag("TopRankedStates", "State"));
+*/
 
                 dataRequest = new Request();
                 dataRequest.setContentHandle("country_avg_rating");
                 dataRequest.setProperty("sr", "1");
-                dataRequest.setProperty("er", "5");   // just get the top 10
+                dataRequest.setProperty("er", "10");   // just get the top 10
                 resultMap = dai.getData(dataRequest);
                 rsc = (ResultSetContainer) resultMap.get("Country_Avg_Rating");
                 homeTag.addTag(rsc.getTag("TopRankedCountries", "Country"));
