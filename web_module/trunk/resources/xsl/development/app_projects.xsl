@@ -70,7 +70,12 @@
                     <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr>
                 -->
-
+		<tr valign="top">
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
+                    <td class="formTextOdd" align="center">$810</td>
+                    <td class="formTextOdd" align="center">$225</td>
+                    <td class="formTextOdd" align="center">12.03.03 6:00 PM ET</td>
+                </tr>
 
                 <tr valign="top">
                     <td class="formTextOdd" colspan="4"><a href="?&amp;t=development&amp;c=single_sign_on_v10_des">Single Sign-On (SSO)</a></td>
@@ -87,13 +92,6 @@
                     <td class="formTextOdd" align="center">$2,826</td>
                     <td class="formTextOdd" align="center">$855</td>
                     <td class="formTextOdd" align="center">closed</td>
-                </tr>
-
-		<tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=online_gift_card_v10_des">Online Gift Card Sales</a></td>
-                    <td class="formTextOdd" align="center">$810</td>
-                    <td class="formTextOdd" align="center">$225</td>
-                    <td class="formTextOdd" align="center">12.03.03 6:00 PM ET</td>
                 </tr>
 
                 <tr valign="top">
