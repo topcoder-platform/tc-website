@@ -171,27 +171,13 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
-//        HttpSession session = request.getSession(true);
-//
-//        if (!Authentication.isLoggedIn(session)) {
-//            log.debug("User not authenticated for access to TCES resource.");
-//            throw new TCESAuthenticationException("User not authenticated for access to TCES resource.");
+
+//        if (!havePermission(this)) {
+//            throw new TCESAuthorizationException(curUser.getUserName() + 
+//                              " not Authorized for access to resouce.");
 //        }
-//
-//        uid = Authentication.userLoggedIn(session);
 
         User curUser = getAuthenticityToken().getUser();
-        if (curUser.isAnonymous()) { 
-            log.debug("User not authenticated for access to TCES resource.");
-            throw new TCESAuthenticationException(
-                "User not authenticated for access to TCES resource.");
-        }
-
-//
-//      if (!Authorization.hasPermission(this.getClass().getName())) {
-//            throw new TCESAuthorizationException(curUser.getUserName()+": not Authorized for access to TCES resource.");
-//      }
-
         uid = curUser.getId();
 
     }

@@ -12,14 +12,14 @@ import java.util.List;
 
 import com.topcoder.shared.security.User;
 import com.topcoder.web.common.security.WebAuthentication;
-
+import com.topcoder.web.common.security.TCESAuthorization;
 
 
 /**
  * A basic implementation of Task.
  * @author bigjake <kitz@mit.edu>
- * @author revisions for porting corp security: swif0ne <dancohn1@yahoo.com>
- * @version 1.1
+ * @author swif0ne <dancohn1@yahoo.com>
+ * @version 1.2.8.5
  */
 
 public abstract class BaseTask implements Task {
@@ -37,6 +37,8 @@ public abstract class BaseTask implements Task {
 
     /* Authentication for getting current user or logging in/out a user */
     private WebAuthentication authToken = null;
+    /* Authorization for getting current users processor permissions */
+    private TCESAuthorization authorizeToken = null;
 
 
     /* Makes a new BaseTask */
@@ -92,7 +94,9 @@ public abstract class BaseTask implements Task {
 
     public abstract void setAttributes(String paramName, String paramValues[]);
 
-//----------
+
+
+//------------------------------
     /**
      * For request being proccessed returns user's authenticity token. Anonymous
      * users (Guests) are authentic always forever by definition however
@@ -113,6 +117,23 @@ public abstract class BaseTask implements Task {
         authToken = auth;
     }
 
+    /**
+     * For request being proccessed returns user's Authorization token.
+     *
+     * @return TCESAuthorization
+     */
+    protected TCESAuthorization getAuthorizationToken() {
+        return authorizeToken; 
+    }
+    
+    /**
+     * Just stores given authorization object for later use 
+     * @param authorize TCESAuthorization to store in authorizeToken
+     */
+    public void setAuthorizeToken(WebAuthentication authorize) {
+        authorizeToken = authorize;
+    }
+
     /** checks if a user is logged in, use from inherited task pages 
      * @return boolean if user is logged in
      */
@@ -120,7 +141,19 @@ public abstract class BaseTask implements Task {
         User curUser = getAuthenticityToken().getUser();
         return (!curUser.isAnonymous());
     }
-//----------
+
+   /** checks if a user has permissions to a specific processor Object
+    * @param processor Processor sends itself to method for check
+    * @return boolean if user has permision to processor resource
+    */
+    protected boolean havePermission(Object processor) {
+//      Resource thisProcessor = new ProcessorResource(processor);
+//      return (getAuthorizationToken().hasPermission(thisProcessor));
+        return false;
+    }
+//------------------------------
+
+
 
 
     /** Retreives and parses a date from a ResultSetRow
