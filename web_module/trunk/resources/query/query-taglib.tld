@@ -110,6 +110,26 @@
   </tag>
 
   <tag>
+    <name>commandQueryIterator</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.ListIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.query.servlet.jsp.tag.CommandQueryIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a list of command queries
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>list</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
     <name>resultSetItem</name>
     <tagclass>com.topcoder.web.query.servlet.jsp.tag.ResultSetItemTag</tagclass>
     <bodycontent>empty</bodycontent>

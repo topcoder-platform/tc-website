@@ -62,12 +62,12 @@
                         <input type="text" name="<%=Constants.SORT_ORDER_PARAM+commandQuery.getQueryId()%>" value ="<jsp:getProperty name="commandQuery" property="SortOrder"/>" size="3" maxlength="3"/>
                       </TD>
                       <TD CLASS="statTextBig">
-                        <A HREF="<jsp:getProperty name="ModifyCommandQueryTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQueryTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<jsp:getProperty name="queryInput" property="InputId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="ModifyQueryInputTask" property="QueryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
+                        <A HREF="<jsp:getProperty name="ModifyCommandQueryTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_COMMAND_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyCommandQueryTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<jsp:getProperty name="commandQuery" property="InputId"/>&<%=Constants.QUERY_ID_PARAM%>=<jsp:getProperty name="ModifyCommnadQueryTask" property="QueryId"/>&<%=Constants.STEP_PARAM%>=<%=Constants.REMOVE_STEP%>" class="statText">
                           [remove]
                         </A>
                       </TD>
                     </TR>
-                  </query:queryInputIterator>
+                  </query:commandQueryIterator>
                   <TR>
                     <TD CLASS="statTextBig" COLSPAN="7" ALIGN="center">
                         <A HREF="javascript: void document.ModifyCommandQueryForm.submit()" class="statText">
