@@ -59,12 +59,12 @@
 					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-						<h1 class="devSubhead"><strong><<<component_name>>>: Design</strong></h1>
+						<h1 class="devSubhead"><strong>Heartbeat: Design</strong></h1>
                                     
 						   <p>
         						<a class="statText">
         						    <xsl:attribute name="href">
-        						        <xsl:value-of select="concat('/?&amp;t=development&amp;comp=4201389&amp;c=tcs_inquire&amp;Project=Heartbeat&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;comp=4201389&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
                                     </xsl:attribute>
                                     <strong>Inquire about this project &gt;&gt;</strong>
         						</a>
@@ -80,7 +80,7 @@ An example of the Heartbeat component is in the TopCoder Software Rules Engine t
 
 <!-- Project Type -->
 						<p><strong>Project Type</strong><br />
-						Component Design Project: Provide a complete design for the <<<component_name>>> component.<br />
+						Component Design Project: Provide a complete design for the Heartbeat component.<br />
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -147,7 +147,7 @@ An example of the Heartbeat component is in the TopCoder Software Rules Engine t
 						   <p>
         						<a class="statText">
         						    <xsl:attribute name="href">
-        						        <xsl:value-of select="concat('/?&amp;t=development&amp;comp=4201389&amp;c=tcs_inquire&amp;Project=Heartbeat&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;comp=4201389&amp;c=tcs_inquire&amp;Project=Heartbeat:%20Design&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
                                     </xsl:attribute>
                                     <strong>Inquire about this project &gt;&gt;</strong>
         						</a>
