@@ -640,8 +640,8 @@ else if (command.equals("send")) {
 
                         //send an email to the person that applied
                         TCSEmailMessage resp = new TCSEmailMessage();
-                        mail.addToAddress(from, TCSEmailMessage.TO);
-                        mail.setFromAddress(to);
+                        resp.addToAddress(from, TCSEmailMessage.TO);
+                        resp.setFromAddress(to);
                         StringBuffer respBody = new StringBuffer(100);
                         respBody.append("Hello ");
                         respBody.append(handle);
@@ -668,8 +668,8 @@ else if (command.equals("send")) {
                                 respBody.append("/?t=development&c=comp_projects\n\n");
                         }
                         respBody.append("TopCoder Software Service");
-                        mail.setBody(respBody.toString());
-                        EmailEngine.send(mail);
+                        resp.setBody(respBody.toString());
+                        EmailEngine.send(resp);
                     }
                 } else {
                     requiresLogin = true;
