@@ -1018,7 +1018,7 @@
                         <xsl:otherwise>left</xsl:otherwise>
                     </xsl:choose>
                 </xsl:attribute>
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_projects</xsl:attribute>
             <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
                  <xsl:attribute name="src">
                     <xsl:choose>
@@ -1031,19 +1031,6 @@
     </tr>
 
         <xsl:if test="$level2='components'">
-              <!-- Project Winners -->
-                            <tr>
-                                <td id="leftSubnav">
-                                    <xsl:attribute name="id">
-                                    <xsl:choose>
-                                        <xsl:when test="$level3='components'">leftSubnavOn</xsl:when>
-                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
-                                    </xsl:choose>
-                                    </xsl:attribute>
-                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>This Week's Project Winners</A>
-                                </td>
-                            </tr>
-
             <!-- Open Projects -->
                             <tr>
                                 <td id="leftSubnav">
@@ -1054,6 +1041,19 @@
                                     </xsl:choose>
                                     </xsl:attribute>
                                     <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=comp_projects</xsl:attribute>Open Projects</A>
+                                </td>
+                            </tr>
+
+              <!-- Project Winners -->
+                            <tr>
+                                <td id="leftSubnav">
+                                    <xsl:attribute name="id">
+                                    <xsl:choose>
+                                        <xsl:when test="$level3='components'">leftSubnavOn</xsl:when>
+                                        <xsl:otherwise>leftSubnav</xsl:otherwise>
+                                    </xsl:choose>
+                                    </xsl:attribute>
+                                    <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=components</xsl:attribute>This Week's Project Winners</A>
                                 </td>
                             </tr>
 
