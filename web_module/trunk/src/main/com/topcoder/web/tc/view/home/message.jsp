@@ -21,11 +21,11 @@
         <tr>
             <td class="messageBoxText">
                 <% if (!isEligible) { %>
-                        <img src="/i/tournament/tccc04/messageNotEligible.gif" width="180" height="69" border="0"/>
+                        <img src="/i/tournament/tccc04/messageNotEligible.gif" width="178" height="69" border="0"/>
                 <% } else if (isRegistered) { %>
-                        <img src="/i/tournament/tccc04/messageReg.gif" width="180" height="69" border="0"/>
+                        <img src="/i/tournament/tccc04/messageReg.gif" width="178" height="69" border="0"/>
                 <% } else { %>
-                        <img src="/i/tournament/tccc04/messageNotReg.gif" width="180" height="69" border="0"/>
+                        <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=terms"><img src="/i/tournament/tccc04/messageNotReg.gif" width="178" height="69" border="0"/></a>
                 <% } %>
             </td>
         </tr>
