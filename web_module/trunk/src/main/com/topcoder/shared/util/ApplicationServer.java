@@ -40,6 +40,7 @@ public class ApplicationServer {
     public static String PACTS_SERVICES = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
     public static String PROJECT_SERVICES = bundle.getProperty("PROJECT_SERVICES", "tc.ProjectServicesHome");
     public static String JOB_POSTING_SERVICES = bundle.getProperty("JOB_POSTING_SERVICES", "com.topcoder.web.tces.ejb.JobPostingServicesHome");
+    public static String JAVA_DOC_SERVICES = bundle.getProperty("JAVA_DOC_SERVICES", "jma.JavaDocServicesHome");
     public static String RESUME_SERVICES = bundle.getProperty("RESUME_SERVICES", "com.topcoder.web.resume.ejb.ResumeServicesHome");
 
     public static String Q_QUERY_AUTHENTICATION = bundle.getProperty("Q_QUERY_AUTHENTICATION", "com.topcoder.web.query.ejb.QueryServices.QueryAuthentication");
