@@ -62,11 +62,14 @@
                                         <p>
                                             <strong>Overview</strong>
                                             <br/>
-                                            The Online Review Application will automate the process of TopCoder Software's
-                                            peer review for both Component Design and Component Development projects.   Reviewers
-                                            will be able to login, check the status of their assignments, download submissions
-                                            for review, fill in online review forms and perform aggregation of reviews.  There is
-                                            an admin section that allows users to set up reviews, assign members and score components.
+                                            The Admin Tool enhancements project has one major goal in mind; allow users to
+                                            administer TopCoder competitions over the Internet without requiring any access
+                                            to the TopCoder internal network.  The current Admin Tool does work over the Internet
+                                            and provide a significant level of administration for contests.  However, in order
+                                            to completely administer competitions administrators need access to physical production
+                                            servers to accomplish specific tasks.  TopCoder would like to enhance the functionality
+                                            of the Admin Tool to provide complete contest administration capabilities from a single
+                                            application interface.
                                         </p>
                                         <!-- Project Type -->
                                         <p>
