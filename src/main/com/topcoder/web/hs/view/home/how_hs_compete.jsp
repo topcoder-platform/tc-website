@@ -63,7 +63,7 @@
 
 <P><B>How do schools advance to the playoffs?</B></P>
 
-<P>The regular season will consist of 8 regular matches.  In order to be invited to the playoffs, a high school must have competed in at least 6 "scored" rounds.  This means that they must have had at least 6 rounds in which they had at least 3 students competing.  The highest ranked schools at the end of the regular season will be invited to the playoffs.  A high school's rank will be determined by the average of that high school's best 6 scores.   </P>
+<P>The regular season will consist of 8 regular matches.  In order to be invited to the playoffs, a high school must have competed in at least 5 "scored" rounds.  This means that they must have had at least 5 rounds in which they had at least 3 students competing.  The highest ranked schools at the end of the regular season will be invited to the playoffs.  A high school's rank will be determined by the average of that high school's best 5 scores.   </P>
 <P><BR></P>
             <!-- Body Ends Here-->
             </TD>
