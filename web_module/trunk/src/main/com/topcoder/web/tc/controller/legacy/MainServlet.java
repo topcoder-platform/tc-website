@@ -1,6 +1,5 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.common.web.constant.TCServlet;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.common.web.data.User;
 import com.topcoder.common.web.error.TCException;
@@ -23,7 +22,6 @@ import com.topcoder.web.tc.model.CoderSessionInfo;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletOutputStream;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -40,7 +38,7 @@ public final class MainServlet extends BaseServlet {
 
     private String ERROR_PAGE = null;
     private HTMLRenderer htmlMaker;
-    private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "error/session_timeout.xsl";
+    //private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "error/session_timeout.xsl";
     private static Logger log = Logger.getLogger(MainServlet.class);
 
     private static TCResourceBundle bundle = null;
