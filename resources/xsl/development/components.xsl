@@ -195,7 +195,7 @@
                             <tr><td height="5" colspan="4"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
 
                             <tr valign="top">
-<!--                              <td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=136305" class="coderTextGray"><img src="/i/m/KurtSteinkraus_small.jpg" alt="KurtSteinkraus" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>  -->
+								<td class="statText" rowspan="5" width="55"><a href="/stat?c=member_profile&amp;cr=297731" class="coderTextBlue"><img src="/i/m/TheCois_small.jpg" alt="KurtSteinkraus" width="55" height="61" border="0" hspace="5" vspace="5" /></a></td>
                                 <td class="statText" rowspan="5" width="5"><img src="/i/clear.gif" alt="" width="5" height="61" border="0" vspace="5" /></td>
                                 <td class="statText" width="65%">Developer Level:</td>
                                 <td class="statText" align="right" width="10%">I</td>
