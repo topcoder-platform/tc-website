@@ -166,7 +166,7 @@
                                     Online Round #1<br />
                                     Registration: 6:30-9:25&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_nvidia" class="statText">NVIDIA</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">16</td>
@@ -218,7 +218,7 @@
                                     Online Round #2<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_revelation" class="statText">Revelation</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
@@ -264,7 +264,7 @@
                                     Online Round #3<br />
                                     Login by: 9:20&#160;PM<br />
                                     Compete: 9:30&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <A href="/?t=tournaments&amp;c=tco03_northface" class="statText">Northface</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?t=tournaments&amp;c=tco03_sched" class="statText">Details</A></td>
                                 <td id="calendar">30</td>
