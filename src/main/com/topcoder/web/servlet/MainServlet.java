@@ -47,7 +47,7 @@ public final class MainServlet extends HttpServlet {
 
 
     private HTMLRenderer htmlMaker;
-    private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "session_timeout.xsl";
+    private static final String SESSION_TIMEOUT_PAGE = TCServlet.XSL_ROOT + "error/session_timeout.xsl";
     private static final int MAX_REPLACEMENTS = 100;
     private static Logger log = Logger.getLogger(MainServlet.class);
 
