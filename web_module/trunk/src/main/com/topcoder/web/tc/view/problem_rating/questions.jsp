@@ -25,7 +25,7 @@
         </tr>
         <tc:problemRatingIterator list="<%=problemRatingQuestions%>" id="quest">
         <tr>
-            <tc:problemRatingInput id="problemRatingInput" question="<%=quest%>">
+            <tc:problemRatingInput question="<%=quest%>">
             <td class="statText">
                 <%= question %>
             </td>
