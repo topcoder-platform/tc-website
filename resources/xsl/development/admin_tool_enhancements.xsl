@@ -155,8 +155,8 @@
                                                     <td class="statText" bgcolor="#001B35" >7.15.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText" colspan="2" valign="top" bgcolor="#001B35" width="100%">Member Selection:</td>
-                                                    <td class="statText" colspan="2" valign="top" bgcolor="#001B35" width="100%">7.18.2003</td>
+                                                    <td class="statText">Member Selection:</td>
+                                                    <td class="statText">7.18.2003</td>
                                                 </tr>
                                             </table>
 
