@@ -77,7 +77,7 @@
   </TR>
   <TR>
    <TD HEIGHT="18" VALIGN="middle" ALIGN="center" CLASS="statText" COLSPAN="4">
-    <A HREF="?module=Static&d1=search&d2=advanced_search" CLASS="statText">&nbsp;[ submit ]</A>
+    <INPUT TYPE="BUTTON" NAME="Submit" VALUE="" ONCLICK="Javascript:submitSearch()">
    </TD>
   </TR>
   <TR>
