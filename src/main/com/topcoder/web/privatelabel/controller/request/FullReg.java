@@ -2,6 +2,7 @@ package com.topcoder.web.privatelabel.controller.request;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.privatelabel.Constants;
+import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 /**
  *
@@ -18,6 +19,14 @@ public class FullReg extends FullRegBase {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    protected SimpleRegInfo makeRegInfo() throws Exception {
+        SimpleRegInfo ret = super.makeRegInfo();
+        //set a couple of additional defaults for this verizon deal
+        ret.setCity("Chennai");
+        ret.setCountryCode("356");
+        return ret;
     }
 
 
