@@ -115,7 +115,7 @@
 					<strong>TopCoder Software Component Tutorials</strong><br/>
 					The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder Software's review board members on writing TopCoder Software components.
 					</td>
-					<td class="projectCells" valign="top" align="center">11.10.2003</td>
+					<td class="projectCells" valign="top" align="center">08.12.04</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=devTutorial">Component Development Tutorial</A></td>
 				</tr>
                 <tr>
