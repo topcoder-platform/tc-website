@@ -77,11 +77,25 @@
 				</tr>
                 <tr>
 					<td class="projectCells" valign="top">
-					<strong>Javier's thing</strong><br/>
-					This is Javier's thing
+					<strong>Sample Diagrams</strong><br/>
+					These sample diagrams are meant to provide a template for all diagrams submitted in design competitions.  This will provide TopCoder with a consistent look and feel and will improve their usability.  Reviewers will expect that these diagrams are followed with respect to color, position etc.
 					</td>
-					<td class="projectCells" valign="top" align="center">08.02.2004</td>
-					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="">Javier's thing</A></td>
+					<td class="projectCells" valign="top" align="center">
+					08.03.2004<br/>
+					08.03.2004<br/>
+					08.03.2004<br/>
+					08.03.2004<br/>
+					08.03.2004<br/>
+					08.03.2004
+					</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap">
+					<A href="/tc?module=Static&d1=dev&d2=diag_netClass">.net Class Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=diag_netSequence">.net Sequence Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=diag_netUseCase">.net Use Case Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=diag_javaClass">Java Class Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=diag_javaSequence">Java Sequence Diagram</A><br/>
+					<A href="/tc?module=Static&d1=dev&d2=diag_javaUseCase">Java Use Case Diagram</A>
+					</td>
 				</tr>
 			</table>
 			
@@ -117,14 +131,6 @@
 					<A href="/i/development/downloads/Sample_Development_Screening_Scorecard.pdf">Sample Development Screening Scorecard.pdf</A><br/>
 					<A href="/tc?module=Static&d1=dev&d2=devScoreSheet">Development Review Scoring</A><br/>
 					</td>
-				</tr>
-                <tr>
-					<td class="projectCells" valign="top">
-					<strong>Javier's thing</strong><br/>
-					This is Javier's thing
-					</td>
-					<td class="projectCells" valign="top" align="center">08.02.2004</td>
-					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="">Javier's thing</A></td>
 				</tr>
                 <tr>
 					<td class="projectCells" valign="top">
