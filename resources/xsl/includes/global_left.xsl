@@ -176,9 +176,21 @@
                 </tr>
 
 <!-- Last Match Results -->
+
+        <xsl:choose>
+            <xsl:when test="/TC/LoggedIn='true'andnumber(/TC/Rating)>0">
+                <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=round_stats">Last Match Results</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=coder_room_stats&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>My Last Match</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=member_profile&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Member Profile</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=ratings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Ratings History</a></td></tr>
+                 <tr><td id="leftSubnav"><a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=earnings_history&amp;cr=<xsl:value-of select="/TC/UserId"/></xsl:attribute>Earnings History</a></td></tr>
+            </xsl:when>
+            <xsl:otherwise>
                 <tr>
                     <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=last_match</xsl:attribute>Last Match Results</A></td>
                 </tr>
+            </xsl:otherwise>
+        </xsl:choose>
 
 <!-- Coder Rankings -->
                 <tr>
