@@ -162,12 +162,10 @@ public class ReviewProjectDetail extends Base {
                     }
                 }
                 if (ts != null && System.currentTimeMillis() < ts.getTime() + ProjectReviewApply.APPLICATION_DELAY) {
-                    throw new NavigationException("Sorry, you can not apply for a new review yet.  "
-                            + "You will need to wait until "
-                            + DateTime.timeStampToString(new Timestamp(ts.getTime() + ProjectReviewApply.APPLICATION_DELAY)));
+                    getRequest().setAttribute("waitingToReview", Boolean.TRUE);
+                } else {
+                    getRequest().setAttribute("waitingToReview", Boolean.FALSE);
                 }
-                getRequest().setAttribute("waitingToReview",
-                    (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class));
             }
 
         } catch (TCWebException e) {

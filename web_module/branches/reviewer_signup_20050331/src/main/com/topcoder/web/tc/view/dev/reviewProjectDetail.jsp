@@ -183,6 +183,11 @@
                 <tr>
                     <td class="bodyText">
                     <p align="left">***Review positions for new projects become open 24 hours after the project starts.</p>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bodyText">
+                    <p align="left">****You may only apply for a new component review every six hours..</p>
                     <p align="left"><a href="/tc?module=ViewReviewProjects">View all projects</a></p>
                     </td>
                 </tr>
