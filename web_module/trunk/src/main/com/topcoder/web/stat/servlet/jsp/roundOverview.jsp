@@ -131,7 +131,7 @@
 </TABLE> -->
  	<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
 
-   <A class="statTextBig" href="/stat?c=<%= lastMatch?"last_match":("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>
+   <A class="statTextBig" href="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>
 <!--DATE <BR/>-->
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif">
@@ -139,7 +139,7 @@
   <TR>
   <%for(int i = 0; i<divisionNames.size();i++){%>
     <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="registerNav">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= lastMatch?"last_match":("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></TD>
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/stat?c=<%= ("round_stats&amp;rd="+roundID) %>&amp;dn=<%= divisionIDs.get(i).toString() %>" class="statText">Results</A></TD>
   <%}%>
   </TR>
   <TR>
@@ -217,11 +217,18 @@
   </TR>
   <TR>
     <TD COLSPAN="6" ALIGN="center" CLASS="statText">
-<FORM name="coderRankForm" action="/stat" method="get">
+<FORM name="coderRankForm" action="/stat" method="get" onSubmit="
+    if (isNaN(parseInt(frm.er.value))){
+      alert(frm.er.value+" is not a valid integer");
+      return false;
+    }
+    frm.er.value = parseInt(frm.er.value);
+    return true;
+">
 <%if(!lastMatch){%>
 <INPUT TYPE="HIDDEN" NAME="rd" VALUE="<%=roundID%>">
 <%}%>
-<INPUT TYPE="HIDDEN" NAME="c" VALUE="index">
+<INPUT TYPE="HIDDEN" NAME="c" VALUE="round_overview">
       Viewing top&#160;&#160;
 <INPUT TYPE="text" NAME="er" MAXLENGTH="4" SIZE="4" value="<%=topN%>">&#160;&#160;
       <A HREF="javaScript:submitForm();" CLASS="statText">&#160;[ submit ]</A>
