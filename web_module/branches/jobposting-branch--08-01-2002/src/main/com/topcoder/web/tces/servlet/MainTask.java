@@ -81,6 +81,9 @@ log.debug("setting company name: "+companyName);
     {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_main");
+
+log.debug("uid = "+Integer.toString(uid));
+
         dataRequest.setProperty("uid", Integer.toString(uid) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
