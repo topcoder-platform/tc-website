@@ -122,6 +122,8 @@ public class Registration
     //public static final String ACTIVATION_URL = PROTOCOL+"://"+HOST+PAGE_4;
     public static final String ACTIVATION_URL = PROTOCOL + "://" + HOST + "/tc?module=Activate&" + CODE + "=";
     public static final int DEFAULT_RATING = 0;
+    
+    public static final String REFERRAL_PASS_IN = "ref";
 
     // referral ids
     public static final int DECLINE_TO_ANSWER = 0;
@@ -659,6 +661,28 @@ public class Registration
 
         return PAGE_1;
     }
+    
+    public String getHandle(String memberId) {
+        try {
+            InitialContext ctx = TCContext.getInitial();
+            com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+        
+            return userbean.getHandle(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME);
+        } catch (Exception ignore) {}
+        
+        return "";
+    }
+    
+    public boolean memberExists(String memberId) {
+        try {
+            InitialContext ctx = TCContext.getInitial();
+            com.topcoder.web.ejb.user.User userbean = (com.topcoder.web.ejb.user.User) BaseProcessor.createEJB(ctx, com.topcoder.web.ejb.user.User.class);
+        
+            return userbean.userExists(Long.parseLong(memberId), DBMS.OLTP_DATASOURCE_NAME);
+        } catch (Exception ignore) {}
+        
+        return false;
+    }
 
     public boolean setAttributes(String name, String[] valArray) {
         String value = valArray[0];
@@ -666,6 +690,15 @@ public class Registration
         if (!name.equals("TermDesc")) {
             log.debug("Registration.setAttribute(\"" + name + "\",\"" + value + "\")");
         }
+        //added this to detect referral pass-in - rfairfax
+        if(name.equalsIgnoreCase(REFERRAL_PASS_IN)) {
+            //check to see if member exists
+            if(memberExists(value)) {
+                this.referral = String.valueOf(MEMBER_REFERRAL);
+                this.referralOther = getHandle(value);
+            }
+        }
+        
         if (isStep(STEP_1)) {
             if (name.equalsIgnoreCase(FIRST_NAME))
                 setFirstName(value);
