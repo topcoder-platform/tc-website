@@ -355,7 +355,7 @@
     <target name="package-EJB-ResumeServicesBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="ResumeServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/resume"/>
         </antcall>
     </target>
 

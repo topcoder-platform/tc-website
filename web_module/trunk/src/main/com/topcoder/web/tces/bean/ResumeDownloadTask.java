@@ -1,6 +1,6 @@
 package com.topcoder.web.tces.bean;
 
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.resume.bean.Resume;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;

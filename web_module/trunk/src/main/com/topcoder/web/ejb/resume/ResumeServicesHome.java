@@ -1,4 +1,4 @@
-package com.topcoder.web.resume.ejb.ResumeServices;
+package com.topcoder.web.ejb.resume;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBHome;

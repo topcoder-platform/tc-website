@@ -14,7 +14,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
 import com.topcoder.web.tces.common.TCESConstants;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.HttpServletRequest;

@@ -1,12 +1,10 @@
-package com.topcoder.web.resume.ejb.ResumeServices;
+package com.topcoder.web.ejb.resume;
 
-import com.topcoder.common.web.data.MemberSearch;
 import com.topcoder.web.resume.bean.Resume;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
-import java.util.ArrayList;
 
 public interface ResumeServices extends EJBObject {
 
