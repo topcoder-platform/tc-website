@@ -137,7 +137,7 @@ function getProblemDetail(id) {
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=problem_name&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Problem</A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=component_status&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Problem</A>
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=component_status&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Status</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=problem_time&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">
