@@ -8,6 +8,7 @@ import com.topcoder.servlet.request.FileUpload;
 import com.topcoder.servlet.request.InvalidContentTypeException;
 import com.topcoder.servlet.request.UploadedFile;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.security.Persistor;
 
 import java.util.Iterator;
 
@@ -62,6 +63,11 @@ abstract class FullRegBase extends SimpleRegBase {
         }
         return info;
     }
+
+    protected void storeRegInfo(Persistor p, SimpleRegInfo info) {
+        p.setObject(Constants.REGISTRATION_INFO, (FullRegInfo)info);
+    }
+
 
     protected void checkRegInfo(SimpleRegInfo info) throws TCWebException {
         super.checkRegInfo(info);
