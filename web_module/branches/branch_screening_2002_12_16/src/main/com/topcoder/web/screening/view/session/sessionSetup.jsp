@@ -181,7 +181,7 @@ function submitSession() {
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
           <TR>
-           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Invite candidate to testing environment&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" />&#160;</TD>
+           <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" />&#160;</TD>
           </TR>
           <TR>
            <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" />&#160;</TD>

@@ -38,12 +38,12 @@ document.sessionConfirmForm.submit();
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Create a New Session</B></FONT> 
+<FONT SIZE="3" COLOR="#666666"><B>Create a New Session</B></FONT>
 <BR><BR>
 <FONT SIZE="3" COLOR="#000000"><B>Set up Session Confirmation</B></FONT>
 <P>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
+               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
+               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
 </P><BR>
 <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
 <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
@@ -63,7 +63,7 @@ document.sessionConfirmForm.submit();
            </TR>
            <TR>
               <TD COLSPAN="4" ><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>           
+           </TR>
            <TR>
               <TD BGCOLOR="#CCCCCC" COLSPAN="4" CLASS="bodyText" ALIGN="left" VALIGN="middle" HEIGHT="15">&#160;<B>Session</B></TD>
            </TR>
@@ -75,7 +75,7 @@ document.sessionConfirmForm.submit();
                   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:resultSetItem row="<%=row%>" name="name" /></TD>
                 <% } %>
                 </screen:resultSetRowIterator>
-           </TR>                      
+           </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Begin:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
               <input type="HIDDEN" name="beginMonth" value="<jsp:getProperty name="sessionInfo" property="beginMonth" />" >
@@ -91,33 +91,33 @@ document.sessionConfirmForm.submit();
               <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="sessionInfo" property="endYear" />" >
               <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="sessionInfo" property="endHour" />" >
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:beanWrite name="sessionInfo" property="endDate" format="MMM dd yyyy haa" /></TD>
-           </TR>           
+           </TR>
            <TR>
               <TD></TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
          </TABLE>
-               
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="90%">                   
+
+         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="90%">
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-           </TR>            
+           </TR>
             <TR>
               <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
-               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="candidateEmail" /></B></TD>           
+               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Invite candidate to Testing Application&#160;- <B><jsp:getProperty name="sessionInfo" property="candidateEmail" /></B></TD>
             </TR>
             <TR>
               <input type="HIDDEN" name="repEmail" value="<jsp:getProperty name="sessionInfo" property="repEmail" />" >
-               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="repEmail" /></B></TD>           
-            </TR>                        
+               <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="repEmail" /></B></TD>
+            </TR>
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD ALIGN="center"><screen:servletLink processor="CancelSession" styleClass="bodyText">Cancel</screen:servletLink> | <A HREF="JavaScript:submitEdit()" CLASS="bodyText">Edit</A> | <A HREF="JavaScript:submitUpdate()" CLASS="bodyText">Submit</A></TD>
-           </TR>                                                
-         </TABLE>                
-</screen:form>         
-<P><BR/></P>    
+           </TR>
+         </TABLE>
+</screen:form>
+<P><BR/></P>
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
