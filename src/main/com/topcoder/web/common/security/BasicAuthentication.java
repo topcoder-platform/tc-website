@@ -63,7 +63,7 @@ public class BasicAuthentication implements WebAuthentication {
 
         } catch (Exception e) {
             log.info("login failed", e);
-            throw new LoginException(e);
+            throw new LoginException("System Error, Login failed.");
         }
     }
 
