@@ -6,6 +6,7 @@ import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.common.web.data.Navigation;
 
@@ -46,4 +47,15 @@ public class MainServlet extends BaseServlet {
         }
         return ret;
     }
+
+    protected String getProcessor(String key) {
+        String ret = super.getProcessor(key);
+        if (ret.equals(key)) {
+            //yuck, gonna throw errors all over the place
+            TCResourceBundle bundle = new TCResourceBundle("TC");
+            ret = bundle.getProperty(key, ret);
+        }
+        return ret;
+    }
+
 }
