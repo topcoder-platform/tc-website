@@ -102,9 +102,8 @@
 			else out.print("<td>No</td>\n");
 
 			out.print("</tr>\n");
-		}
-	}
-%>
+		} %>
+
         <tr>
             <td>
                 <a href="Javascript:checkAll(true)">check all</a>
@@ -113,6 +112,9 @@
                 <a href="Javascript:checkAll(false)">uncheck all</a>
             </td>
         </tr>
+	<%}
+
+%>
 
 </table>
 
