@@ -18,8 +18,12 @@ import com.topcoder.common.web.util.Data;
 public class Statistics extends Base {
 
     static {
-        /* this is only needed once per JVM before calling ProblemParser */
-        Data.initializeDataTypes();
+        try {
+            /* this is only needed once per JVM before calling ProblemParser */
+            Data.initializeDataTypes();
+        } catch(Exception e) {
+            log.error("call from static initializer in statistics processor to Data.initializeDataTypes() failed", e);
+        }
     }
 
     protected void businessProcessing() throws Exception {
