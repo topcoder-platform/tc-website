@@ -20,7 +20,7 @@ public class DWQueryDataAccess implements DataAccessInt {
     private static Logger log = Logger.getLogger(DWQueryDataAccess.class);
 
     /**
-     * This method takes a query request and passes the contents
+     * This method takes a request and passes the contents
      * of that request and a connection to the data warehouse
      * to the QueryRunner.
      *
@@ -31,7 +31,7 @@ public class DWQueryDataAccess implements DataAccessInt {
      * @throws  Exception if there was an error encountered while retrieving
      * the data.
      */
-    public Map getData(QueryRequest request) throws Exception {
+    public Map getData(RequestInt request) throws Exception {
         try {
             Context ctx = TCContext.getInitial();
             DataSource ds = (DataSource) ctx.lookup("DW");
