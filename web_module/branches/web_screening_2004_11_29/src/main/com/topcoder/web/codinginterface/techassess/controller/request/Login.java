@@ -72,11 +72,12 @@ public class Login extends Base {
                     for (int i=0; i<problemSets.length; i++) {
                         sets.add(problemSets[i]);
                     }
-                    getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
+
                     getRequest().getSession().setAttribute(Constants.PROBLEM_SETS, sets);
                     getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
 
                 } else {
+                    getRequest().getSession().setAttribute(Constants.COMPANY_ID, new Long(companyId));
                     addError(Constants.HANDLE, response.getMessage());
                 }
 
