@@ -15,12 +15,16 @@ import java.util.Map;
 
 public class Results extends Base {
     protected void businessProcessing() throws TCWebException {
-        getRequest().setAttribute("problemRatingResults",getProblemResults(Integer.parseInt(getRequest().getParameter(Constants.PROBLEM_ID))));
-        setNextPage(Constants.PROBLEM_RATING_RESULTS);
-        setIsNextPageInContext(true);
+        try{
+            getRequest().setAttribute("problemRatingResults",getProblemResults(Integer.parseInt(getRequest().getParameter(Constants.PROBLEM_ID))));
+            setNextPage(Constants.PROBLEM_RATING_RESULTS);
+            setIsNextPageInContext(true);
+        }catch(Exception e){
+            e.printStackTrace();
+        }
     }
 
-    protected final List getProblemResults(int problemID) throws Exception {
+    protected final List getProblemResults(int problemID)throws Exception {
         Request r = new Request();
         r.setContentHandle("Problem Rating Results");
         r.setProperty("pm", String.valueOf(problemID));
