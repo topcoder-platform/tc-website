@@ -90,7 +90,7 @@ submitted the easy problems in the first 10 minutes.  In fact, it was so hard
 that tomek had to resubmit the easy problem once, and the medium problem twice.
 reid, a regular at most onsite events didn't make it past the first problem
 during the coding phase.  After an agonizing 75 minutes, however, 90 coders had
-scapped together solutions for the easy, while 62 had solutions for the
+scraped together solutions for the easy, while 62 had solutions for the
 medium.<br/><br/>
 However, about two thirds of all the submissions couldn't make it past the 
 system tests, and no one was able to solve all three problems successfully.
@@ -108,7 +108,7 @@ final noteworthy event was that this was the first time the tiebreaker rules
 were applied to determine advancers, as there was a 6-way tie for
 46<sup>th</sup> place - with 50 points.<br/><br/>
 I guess that the lesson from this round, if one was inclined to take one, was that when the
-problems are hard, its often worth a bit of extra time to make sure you get them
+problems are hard, it's often worth a bit of extra time to make sure you get them
 right.  With harder problems, correct solutions are more important that fast
 solutions.
 </p>
@@ -175,7 +175,7 @@ boiled down to a fairly simple formula:
 The idea is that you are first adjusting the brightness, and then pushing the
 color values away from grey so that there ends up being more of a difference
 between the different colors (or shades of grey) in the image.  This problem
-asks you to find values for the brightness and constrast the cause the darkest
+asks you to find values for the brightness and constrast that cause the darkest
 colors to be black, and the brightest colors to be white.  The idea here is that
 you want to use the full range of available colors, but not lose any details by
 adjusting the contrast too much.  <br/><br/>
@@ -203,11 +203,11 @@ the brightness, its easy to figure out the constrast:
 </pre>
 One difficulty with this is that solving these equations will not necessarily
 give you integers for brightness and contrast.  Additionally, while a contrast
-of 200, for example, might be the value need to give 32 and 95, a contrast of
+of 200, for example, might be the value needed to give 32 and 95, a contrast of
 199 might give 32.4 and 94.6, which then round to 32 and 95.  The problem
 statement indicates that, in this case, you should use the smaller contrast
 - 199.  While you can work around all of these issues with a bit of
-cleverness, its a lot harder than the problem needs to be.  <br/><br/>
+cleverness, it's a lot harder than the problem needs to be.  <br/><br/>
 
 Instead of doing all this math, most coders noticed that the brightness only
 ranges from -100 to 100, and the contrast only ranges from 100 to 20,000, which
@@ -287,7 +287,7 @@ and a route to <tt>(location -&gt; destination, route_cost, route_time, probabil
 reach the state <tt>(destination, cost+route_cost, time+route_time)</tt> with a damage
 probability of <tt>1 - (1-p) * (1-probability)</tt>.  So, if this probability is
 better than the current probability for that state (all states are initialized
-to 1), then update the probability for that state and add the state the a list
+to 1), then update the probability for that state and add the state to a list
 of states that still need to be processed.  To make this really fast, you should
 use a priority queue so that you process the states in the queue with the better
 probabilities earlier.  As in Dijkstra's shortest path algorithm, this will 
@@ -315,7 +315,7 @@ Once you have the best probabilities for all of the states, you should consider
 each state that is at the destination, and compute the expected cost to reach
 that state: the cost of the state plus the package cost times the probability of
 damaging the package.  Once you find the minimum, simply return that
-value.  There are a couple of caveots to this problem.  One thing to watch for
+value.  There are a couple of caveats to this problem.  One thing to watch for
 is that you don't run out of memory, depending on your implementation details.
 If you remove routes that you know you won't use, it can help you for some
 pathological cases.<br/><br/>
@@ -324,7 +324,7 @@ there are not that many different paths from the origin to the destination.  It
 seems like there could be a lot, and in fact there are an exponential number of
 them, but with only 50 routes there are few enough paths that you can consider them
 all - so long as you don't go around in circles.  So, the basic algorithm
-is a quite simple recurive function:
+is a quite simple recursive function:
 <pre>
   map&lt;location -&gt; bool&gt; visited
   best = INFINITY
@@ -424,7 +424,7 @@ up in state 1 at the end - an accept state.<br/><br/>
 
 If we had followed the wrong edge at any point, we would not have ended up in an
 accept state.  However, by definition the NFA accepts the input as long as there
-is some way to choose which edges to follow that leads to acceptance.  The
+is some way to choose which edges to follow that lead to acceptance.  The
 problem, it might seem, is that if you have to consider all possible paths, the
 time it takes to determine whether a sequence is accepted or not would be
 painfully long.  However, a bit of dynamic programming can help us out here.
@@ -510,7 +510,7 @@ if there is a path backwards from state x &#8712; u to the start state on s, tha
 means that M goes from the start state to x on rev(s), as it is deterministic.
 Therefore, it must be true that x &#8712; v also, since there must be a path
 backwards from a state in v to the start state on s.  This leads to the conclusion
-that u an v must in fact be the same (assuming all states in M are reachable).  <br/><br/>
+that u and v must in fact be the same (assuming all states in M are reachable).  <br/><br/>
 
 At long last, we can implement an algorithm to solve the problem, which turns
 out to be quite simple:
@@ -537,7 +537,7 @@ out to be quite simple:
     end
 </pre>
 As an implementation detail, the state can best be implemented as a bitmask, in
-which case <tt>visited</tt> can be a simple array.  The solution can be 
+which case <tt>visited</tt> can be a simple array.  The solution can be under 25 lines long, without doing anything too clever.
 </p>
 
                         <p>
