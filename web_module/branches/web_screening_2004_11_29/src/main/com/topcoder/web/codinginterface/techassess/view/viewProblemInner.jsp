@@ -38,7 +38,7 @@
 
 <%-- TITLE/CLOCK --%>
       <jsp:include page="time.jsp" >
-         <jsp:param name="timer" value="<%=problemInfo.getComponentId()%>"/>
+         <jsp:param name="timer" value="problemTimer<%=problemInfo.getComponentId()%>"/>
       </jsp:include>
 
       <table cellspacing=0 cellpadding=0 class=bodyTable>
