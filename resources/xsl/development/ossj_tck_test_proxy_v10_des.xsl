@@ -153,17 +153,17 @@
                                             <strong>Sun OSS/J TCK Test Proxy<br/>
                                             Winning Designer</strong>
                                             <br/>
-                                            Total Payment - $1,050.00
+                                            Total Payment - $1,260.00
                                             <br/>
-                                            First Payment - $790.00
+                                            First Payment - $990.00
                                             <br/>
-                                            Second Payment - $260.00
+                                            Second Payment - $270.00
                                         </p>
 
                                         <p>
                                             <strong>Second Place Designer</strong>
                                             <br/>
-                                            Total Payment - $300.00
+                                            Total Payment - $360.00
                                         </p>
 
                                         <p>
