@@ -19,18 +19,18 @@
         <td class="topsTitle">Name</td>
         <td class="topsTitle" align="right">DL's</td>
     </tr>
-    <tr>
         <%
             ResultSetContainer.ResultSetRow row = null;
             for (Iterator it = rsc.iterator(); it.hasNext();) {
                 row = (ResultSetContainer.ResultSetRow)it.next();
         %>
-        <td class="topsText"><A href="/"><%=row.getStringItem("component_name")%></A></td>
-        <td class="topsText" align="right"><%=row.getIntItem("num_downloads")%></td>
+            <tr>
+                <td class="topsText"><A href="/"><%=row.getStringItem("component_name")%></A></td>
+                <td class="topsText" align="right"><%=row.getIntItem("num_downloads")%></td>
+            </tr>
         <%
             }
         %>
-    </tr>
     <tr><td colspan="2"><img src="/images/right_nav_btm.gif" border="0" alt=""></td></tr>
 </table>
 <div align="right" class="small">*over the last 60 days</div>
