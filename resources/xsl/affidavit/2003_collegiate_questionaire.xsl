@@ -27,6 +27,7 @@ Programmer Questionnaire</CENTER><BR/>
          What is your perception of a reasonable starting salary for a strong developer/engineer? <BR/>
         <TEXTAREA COLS="80" ROWS="5" WRAP="off" NAME="a2"></TEXTAREA>
         <BR/><BR/><BR/>
+        <input type="submit" name="submit" value=" Submit "/>
     </FORM>
 
       </BODY>
