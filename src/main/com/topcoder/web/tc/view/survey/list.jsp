@@ -19,6 +19,5 @@
             </tr>
             </rsc:iterator>
         </table>
-    </tc:questionIterator>
 </body>
 </html>
