@@ -89,22 +89,22 @@
                     <p><span class="bodySubtitle">How Companies Benefit</span></p>
                     
                     <ul>
-                        <li><A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=tces_home"><strong>Employment Services</strong></A><br />
+                        <li><A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=tces_home</xsl:attribute><strong>Employment Services</strong></A><br />
                         The market for developers is either feast or famine. Regardless of how many developers there are or how many are available, 
                         the issue remains the same&#151;how to determine which candidate is best suited to the needs of your organization. While 
                         certification has offered some credibility, competitions that test a developer's skills in real-world challenges goes much 
                         further to differentiating one candidate from another.</li>
 
-                        <li><A href="http://software.topcoder.com/pages/s_index.jsp"><strong>Software</strong></A><br />
-                        The best way to drive down the cost of software development is through re-use. The <A href="http://software.topcoder.com/pages/s_learn.jsp">Component Catalog</A> 
+                        <li><A><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/pages/s_index.jsp</xsl:attribute><strong>Software</strong></A><br />
+                        The best way to drive down the cost of software development is through re-use. The <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/SoftwareHost"/>/pages/s_learn.jsp</xsl:attribute>Component Catalog</A>
                         is a tool for increasing re-use and developer productivity within an organization. The component catalog continues to grow on a weekly basis as component 
                         requirements are generated through requests from catalog customers, research from TopCoder Product Managers and from application development.</li><br />
                     
-                        <li><A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index"><strong>Sponsorship</strong></A><br />
+                        <li><A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=index</xsl:attribute><strong>Sponsorship</strong></A><br />
                         Reaching the developer community is a difficult task at best. Marketing budgets are limited and with the advent of the Internet, 
                         the expectation for measuring results has only grown. TopCoder offers companies a means of targeting this desired community 
-                        through the targeted sponsorship of <A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=srm_index">Single Round Matches</A> 
-                        and <A href="http://corporate.topcoder.com/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index">Tournaments.</A></li><br />
+                        through the targeted sponsorship of <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=srm_index</xsl:attribute>Single Round Matches</A>
+                        and <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index</xsl:attribute>Tournaments.</A></li><br />
                     </ul>
 
                     </td>
