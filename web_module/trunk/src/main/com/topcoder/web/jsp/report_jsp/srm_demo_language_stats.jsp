@@ -95,9 +95,9 @@ private String getPercent (long subs, long succ)
 <tr>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >&nbsp;</td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Easy&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc,0,"(count)",0,"lev1_subs")%></strong></td>
-  <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc,0,"(count)",0,"lev2_subs")%></strong></td>
+  <td colspan="3" class="srmTableEven"><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc,0,"(count)",0,"lev2_subs")%></strong></td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Difficult&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc,0,"(count)",0,"lev3_subs")%></strong></td>
-  <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" >&nbsp;</td>
+  <td colspan="3" class="srmTableEven"" >&nbsp;</td>
 
 </tr>
   <tr>
@@ -180,9 +180,9 @@ i++;
 <tr>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >&nbsp;</td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Easy&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc1,0,"(count)",0,"lev1_subs")%></strong></td>
-  <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc1,0,"(count)",0,"lev2_subs")%></strong></td>
+  <td colspan="3" class="srmTableEven"><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc1,0,"(count)",0,"lev2_subs")%></strong></td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Difficult&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc1,0,"(count)",0,"lev3_subs")%></strong></td>
-  <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" >&nbsp;</td>
+  <td colspan="3" class="srmTableEven">&nbsp;</td>
 
 </tr>
  <tr>
@@ -270,9 +270,9 @@ i++;
 <tr>
   <td class="<%=even?"srmTableEven":"srmTableOdd"%>" >&nbsp;</td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Easy&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev1_subs")%></strong></td>
-  <td colspan="3" class="srmTableBlue" ><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev2_subs")%></strong></td>
+  <td colspan="3" class="srmTableEven" ><strong>Medium&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev2_subs")%></strong></td>
   <td colspan="3" class="<%=even?"srmTableEven":"srmTableOdd"%>" ><strong>Difficult&nbsp;&nbsp;&nbsp;<%=getPercentage(rsc2,0,"(count)",0,"lev3_subs")%></strong></td>
-  <td colspan="3" class="srmTableBlue" >&nbsp;</td>
+  <td colspan="3" class="srmTableEven" >&nbsp;</td>
 
 </tr>
  <tr>
