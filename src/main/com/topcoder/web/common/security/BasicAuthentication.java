@@ -89,6 +89,9 @@ public class BasicAuthentication implements WebAuthentication {
         User u = getSessionUser();
         if (u == null) {
             u = checkCookie();
+            if (u==null) {
+                u = guest;
+            }
         }
         return u;
     }
