@@ -89,7 +89,7 @@
           <P class="statText">
           The following competitors have advanced from <xsl:value-of select="/TC/SCHEDULE/Advancers/Advancer/round_name"/> to the next round.
           <xsl:if test="/TC/SCHEDULE/Advancers/Advancer/round_id=4345">
-            <A HREF="/index?t=schedule&c=invit02_final_64" class="statText">Click here to view a snapshot.</A>
+            <A HREF="/index?t=schedule&amp;c=invit02_final_64" class="statText">Click here to view a snapshot.</A>
           </xsl:if>
           </P>
 
