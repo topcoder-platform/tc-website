@@ -2,6 +2,7 @@ package com.topcoder.web.common.tag;
 
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.model.SortInfo;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -18,11 +19,16 @@ public class SortTag extends TagSupport {
     public int doStartTag() throws JspException {
         String currCol = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
         String currDir = StringUtils.checkNull(pageContext.getRequest().getParameter(DataAccessConstants.SORT_DIRECTION));
-        //perhaps there should be a bean in the request with default sort directions
-        String sortDir = "asc";
+        SortInfo defaults = (SortInfo)pageContext.getRequest().getAttribute(SortInfo.REQUEST_KEY);
+        String sortDir = defaults.getDefaultDirection(column)==null?"asc":defaults.getDefaultDirection(column);
+
         if (!(currCol.equals("") || currDir.equals(""))) {
             if (Integer.parseInt(currCol)==column) {
-                if (currDir.equals(sortDir)) sortDir="desc";
+                if (currDir.equals("desc")) {
+                    sortDir = "asc";
+                } else {
+                    sortDir = "desc";
+                }
             }
         }
 
