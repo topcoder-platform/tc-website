@@ -6,16 +6,16 @@
   function getGraph(url,wd,ht) {
     var last=0;
     var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0";
-    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,resizable=yes,null,size);
+    var size = "top=2,left=2,width="+wd+",height="+daHt+"status=0,resizable=yes";
+    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,null,size);
     return;
   }
 
   function getGraph(url,wd,ht,name) {
     var last=0;
     var daHt = parseInt(ht) + parseInt('49');
-    var size = "top=2,left=2,width="+wd+",height="+daHt+",status=0";
-    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,resizable=yes,name,size);
+    var size = "top=2,left=2,width="+wd+",height="+daHt+",status=0,resizable=yes";
+    popup = window.open('/statistics/graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
     return;
   }
 
