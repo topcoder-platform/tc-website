@@ -309,7 +309,6 @@
         <antcall target="package-EJB-DataCacheBean"/>
         <antcall target="package-EJB-UtilBean"/>
         <antcall target="package-EJB-AuthenticationServicesBean"/>
-        <antcall target="package-EJB-CoderStatisticsBean"/>
         <antcall target="package-EJB-EmailServicesBean"/>
         <antcall target="package-EJB-SearchBean"/>
         <antcall target="package-EJB-ReportingBean"/>
@@ -392,13 +391,6 @@
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="JavaDocServices"/>
             <param name="unit-class-path" value="com/topcoder/ejb/JavaDocServices"/>
-        </antcall>
-    </target>
-
-    <target name="package-EJB-CoderStatisticsBean" depends="compile">
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="CoderStatistics"/>
-            <param name="unit-class-path" value="com/topcoder/ejb/CoderStatistics"/>
         </antcall>
     </target>
 
@@ -872,6 +864,20 @@
     <target name="password" depends="compile">
         <java classname="com.topcoder.utilities.PasswordGetter" fork="true">
             <arg value="${handle}"/>
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
+    <target name="whitespace" depends="compile">
+        <java classname="com.topcoder.utilities.RemoveWhiteSpace" fork="true">
+            <arg value="${file}"/>
             <classpath>
                 <pathelement location="${classes}"/>
                 <pathelement location="${resources}"/>
