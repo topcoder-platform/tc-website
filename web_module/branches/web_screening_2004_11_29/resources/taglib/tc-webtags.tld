@@ -284,7 +284,7 @@
 <!--        <teiclass>com.topcoder.web.common.tag.ListIteratorTagInfo</teiclass>-->
         <bodycontent>JSP</bodycontent>
         <info>
-            Tag to iterate through a List
+            Tag to make a bean available for use
         </info>
         <attribute>
             <name>id</name>
