@@ -400,10 +400,12 @@ public class TCLoadRequests extends TCLoad {
                 for (; st.hasMoreTokens();) {
                     s = st.nextToken();
                     if (s.indexOf('=') == 0) {
-                        //this shouldn't ever happen, cuz that would me the url was something
+                        //this shouldn't ever happen, cuz that would mean the url was something
                         //like &=blah, but we'll throw a case in anyway
                         paramMap.put("", s);
                     } else if (s.indexOf('=') > 0) {
+                        log.debug("adding " + s.substring(0, s.indexOf('=')) +
+                                " " + s.substring(s.indexOf('=')+1, s.length()));
                         paramMap.put(s.substring(0, s.indexOf('=')),
                                 s.substring(s.indexOf('=')+1, s.length()));
                     } else {
