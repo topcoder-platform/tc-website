@@ -74,7 +74,7 @@ function openWin(url, name, w, h) {
             
 <!-- Qualification Rounds begins -->
            <p><font color="006633" size="3"><b>Qualification Rounds</b></font><br />
-           <font size="-1">The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Extreme Coding Challenge.</p>
+           <font size="-1">The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Code Jame 2003.</p>
 
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
