@@ -241,16 +241,22 @@
       <property name="mockservlets"  value="com/topcoder/web/hs/controller" />
       <mkdir dir="${servlets}/${mockservlets}" />
 
-      <move todir="${servlets}/${mockservlets}">
+      <copy todir="${servlets}/${mockservlets}">
          <fileset dir="${classes}/${mockservlets}" >
                  <include name="**/*.class" />
          </fileset>
-      </move>
-
-      <property name="mock.trgt"     value="${public_html}/hs" />
-      <property name="mock.src"      value="${web}/hs/view" />
+      </copy>
 
       <mkdir dir="${mock.trgt}" /> 
+
+      <property name="mock.trgt"     value="${tc_cluster}/hs" />
+      <property name="mock.src"      value="${web}/hs/view" />
+
+      <copy todir="${mock.trgt}/WEB-INF">
+         <fileset dir="${resources}/hs">
+                 <include name="web.xml" />
+         </fileset>
+      </copy>
 
       <copy todir="${mock.trgt}">
          <fileset dir="${mock.src}" >
