@@ -76,9 +76,6 @@ public class Preferences extends ContractingBase {
             groups.add(grp);
         }
         
-        //sort groups by sort order
-        Collections.sort(groups); 
-        
         //set attribute with groups
         getRequest().setAttribute("groups", groups);
         } catch(TCWebException tce) {
