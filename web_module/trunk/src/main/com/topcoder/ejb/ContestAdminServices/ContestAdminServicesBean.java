@@ -917,7 +917,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
                 break;
         }
 
-        txtGetChallenges.append(" ORDER BY r.room_id, c.component_id, c.challenge_id ");
+        txtGetChallenges.append(" ORDER BY r.room_id, cp.component_id, c.challenge_id ");
 
         try {
             DataSource ds = (DataSource)getContext().lookup(DBMS.CONTEST_ADMIN_DATASOURCE);
