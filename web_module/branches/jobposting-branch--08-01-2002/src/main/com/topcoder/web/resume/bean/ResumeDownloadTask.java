@@ -33,13 +33,13 @@ public class ResumeDownloadTask extends ResumeTask{
     }
     public void getNextPage(HttpServletRequest request, HttpServletResponse response)
                                                     throws IOException{
-        response.setHeader("Cache-Control", "no-store");
-        response.setHeader("Pragma", "no-cache");
-        response.setDateHeader("Expires", 0);
+//        response.setHeader("Cache-Control", "no-store");
+//        response.setHeader("Pragma", "no-cache");
+//        response.setDateHeader("Expires", 0);
         response.setContentType(resume.getFileType());
-        response.setContentLength(resume.getFile().length);
+//        response.setContentLength(resume.getFile().length);
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
-        response.setStatus(HttpServletResponse.SC_OK);
+//        response.setStatus(HttpServletResponse.SC_OK);
     }
 }
