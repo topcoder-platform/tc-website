@@ -77,7 +77,7 @@ function openWin(url, name, w, h) {
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -91,7 +91,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -105,7 +105,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.MIDDLE_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -119,7 +119,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.LAST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -133,7 +133,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -147,7 +147,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.PASSWORD_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -161,7 +161,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -175,7 +175,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.EMAIL_CONFIRM%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -189,7 +189,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS1%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -203,7 +203,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS2%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -217,7 +217,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ADDRESS3%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -231,7 +231,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CITY%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -260,7 +260,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.ZIP%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -274,7 +274,7 @@ function openWin(url, name, w, h) {
             </tr>
 
             <tr>
-                <td colspan="2" class="errorText">
+                <td colspan="2" class="errorText" align="center">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.COUNTRY_CODE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -288,12 +288,8 @@ function openWin(url, name, w, h) {
                 </td>
             </tr>
             <tr>
-               <td>
-               </td>
-               <td align="left">
-                  <p><br /></p>
-                  <p><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
-                  <p><br /></p>
+               <td colspan="2" align="center">
+                  <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                </td>
             </tr>
             </form>

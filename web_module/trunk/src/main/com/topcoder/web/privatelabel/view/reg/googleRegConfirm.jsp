@@ -77,8 +77,8 @@ function openWin(url, name, w, h) {
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
 
-            <tr style="background: #eee;">
-                 <td align="right" width="50%" class="sidebarTitle">Personal
+            <tr>
+                 <td align="right" width="50%"><b>Personal</b>
                  </td>
                 <td align="left" width="50%">
                     <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_REG_MAIN%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
@@ -218,9 +218,8 @@ function openWin(url, name, w, h) {
                     <jsp:getProperty name="regInfo" property="CountryName"/>
                 </td>
             </tr>
-            <tr style="background: #eee;">
-                <td align="right" class="sidebarTitle">
-                    Demographics
+            <tr>
+                <td align="right"><b>Demographics</b>
                 </td>
                 <td align="left">
                     <a href="<jsp:getProperty name="sessionInfo" property="ServletPath"/>?<%=Constants.MODULE_KEY%>=<%=Constants.GOOGLE_REG_DEMOG%>&<%=Constants.COMPANY_ID%>=<jsp:getProperty name="regInfo" property="CompanyId"/>">edit<a/>
