@@ -295,8 +295,18 @@ public class TCES extends Task implements Serializable {
                                                 coderObject.image=null;
                                                 coderObject.date_of_birth=null;
                                              **/
-                                                coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
-                                                userObject = beanUser.request(com.topcoder.web.TCES.ejb.User.UPDATE, userObject);
+                                                try {
+                                                    coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
+                                                } catch (Exception e) {
+                                                    Log.msg("Problem with updating coderObject: " + e.getMessage());
+                                                    throw e;
+                                                }
+                                                try {
+                                                    userObject = beanUser.request(com.topcoder.web.TCES.ejb.User.UPDATE, userObject);
+                                                } catch (Exception e) {
+                                                    Log.msg("Problem with updating userObject: " + e.getMessage());
+                                                    throw e;
+                                                }
 
                                                 //isTaskValidated = true;
                                         }
