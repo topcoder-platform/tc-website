@@ -61,6 +61,8 @@
 <!-- 2003 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_03_01_04">Columbia University Student Wins DoubleClick's 2004 TopCoder Programming Challenge</A> [March 1]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_16_04">TopCoder Announces Yahoo! as Title Sponsor for TCCC04</A> [February 16]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_02_02_04">TopCoder Announces DoubleClick 2004 Coding Challenge</A> [February 2]<br/><br/></td></tr>
