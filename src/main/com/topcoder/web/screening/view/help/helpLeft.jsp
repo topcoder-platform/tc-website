@@ -5,10 +5,10 @@
 
 <!-- Getting Started begins -->
                             <tr>
-                            <% if (selected.equals("steps") { %>
+                            <% if (selected.equals("steps")) { %>
                                 <td class="helpTitle"><strong>Perform the Following Steps</strong></td>
                             <% } else { %>
-                                <td class="helpTitle"><a href="step1.jsp">Perform the Following Steps</a></td>
+                                <td class="helpTitle"><a href="steps.jsp">Perform the Following Steps</a></td>
                             <% } %>
                             </tr>
                         
@@ -28,7 +28,7 @@
                             
 <!-- Load Testing Application begins -->
                             <tr>
-                            <% if (selected.equals("testingApp") { %>
+                            <% if (selected.equals("testingApp")) { %>
                                 <td class="helpTitle"><strong>Loading the Testing Applicaton</strong></td>
                             <% } else { %>
                                 <td class="helpTitle"><a href="testingApp.jsp">Loading the Testing Applicaton</a></td>
@@ -38,7 +38,7 @@
                         
 <!-- The Coding Window begins -->
                             <tr>
-                            <% if (selected.equals("codingWindow") { %>
+                            <% if (selected.equals("codingWindow")) { %>
                                 <td class="helpTitle"><strong>The Coding Window</strong></td>
                             <% } else { %>
                                 <td class="helpTitle"><a href="codingWindow.jsp">The Coding Window</a></td>
@@ -62,7 +62,7 @@
                             
 <!-- Saving begins -->
                             <tr>
-                            <% if (selected.equals("saving") { %>
+                            <% if (selected.equals("saving")) { %>
                                 <td class="helpTitle"><strong>Saving</strong></td>
                             <% } else { %>
                                 <td class="helpTitle"><a href="saving.jsp">Saving</a></td>
@@ -72,7 +72,7 @@
                         
 <!-- Clearing the Code begins -->
                             <tr>
-                            <% if (selected.equals("clearingCode") { %>
+                            <% if (selected.equals("clearingCode")) { %>
                                  <td class="helpTitle"><strong>Clearing the Code</strong></td>
                            <% } else { %>
                                 <td class="helpTitle"><a href="clearingCode.jsp">Clearing the Code</a></td>
@@ -82,7 +82,7 @@
                         
 <!-- The Timer begins -->
                             <tr>
-                            <% if (selected.equals("timer") { %>
+                            <% if (selected.equals("timer")) { %>
                                 <td class="helpTitle"><strong>The Timer</strong></td>
                             <% } else { %>
                                 <td class="helpTitle"><a href="timer.jsp">The Timer</a></td>
