@@ -51,6 +51,7 @@
                                 <td class="brRegTableQuestion">
                                 <%if(question.isRequired()) {%><span class="brErrorText">*</span><%}%>
                                     <%=question.getText()%>
+                                <%if(question.getId() == Constants.QUESTION_AREAS_OF_INTEREST) { %> (Choose up to 3) <% } %>
                                 </td>
                                 <td class="brRegTableAnswer">
                                     <pl:demographicInput question="<%=question%>"/>
