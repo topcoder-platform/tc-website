@@ -176,7 +176,14 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("To", to));
 
                     devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
-                    xsldocURLString = XSL_DIR + command + ".xsl";
+                    if(!tcoTermsCheck(nav.getSessionInfo().getUserId()))
+                    {
+                        xsldocURLString = XSL_DIR + "tco_terms.xsl";
+                    }
+                    else
+                    {
+                        xsldocURLString = XSL_DIR + command + ".xsl";
+                    }
                 } else {
                     requiresLogin = true;
                 }
@@ -653,6 +660,21 @@ else if (command.equals("send")) {
             throw new NavigationException(msg.toString(), TCServlet.INTERNAL_ERROR_PAGE);
         }
         return result;
+    }
+    
+    public static boolean tcoTermsCheck(long userId) throws Exception {
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
+        Request inquiryRequest = new Request();
+        inquiryRequest.setContentHandle("checkTerms");
+        inquiryRequest.setProperty("uid", String.valueOf(userId));
+        inquiryRequest.setProperty("tid", String.valueOf( Constants.TCO04_COMPONENT_TERMS_OF_USE_ID ));
+        ResultSetContainer detailRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("checkTerms");
+        
+        if(detailRsc.isEmpty()) {
+            return false;
+        }
+        
+        return true;
     }
 
     public static boolean isProjectRegClosed(long projectId) throws Exception {
