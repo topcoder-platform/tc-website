@@ -59,7 +59,7 @@
     <adv:errorIterator id="error" name="MinMax"><%=error%><BR></adv:errorIterator>
    </TD>
    <TD></TD>
-   <TD>
+   <TD CLASS="errorText" ALIGN="left" VALIGN="middle">
     <adv:errorIterator id="error" name="SchoolId"><%=error%><BR></adv:errorIterator>
    </TD>
   </TR>
