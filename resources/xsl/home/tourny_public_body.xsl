@@ -145,8 +145,7 @@
 <!-- tourney links end -->     
 <!-- <B>Update:</B><BR/>
 The assignments for the first round of the tournament are now available.  Each part lists the assigned members alphabetically by handle.<BR/><BR/> -->
-<!-- <B>View Online Round #1</B>:<BR/>Part 1<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4324</xsl:attribute> - Advancers</A>  |    
-Part 2<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325</xsl:attribute> - Advancers</A><BR/><BR/> -->
+<B>View Online Round #2</B>: <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/index?t=schedule&amp;c=tourney_advancers&amp;rds=4335</xsl:attribute> - Advancers</A><BR/><BR/>
     </TD>    
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>    
