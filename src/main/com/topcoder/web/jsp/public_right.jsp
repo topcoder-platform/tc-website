@@ -51,6 +51,10 @@ function find(n) {
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft"><img src="/i/tournament/tco04/microsoft_right.jpg" alt="Microsoft" width="170" height="90" border="0" /></a><br />
+			
+			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia"><img src="/i/tournament/tco04/nvidia_right.jpg" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
 			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <a href="mailto:sponsorships@topcoder.com"><img src="/i/tournament/tco04/sponsorship.gif" alt="Sponsorship" width="170" height="101" border="0" /></a><br />
@@ -76,7 +80,26 @@ function find(n) {
 			
             <p><br/></p>
 
-<!-- 2004 TCO ends -->
+<!-- Microsoft ends -->
+
+<!-- NVIDIA begins -->
+<% } else if (level1.equals("nvidia")) { %>
+
+			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
+			
+			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
+			
+			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="../calendar.jsp" />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting"><img src="/i/tournament/tco04/nvidia_jobs.gif" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
+			
+            <p><br/></p>
+
+<!-- NVIDIA ends -->
 
 <!-- About Us begins -->
 <% } else if (level1.equals("about")) { %>
