@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Seat Service Scheduling Design Project at TopCoder</title>
+                <title>Seat Service Inventory Design Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Seat Service Scheduling Design</td>
+                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Seat Service Inventory Design</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -86,12 +86,6 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        The seat service is a stateless service responsible for managing seats at different
-                                                        testing locations worldwide.  The service provides mechanisms for scheduling seat
-                                                        date-times for events.  The service also facilitates seat inventory management including
-                                                        the adding, removing and manipulation of seats and testing locations.
-                                                    </p>
-                                                    <p>
                                                         The seat service is broken up in to multiple modules for design.  The Seat Service Shell
                                                         module receives and parses all consumer XML requests and then makes the appropriate call
                                                         to either the Scheduling module or Admin module to execute business logic.  When the call
@@ -99,14 +93,22 @@
                                                         Scheduling module handles all core business logic related to scheduling functionality.
                                                         The Admin module handles all core business logic related to inventory management
                                                         (list, retrieve, add, update, delete).  The final module is the Seat Service Persistence
-                                                        module.  The Persistence layer handles all database transactions for both scheduling
-                                                        and inventory management.
+                                                        module.  The Persistence layer handles all database transactions for both scheduling and
+                                                        inventory management.
+                                                    </p>
+                                                    <p>
+                                                        This document outlines the functional requirements for the core inventory business logic.
+                                                        The architect will be responsible for defining an API which will be called by the Seat
+                                                        Service Shell.  The architect is responsible for designing an implementation of the Seat
+                                                        Service Inventory Core which fulfills the functional requirements and calls the Seat Service
+                                                        Persistence Layer for persistence.
+
                                                     </p>
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
                                                         View the
-                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Scheduling_Spec.pdf">Requirement Specification</a> for this application project.
+                                                        <a target="_new" class="bodyText" href="/i/development/downloads/Seat_Service_Inventory_Spec.pdf">Requirement Specification</a> for this application project.
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
@@ -148,7 +150,7 @@
                                                         <br/>
                                                         <strong> Second Place Compensation: </strong>
                                                         <br/>
-                                                        Compensation for the second place design will be paid in one installment
+                                                        Compensation for the second place designer will be paid in one installment
                                                         following the completion of the design project.
                                                     </p>
 
@@ -158,15 +160,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$2,000.00</td>
+                                                            <td class="bodyText" align="right">$1,400.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$1,200.00</td>
+                                                            <td class="bodyText" align="right">$850.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$800.00</td>
+                                                            <td class="bodyText" align="right">$550.00</td>
                                                         </tr>
                                                     </table>
 
@@ -176,7 +178,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$700.00</td>
+                                                            <td class="bodyText" align="right">$470.00</td>
                                                         </tr>
                                                     </table>
 
@@ -186,15 +188,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Primary Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$580.00</td>
+                                                            <td class="bodyText" align="right">$460.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer -</td>
-                                                            <td class="bodyText" align="right">$500.00</td>
+                                                            <td class="bodyText" align="right">$380.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Reviewer - </td>
-                                                            <td class="bodyText" align="right">$500.00</td>
+                                                            <td class="bodyText" align="right">$380.00</td>
                                                         </tr>
                                                     </table>
 
@@ -203,7 +205,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$4,280.00</td>
+                                                            <td class="bodyText" align="right">$3,090.00</td>
                                                         </tr>
                                                     </table>
 
@@ -256,7 +258,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="400">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Application Project Posting:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">09.22.2004</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">09.30.2004</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
@@ -322,7 +324,7 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Seat%20Service%20Scheduling%20Design&amp;phase=112">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                        Register <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Seat%20Service%20Inventory%20Design&amp;phase=112">here</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
