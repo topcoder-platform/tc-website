@@ -98,6 +98,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         User curUser = getAuthenticityToken().getUser();
         uid = curUser.getId();
+        log.debug("User id set in MainTask: "+uid);
     }
 
     public void processStep(String step)
@@ -117,7 +118,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
 
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No company name!");
+            throw new Exception ("No company name found for user id #" + uid);
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
