@@ -30,7 +30,7 @@ public class TCCC04TermsAgree extends Base {
                 end.set(2004, 1, 23, 9, 0);
                 Calendar beginning = Calendar.getInstance();
                 end.set(2004, 1, 1, 0, 0);
-                if (now.before(end)) {
+                if (now.before(end) && now.after(beginning)) {
                     throw new NavigationException("The registration period for the TCCC is over.");
                 } else if (!now.after(beginning)) {
                     throw new NavigationException("The registration period for the TCCC has not yet begun.");
