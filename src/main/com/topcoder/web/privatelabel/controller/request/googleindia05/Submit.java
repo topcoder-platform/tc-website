@@ -112,7 +112,7 @@ public class Submit extends FullRegSubmit {
 
             buf.append("\n\nIf you cannot click on the web address above, please copy the address into your web browser to continue.  If the address spans two lines, please make sure you copy and paste both sections without any spaces between them.\n\n");
 
-            buf.append("Your handle and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google India Code Jam 2005.\n\n");
+            buf.append("Your login and password will provide you with access to the Competition Arena, where you can practice and chat, and where you'll compete in the Google India Code Jam 2005.\n\n");
 
             buf.append("PRACTICING FOR THE EVENT\n");
             buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google India Code Jam 2005.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM IST on February 8, 2005 through 5:00PM IST on March 26, 2005.\n\n");

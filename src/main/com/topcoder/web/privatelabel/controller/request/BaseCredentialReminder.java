@@ -69,7 +69,7 @@ public abstract class BaseCredentialReminder extends RegistrationBase {
     protected String getEmailContent(String handle, String password) {
         StringBuffer buf = new StringBuffer(1000);
         buf.append("Hello, \n\n");
-        buf.append("Your user name is ").append(handle);
+        buf.append("Your login is ").append(handle);
         buf.append("\n");
         buf.append("Your password is ").append(password);
         buf.append("\n\nPlease keep this email for your records.\n\n");
