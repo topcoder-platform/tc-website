@@ -81,7 +81,7 @@
                         <p><strong>Job Location</strong><br />
                         Sunnyvale, CA</p>
                         
-                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+                        <p align="center"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=180&amp;jt=2" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
 
 <!-- Client Job List ends -->
 
