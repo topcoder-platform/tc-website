@@ -444,15 +444,11 @@
       String rtUser = "";
       String rtPassword = "";
       String Redirect_URL = "http://" + request.getServerName();
-      String responseURL = response.encodeURL("");
-      SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d yyyy 'at' hh:mm a z");
       Navigation n = null;
       try {
         n = (Navigation) session.getAttribute("navigation");
         if (n==null) n = new Navigation();
         user = n.getUser();
-        HashMap userTypeDetails = user.getUserTypeDetails();
-        HashMap sessionObjects = n.getSessionObjects();
         if ( n.getLoggedIn() ) {
           rtUser =user.getHandle();
           rtPassword =user.getPassword();
@@ -473,33 +469,14 @@
       }
       aToken = (Authorization) session.getAttribute("jiveAuthorization");
   }
-  int userId = 0;
-  try {
-    userId = aToken.getUserID();
-  } catch (Exception e){
-    e.printStackTrace();
-    return;
-  }
   ForumFactory ff = ForumFactory.getInstance(aToken);
-  ProfileManager mgr = ff.getProfileManager();
-  String nm = null;
-  String userName = null;
-  com.coolservlets.forum.User nu = null;
-  try {
-    nu = mgr.getUser( userId );
-    nm = nu.getName();
-    userName = nu.getUsername();
-  }
-  catch( Exception e ) {
-    e.printStackTrace();
-    return;
-  }
   Iterator forums = ff.forums();
   while( forums.hasNext() ) {
     Forum f = (Forum)forums.next();
     int fID = f.getID();
     String fName = f.getName();
     int messageCount = f.getMessageCount();
+
 %>
     
     <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A HREF="/rtables/viewForum.jsp?forum=<%= fID %>&mc=<%=messageCount%>" class="statText"><%=(fName!=null)?fName:"&nbsp;"%></A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>
@@ -507,20 +484,6 @@
 <%
   }
 %>
-    <!-- 
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/rtables/viewForum.jsp?forum=7126">&#160;&#160;Evolving Strategy </A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>     
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/rtables/viewForum.jsp?forum=7167">&#160;&#160;Contest Discussion</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>      
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/rtables/viewForum.jsp?forum=7166">&#160;&#160;Bugs and Annoyances</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/rtables/viewForum.jsp?forum=148126">&#160;&#160;Plugin Development</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>             
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/rtables/viewForum.jsp?forum=39781">&#160;&#160;Contest Participation</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>  
-    <TR><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD><TD VALIGN="middle" HEIGHT="15" CLASS="statText" BGCOLOR="#333333">&#160;&#160;&#160;<A CLASS="statText" HREF="/rtables/viewForum.jsp?forum=140967">&#160;&#160;Teams Discussion</A></TD><TD VALIGN="top" CLASS="statText" BGCOLOR="#333333">&#160;</TD></TR>  
-    <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR> -->
-
 
 <%} else if (request.getServletPath().indexOf("pacts")>-1) { %>
     <TR> 
