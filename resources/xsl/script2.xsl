@@ -308,8 +308,16 @@ function goTo(selection)
   {
     window.location = "/index?t=schedule&c=sept_02";  
   } 
-
-
+  else if (sel == "oct_02")
+  {
+    window.location = "/index?t=schedule&c=oct_02";  
+  } 
+  else if (sel == "nov_02")
+  {
+    window.location = "/index?t=schedule&c=nov_02";  
+  }  
+  
+  
 
   else if (sel == "thisweek")
   {
