@@ -34,7 +34,7 @@
         <td width="100%"><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>        
     </tr>             
 
-    <tr valign="top"><td colspan="3" class="testTop">&#160;</td></tr>
+    <tr><td colspan="3" class="testTop"><img src="/i/ev/clear.gif" width="1" height="18" border="0"/></td></tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
