@@ -58,7 +58,9 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
         q.setDataSource(getDb());
 
         if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            checkColumnIndex(getColumnIndex());
+            if (isRanking()) {
+                checkColumnIndex(getColumnIndex());
+            }
             checkText(getText());
             checkName(getName());
             checkQueryId(getQueryId(), q);
@@ -66,7 +68,9 @@ public class ModifyQueryTask extends BaseTask implements Task, Serializable {
                 if (isNewQuery()) {
                     q.createQuery(getText(), getName(), isRanking()?1:0, getColumnIndex());
                 } else {
-                    q.setColumnIndex(getQueryId(), getColumnIndex());
+                    if (isRanking()) {
+                        q.setColumnIndex(getQueryId(), getColumnIndex());
+                    }
                     q.setText(getQueryId(), getText());
                     q.setName(getQueryId(), getName());
                     q.setRanking(getQueryId(), isRanking()?1:0);
