@@ -53,12 +53,25 @@ public class ViewProblemSet extends Base {
                 if (problemSets[i].getType().intValue()==problemType) {
                     //ok, we found the set, now we need to get the actual problems
                     problems = Arrays.asList(problemSets[i].getProblemLabels());
+
+                    //figure out where to go next if they click continue
+                    if (i<problemSets.length-1) {
+                        //there's another set to do, so continue goes there
+                        setDefault(Constants.CONTINUE_LINK,
+                                buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,
+                                        new String[] {Constants.PROBLEM_TYPE_ID},
+                                        new String[] {problemSets[i].getType().toString()}));
+                    } else {
+                        //there's nothing left to do, so go to the index
+                        setDefault(Constants.CONTINUE_LINK, buildProcessorRequestString(Constants.RP_INDEX, null, null));
+                    }
                 }
             }
             log.debug("there are " + problems.size() + " problems");
 
             setDefault(Constants.PROBLEMS, problems);
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
+
 
             closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET_RESPONSE,
                     new String[] {Constants.MESSAGE_ID, Constants.PROBLEM_TYPE_ID},
