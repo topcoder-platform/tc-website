@@ -3,6 +3,8 @@ package com.topcoder.web.resume.bean;
 import com.topcoder.common.web.data.Navigation;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.ejb.resume.ResumeServices;
 
 import javax.servlet.ServletOutputStream;
@@ -23,7 +25,9 @@ public class DownloadTask extends ResumeTask{
             throws Exception {
         HttpSession session = request.getSession(true);
         Navigation navigation = (Navigation) session.getAttribute("navigation");
-        if (navigation == null || !navigation.getLoggedIn()) {
+        BasicAuthentication auth = new BasicAuthentication(
+                new SessionPersistor(request.getSession()), request, response);
+        if (navigation == null || (!navigation.getLoggedIn() && auth.getActiveUser().isAnonymous())) {
             log.debug("User not logged in, can't download a file.");
             throw new Exception("User not logged in, can't download a file.");
         } else {
