@@ -128,7 +128,9 @@ function submitSession() {
                         </screen:resultSetRowIterator>
                         </select>
                     </td>
+                    <% if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
                     <td class="testTableOdd">&#160;<a href="JavaScript:submitCandidate()">Add a Candidate</a></td>
+                    <% } %>
                 </tr>
 
                 <tr>
