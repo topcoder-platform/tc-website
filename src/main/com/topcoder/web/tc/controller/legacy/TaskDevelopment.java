@@ -157,7 +157,6 @@ public final class TaskDevelopment {
             log.debug("PROJECT IS: " + request.getParameter("projectId"));
 
 
-
             if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
                 if (nav.isLoggedIn()) {
                     Request dataRequest = null;
@@ -179,119 +178,29 @@ public final class TaskDevelopment {
                         log.debug("rsc is null");
                     devTag.addTag(rsc.getTag("projects", "project"));
                     String to = Conversion.checkNull(request.getParameter("To"));
-                    //String handle = nav.getUser().getHandle();
-                    //String handle = nav.getSessionInfo().getHandle();
                     devTag.addTag(new ValueTag("ProjectName", project));
                     devTag.addTag(new ValueTag("Project", project));
                     devTag.addTag(new ValueTag("To", to));
 
                     devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
-                    /*if(command.equals("tcs_inquire") && !tcoTermsCheck(nav.getSessionInfo().getUserId()) && (request.getParameter("continue") == null || !request.getParameter("continue").equals("true")))
-                    {
-                        xsldocURLString = XSL_DIR + "tco_terms.xsl";
-                    }
-                    else
-                    {*/
-                        xsldocURLString = XSL_DIR + command + ".xsl";
-                    //}
-                } else {
-                    requiresLogin = true;
-                }
-            }
-            /********************** tcs_inquire-design *******************/
-/*  doesn't seem like this is used anymore
-            else if (command.equals("tcs_inquire-design") || command.equals("tcs_inquire-dev")) {
-                if (comp != null && comp.length() > 0) {
-                    log.debug("here");
-                    long componentId = Long.parseLong(comp);
-
-                    ComponentManager componentManager = getComponentManager(componentId, Long.parseLong(request.getParameter("version")));
-                    ComponentInfo componentInfo = componentManager.getComponentInfo();
-                    Collection technologies = componentManager.getTechnologies();
-                    Technology summaries[] = (Technology[]) technologies.toArray(new Technology[0]);
-                    RecordTag technologyTag = new RecordTag("technologies");
-                    for (int i = 0; i < summaries.length; i++) {
-                        technologyTag.addTag(new ValueTag("techName", summaries[i].getName()));
-                    }
-                    devTag.addTag(technologyTag);
-
-                    devTag.addTag(new ValueTag("componentName", componentInfo.getName()));
-                    devTag.addTag(new ValueTag("formattedName", formatName(componentInfo.getName())));
-                    devTag.addTag(new ValueTag("overview", componentInfo.getDescription()));
-
-
-                    devTag.addTag(new ValueTag("documentId", request.getParameter("docId")));
-
-                    Request dataRequest = null;
-                    ResultSetContainer rsc = null;
-                    Map resultMap = null;
-                    log.debug("getting dai");
-                    dataRequest = new Request();
-                    dataRequest.setContentHandle("open_projects");
-
-                    DataAccessInt dai = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
-                    log.debug("got dai");
-
-                    resultMap = dai.getData(dataRequest);
-                    log.debug("got map");
-                    rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
-
-                    log.debug("got rsc");
-                    if (rsc == null)
-                        log.debug("rsc is null");
-                    devTag.addTag(rsc.getTag("projects", "project"));
-
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 } else {
-                    log.error("Missing component id");
+                    requiresLogin = true;
                 }
-            }
-*/
-            /********************** send *******************/
-
-/* doesn't seem like this is used
-
-else if (command.equals("send")) {
+            } else if (command.equals("tcs_team_app_inquire")) {
                 if (nav.isLoggedIn()) {
-                    devTag.addTag(new ValueTag("Project", project));
-                    //String handle = nav.getUser().getHandle();
-                    String handle = nav.getSessionInfo().getHandle();
-                    String from = nav.getUser().getEmail();
                     String to = Conversion.checkNull(request.getParameter("To"));
-                    String experience = Conversion.clean(request.getParameter("Experience"));
-                    String workWeek = Conversion.checkNull(request.getParameter("WorkWeek"));
-                    String comment = Conversion.clean(request.getParameter("Comment"));
-                    TCSEmailMessage mail = new TCSEmailMessage();
-                    mail.setSubject(project + " -- " + handle);
-                    StringBuffer msgText = new StringBuffer(1000);
-                    msgText.append(handle);
-                    msgText.append(" inquiry for project:  ");
-                    msgText.append(project);
-                    msgText.append("\n\n");
-                    msgText.append("Hours per Week:  ");
-                    msgText.append(workWeek);
+                    devTag.addTag(new ValueTag("ProjectName", project));
+                    devTag.addTag(new ValueTag("Project", project));
+                    devTag.addTag(new ValueTag("To", to));
 
-                    Data.loadUser(nav);
-                    //User user = nav.getUser();
-                    //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
-                    //int rating = coder.getRating().getRating();
-                    int rating = nav.getSessionInfo().getRating();
-
-                    msgText.append("\n\nRating:\n");
-                    msgText.append(rating);
-                    msgText.append("\n\nExperience:\n");
-                    msgText.append(experience);
-                    msgText.append("\n\nComment:\n");
-                    msgText.append(comment);
-                    mail.setBody(msgText.toString());
-                    mail.addToAddress(to, TCSEmailMessage.TO);
-                    mail.setFromAddress(from);
-                    EmailEngine.send(mail);
-                    xsldocURLString = XSL_DIR + "inquiry_sent.xsl";
+                    devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
+                    xsldocURLString = XSL_DIR + command + ".xsl";
                 } else {
                     requiresLogin = true;
                 }
-            }*/ else if (command.equals("multiplier_status")) {
+
+            } else if (command.equals("multiplier_status")) {
                 Request dataRequest = null;
                 ResultSetContainer rsc = null;
                 Map resultMap = null;
@@ -452,26 +361,26 @@ else if (command.equals("send")) {
                         long version = Long.parseLong(request.getParameter("version"));
                         long ph = Long.parseLong(phase);
                         long projId = Long.parseLong(request.getParameter("projectId"));
-                        
-                        if(ph == 112) {
+
+                        if (ph == 112) {
                             rating = getDesignRating(nav.getSessionInfo().getUserId());
                         } else {
                             rating = getDevRating(nav.getSessionInfo().getUserId());
                         }
-                        
+
                         //get fancy new ejb
                         InitialContext ctx = TCContext.getInitial();
-                        
-                        ComponentRegistrationServices cregBean = (ComponentRegistrationServices)BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
+
+                        ComponentRegistrationServices cregBean = (ComponentRegistrationServices) BaseProcessor.createEJB(ctx, ComponentRegistrationServices.class);
 
                         if (!isSuspended(nav.getSessionInfo().getUserId())) {
-                             if(!cregBean.isRegClosed(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
+                            if (!cregBean.isRegClosed(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                 if (!cregBean.isUserRegistered(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                     if (!cregBean.hasUserReviewedProject(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                         if (!cregBean.isUserWinningDesigner(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                             //check max rated / unrated
                                             log.debug("RYAN RATING IS:" + rating);
-                                            if(rating == 0 && cregBean.getUnratedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) ) {
+                                            if (rating == 0 && cregBean.getUnratedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= cregBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                                 //reg full - unrated
                                                 devTag.addTag(new ValueTag("max_reg", cregBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
                                                 xsldocURLString = XSL_DIR + "reg_full_unrated.xsl";
@@ -627,78 +536,73 @@ else if (command.equals("send")) {
                         }
                     } else {
 
-                        //todo ug, nasty!, make this a bit smarter one day
-                        if (project.toLowerCase().startsWith("team_app_")) {
+                        TCSEmailMessage mail = new TCSEmailMessage();
+                        mail.addToAddress(to, TCSEmailMessage.TO);
+                        mail.setFromAddress(from);
 
-                        } else {
-                            TCSEmailMessage mail = new TCSEmailMessage();
-                            mail.addToAddress(to, TCSEmailMessage.TO);
-                            mail.setFromAddress(from);
+                        mail.setSubject("APPLICATION: " + project + " -- " + handle);
 
-                            mail.setSubject("APPLICATION: " + project + " -- " + handle);
+                        Request r = new Request();
+                        r.setContentHandle("member_profile");
+                        r.setProperty("cr", String.valueOf(nav.getUserId()));
+                        DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+                        ResultSetContainer appRsc = (ResultSetContainer) appDai.getData(r).get("Coder_Data");
 
-                            Request r = new Request();
-                            r.setContentHandle("member_profile");
-                            r.setProperty("cr", String.valueOf(nav.getUserId()));
-                            DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-                            ResultSetContainer appRsc = (ResultSetContainer)appDai.getData(r).get("Coder_Data");
+                        int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData() == null
+                                ? "0" : String.valueOf(appRsc.getIntItem(0, "development_rating")));
+                        int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData() == null
+                                ? "0" : String.valueOf(appRsc.getIntItem(0, "design_rating")));
 
-                            int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData()==null
-                                    ?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
-                            int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData()==null
-                                    ?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
+                        msgText.append("\n\nAlgorithm Rating:\n");
+                        msgText.append(rating);
+                        msgText.append("\n\nDev Rating:\n");
+                        msgText.append(devRating);
+                        msgText.append("\n\nDesign Rating:\n");
+                        msgText.append(desRating);
+                        msgText.append("\n\n").append("http://");
+                        msgText.append(ApplicationServer.SERVER_NAME);
+                        msgText.append("/stat?c=member_profile&cr=");
+                        msgText.append(nav.getUserId());
+                        msgText.append("\n");
 
-                            msgText.append("\n\nAlgorithm Rating:\n");
-                            msgText.append(rating);
-                            msgText.append("\n\nDev Rating:\n");
-                            msgText.append(devRating);
-                            msgText.append("\n\nDesign Rating:\n");
-                            msgText.append(desRating);
-                            msgText.append("\n\n").append("http://");
-                            msgText.append(ApplicationServer.SERVER_NAME);
-                            msgText.append("/stat?c=member_profile&cr=");
-                            msgText.append(nav.getUserId());
-                            msgText.append("\n");
+                        mail.setBody(msgText.toString());
+                        xsldocURLString = XSL_DIR + "inquiry_app.xsl";
+                        EmailEngine.send(mail);
 
-                            mail.setBody(msgText.toString());
-                            xsldocURLString = XSL_DIR + "inquiry_app.xsl";
-                            EmailEngine.send(mail);
-
-                            //send an email to the person that applied
-                            TCSEmailMessage resp = new TCSEmailMessage();
-                            resp.addToAddress(from, TCSEmailMessage.TO);
-                            resp.setFromAddress(to);
-                            resp.setSubject(project);
-                            StringBuffer respBody = new StringBuffer(100);
-                            respBody.append("Hello ");
-                            respBody.append(handle);
-                            respBody.append(", \n\n");
-                            respBody.append("Your application for more information on the ");
-                            respBody.append(project);
-                            respBody.append(" application project has been received.\n\n");
-                            respBody.append("If you are chosen, you will receive an email containing more details about ");
-                            respBody.append("the project.  Once you have read that information, you will be expected to ");
-                            respBody.append("respond indicating whether or not you will commit to completing the work.\n\n");
-                            if (desRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
-                                    respBody.append("Since you do not have a component design rating, it is unlikely that ");
-                                    respBody.append("you will be chosen to work on this application.  You may look at ");
-                                    respBody.append("the current component design opportunities here ");
-                                    respBody.append("http://");
-                                    respBody.append(ApplicationServer.SERVER_NAME);
-                                    respBody.append("/?t=development&c=comp_projects\n\n");
-                            } else if (devRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
-                                    respBody.append("Since you do not have a component development rating, it is unlikely that ");
-                                    respBody.append("you will be chosen to work on this application.  You may look at ");
-                                    respBody.append("the current component development opportunities here ");
-                                    respBody.append("http://");
-                                    respBody.append(ApplicationServer.SERVER_NAME);
-                                    respBody.append("/?t=development&c=comp_projects\n\n");
-                            }
-                            respBody.append("TopCoder Software Service");
-                            resp.setBody(respBody.toString());
-                            EmailEngine.send(resp);
-
+                        //send an email to the person that applied
+                        TCSEmailMessage resp = new TCSEmailMessage();
+                        resp.addToAddress(from, TCSEmailMessage.TO);
+                        resp.setFromAddress(to);
+                        resp.setSubject(project);
+                        StringBuffer respBody = new StringBuffer(100);
+                        respBody.append("Hello ");
+                        respBody.append(handle);
+                        respBody.append(", \n\n");
+                        respBody.append("Your application for more information on the ");
+                        respBody.append(project);
+                        respBody.append(" application project has been received.\n\n");
+                        respBody.append("If you are chosen, you will receive an email containing more details about ");
+                        respBody.append("the project.  Once you have read that information, you will be expected to ");
+                        respBody.append("respond indicating whether or not you will commit to completing the work.\n\n");
+                        if (desRating == 0 && phase.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
+                            respBody.append("Since you do not have a component design rating, it is unlikely that ");
+                            respBody.append("you will be chosen to work on this application.  You may look at ");
+                            respBody.append("the current component design opportunities here ");
+                            respBody.append("http://");
+                            respBody.append(ApplicationServer.SERVER_NAME);
+                            respBody.append("/?t=development&c=comp_projects\n\n");
+                        } else if (devRating == 0 && phase.equals(String.valueOf(SoftwareComponent.DEV_PHASE))) {
+                            respBody.append("Since you do not have a component development rating, it is unlikely that ");
+                            respBody.append("you will be chosen to work on this application.  You may look at ");
+                            respBody.append("the current component development opportunities here ");
+                            respBody.append("http://");
+                            respBody.append(ApplicationServer.SERVER_NAME);
+                            respBody.append("/?t=development&c=comp_projects\n\n");
                         }
+                        respBody.append("TopCoder Software Service");
+                        resp.setBody(respBody.toString());
+                        EmailEngine.send(resp);
+
                     }
                 } else {
                     requiresLogin = true;
@@ -708,7 +612,6 @@ else if (command.equals("send")) {
 
                     devTag.addTag(new ValueTag("Project", project));
 
-                    //String handle = nav.getUser().getHandle();
                     String handle = nav.getSessionInfo().getHandle();
                     devTag.addTag(new ValueTag("handle", handle));
 
@@ -735,72 +638,72 @@ else if (command.equals("send")) {
                     int rating = nav.getSessionInfo().getRating();
                     log.debug("Got Rating");
 
-                            TCSEmailMessage mail = new TCSEmailMessage();
-                            mail.addToAddress(to, TCSEmailMessage.TO);
-                            mail.setFromAddress(from);
+                    TCSEmailMessage mail = new TCSEmailMessage();
+                    mail.addToAddress(to, TCSEmailMessage.TO);
+                    mail.setFromAddress(from);
 
-                            mail.setSubject("TEAM APPLICATION: " + project + " -- " + handle);
+                    mail.setSubject("TEAM APPLICATION: " + project + " -- " + handle);
 
-                            Request r = new Request();
-                            r.setContentHandle("member_profile");
-                            r.setProperty("cr", String.valueOf(nav.getUserId()));
-                            DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
-                            ResultSetContainer appRsc = (ResultSetContainer)appDai.getData(r).get("Coder_Data");
+                    Request r = new Request();
+                    r.setContentHandle("member_profile");
+                    r.setProperty("cr", String.valueOf(nav.getUserId()));
+                    DataAccessInt appDai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+                    ResultSetContainer appRsc = (ResultSetContainer) appDai.getData(r).get("Coder_Data");
 
-                            int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData()==null
-                                    ?"0":String.valueOf(appRsc.getIntItem(0, "development_rating")));
-                            int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData()==null
-                                    ?"0":String.valueOf(appRsc.getIntItem(0, "design_rating")));
+                    int devRating = Integer.parseInt(appRsc.getItem(0, "development_rating").getResultData() == null
+                            ? "0" : String.valueOf(appRsc.getIntItem(0, "development_rating")));
+                    int desRating = Integer.parseInt(appRsc.getItem(0, "design_rating").getResultData() == null
+                            ? "0" : String.valueOf(appRsc.getIntItem(0, "design_rating")));
 
-                            msgText.append("\n\nAlgorithm Rating:\n");
-                            msgText.append(rating);
-                            msgText.append("\n\nDev Rating:\n");
-                            msgText.append(devRating);
-                            msgText.append("\n\nDesign Rating:\n");
-                            msgText.append(desRating);
-                            msgText.append("\n\n").append("http://");
-                            msgText.append(ApplicationServer.SERVER_NAME);
-                            msgText.append("/stat?c=member_profile&cr=");
-                            msgText.append(nav.getUserId());
-                            msgText.append("\n");
+                    msgText.append("\n\nAlgorithm Rating:\n");
+                    msgText.append(rating);
+                    msgText.append("\n\nDev Rating:\n");
+                    msgText.append(devRating);
+                    msgText.append("\n\nDesign Rating:\n");
+                    msgText.append(desRating);
+                    msgText.append("\n\n").append("http://");
+                    msgText.append(ApplicationServer.SERVER_NAME);
+                    msgText.append("/stat?c=member_profile&cr=");
+                    msgText.append(nav.getUserId());
+                    msgText.append("\n");
 
-                            mail.setBody(msgText.toString());
-                            xsldocURLString = XSL_DIR + "inquiry_teamp_app.xsl";
-                            EmailEngine.send(mail);
+                    mail.setBody(msgText.toString());
+                    xsldocURLString = XSL_DIR + "inquiry_teamp_app.xsl";
+                    EmailEngine.send(mail);
 
-                            //send an email to the person that applied
-                            TCSEmailMessage resp = new TCSEmailMessage();
-                            resp.addToAddress(from, TCSEmailMessage.TO);
-                            resp.setFromAddress(to);
-                            resp.setSubject(project);
-                            StringBuffer respBody = new StringBuffer(100);
-                            respBody.append("Hello ");
-                            respBody.append(handle);
-                            respBody.append(", \n\n");
+                    //send an email to the person that applied
+                    TCSEmailMessage resp = new TCSEmailMessage();
+                    resp.addToAddress(from, TCSEmailMessage.TO);
+                    resp.setFromAddress(to);
+                    resp.setSubject(project);
+                    StringBuffer respBody = new StringBuffer(100);
+                    respBody.append("Hello ");
+                    respBody.append(handle);
+                    respBody.append(", \n\n");
 
-                            respBody.append("Thank you for registering for the ");
-                            respBody.append(project);
-                            respBody.append(" Team Application Project.  Since this is a team project, please remember that ");
-                            respBody.append("if you registered without providing the TopCoder handle of a teammate, we will ");
-                            respBody.append("assume that you are looking for TopCoder to assign a teammate for you.  If this ");
-                            respBody.append("is not correct, you may reply to this email with the TopCoder handle of your ");
-                            respBody.append("teammate.\n\n");
-                            respBody.append("In addition, if you are not familiar with the TopCoder Team Application process, ");
-                            respBody.append("please read this information: ");
-                            respBody.append("http://");
-                            respBody.append(ApplicationServer.SERVER_NAME);
-                            respBody.append("/?t=development&c=app_team_meth");
-                            respBody.append("\n\n");
-                            respBody.append("Please note the deadline for proposal submissions, as this is the first ");
-                            respBody.append("deliverable in the new Team Application process.\n\n");
-                            respBody.append("Access to all of the project specification documentation will be provided to ");
-                            respBody.append("you shortly.\n\n");
-                            respBody.append("We will contact you in the near future to ensure that you plan to participate ");
-                            respBody.append("in the proposal phase of this application project.\n\n");
+                    respBody.append("Thank you for registering for the ");
+                    respBody.append(project);
+                    respBody.append(" Team Application Project.  Since this is a team project, please remember that ");
+                    respBody.append("if you registered without providing the TopCoder handle of a teammate, we will ");
+                    respBody.append("assume that you are looking for TopCoder to assign a teammate for you.  If this ");
+                    respBody.append("is not correct, you may reply to this email with the TopCoder handle of your ");
+                    respBody.append("teammate.\n\n");
+                    respBody.append("In addition, if you are not familiar with the TopCoder Team Application process, ");
+                    respBody.append("please read this information: ");
+                    respBody.append("http://");
+                    respBody.append(ApplicationServer.SERVER_NAME);
+                    respBody.append("/?t=development&c=app_team_meth");
+                    respBody.append("\n\n");
+                    respBody.append("Please note the deadline for proposal submissions, as this is the first ");
+                    respBody.append("deliverable in the new Team Application process.\n\n");
+                    respBody.append("Access to all of the project specification documentation will be provided to ");
+                    respBody.append("you shortly.\n\n");
+                    respBody.append("We will contact you in the near future to ensure that you plan to participate ");
+                    respBody.append("in the proposal phase of this application project.\n\n");
 
-                            respBody.append("TopCoder Software Service");
-                            resp.setBody(respBody.toString());
-                            EmailEngine.send(resp);
+                    respBody.append("TopCoder Software Service");
+                    resp.setBody(respBody.toString());
+                    EmailEngine.send(resp);
 
                 } else {
                     requiresLogin = true;
@@ -845,15 +748,14 @@ else if (command.equals("send")) {
     private static boolean tcoTermsCheck(long userId) throws Exception {
         Calendar c = Calendar.getInstance();
 
-        if(c.before(new GregorianCalendar(2004, 7, 10)) || c.after(new GregorianCalendar(2004, 9, 23)))
-        {
+        if (c.before(new GregorianCalendar(2004, 7, 10)) || c.after(new GregorianCalendar(2004, 9, 23))) {
             return true;
         }
 
         boolean ret = false;
         InitialContext ctx = TCContext.getInitial();
         try {
-            UserTermsOfUse userTerms = (UserTermsOfUse)BaseProcessor.createEJB(ctx, UserTermsOfUse.class);
+            UserTermsOfUse userTerms = (UserTermsOfUse) BaseProcessor.createEJB(ctx, UserTermsOfUse.class);
             ret = userTerms.hasTermsOfUse(userId, Constants.TCO04_COMPONENT_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
         } finally {
             BaseProcessor.close(ctx);
@@ -920,29 +822,27 @@ else if (command.equals("send")) {
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_suspension");
         return !rsc.isEmpty();
     }
-    
+
     static int getDesignRating(long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("member_profile");
         r.setProperty("cr", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("Coder_Data");
-        if(rsc.getItem(0, "design_rating").getResultData() == null)
-        {
+        if (rsc.getItem(0, "design_rating").getResultData() == null) {
             return 0;
         } else {
             return rsc.getIntItem(0, "design_rating");
         }
     }
-    
+
     static int getDevRating(long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.DW_DATASOURCE_NAME);
         Request r = new Request();
         r.setContentHandle("member_profile");
         r.setProperty("cr", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("Coder_Data");
-        if(rsc.getItem(0, "development_rating").getResultData() == null)
-        {
+        if (rsc.getItem(0, "development_rating").getResultData() == null) {
             return 0;
         } else {
             return rsc.getIntItem(0, "development_rating");
