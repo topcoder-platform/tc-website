@@ -395,48 +395,49 @@ public final class TaskDevelopment {
                 devTag.addTag(rsc.getTag("projects", "project"));
 
                 if (nav.isLoggedIn()) {
-                    long version = Long.parseLong(request.getParameter("version"));
-                    long phase = Long.parseLong(request.getParameter("phase"));
-                    long componentId = Long.parseLong(request.getParameter("comp"));
-                    if (!isProjectLockedOut(componentId, version, phase) ||
-                            isTournamentComponent(componentId, version, phase)) {
 
-                        long userId;
-                        devTag.addTag(new ValueTag("Project", project));
+                    long userId;
+                    devTag.addTag(new ValueTag("Project", project));
 
-                        //String handle = nav.getUser().getHandle();
-                        String handle = nav.getSessionInfo().getHandle();
-                        devTag.addTag(new ValueTag("handle", handle));
+                    //String handle = nav.getUser().getHandle();
+                    String handle = nav.getSessionInfo().getHandle();
+                    devTag.addTag(new ValueTag("handle", handle));
 
-                        Data.loadUser(nav);
-                        String from = nav.getUser().getEmail();
-                        String to = Conversion.checkNull(request.getParameter("To"));
-                        String comment = Conversion.clean(request.getParameter("Comment"));
-                        String activeForumId = "";
+                    Data.loadUser(nav);
+                    String from = nav.getUser().getEmail();
+                    String to = Conversion.checkNull(request.getParameter("To"));
+                    String comment = Conversion.clean(request.getParameter("Comment"));
+                    String activeForumId = "";
 
 
-                        StringBuffer msgText = new StringBuffer(1000);
-                        msgText.append(handle);
-                        msgText.append(" inquiry for project:  ");
-                        msgText.append(project);
-                        msgText.append("\n\n");
-                        boolean agreedToTerms = false;
-                        if (request.getParameter("terms") == null) {
-                            msgText.append("\n\nDid not agree to terms.\n");
-                            agreedToTerms = false;
-                        } else {
-                            msgText.append("\n\nAgreed to terms.\n");
-                            agreedToTerms = true;
-                        }
-                        msgText.append("\n\nComment:\n");
-                        msgText.append(comment);
-                        boolean permissionAdded = false;
-                        //User user = nav.getUser();
-                        //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
-                        log.debug("Get Rating");
-                        int rating = nav.getSessionInfo().getRating();
-                        log.debug("Got Rating");
-                        if (comp.length() > 0) {
+                    StringBuffer msgText = new StringBuffer(1000);
+                    msgText.append(handle);
+                    msgText.append(" inquiry for project:  ");
+                    msgText.append(project);
+                    msgText.append("\n\n");
+                    boolean agreedToTerms = false;
+                    if (request.getParameter("terms") == null) {
+                        msgText.append("\n\nDid not agree to terms.\n");
+                        agreedToTerms = false;
+                    } else {
+                        msgText.append("\n\nAgreed to terms.\n");
+                        agreedToTerms = true;
+                    }
+                    msgText.append("\n\nComment:\n");
+                    msgText.append(comment);
+                    boolean permissionAdded = false;
+                    //User user = nav.getUser();
+                    //CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
+                    log.debug("Get Rating");
+                    int rating = nav.getSessionInfo().getRating();
+                    log.debug("Got Rating");
+                    if (comp.length() > 0) {
+                        long componentId = Long.parseLong(request.getParameter("comp"));
+                        long version = Long.parseLong(request.getParameter("version"));
+                        long phase = Long.parseLong(request.getParameter("phase"));
+
+                        if (!isProjectLockedOut(componentId, version, phase) ||
+                                isTournamentComponent(componentId, version, phase)) {
 
                             Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
@@ -566,23 +567,22 @@ public final class TaskDevelopment {
                             }
                             EmailEngine.send(mail);
 
-
                         } else {
-                            TCSEmailMessage mail = new TCSEmailMessage();
-                            mail.addToAddress(to, TCSEmailMessage.TO);
-                            mail.setFromAddress(from);
-
-                            mail.setSubject("APPLICATION: " + project + " -- " + handle);
-                            msgText.append("\n\nRating: ");
-                            msgText.append(rating);
-                            mail.setBody(msgText.toString());
-
-                            xsldocURLString = XSL_DIR + "inquiry_app.xsl";
-                            EmailEngine.send(mail);
-
+                            xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
                         }
                     } else {
-                        xsldocURLString = XSL_DIR + "inquiry_sent_neg.xsl";
+                        TCSEmailMessage mail = new TCSEmailMessage();
+                        mail.addToAddress(to, TCSEmailMessage.TO);
+                        mail.setFromAddress(from);
+
+                        mail.setSubject("APPLICATION: " + project + " -- " + handle);
+                        msgText.append("\n\nRating: ");
+                        msgText.append(rating);
+                        mail.setBody(msgText.toString());
+
+                        xsldocURLString = XSL_DIR + "inquiry_app.xsl";
+                        EmailEngine.send(mail);
+
                     }
                 } else {
                     requiresLogin = true;
@@ -626,8 +626,8 @@ public final class TaskDevelopment {
         r.setProperty("cd", String.valueOf(componentId));
         r.setProperty("vid", String.valueOf(version));
         r.setProperty("ph", String.valueOf(phase));
-        ResultSetContainer rsc = (ResultSetContainer)dAccess.getData(r).get("inquiry_count");
-        return rsc.getIntItem(0,"count")>=Constants.MAX_INQUIRIES;
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("inquiry_count");
+        return rsc.getIntItem(0, "count") >= Constants.MAX_INQUIRIES;
     }
 
     static boolean isTournamentComponent(long componentId, long version, long phase) throws Exception {
@@ -637,8 +637,8 @@ public final class TaskDevelopment {
         r.setProperty("cd", String.valueOf(componentId));
         r.setProperty("vid", String.valueOf(version));
         r.setProperty("ph", String.valueOf(phase));
-        ResultSetContainer rsc = (ResultSetContainer)dAccess.getData(r).get("component_dates_status");
-        return rsc.getIntItem(0,"status_id")==Constants.TOURNAMENT_COMPONENT;
+        ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_dates_status");
+        return rsc.getIntItem(0, "status_id") == Constants.TOURNAMENT_COMPONENT;
     }
 
     static ComponentManager getComponentManager(long componentId) {
