@@ -68,14 +68,13 @@
 
 <!-- Center Column Begins-->
          <td class="bodyText" valign="top">
-            <img src="/i/clear.gif" width="500" height="1" border="0"/><br />
             <h2>Overview</h2>
             
             <p>The $25,000 Google/TopCoder Extreme Challenge is designed as a premiere online recruiting event for Google.  Google will 
             utilize the technology platform and expertise developed by TopCoder, Inc. for the exclusive purpose of objectively assessing 
             programming ability.</p>
             
-            <p><br /></p>
+            <p><br /><img src="/i/clear.gif" width="500" height="1" border="0"/><br /></p>
                         
         </td>
 <!-- Center Column Ends -->
