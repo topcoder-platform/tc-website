@@ -56,7 +56,7 @@
   <TR>
     <TD CLASS="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
-            <FORM name="frmSend" method="POST" action="/?&t=development">
+            <FORM name="frmSend" method="POST" action="/?&amp;t=development">
               <INPUT TYPE="hidden" NAME="t" VALUE="development"/>
               <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
               <INPUT TYPE="hidden" NAME="c" VALUE="tcs_send"/>
