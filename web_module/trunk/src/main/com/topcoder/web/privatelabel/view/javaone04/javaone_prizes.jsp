@@ -50,8 +50,14 @@
                 </tr>
 
                 <tr>
-                    <td width="30%" class="sidebarText">Grand Prize (3)*</td>
-                    <td width="70%" class="sidebarText">One complimentary full Conference pass to the 2005 JavaOne conference,valued at $1,995 (travel and lodging excluded)</td>
+                    <td width="30%" class="sidebarText" valign="top">Grand Prize (3)*</td>
+                    <td width="70%" class="sidebarText">
+                    <ul>
+                    <li>One complimentary full Conference pass to the 2005 JavaOne conference, valued at $1,995 (travel and lodging excluded)</li>
+                    <li>A collection of 23 Java Series publications, valued at $x,xxx</li>
+                    <li>One Zodiac Mobile Entertainment console and package from TapWave, valued at $625</li>
+                    </ul>
+                    </td>
                 </tr>
 
                 <tr>
