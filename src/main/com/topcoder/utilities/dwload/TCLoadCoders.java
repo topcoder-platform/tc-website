@@ -323,14 +323,14 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,user u ");
             query.append(" WHERE c.coder_id = u.user_id ");
             query.append("   AND c.modify_date > ?");
-            query.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
+            query.append("   AND EXISTS (SELECT 'pops' FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = c.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = c.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -416,7 +416,7 @@ public class TCLoadCoders extends TCLoad {
             // Our select statement to determine if a particular row is
             // present or not
             query = new StringBuffer(100);
-            query.append("SELECT * ");
+            query.append("SELECT 'pops' ");
             query.append("  FROM coder ");
             query.append(" WHERE coder_id = ?");
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
@@ -591,7 +591,7 @@ public class TCLoadCoders extends TCLoad {
 
             // Our select statement to determine if the row exists
             query = new StringBuffer(100);
-            query.append("SELECT * ");
+            query.append("SELECT 'pops' ");
             query.append("  FROM skill ");
             query.append(" WHERE skill_id = ?");
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
@@ -703,7 +703,7 @@ public class TCLoadCoders extends TCLoad {
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
-            query.append("SELECT * ");
+            query.append("SELECT 'pops' ");
             query.append("  FROM skill_type_lu ");
             query.append(" WHERE skill_type_id = ?");
             psSel2 = prepareStatement(query.toString(), TARGET_DB);
@@ -793,14 +793,14 @@ public class TCLoadCoders extends TCLoad {
             query.append("      ,skill s ");
             query.append("WHERE cs.skill_id = s.skill_id ");
             query.append("  AND cs.modify_date > ?");
-            query.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = cs.coder_id AND gu.group_id = 10)");
+            query.append("   AND EXISTS (SELECT 'pops' FROM group_user gu WHERE gu.user_id = cs.coder_id AND gu.group_id = 10)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = cs.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = cs.coder_id ");
             query.append("           AND gu.group_id = 14)");
@@ -890,14 +890,14 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,r.rating_no_vol ");     // 6
             query.append("  FROM rating r ");
             query.append(" WHERE r.modify_date > ? ");
-            query.append("   AND EXISTS (SELECT * FROM group_user gu WHERE gu.user_id = r.coder_id AND gu.group_id = 10)");
+            query.append("   AND EXISTS (SELECT 'pops' FROM group_user gu WHERE gu.user_id = r.coder_id AND gu.group_id = 10)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = r.coder_id ");
             query.append("           AND gu.group_id = 13)");
             query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT * ");
+            query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
             query.append("         WHERE gu.user_id = r.coder_id ");
             query.append("           AND gu.group_id = 14)");
