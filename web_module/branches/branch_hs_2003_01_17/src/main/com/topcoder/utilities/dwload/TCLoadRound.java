@@ -1466,10 +1466,14 @@ public class TCLoadRound extends TCLoad {
 
     /**
      * This loads the 'room_result'. This is actually a partial load of
-     * the 'room_result' table as three columns are not populated:
-     * submission_points, problems_submitted and
+     * the 'room_result' table as four columns are not populated:
+     * school_points, submission_points, problems_submitted and
      * point_standard_deviation. We get these later on in the aggregate
      * load.
+
+important: dw:room_result.school_id comes from oltp:user_school_xref;
+if students change schools, reloading an old round will lose historical data
+
      */
     private void loadRoomResult() throws Exception {
         int retVal = 0;
@@ -1565,16 +1569,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.overall_rank ");                        // 27
             query.append("       ,rr.division_placed ");                     // 28
             query.append("       ,rr.division_seed ");                       // 29
-            query.append("      ,(SELECT COUNT(*) ");                        // 30
-            query.append("          FROM room_result rr3 ");
-            query.append("         WHERE rr3.school_id = rr.school_id ");
-            query.append("           AND rr3.round_id = rr.round_id ");
-            query.append("           AND rr3.division_placed < rr.division_placed) ");
-            query.append("       ,(SELECT COUNT(*) ");                       // 31
-            query.append("           FROM room_result rr2 ");
-            query.append("          WHERE rr2.school_id = rr.school_id ");
-            query.append("            AND rr2.round_id = rr.round_id) ");
-            query.append("       , x.school_id");  //32
+            query.append("       , x.school_id");                             //30
             query.append("  FROM room_result rr ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
@@ -1622,8 +1617,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,overall_rank ");                    // 27
             query.append("       ,division_placed ");                 // 28
             query.append("       ,division_seed ");                   // 29
-            query.append("       ,school_points ");                  // 30
-            query.append("       ,school_id) ");                  // 31
+            query.append("       ,school_id) ");                      // 30
             query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
             query.append("        ?,?,?,?,?,?,?,?,?,?,?)");  // 30 total values
@@ -1681,13 +1675,7 @@ public class TCLoadRound extends TCLoad {
                 psIns.setInt(27, rs.getInt(27));  // overall_rank
                 psIns.setInt(28, rs.getInt(28));  // division_placed
                 psIns.setInt(29, rs.getInt(29));  // division_seed
-                if (rs.getInt(31)>=3&&rs.getInt(30)<3) {
-                    psIns.setInt(30, rs.getInt(28)); // divison_placed
-                }
-                else {
-                    psIns.setInt(30, 0);
-                }
-                psIns.setInt(31, rs.getInt(32));  // school_id
+                psIns.setInt(30, rs.getInt(30));  // school_id
                 retVal = psIns.executeUpdate();
                 count += retVal;
                 if (retVal != 1) {
