@@ -62,7 +62,7 @@
                                         <p>
                                             <strong>Overview</strong>
                                             <br/>
-                                            The Admin Tool enhancements project has one major goal in mind; allow users to
+                                            The Admin Tool Enhancements project has one major goal in mind; allow users to
                                             administer TopCoder competitions over the Internet without requiring any access
                                             to the TopCoder internal network.  The current Admin Tool does work over the Internet
                                             and provide a significant level of administration for contests.  However, in order
