@@ -92,7 +92,7 @@
 --%>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_SAVE%>')"><img src="/i/corp/screening/buttonSave.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_COMPILE%>')"><img src="/i/corp/screening/buttonCompile.gif" alt="" /></a></td>
-                          <td><a href="/mockup/codingRoom.jsp" target="_top"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
+                          <td><a href="testWindow.jsp" target="_blank"><img src="/i/corp/screening/buttonTest.gif" alt="" /></a></td>
                           <td><a href="JavaScript:clear(document.problemForm.<%=Constants.CODE%>);"><img src="/i/corp/screening/buttonClear.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_VIEW_PROBLEM_SET%>')"><img src="/i/corp/screening/buttonClose.gif" alt="" /></a></td>
                           <td><a href="JavaScript:doSubmit('<%=Constants.RP_SUBMIT%>')"><img src="/i/corp/screening/buttonSubmit.gif" alt="" /></a></td>

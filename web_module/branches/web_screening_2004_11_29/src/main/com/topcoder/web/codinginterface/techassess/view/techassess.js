@@ -16,7 +16,7 @@
                     root.getElementById(name).innerHTML = text;
                 //else alert("root " + root + " name " + name + " text + " + text);
             } else {
-                alert("FIX ME");
+                //alert("FIX ME");
             }
         }
 
