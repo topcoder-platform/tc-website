@@ -130,6 +130,7 @@ log.debug("Setting Companyname = "+companyName);
 
         dataRequest.setProperty("uid", Integer.toString(uid) );
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
+        dataRequest.setProperty("jid", Integer.toString(getJobID()) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
 
