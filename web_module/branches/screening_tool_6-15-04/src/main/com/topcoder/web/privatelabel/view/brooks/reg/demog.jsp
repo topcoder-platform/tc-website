@@ -50,6 +50,7 @@
                                     <pl:demographicInput question="<%=question%>"/>
                                 </td>
                            </tr>
+                        </pl:questionIterator>
                            <tr>
                                 <td class="brRegTableQuestion">
                                     <span class="brErrorText"><b>OPTIONAL:</b></span> Resume
@@ -58,7 +59,6 @@
                                     <input type=file name="Resume">
                                 </td>
                            </tr>
-                        </pl:questionIterator>
                         <tr>
                             <td class="brRegTableQuestion"></td>
                             <td class="brRegTableAnswer" nowrap=nowrap>
