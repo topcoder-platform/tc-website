@@ -417,7 +417,7 @@ public class DataRetriever implements DataRetrieverInt {
             // Put these in a result set container to avoid requiring the
             // connection to have two open prepared statements at the same
             // time.
-            ResultSetContainer rsc = new ResultSetContainer(rs);
+            ResultSetContainer rsc = new ResultSetContainer(rs, false);
 
             rs.close();
             rs = null;
