@@ -98,8 +98,9 @@ public class DefaultPriceComponent implements SoftwareComponent{
     }
 
     private float getScreeningPrimaryDevReviewCost() {
+        float screeningSetupCost = 1.0f * DEV_REVIEW_RATE; // 60 minutes to set up
         float screeningCost = (1f / 2f) * (float)submissionCount * DEV_REVIEW_RATE;  //30 minutes per submission
-        return screeningCost;
+        return screeningSetupCost + screeningCost;
     }
 
     private float getDevAggregationCost() {
