@@ -63,7 +63,7 @@
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                                 <tr valign="middle">
-                                    <td class="projectTitles" colspan="4">Application Design Projects</td>
+                                    <td class="projectTitles" colspan="4">Open Application Design Projects</td>
                                 </tr>
 
                                 <tr valign="middle">
@@ -89,7 +89,7 @@
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                                 <tr valign="middle">
-                                    <td class="projectTitles" colspan="4">Application Development Projects</td>
+                                    <td class="projectTitles" colspan="4">Open Application Development Projects</td>
                                 </tr>
 
                                 <tr valign="middle">
@@ -133,6 +133,31 @@
 
 
                             </table>
+
+
+                            <br/>
+
+                            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                                <tr valign="middle">
+                                    <td class="projectTitles" colspan="3">Recent Application Development Projects</td>
+                                </tr>
+
+                                <tr valign="middle">
+                                    <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
+                                    <td class="projectHeaders" align="center" nowrap="nowrap">Winning Developer</td>
+                                    <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=GeneChip_Data_Interface_Front_End_Dev">GeneChip Data Interface - Front End</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1,560 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$625 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr>
+
+
+                            </table>
+
 
                             <p>
                                 <br/>
