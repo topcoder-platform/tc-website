@@ -44,6 +44,7 @@ public class HTMLRenderer {
   * Clears the cache.
   */
   public void refresh() throws TCException {
+    log.info("HTMLRenderer.refresh()");
     XSLTransformerCache cache = null;
     try {
       cache = XSLTransformerCache.getInstance();
