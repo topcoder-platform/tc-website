@@ -46,6 +46,8 @@ public class SessionInfo {
         requestString = HttpUtils.getRequestURL(request) + queryString;
 
         isLoggedIn = !authentication.getUser().isAnonymous();
+        log.debug("servername: " + getServerName() + " servletpath:" + getServletPath() + " query: " +
+                getQueryString() + " request: " + getRequestString());
     }
 
 
