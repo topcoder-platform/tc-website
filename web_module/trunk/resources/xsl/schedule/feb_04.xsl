@@ -133,33 +133,39 @@
                             
                             <tr> 
                                 <td id="calendar">22</td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">23</span><br/>
+                                <td id="calendarTCCC04">
+                                    <span id="calendarTCCC04Date">23</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Qualification Round Starts<br/>
                                     12:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">24</span><br/>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    </td>
+                                <td id="calendarTCCC04">
+                                    <span id="calendarTCCC04Date">24</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Qualification Round Ends<br/>
                                     12:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    </td>
                                 <td id="calendar">25</td>
                                 <td id="calendar">26</td>
                                 <td id="calendar">27</td>
-                                <td id="calendarTourney">
-                                    <span id="calendarSRMDate">28</span><br/>
+                                <td id="calendarTCCC04">
+                                    <span id="calendarTCCC04Date">28</span><br/>
                                     <strong>2004 TopCoder Collegiate Challenge</strong><br/>
                                     Round 1<br/>
-                                    Compete: 12:00&#160;PM<br/>
+                                    Compete:<br/>12:00&#160;PM<br/>
                                     &#160;<br />
                                     &#160;<br />
-                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/></td>
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="topLink" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about">Details</A>
+                                    </td>
                             </tr>
                             
                             <tr> 
@@ -178,7 +184,6 @@
                                     &#160;</td>
                             </tr>
                         </table>
-
                         <p><br/></p>
                         
                     </td>
