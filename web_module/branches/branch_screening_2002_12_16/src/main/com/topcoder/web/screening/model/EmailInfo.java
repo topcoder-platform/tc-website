@@ -87,22 +87,6 @@ public class EmailInfo extends BaseModel {
         if(sessionInfo == null) return null;
         SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy haa");
         StringBuffer msgText = new StringBuffer(1000);
-        msgText.append("The follow session has been setup for ");
-        msgText.append(candidateHandle);
-        msgText.append(" by ");
-        msgText.append(repName);
-        msgText.append(":");
-        msgText.append("\n   Login: ");
-        msgText.append(candidateHandle);
-        msgText.append("\n   Password: ");
-        msgText.append(candidatePassword);
-        msgText.append("\n   Begin: ");
-        msgText.append(sdf.format(sessionInfo.getBeginDate()));
-        msgText.append("\n   End: ");
-        msgText.append(sdf.format(sessionInfo.getEndDate()));
-        msgText.append("\n");
-
-
         msgText.append("Dear Candidate:\n");
         msgText.append("Thank you for your interest in working at ");
         msgText.append(companyName);
