@@ -4,6 +4,7 @@
    ResultSetContainer.ResultSetRow rsr;
    ArrayList states=new ArrayList();
    ArrayList schools=new ArrayList();
+   ArrayList codes=new ArrayList();
    rsc=(ResultSetContainer)data.get("state_schools");
    for (Iterator i=rsc.iterator();i.hasNext();) {
     rsr=(ResultSetContainer.ResultSetRow)i.next();
@@ -11,22 +12,40 @@
     if (states.size()==0||!((String)states.get(states.size()-1)).equals(name)) {
      states.add(name);
      schools.add(new ArrayList());
+     codes.add(new ArrayList());
     }
     ArrayList state_schools=(ArrayList)schools.get(schools.size()-1);
     state_schools.add(rsr.getItem("short_name").getResultData());
+    ArrayList state_codes=(ArrayList)codes.get(codes.size()-1);
+    state_codes.add(rsr.getItem("school_id").getResultData());
    } %>
 <SCRIPT type="text/javascript">
  var schools=new Array(<%=schools.size()%>)
+ var codes=new Array(<%=codes.size()%>)
  <% for (int i=0;i<schools.size();i++) {
-     ArrayList state_schools=(ArrayList)schools.get(i); %>
+     ArrayList state_schools=(ArrayList)schools.get(i);
+     ArrayList state_codes=(ArrayList)codes.get(i); %>
  schools[<%=i%>]=new Array(<%=state_schools.size()%>)
+ codes[<%=i%>]=new Array(<%=state_codes.size()%>)
   <% for (int j=0;j<state_schools.size();j++) { %>
  schools[<%=i%>][<%=j%>]=<%=(String)state_schools.get(j)%>
+ codes[<%=i%>][<%=j%>]=<%=(Integer)state_codes.get(j)%>
   <% }
     } %>
  function changeState() {
-  
- }
+  var idx=state.selectedIndex
+  if (idx==-1) {
+   school.disabled=true
+   school.options.length=0
+  }
+  else {
+   school.disabled=false
+   school.options.length=schools[idx].size
+   for (i=0;i<schools[idx].size;i++) {
+    school.options(i).text=schools[idx][i]
+    school.options(i).value=codes[idx][i]
+   } 
+  }
 </SCRIPT>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
