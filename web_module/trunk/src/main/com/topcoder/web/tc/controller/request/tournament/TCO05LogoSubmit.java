@@ -69,16 +69,15 @@ public class TCO05LogoSubmit extends Base {
                     log.debug("created image " + imageId);
                     coderImage.createCoderImage(getUser().getId(), imageId, false, DBMS.JTS_OLTP_DATASOURCE_NAME);
                     tm.commit();
+                    setNextPage("/tournaments/tco05/logo_success.jsp");
+                    setIsNextPageInContext(true);
                 } catch (Exception e) {
                     if (tm!=null && tm.getStatus()==Status.STATUS_ACTIVE) {
+                        log.warn("rolling back");
                         tm.rollback();
                     }
                     throw e;
                 }
-
-
-                setNextPage("/tournaments/tco05/logo_success.jsp");
-                setIsNextPageInContext(true);
             }
         }
     }
