@@ -9,6 +9,8 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.TCSubject;
 
@@ -70,11 +72,12 @@ public class Controller
             String taskClassName = EmailConstants.TASK_PACKAGE + "." + taskName;
             log.debug("Task bean: " + taskClassName);
 
-            WebAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response, BasicAuthentication.MAIN_SITE);
+            TCRequest tcRequest = TCRequestFactory.createRequest(request);
+            WebAuthentication auth = new BasicAuthentication(new SessionPersistor(tcRequest.getSession(true)), tcRequest, response, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             //todo perhaps find a better way to do this.  maybe we can beat min one ejb call per request
             TCSubject user = pmgr.getUserSubject(auth.getActiveUser().getId());
-            SessionInfo info = new SessionInfo(request, auth, user.getPrincipals());
+            SessionInfo info = new SessionInfo(tcRequest, auth, user.getPrincipals());
             if (info.isAdmin()) {
                 try {
                     Task task = taskFactory.getTask(taskClassName, getClass().getClassLoader());

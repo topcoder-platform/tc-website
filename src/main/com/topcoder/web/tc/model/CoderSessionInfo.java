@@ -2,6 +2,7 @@ package com.topcoder.web.tc.model;
 
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.dataAccess.DataAccessInt;
@@ -32,7 +33,7 @@ public class CoderSessionInfo extends SessionInfo {
         super();
     }
 
-    public CoderSessionInfo(HttpServletRequest request, WebAuthentication authentication, Set groups) throws Exception {
+    public CoderSessionInfo(TCRequest request, WebAuthentication authentication, Set groups) throws Exception {
         super(request, authentication, groups);
         rating = 0;
         rank = 0;

@@ -19,7 +19,6 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class PopulateProfileSetup extends BaseProfileProcessor {
-    private ServletRequest request;
     private Request profileProblemSet;
     private Request profileCompanyProblem;
     private static Logger log = Logger.getLogger(PopulateProfileSetup.class);
@@ -39,15 +38,14 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
-        request = getRequest();
 
         //check to see if they are logged in
         User user = getAuthentication().getUser();
 
-        ProfileInfo info = (ProfileInfo) request.getAttribute(Constants.PROFILE_INFO);
+        ProfileInfo info = (ProfileInfo) getRequest().getAttribute(Constants.PROFILE_INFO);
         if (info == null) {
-            info = buildProfileInfo(request);
-            request.setAttribute(Constants.PROFILE_INFO, info);
+            info = buildProfileInfo(getRequest());
+            getRequest().setAttribute(Constants.PROFILE_INFO, info);
         } else {
         }
 

@@ -110,7 +110,7 @@ public class Login extends Base {
 
     }
 
-    private void doLegacyCrap(HttpServletRequest request) throws Exception {
+    private void doLegacyCrap(TCRequest request) throws Exception {
         PrincipalMgrRemote pmgr = (PrincipalMgrRemote)
                 com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
         TCSubject user = pmgr.getUserSubject(getAuthentication().getActiveUser().getId());

@@ -17,6 +17,8 @@ import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCRequestFactory;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
@@ -126,7 +128,7 @@ public final class MainServlet extends HttpServlet {
             // INIT SESSION AND XML DOCUMENT
             session = request.getSession(true);
             document = new XMLDocument("TC");
-            nav = getNav(request, response);
+            nav = getNav(TCRequestFactory.createRequest(request), response);
             addURLTags(nav, request, response, document);
             // NEED THE TASK TO SEE WHAT THE USER WANTS
             requestTask = request.getParameter("t");
@@ -362,7 +364,7 @@ public final class MainServlet extends HttpServlet {
         }
     }
 
-    private Navigation getNav(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    private Navigation getNav(TCRequest request, HttpServletResponse response) throws Exception {
         Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
         if (nav==null) {
             nav = new Navigation(request, response);

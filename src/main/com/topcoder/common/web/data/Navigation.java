@@ -7,6 +7,8 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -83,13 +85,27 @@ public final class Navigation
         info = new CoderSessionInfo();
     }
 
-    public Navigation(HttpServletRequest request, CoderSessionInfo info) throws TCException {
+    public Navigation(TCRequest request, CoderSessionInfo info) throws TCException {
         this();
         this.info = info;
         init(request);
     }
 
     public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
+        this();
+        try {
+            TCRequest tcRequest = TCRequestFactory.createRequest(request);
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
+                    tcRequest, response, BasicAuthentication.MAIN_SITE);
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
+            init(tcRequest);
+        } catch (Exception e) {
+            throw new TCException();
+        }
+    }
+    public Navigation(TCRequest request, HttpServletResponse response) throws TCException {
         this();
         try {
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
@@ -103,7 +119,7 @@ public final class Navigation
         }
     }
 
-    private void init(HttpServletRequest request) {
+    private void init(TCRequest request) {
         String appName = StringUtils.checkNull(request.getParameter("AppName"));
         if (browser==null) {
             browser = new Browser();

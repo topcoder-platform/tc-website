@@ -13,9 +13,6 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.Constants;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import javax.rmi.PortableRemoteObject;
 import java.util.Map;
 
 /**

@@ -29,14 +29,12 @@ public class Submit extends PRBase {
             throw new PermissionException(getUser(), new ClassResource(this.getClass()));
         }
         long userID = getUser().getId();
-        HttpServletRequest request = null;
         try {
-            request = getRequest();
             int pid = 0;
             try {
-                pid = Integer.parseInt(request.getParameter("pid"));
+                pid = Integer.parseInt(getRequest().getParameter("pid"));
             } catch (Exception e) {
-                throw new Exception("Error parsing pid: " + request.getParameter("pid"));
+                throw new Exception("Error parsing pid: " + getRequest().getParameter("pid"));
             }
             Request r = new Request();
             r.setContentHandle("Problem Rating Submit");
@@ -70,7 +68,7 @@ public class Submit extends PRBase {
                 ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) it.next();
                 qid = row.getIntItem("question_id");
                 try {
-                    rating = Integer.parseInt(request.getParameter("q" + qid));
+                    rating = Integer.parseInt(getRequest().getParameter("q" + qid));
                 } catch (Exception e) {
                     error = "Please answer all of the questions.";
                 }

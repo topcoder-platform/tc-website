@@ -1,6 +1,7 @@
 package com.topcoder.web.privatelabel.controller;
 
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -32,7 +33,7 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
-    protected WebAuthentication createAuthentication(HttpServletRequest request,
+    protected WebAuthentication createAuthentication(TCRequest request,
                                                      HttpServletResponse response) throws Exception {
         return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.PRIVATE_LABEL_SITE);
     }

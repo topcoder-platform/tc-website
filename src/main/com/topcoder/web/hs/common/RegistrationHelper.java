@@ -13,12 +13,12 @@ import com.topcoder.web.ejb.rating.*;
 import com.topcoder.web.ejb.coder.Coder;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCRequest;
 
 import java.rmi.*;
 import java.util.*;
 import javax.ejb.*;
 import javax.naming.*;
-import javax.servlet.*;
 import javax.transaction.UserTransaction;
 
 
@@ -146,7 +146,7 @@ public class RegistrationHelper {
         srb.setAgreeTerms(false);
     }
 
-    public static void populateStudentFromRequest(ServletRequest request,
+    public static void populateStudentFromRequest(TCRequest request,
                                                   StudentRegistrationBean srb)
             throws Exception {
 
@@ -523,7 +523,7 @@ public class RegistrationHelper {
         crb.setAgreeTerms(false);
     }
 
-    public static void populateCoachFromRequest(ServletRequest request,
+    public static void populateCoachFromRequest(TCRequest request,
                                                 CoachRegistrationBean crb)
             throws Exception {
 
@@ -868,13 +868,13 @@ public class RegistrationHelper {
         }
     }
 
-    private static String getParameter(ServletRequest request, String param,
+    private static String getParameter(TCRequest request, String param,
                                        String defaultVal) {
         String value = request.getParameter(param);
         return (value == null || value.trim().length() == 0 ? defaultVal : value.trim());
     }
 
-    private static Long getParameterLong(ServletRequest request, String param,
+    private static Long getParameterLong(TCRequest request, String param,
                                          Long defaultVal) {
         Long value = defaultVal;
         try {
@@ -885,7 +885,7 @@ public class RegistrationHelper {
         return (value);
     }
 
-    private static Integer getParameterInteger(ServletRequest request,
+    private static Integer getParameterInteger(TCRequest request,
                                                String param, Integer defaultVal) {
         Integer value = defaultVal;
         try {

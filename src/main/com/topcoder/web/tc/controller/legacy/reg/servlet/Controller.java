@@ -11,6 +11,8 @@ import com.topcoder.web.tc.controller.legacy.reg.bean.TaskException;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -55,10 +57,11 @@ public class Controller
              * they are asked to log in.  if we don't do this, we get the wrong info for the
              * request cuz it's stored in the session from some old request.
              */
-            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
+            TCRequest tcRequest = TCRequestFactory.createRequest(request);
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()), tcRequest, response, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
-            CoderSessionInfo info = new CoderSessionInfo(request, authentication, user.getPrincipals());
+            CoderSessionInfo info = new CoderSessionInfo(tcRequest, authentication, user.getPrincipals());
             nav.setCoderSessionInfo(info);
 
             if (nav.isIdentified() && !nav.isLoggedIn())

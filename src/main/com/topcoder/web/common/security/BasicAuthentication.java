@@ -12,6 +12,7 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.common.TCRequest;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -58,7 +59,7 @@ public class BasicAuthentication implements WebAuthentication {
      * Construct an authentication instance backed by the given persistor
      * and HTTP request, response and cookie path resource.
      */
-    public BasicAuthentication(Persistor userPersistor, ServletRequest request, ServletResponse response, Resource r) throws Exception {
+    public BasicAuthentication(Persistor userPersistor, TCRequest request, ServletResponse response, Resource r) throws Exception {
         this.persistor = userPersistor;
         this.request = (HttpServletRequest) request;
         this.response = (HttpServletResponse) response;

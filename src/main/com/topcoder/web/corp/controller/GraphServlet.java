@@ -31,6 +31,8 @@ import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCRequest;
+import com.topcoder.web.common.TCRequestFactory;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -94,8 +96,9 @@ public final class GraphServlet extends HttpServlet {
             Graph.setLicenseKey(LICENSE_KEY);
             dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
 
+            TCRequest tcRequest = TCRequestFactory.createRequest(request);
             WebAuthentication authentication = new BasicAuthentication(
-                    new SessionPersistor(request.getSession()), request, response, BasicAuthentication.CORP_SITE);
+                    new SessionPersistor(tcRequest.getSession()), tcRequest, response, BasicAuthentication.CORP_SITE);
 
             log.info("[*** graph *** " + dataRequest.getContentHandle() + " *** " + authentication.getActiveUser().getUserName() + " ***]");
 

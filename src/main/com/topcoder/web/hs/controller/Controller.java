@@ -1,15 +1,12 @@
 package com.topcoder.web.hs.controller;
 
 import java.io.*;
-import java.lang.reflect.Method;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.hs.common.Constants;
 import com.topcoder.web.common.security.*;
-import com.topcoder.web.common.RequestProcessor;
-import com.topcoder.web.common.NavigationException;
-import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.*;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -45,8 +42,9 @@ public class Controller extends HttpServlet {
 
         /* for exceptions we surely cannot correct */
         try {
+            TCRequest tcRequest = TCRequestFactory.createRequest(request);
             persistor = new SessionPersistor(request.getSession());
-            auth = new BasicAuthentication(persistor, request, response, BasicAuthentication.HS_SITE);
+            auth = new BasicAuthentication(persistor, tcRequest, response, BasicAuthentication.HS_SITE);
 
             RequestProcessor rp;
 
@@ -89,7 +87,7 @@ public class Controller extends HttpServlet {
                         log.debug("calling Class.forName()", e);
                         throw new NavigationException();
                     }
-                    callProcess(rp, request);
+                    callProcess(rp, tcRequest);
 
                 } catch(PermissionException pe) {
                     log.debug("caught PermissionException");  // no stack trace to the logs
@@ -104,7 +102,7 @@ public class Controller extends HttpServlet {
                     request.setAttribute("nextpage", HttpUtils.getRequestURL(request) + qtail);
 
                     rp = new com.topcoder.web.hs.controller.requests.Login();
-                    callProcess(rp, request);
+                    callProcess(rp, tcRequest);
                 }
 
                 /* try this once here and hopefully display a pretty error if it fails */
@@ -121,7 +119,7 @@ public class Controller extends HttpServlet {
                 request.setAttribute("exception", e);
 
                 rp = new com.topcoder.web.hs.controller.requests.Error();
-                callProcess(rp, request);
+                callProcess(rp, tcRequest);
             }
 
             /* only reporting errors at this point */
@@ -150,7 +148,7 @@ public class Controller extends HttpServlet {
     }
 
     /** invoke the given RequestProcessor */
-    private void callProcess(RequestProcessor rp, HttpServletRequest request) throws Exception {
+    private void callProcess(RequestProcessor rp, TCRequest request) throws Exception {
         rp.setRequest(request);
         rp.setAuthentication(auth);
         rp.process();

@@ -16,12 +16,11 @@ public class RemoveProfileProblem extends BaseProfileProcessor {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
-        ServletRequest request = getRequest();
-        ProfileInfo info = buildProfileInfo(request);
+        ProfileInfo info = buildProfileInfo(getRequest());
 
-        info.removeTestSetB(request.getParameter(Constants.TEST_SET_B_REMOVE));
+        info.removeTestSetB(getRequest().getParameter(Constants.TEST_SET_B_REMOVE));
 
-        request.setAttribute(Constants.PROFILE_INFO, info);
+        getRequest().setAttribute(Constants.PROFILE_INFO, info);
         setNextPage("testing/" + "?" +
                 Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);

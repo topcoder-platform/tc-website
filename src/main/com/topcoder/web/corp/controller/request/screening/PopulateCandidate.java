@@ -35,9 +35,8 @@ import java.util.Map;
  */
 public class PopulateCandidate extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
-        ServletRequest request = getRequest();
-        String uId = request.getParameter(Constants.CANDIDATE_ID);
-        if (request.getAttribute(Constants.CANDIDATE_INFO) == null) {
+        String uId = getRequest().getParameter(Constants.CANDIDATE_ID);
+        if (getRequest().getAttribute(Constants.CANDIDATE_INFO) == null) {
             CandidateInfo info = new CandidateInfo();
             if (uId != null) {
                 info.setIsNew(false);
@@ -83,9 +82,9 @@ public class PopulateCandidate extends BaseProcessor {
             }
 
             //set this so we don't lose the value
-            info.setReferrer(request.getParameter(Constants.REFERRER));
+            info.setReferrer(getRequest().getParameter(Constants.REFERRER));
 
-            request.setAttribute(Constants.CANDIDATE_INFO, info);
+            getRequest().setAttribute(Constants.CANDIDATE_INFO, info);
         }
 
         setNextPage(Constants.CANDIDATE_SETUP_PAGE);

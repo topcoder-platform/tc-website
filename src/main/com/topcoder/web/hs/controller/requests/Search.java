@@ -6,12 +6,10 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.*;
 import com.topcoder.web.hs.model.*;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.TCRequest;
 import com.topcoder.common.web.error.NavigationException;
 
 import java.util.*;
-import javax.naming.*;
-import javax.servlet.*;
-import javax.sql.*;
 
 public class Search extends Base {
 
@@ -100,7 +98,7 @@ public class Search extends Base {
     }
 
 
-    private void populateSearchFromRequest(ServletRequest request, SearchBean sb) {
+    private void populateSearchFromRequest(TCRequest request, SearchBean sb) {
         String next = getParameter(request, "next", "");
 
         if (!next.equals("")) {
@@ -143,12 +141,12 @@ public class Search extends Base {
     }
 
 
-    private String getParameter(ServletRequest request, String param, String def) {
+    private String getParameter(TCRequest request, String param, String def) {
         String value = request.getParameter(param);
         return (value == null || value.trim().length() == 0 ? def : value.trim());
     }
 
-    private Long getParameterLong(ServletRequest request, String param, Long _default) {
+    private Long getParameterLong(TCRequest request, String param, Long _default) {
         Long value = _default;
         try {
             value = new Long(request.getParameter(param));
@@ -158,7 +156,7 @@ public class Search extends Base {
         return (value);
     }
 
-    private Integer getParameterInteger(ServletRequest request, String param, Integer def) {
+    private Integer getParameterInteger(TCRequest request, String param, Integer def) {
         Integer value = def;
         try {
             value = new Integer(request.getParameter(param));
