@@ -242,6 +242,11 @@
             <param-value>A</param-value>
             <description></description>
         </init-param>
+        <init-param>
+            <param-name>unactive_status</param-name>
+            <param-value>U</param-value>
+            <description></description>
+        </init-param>
     </servlet>
 
     <servlet>

@@ -11,7 +11,6 @@ import com.topcoder.web.ejb.user.User;
 import com.topcoder.shared.util.DBMS;
 
 import javax.naming.InitialContext;
-import javax.ejb.EJBException;
 
 public class Activate extends Base {
 
@@ -33,8 +32,15 @@ public class Activate extends Base {
             if (dbCode.equals(code)) {
                 //activate account
                 User user = (User) createEJB(ctx, User.class);
-                user.setStatus(userId, Constants.ACTIVE_STATUS.charAt(0));
-                setNextPage(Constants.ACTIVATE);
+                char status = user.getStatus(userId);
+                if (status==Constants.UNACTIVE_STATUS.charAt(0)) {
+                    user.setStatus(userId, Constants.ACTIVE_STATUS.charAt(0));
+                    setNextPage(Constants.ACTIVATE);
+                } else if (status == Constants.ACTIVE_STATUS.charAt(0)) {
+                    throw new NavigationException("Account has already been activated.");
+                } else {
+                    throw new NavigationException("Your account can not be activated.");
+                }
             } else {
                 throw new NavigationException("Sorry, incorrect activation code, account not activated.");
             }
