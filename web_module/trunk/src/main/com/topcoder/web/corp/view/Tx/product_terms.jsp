@@ -1,7 +1,8 @@
 <%@ page
          contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.Constants,
-                 com.topcoder.web.corp.controller.TransactionServlet"
+                 com.topcoder.web.corp.controller.TransactionServlet,
+                 com.topcoder.web.corp.model.TransactionInfo"
          autoFlush="false"
          buffer="64kb"
          errorPage="../exc/InternalError.jsp"
@@ -39,12 +40,13 @@
 </P><BR>
 <FORM action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TX_BEGIN%>" method="POST" name="frmTerms">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+  <jsp:useBean id="TransactionInfo" scope="request" class="com.topcoder.web.corp.model.TransactionInfo" />
 
   <TR valign="middle">
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Terms of Use</B></FONT></TD>
   </TR>
   <TR align="right" valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
+    <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" value="<%=TransactionInfo.getTerms()%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
   </TR>
 
     <TR>
@@ -63,7 +65,6 @@
         <INPUT type="hidden" name="module" value="Registration"/>
     </TR>
   <TR ALIGN="right" VALIGN="middle">
-       <jsp:useBean id="TransactionInfo" scope="request" class="com.topcoder.web.corp.model.TransactionInfo" />
        <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
        <input type="hidden" name="prod-id" value="<jsp:getProperty name="TransactionInfo" property="productID"/>"/>
        <input type="hidden" name="utype-id" value="<jsp:getProperty name="TransactionInfo" property="unitTypeID"/>"/>
