@@ -43,28 +43,28 @@
 <div align="center">
 
 <font face="arial, helvetica, verdana, sans-serif">
-<h2>Sony - TopCoder Employment Program</h2>
-<p>Please view the following links for review of the Sony Employment program.</p>
+<h2>Sony Computer Entertainment - TopCoder Employment Program</h2>
+<p>Please view the following links for review of the Sony Computer Entertainment Employment program.</p>
 
 <table cellspacing="10" cellpadding="0" border="0">
     <tr valign="top">
         <td>
             <p><strong>Website</strong><br/>
-            <a href="/i/es/sony/public_home.gif" class="bodyText" target="_blank">Public Home Page</a><br/>
-            <a href="/i/es/sony/member_home.gif" class="bodyText" target="_blank">Member Home Page</a><br/>
-            <a href="/i/es/sony/TCES_home.gif" class="bodyText" target="_blank">TCES Main Page</a><br/>
-            <a href="/?t=tces&amp;c=sony" class="bodyText" target="_blank">Sony Main Page</a><br/>
-            <a href="/?t=tces&amp;c=sony_openings&amp;a=secure" class="bodyText" target="_blank">Sony Job Listing Page</a></p>
+            <a href="/i/es/scea/public_home.gif" class="bodyText" target="_blank">Public Home Page</a><br/>
+            <a href="/i/es/scea/member_home.gif" class="bodyText" target="_blank">Member Home Page</a><br/>
+            <a href="/i/es/scea/TCES_home.gif" class="bodyText" target="_blank">TCES Main Page</a><br/>
+            <a href="/?t=tces&amp;c=scea" class="bodyText" target="_blank">Sony Computer Entertainment Main Page</a><br/>
+            <a href="/?t=tces&amp;c=scea_openings&amp;a=secure" class="bodyText" target="_blank">Sony Computer Entertainment Job Listing Page</a></p>
 
             <p><strong>Arena Applet</strong><br/>
-            <a href="/i/es/sony/applet_login.gif" class="bodyText" target="_blank">Login Window</a><br/>
-            <a href="/i/es/sony/applet_lobby.gif" class="bodyText" target="_blank">Lobby Window</a><br/>
-            <a href="/i/es/sony/applet_coding.gif" class="bodyText" target="_blank">Coding Window</a><br/>
-            <a href="/i/es/sony/applet_status.gif" class="bodyText" target="_blank">Status Window</a><br/>
-            <a href="/i/es/sony/applet_leaderboard.gif" class="bodyText" target="_blank">Leaderboard Window</a></p>
+            <a href="/i/es/scea/applet_login.gif" class="bodyText" target="_blank">Login Window</a><br/>
+            <a href="/i/es/scea/applet_lobby.gif" class="bodyText" target="_blank">Lobby Window</a><br/>
+            <a href="/i/es/scea/applet_coding.gif" class="bodyText" target="_blank">Coding Window</a><br/>
+            <a href="/i/es/scea/applet_status.gif" class="bodyText" target="_blank">Status Window</a><br/>
+            <a href="/i/es/scea/applet_leaderboard.gif" class="bodyText" target="_blank">Leaderboard Window</a></p>
 
             <p><strong>Email</strong><br/>
-            <a href="/?t=tces&amp;c=sony_em" class="bodyText" target="_blank">Employment Announcement</a></p>
+            <a href="/?t=tces&amp;c=scea_em" class="bodyText" target="_blank">Employment Announcement</a></p>
         </td>
     </tr>
 </table>

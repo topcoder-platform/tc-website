@@ -58,18 +58,18 @@
 
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
-                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Sony Jobs</b></td></tr>
-                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=sony_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
+                            <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;Sony Computer Entertainment Jobs</b></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=scea_openings&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Message Begins -->
-                        <p><a href="/?&amp;t=tces&amp;c=sony" class="bodyText"><img src="/i/es/scea/scea_logo.gif" width="90" height="119" alt="Sony" border="0" /></a></p>
+                        <p><a href="/?&amp;t=tces&amp;c=scea" class="bodyText"><img src="/i/es/scea/scea_logo.gif" width="90" height="119" alt="Sony Computer Entertainment" border="0" /></a></p>
 
-                        <p>Sony Computer Entertainment America Inc. (SCEA) markets the PlayStation&#174; family of products and 
+                        <p>Sony Computer Entertainment Computer Entertainment America Inc. (SCEA) markets the PlayStation&#174; family of products and 
                         develops, publishes, markets, and distributes software for the PS one(TM) console and the PlayStation&#174;2 
-                        computer entertainment system for the North American market. Based in Foster City, California, Sony 
+                        computer entertainment system for the North American market. Based in Foster City, California, Sony Computer Entertainment 
                         Computer Entertainment America Inc. serves as headquarters for all North American operations and is a 
-                        wholly owned subsidiary of Sony Computer Entertainment Inc.</p>
+                        wholly owned subsidiary of Sony Computer Entertainment Computer Entertainment Inc.</p>
 
                         <p>In case you've been in a coma since the inception of car phones, the PlayStation family of products has 
                         taken home entertainment to new, sometimes frightening, heights. The secret sauce is one part hardware 
@@ -80,7 +80,7 @@
                         into is bound to be found on the PlayStation&#174;2 computer entertainment system, the PS one(TM) game console, 
                         or the PlayStation&#174; game console.</p>
 
-                        <p>If SCEA sounds like the place for you, check out the <A href="/?&amp;t=tces&amp;c=sony_openings&amp;a=secure" class="bodyText">opportunities available</A></p>
+                        <p>If SCEA sounds like the place for you, check out the <A href="/?&amp;t=tces&amp;c=scea_openings&amp;a=secure" class="bodyText">opportunities available</A></p>
 <!-- Client Message Ends -->
 
                         <p><br /></p>
