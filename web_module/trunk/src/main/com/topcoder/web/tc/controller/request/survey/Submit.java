@@ -6,6 +6,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.view.tag.AnswerInput;
 import com.topcoder.web.tc.model.Question;
 import com.topcoder.web.tc.model.Answer;
+import com.topcoder.web.tc.model.SurveyResponse;
 import com.topcoder.web.ejb.survey.Response;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -23,22 +24,22 @@ public class Submit extends View {
                 paramName = (String) params.nextElement();
                 log.debug("param: " + paramName);
                 if (paramName.startsWith(AnswerInput.PREFIX)) {
-                    Question q = validateAnswer(paramName, questionInfo);
+                    List responses = validateAnswer(paramName, questionInfo);
                     if (hasErrors()) {
                         setNextPage(Constants.SURVEY_VIEW);
                         setIsNextPageInContext(true);
                     } else {
-                        Answer a = null;
+                        SurveyResponse resp = null;
                         Response response = (Response) createEJB(new InitialContext(), Response.class);
                         boolean hasAllFreeForm = true;
-                        for (Iterator it = q.getAnswerInfo().iterator(); it.hasNext();) {
-                            a = (Answer) it.next();
-                            if (q.getStyleId() == Question.MULTIPLE_CHOICE || q.getStyleId() == Question.SINGLE_CHOICE) {
-                                response.createResponse(getUser().getId(), q.getId(), a.getId());
-                                hasAllFreeForm = false;
+                        for (Iterator it = responses.iterator(); it.hasNext();) {
+                            resp = (SurveyResponse) it.next();
+                            hasAllFreeForm &= resp.isFreeForm();
+                            if (resp.isFreeForm()) {
+                                response.createResponse(resp.getUserId(), resp.getQuestionId(), resp.getAnswerId());
                             } else {
-                                response.createResponse(getUser().getId(), q.getId());
-                                response.setResponseText(getUser().getId(), q.getId(), a.getText());
+                                response.createResponse(resp.getUserId(), resp.getQuestionId());
+                                response.setResponseText(resp.getUserId(), resp.getQuestionId(), resp.getText());
                             }
                         }
                         if (hasAllFreeForm) {
@@ -56,12 +57,12 @@ public class Submit extends View {
         }
     }
 
-    private Question validateAnswer(String paramName, List questions) {
+    private List validateAnswer(String paramName, List questions) {
 
         Question question = null;
         String[] answers = getRequest().getParameterValues(paramName);
-        List retAnswers = null;
-        if (answers != null) retAnswers = new ArrayList(answers.length);
+        List ret = null;
+        if (answers != null) ret = new ArrayList(answers.length);
         for (int i = 0; i < answers.length; i++) {
             long questionId = -1;
             long answerId = -1;
@@ -106,20 +107,20 @@ public class Submit extends View {
                 }
             }
             if (!hasErrors()) {
-                Answer a = new Answer();
-                a.setQuestionId(question.getId());
+                SurveyResponse response = new SurveyResponse();
+                response.setQuestionId(question.getId());
+                response.setUserId(getUser().getId());
                 if (question.getStyleId() == Question.SINGLE_CHOICE || question.getStyleId() == Question.MULTIPLE_CHOICE) {
-                    a.setId(answerId);
+                    response.setAnswerId(answerId);
+                    response.setFreeForm(false);
                 } else {
-                    a.setText(StringUtils.checkNull(answers[i]));
+                    response.setText(StringUtils.checkNull(answers[i]));
+                    response.setFreeForm(true);
                 }
-                retAnswers.add(a);
+                ret.add(response);
             }
         }
-        if (!hasErrors() && question != null) {
-            question.setAnswerInfo(retAnswers);
-        }
-        return hasErrors() ? null : question;
+        return ret;
     }
 
     private Question findQuestion(long questionId, List questions) {
