@@ -1,8 +1,11 @@
 <%@ include file="head.inc" %>
-<P><BR></P>
-<P>Welcome to TopCoder High School, a site developed by programmers for high school students who are already interested in computer science.</P>
-<P><B>There is no cost to sign up or compete.</B></P>
-If you are a student, click <A HREF="?module=StudentRegistration">here</A> to register.
-<BR>
-If you are a coach, click <A HREF="?module=CoachRegistration">here</A> to register.
+
+                        <p><font size="3">Welcome to TopCoder High School, a site developed by programmers for 
+                        high school students who are interested in computer science.</font></p>
+                        
+                        <p><b>There is no cost to sign up or compete.</b></p>
+                        
+                        <p>If you are a student, <a href="?module=StudentRegistration">click here</a> to register.<br>
+                        If you are a coach, <a href="?module=CoachRegistration">click here</a> to register.</p>
+
 <%@ include file="tail.inc" %>
