@@ -52,6 +52,8 @@ public class TCLoadTCS extends TCLoad {
     public boolean performLoad() {
         try {
             
+            doLoadEvents();
+            
             doLoadContests();
             
             String sSQL = "select distinct project_id from project";
@@ -720,7 +722,8 @@ public class TCLoadTCS extends TCLoad {
                             "c.end_date as contest_end_timestamp, " +
                             "c.contest_type_id, " +
                             "ct.contest_type_desc," +
-                            "c.phase_id  " +
+                            "c.phase_id," +
+                            "c.event_id  " +
                             "from contest c, " +
                             "contest_type_lu ct " +
                             "where ct.contest_type_id = c.contest_type_id";
@@ -733,7 +736,7 @@ public class TCLoadTCS extends TCLoad {
                 log.info("PROCESSING CONTEST " + rs.getInt("contest_id"));
 
                 //update record, if 0 rows affected, insert record
-                sSQL = "update contest set contest_name = ?,  contest_start_timestamp = ?, contest_end_timestamp = ?, contest_type_id = ?, contest_type_desc = ?, phase_id = ? " +
+                sSQL = "update contest set contest_name = ?,  contest_start_timestamp = ?, contest_end_timestamp = ?, contest_type_id = ?, contest_type_desc = ?, phase_id = ?, event_id = ? " +
                         " where contest_id = ? ";
 
                 ps2 = prepareStatement(sSQL, TARGET_DB);
@@ -743,7 +746,8 @@ public class TCLoadTCS extends TCLoad {
                 ps2.setObject(4, rs.getObject("contest_type_id"));
                 ps2.setObject(5, rs.getObject("contest_type_desc"));
                 ps2.setObject(6, rs.getObject("phase_id"));
-                ps2.setLong(7, rs.getLong("contest_id"));
+                ps2.setObject(7, rs.getObject("event_id"));
+                ps2.setLong(8, rs.getLong("contest_id"));
 
                 int retVal = ps2.executeUpdate();
 
@@ -753,8 +757,8 @@ public class TCLoadTCS extends TCLoad {
                 if(retVal == 0)
                 {
                     //need to insert
-                    sSQL = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc, phase_id) " +
-                           "values (?, ?, ?, ?, ?, ?, ?) ";
+                    sSQL = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc, phase_id, event_id) " +
+                           "values (?, ?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("contest_id"));
@@ -764,6 +768,7 @@ public class TCLoadTCS extends TCLoad {
                     ps2.setObject(5, rs.getObject("contest_type_id"));
                     ps2.setObject(6, rs.getObject("contest_type_desc"));
                     ps2.setObject(7, rs.getObject("phase_id"));
+                    ps2.setObject(8, rs.getObject("event_id"));
 
                     ps2.execute();
 
@@ -848,5 +853,108 @@ public class TCLoadTCS extends TCLoad {
     }
 
 
+    public void doLoadEvents() throws Exception
+    {
+        PreparedStatement ps, ps2;
+        ResultSet rs; 
+        
+        try {
+
+            String sSQL = "select * " +
+                            "from event e ";
+
+            ps = prepareStatement(sSQL, SOURCE_DB);
+            rs = ps.executeQuery();
+
+            while(rs.next())
+            {
+                log.info("PROCESSING EVENT " + rs.getInt("event_id"));
+
+                //update record, if 0 rows affected, insert record
+                sSQL = "update event set event_name = ? " +
+                        " where event_id = ? ";
+
+                ps2 = prepareStatement(sSQL, TARGET_DB);
+                ps2.setObject(1, rs.getObject("event_name"));
+                ps2.setLong(2, rs.getLong("event_id"));
+
+                int retVal = ps2.executeUpdate();
+
+                ps2.close();
+                ps2 = null;
+
+                if(retVal == 0)
+                {
+                    //need to insert
+                    sSQL = "insert into event (event_id, event_name) " +
+                           "values (?, ?) ";
+
+                    ps2 = prepareStatement(sSQL, TARGET_DB);
+                    ps2.setLong(1, rs.getLong("event_id"));
+                    ps2.setObject(2, rs.getObject("event_name"));
+
+                    ps2.execute();
+
+                    ps2.close();
+                    ps2 = null;
+                }
+
+            }
+            rs.close();
+            rs = null;
+            ps.close();
+            ps = null;
+
+            //load users
+            sSQL = "select * " +
+                    "from user_event_xref ";
+
+            ps = prepareStatement(sSQL, SOURCE_DB);
+            rs = ps.executeQuery();
+
+            while(rs.next())
+            {
+                //update record, if 0 rows affected, insert record
+                sSQL = "update user_event_xref set create_date = ? " +
+                        " where event_id = ? and user_id = ?";
+
+                ps2 = prepareStatement(sSQL, TARGET_DB);
+                ps2.setObject(1, rs.getObject("create_date"));
+                ps2.setLong(2, rs.getLong("event_id"));
+                ps2.setLong(3, rs.getLong("user_id"));
+
+                int retVal = ps2.executeUpdate();
+
+                ps2.close();
+                ps2 = null;
+
+                if(retVal == 0)
+                {
+                    //need to insert
+                    sSQL = "insert into user_event_xref (event_id, user_id, create_date) " +
+                           "values (?, ?, ?) ";
+
+                    ps2 = prepareStatement(sSQL, TARGET_DB);
+                    ps2.setLong(1, rs.getLong("event_id"));
+                    ps2.setLong(2, rs.getLong("user_id"));
+                    ps2.setObject(3, rs.getObject("create_date"));
+
+                    ps2.execute();
+
+                    ps2.close();
+                    ps2 = null;
+                }
+
+            }
+            rs.close();
+            rs = null;
+            ps.close();
+            ps = null;
+        } catch (SQLException sqle) {
+            DBMS.printSqlException(true, sqle);
+            throw new Exception("Load of 'events' table failed.\n" +
+                    sqle.getMessage());
+        }
+    }
 
 }
