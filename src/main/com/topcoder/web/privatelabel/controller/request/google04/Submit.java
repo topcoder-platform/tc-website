@@ -198,7 +198,7 @@ public class Submit extends FullRegSubmit {
             buf.append("There is a practice room available to you that will allow you to become acclimated with the competition environment before you participate in the Google Code Jam 2004.  The practice room contains a problem set that will be very similar in nature to the problems you will encounter during competition.  The practice room will be available from 9:00AM ET on September 1, 2004 through 5:00PM ET on October 15, 2004.\n\n");
             buf.append("You can access the practice rooms by navigating to http://www.topcoder.com/googlecodejam and clicking on the Competition Arena tab.\n\n");
             buf.append("COMPETING IN THE QUALIFICATION ROUND\n");
-            buf.append("You may participate in the Qualification Round at any time between Weds., September 15 at 12:00 PM ET and Thursday, September 16 at 12:00 PM ET (GMT -4).  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
+            buf.append("You may participate in the Qualification Round at any time between Wednesday, September 15 at 12:00 PM ET and Thursday, September 16 at 12:00 PM ET (GMT -4).  You will have up to one hour to solve two problems.  It is recommended that you utilize the practice area prior to participating in the qualification.\n\n");
             buf.append("LAUNCHING THE ARENA\n");
             buf.append("You can launch and login to the competition arena at the appropriate time by navigating to http://www.topcoder.com/googlecodejam and clicking on the Competition Arena tab.\n\n");
             buf.append("You will need to have the Java 1.4.x runtime installed in order to launch the arena.\n\n");
