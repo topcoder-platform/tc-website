@@ -20,7 +20,9 @@ public class Shortest {
           return;
       }
       Shortest s = new Shortest();
+      System.out.println("NOT INCLUDING COMMENTS");
       s.printReport(round_id,1);
+      System.out.println("******************************************************************");
       s.printReport(round_id,2);
   }
 
@@ -41,7 +43,7 @@ public class Shortest {
       query = new StringBuffer(300);
 
       query = new StringBuffer(300);
-      query.append( " SELECT problem_id FROM round_problem WHERE round_id = ? AND division_id = ? ORDER BY difficulty_id");
+      query.append( " SELECT problem_id, difficulty_id FROM round_problem WHERE round_id = ? AND division_id = ? ORDER BY difficulty_id");
 
       ps = conn.prepareStatement(query.toString());
       ps.setInt(1, round_id);
@@ -63,7 +65,8 @@ public class Shortest {
       query.append(" AND problem_id = ?");
       query.append(" AND ps.status_id = 150");
       query.append(" AND sub.problem_state_id = ps.problem_state_id");
-      query.append(" AND ps.coder_id = u.coder_id");
+      query.append(" AND ps.coder_id = u.user_id");
+      query.append(" AND ps.submission_number = sub.submission_number");
       ps = conn.prepareStatement(query.toString());
       ps.setInt(1,round_id);
       ps.setInt(2,round_id);
@@ -74,21 +77,38 @@ public class Shortest {
           ps.setInt(4,problem_id);
           rs = ps.executeQuery();
           int min = Integer.MAX_VALUE;
+          int second = Integer.MAX_VALUE;
+          float bestPoints = 0;
+          float secondPoints = 0;
           String best = "";
-          String text = rs.getString(1);
-          float points = rs.getFloat(2);
+          String secondBest = "";
+          String s = "";
           while(rs.next())
           {
+              String text = rs.getString(1);
+              float points = rs.getFloat(2);
               String processed = cs.stripComments(text);
               if(processed.length()<min)
               {
+                  second = min;
+                  secondPoints = bestPoints;
+                  secondBest = best;
                   min = processed.length();
+                  s=processed;
                   best = rs.getString(3);
-                  System.out.println("Current best is: "+min+" for: "+best);
+                  bestPoints = points;
+//                System.out.println("Current best is: "+min+" for: "+best);
+              }
+              else if(processed.length()<second)
+              {
+                  second = processed.length();
+                  secondBest = rs.getString(3);
+                  secondPoints = points;
               }
           }
-          System.out.println("*** BEST FOR DIVISION "+division_id+" PROBLEM "+ (i+1)+" ***")
-          System.out.println(best);
+          System.out.println("*** BEST FOR DIVISION "+division_id+" PROBLEM "+ (i+1)+" with "+bestPoints+" points is "+best+" with about "+min+" keystrokes***");
+          System.out.println("*** SECOND BEST FOR DIVISION "+division_id+" PROBLEM "+ (i+1)+" with "+secondPoints+" points is "+secondBest+" with about "+second+" keystrokes***");
+          System.out.println();
       }
 
     } catch (Exception e) {
