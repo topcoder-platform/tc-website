@@ -117,7 +117,8 @@
                             <li>Detroit</li>
                         </ul>
                         
-                        <p align="center" class="bodyText"><a href="mailto:service@topcodersoftware.com?subject=TopCoder Project Manager Position">Apply for this job</a> by email. <br /></p>
+                        <p align="center" class="bodyText"><a href="mailto:service@topcodersoftware.com?subject=TopCoder Project Manager Position">Apply for this job</a> by email. </p>
+                        <p><br/></p>
 
                     </td>
                 </tr>
