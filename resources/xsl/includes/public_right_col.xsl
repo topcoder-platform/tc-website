@@ -7,6 +7,25 @@
   <xsl:param name="sectionName"></xsl:param>
   <xsl:param name="sectionSubname"></xsl:param>
 
+<script language="JavaScript" type="text/javascript"> 
+<!-- HIDE FROM OLD BROWSERS
+function timer(last) { 
+  var d = document; 
+  var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/?t=tournaments&amp;c=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/?t=tournaments&amp;c=tco03_northface']]; 
+  curr = (last+1)%stuff.length; 
+  document.changerImg.src=stuff[curr][0]; 
+  find('changerHref').href=stuff[curr][1]; 
+  setTimeout("timer(curr)", 2000); 
+} 
+function find(n) { 
+  var s = document.anchors; 
+  for (var i=0; i<s.length; i++) { 
+    if (s[i].name==n) return s[i]; 
+  } 
+} 
+END HIDING // --> 
+</script> 
+
 <xsl:choose>
     <xsl:when test="$sectionName='tourny'or$sectionName='statistics'">
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
@@ -27,10 +46,7 @@
                 </xsl:otherwise>
             </xsl:choose>
             
-            <A href="/?t=tournaments&amp;c=tco03_revelation"><img src="/i/tournament/tco03/promo_sm_revelation.gif" alt="Revelation Software" width="170" height="84" border="0" /></A><br/>
-
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index</xsl:attribute><img src="/i/tournament/tco03/promo_sponsor_tco.gif" alt="Sponsor the TCO" width="170" height="115" border="0" /></A><br />
+            <A href="" name="changerHref"><img src="" name="changerImg" width="170" height="84" border="0" /></A><br />
             
             <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
             

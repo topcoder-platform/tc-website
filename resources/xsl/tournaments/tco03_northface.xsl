@@ -44,7 +44,7 @@
         <td class="bodyText" align="center">
             <table width="510" border="0" cellpadding="0" cellspacing="15">
                 <tr align="left">
-                    <td  align="left" colspan="2"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A></td>
+                    <td  align="left" colspan="2"><A href="http://www.northface.edu/public/welcome?source=topcoder" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A></td>
                 </tr>
             
                 <tr valign="top">
@@ -57,8 +57,8 @@
                         
                         <p><img src="/i/sponsor/northface/northface_title_2.gif" alt="Northface" width="360" height="42" border="0" /><br/>
                         <img src="/i/clear.gif" alt="" width="10" height="5" border="0" /><br/>
-                        Located in Salt Lake City, <A href="http://www.northface.edu" target="_blank">Northface University</A> offers B.S. in Computer Science degrees 
-                        and MBA degrees.</p>
+                        Located in Salt Lake City, <A href="http://www.northface.edu/public/welcome?source=topcoder" target="_blank">Northface University</A> offers a B.S. in Computer Science degree 
+                        and MBA degree.</p>
                             
                         <blockquote>
                         <ul>
@@ -85,7 +85,7 @@
                         in their field, and worked for the best companies: Microsoft, IBM, NASA, Oracle, and others.</p>
                         
                         <p>Over a two-year period, you and your instructors will work in partnership with IBM, Microsoft, and Unisys on a revolutionary project-driven 
-                        learning experience. So you will graduate with more than just a diploma, you'll graduate with real-world experience on your resume.</p>
+                        learning experience. You will graduate with more than just a diploma, you'll graduate with real-world experience on your resume.</p>
                    
                         <p><img src="/i/sponsor/northface/northface_title_4.gif" alt="Northface" width="360" height="42" border="0" /><br/>
                         <img src="/i/clear.gif" alt="" width="10" height="5" border="0" /><br/>
@@ -108,7 +108,7 @@
                 <tr valign="top">
                     <td class="promoText" colspan="2" align="left">
                         <p>SCHOLARSHIPS, FINANCIAL AID, AND TEACHING ASSISTANTSHIPS AVAILABLE<br/>
-                        Click <A href="http://www.northface.edu" target="_blank">here</A> for info ASAP</p>
+                        Click <A href="http://www.northface.edu/public/welcome?source=topcoder" target="_blank">here</A> for more info.</p>
                     </td>
                 </tr>
             </table>
