@@ -15,7 +15,7 @@
 
 
 <!-- Candidate Testing begins-->
-                <tr><td id="<%=level1.equals("testing")?(level2.equals("overview")?"overviewselectclass":"overviewnotselected"):"nontestingselected"%>"><img src="/i/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
+                <tr><td id="<%=level1.equals("testing")?(level2.equals("overview")?"myServicesSubnavOn":"myServicesSubnav"):"myServicesNav"%>"><img src="/i/nav_arrow_<%=level1.equals("testing")?"bottom":"right"%>.gif" width="10" height="10" alt="" border="0"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=index" target="_parent" class="corpLeft">Candidate Testing</a></td></tr>
 <% if (level1.equals("testing")) { %>
                 <tr><td id="<%=level2.equals("codingEnvironment")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=coding_environment" target="_parent" class="corpLeft">Candidate Testing Environment</a></td></tr>
                 <tr><td id="<%=level2.equals("problemSelection")?"myServicesSubnavOn":"myServicesSubnav"%>"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=testing&d3=problem_selection" target="_parent" class="corpLeft">Problem Selection</a></td></tr>
