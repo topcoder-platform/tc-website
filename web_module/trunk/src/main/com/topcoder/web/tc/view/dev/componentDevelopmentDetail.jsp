@@ -2,8 +2,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.tc.model.ReviewBoardApplication,
-                 java.util.List,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.shared.util.ApplicationServer"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
@@ -51,9 +49,9 @@
                         <h2 class="devSubhead"><strong><rsc:item set="<%=projectDetail%>" name="component_name"/>: Development</strong></h2>
                     </td>
                     <td align="right">
-                        <xsl:if test="/TC/DEVELOPMENT/tccc='t'">
+                        <% if (projectDetail.getIntItem(0, "status_id")==303) {%>
                             <img src="/i/development/tccc04_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
-                        </xsl:if>
+                        <% } %>
                     </td>
                 </tr>
             </table>
@@ -83,7 +81,7 @@
 
 <%-- Documentation --%>
                         <p><strong>Documentation</strong><br />
-                                All<a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a> for this project is available on the TopCoder Software web site.</p>
+                                All <a target="_new" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item set="<%=projectDetail%>" name="component_id"/>">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <%-- Payment --%>
                         <p><strong>Payment</strong><br />
@@ -151,7 +149,7 @@
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
                             <%-- Learn more about Project Submit & Review (link to future How-to guide --%>
 
-                           <p align="center"><strong><A href="http://software.topcoder.com/review">Project Submit &amp; Review</A> &gt;</strong></p>
+                           <p align="center"><strong><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/review">Project Submit &amp; Review</A> &gt;</strong></p>
                     </td>
                 </tr>
             </table>
