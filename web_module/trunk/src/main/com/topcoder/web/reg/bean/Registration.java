@@ -1790,6 +1790,16 @@ public class Registration
                 StringBuffer msgText = new StringBuffer(3000);
 
 
+                msgText.append("*** MARK YOUR CALENDAR *****************************\n");
+                msgText.append("The 2003 TopCoder Open is just around the corner:\n");
+                msgText.append("* Starts on October 7\n");
+                msgText.append("* Total prize purse is $100,000 in cash\n");
+                msgText.append("* Up to 500 competitors will receive a prize just for competing in Online Round #1\n");
+                msgText.append("* Up to 200 eligible competitors will receive cash prizes\n");
+                msgText.append("Check here for additional information:\n");
+                msgText.append("http://www.topcoder.com/?t=tournaments&c=tco03_overview\n\n");
+                msgText.append("****************************************************");
+
                 msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
                 msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
                 msgText.append("To activate your account, navigate to the following WWW URL:\n");
