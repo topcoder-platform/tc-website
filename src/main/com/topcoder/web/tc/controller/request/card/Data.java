@@ -35,6 +35,7 @@ public class Data extends Base {
             TransformerHandler hd = tf.newTransformerHandler();
             Transformer serializer = hd.getTransformer();
             serializer.setOutputProperty(OutputKeys.ENCODING,"ISO-8859-1");
+            //flash doesn't like the whitespace
 //            serializer.setOutputProperty(OutputKeys.INDENT,"yes");
             hd.setResult(streamResult);
             hd.startDocument();
