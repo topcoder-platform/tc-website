@@ -59,6 +59,7 @@
 <ContentItem contentHandle="earnings_history" nextPage="/statistics/earningHistory.jsp" access="1"/>
 <ContentItem contentHandle="component_history" nextPage="/statistics/componentHistory.jsp" access="1"/>
 <ContentItem contentHandle="ratings_history" nextPage="/statistics/ratingHistory.jsp" access="1"/>
+<ContentItem contentHandle="tcs_ratings_history" nextPage="/statistics/tcsRatingHistory.jsp" access="1"/>
 <ContentItem contentHandle="coder_room_stats" nextPage="/statistics/roomStats.jsp" access="1"/>
 <ContentItem contentHandle="coder_ratings" nextPage="/statistics/rankList.jsp" access="0"/>
 <ContentItem contentHandle="member_profile" nextPage="/statistics/memberProfile.jsp" access="0"/>
