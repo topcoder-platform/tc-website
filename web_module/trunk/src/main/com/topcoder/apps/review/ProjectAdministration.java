@@ -497,13 +497,13 @@ public class ProjectAdministration implements Model {
                 return new SubmitterRemovalResult(problemSet);
             }
 
-            if (changeType & MailHelper.PHASE_CHANGE) {
+            if (changeType & MailHelper.PHASE_CHANGE != MailHelper.NO_CHANGE) {
                 LogHelper.log("PHASE CHANGE DETECTED");
             }
-            if (changeType & MailHelper.TIMELINE_CHANGE) {
+            if (changeType & MailHelper.TIMELINE_CHANGE != MailHelper.NO_CHANGE) {
                 LogHelper.log("TIMELINE CHANGE DETECTED");
             }
-            if (changeType & MailHelper.ROLE_CHANGE) {
+            if (changeType & MailHelper.ROLE_CHANGE != MailHelper.NO_CHANGE) {
                 LogHelper.log("ROLE CHANGE DETECTED");
             }
             
