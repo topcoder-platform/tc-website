@@ -5,6 +5,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 
 import javax.jms.ObjectMessage;
+import java.io.Serializable;
 
 /**
  * User: dok
@@ -45,7 +46,7 @@ public class Login extends Base {
         log.debug("sent message " + messageId);
 
         log.debug(Thread.currentThread().toString());
-        ObjectMessage response = receive(5000, messageId);
+        Serializable response = receive(5000, messageId);
         log.debug("response " + response);
 
         setNextPage(Constants.PAGE_INDEX);

@@ -2,12 +2,10 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.shared.messaging.QueueMessageSender;
-import com.topcoder.shared.messaging.QueueMessageReceiver;
 import com.topcoder.shared.messaging.QueueResponseManager;
 import com.topcoder.shared.messaging.TimeOutException;
 import com.topcoder.shared.netCommon.messages.Message;
 
-import javax.jms.ObjectMessage;
 import java.util.HashMap;
 import java.io.Serializable;
 
