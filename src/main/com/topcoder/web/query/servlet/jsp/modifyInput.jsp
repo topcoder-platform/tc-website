@@ -38,19 +38,23 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_INPUT_NAME%></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_ID_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_DESC_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Description: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">
                 <input type="text" name="<%=Constants.INPUT_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyInputTask" property="InputDesc" />" size="30" maxlength="100">
               </TD>
             </TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.INPUT_CODE_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">Code: </TD>
               <TD CLASS="statText" ALIGN="left">
                 <input type="text" name="<%=Constants.INPUT_CODE_PARAM%>" value ="<jsp:getProperty name="ModifyInputTask" property="InputCode" />" size="10" maxlength="30">
               </TD>
             </TR>
-           <TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyInputTask%>" key="<%=Constants.DATA_TYPE_ID_PARAM%>"/></TD></TR>
+            <TR>
               <TD CLASS="statText" ALIGN="right">Data Type: </TD>
               <TD CLASS="statText" ALIGN="left">
                 <query:dataTypeSelect name="<%=Constants.DATA_TYPE_ID_PARAM%>" class="dropdown" selectedValue='<%=""+ModifyInputTask.getDataTypeId()%>'/>

@@ -90,13 +90,13 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         } else if (step!=null && step.equals(Constants.NEW_STEP)) {
             checkInputId(getInputId(), i);
             if (isInputAssociated(getQueryId(), getInputId(), qi)) {
-                super.addError(Constants.INPUT_ID_PARAM+getInputId(), "Input already associated with Query");
+                super.addError(Constants.INPUT_ID_PARAM, "Input already associated with Query");
             }
             qi.createQueryInput(getQueryId(), getInputId());
         } else if (step!=null && step.equals(Constants.REMOVE_STEP)) {
             checkInputId(getInputId(), i);
             if (!isInputAssociated(getQueryId(), getInputId(), qi)) {
-                super.addError(Constants.INPUT_ID_PARAM+getInputId(), "Input not associated with Query");
+                super.addError(Constants.INPUT_ID_PARAM, "Input not associated with Query");
             }
             qi.removeQueryInput(getQueryId(), getInputId());
         }

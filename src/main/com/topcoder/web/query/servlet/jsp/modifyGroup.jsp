@@ -37,7 +37,9 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.GROUP_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroupTask" property="GroupId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_GROUP_NAME%></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyGroupTask%>" key="<%=Constants.GROUP_ID_PARAM%>"/></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyGroupTask%>" key="<%=Constants.GROUP_DESC_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>
               <TD CLASS="statText" ALIGN="left" WIDTH="50%">

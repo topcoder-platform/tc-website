@@ -36,7 +36,10 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_QUERY_INPUT_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.QUERY_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInputTask" property="QueryId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
-            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInputTask" property="Db"/>">            <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_INPUT_NAME%></TD></TR>
+            <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInputTask" property="Db"/>">
+            <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_INPUT_NAME%></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryInputTask%>" key="<%=Constants.INPUT_ID_PARAM%>"/></TD></TR>
+            <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryInputTask%>" key="<%=Constants.QUERY_ID_PARAM%>"/></TD></TR>
             <TR><TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">Query: <jsp:getProperty name="ModifyQueryInputTask" property="QueryName"/></TD></TR>
             <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
@@ -55,6 +58,9 @@
                     <TD CLASS="statTextBig"></TD>
                   </TR>
                   <query:queryInputIterator id="queryInput" list="<%=ModifyQueryInputTask.getCurrentInputList()%>">
+                    <TR><TD CLASS="errorText" COLSPAN="7"><query:error task="<%=ModifyQueryInputTask%>" key="<%=Constants.SORT_ORDER_PARAM+queryInput.getInputId()%>"/></TD></TR>
+                    <TR><TD CLASS="errorText" COLSPAN="7"><query:error task="<%=ModifyQueryInputTask%>" key="<%=Constants.OPTIONAL_PARAM+queryInput.getInputId()%>"/></TD></TR>
+                    <TR><TD CLASS="errorText" COLSPAN="7"><query:error task="<%=ModifyQueryInputTask%>" key="<%=Constants.DEFAULT_VALUE_PARAM+queryInput.getInputId()%>"/></TD></TR>
                     <TR>
                       <TD CLASS="statTextBig">
                         <A HREF="<jsp:getProperty name="ModifyQueryInputTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="ModifyQueryInputTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<jsp:getProperty name="queryInput" property="InputId"/>" class="statText">
