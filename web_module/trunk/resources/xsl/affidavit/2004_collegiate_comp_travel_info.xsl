@@ -31,7 +31,7 @@
 
 </head>
 
-<body onLoad="timer(1);" bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 
 <!-- Top begins -->
 <xsl:call-template name="Top"/>
