@@ -121,7 +121,7 @@
                                     <strong>Match 142</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
-                                    Sponsored by: NVIDIA<br/>
+                                    Sponsored by: Apex &#38; NVIDIA<br/>
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4500&amp;t=schedule&amp;c=srm">Details</a></td>
                                 <td id="calendar">16</td>
@@ -156,6 +156,7 @@
                                     <strong>Match 144</strong><br/>
                                     Register: 6:00&#160;PM<br/>
                                     Compete: 9:00&#160;PM<br/>
+                                    Sponsored by: Solipsys<br/>
                                     <!--Sponsored by: NVIDIA<BR/>-->
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
                                     ..//<a href="/?RoundId=4510&amp;t=schedule&amp;c=srm">Details</a></td>
