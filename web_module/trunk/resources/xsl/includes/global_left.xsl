@@ -21,7 +21,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
 
                 <tr>
                     <td id="leftNavOn">
@@ -54,7 +54,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
                 <xsl:call-template name="sched_row"/>
 
                 <tr><td id="leftNavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=round_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Statistics</A></td></tr>
@@ -141,7 +141,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
 
@@ -191,7 +191,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="development_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
 
 <!-- How to Get Paid -->
                 <tr>
@@ -264,7 +264,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -321,7 +321,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -652,7 +652,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="jobs_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
 
                 <tr>
                     <td id="leftNavOn">
@@ -698,7 +698,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -721,7 +721,7 @@
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="competition_row"/>
                 <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
+                <!--<xsl:call-template name="my_home_row"/>-->
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
@@ -1099,7 +1099,7 @@
                         <xsl:otherwise>left</xsl:otherwise>
                     </xsl:choose>
                 </xsl:attribute>
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=des_bonus_contest_2</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=usdc_overview</xsl:attribute>
             <img width="10" height="10" alt="" border="0" src="/i/nav_arrow_bottom.gif">
                  <xsl:attribute name="src">
                     <xsl:choose>
@@ -1112,6 +1112,19 @@
     </tr>
 
     <xsl:if test="$level2='contests'">
+
+<!-- ULTIMATE!! -->
+    <tr>
+        <td id="leftSubnav">
+            <xsl:attribute name="id">
+            <xsl:choose>
+                <xsl:when test="$level3='tco_components'">leftSubnavOn</xsl:when>
+                <xsl:otherwise>leftSubnav</xsl:otherwise>
+            </xsl:choose>
+            </xsl:attribute>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=usdc_overview</xsl:attribute>Ultimate Contest</A>
+        </td>
+    </tr>
 
 <!-- Component Design Bonus Contest 2 -->
     <tr>
