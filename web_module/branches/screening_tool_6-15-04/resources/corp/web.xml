@@ -560,6 +560,11 @@
         </init-param>
         
         <init-param>
+            <param-name>demographics_page</param-name>
+            <param-value>/testing/results/demographics.jsp</param-value>
+            <description>where to forward for demographics</description>
+        </init-param>
+        <init-param>
             <param-name>search_page</param-name>
             <param-value>/testing/search/search.jsp</param-value>
             <description>where to forward for searching</description>

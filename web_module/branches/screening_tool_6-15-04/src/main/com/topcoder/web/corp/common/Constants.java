@@ -74,6 +74,8 @@ public class Constants
     public static String SEARCH_PAGE;
     public static String SEARCH_RESULTS_PAGE;
     
+    public static String DEMOGRAPHICS_PAGE;
+    
     public static String FIRST_NAME;
     public static String LAST_NAME;
 
