@@ -1,0 +1,12 @@
+<?xml version="1.0" ?>
+<CMConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="/export/home/ddedev/app/tcs/Components/Configuration Manager/web/doc/CM v2 Schema.xsd" version="v2">
+    <Property name="DriverClass">
+        <Value>com.informix.jdbc.IfxDriver</Value>
+    </Property>
+    <Property name="ConnectionURL">
+        <Value>jdbc:informix-sqli://172.16.20.25:1526/tcs_catalog:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=altec</Value>
+    </Property>
+    <Property name="HistoryLength">
+        <Value>300</Value>
+    </Property>
+</CMConfig>
