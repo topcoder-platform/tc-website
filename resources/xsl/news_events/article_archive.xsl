@@ -61,6 +61,10 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="/i/pressroom/FastCompany0704.pdf" target="_blank">"There are good people everywhere"</A> [July - Fast Company]</td></tr>
+
+                            <tr><td class="newsText"><A href="http://www.masshightech.com/displayarticledetail.asp?art_id=65934" target="_blank">Focus on software talent</A> [June 21 - Mass High Tech]</td></tr>
+
                             <tr><td class="newsText"><A href="http://java.sun.com/developer/technicalArticles/Programming/TopCoder2004/" target="_blank">Who's the Best Coder?</A> [June - Sun]</td></tr>
 
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_06_01_04">Cracking the Hiring Code</A> [June 1 - Workforce Management]</td></tr>
