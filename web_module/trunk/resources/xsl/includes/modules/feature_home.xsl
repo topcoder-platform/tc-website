@@ -12,7 +12,7 @@
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
                         <!-- <img src="/i/m/slowjoe_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />-->
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=119676"><strong>Pops</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -20,19 +20,18 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_071003</xsl:attribute><font size="4"><strong>Immutable Objects</strong></font></a><br />
-                        Thursday, July 10, 2003</p>
+                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_072903</xsl:attribute><font size="4"><strong>The TopCoder Design Contest #2</strong></font></a><br />
+                        Tuesday, July 29, 2003</p>
 
-                        <p>How many times have you been bitten by the following bugs?  You pass
-                        an object to an innocent-looking method and it makes changes to the
-                        object that you weren't expecting.  Or you update an object in one
-                        thread and some other thread makes incompatible changes to the same
-                        object.  Or you place an object in a hash table and then somebody
-                        makes a change to the object that alters its hash code, so the object
-                        is now in the wrong place in the hash table.  All of these bugs&#8212;and
-                        a horde of similar bugs&#8212;can be avoided by using objects that are
-                        <i>immutable</i>.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_071003</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <p>The TopCoder Design Contest #2 was a very different contest than  the 
+                        previous one due to changes in the contest rules, design requirements, and judging. 
+                        The top 3 designers were awarded payments of $3000,. $2000 and $1000, based 
+                        on the average of the top 5 submission scores from each designer. Design requirements
+                        changed by removing the need for functional tests.  The scorecard added new categories,
+                        relaxed the wording on others and a much needed appeals process was put into place.  Altogether,
+                        the contest provided a wonderful experience to all and definitely improved the resulting
+                        submissions.
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_072903</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>

@@ -68,6 +68,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">July 29</td>
+                                <td valign="middle" class="bodyText">Pops</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_072903" class="bodyText">The TopCoder Design Contest #2</A></td>
+                            </tr>
+                            
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">July 10</td>
                                 <td valign="middle" class="bodyText">vorthys</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_071003" class="bodyText">Immutable Objects</A></td>
