@@ -324,6 +324,8 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             setCampaignID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
             setJobID(Integer.parseInt(value));
+        if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
+            setMemberID(Integer.parseInt(value));
     }
 
 }
