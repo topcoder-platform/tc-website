@@ -543,7 +543,7 @@ public class TransactionServlet extends HttpServlet {
         for (Iterator it = rsc.iterator(); it.hasNext();) {
             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)it.next();
             long addressId = ((Long)row.getItem("address_id").getResultData()).longValue();
-            dr.setProperty("countryID", address.getCountryCode(addressId, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME));
+            dr.setProperty("countryID", address.getCountryCode(addressId, DBMS.CORP_JTS_OLTP_DATASOURCE_NAME));
             result = dataAccess.getData(dr);
             /* the query returns a row only if the country is ineligible to purchase the product */
             eligible &= ((ResultSetContainer) result.get("country_not_eligible_for_product")).isEmpty();
