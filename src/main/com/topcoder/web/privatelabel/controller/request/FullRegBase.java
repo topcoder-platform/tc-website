@@ -104,16 +104,6 @@ abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
-    protected final List getQuestionList() throws Exception {
-        List ret = new ArrayList(questions.size());
-        DemographicQuestion q = null;
-        for (Iterator it = questions.values().iterator(); it.hasNext();) {
-            q = (DemographicQuestion) it.next();
-            ret.add(q.clone());
-        }
-        return ret;
-    }
-
     private DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
         ret.setId(row.getLongItem("demographic_question_id"));
@@ -148,5 +138,14 @@ abstract class FullRegBase extends SimpleRegBase {
         return ret;
     }
 
+    protected final List getQuestionList() throws Exception {
+        List ret = new ArrayList(questions.size());
+        DemographicQuestion q = null;
+        for (Iterator it = questions.values().iterator(); it.hasNext();) {
+            q = (DemographicQuestion) it.next();
+            ret.add(q.clone());
+        }
+        return ret;
+    }
 
 }

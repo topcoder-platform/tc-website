@@ -16,7 +16,7 @@ public class DemographicQuestion extends Base implements Comparable {
     private String desc;
     private String selectable;
     private boolean required;
-    private TreeMap answers;
+    private HashMap answers;
     private int sort;
 
     public DemographicQuestion() {}
@@ -29,7 +29,7 @@ public class DemographicQuestion extends Base implements Comparable {
         ret.setSelectable(selectable);
         ret.setRequired(required);
         ret.setSort(sort);
-        TreeMap list = new TreeMap();
+        HashMap list = new HashMap();
         DemographicAnswer a = null;
         for (Iterator it = answers.values().iterator(); it.hasNext();) {
             a = (DemographicAnswer)it.next();
@@ -70,12 +70,13 @@ public class DemographicQuestion extends Base implements Comparable {
             for (Iterator it = answers.values().iterator(); it.hasNext();) {
                 list.add(((DemographicAnswer)it.next()).clone());
             }
+            Collections.sort(list);
         }
         return list;
     }
 
     public void setAnswers(List answers) {
-        this.answers = new TreeMap();
+        this.answers = new HashMap();
         DemographicAnswer a = null;
         for (Iterator it = answers.iterator(); it.hasNext();) {
             a = (DemographicAnswer)it.next();
@@ -83,13 +84,22 @@ public class DemographicQuestion extends Base implements Comparable {
         }
     }
 
-    private void setAnswers(TreeMap answers) {
+    private void setAnswers(HashMap answers) {
         this.answers = answers;
     }
 
+    /**
+     * return an answer specified by the input.  returns null
+     * if the answer is not associated with this question
+     * @param answerId
+     * @return
+     */
     public DemographicAnswer getAnswer(long answerId) {
-        DemographicAnswer ret = (DemographicAnswer)answers.get(new Long(answerId));
-        return (DemographicAnswer)ret.clone();
+        Long key = new Long(answerId);
+        DemographicAnswer ret = null;
+        if (answers.containsKey(key))
+            ret = (DemographicAnswer)((DemographicAnswer)answers.get(key)).clone();
+        return ret;
     }
 
     public int getAnswerType() {
