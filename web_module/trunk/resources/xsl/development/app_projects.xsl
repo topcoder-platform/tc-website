@@ -74,7 +74,7 @@
                                 </tr>
                                 <tr valign="middle">
                                     <td class="projectCells">
-                                        <a href="?t=development&amp;c=SSO_Helper_Design">Thing</a>
+                                        <a href="?t=development&amp;c=project_name">Thing</a>
                                     </td>
                                     <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
@@ -95,8 +95,15 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Winning Designer</td>
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
+                                    <td class="projectCells" align="right">10.18.2004&#160;&#160;&#160;9:00 AM ET</td>
                                 </tr>
-
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=SSO_Helper_Design">Simplified Sign-on Design</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$4,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                </tr> 
                             </table>
 
                             <br/>
@@ -142,13 +149,6 @@
                                         <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     </tr>
                                 </tr>
-                                <tr valign="middle">
-                                    <td class="projectCells">
-                                        <a href="?t=development&amp;c=SSO_Helper_Design">Simplified Sign-on Design</a>
-                                    </td>
-                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                </tr>                                
                                 <tr valign="middle">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Seat_Service_Persistence_Design">Seat Service Persistence Design</a>

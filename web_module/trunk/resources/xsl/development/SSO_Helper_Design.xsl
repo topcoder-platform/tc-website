@@ -91,7 +91,7 @@
                                                         supported applications.  This application includes a front-end servlet that receives application
                                                         authentication requests for web-based applications.  However, there are fat client applications
                                                         that can utilize the Simplified Sign-on infrastructure to ease their use.  The Simplified
-                                                        Sign-on Helper will be an MFC-based Visual C++ DLL that will proxy requests from fat clients
+                                                        Sign-on Helper will be a VB.NET COM DLL that will proxy requests from fat clients
                                                         through to the front-end servlet for authentication requests and return the servlet response.
                                                     </p>
                                                     <p>
@@ -105,7 +105,8 @@
                                                         <strong>Technical Architecture Requirements</strong>
                                                     </p>
                                                     <ul class="noSpList">
-                                                        <li>C++</li>
+                                                        <li>VB.NET</li>
+                                                        <li>Microsoft .NET Framework Version 1.1</li>
                                                         <li>Java 1.3</li>
                                                         <li>Windows 2000</li>
                                                         <li>WebSphere 5.0</li>
@@ -151,15 +152,15 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total Payment -</td>
-                                                            <td class="bodyText" align="right">$3,000.00</td>
+                                                            <td class="bodyText" align="right">$4,000.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">First Payment -</td>
-                                                            <td class="bodyText" align="right">$2,000.00</td>
+                                                            <td class="bodyText" align="right">$2,500.00</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$1,000.00</td>
+                                                            <td class="bodyText" align="right">$1,500.00</td>
                                                         </tr>
                                                     </table>
 
@@ -172,9 +173,6 @@
                                                             <td class="bodyText" align="right">$1,000.00</td>
                                                         </tr>
                                                     </table>
-                                                    <p class="noSpListTitle">
-                                                        <strong>Third Place Designer</strong>
-                                                    </p>
 
                                                     <p class="noSpListTitle">
                                                         <strong>Reviewers</strong>
@@ -199,7 +197,7 @@
                                                     <table class="bodyText" cellspacing="0" cellpadding="0" border="0" width="200">
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Total - </td>
-                                                            <td class="bodyText" align="right">$5,580.00</td>
+                                                            <td class="bodyText" align="right">$6,580.00</td>
                                                         </tr>
                                                     </table>
 
@@ -256,51 +254,51 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Register By:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">Closed</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.18.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.14.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.19.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.14.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.19.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.25.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.27.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Screening Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.25.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">10.28.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.28.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.01.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeals Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.02.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Appeal Responses Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.02.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Winner Announced:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">10.29.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.02.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Final Fixes Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">11.05.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.09.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Reviewer Final Review Due:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">11.08.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.10.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Complete:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">11.08.2004 &#160;&#160;5:00 PM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">11.10.2004 &#160;&#160;5:00 PM ET</td>
                                                         </tr>
                                                     </table>
 
@@ -318,7 +316,8 @@
                                                     <p>
                                                         <strong> Registration </strong>
                                                         <br/>
-                                                        Closed
+                                                        Register
+                                                        <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=SSO%20Helper%20Design">here</a> to get selected as a development and to obtain the information necessary to submit a solution.
                                                     </p>
                                                 </td>
                                             </tr>
