@@ -75,7 +75,7 @@ log.debug(request.toString());
 
                 task.servletAction(this, request, response);
 
-                request.setAttribute( taskName, task );
+                request.getSession(true).setAttribute( taskName, task );
 
                 RequestDispatcher disp = getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) );
 if (disp==null) log.debug("disp NULL!");
