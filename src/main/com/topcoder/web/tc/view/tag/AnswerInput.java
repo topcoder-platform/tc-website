@@ -84,6 +84,7 @@ public class AnswerInput extends BaseTag {
         StringBuffer s = new StringBuffer(200);
         s.append("<input type=\"checkbox\" name=\"");
         s.append(name);
+        s.append("\"");
         if (cssclass != null) {
             s.append(" class=\"");
             s.append(cssclass);
@@ -102,6 +103,7 @@ public class AnswerInput extends BaseTag {
         StringBuffer s = new StringBuffer(200);
         s.append("<input type=\"radio\" name=\"");
         s.append(name);
+        s.append("\"");
         if (cssclass != null) {
             s.append(" class=\"");
             s.append(cssclass);
