@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class ProblemSetInfo implements Serializable {
 
     private String description = null;
+    private int typeId = 0;
     private String name = null;
     private Date timeRemaining = null;
     private String status = null;
@@ -22,11 +23,13 @@ public class ProblemSetInfo implements Serializable {
     public ProblemSetInfo() {
     }
 
-    public ProblemSetInfo(String description, String name, Date timeRemaining, String status, ScreeningProblemLabel[] problems) {
+    public ProblemSetInfo(String description, String name, Date timeRemaining,
+                          String status, int typeId, ScreeningProblemLabel[] problems) {
         this.description = description;
         this.name = name;
         this.timeRemaining = timeRemaining;
         this.status = status;
+        this.typeId = typeId;
         this.problems = problems;
     }
 
@@ -87,6 +90,14 @@ public class ProblemSetInfo implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
+    }
+
+    public int getTypeId() {
+        return typeId;
+    }
+
+    public void setTypeId(int typeId) {
+        this.typeId = typeId;
     }
 }
 

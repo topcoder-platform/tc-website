@@ -12,6 +12,7 @@
 <% if (exception == null) exception = (Exception)request.getAttribute("exception");
    if (exception!=null) exception.printStackTrace();
    String message = (String)request.getAttribute(BaseServlet.MESSAGE_KEY);
+    String url = (String)request.getAttribute(BaseServlet.URL_KEY);
  %>
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
