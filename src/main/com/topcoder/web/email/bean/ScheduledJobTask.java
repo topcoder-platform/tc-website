@@ -129,7 +129,7 @@ public class ScheduledJobTask
         // retrieve jobs from last "RECENT_JOB_DAYS" days
         ArrayList jobIdList = retrieveRecentJobs(EmailConstants.RECENT_JOB_DAYS);
 
-        request.getSession().setAttribute("JobList", jobIdList);
+        request.setAttribute("JobList", jobIdList);
 
         return EmailConstants.SCHEDULEDJOB_LIST_PAGE;
     }
@@ -164,7 +164,7 @@ public class ScheduledJobTask
         // clear error list
         request.setAttribute("Error", null);
 
-        request.getSession().setAttribute("ScheduledJob", job);
+        request.setAttribute("ScheduledJob", job);
 
         log.debug("Creating job: " + job);
 
@@ -336,7 +336,7 @@ public class ScheduledJobTask
         }
 
         ScheduledJobForm job = retrieveJob(jobId);
-        request.getSession().setAttribute("ScheduledJob", job);
+        request.setAttribute("ScheduledJob", job);
 
         log.debug("Editing scheduled job\n " + job);
 
@@ -1224,7 +1224,7 @@ public class ScheduledJobTask
             }
         }
 
-        request.getSession().setAttribute("JobList", jobIdList);
+        request.setAttribute("JobList", jobIdList);
 
         // forward to results page
         return EmailConstants.SCHEDULEDJOB_SEARCH_RESULTS_PAGE;

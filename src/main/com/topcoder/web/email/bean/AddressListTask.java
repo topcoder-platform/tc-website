@@ -107,7 +107,7 @@ public class AddressListTask
             throws ServletException {
         // create a new AddressListForm bean
         AddressListForm addressList = new AddressListForm();
-        request.getSession().setAttribute("AddressList", addressList);
+        request.setAttribute("AddressList", addressList);
 
         // clear error list
         request.setAttribute("Error", null);
@@ -176,7 +176,7 @@ public class AddressListTask
 
         AddressListForm list = retrieveAddressList(listId);
 
-        request.getSession().setAttribute("AddressList", list);
+        request.setAttribute("AddressList", list);
 
         // clear error list
         request.setAttribute("Error", null);
@@ -241,7 +241,7 @@ public class AddressListTask
     private String showAddMember(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // clear out member data
-        request.getSession().setAttribute("MemberData", null);
+        request.setAttribute("MemberData", null);
 
 
 
@@ -355,7 +355,7 @@ public class AddressListTask
 
         log.debug("editing member:\n" + memberData);
 
-        request.getSession().setAttribute("MemberData", memberData);
+        request.setAttribute("MemberData", memberData);
 
         // forward to the address list member editing page
         return EmailConstants.ADDRESSLIST_EDIT_MEMBER_PAGE;
