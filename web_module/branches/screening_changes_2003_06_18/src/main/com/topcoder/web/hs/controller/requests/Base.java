@@ -1,6 +1,7 @@
 package com.topcoder.web.hs.controller.requests;
 
 import java.util.*;
+
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.common.*;
@@ -28,39 +29,46 @@ public abstract class Base extends BaseProcessor {
     protected static Logger log = Logger.getLogger(Base.class);
 
     public Base() {
-        log.debug("constructing "+this.getClass().getName());
+        log.debug("constructing " + this.getClass().getName());
     }
 
     /**
      * Some things we want to do for most subclassed request processors.
      * Override this to disable auth setup and adding default beans.
      */
-    protected void baseProcessing() throws Exception {
-       log.debug("entering baseProcessing");
-
+    protected void baseProcessing() throws TCWebException {
+        log.debug("entering baseProcessing");
         try {
-            user = getUser();
-            hsa = new HSAuthorization(user);
+            try {
+                user = getUser();
+                hsa = new HSAuthorization(user);
 
-        } catch(Exception e) {
-            log.warn("problem getting User and Authorization objects, trying again as guest", e);
+            } catch (Exception e) {
+                log.warn("problem getting User and Authorization objects, trying again as guest", e);
 
-            /* most likely a stale cookie, so clear it out and try again */
-            getAuthentication().logout();
-            user = getUser();
-            hsa = new HSAuthorization(user);
+                /* most likely a stale cookie, so clear it out and try again */
+                getAuthentication().logout();
+                user = getUser();
+                hsa = new HSAuthorization(user);
+            }
+            info = new SessionInfoBean();
+            getRequest().setAttribute("SessionInfo", info);
+            Set groups = ((HSAuthorization) hsa).getGroups();
+            info.setAll(user, groups);
+
+            Resource r = new ClassResource(this.getClass());
+            if (!hsa.hasPermission(new ClassResource(this.getClass())))
+                throw new PermissionException(user, r);
+
+            nav = new NavZoneBean();
+            getRequest().setAttribute("NavZone", nav);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
-        info = new SessionInfoBean();
-        getRequest().setAttribute("SessionInfo", info);
-        Set groups = ((HSAuthorization)hsa).getGroups();
-        info.setAll(user, groups);
 
-        Resource r = new ClassResource(this.getClass());
-        if(!hsa.hasPermission(new ClassResource(this.getClass())))
-            throw new PermissionException(user, r);
 
-        nav = new NavZoneBean();
-        getRequest().setAttribute("NavZone", nav);
     }
 
 }

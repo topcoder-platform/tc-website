@@ -5,6 +5,7 @@ import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 
@@ -30,7 +31,7 @@ public class ModifyGroup extends BaseProcessor {
     }
 
 
-	protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
         super.baseProcessing();
         Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
@@ -40,36 +41,42 @@ public class ModifyGroup extends BaseProcessor {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         String step = getRequest().getParameter(Constants.STEP_PARAM);
-        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
+        try {
+            CommandGroup cg = (CommandGroup) Util.createEJB(getInitialContext(), CommandGroup.class);
 
 
-        if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            checkGroupDesc(getGroupDesc());
-            checkGroupId(getGroupId(), cg);
-            if (!hasErrors()) {
-                if (isNewGroup()) {
-                    setGroupId(cg.createCommandGroup(getGroupDesc(), getDb()));
-                } else {
-                    cg.setCommandGroupName(getGroupId(), getGroupDesc(), getDb());
+            if (step != null && step.equals(Constants.SAVE_STEP)) {
+                checkGroupDesc(getGroupDesc());
+                checkGroupId(getGroupId(), cg);
+                if (!hasErrors()) {
+                    if (isNewGroup()) {
+                        setGroupId(cg.createCommandGroup(getGroupDesc(), getDb()));
+                    } else {
+                        cg.setCommandGroupName(getGroupId(), getGroupDesc(), getDb());
+                    }
+                }
+            } else {
+                if (!isNewGroup()) {
+                    setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
                 }
             }
-        } else {
-            if (!isNewGroup()) {
-                setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
-            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
-        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.MODIFY_GROUP_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
             setDb(value);
@@ -95,14 +102,14 @@ public class ModifyGroup extends BaseProcessor {
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
         if (!isNewGroup()) {
-            if (cg.getCommandGroupName(groupId, getDb())==null) {
+            if (cg.getCommandGroupName(groupId, getDb()) == null) {
                 addError(Constants.GROUP_ID_PARAM, "Invalid Group Id");
             }
         }
     }
 
     public boolean isNewGroup() {
-        return getGroupId()==0;
+        return getGroupId() == 0;
     }
 
     public String getDb() {

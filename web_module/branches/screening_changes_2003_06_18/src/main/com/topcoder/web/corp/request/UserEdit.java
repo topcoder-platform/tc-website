@@ -13,6 +13,7 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.corp.controller.MisconfigurationException;
@@ -79,51 +80,57 @@ public class UserEdit extends BaseProcessor {
     /**
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
-    protected final void businessProcessing() throws Exception {
-        secTok = new SecurityInfo(getFormFields());
-        log.debug(secTok.createNew ?"user creation intiated":"user modification initiated");
-
-        verifyAllowed();
-        log.debug(secTok.createNew ?"verification passed: create" :"verification passed: edit");
-
-        InitialContext icEJB = null;
-        PrincipalMgrRemote mgr = null;
-
-        if (loadUserData()) return;
-
-        boolean formValid = verifyFormFieldsValidity();
-        if (!formValid) {
-            setFormFieldsDefaults();
-            setNextPage(formPage);
-            return;
-        }
-        // form is valid - store it
-        icEJB = null;
-        Transaction tx = null;
-        String oldPass = null;
+    protected final void businessProcessing() throws TCWebException {
         try {
-            mgr = Util.getPrincipalManager();
+            secTok = new SecurityInfo(getFormFields());
+            log.debug(secTok.createNew ? "user creation intiated" : "user modification initiated");
 
-            // transaction boundary
-            tx = Util.beginTransaction();
+            verifyAllowed();
+            log.debug(secTok.createNew ? "verification passed: create" : "verification passed: edit");
 
-            if (secTok.createNew) {
-                secTok.targetUser = createUserPrincipal();
-                targetUserID = secTok.targetUser.getId();
-            } else {
-                oldPass = mgr.getPassword(secTok.targetUser.getId());
-                mgr.editPassword(secTok.targetUser, password, secTok.requestor);
+            InitialContext icEJB = null;
+            PrincipalMgrRemote mgr = null;
+
+            if (loadUserData()) return;
+
+            boolean formValid = verifyFormFieldsValidity();
+            if (!formValid) {
+                setFormFieldsDefaults();
+                setNextPage(formPage);
+                return;
             }
+            // form is valid - store it
+            icEJB = null;
+            Transaction tx = null;
+            String oldPass = null;
+            try {
+                mgr = Util.getPrincipalManager();
 
-            icEJB = (InitialContext)TCContext.getInitial();
-            storeUserDataIntoDB(icEJB);
+                // transaction boundary
+                tx = Util.beginTransaction();
 
-            tx.commit();
-        } catch (Exception exc) {
-            rollbackHelper(tx, secTok.createNew, oldPass);
-            throw exc;
-        } finally {
-            Util.closeIC(icEJB);
+                if (secTok.createNew) {
+                    secTok.targetUser = createUserPrincipal();
+                    targetUserID = secTok.targetUser.getId();
+                } else {
+                    oldPass = mgr.getPassword(secTok.targetUser.getId());
+                    mgr.editPassword(secTok.targetUser, password, secTok.requestor);
+                }
+
+                icEJB = (InitialContext) TCContext.getInitial();
+                storeUserDataIntoDB(icEJB);
+
+                tx.commit();
+            } catch (Exception exc) {
+                rollbackHelper(tx, secTok.createNew, oldPass);
+                throw exc;
+            } finally {
+                Util.closeIC(icEJB);
+            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
 
         setIsNextPageInContext(false);
@@ -144,7 +151,7 @@ public class UserEdit extends BaseProcessor {
                 password = mgr.getPassword(targetUserID);
                 password2 = password;
                 userName = secTok.targetUser.getName();
-                retrieveUserDataFromDB((InitialContext)TCContext.getInitial());
+                retrieveUserDataFromDB((InitialContext) TCContext.getInitial());
             }
             setFormFieldsDefaults();
             setNextPage(formPage);
@@ -166,7 +173,7 @@ public class UserEdit extends BaseProcessor {
         // associate with company
         if (secTok.createNew) {
             // find company item for user
-            Contact contactTable = ((ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
+            Contact contactTable = ((ContactHome) ic.lookup("corp:" + ContactHome.EJB_REF_NAME)).create();
             // link user with company
             contactTable.createContact(secTok.primaryUserCompanyID, targetUserID);
         }
@@ -199,8 +206,8 @@ public class UserEdit extends BaseProcessor {
     }
 
     private boolean hasRole(TCSubject user, RolePrincipal role) {
-        RolePrincipal[] roles = (RolePrincipal[])user.getPrincipals().toArray(new RolePrincipal[0]);
-        for (int i=0; i<roles.length; i++) {
+        RolePrincipal[] roles = (RolePrincipal[]) user.getPrincipals().toArray(new RolePrincipal[0]);
+        for (int i = 0; i < roles.length; i++) {
             if (roles[i].equals(role)) return true;
         }
         return false;
@@ -215,12 +222,12 @@ public class UserEdit extends BaseProcessor {
      */
     protected void retrieveUserDataFromDB(InitialContext ic) throws Exception {
         // user first, last names
-        User userTable = ((UserHome) ic.lookup("corp:"+UserHome.EJB_REF_NAME)).create();
+        User userTable = ((UserHome) ic.lookup("corp:" + UserHome.EJB_REF_NAME)).create();
         firstName = userTable.getFirstName(targetUserID);
         lastName = userTable.getLastName(targetUserID);
 
         // email for user
-        Email emailTable = ((EmailHome) ic.lookup("corp:"+EmailHome.EJB_REF_NAME)).create();
+        Email emailTable = ((EmailHome) ic.lookup("corp:" + EmailHome.EJB_REF_NAME)).create();
         long emailID = emailTable.getPrimaryEmailId(targetUserID);
         email = emailTable.getAddress(emailID);
         email2 = email;
@@ -499,7 +506,7 @@ public class UserEdit extends BaseProcessor {
             addError(itemKey, errMsg);
         } else {
             //  alphabet check
-            if ((!StringUtils.consistsOf(itemValue, alphabet, true))) {
+            if ((!StringUtils.containsOnly(itemValue, alphabet, true))) {
                 ret = false;
                 addError(itemKey, errMsg);
             } else {
@@ -569,13 +576,13 @@ public class UserEdit extends BaseProcessor {
         GroupPrincipal corpGroup = null;
         GroupPrincipal anonGroup = null;
         GroupPrincipal userGroup = null;
-        for (int i=0; i<groups.length; i++) {
-            if (((GroupPrincipal)groups[i]).getName().equals(Constants.CORP_GROUP)) {
-                corpGroup = (GroupPrincipal)groups[i];
-            } else if (((GroupPrincipal)groups[i]).getName().equals(Constants.CORP_ANONYMOUS_GROUP)) {
-                anonGroup = (GroupPrincipal)groups[i];
-            } else if (((GroupPrincipal)groups[i]).getName().equals(Constants.SOFTWARE_USER_GROUP)) {
-                userGroup = (GroupPrincipal)groups[i];
+        for (int i = 0; i < groups.length; i++) {
+            if (((GroupPrincipal) groups[i]).getName().equals(Constants.CORP_GROUP)) {
+                corpGroup = (GroupPrincipal) groups[i];
+            } else if (((GroupPrincipal) groups[i]).getName().equals(Constants.CORP_ANONYMOUS_GROUP)) {
+                anonGroup = (GroupPrincipal) groups[i];
+            } else if (((GroupPrincipal) groups[i]).getName().equals(Constants.SOFTWARE_USER_GROUP)) {
+                userGroup = (GroupPrincipal) groups[i];
             }
         }
         if (corpGroup == null) {
@@ -612,7 +619,7 @@ public class UserEdit extends BaseProcessor {
             throws RemoteException, CreateException, NamingException {
         // user first, last names
         User userTable = (
-                (UserHome) ic.lookup("corp:"+UserHome.EJB_REF_NAME)
+                (UserHome) ic.lookup("corp:" + UserHome.EJB_REF_NAME)
                 ).create();
         if (createNew) {
             userTable.createUser(targetUserID, userName, 'A');
@@ -639,7 +646,7 @@ public class UserEdit extends BaseProcessor {
 
         // setup email for user
         Email emailTable = (
-                (EmailHome) ic.lookup("corp:"+EmailHome.EJB_REF_NAME)
+                (EmailHome) ic.lookup("corp:" + EmailHome.EJB_REF_NAME)
                 ).create();
         long emailID = -1;
         if (!createNew) {
@@ -696,8 +703,8 @@ public class UserEdit extends BaseProcessor {
             }
 
             try {
-                icEJB = (InitialContext)TCContext.getInitial();
-                contactTable = ((ContactHome) icEJB.lookup("corp:"+ContactHome.EJB_REF_NAME)).create();
+                icEJB = (InitialContext) TCContext.getInitial();
+                contactTable = ((ContactHome) icEJB.lookup("corp:" + ContactHome.EJB_REF_NAME)).create();
                 loggedUserCompanyID = contactTable.getCompanyId(getAuthentication().getUser().getId());
                 Company companyTable = ((CompanyHome) icEJB.lookup(CompanyHome.EJB_REF_NAME)).create();
                 primaryUserID = companyTable.getPrimaryContactId(loggedUserCompanyID);
@@ -708,8 +715,8 @@ public class UserEdit extends BaseProcessor {
                     throw new MisconfigurationException("Can't retrieve TCSubject for: " +
                             getAuthentication().getUser().getId() + cause.getMessage());
                 }
-                RolePrincipal[] roles = (RolePrincipal[])requestor.getPrincipals().toArray(new RolePrincipal[0]);
-                for (int i=0; i<roles.length && !isAccountAdmin; i++) {
+                RolePrincipal[] roles = (RolePrincipal[]) requestor.getPrincipals().toArray(new RolePrincipal[0]);
+                for (int i = 0; i < roles.length && !isAccountAdmin; i++) {
                     isAccountAdmin = (roles[i].getName().equals(Constants.CORP_ADMIN_ROLE));
                 }
                 if (isAccountAdmin)
@@ -735,9 +742,9 @@ public class UserEdit extends BaseProcessor {
                     InitialContext ic = null;
 
                     try {
-                        ic = (InitialContext)TCContext.getInitial();
+                        ic = (InitialContext) TCContext.getInitial();
                         contactTable = (
-                                (ContactHome) ic.lookup("corp:"+ContactHome.EJB_REF_NAME)
+                                (ContactHome) ic.lookup("corp:" + ContactHome.EJB_REF_NAME)
                                 ).create();
                     } finally {
                         Util.closeIC(ic);
@@ -768,7 +775,7 @@ public class UserEdit extends BaseProcessor {
         InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = (InitialContext)TCContext.getInitial();
+            ic = (InitialContext) TCContext.getInitial();
             DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");

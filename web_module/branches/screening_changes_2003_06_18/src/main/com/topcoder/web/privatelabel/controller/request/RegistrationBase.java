@@ -4,7 +4,13 @@ import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.privatelabel.model.RegistrationInfo;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
 
+import javax.naming.InitialContext;
+import javax.sql.DataSource;
+import javax.rmi.PortableRemoteObject;
 import java.util.StringTokenizer;
 
 abstract class RegistrationBase extends BaseProcessor {
@@ -43,6 +49,7 @@ abstract class RegistrationBase extends BaseProcessor {
 
     protected void checkRegInfo(RegistrationInfo info) {
         //check handle
+        //TODO check if handle exists
         if (info.getHandle().length() > Constants.MAX_HANDLE_LENGTH ||
                 info.getHandle().length() < Constants.MIN_HANDLE_LENGTH) {
             addError(Constants.HANDLE, "Your handle must contain between " +
@@ -104,7 +111,7 @@ abstract class RegistrationBase extends BaseProcessor {
             addError(Constants.CITY, "Please enter your city.");
         }
         //zip
-        if (info.getZip().length()<1) {
+        if (info.getZip().length()<5) {
             addError(Constants.ZIP, "Please enter your zip code.");
         }
     }
@@ -115,6 +122,25 @@ abstract class RegistrationBase extends BaseProcessor {
 
     public void setDb(String db) {
         this.db = db;
+    }
+
+    public DataAccessInt getDataAccess() throws Exception {
+        return getDataAccess(getDb(), false);
+    }
+    public DataAccessInt getDataAccess(boolean cached) throws Exception {
+        return getDataAccess(getDb(), cached);
+    }
+
+    public DataAccessInt getDataAccess(String datasource, boolean cached) throws Exception {
+        if(datasource == null) return null;
+        InitialContext context = new InitialContext();
+        DataSource ds = (DataSource)
+            PortableRemoteObject.narrow(context.lookup(datasource),
+                                        DataSource.class);
+        DataAccessInt dAccess = null;
+        if (cached) dAccess = new CachedDataAccess(ds);
+        else dAccess = new DataAccess(ds);
+        return dAccess;
     }
 
 }

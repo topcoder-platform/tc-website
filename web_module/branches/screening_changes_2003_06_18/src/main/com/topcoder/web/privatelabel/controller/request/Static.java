@@ -11,7 +11,7 @@ import com.topcoder.web.privatelabel.Constants;
  */
 public class Static extends BaseProcessor {
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
         StringBuffer path = new StringBuffer(100);
         for(int i=1; ; i++) {

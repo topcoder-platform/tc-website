@@ -11,6 +11,7 @@ import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.ServletRequest;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
                 Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY);
     }
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -42,8 +43,8 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         //check to see if they are logged in
         User user = getAuthentication().getUser();
 
-        ProfileInfo info = (ProfileInfo)request.getAttribute(Constants.PROFILE_INFO);
-        if(info == null) {
+        ProfileInfo info = (ProfileInfo) request.getAttribute(Constants.PROFILE_INFO);
+        if (info == null) {
             info = buildProfileInfo(request);
             request.setAttribute(Constants.PROFILE_INFO, info);
         } else {
@@ -51,48 +52,55 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
 
         //get Problem Set
         profileProblemSet.setProperty("uid", String.valueOf(user.getId()));
-        Map map = Util.getDataAccess(true).getData(profileProblemSet);
-        if(map != null) {
-            log.debug("the result map was not null");
-            info.setProblemSetList((ResultSetContainer) map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
-        } else {
-            log.debug("there are no problems associated with this user's(" + user.getId() + ") company");
-        }
-
-        if(info.getTestSetA() == null) {
-            ResultSetContainer rsc = info.getProblemSetList();
-            if(rsc != null && !rsc.isEmpty()) {
-                ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow)rsc.get(0);
-                info.setTestSetA(row.getItem("round_id").toString());
+        try {
+            Map map = Util.getDataAccess(true).getData(profileProblemSet);
+            if (map != null) {
+                log.debug("the result map was not null");
+                info.setProblemSetList((ResultSetContainer) map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
+            } else {
+                log.debug("there are no problems associated with this user's(" + user.getId() + ") company");
             }
-        }
-        info.setHasTestSetA(!info.getTestSetA().equals(new Long(Constants.NO_TEST_SET_A)));
 
-        info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), user));
-
-        String[] testSetBArr = info.getTestSetB();
-        ArrayList list = new ArrayList();
-        for(int i = 0; i < testSetBArr.length; ++i){
-            String problem = testSetBArr[i];
-            int index = problem.indexOf(',');
-            if(index == -1) {
-                //bad data
-                continue;
+            if (info.getTestSetA() == null) {
+                ResultSetContainer rsc = info.getProblemSetList();
+                if (rsc != null && !rsc.isEmpty()) {
+                    ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) rsc.get(0);
+                    info.setTestSetA(row.getItem("round_id").toString());
+                }
             }
-            long roundId = Long.parseLong(problem.substring(0,index));
-            long problemId = Long.parseLong(problem.substring(index+1));
-            list.add(ProblemInfo.createProblemInfo(user, roundId, problemId));
-        }
-        info.setTestSetBList(list);
+            info.setHasTestSetA(!info.getTestSetA().equals(new Long(Constants.NO_TEST_SET_A)));
 
-        profileCompanyProblem.setProperty("uid", String.valueOf(user.getId()));
-        map = Util.getDataAccess(true).getData(profileCompanyProblem);
-        if(map != null) {
-            info.setCompanyProblemList((ResultSetContainer)
-                map.get(Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY));
-        }
+            info.setTestSetAList(getTestSetAList(info.getTestSetA().longValue(), user));
 
-        info.setLanguageList(getLanguageList());
+            String[] testSetBArr = info.getTestSetB();
+            ArrayList list = new ArrayList();
+            for (int i = 0; i < testSetBArr.length; ++i) {
+                String problem = testSetBArr[i];
+                int index = problem.indexOf(',');
+                if (index == -1) {
+                    //bad data
+                    continue;
+                }
+                long roundId = Long.parseLong(problem.substring(0, index));
+                long problemId = Long.parseLong(problem.substring(index + 1));
+                list.add(ProblemInfo.createProblemInfo(user, roundId, problemId));
+            }
+            info.setTestSetBList(list);
+
+            profileCompanyProblem.setProperty("uid", String.valueOf(user.getId()));
+            map = Util.getDataAccess(true).getData(profileCompanyProblem);
+            if (map != null) {
+                info.setCompanyProblemList((ResultSetContainer)
+                        map.get(Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY));
+            }
+
+            info.setLanguageList(getLanguageList());
+
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
 
         setNextPage(Constants.PROFILE_SETUP_PAGE);
         setIsNextPageInContext(true);

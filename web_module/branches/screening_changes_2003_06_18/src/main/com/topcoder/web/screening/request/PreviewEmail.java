@@ -3,11 +3,12 @@ package com.topcoder.web.screening.request;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.TestSessionInfo;
+import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.ServletRequest;
 
 public class PreviewEmail extends BaseSessionProcessor {
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         ServletRequest request = getRequest();
         EmailInfo info = null;
         try {

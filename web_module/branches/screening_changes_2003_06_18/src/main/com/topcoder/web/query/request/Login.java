@@ -5,6 +5,7 @@ import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.LoginException;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * @author Greg Paul
@@ -17,7 +18,7 @@ public class Login extends BaseProcessor {
     private static Logger log = Logger.getLogger(Login.class);
 
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
         /* may be null */
         String username = getRequest().getParameter(Constants.HANDLE_PARAM);

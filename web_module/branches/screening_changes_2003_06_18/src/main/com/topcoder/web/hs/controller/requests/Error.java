@@ -2,6 +2,7 @@ package com.topcoder.web.hs.controller.requests;
 
 import java.io.*;
 import com.topcoder.web.hs.common.*;
+import com.topcoder.web.common.TCWebException;
 
 /**
  * A RequestProcessor which handles an exception which occured during
@@ -17,10 +18,10 @@ public class Error extends Base {
      * Overriding this to avoid all the auth stuff.
      * The beans from the first attempt at processing will hang around in the request.
      */
-    protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
     }
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
 //@@@ err, this next blob is useless because the jsp does this stuff itself
         Exception e = (Exception)getRequest().getAttribute("exception");

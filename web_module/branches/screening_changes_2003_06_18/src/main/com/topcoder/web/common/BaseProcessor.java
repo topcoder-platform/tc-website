@@ -77,7 +77,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      * Some things we want to do for most subclassed request processors.
      * Override this to disable auth setup and adding default beans.
      */
-    protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
         getRequest().setAttribute(ERRORS_KEY, errors);
         getRequest().setAttribute(DEFAULTS_KEY, defaults);
     }
@@ -85,7 +85,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /**
      * Subclasses should do their work by implementing this method.
      */
-    abstract protected void businessProcessing() throws Exception;
+    abstract protected void businessProcessing() throws TCWebException;
 
     /**
      * This is final to discourage overriding it.  Instead subclasses should implement businessProcessing().

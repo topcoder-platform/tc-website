@@ -24,6 +24,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
@@ -629,7 +630,7 @@ public class TransactionServlet extends HttpServlet {
             throws ServletException, IOException {
         request.setAttribute("message", "In order to continue, you must provide your user name " +
                 "and password, even if you’ve logged in already.");
-        request.setAttribute(Login.KEY_DESTINATION_PAGE,
+        request.setAttribute(BaseServlet.NEXT_PAGE_KEY,
                 HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
         request.setAttribute(Constants.KEY_MODULE, "Login");
         boolean forward = true;

@@ -11,6 +11,7 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -36,10 +37,10 @@ public class UserList extends BaseProcessor {
      *  <p> A ResultSetContainer is created to hold the information about
      *  the companies users and is put into the request attribute named:
      *  "companyUsers" for use in the userlist jsp page.
-     *  @throws Exception
+     *  @throws TCWebException
      *  @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         log.debug("Attempting to set up user list");
         setIsNextPageInContext(true);
         long userId;
@@ -57,11 +58,15 @@ public class UserList extends BaseProcessor {
         InitialContext ic = null;
         ResultSetContainer rsc = null;
         try {
-            ic = (InitialContext)TCContext.getInitial();
+            ic = (InitialContext) TCContext.getInitial();
             DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME));
 
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("CORP_user_list");
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         } finally {
             Util.closeIC(ic);
         }

@@ -9,29 +9,35 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.TestSessionInfo;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Map;
 
 public class PopulateSession extends BaseSessionProcessor {
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
         Request sessionInfo = new Request();
         sessionInfo.setProperty(DataAccessConstants.COMMAND,
                 Constants.SESSION_LOOKUP_COMMAND);
-        sessionInfo.setProperty("uid", 
+        sessionInfo.setProperty("uid",
                 String.valueOf(getAuthentication().getUser().getId()));
+        try {
+            DataAccessInt access = Util.getDataAccess();
 
-        DataAccessInt access = Util.getDataAccess();
+            Map map = access.getData(sessionInfo);
+            TestSessionInfo info = getSessionInfo();
 
-        Map map = access.getData(sessionInfo);
-        TestSessionInfo info = getSessionInfo();
-
-        info.setCandidateList((ResultSetContainer)
-                map.get(Constants.SESSION_CANDIDATE_INFO_QUERY_KEY));
-        info.setProfileList((ResultSetContainer)
-                map.get(Constants.SESSION_PROFILE_INFO_QUERY_KEY));
+            info.setCandidateList((ResultSetContainer)
+                    map.get(Constants.SESSION_CANDIDATE_INFO_QUERY_KEY));
+            info.setProfileList((ResultSetContainer)
+                    map.get(Constants.SESSION_PROFILE_INFO_QUERY_KEY));
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
 
         setNextPage(Constants.SESSION_SETUP_PAGE);
         setIsNextPageInContext(true);

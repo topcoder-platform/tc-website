@@ -9,13 +9,14 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.TCWebException;
 
 import javax.servlet.ServletRequest;
 import java.util.Iterator;
 import java.util.Map;
 
 public class CreateProfile extends BaseSessionProcessor {
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -28,24 +29,30 @@ public class CreateProfile extends BaseSessionProcessor {
         dataRequest.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_LANGUAGE_QUERY_KEY);
 
-        DataAccessInt dAccess = Util.getDataAccess(true);
+        try {
+            DataAccessInt dAccess = Util.getDataAccess(true);
 
-        Map map = dAccess.getData(dataRequest);
-        if(map != null) {
-            ProfileInfo info = new ProfileInfo();
-            ResultSetContainer rsc = (ResultSetContainer)
-                    map.get(Constants.PROFILE_LANGUAGE_QUERY_KEY);
-            for(Iterator i = rsc.iterator(); i.hasNext();) {
-                ResultSetContainer.ResultSetRow row = 
-                    (ResultSetContainer.ResultSetRow)i.next();
-                info.addLanguage(row.getItem("language_id").toString());
+            Map map = dAccess.getData(dataRequest);
+            if (map != null) {
+                ProfileInfo info = new ProfileInfo();
+                ResultSetContainer rsc = (ResultSetContainer)
+                        map.get(Constants.PROFILE_LANGUAGE_QUERY_KEY);
+                for (Iterator i = rsc.iterator(); i.hasNext();) {
+                    ResultSetContainer.ResultSetRow row =
+                            (ResultSetContainer.ResultSetRow) i.next();
+                    info.addLanguage(row.getItem("language_id").toString());
+                }
+                request.setAttribute(Constants.PROFILE_INFO, info);
             }
-            request.setAttribute(Constants.PROFILE_INFO, info);
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
 
         setNextPage(Constants.CONTROLLER_URL + "?" +
-                    Constants.MODULE_KEY + "=" +
-                    Constants.POPULATE_PROFILE_PROCESSOR);
+                Constants.MODULE_KEY + "=" +
+                Constants.POPULATE_PROFILE_PROCESSOR);
         setIsNextPageInContext(true);
     }
 }

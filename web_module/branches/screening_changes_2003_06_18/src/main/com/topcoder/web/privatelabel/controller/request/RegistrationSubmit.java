@@ -13,8 +13,7 @@ public class RegistrationSubmit extends RegistrationBase {
             setDefaults(regInfo);
         } else {
             //TODO commit to db
-            //TODO should some some kind of thank you page or something
-            setNextPage(Constants.DEFAULT_PAGE);
+            setNextPage(Constants.REGISTRATION_SUCCESS_PAGE);
         }
         setIsNextPageInContext(true);
     }

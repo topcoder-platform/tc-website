@@ -7,6 +7,7 @@ import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.hs.common.*;
+import com.topcoder.web.common.TCWebException;
 
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -21,7 +22,7 @@ import java.util.Map;
  */
 public class Login extends Base {
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
         /* may be null */
         String username = getRequest().getParameter("username");
@@ -29,29 +30,35 @@ public class Login extends Base {
 
         /* if not null, we got here via a form submit;
          * otherwise, skip this and just draw the login form */
-        if(username != null) {
+        if (username != null) {
 
             password = Constants.checkNull(password);
-            if(username.equals("") || password.equals("")) {
+            if (username.equals("") || password.equals("")) {
                 getRequest().setAttribute("message", "You must enter a username and a password.");
 
             } else {
                 try {
+                    try {
 
-                    getAuthentication().login(new SimpleUser(0, username, password));
+                        getAuthentication().login(new SimpleUser(0, username, password));
 
-                    if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
+                        if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
 
-                    /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
-                    String dest = Constants.checkNull(getRequest().getParameter("nextpage"));
-                    setNextPage(dest);
-                    setIsNextPageInContext(false);
-                    return;
+                        /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
+                        String dest = Constants.checkNull(getRequest().getParameter("nextpage"));
+                        setNextPage(dest);
+                        setIsNextPageInContext(false);
+                        return;
 
-                } catch(LoginException e) {
+                    } catch (LoginException e) {
 
-                    /* the login failed, so tell them what happened */
-                    getRequest().setAttribute("message", e.getMessage());
+                        /* the login failed, so tell them what happened */
+                        getRequest().setAttribute("message", e.getMessage());
+                    }
+                } catch (TCWebException e) {
+                    throw e;
+                } catch (Exception e) {
+                    throw(new TCWebException(e));
                 }
             }
 
@@ -67,7 +74,6 @@ public class Login extends Base {
     }
 
 
-
     private boolean hasActiveAccount(String userName) throws Exception {
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource) PortableRemoteObject.narrow(context.lookup(DBMS.HS_OLTP_DATASOURCE_NAME), DataSource.class);
@@ -79,9 +85,9 @@ public class Login extends Base {
 
         Map map = dAccess.getData(dataRequest);
 
-        if(map != null && map.size() == 1) {
-            ResultSetContainer result = (ResultSetContainer)map.get("active_user");
-            return !(result==null || result.isEmpty());
+        if (map != null && map.size() == 1) {
+            ResultSetContainer result = (ResultSetContainer) map.get("active_user");
+            return !(result == null || result.isEmpty());
         } else {
             return false;
         }

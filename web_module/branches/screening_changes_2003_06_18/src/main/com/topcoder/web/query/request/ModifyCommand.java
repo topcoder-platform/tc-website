@@ -7,6 +7,7 @@ import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 import java.util.Iterator;
@@ -37,7 +38,7 @@ public class ModifyCommand extends BaseProcessor {
     }
 
 
-	protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
         super.baseProcessing();
         Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
@@ -47,43 +48,49 @@ public class ModifyCommand extends BaseProcessor {
                 setAttributes(parameterName, parameterValues);
             }
         }
- 	}
+    }
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
         String step = getRequest().getParameter(Constants.STEP_PARAM);
-        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
-        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
+        try {
+            Command c = (Command) Util.createEJB(getInitialContext(), Command.class);
+            CommandGroup cg = (CommandGroup) Util.createEJB(getInitialContext(), CommandGroup.class);
 
 
-        setGroups(cg.getAllCommandGroups(getDb()));
+            setGroups(cg.getAllCommandGroups(getDb()));
 
-        if (step!=null && step.equals(Constants.SAVE_STEP)) {
-            checkCommandDesc(getCommandDesc(), c);
-            checkGroupId(getGroupId(), cg);
-            checkCommandId(getCommandId(), c);
-            if (!hasErrors()) {
-                if (isNewCommand()) {
-                    setCommandId(c.createCommand(getCommandDesc(), getGroupId(), getDb()));
-                } else {
-                    c.setCommandDesc(getCommandId(), getCommandDesc(), getDb());
-                    c.setCommandGroupId(getCommandId(), getGroupId(), getDb());
+            if (step != null && step.equals(Constants.SAVE_STEP)) {
+                checkCommandDesc(getCommandDesc(), c);
+                checkGroupId(getGroupId(), cg);
+                checkCommandId(getCommandId(), c);
+                if (!hasErrors()) {
+                    if (isNewCommand()) {
+                        setCommandId(c.createCommand(getCommandDesc(), getGroupId(), getDb()));
+                    } else {
+                        c.setCommandDesc(getCommandId(), getCommandDesc(), getDb());
+                        c.setCommandGroupId(getCommandId(), getGroupId(), getDb());
+                    }
+                }
+            } else {
+                if (!isNewCommand()) {
+                    setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
+                    setGroupId(c.getCommandGroupId(getCommandId(), getDb()));
                 }
             }
-        } else {
-            if (!isNewCommand()) {
-                setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
-                setGroupId(c.getCommandGroupId(getCommandId(), getDb()));
-            }
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
         }
 
-        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.MODIFY_COMMAND_PAGE);
         setIsNextPageInContext(true);
     }
 
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
-        value = (value == null?"":value.trim());
+        value = (value == null ? "" : value.trim());
         log.debug("setAttributes called...param: " + paramName + " value: " + value);
 
         if (paramName.equalsIgnoreCase(Constants.DB_PARAM)) {
@@ -110,9 +117,9 @@ public class ModifyCommand extends BaseProcessor {
             ResultSetContainer list = c.getCommandList(getDb());
             ResultSetContainer.ResultSetRow row = null;
             boolean found = false;
-            for (Iterator it = list.iterator(); it.hasNext()&&!found;) {
-                row = (ResultSetContainer.ResultSetRow)it.next();
-                found=row.getItem("command_desc").toString().equals(command);
+            for (Iterator it = list.iterator(); it.hasNext() && !found;) {
+                row = (ResultSetContainer.ResultSetRow) it.next();
+                found = row.getItem("command_desc").toString().equals(command);
             }
             if (found) {
                 addError(Constants.COMMAND_DESC_PARAM, "Command already exists.");
@@ -122,21 +129,21 @@ public class ModifyCommand extends BaseProcessor {
     }
 
     private void checkGroupId(int groupId, CommandGroup cg) throws Exception {
-        if (cg.getCommandGroupName(groupId, getDb())==null) {
+        if (cg.getCommandGroupName(groupId, getDb()) == null) {
             addError(Constants.GROUP_ID_PARAM, "Invalid Group");
         }
     }
 
     private void checkCommandId(long commandId, Command c) throws Exception {
         if (!isNewCommand()) {
-            if (c.getCommandDesc(commandId, getDb())==null) {
+            if (c.getCommandDesc(commandId, getDb()) == null) {
                 addError(Constants.COMMAND_ID_PARAM, "Invalid Command");
             }
         }
     }
 
     public boolean isNewCommand() {
-        return getCommandId()==0;
+        return getCommandId() == 0;
     }
 
     public String getDb() {

@@ -10,6 +10,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.corp.Constants;
 
 import javax.naming.InitialContext;
@@ -29,7 +30,7 @@ public class Login extends BaseProcessor {
 
     private final static Logger log = Logger.getLogger(Login.class);
 
-    protected void businessProcessing() throws Exception {
+    protected void businessProcessing() throws TCWebException {
 
         /* may be null */
         String username = getRequest().getParameter(KEY_USER_HANDLE);
@@ -63,6 +64,8 @@ public class Login extends BaseProcessor {
 
                     /* the login failed, so tell them what happened */
                     getRequest().setAttribute(BaseServlet.MESSAGE_KEY, e.getMessage());
+                } catch(Exception e) {
+                    throw new TCWebException(e);
                 }
             }
 

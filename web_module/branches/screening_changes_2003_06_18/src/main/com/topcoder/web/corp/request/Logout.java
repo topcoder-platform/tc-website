@@ -2,6 +2,8 @@ package com.topcoder.web.corp.request;
 
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -19,12 +21,17 @@ public class Logout extends BaseProcessor {
     /**
      * @see com.topcoder.web.common.BaseProcessor#businessProcessing()
      */
-    protected void businessProcessing() throws Exception {
-        getAuthentication().logout();
-        String dest = StringUtils.checkNull(getRequest().getParameter(Login.KEY_DESTINATION_PAGE));
-        log.debug("on successfull logout, going to " + dest);
-        setNextPage(dest);
-        setIsNextPageInContext(false);
-        return;
+    protected void businessProcessing() throws TCWebException {
+        try {
+            getAuthentication().logout();
+            String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+            log.debug("on successfull logout, going to " + dest);
+            setNextPage(dest);
+            setIsNextPageInContext(false);
+            return;
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+
     }
 }

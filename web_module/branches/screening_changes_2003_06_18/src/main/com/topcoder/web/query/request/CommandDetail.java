@@ -6,6 +6,7 @@ import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 
 import java.util.Enumeration;
 
@@ -31,7 +32,7 @@ public class CommandDetail extends BaseProcessor {
         super();
     }
 
-    protected void baseProcessing() throws Exception {
+    protected void baseProcessing() throws TCWebException {
         super.baseProcessing();
         Enumeration parameterNames = getRequest().getParameterNames();
         while (parameterNames.hasMoreElements()) {
@@ -43,19 +44,25 @@ public class CommandDetail extends BaseProcessor {
         }
     }
 
-    public void businessProcessing() throws Exception {
-        CommandQuery cq = (CommandQuery)Util.createEJB(getInitialContext(), CommandQuery.class);
-        Command c = (Command)Util.createEJB(getInitialContext(), Command.class);
-        CommandGroup cg = (CommandGroup)Util.createEJB(getInitialContext(), CommandGroup.class);
-        QueryInput qi = (QueryInput)Util.createEJB(getInitialContext(), QueryInput.class);
+    public void businessProcessing() throws TCWebException {
+        try {
+            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
+            Command c = (Command) Util.createEJB(getInitialContext(), Command.class);
+            CommandGroup cg = (CommandGroup) Util.createEJB(getInitialContext(), CommandGroup.class);
+            QueryInput qi = (QueryInput) Util.createEJB(getInitialContext(), QueryInput.class);
 
-        setQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
-        setGroupId(c.getCommandGroupId(getCommandId(), getDb()));
-        setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
-        setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
-        setInputList(qi.getInputsForCommand(getCommandId(), getDb()));
+            setQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
+            setGroupId(c.getCommandGroupId(getCommandId(), getDb()));
+            setGroupDesc(cg.getCommandGroupName(getGroupId(), getDb()));
+            setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
+            setInputList(qi.getInputsForCommand(getCommandId(), getDb()));
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw(new TCWebException(e));
+        }
 
-        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".")+1), this);
+        getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         setNextPage(Constants.COMMAND_DETAIL_PAGE);
         setIsNextPageInContext(true);
     }

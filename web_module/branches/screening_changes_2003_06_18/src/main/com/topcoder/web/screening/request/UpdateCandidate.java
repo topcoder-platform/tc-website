@@ -13,6 +13,7 @@ import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.User;
@@ -44,8 +45,7 @@ import java.util.Map;
  * @author Grimicus
  * @version 1.0
  */
-public class UpdateCandidate extends BaseProcessor
-{
+public class UpdateCandidate extends BaseProcessor {
     /** String with the total list of character able to be used in a password */
     private final int createCoderStatusId;
     private final int maxPasswordSize;
@@ -55,7 +55,7 @@ public class UpdateCandidate extends BaseProcessor
 
     public UpdateCandidate() {
         createCoderStatusId =
-            Integer.parseInt(Constants.UC_CREATE_CODER_STATUS_ID);
+                Integer.parseInt(Constants.UC_CREATE_CODER_STATUS_ID);
         maxPasswordSize = Integer.parseInt(Constants.MAX_PASSWORD_SIZE);
     }
 
@@ -63,114 +63,119 @@ public class UpdateCandidate extends BaseProcessor
      * Processes the inputted information specified for CandidateSetup.
      * Decides if it is a new or old one and updates/creates if applicable.
      *
-     * @throws Exception Thrown if there is input error.
+     * @throws TCWebException Thrown if there is input error.
      */
-    protected void businessProcessing() throws Exception {
-        synchronized(UpdateCandidate.class) {
+    protected void businessProcessing() throws TCWebException {
+        synchronized (UpdateCandidate.class) {
             if (getAuthentication().getUser().isAnonymous()) {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
             }
+            try {
+                request = getRequest();
+                CandidateInfo info = new CandidateInfo();
+                if (!buildInfo(request, info)) {
+                    //we must have failed validation
+                    request.setAttribute(Constants.CANDIDATE_INFO, info);
+                    setNextPage(Constants.CANDIDATE_SETUP_PAGE);
+                    setIsNextPageInContext(true);
+                    return;
+                }
 
-        request = getRequest();
-        CandidateInfo info = new CandidateInfo();
-        if(!buildInfo(request, info)) {
-            //we must have failed validation
-            request.setAttribute(Constants.CANDIDATE_INFO, info);
-            setNextPage(Constants.CANDIDATE_SETUP_PAGE);
-            setIsNextPageInContext(true);
-            return;
-        }
+                InitialContext context = new InitialContext();
+                PrincipalMgr principalMgr = new PrincipalMgr();
+                EmailHome eHome = (EmailHome)
+                        PortableRemoteObject.narrow(
+                                context.lookup("screening:" + EmailHome.class.getName()), EmailHome.class);
+                Email email = eHome.create();
 
-        InitialContext context = new InitialContext();
-        PrincipalMgr principalMgr = new PrincipalMgr();
-        EmailHome eHome = (EmailHome)
-            PortableRemoteObject.narrow(
-                    context.lookup("screening:"+EmailHome.class.getName()), EmailHome.class);
-        Email email = eHome.create();
+                //check to see if user is logged in...
+                //user.isLoggedIn() or something
 
-        //check to see if user is logged in...
-        //user.isLoggedIn() or something
+                TCSubject requestor =
+                        principalMgr.getUserSubject(getAuthentication().getUser().getId());
 
-        TCSubject requestor =
-            principalMgr.getUserSubject(getAuthentication().getUser().getId());
+                UserTransaction ut = Transaction.get(context);
+                ut.begin();
 
-        UserTransaction ut = Transaction.get(context);
-        ut.begin();
+                try {
+                    UserPrincipal userPrincipal = null;
+                    try {
+                        //check to see if user already exists
+                        userPrincipal = principalMgr.getUser(info.getUserName());
+                    } catch (PrincipalMgrException e) {
+                        Throwable nested = e.getNestedException();
+                        if (nested == null ||
+                                !(nested instanceof NoSuchUserException)) {
+                            throw e;
+                        }
 
-        try {
-        UserPrincipal userPrincipal = null;
-        try {
-            //check to see if user already exists
-            userPrincipal = principalMgr.getUser(info.getUserName());
-        }
-        catch(PrincipalMgrException e) {
-            Throwable nested = e.getNestedException();
-            if(nested == null ||
-               !(nested instanceof NoSuchUserException)) {
-                   throw e;
+                        //do nothing, we want to get here
+                        //create new user
+                        userPrincipal = principalMgr.createUser(info.getUserName(),
+                                info.getPassword(),
+                                requestor);
+                    }
+
+                    long userId = userPrincipal.getId();
+
+                    UserHome uHome = (UserHome)
+                            PortableRemoteObject.narrow(
+                                    context.lookup("screening:" + UserHome.class.getName()), UserHome.class);
+                    User user = uHome.create();
+
+                    if (!user.userExists(userId)) {
+                        user.createUser(userId, info.getUserName(), 'A');
+
+                        CoderHome cHome = (CoderHome)
+                                PortableRemoteObject.narrow(
+                                        context.lookup(CoderHome.class.getName()), CoderHome.class);
+                        Coder coder = cHome.create();
+                        coder.createCoder(userId, createCoderStatusId);
+
+                        long emailId = email.createEmail(userId);
+                        email.setAddress(emailId, info.getUserName());
+                        email.setPrimaryEmailId(userId, emailId);
+                    }
+
+                    DataAccessInt access = Util.getDataAccess();
+                    Request dataRequest = new Request();
+                    dataRequest.setProperty(DataAccessConstants.COMMAND,
+                            Constants.CONTACT_INFO_QUERY_KEY);
+                    dataRequest.setProperty("uid", String.valueOf(requestor.getUserId()));
+                    Map map = access.getData(dataRequest);
+                    ResultSetContainer rsc = (ResultSetContainer)
+                            map.get(Constants.CONTACT_INFO_QUERY_KEY);
+                    if (rsc.size() == 0 || rsc.size() > 1) {
+                        throw new ScreeningException(
+                                "Contact result set size wrong(" + rsc.size() + ")");
+                    }
+                    ResultSetContainer.ResultSetRow row =
+                            (ResultSetContainer.ResultSetRow) rsc.get(0);
+                    long companyId =
+                            Long.parseLong(row.getItem("company_id").toString());
+
+                    CompanyCandidateHome ccHome = (CompanyCandidateHome)
+                            PortableRemoteObject.narrow(
+                                    context.lookup(CompanyCandidateHome.class.getName()),
+                                    CompanyCandidateHome.class);
+                    CompanyCandidate candidate = ccHome.create();
+                    candidate.createCompanyCandidate(companyId, userId);
+
+                    updateSessionCandidate(userId);
+                } catch (Exception e) {
+                    ut.rollback();
+                    throw e;
+                }
+                ut.commit();
+
+            } catch (TCWebException e) {
+                throw e;
+            } catch (Exception e) {
+                throw(new TCWebException(e));
             }
 
-            //do nothing, we want to get here
-            //create new user
-            userPrincipal = principalMgr.createUser(info.getUserName(),
-                                    info.getPassword(),
-                                    requestor);
-        }
 
-        long userId = userPrincipal.getId();
-
-        UserHome uHome = (UserHome)
-            PortableRemoteObject.narrow(
-                context.lookup("screening:"+UserHome.class.getName()), UserHome.class);
-        User user = uHome.create();
-
-        if(!user.userExists(userId)) {
-            user.createUser(userId, info.getUserName(), 'A');
-
-            CoderHome cHome = (CoderHome)
-                PortableRemoteObject.narrow(
-                    context.lookup(CoderHome.class.getName()), CoderHome.class);
-            Coder coder = cHome.create();
-            coder.createCoder(userId, createCoderStatusId);
-
-            long emailId = email.createEmail(userId);
-            email.setAddress(emailId, info.getUserName());
-            email.setPrimaryEmailId(userId, emailId);
-        }
-
-        DataAccessInt access = Util.getDataAccess();
-        Request dataRequest = new Request();
-        dataRequest.setProperty(DataAccessConstants.COMMAND,
-                            Constants.CONTACT_INFO_QUERY_KEY);
-        dataRequest.setProperty("uid", String.valueOf(requestor.getUserId()));
-        Map map = access.getData(dataRequest);
-        ResultSetContainer rsc = (ResultSetContainer)
-                map.get(Constants.CONTACT_INFO_QUERY_KEY);
-        if(rsc.size() == 0 || rsc.size() > 1) {
-            throw new ScreeningException(
-                    "Contact result set size wrong(" + rsc.size() + ")");
-        }
-        ResultSetContainer.ResultSetRow row =
-            (ResultSetContainer.ResultSetRow)rsc.get(0);
-        long companyId =
-            Long.parseLong(row.getItem("company_id").toString());
-
-        CompanyCandidateHome ccHome = (CompanyCandidateHome)
-            PortableRemoteObject.narrow(
-                context.lookup(CompanyCandidateHome.class.getName()),
-                               CompanyCandidateHome.class);
-        CompanyCandidate candidate = ccHome.create();
-        candidate.createCompanyCandidate(companyId, userId);
-
-        updateSessionCandidate(userId);
-        }
-        catch(Exception e) {
-            ut.rollback();
-            throw e;
-        }
-        ut.commit();
-
-        determineNextPage();
+            determineNextPage();
         }
     }
 
@@ -183,11 +188,11 @@ public class UpdateCandidate extends BaseProcessor
      *                   object are not in the request or are invalid.
      */
     private boolean buildInfo(ServletRequest request, CandidateInfo info)
-        throws Exception {
+            throws Exception {
         String uId = request.getParameter(Constants.CANDIDATE_ID);
         info.setReferrer(request.getParameter(Constants.REFERRER));
         boolean success = true;
-        if(uId != null) {
+        if (uId != null) {
             //we're not doing updates so this is an error
             //info.setUserId(new Long(uId));
             success = false;
@@ -195,7 +200,7 @@ public class UpdateCandidate extends BaseProcessor
         }
 
         String email = request.getParameter(Constants.EMAIL_ADDRESS);
-        if(email == null) {
+        if (email == null) {
             success = false;
             addError(Constants.EMAIL_ADDRESS, "Email is not set.");
         } else {
@@ -204,24 +209,23 @@ public class UpdateCandidate extends BaseProcessor
             info.setUserName(email);
         }
 
-        if(success) {
+        if (success) {
             //now check to see if user already exists in this company
             DataAccessInt da = Util.getDataAccess();
             Request dr = new Request();
             dr.setProperty(DataAccessConstants.COMMAND,
-                           Constants.CHECK_COMPANY_USER_QUERY_KEY);
+                    Constants.CHECK_COMPANY_USER_QUERY_KEY);
             dr.setProperty("uid",
                     String.valueOf(getAuthentication().getUser().getId()));
             dr.setProperty("handle", email);
             Map map = da.getData(dr);
             ResultSetContainer rsc = (ResultSetContainer)
-                map.get(Constants.CHECK_COMPANY_USER_QUERY_KEY);
-            if(rsc.size() > 0) {
+                    map.get(Constants.CHECK_COMPANY_USER_QUERY_KEY);
+            if (rsc.size() > 0) {
                 addError(Constants.EMAIL_ADDRESS,
-                    "Email Address already in use as handle for your company.");
+                        "Email Address already in use as handle for your company.");
                 success = false;
-            }
-            else {
+            } else {
                 info.setPassword(generatePassword());
             }
         }
@@ -237,36 +241,35 @@ public class UpdateCandidate extends BaseProcessor
      *                   holds the information that specifies what was invalid.
      */
     private boolean validateEmail(String email)
-        throws Exception {
+            throws Exception {
         StringBuffer errorString = new StringBuffer();
         boolean valid = true;
-        if(email.length() < 5) {
+        if (email.length() < 5) {
             errorString.append("Email Address is too short.  \n");
             valid = false;
         }
 
         int index = email.indexOf('@');
-        if(index == -1) {
+        if (index == -1) {
             errorString.append("Email Address needs '@' in it.\n");
             valid = false;
-        }
-        else if(index == 0) {
+        } else if (index == 0) {
             errorString.append("Email Address must have information before '@'. \n");
             valid = false;
         }
 
         index = email.indexOf('.', index + 2);
-        if(index == -1) {
+        if (index == -1) {
             errorString.append("Email Address needs '.' in it. \n");
             valid = false;
         }
 
-        if((email.length() <= index + 1) || !Character.isLetter(email.charAt(index + 1))) {
+        if ((email.length() <= index + 1) || !Character.isLetter(email.charAt(index + 1))) {
             errorString.append("Email Address must have characters after the '.' \n");
             valid = false;
         }
 
-        if(!valid) {
+        if (!valid) {
             errorString.append("Use 'joe@topcoder.com' format");
 
             addError(Constants.EMAIL_ADDRESS, errorString.toString());
@@ -285,14 +288,14 @@ public class UpdateCandidate extends BaseProcessor
     private void validatePassword(String password) throws Exception {
         StringBuffer errorString = new StringBuffer();
         boolean valid = true;
-        if(password.length() == 0) {
+        if (password.length() == 0) {
             errorString.append("Password does not exist\n");
             valid = false;
         }
 
         //check for characters not allowed...
-        for(int i = 0; i < password.length(); ++i) {
-            if(Constants.VALID_CHAR_LIST.indexOf(password.charAt(i)) == -1) {
+        for (int i = 0; i < password.length(); ++i) {
+            if (Constants.VALID_CHAR_LIST.indexOf(password.charAt(i)) == -1) {
                 errorString.append("Character '" + password.charAt(i) + "' is not a valid character to use in a password. Use only '" +
                         Constants.VALID_CHAR_LIST + "'");
                 valid = false;
@@ -300,7 +303,7 @@ public class UpdateCandidate extends BaseProcessor
             }
         }
 
-        if(!valid){
+        if (!valid) {
             throw new Exception(errorString.toString());
         }
     }
@@ -315,8 +318,8 @@ public class UpdateCandidate extends BaseProcessor
         HttpServletRequest request = getRequest();
         HttpSession session = request.getSession();
         TestSessionInfo info = (TestSessionInfo)
-            session.getAttribute(Constants.SESSION_INFO);
-        if(info != null) {
+                session.getAttribute(Constants.SESSION_INFO);
+        if (info != null) {
             info.setCandidateId(String.valueOf(candidateId));
         }
 
@@ -328,29 +331,29 @@ public class UpdateCandidate extends BaseProcessor
      */
     private void determineNextPage() {
         String referrer = request.getParameter(Constants.REFERRER);
-        if(referrer == null || referrer.trim().equals("")) {
+        if (referrer == null || referrer.trim().equals("")) {
             referrer = Constants.UC_DEFAULT_FORWARD_PROCESSOR;
         }
 
         setNextPage(Constants.CONTROLLER_URL + "?" +
-                    Constants.MODULE_KEY + "=" + referrer);
+                Constants.MODULE_KEY + "=" + referrer);
         //redirect because we are done
         setIsNextPageInContext(false);
     }
 
     private String generatePassword() {
         StringBuffer newPass = new StringBuffer();
-        for(int i = 0; i < maxPasswordSize; ++i) {
+        for (int i = 0; i < maxPasswordSize; ++i) {
             newPass.append(
-                Constants.VALID_PASS_CHAR_LIST.charAt(
-                    rand(Constants.VALID_PASS_CHAR_LIST.length())));
+                    Constants.VALID_PASS_CHAR_LIST.charAt(
+                            rand(Constants.VALID_PASS_CHAR_LIST.length())));
         }
 
         return newPass.toString();
     }
 
     private int rand(int max) {
-        return (int)Math.floor(Math.random()*max);
+        return (int) Math.floor(Math.random() * max);
     }
 }
 
