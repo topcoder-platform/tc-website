@@ -1,7 +1,8 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          autoFlush="false"
          buffer="64kb"
-         import="com.topcoder.web.corp.Constants"
+         import="com.topcoder.web.corp.Constants,
+                 com.topcoder.web.corp.controller.TransactionServlet"
          errorPage="../exc/InternalError.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -58,7 +59,7 @@ Oem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh eu
 <P><BR/></P>    
 </td></tr>
 <tr><td>
-     <form method="POST" action="<%=request.getContextPath()%>/Tx/?op=begin">
+     <form method="POST" action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TERMS%>">
        <input type="hidden" name="back-to" value="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>"/>
        <input type="hidden" name="prod-id" value="1"/> <!-- product id -->
        <input type="hidden" name="utype-id" value="2"/> <!-- unit type id -->

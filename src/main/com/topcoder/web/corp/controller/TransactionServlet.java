@@ -2,17 +2,15 @@ package com.topcoder.web.corp.controller;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
-import com.topcoder.web.common.security.BasicAuthentication;
-import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.corp.model.TransactionInfo;
 import com.topcoder.web.ejb.product.*;
-import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.ejb.user.ContactHome;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
+import com.topcoder.web.common.tag.BaseTag;
 
-import javax.ejb.CreateException;
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -20,10 +18,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.transaction.Transaction;
 import java.io.IOException;
-import java.rmi.RemoteException;
 import java.sql.Date;
-import java.util.Calendar;
 import java.util.Hashtable;
+import java.util.HashMap;
+import java.util.Vector;
 
 /**
  * Credit card transaction servlet. Used for both client and VeriSign
@@ -59,6 +57,7 @@ public class TransactionServlet extends HttpServlet {
 
     public static final String KEY_OPERATION = "op";
     private static final String KEY_RC = "rc";
+    private static final String KEY_TRANSACTION_INFO = "transaction_info";
 
     public static final String KEY_PRODUCT_ID = "prod-id";
     public static final String KEY_UNITTYPE_ID = "utype-id";
@@ -68,6 +67,7 @@ public class TransactionServlet extends HttpServlet {
     public static final String OP_TX_BEGIN = "begin";
     public static final String OP_TX_COMMIT = "commit";
     public static final String OP_TX_STATUS = "status";
+    public static final String OP_TERMS = "terms";
 
     private static final String FRMKEY_CCTX_UID = "USER1";
 
@@ -80,6 +80,7 @@ public class TransactionServlet extends HttpServlet {
     private String defaultPageSuccess = null;
     private String defaultPageFailure = null;
     private String defaultPageIntForm = null;
+    private String defaultPageTerms = null;
 
     /**
      * Sets up default success, failure and, intermediate form pages for servlet
@@ -92,6 +93,7 @@ public class TransactionServlet extends HttpServlet {
         defaultPageSuccess = cfg.getInitParameter("page-success");
         defaultPageFailure = cfg.getInitParameter("page-failure");
         defaultPageIntForm = cfg.getInitParameter("intermediate-form");
+        defaultPageTerms = cfg.getInitParameter("terms");
     }
 
     /**
@@ -161,15 +163,37 @@ public class TransactionServlet extends HttpServlet {
                 req.setAttribute(KEY_EXCEPTION, e);
                 req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
             }
-        } else if (OP_TX_BEGIN.equals(op)) {
+        } else if (OP_TERMS.equals(op)) {
             try {
-                txBegin(req, resp);
+                TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
+                req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
             } catch (Exception e) { // possible parameters are wrong
                 e.printStackTrace();
                 req.setAttribute(KEY_EXCEPTION, e);
                 req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
             }
-            req.getRequestDispatcher(defaultPageIntForm).forward(req, resp);
+            req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+        } else if (OP_TX_BEGIN.equals(op)) {
+            try {
+                //only begin if they have agreed to terms.
+                if ("on".equalsIgnoreCase(req.getParameter(Constants.KEY_AGREE_TO_TERMS))) {
+                    txBegin(req, resp);
+                    req.getRequestDispatcher(defaultPageIntForm).forward(req, resp);
+                } else {
+                    TransactionInfo txInfo = buildTermsTransactionInfo(req, resp);
+                    req.setAttribute(KEY_TRANSACTION_INFO, txInfo);
+                    HashMap formErrors = new HashMap();
+                    Vector v = new Vector();
+                    v.add("You must agree to terms in order to make a purchase.");
+                    formErrors.put(Constants.KEY_AGREE_TO_TERMS, v);
+                    req.setAttribute(BaseTag.CONTAINER_NAME_FOR_ERRORS, formErrors);
+                    req.getRequestDispatcher(defaultPageTerms).forward(req, resp);
+                }
+            } catch (Exception e) { // possible parameters are wrong
+                e.printStackTrace();
+                req.setAttribute(KEY_EXCEPTION, e);
+                req.getRequestDispatcher(defaultPageFailure).forward(req, resp);
+            }
         } else if (OP_TX_COMMIT.equals(op)) {
             try {
                 log.debug("CcTx commit successful [" + txCommit(req) + "]");
@@ -177,8 +201,7 @@ public class TransactionServlet extends HttpServlet {
             } catch (Exception e) {
                 try {
 
-                    ((transaction_info) currentTransactions
-                            .get(transactionKey(req))).tcExc = e;
+                    ((TransactionInfo) currentTransactions.get(transactionKey(req))).setTcExc(e);
                 } catch (Exception ignore) {
                 }
 
@@ -203,21 +226,21 @@ public class TransactionServlet extends HttpServlet {
             throws Exception {
         // VeriSign has returned after transaction copletion
         String txRc = req.getParameter(KEY_RC);
-        transaction_info txInfo = (
-                (transaction_info) currentTransactions.get(transactionKey(req))
+        TransactionInfo txInfo = (
+                (TransactionInfo) currentTransactions.get(transactionKey(req))
                 );
         if (txInfo == null) {
             throw new Exception("there is not transaction in progress");
         }
         if (!refreshRetCode(req, txInfo)) {
-            throw new Exception("Rejected by VeriSign [" + txInfo.rcVeriSign + "]");
+            throw new Exception("Rejected by VeriSign [" + txInfo.getRcVeriSign() + "]");
         }
-        if (txInfo.tcExc != null) {
+        if (txInfo.getTcExc() != null) {
             // was not able to store tx info in the DB
-            throw new Exception(txInfo.tcExc.getMessage());
+            throw new Exception(txInfo.getTcExc().getMessage());
         }
         return
-                txInfo.userBackPage == null ? defaultPageSuccess : txInfo.userBackPage;
+                txInfo.getUserBackPage() == null ? defaultPageSuccess : txInfo.getUserBackPage();
     }
 
     /**
@@ -241,8 +264,8 @@ public class TransactionServlet extends HttpServlet {
      */
     private void txBegin(HttpServletRequest req, HttpServletResponse resp)
             throws Exception {
-        transaction_info txInfo = buildTransactionInfo(req, resp);
-        req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.cost * txInfo.qtty));
+        TransactionInfo txInfo = buildTransactionInfo(req, resp);
+        req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost() * txInfo.getQtty()));
 //        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
 //        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
 //        req.setAttribute(Constants.KEY_CCTX_CONFIRM, Constants.CCTX_CONFIRM);
@@ -262,10 +285,10 @@ public class TransactionServlet extends HttpServlet {
      * @param txi transaction information to be updated
      * @return boolean true if transaction is approved
      */
-    private boolean refreshRetCode(HttpServletRequest req, transaction_info txi) {
+    private boolean refreshRetCode(HttpServletRequest req, TransactionInfo txi) {
         String rcString = req.getParameter(RETKEY_IRESULT);
         if (rcString == null || rcString.trim().length() == 0) {
-            return txi.rcVeriSign == null;
+            return txi.getRcVeriSign() == null;
         }
 
         int rc = -1;
@@ -275,9 +298,9 @@ public class TransactionServlet extends HttpServlet {
         }
 
         if (rc != RCINT_APPROVED) {
-            txi.rcVeriSign = req.getParameter(RETKEY_SRESULT) + ", rc=" + rc;
+            txi.setRcVeriSign(req.getParameter(RETKEY_SRESULT) + ", rc=" + rc);
         } else {
-            txi.rcVeriSign = null;
+            txi.setRcVeriSign(null);
         }
         return rc == RCINT_APPROVED;
     }
@@ -294,8 +317,8 @@ public class TransactionServlet extends HttpServlet {
      * DB errors occured, etc.
      */
     private boolean txCommit(HttpServletRequest req) throws Exception {
-        transaction_info txInfo;
-        txInfo = (transaction_info) currentTransactions.get(transactionKey(req));
+        TransactionInfo txInfo;
+        txInfo = (TransactionInfo) currentTransactions.get(transactionKey(req));
         if (txInfo == null) {
             throw new Exception("there is not transaction in progress");
         }
@@ -315,16 +338,16 @@ public class TransactionServlet extends HttpServlet {
                     ).create();
             long purchaseID;
             purchaseID = purchaseTable.createPurchase(
-                    txInfo.companyID,
-                    txInfo.productID,
-                    txInfo.contactID,
-                    txInfo.qtty * txInfo.cost
+                    txInfo.getCompanyID(),
+                    txInfo.getProductID(),
+                    txInfo.getContactID(),
+                    txInfo.getQtty() * txInfo.getCost()
             );
-            if (txInfo.start != 0) {
-                purchaseTable.setStartDate(purchaseID, new Date(txInfo.start));
+            if (txInfo.getStart() != 0) {
+                purchaseTable.setStartDate(purchaseID, new Date(txInfo.getStart()));
             }
-            if (txInfo.end != 0) {
-                purchaseTable.setEndDate(purchaseID, new Date(txInfo.end));
+            if (txInfo.getEnd() != 0) {
+                purchaseTable.setEndDate(purchaseID, new Date(txInfo.getEnd()));
             }
             //purchaseTable.setSumPaid(purchaseID, txInfo.sum);
             dbTx.commit();
@@ -353,14 +376,23 @@ public class TransactionServlet extends HttpServlet {
      * include invalid product ID, unit type ID, user identifying errors, errors
      * in DB retrieval procedures
      */
-    private transaction_info buildTransactionInfo(
+    private TransactionInfo buildTransactionInfo(
             HttpServletRequest req,
             HttpServletResponse resp
             )
             throws Exception {
-        transaction_info txInfo = new transaction_info(req, resp);
+        TransactionInfo txInfo = new TransactionInfo(req, resp);
         currentTransactions.put(transactionKey(req), txInfo);
         log.debug("CcTx started");
+        return txInfo;
+    }
+
+    private TransactionInfo buildTermsTransactionInfo(HttpServletRequest req, HttpServletResponse resp )
+            throws Exception {
+        TransactionInfo txInfo = new TransactionInfo(req, resp);
+        InitialContext ic = (InitialContext) TCContext.getInitial();
+        TermsOfUse terms = ((TermsOfUseHome) ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
+        txInfo.setTerms(terms.getText(Constants.GENERAL_PRODUCT_TERMS_ID));
         return txInfo;
     }
 
@@ -383,135 +415,4 @@ public class TransactionServlet extends HttpServlet {
         return key;
     }
 
-    /**
-     * Class to encapsulate CC transaction reladed information.
-     *
-     * @author djFD molc@mail.ru
-     * @version 1.02
-     *
-     */
-    private static class transaction_info {
-        String userBackPage = null;
-
-        long productID = -1;
-        long unitTypeID = -1;
-        long contactID = -1;
-
-        long companyID = -1;
-
-        int qtty = 0;
-        double cost = 0;
-
-        long start = 0;
-        long end = 0;
-        String rcVeriSign = null;
-        Exception tcExc = null;
-
-        /**
-         * Creates CC transaction info bundle based on given request/response
-         * pair.
-         *
-         * @param req must have 'prod-id' & 'utype-id' parameters set
-         * @param resp used to get uathentification token which in turn, is used
-         * to decide what company is involved into transaction
-         *
-         * @throws NamingException errors when trying to get EJBs
-         * @throws RemoteException errors when trying to get EJBs / working with
-         * EJBs
-         * @throws CreateException errors when trying to get remote EJBs
-         *
-         * @throws Exception there is certain inconsistency in CC transaction
-         * information
-         */
-        private transaction_info(HttpServletRequest req, HttpServletResponse resp)
-                throws NamingException, RemoteException, CreateException, Exception {
-            productID = Long.parseLong(req.getParameter(KEY_PRODUCT_ID));
-            unitTypeID = Long.parseLong(req.getParameter(KEY_UNITTYPE_ID));
-            userBackPage = req.getParameter(KEY_RETPAGE);
-            if (userBackPage != null && userBackPage.trim().length() == 0) {
-                userBackPage = null;
-            }
-
-            // find out purchase parameters
-            SessionPersistor store = new SessionPersistor(
-                    req.getSession(true)
-            );
-            contactID = (new BasicAuthentication(store, req, resp))
-                    .getActiveUser().getId();
-
-            InitialContext icEJB = null;
-            try {
-                icEJB = (InitialContext)TCContext.getInitial();
-                // check if there is such product
-                Product productTable = (
-                        (ProductHome) icEJB.lookup(ProductHome.EJB_REF_NAME)
-                        ).create();
-                cost = productTable.getCost(productID);
-                if (cost <= 0) {
-                    throw new Exception("No valid product found for ID given");
-                }
-
-                Unit unitTable = (
-                        (UnitHome) icEJB.lookup(UnitHome.EJB_REF_NAME)
-                        ).create();
-                qtty = unitTable.getNumUnits(productID, unitTypeID);
-                if (qtty <= 0) {
-                    throw new Exception("No valid unit found for ID given");
-                }
-
-                Contact contactTable = (
-                        (ContactHome) icEJB.lookup(ContactHome.EJB_REF_NAME)
-                        ).create();
-                companyID = contactTable.getCompanyId(contactID);
-
-                // calculate start date / end date
-                int field = -1;
-                String unitName;
-                unitName = unitTable.getUnitDescription(productID, unitTypeID);
-                if ("day".equalsIgnoreCase(unitName)) {
-                    field = Calendar.DAY_OF_MONTH;
-                } else if ("week".equalsIgnoreCase(unitName)) {
-                    field = Calendar.MONTH;
-                } else if ("year".equalsIgnoreCase(unitName)) {
-                    field = Calendar.YEAR;
-                }
-
-                if (field != -1) {
-                    Calendar calendar = Calendar.getInstance();
-                    start = calendar.getTime().getTime();
-                    calendar.add(field, qtty);
-                    end = calendar.getTime().getTime();
-                }
-                verify();
-            } finally {
-                Util.closeIC(icEJB);
-            }
-        }
-
-        /**
-         * Verifies if productID, unitTypeID, contactID, companyID, cost
-         * and, qtty fields in thansaction info class are ok. If not, then
-         * throws Exception.
-         *
-         * @throws Exception when there is/are error(s) in transaction info
-         * fields preventing transaction from completion.
-         */
-        private void verify() throws Exception {
-            String msg = "";
-            if (productID <= 0) msg += "illegal product ID\n";
-            if (unitTypeID <= 0) msg += "illegal unit type ID\n";
-            if (contactID <= 0) {
-                msg += "illegal contact ID\n";
-            } else if (companyID <= 0) {
-                msg += "illegal company ID\n";
-            }
-            if (qtty <= 0) msg += "illegal unit qtty\n";
-            if (cost <= 0) msg += "illegal product cost\n";
-            if (cost * qtty <= 0.01) msg += "illegal total amount\n";
-
-            if (msg.length() != 0) {
-                throw new Exception(msg);
-            }
-        }
-    }
 }

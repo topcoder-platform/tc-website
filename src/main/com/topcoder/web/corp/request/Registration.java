@@ -49,8 +49,6 @@ public final class Registration extends UserEdit {
     public static final String KEY_STATE = "prim-company-state";
     public static final String KEY_ZIP = "prim-company-zip";
     public static final String KEY_COUNTRY = "prim-company-country";
-    public static final String KEY_TERMS = "terms";
-    public static final String KEY_AGREE_TO_TERMS = "agree-to-terms";
 
     private static final String COUNTRY_USA = "840";
 
@@ -87,8 +85,8 @@ public final class Registration extends UserEdit {
         zip = request.getParameter(KEY_ZIP);
         country = request.getParameter(KEY_COUNTRY);
 
-        log.debug("agree: " + request.getParameter(KEY_AGREE_TO_TERMS));
-        agree = "on".equalsIgnoreCase(request.getParameter(KEY_AGREE_TO_TERMS));
+        log.debug("agree: " + request.getParameter(Constants.KEY_AGREE_TO_TERMS));
+        agree = "on".equalsIgnoreCase(request.getParameter(Constants.KEY_AGREE_TO_TERMS));
         return super.getFormFields();
     }
 
@@ -123,7 +121,7 @@ public final class Registration extends UserEdit {
             request.setAttribute("rsc-countries-list", rsc);
 
             TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
-            setFormFieldDefault(KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
+            setFormFieldDefault(Constants.KEY_TERMS, terms.getText(Constants.CORP_SITE_TERMS_ID));
 
         } finally {
             Util.closeIC(ic);
@@ -210,7 +208,7 @@ public final class Registration extends UserEdit {
 
     private boolean checkTerms(boolean agree) {
         if (!agree) {
-            markFormFieldAsInvalid(KEY_AGREE_TO_TERMS, "You must agree to terms in order to register.");
+            markFormFieldAsInvalid(Constants.KEY_AGREE_TO_TERMS, "You must agree to terms in order to register.");
         }
         return agree;
     }
