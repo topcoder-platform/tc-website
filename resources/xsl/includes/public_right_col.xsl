@@ -11,11 +11,7 @@
             
             <img src="/i/clear.gif" alt="" width="170" height="5" border="0" /><br />
             
-            <a href="/?t=tces&amp;c=nvidia"><img src="/i/tournament/tccc03_nvidia_promo.gif" alt="Nvidia is a Corporate Sponsor of the Challenge" width="170" height="158" border="0" /></a><br />
-            
             <a href="mailto:tces@topcoder.com?subject=Yes, I'm looking to hire top quality developers"><img src="/i/tces_sidebar.gif" alt="" width="170" height="95" border="0"/></a><br />
-
-            <img src="/i/tces_quote_sm.gif" width="170" height="159" border="0" alt="Only rated members can apply for jobs" usemap="#tcesMapSm" /><br />
 
 <map name="tcesMapSm">
     <area shape="rect" alt="" coords="88,84,161,98" href="/?t=schedule&amp;c=index"></area>
