@@ -93,14 +93,12 @@ public class GoogleLogin extends FullLogin {
             if (!hasError(Constants.HANDLE))
                 addError(Constants.HANDLE, e.getMessage());
         }
-        if (!hasErrors()) {
-            User user = (User) createEJB(getInitialContext(), User.class);
-            char status = user.getStatus(getAuthentication().getActiveUser().getId(), db);
+        User user = (User) createEJB(getInitialContext(), User.class);
+        char status = user.getStatus(getAuthentication().getActiveUser().getId(), db);
             if (Arrays.binarySearch(ACTIVE_STATI, status) > 0) {
                 Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
                 ret = coder.exists(getAuthentication().getActiveUser().getId(), db);
             }
-        }
         return ret;
 
     }
