@@ -128,10 +128,10 @@
 						<p><br/>
 						Component Posting: 2.27.2003<br/>
 						Specification Submission Due Date: 3.5.2003<br/>
-						Design Submission Due Date: 3.10.2003<br/>
-						Winner Announced: 3.19.2003<br/>
-						Updated Submission Due Date: 4.22.2003<br/>
-						Estimated Development End Date: 6.19.2003<br/>
+						Design Submission Due Date: 3.17.2003<br/>
+						Winner Announced: 3.26.2003<br/>
+						Updated Submission Due Date: 4.27.2003<br/>
+						Estimated Development End Date: 6.26.2003<br/>
                         </p>
                         
 
