@@ -19,9 +19,10 @@ public class ProblemDetail extends Base {
 
         try {
             Request r = new Request();
-            Map map = HttpUtils.parseQueryString(getRequest().getQueryString());
+            r.setContentHandle("problem_detail");
+            r.setProperty("pm", getRequest().getParameter("pm"));
+            r.setProperty("rd", getRequest().getParameter("rd"));
 
-            r.setProperties(map);
             DataAccessInt dai = getDataAccess(true);
             r.setProperty("dn", "1");
             getRequest().setAttribute("div1Reslts", dai.getData(r));
