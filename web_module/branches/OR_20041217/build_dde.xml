@@ -394,6 +394,7 @@
         <copy file="${security.jar}" todir="${dist.jars.dir}"/>
         <copy file="${searchengine.jar}" todir="${dist.jars.dir}"/>
         <copy file="${simplecache.jar}" todir="${dist.jars.dir}"/>
+        <copy file="${math_matrix.jar}" todir="${dist.jars.dir}"/>
     </target>
 
     <target name="package-devtests" depends="compile-devtests">
