@@ -41,9 +41,8 @@
             </tr>
             <tr>
                 <td align=center>
-                    <input type=button id="okButton" value="OK" onclick="ok();" />
-                    <input type=button id="cancelButton" value="Cancel" onclick="cancel();"/>
-
+                    <a href="Javascript:ok();"><img src="/i/corp/screening/buttonOK.gif" alt="OK"/></a>
+                    <a href="Javascript:cancel();"><img src="/i/corp/screening/buttonCancel.gif" alt="Cancel"/></a>
                 </td>
             </tr>
         </table>

@@ -15,7 +15,6 @@
     <title></title>
   </head>
   <body>
-        Debug boxes:
         <form name=frmTesting>
         <input type=hidden name=arrayArg value=0 />
         <input type=hidden name=arrayArgType value="" />
@@ -23,6 +22,7 @@
         <!-- this will be dynamically written out by the backend for this page -->
         <table border=0 width="100%">
             <ci:argumentIterator problem="prob" language="language">
+                <input type="hidden" name="arg<%=argumentIndex%>input" value="" />
                 <tr>
                     <td>
                         <%=StringUtils.htmlEncode(argument)%>
