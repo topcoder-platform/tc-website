@@ -46,6 +46,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
             mail.setBody(buf.toString());
             mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
             mail.setFromAddress("service@topcoder.com");
+            log.info("sent registration email to " + info.getEmail());
             EmailEngine.send(mail);
 
 
