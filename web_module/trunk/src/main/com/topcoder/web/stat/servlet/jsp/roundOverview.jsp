@@ -100,7 +100,7 @@
  	<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
 
    <A CLASS="bodyGeneric" href="/stat?&amp;c=<%= lastMatch?"last_match":("round_stats&amp;rd="+roundID) %>"><B><%= contestName %></B></A><BR/>
-<!--DATE <BR/>-->
+<!--DATE <BR/>--><%=request.getAttribute("rd").toString()%>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
