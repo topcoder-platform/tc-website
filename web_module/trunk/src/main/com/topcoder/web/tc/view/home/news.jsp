@@ -20,7 +20,7 @@
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>03.30.05<br>11:00 AM</td>
       <td class="newsTextCell"><span class="newsTitle">TCCC05 <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals">Design</A> and <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals">Development</A> Finals details available.</span><br><br>
-      This includes submissions, scores, reviews, and tests.
+      Including submissions, scores, reviews, and tests.
       </td>
    </tr>
    <tr><td class="newsLinksCell">
