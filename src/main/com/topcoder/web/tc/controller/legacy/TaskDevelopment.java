@@ -645,11 +645,11 @@ else if (command.equals("send")) {
                         StringBuffer respBody = new StringBuffer(100);
                         respBody.append("Hello ");
                         respBody.append(handle);
-                        respBody.append(", \n");
+                        respBody.append(", \n\n");
                         respBody.append("Your application for more information on the ");
                         respBody.append(project);
                         respBody.append(" application project has been received.\n\n");
-                        respBody.append("  If you are chosen, you will receive an email containing more details about ");
+                        respBody.append("If you are chosen, you will receive an email containing more details about ");
                         respBody.append("the project.  Once you have read that information, you will be expected to ");
                         respBody.append("respond indicating whether or not you will commit to completing the work.\n\n");
                         if (desRating == 0&&phase.equals(String.valueOf(SoftwareComponent.DESIGN_PHASE))) {
