@@ -99,7 +99,7 @@ TopCoder will compensate all team members for their work on the project.
                                     <BR/>
 The developer will get paid a total of $1,200.00 
                                     <ul>
-                                        <li>$210.00 at the start of the project </li>
+                                        <li>$120.00 at the start of the project </li>
                                         <li>$1,080.00 at the completion of the project* </li>
                                     </ul>
 *Completion of the project is defined as follows: 
