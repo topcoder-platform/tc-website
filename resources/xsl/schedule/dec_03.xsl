@@ -171,7 +171,7 @@
                                     <strong>Match 177</strong><br />
                                     Register: 5:00&#160;PM<br />
                                     Compete: 8:00&#160;PM<br />
-                                    <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
+                                    Sponsor: <br/><A href="/?&amp;t=development&amp;c=index">TopCoder Software</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4690&amp;t=schedule&amp;c=srm">Details</A></td>
                                 <td id="calendar">31</td>
