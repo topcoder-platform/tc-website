@@ -36,12 +36,12 @@
   }
   // do a login if all parameters are good
   AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
-  if(rtUser==""){
+  if(rtUser.equals("")){
     authToken = authFactory.getAnonymousAuthorization();
-    session.putValue("jiveAuthorization",authToken);
+    session.setAttribute("jiveAuthorization",authToken);
   }else{    
     authToken = authFactory.getAuthorization(rtUser,rtPassword);
-    session.putValue("jiveAuthorization",authToken);
+    session.setAttribute("jiveAuthorization",authToken);
   }
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">

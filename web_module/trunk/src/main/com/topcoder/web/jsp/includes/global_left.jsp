@@ -1,7 +1,10 @@
 <%@  page
   language="java"
   errorPage="../errorPage.jsp"
-  import="com.topcoder.common.web.data.Navigation,com.coolservlets.forum.*"
+  import="com.topcoder.common.web.data.Navigation,com.coolservlets.forum.*,
+          java.text.SimpleDateFormat,
+          java.util.HashMap,
+          java.util.Iterator"
 %>
 
     
@@ -409,7 +412,42 @@
     <TR><TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD></TR>
 <%
   // do a login if all parameters are good
-  Authorization aToken = (Authorization) session.getValue("jiveAuthorization");
+  Authorization aToken = (Authorization) session.getAttribute("jiveAuthorization");
+  if (aToken==null) {
+      Authorization authToken = null;
+      com.topcoder.ejb.AuthenticationServices.User user = null;
+      String rtUser = "";
+      String rtPassword = "";
+      String Redirect_URL = "http://" + request.getServerName();
+      String responseURL = response.encodeURL("");
+      SimpleDateFormat dateFormatter = new SimpleDateFormat("EEE, MMM d 'at' hh:mm a z");
+      Navigation n = null;
+      try {
+        n = (Navigation) session.getAttribute("navigation");
+        if (n==null) n = new Navigation();
+        user = n.getUser();
+        HashMap userTypeDetails = user.getUserTypeDetails();
+        HashMap sessionObjects = n.getSessionObjects();
+        if ( n.getLoggedIn() ) {
+          rtUser =user.getHandle();
+          rtPassword =user.getPassword();
+        }
+      }
+      catch( Exception e ) {
+        response.sendRedirect(Redirect_URL);
+        return;
+      }
+      // do a login if all parameters are good
+      AuthorizationFactory authFactory = AuthorizationFactory.getInstance();
+      if(rtUser.equals("")){
+        authToken = authFactory.getAnonymousAuthorization();
+        session.setAttribute("jiveAuthorization",authToken);
+      }else{
+        authToken = authFactory.getAuthorization(rtUser,rtPassword);
+        session.setAttribute("jiveAuthorization",authToken);
+      }
+      aToken = (Authorization) session.getAttribute("jiveAuthorization");
+  }
   int userId = 0;
   try {
     userId = aToken.getUserID();
