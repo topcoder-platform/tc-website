@@ -70,11 +70,11 @@
 			</tr>
 			<tr valign=top>
 				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><img src="/images/catalog/categoryBtn.jpg" border=0/></A></td>
-				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><b>Browse Components by Category</b></A><br/>Need some Security? How about some Administration Tools? If you have a specific software functionality need, browse here to view our component catalog broken up into categories.</td>
+				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp"><b>Browse Components by Category</b></A><br/>Need some Security Tools? How about some Administration Tools? If you have a specific software functionality need, browse here to view our Component Catalog broken up into categories.</td>
 			</tr>
 			<tr valign=top>
 				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><img src="/images/catalog/indexBtn.jpg" border=0/></A></td>
-				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><b>Browse Components Index</b></A><br/>An alphabetical listing of our components, both Java and .Net.  Browse here if you know that exact component that you are looking for.</td>
+				<td class=catalogIndexCell><A href="/catalog/c_showroom.jsp?a=all"><b>Browse Component Index</b></A><br/>An alphabetical listing of our components, both Java and .Net.  Browse here if you know the exact component that you are looking for.</td>
 			</tr>
 		</table>
         </td>

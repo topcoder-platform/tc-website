@@ -64,13 +64,13 @@
 			<table cellspacing=0 cellpadding=10 border=0 width="100%">
 				<tr valign=top>
 					<td valign=top align=center width="50%">
-						<img src="/images/javaSm.jpg" border=0/><br/>
+						<img src="/images/catalog/java_logo.jpg" border=0/><br/>
 						<hr noshade="noshade" size="1" width="100%">
 						<b><A href="/components/appSuite.jsp?appSuiteID=jas_eCommerce">eCommerce</A></b><br/>
 					</td>
 					<td class=bodyText valign=top align=center><img src="/images/appSuiteQues.gif" border=0/></td>
 					<td valign=top align=center width="50%">
-						<img src="/images/dotnetSm.jpg" border=0/><br/>
+						<img src="/images/catalog/dotnet_logo.jpg" border=0/><br/>
 						<hr noshade="noshade" size="1" width="100%">
 						<b><A href="/components/appSuite.jsp?appSuiteID=nas_eCommerce">eCommerce</A></b><br/>
 					</td>
