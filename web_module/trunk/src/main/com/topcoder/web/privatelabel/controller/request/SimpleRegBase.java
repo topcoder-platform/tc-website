@@ -24,9 +24,11 @@ abstract class SimpleRegBase extends RegistrationBase {
         setDefault(Constants.EMAIL, info.getEmail());
         setDefault(Constants.EMAIL_CONFIRM, info.getEmailConfirm());
         setDefault(Constants.FIRST_NAME, info.getFirstName());
+        setDefault(Constants.MIDDLE_NAME, info.getMiddleName());
         setDefault(Constants.LAST_NAME, info.getLastName());
         setDefault(Constants.ADDRESS1, info.getAddress1());
         setDefault(Constants.ADDRESS2, info.getAddress2());
+        setDefault(Constants.ADDRESS3, info.getAddress3());
         setDefault(Constants.COUNTRY_CODE, info.getCountryCode());
         setDefault(Constants.STATE_CODE, info.getStateCode());
         setDefault(Constants.CITY, info.getCity());
