@@ -71,33 +71,33 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                </tr>
                 <tr>
                    <td class="testTableTitle_off" width="10%" align="center">
-                       <a class="statTextBig">
-                          
+                       <a class="statTextBig" href="/">
+                           Seed
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="left">
-                       <a class="statTextBig">
+                       <a class="statTextBig" href="/">
                            Handle
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="right">
-                       <a class="statTextBig">
+                       <a class="statTextBig" href="/">
                            Rating
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="right">
-                       <a class="statTextBig">
+                       <a class="statTextBig" href="/">
                            Points
                        </a>
                    </td>
                 </tr>
 
 
-                    <tr>
-                       <td class="advancers_list" align="right"></td>
-                       <td class="advancers_list" align="left">
-                       <td class="advancers_list" align="right"></td>
-                       <td class="advancers_list" align="right"></td>
+                    <tr class="advancers_list">
+                       <td class="advancers_list" align="right">1</td>
+                       <td class="advancers_list" align="left">ntrefz</td>
+                       <td class="advancers_list" align="right">5000</td>
+                       <td class="advancers_list" align="right">5000</td>
                    </tr>
                 </xsl:for-each>
 
