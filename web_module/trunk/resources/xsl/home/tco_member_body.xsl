@@ -58,7 +58,7 @@
             <h2>bstansescu outcodes number one seed to take Room 1</h2>
 
             <p>by Matt Murphy (veredox), <em>TopCoder Staff</em><br />
-            Wednesday, December 3, 2003</p>
+            Thursday, December 4, 2003</p>
 
             <p>Opting for strategy over speed, bstanescu is the first coder to qualify for the TCO final round.  When approached after his victory was announced, he played it cool saying, "The guy who solves the first and the third problems usually beats the guy who solves the first and the second.  But it doesn't always work."  Well, it worked today.</p>
 
