@@ -12,7 +12,6 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
 }
 </SCRIPT>
-
 <SCRIPT type="text/javascript">
 if (document.images) {
   image2on = new Image();

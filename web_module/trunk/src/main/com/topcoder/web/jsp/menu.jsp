@@ -1,7 +1,6 @@
 <%@  page
 contentType="text/html"
 %>
-
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
 <TR>
 <TD CLASS="registerNav" WIDTH="114" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif"><% if ( nav.getLoggedIn() ) { %><A HREF="/reg/index.jsp" CLASS="registerNav" TARGET="_parent"><IMG SRC="/i/menu_profile_on.gif" ALT="Update Profile" WIDTH="114" HEIGHT="21" BORDER="0"/></A><% } else { %><A CLASS="registerNav" HREF="/reg/index.jsp" TARGET="_parent"><IMG SRC="/i/menu_reg_off.gif" ALT="Register" WIDTH="114" HEIGHT="21" BORDER="0"/></A><%}%></TD>
@@ -14,15 +13,12 @@ contentType="text/html"
 <TD WIDTH="82" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="/index?t=news_events&amp;c=index" onMouseOver="changeImages('image8', 'image8on')" onMouseOut="changeImages('image8', 'image8off')" TARGET="_parent"><IMG NAME="image8" SRC="/i/menu_press_off.gif" ALT="News &amp; Events" WIDTH="82" HEIGHT="21" BORDER="0"></A></TD>            
 <TD WIDTH="90" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><A HREF="/index?t=support&amp;c=index" onMouseOver="changeImages('image9', 'image9on')" onMouseOut="changeImages('image9', 'image9off')" TARGET="_parent"><IMG NAME="image9" SRC="/i/menu_support_off.gif" ALT="Support/FAQs" WIDTH="90" HEIGHT="21" BORDER="0"></A></TD>            
 <TD WIDTH="100%" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-<!-- <TD WIDTH="5" HEIGHT="21" BACKGROUND="/i/top_bar_bg.gif" BGCOLOR="#CC0000" ALIGN="right"><IMG SRC="/i/top_bar_right.gif" WIDTH="5" HEIGHT="21" BORDER="0"/></TD> -->
 </TR>
 </TABLE>
-
-    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-      <TR>
-        <TD WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="top" ALIGN="right"><IMG SRC="/i/clear.gif" WIDTH="510" HEIGHT="1" BORDER="0"/></TD>
-        <TD WIDTH="8" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="top" ALIGN="right"><IMG SRC="/i/top_gray_right.gif" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
-        <TD WIDTH="210" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="210" HEIGHT="1" BORDER="0"/></TD>
-      </TR>
-    </TABLE>
-
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+  <TR>
+    <TD WIDTH="100%" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="top" ALIGN="right"><IMG SRC="/i/clear.gif" WIDTH="510" HEIGHT="1" BORDER="0"/></TD>
+    <TD WIDTH="8" BACKGROUND="/i/steel_gray_bg.gif" VALIGN="top" ALIGN="right"><IMG SRC="/i/top_gray_right.gif" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
+    <TD WIDTH="210" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="210" HEIGHT="1" BORDER="0"/></TD>
+  </TR>
+</TABLE>
