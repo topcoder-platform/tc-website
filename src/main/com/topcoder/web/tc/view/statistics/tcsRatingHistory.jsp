@@ -110,8 +110,6 @@ pageContext.setAttribute("resultRow", rsr);
 
                      |   
                      <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Earnings</A>
-                     |   
-                     <A HREF="/stat?c=reliability_history&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Reliability Rating</A>
                                 </TD>
                             </TR>
                             
