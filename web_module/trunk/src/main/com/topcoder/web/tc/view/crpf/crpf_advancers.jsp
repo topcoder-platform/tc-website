@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.dataAccess.DataAccessConstants"%>
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -79,30 +80,17 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <td class="crpfTitle" width="100%" colspan="3" bgcolor="#4E9DD5">Round 1</td>
                </tr>
                 <tr>
-                    <td class="crpfAdvancersSort" width="25%" align="left" nowrap="nowrap"><a href="/" class="topLink">Handle</a></td>
-                    <td class="crpfAdvancersSort" width="25%" align="right" nowrap="nowrap"><a href="/" class="topLink">Rating</a></td>
-                    <td class="crpfAdvancersSort" width="50%" align="right" nowrap="nowrap"><a href="/" class="topLink">Score</a></td>
+                    <td class="crpfAdvancersSort" width="25%" align="left" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=crpf_advancers&rd=<%=rsc.getIntItem(0, "round_id")%>&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">Handle</a></td>
+                    <td class="crpfAdvancersSort" width="25%" align="right" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=crpf_advancers&rd=<%=rsc.getIntItem(0, "round_id")%>&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">Rating</a></td>
+                    <td class="crpfAdvancersSort" width="50%" align="right" nowrap="nowrap"><a href="/tc?module=SimpleStats&c=crpf_advancers&rd=<%=rsc.getIntItem(0, "round_id")%>&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">Points</a></td>
                </tr>
-                <tr valign="top">
-                    <td class="sidebarText" align="left">somedude</td>
-                    <td class="sidebarText" align="right">2000</td>
-                    <td class="sidebarText" align="right">1000</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText" align="left">somedude2</td>
-                    <td class="sidebarText" align="right">2000</td>
-                    <td class="sidebarText" align="right">1000</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText" align="left">somedude3</td>
-                    <td class="sidebarText" align="right">2000</td>
-                    <td class="sidebarText" align="right">1000</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText" align="left">somedude4</td>
-                    <td class="sidebarText" align="right">2000</td>
-                    <td class="sidebarText" align="right">1000</td>
-                </tr>
+                <rsc:iterator list="<%=rsc%>" id="resultRow">
+                    <tr valign="top">
+                        <td class="sidebarText" align="left"><A HREF="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item name="handle" row="<%=resultRow%>"/></A></td>
+                        <td class="sidebarText" align="right"><rsc:item name="rating" row="<%=resultRow%>"/></td>
+                        <td class="sidebarText" align="right"><rsc:item name="points" row="<%=resultRow%>" format="0.00"/></td>
+                    </tr>
+                </rsc:iterator>
             </table><br />
 <!-- Online Rounds ends -->
 <!-- Center Column Ends -->
