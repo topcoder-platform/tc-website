@@ -12,87 +12,112 @@
         ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
-<HEAD>
-<title>TopCoder Corporate Services</title>
+<html>
+<head>
+<title>TopCoder | Corporate Services</title>
 
-<link rel="stylesheet" type="text/css" href="/css/corpStyle.css" />
+<link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
-</HEAD>
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+
+</head>
+
+<body>
+
+<!-- Top begins -->
 <jsp:include page="../includes/top.jsp"/>
+<!-- Top ends -->
 
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="170" VALIGN="top">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="../includes/left.jsp">
-            <jsp:param name="level1" value="myAccount"/>
-            <jsp:param name="level2" value="userList"/>
-        </jsp:include>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Account Administration - User List</B></FONT><BR>
-<P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.
-</P>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
 
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" width="100%">
-        <TR>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;Handle</B></TD>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>First Name</B></TD>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>Last Name</B></TD>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15"><B>&#160;</B></TD>
-        </TR>
+<!-- Left Column Begins -->
+        <td width="170" bgcolor="#CCCCCC">
+            <jsp:include page="../includes/left.jsp">
+                <jsp:param name="level1" value="manageUsers"/>
+                <jsp:param name="level2" value="userList"/>
+            </jsp:include>
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
+        <td valign="top"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText" width="100%">
+                        <h1 class="testHead">Manage Users</h1>
+                    </td>
+                <tr>
+                
+                <tr valign="top">
+                    <td class="bodyText" width="100%">
+                        <p>Use this page to manage the access that users at your company are given. By clicking <strong>Edit</strong> you can give users 
+                        overall Administrative access, full access to the Testing Application, results access to the Testing Application, or reporting access 
+                        to the Recruiting Application, depending on which TopCoder programs you have purchased.</p>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" cellspacing="10" cellpadding="0" width="80%">
+                 <tr>
+                    <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
+                </tr>
+            </table>
+            
+            <table border="0" cellspacing="0" cellpadding="3" width="80%" class="testFrame">
+                <tr valign="middle">
+                    <td class="testTableTitle">&#160;Handle</td>
+                    <td class="testTableTitle">First Name</td>
+                    <td class="testTableTitle">Last Name</td>
+                    <td class="testTableTitle">&#160;</td>
+                </tr>
 
         <% /* Setup variables used for row alternating background colors */
                 boolean isGreyBGCOLOR = true; 
                 String bgColor = new String();
         %>
 
-        <tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
+            <tc-webtag:iterator list="<%=rsc%>" id="resultRow" >
         <% 
-                bgColor = isGreyBGCOLOR ? "#CCCCCC" : "#FFFFFF";
+                bgColor = isGreyBGCOLOR ? "#EEEEEE" : "#FFFFFF";
                 isGreyBGCOLOR = !isGreyBGCOLOR; // change BGCOLOR for next row.
         %>
-          <TR>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">&#160;
+                <tr>
+                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">&#160;
                         <tc-webtag:item row="<%=resultRow%>" name="handle"/></TD>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
+                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
                         <tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
-                        <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-                <% boolean isPrim = Double.parseDouble(resultRow.getItem("isnot_admin").toString())==0.0; %>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=<%= isPrim? "Registration" : "UserEdit" %>&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>          
-          </TR>
+                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
+             <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
+             <% boolean isPrim = Double.parseDouble(resultRow.getItem("isnot_admin").toString())==0.0; %>
+                    <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=<%= isPrim? "Registration" : "UserEdit" %>&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>          
+                </tr>
         </tc-webtag:iterator>
 
-        <TR>
-                <TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" CLASS="bodyText">Add</A></TD>         
-        </TR>                           
-</TABLE>
-<P><BR></P>    
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="30"><IMG SRC="/i/clear.gif" WIDTH="30" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+            <table border="0" cellspacing="10" cellpadding="0" width="80%">
+                 <tr>
+                    <td><div align="center"><p class="button"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" class="button">Add New User</a></p></div></td>
+                </tr>
+            </table>
+            
+            <p><br></p>
 
+        </td>
+<!-- Center Column ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<!-- Footer begins -->
   <jsp:include page="../includes/foot.jsp"/>
+<!-- Footer ends -->
 
-</BODY>
-</HTML>
+</body>
+</html>
