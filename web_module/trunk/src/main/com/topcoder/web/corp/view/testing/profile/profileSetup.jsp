@@ -8,6 +8,7 @@
 
 <jsp:include page="../includes/script.jsp" />
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <script type="text/javascript" language="Javascript">
 <!--
 function getProblemDetail(id) {
@@ -17,7 +18,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
+    <% String url = sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
@@ -90,7 +91,7 @@ function submitConfirm() {
 
             <jsp:useBean id="profile" class="com.topcoder.web.corp.model.ProfileInfo" scope="request" />
 
-            <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
+            <screen:form name="profileSetupForm" method="GET" action="<%=sessionInfo.getServletPath()%>">
             <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="" >
             <% if(!profile.isNew()) { %>
                <input type="hidden" name="profileId" value="<jsp:getProperty name="profile" property="profileId" />" >

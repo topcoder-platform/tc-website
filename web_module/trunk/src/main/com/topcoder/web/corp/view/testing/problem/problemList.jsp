@@ -6,6 +6,7 @@
 <HEAD>
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
 <jsp:include page="../includes/script.jsp"/>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {
     var width = screen.availWidth * 2 / 3;
@@ -14,7 +15,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
+    <% String url = sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
@@ -26,6 +27,7 @@ function getProblemDetail(id) {
 <!-- Header begins -->
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
@@ -40,13 +42,13 @@ function getProblemDetail(id) {
                 <tr valign="top">
                     <td class="bodyText">
                <h1 class="testHead">Problem Sets</h1>
-            <P>Below is a list of Problem Sets available for use in the Testing Application.  Clicking on a Problem Name opens a window that 
+            <P>Below is a list of Problem Sets available for use in the Testing Application.  Clicking on a Problem Name opens a window that
             displays statistical information about the Problem, as well as the Problem Statement.</P>
                     </td>
                 </tr>
             </table>
 
-                   
+
          <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
 		       <TD ALIGN="center" CLASS="testTableTitle">Name</TD>

@@ -19,6 +19,8 @@ import com.topcoder.web.corp.model.TestSessionInfo;
 import com.topcoder.web.corp.controller.request.screening.BaseSessionProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 
 
 import javax.naming.InitialContext;
@@ -40,7 +42,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 //validate the info just in case someone tries to skip over
                 //setup page and commit no info from confirm page
                 if (!validateSessionInfo()) {
-                    setNextPage(Constants.CONTROLLER_URL + "?" +
+                    setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
                             Constants.MODULE_KEY + "=" +
                             Constants.POPULATE_SESSION_PROCESSOR);
                     setIsNextPageInContext(true);
@@ -130,7 +132,7 @@ public class UpdateSession extends BaseSessionProcessor {
             }
             clearSessionInfo();
 
-            setNextPage(Constants.CONTROLLER_URL + "?" +
+            setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
                     Constants.MODULE_KEY + "=Default");
             setIsNextPageInContext(false);
         }

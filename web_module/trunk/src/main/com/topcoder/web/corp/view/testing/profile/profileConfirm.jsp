@@ -7,6 +7,7 @@
 
 <jsp:include page="../includes/script.jsp" />
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <script type="text/javascript" language="Javascript">
 <!--
 function getProblemDetail(id) {
@@ -16,7 +17,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
+    <% String url = sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
@@ -43,6 +44,7 @@ function submitUpdate() {
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
@@ -56,7 +58,7 @@ function submitUpdate() {
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session - <font color="#000000">New Test Profile Confirmation</font></h1>
-                        <p>Review the information below for correctness.  If the information is correct, click <strong>Submit</strong>.  If changes need to be made, 
+                        <p>Review the information below for correctness.  If the information is correct, click <strong>Submit</strong>.  If changes need to be made,
                         click <strong>Edit</strong> to return to the previous page.</p>
                     </td>
                 </tr>
@@ -65,7 +67,7 @@ function submitUpdate() {
             <jsp:useBean id="profile" class="com.topcoder.web.corp.model.ProfileInfo" scope="request" />
             
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
-                <tr><screen:form name="profileConfirmForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
+                <tr><screen:form name="profileConfirmForm" method="GET" action="<%=sessionInfo.getServletPath()%>">
                     <INPUT TYPE="HIDDEN" NAME="<%=Constants.MODULE_KEY%>" VALUE="" >
                     <% if(!profile.isNew()) { %>
                         <INPUT TYPE="HIDDEN" NAME="profileId" VALUE="<jsp:getProperty name="profile" property="profileId" />" >

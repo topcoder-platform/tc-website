@@ -4,6 +4,8 @@ import com.topcoder.web.corp.common.Constants;
 import com.topcoder.web.corp.controller.request.screening.BaseSessionProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 import com.topcoder.shared.security.ClassResource;
 
 public class CreateCandidate extends BaseSessionProcessor {
@@ -12,7 +14,7 @@ public class CreateCandidate extends BaseSessionProcessor {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
         updateSessionInfo();
-        setNextPage(Constants.CONTROLLER_URL + "?" +
+        setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
                     Constants.MODULE_KEY + "=" +
                     Constants.POPULATE_CANDIDATE_PROCESSOR + "&" +
                     Constants.REFERRER + "=" +

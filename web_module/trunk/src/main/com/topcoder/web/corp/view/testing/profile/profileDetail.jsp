@@ -7,6 +7,7 @@
 
 <jsp:include page="../includes/script.jsp" />
 
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {
     var width = screen.availWidth * 2 / 3;
@@ -15,7 +16,7 @@ function getProblemDetail(id) {
     var top = 0;
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="problemDetail";
-    <% String url = Constants.CONTROLLER_URL + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
+    <% String url = sessionInfo.getServletPath() + "?" + Constants.MODULE_KEY + "=PopulateProblemDetail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.ROUND_PROBLEM_ID%>='+id,name,cmd);
     return;
   }
@@ -27,6 +28,7 @@ function getProblemDetail(id) {
 <!-- Header begins -->
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
+
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">

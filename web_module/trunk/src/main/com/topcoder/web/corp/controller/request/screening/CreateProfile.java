@@ -11,6 +11,8 @@ import com.topcoder.web.corp.model.ProfileInfo;
 import com.topcoder.web.corp.controller.request.screening.BaseSessionProcessor;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.SessionInfo;
+import com.topcoder.web.common.BaseServlet;
 
 import javax.servlet.ServletRequest;
 import java.util.Iterator;
@@ -51,7 +53,7 @@ public class CreateProfile extends BaseSessionProcessor {
             throw(new TCWebException(e));
         }
 
-        setNextPage(Constants.CONTROLLER_URL + "?" +
+        setNextPage(((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).getServletPath() + "?" +
                 Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);
         setIsNextPageInContext(true);
