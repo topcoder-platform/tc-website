@@ -228,7 +228,7 @@ public class Controller
             }
             log.debug("navigation isserializable: " + ((Navigation)navigation).userIsSerializable());
             if (navigation instanceof Navigation) {
-                ((Navigation) navigation).makeUserSerializable();
+//                ((Navigation) navigation).makeUserSerializable();
                 Data.loadUser((Navigation)navigation);
                 User user = ((Navigation) navigation).getUser();
                 log.debug("loaded user " + user.getUserId());
