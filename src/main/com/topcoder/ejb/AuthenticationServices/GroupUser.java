@@ -1,7 +1,12 @@
 package com.topcoder.ejb.AuthenticationServices;
 
 
-
+/**
+ * This class defines a member of a security group.
+ *
+ * @version  $Revision$
+ * @internal Log of Changes:
+*/
 public final class GroupUser implements java.io.Serializable { 
 
 
@@ -17,33 +22,49 @@ public final class GroupUser implements java.io.Serializable {
   }
 
 
-  //Set
+  /**
+   * Set the group.
+  */
   public void setGroup(Group group) {
     this.group = group;
   }
 
 
+  /**
+   * Set the user id.
+  */
   public void setUserId(int userId) {
     this.userId = userId;
   }
 
 
+  /**
+   * Set the Modified flag: (A)dd, (U)pdate, (D)elete.
+  */
   public void setModified(String modified) {
-  this.modified = modified;
+    this.modified = modified;
   }
 
 
-  // Get
+  /**
+   * Get the group.
+  */
   public Group getGroup() {
     return group;
   }
 
 
+  /**
+   * Get the user id.
+  */
   public int getUserId() {
     return userId;
   }
 
 
+  /**
+   * Get the Modified flag: (A)dd, (U)pdate, (D)elete.
+  */
   public String getModified() {
     return modified;
   }

@@ -1,6 +1,12 @@
 package com.topcoder.ejb.AuthenticationServices;
 
 
+/**
+ * This class represents a secured sector (an area or resource that needs to be secured).
+ *
+ * @version  $Revision$
+ * @internal Log of Changes:
+*/
 public class Sector implements java.io.Serializable {
 
   private int SectorId;
@@ -19,28 +25,45 @@ public class Sector implements java.io.Serializable {
     this.Modified   = Modified;
   }
 
-  //Set
+  /**
+   * Set the secure object id.
+  */
   public void setSectorId(int SectorId) {
     this.SectorId = SectorId;
   }
 
+  /**
+   * Set the descriptive name for the secure object.
+  */
   public void setSectorDesc(String SectorDesc) {
     this.SectorDesc = SectorDesc;
   }
 
+  /**
+   * Set the Modified flag: (A)dd, (U)pdate, (D)elete.
+  */
   public void setModified(String Modified) {
     this.Modified = Modified;
   }
 
-  // Get
+  
+  /**
+   * Get the secure object id.
+  */
   public int getSectorId() {
     return SectorId;
   }
 
+  /**
+   * Get the descriptive name for the secure object.
+  */
   public String getSectorDesc() {
     return SectorDesc;
   }
   
+  /**
+   * Get the Modified flag: (A)dd, (U)pdate, (D)elete.
+  */
   public String getModified() {
     return Modified;
   }
