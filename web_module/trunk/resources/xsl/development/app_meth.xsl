@@ -151,7 +151,7 @@
                                         </p>
                                         <p>
                                             <ol>
-                                                <li>TopCoder Software Project Manager creates an Application Design Specification to define scope.</li>
+                                                <li>TopCoder Software Project Manager creates an Application Reuirements Specification to define scope.</li>
                                                 <li>Application Manager creates Activity Diagrams to define the functional flow of the applications.</li>
                                                 <li>Application Manager creates high-level Use Cases that describe all actors and processes involved in the
                                                     functionality of the application.</li>
