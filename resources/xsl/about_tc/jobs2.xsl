@@ -53,25 +53,33 @@
             
             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                 <tr valign="top">
-                    <td class="bodyText" width="100%"><br />
+                    <td class="bodyText" width="50%"><br />
+                    
                         <p>TopCoder, Inc. organizes and hosts online and onsite programming competitions for a global community of members. TopCoder members 
                         extend across all professional and collegiate levels. The attraction of competition and the associated rewards create a powerful community of 
                         programmers. Corporate partners access this member base for employment, software development and sponsorship. </p>
 
-                        <p>Incorporated in 2001, TopCoder, Inc. is fast becoming the standard by which talent and software are measured.  Our small staff is young, 
+                        
+                    </td>
+                     <td width="50%" valign="middle" align="center"><img src="/i/about/man_computer.jpg" alt="" width="200" height="151" border="0"/>
+                    </td>
+               </tr>
+               <tr>
+                    <td class="bodyText" colspan="2"><br />
+                    
+                    <p>Incorporated in 2001, TopCoder, Inc. is fast becoming the standard by which talent and software are measured.  Our small staff is young, 
                         enthusiastic and welcomes the challenges of charting new territory within the industry.  The Company has been built with integrity as our 
-                        cornerstone, and we value honesty at every level &#151; from our employees and our clients alike.</p>
+                        cornerstone, and we value honesty at every level &#150; from our employees and our clients alike.</p>
 
                         <p>Through our high-quality software, cutting-edge recruiting offerings, and world-renowned programming tournaments, we are committed 
                         to excellence.  We expect the same commitment and drive from our current and future employees.</p>
-                        
-                      <h3>Currently available positions:</h3>
+                       <h3>Currently available positions:</h3>
                         <ul>
-                            <li><a href="?&#38;t=tces&#38;c=tcs_project_mgr&#38;a=secure">Project Manager</a></li>
-                            <li><a href="?&#38;t=tces&#38;c=tcs_project_mgr&#38;a=secure">Salesperson</a></li>
+                            <li><a href="?&#38;t=about_tc&#38;c=tc_project_manager">Project Manager</a></li>
+                            <li><a href="?&#38;t=about_tc&#38;c=tc_salesperson">Salesperson</a></li>
                         </ul>
-
                     </td>
+                    
                 </tr>
             </table>
         </td>
