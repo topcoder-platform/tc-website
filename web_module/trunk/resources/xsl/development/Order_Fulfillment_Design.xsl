@@ -86,37 +86,24 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        A TopCoder client has existing infrastructure and software to support
-                                                        certain in-store Palm applications at all of their stores.  One of these
-                                                        is a merchandise transfers and receiving application.   In order to minimize
-                                                        the number of transferred cartons that are lost or stolen, the client would
-                                                        like to begin storing transfers and receipts in a corporate database on a
-                                                        real-time basis as they are being scanned on the Palm at the store.
-                                                        <br/>
-                                                        <br/>
-                                                        In order to support the connectivity between Palms at a store and the corporate
-                                                        server, a component called Data Access Socket Server is being developed.  This
-                                                        component will accept socket connections from the Palm applications, which will
-                                                        then pass through delimited strings in order to execute SQL queries/stored procedure
-                                                        calls within an Oracle database.  The Palm applications will also need to function in
-                                                        both a batch mode (which they currently do) and an online mode depending on network
-                                                        connectivity.
-                                                        <br/>
-                                                        <br/>
-                                                        The Palm Common Remote Connectivity Application module will contain the various common Palm
-                                                        utilities and functions to support the connectivity requirements that are common among the various Palm
-                                                        applications that will be modified/developed. The scope of this project DOES NOT include the design
-                                                        and/or development of the individual Palm applications that will utilize the Common Library. However, the
-                                                        full application requirements will be provided to the designer as a reference to understand what the
-                                                        ultimate usage of the Common Remote Connectivity will be and how it fits into the overall application
-                                                        architecture.
-architecture.
-                                                        <br/>
-                                                        <br/>
+                                                        The current system was originally architected over ten years ago.
+                                                        The existing system is now outdated, slow and the user interface
+                                                        is hard to navigate.  Utilizing the latest Microsoft .NET technologies,
+                                                        a new faster, more extensible and user friendly application will be
+                                                        designed.  Not only will the new system be easier to navigate, but
+                                                        the maintenance of the system will be dramatically improved.  All
+                                                        business, data access and presentation logic will be properly separated
+                                                        into distinct tiers.  Separating each tier into a different layer will
+                                                        reduce maintenance costs and increase reusability.  Furthermore, the
+                                                        old application resides on a soon to be unsupported environment, NT4;
+                                                        the new environment will be hosted on Windows Server 2003.  This technology
+                                                        will increase the speed and scalability of the application.
 
-                                                        <strong>Note:</strong>
-                                                        <br/>
-                                                        TopCoder will supply Code Warrior 8 to all participating members.
+                                                        <strong>Objectives</strong>
+                                                        Provide an extensible platform designed to handle the functional requirements identified by the client.
+                                                        Deliver the ability to scale through the addition of hardware, not requiring changes to the underlying software.
+                                                        Deliver an improved user experience and site navigation.
+
 
 
                                                     </p>
