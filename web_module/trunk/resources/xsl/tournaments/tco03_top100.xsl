@@ -87,7 +87,7 @@
 
                           <xsl:for-each select="/TC/TOURNAMENTS/Competitors/Competitor">
                             <tr>
-                              <td class="formHandleEven" width="50%">
+                              <td class="advancers" width="50%">
                                   <a>
                                     <xsl:attribute name="HREF">/stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
                                     <xsl:attribute name="CLASS">
@@ -96,7 +96,7 @@
                                       <xsl:value-of select="handle"/>
                                   </a>
                                 </td>
-                              <td class="formHandleEven" align="right" width="50%"><xsl:value-of select="rating"/></td>
+                              <td class="advancers" align="right" width="50%"><xsl:value-of select="rating"/></td>
                             </tr>
                           </xsl:for-each>
 
