@@ -417,7 +417,7 @@ Founder and Chairman, TopCoder, Inc.
     <td bgcolor="#43515E" colspan="2" class="statTextBig" align="left" valign="middle"><input type="radio" name="<%=Registration.CODER_TYPE%>" value ="<%=Registration.CODER_TYPE_PROFESSIONAL%>" <%=(coderType.equalsIgnoreCase(Registration.CODER_TYPE_PROFESSIONAL)?"checked":"")%>></td>
   </tr>
 
-
+<%--
   <tr valign="middle">
     <td colspan="4" class="statText" valign="middle">&nbsp;</td>
   </tr>  
@@ -435,6 +435,7 @@ Founder and Chairman, TopCoder, Inc.
     <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     <td colspan="2" class="statText" align="left" valign="top">If you plan to compete in the SunNetowork Coding Challenge and are already registered, please enter your confirmation code here.</td>
   </tr>
+--%>
 
 
 
