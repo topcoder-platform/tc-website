@@ -12,9 +12,7 @@ import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.fx4m.plot13.HistoryPlot;
 import org.faceless.graph.*;
-import org.faceless.graph.formatter.DateFormatter;
 import org.faceless.graph.formatter.NullFormatter;
-import org.faceless.graph.math.DataCurve;
 import org.faceless.graph.output.PNGOutput;
 
 import javax.servlet.ServletConfig;
@@ -28,10 +26,9 @@ import java.awt.*;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
-import java.text.SimpleDateFormat;
 import java.util.Iterator;
 import java.util.Map;
-import java.sql.Date;
+import java.util.Date;
 
 /**
  *  A servlet to generate graph images
