@@ -17,10 +17,9 @@ The following was commented about it:
 	</xsl:if>
 </xsl:if>
 <xsl:if test="NOT_FIXED_ITEMS = 0 and IS_COMMENTED = 1">
-All the items were fixed, however it was rejected with the following comment:
+All the items were fixed. However, it was rejected with the following comment:
 <xsl:value-of select="COMMENT"/>
 </xsl:if>
-
 
 thanks,
 
