@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=269554"><strong>Yarin</strong></a><br/>
+                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,16 +22,18 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm173_prob">SRM 173 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Tuesday, November 26, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm174_prob">SRM 174 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, December 13, 2003</p>
 
 <p> 
-SRM 173 had no big surprises, with many of the usual names in the top. <b>SnapDragon</b> proved
-fastest on the first two problems and <b>WishingBone</b> on the last, but still the winner was
-<b>ZorbaTHut</b> despite no challenges. Notably for a problem set that I write was that
-5 people managed to solve the hard problem!
+TopCoder presented a gamblers' special on the weekend as, improbably
+enough, every Division One problem dealt with chance. The horse to back
+was <b>SnapDragon</b>, who galloped across the finish line after less than
+thirty minutes' coding. <b>Yarin</b> would have been another good bet,
+returning from his Final Four showing at the TopCoder Open (coincidentally
+held in a casino) to place a distant second in this match.
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm173_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm174_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>

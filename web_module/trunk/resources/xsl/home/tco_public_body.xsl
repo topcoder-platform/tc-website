@@ -153,6 +153,10 @@
 
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0" /><br />
         
+<!-- Coder Point of View Begins-->
+            <xsl:call-template name="coder_pov"/>
+<!-- Coder of Point of View Ends -->
+ 
 <!-- Getting Started Arena Begins -->
             <xsl:call-template name="arena"/>
 <!-- Getting Started Arena Ends -->

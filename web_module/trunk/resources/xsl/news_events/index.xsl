@@ -63,13 +63,29 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
-<!-- CRPF Announcement -->
+<!-- News Observer Times -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://newsobserver.com/business/technology/story/3118862p-2824913c.html" target="_blank"><img src="/i/pressroom/news_observer.gif" alt="News Observer" width="135" height="70" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://newsobserver.com/business/technology/story/3118862p-2824913c.html" target="_blank">Cary coder wins contest's top prize</A></strong></font><br />
+                        After investing hours of time and traveling about 600 miles from his Cary home to participate in the international competition, Roberts was sure 
+                        he had blown his chances in the final round... So he was shocked when his name was called to receive the $10,000 top prize. After hours of fretting, 
+                        he was finally at ease.<span class="prHead"> [December 10]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- TCO Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_12_08_03"><img src="/i/pressroom/tco03_winner.jpg" alt="CRPF" width="135" height="100" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_12_08_03">Winners Announced in 2003 TopCoder Open sponsored by Intel&#174;</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_12_08_03">Winners Announced in 2003 TopCoder Open sponsored by Intel &#174;</A></strong></font><br />
                         TopCoder announced Tomasz Czajka of Warsaw, Poland, Tim Roberts of Cary, NC, and Rob Nielsen of Carters Ridge, Australia have won the Coding and Component Tournaments.<span class="prHead"> [December 8]</span></p>
                     </td>
                 </tr>
@@ -77,23 +93,53 @@
 
             <hr width="100%" size="1" noshade="noshade" />
 
-<!-- Seattle Times
+<!-- Seattle Times -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274"><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?c=1&amp;slug=btdownload08&amp;date=20031208&amp;query=geek+olympics" target="_blank"><img src="/i/pressroom/seattle_times_logo.gif" alt="The Seattle Times" width="135" height="36" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://archives.seattletimes.nwsource.com/cgi-bin/texis.cgi/web/vortex/display?c=1&amp;slug=btdownload08&amp;date=20031208&amp;query=geek+olympics" target="_blank">'Geek Olympics' features 2 locals</A></strong></font><br />
-                        The TopCoder Open - quite possibly thegeek equivalent of the Olympics - was held in Connecticut last week and featured two Seattle programmers, 
+                        The TopCoder Open - quite possibly the geek equivalent of the Olympics - was held in Connecticut last week and featured two Seattle programmers, 
                         Ben Wilhelm and Mathijs Vogelzang. Both placed in the top 16 out of 1,000 competitors and were able to maintain their rankings in the global-coding 
-                        organization.<span class="prHead">[December 8]</span></p>
+                        organization.<span class="prHead"> [December 8]</span></p>
                         
                     </td>
                 </tr>
             </table>
 
             <hr width="100%" size="1" noshade="noshade" />
--->
+
+<!-- The Age Times -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.theage.com.au/articles/2003/12/08/1070732124037.html" target="_blank"><img src="/i/pressroom/the_age_logo.gif" alt="The Age" width="135" height="25" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.theage.com.au/articles/2003/12/08/1070732124037.html" target="_blank">NT programmer wins developer's coding competition</A></strong></font><br />
+                        An Australian programmer has once again performed well at the TopCoder coding competitions held at the Mohegan Sun Casino in Uncasville, CT on December 5.<span class="prHead"> [December 8]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
+<!-- Intelligent Enterprise -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.intelligententerprise.com/031210/619celko1_1.shtml" target="_blank"><img src="/i/pressroom/intelligent_enterprise.gif" alt="Intelligent Enterprise" width="135" height="33" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.intelligententerprise.com/031210/619celko1_1.shtml" target="_blank">Code Confessions</A></strong></font><br />
+                        You can teach old programmers a new trick, but they still know a better way... But what really brought my aging home was when my company sponsored the 2003 TopCoder Open.<span class="prHead"> [December 8]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- CRPF Announcement -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
