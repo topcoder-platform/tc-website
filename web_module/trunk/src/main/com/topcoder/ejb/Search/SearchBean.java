@@ -52,7 +52,7 @@ public class SearchBean extends BaseEJB {
         query.append(" ,c.state_code");
         query.append(" ,r.rating");
         query.append(" ,r.num_ratings");
-        query.append(" ,cal.date");
+        query.append(" ,(SELECT date FROM calendar WHERE calendar_id = ro.calendar_id)");
         query.append(" ,LOWER(c.handle) as lower_case_handle");
         query.append(" ,CASE WHEN r.rating > 0 THEN 1 ELSE 2 END AS rating_order");
         query.append(" FROM coder c");
