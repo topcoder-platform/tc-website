@@ -418,7 +418,6 @@
         <delete dir="${war.dir}"/>
         <mkdir  dir="${war.dir}"/>
         <antcall target="war.email"/>
-        <antcall target="war.stats"/>
     </target>
 
     <target name="war.email" depends="compile">
