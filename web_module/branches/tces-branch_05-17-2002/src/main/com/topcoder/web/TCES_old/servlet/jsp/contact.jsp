@@ -56,6 +56,14 @@
 							
 							<%= obj.last_name %>, <%= obj.first_name %>
 							<BR><BR>
+							<%
+								java.util.GregorianCalendar gc = new GregorianCalendar();
+								String dateStamp = (gc.get(Calendar.MONTH)+1) + "/" + gc.get(Calendar.DAY_OF_MONTH) + "/" + gc.get(Calendar.YEAR);
+								String timeStamp = gc.get(Calendar.HOUR) + ":" + gc.get(Calendar.MINUTE);
+								obj.first_name = dateStamp;
+								obj.last_name = timeStamp;
+								obj = beanHandle.request( Coder.UPDATE, obj );
+							%>
 
 <!--trj insert 6/11/2002 1943 -->
 
