@@ -184,15 +184,11 @@ public class Problem implements Element, Serializable, CustomSerializable
     }
     if(!problemText.equals("")) {
       html.append(ProblemComponent.encodeHTML(problemText));
-      if (includeHeader) {
         html.append("<hr>");
-      }
     }
     for(int i = 0; i < problemComponents.length ; i++) {
       html.append(problemComponents[i].toHTML(language));
-      if (includeHeader) {
         html.append("<hr>");
-      }
     }
     if(includeHeader) {
       html.append("</body></html>");
