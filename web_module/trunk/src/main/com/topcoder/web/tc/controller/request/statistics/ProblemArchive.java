@@ -52,8 +52,6 @@ public class ProblemArchive extends Base {
             Map result = dai.getData(r);
             ResultSetContainer rsc = (ResultSetContainer) result.get("problem_list");
 
-
-
             SortInfo s = new SortInfo();
             s.addDefault(rsc.getColumnIndex("problem_name"), "asc");
             s.addDefault(rsc.getColumnIndex("contest_name"), "asc");
