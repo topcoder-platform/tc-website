@@ -166,7 +166,7 @@ public final class TaskDevelopment {
                 }
             }
             /********************** tcs_inquire *******************/
-            else if (command.equals("tcs_inquire")) {
+            else if (command.equals("tcs_inquire") || command.equals("tcs_app_inquire")) {
                 if (nav.getLoggedIn()) {
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String handle = nav.getUser().getHandle();
@@ -303,9 +303,12 @@ public final class TaskDevelopment {
                     msgText.append(comment);
                     mail.addToAddress(to, TCSEmailMessage.TO);
                     mail.setFromAddress(from);
-
-
-
+                    boolean permissionAdded = false;
+                    User user = nav.getUser();
+                    CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
+                    int rating = coder.getRating().getRating();
+                    if(comp.length() > 0)
+                    {
 
   	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
@@ -324,9 +327,6 @@ public final class TaskDevelopment {
 
                     //retrieve the coder registration information
                     log.debug("terms: " + Conversion.checkNull(request.getParameter("terms")));
-                    User user = nav.getUser();
-                    CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
-                    int rating = coder.getRating().getRating();
 
 
                     log.debug("creating user");
@@ -441,7 +441,6 @@ public final class TaskDevelopment {
 
                     int i = 0;
                     boolean notFound = true;
-                    boolean permissionAdded = false;
                     //for(int i=0;i<roles.length && rating > 0 ;i++)
                   if(rating >0)
                   {
@@ -504,6 +503,7 @@ public final class TaskDevelopment {
                       msgText.append("\n\nUser permissions were added");
                    }
 
+                   }
                     mail.setSubject(project + " -- " + handle + " permission successfully added: " + permissionAdded);
                     msgText.append("\n\nRating: ");
                     msgText.append(rating);
