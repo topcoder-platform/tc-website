@@ -49,7 +49,7 @@ public final class TaskSchedule {
             String sortDir = request.getParameter("sdir");
             if (!roundids.equals("")) {
                 ctx = TCContext.getInitial();
-                dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 dataRequest = new Request();
                 dataRequest.setContentHandle("tourney_advancers");
                 dataRequest.setProperty("rds", roundids.trim());
@@ -66,7 +66,7 @@ public final class TaskSchedule {
             String command = Conversion.checkNull(request.getParameter("c"));
             if (command.equals("srm") || command.equals("srm_rules")) {
                 ctx = TCContext.getInitial();
-                dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 dataRequest = new Request();
                 dataRequest.setContentHandle("schedule_srms");
                 dataRequest.setProperty("rd", roundId.trim());

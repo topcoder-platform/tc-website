@@ -4,6 +4,7 @@ import com.topcoder.shared.distCache.CacheClientPool;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
+import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Map;
 
@@ -47,6 +48,9 @@ public class CachedDataAccess implements DataAccessInt {
     public CachedDataAccess(String dataSource) {
         this(DEFAULT_EXPIRE_TIME);
         this.dataSource = dataSource;
+    }
+
+    public CachedDataAccess(DataSource ds) {
     }
 
     /**

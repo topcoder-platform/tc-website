@@ -130,7 +130,7 @@ public final class TaskStatic {
             try {
                 if (!roundids.equals("")) {
                     ctx = TCContext.getInitial();
-                    dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                    dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                     if (!region.equals("")) {
                         dataRequest = new Request();
                         dataRequest.setContentHandle("regional_tourney_advancers");
@@ -189,7 +189,7 @@ public final class TaskStatic {
                 ctx = TCContext.getInitial();
                 dataRequest = new Request();
                 dataRequest.setContentHandle(requestCommand);
-                DataAccessInt dwdai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+                DataAccessInt dwdai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
 
                 Map top100Map = dwdai.getData(dataRequest);
                 ResultSetContainer top100Rsc = (ResultSetContainer) top100Map.get(requestCommand);
@@ -208,7 +208,7 @@ public final class TaskStatic {
                 dataRequest.setContentHandle(requestCommand);
                 String roundId = Conversion.checkNull(request.getParameter("rd"));
                 dataRequest.setProperty("rd", roundId);
-                dai = dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 Map advMap = dai.getData(dataRequest);
                 ResultSetContainer advRsc = (ResultSetContainer) advMap.get(requestCommand);
                 ResultSetContainer contestName = (ResultSetContainer) advMap.get("contest info");
@@ -231,7 +231,7 @@ public final class TaskStatic {
                 ctx = TCContext.getInitial();
                 dataRequest = new Request();
                 dataRequest.setContentHandle(requestCommand);
-                dai = dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                dai = dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
                 Map advMap = dai.getData(dataRequest);
                 ResultSetContainer advRsc = (ResultSetContainer) advMap.get(requestCommand);
 
@@ -252,7 +252,7 @@ public final class TaskStatic {
         /* getting this here for the tces/hiring page */
         try {
             ctx = TCContext.getInitial();
-            dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
             RecordTag homeTag = new RecordTag("HOME");
             dataRequest = new Request();
             dataRequest.setContentHandle("school_avg_rating");

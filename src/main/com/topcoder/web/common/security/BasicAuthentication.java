@@ -175,7 +175,7 @@ public class BasicAuthentication implements WebAuthentication {
      * but it is still pretty intensive...currently takes around 300 ms
      */
     private String hashForUser(long uid) throws Exception {
-        CachedDataAccess dai = new CachedDataAccess((javax.sql.DataSource)TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+        CachedDataAccess dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
         dai.setExpireTime(30*60*1000);   //cache their password for 30 minutes, this should help db load
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND, "userid_to_password");

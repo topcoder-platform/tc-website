@@ -178,7 +178,7 @@ public final class GraphServlet extends HttpServlet {
 
         try {
 
-            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(getDw(userId)));
+            dai = new CachedDataAccess(getDw(userId));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_History_Graph");
 
@@ -217,7 +217,7 @@ public final class GraphServlet extends HttpServlet {
         ResultSetContainer.ResultSetRow rsr = null;
 
         try {
-            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(getDw(userId)));
+            dai = new CachedDataAccess(getDw(userId));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_Distribution_Graph");
 

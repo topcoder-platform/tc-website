@@ -25,8 +25,7 @@ public final class TaskImage {
         FileInputStream fis = null;
         try {
             Request dataRequest = new Request(HttpUtils.parseQueryString(request.getQueryString()));
-            DataAccessInt dai = new CachedDataAccess((javax.sql.DataSource)
-                    TCContext.getInitial().lookup(DBMS.OLTP_DATASOURCE_NAME));
+            DataAccessInt dai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
             Map resultMap = dai.getData(dataRequest);
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get("Sponsor_Image");
             fis = new FileInputStream(rsc.getItem(getNextIndex(dataRequest.toString(), rsc.size()), "file_path").toString());

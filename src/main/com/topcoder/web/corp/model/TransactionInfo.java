@@ -331,14 +331,9 @@ public class TransactionInfo {
     throws NamingException, Exception
     {
         Request dataRequest = new Request();
-        InitialContext ic = null;
         ResultSetContainer rsc = null;
         rolesPerProduct = new HashSet();
-        try {
-            ic = (InitialContext)TCContext.getInitial();
-            DataAccessInt dai = new CachedDataAccess(
-                (DataSource)ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME)
-            );
+            DataAccessInt dai = new CachedDataAccess(DBMS.CORP_OLTP_DATASOURCE_NAME);
             dataRequest.setContentHandle("cmd-roles-per-product");
             dataRequest.setProperty("prodID", ""+productID);
             Map resultMap = dai.getData(dataRequest);
@@ -366,9 +361,5 @@ public class TransactionInfo {
                 }
                 rolesPerProduct.add( new RolePrincipal(roleDescr, id));
             }
-        }
-        finally {
-            Util.closeIC(ic);
-        }
     }
 }

@@ -323,7 +323,7 @@ public final class TaskSearch {
                 referrals = s.getReferrals(nav.getUserId());
                 if (referrals != null) {
 
-                    dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+                    dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
                     dataRequest = new Request();
                     dataRequest.setContentHandle("member_profile");
 

@@ -75,10 +75,10 @@ public final class TaskHome {
             document.addTag(homeTag);
             try {
                 ctx = TCContext.getInitial();
-                dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.DW_DATASOURCE_NAME));
+                dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
 //                transDai = new DataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                cTransDai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
-                tcsDai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(Query.TCS_CATALOG));
+                cTransDai = new CachedDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+                tcsDai = new CachedDataAccess(Query.TCS_CATALOG);
                 if (nav.isIdentified()) {
 
                     dataRequest = new Request();
