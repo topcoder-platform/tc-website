@@ -10,7 +10,7 @@ public class AnswerInputTagInfo
     public VariableInfo[] getVariableInfo(TagData data) {
         VariableInfo[] variableInfo = new VariableInfo[]
         {
-            new VariableInfo(AnswerInput.ANSWER_INPUT, String.class.getName(), true, VariableInfo.NESTED),
+            new VariableInfo(data.getId(), String.class.getName(), true, VariableInfo.NESTED),
         };
         return variableInfo;
     }

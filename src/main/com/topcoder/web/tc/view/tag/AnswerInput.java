@@ -7,22 +7,26 @@ import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.PageContext;
-import java.io.IOException;
 import java.util.Iterator;
+import java.util.List;
 
 public class AnswerInput extends BaseTag {
     protected static Logger log = Logger.getLogger(AnswerInput.class);
 
     public static final String PREFIX = "question_";
-    public static final String ANSWER_INPUT = "answerInput";
 
     private String cssclass;
     private Question question;
     private Iterator answers;
+    private String id;
 
     public AnswerInput() {
         super();
         cssclass = null;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setClass(String cssclass) {
@@ -34,47 +38,48 @@ public class AnswerInput extends BaseTag {
     }
 
     public int doStartTag() throws JspException {
-        int ret = SKIP_BODY;
-        if (question.getStyleId()==Question.MULTIPLE_CHOICE || question.getStyleId()==Question.SINGLE_CHOICE) {
-            answers = question.getAnswerInfo().iterator();
-            doAfterBody();
-        } else if (question.getStyleId()==Question.LONG_ANSWER || question.getStyleId()==Question.SHORT_ANSWER) {
-            try {
-                pageContext.getOut().print(buildText());
-            } catch (IOException e) {
-                throw new JspException(e.getMessage());
-            }
-            ret = SKIP_BODY;
-        }
-        //shouldn't get here
-        return ret;
+        List l = question.getAnswerInfo();
+        if (l!=null)
+            answers = l.iterator();
+        return doAfterBody();
     }
 
     public int doAfterBody() throws JspException {
 
         Answer answer = null;
-        if (answers.hasNext()) {
+        String inputText = null;
+        if (answers==null) {
+            if (question.getStyleId()==Question.LONG_ANSWER) {
+                inputText = buildText();
+            } else if (question.getStyleId()==Question.SHORT_ANSWER) {
+                inputText = buildText();
+            }
+            pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
+            return wrapItUp();
+        } else if (answers!=null && answers.hasNext()) {
             answer = (Answer)answers.next();
-            String inputText = null;
             if (question.getStyleId()==Question.MULTIPLE_CHOICE) {
                 inputText = buildCheckBox(answer.getId());
             } else if (question.getStyleId()==Question.SINGLE_CHOICE) {
                 inputText = buildRadioButton(answer.getId());
             }
-            pageContext.setAttribute(ANSWER_INPUT, inputText, PageContext.PAGE_SCOPE);
+            pageContext.setAttribute(getId(), inputText, PageContext.PAGE_SCOPE);
             return EVAL_BODY_TAG;
         } else {
-            if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
-                try {
-                    bodyContent.writeOut(bodyContent.getEnclosingWriter());
-                } catch (Exception e) {
-                    throw new JspException(e.toString());
-                }
-            }
-            return SKIP_BODY;
+            return wrapItUp();
         }
     }
 
+    private int wrapItUp() throws JspException {
+        if (bodyContent != null && bodyContent.getEnclosingWriter() != null) {
+            try {
+                bodyContent.writeOut(bodyContent.getEnclosingWriter());
+            } catch (Exception e) {
+                throw new JspException(e.toString());
+            }
+        }
+        return SKIP_BODY;
+    }
 
     /* should this be a text area? */
     private String buildText() {
