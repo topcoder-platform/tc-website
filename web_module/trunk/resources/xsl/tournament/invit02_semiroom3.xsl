@@ -121,7 +121,7 @@ submissions would fail, allowing the once #1 ranked <B>NDBronson</B> to advance 
 <P>
 One room remains.  Can <B>ZorbaTHut</B> make his third trip onsite a charm and advance to 
 the finals?  Will <B>John Dethridge</B> get the chance to compete on Saturday against his
- rival, <B>SnapDragon</B>?  Or can <B>DjinnKahn</B> or jms137 make it three upsets in a row?  
+ rival, <B>SnapDragon</B>?  Or can <B>DjinnKahn</B> or <B>jms137</B> make it three upsets in a row?  
  If you haven't logged in to watch the action unfold live, now is the time!
 </P>
  
