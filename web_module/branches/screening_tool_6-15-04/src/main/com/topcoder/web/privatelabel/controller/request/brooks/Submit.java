@@ -412,10 +412,10 @@ public class Submit extends FullRegSubmit {
         
         //bring to GMT
         log.info("TIME: " + ret);
-        log.info("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), ret.getSeconds() * 1000));
-        log.info("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), ret.getSeconds() * 1000));
-        ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), ret.getSeconds() * 1000));
-        ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay(), ret.getSeconds() * 1000));
+        log.info("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
+        log.info("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
+        ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
+        ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + ret.getYear(), ret.getMonth(), ret.getDate(), ret.getDay()+1, ret.getSeconds() * 1000));
         
         return ret;
     }
