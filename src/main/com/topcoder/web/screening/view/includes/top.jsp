@@ -1,9 +1,10 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <a name="top"></a>
 
-<!-- Logo Bar Include Begins -->       
+<!-- Logo Bar Include Begins -->
 <jsp:usebean id="requestInfo" class="com.topcoder.web.screening.model.RequestInfo" />
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
+<% boolean isHomePage = "true".equals(request.getParameter("isHomePage")); %>
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
    <tr valign="middle">
       <td colspan="3" width="100%" bgcolor="#333333" align="right" height="15" class='globalNavSmall'>
 <% if(requestInfo.isLoggedIn()) { %>
@@ -12,7 +13,7 @@
         <screen:servletLink processor="Login" target="_top" styleclass="globalNavSmall">Login</screen:servletLink>&#160;&#160;|&#160;&#160;
 <%}%>
         <screen:servletLink target="_top" styleclass="globalNavSmall">Home</screen:servletLink><img src="/i/ev/clear.gif" width="20" height="1" border="0"/></td>
-    </tr>   
+    </tr>
     <tr>
         <td width="15" bgcolor="#000000"><a name="top"></a><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></td>
         <td width="206" bgcolor="#000000">
@@ -22,8 +23,8 @@
             <screen:servletLink target="_top"><img src="/i/ev/logo_testing.gif" width="206" height="49" border="0" vspace="13"/></screen:servletLink>
 <%  } %>
         </td>
-        <td width="100%" bgcolor="#000000"><img src="/i/ev/clear.gif" width="1" height="1" border="0"/></td>        
-   </tr>             
+        <td width="100%" bgcolor="#000000"><img src="/i/ev/clear.gif" width="1" height="1" border="0"/></td>
+   </tr>
 </table>
 
 <!-- Menu bar begins here -->
@@ -36,7 +37,7 @@
         <td width="1" class="testTop">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="ProblemList" styleclass="testTopNav">Problem Sets</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
-        <td nowrap="nowrap" class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="testTopNav">Candidates</screen:servletLink></td>          
+        <td nowrap="nowrap" class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="testTopNav">Candidates</screen:servletLink></td>
         <td width="100%" class="testTop">&#160;</td>
    </tr>
 </table>
