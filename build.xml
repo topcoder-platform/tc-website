@@ -948,7 +948,7 @@
 
     <target name="build-ejb-unit" depends="compile">
         <!-- check if rebuild required -->
-        <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}-ejb.jar" >
+        <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}.jar" >
             <srcfiles dir="${classes}" includes="${unit-class-path}/**/*.class"/>
             <srcfiles dir="${java}/${unit-class-path}" includes="*.xml"/>
         </uptodate>
