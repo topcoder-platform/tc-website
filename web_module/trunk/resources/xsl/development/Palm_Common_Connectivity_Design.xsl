@@ -109,11 +109,10 @@
                                                         <br/>
                                                         <br/>
 
-                                                        <strong>
-                                                            Note:
-                                                            <br/>
-                                                            TopCoder Will supply Code Warrior 8 to all participating members.
-                                                        </strong>
+                                                        <strong>Note:</strong>
+                                                        <br/>
+                                                        TopCoder Will supply Code Warrior 8 to all participating members.
+
 
                                                     </p>
 
