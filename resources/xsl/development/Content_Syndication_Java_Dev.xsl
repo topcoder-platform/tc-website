@@ -181,7 +181,7 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Second Payment - </td>
-                                                            <td class="bodyText" align="right">$250.00</td>
+                                                            <td class="bodyText" align="right">$200.00</td>
                                                         </tr>
                                                     </table>
 
