@@ -470,7 +470,7 @@
         <!-- begin parameters required by BaseServlet -->
         <init-param>
             <param-name>module_key</param-name>
-            <param-value>rp</param-value>
+            <param-value>module</param-value>
             <description>the url parameter that defines which processor to execute</description>
         </init-param>
         <init-param>
