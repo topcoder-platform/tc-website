@@ -24,18 +24,18 @@
       <tr>
          <td>
 
+            <p class="bodyText">
+            The formula below has the property that if all the coders from a particular country have
+            the same rating, then that country's rating would be the same as the individual ratings.
+            When coder ratings differ, the country rating is based mostly on the top rated coders.
+            The intent is to provide a better way to rank countries than a simple average.
+            </p>
 
             <p class="bodyText">
             When generating the country rankings we take the individual ratings for active coders
             from a particular country, sorted in decreasing order.  These ratings are given
             by rating<sub>1</sub> ... rating<sub>M</sub>, where <b><i>M</i></b> is the total number
             of active coders from a country.
-            </p>
-
-            <p class="bodyText">
-            The formula below has the property that if all the coders from a particular country have
-            the same rating, then that country's rating would be the same as the individual ratings.
-            When coder ratings differ, the country rating is based mostly on the top rated coders.
             </p>
 
             <p class="bodyText"><img src="/i/rank_formula.gif"/></p>
