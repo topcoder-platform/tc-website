@@ -266,13 +266,14 @@ public class TCLoadRound extends TCLoad {
     private void getLastUpdateTime() throws Exception {
         Statement stmt = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("select timestamp from update_log where log_id = ");
-            fSql.append("(select max(log_id) from update_log where log_type_id = " + ROUND_LOG_TYPE + ")");
+            query = new StringBuffer(100);
+            query.append("select timestamp from update_log where log_id = ");
+            query.append("(select max(log_id) from update_log where log_type_id = " + ROUND_LOG_TYPE + ")");
             stmt = createStatement(TARGET_DB);
-            rs = stmt.executeQuery(fSql.toString());
+            rs = stmt.executeQuery(query.toString());
             if (rs.next()) {
                 fLastLogTime = rs.getTimestamp(1);
             } else {
@@ -301,74 +302,75 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psUpd = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         try {
             // Get all the coders that participated in this round
-            fSql.setLength(0);
-            fSql.append("SELECT rr.coder_id ");    // 1
-            fSql.append("  FROM room_result rr ");
-            fSql.append(" WHERE rr.round_id = ? ");
-            fSql.append("   AND rr.attended = 'Y' ");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rr.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rr.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
+            query = new StringBuffer(100);
+            query.append("SELECT rr.coder_id ");    // 1
+            query.append("  FROM room_result rr ");
+            query.append(" WHERE rr.round_id = ? ");
+            query.append("   AND rr.attended = 'Y' ");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id = 14)");
 
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT min(rr.new_rating) ");  // 1
-            fSql.append("       ,max(rr.new_rating) "); // 2
-            fSql.append("  FROM room_result rr ");
-            fSql.append(" WHERE rr.coder_id = ? ");
-            fSql.append("   AND rr.attended = 'Y' ");
-            fSql.append("   AND rr.new_rating > 0 ");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rr.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rr.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
+            query = new StringBuffer(100);
+            query.append("SELECT min(rr.new_rating) ");  // 1
+            query.append("       ,max(rr.new_rating) "); // 2
+            query.append("  FROM room_result rr ");
+            query.append(" WHERE rr.coder_id = ? ");
+            query.append("   AND rr.attended = 'Y' ");
+            query.append("   AND rr.new_rating > 0 ");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id = 14)");
 
-            psSelMinMaxRatings = prepareStatement(fSql.toString(), SOURCE_DB);
-
-            // No need to filter admins here as they have already been filtered from
-            // the DW rating table
-            fSql.setLength(0);
-            fSql.append("SELECT first_rated_round_id "); // 1
-            fSql.append("       ,last_rated_round_id "); // 2
-            fSql.append("  FROM rating ");
-            fSql.append(" WHERE coder_id = ?");
-            psSelRatedRounds = prepareStatement(fSql.toString(), TARGET_DB);
+            psSelMinMaxRatings = prepareStatement(query.toString(), SOURCE_DB);
 
             // No need to filter admins here as they have already been filtered from
             // the DW rating table
-            fSql.setLength(0);
-            fSql.append("SELECT count(*) ");     // 1
-            fSql.append("  FROM room_result rr ");
-            fSql.append(" WHERE rr.attended = 'Y' ");
-            fSql.append("   AND rr.coder_id = ? ");
-            psSelNumCompetitions = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT first_rated_round_id "); // 1
+            query.append("       ,last_rated_round_id "); // 2
+            query.append("  FROM rating ");
+            query.append(" WHERE coder_id = ?");
+            psSelRatedRounds = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE rating ");
-            fSql.append("   SET first_rated_round_id = ? ");  // 1
-            fSql.append("       ,last_rated_round_id = ? ");  // 2
-            fSql.append("       ,lowest_rating = ? ");        // 3
-            fSql.append("       ,highest_rating = ? ");       // 4
-            fSql.append("       ,num_competitions = ? ");     // 5
-            fSql.append(" WHERE coder_id = ?");               // 6
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            // No need to filter admins here as they have already been filtered from
+            // the DW rating table
+            query = new StringBuffer(100);
+            query.append("SELECT count(*) ");     // 1
+            query.append("  FROM room_result rr ");
+            query.append(" WHERE rr.attended = 'Y' ");
+            query.append("   AND rr.coder_id = ? ");
+            psSelNumCompetitions = prepareStatement(query.toString(), TARGET_DB);
+
+            query = new StringBuffer(100);
+            query.append("UPDATE rating ");
+            query.append("   SET first_rated_round_id = ? ");  // 1
+            query.append("       ,last_rated_round_id = ? ");  // 2
+            query.append("       ,lowest_rating = ? ");        // 3
+            query.append("       ,highest_rating = ? ");       // 4
+            query.append("       ,num_competitions = ? ");     // 5
+            query.append(" WHERE coder_id = ?");               // 6
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             psSel.setInt(1, fRoundId);
             rs = psSel.executeQuery();
@@ -478,71 +480,72 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append(" SELECT ps.round_id");              //1
-            fSql.append(" ,ps.coder_id ");            //2
-            fSql.append(" ,ps.problem_id ");          //3
-            fSql.append(" ,ps.points ");              //4
-            fSql.append(" ,ps.status_id ");           //5
-            fSql.append(" ,ps.language_id ");         //6
-            fSql.append(" ,s.open_time ");            //7
-            fSql.append(" ,ps.submission_number ");   //8
-            fSql.append(" ,s.submission_text ");      //9
-            fSql.append(" ,s.submit_time ");          //10
-            fSql.append(" ,s.submission_points ");    //11
-            fSql.append("  ,(SELECT status_desc ");   //12
-            fSql.append(" FROM problem_status ");
-            fSql.append(" WHERE problem_status_id = ps.status_id) ");
-            fSql.append(" ,c.compilation_text");      //13
-            fSql.append(" ,s.submission_number");     //14
-            fSql.append(" FROM problem_state ps ");
-            fSql.append(" LEFT OUTER JOIN submission s ");
-            fSql.append(" ON ps.problem_state_id = s.problem_state_id");
-            fSql.append(" LEFT OUTER JOIN compilation c ");
-            fSql.append(" ON ps.problem_state_id = c.problem_state_id");
-            fSql.append(" WHERE ps.round_id = ?");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = ps.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = ps.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
+            query = new StringBuffer(100);
+            query.append(" SELECT ps.round_id");              //1
+            query.append(" ,ps.coder_id ");            //2
+            query.append(" ,ps.problem_id ");          //3
+            query.append(" ,ps.points ");              //4
+            query.append(" ,ps.status_id ");           //5
+            query.append(" ,ps.language_id ");         //6
+            query.append(" ,s.open_time ");            //7
+            query.append(" ,ps.submission_number ");   //8
+            query.append(" ,s.submission_text ");      //9
+            query.append(" ,s.submit_time ");          //10
+            query.append(" ,s.submission_points ");    //11
+            query.append("  ,(SELECT status_desc ");   //12
+            query.append(" FROM problem_status ");
+            query.append(" WHERE problem_status_id = ps.status_id) ");
+            query.append(" ,c.compilation_text");      //13
+            query.append(" ,s.submission_number");     //14
+            query.append(" FROM problem_state ps ");
+            query.append(" LEFT OUTER JOIN submission s ");
+            query.append(" ON ps.problem_state_id = s.problem_state_id");
+            query.append(" LEFT OUTER JOIN compilation c ");
+            query.append(" ON ps.problem_state_id = c.problem_state_id");
+            query.append(" WHERE ps.round_id = ?");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = ps.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = ps.coder_id ");
+            query.append("           AND gu.group_id = 14)");
 
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO problem_submission ");
-            fSql.append("      (round_id ");            // 1
-            fSql.append("       ,coder_id ");           // 2
-            fSql.append("       ,problem_id ");         // 3
-            fSql.append("       ,final_points ");       // 4
-            fSql.append("       ,status_id ");          // 5
-            fSql.append("       ,language_id ");        // 6
-            fSql.append("       ,open_time ");          // 7
-            fSql.append("       ,submission_number ");  // 8
-            fSql.append("       ,submission_text ");    // 9
-            fSql.append("       ,submit_time ");        // 10
-            fSql.append("       ,submission_points ");  // 11
-            fSql.append("       ,status_desc ");        // 12
-            fSql.append("       ,last_submission) ");   // 13
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10
-            fSql.append("?,?,?)");                // 12 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO problem_submission ");
+            query.append("      (round_id ");            // 1
+            query.append("       ,coder_id ");           // 2
+            query.append("       ,problem_id ");         // 3
+            query.append("       ,final_points ");       // 4
+            query.append("       ,status_id ");          // 5
+            query.append("       ,language_id ");        // 6
+            query.append("       ,open_time ");          // 7
+            query.append("       ,submission_number ");  // 8
+            query.append("       ,submission_text ");    // 9
+            query.append("       ,submit_time ");        // 10
+            query.append("       ,submission_points ");  // 11
+            query.append("       ,status_desc ");        // 12
+            query.append("       ,last_submission) ");   // 13
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
+            query.append("?,?,?)");                // 12 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM problem_submission ");
-            fSql.append(" WHERE round_id = ? ");
-            fSql.append("   AND coder_id = ? ");
-            fSql.append("   AND problem_id = ?");
-            fSql.append("   AND submission_number = ?");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM problem_submission ");
+            query.append(" WHERE round_id = ? ");
+            query.append("   AND coder_id = ? ");
+            query.append("   AND problem_id = ?");
+            query.append("   AND submission_number = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -618,34 +621,35 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT stc.test_case_id ");      // 1
-            fSql.append("       ,stc.problem_id ");       // 2
-            fSql.append("       ,stc.args ");             // 3
-            fSql.append("       ,stc.expected_result ");  // 4
-            fSql.append("       ,CURRENT ");              // 5
-            fSql.append("  FROM system_test_case stc ");
-            fSql.append(" WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT stc.test_case_id ");      // 1
+            query.append("       ,stc.problem_id ");       // 2
+            query.append("       ,stc.args ");             // 3
+            query.append("       ,stc.expected_result ");  // 4
+            query.append("       ,CURRENT ");              // 5
+            query.append("  FROM system_test_case stc ");
+            query.append(" WHERE problem_id in (SELECT problem_id FROM round_problem WHERE round_id = ?)");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO system_test_case ");
-            fSql.append("      (test_case_id ");      // 1
-            fSql.append("       ,problem_id ");       // 2
-            fSql.append("       ,args ");             // 3
-            fSql.append("       ,expected_result ");  // 4
-            fSql.append("       ,modify_date) ");     // 5
-            fSql.append("VALUES ( ");
-            fSql.append("?,?,?,?,?)");  // 5 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO system_test_case ");
+            query.append("      (test_case_id ");      // 1
+            query.append("       ,problem_id ");       // 2
+            query.append("       ,args ");             // 3
+            query.append("       ,expected_result ");  // 4
+            query.append("       ,modify_date) ");     // 5
+            query.append("VALUES ( ");
+            query.append("?,?,?,?,?)");  // 5 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM system_test_case ");
-            fSql.append(" WHERE test_case_id = ? ");
-            fSql.append("   AND problem_id = ?");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM system_test_case ");
+            query.append(" WHERE test_case_id = ? ");
+            query.append("   AND problem_id = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -702,62 +706,63 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT str.coder_id ");           // 1
-            fSql.append("       ,str.round_id ");          // 2
-            fSql.append("       ,str.problem_id ");        // 3
-            fSql.append("       ,str.test_case_id ");      // 4
-            fSql.append("       ,str.num_iterations ");    // 5
-            fSql.append("       ,str.processing_time ");   // 6
-            fSql.append("       ,str.deduction_amount ");  // 7
-            fSql.append("       ,str.timestamp ");         // 8
-            fSql.append("       ,str.viewable ");          // 9
-            fSql.append("       ,str.received ");          // 10
-            fSql.append("       ,str.succeeded ");         // 11
-            fSql.append("       ,str.message ");           // 12
-            fSql.append("  FROM system_test_result str ");
-            fSql.append(" WHERE round_id = ?");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = str.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = str.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
+            query = new StringBuffer(100);
+            query.append("SELECT str.coder_id ");           // 1
+            query.append("       ,str.round_id ");          // 2
+            query.append("       ,str.problem_id ");        // 3
+            query.append("       ,str.test_case_id ");      // 4
+            query.append("       ,str.num_iterations ");    // 5
+            query.append("       ,str.processing_time ");   // 6
+            query.append("       ,str.deduction_amount ");  // 7
+            query.append("       ,str.timestamp ");         // 8
+            query.append("       ,str.viewable ");          // 9
+            query.append("       ,str.received ");          // 10
+            query.append("       ,str.succeeded ");         // 11
+            query.append("       ,str.message ");           // 12
+            query.append("  FROM system_test_result str ");
+            query.append(" WHERE round_id = ?");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = str.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = str.coder_id ");
+            query.append("           AND gu.group_id = 14)");
 
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO system_test_result ");
-            fSql.append("      (coder_id ");           // 1
-            fSql.append("       ,round_id ");          // 2
-            fSql.append("       ,problem_id ");        // 3
-            fSql.append("       ,test_case_id ");      // 4
-            fSql.append("       ,num_iterations ");    // 5
-            fSql.append("       ,processing_time ");   // 6
-            fSql.append("       ,deduction_amount ");  // 7
-            fSql.append("       ,timestamp ");         // 8
-            fSql.append("       ,viewable ");          // 9
-            fSql.append("       ,received ");          // 10
-            fSql.append("       ,succeeded ");         // 11
-            fSql.append("       ,message) ");          // 12
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("?,?)");                   // 12 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO system_test_result ");
+            query.append("      (coder_id ");           // 1
+            query.append("       ,round_id ");          // 2
+            query.append("       ,problem_id ");        // 3
+            query.append("       ,test_case_id ");      // 4
+            query.append("       ,num_iterations ");    // 5
+            query.append("       ,processing_time ");   // 6
+            query.append("       ,deduction_amount ");  // 7
+            query.append("       ,timestamp ");         // 8
+            query.append("       ,viewable ");          // 9
+            query.append("       ,received ");          // 10
+            query.append("       ,succeeded ");         // 11
+            query.append("       ,message) ");          // 12
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?,?)");                   // 12 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM system_test_result ");
-            fSql.append(" WHERE coder_id = ? ");
-            fSql.append("   AND round_id = ? ");
-            fSql.append("   AND problem_id = ? ");
-            fSql.append("   AND test_case_id = ?");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM system_test_result ");
+            query.append(" WHERE coder_id = ? ");
+            query.append("   AND round_id = ? ");
+            query.append("   AND problem_id = ? ");
+            query.append("   AND test_case_id = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -828,67 +833,68 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psUpd = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT c.contest_id ");    // 1
-            fSql.append("       ,c.name ");         // 2
-            fSql.append("       ,c.start_date ");   // 3
-            fSql.append("       ,c.end_date ");     // 4
-            fSql.append("       ,c.status ");       // 5
-            fSql.append("       ,c.group_id ");     // 6
-            fSql.append("       ,c.region_code ");  // 7
-            fSql.append("       ,c.ad_text ");      // 8
-            fSql.append("       ,c.ad_start ");     // 9
-            fSql.append("       ,c.ad_end ");       // 10
-            fSql.append("       ,c.ad_task ");      // 11
-            fSql.append("       ,c.ad_command ");   // 12
-            fSql.append("  FROM contest c ");
-            fSql.append("       ,round r ");
-            fSql.append(" WHERE r.round_id = ? ");
-            fSql.append("   AND r.contest_id = c.contest_id");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT c.contest_id ");    // 1
+            query.append("       ,c.name ");         // 2
+            query.append("       ,c.start_date ");   // 3
+            query.append("       ,c.end_date ");     // 4
+            query.append("       ,c.status ");       // 5
+            query.append("       ,c.group_id ");     // 6
+            query.append("       ,c.region_code ");  // 7
+            query.append("       ,c.ad_text ");      // 8
+            query.append("       ,c.ad_start ");     // 9
+            query.append("       ,c.ad_end ");       // 10
+            query.append("       ,c.ad_task ");      // 11
+            query.append("       ,c.ad_command ");   // 12
+            query.append("  FROM contest c ");
+            query.append("       ,round r ");
+            query.append(" WHERE r.round_id = ? ");
+            query.append("   AND r.contest_id = c.contest_id");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO contest ");
-            fSql.append("      (contest_id ");    // 1
-            fSql.append("       ,name ");         // 2
-            fSql.append("       ,start_date ");   // 3
-            fSql.append("       ,end_date ");     // 4
-            fSql.append("       ,status ");       // 5
-            fSql.append("       ,group_id ");     // 6
-            fSql.append("       ,region_code ");  // 7
-            fSql.append("       ,ad_text ");      // 8
-            fSql.append("       ,ad_start ");     // 9
-            fSql.append("       ,ad_end ");       // 10
-            fSql.append("       ,ad_task ");      // 11
-            fSql.append("       ,ad_command) ");  // 12
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("?,?)");                  // 12 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO contest ");
+            query.append("      (contest_id ");    // 1
+            query.append("       ,name ");         // 2
+            query.append("       ,start_date ");   // 3
+            query.append("       ,end_date ");     // 4
+            query.append("       ,status ");       // 5
+            query.append("       ,group_id ");     // 6
+            query.append("       ,region_code ");  // 7
+            query.append("       ,ad_text ");      // 8
+            query.append("       ,ad_start ");     // 9
+            query.append("       ,ad_end ");       // 10
+            query.append("       ,ad_task ");      // 11
+            query.append("       ,ad_command) ");  // 12
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?,?)");                  // 12 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE contest ");
-            fSql.append("   SET name = ? ");          // 1
-            fSql.append("       ,start_date = ? ");   // 2
-            fSql.append("       ,end_date = ? ");     // 3
-            fSql.append("       ,status = ? ");       // 4
-            fSql.append("       ,group_id = ? ");     // 5
-            fSql.append("       ,region_code = ? ");  // 6
-            fSql.append("       ,ad_text = ? ");      // 7
-            fSql.append("       ,ad_start = ? ");     // 8
-            fSql.append("       ,ad_end = ? ");       // 9
-            fSql.append("       ,ad_task = ? ");      // 10
-            fSql.append("       ,ad_command = ? ");  // 11
-            fSql.append(" WHERE contest_id = ? ");    // 12
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE contest ");
+            query.append("   SET name = ? ");          // 1
+            query.append("       ,start_date = ? ");   // 2
+            query.append("       ,end_date = ? ");     // 3
+            query.append("       ,status = ? ");       // 4
+            query.append("       ,group_id = ? ");     // 5
+            query.append("       ,region_code = ? ");  // 6
+            query.append("       ,ad_text = ? ");      // 7
+            query.append("       ,ad_start = ? ");     // 8
+            query.append("       ,ad_end = ? ");       // 9
+            query.append("       ,ad_task = ? ");      // 10
+            query.append("       ,ad_command = ? ");  // 11
+            query.append(" WHERE contest_id = ? ");    // 12
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT * ");
-            fSql.append("  FROM contest ");
-            fSql.append(" WHERE contest_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT * ");
+            query.append("  FROM contest ");
+            query.append(" WHERE contest_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -979,84 +985,85 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psUpd = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT p.problem_id ");                             // 1
-            fSql.append("       ,rp.round_id ");                             // 2
-            fSql.append("       ,p.result_type_id ");                        // 3
-            fSql.append("       ,p.method_name ");                           // 4
-            fSql.append("       ,p.class_name ");                            // 5
-            fSql.append("       ,p.status ");                                // 6
-            fSql.append("       ,p.default_solution ");                      // 7
-            fSql.append("       ,p.language_id ");                           // 8
-            fSql.append("       ,p.param_types ");                           // 9
-            fSql.append("       ,p.problem_text ");                          // 10
-            fSql.append("       ,p.group_id ");                              // 11
-            fSql.append("       ,CURRENT ");                                 // 12
-            fSql.append("       ,(SELECT data_type_desc ");                  // 13
-            fSql.append("           FROM data_type ");
-            fSql.append("          WHERE data_type_id = result_type_id) ");
-            fSql.append("       ,d.difficulty_id ");                         // 14
-            fSql.append("       ,d.difficulty_desc ");                       // 15
-            fSql.append("       ,rp.division_id ");                          // 16
-            fSql.append("  FROM problem p ");
-            fSql.append("       ,round_problem rp ");
-            fSql.append("       ,difficulty d ");
-            fSql.append(" WHERE rp.round_id = ? ");
-            fSql.append("   AND p.problem_id = rp.problem_id ");
-            fSql.append("   AND rp.difficulty_id = d.difficulty_id");
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT p.problem_id ");                             // 1
+            query.append("       ,rp.round_id ");                             // 2
+            query.append("       ,p.result_type_id ");                        // 3
+            query.append("       ,p.method_name ");                           // 4
+            query.append("       ,p.class_name ");                            // 5
+            query.append("       ,p.status ");                                // 6
+            query.append("       ,p.default_solution ");                      // 7
+            query.append("       ,p.language_id ");                           // 8
+            query.append("       ,p.param_types ");                           // 9
+            query.append("       ,p.problem_text ");                          // 10
+            query.append("       ,p.group_id ");                              // 11
+            query.append("       ,CURRENT ");                                 // 12
+            query.append("       ,(SELECT data_type_desc ");                  // 13
+            query.append("           FROM data_type ");
+            query.append("          WHERE data_type_id = result_type_id) ");
+            query.append("       ,d.difficulty_id ");                         // 14
+            query.append("       ,d.difficulty_desc ");                       // 15
+            query.append("       ,rp.division_id ");                          // 16
+            query.append("  FROM problem p ");
+            query.append("       ,round_problem rp ");
+            query.append("       ,difficulty d ");
+            query.append(" WHERE rp.round_id = ? ");
+            query.append("   AND p.problem_id = rp.problem_id ");
+            query.append("   AND rp.difficulty_id = d.difficulty_id");
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO problem ");
-            fSql.append("      (problem_id ");         // 1
-            fSql.append("       ,round_id ");          // 2
-            fSql.append("       ,result_type_id ");    // 3
-            fSql.append("       ,method_name ");       // 4
-            fSql.append("       ,class_name ");        // 5
-            fSql.append("       ,status ");            // 6
-            fSql.append("       ,default_solution ");  // 7
-            fSql.append("       ,language_id ");       // 8
-            fSql.append("       ,param_types ");       // 9
-            fSql.append("       ,problem_text ");      // 10
-            fSql.append("       ,group_id ");          // 11
-            fSql.append("       ,modify_date ");       // 12
-            fSql.append("       ,result_type_desc ");  // 13
-            fSql.append("       ,level_id ");          // 14
-            fSql.append("       ,level_desc ");        // 15
-            fSql.append("       ,division_id) ");      // 16
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("?,?,?,?,?,?)");          // 15 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO problem ");
+            query.append("      (problem_id ");         // 1
+            query.append("       ,round_id ");          // 2
+            query.append("       ,result_type_id ");    // 3
+            query.append("       ,method_name ");       // 4
+            query.append("       ,class_name ");        // 5
+            query.append("       ,status ");            // 6
+            query.append("       ,default_solution ");  // 7
+            query.append("       ,language_id ");       // 8
+            query.append("       ,param_types ");       // 9
+            query.append("       ,problem_text ");      // 10
+            query.append("       ,group_id ");          // 11
+            query.append("       ,modify_date ");       // 12
+            query.append("       ,result_type_desc ");  // 13
+            query.append("       ,level_id ");          // 14
+            query.append("       ,level_desc ");        // 15
+            query.append("       ,division_id) ");      // 16
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?,?,?,?,?,?)");          // 15 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE problem ");
-            fSql.append("   SET result_type_id = ? ");     // 1
-            fSql.append("       ,method_name = ? ");       // 2
-            fSql.append("       ,class_name = ? ");        // 3
-            fSql.append("       ,status = ? ");            // 4
-            fSql.append("       ,default_solution = ? ");  // 5
-            fSql.append("       ,language_id = ? ");       // 6
-            fSql.append("       ,param_types = ? ");       // 7
-            fSql.append("       ,problem_text = ? ");      // 8
-            fSql.append("       ,group_id = ? ");          // 9
-            fSql.append("       ,modify_date = ? ");       // 10
-            fSql.append("       ,result_type_desc = ? ");  // 11
-            fSql.append("       ,level_id = ? ");          // 12
-            fSql.append("       ,level_desc = ? ");        // 13
-            fSql.append(" WHERE problem_id = ? ");         // 14
-            fSql.append("   AND round_id = ? ");           // 15
-            fSql.append("   AND division_id = ? ");        // 16
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE problem ");
+            query.append("   SET result_type_id = ? ");     // 1
+            query.append("       ,method_name = ? ");       // 2
+            query.append("       ,class_name = ? ");        // 3
+            query.append("       ,status = ? ");            // 4
+            query.append("       ,default_solution = ? ");  // 5
+            query.append("       ,language_id = ? ");       // 6
+            query.append("       ,param_types = ? ");       // 7
+            query.append("       ,problem_text = ? ");      // 8
+            query.append("       ,group_id = ? ");          // 9
+            query.append("       ,modify_date = ? ");       // 10
+            query.append("       ,result_type_desc = ? ");  // 11
+            query.append("       ,level_id = ? ");          // 12
+            query.append("       ,level_desc = ? ");        // 13
+            query.append(" WHERE problem_id = ? ");         // 14
+            query.append("   AND round_id = ? ");           // 15
+            query.append("   AND division_id = ? ");        // 16
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT * FROM problem ");
-            fSql.append(" WHERE problem_id = ? ");
-            fSql.append("   AND round_id = ?");
-            fSql.append("   AND division_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT * FROM problem ");
+            query.append(" WHERE problem_id = ? ");
+            query.append("   AND round_id = ?");
+            query.append("   AND division_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -1160,71 +1167,72 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psUpd = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT r.round_id ");                          // 1
-            fSql.append("       ,r.contest_id ");                       // 2
-            fSql.append("       ,r.name ");                             // 3
-            fSql.append("       ,r.status ");                           // 4
-            fSql.append("       ,(SELECT sum(paid) ");                  // 5
-            fSql.append("           FROM room_result rr ");
-            fSql.append("          WHERE rr.round_id = r.round_id) ");
-            fSql.append("       ,rs.start_time ");                      // 6
-            fSql.append("       ,r.round_type_id ");                    // 7
-            fSql.append("       ,r.invitational ");                     // 8
-            fSql.append("       ,r.notes ");                            // 9
-            fSql.append("       ,(SELECT rtlu.round_type_desc ");       // 10
-            fSql.append("           FROM round_type_lu rtlu ");
-            fSql.append("          WHERE rtlu.round_type_id = r.round_type_id) ");
-            fSql.append("  FROM round r ");
-            fSql.append("       ,round_segment rs ");
-            fSql.append(" WHERE r.round_id = ? ");
-            fSql.append("   AND rs.round_id = r.round_id ");
-            fSql.append("   AND rs.segment_id = " + CODING_SEGMENT_ID);
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT r.round_id ");                          // 1
+            query.append("       ,r.contest_id ");                       // 2
+            query.append("       ,r.name ");                             // 3
+            query.append("       ,r.status ");                           // 4
+            query.append("       ,(SELECT sum(paid) ");                  // 5
+            query.append("           FROM room_result rr ");
+            query.append("          WHERE rr.round_id = r.round_id) ");
+            query.append("       ,rs.start_time ");                      // 6
+            query.append("       ,r.round_type_id ");                    // 7
+            query.append("       ,r.invitational ");                     // 8
+            query.append("       ,r.notes ");                            // 9
+            query.append("       ,(SELECT rtlu.round_type_desc ");       // 10
+            query.append("           FROM round_type_lu rtlu ");
+            query.append("          WHERE rtlu.round_type_id = r.round_type_id) ");
+            query.append("  FROM round r ");
+            query.append("       ,round_segment rs ");
+            query.append(" WHERE r.round_id = ? ");
+            query.append("   AND rs.round_id = r.round_id ");
+            query.append("   AND rs.segment_id = " + CODING_SEGMENT_ID);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             // We have 8 values in the insert as opposed to 7 in the select
             // because we want to provide a default value for failed. We
             // don't have a place to select failed from in the transactional
             // DB
-            fSql.setLength(0);
-            fSql.append("INSERT INTO round ");
-            fSql.append("      (round_id ");          // 1
-            fSql.append("       ,contest_id ");       // 2
-            fSql.append("       ,name ");             // 3
-            fSql.append("       ,status ");           // 4
-            fSql.append("       ,money_paid ");       // 5
-            fSql.append("       ,calendar_id ");      // 6
-            fSql.append("       ,failed ");           // 7
-            fSql.append("       ,round_type_id ");    // 8
-            fSql.append("       ,invitational  ");    // 9
-            fSql.append("       ,notes         ");    // 10
-            fSql.append("       ,round_type_desc) "); // 11
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");
-            fSql.append("?)");
+            query = new StringBuffer(100);
+            query.append("INSERT INTO round ");
+            query.append("      (round_id ");          // 1
+            query.append("       ,contest_id ");       // 2
+            query.append("       ,name ");             // 3
+            query.append("       ,status ");           // 4
+            query.append("       ,money_paid ");       // 5
+            query.append("       ,calendar_id ");      // 6
+            query.append("       ,failed ");           // 7
+            query.append("       ,round_type_id ");    // 8
+            query.append("       ,invitational  ");    // 9
+            query.append("       ,notes         ");    // 10
+            query.append("       ,round_type_desc) "); // 11
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");
+            query.append("?)");
 
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE round ");
-            fSql.append("   SET contest_id = ? ");       // 1
-            fSql.append("       ,name = ? ");            // 2
-            fSql.append("       ,status = ? ");          // 3
-            fSql.append("       ,money_paid = ? ");      // 4
-            fSql.append("       ,calendar_id = ? ");     // 5
-            fSql.append("       ,failed = ? ");          // 6
-            fSql.append("       ,round_type_id = ? ");   // 7
-            fSql.append("       ,invitational  = ? ");   // 8
-            fSql.append("       ,notes = ?         ");   // 9
-            fSql.append("       ,round_type_desc = ? "); // 10
-            fSql.append(" WHERE round_id = ? ");         // 11
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE round ");
+            query.append("   SET contest_id = ? ");       // 1
+            query.append("       ,name = ? ");            // 2
+            query.append("       ,status = ? ");          // 3
+            query.append("       ,money_paid = ? ");      // 4
+            query.append("       ,calendar_id = ? ");     // 5
+            query.append("       ,failed = ? ");          // 6
+            query.append("       ,round_type_id = ? ");   // 7
+            query.append("       ,invitational  = ? ");   // 8
+            query.append("       ,notes = ?         ");   // 9
+            query.append("       ,round_type_desc = ? "); // 10
+            query.append(" WHERE round_id = ? ");         // 11
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT * FROM round where round_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT * FROM round where round_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -1315,84 +1323,85 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psUpd = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT r.room_id");                                    // 1
-            fSql.append("       ,r.round_id ");                                 // 2
-            fSql.append("       ,r.name ");                                     // 3
-            fSql.append("       ,r.state_code ");                               // 4
-            fSql.append("       ,(SELECT s.state_name ");                       // 5
-            fSql.append("           FROM state s ");
-            fSql.append("          WHERE s.state_code = r.state_code) ");
-            fSql.append("       ,r.country_code ");                             // 6
-            fSql.append("       ,(SELECT c.country_name ");                     // 7
-            fSql.append("           FROM country c ");
-            fSql.append("          WHERE c.country_code = r.country_code) ");
-            fSql.append("       ,r.region_code ");                              // 8
-            fSql.append("       ,(SELECT reg.region_name ");                    // 9
-            fSql.append("           FROM region reg ");
-            fSql.append("          WHERE reg.region_code = r.region_code ");
-            fSql.append("            AND reg.country_code = r.country_code) ");
-            fSql.append("       ,r.division_id ");                              // 10
-            fSql.append("       ,(SELECT d.division_desc ");                    // 11
-            fSql.append("           FROM division d ");
-            fSql.append("          WHERE d.division_id = r.division_id) ");
-            fSql.append("       ,r.room_type_id ");                             // 12
-            fSql.append("       ,(SELECT rt.room_type_desc ");                  // 13
-            fSql.append("           FROM room_type rt ");
-            fSql.append("          WHERE rt.room_type_id = r.room_type_id) ");
-            fSql.append("       ,r.eligible ");                                 // 14
-            fSql.append("       ,r.unrated ");                                  // 15
-            fSql.append("   FROM room r ");
-            fSql.append("  WHERE round_id = ?");
-            fSql.append("    AND r.room_type_id = " + CONTEST_ROOM);
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT r.room_id");                                    // 1
+            query.append("       ,r.round_id ");                                 // 2
+            query.append("       ,r.name ");                                     // 3
+            query.append("       ,r.state_code ");                               // 4
+            query.append("       ,(SELECT s.state_name ");                       // 5
+            query.append("           FROM state s ");
+            query.append("          WHERE s.state_code = r.state_code) ");
+            query.append("       ,r.country_code ");                             // 6
+            query.append("       ,(SELECT c.country_name ");                     // 7
+            query.append("           FROM country c ");
+            query.append("          WHERE c.country_code = r.country_code) ");
+            query.append("       ,r.region_code ");                              // 8
+            query.append("       ,(SELECT reg.region_name ");                    // 9
+            query.append("           FROM region reg ");
+            query.append("          WHERE reg.region_code = r.region_code ");
+            query.append("            AND reg.country_code = r.country_code) ");
+            query.append("       ,r.division_id ");                              // 10
+            query.append("       ,(SELECT d.division_desc ");                    // 11
+            query.append("           FROM division d ");
+            query.append("          WHERE d.division_id = r.division_id) ");
+            query.append("       ,r.room_type_id ");                             // 12
+            query.append("       ,(SELECT rt.room_type_desc ");                  // 13
+            query.append("           FROM room_type rt ");
+            query.append("          WHERE rt.room_type_id = r.room_type_id) ");
+            query.append("       ,r.eligible ");                                 // 14
+            query.append("       ,r.unrated ");                                  // 15
+            query.append("   FROM room r ");
+            query.append("  WHERE round_id = ?");
+            query.append("    AND r.room_type_id = " + CONTEST_ROOM);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO room ");
-            fSql.append("      (room_id ");           // 1
-            fSql.append("       ,round_id ");         // 2
-            fSql.append("       ,name ");             // 3
-            fSql.append("       ,state_code ");       // 4
-            fSql.append("       ,state_name ");       // 5
-            fSql.append("       ,country_code ");     // 6
-            fSql.append("       ,country_name ");     // 7
-            fSql.append("       ,region_code ");      // 8
-            fSql.append("       ,region_name ");      // 9
-            fSql.append("       ,division_id ");      // 10
-            fSql.append("       ,division_desc ");    // 11
-            fSql.append("       ,room_type_id ");     // 12
-            fSql.append("       ,room_type_desc ");   // 13
-            fSql.append("       ,eligible ");         // 14
-            fSql.append("       ,unrated) ");         // 15
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("?,?,?,?,?)");            // 15 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO room ");
+            query.append("      (room_id ");           // 1
+            query.append("       ,round_id ");         // 2
+            query.append("       ,name ");             // 3
+            query.append("       ,state_code ");       // 4
+            query.append("       ,state_name ");       // 5
+            query.append("       ,country_code ");     // 6
+            query.append("       ,country_name ");     // 7
+            query.append("       ,region_code ");      // 8
+            query.append("       ,region_name ");      // 9
+            query.append("       ,division_id ");      // 10
+            query.append("       ,division_desc ");    // 11
+            query.append("       ,room_type_id ");     // 12
+            query.append("       ,room_type_desc ");   // 13
+            query.append("       ,eligible ");         // 14
+            query.append("       ,unrated) ");         // 15
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?,?,?,?,?)");            // 15 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("UPDATE room ");
-            fSql.append("   SET round_id = ? ");          // 1
-            fSql.append("       ,name = ? ");             // 2
-            fSql.append("       ,state_code = ? ");       // 3
-            fSql.append("       ,state_name = ? ");       // 4
-            fSql.append("       ,country_code = ? ");     // 5
-            fSql.append("       ,country_name = ? ");     // 6
-            fSql.append("       ,region_code = ? ");      // 7
-            fSql.append("       ,region_name = ? ");      // 8
-            fSql.append("       ,division_id = ? ");      // 9
-            fSql.append("       ,division_desc = ? ");    // 10
-            fSql.append("       ,room_type_id = ? ");     // 11
-            fSql.append("       ,room_type_desc = ? ");   // 12
-            fSql.append("       ,eligible = ? ");         // 13
-            fSql.append("       ,unrated = ? ");          // 14
-            fSql.append(" WHERE room_id = ? ");           // 15
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("UPDATE room ");
+            query.append("   SET round_id = ? ");          // 1
+            query.append("       ,name = ? ");             // 2
+            query.append("       ,state_code = ? ");       // 3
+            query.append("       ,state_name = ? ");       // 4
+            query.append("       ,country_code = ? ");     // 5
+            query.append("       ,country_name = ? ");     // 6
+            query.append("       ,region_code = ? ");      // 7
+            query.append("       ,region_name = ? ");      // 8
+            query.append("       ,division_id = ? ");      // 9
+            query.append("       ,division_desc = ? ");    // 10
+            query.append("       ,room_type_id = ? ");     // 11
+            query.append("       ,room_type_desc = ? ");   // 12
+            query.append("       ,eligible = ? ");         // 13
+            query.append("       ,unrated = ? ");          // 14
+            query.append(" WHERE room_id = ? ");           // 15
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT * FROM room WHERE room_id = ?");
-            psSel2 = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT * FROM room WHERE room_id = ?");
+            psSel2 = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -1491,162 +1500,163 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT rr.round_id ");                              // 1
-            fSql.append("       ,rr.room_id ");                              // 2
-            fSql.append("       ,rr.coder_id ");                             // 3
-            fSql.append("       ,rr.point_total ");                          // 4
-            fSql.append("       ,rr.room_seed ");                            // 5
-            fSql.append("       ,rp.paid ");                                 // 6
-            fSql.append("       ,rr.old_rating ");                           // 7
-            fSql.append("       ,rr.new_rating ");                           // 8
-            fSql.append("       ,rr.room_placed ");                          // 9
-            fSql.append("       ,rr.attended ");                             // 10
-            fSql.append("       ,rr.advanced ");                             // 11
-            fSql.append("       ,(SELECT sum(c.challenger_points) ");        // 12
-            fSql.append("           FROM challenge c ");
-            fSql.append("          WHERE c.round_id = rr.round_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("          AND c.challenger_id = rr.coder_id) ");
-            fSql.append("       ,(SELECT sum(deduction_amount) ");           // 13
-            fSql.append("           FROM system_test_result str ");
-            fSql.append("          WHERE str.round_id = rr.round_id ");
-            fSql.append("            AND str.coder_id = rr.coder_id) ");
-            fSql.append("       ,(SELECT division_id FROM room ");           // 14
-            fSql.append("          WHERE room.room_id = rr.room_id) ");
-            fSql.append("       ,(SELECT count(*) ");                        // 15
-            fSql.append("           FROM round_problem rp ");
-            fSql.append("                ,room r ");
-            fSql.append("          WHERE rp.round_id = rr.round_id ");
-            fSql.append("            AND rp.division_id = r.division_id ");
-            fSql.append("            AND rr.room_id = r.room_id) ");
-            fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 16
-            fSql.append("          WHERE ps.round_id = rr.round_id ");
-            fSql.append("            AND ps.coder_id = rr.coder_id ");
-            fSql.append("            AND status_id = " + STATUS_PASSED_SYS_TEST + ") ");
-            fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 17
-            fSql.append("          WHERE ps.round_id = rr.round_id ");
-            fSql.append("            AND ps.coder_id = rr.coder_id ");
-            fSql.append("            AND status_id = " + STATUS_FAILED_SYS_TEST + ") ");
-            fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 18
-            fSql.append("          WHERE c.round_id = rr.round_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.defendant_id = rr.coder_id ");
-            fSql.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
-            fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 19
-            fSql.append("          WHERE ps.round_id = rr.round_id ");
-            fSql.append("            AND ps.coder_id = rr.coder_id) ");
-            fSql.append("       ,(SELECT count(*) FROM problem_state ps ");  // 20
-            fSql.append("          WHERE ps.round_id = rr.round_id ");
-            fSql.append("            AND ps.coder_id = rr.coder_id ");
-            fSql.append("            AND status_id = " + STATUS_OPENED + ") ");
-            fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 21
-            fSql.append("          WHERE c.challenger_id = rr.coder_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.round_id = rr.round_id) ");
-            fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 22
-            fSql.append("          WHERE c.challenger_id = rr.coder_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.round_id = rr.round_id ");
-            fSql.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
-            fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 23
-            fSql.append("          WHERE c.challenger_id = rr.coder_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.round_id = rr.round_id ");
-            fSql.append("            AND succeeded = " + STATUS_FAILED + ") ");
-            fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 24
-            fSql.append("          WHERE c.defendant_id = rr.coder_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.round_id = rr.round_id) ");
-            fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 25
-            fSql.append("          WHERE c.defendant_id = rr.coder_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.round_id = rr.round_id ");
-            fSql.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
-            fSql.append("       ,(SELECT count(*) FROM challenge c ");       // 26
-            fSql.append("          WHERE c.defendant_id = rr.coder_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.round_id = rr.round_id ");
-            fSql.append("            AND succeeded = " + STATUS_FAILED + ") ");
-            fSql.append("       ,(SELECT sum(defendant_points) ");           // 27
-            fSql.append("           FROM challenge c ");
-            fSql.append("          WHERE c.round_id = rr.round_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.defendant_id = rr.coder_id) ");
-            fSql.append("       ,rr.overall_rank ");                        // 28
-            fSql.append("       ,rr.division_placed ");                     // 29
-            fSql.append("       ,rr.division_seed ");                       // 30
-            fSql.append("       ,pt.payment_type_id");                      // 31
-            fSql.append("       ,pt.payment_type_desc");                    // 32
-            fSql.append("  FROM room_result rr ");
-            fSql.append("  JOIN room r ON rr.round_id = r.round_id ");
-            fSql.append("   AND rr.room_id = r.room_id ");
-            fSql.append("  LEFT OUTER JOIN round_payment rp ON rr.round_id = rp.round_id");
-            fSql.append("              AND rp.coder_id = rr.coder_id");
-            fSql.append("  LEFT OUTER JOIN payment_type_lu pt ON rp.payment_type_id = pt.payment_type_id");
-            fSql.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
-            fSql.append("   AND rr.round_id = ?");
-            fSql.append("   AND rr.attended = 'Y'");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rr.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = rr.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
+            query = new StringBuffer(100);
+            query.append("SELECT rr.round_id ");                              // 1
+            query.append("       ,rr.room_id ");                              // 2
+            query.append("       ,rr.coder_id ");                             // 3
+            query.append("       ,rr.point_total ");                          // 4
+            query.append("       ,rr.room_seed ");                            // 5
+            query.append("       ,rp.paid ");                                 // 6
+            query.append("       ,rr.old_rating ");                           // 7
+            query.append("       ,rr.new_rating ");                           // 8
+            query.append("       ,rr.room_placed ");                          // 9
+            query.append("       ,rr.attended ");                             // 10
+            query.append("       ,rr.advanced ");                             // 11
+            query.append("       ,(SELECT sum(c.challenger_points) ");        // 12
+            query.append("           FROM challenge c ");
+            query.append("          WHERE c.round_id = rr.round_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("          AND c.challenger_id = rr.coder_id) ");
+            query.append("       ,(SELECT sum(deduction_amount) ");           // 13
+            query.append("           FROM system_test_result str ");
+            query.append("          WHERE str.round_id = rr.round_id ");
+            query.append("            AND str.coder_id = rr.coder_id) ");
+            query.append("       ,(SELECT division_id FROM room ");           // 14
+            query.append("          WHERE room.room_id = rr.room_id) ");
+            query.append("       ,(SELECT count(*) ");                        // 15
+            query.append("           FROM round_problem rp ");
+            query.append("                ,room r ");
+            query.append("          WHERE rp.round_id = rr.round_id ");
+            query.append("            AND rp.division_id = r.division_id ");
+            query.append("            AND rr.room_id = r.room_id) ");
+            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 16
+            query.append("          WHERE ps.round_id = rr.round_id ");
+            query.append("            AND ps.coder_id = rr.coder_id ");
+            query.append("            AND status_id = " + STATUS_PASSED_SYS_TEST + ") ");
+            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 17
+            query.append("          WHERE ps.round_id = rr.round_id ");
+            query.append("            AND ps.coder_id = rr.coder_id ");
+            query.append("            AND status_id = " + STATUS_FAILED_SYS_TEST + ") ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 18
+            query.append("          WHERE c.round_id = rr.round_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.defendant_id = rr.coder_id ");
+            query.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
+            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 19
+            query.append("          WHERE ps.round_id = rr.round_id ");
+            query.append("            AND ps.coder_id = rr.coder_id) ");
+            query.append("       ,(SELECT count(*) FROM problem_state ps ");  // 20
+            query.append("          WHERE ps.round_id = rr.round_id ");
+            query.append("            AND ps.coder_id = rr.coder_id ");
+            query.append("            AND status_id = " + STATUS_OPENED + ") ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 21
+            query.append("          WHERE c.challenger_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id) ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 22
+            query.append("          WHERE c.challenger_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id ");
+            query.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 23
+            query.append("          WHERE c.challenger_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id ");
+            query.append("            AND succeeded = " + STATUS_FAILED + ") ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 24
+            query.append("          WHERE c.defendant_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id) ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 25
+            query.append("          WHERE c.defendant_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id ");
+            query.append("            AND succeeded = " + STATUS_SUCCEEDED + ") ");
+            query.append("       ,(SELECT count(*) FROM challenge c ");       // 26
+            query.append("          WHERE c.defendant_id = rr.coder_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.round_id = rr.round_id ");
+            query.append("            AND succeeded = " + STATUS_FAILED + ") ");
+            query.append("       ,(SELECT sum(defendant_points) ");           // 27
+            query.append("           FROM challenge c ");
+            query.append("          WHERE c.round_id = rr.round_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.defendant_id = rr.coder_id) ");
+            query.append("       ,rr.overall_rank ");                        // 28
+            query.append("       ,rr.division_placed ");                     // 29
+            query.append("       ,rr.division_seed ");                       // 30
+            query.append("       ,pt.payment_type_id");                      // 31
+            query.append("       ,pt.payment_type_desc");                    // 32
+            query.append("  FROM room_result rr ");
+            query.append("  JOIN room r ON rr.round_id = r.round_id ");
+            query.append("   AND rr.room_id = r.room_id ");
+            query.append("  LEFT OUTER JOIN round_payment rp ON rr.round_id = rp.round_id");
+            query.append("              AND rp.coder_id = rr.coder_id");
+            query.append("  LEFT OUTER JOIN payment_type_lu pt ON rp.payment_type_id = pt.payment_type_id");
+            query.append(" WHERE r.room_type_id = " + CONTEST_ROOM);
+            query.append("   AND rr.round_id = ?");
+            query.append("   AND rr.attended = 'Y'");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = rr.coder_id ");
+            query.append("           AND gu.group_id = 14)");
 
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO room_result ");
-            fSql.append("      (round_id ");                         // 1
-            fSql.append("       ,room_id ");                         // 2
-            fSql.append("       ,coder_id ");                        // 3
-            fSql.append("       ,final_points ");                    // 4
-            fSql.append("       ,room_seed ");                       // 5
-            fSql.append("       ,paid ");                            // 6
-            fSql.append("       ,old_rating ");                      // 7
-            fSql.append("       ,new_rating ");                      // 8
-            fSql.append("       ,room_placed ");                     // 9
-            fSql.append("       ,attended ");                        // 10
-            fSql.append("       ,advanced ");                        // 11
-            fSql.append("       ,challenge_points ");                // 12
-            fSql.append("       ,system_test_points ");              // 13
-            fSql.append("       ,division_id ");                     // 14
-            fSql.append("       ,problems_presented ");              // 15
-            fSql.append("       ,problems_correct ");                // 16
-            fSql.append("       ,problems_failed_by_system_test ");  // 17
-            fSql.append("       ,problems_failed_by_challenge ");    // 18
-            fSql.append("       ,problems_opened ");                 // 19
-            fSql.append("       ,problems_left_open ");              // 20
-            fSql.append("       ,challenge_attempts_made ");         // 21
-            fSql.append("       ,challenges_made_successful ");      // 22
-            fSql.append("       ,challenges_made_failed ");          // 23
-            fSql.append("       ,challenge_attempts_received ");     // 24
-            fSql.append("       ,challenges_received_successful ");  // 25
-            fSql.append("       ,challenges_received_failed ");      // 26
-            fSql.append("       ,defense_points ");                  // 27
-            fSql.append("       ,overall_rank ");                    // 28
-            fSql.append("       ,division_placed ");                 // 29
-            fSql.append("       ,division_seed ");                   // 30
-            fSql.append("       ,payment_type_id ");                 // 31
-            fSql.append("       ,payment_type_desc) ");              // 32
-            fSql.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
-            fSql.append("        ?,?,?,?,?,?,?,?,?,?,?,?)");  // 32 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO room_result ");
+            query.append("      (round_id ");                         // 1
+            query.append("       ,room_id ");                         // 2
+            query.append("       ,coder_id ");                        // 3
+            query.append("       ,final_points ");                    // 4
+            query.append("       ,room_seed ");                       // 5
+            query.append("       ,paid ");                            // 6
+            query.append("       ,old_rating ");                      // 7
+            query.append("       ,new_rating ");                      // 8
+            query.append("       ,room_placed ");                     // 9
+            query.append("       ,attended ");                        // 10
+            query.append("       ,advanced ");                        // 11
+            query.append("       ,challenge_points ");                // 12
+            query.append("       ,system_test_points ");              // 13
+            query.append("       ,division_id ");                     // 14
+            query.append("       ,problems_presented ");              // 15
+            query.append("       ,problems_correct ");                // 16
+            query.append("       ,problems_failed_by_system_test ");  // 17
+            query.append("       ,problems_failed_by_challenge ");    // 18
+            query.append("       ,problems_opened ");                 // 19
+            query.append("       ,problems_left_open ");              // 20
+            query.append("       ,challenge_attempts_made ");         // 21
+            query.append("       ,challenges_made_successful ");      // 22
+            query.append("       ,challenges_made_failed ");          // 23
+            query.append("       ,challenge_attempts_received ");     // 24
+            query.append("       ,challenges_received_successful ");  // 25
+            query.append("       ,challenges_received_failed ");      // 26
+            query.append("       ,defense_points ");                  // 27
+            query.append("       ,overall_rank ");                    // 28
+            query.append("       ,division_placed ");                 // 29
+            query.append("       ,division_seed ");                   // 30
+            query.append("       ,payment_type_id ");                 // 31
+            query.append("       ,payment_type_desc) ");              // 32
+            query.append("VALUES (?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("        ?,?,?,?,?,?,?,?,?,?,");  // 20 values
+            query.append("        ?,?,?,?,?,?,?,?,?,?,?,?)");  // 32 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM room_result ");
-            fSql.append(" WHERE round_id = ? ");
-            fSql.append("   AND room_id = ? ");
-            fSql.append("   AND coder_id = ? ");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM room_result ");
+            query.append(" WHERE round_id = ? ");
+            query.append("   AND room_id = ? ");
+            query.append("   AND coder_id = ? ");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -1741,6 +1751,7 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psDel = null;
         ResultSet rs = null;
         ResultSet rs2 = null;
+        StringBuffer query = null;
 
         int coder_id = 0;
         int round_id = 0;
@@ -1748,131 +1759,131 @@ public class TCLoadRound extends TCLoad {
         int problem_id = 0;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT ps.coder_id ");                                 // 1
-            fSql.append("       ,ps.round_id ");                                // 2
+            query = new StringBuffer(100);
+            query.append("SELECT ps.coder_id ");                                 // 1
+            query.append("       ,ps.round_id ");                                // 2
             // 3: division_id
-            fSql.append("       ,(SELECT r.division_id ");                      // 3
-            fSql.append("           FROM room r ");
-            fSql.append("                ,room_result rr ");
-            fSql.append("          WHERE rr.coder_id = ps.coder_id ");
-            fSql.append("            AND rr.round_id = ps.round_id ");
-            fSql.append("            AND r.room_type_id = " + CONTEST_ROOM);
-            fSql.append("            AND r.room_id = rr.room_id) ");
-            fSql.append("       ,ps.problem_id ");                              // 4
-            fSql.append("       ,s.submission_points ");                        // 5
-            fSql.append("       ,ps.points ");                                  // 6
-            fSql.append("       ,ps.status_id ");                               // 7
+            query.append("       ,(SELECT r.division_id ");                      // 3
+            query.append("           FROM room r ");
+            query.append("                ,room_result rr ");
+            query.append("          WHERE rr.coder_id = ps.coder_id ");
+            query.append("            AND rr.round_id = ps.round_id ");
+            query.append("            AND r.room_type_id = " + CONTEST_ROOM);
+            query.append("            AND r.room_id = rr.room_id) ");
+            query.append("       ,ps.problem_id ");                              // 4
+            query.append("       ,s.submission_points ");                        // 5
+            query.append("       ,ps.points ");                                  // 6
+            query.append("       ,ps.status_id ");                               // 7
             // 8: end_status_text
-            fSql.append("       ,(SELECT status_desc ");                        // 8
-            fSql.append("           FROM problem_status ");
-            fSql.append("          WHERE problem_status_id = ps.status_id) ");
-            fSql.append("       ,c.open_time ");                                // 9
-            fSql.append("       ,s.submit_time ");                              // 10
-            fSql.append("       ,s.submit_time - c.open_time ");                // 11
-            fSql.append("       ,ps.language_id ");                             // 12
+            query.append("       ,(SELECT status_desc ");                        // 8
+            query.append("           FROM problem_status ");
+            query.append("          WHERE problem_status_id = ps.status_id) ");
+            query.append("       ,c.open_time ");                                // 9
+            query.append("       ,s.submit_time ");                              // 10
+            query.append("       ,s.submit_time - c.open_time ");                // 11
+            query.append("       ,ps.language_id ");                             // 12
             // 13: challenge_points
-            fSql.append("       ,(SELECT sum(c.challenger_points) ");           // 13
-            fSql.append("           FROM challenge c ");
-            fSql.append("          WHERE c.round_id = ps.round_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.challenger_id = ps.coder_id ");
-            fSql.append("            AND c.problem_id = ps.problem_id) ");
+            query.append("       ,(SELECT sum(c.challenger_points) ");           // 13
+            query.append("           FROM challenge c ");
+            query.append("          WHERE c.round_id = ps.round_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.challenger_id = ps.coder_id ");
+            query.append("            AND c.problem_id = ps.problem_id) ");
             // 14: system_test_points
-            fSql.append("       ,(SELECT sum(deduction_amount) ");              // 14
-            fSql.append("           FROM system_test_result str ");
-            fSql.append("          WHERE str.round_id = ps.round_id ");
-            fSql.append("            AND str.coder_id = ps.coder_id ");
-            fSql.append("            AND str.problem_id = ps.problem_id) ");
+            query.append("       ,(SELECT sum(deduction_amount) ");              // 14
+            query.append("           FROM system_test_result str ");
+            query.append("          WHERE str.round_id = ps.round_id ");
+            query.append("            AND str.coder_id = ps.coder_id ");
+            query.append("            AND str.problem_id = ps.problem_id) ");
             // 15: defense_points
-            fSql.append("       ,(SELECT sum(defendant_points) ");              // 15
-            fSql.append("           FROM challenge c ");
-            fSql.append("          WHERE c.round_id = ps.round_id ");
-            fSql.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("            AND c.defendant_id = ps.coder_id ");
-            fSql.append("            AND c.problem_id = ps.problem_id) ");
-            fSql.append("       ,(SELECT rs.end_time");                         // 16
-            fSql.append("           FROM round_segment rs");
-            fSql.append("          WHERE rs.round_id = ps.round_id");
-            fSql.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
-            fSql.append(" FROM problem_state ps ");
-            fSql.append(" LEFT OUTER JOIN submission s ");
-            fSql.append(" ON ps.problem_state_id = s.problem_state_id");
-            fSql.append(" AND s.submission_number = ps.submission_number");
-            fSql.append(" LEFT OUTER JOIN compilation c ");
-            fSql.append(" ON ps.problem_state_id = c.problem_state_id");
-            fSql.append(" JOIN room_result rr ");
-            fSql.append(" ON rr.round_id = ps.round_id");
-            fSql.append(" AND rr.coder_id = ps.coder_id");
-            fSql.append(" AND rr.attended = 'Y'");
-            fSql.append(" AND ps.round_id = ?");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = ps.coder_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = ps.coder_id ");
-            fSql.append("           AND gu.group_id = 14)");
+            query.append("       ,(SELECT sum(defendant_points) ");              // 15
+            query.append("           FROM challenge c ");
+            query.append("          WHERE c.round_id = ps.round_id ");
+            query.append("          AND c.status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("            AND c.defendant_id = ps.coder_id ");
+            query.append("            AND c.problem_id = ps.problem_id) ");
+            query.append("       ,(SELECT rs.end_time");                         // 16
+            query.append("           FROM round_segment rs");
+            query.append("          WHERE rs.round_id = ps.round_id");
+            query.append("            AND rs.segment_id = 2)");                  // coding segment...need constant
+            query.append(" FROM problem_state ps ");
+            query.append(" LEFT OUTER JOIN submission s ");
+            query.append(" ON ps.problem_state_id = s.problem_state_id");
+            query.append(" AND s.submission_number = ps.submission_number");
+            query.append(" LEFT OUTER JOIN compilation c ");
+            query.append(" ON ps.problem_state_id = c.problem_state_id");
+            query.append(" JOIN room_result rr ");
+            query.append(" ON rr.round_id = ps.round_id");
+            query.append(" AND rr.coder_id = ps.coder_id");
+            query.append(" AND rr.attended = 'Y'");
+            query.append(" AND ps.round_id = ?");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = ps.coder_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = ps.coder_id ");
+            query.append("           AND gu.group_id = 14)");
 
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT rp.open_order ");     // 1
-            fSql.append("       ,rp.submit_order ");  // 2
-            fSql.append("  FROM round_problem rp ");
-            fSql.append(" WHERE rp.problem_id = ? ");
-            fSql.append("   AND rp.round_id = ? ");
-            fSql.append("   AND rp.division_id = ? ");
-            psSelOpenSubmitOrder = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT rp.open_order ");     // 1
+            query.append("       ,rp.submit_order ");  // 2
+            query.append("  FROM round_problem rp ");
+            query.append(" WHERE rp.problem_id = ? ");
+            query.append("   AND rp.round_id = ? ");
+            query.append("   AND rp.division_id = ? ");
+            psSelOpenSubmitOrder = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("SELECT rp.difficulty_id ");    // 1
-            fSql.append("       ,d.difficulty_desc ");  // 2
-            fSql.append("  FROM round_problem rp ");
-            fSql.append("       ,difficulty d ");
-            fSql.append(" WHERE rp.problem_id = ? ");
-            fSql.append("   AND rp.division_id = ? ");
-            fSql.append("   AND rp.round_id = ? ");
-            fSql.append("   AND rp.difficulty_id = d.difficulty_id ");
-            psSel2 = prepareStatement(fSql.toString(), SOURCE_DB);
+            query = new StringBuffer(100);
+            query.append("SELECT rp.difficulty_id ");    // 1
+            query.append("       ,d.difficulty_desc ");  // 2
+            query.append("  FROM round_problem rp ");
+            query.append("       ,difficulty d ");
+            query.append(" WHERE rp.problem_id = ? ");
+            query.append("   AND rp.division_id = ? ");
+            query.append("   AND rp.round_id = ? ");
+            query.append("   AND rp.difficulty_id = d.difficulty_id ");
+            psSel2 = prepareStatement(query.toString(), SOURCE_DB);
 
             // Need to add these in later if we determine we need them
-            fSql.setLength(0);
-            fSql.append("INSERT INTO coder_problem ");
-            fSql.append("      (coder_id ");             // 1
-            fSql.append("       ,round_id ");            // 2
-            fSql.append("       ,division_id ");         // 3
-            fSql.append("       ,problem_id ");          // 4
-            fSql.append("       ,submission_points ");   // 5
-            fSql.append("       ,final_points ");        // 6
-            fSql.append("       ,end_status_id ");       // 7
-            fSql.append("       ,end_status_text ");     // 8
-            fSql.append("       ,open_time ");           // 9
-            fSql.append("       ,submit_time ");         // 10
-            fSql.append("       ,time_elapsed ");        // 11
-            fSql.append("       ,language_id ");         // 12
-            fSql.append("       ,challenge_points ");    // 13
-            fSql.append("       ,system_test_points ");  // 14
-            fSql.append("       ,defense_points ");      // 15
-            fSql.append("       ,open_order ");          // 16
-            fSql.append("       ,submit_order ");        // 17
-            fSql.append("       ,level_id ");            // 18
-            fSql.append("       ,level_desc) ");         // 19
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("?,?,?,?,?,?,?,?,?)");    // 19 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO coder_problem ");
+            query.append("      (coder_id ");             // 1
+            query.append("       ,round_id ");            // 2
+            query.append("       ,division_id ");         // 3
+            query.append("       ,problem_id ");          // 4
+            query.append("       ,submission_points ");   // 5
+            query.append("       ,final_points ");        // 6
+            query.append("       ,end_status_id ");       // 7
+            query.append("       ,end_status_text ");     // 8
+            query.append("       ,open_time ");           // 9
+            query.append("       ,submit_time ");         // 10
+            query.append("       ,time_elapsed ");        // 11
+            query.append("       ,language_id ");         // 12
+            query.append("       ,challenge_points ");    // 13
+            query.append("       ,system_test_points ");  // 14
+            query.append("       ,defense_points ");      // 15
+            query.append("       ,open_order ");          // 16
+            query.append("       ,submit_order ");        // 17
+            query.append("       ,level_id ");            // 18
+            query.append("       ,level_desc) ");         // 19
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?,?,?,?,?,?,?,?,?)");    // 19 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM coder_problem ");
-            fSql.append(" WHERE coder_id = ? ");
-            fSql.append("   AND round_id = ? ");
-            fSql.append("   AND division_id = ? ");
-            fSql.append("   AND problem_id = ?");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM coder_problem ");
+            query.append(" WHERE coder_id = ? ");
+            query.append("   AND round_id = ? ");
+            query.append("   AND division_id = ? ");
+            query.append("   AND problem_id = ?");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -1997,62 +2008,63 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psDel = null;
         PreparedStatement psUpd = null;
         ResultSet rs = null;
+        StringBuffer query = null;
 
         try {
-            fSql.setLength(0);
-            fSql.append("SELECT challenge_id ");        // 1
-            fSql.append("       ,defendant_id ");       // 2
-            fSql.append("       ,problem_id ");         // 3
-            fSql.append("       ,round_id ");           // 4
-            fSql.append("       ,succeeded ");          // 5
-            fSql.append("       ,submit_time ");        // 6
-            fSql.append("       ,challenger_id ");      // 7
-            fSql.append("       ,args ");               // 8
-            fSql.append("       ,message ");            // 9
-            fSql.append("       ,challenger_points ");  // 10
-            fSql.append("       ,defendant_points ");   // 11
-            fSql.append("       ,expected ");           // 12
-            fSql.append("       ,received ");           // 13
-            fSql.append("  FROM challenge ");
-            fSql.append(" WHERE round_id = ? ");
-            fSql.append("   AND status_id <> " + CHALLENGE_NULLIFIED);
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = defendant_id ");
-            fSql.append("           AND gu.group_id = 13)");
-            fSql.append("   AND NOT EXISTS ");
-            fSql.append("       (SELECT * ");
-            fSql.append("          FROM group_user gu ");
-            fSql.append("         WHERE gu.user_id = challenger_id ");
-            fSql.append("           AND gu.group_id = 14)");
+            query = new StringBuffer(100);
+            query.append("SELECT challenge_id ");        // 1
+            query.append("       ,defendant_id ");       // 2
+            query.append("       ,problem_id ");         // 3
+            query.append("       ,round_id ");           // 4
+            query.append("       ,succeeded ");          // 5
+            query.append("       ,submit_time ");        // 6
+            query.append("       ,challenger_id ");      // 7
+            query.append("       ,args ");               // 8
+            query.append("       ,message ");            // 9
+            query.append("       ,challenger_points ");  // 10
+            query.append("       ,defendant_points ");   // 11
+            query.append("       ,expected ");           // 12
+            query.append("       ,received ");           // 13
+            query.append("  FROM challenge ");
+            query.append(" WHERE round_id = ? ");
+            query.append("   AND status_id <> " + CHALLENGE_NULLIFIED);
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = defendant_id ");
+            query.append("           AND gu.group_id = 13)");
+            query.append("   AND NOT EXISTS ");
+            query.append("       (SELECT * ");
+            query.append("          FROM group_user gu ");
+            query.append("         WHERE gu.user_id = challenger_id ");
+            query.append("           AND gu.group_id = 14)");
 
-            psSel = prepareStatement(fSql.toString(), SOURCE_DB);
+            psSel = prepareStatement(query.toString(), SOURCE_DB);
 
-            fSql.setLength(0);
-            fSql.append("INSERT INTO challenge ");
-            fSql.append("      (challenge_id ");        // 1
-            fSql.append("       ,defendant_id ");       // 2
-            fSql.append("       ,problem_id ");         // 3
-            fSql.append("       ,round_id ");           // 4
-            fSql.append("       ,succeeded ");          // 5
-            fSql.append("       ,submit_time ");        // 6
-            fSql.append("       ,challenger_id ");      // 7
-            fSql.append("       ,args ");               // 8
-            fSql.append("       ,message ");            // 9
-            fSql.append("       ,challenger_points ");  // 10
-            fSql.append("       ,defendant_points ");   // 11
-            fSql.append("       ,expected ");           // 12
-            fSql.append("       ,received) ");          // 13
-            fSql.append("VALUES (");
-            fSql.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
-            fSql.append("?,?,?)");                // 13 total values
-            psIns = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO challenge ");
+            query.append("      (challenge_id ");        // 1
+            query.append("       ,defendant_id ");       // 2
+            query.append("       ,problem_id ");         // 3
+            query.append("       ,round_id ");           // 4
+            query.append("       ,succeeded ");          // 5
+            query.append("       ,submit_time ");        // 6
+            query.append("       ,challenger_id ");      // 7
+            query.append("       ,args ");               // 8
+            query.append("       ,message ");            // 9
+            query.append("       ,challenger_points ");  // 10
+            query.append("       ,defendant_points ");   // 11
+            query.append("       ,expected ");           // 12
+            query.append("       ,received) ");          // 13
+            query.append("VALUES (");
+            query.append("?,?,?,?,?,?,?,?,?,?,");  // 10 values
+            query.append("?,?,?)");                // 13 total values
+            psIns = prepareStatement(query.toString(), TARGET_DB);
 
-            fSql.setLength(0);
-            fSql.append("DELETE FROM challenge ");
-            fSql.append(" WHERE round_id = ? ");
-            psDel = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("DELETE FROM challenge ");
+            query.append(" WHERE round_id = ? ");
+            psDel = prepareStatement(query.toString(), TARGET_DB);
 
             // On to the load
             psSel.setInt(1, fRoundId);
@@ -2110,17 +2122,18 @@ public class TCLoadRound extends TCLoad {
      */
     private void setLastUpdateTime() throws Exception {
         PreparedStatement psUpd = null;
+        StringBuffer query = null;
 
         try {
             int retVal = 0;
-            fSql.setLength(0);
-            fSql.append("INSERT INTO update_log ");
-            fSql.append("      (log_id ");        // 1
-            fSql.append("       ,calendar_id ");  // 2
-            fSql.append("       ,timestamp  ");   // 3
-            fSql.append("       ,log_type_id) ");   // 4
-            fSql.append("VALUES (0, ?, ?, " + ROUND_LOG_TYPE + ")");
-            psUpd = prepareStatement(fSql.toString(), TARGET_DB);
+            query = new StringBuffer(100);
+            query.append("INSERT INTO update_log ");
+            query.append("      (log_id ");        // 1
+            query.append("       ,calendar_id ");  // 2
+            query.append("       ,timestamp  ");   // 3
+            query.append("       ,log_type_id) ");   // 4
+            query.append("VALUES (0, ?, ?, " + ROUND_LOG_TYPE + ")");
+            psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             int calendar_id = lookupCalendarId(fStartTime, TARGET_DB);
             psUpd.setInt(1, calendar_id);
@@ -2143,15 +2156,16 @@ public class TCLoadRound extends TCLoad {
     private java.sql.Date getRoundStart(int roundId)
             throws SQLException {
         Integer iRoundId = new Integer(roundId);
+        StringBuffer query = null;
         if (fRoundStartHT.get(iRoundId) != null)
             return (java.sql.Date) fRoundStartHT.get(iRoundId);
 
-        fSql.setLength(0);
-        fSql.append("SELECT rs.start_time ");
-        fSql.append("  FROM round_segment rs ");
-        fSql.append(" WHERE rs.round_id = ? ");
-        fSql.append("   AND rs.segment_id = " + CODING_SEGMENT_ID);
-        PreparedStatement pSel = prepareStatement(fSql.toString(), SOURCE_DB);
+        query = new StringBuffer(100);
+        query.append("SELECT rs.start_time ");
+        query.append("  FROM round_segment rs ");
+        query.append(" WHERE rs.round_id = ? ");
+        query.append("   AND rs.segment_id = " + CODING_SEGMENT_ID);
+        PreparedStatement pSel = prepareStatement(query.toString(), SOURCE_DB);
 
         pSel.setInt(1, roundId);
         ResultSet rs = pSel.executeQuery();
