@@ -119,7 +119,7 @@ The tournament is open to the following members who are at least 18 years of age
 
 <P>
 <A NAME="3"></A><B>Invitations and Registration</B><BR/>
-The top 1,024 rated TopCoder members as of October 1st who meet the eligibility criteria defined above will be invited via email to compete in the tournament.  Invitations will be emailed no later than 4:00PM Eastern Time on October 3rd.  Once invited, members must register on TopCoder's website to compete in the tournament.  Registration details and deadlines will be provided in the invitations.  
+The top 1,024 rated TopCoder members as of October 1st who meet the eligibility criteria defined above will be invited via email to compete in the tournament.  Invitations will be emailed on October 4th.  Once invited, members must register on TopCoder's website to compete in the tournament.  Registration details and deadlines will be provided in the invitations.  
 </P>
 
 <P>
