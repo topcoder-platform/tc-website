@@ -83,7 +83,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 		String errorURL = request.getRequestURI();
 		errorURL += (request.getQueryString()==null) ? "" : request.getQueryString();
 		// UPDATE THIS TO POINT TO THE MAIN SITE LOGIN
-		String loginHref = "/PactsLogin.jsp?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
+		String loginHref = "/pacts/client/PactsLogin.jsp?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
 		forward(loginHref,request,response);
 		return;
 	    } else {
@@ -149,7 +149,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	    UserProfileHeader header = new UserProfileHeader(nav);
 	    request.setAttribute(PACTS_MEMBER_RESULT,header);
 
-	    forward("/Main.jsp",request,response);
+	    forward("/pacts/client/Main.jsp",request,response);
 	    return;
 	} catch (Exception e) {
 	    log.error("our get method was excepted");
@@ -170,7 +170,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 		String errorURL = request.getRequestURI();
 		errorURL += (request.getQueryString()==null) ? "" : request.getQueryString();
 		// UPDATE TO MAIN SITE LOGIN PAGE
-		String loginHref = "/PactsLogin.jsp?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
+		String loginHref = "/pacts/client/PactsLogin.jsp?t=authentication&c=login&errorMsg=You%20must%20login%20to%20to%20use%20the%20pacts%20system&errorURL=" + errorURL;
 		forward(loginHref,request,response);
 		return;
 	    } else {
@@ -202,7 +202,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	    UserProfileHeader header = new UserProfileHeader(nav);
 	    request.setAttribute(PACTS_MEMBER_RESULT,header);
 
-	    forward("/Main.jsp",request,response);
+	    forward("/pacts/client/Main.jsp",request,response);
 	} catch (Exception e) {
 	    log.error("our get method was excepted");
 	    e.printStackTrace();
@@ -633,7 +633,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	// affiavid and member that is logged in
 	if(nav.getUserId() != a.affidavit._header._user._id) {
 	    log.error("the user id in the affidavit does not match the nav id");
-	    forward("/MemberError.jsp",request,response);
+	    forward("/pacts/client/MemberError.jsp",request,response);
 	    return;
 	}
 
@@ -644,7 +644,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	    d = dfmt.parse(birthday);
 	} catch( Exception e3) {
 	    log.debug("exception parsing the date");
-	    forward("/MemberError.jsp?errorMsg=\"birthday is malformed, please use " + DATE_FORMAT_STRING + " format\"",request, response);
+	    forward("/pacts/client/MemberError.jsp?errorMsg=\"birthday is malformed, please use " + DATE_FORMAT_STRING + " format\"",request, response);
 	    return;
 	}
 
@@ -652,7 +652,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	if(a.payment._country.equals("India")) {
 	    if((aged==null) || (family==null) || (aged.length()==0) || (family.length()==0) ) {
 		log.debug("did not get the aged or family text");
-		forward("/MemberError.jsp?errorMsg=\"error affirming the affidavit, make sure you fill in the aged and family edit boxes\"",request, response);
+		forward("/pacts/client/MemberError.jsp?errorMsg=\"error affirming the affidavit, make sure you fill in the aged and family edit boxes\"",request, response);
 		return;
 	    }
 

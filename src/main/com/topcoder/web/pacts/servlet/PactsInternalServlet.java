@@ -16,9 +16,11 @@ import java.io.*;
 import com.topcoder.web.pacts.common.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.web.pacts.bean.pacts_internal.dispatch.*;
+import com.topcoder.web.pacts.bean.pacts_client.dispatch.*;
 import com.topcoder.web.pacts.bean.*;
 import org.apache.log4j.*;
 import java.util.*;
+import java.text.*;
 
 public class PactsInternalServlet extends HttpServlet implements PactsConstants {
 
@@ -29,10 +31,25 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 	private static final int DOUBLE_TYPE = 5;
 	private static final int FLOAT_TYPE = 6;
 	private static final int DATE_TYPE = 7;
-
-	private boolean parameterHasBeenPassed;
+	private static final int NULL_MULT = 8;
+	private static final int NULL_DATE_TYPE = DATE_TYPE * NULL_MULT;
+	private static final int NULL_BOOL_TYPE = BOOL_TYPE * NULL_MULT;
+	private static final int NULL_INT_TYPE = INT_TYPE * NULL_MULT;
+	private static final int NULL_STRING_TYPE = STRING_TYPE * NULL_MULT;
+	private static final int NULL_LONG_TYPE = LONG_TYPE * NULL_MULT;
+	private static final int NULL_FLOAT_TYPE = FLOAT_TYPE * NULL_MULT;
+	private static final int NULL_DOUBLE_TYPE = DOUBLE_TYPE * NULL_MULT;
 
 	private static Category log = PactsLog.getInstance(PactsInternalServlet.class.getName());
+
+	private static class PassedParam {
+		boolean val;
+		private PassedParam() { this(false); }
+		private PassedParam(boolean v) { val = v; }
+		private boolean get() { return val; }
+		private void set() { set(true); }
+		private void set(boolean v) { val = v; }
+	}
 
 	private boolean makeBoolean(String booleanString) throws Exception {
         booleanString = booleanString.toUpperCase();
@@ -43,14 +60,19 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
         throw new Exception("String " + booleanString + " could not be converted to boolean type");
     }
 
-
 	private boolean checkParam(int type, String param, boolean required) {
+		return checkParam(type, param, required, null);
+	}
+
+	private boolean checkParam(int type, String param, boolean required, PassedParam pp) {
 		log.debug("checking for "+param);
-		if (param == null || param.equals("")) return !required;
+		if ((type % NULL_MULT != 0) && (param == null || param.equals(""))) return !required;
+		if ((type % NULL_MULT == 0) && (param == null || param.equals(""))) return true;
 
 		log.debug("checking param - "+param+" - type: "+type);
 
 		switch (type) {
+			case NULL_INT_TYPE:
 			case INT_TYPE:
 				try {
 					Integer.parseInt(param);
@@ -58,6 +80,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					return false;
 				}
 				break;
+			case NULL_BOOL_TYPE:
 			case BOOL_TYPE:
 				try {
 					makeBoolean(param);
@@ -65,6 +88,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					return false;
 				}
 				break;
+			case NULL_LONG_TYPE:
 			case LONG_TYPE:
 				try {
 					Long.parseLong(param);
@@ -72,6 +96,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					return false;
 				}
 				break;
+			case NULL_DOUBLE_TYPE:
 			case DOUBLE_TYPE:
 				try {
 					Double.parseDouble(param);
@@ -79,6 +104,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					return false;
 				}
 				break;
+			case NULL_FLOAT_TYPE:
 			case FLOAT_TYPE:
 				try {
 					Float.parseFloat(param);
@@ -86,6 +112,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					return false;
 				}
 				break;
+			case NULL_DATE_TYPE:
+				try {
+					String s = TCData.dateForm(param,param,false);
+					if (s.equals("00/00/0000")) return true;
+				} catch (Exception e) {
+					return false;
+				}
 			case DATE_TYPE:
 				try {
 					StringTokenizer t = new StringTokenizer(param,"/");
@@ -100,7 +133,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					s = (String) t.nextElement();
 					if (s.length() != 2 && s.length() != 4) return false;
 					i = Integer.parseInt(s);
-					if (i > 100 && i < 1970) return false;
 				} catch (Exception e) {
 					return false;
 				}
@@ -108,15 +140,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 		log.debug("  OK");
 
-		parameterHasBeenPassed = true;
+		if (pp != null) pp.set();
 		return true;
 	}
 
      /*
      Forwarding JSP: "addAffidavit.jsp"
      */
-     private void doAddAffidavit(HttpServletRequest request,
-                                               HttpServletResponse response)
+     private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -133,14 +164,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 request.setAttribute(PAYMENT_TYPE_LIST, map.get(PAYMENT_TYPE_LIST));
 	         map = dib.getStatusCodes(PactsConstants.AFFIDAVIT_OBJ);
 			 request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
+	         map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
+			 request.setAttribute(STATUS_CODE_LIST + "2", map.get(STATUS_CODE_LIST));
 	         map = dib.getRounds();
 			 request.setAttribute(ROUND_LIST, map.get(ROUND_LIST));
 
-			 forward(INTERNAL_ADD_AFFIDAVIT_JSP,request, response);
+			 forward(INTERNAL_ADD_AFFIDAVIT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e,request,response); }
      }
 
 
@@ -149,8 +180,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewAffidavit.jsp"
      */
-     private void doAddAffidavitPost(HttpServletRequest request,
-                                                   HttpServletResponse response)
+     private void doAddAffidavitPost(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -167,11 +197,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 false,
 				 makeBoolean(request.getParameter(IS_NOTARIZED)));
 
+			 String net = request.getParameter("net_amount");
+			 if (net == null || net.equals("")) net = "0";
+
 			 Payment p = new Payment(
 				 Long.parseLong(request.getParameter("user_id")),
 				 request.getParameter("payment_desc"),
 				 Integer.parseInt(request.getParameter("payment_type_id")),
-				 Double.parseDouble(request.getParameter("net_amount")),
+				 Double.parseDouble(request.getParameter(net)),
 				 Double.parseDouble(request.getParameter("gross_amount")),
 				 Integer.parseInt(request.getParameter("payment_status_id")));
 
@@ -185,19 +218,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
              Affidavit results = bean.get(affidavit_id);
 	         request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-			 forward(INTERNAL_AFFIDAVIT_JSP,request, response);
+			 forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToGet(e, request, response); }
      }
 
 
      /*
      Forwarding JSP: "addContract.jsp"
      */
-     private void doAddContract(HttpServletRequest request,
-                                              HttpServletResponse response)
+     private void doAddContract(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -213,11 +243,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 	         map = dib.getStatusCodes(PactsConstants.CONTRACT_OBJ);
 			 request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
-			 forward(INTERNAL_ADD_CONTRACT_JSP,request, response);
+			 forward(INTERNAL_ADD_CONTRACT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -226,8 +254,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewContract.jsp"
      */
-     private void doAddContractPost(HttpServletRequest request,
-                                                  HttpServletResponse response)
+     private void doAddContractPost(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -250,19 +277,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 Contract results = bean.get(contract_id);
 			 request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-			 forward(INTERNAL_CONTRACT_JSP,request, response);
+			 forward(INTERNAL_CONTRACT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToGet(e, request, response); }
      }
 
 
      /*
      Forwarding JSP: "addPayment.jsp"
      */
-     private void doAddPayment(HttpServletRequest request,
-                                             HttpServletResponse response)
+     private void doAddPayment(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -287,11 +311,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 	         map = dib.getStatusCodes(PactsConstants.PAYMENT_OBJ);
 			 request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
-			 forward(INTERNAL_ADD_PAYMENT_JSP,request, response);
+			 forward(INTERNAL_ADD_PAYMENT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -300,18 +322,20 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSPs: "viewPayment.jsp" "viewContract.jsp"
      */
-     private void doAddPaymentPost(HttpServletRequest request,
-                                                 HttpServletResponse response)
+     private void doAddPaymentPost(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
              log.debug("doAddPaymentPost<br>");
 
+			 String net = request.getParameter("net_amount");
+			 if (net == null || net.equals("")) net = "0";
+
 			 Payment p = new Payment(
 				 Long.parseLong(request.getParameter("user_id")),
 				 request.getParameter("payment_desc"),
 				 Integer.parseInt(request.getParameter("payment_type_id")),
-				 Double.parseDouble(request.getParameter("net_amount")),
+				 Double.parseDouble(net),
 				 Double.parseDouble(request.getParameter("gross_amount")),
 				 Integer.parseInt(request.getParameter("status_id")));
 
@@ -333,7 +357,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 search.put(CONTRACT_ID,request.getParameter(CONTRACT_ID));
 				 request.setAttribute(NOTE_HEADER_LIST,nlb.get(search));
 
-				 forward(INTERNAL_CONTRACT_JSP,request, response);
+				 forward(INTERNAL_CONTRACT_JSP, request, response);
 		 	 }
 		 	 else {
 				 long payment_id = dib.addPayment(p);
@@ -341,20 +365,17 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 	new InternalDispatchPayment(request, response);
 				 Payment results = bean.get(payment_id);
 				 request.setAttribute(PACTS_INTERNAL_RESULT,results);
-				 forward(INTERNAL_PAYMENT_JSP,request, response);
+				 forward(INTERNAL_PAYMENT_JSP, request, response);
 			 }
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToGet(e, request, response); }
      }
 
 
      /*
      Forwardidng JSP: "addTaxForm.jsp"
      */
-     private void doAddTaxForm(HttpServletRequest request,
-                                             HttpServletResponse response)
+     private void doAddTaxForm(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -364,10 +385,8 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 	         Map map = dib.getStatusCodes(PactsConstants.TAX_FORM_OBJ);
 			 request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
-             forward(INTERNAL_ADD_TAX_FORM_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+             forward(INTERNAL_ADD_TAX_FORM_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -376,8 +395,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewTaxForm.jsp"
      */
-     private void doAddTaxFormPost(HttpServletRequest request,
-                                                 HttpServletResponse response)
+     private void doAddTaxFormPost(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -399,19 +417,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			    new InternalDispatchTaxForm(request, response);
 			 TaxForm results = bean.get(tax_form_id);
 			 request.setAttribute(PACTS_INTERNAL_RESULT,results);
-			 forward(INTERNAL_TAX_FORM_JSP,request, response);
+			 forward(INTERNAL_TAX_FORM_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToGet(e, request, response); }
      }
 
 
      /*
      Forwarding JSP: "addUserTaxForm.jsp"
      */
-     private void doAddUserTaxForm(HttpServletRequest request,
-                                             HttpServletResponse response)
+     private void doAddUserTaxForm(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -432,11 +447,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 request.setAttribute("user",uphb.get());
 
-			 forward(INTERNAL_ADD_USER_TAX_FORM_JSP,request, response);
+			 forward(INTERNAL_ADD_USER_TAX_FORM_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -445,8 +458,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewUserTaxForm.jsp"
      */
-     private void doAddUserTaxFormPost(HttpServletRequest request,
-                                                 HttpServletResponse response)
+     private void doAddUserTaxFormPost(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -466,11 +478,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 TaxForm results = bean.get();
 			 request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-			 forward(INTERNAL_USER_TAX_FORM_JSP,request, response);
+			 forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToGet(e, request, response); }
      }
 
 
@@ -479,8 +489,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forawrding JSP: "viewAffidavit.jsp"
      */
-     private void doAffidavit(HttpServletRequest request,
-                                            HttpServletResponse response)
+     private void doAffidavit(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -496,11 +505,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 NoteHeader[] notes = nlb.get();
 			 request.setAttribute(NOTE_HEADER_LIST,notes);
 
-			 forward(INTERNAL_AFFIDAVIT_JSP,request, response);
+			 forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -509,8 +516,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "affidavitList.jsp"
      */
-     private void doAffidavitList(HttpServletRequest request,
-                                                HttpServletResponse response)
+     private void doAffidavitList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -520,7 +526,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
              AffidavitHeader[] results = bean.get();
              if (results.length != 1) {
 				request.setAttribute(PACTS_INTERNAL_RESULT,results);
-				forward(INTERNAL_AFFIDAVIT_LIST_JSP,request, response);
+				forward(INTERNAL_AFFIDAVIT_LIST_JSP, request, response);
 		 	 }
 		 	 else {
 				 InternalDispatchNoteList nlb = new InternalDispatchNoteList(request,response);
@@ -533,19 +539,17 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 Affidavit affidavit = ab.get(results[0]._id);
 				 request.setAttribute(PACTS_INTERNAL_RESULT,affidavit);
 
-				 forward(INTERNAL_AFFIDAVIT_JSP,request, response);
+				 forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 			 }
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 	/*
 	This method forwards to a jsp.
 	*/
-    private void forward(String href, HttpServletRequest request,
-			 HttpServletResponse response){
+    private void forward(String href, HttpServletRequest request, HttpServletResponse response)
+    {
 		try {
 		    log.debug("Forwarding to ..." + href);
 
@@ -582,8 +586,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
      This method authenticates the session and forwards
      the user to a login page if there is an error.
      */
-     private boolean doAuthenticate(HttpServletRequest request,
-                                               HttpServletResponse response)
+     private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              HttpSession session = request.getSession(true);
@@ -601,7 +604,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 						url += safeParam(query);
 					}
 
-					forward(url,request,response);
+					forward(url, request, response);
 				    return false;
 			 	 }
              	 else return true;
@@ -617,27 +620,22 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					url += safeParam(query);
 				 }
 
-				 forward(url,request,response);
+				 forward(url, request, response);
 				 return false;
 			 }
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	     return false;
      }
 
-     private void doLogout(HttpServletRequest request,
-     							HttpServletResponse response)
+     private void doLogout(HttpServletRequest request, HttpServletResponse response)
      {
 		 try {
 			 PrintWriter out = response.getWriter();
 			 log.debug("doLogout<br>");
 			 HttpSession session = request.getSession(true);
 			 session.setAttribute(NAV_OBJECT_ATTR,null);
-		 	 forward("/login.jsp",request,response);
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
-	 	 }
+		 	 forward(LOGIN_URL, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	 }
 
      /*
@@ -645,8 +643,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewContract.jsp"
      */
-     private void doContract(HttpServletRequest request,
-                                           HttpServletResponse response)
+     private void doContract(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -662,11 +659,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 NoteHeader[] notes = nlb.get();
 			 request.setAttribute(NOTE_HEADER_LIST,notes);
 
-			 forward(INTERNAL_CONTRACT_JSP,request, response);
+			 forward(INTERNAL_CONTRACT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -675,8 +670,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "contractList.jsp"
      */
-     private void doContractList(HttpServletRequest request,
-                                               HttpServletResponse response)
+     private void doContractList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -689,7 +683,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 if (results.length != 1) {
 				 request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-				 forward(INTERNAL_CONTRACT_LIST_JSP,request, response);
+				 forward(INTERNAL_CONTRACT_LIST_JSP, request, response);
 		 	 }
 		 	 else {
 				 InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
@@ -702,26 +696,23 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 Contract contract = cb.get(results[0]._id);
 				 request.setAttribute(PACTS_INTERNAL_RESULT,contract);
 
-				 forward(INTERNAL_CONTRACT_JSP,request, response);
+				 forward(INTERNAL_CONTRACT_JSP, request, response);
 			 }
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
      /*
      Forwarding JSP: "pactsInternalError.jsp"
      */
-     private void doError(HttpServletRequest request,
-                                        HttpServletResponse response)
+     private void doError(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
              log.debug("doError<br>");
 
-             forward(INTERNAL_ERROR_JSP,request, response);
+             forward(INTERNAL_ERROR_JSP, request, response);
 
          } catch (Exception e) {
              e.printStackTrace();
@@ -739,7 +730,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
      public void doGet(HttpServletRequest request,
                                       HttpServletResponse response)
      {
-		 parameterHasBeenPassed = false;
+		 //Searches require at least one parameter to be filled in.
+		 //This is an encapluated boolean to store that information
+		 PassedParam pp = new PassedParam();
          try {
 	         if (!doAuthenticate(request, response)) return;
 
@@ -786,18 +779,18 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                  if (task.equals(LIST_TASK)) {
 					 if (command.equals(AFFIDAVIT_CMD)) {
 						 if (
-							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false)
-						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_CREATION_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_CREATION_DATE),false)
-						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),false)
-						  && checkParam(BOOL_TYPE,request.getParameter(IS_AFFIRMED),false)
-						  && checkParam(BOOL_TYPE,request.getParameter(IS_NOTARIZED),false)
-						  && checkParam(LONG_TYPE,request.getParameter(ROUND_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false)
-						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false)
-						  && parameterHasBeenPassed) {
+							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false,pp)
+						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_CREATION_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_CREATION_DATE),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),false,pp)
+						  && checkParam(BOOL_TYPE,request.getParameter(IS_AFFIRMED),false,pp)
+						  && checkParam(BOOL_TYPE,request.getParameter(IS_NOTARIZED),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(ROUND_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false,pp)
+						  && pp.get()) {
 
 							 doAffidavitList(request, response);
 						 }
@@ -809,20 +802,20 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					 }
 					 if (command.equals(CONTRACT_CMD)) {
 						 if (
-							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false)
-						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_CREATION_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_CREATION_DATE),false)
-						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false)
-						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false)
-						  && checkParam(STRING_TYPE,request.getParameter(CONTRACT_NAME),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_START_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_END_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_START_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_END_DATE),false)
-						  && parameterHasBeenPassed) {
+							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false,pp)
+						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_CREATION_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_CREATION_DATE),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(CONTRACT_NAME),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_START_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_END_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_START_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_END_DATE),false,pp)
+						  && pp.get()) {
 
 							 doContractList(request, response);
 					 	 }
@@ -834,23 +827,23 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					 }
 					 if (command.equals(PAYMENT_CMD)) {
 						 if (
-							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false)
-						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_DUE_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_DUE_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_PRINT_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_PRINT_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_PAY_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_PAY_DATE),false)
-						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false)
-						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false)
-						  && checkParam(DOUBLE_TYPE,request.getParameter(HIGHEST_NET_AMOUNT),false)
-						  && checkParam(DOUBLE_TYPE,request.getParameter(LOWEST_NET_AMOUNT),false)
-						  && checkParam(BOOL_TYPE,request.getParameter(IS_REVIEWED),false)
-						  && parameterHasBeenPassed) {
+							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false,pp)
+						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_DUE_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_DUE_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_PRINT_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_PRINT_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_PAY_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_PAY_DATE),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false,pp)
+						  && checkParam(DOUBLE_TYPE,request.getParameter(HIGHEST_NET_AMOUNT),false,pp)
+						  && checkParam(DOUBLE_TYPE,request.getParameter(LOWEST_NET_AMOUNT),false,pp)
+						  && checkParam(BOOL_TYPE,request.getParameter(IS_REVIEWED),false,pp)
+						  && pp.get()) {
 
 							 doPaymentList(request, response);
 						 }
@@ -878,37 +871,37 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					 }
 					 if (command.equals(USER_TAX_FORM_CMD)) {
 						 if (
-							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false)
-						  && checkParam(DOUBLE_TYPE,request.getParameter(LOWEST_WITHHOLDING_AMOUNT),false)
-						  && checkParam(DOUBLE_TYPE,request.getParameter(HIGHEST_WITHHOLDING_AMOUNT),false)
-						  && checkParam(FLOAT_TYPE,request.getParameter(LOWEST_WITHHOLDING_PERCENTAGE),false)
-						  && checkParam(FLOAT_TYPE,request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_DATE_FILED),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_DATE_FILED),false)
-						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),false)
-						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false)
-						  && parameterHasBeenPassed) {
+							 checkParam(LONG_TYPE,request.getParameter(STATUS_CODE),false,pp)
+						  && checkParam(DOUBLE_TYPE,request.getParameter(LOWEST_WITHHOLDING_AMOUNT),false,pp)
+						  && checkParam(DOUBLE_TYPE,request.getParameter(HIGHEST_WITHHOLDING_AMOUNT),false,pp)
+						  && checkParam(FLOAT_TYPE,request.getParameter(LOWEST_WITHHOLDING_PERCENTAGE),false,pp)
+						  && checkParam(FLOAT_TYPE,request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_DATE_FILED),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_DATE_FILED),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false,pp)
+						  && pp.get()) {
 
 							 doUserTaxFormList(request, response);
 						 }
 						 else {
-							 request.setAttribute("message","User Tax Form List\n<br>Invalid Search Parameter or No Search Parameter Specified");
+							 request.setAttribute("message","Invalid Search Parameter or No Search Parameter Specified");
 							 doError(request, response);
 						 }
 						 return;
 					 }
 					 if (command.equals(USER_CMD)) {
 						 if (
-							 checkParam(STRING_TYPE,request.getParameter(FIRST_NAME),false)
-						  && checkParam(STRING_TYPE,request.getParameter(MIDDLE_NAME),false)
-						  && checkParam(STRING_TYPE,request.getParameter(LAST_NAME),false)
-						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false)
-						  && checkParam(BOOL_TYPE,request.getParameter(HAS_ACTIVE_CONTRACTS),false)
-						  && checkParam(BOOL_TYPE,request.getParameter(HAS_PENDING_AFFIDAVITS),false)
-						  && checkParam(BOOL_TYPE,request.getParameter(HAS_TAX_FORMS_ON_FILE),false)
-						  && checkParam(BOOL_TYPE,request.getParameter(IS_OWED_MONEY),false)
-						  && parameterHasBeenPassed) {
+							 checkParam(STRING_TYPE,request.getParameter(FIRST_NAME),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(MIDDLE_NAME),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(LAST_NAME),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false,pp)
+						  && checkParam(BOOL_TYPE,request.getParameter(HAS_ACTIVE_CONTRACTS),false,pp)
+						  && checkParam(BOOL_TYPE,request.getParameter(HAS_PENDING_AFFIDAVITS),false,pp)
+						  && checkParam(BOOL_TYPE,request.getParameter(HAS_TAX_FORMS_ON_FILE),false,pp)
+						  && checkParam(BOOL_TYPE,request.getParameter(IS_OWED_MONEY),false,pp)
+						  && pp.get()) {
 
 							 doUserList(request, response);
 						 }
@@ -920,21 +913,21 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					 }
 					 if (command.equals(NOTE_CMD)) {
 						 if (
-							 checkParam(LONG_TYPE,request.getParameter(SUBMITTING_USER_ID),false)
-						  && checkParam(STRING_TYPE,request.getParameter(SUBMITTING_HANDLE),false)
-						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_CREATION_DATE),false)
-						  && checkParam(DATE_TYPE,request.getParameter(LATEST_CREATION_DATE),false)
-						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(TAX_FORM_USER_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),false)
-						  && checkParam(LONG_TYPE,request.getParameter(NOTE_ID),false)
-						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false)
-						  && checkParam(STRING_TYPE,request.getParameter(IN_DEPTH_HANDLE),false)
-						  && parameterHasBeenPassed) {
+							 checkParam(LONG_TYPE,request.getParameter(SUBMITTING_USER_ID),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(SUBMITTING_HANDLE),false,pp)
+						  && checkParam(INT_TYPE,request.getParameter(TYPE_CODE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(EARLIEST_CREATION_DATE),false,pp)
+						  && checkParam(DATE_TYPE,request.getParameter(LATEST_CREATION_DATE),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(USER_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(TAX_FORM_USER_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),false,pp)
+						  && checkParam(LONG_TYPE,request.getParameter(NOTE_ID),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(HANDLE),false,pp)
+						  && checkParam(STRING_TYPE,request.getParameter(IN_DEPTH_HANDLE),false,pp)
+						  && pp.get()) {
 
 							 doNoteList(request, response);
 						 }
@@ -1079,7 +1072,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 							checkParam(INT_TYPE,request.getParameter("object_type"),true)
 						 && checkParam(LONG_TYPE,request.getParameter("object_id"),true)) doAddNote(request, response);
 						else {
-							request.setAttribute("message","Invalid ID pr Type or No ID or Type Specified");
+							request.setAttribute("message","Invalid ID Type or No ID or Type Specified");
 							doError(request, response);
 						}
 					 	return;
@@ -1091,64 +1084,95 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 					 doError(request, response);
 					 return;
 				 }
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//###################################### Finish Parameter Checking #######################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
-//########################################################################################################
 				 if (task.equals(UPDATE_TASK)) {
 					 if (command.equals(AFFIDAVIT_CMD)) {
-						 doUpdateAffidavit(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),true)) doUpdateAffidavit(request, response);
+						else {
+							request.setAttribute("message","Invalid Affidavit ID or No Affidavit ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 if (command.equals(CONTRACT_CMD)) {
-						 doUpdateContract(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),true)) doUpdateContract(request, response);
+						else {
+							request.setAttribute("message","Invalid Contract ID or No Contract ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 if (command.equals(PAYMENT_CMD)) {
-						 doUpdatePayment(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),true)) doUpdatePayment(request, response);
+						else {
+							request.setAttribute("message","Invalid Payment ID or No Payment ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 if (command.equals(TAX_FORM_CMD)) {
-						 doUpdateTaxForm(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),true)) doUpdateTaxForm(request, response);
+						else {
+							request.setAttribute("message","Invalid Tax Form ID or No Tax Form ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 if (command.equals(USER_TAX_FORM_CMD)) {
-						 doUpdateUserTaxForm(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),true) &&
+					 		checkParam(LONG_TYPE,request.getParameter(USER_ID),true)) doUpdateUserTaxForm(request, response);
+						else {
+							request.setAttribute("message","Invalid User or Tax Form ID or No ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 doError(request, response);
 					 return;
 				 }
 				 if (task.equals(PAYMENT_TASK)) {
 					 if (command.equals(PAID_CMD)) {
-						 doPayPayments(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),true)) doPayPayments(request, response);
+						else {
+							request.setAttribute("message","Invalid Payment ID or No Payment ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 if (command.equals(PRINT_CMD)) {
 						 doPrintPayments(request, response);
 						 return;
 					 }
 					 if (command.equals(REVIEW_CMD)) {
-						 doReviewPayments(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),true)) doReviewPayments(request, response);
+						else {
+							request.setAttribute("message","Invalid Payment ID or No Payment ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 if (command.equals(STATUS_CMD)) {
-						 doPaymentStatus(request, response);
-						 return;
+					 	if (checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),true)) doPaymentStatus(request, response);
+						else {
+							request.setAttribute("message","Invalid Payment ID or No Payment ID Specified");
+							doError(request, response);
+						}
+					 	return;
 					 }
 					 if (command.equals(FILE_CMD)) {
-						 doFile(request, response);
+					 	if (checkParam(INT_TYPE,request.getParameter("file_num"),true)) doFile(request, response);
+						else {
+							request.setAttribute("message","Invalid File Number or File Number Specified");
+							doError(request, response);
+						}
+					 	return;
+					 }
+					 doError(request, response);
+					 return;
+				 }
+				 if (task.equals(AFFIRM_TASK)) {
+					 if (command.equals(AFFIDAVIT_CMD)) {
+						 //Parameters are checked in doAffirmAffidavit(request, response)
+						 doAffirmAffidavit(request, response);
 						 return;
 					 }
 					 doError(request, response);
@@ -1160,9 +1184,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
              else {
                  doSearch(request, response);
              }
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -1171,8 +1193,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewPayment.jsp"
      */
-     private void doPayment(HttpServletRequest request,
-                                          HttpServletResponse response)
+     private void doPayment(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1189,11 +1210,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 search.put(PAYMENT_ID, request.getParameter(PAYMENT_ID));
 			 request.setAttribute(NOTE_HEADER_LIST,nlb.get(search));
 
-			 forward(INTERNAL_PAYMENT_JSP,request, response);
+			 forward(INTERNAL_PAYMENT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -1202,8 +1221,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewPaymentAuditTrail.jsp"
      */
-     private void doPaymentAuditTrail(HttpServletRequest request,
-                                          HttpServletResponse response)
+     private void doPaymentAuditTrail(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1220,11 +1238,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 request.setAttribute(NOTE_HEADER_LIST,nlb.get(search));
 
 			 request.setAttribute(PACTS_INTERNAL_RESULT,results);
-			 forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP,request, response);
+			 forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -1233,8 +1249,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "paymentList.jsp"
      */
-     private void doPaymentList(HttpServletRequest request,
-                                              HttpServletResponse response)
+     private void doPaymentList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1253,7 +1268,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 				 request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
 				 request.setAttribute(PACTS_INTERNAL_RESULT,results);
-			 	 forward(INTERNAL_PAYMENT_LIST_JSP,request, response);
+			 	 forward(INTERNAL_PAYMENT_LIST_JSP, request, response);
 			 }
 			 else {
 				 InternalDispatchNoteList nlb = new InternalDispatchNoteList(request, response);
@@ -1264,12 +1279,10 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 InternalDispatchPayment pb = new InternalDispatchPayment(request, response);
 				 request.setAttribute(PACTS_INTERNAL_RESULT,pb.get(results[0]._id));
 
-				 forward(INTERNAL_PAYMENT_JSP,request, response);
+				 forward(INTERNAL_PAYMENT_JSP, request, response);
 			 }
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -1300,14 +1313,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 doGet(request, response);
 				 return;
 			 }
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
-		 }
+         } catch (Exception e) { exceptionToError(e, request, response); }
 		 //
 		 //
 		 //End temporary login stuff.
 		 //
 		 //
+
+		 String message = "";
 
 	     if (!doAuthenticate(request, response)) return;
 
@@ -1322,45 +1335,252 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
          	 command = request.getParameter(CMD_STRING);
          	 log.debug("t = " + task + "<br>");
          	 log.debug("c = " + command + "<br>");
-	 	 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
-		 }
+         } catch (Exception e) { exceptionToError(e, request, response); }
 
          if (task != null && command != null) {
 			if (task.equals(ADD_TASK)) {
 				if (command.equals(AFFIDAVIT_CMD)) {
-					log.debug("checkParams<br>");
-					doAddAffidavitPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(USER_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + USER_ID + " = ";
+						message += request.getParameter(USER_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(BOOL_TYPE,request.getParameter(IS_NOTARIZED),true))
+						message += "Invalid parameter " + IS_NOTARIZED + " = " + request.getParameter(IS_NOTARIZED) + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("affidavit_status_id"),true))
+						message += "Invalid parameter affidavit_status_id = " + request.getParameter("affidavit_status_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("affidavit_type_id"),true))
+						message += "Invalid parameter affidavit_type_id = " + request.getParameter("affidavit_type_id") + ".<br>\n";
+					if (!checkParam(NULL_INT_TYPE,request.getParameter("round_id"),true))
+						message += "Invalid parameter round_id = " + request.getParameter("round_id") + ".<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("affidavit_desc"),true))
+						message += "Affidavit Description was invalid.<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("payment_status_id"),true))
+						message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("payment_type_id"),true))
+						message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("payment_desc"),true))
+						message += "Payment Description was invalid.<br>\n";
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_paid"),true)) {
+						message += "Date Paid is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_printed"),true)) {
+						message += "Date Printed is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_due"),true)) {
+						message += "Date Due is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DOUBLE_TYPE,request.getParameter("net_amount"),true))
+						message += "Net Amount was invalid.<br>\n";
+					if (!checkParam(DOUBLE_TYPE,request.getParameter("gross_amount"),true))
+						message += "Gross Amount was invalid.<br>\n";
+					if (message.length() == 0) doAddAffidavitPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doAddAffidavit(request, response);
+					}
 					return;
 				}
 				if (command.equals(CONTRACT_CMD)) {
-					log.debug("checkParams<br>");
-					doAddContractPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(USER_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + USER_ID + " = ";
+						message += request.getParameter(USER_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(STRING_TYPE,request.getParameter("contract_desc"),true))
+						message += "Description was invalid.<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("name"),true))
+						message += "Name was invalid.<br>\n";
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("end_date"),true)) {
+						message += "End Date is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("start_date"),true)) {
+						message += "Start Date is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("contract_type_id"),true))
+						message += "Invalid parameter contract_type_id = " + request.getParameter("contract_type_id") + ".<br>\n";
+					if (!checkParam(NULL_STRING_TYPE,request.getParameter("text"),true))
+						message += "Required parameter missing: text.<br>\n";
+					if (message.length() == 0) doAddContractPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doAddContract(request, response);
+					}
 					return;
 				}
 				if (command.equals(PAYMENT_CMD)) {
-					log.debug("checkParams<br>");
-					doAddPaymentPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),true) &&
+						!checkParam(LONG_TYPE,request.getParameter(USER_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was missing or invalid: " + CONTRACT_ID + " = ";
+						message += request.getParameter(CONTRACT_ID) + "<br>or<br>\n";
+						message += "Parameter was missing or invalid: " + USER_ID + " = ";
+						message += request.getParameter(USER_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("payment_type_id"),true))
+						message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("payment_desc"),true))
+						message += "Description was invalid.<br>\n";
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_paid"),true)) {
+						message += "Date Paid is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_printed"),true)) {
+						message += "Date Printed is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_due"),true)) {
+						message += "Date Due is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DOUBLE_TYPE,request.getParameter("net_amount"),true))
+						message += "Net Amount was invalid.<br>\n";
+					if (!checkParam(DOUBLE_TYPE,request.getParameter("gross_amount"),true))
+						message += "Gross Amount was invalid.<br>\n";
+					if (message.length() == 0) doAddPaymentPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doAddPayment(request, response);
+					}
 					return;
 				}
 				if (command.equals(TAX_FORM_CMD)) {
-					log.debug("checkParams<br>");
-					doAddTaxFormPost(request, response);
+					if (!checkParam(STRING_TYPE,request.getParameter("tax_form_desc"),true))
+						message += "Description was invalid.<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("name"),true))
+						message += "Name was invalid.<br>\n";
+					if (!checkParam(DOUBLE_TYPE,request.getParameter("default_withholding_amount"),true))
+						message += "Default Withholding Amount was invalid.<br>\n";
+					if (!checkParam(FLOAT_TYPE,request.getParameter("default_withholding_percentage"),true))
+						message += "Default Withholding Percentage was invalid.<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Invalid Parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+					if (!checkParam(NULL_STRING_TYPE,request.getParameter("text"),true))
+						message += "Required parameter missing: text.<br>\n";
+					if (!checkParam(BOOL_TYPE,request.getParameter("default_use_percentage"),true)) {
+						message += "Invalid Parameter default_use_percentage = ";
+						message += request.getParameter("default_use_percentage") + ".<br>\n";
+					}
+					if (message.length() == 0) doAddTaxFormPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doAddTaxForm(request, response);
+					}
 					return;
 				}
 				if (command.equals(USER_TAX_FORM_CMD)) {
-					log.debug("checkParams<br>");
-					doAddUserTaxFormPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(USER_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + USER_ID + " = ";
+						message += request.getParameter(USER_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
+						message += request.getParameter(TAX_FORM_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Parameter \"status_id\" was invalid.<br>\n";
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_filed"),true)) {
+						message += "Date Filed is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (message.length() == 0) doAddUserTaxFormPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doAddUserTaxForm(request, response);
+					}
 					return;
 				}
 				if (command.equals(NOTE_CMD)) {
-					log.debug("checkParams<br>");
-					doAddNotePost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter("object_id"),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: object_id = ";
+						message += request.getParameter("object_id") + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("object_type"),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: object_type = ";
+						message += request.getParameter("object_type") + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(STRING_TYPE,request.getParameter("text"),true))
+						message += "You must fill in the note text.";
+					if (message.length() == 0) doAddNotePost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doAddNote(request, response);
+					}
 					return;
 				}
 				if (command.equals(NOTE_LINK_CMD)) {
-					log.debug("checkParams<br>");
-					doAddNoteLinkPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(NOTE_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + NOTE_ID + " = ";
+						message += request.getParameter(NOTE_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(LONG_TYPE,request.getParameter("object_id"),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: object_id = ";
+						message += request.getParameter("object_id") + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("object_type"),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: object_type = ";
+						message += request.getParameter("object_type") + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (message.length() == 0) doAddNoteLinkPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doAddNoteLink(request, response);
+					}
 					return;
 				}
 				doGet(request, response);
@@ -1368,32 +1588,185 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			}
 			if (task.equals(UPDATE_TASK)) {
 				if (command.equals(AFFIDAVIT_CMD)) {
-					log.debug("checkParams<br>");
-					doUpdateAffidavitPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(AFFIDAVIT_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + AFFIDAVIT_ID + " = ";
+						message += request.getParameter(AFFIDAVIT_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(BOOL_TYPE,request.getParameter(IS_NOTARIZED),true))
+						message += "Invalid parameter " + IS_NOTARIZED + " = " + request.getParameter(IS_NOTARIZED) + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("affidavit_status_id"),true))
+						message += "Invalid parameter affidavit_status_id = " + request.getParameter("affidavit_status_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("affidavit_type_id"),true))
+						message += "Invalid parameter affidavit_type_id = " + request.getParameter("affidavit_type_id") + ".<br>\n";
+					if (!checkParam(NULL_INT_TYPE,request.getParameter("round_id"),true))
+						message += "Invalid parameter round_id = " + request.getParameter("round_id") + ".<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("affidavit_desc"),true))
+						message += "Description was invalid.<br>\n";
+					if (message.length() == 0) doUpdateAffidavitPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doUpdateAffidavit(request, response);
+					}
 					return;
 				}
 				if (command.equals(CONTRACT_CMD)) {
-					log.debug("checkParams<br>");
-					doUpdateContractPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(CONTRACT_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + CONTRACT_ID + " = ";
+						message += request.getParameter(CONTRACT_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(STRING_TYPE,request.getParameter("contract_desc"),true))
+						message += "Description was invalid.<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("name"),true))
+						message += "Name was invalid.<br>\n";
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("end_date"),true)) {
+						message += "End Date is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("start_date"),true)) {
+						message += "Start Date is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("contract_type_id"),true))
+						message += "Invalid parameter contract_type_id = " + request.getParameter("contract_type_id") + ".<br>\n";
+					if (!checkParam(NULL_STRING_TYPE,request.getParameter("text"),true))
+						message += "Required parameter missing: text.<br>\n";
+					if (message.length() == 0) doUpdateContractPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doUpdateContract(request, response);
+					}
 					return;
 				}
 				if (command.equals(PAYMENT_CMD)) {
-					log.debug("checkParams<br>");
-					doUpdatePaymentPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(PAYMENT_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + PAYMENT_ID + " = ";
+						message += request.getParameter(PAYMENT_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("payment_type_id"),true))
+						message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("modification_rationale_id"),true))
+						message += "Invalid parameter modification_rationale_id = " + request.getParameter("modification_rationale_id") + ".<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("payment_desc"),true))
+						message += "Description was invalid.<br>\n";
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_paid"),true)) {
+						message += "Date Paid is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_printed"),true)) {
+						message += "Date Printed is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_due"),true)) {
+						message += "Date Due is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(NULL_DOUBLE_TYPE,request.getParameter("net_amount"),true))
+						message += "Net Amount was invalid.<br>\n";
+					if (!checkParam(DOUBLE_TYPE,request.getParameter("gross_amount"),true))
+						message += "Gross Amount was invalid.<br>\n";
+					if (message.length() == 0) doUpdatePaymentPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doUpdatePayment(request, response);
+					}
 					return;
 				}
 				if (command.equals(TAX_FORM_CMD)) {
-					log.debug("checkParams<br>");
-					doUpdateTaxFormPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
+						message += request.getParameter(TAX_FORM_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(STRING_TYPE,request.getParameter("tax_form_desc"),true))
+						message += "Description was invalid.<br>\n";
+					if (!checkParam(STRING_TYPE,request.getParameter("name"),true))
+						message += "Name was invalid.<br>\n";
+					if (!checkParam(DOUBLE_TYPE,request.getParameter("default_withholding_amount"),true))
+						message += "Default Withholding Amount was invalid.<br>\n";
+					if (!checkParam(FLOAT_TYPE,request.getParameter("default_withholding_percentage"),true))
+						message += "Default Withholding Percentage was invalid.<br>\n";
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Invalid Parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+					if (!checkParam(NULL_STRING_TYPE,request.getParameter("text"),true))
+						message += "Required parameter missing: text.<br>\n";
+					if (!checkParam(BOOL_TYPE,request.getParameter("default_use_percentage"),true)) {
+						message += "Invalid Parameter default_use_percentage = ";
+						message += request.getParameter("default_use_percentage") + ".<br>\n";
+					}
+					if (message.length() == 0) doUpdateTaxFormPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doUpdateTaxForm(request, response);
+					}
 					return;
 				}
 				if (command.equals(USER_TAX_FORM_CMD)) {
-					log.debug("checkParams<br>");
-					doUpdateUserTaxFormPost(request, response);
+					if (!checkParam(LONG_TYPE,request.getParameter(USER_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + USER_ID + " = ";
+						message += request.getParameter(USER_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(LONG_TYPE,request.getParameter(TAX_FORM_ID),true)) {
+						message = "There was an error processing your request:<br>\n";
+						message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
+						message += request.getParameter(TAX_FORM_ID) + "<br>\n";
+						request.setAttribute("message",message);
+						doError(request, response);
+						return;
+					}
+					if (!checkParam(INT_TYPE,request.getParameter("status_id"),true))
+						message += "Parameter \"status_id\" was invalid.<br>\n";
+					if (!checkParam(NULL_DATE_TYPE,request.getParameter("date_filed"),true)) {
+						message += "Date Filed is invalid make sure it is a legal";
+						message += " date in the format " + DATE_FORMAT_STRING;
+						message += ".<br>\n";
+					}
+					if (!checkParam(DOUBLE_TYPE,request.getParameter("withholding_amount"),true))
+						message += "Withholding Amount was invalid.<br>\n";
+					if (!checkParam(FLOAT_TYPE,request.getParameter("withholding_percentage"),true))
+						message += "Withholding Percentage was invalid.<br>\n";
+					if (!checkParam(BOOL_TYPE,request.getParameter("use_percentage"),true))
+						message += "Parameter \"use_percentage\" was invalid.<br>\n";
+					if (message.length() == 0) doUpdateUserTaxFormPost(request, response);
+					else {
+						request.setAttribute("message",message);
+						doUpdateUserTaxForm(request, response);
+					}
 					return;
 				}
-				doGet(request, response);
-				return;
+			}
+			if (task.equals(AFFIRM_TASK)) {
+				if (command.equals(AFFIDAVIT_CMD)) {
+					doAffirmAffidavitPost(request, response);
+					return;
+				}
 			}
 		 }
 		 doGet(request, response);
@@ -1403,42 +1776,35 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearch(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearch(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
              log.debug("doSearch<br>");
 
-			 forward(INTERNAL_SEARCH_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+			 forward(INTERNAL_SEARCH_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearchUsers(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearchUsers(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
              log.debug("doSearchUsers<br>");
 
-			 forward(INTERNAL_SEARCH_USERS_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
-     }
+			 forward(INTERNAL_SEARCH_USERS_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
+    }
 
 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearchPayments(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearchPayments(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1448,17 +1814,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(PAYMENT_OBJ).get(STATUS_CODE_LIST));
 			 request.setAttribute(PAYMENT_TYPE_LIST,dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
 
-			 forward(INTERNAL_SEARCH_PAYMENTS_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+			 forward(INTERNAL_SEARCH_PAYMENTS_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearchAffidavits(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearchAffidavits(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1469,17 +1832,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 request.setAttribute(AFFIDAVIT_TYPE_LIST,dib.getAffidavitTypes().get(AFFIDAVIT_TYPE_LIST));
 			 request.setAttribute(ROUND_LIST,dib.getRounds().get(ROUND_LIST));
 
-			 forward(INTERNAL_SEARCH_AFFIDAVITS_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+			 forward(INTERNAL_SEARCH_AFFIDAVITS_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearchContracts(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearchContracts(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1489,17 +1849,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(CONTRACT_OBJ).get(STATUS_CODE_LIST));
 			 request.setAttribute(CONTRACT_TYPE_LIST,dib.getContractTypes().get(CONTRACT_TYPE_LIST));
 
-			 forward(INTERNAL_SEARCH_CONTRACTS_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+			 forward(INTERNAL_SEARCH_CONTRACTS_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearchTaxForms(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearchTaxForms(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1508,17 +1865,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 DataInterfaceBean dib = new DataInterfaceBean();
 			 request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-			 forward(INTERNAL_SEARCH_TAX_FORMS_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+			 forward(INTERNAL_SEARCH_TAX_FORMS_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearchUserTaxForms(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearchUserTaxForms(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1527,17 +1881,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 DataInterfaceBean dib = new DataInterfaceBean();
 			 request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-			 forward(INTERNAL_SEARCH_USER_TAX_FORMS_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+			 forward(INTERNAL_SEARCH_USER_TAX_FORMS_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
      Forwarding JSP: "search.jsp"
      */
-     private void doSearchNotes(HttpServletRequest request,
-                                         HttpServletResponse response)
+     private void doSearchNotes(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1546,10 +1897,8 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 DataInterfaceBean dib = new DataInterfaceBean();
 			 request.setAttribute(NOTE_TYPE_LIST,dib.getNoteTypes().get(NOTE_TYPE_LIST));
 
-			 forward(INTERNAL_SEARCH_NOTES_JSP,request, response);
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+			 forward(INTERNAL_SEARCH_NOTES_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
@@ -1557,8 +1906,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewTaxForm.jsp"
      */
-     private void doTaxForm(HttpServletRequest request,
-                                          HttpServletResponse response)
+     private void doTaxForm(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1568,11 +1916,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 	new InternalDispatchTaxForm(request, response);
 			 TaxForm results = bean.get();
 			 request.setAttribute(PACTS_INTERNAL_RESULT,results);
-			 forward(INTERNAL_TAX_FORM_JSP,request, response);
+			 forward(INTERNAL_TAX_FORM_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
@@ -1580,8 +1926,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "taxFormList.jsp"
      */
-     private void doTaxFormList(HttpServletRequest request,
-                                              HttpServletResponse response)
+     private void doTaxFormList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1592,17 +1937,15 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
              TaxFormHeader[] results = bean.get();
              if (results.length != 1) {
 				 request.setAttribute(PACTS_INTERNAL_RESULT,results);
-             	 forward(INTERNAL_TAX_FORM_LIST_JSP,request, response);
+             	 forward(INTERNAL_TAX_FORM_LIST_JSP, request, response);
 			 }
 			 else {
 				 InternalDispatchTaxForm tfb = new InternalDispatchTaxForm(request, response);
 				 request.setAttribute(PACTS_INTERNAL_RESULT,tfb.get(results[0]._id));
-				 forward(INTERNAL_TAX_FORM_JSP,request, response);
+				 forward(INTERNAL_TAX_FORM_JSP, request, response);
 			 }
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
@@ -1610,8 +1953,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewUserTaxForm.jsp"
      */
-     private void doUserTaxForm(HttpServletRequest request,
-                                          HttpServletResponse response)
+     private void doUserTaxForm(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1627,11 +1969,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 NoteHeader[] notes = nlb.get(results._header._user._id);
 			 request.setAttribute(NOTE_HEADER_LIST, notes);
 
-			 forward(INTERNAL_USER_TAX_FORM_JSP,request, response);
+			 forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -1640,8 +1980,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "userTaxFormList.jsp"
      */
-     private void doUserTaxFormList(HttpServletRequest request,
-                                              HttpServletResponse response)
+     private void doUserTaxFormList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -1653,7 +1992,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 if (results.length != 1) {
 				 request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-			 	 forward(INTERNAL_USER_TAX_FORM_LIST_JSP,request, response);
+			 	 forward(INTERNAL_USER_TAX_FORM_LIST_JSP, request, response);
 			 }
 			 else {
 				 InternalDispatchUserTaxForm utfb = new InternalDispatchUserTaxForm(request, response);
@@ -1665,20 +2004,17 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 search.put(TAX_FORM_USER_ID,""+results[0]._user._id);
 				 request.setAttribute(NOTE_HEADER_LIST,nlb.get(search));
 
-				 forward(INTERNAL_USER_TAX_FORM_JSP,request, response);
+				 forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 			 }
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
 	/*
 	Forwarding JSP: "updateAffidavit.jsp"
 	*/
-	private void doUpdateAffidavit(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateAffidavit(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1694,19 +2030,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 request.setAttribute(ROUND_LIST,dib.getRounds().get(ROUND_LIST));
 			 request.setAttribute(AFFIDAVIT_TYPE_LIST,dib.getAffidavitTypes().get(AFFIDAVIT_TYPE_LIST));
 
-			 forward(INTERNAL_UPDATE_AFFIDAVIT_JSP,request, response);
+			 forward(INTERNAL_UPDATE_AFFIDAVIT_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "viewAffidavit.jsp"
 	*/
-	private void doUpdateAffidavitPost(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateAffidavitPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1737,19 +2070,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 search.put(AFFIDAVIT_ID,request.getParameter(AFFIDAVIT_ID));
 			 request.setAttribute(NOTE_HEADER_LIST,notes.get(search));
 
-			 forward(INTERNAL_AFFIDAVIT_JSP,request, response);
+			 forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToGet(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "updateContract.jsp"
 	*/
-	private void doUpdateContract(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateContract(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1768,19 +2098,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			request.setAttribute(CONTRACT_TYPE_LIST,dib.getContractTypes().get(CONTRACT_TYPE_LIST));
 			request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(PactsConstants.CONTRACT_OBJ).get(STATUS_CODE_LIST));
 
-			forward(INTERNAL_UPDATE_CONTRACT_JSP,request, response);
+			forward(INTERNAL_UPDATE_CONTRACT_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "viewContract.jsp"
 	*/
-	private void doUpdateContractPost(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateContractPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1811,19 +2138,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 search.put(CONTRACT_ID,request.getParameter(CONTRACT_ID));
 			 request.setAttribute(NOTE_HEADER_LIST,nlb.get(search));
 
-			 forward(INTERNAL_CONTRACT_JSP,request, response);
+			 forward(INTERNAL_CONTRACT_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToGet(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "updatePayment.jsp"
 	*/
-	private void doUpdatePayment(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdatePayment(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1839,19 +2163,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			request.setAttribute(PAYMENT_TYPE_LIST,dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
 			request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(PactsConstants.PAYMENT_OBJ).get(STATUS_CODE_LIST));
 
-			forward(INTERNAL_UPDATE_PAYMENT_JSP,request, response);
+			forward(INTERNAL_UPDATE_PAYMENT_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "viewPaymentAuditTrail.jsp"
 	*/
-	private void doUpdatePaymentPost(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdatePaymentPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1861,10 +2182,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				new InternalDispatchPayment(request, response);
 			Payment payment = pb.get();
 
+			String net = request.getParameter("net_amount");
+			if (net == null || net.equals("")) net = "0";
+
 			payment._header._description = request.getParameter("payment_desc");
 			payment._header._typeID = Integer.parseInt(request.getParameter("payment_type_id"));
 			payment._grossAmount = Double.parseDouble(request.getParameter("gross_amount"));
-			payment._netAmount = Double.parseDouble(request.getParameter("net_amount"));
+			payment._netAmount = Double.parseDouble(request.getParameter(net));
 			payment._statusId = Integer.parseInt(request.getParameter("status_id"));
 			payment._printDate = TCData.dateForm(request.getParameter("date_printed"));
 			payment._payDate = TCData.dateForm(request.getParameter("date_paid"));
@@ -1885,19 +2209,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			Payment[] results = bean.get();
 			request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-			forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP,request, response);
+			forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToGet(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "updateTaxForm.jsp"
 	*/
-	private void doUpdateTaxForm(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateTaxForm(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1915,19 +2236,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			DataInterfaceBean dib = new DataInterfaceBean();
 			request.setAttribute(STATUS_CODE_LIST,dib.getStatusCodes(PactsConstants.TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
-			forward(INTERNAL_UPDATE_TAX_FORM_JSP,request, response);
+			forward(INTERNAL_UPDATE_TAX_FORM_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "viewTaxForm.jsp"
 	*/
-	private void doUpdateTaxFormPost(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateTaxFormPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1952,19 +2270,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			request.setAttribute(PACTS_INTERNAL_RESULT,taxForm);
 
-			forward(INTERNAL_TAX_FORM_JSP,request, response);
+			forward(INTERNAL_TAX_FORM_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToGet(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "updateUserTaxForm.jsp"
 	*/
-	private void doUpdateUserTaxForm(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateUserTaxForm(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -1978,19 +2293,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			TaxForm results = bean.get();
 			request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-			forward(INTERNAL_UPDATE_USER_TAX_FORM_JSP,request, response);
+			forward(INTERNAL_UPDATE_USER_TAX_FORM_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	}
 
 
 	/*
 	Forwarding JSP: "viewUserTaxForm.jsp"
 	*/
-	private void doUpdateUserTaxFormPost(HttpServletRequest request,
-						HttpServletResponse response)
+	private void doUpdateUserTaxFormPost(HttpServletRequest request, HttpServletResponse response)
 	{
 		try {
 			PrintWriter out = response.getWriter();
@@ -2020,19 +2332,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 search.put(TAX_FORM_USER_ID,request.getParameter(USER_ID));
 			 request.setAttribute(NOTE_HEADER_LIST,notes.get(search));
 
-			forward(INTERNAL_USER_TAX_FORM_JSP,request, response);
+			forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
-		} catch (Exception e) {
-			e.printStackTrace(); doError(request, response);
-		}
+         } catch (Exception e) { exceptionToGet(e, request, response); }
 	}
 
 
      /*
      Forwarding JSP: "addNote.jsp"
      */
-     private void doAddNote(HttpServletRequest request,
-                                          HttpServletResponse response)
+     private void doAddNote(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2041,11 +2350,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
              DataInterfaceBean dib = new DataInterfaceBean();
              request.setAttribute(NOTE_TYPE_LIST,dib.getNoteTypes().get(NOTE_TYPE_LIST));
 
-			 forward(INTERNAL_ADD_NOTE_JSP,request, response);
+			 forward(INTERNAL_ADD_NOTE_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -2054,8 +2361,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewNote.jsp"
      */
-     private void doAddNotePost(HttpServletRequest request,
-                                              HttpServletResponse response)
+     private void doAddNotePost(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2085,11 +2391,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 request.setAttribute(PACTS_INTERNAL_RESULT,n);
 
-			 forward(INTERNAL_NOTE_JSP,request, response);
+			 forward(INTERNAL_NOTE_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToGet(e, request, response); }
      }
 
      /*
@@ -2097,8 +2401,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "comboList.jsp"
      */
-     private void doComboList(HttpServletRequest request,
-                                            HttpServletResponse response)
+     private void doComboList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2111,11 +2414,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
              request.setAttribute(PACTS_INTERNAL_RESULT,results);
 
-             forward(INTERNAL_COMBO_LIST_JSP,request, response);
+             forward(INTERNAL_COMBO_LIST_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
@@ -2123,8 +2424,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewNote.jsp"
      */
-     private void doNote(HttpServletRequest request,
-                                       HttpServletResponse response)
+     private void doNote(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2135,12 +2435,10 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 request.setAttribute(PACTS_INTERNAL_RESULT,n);
 
-			 forward(INTERNAL_NOTE_JSP,request, response);
+			 forward(INTERNAL_NOTE_JSP, request, response);
 
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -2149,8 +2447,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "noteList.jsp"
      */
-     private void doNoteList(HttpServletRequest request,
-                                           HttpServletResponse response)
+     private void doNoteList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2162,7 +2459,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 if (n.length != 1) {
 				 request.setAttribute(PACTS_INTERNAL_RESULT,n);
 
-				 forward(INTERNAL_NOTE_LIST_JSP,request, response);
+				 forward(INTERNAL_NOTE_LIST_JSP, request, response);
 			 }
 			 else {
 				 InternalDispatchNote nb = new InternalDispatchNote(request, response);
@@ -2172,9 +2469,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 }
 
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
@@ -2182,8 +2477,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewText.jsp"
      */
-     private void doText(HttpServletRequest request,
-                                       HttpServletResponse response)
+     private void doText(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2194,11 +2488,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
              request.setAttribute(PACTS_INTERNAL_RESULT,text);
 
-             forward(INTERNAL_TEXT_JSP,request, response);
+             forward(INTERNAL_TEXT_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -2207,8 +2499,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "viewUser.jsp"
      */
-     private void doUser(HttpServletRequest request,
-                                       HttpServletResponse response)
+     private void doUser(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2225,11 +2516,9 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
              request.setAttribute(PACTS_INTERNAL_RESULT,u);
 
-             forward(INTERNAL_USER_JSP,request, response);
+             forward(INTERNAL_USER_JSP, request, response);
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
 
@@ -2238,8 +2527,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
      Forwarding JSP: "userList.jsp"
      */
-     private void doUserList(HttpServletRequest request,
-                                           HttpServletResponse response)
+     private void doUserList(HttpServletRequest request, HttpServletResponse response)
      {
          try {
              PrintWriter out = response.getWriter();
@@ -2251,7 +2539,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
              if (u.length != 1) {
 				 request.setAttribute(PACTS_INTERNAL_RESULT,u);
 
-	             forward(INTERNAL_USER_LIST_JSP,request, response);
+	             forward(INTERNAL_USER_LIST_JSP, request, response);
 			 }
 			 else {
 				 InternalDispatchUserProfile upb = new InternalDispatchUserProfile(request, response);
@@ -2262,36 +2550,30 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 				 search.put(USER_ID,""+u[0]._id);
 				 request.setAttribute(NOTE_HEADER_LIST,nlb.get(search));
 
-				 forward(INTERNAL_USER_JSP,request, response);
+				 forward(INTERNAL_USER_JSP, request, response);
 			 }
 
-         } catch (Exception e) {
-             e.printStackTrace(); doError(request, response);
-         }
+         } catch (Exception e) { exceptionToError(e, request, response); }
      }
 
      /*
      Forwarding JSP: "addNoteLink.jsp"
      */
-     private void doAddNoteLink(HttpServletRequest request,
-     									HttpServletResponse response)
+     private void doAddNoteLink(HttpServletRequest request, HttpServletResponse response)
      {
 		 try {
 			 PrintWriter out = response.getWriter();
 			 log.debug("doAddNoteLink<br>");
 
-			 forward(INTERNAL_ADD_NOTE_LINK_JSP,request, response);
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
-		 }
+			 forward(INTERNAL_ADD_NOTE_LINK_JSP, request, response);
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	 }
 
 
      /*
      Forwarding JSP: "viewNote.jsp"
      */
-     private void doAddNoteLinkPost(HttpServletRequest request,
-     									HttpServletResponse response)
+     private void doAddNoteLinkPost(HttpServletRequest request, HttpServletResponse response)
      {
 		 try {
 			 PrintWriter out = response.getWriter();
@@ -2315,14 +2597,11 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 request.setAttribute(PACTS_INTERNAL_RESULT,bean.get());
 
-			 forward(INTERNAL_NOTE_JSP,request, response);
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
-		 }
+			 forward(INTERNAL_NOTE_JSP, request, response);
+         } catch (Exception e) { exceptionToGet(e, request, response); }
 	 }
 
-	 private void doPayPayments(HttpServletRequest request,
-	 								HttpServletResponse response)
+	 private void doPayPayments(HttpServletRequest request, HttpServletResponse response)
 	 {
 		 try {
 			 PrintWriter out = response.getWriter();
@@ -2343,13 +2622,16 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 else doError(request, response);
 
 
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
+         } catch (Exception e) {
+			 if (e instanceof NumberFormatException) {
+				 request.setAttribute("message","One or more of the Payment IDs specified is invalid.");
+				 doError(request, response);
+			 }
+			 else exceptionToError(e, request, response);
 		 }
 	 }
 
-	 private void doPrintPayments(HttpServletRequest request,
-	 								HttpServletResponse response)
+	 private void doPrintPayments(HttpServletRequest request, HttpServletResponse response)
 	 {
 		 try {
 			 HttpSession session = request.getSession(true);
@@ -2362,7 +2644,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 session.setAttribute(PACTS_QUICKBOOKS_FILES,files);
 
-			 String message = "<html><head><title>PACTS</title></head><body><h1>PACTS</h1><h2>Files</h2>\n";
+			 String message = "</font><html><head><title>PACTS</title></head><body><h1>PACTS</h1><h2>Files</h2>\n";
 
 			 String filename, ext, date;
 			 Date d;
@@ -2395,21 +2677,24 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 		 	 }
 
-			 message += "</body></html>";
+			 message += "</body></html><font>";
 
 			 request.setAttribute("message",message);
 			 doError(request, response);
 			 return;
 
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
-		 }
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	 }
 
-	 private void doPaymentStatus(HttpServletRequest request,
-	 								HttpServletResponse response)
+	 private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response)
 	 {
 		 try {
+			 HttpSession session = request.getSession(true);
+
+             Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
+
+			 long userId = nav.getUserId();
+
 			 PrintWriter out = response.getWriter();
 			 log.debug("doPaymentStatus<br>");
 
@@ -2421,19 +2706,19 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 			 DataInterfaceBean dib = new DataInterfaceBean();
 
-			 dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")));
+			 dib.batchUpdatePaymentStatus(payments, Integer.parseInt(request.getParameter("status_id")), userId);
 
 			 request.setAttribute("message","Payments Being Updated in the Background");
 			 if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION) forward(request.getParameter("query"), request, response);
 			 else doError(request, response);
 
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
+         } catch (Exception e) {
+			 if (e instanceof NumberFormatException) request.setAttribute("message","One or more of the Payment IDs specified is invalid.");
+			 else exceptionToError(e, request, response);
 		 }
 	 }
 
-	 private void doReviewPayments(HttpServletRequest request,
-	 								HttpServletResponse response)
+	 private void doReviewPayments(HttpServletRequest request, HttpServletResponse response)
 	 {
 		 try {
 			 PrintWriter out = response.getWriter();
@@ -2453,13 +2738,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION && request.getParameter("individual_payment") == null) forward(request.getParameter("query"), request, response);
 			 else doError(request, response);
 
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
+         } catch (Exception e) {
+			 if (e instanceof NumberFormatException) request.setAttribute("message","One or more of the Payment IDs specified is invalid.");
+			 else exceptionToError(e, request, response);
 		 }
 	 }
 
-	 private void doFile(HttpServletRequest request,
-	 						HttpServletResponse response)
+	 private void doFile(HttpServletRequest request, HttpServletResponse response)
 	 {
 		 try {
 
@@ -2506,9 +2791,110 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 			 out.print(files[fileNum]);
 			 return;
 
-		 } catch (Exception e) {
-			 e.printStackTrace(); doError(request, response);
-		 }
+         } catch (Exception e) { exceptionToError(e, request, response); }
 	 }
+
+	private void exceptionToError(Exception e, HttpServletRequest request, HttpServletResponse response) {
+		 processException(e, request, response);
+         doError(request, response);
+    }
+
+    private void exceptionToGet(Exception e, HttpServletRequest request, HttpServletResponse response) {
+		 processException(e, request, response);
+         doGet(request, response);
+    }
+
+    private void processException(Exception e, HttpServletRequest request, HttpServletResponse response) {
+		 StringTokenizer t = new StringTokenizer(e.getMessage(),"\n");
+		 log.debug("Exception Caught:\n" + e.getMessage());
+		 String ex = "No description available.";
+		 try {
+			 while (t.hasMoreElements()) {
+				 log.debug("ex was" + ex);
+				 ex = (String) t.nextElement();
+			 }
+		 } catch (Exception ignore) {}
+         String message = "There was an error processing your request:<br>\n" + ex;
+         request.setAttribute("message",message);
+    }
+
+
+	private void doAffirmAffidavit(HttpServletRequest request, HttpServletResponse response)
+	{
+		forward (INTERNAL_AFFIRM_AFFIDAVIT_JSP, request, response);
+	}
+
+    private void doAffirmAffidavitPost(HttpServletRequest request, HttpServletResponse response)
+    {
+		AffidavitBean bean = new AffidavitBean();
+
+		// extract the affidavit id
+		long affidavitId = 0;
+		String birthday = new String("");
+		String aged = new String("");
+		String family = new String("");
+		try {
+		    affidavitId = Long.parseLong( (String)
+						  request.getParameter(AFFIDAVIT_ID));
+		    birthday = request.getParameter("date_of_birth");
+		    aged = request.getParameter("aged");
+		    family = request.getParameter("family_name");
+		} catch (Exception e) {
+		    log.error(AFFIDAVIT_ID + " is not in the request. error");
+			doError(request, response);
+		    return;
+		}
+
+
+		AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
+		if( a == null ) {
+		    log.error("we got null from getAffidavitWithText");
+			doError(request, response);
+			return;
+		}
+
+		// check for birthday parameter, if it is not there get it from the affidavit
+		if(birthday == null) {
+		    log.debug("did not get the birthday in affidavit affirmation");
+		    birthday  = a.affidavit._birthday;
+		}
+
+		// try to extract the birthday and forward to the error page if it is malformed
+		SimpleDateFormat dfmt = new SimpleDateFormat(DATE_FORMAT_STRING);
+		Date d = null;
+		try {
+		    d = dfmt.parse(birthday);
+		} catch( Exception e3) {
+			exceptionToGet(e3, request, response);
+		    return;
+		}
+
+		// if it is for india, replace the form text with what they enterd
+		if(a.payment._country.equals("India")) {
+		    if((aged==null) || (family==null) || (aged.length()==0) || (family.length()==0) ) {
+				log.debug("did not get the aged or family text");
+				request.setAttribute("message","Aged and Family must be filled in.<br>\n");
+				doAffirmAffidavit(request, response);
+				return;
+			}
+
+		    //first replace the aged
+		    int aIdx = a.affidavitText.indexOf("FILL IN AGED");
+		    int bIdx = aIdx + (new String("FILL IN AGED")).length();
+		    a.affidavitText = a.affidavitText.substring(0,aIdx) +
+			" " + aged + " " + a.affidavitText.substring(bIdx);
+
+		    //now the family name
+		    aIdx = a.affidavitText.indexOf("FILL IN BELOW");
+		    bIdx = aIdx + (new String("FILL IN BELOW")).length();
+		    a.affidavitText = a.affidavitText.substring(0,aIdx) +
+				" " + family + " " + a.affidavitText.substring(bIdx);
+		}
+
+		// if we got here everything is good, we should affirm the affidavit
+		bean.affirmAffidavit(a.affidavit._header._id, a.affidavitText, dfmt.format(d));
+
+		doAffidavit(request, response);
+    }
 
 };
