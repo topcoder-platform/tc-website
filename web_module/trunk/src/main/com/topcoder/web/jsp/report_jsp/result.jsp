@@ -19,7 +19,7 @@
   if (processed==null || !processed.booleanValue()) {
     String dest = Constants.SERVLET_ADDR + "?" + request.getQueryString();
 %>
-    jsp:forward page="<%=dest%>"/>
+    <jsp:forward page="<%=dest%>"/>
 <%
   } else {
     reports = (ReportNode)request.getAttribute(Constants.REPORT_LIST_KEY);
