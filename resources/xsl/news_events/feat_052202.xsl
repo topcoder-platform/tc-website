@@ -209,7 +209,7 @@ there is no reason to write unreadable code."  Or, as <B>fbplayr78</B> puts it, 
 By&#160;KaiEl<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=264761" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
 
          
-<P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Have an idea for the weekly feature?</A></P>
+<P><A HREF="mailto:editorial@topcoder.com" CLASS="bodyGeneric">Would you like to write a weekly feature?</A></P>
 <P><BR/></P>
 						</TD></TR>                                                                 
 					</TABLE>
