@@ -117,7 +117,7 @@
                             <% } %>
                         </td>
                         <td class="bodyText">
-                            <tc:beanWrite name="reviewer" property="reviewPrice"/>
+                            $<tc:beanWrite name="reviewer" property="reviewPrice" format="#,###.00"/>
                         </td>
                     </tr>
                 </tc:listIterator>
