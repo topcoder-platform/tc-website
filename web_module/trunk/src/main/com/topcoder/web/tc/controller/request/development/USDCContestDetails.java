@@ -21,6 +21,11 @@ public class USDCContestDetails extends StatBase {
             //first winning submission
             return "usdc_contest_details_first_winner";
         }
+        else if(getRequest().getParameter("type").equals("4"))
+        {
+            //most submissions (min 2, passing score)
+            return "usdc_contest_details_most_submissions";
+        }
         else
             return "usdc_contest_details";
     }
@@ -30,7 +35,12 @@ public class USDCContestDetails extends StatBase {
     }
     
     String getPageName() {
-        return "/dev/usdc_contest_det.jsp";
+        if(getRequest().getParameter("type").equals("4"))
+        {
+            return "/dev/usdc_contest_det_most_submissions.jsp";
+        }
+        else
+            return "/dev/usdc_contest_det.jsp";
     }
     
     void statProcessing() throws com.topcoder.web.common.TCWebException {
