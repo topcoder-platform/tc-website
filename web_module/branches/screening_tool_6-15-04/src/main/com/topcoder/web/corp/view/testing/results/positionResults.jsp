@@ -31,7 +31,7 @@ if ( plugin ) {
   document.write('</SCR' + 'IPT\> \n');
 }
 //-->
-?</SCRIPT>
+</SCRIPT>
 
 <script type="text/javascript" language="Javascript">
 <!--
