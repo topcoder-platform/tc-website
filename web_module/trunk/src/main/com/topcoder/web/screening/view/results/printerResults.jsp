@@ -4,7 +4,8 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.List,
                  com.topcoder.web.screening.model.ProblemInfo,
-                 com.topcoder.web.common.StringUtils" %>
+                 com.topcoder.web.common.StringUtils,
+                 com.topcoder.web.screening.model.SubmissionInfo" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <html>
 <head>
@@ -221,16 +222,17 @@
               <p><br></p>
             <% } %>
 
-            <% ResultSetContainer solutions = (ResultSetContainer)request.getAttribute("problemSolutionList"); %>
+            <% List solutions = (List)request.getAttribute("problemSolutionList"); %>
             <% List statements = (List)request.getAttribute("problemStatementList"); %>
             <% ProblemInfo problem = null; %>
+            <% SubmissionInfo solution = null; %>
 
-            <% if (!solutions.isEmpty()) { %>
-                <% int i=0; %>
-                <screen:resultSetRowIterator id="row" list="<%=solutions%>">
+                <% for (int i=0; i<statements.size(); i++) { %>
+                    <% problem = (ProblemInfo)statements.get(i); %>
+                    <% solution = (SubmissionInfo)solutions.get(i); %>
+                    <% if (!solution.isSubmitted()) continue; %>
                   <table style="page-break-before:always" cellspacing="1" cellpadding="3" width="100%" class="testFrame">
                   <tr>
-                    <% problem = (ProblemInfo)statements.get(i); %>
 		            <td class="bodyText"><screen:problemStatement text="<%=problem.getProblemStatement()%>" language="Java" class="bodyText"/></td>
                   </tr>
                   <tr><td><br/></td></tr>
@@ -238,15 +240,13 @@
 		            <td class="bodyText">
                      <h3>Solution</h3><br/>
                      <%--this should really get plugged into the formatter object --%>
-                     <PRE><%=StringUtils.htmlEncode(row.getItem("submission_text").toString())%></PRE>
+                     <PRE><%=StringUtils.htmlEncode(solution.getCode())%></PRE>
                     </td>
                   </tr>
-                  <% i++; %>
                   <tr><td><br/></td></tr>
                   </table>
-                </screen:resultSetRowIterator>
+                <% } %>
               </table>
-            <% } %>
 
 <% } //isSessionComplete %>
 
