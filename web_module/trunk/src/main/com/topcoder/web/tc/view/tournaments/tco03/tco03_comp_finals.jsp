@@ -106,8 +106,8 @@ the Arena applet.
                 </tr>
                <tr>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="pops_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1','pops_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
-                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" target="kyky_initial_doc1" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_initial_doc1','kyky_initial_doc1',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_initial_doc1','pops_initial_doc1',800,600);" target="pops_initial_doc1"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
+                  <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=kyky_initial_doc1','kyky_initial_doc1',800,600);" target="kyky_initial_doc1"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
                </tr>
             </table>
                
