@@ -120,18 +120,54 @@
 
     <% } else if (time.equals("1100")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc1">Add a Method Aspect to an existing object.gif</td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc2">Add a Method Aspect with method filter to an existing object.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc3">Aspect Oriented Factory.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc4">Aspect Oriented Use Cases.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc5">Call an Aspected Method.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc6")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc6">Create a Method Aspect.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc7")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc7">Create a Method Filter.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc8")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc8">Create a Proxy Factory.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc9")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1100_doc9">Create the AOP Factory.gif</a></td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/AOP_Factory_Requirements_Specification.pdf" target="_blank">AOP Factory Requirements Specification.pdf</a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/1100/AOP_Factory_Component_Specification.pdf" target="_blank">AOP Factory Component Specification.pdf</a></td></tr>
 
     <% } else if (time.equals("1130")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc1">Add a Method Aspect to an existing object.gif</td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc2">Add a Method Aspect with method filter to an existing object.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc3">Aspect Oriented Factory.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc4">Aspect Oriented Use Cases.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc5">Call an Aspected Method.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc6")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc6">Create a Method Aspect.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc7")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc7">Create a Method Filter.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc8")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc8">Create a Proxy Factory.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc9")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_1130_doc9">Create the AOP Factory.gif</a></td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/AOP_Factory_Requirements_Specification.pdf" target="_blank">AOP Factory Requirements Specification.pdf</a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/1130/AOP_Factory_Component_Specification.pdf" target="_blank">AOP Factory Component Specification.pdf</a></td></tr>
 
     <% } else if (time.equals("final")) { %>
                 <tr><td class="compDocsSmall">Design Diagrams</td></tr>
+                <tr><td class="<%=doc.equals("doc1")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc1">Add a Method Aspect to an existing object.gif</td></tr>
+                <tr><td class="<%=doc.equals("doc2")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc2">Add a Method Aspect with method filter to an existing object.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc3")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc3">Aspect Oriented Factory.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc4")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc4">Aspect Oriented Use Cases.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc5")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc5">Call an Aspected Method.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc6")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc6">Create a Method Aspect.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc7")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc7">Create a Method Filter.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc8")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc8">Create a Proxy Factory.gif</a></td></tr>
+                <tr><td class="<%=doc.equals("doc9")?"compDocsTabOn":"compDocsTabOff"%>"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc9">Create the AOP Factory.gif</a></td></tr>
+                <tr><td class="compDocsTabOff"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"></td></tr>
 
                 <tr><td class="compDocsSmall">Documentation</td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/AOP_Factory_Requirements_Specification.pdf" target="_blank">AOP Factory Requirements Specification.pdf</a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/pops/final/AOP_Factory_Component_Specification.pdf" target="_blank">AOP Factory Component Specification.pdf</a></td></tr>
 
     <% } %>
 
