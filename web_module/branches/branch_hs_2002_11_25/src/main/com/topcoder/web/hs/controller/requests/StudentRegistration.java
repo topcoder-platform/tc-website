@@ -8,6 +8,8 @@ import com.topcoder.shared.util.*;
 import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.ejb.email.*;
 import com.topcoder.web.ejb.termsofuse.*;
+import com.topcoder.web.hs.ejb.coder.*;
+import com.topcoder.web.hs.ejb.rating.*;
 import com.topcoder.web.hs.model.*;
 
 import java.rmi.*;
@@ -29,7 +31,9 @@ public class StudentRegistration extends Base {
 
   private final static String STATE_INPUT_CODE="st";
 
-  private final static long TERMS_ID=1;
+  private final static long TERMS_OF_USE_ID=1;
+
+  private final static long EMAIL_TYPE_ID_PRIMARY=1;
 
   private final static String REGISTRATION_BASE="/registration/";
 
@@ -259,7 +263,7 @@ public class StudentRegistration extends Base {
 
     TermsOfUseHome touh=(TermsOfUseHome)ctx.lookup(TermsOfUseHome.EJB_REF_NAME);
     TermsOfUse tou=touh.create();
-    _srb.setTermsOfUse(tou.getText(TERMS_ID));
+    _srb.setTermsOfUse(tou.getText(TERMS_OF_USE_ID));
   }
 
   private String getParameterNonNull(String _param) {
@@ -523,13 +527,24 @@ public class StudentRegistration extends Base {
       UserTermsOfUseHome utouh=(UserTermsOfUseHome)
                                     ctx.lookup(UserTermsOfUseHome.EJB_REF_NAME);
       UserTermsOfUse user_terms_of_use=utouh.create();
-      //user_terms_of_use.createUserTermsOfUse(user_id, );
+      user_terms_of_use.createUserTermsOfUse(user_id,TERMS_OF_USE_ID);
 
       EmailHome eh=(EmailHome)ctx.lookup(EmailHome.EJB_REF_NAME);
       Email email=eh.create();
       long email_id=email.createEmail(user_id);
-      
+      email.setEmailTypeId(email_id,user_id,EMAIL_TYPE_ID_PRIMARY);
+      email.setAddress(email_id,user_id,_srb.getEmail());
 
+      CoderHome ch=(CoderHome)ctx.lookup(CoderHome.EJB_REF_NAME);
+      Coder coder=ch.create();
+      coder.createCoder(user_id);
+      coder.setMemberSince(user_id,new java.sql.Date(new Date().getTime()));
+      coder.setEditorId(user_id,_srb.getEditorId().intValue());
+      coder.setLanguageId(user_id,_srb.getLanguageId().intValue());
+
+      RatingHome rh=(RatingHome)ctx.lookup(RatingHome.EJB_REF_NAME);
+      Rating rating=rh.create();
+      rating.createRating(user_id);
     }
     catch (RemoteException _re) {
       _re.printStackTrace();
