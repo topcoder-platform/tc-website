@@ -63,30 +63,35 @@
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 
-                        <p>Congratulations on advancing to Online Round #4 of the 2002 TopCoder Invitational!  You are one of the 64 finalists eligible 
-                        to receive a cash prize of at least $500.  In order to receive your prize, you MUST complete and return all of the following 5 
-                        items by Monday, October 28th at 12:00PM EST:  IF WE DO NOT RECEIVE ALL OF THESE ITEMS BY 12:00PM EST ON MONDAY, 
-                        OCTOBER 28, 2002, YOU WILL FORFEIT YOUR PRIZE AND YOUR SPOT IN THE TOURNAMENT.</p>
+                        <p>
+                            Congratulations on advancing in the 2003 Sun Microsystems and TopCoder Collegiate Challenge! You are eligible for a
+                            cash award of at least $50.  If you are a resident of a country that we do not pay cash prizes to, then your prize
+                            will be donated to a charity of your choice in your name.  In order to receive your prize, you MUST complete the
+                            APPROPRIATE items below by Monday, March 17th at 12:00 PM EST: IF WE DO NOT RECEIVE ALL OF THE APPROPRIATE ITEMS
+                            BY 12:00 PM EST ON MONDAY, MARCH 17th, 2003, YOU WILL FORFEIT YOUR PRIZE AND YOUR SPOT IN THE TOURNAMENT.
+                        </p>
 
                         <ol>
                             <li>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Oct. 28, 2002:</p>
+                                <p><strong>To be completed by everyone:</strong></p>
+                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before March 17, 2003</p>
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_affidavit">printable version</a> of 
-                                        your affidavit.  This affidavit must be notarized and returned to us at the address below.
+                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_affidavit">
+                                        printable version</a> of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        View a <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_affidavit">printable version</a> of your affidavit.  Please read the affidavit, sign it 
-                                        and return it to us at the address below.  Note that you do not have to have this affidavit notarized because we already have a notorized affidavit on 
-                                        file for you.
+                                        View a <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_affidavit">printable version</a> of your affidavit.  Please read
+                                        the affidavit, sign it and return it to us at the address below.  Note that you do not have to have this affidavit
+                                        notarized because we already have a notorized affidavit on file for you.
                                     </xsl:otherwise>
                                 </xsl:choose>
                                 </p>
                             </li>
                             <li>
-                                <p><strong>TAX FORM</strong> - must be postmarked on or before Oct. 28, 2002:</p>
+                                <p><strong>To be completed by those that will personally receive a cash prize:</strong></p>
+                                <p><strong>TAX FORM</strong> - must be postmarked on or before March 17, 2003:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) to the address below.  If you don't know the form 
@@ -106,21 +111,22 @@
                                 </xsl:choose>
                             </li>
                             <li>
-                                <p><strong>2002 TOPCODER INVITATIONAL QUESTIONNAIRE</strong> - completed form must be emailed to <a href="mailto:invitational@topcoder.com">
-                                invitational@topcoder.com</a> by 12:00PM EST on Monday, Oct. 28th:</p>
-                                
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2002 TopCoder Invitational Questionnaire.</a> 
-                                Copy this HTML page into a word processor.  Complete ALL questions and return it via email.</p>
+                                <p><strong>To be completed by everyone:</strong></p>
+
+                                <p>
+                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Monday, March 17th:
+                                    View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2003 TopCoder Collegiate Challenge Questionnaire</a>.  Complete ALL questions.
+                                </p>
                             </li>
                             <li>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - completed form must be emailed to <a href="mailto:invitational@topcoder.com">invitational@topcoder.com</a> 
-                                by 12:00PM EST on Monday, Oct. 28th:</p>
+                                <p><strong>To be completed by those that will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed by 12:00 PM EST on Monday, March 17th:</p>
             
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_travel_info">Travel Information Page.</a> Copy this HTML page into
-                                a word processor.  Complete ALL questions and return it via email.</p>
+                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                             </li>
                             <li>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by 12:00PM EST on Monday, Oct. 28th:</p>
+                                <p><strong>To be completed by those that will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
+                                <p><strong>HEAD SHOT</strong> - must be emailed by 12:00PM EST on Monday, March 17th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -139,7 +145,7 @@
                             Glastonbury, CT 06033
                         </div>
                         
-                        <p><strong>Reminder, you will not receive any prize money unless all five items above are completed by Monday, October 28th at 12:00PM EST.  Any 
+                        <p><strong>Reminder, you will not receive any prize money unless all five items above are completed by Monday, March 17th at 12:00PM EST.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
 <!--

@@ -192,7 +192,7 @@
 <P>
 
 <CENTER>
-STATUTORY DECLARAION<BR/>
+STATUTORY DECLARATION<BR/>
 <BR/>
 <BR/>
 2003 TopCoder Collegiate Challenge<BR/>
