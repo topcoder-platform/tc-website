@@ -32,20 +32,20 @@
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
-         </td>         
+         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
 <!-- TCO Header -->
    <p><br /></p>
    <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
    <p><br /></p>
-   
+
 <!-- Tab bar links-->
 <jsp:include page="/verizon/verizonLinks.jsp" >
    <jsp:param name="selectedTab" value="rules"/>
@@ -54,7 +54,7 @@
 <jsp:include page="/verizon/verizonSublinks.jsp" >
    <jsp:param name="selectedList" value="rules"/>
    <jsp:param name="selectedTab" value="registration"/>
-</jsp:include>   
+</jsp:include>
 
       <blockquote>
       <table cellpadding="1" cellspacing="3" class="bodyText">
@@ -79,7 +79,7 @@
             <pl:questionIterator id="question" list="<%=questionList%>">
                 <tr>
                     <td colspan="2">
-                        <tc-webtag:errorIterator id="err" name="<%=DemographicInput.PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
                 <tr>
@@ -98,7 +98,7 @@
                   <p align="center"><a href="javascript: document.regForm.submit();" class="button" align="center">Submit</a></p>
                   <p><br /></p>
                </td>
-            </tr> 
+            </tr>
          </form>
          </table>
       </blockquote>

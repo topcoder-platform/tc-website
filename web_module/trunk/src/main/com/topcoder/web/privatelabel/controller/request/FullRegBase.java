@@ -52,9 +52,9 @@ abstract class FullRegBase extends SimpleRegBase {
             response = (DemographicResponse) it.next();
             question = findQuestion(response.getQuestionId());
             if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
-                setDefault(DemographicInput.PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
+                setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
             } else if (question.getAnswerType() == DemographicQuestion.FREE_FORM) {
-                setDefault(DemographicInput.PREFIX + response.getQuestionId(), response.getText());
+                setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), response.getText());
             } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 //todo handle multiple select
             } else {

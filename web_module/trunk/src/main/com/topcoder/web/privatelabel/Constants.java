@@ -51,9 +51,8 @@ public class Constants {
     public static String ZIP;
 
     //secondary reg parameters
-    public static String FILE_TYPE;
     public static String CODER_TYPE;
-    public static String RESUME;
+    public static String DEMOG_PREFIX;
 
     //other parameters
     public static String MODULE_KEY;

@@ -2,6 +2,7 @@ package com.topcoder.web.privatelabel.view.tag;
 
 import com.topcoder.web.privatelabel.model.DemographicAnswer;
 import com.topcoder.web.privatelabel.model.DemographicQuestion;
+import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.common.tag.BaseTag;
 import com.topcoder.shared.util.logging.Logger;
 
@@ -11,8 +12,6 @@ import java.io.IOException;
 
 public class DemographicInput extends BaseTag {
     protected static Logger log = Logger.getLogger(DemographicInput.class);
-
-    public static final String PREFIX = "demog_";
 
     private String cssclass;
     private DemographicQuestion question;
@@ -34,7 +33,7 @@ public class DemographicInput extends BaseTag {
             throws JspException {
         if (question != null) {
             StringBuffer output = new StringBuffer(400);
-            setName(PREFIX+question.getId());
+            setName(Constants.DEMOG_PREFIX+question.getId());
             switch (question.getAnswerType()) {
                 case DemographicQuestion.FREE_FORM:
                     output.append(buildText());
