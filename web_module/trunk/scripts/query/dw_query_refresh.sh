@@ -254,10 +254,10 @@ c.member_since,
 (SELECT SUM(paid) FROM room_result
  WHERE coder_id = @cr@) AS total_earnings,
 r.num_competitions,
-(CASE r.num_competitions
+TRUNC((CASE r.num_competitions
   WHEN 0 THEN 0.0
   ELSE cps.final_points / r.num_competitions
-  END) AS avg_final_points,
+  END),2) AS avg_final_points,
 r.highest_rating,
 (SELECT AVG(room_seed) FROM room_result
  WHERE coder_id = @cr@) AS average_room_seed,
