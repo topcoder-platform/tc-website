@@ -22,7 +22,7 @@
 
 <!-- Menu bar begins here -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="middle">
+    <tr valign="top">
         <td width="15" class="testTopBlank">&#160;</td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="PopulateSession" styleclass="testTopNav">Create a New Session</screen:servletLink></td>
         <td nowrap="nowrap" class="testTop"><screen:servletLink processor="ProfileList" styleclass="testTopNav">Test Profiles</screen:servletLink></td>
