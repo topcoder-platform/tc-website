@@ -149,16 +149,6 @@
     <%-- Support/FAQs ends --%>
 
             </table>
-
-    <% if (level1.equals("home")) { %>
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <tr><td id="leftNavTitle">Next Match:</td></tr>
-                <jsp:include page="../../home/srm_dates.jsp" />
-                <jsp:include page="../../home/srm_sponsor.jsp" />
-            </table>
-
-            <jsp:include page="../calendar.jsp" />
-    <% } %>
     <%-- Competition ends *************************** --%>
 
 <% } %>
@@ -180,4 +170,9 @@
             </table>
 
             <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br /><br />
+
+    <% if (level1.equals("home")) { %>
+            <jsp:include page="../../home/coder_of_month.jsp" />
+    <% } %>
+
             <div align="center"><img src="/i/logo_ghosted_bracket.gif" width="160" height="77" alt="[ TopCoder ]" vspace="10" border="0"/></div><br /><br />
