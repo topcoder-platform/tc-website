@@ -75,6 +75,12 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
             <p><br/></p>
             <p><br/></p>
+            <table class="bodyText" align="center">
+               <tr><td><div><p class="button" align="center"><a href="pl/?&module=FullReg&cid=1" class="button">Register</a>
+               </p></div></td>
+               </tr> 
+            </table>
+            
             
         </td>
 <!-- Center Column Ends -->
