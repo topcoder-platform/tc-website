@@ -1,6 +1,7 @@
 <%@  page language="java"  %>
 <%@ page import="com.topcoder.web.tc.Constants,
-                 java.util.Hashtable" %>
+                 java.util.Hashtable,
+                 java.util.Iterator" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
@@ -81,12 +82,15 @@ Hashtable skillList = (Hashtable)request.getAttribute("prefs");
 				<td align=right width="65%"><b>Preferences</b></td>
 				<td width="35%"><a href="javascript:goToPage('ContractingPreferences');">edit<a/></td>
             </tr>
-            <tc:listIterator id="groupName" list="<%=skillList.keySet()%>">
+            <% Iterator i = skillList.keySet().iterator();
+            while(i.hasNext()) {
+                String s = (String)i.next();
+            %>
             <tr>
-				<td align=right><b><%=skillList.get(groupName)%></b></td>
+				<td align=right><b><%=s%></b></td>
 				<td valign=top>&#160;</td>
             </tr>
-            </tc:listIterator>
+            <% } %>
             <tr>
 				<td align=right><b>Contract Work</b></td>
 				<td valign=top>&#160;</td>
