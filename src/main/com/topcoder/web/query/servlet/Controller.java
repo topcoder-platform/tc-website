@@ -5,9 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.AuthenticationException;
-import com.topcoder.web.query.common.Authentication;
 import com.topcoder.web.query.bean.Task;
-import com.topcoder.web.query.bean.LoginTask;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -52,7 +50,8 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
 
         log.debug("request: " + request.getQueryString());
-
+        Task task = null;
+        Class taskClass = null;
         String taskName = request.getParameter(Constants.TASK_PARAM);
         String stepName = request.getParameter(Constants.STEP_PARAM);
         if (taskName!=null && !isLegal(taskName)) {
@@ -66,8 +65,6 @@ public class Controller extends HttpServlet {
                 log.info("[**** query **** " + taskName + " **** " + (stepName==null?"":stepName) + " **** " + request.getRemoteHost() + " ****]");
 
                 // process a task
-                Task task = null;
-                Class taskClass = null;
                 taskClass = Class.forName(Constants.QUERY_PACKAGE + "." + taskName);
                 task = (Task) taskClass.newInstance();
                 task.setInitialContext(ctx);
@@ -91,52 +88,47 @@ public class Controller extends HttpServlet {
 
                 request.setAttribute(taskName, task);
 
-                log.debug("next page is " + task.getNextPage());
-
-                if (task.isInternalResource()) {
-                    getServletContext().getRequestDispatcher(
-                            response.encodeURL("/"+task.getNextPage())).forward(request, response);
-                } else {
-                    response.sendRedirect(response.encodeURL(task.getNextPage()));
-                }
-
+                sendToPage(request, response, task.getNextPage(), task.isInternalResource());
             }
             else {
-                forwardToLoginPage(request, response);
-                return;
+                sendToLoginPage(request, response);
             }
         } catch (AuthenticationException authex) {
-            try {
-                Authentication.attemptLogin("","",ctx,request.getSession(true),
-                        request.getContextPath()+request.getServletPath()+"?"+request.getQueryString());
-            } catch (Exception ignore) { }
-            forwardToLoginPage(request, response);
-            return;
+            request.setAttribute("Authentication", task.getAuthentication());
+            sendToLoginPage(request, response);
         } catch (ClassNotFoundException cnfex) {
-            forwardToErrorPage(request, response, cnfex);
+            sendToErrorPage(request, response, cnfex);
         } catch (NamingException ex) {
-            forwardToErrorPage(request, response, ex);
+            sendToErrorPage(request, response, ex);
         } catch (InstantiationException e) {
-            forwardToErrorPage(request, response, e);
+            sendToErrorPage(request, response, e);
         } catch (IllegalAccessException e) {
-            forwardToErrorPage(request, response, e);
+            sendToErrorPage(request, response, e);
         } catch (Exception e) {
-            forwardToErrorPage(request, response, e);
+            sendToErrorPage(request, response, e);
         }
     }
 
-    private void forwardToLoginPage(HttpServletRequest request, HttpServletResponse response)
+    private void sendToLoginPage(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        getServletContext().getRequestDispatcher(response.encodeURL("/"+Constants.LOGIN_PAGE)).forward(request, response);
+        sendToPage(request, response, Constants.LOGIN_PAGE, false);
     }
 
-    private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
-                                    Throwable exception) throws ServletException, IOException {
+    private void sendToPage(HttpServletRequest request, HttpServletResponse response, String page, boolean forward)
+            throws ServletException, IOException {
+        log.debug((forward?"forwarding ":"redirecting ") + "to " + page);
+        if (forward) {
+            getServletContext().getRequestDispatcher(response.encodeURL("/"+page)).forward(request, response);
+        } else {
+            response.sendRedirect(response.encodeURL(page));
+        }
+    }
 
+    private void sendToErrorPage(HttpServletRequest request, HttpServletResponse response,
+                                    Throwable exception) throws ServletException, IOException {
         log.error("Controller error - forwarding to error page", exception);
         request.setAttribute("Exception", exception);
-        getServletContext().getRequestDispatcher(
-                response.encodeURL("/"+Constants.ERROR_PAGE)).forward(request, response);
+        sendToPage(request, response, Constants.ERROR_PAGE, true);
     }
 
     private static boolean isLegal(String s) {

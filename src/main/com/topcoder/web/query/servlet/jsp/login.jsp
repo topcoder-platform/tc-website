@@ -5,6 +5,7 @@
           com.topcoder.web.query.common.*,
           com.topcoder.web.query.bean.*" %>
 <jsp:useBean id="LoginTask" scope="request" class="com.topcoder.web.query.bean.LoginTask" />
+<jsp:useBean id="Authentication" scope="request" class="com.topcoder.web.query.common.Authentication" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
@@ -20,23 +21,24 @@
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
-      <TD class="statText" width="100%" BGCOLOR="#000000" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD CLASS="statText" width="100%" BGCOLOR="#000000" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
             <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD class="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-              <p class='notice'>
-                <jsp:getProperty name="LoginTask" property="Message" />
+            <TD CLASS="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+              <p CLASS="statText">
+                <jsp:getProperty name="Authentication" property="ErrorMessage" />
               </p>
               <FORM NAME="login" METHOD="POST" ACTION="<jsp:getProperty name="LoginTask" property="ServletPath"/>">
-                <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%= Constants.LOGIN_TASK %>">
+                <INPUT TYPE="HIDDEN" NAME="<%= Constants.TASK_PARAM %>" VALUE="<%=Constants.LOGIN_TASK %>">
+                <INPUT TYPE="HIDDEN" NAME="<%= Constants.REDIRECT_PAGE_PARAM%>" VALUE="<%=Authentication.getRequestedURL()%>">
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="132" ALIGN="center">
                   <TR>
                     <TD CLASS="statTextBig" VALIGN="top" HEIGHT="14">Handle:</TD>
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
+                      <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.HANDLE_PARAM%>" TYPE="TEXT" VALUE="<jsp:getProperty name="LoginTask" property="HandleInput" />">
                     </TD>
                   </TR>
                   <TR>
@@ -44,7 +46,7 @@
                   </TR>
                   <TR>
                     <TD HEIGHT="25" VALIGN="TOP">
-                      <INPUT MAXLENGTH="25" SIZE="20" NAME="<%=Constants.PASSWORD_PARAM%>" TYPE="Password" VALUE="">
+                      <INPUT MAXLENGTH="15" SIZE="15" NAME="<%=Constants.PASSWORD_PARAM%>" TYPE="Password" VALUE="">
                     </TD>
                   </TR>
                   <TR>

@@ -224,6 +224,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>redirect_page_param</param-name>
+    <param-value>Redirect</param-value>
+    <description></description>
+  </init-param>
+
 
   <init-param>
     <param-name>login_task</param-name>

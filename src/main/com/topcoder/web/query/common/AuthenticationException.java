@@ -19,4 +19,9 @@ public class AuthenticationException extends Exception {
     public AuthenticationException(Throwable t) {
         super(t.getMessage());
     }
+
+    public AuthenticationException(String message, String page) {
+        super(message);
+    }
 }
+
