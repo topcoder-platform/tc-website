@@ -500,8 +500,8 @@ public class HistoryPlot
         for (y = mind; y < maxd; y += ddy) {
             int[] cl = plotColor(y + 50);
             g.setColor(new Color(cl[0] * tcfd / 64, cl[1] * tcfd / 64, cl[2] * tcfd / 64));
-            for (x = 100; x < 500; x += 100) {
-                if (y < 1200)
+            for (x = 100; x < w-100; x += 100) {
+                if (y < h+400)
                     g.drawString("Division-II", x, (int) ((y + 50) * yscale + yoff + 5));
                 else
                     g.drawString("Division-I", x, (int) ((y + 50) * yscale + yoff + 5));
