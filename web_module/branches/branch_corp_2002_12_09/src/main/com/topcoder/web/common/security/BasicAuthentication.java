@@ -191,7 +191,7 @@ public class BasicAuthentication implements WebAuthentication {
      * 
      * @see com.topcoder.shared.security.Authentication#login(com.topcoder.shared.security.User)
      */
-    public void login(User u) throws AuthenticationException { //, Exception {
+    public void login(User u) throws AuthenticationException , Exception {
         User desiredUser = fetchUserFromDB(u.getUserName());
         if( desiredUser == null ) { // there is not user wit such handle in db 
             throw new InvalidLogonException();
@@ -271,7 +271,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @param userID
      * @return User
      */
-    private User fetchUserFromDB(long userID) { //throws Exception {
+    private User fetchUserFromDB(long userID) throws Exception {
         return PersistStore.getInstance(null).getUser(userID);
     }
 
@@ -280,7 +280,7 @@ public class BasicAuthentication implements WebAuthentication {
      * @param userID
      * @return User
      */
-    private User fetchUserFromDB(String userName) { //throws Exception {
+    private User fetchUserFromDB(String userName) throws Exception {
         return PersistStore.getInstance(null).getUser(userName);
     }
 }

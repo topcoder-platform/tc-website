@@ -2,6 +2,8 @@ package com.topcoder.web.corp.stub;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
 import java.util.Iterator;
@@ -41,7 +43,7 @@ public class PersistStore {
      * @param dir
      * @return PersistStore
      */
-    public static PersistStore getInstance(File dir) {
+    public static PersistStore getInstance(File dir) throws FileNotFoundException {
         if( dir != null ) {
             System.err.println("--- where xml would be= "+dir.getAbsolutePath());
         }
@@ -230,10 +232,10 @@ public class PersistStore {
         }
     }
 
-    private void load() {
+    private void load() throws FileNotFoundException {
         String path = xmlStore.getAbsolutePath();
         try {
-            store = (new org.jdom.input.DOMBuilder()).build(xmlStore);
+            store = (new org.jdom.input.DOMBuilder()).build(new FileInputStream(xmlStore));
         }
         catch(org.jdom.JDOMException e) {
             e.printStackTrace();

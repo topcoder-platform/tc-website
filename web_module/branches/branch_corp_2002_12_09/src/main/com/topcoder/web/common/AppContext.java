@@ -78,7 +78,7 @@ public class AppContext {
 	 * 
 	 * @throws NamingException
 	 */
-	private void doInit(String propertiesFileName) throws NamingException {
+	private void doInit(String propertiesFileName) throws NamingException, FileNotFoundException {
         // DEBUG - TIME //
         // instantiate persistent store
         if( propertiesFileName != null ) {
@@ -135,7 +135,7 @@ public class AppContext {
      * @throws RemoteException
      * @throws NamingException
      */    
-    public PrincipalMgrRemote getRemotePrincipalManager() throws CreateException, RemoteException, NamingException
+    public PrincipalMgrRemote getRemotePrincipalManager() throws CreateException, RemoteException, NamingException, FileNotFoundException
     {
         if(principalMgrRemoteHome == null ) {
             doInit(null);
