@@ -5,7 +5,7 @@
  %>
 <% String appContext = request.getContextPath(); %> 
 <% BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request.getSession(true)), request, response);
-   User loggedIn = auth.getUser();
+   User activeUser = auth.getActiveUser();
  %>
 <A NAME="top"/>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">    
@@ -15,7 +15,7 @@
       <TD VALIGN="middle" BGCOLOR="#333333" WIDTH="100%" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0"> 
                 <A HREF="http://www.topcodersoftware.com" TARGET="_parent" CLASS="globalNavSmall">TopCoder Software</A>&#160;&#160;&#160;|&#160;&#160;&#160;
                 <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160;
-<% if( auth.getActiveUser().isAnonymous() ) {  // no logged user
+<% if( activeUser.isAnonymous() ) {  // no logged user
  %>
     <A HREF="<%=appContext%>/?module=Static&d1=LoginPage" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% }
@@ -49,6 +49,7 @@
                         <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">&#160;
+<% if( activeUser.isAnonymous() ) { %>
                            <FORM NAME="frmMiniLogin" METHOD="POST" action="<%=appContext%>/?module=Login">
 
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
@@ -67,6 +68,9 @@
                               <INPUT NAME="<%=Login.KEY_LOGINMODE%>" TYPE="hidden" VALUE="1"/>
 
                            </FORM>
+<%
+  }
+%>
                         </TD>
                         <TD WIDTH="10" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
                      </TR>           
