@@ -57,7 +57,7 @@
               String trparams = Constants.SESSION_ID + "=" + row.getItem("session_id") + "&referrer=BuildCandidateList";
               boolean hasSession = !row.getItem("has_session").toString().equals("0");
               boolean hasNotes = ((Long)row.getItem("note_count").getResultData()).longValue()>0;
-              boolean hasResults = row.getItem("has_results").getResultData().equals(new Long(1));
+              boolean hasResults = row.getItem("has_results").getResultData().equals("1");
             %>
             <TR>
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
