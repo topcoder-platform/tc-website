@@ -64,8 +64,8 @@
                <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
                <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="PopulateCandidate" param="<%=params%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="handle" /></screen:servletLink></TD>               
                <TD VALIGN="middle" CLASS="bodyText">&#160;<% if(hasSession){ %><screen:servletLink processor="TestResults" param="<%=trparams%>" styleClass="bodyText">See Results</screen:servletLink><% } %></TD>       
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy HH:mm a"/></TD>
-               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy HH:mm a"/></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" format="MM/dd/yyyy hh:mm a"/></TD>
+               <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" format="MM/dd/yyyy hh:mm a"/></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
                <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%=params%>" styleClass="bodyText">View</screen:servletLink></TD>                                          
             </TR>
