@@ -46,7 +46,7 @@
    <jsp:param name="selectedTab" value="schedule"/>
 </jsp:include>
 
-            <h2><img src="/i/tournament/tco03/onsite_crowd.jpg" alt="" width="301" height="200" border="0" align="right" hspace="8">Join Us at the Onsite Finals</h2>
+            <h2><img src="/i/tournament/tco03/onsite_crowd.jpg" alt="" width="301" height="200" border="0" align="right" hspace="8" vspace="4">Join Us at the Onsite Finals</h2>
             
             <p><strong>The 2003 TopCoder Open sponsored by Intel&#174; is shaping up to be the largest, most exciting TopCoder event ever. Thursday 
             brings 12 full hours of coding and presentations, while Friday promises to thrill with the Component and Coding Finals.</strong></p>
@@ -54,17 +54,23 @@
             <p>Attending the onsite portion of the TCO will allow you to meet face-to-face with other TopCoder members, talk with sponsor companies about 
             technology, products and employment, and experience the excitement of Mohegan Sun. This is one technology gathering you don't want to miss!</p>
             
+            <h3>A Low-Cost Adventure</h3>
+
+            <p>Admission to the TCO is free. Parking at Mohegan Sun is free. It's only a 2 hour drive from Boston or New York. Plus, there are literally 
+            hundreds of chartered <a href="http://www.mohegansun.com/plan_visit/bus_pkgs.jsp#bus" target="_blank">buses</a> 
+            from all over New England and the northeast that go directly to Mohegan Sun, some for as little at $10.</p>
+            
             <h3>Schedule of Events</h3>
             
             <div align="center">
             <table border="0" cellpadding="5" cellspacing="0">
                 <tr>
-                    <td colspan="2" class="bodyText" bgcolor="#EEEEEE"><strong>Wednesday, December 3</strong></td>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Wednesday, December 3</strong></td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">6:00pm - 8:00pm</td>
-                    <td class="bodyText">Welcome Reception *</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">6:00pm - 8:00pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Welcome Reception *</td>
                 </tr>
 
                 <tr>
@@ -72,22 +78,22 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2" class="bodyText" bgcolor="#EEEEEE"><strong>Thursday, December 4</strong></td>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Thursday, December 4</strong></td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">10:00am - 11:45am</td>
-                    <td class="bodyText">Semifinal Room 1</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">10:00am - 11:45am</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 1</td>
                 </tr>
                 
                 <tr>
                     <td class="bodyText">11:45am - 1:00pm</td>
-                    <td class="bodyText">Lunch</td>
+                    <td class="bodyText">Lunch *</td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">1:00pm - 2:45pm</td>
-                    <td class="bodyText">Semifinal Room 2</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">1:00pm - 2:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 2</td>
                 </tr>
                 <tr>
                     <td class="bodyText">2:45pm - 3:45pm</td>
@@ -95,8 +101,8 @@
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">4:00pm - 5:45pm</td>
-                    <td class="bodyText">Semifinal Room 3</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">4:00pm - 5:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 3</td>
                 </tr>
                 
                 <tr>
@@ -105,8 +111,8 @@
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">7:00pm - 8:45pm</td>
-                    <td class="bodyText">Semifinal Room 4</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">7:00pm - 8:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 4</td>
                 </tr>
                 
                 <tr>
@@ -119,22 +125,22 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2" class="bodyText" bgcolor="#EEEEEE"><strong>Friday, December 5</strong></td>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Friday, December 5</strong></td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#99FF66">8:00am - 12:00pm</td>
-                    <td class="bodyText" bgcolor="#99FF66">Component Competiton Finals</td>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>8:00am - 12:00pm</strong></td>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>Component Competiton Finals</strong></td>
                 </tr>
                 
                 <tr>
                     <td class="bodyText">12:00pm - 1:00pm</td>
-                    <td class="bodyText">Lunch</td>
+                    <td class="bodyText">Lunch *</td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">12:00pm - 3:30pm</td>
-                    <td class="bodyText">Review of Component Competition</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">12:00pm - 3:30pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Review of Component Competition</td>
                 </tr>
                 
                 <tr>
@@ -143,8 +149,8 @@
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#99FF66">3:00pm - 4:45pm</td>
-                    <td class="bodyText" bgcolor="#99FF66">Coding Tournament Finals</td>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>3:00pm - 4:45pm</strong></td>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>Coding Tournament Finals</strong></td>
                 </tr>
                 
                 <tr>
@@ -153,8 +159,8 @@
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">6:00pm - 7:00pm</td>
-                    <td class="bodyText">Cocktail Hour *</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">6:00pm - 7:00pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Cocktail Hour *</td>
                 </tr>
                 
                 <tr>
@@ -162,6 +168,10 @@
                     <td class="bodyText">Dinner and Awards Presentation *</td>
                 </tr>
 
+                <tr>
+                    <td colspan="2" class="bodyText" bgcolor="#999999"></td>
+                </tr>
+                
                 <tr>
                     <td colspan="2" class="bodyText">&nbsp;</td>
                 </tr>
