@@ -156,11 +156,6 @@
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
                             <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Design Competition begins on 11/6/2003</strong></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
                         </tr>
                 </xsl:if>
 
@@ -225,11 +220,6 @@
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
                             <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Development Competition begins on 11/6/2003</strong></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
-                            <td class="formTextOdd" align="center"></td>
                         </tr>
                 </xsl:if> 
                 <tr>
@@ -383,7 +373,7 @@
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244">
+        <td width="180">
             <xsl:call-template name="public_dev_right"><xsl:with-param name="projects" select="."/></xsl:call-template>
         </td>
 <!-- Right Column Ends -->
