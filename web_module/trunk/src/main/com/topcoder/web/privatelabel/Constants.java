@@ -33,7 +33,7 @@ public class Constants {
     public static String VERIZON_REG_DEMOG_PAGE;
     public static String VERIZON_REG_CONFIRM_PAGE;
     public static String VERIZON_REG_SUCCESS_PAGE;
-    public static String VERIZON_INELIGIBLE_PAGE;
+//    public static String VERIZON_INELIGIBLE_PAGE;
     public static String VERIZON_ACTIVATION_PAGE;
     public static String GOOGLE_REG_PAGE;
     public static String GOOGLE_REG_DEMOG_PAGE;
@@ -110,6 +110,9 @@ public class Constants {
 
     public static int SCHOOL_QUESTION;
     public static int NO_DEGREE_ANSWER;
+    public static int TOO_YOUNG_ANSWER;
+    public static int NON_TECHNICAL_ANSWER;
+    public static int MAX_VERIZON_REGISTRATIONS;
 
 
     private Constants() {

@@ -52,7 +52,7 @@ abstract class FullRegBase extends SimpleRegBase {
         DemographicQuestion question = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
             response = (DemographicResponse) it.next();
-            question = findQuestion(response.getQuestionId());
+            question = findQuestion(response.getQuestionId(), questions);
             if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                 setDefault(Constants.DEMOG_PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
             } else if (question.getAnswerType() == DemographicQuestion.FREE_FORM) {
@@ -66,7 +66,7 @@ abstract class FullRegBase extends SimpleRegBase {
 
     }
 
-    protected DemographicQuestion findQuestion(long questionId) {
+    protected static DemographicQuestion findQuestion(long questionId, Map questions) {
         DemographicQuestion ret = null;
         Long id = new Long(questionId);
         if (questions.containsKey(id)) {

@@ -8,7 +8,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 public class VerizonReg extends FullReg {
-    protected static final int MAX_REGISTRATIONS = 500;
 
     protected void setNextPage() {
         setNextPage(Constants.VERIZON_REG_PAGE);
@@ -20,7 +19,7 @@ public class VerizonReg extends FullReg {
         if (!(ret instanceof VerizonRegInfo)) {
             ret = new VerizonRegInfo(ret);
         }
-        ((VerizonRegInfo)ret).setRegFull(getActiveCount(db)>MAX_REGISTRATIONS);
+        ((VerizonRegInfo)ret).setRegFull(getActiveCount(db)>Constants.MAX_VERIZON_REGISTRATIONS);
         //set a couple of additional defaults for this verizon deal
         if (ret.getCity()==null || ret.getCity().length()==0) ret.setCity("Chennai");
         if (ret.getCountryCode()==null || ret.getCountryCode().length()==0) ret.setCountryCode("356");

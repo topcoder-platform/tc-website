@@ -81,7 +81,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
             }
         }
 
-        if (isEligible()) {
+//        if (isEligible()) {
             long jobId = getJobId();
             if (jobId > 0) {
                 JobPostingServices jp = (JobPostingServices)createEJB(getInitialContext(), JobPostingServices.class);
@@ -93,11 +93,11 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
             }
             //put their user id in the session so that they can upload a resume
             getRequest().getSession(true).setAttribute(Constants.USER_ID, new Long(ret.getId()));
-        } else {
-            User user = (User) createEJB(getInitialContext(), User.class);
+//        } else {
+//            User user = (User) createEJB(getInitialContext(), User.class);
             //they're not eligible so override whatever we had set their status to be private label ineligible
-            user.setStatus(ret.getId(), '3', transDb);
-        }
+//            user.setStatus(ret.getId(), '3', transDb);
+//        }
 
         return ret;
     }
@@ -106,7 +106,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
      * default is true, subclasses can implement something more interesting
      * @return
      */
-    protected boolean isEligible() {
+    protected static boolean isEligible(FullRegInfo info) {
         return true;
     }
 
