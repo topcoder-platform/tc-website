@@ -5,6 +5,7 @@ import com.topcoder.security.admin.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.ejb.user.*;
 import com.topcoder.web.ejb.email.*;
 import com.topcoder.web.ejb.termsofuse.*;
@@ -28,6 +29,8 @@ import javax.transaction.UserTransaction;
  * @version 1.0 2003/01/15
  */
 public class RegistrationHelper {
+
+    private final static Logger log = Logger.getLogger(RegistrationHelper.class);
 
     private final static String STATE_INPUT_CODE = "st";
 
@@ -340,11 +343,15 @@ public class RegistrationHelper {
         */
         UserTransaction utx = null;
 
+        Context secCtx = null;
+        PrincipalMgrRemote pmr = null;
+        UserPrincipal newUser = null;
+        TCSubject createUser = new TCSubject(0);
         try {
             /*utx=EJBContext.getUserTransaction();
             utx.begin();*/
 
-            Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+            secCtx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
 
             /* this doesn't work because the JBoss ctx doesn't support transactions */
@@ -353,24 +360,23 @@ public class RegistrationHelper {
             utx_common.begin();*/
 
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)
-                    ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
+                    secCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            pmr = pmrh.create();
 
-            TCSubject tcs = new TCSubject(0);
-            UserPrincipal up = pmr.createUser(srb.getHandle(), srb.getPassword(), tcs);
-            long user_id = up.getId();
+            newUser = pmr.createUser(srb.getHandle(), srb.getPassword(), createUser);
+            long user_id = newUser.getId();
 
-            Collection groups = pmr.getGroups(tcs);
+            Collection groups = pmr.getGroups(createUser);
             for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
                 GroupPrincipal gp = (GroupPrincipal) iterator.next();
                 if (gp.getName().equals(STUDENT_GROUP_NAME)) {
-                    pmr.addUserToGroup(gp, up, tcs);
+                    pmr.addUserToGroup(gp, newUser, createUser);
                 } else if (gp.getName().equals(ANONYMOUS_GROUP_NAME)) {
-                    pmr.addUserToGroup(gp, up, tcs);
+                    pmr.addUserToGroup(gp, newUser, createUser);
                 }
             }
 
-            ctx = TCContext.getInitial();
+            Context ctx = TCContext.getInitial();
 
             utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
             utx.begin();
@@ -418,8 +424,11 @@ public class RegistrationHelper {
                 try {
                     utx.rollback();
                 } catch (Exception _ex) {
-                    /* log it */
+                    log.error("error rolling back transaction");
+                    _ex.printStackTrace();
                 }
+                //since we don't have a real transaction, we'll just try and remove what we created.
+                pmr.removeUser(newUser, createUser);
             }
             throw(_e);
         }
@@ -430,7 +439,11 @@ public class RegistrationHelper {
 
         /* This is bad, please see above comment */
         UserTransaction utx = null;
-
+        PrincipalMgrRemote pmr = null;
+        UserPrincipal existingUser = null;
+        TCSubject createUser = new TCSubject(0);
+        Context secCtx = null;
+        String oldPass = null;
         try {
             /*utx=EJBContext.getUserTransaction();
             utx.begin();*/
@@ -438,17 +451,16 @@ public class RegistrationHelper {
             Context ctx;
 
             if (srb.getChangePassword()) {
-                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                secCtx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                         ApplicationServer.SECURITY_PROVIDER_URL);
 
                 PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)
-                        ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                PrincipalMgrRemote pmr = pmrh.create();
+                        secCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                pmr = pmrh.create();
 
-                TCSubject tcs = new TCSubject(0);
-
-                UserPrincipal up = pmr.getUser(srb.getHandle());
-                pmr.editPassword(up, srb.getPassword(), tcs);
+                existingUser = pmr.getUser(srb.getHandle());
+                oldPass = pmr.getPassword(existingUser.getId());
+                pmr.editPassword(existingUser, srb.getPassword(), createUser);
             }
 
             ctx = TCContext.getInitial();
@@ -491,7 +503,12 @@ public class RegistrationHelper {
                 try {
                     utx.rollback();
                 } catch (Exception _ex) {
-                    /* log it */
+                    log.error("error rolling back transaction");
+                    _ex.printStackTrace();
+                }
+                //set their password back
+                if (srb.getChangePassword()) {
+                    pmr.editPassword(existingUser, oldPass, createUser);
                 }
             }
             throw(_e);
@@ -684,14 +701,20 @@ public class RegistrationHelper {
         * The problem is that both commits cannot happen atomically. Hence errors in
         * one database will not force a rollback in another. This should be fixed!
         */
-        UserTransaction utx_common = null;
         UserTransaction utx_tchs = null;
+
+        Context secCtx = null;
+        Context ctx = null;
+        PrincipalMgrRemote pmr = null;
+        UserPrincipal newUser = null;
+        TCSubject createUser = new TCSubject(0);
+
 
         try {
             /*utx=EJBContext.getUserTransaction();
             utx.begin();*/
 
-            Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+            secCtx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                     ApplicationServer.SECURITY_PROVIDER_URL);
 
             // this doesn't work because the JBoss context doesn't support
@@ -701,20 +724,19 @@ public class RegistrationHelper {
             utx_common.begin();*/
 
             PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)
-                    ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-            PrincipalMgrRemote pmr = pmrh.create();
+                    secCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            pmr = pmrh.create();
 
-            TCSubject tcs = new TCSubject(0);
-            UserPrincipal up = pmr.createUser(crb.getHandle(), crb.getPassword(), tcs);
-            long user_id = up.getId();
+            newUser = pmr.createUser(crb.getHandle(), crb.getPassword(), createUser);
+            long user_id = newUser.getId();
 
-            Collection groups = pmr.getGroups(tcs);
+            Collection groups = pmr.getGroups(createUser);
             for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
                 GroupPrincipal gp = (GroupPrincipal) iterator.next();
                 if (gp.getName().equals(COACH_GROUP_NAME)) {
-                    pmr.addUserToGroup(gp, up, tcs);
+                    pmr.addUserToGroup(gp, newUser, createUser);
                 } else if (gp.getName().equals(ANONYMOUS_GROUP_NAME)) {
-                    pmr.addUserToGroup(gp, up, tcs);
+                    pmr.addUserToGroup(gp, newUser, createUser);
                 }
             }
 
@@ -765,24 +787,15 @@ public class RegistrationHelper {
             utx_tchs.commit();
         } catch (Exception _e) {
             _e.printStackTrace();
-            /*if (utx!=null) {
-              try {
-                utx.rollback();
-              }
-              catch (Exception _e1) {
-
-            }*/
-            if (utx_common != null) {
-                try {
-                    utx_common.rollback();
-                } catch (Exception _ex) {
-                }
-            }
             if (utx_tchs != null) {
                 try {
                     utx_tchs.rollback();
                 } catch (Exception _ex) {
+                    log.error("error rolling back transaction");
+                    _ex.printStackTrace();
                 }
+                //since we don't have a real transaction, we'll just try and remove what we created.
+                pmr.removeUser(newUser, createUser);
             }
             throw(_e);
         }
@@ -792,7 +805,11 @@ public class RegistrationHelper {
 
         /* This is bad, please see above comment */
         UserTransaction utx = null;
-
+        PrincipalMgrRemote pmr = null;
+        UserPrincipal existingUser = null;
+        TCSubject createUser = new TCSubject(0);
+        Context secCtx = null;
+        String oldPass = null;
         try {
             /*utx=EJBContext.getUserTransaction();
             utx.begin();*/
@@ -800,17 +817,16 @@ public class RegistrationHelper {
             Context ctx;
 
             if (crb.getChangePassword()) {
-                ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
+                secCtx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
                         ApplicationServer.SECURITY_PROVIDER_URL);
 
                 PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)
-                        ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                PrincipalMgrRemote pmr = pmrh.create();
+                        secCtx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+                pmr = pmrh.create();
 
-                TCSubject tcs = new TCSubject(0);
-
-                UserPrincipal up = pmr.getUser(crb.getHandle());
-                pmr.editPassword(up, crb.getPassword(), tcs);
+                existingUser = pmr.getUser(crb.getHandle());
+                oldPass = pmr.getPassword(existingUser.getId());
+                pmr.editPassword(existingUser, crb.getPassword(), createUser);
             }
 
             ctx = TCContext.getInitial();
@@ -854,8 +870,13 @@ public class RegistrationHelper {
                 try {
                     utx.rollback();
                 } catch (Exception _ex) {
-                    /* log it */
+                    log.error("error rolling back transaction");
+                    _ex.printStackTrace();
                 }
+            }
+            //set their password back
+            if (crb.getChangePassword()) {
+                pmr.editPassword(existingUser, oldPass, createUser);
             }
             throw(_e);
         }
