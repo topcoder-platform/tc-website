@@ -69,9 +69,7 @@ public class BeanWriteTag extends FormatTag {
             Object out = method.invoke(bean, NO_ARGS);
             setObject(out);
         } catch (Exception e) {
-            //do we care? we exit quietly either way
-            //todo yes we do care, cuz if the method isn't found, it would be nice
-            //todo to tell someone about it, otherwise, debugging is harder
+            throw new JspException(e.getMessage());
         }
         return super.doStartTag();
     }
