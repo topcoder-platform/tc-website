@@ -76,9 +76,9 @@
 <h2>Match summary</h2> 
 
 <p> 
-Tonight's set was pretty standard, with lots of successful submissions and few challenges in both divisions.  In an unusual turn of events, SRM 160 was not won by a member with a target, nor even by a red member.  Instead, it was a yellow member, PMH, who had the highest score, unaided by any challenges.  This win, the first be a yellow member in a long time, propelled PMH up 215 rating points, to 2066.
+Tonight's set was pretty standard, with lots of successful submissions and few challenges in both divisions.  In an unusual turn of events, SRM 160 was not won by a member with a target, nor even by a red member.  Instead, it was a yellow member, PMH, who had the highest score, unaided by any challenges.  This win, the first by a yellow member in a long time, propelled PMH up 215 rating points, to 2066.
 Less than 50 points behind was the TCCC champion dgarthur.  Rounding out the top 3 was bladerunner, only 8 points behind dgarthur.  
-<br/><br/>In division 2, newcome hagman was dominant, beating second place (and also a first time competitor) Jiggly be over 200 points.  His impressive win gave hagman a debut rating of 1809, and making him a member to watch.
+<br/><br/>In division 2, newcomer hagman was dominant, beating second place (and also a first time competitor) Jiggly by over 200 points.  His impressive win gave hagman a debut rating of 1809, and making him a member to watch.
 </p> 
   
 <H1> 
