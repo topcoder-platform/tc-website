@@ -62,7 +62,7 @@
            </TR> 
 <% if(candidateInfo.isNew()) { %>
            <TR>
-              <TD COLSPAN="2" ALIGN="center"><INPUT type="SUBMIT" /></TD>
+              <TD COLSPAN="2" ALIGN="center"><a href="JavaScript:document.candidateSetupForm.submit()" class="bodyText">Save</a></TD>
            </TR>                                
 <%    } else {%>
            <TR>
