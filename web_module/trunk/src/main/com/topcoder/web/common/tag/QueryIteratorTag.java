@@ -36,7 +36,7 @@ public class QueryIteratorTag extends IteratorTag {
         try {
             ic = (InitialContext)TCContext.getInitial();
             DataAccessInt dai = new DataAccess((DataSource)
-                    new InitialContext().lookup(DBMS.CORP_DATASOURCE_NAME));
+                    new InitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
             Request dataRequest = new Request();
             dataRequest.setContentHandle(command);
 
