@@ -44,7 +44,7 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">press_room</xsl:with-param>
-  <xsl:with-param name="title">&#160;Member News</xsl:with-param>
+  <xsl:with-param name="title">&#160;Member Updates</xsl:with-param>
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 				<TR>
@@ -53,13 +53,13 @@
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0" BGCOLOR="#FFFFFF">
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>
 						
-						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Member News <!--Archive--> - 2002</TD></TR>
+						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Member Updates <!--Archive--> - 2002</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 		<!-- <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;05.28.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.globe.com/dailyglobe2/126/business/Tournaments_become_latest_high_tech_recruiting_tool+.shtml" TARGET="_blank" CLASS="bodyText">Tournaments Become Latest High-tech Recruiting Tool</A></TD></TR> -->
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&#160;07.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_07_01_02" CLASS="bodyText">TopCoder Expands Development Projects and Other Services to Citizens of all Countries to Work as Independent Contractors</A></TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
 						
-						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Member News <!--Archive--> - 2001</TD></TR> 
+						<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Member Updates <!--Archive--> - 2001</TD></TR> 
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>                 
 						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;09.28.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_09_28_01" CLASS="bodyText">Member Referal Program Extended</A></TD></TR>                 
 						<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;09.21.01</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=pr_09_21_01" CLASS="bodyText">Updated 2001 Invitational Schedule</A></TD></TR>                
