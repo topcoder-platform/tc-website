@@ -171,6 +171,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
      * @param jobID New value of property jobID.
      */
     public void setJobID(int jobID) {
+        log.debug("setJobID() called...");
         this.jobID = jobID;
     }
 
@@ -203,6 +204,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
+        log.debug("jobid: " + getJobID());
 
         ArrayList a = new ArrayList();
         a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
@@ -217,7 +219,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
             "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.POSITION_INTEREST_TASK + "&" + 
             TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID() + 
-            (getJobID()==-1?"":("&" + TCESConstants.JOB_ID_PARAM + "=" + getJobID())), TCESConstants.POSITION_INTEREST_NAME));
+            (getJobID()<0?"":("&" + TCESConstants.JOB_ID_PARAM + "=" + getJobID())), TCESConstants.POSITION_INTEREST_NAME));
         setTrail(a);
 
     }
@@ -397,6 +399,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
+        log.debug("setAttributes name: " + paramName + " value: " + value);
 
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
