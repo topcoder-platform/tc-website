@@ -145,14 +145,7 @@
                                     Sponsor: <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">Intel</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=4660&amp;t=schedule&amp;c=srm">Details</A></td>
-                                <td id="calendarCRPF">
-                                    <span id="calendarCRPFDate">13</span><br />
-                                    <strong>CRPF Charity Challenge</strong><br />
-                                    Online Round #2<br />
-                                    Login by: 8:50&#160;PM<br />
-                                    Compete: 9:00&#160;PM<br />
-                                    <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/tc?module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
+                                <td id="calendar">13</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">14</span><br />
                                     <strong><font color="#3366cc">G</font><font color="#cc0000">o</font><font color="#ffcc00">o</font><font color="#3366cc">g</font><font color="#339933">l</font><font color="#cc0000">e</font> Code Jam</strong><br />
