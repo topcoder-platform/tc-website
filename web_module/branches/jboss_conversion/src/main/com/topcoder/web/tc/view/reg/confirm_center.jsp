@@ -73,7 +73,7 @@
                 <tr valign="top">
                     <td class="statText" align="right"><strong>Email Notification:</strong></td>
                     <td class="statText">
-                        <tc:notification selectedOnly="true" selectedValues="<%=Registration.getNotifications()%>" class="statText">
+                        <tc:notification selectedOnly="true" selectedValues="<%=Registration.getNotifications()%>" styleClass="statText">
                             <%=notifyControl%><br>
                         </tc:notification><br>
                     </td>
