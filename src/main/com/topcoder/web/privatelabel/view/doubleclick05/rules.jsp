@@ -31,6 +31,7 @@
          <span class="dc_subTitle">Summary of the Tournament</span><br>
          The DoubleClick&#153; 2005 Coding Challenge ("DCCC") is being offered by DoubleClick Inc. ("DoubleClick") and TopCoder, Inc. ("TopCoder").  The DCCC will take place between Monday, February 21 and Wednesday, March 2, 2005.  It begins with a nine day online registration, after which all registered employees will be eligible to participate in the programming tournament.  The tournament takes place online and consists of one (1) competition round.  All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge, Powered by TopCoder T-shirt and a personally engraved trophy.  In addition, DoubleClick will award prizes worth over $20,000 in a combination of prizes for overall finalists and for the top 10% of finishers by region in the tournament.
          <br><br>
+         <a name="eligibility"></a>
          <span class="dc_subTitle">Eligibility</span><br>
          All DoubleClick employees as of February 21, 2005 are eligible to compete in the DCCC.  For the purpose of this tournament, "employee" is defined as full-time employee, part-time employee, or intern.  Consultants are not eligible to participate.
          <br><br>
@@ -57,6 +58,7 @@
                      </table>
          
          <br><br>
+         <a name="about"></a>
          <span class="dc_subTitle">About the Tournament</span>
          <br><br>
          <span class="dc_subTitle">Use of Plugins in the Competition Arena</span><br>
@@ -80,6 +82,7 @@
          <br><br>
          All registered DoubleClick employees will be eligible to compete in the competition round.  Participants will be randomly assigned to specific virtual rooms, with up to 10 people in each room.  TopCoder will determine room assignments prior to the start of the competition round.  The participant with the highest point value in the competition round will be declared the first place winner.  
          <br><br>
+         <a name="prizes"></a>
          <span class="dc_subTitle">About the Prizes</span><br>
          All participants who compete in the competition round will receive a DoubleClick 2005 Coding Challenge T-shirt and a personally engraved trophy.  In addition, the top five scorers overall will win grand prizes, and the remaining top 10% of finishers in each region will win prizes.  For example, if there are 50 participants in a given region, the top five finishers in that region who did not receive a grand prize will receive a prize.  If a region has less than 10 participants, the top finisher in that region will still receive a prize, provided he/she did not win a grand prize. DoubleClick will pay all applicable taxes on prizes.  Prizes will be distributed as described here.
          
@@ -123,6 +126,7 @@
                      </table>
          <br><br>
          
+         <a name="conditions"></a>
          <span class="dc_subTitle">Conditions of Participation</span><br>
          By participating in the tournament, you agree to be bound by these rules and to all decisions of DoubleClick and TopCoder, which are final, binding and conclusive in all matters.
          <br><br>
@@ -143,7 +147,7 @@
          <span class="dc_subTitle">Other</span><br>
          The tournament is void in whole or in part where prohibited by law.
          <br><br>
-         This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033 and DoubleClick Inc. (http://www.doubleclick.net) 111 Eighth Avenue, New York, NY 10011.
+         This tournament is brought to you by TopCoder, Inc. (<A href="/">http://www.topcoder.com/</A>) 703 Hebron Avenue, Glastonbury, CT 06033 and DoubleClick Inc. (<A href="http://www.doubleclick.net">http://www.doubleclick.net</A>) 111 Eighth Avenue, New York, NY 10011.
          </p>
 		</td>
 	</tr>
