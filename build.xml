@@ -81,7 +81,7 @@
    <target name="full_deploy" depends="build_ejbs,deploy">
    </target>
 
-   <target name="deploy" depends="build.wars,servlets,jsp,moveStruts,moveReg,moveStats">
+   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats">
    </target>
 
    <target name="servlets" depends="compile">
