@@ -23,8 +23,8 @@ public class DBMS {
     public final static String OLTP_DATASOURCE_NAME = getProperty("OLTP_DATASOURCE_NAME", "OLTP");
     public final static String JTS_OLTP_DATASOURCE_NAME = getProperty("JTS_OLTP_DATASOURCE_NAME", "JTS_OLTP");
     public final static String CONTEST_ADMIN_DATASOURCE = getProperty("CONTEST_ADMIN_DATASOURCE", "OLTP");
-    public final static String CORP_JTS_OLTP_DATASOURCE_NAME = getProperty("CORP_JTS_OLTP_DATASOURCE_NAME", "JTS_DS");
-    public final static String CORP_OLTP_DATASOURCE_NAME = getProperty("CORP_OLTP_DATASOURCE_NAME", "DS");
+    public final static String CORP_JTS_OLTP_DATASOURCE_NAME = getProperty("CORP_JTS_OLTP_DATASOURCE_NAME", "JTS_CORP_DS");
+    public final static String CORP_OLTP_DATASOURCE_NAME = getProperty("CORP_OLTP_DATASOURCE_NAME", "CORP_DS");
     public final static String COMMON_JTS_OLTP_DATASOURCE_NAME = getProperty("CORP_JTS_OLTP_DATASOURCE_NAME", "JTS_DS");
     public final static String COMMON_OLTP_DATASOURCE_NAME = getProperty("COMMON_OLTP_DATASOURCE_NAME", "DS");
     public final static String SCREENING_JTS_OLTP_DATASOURCE_NAME = getProperty("SCREENING_JTS_OLTP_DATASOURCE_NAME", "JTS_SCREENING_OLTP");
