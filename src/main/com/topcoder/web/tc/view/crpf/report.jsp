@@ -63,41 +63,41 @@
 
                <blockquote>
 
-        <table width="500" border="0" cellpadding="0" cellspacing="0" align="center">
+        <table width="500" border="0" cellpadding="2" cellspacing="2" align="center">
             <rsc:iterator list="<%=donationTotal%>" id="info">
-            <tr class="bodyText" valign="top">
-                <td nowrap>
-                  Total funds raised to date:
+            <tr class="bodyText">
+                <td align="right" nowrap class="bodyText"><h2>Total funds raised to date:</h2>
                 </td>
-                <td align="center" valign="top">
-                    $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
-                    <p><br /></p>
+                <td align="left" width="100%" class="bodyText"><h2>
+                     $<rsc:item row="<%=info%>" name="amount" format="0.00"/></h2>
                 </td>
             </tr>
-            </rsc:iterator>
-            <tr class="bodyText">
-                <td align="left">
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="5" />">Rank</a>
+        </table>
+        <table width="500" border="0" cellpadding="0" cellspacing="0" align="center" class="sidebarBox">
+             </rsc:iterator>
+            <tr class="sidebarTitle">
+                <td width="20%" align="center">
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="5"/>"><img src="/i/tournament/crpf03/rank.gif" width="43" height="26" border="0"></a>
                 </td>
-                <td>
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="4"/>">Handle</a>
+                <td width="20%" align="left">
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="4"/>"><img src="/i/tournament/crpf03/handle.gif" width="55" height="26" border="0"></a>
                 </td>
-                <td>
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="2"/>">Rating</a>
+                <td width="20%" align="center">
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="2"/>"><img src="/i/tournament/crpf03/rating.gif" width="55" height="26" border="0"></a>
                 </td>
-                <td align="right" width="100%">
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>">Total Donation</a>
+                <td width="40%" align="right">
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>"><img src="/i/tournament/crpf03/total_donation.gif" width="115" height="26" border="0"></a>
                 </td>
             </tr>
             <rsc:iterator list="<%=donationInfo%>" id="info">
                 <tr>
-                    <td class="tourney_subnav" align="left">
+                    <td class="tourney_subnav" align="center">
                         <rsc:item row="<%=info%>" name="rank" />
                     </td>
                     <td class="tourney_subnav" >
                         <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                     </td>
-                    <td class="tourney_subnav" >
+                    <td class="tourney_subnav"  align="center">
                         <rsc:item row="<%=info%>" name="rating"/>
                     </td>
                     <td class="tourney_subnav" align="right">
