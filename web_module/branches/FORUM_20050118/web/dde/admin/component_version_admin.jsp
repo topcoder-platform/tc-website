@@ -17,6 +17,9 @@
 <%@ page import = "com.topcoder.util.config.*" %>
 <%@ page import = "com.topcoder.servlet.request.*" %>
 
+<%@ page import="com.topcoder.dde.notification.Notification" %>
+<%@ page import="com.topcoder.dde.notification.NotificationHome" %>
+
 <%@ include file="/includes/util.jsp" %>
 <%@ include file="session.jsp" %>
 <%@ include file="/includes/formclasses.jsp" %>
@@ -440,12 +443,12 @@ if (action != null) {
         ver.setPhase(Long.parseLong(phase));
 
 	// qq
-	debug.addMsg("qq phase = "+Long.parseLong(phase) );
+	debug.addMsg("component version admin", "qq phase = "+Long.parseLong(phase) );
 	if (Long.parseLong(phase) == 113) {
 	    try {
 	    	long winnerId = componentManager.getWinnerId(tcSubject);
 		
-		debug.addMsg("winnerId = "+winnerId );
+		debug.addMsg("component version admin","winnerId = "+winnerId );
 		
                 NotificationHome notificationHome = (NotificationHome)
                             PortableRemoteObject.narrow(
@@ -458,7 +461,7 @@ if (action != null) {
 	    	
 	    } catch (Exception e) {
 	        // can't get winner
-	        debug.addMsg(e);
+	        debug.addMsg("component version admin",e);
 	    }
 	}
 	
