@@ -58,16 +58,16 @@
 							
 							<h1 class="devSubhead"><strong>Matrix: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Matrix: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Matrix: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 							<p><strong>Overview</strong><br />
-							The Math Matrix component is designed to give developers the ability to set up and evaluate complex matrices. The matrix provides percentages to evaluate a score based on the total score. The component also handles weighted calculations by line item and groups of line items. This allows a developer to give a higher or lower weight to different parts of the matrix.
+							The Math Math Matrix component is designed to give developers the ability to set up and evaluate complex matrices. The Math Matrix provides percentages to evaluate a score based on the total score. The component also handles weighted calculations by line item and groups of line items. This allows a developer to give a higher or lower weight to different parts of the Math Matrix.
                             </p><p>
-                            An example usage for the complex matrix is the TopCoder Software review scorecards used to evaluate component design and development projects. The scorecards have a series of questions that are grouped by subject area. Each subject area has a weight assigned to it. Each question is a percentage total weight for that group which is a percentage of the total weight for the scorecard.
+                            An example usage for the complex Math Matrix is the TopCoder Software review scorecards used to evaluate component design and development projects. The scorecards have a series of questions that are grouped by subject area. Each subject area has a weight assigned to it. Each question is a percentage total weight for that group which is a percentage of the total weight for the scorecard.
 							</p>
 
 							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the Matrix component.<br />
+							Component Design Project: Provide a complete design for the Math Matrix component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
@@ -122,7 +122,7 @@
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 							
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Matrix: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Matrix: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
