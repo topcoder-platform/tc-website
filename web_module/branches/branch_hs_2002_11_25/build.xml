@@ -100,6 +100,16 @@
       <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
    </target>
 
+  <target name="compile_tests" depends="init">
+    <javac
+      srcdir="${testjava}"
+      destdir="${testclasses}"
+      classpathref="class.path"
+      deprecation="${deprecation}"
+      debug="${debug}">
+    </javac>
+  </target>
+
    <target name="full_deploy" depends="build_ejbs,deploy">
    </target>
 
