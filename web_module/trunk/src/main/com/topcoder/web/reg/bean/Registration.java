@@ -10,8 +10,8 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.servlet.jsp.tag.Demographic;
 import com.topcoder.web.reg.servlet.jsp.tag.Notification;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.NoSuchUserException;
@@ -367,11 +367,9 @@ public class Registration
 
         code = "";
 
-        ResumeServicesHome rHome = null;
         ResumeServices rServices = null;
         try {
-            rHome = (ResumeServicesHome) TCContext.getInitial().lookup(ApplicationServer.RESUME_SERVICES);
-            rServices = rHome.create();
+            rServices = (ResumeServices)BaseProcessor.createEJB((InitialContext)TCContext.getInitial(), ResumeServices.class);
             hasResume = rServices.hasResume(user.getUserId());
         } catch (Exception e) {
             log.error("could not determine if user has a resume or not");
@@ -1918,6 +1916,7 @@ public class Registration
         return true;
     }
 
+/*
     private static String getSunConfirmation(ArrayList confirmList) {
         CoderConfirmation temp = null;
         boolean found = false;
@@ -1932,4 +1931,5 @@ public class Registration
         else
             return null;
     }
+ */
 }

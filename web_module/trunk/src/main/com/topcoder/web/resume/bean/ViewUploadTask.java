@@ -1,10 +1,9 @@
 package com.topcoder.web.resume.bean;
 
 import com.topcoder.web.resume.common.Constants;
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.common.web.data.Navigation;
 
@@ -38,9 +37,7 @@ public class ViewUploadTask extends ResumeTask{
 
     public void processStep(String step) throws Exception {
         Resume resume = null;
-        ResumeServicesHome resumeServicesHome =
-                    (ResumeServicesHome) super.getInitialContext().lookup(ApplicationServer.RESUME_SERVICES);
-        ResumeServices resumeServices = resumeServicesHome.create();
+        ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
         resume = resumeServices.getResume(userId);
         if (resume != null) {
             setHasResume(true);

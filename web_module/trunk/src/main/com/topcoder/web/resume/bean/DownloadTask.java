@@ -1,15 +1,12 @@
 package com.topcoder.web.resume.bean;
 
-import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
 import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.common.web.data.Navigation;
-import com.topcoder.web.resume.common.Constants;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.http.*;
 import javax.servlet.ServletOutputStream;
-import javax.naming.Context;
 
 public class DownloadTask extends ResumeTask{
     private Resume resume = null;
@@ -48,12 +45,8 @@ public class DownloadTask extends ResumeTask{
     }
 
     public void processStep(String step) throws Exception {
-        Context context = null;
         try{
-            context = super.getInitialContext();
-            ResumeServicesHome resumeServicesHome =
-                    (ResumeServicesHome) context.lookup(ApplicationServer.RESUME_SERVICES);
-            ResumeServices resumeServices = resumeServicesHome.create();
+            ResumeServices resumeServices = (ResumeServices)BaseProcessor.createEJB(getInitialContext(), ResumeServices.class);
             resume = resumeServices.getResume(userId);
         }catch(Exception e){
             throw new ResumeTaskException(e);
