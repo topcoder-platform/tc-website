@@ -103,7 +103,7 @@ public class UserListTest extends BaseProcessor {
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
-            if (rs.next()) {
+            if (rs.first()) {
                 ret = new ResultSetContainer(rs);
                 log.error("return contains total of "+ret.size()+" rows.");
                 request.setAttribute("companyUsers",ret);
