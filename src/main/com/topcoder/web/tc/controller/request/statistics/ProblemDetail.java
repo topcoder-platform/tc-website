@@ -23,10 +23,10 @@ public class ProblemDetail extends Base {
 
             r.setProperties(map);
             DataAccessInt dai = getDataAccess(true);
-            Map result = dai.getData(r);
-
-            getRequest().setAttribute("resultMap", result);
-
+            r.setProperty("dn", "1");
+            getRequest().setAttribute("div1Reslts", dai.getData(r));
+            r.setProperty("dn", "2");
+            getRequest().setAttribute("div2Reslts", dai.getData(r));
 
             setNextPage(Constants.PROBLEM_DETAIL);
             setIsNextPageInContext(true);
