@@ -7,8 +7,6 @@ boolean bSorted = sContentHandle.endsWith("_sorted");
 if (bSorted) 
   sContentHandle = sContentHandle.substring(0, sContentHandle.indexOf("_sorted"));
 
-boolean bRequireLogin = sContentHandle.startsWith("round_stats");
-
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get(bSchool?"School_Round_Statistics_Data":"Round_Statistics_Data");
 pageContext.setAttribute("resultSet", rsc2);
 ResultSetContainer.ResultSetRow resultRow_0 = rsc2.isValidRow(0)? rsc2.getRow(0):null;
@@ -63,39 +61,60 @@ if(srb.getProperty("sq")!=null){
   sortString+="&sc=" + srb.getProperty("sc");
   sortString+="&sd=" + srb.getProperty("sd", "desc");  
 }
-%>
+
+String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
+String currSchool = resultRow_0==null?srb.getProperty("hs"):resultRow_0.getItem("school_id").toString();
+ResultSetContainer rdlist = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
+pageContext.setAttribute("resultSetDates", rdlist);
+if(bSchool) {
+  ResultSetContainer hslist = (ResultSetContainer) queryEntries.get("Schools_List");
+  pageContext.setAttribute("resultSetSchools", hslist);
+}
+%>           
 
 <%@ include file="body.inc" %>
 
          <!-- BEGIN BODY -->
+
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
            <TR>
              <TD   VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"></TD>
              <TD COLSPAN="2" VALIGN="top"   WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
-<%
-String currRound = resultRow_0==null?srb.getProperty("rd"):resultRow_0.getItem("round_id").toString();
-if (bRequireLogin){
-ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Rounds_By_Date");
-pageContext.setAttribute("resultSetDates", rsc);
-%>           
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
                    <TD COLSPAN="4"  CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>  
-        <TR>
+                 <TR>
                    <TD COLSPAN="4"  CLASS="statText">
-                     <SPAN CLASS="statText"><B>Please select a round:</B><BR/></SPAN>
+                     <SPAN CLASS="statText"><B>Select round:</B><BR/></SPAN>
                      <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown">
-           <OPTION value="#">Select a Round:</OPTION>
-         <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
-         <% if (resultRow.getItem(0).toString().equals(currRound)) { %>
-           <OPTION value="/?module=Statistics&c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" selected><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
-               <% } else { %>
-           <OPTION value="/?module=Statistics&c=round_stats&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>"><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
-        <% } %>   
-        </logic:iterate>
-           </SELECT>
+                       <OPTION value="#">Select a Round:</OPTION>
+                       <logic:iterate name="resultSetDates" id="resultRow" type="ResultSetContainer.ResultSetRow">
+                         <OPTION value="/?module=Statistics&c=<%=sContentHandle%><%=bSchool?"&hs="+currSchool:""%>&rd=<bean:write name="resultRow" property='<%= "item[" + 0 /* id */ + "]" %>'/>" <%= (resultRow.getItem(0).toString().equals(currRound)) ? "SELECTED" : ""%> ><bean:write name="resultRow" property='<%= "item[" + 3 /* match name */ + "]" %>'/> > <bean:write name="resultRow" property='<%= "item[" + 1 /* round name */ + "]" %>'/></OPTION>
+                       </logic:iterate>
+                     </SELECT>
+                   </TD>
+                 </TR>
+                 <TR>
+                   <TD COLSPAN="4"  CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                 </TR>      
+               </TABLE>
+
+<% if(bSchool) { %>
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
+                 <TR>
+                   <TD COLSPAN="4"  CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                 </TR>  
+                 <TR>
+                   <TD COLSPAN="4"  CLASS="statText">
+                     <SPAN CLASS="statText"><B>Select school:</B><BR/></SPAN>
+                     <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown">
+                       <OPTION value="#">Select a School:</OPTION>
+                       <logic:iterate name="resultSetSchools" id="resultRow" type="ResultSetContainer.ResultSetRow">
+                         <OPTION value="/?module=Statistics&c=<%=sContentHandle%>&rd=<%=currRound%>&hs=<bean:write name="resultRow" property='<%= "item[" + 0 /* school_id */ + "]" %>'/>" <%= (resultRow.getItem(0).toString().equals(currSchool)) ? "SELECTED" : ""%> ><bean:write name="resultRow" property='<%= "item[" + 1 /* school full_name */ + "]" %>'/></OPTION>
+                       </logic:iterate>
+                     </SELECT>
                    </TD>
                  </TR>
                  <TR>
@@ -103,14 +122,14 @@ pageContext.setAttribute("resultSetDates", rsc);
                  </TR>      
                </TABLE>
 <% } %>
+
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0"   WIDTH="100%">
                  <TR>
                    <TD  COLSPAN="16"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
-
 <% if (resultRow_0==null) { %>
     <TR>
-      <TD CLASS="statText" COLSPAN="16" align="left">There were no coders from XXX in this round.</TD>
+      <TD CLASS="statText" COLSPAN="16" align="left">No coders from the specified school competed in this round.</TD>
     </TR>
 <% } else {
      pageContext.setAttribute("roomId",resultRow_0.getItem(4));
@@ -133,13 +152,13 @@ pageContext.setAttribute("resultSetDates", rsc);
          <% if (!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
          <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
         <% if ((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
-          <a href="/?module=Statistics&c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+          <a href="/?module=Statistics&c=<%=sContentHandle%><%=bSorted?"_sorted":""%><%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
         <% } else { %>
           &lt;&lt; previous  
         <% } %>
           &nbsp;|&nbsp;
         <% if ((!bSorted && bHasNextScroll) || rsc2.croppedDataAfter()) { %>
-          <a href="/?module=Statistics&c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
+          <a href="/?module=Statistics&c=<%=sContentHandle %><%=bSorted?"_sorted":""%><%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
         <% } else { %>
            next &gt;&gt;           
         <% } %>
@@ -153,36 +172,36 @@ pageContext.setAttribute("resultSetDates", rsc);
                  <TR VALIGN="middle">    
                    <TD BGCOLOR="#1B2E5D"  WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" WIDTH="15%" HEIGHT="18">
-             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coders</A>
+             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=0&sd=<%= "0".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coders</A>
            </TD>  
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coding<br>Phase</A>
+             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=7&sd=<%= "7".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Coding<br>Phase</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREf="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Challenge<br>Phase</A>
+             <A HREf="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Challenge<br>Phase</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=9&sd=<%= "9".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Testing<br>Phase</A>
+             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=9&sd=<%= "9".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Testing<br>Phase</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">=</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREf="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Final<br>Points</A>
+             <A HREf="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=10&sd=<%= "10".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Final<br>Points</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
              Adv.
            </TD>  
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Old<br>Rating</A>
+             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=12&sd=<%= "12".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Old<br>Rating</A>
            </TD>
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">+</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Rating<br>Change</A>
+             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=13&sd=<%= "13".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">Rating<br>Change</A>
            </TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">=</TD>    
                    <TD BGCOLOR="#1B2E5D" CLASS="statText" ALIGN="center">
-             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=14&sd=<%= "14".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">New<br>Rating</A>
+             <A HREF="/?module=Statistics&c=<%=sContentHandle%>_sorted<%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound%>&sq=Round_Statistics_Data&sc=14&sd=<%= "14".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" CLASS="statText">New<br>Rating</A>
            </TD>    
                    <TD BGCOLOR="#1B2E5D" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
@@ -246,13 +265,13 @@ pageContext.setAttribute("resultSetDates", rsc);
            <% if (!bSorted || (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter())) { %>
          <TR valign="middle"><TD CLASS="statText" BACKGROUND="/i/hs/blue_heading_bg.gif" COLSPAN="16" HEIGHT="16" align="center">
         <% if ((!bSorted && !sStartRow.equals("1")) || rsc2.croppedDataBefore()) { %>
-          <a href="/?module=Statistics&c=<%=sContentHandle%><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
+          <a href="/?module=Statistics&c=<%=sContentHandle%><%=bSorted?"_sorted":""%><%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("prev_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">&lt;&lt; previous</a>   
         <% } else { %>
           &lt;&lt; previous  
         <% } %>
           &nbsp;|&nbsp;
         <% if ((!bSorted && bHasNextScroll) || rsc2.croppedDataAfter()) { %>
-          <a href="/?module=Statistics&c=<%=sContentHandle %><%=bSorted?"_sorted":""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
+          <a href="/?module=Statistics&c=<%=sContentHandle %><%=bSorted?"_sorted":""%><%=bSchool?"&hs="+currSchool:""%>&rd=<%=currRound %>&s<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_s").toString() %>&e<%=bSorted?"r":"m"%>=<%=pageContext.getAttribute("next_e").toString() %>&n<%=bSorted?"r":"m"%>=<%=sNumRow%><%=sortString%>" class="statText">next &gt;&gt;</a>
         <% } else { %>
            next &gt;&gt;           
         <% } %>

@@ -110,7 +110,7 @@ pageContext.setAttribute("resultSetDates", rsc);
               <A HREF="/?module=Statistics&c=member_profile&cr=<%= coderIDs[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= coders[j][i] %></A>
             </TD>
             <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText">
-              <A HREF="/?module=Statistics&c=hs_round_stats&hs=<%= hsids[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= schools[j][i] %></A>
+              <A HREF="/?module=Statistics&c=school_round_stats&rd=<%= currRound %>&hs=<%= hsids[j][i] %>" CLASS="<bean:write name="nameColor" property='<%= "style[" + ratings[j][i] + "]" %>'/>"><%= schools[j][i] %></A>
             </TD>
             <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="right"><%= scores[j][i] %> &#160;&#160;</TD>
             <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="statText" ALIGN="center">&#160;<%= rooms[j][i] %></TD>

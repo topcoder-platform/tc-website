@@ -53,7 +53,7 @@
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=round_stats" CLASS="sidenav">Round Stats</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=room_stats" CLASS="sidenav">Room Stats</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=coder_room_stats" CLASS="sidenav">Problem Stats</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=problem_statment" CLASS="sidenav">Problem Statement</A><BR/>
+ 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=problem_statement" CLASS="sidenav">Problem Statement</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=problem_solution" CLASS="sidenav">Problem Solution</A><BR/>
  		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="/?module=Statistics&c=member_profile&cr=<jsp:getProperty name="SessionInfo" property="UserId" />" CLASS="sidenav">Member Profile</A><BR/>
 

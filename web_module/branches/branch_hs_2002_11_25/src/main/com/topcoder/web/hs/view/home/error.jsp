@@ -40,7 +40,9 @@
 <h3>Message: <%= message %></h3>
 <% }
    if(exception==null) exception = (Exception)request.getAttribute("exception");
-   if(exception!=null) { %>
+   if(exception!=null) {
+     exception.printStackTrace();
+ %>
 <h3>Exception: <%= exception.toString() %></h3>
 <h3>Trace:</h3>
 <p><pre> <% exception.printStackTrace(new PrintWriter(out)); %> </pre></p>
