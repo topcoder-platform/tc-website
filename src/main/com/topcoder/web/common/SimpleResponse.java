@@ -50,4 +50,8 @@ public class SimpleResponse implements TCResponse {
     public void setContentType(String type) {
         response.setContentType(type);
     }
+
+    public void flushBuffer() throws IOException {
+        response.flushBuffer();
+    }
 }
