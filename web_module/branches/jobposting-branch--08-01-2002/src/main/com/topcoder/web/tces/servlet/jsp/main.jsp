@@ -83,7 +83,7 @@
                   </TD>
                   <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                   <TD class="statText">
-                    <b><A HREF="/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=(String)campaignInfo.get("campaign_id")%>" class="statText"><%=(String)campaignInfo.get("status_desc")%></A></b>
+                    <b><A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=(String)campaignInfo.get("campaign_id")%>" class="statText"><%=(String)campaignInfo.get("status_desc")%></A></b>
                   </TD>
                 </TR>
 
