@@ -66,7 +66,7 @@ return false;
     <script language="javascript">
         function goToPage(s)
         {
-            document.frmPref.module = s;
+            document.frmPref.module.value = s;
             document.frmPref.submit();
         }
     </script>
