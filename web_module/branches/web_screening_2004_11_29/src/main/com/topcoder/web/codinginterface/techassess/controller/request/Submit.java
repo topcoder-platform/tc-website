@@ -24,6 +24,7 @@ public class Submit extends Base {
 
             long componentId = 0;
             int problemTypeId = 0;
+            boolean forceSubmit = false;
 
             if (hasParameter(Constants.COMPONENT_ID)) {
                 componentId = Long.parseLong(getRequest().getParameter(Constants.COMPONENT_ID).trim());
@@ -58,6 +59,7 @@ public class Submit extends Base {
                         new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
                         new String[] {String.valueOf(problemTypeId), String.valueOf(componentId)}));
             } else if (response.getStatus()==ScreeningSubmitResponse.RESUBMIT) {
+                addError(Constants.CODE, response.getMessage());
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_SUBMIT_RESPONSE,
                         new String[] {Constants.PROBLEM_TYPE_ID, Constants.COMPONENT_ID},
                         new String[] {String.valueOf(problemTypeId), String.valueOf(componentId)}));

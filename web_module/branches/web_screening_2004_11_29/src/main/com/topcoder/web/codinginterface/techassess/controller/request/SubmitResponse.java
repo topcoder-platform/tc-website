@@ -15,6 +15,7 @@ public class SubmitResponse extends Base {
                     new String[]{Constants.COMPANY_ID}, new String[]{String.valueOf(getCompanyId())}));
             setIsNextPageInContext(false);
         } else {
+            loadSessionErrorsIntoRequest(getRequest().getParameter(Constants.MESSAGE_ID));
             setDefault(Constants.PROBLEM_TYPE_ID, getRequest().getParameter(Constants.PROBLEM_TYPE_ID));
             setDefault(Constants.COMPONENT_ID, getRequest().getParameter(Constants.COMPONENT_ID));
             setNextPage(Constants.PAGE_SUBMIT_CONFIRM);
