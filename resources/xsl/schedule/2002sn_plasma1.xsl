@@ -13,7 +13,7 @@
 <DIV ALIGN="center">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 	<TR>
-		<TD WIDTH="300" BGCOLOR="#FFFFFF"><IMG SRC="/i/sun_applet2.gif" ALT="" WIDTH="300" HEIGHT="50" BORDER="0" VSPACE="10"/></TD>
+		<TD WIDTH="300" BGCOLOR="#FFFFFF"><IMG SRC="/i/sun_applet2.png" ALT="" WIDTH="300" HEIGHT="50" BORDER="0" VSPACE="10"/></TD>
 		<TD ALIGN="center" BGCOLOR="#000000"><B><FONT SIZE="7" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">SunNetwork&#160;Coding&#160;Challenge</FONT></B></TD>
 	</TR>
 </TABLE>
@@ -78,3 +78,4 @@
     </HTML>
   </xsl:template>
 </xsl:stylesheet>    
+
