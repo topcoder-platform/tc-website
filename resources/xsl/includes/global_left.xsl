@@ -1104,14 +1104,14 @@
           <td id="leftSubnav">
             <xsl:attribute name="id">
               <xsl:choose>
-                <xsl:when test="$level2='app_projects'">leftSubnavOn</xsl:when>
+                <xsl:when test="$level2='applications'">leftSubnavOn</xsl:when>
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
               </xsl:choose>
             </xsl:attribute>
             <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Applications:</A>
           </td>
         </tr>
-            <xsl:if test="$level2='components'">
+            <xsl:if test="$level2='applications'">
 
     <!-- Open Projects -->
                     <tr>
