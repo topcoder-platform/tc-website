@@ -109,12 +109,12 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="top"></TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="center"><INPUT TYPE="checkbox" NAME="update_password" VALUE="true" ONCHANGE="Javascript:togglePassword();" CHECKED>&nbsp;Change password</TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="center"><INPUT TYPE="checkbox" NAME="update_password" VALUE="true" ONCHANGE="Javascript:togglePassword();" <%=student.getChangePassword()?"CHECKED":""%>>&nbsp;Change password</TD>
   </TR>
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Password&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="password" VALUE="<jsp:getProperty name="student" property="Password"/>" SIZE="30" MAXLENGTH="15"></TD>
+   <TD CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="password" VALUE="<jsp:getProperty name="student" property="Password"/>" SIZE="30" MAXLENGTH="15" <%=student.getChangePassword()?"":"DISABLED"%>></TD>
    <TD CLASS="bodyText" ALIGN="left" VALIGN="top">&nbsp;</TD>
   </TR>
   <TR>
@@ -127,7 +127,7 @@
   <TR ALIGN="right" VALIGN="middle">
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">Re-type Password&nbsp;</TD>
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="confirm_password" VALUE="<jsp:getProperty name="student" property="ConfirmPassword"/>" SIZE="30" MAXLENGTH="15"></TD>
+   <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><INPUT TYPE="password" NAME="confirm_password" VALUE="<jsp:getProperty name="student" property="ConfirmPassword"/>" SIZE="30" MAXLENGTH="15" <%=student.getChangePassword()?"":"DISABLED"%>></TD>
   </TR>
   <TR>
    <TD CLASS="bodyText" ALIGN="right" VALIGN="middle">&nbsp;</TD>
@@ -232,6 +232,16 @@
    document.regForm.action="#state";
    document.regForm.cmd.value="";
    document.regForm.submit();
+  }
+  function togglePassword() {
+   if (document.regForm.change_password.checked==true) {
+    document.regForm.password.disabled=false;
+    document.regForm.confirm_password.disabled=false;
+   }
+   else {
+    document.regForm.password.disabled=true;
+    document.regForm.confirm_password.disabled=true;
+   }
   }
   function submitForm() {
    document.regForm.submit();
