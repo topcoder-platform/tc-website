@@ -110,13 +110,10 @@
                 <TD CLASS="statText">
                     <A>
                       <xsl:attribute name="HREF">stat?c=member_profile&amp;cr=<xsl:value-of select="user_id"/></xsl:attribute>
-                      <xsl:attribute name="CLASS">statText</xsl:attribute>
-                      <FONT>
-                        <xsl:attribute name="color">
-                          <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                      <xsl:attribute name="CLASS">
+                          <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                         </xsl:attribute>
                         <xsl:value-of select="handle"/>
-                      </FONT>
                     </A>
                   </TD>
                 <TD CLASS="statText" ALIGN="right"><xsl:value-of select="point_total"/></TD>

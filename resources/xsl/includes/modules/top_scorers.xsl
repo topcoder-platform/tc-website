@@ -30,14 +30,12 @@
                     <td align="right" class="statText">&#160;<xsl:value-of select="rank"/>.&#160;&#160;</td>
                     <td align="left" class="statText"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;cr=<xsl:value-of select="coder_id"/>&amp;rd=<xsl:value-of select="round_id"/>&amp;rm=<xsl:value-of select="room_id"/></xsl:attribute><xsl:value-of select="room_name"/></A></td>
                     <td align="left" class="statText">
-                        <A class="statText">
+                        <A>
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                        <font>
-                        <xsl:attribute name="color">
-                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                        <xsl:attribute name="class">
+                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                         </xsl:attribute>
                         <xsl:value-of select="handle"/>
-                        </font>
                         </A>
                     </td>
                     <td align="right" class="statText"><xsl:value-of select="final_points"/>&#160;</td>
@@ -51,14 +49,12 @@
                     <td align="right" class="statText">&#160;<xsl:value-of select="rank"/>.&#160;&#160;</td>
                     <td align="left" class="statText"><A class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=coder_room_stats&amp;cr=<xsl:value-of select="coder_id"/>&amp;rd=<xsl:value-of select="round_id"/>&amp;rm=<xsl:value-of select="room_id"/></xsl:attribute><xsl:value-of select="room_name"/></A></td>
                     <td align="left" class="statText">
-                        <A class="statText">
+                        <A>
                         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=member_profile&amp;cr=<xsl:value-of select="coder_id"/></xsl:attribute>
-                        <font>
-                        <xsl:attribute name="color">
-                        <xsl:call-template name="GetRatingColor"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
+                        <xsl:attribute name="class">
+                        <xsl:call-template name="GetRatingClass"><xsl:with-param name="rating"><xsl:value-of select="rating"/></xsl:with-param></xsl:call-template>
                         </xsl:attribute>
                         <xsl:value-of select="handle"/>
-                        </font>
                         </A>
                     </td>
                     <td align="right" class="statText"><xsl:value-of select="final_points"/>&#160;</td>
