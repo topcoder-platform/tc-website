@@ -53,7 +53,7 @@
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>          
           <P>
             <CENTER><IMG SRC="/i/invit02_logow.gif" HEIGHT="105" WIDTH="155"/></CENTER><BR/><BR/>
-            Congratulations on advancing to Online Round #4 of the 2002 TopCoder Invitational!  You are one of the 64 finalists eligible to receive a cash prize of at least $500.  In order to receive your prize, you MUST complete and return all of the following 5 items by Monday, October 28th at 12:00PM EST:  IF WE DO NOT RECEIVE ALL OF THESE ITEMS BY 12:00PM EST ON MONDAY, OCTOBER 28, 2002, YOU WILL FORFEIT YOUR PRIZE.
+            Congratulations on advancing to Online Round #4 of the 2002 TopCoder Invitational!  You are one of the 64 finalists eligible to receive a cash prize of at least $500.  In order to receive your prize, you MUST complete and return all of the following 5 items by Monday, October 28th at 12:00PM EST:  IF WE DO NOT RECEIVE ALL OF THESE ITEMS BY 12:00PM EST ON MONDAY, OCTOBER 28, 2002, YOU WILL FORFEIT YOUR PRIZE AND YOUR SPOT IN THE TOURNAMENT.
             <BR/>
             <BR/>
             <ol>
