@@ -240,7 +240,7 @@ public class ProfileInfo extends BaseModel {
 
     public Long[] getLanguage()
     {
-        return (Long [])language.toArray(new Long [testSetB.size()]);
+        return (Long [])language.toArray(new Long [language.size()]);
     }
 
     public boolean isSelectedTestSetA(String aRoundId)

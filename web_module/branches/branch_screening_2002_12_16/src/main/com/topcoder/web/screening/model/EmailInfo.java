@@ -85,7 +85,7 @@ public class EmailInfo extends BaseModel {
      */
     public String getMsgText() {
         if(sessionInfo == null) return null;
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM dd yyyy haa");
+        SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
         msgText.append("Dear Candidate:\n");
         msgText.append("Thank you for your interest in working at ");

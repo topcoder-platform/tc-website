@@ -82,7 +82,7 @@ document.sessionConfirmForm.submit();
               <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="sessionInfo" property="beginDay" />" >
               <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="sessionInfo" property="beginYear" />" >
               <input type="HIDDEN" name="beginHour" value="<jsp:getProperty name="sessionInfo" property="beginHour" />" >
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:beanWrite name="sessionInfo" property="beginDate" format="MMM dd yyyy haa" /></TD>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:beanWrite name="sessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></TD>
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>End:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -90,8 +90,8 @@ document.sessionConfirmForm.submit();
               <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="sessionInfo" property="endDay" />" >
               <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="sessionInfo" property="endYear" />" >
               <input type="HIDDEN" name="endHour" value="<jsp:getProperty name="sessionInfo" property="endHour" />" >
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:beanWrite name="sessionInfo" property="endDate" format="MMM dd yyyy haa" /></TD>
-           </TR>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:beanWrite name="sessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></TD>
+           </TR>           
            <TR>
               <TD></TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
