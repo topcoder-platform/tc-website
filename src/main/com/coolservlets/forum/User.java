@@ -56,6 +56,7 @@
 
 package com.coolservlets.forum;
 
+
 /**
  * The User interface provides information about and services for users
  * of the forum system. Users can be identified by a unique id or username.
@@ -71,7 +72,6 @@ package com.coolservlets.forum;
  * <p>
  * Security for User objects is provide by UserProxy protection proxy objects.
  *
- * @see Group
  */
 public interface User {
    
