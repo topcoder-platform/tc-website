@@ -32,8 +32,8 @@ if ( MM_FlashCanPlay ) {
        document.write('<OBJECT classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000"');
 	document.write('  codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0" ');
 	document.write(' ID="bracket" WIDTH="170" HEIGHT="150" ALIGN="top">');
-	document.write(' <PARAM NAME=movie VALUE="/i/promos/software_dev_promo.swf?currentTotal=1523"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
-	document.write(' <EMBED src="/i/promos/software_dev_promo.swf?currentTotal=1523" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
+	document.write(' <PARAM NAME=movie VALUE="/i/promos/software_dev_promo.swf?currentTotal=35,123"> <PARAM NAME=menu VALUE=false> <PARAM NAME=quality VALUE=high> <PARAM NAME=salign VALUE=T> <PARAM NAME=bgcolor VALUE=#FFFFFF>  '); 
+	document.write(' <EMBED src="/i/promos/software_dev_promo.swf?currentTotal=35,123" menu=false quality=high salign=T bgcolor=#FFFFFF  ');
 	document.write(' swLiveConnect=TRUE WIDTH="170" HEIGHT="150" NAME="bracket" ALIGN="top"');
 	document.write(' TYPE="application/x-shockwave-flash" PLUGINSPAGE="http://www.macromedia.com/go/getflashplayer">');
 	document.write(' </EMBED>');

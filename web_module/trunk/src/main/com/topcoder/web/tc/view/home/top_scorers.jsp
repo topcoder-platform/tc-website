@@ -7,67 +7,67 @@
             </table>
             <table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#333333">
                 <tr valign="middle">
-                    <td align="center" background="/i/graybv_lite_bg.gif" class="statText">&#160;Rank</td>        
-                    <td align="left" background="/i/graybv_lite_bg.gif" class="statText">Room</td>
-                    <td align="left" background="/i/graybv_lite_bg.gif" class="statText">Handle</td>
-                    <td align="right" background="/i/graybv_lite_bg.gif" class="statText">Final&#160;Pts&#160;</td>
+                    <td align="center" background="/i/graybv_lite_bg.gif" class="statText" width="10%">&#160;Rank</td>        
+                    <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="30%">Room</td>
+                    <td align="left" background="/i/graybv_lite_bg.gif" class="statText" width="30%">Handle</td>
+                    <td align="right" background="/i/graybv_lite_bg.gif" class="statText" width="30%">Final&#160;Pts&#160;</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleEven">1</td>
+                    <td align="right" class="formHandleEven">1.</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleEven" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleOdd">2</td>
+                    <td align="right" class="formHandleOdd">2.</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleOdd" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleEven">3</td>
+                    <td align="right" class="formHandleEven">3.</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleEven" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleOdd">4</td>
+                    <td align="right" class="formHandleOdd">4.</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleOdd" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleEven">5</td>
+                    <td align="right" class="formHandleEven">5.</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleEven" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleOdd">6</td>
+                    <td align="right" class="formHandleOdd">6.</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleOdd" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleEven">7</td>
+                    <td align="right" class="formHandleEven">7.</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleEven" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleOdd">8</td>
+                    <td align="right" class="formHandleOdd">8.</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleOdd" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleEven">9</td>
+                    <td align="right" class="formHandleEven">9.</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleEven" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleEven" nowrap="nowrap">Points</td>
                 </tr>
                 <tr>
-                    <td align="center" class="formHandleOdd">10</td>
+                    <td align="right" class="formHandleOdd">10.</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Room</td>
                     <td align="left" class="formHandleOdd" nowrap="nowrap">Handle</td>
                     <td align="right" class="formHandleOdd" nowrap="nowrap">Points</td>
