@@ -133,7 +133,7 @@ function submitUpdate() {
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
               <% } %>
-
+              <% if (!profile.getTestSetBList().isEmpty()) { %>
                 <tr><td class="testTableTitle" colspan="6">Test Set B</td></tr>
 
                 <tr>
@@ -160,6 +160,7 @@ function submitUpdate() {
                 </screen:listIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
+                <% } %>
 
                 <tr>
                     <td class="testTableTitle" colspan="6">Available Languages</td>
