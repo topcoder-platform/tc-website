@@ -23,7 +23,6 @@ public class RequestTracker {
 
     private static final User GUEST = SimpleUser.createGuest();
     private static final int BATCH_PERIOD = 60 * 1000;
-    private static final int SESSION_ID_LENGTH = 50;
 
     private static Queue q = new Queue();
 
@@ -90,12 +89,19 @@ public class RequestTracker {
             }
             try {
                 //log.debug("begin request batch load");
+                String sessionId = null;
                 for (Iterator it = a.iterator(); it.hasNext();) {
                     UserRequest r = (UserRequest) it.next();
+                    if (ApplicationServer.SESSION_ID_LENGTH>0) {
+                        sessionId = r.sessionId.substring(0, ApplicationServer.SESSION_ID_LENGTH);
+                    }
                     if (r.userId == GUEST.getId()) {
-                        createRequest(r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        createRequest(r.url, new Timestamp(r.time),
+                                sessionId,DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     } else {
-                        createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        createRequest(r.userId, r.url, new Timestamp(r.time),
+                                sessionId,
+                                DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     }
                 }
                 //log.debug("end request batch load");
@@ -110,7 +116,8 @@ public class RequestTracker {
 
 
 
-    protected static void createRequest(long userId, String url, Timestamp time, String sessionId, String dataSource) {
+    protected static void createRequest(long userId, String url, Timestamp time,
+                                        String sessionId, String dataSource) {
         log.debug("createRequest called. url: " + url
                 + " userId: " + userId + " time: " + time + " session: " + sessionId);
 
