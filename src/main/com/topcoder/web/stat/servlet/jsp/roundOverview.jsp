@@ -61,7 +61,7 @@
     String scores[][] = new String[divisions][topN];
     String rooms[][] = new String[divisions][topN];
     int lastDivisionID = -1;
-    int divisionPtr = 0;
+    int divisionPtr = -1;
     for(int i = 0; i<leaders.size();i++){
         currentRow = leaders.getRow(i);
         int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString());
