@@ -94,6 +94,10 @@ public class MultipartRequest implements TCRequest {
         return request.getProtocol();
     }
 
+    public void removeAttribute(java.lang.String name) {
+        request.removeAttribute(name);
+    }
+
     public String[] getFormFileNames() {
         ArrayList al = new ArrayList();
         Iterator it = file.getFormFileNames();

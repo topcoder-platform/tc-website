@@ -72,4 +72,8 @@ public class SimpleRequest implements TCRequest {
     public String getProtocol() {
         return request.getProtocol();
     }
+
+    public void removeAttribute(String name) {
+        request.removeAttribute(name);
+    }
 }
