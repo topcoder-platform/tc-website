@@ -69,9 +69,9 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4225&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 101</A></TD>						
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4225&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, June 26</A></TD>
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4225&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
+				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 97</A></TD>						
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, June 19</A></TD>
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4210&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
             </TR>           
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
@@ -83,7 +83,7 @@
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR> -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 100 - June 24, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 97 - June 12, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -109,43 +109,40 @@
 -->
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=277659" CLASS="bodyGeneric">radeye</A>
- wins room 2 with 1583.59 points, the highest score in Division-I.  <B>radeye</B> added 50 points to 
-an already impressive score with a successful challenge of 
-<A HREF="/stat?c=member_profile&amp;cr=153902" CLASS="bodyGeneric">evd</A>'s level two submission.  As a result, 
-<B>radeye</B> gained 177 rating points. 
+<A HREF="/stat?c=member_profile&amp;cr=260835" CLASS="bodyGeneric">reid</A>
+ won Room One with 1510.98 final points, and added 89 points to his rating.  
+That increased his rating to 3064, which made him the third member to eclipse the 
+3000 rating point mark.  <B>reid</B> earned 323.70 on the Level One problem, 325.62 on the Level 
+Two problem, and 861.66 on the Level Three problem. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=262902" CLASS="bodyGeneric">ZandMaster</A>
- surprised room 3, edging past favorite <A HREF="/stat?c=member_profile&amp;cr=158067" CLASS="bodyGeneric">KurtSteinkraus</A>
- and winning the room with 1096.41 points. 
+<A HREF="/stat?c=member_profile&amp;cr=279471" CLASS="bodyGeneric">haha</A>
+ got the last laugh in Room 12 by earning 654.76 final points for the win.  He added 
+246 points to his rating, increasing it from 1559 to 1805.  <B>haha</B> earned 105.00 on the Level 
+One problem and 549.76 on the Level Three problem in the "Coding Phase".  He added 50 points 
+with a successful challenge of the Level One submission of 
+<A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A>, but then lost those 50 
+points with an unsuccessful challenge of the Level One submission of 
+<A HREF="/stat?c=member_profile&amp;cr=260967" CLASS="bodyGeneric">codePony</A>. 
 </P>
 
 <P>
-In room 4, <A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="bodyGeneric">kalmes</A>
- turned in a 1080.65 point victory, and with a rating increase of 115 points, an 
-induction into the red rating group. 
+<A HREF="/stat?c=member_profile&amp;cr=286951" CLASS="bodyGeneric">RobertLu</A>
+ won Room 20 with 1113.10 final points, and added 514 rating points, which is the 
+second largest gain ever in Division-I 
+(<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="bodyGeneric">View the list of Division-I Rating Point Gains</A>).  
+He earned 1213.10 in the "Coding Phase" by coding the Level One problem for 274.69 points, 
+the Level Two problem for 265.96, and the Level Three problem for 672.45.  During a very 
+active "Challenge Phase", <B>RobertLu</B> added 50 points with a successful challenge of the Level 
+One submission of <A HREF="/stat?c=member_profile&amp;cr=262235" CLASS="bodyGeneric">darler</A>, 
+but lost 150 points with three unsuccessful challenges of the 
+Level One submissions of 
+<A HREF="/stat?c=member_profile&amp;cr=284386" CLASS="bodyGeneric">Goron</A>, 
+<A HREF="/stat?c=member_profile&amp;cr=159995" CLASS="bodyGeneric">tommyv</A>, 
+and <A HREF="/stat?c=member_profile&amp;cr=288231" CLASS="bodyGeneric">skelter</A>.
 </P>
 
-<P>
-<A HREF="/stat?c=member_profile&amp;cr=272761" CLASS="bodyGeneric">jdev</A>, 
-in room 8, managed to score enough points (1092.64) to have won either room 4 or room 5.  All 
-of <B>jdev</B>'s points came from the coding phase. 
-</P>
-
-<P>
-In room 29 <A HREF="/stat?c=member_profile&amp;cr=269879" CLASS="bodyGeneric">maximuscranius</A>
-, netting 200 points off of six challenges, wins second place in the room 
-with a final score comprised entirely of challenge points.  Interestingly, <B>maximuscranius</B> receives 
-a modest rating point boost in addition to a second place win. 
-</P>
-
-<P>
-In room 17 <A HREF="/stat?c=member_profile&amp;cr=265504" CLASS="bodyGeneric">coderlemming</A>
-, the clear favorite to win the room going into the system-testing phase was 
-demolished by the system tests, losing all points acquired during the coding phase. 
-</P>
 
                  </TD>
             </TR>             
@@ -154,33 +151,33 @@ demolished by the system tests, losing all points acquired during the coding pha
             <TR><TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="2" BORDER="0"/></TD></TR>
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
-              
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=290274" CLASS="bodyGeneric">Min,lu</A>
-, participating as a first-timer in room 68, posted the highest score in Division-II.  
-With a final score of 1262.55, <B>Min,lu</B> surpassed the next highest Division-II point 
-total by almost 300 points - despite losing 50 points during the challenge phase.  
-With a debut rating of 1845, <B>Min,lu</B> now has the 12th highest rating debut ever (<A HREF="/stat?c=impressive_debuts" CLASS="bodyGeneric">View the list of Impressive Debuts</A>). 
+<A HREF="/stat?c=member_profile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>
+ won Room 35 with a Division-II high 1441.31 final points.  He earned 255.76 
+points on the Level One problem, 436.91 on the Level Two problem, and 748.64 on the 
+Level Three problem.  <A HREF="/stat?c=member_profile&amp;cr=276132" CLASS="bodyGeneric">mzuckerberg</A>
+ tried to challenge the Level Three submission of <A HREF="/stat?c=member_profile&amp;cr=279888" CLASS="bodyGeneric">shelby</A>, 
+but to no avail.  <B>shelby</B> gained 211 rating points, increasing his total from 1073 to 1284, 
+and changing his rating color from green to blue. 
 </P>
 
 <P>
-In room 56, <A HREF="/stat?c=member_profile&amp;cr=272084" CLASS="bodyGeneric">glenn374</A>
- submitted an amazing 11 challenges during the challenge phase.  
-With nine of the challenges being successful, <B>glenn374</B> added 350 points, more then 
-doubling the 198.20 points that had been achieved during the coding phase. 
+<A HREF="/stat?c=member_profile&amp;cr=284374" CLASS="bodyGeneric">robd</A>
+ used two challenges for a come-from-behind win in Room 48.  <B>robd</B> earned 562.94 points 
+in the "Coding Phase", good enough for fifth place in the room.  In the "Challenge Phase" 
+<B>robd</B> added 100 points with two successful challenges of the Level Two submissions of 
+<A HREF="/stat?c=member_profile&amp;cr=285061" CLASS="bodyGeneric">mandersen</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=269210" CLASS="bodyGeneric">mostwanted</A>. 
 </P>
 
 <P>
-As a result of SRM 100, nine Division-II coders and 11 first-timers crossed over into Division-I.  
+<A HREF="/stat?c=member_profile&amp;cr=276852" CLASS="bodyGeneric">micro</A>
+ won Room 54 with 1272.05 final points, and added 228 points to his rating, the most 
+for the match in Division-II.  <B>micro</B> coded all three problems for 1372.05 points in the 
+"Coding Phase", but lost 100 points with two unsuccessful challenges of the Level Two 
+submissions of <A HREF="/stat?c=member_profile&amp;cr=273136" CLASS="bodyGeneric">Scorpion1976</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=286067" CLASS="bodyGeneric">wonton</A>.
 </P>
-
-<P>
-<A HREF="/stat?c=member_profile&amp;cr=286283" CLASS="bodyGeneric">mushina</A>
-, participating for the third time, posted 727.06 points in room 49 - enough 
-to both win the room and rocket up 280 rating points.
-</P>
-
-
 
           </TD>
             </TR>            
@@ -214,8 +211,8 @@ to both win the room and rocket up 280 rating points.
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm100" TARGET="_blank"><IMG SRC="/i/motorola_sidebar1.gif" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A>
-<!-- <A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=match_summary','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A> -->
+<!-- <A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm92"><IMG SRC="/i/motorola_sidebar.gif" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A>
+<A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=match_summary','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A> -->
     
 <!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
