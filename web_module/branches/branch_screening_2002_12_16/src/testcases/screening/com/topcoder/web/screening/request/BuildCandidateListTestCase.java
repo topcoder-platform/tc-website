@@ -4,6 +4,8 @@ package com.topcoder.web.screening.request;
 import junit.framework.TestCase;
 import javax.servlet.*;
 
+import com.topcoder.web.test.wsf.WebSiteFlowTest;
+
 import com.meterware.httpunit.*;
 import org.xml.sax.*;
 import org.w3c.dom.*;
@@ -109,6 +111,19 @@ public class BuildCandidateListTestCase extends TestCase {
         } catch(Exception e) {
         	fail("testViewButton() failed with exception " + e);
         }		
+	}
+	
+	public void testCandidateListWSF() {
+		WebSiteFlowTest wsf = new WebSiteFlowTest();
+		boolean bOk;
+		
+		try {
+			wsf.init();
+			bOk = wsf.testPage("TCProblemResult");
+			assertTrue(bOk);
+		} catch (Exception e) {
+			fail("testLoginWebSiteFlow failed with Exception " + e);
+		}		
 	}
 
 }

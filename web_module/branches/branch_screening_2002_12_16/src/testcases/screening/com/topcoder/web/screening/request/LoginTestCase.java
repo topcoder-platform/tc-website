@@ -6,6 +6,8 @@ import javax.servlet.*;
 import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.test.*;
+import com.topcoder.web.test.wsf.*;
+
 import org.apache.log4j.*;
 // imports for HTTP testing
 import java.net.*;
@@ -49,9 +51,12 @@ public class LoginTestCase extends TestCase {
 	 * */
 	public void testCorrectLogin() {
 		Login login = new Login();
-		request.setParameter(Login.HANDLE_PARAM, "aa");
-		request.setParameter(Login.PASSWORD_PARAM, "aa123");
-		request.setParameter(Login.REDIRECT_PARAM, "Next page");
+		// I don't know how to get correct config yet, so i
+		// pick up parameter names directly from web.xml
+		// mishagam 1/15/2003
+		request.setParameter("handle", "aa");
+		request.setParameter("password", "aa123");
+		request.setParameter("redir", "Next page");
 		login.setRequest(request);
 		login.setAuthentication(auth);
 		try {
@@ -69,9 +74,9 @@ public class LoginTestCase extends TestCase {
 	 * */
 	public void testFailedLogin() {
 		Login login = new Login();
-		request.setParameter(Login.HANDLE_PARAM, "aa");
-		request.setParameter(Login.PASSWORD_PARAM, "bad password");
-		request.setParameter(Login.REDIRECT_PARAM, "Next page");
+		request.setParameter("handle", "aa");
+		request.setParameter("password", "bad password");
+		request.setParameter("redir", "Next page");
 		login.setRequest(request);
 		login.setAuthentication(auth);
 		try {
@@ -82,7 +87,7 @@ public class LoginTestCase extends TestCase {
 		assertEquals("/login.jsp", login.getNextPage());	
 		assertTrue(login.isNextPageInContext());
 		// now testing for null password	
-		request.setParameter(Login.PASSWORD_PARAM, null);
+		request.setParameter("password", null);
 		try {
 			login.process();
 		} catch (Exception e) {
@@ -143,6 +148,19 @@ public class LoginTestCase extends TestCase {
         } catch (Exception e) {
         	fail("There was exception " + e);
         }		
+	}
+	
+	public void testLoginWebSiteFlow() {
+		WebSiteFlowTest wsf = new WebSiteFlowTest();
+		boolean bOk;
+		
+		try {
+			wsf.init();
+			bOk = wsf.testPage("Login");
+			assertTrue(bOk);
+		} catch (Exception e) {
+			fail("testLoginWebSiteFlow failed with Exception " + e);
+		}		
 	}
 
 }

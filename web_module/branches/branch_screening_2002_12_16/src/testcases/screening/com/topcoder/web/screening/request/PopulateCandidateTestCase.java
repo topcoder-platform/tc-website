@@ -1,6 +1,9 @@
 package com.topcoder.web.screening.request;
 
 import junit.framework.TestCase;
+import junit.framework.TestCase;
+
+import com.topcoder.web.test.wsf.WebSiteFlowTest;
 
 import com.topcoder.web.screening.model.CandidateInfo;
 import com.topcoder.web.screening.common.Constants;
@@ -59,4 +62,17 @@ public class PopulateCandidateTestCase extends TestCase {
             fail(e.getMessage());
         }
     }
+
+	public void testPopulateCandidateWSF() {
+		WebSiteFlowTest wsf = new WebSiteFlowTest();
+		boolean bOk;
+		
+		try {
+			wsf.init();
+			bOk = wsf.testPage("PopulateCandidate");
+			assertTrue(bOk);
+		} catch (Exception e) {
+			fail("testPopulateCandidateWebSiteFlow failed with Exception " + e);
+		}		
+	}
 }
