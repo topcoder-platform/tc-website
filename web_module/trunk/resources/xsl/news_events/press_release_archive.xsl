@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
                             
+                            <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_27_04">TopCoder Developing Web- Based Application for CRPF Spinal Cord Injury Research Group</A> [September 27]<br/></td></tr>
+
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_07_04">TopCoder Software Industry Expert Michael Morris to Speak at 2004 SD Best Practices Conference</A> [September 7]<br/></td></tr>
 
                             <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_02_04">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</A> [September 2]<br/></td></tr>
