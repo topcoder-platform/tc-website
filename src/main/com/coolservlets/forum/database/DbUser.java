@@ -61,10 +61,7 @@ import com.coolservlets.util.*;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
-import java.util.*;
-import java.text.*;
 import java.sql.*;
-import java.security.*;
 
 /**
  * Database implementation of the User interface. Additionally, it filters all
@@ -114,9 +111,6 @@ public class DbUser implements User {
     private String email;
     private int rating;
     private boolean emailVisible = true;
-    private Object propertyLock = new Object();
-    private Object permLock = new Object();
-    private Hashtable permissions = null;
     private static Logger log = Logger.getLogger(DbUser.class);
 
     /**
