@@ -52,12 +52,15 @@
                 <tr>
                     <td class="bodyText" align="left">
                         <strong>Member Profile: <%= CoderDemographicsTask.getMemberInfo().getItem(0, "handle").toString()%></strong><br>
-                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "last_name").toString()%> <br>
-                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "address1").toString()%>
-                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "address1").toString().equals("")?"":"<br>"+CoderDemographicsTask.getMemberInfo().getItem(0, "address2").toString()+"<br>"%>
+                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "middle_name").toString()%> <%= CoderDemographicsTask.getMemberInfo().getItem(0, "last_name").toString()%><br/>
+                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "address1").toString()%><br/>
+                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "address2").toString().length()==0?"":CoderDemographicsTask.getMemberInfo().getStringItem(0, "address2")+"<br/>"%>
+                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "address3").toString().length()==0?"":CoderDemographicsTask.getMemberInfo().getStringItem(0, "address3")+"<br/>"%>
+                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "province").toString()%>
                         <%= CoderDemographicsTask.getMemberInfo().getItem(0, "city").toString()%>,
                         <%= CoderDemographicsTask.getMemberInfo().getItem(0, "state_code").toString()%>
-                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "zip").toString()%><br>
+                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "zip").toString()%><br/>
+                        <%= CoderDemographicsTask.getMemberInfo().getItem(0, "country_name").toString()%><br/>
                         <a href="mailto:<%=CoderDemographicsTask.getMemberInfo().getItem(0, "email").toString() %>" class="bodyText"><%= CoderDemographicsTask.getMemberInfo().getItem(0, "email").toString() %></A> | <%= CoderDemographicsTask.getMemberInfo().getItem(0, "home_phone").toString()%> <br>
                         <strong>Interested in:</strong> <jsp:getProperty name="CoderDemographicsTask" property="JobName"/><br>
                         <% if (CoderDemographicsTask.hasResume()) { %>

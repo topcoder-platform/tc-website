@@ -52,12 +52,15 @@
                 <tr>
                     <td class="bodyText" align="left">
               <strong>Member Profile: <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "handle").toString()%> </strong> <BR/>
-              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "last_name").toString()%> <BR/>
-              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "address1").toString()%>
-              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "address1").toString().equals("")?"":"<BR/>"+CompetitionHistoryTask.getMemberInfo().getItem(0, "address2").toString()+"<BR/>"%>
-              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "city").toString()%>,
-              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "state_code").toString()%>
-              <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "zip").toString()%> <BR/>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "middle_name").toString()%> <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "last_name").toString()%><br/>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "address1").toString()%><br/>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "address2").toString().length()==0?"":CompetitionHistoryTask.getMemberInfo().getStringItem(0, "address2")+"<br/>"%>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "address3").toString().length()==0?"":CompetitionHistoryTask.getMemberInfo().getStringItem(0, "address3")+"<br/>"%>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "province").toString()%>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "city").toString()%>,
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "state_code").toString()%>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "zip").toString()%><br/>
+                        <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "country_name").toString()%><br/>
               <A HREF="mailto:<%=CompetitionHistoryTask.getMemberInfo().getItem(0, "email").toString() %>" class="bodyText"><%= CompetitionHistoryTask.getMemberInfo().getItem(0, "email").toString() %></A> | <%= CompetitionHistoryTask.getMemberInfo().getItem(0, "home_phone").toString()%> <BR/>
               <strong>Interested in:</strong> <jsp:getProperty name="CompetitionHistoryTask" property="JobName"/><BR/>
               <% if (CompetitionHistoryTask.hasResume()) { %>

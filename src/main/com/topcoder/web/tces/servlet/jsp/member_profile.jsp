@@ -58,18 +58,15 @@
 
               <B>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </B>
               <br/>
-              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "middle_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%>
-              <br/>
+              <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "middle_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%><br/>
               <%= MemberInfo.getItem(0, "address1").toString()%><br/>
               <%= MemberInfo.getItem(0, "address2").toString().length()==0?"":MemberInfo.getStringItem(0, "address2")+"<br/>"%>
               <%= MemberInfo.getItem(0, "address3").toString().length()==0?"":MemberInfo.getStringItem(0, "address3")+"<br/>"%>
               <%= MemberInfo.getItem(0, "province").toString()%>
               <%= MemberInfo.getItem(0, "city").toString()%>,
               <%= MemberInfo.getItem(0, "state_code").toString()%>
-              <%= MemberInfo.getItem(0, "zip").toString()%>
-              <br/>
-              <%= MemberInfo.getItem(0, "country_name").toString()%>
-              <br/>
+              <%= MemberInfo.getItem(0, "zip").toString()%><br/>
+              <%= MemberInfo.getItem(0, "country_name").toString()%><br/>
               <A HREF="mailto:<%=MemberInfo.getStringItem(0, "email")%>" class="bodyText"><%= MemberInfo.getStringItem(0, "email")%></A> | <%= MemberInfo.getStringItem(0, "home_phone")%>
               <br/>
               <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/>

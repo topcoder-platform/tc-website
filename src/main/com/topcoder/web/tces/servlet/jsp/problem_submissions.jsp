@@ -52,12 +52,15 @@
                 <tr>
                     <td class="bodyText" align="left">
               <strong>Member Profile: <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "handle").toString()%> </strong> <BR/>
-              <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "last_name").toString()%> <BR/>
-              <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "address1").toString()%>
-              <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "address1").toString().equals("")?"":"<BR/>"+ProblemSubmissionsTask.getMemberInfo().getItem(0, "address2").toString()+"<BR/>"%>
-              <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "city").toString()%>,
-              <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "state_code").toString()%>
-              <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "zip").toString()%> <BR/>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "first_name").toString()%> <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "middle_name").toString()%> <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "last_name").toString()%><br/>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "address1").toString()%><br/>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "address2").toString().length()==0?"":ProblemSubmissionsTask.getMemberInfo().getStringItem(0, "address2")+"<br/>"%>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "address3").toString().length()==0?"":ProblemSubmissionsTask.getMemberInfo().getStringItem(0, "address3")+"<br/>"%>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "province").toString()%>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "city").toString()%>,
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "state_code").toString()%>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "zip").toString()%><br/>
+                        <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "country_name").toString()%><br/>
               <A HREF="mailto:<%=ProblemSubmissionsTask.getMemberInfo().getItem(0, "email").toString() %>" class="bodyText"><%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "email").toString() %></A> | <%= ProblemSubmissionsTask.getMemberInfo().getItem(0, "home_phone").toString()%> <BR/>
               <strong>Interested in:</strong> <jsp:getProperty name="ProblemSubmissionsTask" property="JobName"/><BR/>
               <% if (ProblemSubmissionsTask.hasResume()) { %>
