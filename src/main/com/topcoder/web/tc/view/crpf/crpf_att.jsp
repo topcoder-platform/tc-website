@@ -151,7 +151,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 		<tr><td>
 				<p>In 2001 and 2002, AT&amp;T's total contributions (including cash contributions and product donations) amounted to nearly $150 million.  The AT&amp;T Foundation contributed more than $85 million of this total. The rest came in the form of direct contributions and product donations from AT&amp;T business units and divisions. In addition, tens of thousands of AT&amp;T
 employees and retirees contributed their volunteer efforts to charitable organizations in their local communities.</p>
-				<p>To find out what organizations have received grants from the AT&amp;T Foundation, check out our <a href="http://www.att.com" target="_blank">Grant Search</a> for listings of grants by program area, organization and location.</p>
+				<p>To find out what organizations have received grants from the AT&amp;T Foundation, check out our <a href="http://www.att.com/foundation/grants.html" target="_blank">Grant Search</a> for listings of grants by program area, organization and location.</p>
                </td></tr></table>
                <p><br/></p>
                </blockquote>
