@@ -50,7 +50,7 @@
 
                 <rsc:iterator list="<%=projectList%>" id="resultRow">
                     <tr>
-                        <td class="bodyText"><rsc:item row="<%=resultRow%>" name="component_name"/></td>
+                        <td class="bodyText"><a href="/tc?module=ReviewProjectDetail?pj=<rsc:item row="<%=resultRow%>" name="project_id"/>&ph=<rsc:item row="<%=resultRow%>" name="phase_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="phase_desc"/></td>
                         <td class="bodyText"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
