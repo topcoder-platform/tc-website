@@ -1,7 +1,6 @@
 package com.topcoder.server.distCache;
 
-import java.util.TreeMap;
-import java.util.TreeSet;
+import java.util.*;
 
 import java.io.Serializable;
 
@@ -47,8 +46,8 @@ public class Cache
      *  set a cached value
      */
 
-    public void update(String key, Object value) {
-        update(key, value, DEFAULT_PRIORITY, System.currentTimeMillis());
+    public void update(String key, Object value, long expire) {
+        update(key, value, DEFAULT_PRIORITY, System.currentTimeMillis(),expire);
     }
 
     public void lock(String key) {
@@ -88,7 +87,7 @@ public class Cache
      *  set a cached value
      */
 
-    public void update(String key, Object value, int priority, long time) {
+    public void update(String key, Object value, int priority, long time, long expire) {
 	CachedValue cached = null;
 
         synchronized (_lock) {
@@ -101,7 +100,7 @@ public class Cache
 		    removePrio(cached);
 		    cached.setValue(value);
 		} else {
-		    cached = new CachedValue(key, value);
+		    cached = new CachedValue(key, value, expire);
 		    storeKey(cached);
 		}
 		
@@ -128,6 +127,7 @@ public class Cache
         CachedValue cached = findKey(key);
         if (cached != null) {
             removeCached(cached);
+            sendUpdateEvent(cached);
         }
 	
 	return cached;
@@ -137,8 +137,21 @@ public class Cache
         removePrio(cached);
         removeTime(cached);
         removeKey(cached.getKey());
+        cached.setValue(null);
     }
 
+    public void clearCache()
+    {
+        clear();
+        sendClearEvent();
+    }
+    void clear()
+    {
+        System.out.println("CLEARING");
+        _keymap      = new TreeMap();
+        _timeset     = new TreeSet(new CachedValue.TimeComparator());
+        _prioset     = new TreeSet(new CachedValue.PriorityComparator());
+    }
     /**
      *  check if a key is in the cached
      */ 
@@ -203,7 +216,8 @@ public class Cache
                 }
 
                 CachedValue value = (CachedValue) _timeset.first();
-                if (value.getLastUsed() > time) {
+                System.out.println(value.getKey()+" - "+new Date(value.getExpireTime()));
+                if (value.getExpireTime() > time) {
                     break;
                 }
 
@@ -247,7 +261,7 @@ public class Cache
 		int presize = size();
 		if (val.getValue() == null) {
 		    System.out.println("REMOVE: " + val.getKey());
-		    remove(val.getKey());
+		    removeCached(val);
 		} else {
 			current = findKey(val.getKey());
 		    if (current != null) {
@@ -293,6 +307,14 @@ public class Cache
 	}
 
 	_listener.valueUpdated(value);
+    }
+
+    void sendClearEvent() {
+        if (_listener == null) {
+            return;
+        }
+
+        _listener.clear();
     }
 
     // --------------------------------------------------
@@ -347,4 +369,12 @@ public class Cache
         _prioset.add(cached);
     }
 
+    public ArrayList getValues()
+    {
+        ArrayList al = new ArrayList();
+
+        Iterator it = _keymap.values().iterator();
+        while(it.hasNext()) al.add(it.next());
+        return al;
+    }
 }

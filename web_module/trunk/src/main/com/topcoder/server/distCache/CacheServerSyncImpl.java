@@ -30,5 +30,9 @@ public class CacheServerSyncImpl
 	System.out.println("REALLY out: " + result.length);
 	return result;
     }
-
+    public boolean getCleared()
+        throws RemoteException
+    {
+        return _listener.getCleared();
+    }
 }

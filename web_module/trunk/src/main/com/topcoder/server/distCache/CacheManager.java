@@ -22,8 +22,8 @@ public class CacheManager
     }
 
     private void expireObjects() {
-        long time = System.currentTimeMillis() - CacheConfiguration.getExpirationTime();
-        System.out.println(">> EXPIRING things before " + new java.util.Date(time));
+        long time = System.currentTimeMillis();
+        System.out.println(">> EXPIRING things at " + new java.util.Date(time));
         _server.cache().expire(time);
     }
 
