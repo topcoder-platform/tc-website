@@ -77,15 +77,15 @@ else
                             <tr>
                                 <% TCO04OverallResult result = (TCO04OverallResult)lst.get(i); %>
                                 <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a>
-                                <% if(false)  { 
+                                <% if(result.isPending())  { 
                                     isComplete = false;%>
                                     *
                                 <% } %>
                                 </td>
-                                <td class="sidebarText" align=center >FIXME</td>
-                                <td class="sidebarText" align=center >COMPLETE</td>
-                                <td class="sidebarText" align=center >INCOMPLETE</td>
-                                <td class="sidebarText" align=right>PAYMENT</td>
+                                <td class="sidebarText" align=center ><%=result.getPoints()%></td>
+                                <td class="sidebarText" align=center ><%=result.getCompleteProjects()%></td>
+                                <td class="sidebarText" align=center ><%=result.getIncompleteProjects()%></td>
+                                <td class="sidebarText" align=right><%=result.getContestPrize()%></td>
                                 <td class="sidebarText" align=center><a href="/tc?module=TCO04MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a></td>
                             </tr>
                             <% }%>
