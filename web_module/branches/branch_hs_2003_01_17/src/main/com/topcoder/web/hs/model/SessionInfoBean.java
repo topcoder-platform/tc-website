@@ -6,7 +6,6 @@ import com.topcoder.shared.security.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.*;
-import com.topcoder.common.web.util.Data;
 import com.topcoder.shared.util.logging.Logger;
 
 /**
@@ -77,8 +76,6 @@ public class SessionInfoBean implements Serializable {
         if(isGuest() || isAdmin()) return;
 
         try {
-            Data.initializeDataTypes();
-
             Map qm = new TreeMap();
             qm.put("cr", Long.toString(userid));
             qm.put(DataAccessConstants.COMMAND, "SessionInfoBean");
@@ -91,6 +88,8 @@ public class SessionInfoBean implements Serializable {
 
             setSchoolId(Integer.parseInt(rr.getItem("school_id").toString()));
             setRating(Integer.parseInt(rr.getItem("rating").toString()));
+
+            /* the query also returns school name and state code */
 
         } catch(Exception e) {
             log.warn("caught exception from database queries, some values left at defaults", e);

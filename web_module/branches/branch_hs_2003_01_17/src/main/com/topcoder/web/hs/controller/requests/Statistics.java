@@ -17,14 +17,17 @@ import com.topcoder.common.web.util.Data;
  */
 public class Statistics extends Base {
 
+    static {
+        /* this is only needed once per JVM before calling ProblemParser */
+        Data.initializeDataTypes();
+    }
+
     protected void businessProcessing() throws Exception {
 
         String cmd = request.getParameter(DataAccessConstants.COMMAND);
 
         /* we do this here so that if the query fails, we still keep our place in the menus */
         nav.setAll("stats", cmd);
-
-        Data.initializeDataTypes();
 
         Request dataRequest = new Request(HttpUtils.parseQueryString(((HttpServletRequest)request).getQueryString()));
         request.setAttribute("REQUEST_BEAN", dataRequest);
