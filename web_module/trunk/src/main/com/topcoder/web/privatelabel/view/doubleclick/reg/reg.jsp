@@ -14,13 +14,17 @@
 <jsp:include page="../../script.jsp" />
 <jsp:include page="../../nocache.jsp"/>
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/> 
+<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
 
 </head>
 <body align="center">
 
 <jsp:include page="../links.jsp" >
-   <jsp:param name="tabLev1" value="<%=regInfo.getCoderType()==Constants.STUDENT?"collegiate":"internal"%>"/>
+   <% if (regInfo.getCoderType()==Constants.STUDENT) {%>
+    <jsp:param name="tabLev1" value="collegiate"/>
+   <% } else { %>
+    <jsp:param name="tabLev1" value="internal"/>
+   <% } %>
    <jsp:param name="tabLev2" value="overview"/>
 </jsp:include>
 
