@@ -6,8 +6,7 @@
 
 <title>DoubleClick</title>
 
-<jsp:include page="../script.jsp" />
-
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick05.css"/>
 
 </head>
@@ -25,7 +24,7 @@
 	  	</td>
 		<td class="dc_bodyText">
          <p>
-         <span class="pageTitle">Official Rules and Regulations</span>
+         <span class="bigTitle">Official Rules and Regulations</span>
 <h3>No purchase necessary to enter or win.  Void where prohibited.</h3>
 
 <span class="dc_subTitle">Summary of the Tournament</span><br>

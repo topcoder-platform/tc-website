@@ -5,8 +5,7 @@
 
 <title>DoubleClick</title>
 
-<jsp:include page="../script.jsp" />
-
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/doubleclick05.css"/>
 
 </head>
@@ -23,7 +22,7 @@
 	      <img src="/i/events/doubleclick05/image1.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Advancers</p>
+         <p class="bigTitle">Advancers</p>
 
                       <table class="formFrame" cellpadding=5 cellspacing=2 width="250">
                         <tr>

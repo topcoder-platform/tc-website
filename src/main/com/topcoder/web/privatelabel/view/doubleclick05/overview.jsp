@@ -6,8 +6,7 @@
 
 <title>DoubleClick</title>
 
-<jsp:include page="../script.jsp" />
-
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick05.css"/>
 
 </head>
@@ -25,7 +24,7 @@
 	  	</td>
 		<td class="dc_bodyText">
          <p>
-          <span class="pageTitle">Announcing the DoubleClick 2005 Coding Challenge!</span>
+          <span class="bigTitle">Announcing the DoubleClick 2005 Coding Challenge!</span>
 <br><br>         
 It's faster and even more competitive than last year! Once again, we have teamed up with TopCoder - the leader in online programming competitions - to bring you an exciting contest online round with fantastic prizes for all.
 <br><br>         
