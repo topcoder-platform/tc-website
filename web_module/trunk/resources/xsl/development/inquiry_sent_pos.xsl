@@ -70,7 +70,7 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%">
 
-                                <p><strong>Your inquiry has been sent. Thank You!</strong></p>
+                                <p><strong>Registration Complete!</strong></p>
 
                                     Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
                                     <a>
