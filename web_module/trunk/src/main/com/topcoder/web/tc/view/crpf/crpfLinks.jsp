@@ -18,37 +18,44 @@ function openWin(url, name, w, h) {
 
 <!-- Summary tab -->
             <% if (selectedTab.equals("overview")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview" class="statTextBig"><img src="/i/tournament/crpf03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview" class="statTextBig"><img src="/i/events/crpf03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview" class="statTextBig"><img src="/i/tournament/crpf03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_overview" class="statTextBig"><img src="/i/events/crpf03/tab_overview_off.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- Schedule tab -->
             <% if (selectedTab.equals("schedule")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_sched" class="statTextBig"><img src="/i/tournament/crpf03/tab_schedule_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_sched" class="statTextBig"><img src="/i/events/crpf03/tab_schedule_on.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_sched" class="statTextBig"><img src="/i/tournament/crpf03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_sched" class="statTextBig"><img src="/i/events/crpf03/tab_schedule_off.gif" alt="Schedule" width="88" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- Rules tab -->
             <% if (selectedTab.equals("rules")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_overview" class="statTextBig"><img src="/i/tournament/crpf03/tab_rules_on.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_overview" class="statTextBig"><img src="/i/events/crpf03/tab_rules_on.gif" alt="Rules" width="50" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_overview" class="statTextBig"><img src="/i/tournament/crpf03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_rules_overview" class="statTextBig"><img src="/i/events/crpf03/tab_rules_off.gif" alt="Rules" width="50" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- Top Fundraisers tab -->
             <% if (selectedTab.equals("fundraisers")) {%>
-                 <td class="statTextBig" width="128"><A href="/tc?&module=CRPFReport" class="statTextBig"><img src="/i/tournament/crpf03/tab_top_fundraisers_on.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="128"><A href="/tc?&module=CRPFReport" class="statTextBig"><img src="/i/events/crpf03/tab_top_fundraisers_on.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="128"><A href="/tc?&module=CRPFReport" class="statTextBig"><img src="/i/tournament/crpf03/tab_top_fundraisers_off.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="128"><A href="/tc?&module=CRPFReport" class="statTextBig"><img src="/i/events/crpf03/tab_top_fundraisers_off.gif" alt="Fundraisers" width="128" height="22" border="0" /></A></td>
             <% } %>
 
 <!-- Donate tab -->
             <% if (selectedTab.equals("donate")) {%>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/tournament/crpf03/tab_donate_on.gif" alt="Donate" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/events/crpf03/tab_donate_on.gif" alt="Donate" width="50" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/tournament/crpf03/tab_donate_off.gif" alt="Donate" width="88" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/events/crpf03/tab_donate_off.gif" alt="Donate" width="50" height="22" border="0" /></A></td>
+            <% } %>
+
+<!-- ATT tab -->
+            <% if (selectedTab.equals("att")) {%>
+                 <td class="statTextBig" width="128"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_att" class="statTextBig"><img src="/i/events/crpf03/tab_att_on.gif" alt="att" width="128" height="22" border="0" /></A></td>
+            <% } else { %>
+                 <td class="statTextBig" width="12/"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_att" class="statTextBig"><img src="/i/events/crpf03/tab_att_off.gif" alt="att" width="128" height="22" border="0" /></A></td>
             <% } %>
 
 
