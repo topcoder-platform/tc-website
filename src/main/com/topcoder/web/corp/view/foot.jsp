@@ -1,7 +1,6 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.Constants,
-                 com.topcoder.shared.util.ApplicationServer"
-         autoFlush="false" %>
+                 com.topcoder.shared.util.ApplicationServer"%>
 
 <!-- Footer Include Begins -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
