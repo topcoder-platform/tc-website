@@ -1141,6 +1141,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
+        String ret = null;
         try {
             ctx = new InitialContext();
             final String sqlSelect=
@@ -1154,7 +1155,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             ps.setInt(1, Constants.COMPONENT_DOWNLOAD_TERMS_ID);
             rs = ps.executeQuery();
             if (rs.next()) {
-                return new String(rs.getBytes(1));
+                ret = new String(rs.getBytes(1));
             } else {
                 throw new EJBException("Terms of use " + Constants.COMPONENT_DOWNLOAD_TERMS_ID + " does not exist");
             }
@@ -1169,6 +1170,7 @@ public class UserManagerBean implements SessionBean, ConfigManagerInterface {
             close(ctx);
         }
 
+        return ret;
     }
 
 
