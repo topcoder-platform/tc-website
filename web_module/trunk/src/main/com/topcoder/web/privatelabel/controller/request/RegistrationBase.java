@@ -78,7 +78,7 @@ abstract class RegistrationBase extends BaseProcessor {
         Request r = new Request();
         r.setContentHandle("company_datasource");
         r.setProperty("cm", String.valueOf(companyId));
-        r.setProperty("dsid", String.valueOf(type));
+        r.setProperty("dstid", String.valueOf(type));
         //not sure if this db is ok...we'll see
         Map m = getDataAccess(DBMS.OLTP_DATASOURCE_NAME, true).getData(r);
         ResultSetContainer rsc = (ResultSetContainer)m.get("company_datasource");

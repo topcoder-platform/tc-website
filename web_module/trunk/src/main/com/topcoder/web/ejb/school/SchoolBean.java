@@ -17,10 +17,9 @@ import java.sql.SQLException;
 
 public class SchoolBean extends BaseEJB {
     private static Logger log = Logger.getLogger(SchoolBean.class);
-    private final static String DATA_SOURCE = "java:comp/env/datasource_name";
-    private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
 
-    public long createSchool() throws EJBException {
+    public long createSchool(String dataSource, String idDataSource) throws EJBException {
+        log.debug("create school called...");
 
         long school_id = 0;
 
@@ -30,10 +29,10 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(DATA_SOURCE), "sequence_object", "name",
+                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
                         "current_value", 9999999999L, 1, false);
             }
 
@@ -69,8 +68,9 @@ public class SchoolBean extends BaseEJB {
     }
 
     public void setSchoolDivisionCode(long schoolId,
-                                      String _school_division_code)
+                                      String schoolDivisionCode, String dataSource)
             throws EJBException {
+        log.debug("setSchoolDivisionCode called...");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -79,7 +79,7 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE school ");
@@ -88,7 +88,7 @@ public class SchoolBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, _school_division_code);
+            ps.setString(1, schoolDivisionCode);
             ps.setLong(2, schoolId);
 
             int rc = ps.executeUpdate();
@@ -109,9 +109,9 @@ public class SchoolBean extends BaseEJB {
         }
     }
 
-    public void setFullName(long schoolId, String _full_name)
+    public void setFullName(long schoolId, String fullName, String dataSource)
             throws EJBException {
-
+        log.debug("setFullName called...");
         Connection conn = null;
         PreparedStatement ps = null;
 
@@ -119,7 +119,7 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE school ");
@@ -128,7 +128,7 @@ public class SchoolBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, _full_name);
+            ps.setString(1, fullName);
             ps.setLong(2, schoolId);
 
             int rc = ps.executeUpdate();
@@ -149,8 +149,9 @@ public class SchoolBean extends BaseEJB {
         }
     }
 
-    public void setShortName(long schoolId, String _short_name)
+    public void setShortName(long schoolId, String shortName, String dataSource)
             throws EJBException {
+        log.debug("setShortName called...");
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -159,7 +160,7 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(JTS_DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE school ");
@@ -168,7 +169,7 @@ public class SchoolBean extends BaseEJB {
 
             conn = ds.getConnection();
             ps = conn.prepareStatement(query.toString());
-            ps.setString(1, _short_name);
+            ps.setString(1, shortName);
             ps.setLong(2, schoolId);
 
             int rc = ps.executeUpdate();
@@ -189,10 +190,11 @@ public class SchoolBean extends BaseEJB {
         }
     }
 
-    public String getSchoolDivisionCode(long schoolId)
+    public String getSchoolDivisionCode(long schoolId, String dataSource)
             throws EJBException {
+        log.debug("getSchoolDivisionCode called...");
 
-        String school_division_code = null;
+        String schoolDivisionCode = null;
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -201,7 +203,7 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT school_division_code ");
@@ -214,7 +216,7 @@ public class SchoolBean extends BaseEJB {
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                school_division_code = rs.getString(1);
+                schoolDivisionCode = rs.getString(1);
             } else {
                 throw(new EJBException("No rows found when selecting from 'school' " +
                         "with school_id=" + schoolId + "."));
@@ -231,12 +233,12 @@ public class SchoolBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
-        return (school_division_code);
+        return (schoolDivisionCode);
     }
 
-    public String getFullName(long schoolId)
+    public String getFullName(long schoolId, String dataSource)
             throws EJBException {
-
+        log.debug("getFullName called...");
         String full_name = null;
 
         Connection conn = null;
@@ -246,7 +248,7 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT full_name ");
@@ -279,10 +281,10 @@ public class SchoolBean extends BaseEJB {
         return (full_name);
     }
 
-    public String getShortName(long schoolId)
+    public String getShortName(long schoolId, String dataSource)
             throws EJBException {
-
-        String short_name = null;
+        log.debug("getShortName called...");
+        String shortName = null;
 
         Connection conn = null;
         PreparedStatement ps = null;
@@ -291,7 +293,7 @@ public class SchoolBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            DataSource ds = (DataSource) ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
 
             StringBuffer query = new StringBuffer(1024);
             query.append("SELECT short_name ");
@@ -304,7 +306,7 @@ public class SchoolBean extends BaseEJB {
 
             rs = ps.executeQuery();
             if (rs.next()) {
-                short_name = rs.getString(1);
+                shortName = rs.getString(1);
             } else {
                 throw(new EJBException("No rows found when selecting from 'school' " +
                         "with school_id=" + schoolId + "."));
@@ -321,7 +323,7 @@ public class SchoolBean extends BaseEJB {
             close(conn);
             close(ctx);
         }
-        return (short_name);
+        return (shortName);
     }
 
 }
