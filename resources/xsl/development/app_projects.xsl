@@ -156,6 +156,33 @@
                                     <td class="projectHeaders" align="center" nowrap="nowrap">Second Place</td>
                                     <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
                                 </tr>
+
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Universal_Registration_Development-FE">Universal Registration Development - Front End</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">07.14.2004 9:00 AM ET</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Universal_Registration_Development-Services">Universal Registration Development - Services</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$1,500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$500 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">07.14.2004 9:00 AM ET</td>
+                                </tr>
+                                <tr valign="top">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=Universal_Registration_Development-Util">Universal Registration Development - Utilities</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$2,900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$900 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">07.14.2004 9:00 AM ET</td>
+                                </tr>
+
+
                                 <tr valign="top">
                                     <td class="projectCells">
                                         <a href="?t=development&amp;c=Palm_Transfers_Receiving_App_Dev">Palm Transfers and Receiving</a>
