@@ -78,8 +78,9 @@ abstract public class BaseLanguage
                 return CPPLanguage.CPP_LANGUAGE;
             case CSharpLanguage.ID:
                 return CSharpLanguage.CSHARP_LANGUAGE;
-            default:
-                throw new IllegalArgumentException("Invalid language: " + typeID);
+            case VBLanguage.ID:
+                return VBLanguage.VB_LANGUAGE;
+            default: throw new IllegalArgumentException("Invalid language: " + typeID);
         }
     }
 }
