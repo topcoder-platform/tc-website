@@ -718,7 +718,7 @@ public class TCLoadTCS extends TCLoad {
                 {
                     //need to insert
                     sSQL = "insert into contest (contest_id, contest_name, contest_start_timestamp, contest_end_timestamp, contest_type_id, contest_type_desc, phase_id) " +
-                           "values (?, ?, ?, ?, ?, ?) ";
+                           "values (?, ?, ?, ?, ?, ?, ?) ";
 
                     ps2 = prepareStatement(sSQL, TARGET_DB);
                     ps2.setLong(1, rs.getLong("contest_id"));
