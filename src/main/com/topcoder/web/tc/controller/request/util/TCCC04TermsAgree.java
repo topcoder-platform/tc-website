@@ -6,7 +6,13 @@ import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.ejb.user.UserTermsOfUse;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.security.SimpleResource;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccess;
+
+import javax.naming.InitialContext;
 
 public class TCCC04TermsAgree extends Base {
 
@@ -16,7 +22,7 @@ public class TCCC04TermsAgree extends Base {
                 throw new PermissionException(getUser(), new SimpleResource("TCCC04Terms"));
             } else {
                 UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(getInitialContext(), UserTermsOfUse.class);
-                if (!userTerms.hasTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME)) {
+                if (!isRegistered(getUser().getId()) && isEligible(getUser().getId())) {
                     log.debug("user has not previously aggreed to these terms");
                     userTerms.createUserTermsOfUse(getUser().getId(), Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
                 } else {
@@ -30,5 +36,26 @@ public class TCCC04TermsAgree extends Base {
         } catch (Exception e) {
             throw new TCWebException(e);
         }
+    }
+
+    public static boolean isEligible(long userId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("tccc04_eligibility");
+        r.setProperty("cr", String.valueOf(userId));
+        ResultSetContainer rsc = (ResultSetContainer)new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("tccc04_eligibility");
+        return !rsc.isEmpty();
+    }
+
+    public static boolean isRegistered(long userId) throws Exception {
+        InitialContext ctx = null;
+        boolean ret = false;
+        try {
+            ctx = TCContext.getInitial();
+            UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(ctx, UserTermsOfUse.class);
+            ret = userTerms.hasTermsOfUse(userId, Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
+        } finally {
+            close(ctx);
+        }
+        return ret;
     }
 }

@@ -2,6 +2,7 @@ package com.topcoder.web.tc.controller.request;
 
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.controller.request.util.TCCC04TermsAgree;
 import com.topcoder.shared.dataAccess.CachedDataAccess;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.util.DBMS;
@@ -75,8 +76,11 @@ public class Home extends Base {
             //use the cache both for the home page and the member profile page
             dataRequest.setContentHandle("member_profile");
             dataRequest.setProperty("cr", String.valueOf(getUser().getId()));
-            getRequest().setAttribute("member_info",
-                    dwDai.getData(dataRequest).get("Coder_Data"));
+            getRequest().setAttribute("member_info", dwDai.getData(dataRequest).get("Coder_Data"));
+
+            getRequest().setAttribute("isEligible", Boolean.toString(TCCC04TermsAgree.isEligible(getUser().getId())));
+            getRequest().setAttribute("isRegistered", Boolean.toString(TCCC04TermsAgree.isRegistered(getUser().getId())));
+
 
 
         } catch (TCWebException e) {
