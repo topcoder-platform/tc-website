@@ -236,7 +236,7 @@ public class DocumentManagerBean implements SessionBean {
                         "s.is_completed, s.is_pm_reviewed, " +
                         "s.author_id, s.submission_id, s.score, " +
                         "s.scorecard_v_id, sub.is_removed, s.raw_score, s.pm_review_timestamp " +
-                        "FROM scorecard s, submission sub" +
+                        "FROM scorecard s, submission sub " +
                         "WHERE s.cur_version = 1 AND " +
                         "sub.cur_version = 1 AND " +
                         "s.submission_id = sub.submission_id AND " +
