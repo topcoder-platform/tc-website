@@ -27,6 +27,7 @@ public class SubmissionInfo implements java.io.Serializable {
     private static Logger log = Logger.getLogger(SubmissionInfo.class);
 
     private static final int[] DONE_STATUSES = {131, 140, 150, 160};
+    static { Arrays.sort(DONE_STATUSES); }
     private static DataAccessInt cached;
     private static DataAccessInt dwAccess;
 
