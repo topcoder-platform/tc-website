@@ -1,9 +1,9 @@
-<%@  page 
+<%@  page
   language="java"
   errorPage="/errorPage.jsp" %>
 <%@ page session="true" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-//
+
 <html>
 
 <head>
@@ -35,24 +35,24 @@
 
 <!-- Center Column Begins -->
         <td class="statTextBig" width="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-            <jsp:include page="../body_top.jsp" >  
-                <jsp:param name="image" value="registration"/>  
-                <jsp:param name="image1" value="steelblue"/>  
-                <jsp:param name="title" value="General Information"/>  
+            <jsp:include page="../body_top.jsp" >
+                <jsp:param name="image" value="registration"/>
+                <jsp:param name="image1" value="steelblue"/>
+                <jsp:param name="title" value="General Information"/>
             </jsp:include>
-            
+
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#001B35" width="100%">
                 <tr>
                     <td class="statText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br>
 
                         <jsp:include page="index_center.jsp" />
-                    
+
                     </td>
                 </tr>
             </table>
-            
+
             <p><br></p>
-            
+
         </td>
 <!-- Center Column Ends -->
 
