@@ -39,7 +39,7 @@
 
 <!-- Center Column Begins -->
         <td width="100%" align="center"><img src="/i/corp/clear.gif" width="400" height="11" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="50%" align="center">
+            <table border="0" cellspacing="0" cellpadding="0" width="60%" align="center">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Employment Campaigns for <jsp:getProperty name="MainTask" property="CompanyName"/></h1>
@@ -47,7 +47,7 @@
                 </tr>
            </table>
 
-            <table id="dataTable" width="50%" cellspacing="0" cellpadding="3" border="0">
+            <table id="dataTable" width="60%" cellspacing="0" cellpadding="3" border="0">
                 <tr>
                     <td colspan="2" class="testTableTitle">Campaign Name</td>
                     <td class="testTableTitle" nowrap="nowrap">Start Date</td>
