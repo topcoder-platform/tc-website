@@ -153,8 +153,8 @@ public class ReviewProjectDetail extends Base {
 
     private ReviewBoardApplication makeApp(String reviewerType, int numSubmissions, int phaseId,
                                            int levelId, long projectId, int reviewerTypeId) {
-        //we'll always assume 1 submission gets through screening
-        ReviewBoardApplication ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, 1);
+        //we'll always assume all submission gets through screening
+        ReviewBoardApplication ret = new ReviewBoardApplication(phaseId, levelId, numSubmissions, numSubmissions);
         ret.setProjectId(projectId);
         ret.setReviewerType(reviewerType);
         ret.setReviewerTypeId(reviewerTypeId);
