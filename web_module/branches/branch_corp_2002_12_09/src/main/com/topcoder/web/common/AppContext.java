@@ -73,7 +73,7 @@ public class AppContext {
     {
         InitialContext ic = getSecurityContext(); 
         Object  l = ic.lookup(LoginRemoteHome.EJB_REF_NAME);
-        ic.close();
+//        ic.close();
         return ((LoginRemoteHome) l).create();
     }
     
