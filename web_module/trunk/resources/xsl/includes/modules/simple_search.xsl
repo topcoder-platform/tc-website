@@ -15,7 +15,7 @@
                             <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                             <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
                             <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
-                          &#160;&#160;<INPUT TYPE="text" NAME="SearchHandle" SIZE="15" MAXLENGTH="15" /><BR/>
+                          &#160;&#160;<INPUT TYPE="text" NAME="SearchHandle" SIZE="12" MAXLENGTH="15" /><BR/>
                           <A HREF="javascript:searchForm.submit()"><xsl:attribute name="CLASS">statTextBig</xsl:attribute>&#160;Search &gt;&gt;</A><BR/>
                           <A HREF="/?t=search" CLASS="statText">- Advanced Search</A>                         
                           </FORM>
