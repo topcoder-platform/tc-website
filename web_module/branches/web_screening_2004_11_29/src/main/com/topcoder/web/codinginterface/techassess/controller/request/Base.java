@@ -40,6 +40,9 @@ public abstract class Base extends BaseProcessor {
         String messageId = sender.sendMessageGetID(new HashMap(), m);
         return messageId;
     }
+    protected void postProcessing() {
+
+    }
 
     protected Message receive(int waitTime, String correlationId) throws TimeOutException {
 
@@ -91,6 +94,7 @@ public abstract class Base extends BaseProcessor {
             out.println("            <br /><br />");
             out.println("            <p class=pC><span class=bodySmallTitle>Processing...</span></p>");
             ret = (Message)receiver.receive(waitTime, correlationId, getResponse());
+            postProcessing();
             out.println("            <br /><br />");
             out.println("            </td>");
             out.println("            <td class=bodyR>&#160;</td>");
