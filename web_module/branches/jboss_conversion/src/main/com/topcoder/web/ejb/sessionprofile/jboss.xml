@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss>
+  <enterprise-beans>
+    <session>
+      <ejb-name>SessionProfile</ejb-name>
+      <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileHome</jndi-name>
+        <resource-env-ref>
+            <resource-env-ref-name>jts_datasource_name</resource-env-ref-name>
+            <jndi-name>JTS_SCREENING_OLTP</jndi-name>
+        </resource-env-ref>
+        <resource-env-ref>
+            <resource-env-ref-name>datasource_name</resource-env-ref-name>
+            <jndi-name>SCREENING_OLTP</jndi-name>
+        </resource-env-ref>
+
+    </session>
+      <session>
+        <ejb-name>SessionProfileProblem</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome</jndi-name>
+          <resource-env-ref>
+              <resource-env-ref-name>jts_datasource_name</resource-env-ref-name>
+              <jndi-name>JTS_SCREENING_OLTP</jndi-name>
+          </resource-env-ref>
+          <resource-env-ref>
+              <resource-env-ref-name>datasource_name</resource-env-ref-name>
+              <jndi-name>SCREENING_OLTP</jndi-name>
+          </resource-env-ref>
+
+      </session>
+      <session>
+        <ejb-name>SessionProfileLanguage</ejb-name>
+        <jndi-name>com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome</jndi-name>
+          <resource-env-ref>
+              <resource-env-ref-name>jts_datasource_name</resource-env-ref-name>
+              <jndi-name>JTS_SCREENING_OLTP</jndi-name>
+          </resource-env-ref>
+          <resource-env-ref>
+              <resource-env-ref-name>datasource_name</resource-env-ref-name>
+              <jndi-name>SCREENING_OLTP</jndi-name>
+          </resource-env-ref>
+      </session>
+
+  </enterprise-beans>
+</jboss>
