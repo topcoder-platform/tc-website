@@ -67,16 +67,24 @@ Keep in mind, TopCoder is paying significant money for these projects, and we ex
 </P>
 
 <P>
+Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statTextBig">Architect</A><BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline: TBD<BR/>
+</P>
+
+<P>
+Project: <A HREF="/index?t=development&amp;c=dde2" CLASS="statTextBig">Distributed Development Environment</A><BR/>
+Start Date: June 26, 2002<BR/>
+End Date: August 23, 2002<BR/>
+Member Selection: <b>Open</b><BR/>
+Inquiry Deadline:  June 26, 2002<BR/>
+</P>
+
+<P>
 Project: <A HREF="/index?t=development&amp;c=gcc" CLASS="statText">GCC Upgrade Analysis</A><BR/>
 Start Date: June 19, 2002<BR/>
 End Date: June 25, 2002<BR/>
 Member Selection: Closed<BR/>
-</P>
-
-<P>
-Project: <A HREF="/index?t=development&amp;c=architect" CLASS="statTextBig">Architect</A><BR/>
-Member Selection: <b>Open</b><BR/>
-Inquiry Deadline: TBD<BR/>
 </P>
 
 <P>
