@@ -11,6 +11,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Questions extends Base {
@@ -47,6 +48,18 @@ public class Questions extends Base {
             setIsNextPageInContext(true);
         }catch(Exception e){
             e.printStackTrace();
+        }
+    }
+    protected void baseProcessing() throws TCWebException {
+        HashMap errors = (HashMap)getRequest().getAttribute(ERRORS_KEY);
+        Iterator it = errors.keySet().iterator();
+        while(it.hasNext()){
+            String key = it.next().toString();
+            List l = (List)errors.get(key);
+            Iterator it2 = l.iterator();
+            while(it2.hasNext()){
+                addError(key,it2.next());
+            }
         }
     }
 }
