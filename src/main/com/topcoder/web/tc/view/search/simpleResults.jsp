@@ -71,9 +71,9 @@
           <table border="0" cellspacing="0" cellpadding="3" width="100%">
               <tr valign="middle">
                   <td background="/i/steel_gray_bg.gif" colspan="7" class="statTextBig">Search Results:
-                          &#160;&#160;<%=results.getStartRow()%>
+                          &#160;&#160;<jsp:getProperty name="memberSearch" property="start"/>
                           to
-                          <%=results.getEndRow()%>
+                          <jsp:getProperty name="memberSearch" property="end"/>
                           of
                           <jsp:getProperty name="memberSearch" property="total"/>
                   </td>
