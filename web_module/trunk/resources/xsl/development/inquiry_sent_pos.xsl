@@ -24,7 +24,7 @@
 
 </head>
 
-<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<BODY BGCOLOR="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 
 	<xsl:call-template name="Top" />
 
@@ -85,7 +85,7 @@
         <xsl:call-template name="Foot" />
 <!-- Footer ends -->
 
-</body>
+</BODY>
 </html>
 	</xsl:template>
 </xsl:stylesheet>
