@@ -68,16 +68,16 @@
                             Congratulations on your performance in the 2003 Sun Microsystems and TopCoder Collegiate Challenge! You are eligible for a
                             cash award of at least $50.  If you are a resident of a country that we do not pay cash prizes to, then your prize
                             will be donated to a charity of your choice in your name.  In order for you or your charity to receive your prize, you MUST complete the
-                            APPROPRIATE items below by Friday, March 28th at 12:00 PM EST: IF WE DO NOT RECEIVE ALL OF THE APPROPRIATE ITEMS
+                            APPROPRIATE items below by Midnight, Eastern Time, Monday, April 14th: IF WE DO NOT RECEIVE ALL OF THE APPROPRIATE ITEMS
                             BY 12:00 PM EST ON FRIDAY, MARCH 28th, 2003, YOU WILL FORFEIT YOUR PRIZE.  If you are one of the final 16 and have
                             been invited to the on site semifinals in Cambridge, MA, then you must complete item #4, the Travel Info Page, before
-                            Monday, March 17th.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
+                            Midnight, Eastern Time, Monday, April 14th.  If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.
                         </p>
 
                         <ol>
                             <li>
                                 <p><strong>To be completed by everyone:</strong></p>
-                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before March 28, 2003</p>
+                                <p><strong>AFFIDAVIT</strong> - must be postmarked on or before Midnight, Eastern Time, Monday, April 14th</p>
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
@@ -96,13 +96,13 @@
                                 <p><strong>To be completed by everyone:</strong></p>
 
                                 <p>
-                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by 12:00 PM EST on Friday, March 28th:
+                                    <strong>2003 TOPCODER COLLEGIATE CHALLENGE QUESTIONNAIRE</strong> - Form must be completed by Midnight, Eastern Time, Monday, April 14th:
                                     View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_questionaire">2003 TopCoder Collegiate Challenge Questionnaire</a>.  Complete ALL questions.
                                 </p>
                             </li>
                             <li>
                                 <p><strong>To be completed by those who will personally receive a cash prize:</strong></p>
-                                <p><strong>TAX FORM</strong> - must be postmarked on or before March 28, 2003:</p>
+                                <p><strong>TAX FORM</strong> - must be postmarked on or before Midnight, Eastern Time, Monday, April 14th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
                                         <p>You must complete, sign and return the appropriate tax form (Form W-9 or Form W-8BEN) to the address below.  If you don't know the form 
@@ -123,13 +123,13 @@
                             </li>
                             <li>
                                 <p><strong>To be completed by those who will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
-                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed by 12:00 PM EST on Monday, March 17th:</p>
+                                <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed by Midnight, Eastern Time, Monday, April 14th:</p>
             
                                 <p>View the <a href="/?&amp;t=affidavit&amp;c=2003_collegiate_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                             </li>
                             <li>
                                 <p><strong>To be completed by those who will be traveling to the onsite semifinal rounds on April 4th and 5th in Cambridge, MA in the USA.</strong></p>
-                                <p><strong>HEAD SHOT</strong> - must be emailed by 12:00PM EST on Monday, March 17th:</p>
+                                <p><strong>HEAD SHOT</strong> - must be emailed by Midnight, Eastern Time, Monday, April 14th:</p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
                                         <p>We do not have your headshot on file.  Click below to submit your headshot.</p>
@@ -148,7 +148,7 @@
                             Glastonbury, CT 06033
                         </div>
                         
-                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Friday, March 28th at 12:00PM EST.  Any
+                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by Midnight, Eastern Time, Monday, April 14th.  Any
                         items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:tlongo@topcoder.com" >Tom Longo</a>.</p>
