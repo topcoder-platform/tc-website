@@ -97,7 +97,7 @@ public class EmailInfo extends BaseModel {
         msgText.append("to other candidates being evaluated for the same position.\n");
         msgText.append("\n");
         msgText.append("Please review the Help Manual before getting started: ");
-        msgText.append("******<URL to online help manual>******* OR attached Word document\n");
+        msgText.append("******<URL to online help manual> OR attached Word document*******\n");
         msgText.append("\n");
         msgText.append("The following session has been scheduled for you:\n");
         msgText.append("Begin: ");
