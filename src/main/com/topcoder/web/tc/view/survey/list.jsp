@@ -53,7 +53,7 @@
             <% boolean even = false; %>
                <rsc:iterator list="<%=surveyList%>" id="survey">
                <tr class="<%=even?"formTextOdd":"formTextEven"%>">
-                  <td><rsc:item row="<%=survey%>" name="date" format="MM/dd/yyyy"/></td>
+                  <td><rsc:item row="<%=survey%>" name="date" format="MM.dd.yyyy"/></td>
                   <td>
                      <rsc:item row="<%=survey%>" name="question_text"/>
                   </td>
