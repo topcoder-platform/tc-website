@@ -31,6 +31,7 @@ public class SoftwareComponent {
     private SoftwareComponent() {}
 
     public SoftwareComponent(int levelId, int submissionCount, int submissionsPassedScreening, int phaseId) {
+        this();
         log.debug("level: " + level + " submissionCount: " + submissionCount + " submissionPassedScreening: " +
                 submissionsPassedScreening + " phaseId: " + phaseId);
         this.phaseId = phaseId;
@@ -233,7 +234,7 @@ public class SoftwareComponent {
     }
 
     private void debug(String s) {
-        System.out.println(s);
+        //System.out.println(s);
     }
 
 }
