@@ -2,11 +2,11 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../top.xsl"/>
     <xsl:import href="../script.xsl"/>
-    <xsl:import href="../includes/body_top.xsl"/>  
+    <xsl:import href="../includes/body_top.xsl"/>
     <xsl:import href="../foot.xsl"/>
-    <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-    <xsl:import href="../includes/global_left.xsl"/> 
-    <xsl:import href="../includes/dev/public_dev_right.xsl"/>     
+    <xsl:import href="../includes/modules/stats_intro.xsl"/>
+    <xsl:import href="../includes/global_left.xsl"/>
+    <xsl:import href="../includes/dev/public_dev_right.xsl"/>
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
     <xsl:template match="/">
 
@@ -14,11 +14,11 @@
 
 <head>
 
-    <xsl:call-template name="Preload"/>      
+    <xsl:call-template name="Preload"/>
 
 <title>Inquire about the <xsl:value-of select="/TC/DEVELOPMENT/componentName"/> Development project at TopCoder Software Development</title>
 
-    <xsl:call-template name="CSS"/>      
+    <xsl:call-template name="CSS"/>
 
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -53,35 +53,35 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="5" alt="" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">development</xsl:with-param>
                 <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
-            
+
             <xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
             <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
-            <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>                    
-          
+            <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>
+
             <img src="/i/clear.gif" alt="" width="240" height="20" border="0"/><br/>
-            
+
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="middle">
                     <td class="bodyText">
-                            
+
 <!-- Title -->
                         <h2 class="devSubhead"><strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/>: Development</strong></h2>
                     </td>
                     <td align="right">
                         <xsl:if test="/TC/DEVELOPMENT/tco='t'">
                             <img src="/i/development/tco_comp_badge.gif" alt="TCO Qualifying Project" width="145" height="46" border="0" />
-                        </xsl:if>          
+                        </xsl:if>
                     </td>
                 </tr>
             </table>
-                                    
+
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText">
@@ -93,8 +93,8 @@
 <!-- Project Type -->
                         <p><strong>Project Type</strong><br />
                         Component Development Project: Provide a complete development solution for the <strong><xsl:value-of select="/TC/DEVELOPMENT/componentName"/></strong> component.</p>
-                        
-                        <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution. 
+
+                        <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution.
                         If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.</p>
 
 <!-- Technologies -->
@@ -117,19 +117,20 @@
 <!-- Payment -->
                         <p><strong>Payment</strong><br />
                         TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed at the completion of the project*.</p>
+
                         <p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
-                            
+
                         <p><strong>Winning Developer</strong><br />
                         Royalty Percentage - 25%</p>
 
-            <xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment,'$,','')" />  
-            <xsl:variable name="numericFirstPayment" select="translate(/TC/DEVELOPMENT/first_payment,'$,','')" />  
-            <xsl:variable name="numericSecondPayment" select="translate(/TC/DEVELOPMENT/second_payment,'$,','')" />  
+            <xsl:variable name="numericPayment" select="translate(/TC/DEVELOPMENT/payment,'$,','')" />
+            <xsl:variable name="numericFirstPayment" select="translate(/TC/DEVELOPMENT/first_payment,'$,','')" />
+            <xsl:variable name="numericSecondPayment" select="translate(/TC/DEVELOPMENT/second_payment,'$,','')" />
 
                         <xsl:variable name="dollarFormat" select="'$###,###.00'" />
-                            
+
                         <p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/></p>
-                        
+
                         <p><strong>Second Place Developer</strong><br />
                            Total Payment - <xsl:value-of select="format-number(number($numericPayment)*.5, $dollarFormat)"/><br/>
                         </p>
@@ -147,7 +148,7 @@
 
 <!-- Eligibility Requirements -->
                         <p><strong>Eligibility</strong><br />
-                        You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
+                        You must be a TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
                         <ol>
                             <li>A US Citizen </li>
@@ -159,7 +160,7 @@
 <!-- Time Line -->
                         <p><strong>Time Line</strong><br/>
                         All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
-                            
+
                         <p><!--Component Posting: 1.23.2003<br/>-->
                         Posting Date: <xsl:value-of select="/TC/DEVELOPMENT/posting_date"/><br/>
                         Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
@@ -170,7 +171,7 @@
                         <p><br /></p>
 
 <!-- Register at TCS -->
-                        
+
                         <p><strong>View the <A target="_blank">
                             <xsl:attribute name="href">
                                 <xsl:value-of select="concat('http://software.topcoder.com/catalog/document?id=', $docId)"/>
@@ -186,11 +187,11 @@
                         Register</A> for this Component Project to get information necessary to submit a solution</strong>
                         </p>
 </xsl:if>
-                            
+
                             <p><br /></p>
-                           
+
                             <p><strong>Upload Your Submission</strong><br/>
-                            Managing your projects is now easier than ever with the Project Submit &amp; Review application. After you've inquired about a project, 
+                            Managing your projects is now easier than ever with the Project Submit &amp; Review application. After you've inquired about a project,
                             use Project Submit &amp; Review to check timelines, submit solutions and final fixes, and review your scorecards.</p>
                             <!-- Learn more about Project Submit & Review (link to future How-to guide -->
 
@@ -210,7 +211,7 @@
 
 <!-- Right Column Begins -->
         <td width="244">
-            <xsl:call-template name="public_dev_right" />        
+            <xsl:call-template name="public_dev_right" />
         </td>
 <!-- Right Column Ends -->
 
