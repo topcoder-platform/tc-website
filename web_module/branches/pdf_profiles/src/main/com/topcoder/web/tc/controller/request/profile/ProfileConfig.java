@@ -24,7 +24,7 @@ import java.util.Map;
  *
  * @author rfairfax
  */
-public class PlacementConfig extends BaseProcessor {
+public class ProfileConfig extends BaseProcessor {
     
 
     protected void businessProcessing() throws TCWebException {
