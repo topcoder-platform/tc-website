@@ -9,7 +9,7 @@ public class ChkBoxTag extends BaseTag {
             ret.append("<input type=\"checkbox\" name=\"").append(name).append("\" ");
 
             if (value == null) {
-                value = (String) getDefaultValue();
+                value = getDefaultValue().toString();
             }
             if (value != null) {
                 boolean checked = "true".equalsIgnoreCase(value);
