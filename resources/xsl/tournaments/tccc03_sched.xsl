@@ -164,7 +164,7 @@
                     </TR> 
                     <TR>
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
-                        &#160;&#160;Regional Quarter-Finals<BR/>
+                        &#160;&#160;Regional Quarterfinals<BR/>
 <!--
                         &#160;&#160;&#160;Northeast &amp; Southeast Regions<BR/>
                         &#160;&#160;&#160;&#160;Tuesday, Feb. 19 @ 8pm EST<BR/>
@@ -189,7 +189,7 @@
                       <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_se100" CLASS="statTextBig"></A>SE</TD>
                       <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_w100" CLASS="statTextBig"></A>W</TD>
                       <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_mw100" CLASS="statTextBig"></A>MW</TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_int100" CLASS="statTextBig"></A>INT</TD>                    
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_int100" CLASS="statTextBig"></A>International</TD>                    
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">500</TD>
@@ -242,7 +242,7 @@
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText" BACKGROUND="/i/steel_gray_bg.gif">&#160;</TD>                      
                     </TR>
                     <TR>
-                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">Northeast &amp; Southeast Regions: Wed. Feb. 26 @ 9pm EST (raindate: Thurs. Feb. 27 @ 9pm EST)</TD>                   
+                      <TD COLSPAN="6" VALIGN="middle" CLASS="statText">All Regions: Wed. Feb. 26 @ 9pm EST (raindate: Thurs. Feb. 27 @ 9pm EST)</TD>                   
                     </TR>
                                                           
                     <TR>
@@ -265,7 +265,7 @@
                       <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_se40" CLASS="statTextBig"></A>SE</TD>
                       <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_w40" CLASS="statTextBig"></A>W</TD>
                       <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_mw40" CLASS="statTextBig"></A>MW</TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_int40" CLASS="statTextBig"></A>INT</TD>                    
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournaments&amp;c=tccc03_regions_int40" CLASS="statTextBig"></A>International</TD>                    
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">200</TD>
@@ -323,7 +323,7 @@
                       <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
                     </TR>                    
                     <TR>
-                      <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">&#160;&#160;Regional Championships</TD>
+                      <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">&#160;&#160;Regional Championship</TD>
                       <TD COLSPAN="5" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD> 
                     </TR>                    
                     <TR>
@@ -363,7 +363,7 @@
                     </TR>
                     <TR>
                       <TD HEIGHT="13" ALIGN="right" CLASS="statText">Wildcards</TD>
-                      <TD COLSPAN="5" HEIGHT="13" ALIGN="center" CLASS="statText">11  &#40;total&#41; Wildcards pulled from all regions</TD>
+                      <TD COLSPAN="5" HEIGHT="13" ALIGN="center" CLASS="statText">11  &#40;total&#41; Wildcards from all regions</TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">Date&#160;</TD>
