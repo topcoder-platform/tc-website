@@ -125,6 +125,5 @@ public class RBoardApplicationBean extends BaseEJB {
             close(ctx);
         }
         return ret;
-
     }
 }
