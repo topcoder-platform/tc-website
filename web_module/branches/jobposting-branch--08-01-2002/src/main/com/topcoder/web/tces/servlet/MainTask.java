@@ -38,6 +38,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
     }
 
 	public void setCompanyName(String companyName) {
+log.debug("setting company name: "+companyName);
 		this.companyName = companyName;
 	}
 
@@ -88,6 +89,8 @@ public class MainTask extends BaseTask implements Task, Serializable {
         if (rsc.getRowCount() == 0) {
 			throw new Exception ("No company name!");
         }
+
+log.debug("got "+Integer.toString(rsc.getRowCount())+ " rows");
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
 
