@@ -35,12 +35,12 @@ public class AdvancedSearch extends SimpleSearch {
 
     protected void setDefaults(MemberSearch m) {
         super.setDefaults(m);
-        if (m.getStateCode()!=null) setDefault(Constants.STATE_CODE, m.getStateCode());
-        if (m.getCountryCode()!=null) setDefault(Constants.COUNTRY_CODE, m.getCountryCode());
-        if (m.getMinRating()!=null) setDefault(Constants.MIN_RATING, m.getMinRating());
-        if (m.getMaxRating()!=null) setDefault(Constants.MAX_RATING, m.getMaxRating());
-        if (m.getMinNumRatings()!=null) setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings());
-        if (m.getMaxNumRatings()!=null) setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings());
+        setDefault(Constants.STATE_CODE, m.getStateCode()==null?"":m.getStateCode());
+        setDefault(Constants.COUNTRY_CODE, m.getCountryCode()==null?"":m.getCountryCode());
+        setDefault(Constants.MIN_RATING, m.getMinRating()==null?"":m.getMinRating());
+        setDefault(Constants.MAX_RATING, m.getMaxRating()==null?"":m.getMaxRating());
+        setDefault(Constants.MIN_NUM_RATINGS, m.getMinNumRatings()==null?"":m.getMinNumRatings());
+        setDefault(Constants.MAX_NUM_RATINGS, m.getMaxNumRatings()==null?"":m.getMaxNumRatings());
     }
 
     /**
