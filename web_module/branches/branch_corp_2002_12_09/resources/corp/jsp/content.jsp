@@ -3,7 +3,7 @@
 <html><body>
 <tcgt:textInput name="bla-bla" value="ee" /> <br>
 
-<tcgt:error ref-name="bla-bla" />
+<tcgt:error refname="bla-bla" />
 
 </body><html>
 
