@@ -1,16 +1,20 @@
-<%@ page contentType="text/html; charset=ISO-8859-1" %>
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-      <table width="100%" border="0" cellpadding="0" cellspacing="0">
+<%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<% ResultSetContainer survey = (ResultSetContainer)request.getAttribute("recent_srm_survey_question");%>
+
+     <table width="100%" border="0" cellpadding="0" cellspacing="0">
          <tr><td><img src="/i/member_surveys_header.gif" alt="" width="244" height="20" border="0"/></td></tr>
          <tr>
              <td background="/i/surveyBorderMiddle.gif">
                   <table width="100%" border="0" cellpadding="10" cellspacing="0">
+                     <rsc:iterator list="<%=countries%>" id="resultRow">
                      <tr>
                         <td class="surveyText">
-                        <span class="surveyTextBig">11/03/2003 - </span>
-                        Question goes here.
+                        <span class="surveyTextBig"><rsc:item name="date" row="<%=resultRow%>"/> - </span>
+                        <rsc:item name="question_text" row="<%=resultRow%>"/>
                         </td>
                      </tr>
+                     </rsc:iterator>
                   </table>
              </td>
          </tr>
