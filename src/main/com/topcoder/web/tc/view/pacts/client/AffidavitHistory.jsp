@@ -31,7 +31,6 @@ function goTo(selection){
 				<jsp:param name="level2" value="pacts"/>
 			</jsp:include>
        </TD>
-       <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"></TD>
 <!-- Center Column Begins -->
          <td class="affidavitCell" width="100%" align="center" valign=top>
 
@@ -154,7 +153,6 @@ function goTo(selection){
 	</TR>
 </TABLE>
        </TD>
-       <TD WIDTH="4" ><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"></TD>
        <TD WIDTH="170" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0">
          <jsp:include page="/public_right.jsp" />
        </TD>
