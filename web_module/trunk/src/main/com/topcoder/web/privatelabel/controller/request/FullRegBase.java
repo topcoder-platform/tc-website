@@ -9,10 +9,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-import java.util.List;
-import java.util.Map;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.*;
 
 
 /**
@@ -23,12 +20,18 @@ import java.util.Iterator;
 abstract class FullRegBase extends SimpleRegBase {
 
     protected static Logger log = Logger.getLogger(FullRegBase.class);
-
-    protected abstract void registrationProcessing() throws TCWebException;
+    protected Map questions;
 
     public FullRegBase() {
     }
 
+    protected void registrationProcessing() throws TCWebException {
+        try {
+            questions = getQuestions();
+        } catch (Exception e) {
+            throw new TCWebException(e);
+        }
+    }
 
     protected void setDefaults(FullRegInfo info) throws Exception {
         super.setDefaults(info);
@@ -38,12 +41,12 @@ abstract class FullRegBase extends SimpleRegBase {
         DemographicQuestion question = null;
         for (Iterator it = responses.iterator(); it.hasNext();) {
             response = (DemographicResponse) it.next();
-            question = findQuestion(getQuestions(), response.getQuestionId());
-            if (question.getAnswerType()==DemographicQuestion.SINGLE_SELECT) {
+            question = findQuestion(response.getQuestionId());
+            if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT) {
                 setDefault(DemographicInput.PREFIX + response.getQuestionId(), String.valueOf(response.getAnswerId()));
-            } else if (question.getAnswerType()==DemographicQuestion.FREE_FORM) {
+            } else if (question.getAnswerType() == DemographicQuestion.FREE_FORM) {
                 setDefault(DemographicInput.PREFIX + response.getQuestionId(), response.getText());
-            } else if (question.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT) {
+            } else if (question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 //todo handle multiple select
             } else {
                 //todo something is wrong, we don't recognize that kind of question
@@ -52,14 +55,13 @@ abstract class FullRegBase extends SimpleRegBase {
 
     }
 
-    protected DemographicQuestion findQuestion(List questions, long questionId) {
-        DemographicQuestion q = null;
-        boolean found = false;
-        for (Iterator it = questions.iterator(); it.hasNext() && !found;) {
-            q = (DemographicQuestion) it.next();
-            found = (q.getId() == questionId);
+    protected DemographicQuestion findQuestion(long questionId) {
+        DemographicQuestion ret = null;
+        Long id = new Long(questionId);
+        if (questions.containsKey(id)) {
+            ret = (DemographicQuestion) ((DemographicQuestion) questions.get(id)).clone();
         }
-        return found ? q : null;
+        return ret;
     }
 
     protected void checkFullRegInfo(FullRegInfo info) throws TCWebException {
@@ -76,47 +78,59 @@ abstract class FullRegBase extends SimpleRegBase {
         return new FullRegInfo(super.makeRegInfo());
     }
 
-    protected List getQuestions() throws Exception {
+    private Map getQuestions() throws Exception {
         Request r = new Request();
         r.setContentHandle("demographic_question_list");
         Map qMap = getDataAccess(true).getData(r);
-        ResultSetContainer questions = (ResultSetContainer)qMap.get("demographic_question_list");
+        ResultSetContainer questions = (ResultSetContainer) qMap.get("demographic_question_list");
         ResultSetContainer.ResultSetRow row = null;
 
-        List ret = new ArrayList(questions.size());
+        Map ret = new HashMap();
+        DemographicQuestion q = null;
         for (Iterator it = questions.iterator(); it.hasNext();) {
-            row = (ResultSetContainer.ResultSetRow)it.next();
-            ret.add(makeQuestion(row));
+            row = (ResultSetContainer.ResultSetRow) it.next();
+            q = makeQuestion(row);
+            ret.put(new Long(q.getId()), q);
         }
         return ret;
     }
 
-    protected DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
+    protected final List getQuestionList() throws Exception {
+        List ret = new ArrayList(questions.size());
+        DemographicQuestion q = null;
+        for (Iterator it = questions.values().iterator(); it.hasNext();) {
+            q = (DemographicQuestion) it.next();
+            ret.add(q.clone());
+        }
+        return ret;
+    }
+
+    private DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
         ret.setId(row.getLongItem("demographic_question_id"));
         ret.setDesc(row.getStringItem("demographic_question_desc"));
         ret.setText(row.getStringItem("demographic_question_text"));
         ret.setSelectable(row.getStringItem("selectable"));
-        ret.setRequired(row.getItem("is_required").getResultData()!=null && row.getIntItem("is_required")==1);
+        ret.setRequired(row.getItem("is_required").getResultData() != null && row.getIntItem("is_required") == 1);
 
         DataAccessInt dataAccess = getDataAccess(true);
         Request r = new Request();
         r.setContentHandle("demographic_answer_list");
         r.setProperty("dq", String.valueOf(ret.getId()));
         Map aMap = dataAccess.getData(r);
-        ResultSetContainer answers = (ResultSetContainer)aMap.get("demographic_answer_list");
+        ResultSetContainer answers = (ResultSetContainer) aMap.get("demographic_answer_list");
 
         ResultSetContainer.ResultSetRow aRow = null;
         List answerList = new ArrayList(answers.size());
         for (Iterator it = answers.iterator(); it.hasNext();) {
-            aRow = (ResultSetContainer.ResultSetRow)it.next();
+            aRow = (ResultSetContainer.ResultSetRow) it.next();
             answerList.add(makeAnswer(aRow));
         }
         ret.setAnswers(answerList);
         return ret;
     }
 
-    protected DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
+    private DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
         DemographicAnswer ret = new DemographicAnswer();
         ret.setAnswerId(row.getLongItem("demographic_answer_id"));
         ret.setText(row.getStringItem("demographic_answer_text"));
