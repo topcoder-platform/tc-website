@@ -172,6 +172,15 @@
             <param name="unit-jar-name" value="Reporting"/>
             <param name="unit-class-path" value="com/topcoder/ejb/Reporting"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/Reporting.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/report/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/RecordTag.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/docGen/xml/ValueTag.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+        </jar>
     </target>
 
     <target name="package-EJB-ProjectServicesBean" depends="compile">
@@ -186,6 +195,15 @@
             <param name="unit-jar-name" value="Search"/>
             <param name="unit-class-path" value="com/topcoder/ejb/Search"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/Search.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/Sort.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/stat/coder/Coder.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+        </jar>
     </target>
 
     <target name="package-EJB-PactsServicesBean" depends="compile">
@@ -207,7 +225,7 @@
             <param name="unit-jar-name" value="AuthenticationServices"/>
             <param name="unit-class-path" value="com/topcoder/ejb/AuthenticationServices"/>
         </antcall>
-        <jar jarfile="${ejb_jars}/UserServices.jar" update="true">
+        <jar jarfile="${ejb_jars}/AuthenticationServices.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
         </jar>
     </target>
@@ -224,6 +242,15 @@
             <param name="unit-jar-name" value="DataCache"/>
             <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/DataCache.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/constant/OLTP.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/error/TCException.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+        </jar>
     </target>
 
     <target name="package-EJB-UtilBean" depends="compile">
@@ -231,6 +258,14 @@
             <param name="unit-jar-name" value="Util"/>
             <param name="unit-class-path" value="com/topcoder/ejb/Util"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/Util.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/ejb/AuthenticationServices/User.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/util/DateTime.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging.Logger.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/TCContext.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+        </jar>
     </target>
 
     <target name="package-EJB-UserServicesBean" depends="compile">
@@ -605,6 +640,12 @@
             <param name="unit-jar-name" value="ContestAdminServices"/>
             <param name="unit-class-path" value="com/topcoder/ejb/ContestAdminServices"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/ContestAdminServices.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/common/web/data/Group.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/Logger.class"/>
+        </jar>
         <war warfile="${war.dir}/admin.war" webxml="${resources}/admin/web.xml">
             <fileset dir="${java}/com/topcoder/web/admin/view">
                 <include name="**/*.jsp"/>
