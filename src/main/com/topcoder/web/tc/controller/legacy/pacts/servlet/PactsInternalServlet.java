@@ -2486,6 +2486,7 @@ public class PactsInternalServlet extends BaseServlet implements PactsConstants 
 
 
         }
+        request.setAttribute(BaseServlet.MESSAGE_KEY, message);
         forward(INTERNAL_ERROR_JSP, request, response);
     }
 
