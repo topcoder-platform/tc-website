@@ -61,7 +61,12 @@
                 </TR>
     
                 <%
-                 int lastCompany = MainTask.getCampaignInfoList().isEmpty()?-1:Integer.parseInt((ResultSetContainer)MainTask.getCampaignInfoList()).getItem(0, "company_id").toString());
+                 int lastCompany;
+                 if (MainTask.getCampaignInfoList().isEmpty()) {
+                     lastCompany = -1;
+                 } else {
+                     lastCompany = Integer.parseInt(((ResultSetContainer)MainTask.getCampaignInfoList()).getItem(0, "company_id").toString());
+                 }
                  int currCompany = -1;
                  int i=0;
                  %>
