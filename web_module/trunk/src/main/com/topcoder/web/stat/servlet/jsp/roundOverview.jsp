@@ -26,13 +26,49 @@
        <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 
          <!-- BEGIN BODY -->
+<% //common code that pulls out the request bean.
+    Request srb = (Request) request.getAttribute("REQUEST_BEAN");
+%>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
-ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
-ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
-ResultSetContainer.ResultSetRow resultRow_0 = leaders.isValidRow(0)? leaders.getRow(0):null;
-String roundID = resultRow_0!=null?resultRow_0.getItem("round_id").toString():"";
+    ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
+    ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
+    int topN = Integer.parseInt(srb.getProperty("er","5"));
+    if(topN<0||topN>100)topN = 5;
+    ResultSetContainer.ResultSetRow resultRow_0 = leaders.getRow(0);
+    String contestName = resultRow_0.getItem("contest_name").toString();
+    int roundID = Integer.parseInt(resultRow_0.getItem("round_id").toString());
+    //get divisionIDs
+    ArrayList divisionNames = new ArrayList(5);
+    ArrayList divisionIDs = new ArrayList(5);
 
+    Object last = "";
+    int divisions = 0;
+    for(int i = 0; i<percents.size();i++){
+        ResultSetContainer.ResultSetRow currentRow = percents.getRow(i);
+        Object current = currentRow.getItem("division_desc");
+        if(!current.equals(last)){
+            divisionNames.add(current);
+            divisionIDs.add(currentRow.getItem("division_id"));
+            last = current;
+            divisions++;
+        }
+    }
+    int ptrs[] = new int[divisions];
+    String coders[][] = new String[divisions][topN];
+    String scores[][] = new String[divisions][topN];
+    String rooms[][] = new String[divisions][topN];
+    for(int i = 0; i<leaders.size();i++){
+        ResultSetContainer.ResultSetRow currentRow = leaders.getRow(i);
+        int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString());
+        if(ptrs[divisionID]==topN)continue;
+        String handle = currentRow.getItem("handle").toString();
+        String room_name = currentRow.getItem("room_name").toString();
+        String points = currentRow.getItem("final_points").toString();
+        coders[divisionID][ptrs[divisionID]]=handle;
+        scores[divisionID][ptrs[divisionID]]=points;
+        rooms[divisionID][ptrs[divisionID]++]=room_name;
+    }
 %>
 
 
@@ -50,62 +86,26 @@ String roundID = resultRow_0!=null?resultRow_0.getItem("round_id").toString():""
 </TABLE> -->
  	<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/><BR/>
 
-   <A CLASS="bodyGeneric" href="/stat?&amp;c=last_match"><B>Single Round Match <%= roundID %></B></A><BR/>
-Wednesday, August 12, 2002<BR/>
+   <A CLASS="bodyGeneric" href="/stat?&amp;c=last_match"><B><%= contestName %></B></A><BR/>
+DATE<BR/>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="leaders"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
-    <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B>Div-I Leaders</B></TD>
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0"><A HREF="/stat?c=last_match&amp;rd=4260&amp;dn=1" CLASS="bodyGeneric">Results</A></TD>
-    <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B>Div-II Leaders</B></TD>
-    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0"><A HREF="/stat?c=last_match&amp;rd=4260&amp;dn=2" CLASS="bodyGeneric">Results</A></TD>
+  <%for(int i = 0; i<divisionNames.size();i++){%>
+    <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B><%= divisionNames.get(i).toString() %></B></TD>
+    <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0"><A HREF="/stat?c=last_match&amp;rd=<%= roundID %>&amp;dn=<%= divisionIDs.get(i).toString() %>" CLASS="bodyGeneric">Results</A></TD>
+  <%}%>
   </TR>
 
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">&#160;bstanescu</TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right">1421.70 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText">&#160;Room 4</TD>
-
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">&#160;UFP2161</TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right">680.30 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText">&#160;Room 6</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Yarin</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">1347.74 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 1</TD>
-
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Olorin</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">659.68 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 6</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;ZorbaTHut</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">1302.99 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 1</TD>
-
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;weissman</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">658.33 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 12</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;ShakeSpace</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">1077.79 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 5</TD>
-
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;debaser</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">645.37 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 13</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;RachaelLCook</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">848.79 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 4</TD>
-
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;FrodoB</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">643.37 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Room 7</TD>
-  </TR>
+  <%for(int i = 0; i<topN;i++){%>
+      <TR>
+        <%for(int j = 0; j<divisions;j++){%>
+            <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">&#160;<%= coders[j][i] %></TD>
+            <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%= score[j][i] %> &#160;&#160;</TD>
+            <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText">&#160;<%= room[j][i] %></TD>
+  <%    }%>
+      </TR>
+  <%}%>
 </TABLE>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="problem_stats"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
