@@ -156,6 +156,7 @@ public class Constants {
 
         DB_LIST = new ArrayList();
         DB_LIST.add(new DatabaseBean("SCREENING_OLTP", "Screening Transactional"));
+        DB_LIST.add(new DatabaseBean("DW", "Data Warehouse"));
 
 
     }
