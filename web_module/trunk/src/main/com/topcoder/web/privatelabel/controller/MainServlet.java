@@ -10,12 +10,14 @@ import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.privatelabel.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCResourceBundle;
 import com.topcoder.shared.security.Resource;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletResponse;
 import java.util.Set;
+import java.util.MissingResourceException;
 
 /**
  *
@@ -47,5 +49,19 @@ public class MainServlet extends BaseServlet {
         return ret;
     }
 
+
+    protected String getProcessor(String key) {
+        String ret = super.getProcessor(key);
+        if (ret.equals(key)) {
+            //yuck, gonna throw errors all over the place
+            TCResourceBundle bundle = new TCResourceBundle("PrivateLabel");
+            try {
+                ret = bundle.getProperty(key);
+            } catch (MissingResourceException ignore) {
+                //just return what we got
+            }
+        }
+        return ret;
+    }
 
 }
