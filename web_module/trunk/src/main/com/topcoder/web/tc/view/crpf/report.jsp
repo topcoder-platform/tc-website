@@ -74,7 +74,7 @@
                 <td>
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="2"/>">Rating</a>
                 </td>
-                <td align="center">
+                <td align="right">
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="1"/>">Total Donation</a>
                 </td>
             </tr>
