@@ -11,6 +11,7 @@ import java.rmi.RemoteException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 public class UserTermsOfUseBean implements SessionBean {
 
@@ -145,6 +146,65 @@ public class UserTermsOfUseBean implements SessionBean {
             }
         }
     }
+
+
+    public boolean hasTermsOfUse(long userId, long termsOfUseId)
+            throws EJBException, RemoteException {
+
+        Connection con = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        boolean ret = false;
+        try {
+
+            String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT '1' ");
+            query.append("FROM user_terms_of_use_xref ");
+            query.append("WHERE user_id=? AND terms_of_use_id=?");
+
+            con = ds.getConnection();
+            ps = con.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+            ps.setLong(2, termsOfUseId);
+
+            rs = ps.executeQuery();
+            ret = rs.next();
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+            throw(new EJBException(_ne.getMessage()));
+        } finally {
+            if (con != null) {
+                try {
+                    con.close();
+                } catch (Exception _e) {
+                    /* do nothing */
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception _e) {
+                    /* do nothing */
+                }
+            }
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception _e) {
+                    /* do nothing */
+                }
+            }
+        }
+        return ret;
+    }
+
+
 
 }
 

@@ -12,6 +12,8 @@ public interface UserTermsOfUse extends EJBObject {
     public void removeUserTermsOfUse(long _user_id, long _terms_of_use_id)
             throws EJBException, RemoteException;
 
+    public boolean hasTermsOfUse(long userId, long termsOfUseId)
+            throws EJBException, RemoteException;
 }
 
 ;

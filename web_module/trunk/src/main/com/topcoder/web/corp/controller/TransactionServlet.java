@@ -270,7 +270,9 @@ public class TransactionServlet extends HttpServlet {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
         InitialContext ic = (InitialContext)TCContext.getInitial();
         UserTermsOfUse userTerms = ((UserTermsOfUseHome)ic.lookup(UserTermsOfUseHome.EJB_REF_NAME)).create();
-        userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.CORP_SITE_TERMS_ID);
+        if (!userTerms.hasTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
+            userTerms.createUserTermsOfUse(txInfo.getContactID(), Constants.GENERAL_PRODUCT_TERMS_ID);
+        }
         req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost() * txInfo.getQtty()));
 //        req.setAttribute(Constants.KEY_CCTX_LOGIN, Constants.CCTX_LOGIN);
 //        req.setAttribute(Constants.KEY_CCTX_PARTNER, Constants.CCTX_PARTNER);
