@@ -120,7 +120,7 @@ Used as: Division Two - Level One: <blockquote><table cellspacing="2">
       <b>High Score</b> 
     </td> 
     <td class="bodyText" style="background: #eee;"> 
-      <b>tczb</b> for 249.98 points (0 mins 16 secs) 
+      <b>Uranium-235</b> for 244.15 points (4 mins 24 secs) 
     </td> 
   </tr> 
   <tr> 
@@ -493,7 +493,7 @@ x---------------x---------------x
 
 
                         <p>
-<!--                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br / />-->
+                        <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1" align="left" /><br />
                         By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br />
                         <span class="smallText"><em>TopCoder Member</em></span><br clear="all" />
                         </p>

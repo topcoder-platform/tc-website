@@ -22,8 +22,8 @@
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> -->
 
-                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy </strong></a><br/>
+                        <img src="/i/m/dimkadimon_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=276230"><strong>dimkadimon</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -32,17 +32,14 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm158_prob">Problem Set Analysis &amp; Opinion: SRM 158</a></font></strong><br />
-                        Wednesday, August 6, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm159_prob">Problem Set Analysis &amp; Opinion: SRM 159</a></font></strong><br />
+                        Tuesday, August 12, 2003</p>
 
                        <p>
-                        SRM 158 had a well balanced set, with almost no confusion issues.  Division 1
-                        saw <strong>ZorbaTHut</strong> easily taking first place, with the highest score on the level 3,
-                        and a good 50 points ahead of <strong>Yarin</strong>, without the help of challenges.  Newbie
-                        coder <strong>gevak</strong> edged out <strong>DimaGer</strong> by 20 points to win division 2, and got a nice
-                        1815 debut rating.  <strong>gevak</strong> also got the high score for his level 3 solution.  Also of note, <strong>raquib</strong> 
-                        pulled off 6 successful challenges in room 9, and <strong>radeye</strong> got 4 successful challenges in room 4, all with the same test case.
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm158_prob</xsl:attribute><strong>full&#160;story</strong></a>
+                        In Division I <b>antimatter</b> and <b>bladerunner</b> were on fire, as they both finished all 3 problems in under 30 minutes. However, 
+                        as it is often the case, fast code is not always good code and both had to resubmit their Easy problems. After the coding phase, <b>CristopherH</b> 
+                        looked certain to win his first SRM with an impressive score of 1500.67, but that was about to change...
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm159_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
