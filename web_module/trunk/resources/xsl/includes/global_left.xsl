@@ -20,7 +20,7 @@
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -45,7 +45,7 @@
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -83,7 +83,7 @@
 
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -155,7 +155,7 @@
                 </tr>
 
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -227,7 +227,7 @@
                 </tr>
 
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -280,7 +280,7 @@
                     </td>
                 </tr>
                 
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -476,7 +476,7 @@
             <xsl:call-template name="left_nav_btm_row"/>
         </xsl:when>
 
-<!-- Tournaments begins -->
+<!-- Events begins -->
         <xsl:when test="/TC/Task='tournaments'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
@@ -488,92 +488,42 @@
             
                 <tr>
                     <td id="leftNavOn">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="/TC/Command='tourny_index'">leftNavSelect</xsl:when>
-                            <xsl:otherwise>leftNavOn</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Tournaments:</A>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Events</A>
                     </td>
                 </tr>
 
-<!-- 2003 Open -->
+<!-- Tournaments -->
                 <tr>
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
                             <xsl:when test="starts-with(/TC/Command,'tco03_')">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tco03_overview">2003 Open</A></td>
-                </tr>
-                
-<!-- 2003 Collegiate Challenge -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
+                            <xsl:when test="starts-with(/TC/Command,'2002tccc_')">leftSubnavOn</xsl:when>
+                            <xsl:when test="starts-with(/TC/Command,'invit02_')">leftSubnavOn</xsl:when>
+                            <xsl:when test="starts-with(/TC/Command,'tccc02_')">leftSubnavOn</xsl:when>
                             <xsl:when test="starts-with(/TC/Command,'tccc03_')">leftSubnavOn</xsl:when>
+                            <xsl:when test="starts-with(/TC/Command,'tourny_')">leftSubnavOn</xsl:when>
+                            <xsl:when test="starts-with(/TC/Command,'tourney_')">leftSubnavOn</xsl:when>
+                            <xsl:when test="starts-with(/TC/Command,'top_')">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tccc03_champ">2003 Collegiate Challenge</A></td>
+                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_index">Tournaments</A></td>
                 </tr>
                 
-<!-- 2002 Invitational -->
+<!-- Private Label Events -->
                 <tr>
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
                         <xsl:choose>
-                            <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
-                            <xsl:when test="starts-with(/TC/Command,'invit02')">leftSubnavOn</xsl:when>
+                            <xsl:when test="/TC/Command='private_label_index'">leftSubnavOn</xsl:when>
+                            <xsl:when test="/TC/Command='sunnetwork2002'">leftSubnavOn</xsl:when>
+                            <xsl:when test="/TC/Command='javaone2003'">leftSubnavOn</xsl:when>
+                            <xsl:when test="starts-with(/TC/Command,'vcc03_')">leftSubnavOn</xsl:when>
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=invit02_champ">2002 Invitational</A></td>
-                </tr>
-            
-<!-- 2002 Collegiate Challenge -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
-                        <xsl:when test="starts-with(/TC/Command,'tourny_s')">leftSubnavOn</xsl:when>
-                        <xsl:when test="starts-with(/TC/Command,'tourny_r')">leftSubnavOn</xsl:when>
-                        <xsl:when test="starts-with(/TC/Command,'tccc02')">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_sched">2002 Collegiate Challenge</A></td>
-                </tr>
-                
-<!-- 2001 Invitational -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
-                        <xsl:when test="starts-with(/TC/Command,'tourny_tci_01')">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_tci_01">2001 Invitational</A></td>
-                </tr>
-                
-<!-- 2001 Collegiate Challenge -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
-                        <xsl:when test="starts-with(/TC/Command,'tourny_tccc_01')">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_tccc_01">2001 Collegiate Challenge</A></td>
+                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=private_label_index">Private Label Events</A></td>
                 </tr>
                 
                 <xsl:call-template name="rtables_row"/>
@@ -588,7 +538,7 @@
             <xsl:call-template name="simple_search"/>
             <xsl:call-template name="left_nav_btm_row"/>
       </xsl:when>
-<!-- Tournaments ends -->
+<!-- Events ends -->
 
 <!-- Support/FAQ begins -->
       <xsl:when test="/TC/Task='support'">
@@ -599,7 +549,7 @@
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 
                 <tr><td id="leftNavOn"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Support/FAQ:</td></tr>
@@ -1021,7 +971,7 @@
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -1056,7 +1006,7 @@
                 <xsl:call-template name="sched_row"/>
                 <xsl:call-template name="stats_row"/>
                 <xsl:call-template name="feat_row"/>
-                <xsl:call-template name="tourney_row"/>
+                <xsl:call-template name="events_row"/>
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
@@ -1141,8 +1091,8 @@
                 <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=app_projects</xsl:attribute>Applications</A></td></tr>
 </xsl:template>
 
-<xsl:template name="tourney_row">
-                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Tournaments</A></td></tr>
+<xsl:template name="events_row">
+                <tr><td id="leftNav"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute>Events</A></td></tr>
 </xsl:template>
 
 <xsl:template name="rtables_row">
