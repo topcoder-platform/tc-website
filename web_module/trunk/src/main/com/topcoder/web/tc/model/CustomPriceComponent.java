@@ -15,9 +15,10 @@ public class CustomPriceComponent extends DefaultPriceComponent {
 
     protected CustomPriceComponent() {}
 
-    public CustomPriceComponent(float primaryReviewerPrice, float reviewerPrice) {
+    public CustomPriceComponent(float primaryReviewerPrice, float reviewerPrice, int phaseId) {
         this.primaryReviewerPrice = primaryReviewerPrice;
         this.reviewerPrice = reviewerPrice;
+        this.phaseId = phaseId;
     }
 
     public float getPrimaryReviewPrice() {
