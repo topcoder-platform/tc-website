@@ -1,7 +1,8 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
                  com.topcoder.web.common.StringUtils,
                  com.topcoder.shared.problem.DataType,
-                 com.topcoder.web.common.render.DataTypeRenderer"%>
+                 com.topcoder.web.common.render.DataTypeRenderer,
+                 com.topcoder.web.codinginterface.CodingInterfaceConstants"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/WEB-INF/codinginterface.tld" prefix="ci" %>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
@@ -15,10 +16,17 @@
     <title></title>
   </head>
   <body>
-        <form name=frmTesting>
-        <input type=hidden name=arrayArg value=0 />
-        <input type=hidden name=arrayArgType value="" />
-        <input type=hidden name=arrayDisplayArgType value="" />
+        <form name="frmTesting" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post">
+          <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
+          <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="<%=Constants.RP_TEST%>"/>
+          <tc-webtag:hiddenInput name="<%=Constants.COMPONENT_ID%>" value="<%=String.valueOf(problemInfo.getComponentId())%>"/>
+          <tc-webtag:hiddenInput name="<%=Constants.PROBLEM_TYPE_ID%>" value="<%=String.valueOf(problemInfo.getProblemTypeId())%>"/>
+          <ci:argumentIterator problem="prob" language="language">
+            <input type="hidden" name="<%=CodingInterfaceConstants.TEST_ARGUMENT_PREFIX+argumentIndex%>" value="" />
+          </ci:argumentIterator>
+          <input type="hidden" name="arrayArg" value=0 />
+          <input type="hidden" name="arrayArgType" value="" />
+          <input type="hidden" name="arrayDisplayArgType" value="" />
         <!-- this will be dynamically written out by the backend for this page -->
         <table border=0 width="100%">
             <ci:argumentIterator problem="prob" language="language">
@@ -117,15 +125,15 @@
                             break;
                         case "int":
                         case "long":
-                            putValue("window.opener.document.forms[0]", "arg" + i, parseInt(getValue("document.frmTesting", "arg" + i + "input")));
+                            putValue("window.document.forms[0]", "arg" + i, parseInt(getValue("document.frmTesting", "arg" + i + "input")));
                             break;
                         case "double":
-                            putValue("window.opener.document.forms[0]", "arg" + i, parseFloat(getValue("document.frmTesting", "arg" + i + "input")));
+                            putValue("window.document.forms[0]", "arg" + i, parseFloat(getValue("document.frmTesting", "arg" + i + "input")));
                             break;
                         case "boolean":
-                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input"));
+                            putValue("window.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input"));
                         default:
-                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input").toLowerCase());
+                            putValue("window.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input").toLowerCase());
                             break;
                     }
                 }

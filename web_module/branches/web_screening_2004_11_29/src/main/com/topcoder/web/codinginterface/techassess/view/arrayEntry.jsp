@@ -59,7 +59,7 @@
             displayArgType = getValue("window.opener.document.frmTesting", "arrayDisplayArgType");
 
             //load data
-            var tmpVal = getValue("window.opener.opener.document.forms[0]", "arg" + arg);
+            var tmpVal = getValue("window.opener.document.forms[0]", "arg" + arg);
             document.frmTesting.inputText.value = tmpVal;
             addBrackets();
 
@@ -78,7 +78,7 @@
 
                 arr = arr.substring(0, arr.length-1);
 
-                putValue("window.opener.opener.document.forms[0]", "arg" + arg, arr);
+                putValue("window.opener.document.forms[0]", "arg" + arg, arr);
                 putValue("window.opener.document.forms[0]", "arg" + arg + "input", "modify");
 
                 window.close();
