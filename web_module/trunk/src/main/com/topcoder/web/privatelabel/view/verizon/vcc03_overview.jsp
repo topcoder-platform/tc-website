@@ -17,11 +17,21 @@ var agt=navigator.userAgent.toLowerCase();
  var appVer = navigator.appVersion.toLowerCase();
  var is_minor = parseFloat(appVer);
  var is_major = parseInt(is_minor);
+
  var iePos = appVer.indexOf('msie');
- if (iePos !=-1) { is_minor = parseFloat(appVer.substring(iePos+5,appVer.indexOf(';',iePos))) is_major = parseInt(is_minor); } var is_opera = (agt.indexOf("opera") != -1);
+ if (iePos !=-1) {
+   is_minor = parseFloat(appVer.substring(iePos+5,appVer.indexOf(';',iePos)));
+   is_major = parseInt(is_minor);
+ }
+ var is_opera = (agt.indexOf("opera") != -1);
+
  var is_konq = false;
  var kqPos = agt.indexOf('konqueror');
- if (kqPos !=-1) { is_konq = true; } var is_safari = ((agt.indexOf('safari')!=-1)&&(agt.indexOf('mac')!=-1))?true:false;
+ if (kqPos !=-1) {
+   is_konq = true;
+ }
+ var is_safari = ((agt.indexOf('safari')!=-1)&&(agt.indexOf('mac')!=-1))?true:false;
+
  var is_khtml = (is_safari || is_konq);
  var is_moz = ((agt.indexOf('mozilla/5')!=-1) && (agt.indexOf('spoofer')==-1) &&  (agt.indexOf('compatible')==-1) && (agt.indexOf('opera')==-1) &&  (agt.indexOf('webtv')==-1) && (agt.indexOf('hotjava')==-1) &&  (is_gecko) && ((navigator.vendor=="")||(navigator.vendor=="Mozilla")));
  var is_nav = ((agt.indexOf('mozilla')!=-1) && (agt.indexOf('spoofer')==-1) && (agt.indexOf('compatible') == -1) && (agt.indexOf('opera')==-1) && (agt.indexOf('webtv')==-1) && (agt.indexOf('hotjava')==-1) && (!is_khtml) && (!(is_moz)));
@@ -35,9 +45,13 @@ var agt=navigator.userAgent.toLowerCase();
  var is_mac = (agt.indexOf("mac")!=-1);
  if (is_mac) { is_win = !is_mac; } var is_Flash = false;
  var is_FlashVersion = 0;
- if ((is_nav||is_opera||is_moz)|| (is_mac&&is_ie5up)) { var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] &&  navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
- if (plugin) { is_Flash = true;
- is_FlashVersion = parseInt(plugin.description.substring(plugin.description.indexOf(".")-1)); }} if (is_win&&is_ie4up){ document.write( '' + '\n' + 'Dim hasPlayer, playerversion' + '\n' + 'hasPlayer = false' + '\n' + 'playerversion = 10' + '\n' + 'Do While playerversion > 0' + '\n' + 'On Error Resume Next' + '\n' + 'hasPlayer = (IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & playerversion)))' + '\n' + 'If hasPlayer = true Then Exit Do' + '\n' + 'playerversion = playerversion - 1' + '\n' + 'Loop' + '\n' + 'is_FlashVersion = playerversion' + '\n' + 'is_Flash = hasPlayer' + '\n' + '<\/sc' + 'ript>' ); } var isBestClient = false;
+ if ((is_nav||is_opera||is_moz)|| (is_mac&&is_ie5up)) {
+   var plugin = (navigator.mimeTypes && navigator.mimeTypes["application/x-shockwave-flash"] &&  navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin) ? navigator.mimeTypes["application/x-shockwave-flash"].enabledPlugin : 0;
+ if (plugin) {
+   is_Flash = true;
+   is_FlashVersion = parseInt(plugin.description.substring(plugin.description.indexOf(".")-1));
+ }
+ if (is_win&&is_ie4up){ document.write( '' + '\n' + 'Dim hasPlayer, playerversion' + '\n' + 'hasPlayer = false' + '\n' + 'playerversion = 10' + '\n' + 'Do While playerversion > 0' + '\n' + 'On Error Resume Next' + '\n' + 'hasPlayer = (IsObject(CreateObject("ShockwaveFlash.ShockwaveFlash." & playerversion)))' + '\n' + 'If hasPlayer = true Then Exit Do' + '\n' + 'playerversion = playerversion - 1' + '\n' + 'Loop' + '\n' + 'is_FlashVersion = playerversion' + '\n' + 'is_Flash = hasPlayer' + '\n' + '<\/sc' + 'ript>' ); } var isBestClient = false;
  if (is_ie5_5up&&(is_FlashVersion >=5)) { isBestClient = true; }
 
 
