@@ -45,7 +45,7 @@ String sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toSt
 
 // jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
 StringReader reader = new StringReader(sProblemText);
-ProblemComponent arrProblemComponent[1];
+ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
 arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
 Problem problem = new Problem();
 problem.setProblemComponents(arrProblemComponent);
