@@ -17,6 +17,7 @@ import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
+import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.tc.controller.legacy.resume.bean.Resume;
 
 import javax.servlet.http.HttpUtils;
@@ -108,18 +109,14 @@ public class PopulateCandidate extends BaseScreeningProcessor {
 
 
                 try {
-                    DataAccessInt dAccess = Util.getDataAccess();
 
-                    Request prefRequest = new Request();
-                    prefRequest.setContentHandle("contactInfo");
-                    prefRequest.setProperty("uid", String.valueOf(getUser().getId()));
-                    Map prefMap = dAccess.getData(prefRequest);
+                    Contact contact = (Contact)createEJB(getInitialContext(), Contact.class);
 
                     PreferenceLevel pl = (PreferenceLevel)createEJB(getInitialContext(), PreferenceLevel.class);
-                    info.setPreference(pl.getLevel(Constants.DATA_SOURCE,
-                            ((ResultSetContainer)prefMap.get("contactInfo")).getLongItem(0, "company_id"), getUser().getId()));
+                    info.setPreference(pl.getLevel(Constants.DATA_SOURCE,contact.
+                            getCompanyId(getUser().getId(), Constants.DATA_SOURCE), getUser().getId()));
 
-
+                    DataAccessInt dAccess = Util.getDataAccess();
                     Request dr = new Request();
                     dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
                     dr.setContentHandle("noteList");
