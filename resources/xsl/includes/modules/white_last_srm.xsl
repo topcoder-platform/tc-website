@@ -9,13 +9,13 @@
 		<TD CLASS="bodyText" VALIGN="top">
 <!-- <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">tck</A> -->	
 <P>
-<SPAN CLASS="bodyTextBold">Single Round Match 90</SPAN><BR/>
-Tuesday, May 21, 2002<BR/>
-By Adam Loss, <I>TopCoder Staff Writer</I><BR/>
-Three 10-seeds, <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Soli</A>, 
-<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">elchive</A>, 
-and <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">seaniswise</A>, 
-won close battles in Room's 8, 11 and 12...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
+<SPAN CLASS="bodyTextBold">Single Round Match 91</SPAN><BR/>
+Wednesday, May 22, 2002<BR/>
+By Adam Loss, <I>TopCoder Staff Writer</I><BR/><BR/>
+<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">kalmes</A>
+ was the top-scorer in Division-I, winning Room 4 with 1422.50 final points. <A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">Ninjak</A>
+ was the top-scorer in Division-II and SRM 91, earning 1557.10 final points
+ ...<A HREF="index?t=statistics&amp;c=match_summary" CLASS="bodyGeneric">full&#160;story</A> 
 </P>
 				
 <!-- <P><B>Division-I</B><BR/>
