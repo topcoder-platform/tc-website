@@ -60,35 +60,11 @@
                   <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><b>End Date</b></TD>
                 </TR>
     
-                <%
-                 int lastCompany = -1;
-                 int currCompany = -1;
-                 boolean hasMany = false;
-                 if (MainTask.getCampaignInfoList().size() > 0) {
-                     lastCompany = Integer.parseInt(((ResultSetContainer)MainTask.getCampaignInfoList()).getItem(0, "company_id").toString());
-                     int companyId = -1;
-                     /* figure out if there many companies in this compaign list, if so, we need to display company names */
-                     for (int i=0; i<MainTask.getCampaignInfoList().size()&&!hasMany; i++) {
-                         companyId = Integer.parseInt(((ResultSetContainer)MainTask.getCampaignInfoList()).getItem(i, "company_id").toString());
-                         if (companyId != lastCompany) {
-                             hasMany=true;
-                         }
-                     }
-                 }
-                 int i=0;
-                 %>
- 
                 <tces:rowIterator id="campaignInfo" rowList="<%=MainTask.getCampaignInfoList()%>">
-                <%-- this is some logic so that if you're an "admin" user, you'll get the company names
-                     to separate the different campaigns.  if this tool get's big, we should do it better.
-                 --%>
-                <% i++;
-                   currCompany = Integer.parseInt(campaignInfo.getItem("company_id").toString()); 
-                   if (currCompany != lastCompany || (hasMany && i==1)) { %> 
+                <% if (MainTask.hasManyCompanies) { %> 
                   <TR><TD colspan="5" class="statTextBig"><BR/><BR/></TD></TR>
                   <TR><TD colspan="5" class="statTextBig"><%= campaignInfo.getItem("company_name").toString() %></TD></TR><BR/><BR/>
-                <% lastCompany = currCompany;
-                   } %>
+                <% } %>
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;

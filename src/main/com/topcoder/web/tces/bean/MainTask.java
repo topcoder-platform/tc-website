@@ -31,6 +31,9 @@ public class MainTask extends BaseTask implements Task, Serializable {
     /* Holds the ID currently logged-in user */
     private int uid;
 
+    /* Holds whether or not there are multiple different companies in the campaign list */
+    private boolean hasManyCompanies;
+
     /* Creates a new MainTask */
     public MainTask() {
         super();
@@ -66,6 +69,21 @@ public class MainTask extends BaseTask implements Task, Serializable {
     public List getCampaignInfoList( ) {
         return campaignInfoList;
     }
+
+    /** Setter for property hasManyCompanies.
+     * @param hasManyCompanies New value of property hasManyCompanies.
+     */
+    public void setHasManyCompanies(boolean hasManyCompanies) {
+        this.hasManyCompanies = hasManyCompanies;
+    }
+
+    /** Getter for property hasManyCompanies
+     * @return Value of property hasManyCompanies
+     */
+    public boolean hasManyCompanies() {
+        return hasManyCompanies;
+    }
+
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
@@ -106,26 +124,19 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_List");
 
-/*
-   grp 09/09/2002 - i hate this, so i'm killing it.  there's no reason to wrap the 
-                    results in a list of hashmaps.
-
-        ArrayList campaignInfoList = new ArrayList();
-        for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-            HashMap campaignInfo = new HashMap();
-            rRow = rsc.getRow(rowI);
-            campaignInfo.put("campaign_name", TCData.getTCString(rRow, "campaign_name") );
-            campaignInfo.put("start_date", TCData.getTCDate(rRow, "start_date") );
-            campaignInfo.put("end_date", TCData.getTCDate(rRow, "end_date") );
-            campaignInfo.put("campaign_id", Long.toString(TCData.getTCLong(rRow, "campaign_id")) );
-            campaignInfo.put("company_id", Long.toString(TCData.getTCLong(rRow, "company_id")) );
-            campaignInfo.put("company_name", Long.toString(TCData.getTCLong(rRow, "company_name")) );
-
-            campaignInfoList.add(campaignInfo);
+        setHasManyCompanies(false);
+        if (!rsc.isEmpty()) {
+            int firstCompany = -1;
+            firstCompany = Integer.parseInt(rsc.getItem(0, "company_id").toString());
+            int companyId = -1;
+            /* figure out if there are more than one companies in this compaign list */
+            for (int i=0; i<rsc.size()&&!hasManyCompanies(); i++) {
+                companyId = Integer.parseInt(rsc.getItem(i, "company_id").toString());
+                if (companyId != firstCompany) {
+                    setHasManyCompanies(true);
+                }
+            }
         }
-
-        setCampaignInfoList( campaignInfoList );
-*/
 
         setCampaignInfoList(rsc);
 
