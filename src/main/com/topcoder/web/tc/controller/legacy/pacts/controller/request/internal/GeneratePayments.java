@@ -3,6 +3,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.controller.request.internal;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.NavigationException;
+import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.controller.legacy.pacts.common.PactsConstants;
 import com.topcoder.web.tc.controller.legacy.pacts.common.IllegalUpdateException;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
@@ -22,13 +23,13 @@ public class GeneratePayments extends BaseProcessor implements PactsConstants {
             if (getRequest().getParameter(ROUND_ID)!=null) {
                 DataInterfaceBean bean = new DataInterfaceBean();
                 int count = 0;
-                if (getRequest().getParameter(AFFIDAVIT_TYPE_ID)!=null) {
+                if (StringUtils.checkNull(getRequest().getParameter(AFFIDAVIT_TYPE_ID)).equals("")) {
+                    log.debug("no affidavit type");
+                    count = bean.generateRoundPayments(Long.parseLong(getRequest().getParameter(ROUND_ID)), true);
+                } else {
                     log.debug("affidavit type " + getRequest().getParameter(AFFIDAVIT_TYPE_ID));
                     count = bean.generateRoundPayments(Long.parseLong(getRequest().getParameter(ROUND_ID)),
                             Integer.parseInt(getRequest().getParameter(AFFIDAVIT_TYPE_ID)), true);
-                } else {
-                    log.debug("no affidavit type");
-                    count = bean.generateRoundPayments(Long.parseLong(getRequest().getParameter(ROUND_ID)), true);
                 }
                 addError(ROUND_ID, "Success, " + count + " payments generated");
             } else {
