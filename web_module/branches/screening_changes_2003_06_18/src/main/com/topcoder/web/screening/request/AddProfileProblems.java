@@ -8,7 +8,7 @@ import com.topcoder.shared.security.ClassResource;
 import javax.servlet.ServletRequest;
 
 public class AddProfileProblems extends BaseProfileProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -21,7 +21,7 @@ public class AddProfileProblems extends BaseProfileProcessor {
         setNextPage(Constants.CONTROLLER_URL + "?" + 
                 Constants.MODULE_KEY + "=" +
                 Constants.POPULATE_PROFILE_PROCESSOR);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }
 

@@ -12,12 +12,14 @@ import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.User;
 import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.ejb.coder.Coder;
 import com.topcoder.web.screening.ejb.coder.CoderHome;
 import com.topcoder.web.screening.ejb.coder.CompanyCandidate;
@@ -64,7 +66,7 @@ public class UpdateCandidate extends BaseProcessor
      *
      * @throws Exception Thrown if there is input error.
      */
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         synchronized(UpdateCandidate.class) {
             if (getAuthentication().getUser().isAnonymous()) {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
@@ -76,7 +78,7 @@ public class UpdateCandidate extends BaseProcessor
             //we must have failed validation
             request.setAttribute(Constants.CANDIDATE_INFO, info);
             setNextPage(Constants.CANDIDATE_SETUP_PAGE);
-            setNextPageInContext(true);
+            setIsNextPageInContext(true);
             return;
         }
 
@@ -137,7 +139,7 @@ public class UpdateCandidate extends BaseProcessor
             email.setPrimaryEmailId(userId, emailId);
         }
 
-        DataAccessInt access = getDataAccess();
+        DataAccessInt access = Util.getDataAccess();
         Request dataRequest = new Request();
         dataRequest.setProperty(DataAccessConstants.COMMAND,
                             Constants.CONTACT_INFO_QUERY_KEY);
@@ -206,7 +208,7 @@ public class UpdateCandidate extends BaseProcessor
 
         if(success) {
             //now check to see if user already exists in this company
-            DataAccessInt da = getDataAccess();
+            DataAccessInt da = Util.getDataAccess();
             Request dr = new Request();
             dr.setProperty(DataAccessConstants.COMMAND,
                            Constants.CHECK_COMPANY_USER_QUERY_KEY);
@@ -338,7 +340,7 @@ public class UpdateCandidate extends BaseProcessor
         setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.MODULE_KEY + "=" + referrer);
         //redirect because we are done
-        setNextPageInContext(false);
+        setIsNextPageInContext(false);
     }
 
     private String generatePassword() {

@@ -11,8 +11,10 @@ import com.topcoder.web.ejb.user.UserNote;
 import com.topcoder.web.ejb.user.UserNoteHome;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.CandidateInfo;
 import com.topcoder.web.common.PermissionException;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
@@ -27,7 +29,7 @@ public class NoteCreate extends BaseProcessor {
     /** Implements the processing step.
      * @throws Exception
      */
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -39,7 +41,7 @@ public class NoteCreate extends BaseProcessor {
         }
         
         InitialContext context = new InitialContext();
-        DataAccessInt dAccess = getDataAccess();
+        DataAccessInt dAccess = Util.getDataAccess();
         
         Request dr = new Request();
         dr.setContentHandle("candidateInfo");
@@ -72,7 +74,7 @@ public class NoteCreate extends BaseProcessor {
                     "Please enter the text of the note.");
             }
             setNextPage(Constants.NOTE_CREATE_PAGE);
-            setNextPageInContext(true);
+            setIsNextPageInContext(true);
             return;
         }
 
@@ -98,7 +100,7 @@ public class NoteCreate extends BaseProcessor {
         setNextPage(Constants.CONTROLLER_URL + '?' +
                     Constants.MODULE_KEY + '=' + "PopulateCandidate" + '&' +
                     Constants.CANDIDATE_ID + '=' + candId);
-        setNextPageInContext(false);
+        setIsNextPageInContext(false);
     }
     
 }

@@ -5,7 +5,7 @@ import com.topcoder.web.common.PermissionException;
 import com.topcoder.shared.security.ClassResource;
 
 public class CreateCandidate extends BaseSessionProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -15,6 +15,6 @@ public class CreateCandidate extends BaseSessionProcessor {
                     Constants.POPULATE_CANDIDATE_PROCESSOR + "&" +
                     Constants.REFERRER + "=" + 
                     Constants.POPULATE_SESSION_PROCESSOR);
-        setNextPageInContext(false);
+        setIsNextPageInContext(false);
     }
 }

@@ -14,6 +14,7 @@ import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -22,8 +23,8 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 public class Default extends BaseProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         setNextPage(Constants.DEFAULT_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }

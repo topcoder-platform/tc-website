@@ -6,6 +6,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.ServletRequest;
 import java.util.Map;
@@ -20,11 +22,11 @@ public class BuildCandidateList extends BaseProcessor {
 
     }
 
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
 
         User user = getAuthentication().getActiveUser();
 
-        DataAccessInt dAccess = getDataAccess();
+        DataAccessInt dAccess = Util.getDataAccess();
         dataRequest.setProperty("uid", String.valueOf(user.getId()));
         Map map = dAccess.getData(dataRequest);
 
@@ -37,6 +39,6 @@ public class BuildCandidateList extends BaseProcessor {
         }
 
         setNextPage(Constants.CANDIDATE_LIST_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }

@@ -7,8 +7,11 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.*;
+import com.topcoder.web.common.BaseProcessor;
 
+import javax.servlet.http.HttpUtils;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -28,11 +31,11 @@ public class TestResults extends BaseProcessor {
     /** Implements the processing step.
      * @throws Exception
      */
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
 
-        DataAccessInt dAccess = getDataAccess();
+        DataAccessInt dAccess = Util.getDataAccess();
         Request dr = new Request();
-        dr.setProperties(getParameterMap());
+        dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
         dr.setContentHandle("testResults");
         dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
         Map map = dAccess.getData(dr);
@@ -51,7 +54,7 @@ public class TestResults extends BaseProcessor {
         sessionInfo.setEndDate(((Date)result.getItem(0, "end_time").getResultData()));
         getRequest().setAttribute("sessionInfo",sessionInfo);
 
-        dAccess = getDataAccess(Constants.DW_DATA_SOURCE, true);
+        dAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
         dr = new Request();
         dr.setContentHandle("roundProblemStats");
         dr.setProperty("rd", roundId);
@@ -105,7 +108,7 @@ public class TestResults extends BaseProcessor {
         getRequest().setAttribute("profileInfo",pinfo);
         
         setNextPage(Constants.TEST_RESULTS_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 
 }

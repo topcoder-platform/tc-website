@@ -5,6 +5,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
+import com.topcoder.web.common.BaseProcessor;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -18,8 +20,8 @@ public class ProfileList extends BaseProcessor {
     /** Implements the processing step.
      * @throws Exception
      */
-    public void process() throws Exception {
-        DataAccessInt dAccess = getDataAccess();
+    protected void businessProcessing() throws Exception {
+        DataAccessInt dAccess = Util.getDataAccess();
         
         Request dr = new Request();
         dr.setContentHandle("profileList");
@@ -37,7 +39,7 @@ public class ProfileList extends BaseProcessor {
         getRequest().setAttribute("profileList", result);
 
         setNextPage(Constants.PROFILE_LIST_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 
 }

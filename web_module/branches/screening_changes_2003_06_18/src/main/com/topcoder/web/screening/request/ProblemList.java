@@ -5,7 +5,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProblemInfo;
+import com.topcoder.web.common.BaseProcessor;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -15,18 +17,18 @@ import java.util.Map;
  * @author Porgery
  */
 public class ProblemList extends BaseProcessor {
-    
+
     /** Implements the processing step.
      * @throws Exception
      */
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         User user = getAuthentication().getActiveUser();
 
         Request dr = new Request();
         dr.setContentHandle("problemList");
         dr.setProperty("uid", String.valueOf(user.getId()));
         
-        Map map = getDataAccess(true).getData(dr);
+        Map map = Util.getDataAccess(true).getData(dr);
 
         if(map == null || map.size() != 1)
             throw new ScreeningException("Data retrieval error");
@@ -58,7 +60,7 @@ public class ProblemList extends BaseProcessor {
         getRequest().setAttribute("problemList", list);
 
         setNextPage(Constants.PROBLEM_LIST_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
     
 }

@@ -6,13 +6,14 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.SessionInfo;
 import com.topcoder.web.common.PermissionException;
 
 import java.util.Map;
 
 public class PopulateSession extends BaseSessionProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -22,7 +23,7 @@ public class PopulateSession extends BaseSessionProcessor {
         sessionInfo.setProperty("uid", 
                 String.valueOf(getAuthentication().getUser().getId()));
 
-        DataAccessInt access = getDataAccess();
+        DataAccessInt access = Util.getDataAccess();
 
         Map map = access.getData(sessionInfo);
         SessionInfo info = getSessionInfo();
@@ -33,6 +34,6 @@ public class PopulateSession extends BaseSessionProcessor {
                 map.get(Constants.SESSION_PROFILE_INFO_QUERY_KEY));
 
         setNextPage(Constants.SESSION_SETUP_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }

@@ -7,6 +7,7 @@ import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.common.PermissionException;
@@ -31,7 +32,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
                 Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY);
     }
 
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -48,7 +49,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
 
         //get Problem Set
         profileProblemSet.setProperty("uid", String.valueOf(user.getId()));
-        Map map = getDataAccess(true).getData(profileProblemSet);
+        Map map = Util.getDataAccess(true).getData(profileProblemSet);
         if(map != null) {
             log.debug("the result map was not null");
             info.setProblemSetList((ResultSetContainer) map.get(Constants.PROFILE_PROBLEM_SET_QUERY_KEY));
@@ -82,7 +83,7 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         info.setTestSetBList(list);
 
         profileCompanyProblem.setProperty("uid", String.valueOf(user.getId()));
-        map = getDataAccess(true).getData(profileCompanyProblem);
+        map = Util.getDataAccess(true).getData(profileCompanyProblem);
         if(map != null) {
             info.setCompanyProblemList((ResultSetContainer)
                 map.get(Constants.PROFILE_COMPANY_PROBLEM_QUERY_KEY));
@@ -91,6 +92,6 @@ public class PopulateProfileSetup extends BaseProfileProcessor {
         info.setLanguageList(getLanguageList());
 
         setNextPage(Constants.PROFILE_SETUP_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }

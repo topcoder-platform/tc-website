@@ -7,7 +7,9 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.SessionInfo;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
@@ -98,7 +100,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
             log.debug("request: " + dRequest.toString());
-            DataAccessInt dataAccess = getDataAccess();
+            DataAccessInt dataAccess = Util.getDataAccess();
             Map map = dataAccess.getData(dRequest);
 
             //first check to see if it is a dupe

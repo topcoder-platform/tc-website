@@ -5,9 +5,11 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.screening.model.SubmissionInfo;
 
+import javax.servlet.http.HttpUtils;
 import java.util.Map;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +17,7 @@ import java.util.List;
 public class PrinterTestResults extends TestResults {
     private static Logger log = Logger.getLogger(PrinterTestResults.class);
 
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         //get the test results information
         super.process();
 
@@ -29,13 +31,13 @@ public class PrinterTestResults extends TestResults {
 
         //get notes
         Request dr = new Request();
-        dr.setProperties(getParameterMap());
+        dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
         dr.setContentHandle("noteList");
         dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
         dr.setProperty("cid", String.valueOf(cinfo.getUserId()));
 
 
-        Map map = getDataAccess().getData(dr);
+        Map map = Util.getDataAccess().getData(dr);
 
         if (map != null) {
             ResultSetContainer result = (ResultSetContainer) map.get("candidateInfo");
@@ -48,7 +50,7 @@ public class PrinterTestResults extends TestResults {
             getRequest().setAttribute("noteList", result);
         }
         setNextPage(Constants.PRINTER_RESULTS_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 
 

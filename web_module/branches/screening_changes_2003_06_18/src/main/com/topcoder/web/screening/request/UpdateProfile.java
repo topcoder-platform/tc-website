@@ -10,6 +10,7 @@ import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.ejb.sessionprofile.*;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.screening.model.SessionInfo;
 import com.topcoder.web.common.PermissionException;
@@ -23,7 +24,7 @@ import javax.transaction.UserTransaction;
 import java.util.Map;
 
 public class UpdateProfile extends BaseProfileProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         synchronized(UpdateProfile.class) {
             if (getAuthentication().getUser().isAnonymous()) {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
@@ -37,7 +38,7 @@ public class UpdateProfile extends BaseProfileProcessor {
             setNextPage(Constants.CONTROLLER_URL + "?" +
                         Constants.MODULE_KEY + "=" +
                         Constants.POPULATE_PROFILE_PROCESSOR);
-            setNextPageInContext(true);
+            setIsNextPageInContext(true);
             return;
         }
 
@@ -64,7 +65,7 @@ public class UpdateProfile extends BaseProfileProcessor {
 
         try {
             if(info.isNew()) {
-                DataAccessInt access = getDataAccess();
+                DataAccessInt access = Util.getDataAccess();
                 Request dataRequest = new Request();
                 dataRequest.setProperty(DataAccessConstants.COMMAND,
                                     Constants.CONTACT_INFO_QUERY_KEY);
@@ -148,7 +149,7 @@ public class UpdateProfile extends BaseProfileProcessor {
         setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.MODULE_KEY + "=" +
                     Constants.POPULATE_SESSION_PROCESSOR);
-        setNextPageInContext(false);
+        setIsNextPageInContext(false);
         }
     }
 

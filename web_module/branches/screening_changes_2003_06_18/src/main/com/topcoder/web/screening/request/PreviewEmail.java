@@ -7,7 +7,7 @@ import com.topcoder.web.screening.model.SessionInfo;
 import javax.servlet.ServletRequest;
 
 public class PreviewEmail extends BaseSessionProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         ServletRequest request = getRequest();
         EmailInfo info = null;
         try {
@@ -30,6 +30,6 @@ public class PreviewEmail extends BaseSessionProcessor {
         request.setAttribute(Constants.EMAIL_INFO, info);
 
         setNextPage(Constants.PREVIEW_EMAIL_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }

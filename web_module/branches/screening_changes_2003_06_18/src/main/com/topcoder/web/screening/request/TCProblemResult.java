@@ -5,7 +5,9 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.SubmissionInfo;
+import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Map;
 
@@ -18,8 +20,8 @@ public class TCProblemResult extends BaseProcessor {
     /** Implements the processing step.
      * @throws Exception
      */
-    public void process() throws Exception {
-        DataAccessInt dAccess = getDataAccess(Constants.DW_DATA_SOURCE, true);
+    protected void businessProcessing() throws Exception {
+        DataAccessInt dAccess = Util.getDataAccess(Constants.DW_DATA_SOURCE, true);
         
         Request dr = new Request();
         dr.setContentHandle("coderProblemInfo");
@@ -43,7 +45,7 @@ public class TCProblemResult extends BaseProcessor {
         getRequest().setAttribute("submissionInfo",sinfo);
         
         setNextPage(Constants.TC_PROBLEM_RESULT_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
     
 }

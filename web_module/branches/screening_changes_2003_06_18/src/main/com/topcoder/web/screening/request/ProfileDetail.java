@@ -1,6 +1,7 @@
 package com.topcoder.web.screening.request;
 
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfile;
@@ -19,7 +20,7 @@ import java.util.Map;
 
 public class ProfileDetail extends BaseProfileProcessor {
     private static Logger log = Logger.getLogger(ProfileDetail.class);
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         ProfileInfo info = buildProfileInfo(getRequest());
 
         Context context = new InitialContext();
@@ -54,7 +55,7 @@ public class ProfileDetail extends BaseProfileProcessor {
 
         getRequest().setAttribute(Constants.PROFILE_INFO, info);
         setNextPage(Constants.PROFILE_DETAIL_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 
 
@@ -64,7 +65,7 @@ public class ProfileDetail extends BaseProfileProcessor {
         dataRequest.setProperty("spid", String.valueOf(profileId));
         dataRequest.setProperty("uid", String.valueOf(userId));
 
-        Map map = getDataAccess().getData(dataRequest);
+        Map map = Util.getDataAccess().getData(dataRequest);
 
         ResultSetContainer ret = null;
         if (map != null) {

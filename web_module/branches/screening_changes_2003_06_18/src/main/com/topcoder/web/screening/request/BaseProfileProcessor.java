@@ -7,10 +7,12 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.screening.model.ProblemInfo;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
 import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
+import com.topcoder.web.common.BaseProcessor;
 
 import javax.servlet.ServletRequest;
 import javax.rmi.PortableRemoteObject;
@@ -53,7 +55,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         List ret = new ArrayList();
 
 
-        Map map = getDataAccess().getData(profileTestSetA);
+        Map map = Util.getDataAccess().getData(profileTestSetA);
 
         if (map != null) {
             ResultSetContainer rsc = (ResultSetContainer)
@@ -97,7 +99,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         Request profileLanguage = new Request();
         profileLanguage.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_LANGUAGE_QUERY_KEY);
-        Map map = getDataAccess(true).getData(profileLanguage);
+        Map map = Util.getDataAccess(true).getData(profileLanguage);
         ResultSetContainer ret = null;
         if(map != null) {
             ret = (ResultSetContainer) map.get(Constants.PROFILE_LANGUAGE_QUERY_KEY);
@@ -109,9 +111,8 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
 
     protected boolean validateProfileInfo() throws Exception {
         boolean success = true;
-        ServletRequest request = getRequest();
         ProfileInfo info = (ProfileInfo)
-                request.getAttribute(Constants.PROFILE_INFO);
+                getRequest().getAttribute(Constants.PROFILE_INFO);
         HashMap errorMap = new HashMap(5);
 
         if (info != null) {
@@ -135,7 +136,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                 dRequest.setProperty("tpname", info.getProfileName());
                 dRequest.setProperty("uid",
                         String.valueOf(getAuthentication().getUser().getId()));
-                DataAccessInt dataAccess = getDataAccess();
+                DataAccessInt dataAccess = Util.getDataAccess();
                 Map map = dataAccess.getData(dRequest);
 
                 ResultSetContainer rsc = (ResultSetContainer)
@@ -150,7 +151,7 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         }
 
         if (!success) {
-            request.setAttribute(Constants.ERRORS, errorMap);
+            getRequest().setAttribute(Constants.ERRORS, errorMap);
         }
 
         return success;

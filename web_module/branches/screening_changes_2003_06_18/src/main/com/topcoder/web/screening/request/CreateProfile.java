@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.ClassResource;
 import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.ProfileInfo;
 import com.topcoder.web.common.PermissionException;
 
@@ -14,7 +15,7 @@ import java.util.Iterator;
 import java.util.Map;
 
 public class CreateProfile extends BaseSessionProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
@@ -27,7 +28,7 @@ public class CreateProfile extends BaseSessionProcessor {
         dataRequest.setProperty(DataAccessConstants.COMMAND,
                 Constants.PROFILE_LANGUAGE_QUERY_KEY);
 
-        DataAccessInt dAccess = getDataAccess(true);
+        DataAccessInt dAccess = Util.getDataAccess(true);
 
         Map map = dAccess.getData(dataRequest);
         if(map != null) {
@@ -45,6 +46,6 @@ public class CreateProfile extends BaseSessionProcessor {
         setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.MODULE_KEY + "=" +
                     Constants.POPULATE_PROFILE_PROCESSOR);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }

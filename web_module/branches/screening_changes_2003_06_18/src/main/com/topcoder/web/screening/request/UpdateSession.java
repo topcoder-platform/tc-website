@@ -13,9 +13,11 @@ import com.topcoder.web.ejb.session.SessionSegment;
 import com.topcoder.web.ejb.session.SessionSegmentHome;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.EmailInfo;
 import com.topcoder.web.screening.model.SessionInfo;
 import com.topcoder.web.common.PermissionException;
+
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -24,7 +26,7 @@ import java.sql.Timestamp;
 import java.util.Map;
 
 public class UpdateSession extends BaseSessionProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         synchronized(UpdateSession.class) {
             if (getAuthentication().getUser().isAnonymous()) {
                 throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
@@ -38,7 +40,7 @@ public class UpdateSession extends BaseSessionProcessor {
             setNextPage(Constants.CONTROLLER_URL + "?" +
                         Constants.MODULE_KEY + "=" +
                         Constants.POPULATE_SESSION_PROCESSOR);
-            setNextPageInContext(true);
+            setIsNextPageInContext(true);
             return;
         }
 
@@ -79,7 +81,7 @@ public class UpdateSession extends BaseSessionProcessor {
                 Constants.SESSION_SEGMENT_COMMAND);
         dataRequest.setProperty("sid", String.valueOf(sessionId));
 
-        DataAccessInt access = getDataAccess(Constants.TX_DATA_SOURCE, false);
+        DataAccessInt access = Util.getDataAccess(Constants.TX_DATA_SOURCE, false);
 
         Map map = access.getData(dataRequest);
 
@@ -124,7 +126,7 @@ public class UpdateSession extends BaseSessionProcessor {
         clearSessionInfo();
 
         setNextPage(Constants.DEFAULT_PAGE);
-        setNextPageInContext(false);
+        setIsNextPageInContext(false);
         }
     }
 }

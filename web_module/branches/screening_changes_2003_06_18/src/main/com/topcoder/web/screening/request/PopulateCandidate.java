@@ -3,14 +3,17 @@ package com.topcoder.web.screening.request;
 import com.topcoder.security.UserPrincipal;
 
 import com.topcoder.web.common.security.PrincipalMgr;
+import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.common.PermissionDeniedException;
+import com.topcoder.web.screening.common.Util;
 import com.topcoder.web.screening.model.CandidateInfo;
 import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpUtils;
 import java.util.Map;
 
 /** 
@@ -30,7 +33,7 @@ import java.util.Map;
  * @version 1.0
  */
 public class PopulateCandidate extends BaseProcessor {
-    public void process() throws Exception {
+    protected void businessProcessing() throws Exception {
         ServletRequest request = getRequest();
         String uId = request.getParameter(Constants.CANDIDATE_ID);
         if(request.getAttribute(Constants.CANDIDATE_INFO) == null) { 
@@ -51,10 +54,10 @@ public class PopulateCandidate extends BaseProcessor {
                     info.setPassword(principalMgr.getPassword(userId));
                 }
 
-                DataAccessInt dAccess = getDataAccess();
+                DataAccessInt dAccess = Util.getDataAccess();
 
                 Request dr = new Request();
-                dr.setProperties(getParameterMap());
+                dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
                 dr.setContentHandle("noteList");
                 dr.setProperty("uid", String.valueOf(getAuthentication().getActiveUser().getId()));
 
@@ -79,6 +82,6 @@ public class PopulateCandidate extends BaseProcessor {
         }
 
         setNextPage(Constants.CANDIDATE_SETUP_PAGE);
-        setNextPageInContext(true);
+        setIsNextPageInContext(true);
     }
 }
