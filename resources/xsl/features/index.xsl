@@ -66,6 +66,12 @@
                                 <td width="20%" class="bodySubtitle"><strong>Author</strong></td>
                                 <td width="60%" class="bodySubtitle"><strong>Feature</strong></td>
                             </tr>
+
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">June 26</td>
+                                <td valign="middle" class="bodyText">slowjoe</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_062603" class="bodyText">Simple Performance Improvement</A></td>
+                            </tr>
                             
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">May 27</td>
