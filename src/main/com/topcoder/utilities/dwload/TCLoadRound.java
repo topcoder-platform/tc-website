@@ -773,11 +773,10 @@ public class TCLoadRound extends TCLoad {
             query.append("  FROM system_test_result str, component comp ");
             query.append(" WHERE str.round_id = ?");
             query.append(" AND comp.component_id = str.component_id");
-            query.append("   AND NOT EXISTS ");
-            query.append("       (SELECT 'pops' ");
+            query.append(" AND str.coder_id NOT IN  ");
+            query.append("       (SELECT gu.user_id ");
             query.append("          FROM group_user gu ");
-            query.append("         WHERE gu.user_id = str.coder_id ");
-            query.append("           AND gu.group_id IN (13,14))");
+            query.append("         WHERE gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
