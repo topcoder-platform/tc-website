@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Overview</title>
+<title>2004 TopCoder Collegiate Challenge - Computer Programming Tournament - Spectator Package</title>
 
 <jsp:include page="../../script.jsp" />
 
@@ -53,7 +53,7 @@
                 <ul>
                 <li><b>See the action live and in-person -</b> Attendence to all the onsite rounds of competition.</li>
                 <li><b>Learn tricks of the trade from the experts -</b> Attendance at all onsite events (sponsor and member presentations)</li>
-                <li><b>Stay at a great hotel -</b> 2 nights hotel accomodations at the <A href="http://www.bostonparkplaza.com/default.asp?sID=home">Boston Park Plaza Hotel & Towers.</A></li>
+                <li><b>Stay at a great hotel -</b> 2 nights hotel accomodations at the <A href="http://www.bostonparkplaza.com/default.asp?sID=home" target="_blank">Boston Park Plaza Hotel & Towers.</A></li>
                 <li><b>Hang-out and dine with the semifinalists -</b> All meals are included.</li>
                 <li><b>Take home TopCoder collectables -</b> Program, T-shirt and other TCCC items.</li> 
                 </ul>
