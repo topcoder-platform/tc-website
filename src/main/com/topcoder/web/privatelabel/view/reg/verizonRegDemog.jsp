@@ -71,7 +71,7 @@
             <input type="hidden" name="<%=Constants.COMPANY_ID%>" value="<jsp:getProperty name="regInfo" property="CompanyId"/>"/>
             <input type="hidden" name="<%=Constants.EVENT_ID%>" value="<jsp:getProperty name="regInfo" property="EventId"/>"/>
             <tr>
-                <td colspan="2">
+                <td colspan="2" class="errorText">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.CODER_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
                 </td>
             </tr>
@@ -94,7 +94,7 @@
 
             <pl:questionIterator id="question" list="<%=questionList%>">
                 <tr>
-                    <td colspan="2">
+                    <td colspan="2" class="errorText">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.DEMOG_PREFIX+question.getId()%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
