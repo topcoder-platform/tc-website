@@ -136,7 +136,7 @@
                             <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <% } %>
 
-                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
+                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
                         <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
                         <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
@@ -190,7 +190,7 @@
                             <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="catalog"/></td>
                         <% } %>
 
-                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/></a></td>
+                        <td class="projectCells"><a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectDetail&<%=Constants.PROJECT_ID%>=<rsc:item row="<%=resultRow%>" name="project_id"/>"><rsc:item row="<%=resultRow%>" name="component_name"/> <rsc:item row="<%=resultRow%>" name="version"/></a></td>
                         <td class="projectCells" align="right">$<tc:beanWrite name="price" property="primaryReviewPrice" format="#,###.00"/></td>
                         <td class="projectCells" align="right">$<tc:beanWrite name="price" property="reviewPrice" format="#,###.00"/></td>
                         <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_count"/></td>
