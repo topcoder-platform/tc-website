@@ -572,13 +572,7 @@ public class TransactionServlet extends HttpServlet {
             throws IOException, ServletException {
         log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
 
-        String contextPrefix = req.getContextPath();
-        boolean startsWithContextPath = dest.startsWith(contextPrefix);
         if (forward) {
-            // forwarded pages *must not* contain servlet context path
-            if (startsWithContextPath) {
-                dest = dest.substring(contextPrefix.length());
-            }
             log.debug((forward ? "forwarding" : "redirecting") + " to " + dest);
             getServletContext().getRequestDispatcher(resp.encodeURL(dest)).forward(req, resp);
         } else {
