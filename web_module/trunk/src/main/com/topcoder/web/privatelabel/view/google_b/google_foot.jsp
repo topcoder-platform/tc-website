@@ -23,5 +23,8 @@
             <br/><br/>
         </td>
     </tr>
+    <tr>
+      <td width="100%" height="100" bgcolor="#43515E"><img src="/i/clear.gif" width="100%" height="100" border="0"/></td>
+   </tr>
 </table>
 <!-- Footer Include Ends -->
