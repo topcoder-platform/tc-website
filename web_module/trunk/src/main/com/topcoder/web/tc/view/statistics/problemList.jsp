@@ -132,76 +132,76 @@
                <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
                <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
 
-               <table border="1" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
+               <table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
+				<tr>
+                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="middle" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+					<TD BACKGROUND="/i/steel_blue_bg.gif" CLASS="statText" align=left><span class=bodySubtitle>Search</span></TD>
+				</tr>
+				</table>
+
+               <table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
                 <tr>
-                    <td colspan="2" class="errorText" align="center">
+                    <td colspan="4" class="errorText" align="center">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.CLASS_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
                  <tr>
-                    <td align="right" class="statText" width="50%">Class Name</td>
-                    <td align="left" class="statText" width="50%"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
-                 </tr>
-                <tr>
-                    <td colspan="2" class="errorText" align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.MIN_DIV1_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
-                    </td>
-                </tr>
-                 <tr>
-                    <td align="right" class="statText">Minimum Division I Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
-                 </tr>
-                <tr>
-                    <td colspan="2" class="errorText" align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.MAX_DIV1_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
-                    </td>
-                </tr>
-                 <tr>
-                    <td align="right" class="statText">Maximum Division I Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
-                 </tr>
-                <tr>
-                    <td colspan="2" class="errorText" align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.MIN_DIV2_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
-                    </td>
-                </tr>
-                 <tr>
-                    <td align="right" class="statText">Minimum Division II Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
-                 </tr>
-                <tr>
-                    <td colspan="2" class="errorText" align="center">
-                        <tc-webtag:errorIterator id="err" name="<%=Constants.MAX_DIV2_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
-                    </td>
-                </tr>
-                 <tr>
-                    <td align="right" class="statText">Maximum Division II Success Rate</td>
-                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
+                    <td colspan=2 align="right" class="statText">Class Name</td>
+                    <td colspan=2 align="left" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.DIV1_LEVEL%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
-                </tr>
-                 <tr>
-                    <td align="right" class="statText">Division I Level</td>
-                    <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
-                 </tr>
-                <tr>
                     <td colspan="2" class="errorText" align="center">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.DIV2_LEVEL%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
+
                  <tr>
-                    <td align="right" class="statText">Division II Level</td>
-                    <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
+                    <td align="right" class="statText" width="25%">Division I Level</td>
+                    <td align="left" class="statText" width="25%"><tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
+                    <td align="right" class="statText" width="25%">Division II Level</td>
+                    <td align="left" class="statText" width="25%"><tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
+                 </tr>
+
+                <tr>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MIN_DIV1_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MIN_DIV2_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="right" class="statText">Minimum Division I Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="right" class="statText">Minimum Division II Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
                  </tr>
                 <tr>
-                    <td colspan="2" class="statText" align="center">
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MAX_DIV1_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                    <td colspan="2" class="errorText" align="center">
+                        <tc-webtag:errorIterator id="err" name="<%=Constants.MAX_DIV2_SUCCESS%>"><%=err%><br/></tc-webtag:errorIterator>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="right" class="statText">Maximum Division I Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                    <td align="right" class="statText">Maximum Division II Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/></td>
+                 </tr>
+
+                <tr>
+                    <td colspan="4" class="statText" align="center">
                          <a class=statText href="javascript: document.problemListForm.submit();">Submit</a>
                     </td>
                 </tr>
                <table>
+
+				<br/><br/>
 
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
