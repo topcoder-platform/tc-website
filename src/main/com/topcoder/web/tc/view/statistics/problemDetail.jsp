@@ -8,6 +8,9 @@
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
+<% ResultSetContainer generalInfo = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("general_problem_info"); %>
+<% ResultSetContainer divisionInfo = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_division_info"); %>
+
 <% ResultSetContainer div1Lang = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div2Lang = (ResultSetContainer) ((Map)request.getAttribute("div2Reslts")).get("problem_detail_by_language"); %>
 <% ResultSetContainer div1Overall = (ResultSetContainer) ((Map)request.getAttribute("div1Reslts")).get("problem_detail_overall"); %>
@@ -45,6 +48,68 @@
              <td VALIGN="top" WIDTH="10" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="26" BORDER="0"></TD>
            </tr>
          </table>
+
+         <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+           <tr>
+             <td class="statText">
+               Problem Name:
+             </td>
+             <td class="statText">
+               <rsc:item set="<%=generalInfo%>" name="class_name" />
+             </td>
+           </tr>
+           <tr>
+             <td class="statText">
+               Used In:
+             </td>
+             <td class="statText">
+               <rsc:item set="<%=generalInfo%>" name="event_name" />
+             </td>
+           </tr>
+           <tr>
+             <td class="statText">
+               Used As:
+             </td>
+             <td class="statText">
+               <rsc:item set="<%=generalInfo%>" name="div1_use" /> <%=generalInfo.getItem(0, "div2_use")==null?"":", "%><rsc:item set="<%=generalInfo%>" name="div2_use" />
+             </td>
+           </tr>
+         <table>
+
+         <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
+           <tr>
+             <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
+               <td class="statText"><rsc:item name="division" row="<%=resultRow%>"/></TD>
+             </rsc:iterator>
+           </tr>
+           <tr>
+             <td class="statText">
+               Competitors
+             </td>
+             <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
+               <td class="statText"><rsc:item name="competitors" row="<%=resultRow%>"/></TD>
+             </rsc:iterator>
+           </tr>
+           <tr>
+             <td class="statText">
+               Opens
+             </td>
+             <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
+               <td class="statText"><rsc:item name="problems_opened" row="<%=resultRow%>"/></TD>
+             </rsc:iterator>
+           </tr>
+           <tr>
+             <td class="statText">
+               Percent Open
+             </td>
+             <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
+               <td class="statText"><rsc:item name="open_percentage" row="<%=resultRow%>"/></TD>
+             </rsc:iterator>
+           </tr>
+         <table>
+
+
+
          <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <tr>
              <td VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
