@@ -72,9 +72,11 @@ do not activate your account.
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.<br/><br/>
 
+If you encounter any problems, please contact us at <A href="mailto:googlecodejam@topcoder.com">googlecodejam@topcoder.com</A>.<br/><br/>
+
 Good luck to you in the Arena!
 </font></p>
-			
+
 			<br/><br/>
 			To find out more detailed information about the Google Code Jam 2004, including a list of the prizes, please read the <a href="/pl/?&module=Static&d1=google04&d2=rules">Terms and Conditions</a>.
 			</div>
