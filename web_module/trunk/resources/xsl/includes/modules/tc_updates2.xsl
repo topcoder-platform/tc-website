@@ -2,7 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="tc_updates">
       		<TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BGCOLOR="#FFFFFF">
-              	<TR> 
+              <!--	<TR> 
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>[TC] Updates</B></FONT></TD>
               	</TR>              	 
@@ -26,8 +26,8 @@
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
 								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="/index?t=jobs&amp;c=index" CLASS="bodyGeneric">TopCoder Employment Services posts job opportunities to members</A></TD>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-              				</TR>              				              		
-							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR> 
+              				</TR>
+							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR> -->
               	<TR> 
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Members in the News</B></FONT></TD>
@@ -87,41 +87,27 @@
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Sponsor Related News</B></FONT></TD>
               	</TR> 
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.29.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.motorola.com/mediacenter/news/detail/0,1958,1403_1075_23,00.html" CLASS="bodyGeneric">Motorola's i.250 Wireless Platform Selected by RTX Telecom...</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>
               				<TR>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.26.02</TD>
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://java.sun.com/features/2002/04/topcoder.html" TARGET="_blank" CLASS="bodyGeneric">Top College Developers Duke It Out With Java[tm] Technology</A></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://java.sun.com/features/2002/04/topcoder.html" TARGET="_blank" CLASS="bodyGeneric"><B>Top College Developers Duke It Out With Java[tm] Technology</B></A></TD>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-              				</TR>              	       		
+              				</TR>
               				<TR> 
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.10.02</TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.23.02</TD>
                 				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.motorola.com/mediacenter/news/detail/0,1958,1329_1001_23,00.html" CLASS="bodyGeneric">Motorola Premiers Live Demo of Universal Mobile Telecommunications System (UMTS) Applications in China</A></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.sun.com/smi/Press/sunflash/2002-04/sunflash.20020423.2.html" CLASS="bodyGeneric">Sun Announces Java Card[tm] Technology Version 2.2</A></TD>
               				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-              				</TR>             				
-              				<TR> 
-                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.10.02</TD>
-                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.motorola.com/mediacenter/news/detail/0,1958,1328_1002_23,00.html" CLASS="bodyGeneric">Motorola and Mt. Sinai Medical Center Look Forward to Exciting Results from Liver Cancer Microarray Study</A></TD>
-              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-              				</TR>             				
-              				<TR> 
-                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.09.02</TD>
-                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.sun.com/smi/Press/sunflash/2002-04/sunflash.20020409.1.html" CLASS="bodyGeneric">SUN FIRE[tm] 12K Server Breaks Industry Price/Performance Barrier</A></TD>
-              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-              				</TR>             				
-              				<TR> 
-                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.08.02</TD>
-                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
-								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.sun.com/smi/Press/sunflash/2002-04/sunflash.20020408.7.html" CLASS="bodyGeneric">Sun Microsystems Announces New Enterprise Skills Management Solution</A></TD>
-              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-              				</TR>              				              		
+              				</TR>
 							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
       		</TABLE>
   </xsl:template>
