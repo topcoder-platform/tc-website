@@ -128,7 +128,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
         // set up Data Warehouse query command.
         Request dwDataRequest = new Request();
-        dwDataRequest.setProperty("mid", getMemberID() );
+        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()) );
 
         DataAccessInt dw = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         Map dwResultMap = dw.getData(dwDataRequest);
@@ -208,7 +208,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         memberInfo.put(TCESConstants.MEM_RATING_NUMEVENTS_KEY,
                             memStatsRow.getItem("num_ratings").toString() );
         memberInfo.put(TCESConstants.MEM_RATING_MOSTRECENT_KEY,
-                            getDate(memStatsRow.getItem("last_rated_event")) );
+                            getDate(memStatsRow,"last_rated_event") );
         memberInfo.put(TCESConstants.MEM_RATING_AVGPOINTS_KEY,
                             memStatsRow.getItem("avg_final_points").toString() );
 
@@ -227,17 +227,17 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2],
                        memStatLvlRow.getItem("submitted").toString() );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("submit_percent"))) );
+                       pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("submit_percent").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4],
                        memStatLvlRow.getItem("correct").toString() );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("submission_accuracy"))) );
+                       pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                       pctFmt.format(Double.parseDouble(memStatLvlRow.getItem("overall_accuracy"))) );
+                       pctFmt.format( Double.parseDouble(memStatLvlRow.getItem("overall_accuracy").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
-                       decFmt.format(Double.parseDouble(memStatLvlRow.getItem("avg_submission_points"))) );
+                       decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
-                       decFmt.format(Double.parseDouble(memStatLvlRow.getItem("avg_final_points"))) );
+                       decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_final_points").toString()) ) );
             level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
                        memStatLvlRow.getItem("avg_time_elapsed").toString() );
 
@@ -280,12 +280,12 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1], Integer.toString(ttlPresented) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2], Integer.toString(ttlSubmitted) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                   pctFmt.format( ((double)Integer.doubleValue(ttlSubmitted)) / ((double)Integer.doubleValue(ttlPresented)) ));
+                   pctFmt.format( (double)ttlSubmitted / (double)ttlPresented ));
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4], Integer.toString(ttlCorrect) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                   pctFmt.format( ((double)Integer.doubleValue(ttlCorrect)) / ((double)Integer.doubleValue(ttlSubmitted)) ));
+                   pctFmt.format( (double)ttlCorrect / (double)ttlSubmitted));
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                   pctFmt.format( ((double)Integer.doubleValue(ttlCorrect)) / ((double)Integer.doubleValue(ttlPresented)) ));
+                   pctFmt.format( (double)ttlCorrect / (double)ttlPresented));
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
                    decFmt.format(avgSubPts) );
         totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
