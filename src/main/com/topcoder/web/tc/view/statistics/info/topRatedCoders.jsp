@@ -2,15 +2,14 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
+<jsp:include page="../../script.jsp" />
 <title>TopCoder Info</title>
 </head>
 <body>
 
-<jsp:include page="../../script.jsp" />
-
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
       <tr valign="top" align="center">
-         <td colspan="3"><img src="/i/tc_logo_help.gif" width="217" height="44" border="0"></td>
+         <td colspan="3"><br><img src="/i/tc_logo_help.gif" width="217" height="44" border="0"></td>
       </tr>
 
     <tr valign="top">
@@ -32,9 +31,9 @@
       <br/>
       <tr>
          <td align="center">
-            <p class="bodyText">
-                <a href="javascript:window.close();" class="bodyText">close</a>
-            </p>
+           <p><br /></p>
+           <p align="center"><a href="javascript:window.close();" class="button" align="center">close</a></p>
+           <p><br /></p>
          </td>
       </tr>
   </table>
