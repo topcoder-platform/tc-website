@@ -33,36 +33,7 @@
                 </td>
             </tr>
 
-            <tr>
-                <td colspan="2">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.RESUME%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    Resume
-                </td>
-                <td align="left">
-                    <input type="file" name="<%=Constants.RESUME%>">
-                </td>
-            </tr>
-
-            <tr>
-                <td colspan="2">
-                    <tc-webtag:errorIterator id="err" name="<%=Constants.FILE_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
-                </td>
-            </tr>
-            <tr>
-                <td align="right">
-                    File Type
-                </td>
-                <td align="left">
-                    <tc-webtag:rscSelect name="<%=Constants.FILE_TYPE%>" list="<%=fileTypeList%>" fieldText="file_type_desc" fieldValue="file_type_id"/>
-                </td>
-            </tr>
-
-
-
+            <%-- todo figure out something for this error stuff --%>
             <tr>
                 <td colspan="2">
                     <tc-webtag:errorIterator id="err" name="<%=Constants.FILE_TYPE%>"><%=err%><br/></tc-webtag:errorIterator>
