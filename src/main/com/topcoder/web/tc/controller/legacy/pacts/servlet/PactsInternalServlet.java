@@ -18,13 +18,17 @@ import com.topcoder.web.tc.controller.legacy.pacts.bean.DataInterfaceBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_client.dispatch.AffidavitBean;
 import com.topcoder.web.tc.controller.legacy.pacts.bean.pacts_internal.dispatch.*;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
+import com.topcoder.web.common.BaseServlet;
+import com.topcoder.web.common.NavigationException;
 
 import javax.servlet.http.*;
+import javax.servlet.ServletException;
 import java.io.PrintWriter;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
-public class PactsInternalServlet extends HttpServlet implements PactsConstants {
+public class PactsInternalServlet extends BaseServlet implements PactsConstants {
 
     private static final int INT_TYPE = 1;
     private static final int BOOL_TYPE = 2;
@@ -43,6 +47,896 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
     private static final int NULL_DOUBLE_TYPE = DOUBLE_TYPE * NULL_MULT;
 
     private static Logger log = Logger.getLogger(PactsInternalServlet.class);
+
+    /*
+    Handles all GET requests.
+
+    Checks to make sure the session is authenticated, that t and c are valid,
+    and that all parameters exist for t and c.
+    All subsequent get methods can assume that the above is already done.
+    */
+    public void doGet(HttpServletRequest request,
+                      HttpServletResponse response) throws ServletException, IOException {
+        //Searches require at least one parameter to be filled in.
+        //This is an encapluated boolean to store that information
+        PassedParam pp = new PassedParam();
+        try {
+            if (!doAuthenticate(request, response)) return;
+
+            //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
+            if (request.getParameter(MODULE) != null) process(request, response);
+
+            String task = request.getParameter(TASK_STRING);
+            String command = request.getParameter(CMD_STRING);
+
+            if (task != null && command != null) {
+                if (task.equals(LOGOUT_TASK)) {
+                    doLogout(request, response);
+                    return;
+                }
+                if (task.equals(SEARCH_TASK)) {
+                    if (command.equals(USER_CMD)) {
+                        doSearchUsers(request, response);
+                        return;
+                    }
+                    if (command.equals(PAYMENT_CMD)) {
+                        doSearchPayments(request, response);
+                        return;
+                    }
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        doSearchAffidavits(request, response);
+                        return;
+                    }
+                    if (command.equals(CONTRACT_CMD)) {
+                        doSearchContracts(request, response);
+                        return;
+                    }
+                    if (command.equals(TAX_FORM_CMD)) {
+                        doSearchTaxForms(request, response);
+                        return;
+                    }
+                    if (command.equals(USER_TAX_FORM_CMD)) {
+                        doSearchUserTaxForms(request, response);
+                        return;
+                    }
+                    if (command.equals(NOTE_CMD)) {
+                        doSearchNotes(request, response);
+                        return;
+                    }
+                    doSearch(request, response);
+                    return;
+                } else if (task.equals(LIST_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
+                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(IS_AFFIRMED), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(IS_NOTARIZED), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(ROUND_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && pp.get()) {
+
+                            doAffidavitList(request, response);
+                        } else {
+                            throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(CONTRACT_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
+                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(CONTRACT_NAME), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_START_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_END_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_START_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_END_DATE), false, pp)
+                                && pp.get()) {
+
+                            doContractList(request, response);
+                        } else {
+                            throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(PAYMENT_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
+                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PRINT_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PRINT_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(IS_REVIEWED), false, pp)
+                                && pp.get()) {
+
+                            doPaymentList(request, response);
+                        } else {
+                            throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(TAX_FORM_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_WITHHOLDING_AMOUNT), false)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_WITHHOLDING_AMOUNT), false)
+                                && checkParam(FLOAT_TYPE, request.getParameter(LOWEST_WITHHOLDING_PERCENTAGE), false)
+                                && checkParam(FLOAT_TYPE, request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE), false)) {
+
+                            doTaxFormList(request, response);
+                        } else {
+                            throw new NavigationException("Invalid Search Parameter");
+                        }
+                        return;
+                    }
+                    if (command.equals(USER_TAX_FORM_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_WITHHOLDING_AMOUNT), false, pp)
+                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_WITHHOLDING_AMOUNT), false, pp)
+                                && checkParam(FLOAT_TYPE, request.getParameter(LOWEST_WITHHOLDING_PERCENTAGE), false, pp)
+                                && checkParam(FLOAT_TYPE, request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DATE_FILED), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DATE_FILED), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && pp.get()) {
+
+                            doUserTaxFormList(request, response);
+                        } else {
+                            throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(USER_CMD)) {
+                        if (
+                                checkParam(STRING_TYPE, request.getParameter(FIRST_NAME), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(MIDDLE_NAME), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(LAST_NAME), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(HAS_ACTIVE_CONTRACTS), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(HAS_PENDING_AFFIDAVITS), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(HAS_TAX_FORMS_ON_FILE), false, pp)
+                                && checkParam(BOOL_TYPE, request.getParameter(IS_OWED_MONEY), false, pp)
+                                && pp.get()) {
+
+                            doUserList(request, response);
+                        } else {
+                            throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(NOTE_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(SUBMITTING_USER_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(SUBMITTING_HANDLE), false, pp)
+                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
+                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(TAX_FORM_USER_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
+                                && checkParam(LONG_TYPE, request.getParameter(NOTE_ID), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
+                                && checkParam(STRING_TYPE, request.getParameter(IN_DEPTH_HANDLE), false, pp)
+                                && pp.get()) {
+
+                            doNoteList(request, response);
+                        } else {
+                            throw new NavigationException("Invalid Search Parameter or No Search Parameter Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(COMBO_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(NOTE_ID), true))
+                            doComboList(request, response);
+                        else {
+                            throw new NavigationException("Invalid Note ID or No Note ID Specified");
+                        }
+                        return;
+                    }
+                    throw new NavigationException("Invalid command " + command);
+                } else if (task.equals(VIEW_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), true))
+                            doAffidavit(request, response);
+                        else {
+                            throw new NavigationException("Invalid Affidavit ID or No Affidavit ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(CONTRACT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true))
+                            doContract(request, response);
+                        else {
+                            throw new NavigationException("Invalid Contract ID or No Contract ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(PAYMENT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
+                            doPayment(request, response);
+                        else {
+                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(PAYMENT_AUDIT_TRAIL_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
+                            doPaymentAuditTrail(request, response);
+                        else {
+                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(TAX_FORM_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true))
+                            doTaxForm(request, response);
+                        else {
+                            throw new NavigationException("Invalid Tax Form ID or No Tax Form ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(USER_TAX_FORM_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)
+                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
+                            doUserTaxForm(request, response);
+                        else {
+                            throw new NavigationException("Invalid ID or No ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(USER_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
+                            doUser(request, response);
+                        else {
+                            throw new NavigationException("Invalid User ID or No User ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(NOTE_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(NOTE_ID), true))
+                            doNote(request, response);
+                        else {
+                            throw new NavigationException("Invalid Note ID or No Note ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(TEXT_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter("object_id"), true)
+                                && checkParam(INT_TYPE, request.getParameter("object_type"), true))
+                            doText(request, response);
+                        else {
+                            throw new NavigationException("Invalid ID or Type or No ID or Type Specified");
+                        }
+                        return;
+                    }
+                    throw new NavigationException("Invalid command " + command);
+                } else if (task.equals(ADD_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
+                            doAddAffidavit(request, response);
+                        else {
+                            throw new NavigationException("Invalid User ID or No User ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(CONTRACT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
+                            doAddContract(request, response);
+                        else {
+                            throw new NavigationException("Invalid User ID or No User ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(PAYMENT_CMD)) {
+                        if (
+                                checkParam(LONG_TYPE, request.getParameter(USER_ID), true)
+                                || checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true))
+                            doAddPayment(request, response);
+                        else {
+                            throw new NavigationException("Invalid User ID or No User ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(TAX_FORM_CMD)) {
+                        doAddTaxForm(request, response);
+                        return;
+                    }
+                    if (command.equals(USER_TAX_FORM_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
+                            doAddUserTaxForm(request, response);
+                        else {
+                            throw new NavigationException("Invalid User ID or No User ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(NOTE_CMD)) {
+                        if (
+                                checkParam(INT_TYPE, request.getParameter("object_type"), true)
+                                && checkParam(LONG_TYPE, request.getParameter("object_id"), true))
+                            doAddNote(request, response);
+                        else {
+                            throw new NavigationException("Invalid ID Type or No ID or Type Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(NOTE_LINK_CMD)) {
+                        doAddNoteLink(request, response);
+                        return;
+                    }
+                    throw new NavigationException("Invalid command " + command);
+                } else if (task.equals(UPDATE_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), true))
+                            doUpdateAffidavit(request, response);
+                        else {
+                            throw new NavigationException("Invalid Affidavit ID or No Affidavit ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(CONTRACT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true))
+                            doUpdateContract(request, response);
+                        else {
+                            throw new NavigationException("Invalid Contract ID or No Contract ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(PAYMENT_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
+                            doUpdatePayment(request, response);
+                        else {
+                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(TAX_FORM_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true))
+                            doUpdateTaxForm(request, response);
+                        else {
+                            throw new NavigationException("Invalid Tax Form ID or No Tax Form ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(USER_TAX_FORM_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true) &&
+                                checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
+                            doUpdateUserTaxForm(request, response);
+                        else {
+                            throw new NavigationException("Invalid User or Tax Form ID or No ID Specified");
+                        }
+                        return;
+                    }
+                    throw new NavigationException("Invalid command " + command);
+                } else if (task.equals(PAYMENT_TASK)) {
+                    if (command.equals(PAID_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
+                            doPayPayments(request, response);
+                        else {
+                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(PRINT_CMD)) {
+                        doPrintPayments(request, response);
+                        return;
+                    }
+                    if (command.equals(REVIEW_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
+                            doReviewPayments(request, response);
+                        else {
+                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(STATUS_CMD)) {
+                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
+                            doPaymentStatus(request, response);
+                        else {
+                            throw new NavigationException("Invalid Payment ID or No Payment ID Specified");
+                        }
+                        return;
+                    }
+                    if (command.equals(FILE_CMD)) {
+                        if (checkParam(INT_TYPE, request.getParameter("file_num"), true))
+                            doFile(request, response);
+                        else {
+                            throw new NavigationException("Invalid File Number or File Number Specified");
+                        }
+                        return;
+                    }
+                    throw new NavigationException("Invalid command " + command);
+                } else if (task.equals(AFFIRM_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        //Parameters are checked in doAffirmAffidavit(request, response)
+                        doAffirmAffidavit(request, response);
+                        return;
+                    }
+                    throw new NavigationException("Invalid command " + command);
+                }
+                throw new NavigationException("Invalid task " + task);
+            } else {
+                doSearch(request, response);
+            }
+        } catch (Exception e) {
+            handleException(request, response, e);
+        }
+    }
+
+
+    /*
+    Handles all POST requests.
+
+    Checks to make sure the session is authenticated, that t and c are valid,
+    and that all parameters exist for t and c.
+    All subsequent post methods can assume that the above is already done.
+    */
+    public void doPost(HttpServletRequest request,
+                       HttpServletResponse response) throws ServletException, IOException {
+        String message = "";
+
+
+        try {
+            if (!doAuthenticate(request, response)) return;
+
+            //just jamming in the new way of doing things.  perhaps one day this whole system will leave the dark side
+            if (request.getParameter(MODULE) != null) process(request, response);
+
+            String task = null;
+            String command = null;
+
+            log.debug("doPost<br>");
+            task = request.getParameter(TASK_STRING);
+            command = request.getParameter(CMD_STRING);
+            log.debug("t = " + task + "<br>");
+            log.debug("c = " + command + "<br>");
+            if (task != null && command != null) {
+                if (task.equals(ADD_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + USER_ID + " = ";
+                            message += request.getParameter(USER_ID) + "<br>\n";
+                            throw new NavigationException(message);
+                        }
+                        if (!checkParam(BOOL_TYPE, request.getParameter(IS_NOTARIZED), true))
+                            message += "Invalid parameter " + IS_NOTARIZED + " = " + request.getParameter(IS_NOTARIZED) + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("affidavit_status_id"), true))
+                            message += "Invalid parameter affidavit_status_id = " + request.getParameter("affidavit_status_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("affidavit_type_id"), true))
+                            message += "Invalid parameter affidavit_type_id = " + request.getParameter("affidavit_type_id") + ".<br>\n";
+                        if (!checkParam(NULL_INT_TYPE, request.getParameter("round_id"), true))
+                            message += "Invalid parameter round_id = " + request.getParameter("round_id") + ".<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("affidavit_desc"), true))
+                            message += "Affidavit Description was invalid.<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_status_id"), true))
+                            message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
+                            message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
+                            message += "Payment Description was invalid.<br>\n";
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
+                            message += "Date Paid is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
+                            message += "Date Printed is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
+                            message += "Date Due is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
+                            message += "Net Amount was invalid.<br>\n";
+                        if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
+                            message += "Gross Amount was invalid.<br>\n";
+                        if (message.length() == 0)
+                            doAddAffidavitPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doAddAffidavit(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(CONTRACT_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + USER_ID + " = ";
+                            message += request.getParameter(USER_ID) + "<br>\n";
+                            throw new NavigationException(message);
+                        }
+                        if (!checkParam(STRING_TYPE, request.getParameter("contract_desc"), true))
+                            message += "Description was invalid.<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
+                            message += "Name was invalid.<br>\n";
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("end_date"), true)) {
+                            message += "End Date is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("start_date"), true)) {
+                            message += "Start Date is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("contract_type_id"), true))
+                            message += "Invalid parameter contract_type_id = " + request.getParameter("contract_type_id") + ".<br>\n";
+                        if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
+                            message += "Required parameter missing: text.<br>\n";
+                        if (message.length() == 0)
+                            doAddContractPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doAddContract(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(PAYMENT_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true) &&
+                                !checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was missing or invalid: " + CONTRACT_ID + " = ";
+                            message += request.getParameter(CONTRACT_ID) + "<br>or<br>\n";
+                            message += "Parameter was missing or invalid: " + USER_ID + " = ";
+                            message += request.getParameter(USER_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
+                            message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
+                            message += "Description was invalid.<br>\n";
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
+                            message += "Date Paid is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
+                            message += "Date Printed is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
+                            message += "Date Due is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
+                            message += "Net Amount was invalid.<br>\n";
+                        if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
+                            message += "Gross Amount was invalid.<br>\n";
+                        if (message.length() == 0)
+                            doAddPaymentPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doAddPayment(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(TAX_FORM_CMD)) {
+                        if (!checkParam(STRING_TYPE, request.getParameter("tax_form_desc"), true))
+                            message += "Description was invalid.<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
+                            message += "Name was invalid.<br>\n";
+                        if (!checkParam(DOUBLE_TYPE, request.getParameter("default_withholding_amount"), true))
+                            message += "Default Withholding Amount was invalid.<br>\n";
+                        if (!checkParam(FLOAT_TYPE, request.getParameter("default_withholding_percentage"), true))
+                            message += "Default Withholding Percentage was invalid.<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Invalid Parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+                        if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
+                            message += "Required parameter missing: text.<br>\n";
+                        if (!checkParam(BOOL_TYPE, request.getParameter("default_use_percentage"), true)) {
+                            message += "Invalid Parameter default_use_percentage = ";
+                            message += request.getParameter("default_use_percentage") + ".<br>\n";
+                        }
+                        if (message.length() == 0)
+                            doAddTaxFormPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doAddTaxForm(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(USER_TAX_FORM_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + USER_ID + " = ";
+                            message += request.getParameter(USER_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
+                            message += request.getParameter(TAX_FORM_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Parameter \"status_id\" was invalid.<br>\n";
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_filed"), true)) {
+                            message += "Date Filed is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (message.length() == 0)
+                            doAddUserTaxFormPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doAddUserTaxForm(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(NOTE_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter("object_id"), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: object_id = ";
+                            message += request.getParameter("object_id") + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("object_type"), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: object_type = ";
+                            message += request.getParameter("object_type") + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(STRING_TYPE, request.getParameter("text"), true))
+                            message += "You must fill in the note text.";
+                        if (message.length() == 0)
+                            doAddNotePost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doAddNote(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(NOTE_LINK_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(NOTE_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + NOTE_ID + " = ";
+                            message += request.getParameter(NOTE_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(LONG_TYPE, request.getParameter("object_id"), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: object_id = ";
+                            message += request.getParameter("object_id") + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("object_type"), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: object_type = ";
+                            message += request.getParameter("object_type") + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (message.length() == 0)
+                            doAddNoteLinkPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doAddNoteLink(request, response);
+                        }
+                        return;
+                    }
+                    doGet(request, response);
+                    return;
+                }
+                if (task.equals(UPDATE_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + AFFIDAVIT_ID + " = ";
+                            message += request.getParameter(AFFIDAVIT_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(BOOL_TYPE, request.getParameter(IS_NOTARIZED), true))
+                            message += "Invalid parameter " + IS_NOTARIZED + " = " + request.getParameter(IS_NOTARIZED) + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("affidavit_status_id"), true))
+                            message += "Invalid parameter affidavit_status_id = " + request.getParameter("affidavit_status_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("affidavit_type_id"), true))
+                            message += "Invalid parameter affidavit_type_id = " + request.getParameter("affidavit_type_id") + ".<br>\n";
+                        if (!checkParam(NULL_INT_TYPE, request.getParameter("round_id"), true))
+                            message += "Invalid parameter round_id = " + request.getParameter("round_id") + ".<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("affidavit_desc"), true))
+                            message += "Description was invalid.<br>\n";
+                        if (message.length() == 0)
+                            doUpdateAffidavitPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doUpdateAffidavit(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(CONTRACT_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + CONTRACT_ID + " = ";
+                            message += request.getParameter(CONTRACT_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(STRING_TYPE, request.getParameter("contract_desc"), true))
+                            message += "Description was invalid.<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
+                            message += "Name was invalid.<br>\n";
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("end_date"), true)) {
+                            message += "End Date is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("start_date"), true)) {
+                            message += "Start Date is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("contract_type_id"), true))
+                            message += "Invalid parameter contract_type_id = " + request.getParameter("contract_type_id") + ".<br>\n";
+                        if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
+                            message += "Required parameter missing: text.<br>\n";
+                        if (message.length() == 0)
+                            doUpdateContractPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doUpdateContract(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(PAYMENT_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + PAYMENT_ID + " = ";
+                            message += request.getParameter(PAYMENT_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
+                            message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("modification_rationale_id"), true))
+                            message += "Invalid parameter modification_rationale_id = " + request.getParameter("modification_rationale_id") + ".<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
+                            message += "Description was invalid.<br>\n";
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
+                            message += "Date Paid is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
+                            message += "Date Printed is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
+                            message += "Date Due is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
+                            message += "Net Amount was invalid.<br>\n";
+                        if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
+                            message += "Gross Amount was invalid.<br>\n";
+                        if (message.length() == 0)
+                            doUpdatePaymentPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doUpdatePayment(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(TAX_FORM_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
+                            message += request.getParameter(TAX_FORM_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(STRING_TYPE, request.getParameter("tax_form_desc"), true))
+                            message += "Description was invalid.<br>\n";
+                        if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
+                            message += "Name was invalid.<br>\n";
+                        if (!checkParam(DOUBLE_TYPE, request.getParameter("default_withholding_amount"), true))
+                            message += "Default Withholding Amount was invalid.<br>\n";
+                        if (!checkParam(FLOAT_TYPE, request.getParameter("default_withholding_percentage"), true))
+                            message += "Default Withholding Percentage was invalid.<br>\n";
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Invalid Parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
+                        if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
+                            message += "Required parameter missing: text.<br>\n";
+                        if (!checkParam(BOOL_TYPE, request.getParameter("default_use_percentage"), true)) {
+                            message += "Invalid Parameter default_use_percentage = ";
+                            message += request.getParameter("default_use_percentage") + ".<br>\n";
+                        }
+                        if (message.length() == 0)
+                            doUpdateTaxFormPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doUpdateTaxForm(request, response);
+                        }
+                        return;
+                    }
+                    if (command.equals(USER_TAX_FORM_CMD)) {
+                        if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + USER_ID + " = ";
+                            message += request.getParameter(USER_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)) {
+                            message = "There was an error processing your request:<br>\n";
+                            message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
+                            message += request.getParameter(TAX_FORM_ID) + "<br>\n";
+                            request.setAttribute("message", message);
+                        }
+                        if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
+                            message += "Parameter \"status_id\" was invalid.<br>\n";
+                        if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_filed"), true)) {
+                            message += "Date Filed is invalid make sure it is a legal";
+                            message += " date in the format " + DATE_FORMAT_STRING;
+                            message += ".<br>\n";
+                        }
+                        if (!checkParam(DOUBLE_TYPE, request.getParameter("withholding_amount"), true))
+                            message += "Withholding Amount was invalid.<br>\n";
+                        if (!checkParam(FLOAT_TYPE, request.getParameter("withholding_percentage"), true))
+                            message += "Withholding Percentage was invalid.<br>\n";
+                        if (!checkParam(BOOL_TYPE, request.getParameter("use_percentage"), true))
+                            message += "Parameter \"use_percentage\" was invalid.<br>\n";
+                        if (message.length() == 0)
+                            doUpdateUserTaxFormPost(request, response);
+                        else {
+                            request.setAttribute("message", message);
+                            doUpdateUserTaxForm(request, response);
+                        }
+                        return;
+                    }
+                }
+                if (task.equals(AFFIRM_TASK)) {
+                    if (command.equals(AFFIDAVIT_CMD)) {
+                        doAffirmAffidavitPost(request, response);
+                        return;
+                    }
+                }
+            }
+        } catch (Exception e) {
+            handleException(request, response, e);
+        }
+
+
+        doGet(request, response);
+    }
 
 
     // Encapsulated boolean Class which describes
@@ -173,9 +1067,8 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
 
     // Pulls up the Add Affidavit Page
-    private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response) {
+    private void doAddAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        try {
             log.debug("doAddAffidavit<br>");
 
             // Give the JSP the User object
@@ -212,15 +1105,12 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_ADD_AFFIDAVIT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     // Trys to add the Affidavit.  If successful, pulls up the View Affidavit, otherwise returns
     // the user to the Add Affidavit Page
-    private void doAddAffidavitPost(HttpServletRequest request, HttpServletResponse response) {
+    private void doAddAffidavitPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
 
         try {
             log.debug("doAddAffidavitPost<br>");
@@ -270,15 +1160,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
         } catch (Exception e) {
-            exceptionToGet(e, request, response);
+            handleException(request, response, e);
         }
     }
 
 
     // Pulls up the Add Contract page.
-    private void doAddContract(HttpServletRequest request, HttpServletResponse response) {
+    private void doAddContract(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        try {
             log.debug("doAddContract<br>");
 
             // Give the JSP the User Object
@@ -300,17 +1189,12 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_ADD_CONTRACT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     // Trys to add the Contract and, if successful, pulls up the View Contract page
     // otherwise returns the user to the Add Contract page
-    private void doAddContractPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddContractPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddContractPost<br>");
 
             Contract c = new Contract(
@@ -332,18 +1216,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_CONTRACT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
     Forwarding JSP: "addPayment.jsp"
     */
-    private void doAddPayment(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddPayment<br>");
 
             if (request.getParameter(CONTRACT_ID) != null) {
@@ -366,9 +1245,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_ADD_PAYMENT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -377,9 +1253,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSPs: "viewPayment.jsp" "viewContract.jsp"
     */
-    private void doAddPaymentPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddPaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddPaymentPost<br>");
 
             String net = request.getParameter("net_amount");
@@ -421,18 +1295,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                 forward(INTERNAL_PAYMENT_JSP, request, response);
             }
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
     Forwardidng JSP: "addTaxForm.jsp"
     */
-    private void doAddTaxForm(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddTaxForm<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -440,9 +1309,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(STATUS_CODE_LIST, map.get(STATUS_CODE_LIST));
 
             forward(INTERNAL_ADD_TAX_FORM_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
+
     }
 
 
@@ -451,9 +1318,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewTaxForm.jsp"
     */
-    private void doAddTaxFormPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddTaxFormPost<br>");
 
             TaxForm t = new TaxForm(
@@ -474,18 +1339,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
             forward(INTERNAL_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
     Forwarding JSP: "addUserTaxForm.jsp"
     */
-    private void doAddUserTaxForm(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddUserTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddUserTaxForm<br>");
 
             InternalDispatchTaxFormList bean =
@@ -505,10 +1365,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_ADD_USER_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
-    }
+   }
 
 
     /*
@@ -516,9 +1373,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewUserTaxForm.jsp"
     */
-    private void doAddUserTaxFormPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddUserTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddUserTaxFormPost<br>");
 
             TaxForm t = new TaxForm(
@@ -537,9 +1392,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
@@ -548,9 +1400,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forawrding JSP: "viewAffidavit.jsp"
     */
-    private void doAffidavit(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAffidavit<br>");
 
             InternalDispatchAffidavit bean =
@@ -565,9 +1415,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -576,9 +1423,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "affidavitList.jsp"
     */
-    private void doAffidavitList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAffidavitList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAffidavitList<br>");
             InternalDispatchAffidavitList bean =
                     new InternalDispatchAffidavitList(request, response);
@@ -600,9 +1445,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                 forward(INTERNAL_AFFIDAVIT_JSP, request, response);
             }
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
@@ -630,6 +1472,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
         return s;
     }
 
+/*
     private String safeParam(String param) {
         String rv = new String(param);
         rv = replaceInternal(rv, "%", "%25");
@@ -641,6 +1484,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
         rv = replaceInternal(rv, " ", "+");
         return rv;
     }
+*/
 
     private String safeParam2(String param) {
         String rv = new String(param);
@@ -652,8 +1496,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
     This method authenticates the session and forwards
     the user to a login page if there is an error.
     */
-    private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) {
-        try {
+    private boolean doAuthenticate(HttpServletRequest request, HttpServletResponse response) throws Exception {
             HttpSession session = request.getSession(true);
             Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
             if (nav != null) {
@@ -677,22 +1520,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                         ((query == null) ? "" : ("?" + safeParam2(query))));
                 return false;
             }
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
-        return false;
     }
 
-    private void doLogout(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doLogout(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doLogout<br>");
             HttpSession session = request.getSession(true);
             session.setAttribute(NAV_OBJECT_ATTR, null);
             forward(LOGIN_URL, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
@@ -700,9 +1534,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewContract.jsp"
     */
-    private void doContract(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doContract(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doContract<br>");
 
             InternalDispatchContract bean =
@@ -717,9 +1549,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_CONTRACT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -728,9 +1557,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "contractList.jsp"
     */
-    private void doContractList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doContractList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doContractList<br>");
 
             InternalDispatchContractList bean =
@@ -755,510 +1582,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                 forward(INTERNAL_CONTRACT_JSP, request, response);
             }
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
-    }
-
-
-    /*
-    Forwarding JSP: "pactsInternalError.jsp"
-    */
-    private void doError(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
-            log.debug("doError<br>");
-
-            forward(INTERNAL_ERROR_JSP, request, response);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-
-    /*
-    Handles all GET requests.
-
-    Checks to make sure the session is authenticated, that t and c are valid,
-    and that all parameters exist for t and c.
-    All subsequent get methods can assume that the above is already done.
-    */
-    public void doGet(HttpServletRequest request,
-                      HttpServletResponse response) {
-        //Searches require at least one parameter to be filled in.
-        //This is an encapluated boolean to store that information
-        PassedParam pp = new PassedParam();
-        try {
-            if (!doAuthenticate(request, response)) return;
-
-            String task = request.getParameter(TASK_STRING);
-            String command = request.getParameter(CMD_STRING);
-
-            if (task != null && command != null) {
-                if (task.equals(LOGOUT_TASK)) {
-                    doLogout(request, response);
-                    return;
-                }
-                if (task.equals(SEARCH_TASK)) {
-                    if (command.equals(USER_CMD)) {
-                        doSearchUsers(request, response);
-                        return;
-                    }
-                    if (command.equals(PAYMENT_CMD)) {
-                        doSearchPayments(request, response);
-                        return;
-                    }
-                    if (command.equals(AFFIDAVIT_CMD)) {
-                        doSearchAffidavits(request, response);
-                        return;
-                    }
-                    if (command.equals(CONTRACT_CMD)) {
-                        doSearchContracts(request, response);
-                        return;
-                    }
-                    if (command.equals(TAX_FORM_CMD)) {
-                        doSearchTaxForms(request, response);
-                        return;
-                    }
-                    if (command.equals(USER_TAX_FORM_CMD)) {
-                        doSearchUserTaxForms(request, response);
-                        return;
-                    }
-                    if (command.equals(NOTE_CMD)) {
-                        doSearchNotes(request, response);
-                        return;
-                    }
-                    doSearch(request, response);
-                    return;
-                }
-                if (task.equals(LIST_TASK)) {
-                    if (command.equals(AFFIDAVIT_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
-                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(IS_AFFIRMED), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(IS_NOTARIZED), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(ROUND_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                && pp.get()) {
-
-                            doAffidavitList(request, response);
-                        } else {
-                            request.setAttribute("message", "Invalid Search Parameter or No Search Parameter Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(CONTRACT_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
-                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(CONTRACT_NAME), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_START_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_END_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_START_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_END_DATE), false, pp)
-                                && pp.get()) {
-
-                            doContractList(request, response);
-                        } else {
-                            request.setAttribute("message", "Invalid Search Parameter or No Search Parameter Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(PAYMENT_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
-                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DUE_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DUE_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PRINT_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PRINT_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_PAY_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_PAY_DATE), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_NET_AMOUNT), false, pp)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_NET_AMOUNT), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(IS_REVIEWED), false, pp)
-                                && pp.get()) {
-
-                            doPaymentList(request, response);
-                        } else {
-                            request.setAttribute("message", "Invalid Search Parameter or No Search Parameter Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(TAX_FORM_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_WITHHOLDING_AMOUNT), false)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_WITHHOLDING_AMOUNT), false)
-                                && checkParam(FLOAT_TYPE, request.getParameter(LOWEST_WITHHOLDING_PERCENTAGE), false)
-                                && checkParam(FLOAT_TYPE, request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE), false)) {
-
-                            doTaxFormList(request, response);
-                        } else {
-                            request.setAttribute("message", "Invalid Search Parameter");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(USER_TAX_FORM_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(STATUS_CODE), false, pp)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(LOWEST_WITHHOLDING_AMOUNT), false, pp)
-                                && checkParam(DOUBLE_TYPE, request.getParameter(HIGHEST_WITHHOLDING_AMOUNT), false, pp)
-                                && checkParam(FLOAT_TYPE, request.getParameter(LOWEST_WITHHOLDING_PERCENTAGE), false, pp)
-                                && checkParam(FLOAT_TYPE, request.getParameter(HIGHEST_WITHHOLDING_PERCENTAGE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_DATE_FILED), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_DATE_FILED), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                && pp.get()) {
-
-                            doUserTaxFormList(request, response);
-                        } else {
-                            request.setAttribute("message", "Invalid Search Parameter or No Search Parameter Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(USER_CMD)) {
-                        if (
-                                checkParam(STRING_TYPE, request.getParameter(FIRST_NAME), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(MIDDLE_NAME), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(LAST_NAME), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(HAS_ACTIVE_CONTRACTS), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(HAS_PENDING_AFFIDAVITS), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(HAS_TAX_FORMS_ON_FILE), false, pp)
-                                && checkParam(BOOL_TYPE, request.getParameter(IS_OWED_MONEY), false, pp)
-                                && pp.get()) {
-
-                            doUserList(request, response);
-                        } else {
-                            request.setAttribute("message", "Invalid Search Parameter or No Search Parameter Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(NOTE_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(SUBMITTING_USER_ID), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(SUBMITTING_HANDLE), false, pp)
-                                && checkParam(INT_TYPE, request.getParameter(TYPE_CODE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(EARLIEST_CREATION_DATE), false, pp)
-                                && checkParam(DATE_TYPE, request.getParameter(LATEST_CREATION_DATE), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(TAX_FORM_USER_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), false, pp)
-                                && checkParam(LONG_TYPE, request.getParameter(NOTE_ID), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(HANDLE), false, pp)
-                                && checkParam(STRING_TYPE, request.getParameter(IN_DEPTH_HANDLE), false, pp)
-                                && pp.get()) {
-
-                            doNoteList(request, response);
-                        } else {
-                            request.setAttribute("message", "Invalid Search Parameter or No Search Parameter Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(COMBO_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(NOTE_ID), true))
-                            doComboList(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Note ID or No Note ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    doError(request, response);
-                    return;
-                }
-                if (task.equals(VIEW_TASK)) {
-                    if (command.equals(AFFIDAVIT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), true))
-                            doAffidavit(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Affidavit ID or No Affidavit ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(CONTRACT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true))
-                            doContract(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Contract ID or No Contract ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(PAYMENT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPayment(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Payment ID or No Payment ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(PAYMENT_AUDIT_TRAIL_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPaymentAuditTrail(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Payment ID or No Payment ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(TAX_FORM_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true))
-                            doTaxForm(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Tax Form ID or No Tax Form ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(USER_TAX_FORM_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)
-                                && checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
-                            doUserTaxForm(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid ID or No ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(USER_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
-                            doUser(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid User ID or No User ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(NOTE_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(NOTE_ID), true))
-                            doNote(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Note ID or No Note ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(TEXT_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter("object_id"), true)
-                                && checkParam(INT_TYPE, request.getParameter("object_type"), true))
-                            doText(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid ID or Type or No ID or Type Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    doError(request, response);
-                    return;
-                }
-                if (task.equals(ADD_TASK)) {
-                    if (command.equals(AFFIDAVIT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
-                            doAddAffidavit(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid User ID or No User ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(CONTRACT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
-                            doAddContract(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid User ID or No User ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(PAYMENT_CMD)) {
-                        if (
-                                checkParam(LONG_TYPE, request.getParameter(USER_ID), true)
-                                || checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true))
-                            doAddPayment(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid User ID or No User ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(TAX_FORM_CMD)) {
-                        doAddTaxForm(request, response);
-                        return;
-                    }
-                    if (command.equals(USER_TAX_FORM_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
-                            doAddUserTaxForm(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid User ID or No User ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(NOTE_CMD)) {
-                        if (
-                                checkParam(INT_TYPE, request.getParameter("object_type"), true)
-                                && checkParam(LONG_TYPE, request.getParameter("object_id"), true))
-                            doAddNote(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid ID Type or No ID or Type Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(NOTE_LINK_CMD)) {
-                        doAddNoteLink(request, response);
-                        return;
-                    }
-                    doError(request, response);
-                    return;
-                }
-                if (task.equals(UPDATE_TASK)) {
-                    if (command.equals(AFFIDAVIT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), true))
-                            doUpdateAffidavit(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Affidavit ID or No Affidavit ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(CONTRACT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true))
-                            doUpdateContract(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Contract ID or No Contract ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(PAYMENT_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doUpdatePayment(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Payment ID or No Payment ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(TAX_FORM_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true))
-                            doUpdateTaxForm(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Tax Form ID or No Tax Form ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(USER_TAX_FORM_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true) &&
-                                checkParam(LONG_TYPE, request.getParameter(USER_ID), true))
-                            doUpdateUserTaxForm(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid User or Tax Form ID or No ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    doError(request, response);
-                    return;
-                }
-                if (task.equals(PAYMENT_TASK)) {
-                    if (command.equals(PAID_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPayPayments(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Payment ID or No Payment ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(PRINT_CMD)) {
-                        doPrintPayments(request, response);
-                        return;
-                    }
-                    if (command.equals(REVIEW_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doReviewPayments(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Payment ID or No Payment ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(STATUS_CMD)) {
-                        if (checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true))
-                            doPaymentStatus(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid Payment ID or No Payment ID Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    if (command.equals(FILE_CMD)) {
-                        if (checkParam(INT_TYPE, request.getParameter("file_num"), true))
-                            doFile(request, response);
-                        else {
-                            request.setAttribute("message", "Invalid File Number or File Number Specified");
-                            doError(request, response);
-                        }
-                        return;
-                    }
-                    doError(request, response);
-                    return;
-                }
-                if (task.equals(AFFIRM_TASK)) {
-                    if (command.equals(AFFIDAVIT_CMD)) {
-                        //Parameters are checked in doAffirmAffidavit(request, response)
-                        doAffirmAffidavit(request, response);
-                        return;
-                    }
-                    doError(request, response);
-                    return;
-                }
-                doError(request, response);
-                return;
-            } else {
-                doSearch(request, response);
-            }
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -1267,9 +1590,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewPayment.jsp"
     */
-    private void doPayment(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doPayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doPayment<br>");
 
             InternalDispatchPayment bean =
@@ -1285,9 +1606,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_PAYMENT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -1296,9 +1614,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewPaymentAuditTrail.jsp"
     */
-    private void doPaymentAuditTrail(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doPaymentAuditTrail(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doPaymentAuditTrail<br>");
 
             InternalDispatchPaymentAuditTrail bean =
@@ -1314,9 +1630,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
             forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -1325,9 +1638,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "paymentList.jsp"
     */
-    private void doPaymentList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doPaymentList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doPaymentList<br>");
             String query = request.getQueryString();
             query = INTERNAL_SERVLET_URL + "?" + query;
@@ -1354,525 +1665,33 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
                 forward(INTERNAL_PAYMENT_JSP, request, response);
             }
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
-    }
-
-
-    /*
-    Handles all POST requests.
-
-    Checks to make sure the session is authenticated, that t and c are valid,
-    and that all parameters exist for t and c.
-    All subsequent post methods can assume that the above is already done.
-    */
-    public void doPost(HttpServletRequest request,
-                       HttpServletResponse response) {
-        String message = "";
-
-        if (!doAuthenticate(request, response)) return;
-
-        PrintWriter out = null;
-        String task = null;
-        String command = null;
-
-        try {
-            out = response.getWriter();
-            log.debug("doPost<br>");
-            task = request.getParameter(TASK_STRING);
-            command = request.getParameter(CMD_STRING);
-            log.debug("t = " + task + "<br>");
-            log.debug("c = " + command + "<br>");
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
-
-        if (task != null && command != null) {
-            if (task.equals(ADD_TASK)) {
-                if (command.equals(AFFIDAVIT_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + USER_ID + " = ";
-                        message += request.getParameter(USER_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(BOOL_TYPE, request.getParameter(IS_NOTARIZED), true))
-                        message += "Invalid parameter " + IS_NOTARIZED + " = " + request.getParameter(IS_NOTARIZED) + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("affidavit_status_id"), true))
-                        message += "Invalid parameter affidavit_status_id = " + request.getParameter("affidavit_status_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("affidavit_type_id"), true))
-                        message += "Invalid parameter affidavit_type_id = " + request.getParameter("affidavit_type_id") + ".<br>\n";
-                    if (!checkParam(NULL_INT_TYPE, request.getParameter("round_id"), true))
-                        message += "Invalid parameter round_id = " + request.getParameter("round_id") + ".<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("affidavit_desc"), true))
-                        message += "Affidavit Description was invalid.<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("payment_status_id"), true))
-                        message += "Invalid parameter payment_status_id = " + request.getParameter("payment_status_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
-                        message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
-                        message += "Payment Description was invalid.<br>\n";
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
-                        message += "Date Paid is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
-                        message += "Date Printed is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
-                        message += "Date Due is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
-                        message += "Net Amount was invalid.<br>\n";
-                    if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
-                        message += "Gross Amount was invalid.<br>\n";
-                    if (message.length() == 0)
-                        doAddAffidavitPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doAddAffidavit(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(CONTRACT_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + USER_ID + " = ";
-                        message += request.getParameter(USER_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(STRING_TYPE, request.getParameter("contract_desc"), true))
-                        message += "Description was invalid.<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
-                        message += "Name was invalid.<br>\n";
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("end_date"), true)) {
-                        message += "End Date is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("start_date"), true)) {
-                        message += "Start Date is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("contract_type_id"), true))
-                        message += "Invalid parameter contract_type_id = " + request.getParameter("contract_type_id") + ".<br>\n";
-                    if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
-                        message += "Required parameter missing: text.<br>\n";
-                    if (message.length() == 0)
-                        doAddContractPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doAddContract(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(PAYMENT_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true) &&
-                            !checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was missing or invalid: " + CONTRACT_ID + " = ";
-                        message += request.getParameter(CONTRACT_ID) + "<br>or<br>\n";
-                        message += "Parameter was missing or invalid: " + USER_ID + " = ";
-                        message += request.getParameter(USER_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
-                        message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
-                        message += "Description was invalid.<br>\n";
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
-                        message += "Date Paid is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
-                        message += "Date Printed is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
-                        message += "Date Due is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
-                        message += "Net Amount was invalid.<br>\n";
-                    if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
-                        message += "Gross Amount was invalid.<br>\n";
-                    if (message.length() == 0)
-                        doAddPaymentPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doAddPayment(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(TAX_FORM_CMD)) {
-                    if (!checkParam(STRING_TYPE, request.getParameter("tax_form_desc"), true))
-                        message += "Description was invalid.<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
-                        message += "Name was invalid.<br>\n";
-                    if (!checkParam(DOUBLE_TYPE, request.getParameter("default_withholding_amount"), true))
-                        message += "Default Withholding Amount was invalid.<br>\n";
-                    if (!checkParam(FLOAT_TYPE, request.getParameter("default_withholding_percentage"), true))
-                        message += "Default Withholding Percentage was invalid.<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Invalid Parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
-                    if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
-                        message += "Required parameter missing: text.<br>\n";
-                    if (!checkParam(BOOL_TYPE, request.getParameter("default_use_percentage"), true)) {
-                        message += "Invalid Parameter default_use_percentage = ";
-                        message += request.getParameter("default_use_percentage") + ".<br>\n";
-                    }
-                    if (message.length() == 0)
-                        doAddTaxFormPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doAddTaxForm(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(USER_TAX_FORM_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + USER_ID + " = ";
-                        message += request.getParameter(USER_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
-                        message += request.getParameter(TAX_FORM_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Parameter \"status_id\" was invalid.<br>\n";
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_filed"), true)) {
-                        message += "Date Filed is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (message.length() == 0)
-                        doAddUserTaxFormPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doAddUserTaxForm(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(NOTE_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter("object_id"), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: object_id = ";
-                        message += request.getParameter("object_id") + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("object_type"), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: object_type = ";
-                        message += request.getParameter("object_type") + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(STRING_TYPE, request.getParameter("text"), true))
-                        message += "You must fill in the note text.";
-                    if (message.length() == 0)
-                        doAddNotePost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doAddNote(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(NOTE_LINK_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(NOTE_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + NOTE_ID + " = ";
-                        message += request.getParameter(NOTE_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(LONG_TYPE, request.getParameter("object_id"), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: object_id = ";
-                        message += request.getParameter("object_id") + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("object_type"), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: object_type = ";
-                        message += request.getParameter("object_type") + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (message.length() == 0)
-                        doAddNoteLinkPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doAddNoteLink(request, response);
-                    }
-                    return;
-                }
-                doGet(request, response);
-                return;
-            }
-            if (task.equals(UPDATE_TASK)) {
-                if (command.equals(AFFIDAVIT_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(AFFIDAVIT_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + AFFIDAVIT_ID + " = ";
-                        message += request.getParameter(AFFIDAVIT_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(BOOL_TYPE, request.getParameter(IS_NOTARIZED), true))
-                        message += "Invalid parameter " + IS_NOTARIZED + " = " + request.getParameter(IS_NOTARIZED) + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("affidavit_status_id"), true))
-                        message += "Invalid parameter affidavit_status_id = " + request.getParameter("affidavit_status_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("affidavit_type_id"), true))
-                        message += "Invalid parameter affidavit_type_id = " + request.getParameter("affidavit_type_id") + ".<br>\n";
-                    if (!checkParam(NULL_INT_TYPE, request.getParameter("round_id"), true))
-                        message += "Invalid parameter round_id = " + request.getParameter("round_id") + ".<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("affidavit_desc"), true))
-                        message += "Description was invalid.<br>\n";
-                    if (message.length() == 0)
-                        doUpdateAffidavitPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doUpdateAffidavit(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(CONTRACT_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(CONTRACT_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + CONTRACT_ID + " = ";
-                        message += request.getParameter(CONTRACT_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(STRING_TYPE, request.getParameter("contract_desc"), true))
-                        message += "Description was invalid.<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
-                        message += "Name was invalid.<br>\n";
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("end_date"), true)) {
-                        message += "End Date is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("start_date"), true)) {
-                        message += "Start Date is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("contract_type_id"), true))
-                        message += "Invalid parameter contract_type_id = " + request.getParameter("contract_type_id") + ".<br>\n";
-                    if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
-                        message += "Required parameter missing: text.<br>\n";
-                    if (message.length() == 0)
-                        doUpdateContractPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doUpdateContract(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(PAYMENT_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(PAYMENT_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + PAYMENT_ID + " = ";
-                        message += request.getParameter(PAYMENT_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Invalid parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("payment_type_id"), true))
-                        message += "Invalid parameter payment_type_id = " + request.getParameter("payment_type_id") + ".<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("modification_rationale_id"), true))
-                        message += "Invalid parameter modification_rationale_id = " + request.getParameter("modification_rationale_id") + ".<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("payment_desc"), true))
-                        message += "Description was invalid.<br>\n";
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_paid"), true)) {
-                        message += "Date Paid is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_printed"), true)) {
-                        message += "Date Printed is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_due"), true)) {
-                        message += "Date Due is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(NULL_DOUBLE_TYPE, request.getParameter("net_amount"), true))
-                        message += "Net Amount was invalid.<br>\n";
-                    if (!checkParam(DOUBLE_TYPE, request.getParameter("gross_amount"), true))
-                        message += "Gross Amount was invalid.<br>\n";
-                    if (message.length() == 0)
-                        doUpdatePaymentPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doUpdatePayment(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(TAX_FORM_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
-                        message += request.getParameter(TAX_FORM_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(STRING_TYPE, request.getParameter("tax_form_desc"), true))
-                        message += "Description was invalid.<br>\n";
-                    if (!checkParam(STRING_TYPE, request.getParameter("name"), true))
-                        message += "Name was invalid.<br>\n";
-                    if (!checkParam(DOUBLE_TYPE, request.getParameter("default_withholding_amount"), true))
-                        message += "Default Withholding Amount was invalid.<br>\n";
-                    if (!checkParam(FLOAT_TYPE, request.getParameter("default_withholding_percentage"), true))
-                        message += "Default Withholding Percentage was invalid.<br>\n";
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Invalid Parameter status_id = " + request.getParameter("status_id") + ".<br>\n";
-                    if (!checkParam(NULL_STRING_TYPE, request.getParameter("text"), true))
-                        message += "Required parameter missing: text.<br>\n";
-                    if (!checkParam(BOOL_TYPE, request.getParameter("default_use_percentage"), true)) {
-                        message += "Invalid Parameter default_use_percentage = ";
-                        message += request.getParameter("default_use_percentage") + ".<br>\n";
-                    }
-                    if (message.length() == 0)
-                        doUpdateTaxFormPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doUpdateTaxForm(request, response);
-                    }
-                    return;
-                }
-                if (command.equals(USER_TAX_FORM_CMD)) {
-                    if (!checkParam(LONG_TYPE, request.getParameter(USER_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + USER_ID + " = ";
-                        message += request.getParameter(USER_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(LONG_TYPE, request.getParameter(TAX_FORM_ID), true)) {
-                        message = "There was an error processing your request:<br>\n";
-                        message += "Parameter was invalid: " + TAX_FORM_ID + " = ";
-                        message += request.getParameter(TAX_FORM_ID) + "<br>\n";
-                        request.setAttribute("message", message);
-                        doError(request, response);
-                        return;
-                    }
-                    if (!checkParam(INT_TYPE, request.getParameter("status_id"), true))
-                        message += "Parameter \"status_id\" was invalid.<br>\n";
-                    if (!checkParam(NULL_DATE_TYPE, request.getParameter("date_filed"), true)) {
-                        message += "Date Filed is invalid make sure it is a legal";
-                        message += " date in the format " + DATE_FORMAT_STRING;
-                        message += ".<br>\n";
-                    }
-                    if (!checkParam(DOUBLE_TYPE, request.getParameter("withholding_amount"), true))
-                        message += "Withholding Amount was invalid.<br>\n";
-                    if (!checkParam(FLOAT_TYPE, request.getParameter("withholding_percentage"), true))
-                        message += "Withholding Percentage was invalid.<br>\n";
-                    if (!checkParam(BOOL_TYPE, request.getParameter("use_percentage"), true))
-                        message += "Parameter \"use_percentage\" was invalid.<br>\n";
-                    if (message.length() == 0)
-                        doUpdateUserTaxFormPost(request, response);
-                    else {
-                        request.setAttribute("message", message);
-                        doUpdateUserTaxForm(request, response);
-                    }
-                    return;
-                }
-            }
-            if (task.equals(AFFIRM_TASK)) {
-                if (command.equals(AFFIDAVIT_CMD)) {
-                    doAffirmAffidavitPost(request, response);
-                    return;
-                }
-            }
-        }
-        doGet(request, response);
     }
 
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearch(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearch(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearch<br>");
 
             forward(INTERNAL_SEARCH_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchUsers(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearchUsers(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearchUsers<br>");
 
             forward(INTERNAL_SEARCH_USERS_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchPayments(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearchPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearch<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -1880,17 +1699,12 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PAYMENT_TYPE_LIST, dib.getPaymentTypes().get(PAYMENT_TYPE_LIST));
 
             forward(INTERNAL_SEARCH_PAYMENTS_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchAffidavits(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearchAffidavits(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearch<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -1899,17 +1713,12 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(ROUND_LIST, dib.getRounds().get(ROUND_LIST));
 
             forward(INTERNAL_SEARCH_AFFIDAVITS_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchContracts(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearchContracts(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearch<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -1917,60 +1726,42 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(CONTRACT_TYPE_LIST, dib.getContractTypes().get(CONTRACT_TYPE_LIST));
 
             forward(INTERNAL_SEARCH_CONTRACTS_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchTaxForms(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearchTaxForms(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearch<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
             request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
             forward(INTERNAL_SEARCH_TAX_FORMS_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchUserTaxForms(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearchUserTaxForms(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearch<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
             request.setAttribute(STATUS_CODE_LIST, dib.getStatusCodes(USER_TAX_FORM_OBJ).get(STATUS_CODE_LIST));
 
             forward(INTERNAL_SEARCH_USER_TAX_FORMS_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
     Forwarding JSP: "search.jsp"
     */
-    private void doSearchNotes(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doSearchNotes(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doSearch<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
             request.setAttribute(NOTE_TYPE_LIST, dib.getNoteTypes().get(NOTE_TYPE_LIST));
 
             forward(INTERNAL_SEARCH_NOTES_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
@@ -1978,9 +1769,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewTaxForm.jsp"
     */
-    private void doTaxForm(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doTaxForm<br>");
 
             InternalDispatchTaxForm bean =
@@ -1989,9 +1778,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
             forward(INTERNAL_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
@@ -1999,9 +1785,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "taxFormList.jsp"
     */
-    private void doTaxFormList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doTaxFormList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doTaxFormList<br>");
 
             InternalDispatchTaxFormList bean =
@@ -2016,9 +1800,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                 forward(INTERNAL_TAX_FORM_JSP, request, response);
             }
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
@@ -2026,9 +1807,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewUserTaxForm.jsp"
     */
-    private void doUserTaxForm(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUserTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUserTaxForm<br>");
 
             InternalDispatchUserTaxForm bean =
@@ -2043,9 +1822,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -2054,9 +1830,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "userTaxFormList.jsp"
     */
-    private void doUserTaxFormList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUserTaxFormList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUserTaxFormList<br>");
 
             InternalDispatchUserTaxFormList bean =
@@ -2079,18 +1853,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                 forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
             }
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "updateAffidavit.jsp"
 	*/
-    private void doUpdateAffidavit(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateAffidavit(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateAffidavit<br>");
 
             InternalDispatchAffidavit bean =
@@ -2105,18 +1874,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_UPDATE_AFFIDAVIT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "viewAffidavit.jsp"
 	*/
-    private void doUpdateAffidavitPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateAffidavitPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateAffidavitPost<br>");
 
             InternalDispatchAffidavit bean =
@@ -2147,18 +1911,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_AFFIDAVIT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "updateContract.jsp"
 	*/
-    private void doUpdateContract(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateContract(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateContract<br>");
 
             InternalDispatchContract bean =
@@ -2176,18 +1935,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_UPDATE_CONTRACT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "viewContract.jsp"
 	*/
-    private void doUpdateContractPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateContractPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateContractPost<br>");
 
             InternalDispatchContract bean =
@@ -2216,19 +1970,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(NOTE_HEADER_LIST, nlb.get(search));
 
             forward(INTERNAL_CONTRACT_JSP, request, response);
-
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "updatePayment.jsp"
 	*/
-    private void doUpdatePayment(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdatePayment(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdatePayment<br>");
 
             InternalDispatchPayment bean =
@@ -2243,18 +1991,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_UPDATE_PAYMENT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "viewPaymentAuditTrail.jsp"
 	*/
-    private void doUpdatePaymentPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdatePaymentPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdatePaymentPost<br>");
 
             InternalDispatchPayment pb =
@@ -2292,18 +2035,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_PAYMENT_AUDIT_TRAIL_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "updateTaxForm.jsp"
 	*/
-    private void doUpdateTaxForm(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateTaxForm<br>");
 
             InternalDispatchTaxForm bean =
@@ -2320,18 +2058,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_UPDATE_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "viewTaxForm.jsp"
 	*/
-    private void doUpdateTaxFormPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateTaxFormPost<br>");
 
             InternalDispatchTaxForm bean =
@@ -2355,18 +2088,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "updateUserTaxForm.jsp"
 	*/
-    private void doUpdateUserTaxForm(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateUserTaxForm(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateUserTaxForm<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -2378,19 +2106,13 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
             forward(INTERNAL_UPDATE_USER_TAX_FORM_JSP, request, response);
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
 	Forwarding JSP: "viewUserTaxForm.jsp"
 	*/
-    private void doUpdateUserTaxFormPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUpdateUserTaxFormPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUpdateUserTaxFormPost<br>");
 
             InternalDispatchUserTaxForm bean =
@@ -2419,28 +2141,19 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_USER_TAX_FORM_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
 
     /*
     Forwarding JSP: "addNote.jsp"
     */
-    private void doAddNote(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddNote(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddNote<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
             request.setAttribute(NOTE_TYPE_LIST, dib.getNoteTypes().get(NOTE_TYPE_LIST));
 
             forward(INTERNAL_ADD_NOTE_JSP, request, response);
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -2449,9 +2162,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewNote.jsp"
     */
-    private void doAddNotePost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddNotePost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddNotePost<br>");
 
             HttpSession session = request.getSession(true);
@@ -2480,9 +2191,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_NOTE_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
     /*
@@ -2490,9 +2198,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "comboList.jsp"
     */
-    private void doComboList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doComboList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doComboList<br>");
 
             InternalDispatchPactsEntryList bean =
@@ -2503,10 +2209,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, results);
 
             forward(INTERNAL_COMBO_LIST_JSP, request, response);
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
@@ -2514,9 +2216,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewNote.jsp"
     */
-    private void doNote(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doNote(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doNote<br>");
 
             InternalDispatchNote bean = new InternalDispatchNote(request, response);
@@ -2526,10 +2226,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_NOTE_JSP, request, response);
 
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -2538,9 +2234,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "noteList.jsp"
     */
-    private void doNoteList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doNoteList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doNoteList<br>");
 
             InternalDispatchNoteList bean = new InternalDispatchNoteList(request, response);
@@ -2556,11 +2250,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
                 request.setAttribute(PACTS_INTERNAL_RESULT, nb.get(n[0]._id));
                 forward(INTERNAL_NOTE_JSP, request, response);
             }
-
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
@@ -2568,9 +2257,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewText.jsp"
     */
-    private void doText(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doText(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doText<br>");
 
             InternalDispatchText bean = new InternalDispatchText(request, response);
@@ -2580,9 +2267,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             forward(INTERNAL_TEXT_JSP, request, response);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -2591,9 +2275,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "viewUser.jsp"
     */
-    private void doUser(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUser(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUser<br>");
 
             InternalDispatchUserProfile bean = new InternalDispatchUserProfile(request, response);
@@ -2608,10 +2290,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, u);
 
             forward(INTERNAL_USER_JSP, request, response);
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
@@ -2620,9 +2298,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
     Forwarding JSP: "userList.jsp"
     */
-    private void doUserList(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doUserList(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doUserList<br>");
 
             InternalDispatchUserProfileList bean = new InternalDispatchUserProfileList(request, response);
@@ -2643,33 +2319,22 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
                 forward(INTERNAL_USER_JSP, request, response);
             }
-
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
     /*
     Forwarding JSP: "addNoteLink.jsp"
     */
-    private void doAddNoteLink(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddNoteLink(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddNoteLink<br>");
 
             forward(INTERNAL_ADD_NOTE_LINK_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
 
     /*
     Forwarding JSP: "viewNote.jsp"
     */
-    private void doAddNoteLinkPost(HttpServletRequest request, HttpServletResponse response) {
-        try {
-            PrintWriter out = response.getWriter();
+    private void doAddNoteLinkPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
             log.debug("doAddNoteLink<br>");
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -2693,14 +2358,10 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute(PACTS_INTERNAL_RESULT, bean.get());
 
             forward(INTERNAL_NOTE_JSP, request, response);
-        } catch (Exception e) {
-            exceptionToGet(e, request, response);
-        }
     }
 
-    private void doPayPayments(HttpServletRequest request, HttpServletResponse response) {
+    private void doPayPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
-            PrintWriter out = response.getWriter();
             log.debug("doPayPayments<br>");
 
             String[] values = request.getParameterValues(PAYMENT_ID);
@@ -2717,20 +2378,14 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION && request.getParameter("individual_payment") == null)
                 forward(request.getParameter("query"), request, response);
             else
-                doError(request, response);
+                throw new NavigationException("Payments have been marked as Paid");
 
-
-        } catch (Exception e) {
-            if (e instanceof NumberFormatException) {
-                request.setAttribute("message", "One or more of the Payment IDs specified is invalid.");
-                doError(request, response);
-            } else
-                exceptionToError(e, request, response);
+        } catch (NumberFormatException e) {
+                throw new NavigationException("One or more of the Payment IDs specified is invalid.");
         }
     }
 
-    private void doPrintPayments(HttpServletRequest request, HttpServletResponse response) {
-        try {
+    private void doPrintPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
             HttpSession session = request.getSession(true);
 
             DataInterfaceBean dib = new DataInterfaceBean();
@@ -2782,16 +2437,11 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             message += "</body></html><font>";
 
-            request.setAttribute("message", message);
-            doError(request, response);
-            return;
+            throw new NavigationException(message);
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
-    private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) {
+    private void doPaymentStatus(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
             HttpSession session = request.getSession(true);
 
@@ -2799,7 +2449,6 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
 
             long userId = nav.getUserId();
 
-            PrintWriter out = response.getWriter();
             log.debug("doPaymentStatus<br>");
 
             String[] values = request.getParameterValues(PAYMENT_ID);
@@ -2815,20 +2464,15 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute("message", "Payments Being Updated in the Background");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION)
                 forward(request.getParameter("query"), request, response);
-            else
-                doError(request, response);
+            else throw new NavigationException("Payments Being Updatd in the Background");
 
-        } catch (Exception e) {
-            if (e instanceof NumberFormatException)
-                request.setAttribute("message", "One or more of the Payment IDs specified is invalid.");
-            else
-                exceptionToError(e, request, response);
+        } catch (NumberFormatException e) {
+                throw new NavigationException("One or more of the Payment IDs specified is invalid.");
         }
     }
 
-    private void doReviewPayments(HttpServletRequest request, HttpServletResponse response) {
+    private void doReviewPayments(HttpServletRequest request, HttpServletResponse response) throws Exception {
         try {
-            PrintWriter out = response.getWriter();
             log.debug("doReviewPayments<br>");
 
             String[] values = request.getParameterValues(PAYMENT_ID);
@@ -2844,27 +2488,20 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             request.setAttribute("message", "Payments have been reviewed");
             if (PAYMENT_UPDATE_FORWARD_OPTION == TO_QUERY_OPTION && request.getParameter("individual_payment") == null)
                 forward(request.getParameter("query"), request, response);
-            else
-                doError(request, response);
+            else throw new NavigationException("Payments have been reviewed");
 
-        } catch (Exception e) {
-            if (e instanceof NumberFormatException)
-                request.setAttribute("message", "One or more of the Payment IDs specified is invalid.");
-            else
-                exceptionToError(e, request, response);
+        } catch (NumberFormatException e) {
+                throw new NavigationException("One or more of the Payment IDs specified is invalid.");
         }
     }
 
-    private void doFile(HttpServletRequest request, HttpServletResponse response) {
-        try {
+    private void doFile(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
             int fileNum = Integer.parseInt(request.getParameter("file_num"));
             HttpSession session = request.getSession(true);
             String[] files = (String[]) session.getAttribute(PACTS_QUICKBOOKS_FILES);
             if (files == null || files.length <= fileNum) {
-                request.setAttribute("message", "File not found");
-                doError(request, response);
-                return;
+                throw new NavigationException("File not found");
             }
             String mime_type, filename, ext, date;
             Date d;
@@ -2909,36 +2546,24 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
             out.print(files[fileNum]);
             return;
 
-        } catch (Exception e) {
-            exceptionToError(e, request, response);
-        }
     }
 
-    private void exceptionToError(Exception e, HttpServletRequest request, HttpServletResponse response) {
-        processException(e, request, response);
-        doError(request, response);
-    }
+    protected void handleException(HttpServletRequest request, HttpServletResponse response, Exception e) throws IOException {
 
-    private void exceptionToGet(Exception e, HttpServletRequest request, HttpServletResponse response) {
-        processException(e, request, response);
-        doGet(request, response);
-    }
-
-    private void processException(Exception e, HttpServletRequest request, HttpServletResponse response) {
-        StringTokenizer t = new StringTokenizer((e.getMessage() == null) ? e.toString() : e.getMessage(), "\n");
-        // dpecora - i need to see a stack trace to track down null pointer exception
-        //log.debug("Exception Caught:\n" + ((e.getMessage() == null) ? e.toString() : e.getMessage()));
-        log.debug("Exception Caught:\n" + ((e.getMessage() == null) ? e.toString() : e.getMessage()), e);
-        String ex = "No description available.";
         try {
-            while (t.hasMoreElements()) {
-                log.debug("ex was" + ex);
-                ex = (String) t.nextElement();
-            }
-        } catch (Exception ignore) {
+            super.handleException(request, response, e);
+        } catch (Exception ex) {
+            log.fatal("forwarding to error page failed", ex);
+            ex.printStackTrace();
+
+            response.setStatus(500);
+            PrintWriter out = response.getWriter();
+            out.println("<html><head><title>Internal Error</title></head>");
+            out.println("<body><h4>Your request could not be processed.  Please inform TopCoder.</h4>");
+            out.println("</body></html>");
+            out.flush();
         }
-        String message = "There was an error processing your request:<br>\n" + ex;
-        request.setAttribute("message", message);
+
     }
 
 
@@ -2946,7 +2571,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
         forward(INTERNAL_AFFIRM_AFFIDAVIT_JSP, request, response);
     }
 
-    private void doAffirmAffidavitPost(HttpServletRequest request, HttpServletResponse response) {
+    private void doAffirmAffidavitPost(HttpServletRequest request, HttpServletResponse response) throws Exception {
         AffidavitBean bean = new AffidavitBean();
 
         // extract the affidavit id
@@ -2955,23 +2580,20 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
         String aged = new String("");
         String family = new String("");
         try {
-            affidavitId = Long.parseLong((String)
-                    request.getParameter(AFFIDAVIT_ID));
+            affidavitId = Long.parseLong(request.getParameter(AFFIDAVIT_ID));
             birthday = request.getParameter("date_of_birth");
             aged = request.getParameter("aged");
             family = request.getParameter("family_name");
         } catch (Exception e) {
             log.error(AFFIDAVIT_ID + " is not in the request. error");
-            doError(request, response);
-            return;
+            throw new NavigationException(AFFIDAVIT_ID + " is not in the request. error");
         }
 
 
         AffidavitWithText a = bean.getAffidavitWithText(affidavitId);
         if (a == null) {
             log.error("we got null from getAffidavitWithText");
-            doError(request, response);
-            return;
+            throw new NavigationException("we got null from getAffidavitWithText");
         }
 
         // check for birthday parameter, if it is not there get it from the affidavit
@@ -2986,7 +2608,7 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
         try {
             d = dfmt.parse(birthday);
         } catch (Exception e3) {
-            exceptionToGet(e3, request, response);
+            handleException(request, response, e3);
             return;
         }
 
@@ -3019,5 +2641,3 @@ public class PactsInternalServlet extends HttpServlet implements PactsConstants 
     }
 
 }
-
-;

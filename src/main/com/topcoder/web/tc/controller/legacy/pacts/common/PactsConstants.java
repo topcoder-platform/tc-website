@@ -294,6 +294,7 @@ public interface PactsConstants {
     public static final String CMD_STRING = "c";
     public static final String NAV_OBJECT_ATTR = "navigation";
     public static final String TABLE_MODEL = "table_data";
+    public static final String MODULE_KEY = "module";
 
     // affidavit member jsps
     public static final String AFFIDAVIT_TASK = "affidavit";
