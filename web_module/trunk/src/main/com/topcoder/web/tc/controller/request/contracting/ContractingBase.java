@@ -212,7 +212,7 @@ abstract public class ContractingBase extends BaseProcessor {
                     info.setResume(file); 
                 }
             }
-        } else if(getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("languages")) {
+        } else if(getRequestParameter("previouspage") != null && getRequestParameter("previouspage").equals("skills")) {
             //load skills
             log.debug("LOADING DATA FROM REQUEST");
             //info.clearSkills();

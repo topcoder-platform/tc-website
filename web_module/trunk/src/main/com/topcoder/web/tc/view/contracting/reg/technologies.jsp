@@ -1,10 +1,20 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.model.Skill,
+                 java.util.List" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Contracting</title>
 
 <jsp:include page="../../../script.jsp" />
+
+
+<%
+List skillList = (List)request.getAttribute("skills");
+%>
 
 <SCRIPT TYPE="text/javascript">
 <!--
@@ -53,6 +63,18 @@ return false;
         </jsp:include>
 
 <!-- Breadcrumb-->
+    <script language="javascript">
+        function goToPage(s)
+        {
+            document.frmTech.module.value = s;
+            document.frmTech.submit();
+        }
+    </script>
+
+		<FORM ACTION="/tc" METHOD=POST onSubmit="" name="frmTech">
+		<input type="hidden" name="module" value="ContractingTechnologies"/>
+		<input type="hidden" name="previouspage" value="skills" />
+		
         <table border=0 cellpadding=0 cellspacing=0 width="100%" class=bodyText>
 			<tr>
 				<td class=oppDesc width="100%" valign=top>
@@ -67,8 +89,7 @@ return false;
 				</td>
 			</tr>
 		</table>
-
-		<FORM ACTION="" METHOD=POST onSubmit="">
+		
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr><td>&#160;</td><td class=bodyText colspan=5><span class=bodySubtitle>No experience</span></td><td class=bodyText colspan=6 align=right><span class=bodySubtitle>Expert</span></td>
         	<tr><td class=bodyText valign=top width="100%">&#160;</td>
@@ -78,82 +99,18 @@ return false;
                 </td>
             <% } %>
 			</tr>
-	        <tr>
-	            <td class=formTextEven valign=top>OO Concepts</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>ActiveX</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group2 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>CGI</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group3 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>ASP</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group4 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>JSP</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group5 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Servlets</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group6 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>CORBA</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group7 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>RMI</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group8 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>EJB</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group9 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>COM/DCOM</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group10 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>TCP/IP</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group11 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>X Window/Motif</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group12 property=""/></td>
-            <% } %>
-	        </tr>
+	        <%String[] cssClasses = new String[] {"formTextEven", "formTextOdd" };
+                          int i = 0;%>
+                <tc:skillIterator id="skill" list="<%=skillList%>">
+                <tr>
+	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
+	            <tc:skillInput class="<%=cssClasses[i++ % 2]%>" skill="<%=skill%>" />
+                </tr>
+                </tc:skillIterator>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>
 				<td class=bodyText colspan=11>
-				<TEXTAREA NAME="comments" ROWS="3" COLS="40"></TEXTAREA>
+				<tc-webtag:textArea name="<%=Constants.NOTE_PREFIX + Constants.NOTE_TECHNOLOGIES%>" rows="3" cols="40"/>
 				</td>
 			</tr>
 			<tr><td colspan=12 align=center><br/><br/><a href="/tc?module=Static&d1=contracting&d2=reg&d3=os"><img src="/i/submit.jpg" border=0/></a></td></tr>
