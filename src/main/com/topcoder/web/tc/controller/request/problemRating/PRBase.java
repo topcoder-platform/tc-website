@@ -41,7 +41,7 @@ abstract public class PRBase extends Base {
         ProblemRatingDistribution overallAvg = buildDistribution((ResultSetContainer)qMap.get("overall_votes"));
         overallAvg.setName("overallAll");
         ProblemRatingDistribution div1Avg = buildDistribution((ResultSetContainer)qMap.get("div1_overall_votes"));
-        div1Avg.setName("overalllDiv1");
+        div1Avg.setName("overallDiv1");
         ProblemRatingDistribution div2Avg = buildDistribution((ResultSetContainer)qMap.get("div2_overall_votes"));
         div2Avg.setName("overallDiv2");
 
