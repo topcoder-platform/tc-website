@@ -209,6 +209,15 @@
             <param name="unit-jar-name" value="PactsServices"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/pacts"/>
         </antcall>
+        <jar jarfile="${ejb_jars}/Search.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/messaging/QueueMessageSender.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/ApplicationServer.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/DBMS.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/util/logging/*.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/shared/dataAccess/resultSet/ResultSetContainer.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/tc/controller/legacy/pacts/common/*.class"/>
+        </jar>
     </target>
 
     <target name="package-EJB-JavaDocServicesBean" depends="compile">
