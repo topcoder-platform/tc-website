@@ -25,7 +25,7 @@
    <property name="Jive.jar"      value="${bin}/Jive.jar"/>
    <property name="servlets"      value="${build}/servlets" />
    <property name="web"           value="src/main/com/topcoder/web" />
-   <property name="public_html"   value="/opt/home/weblog5/weblogic1/tc_cluster/public_html" />
+   <property name="public_html"   value="/export/home/jobposting/weblogic_jobposting/tc_cluster/public_html" />
    <property environment="env"/>
 
    <property name="deprecation"   value="false" />
@@ -48,6 +48,7 @@
       <property name="statservlets"  value="com/topcoder/web/stat/servlet" />
       <property name="webservlets"   value="com/topcoder/web/servlet" />
       <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
+      <property name="regservlets" value="com/topcoder/web/reg/servlet" />
       <mkdir dir="${classes}" />
       <mkdir dir="${testclasses}" />
       <mkdir dir="${bin}" />
@@ -56,6 +57,7 @@
       <mkdir dir="${servlets}/${statservlets}" />
       <mkdir dir="${servlets}/${webservlets}" />
       <mkdir dir="${servlets}/${pactsservlets}" />
+      <mkdir dir="${servlets}/${regservlets}" />
       <mkdir dir="${public_html}/WEB-INF/lib" />
    </target>
 
@@ -100,6 +102,11 @@
       <move todir="${servlets}/${pactsservlets}">
          <fileset dir="${classes}/${pactsservlets}" >
                  <include name="**/*.class" />
+         </fileset>
+      </move>
+      <move todir="${servlets}/${regservlets}">
+         <fileset dir="${classes}/${regservlets}" >
+                 <include name="*.class" />
          </fileset>
       </move>
    </target>
