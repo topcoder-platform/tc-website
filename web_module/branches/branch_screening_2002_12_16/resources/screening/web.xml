@@ -225,6 +225,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>session_id_parameter</param-name>
+    <param-value>sid</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Parameters used by Candidate -->
   <init-param>
     <param-name>candidate_info_attribute</param-name>

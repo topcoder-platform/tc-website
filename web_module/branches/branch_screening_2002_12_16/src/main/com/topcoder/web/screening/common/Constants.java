@@ -47,6 +47,7 @@ public class Constants
     public static String CANDIDATE_EMAIL;
     public static String REP_EMAIL;
     public static String NOTE_TEXT;
+    public static String SESSION_ID;
 
     //Candidate constants
     public static String CANDIDATE_INFO;
@@ -147,6 +148,7 @@ public class Constants
         CANDIDATE_EMAIL = config.getInitParameter("candidate_email_parameter");
         REP_EMAIL = config.getInitParameter("rep_email_parameter");
         NOTE_TEXT = config.getInitParameter("note_text_parameter");
+        SESSION_ID = config.getInitParameter("session_id_parameter");
 
         //Candidate constants
         CANDIDATE_INFO = config.getInitParameter("candidate_info_attribute");
