@@ -90,6 +90,7 @@ public abstract class Base extends BaseProcessor {
 
     protected void send(ScreeningBaseRequest m) throws TCWebException {
         HttpSession session = getRequest().getSession();
+        log.debug("sync: " + m.isSynchronous());
         if (m.isSynchronous()) {
             if (session.getAttribute(Constants.SERVER_BUSY + getSessionId()) == null) {
                 log.debug("lock it up, it's a syncronous request");
