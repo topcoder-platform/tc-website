@@ -24,32 +24,32 @@
               </tr>
          </table>
 
-          <table border="0" cellspacing="0" cellpadding="4" width="510" align="center" class="formFrame">
+          <table  border="0" cellspacing="0" cellpadding="0" width="510" align="center" class="formFrame">
               <tr>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" valign="middle" height="18" width="20%">Handle</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" valign="middle" align="right" width="15%">Rating</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" valign="middle" align="center" width="15%">State</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" valign="middle" align="left" width="25%">Country</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" valign="middle" align="center" width="12%">Rated<br/>Events</td>
-                  <td background="/i/graybv_bg.gif" class="statTextLarge" valign="middle" align="center" width="12%">Last<br/>Event</td>
+                  <td class="searchHeaders" valign="middle" height="18" width="20%">Handle</td>
+                  <td class="searchHeaders" valign="middle" align="right" width="15%">Rating</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="15%">State</td>
+                  <td class="searchHeaders" valign="middle" align="left" width="25%">Country</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">Rated<br/>Events</td>
+                  <td class="searchHeaders" valign="middle" align="center" width="12%">Last<br/>Event</td>
               </tr>
 
               <%boolean even = false;%>
               <rsc:iterator list="<%=results%>" id="resultRow">
               <tr>
-                  <td class="<%=even?"formHandleEven":"formHandleOdd"%>" valign="top" nowrap>
-                      <a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a>
+                  <td align="left" class="searchText" valign="top" nowrap>
+                      <div class="handleL"><div class="handleR"><a href="/stat?c=member_profile&cr=<rsc:item row="<%=resultRow%>" name="user_id"/>" class="<tc:ratingStyle rating='<%=resultRow.getIntItem("rating")%>'/>"><rsc:item row="<%=resultRow%>" name="handle"/></a></div></div>
                   </td>
-                  <td class="<%=even?"formHandleEven":"formHandleOdd"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
-                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
-                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
-                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                  <td class="<%=even?"formTextEven":"formTextOdd"%>" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
+                  <td class="searchText" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="rating"/>&#160;&#160;</td>
+                  <td class="searchText" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="state_code"/></td>
+                  <td class="searchText" valign="middle" align="left" nowrap><rsc:item row="<%=resultRow%>" name="country_name"/></td>
+                  <td class="searchText" valign="middle" align="right"><rsc:item row="<%=resultRow%>" name="num_ratings"/>&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                  <td class="searchText" valign="middle" align="center"><rsc:item row="<%=resultRow%>" name="last_competed" format="MM.dd.yyyy" ifNull="N/A"/></td>
               </tr>
               <%even=!even;%>
               </rsc:iterator>
            </table>
-
+           
           <table border="0" cellspacing="0" cellpadding="4" width="510" align="center" class="bodyText">
               <tr><td colspan="6"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
               <tr valign="middle">
