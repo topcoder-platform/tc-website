@@ -169,7 +169,7 @@ public class VerizonRegSubmit extends FullRegSubmit {
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
         VerizonRegInfo ret = (VerizonRegInfo) super.makeRegInfo();
-        ret.setRegFull(VerizonReg.getActiveCount(db) > Constants.MAX_VERIZON_REGISTRATIONS);
+        ret.setRegFull(VerizonReg.getActiveCount(db) >= Constants.MAX_VERIZON_REGISTRATIONS);
         return ret;
     }
 
