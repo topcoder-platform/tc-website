@@ -11,6 +11,8 @@
 
 <jsp:include page="../script.jsp" />
 
+<%System.out.println("errors: " + request.getAttribute("processor_errors"));%>
+
 </head>
 
 <body>
@@ -30,20 +32,20 @@
          <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
          <img src="/i/clear.gif" width="180" height="40" border="0"/>
          </p>
-         </td>         
+         </td>
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
+<!-- Center Column Begins -->
         <td class="bodyText" width="100%">
 <!-- TCO Header -->
    <p><br /></p>
    <div align="center"><img src="/i/tournament/vcc03/vcc03.gif" alt="Verizon Coding Challenge" width="500" height="120" border="0" vspace="0" /></div>
    <p><br /></p>
-   
+
 <!-- Tab bar links-->
 <jsp:include page="/verizon/verizonLinks.jsp" >
    <jsp:param name="selectedTab" value="rules"/>
