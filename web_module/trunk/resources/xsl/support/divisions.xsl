@@ -84,7 +84,7 @@
 		</UL>
 		Furthermore, all new, non-rated members will compete against other non-rated members in separate rooms.  Upon competing in their first rated event, a previously 
 		non-rated member will be placed in the division that corresponds to their new rating.<BR/><BR/>
-		<B>Changes to the Prize Money Structure</B><BR/><BR/>
+		<!-- <B>Changes to the Prize Money Structure</B><BR/><BR/>
 		All first-time, or non-rated participants will be competing for a single prize of $100, to be paid to the highest scoring non-rated coder.  No other prize money will be paid 
 		to the non-rated rooms.<BR/><BR/>
 		In an effort to better control and predict the amount of prize money awarded in each SRM, the total pool of prize money for each match will become fixed at $10,000 
@@ -174,7 +174,7 @@
 			<TD CLASS="statText" ALIGN="center">0<BR/>0<BR/>0<BR/></TD>
 		</TR>
 		</TABLE>
-		</DIV>
+		</DIV> -->
 <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
