@@ -48,8 +48,8 @@
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value=""/>
-   <jsp:param name="selectedTab" value=""/>
+   <jsp:param name="selectedList" value="coding_advancers"/>
+   <jsp:param name="selectedTab" value="qualification"/>
 </jsp:include>
 
             <h2>Advancers</h2>

@@ -51,27 +51,19 @@
              <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
                <tr>
                   <td width = "40%" align = "left" class="advancers_header">Round</td>
-                  <td width = "20%" align = "right" class="advancers_header">Advancers</td>
-                  <td width = "20%" align = "right" class="advancers_header">Room Winners</td>
-                  <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
+                  <td width = "60%" align = "right" class="advancers_header">Advancers</td>
                </tr>
                <tr>
                   <td align = "left" class="advancers_roundid"><a href="/tc?module=SimpleStats&c=tco03_top100" class="topLink">Top 100</a></td>
                   <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_top100">100</a></td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
                   <td align = "left" class="advancers_roundid"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4700&trans=true" class="topLink">Qualification Round 1</a></td>
                   <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4700&trans=true">200</a></td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
                   <td align = "left" class="advancers_roundid"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4701&trans=true" class="topLink">Qualification Round 2</a></td>
                   <td align = "right" class="advancers_faded"><a href="/tc?module=SimpleStats&c=tco03_advancers&rd=4701&trans=true">200</a></td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded">n/a</td>
                </tr>
             </table>
             <br/><br/>
