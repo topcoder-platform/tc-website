@@ -12,7 +12,7 @@
 
 <jsp:useBean id="candidateInfo" class="com.topcoder.web.screening.model.CandidateInfo" />
 
-<body>
+<body onLoad="document.note.<%=Constants.NOTE_TEXT%>.focus()">
 
 <!-- Header begins -->
 <jsp:include page="/includes/top.jsp" />
