@@ -119,7 +119,7 @@
 
                                 <tr>
                                     <td class="statText">
-                                        <tc-webtag:rscSelect name="<%=Constants.STATE_CODE%>" list="<%=memberSearch.getCountryList()%>" fieldText="country_name" fieldValue="country_code"/>
+                                        <tc-webtag:rscSelect name="<%=Constants.COUNTRY_CODE%>" list="<%=memberSearch.getCountryList()%>" fieldText="country_name" fieldValue="country_code"/>
                                     </td>
                                 </tr>
 
