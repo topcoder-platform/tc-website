@@ -35,16 +35,18 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="help"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Algorithm Competitions"/>  
+           <jsp:param name="title" value="Competition Manual"/>  
         </jsp:include>
 
+        <h2>Competition Manual</h2>
+
         <p><span class="bodySubtitle">Getting Started</span><br/>
-            <span class="outline1">1. <a href="">What is the TopCoder Arena?</a></span><br/>
-            <span class="outline1">2. <a href="/">How to Run the TopCoder Arena</a></span><br/>
-                <span class="outline2">2.1. <a href="/">What software will you need to install?</a></span><br/>
-                <span class="outline2">2.2. <a href="/">Run the TopCoder Arena as an Applet or using Java Web Start</a></span><br/>
-                <span class="outline2">2.3. <a href="/">Local Firewall and Network Considerations</a></span><br/>
-                <span class="outline2">2.4. <a href="/">HTTP Tunneling</a></span></p>
+            <span class="outline1">1. <a href="/tc?module=Static&d1=help&d2=getStarted#what">What is the TopCoder Arena?</a></span><br/>
+            <span class="outline1">2. <a href="/tc?module=Static&d1=help&d2=getStarted#how">How to Run the TopCoder Arena</a></span><br/>
+                <span class="outline2">2.1. <a href="/tc?module=Static&d1=help&d2=getStarted#software">What software will you need to install?</a></span><br/>
+                <span class="outline2">2.2. <a href="/tc?module=Static&d1=help&d2=getStarted#running">Run the TopCoder Arena as an Applet or using Java Web Start</a></span><br/>
+                <span class="outline2">2.3. <a href="firewall">Local Firewall and Network Considerations</a></span><br/>
+                <span class="outline2">2.4. <a href="tunneling">HTTP Tunneling</a></span></p>
 
         <p><span class="bodySubtitle">General TopCoder Arena Usage</span><br/>
             <span class="outline1">1. <a href="/tc?module=Static&d1=help&d2=gen_usage#gen_usage">General Arena Usage</a></span><br/>
