@@ -22,7 +22,6 @@ import java.sql.SQLException;
 public class IdGeneratorClient {
 
     private static Logger log = Logger.getLogger(IdGeneratorClient.class);
-    private static final String dataSourceName = "SCREENING_OLTP";
 
     static InitialContext ctx = null;
 
@@ -38,7 +37,7 @@ public class IdGeneratorClient {
 
     public static long getSeqId(String seqName) {
         log.debug("getSeqId(String) called");
-        return getSeqId(seqName, dataSourceName);
+        return getSeqId(seqName, DBMS.COMMON_OLTP_DATASOURCE_NAME);
     }
 
     public static long getSeqId(String seqName, String dataSourceName) {
