@@ -62,22 +62,15 @@
 
 
 
-<P><B>GRAPHICS ARCHITECTURE ENGINEER</B></P>
-<p>Roles include some or all of the below:</p>
-<ul>
-<li>Develop algorithms and design hardware extending the state of the art in hardware support for computer graphics. Working within a team, graphics architects document, design, develop functional and performance simulators, validate, and verify each new chip.</li>
-<li>Develop tests, testplans, and testing infrastructure for new graphics architectures. Develop methodologies and tools for validating test results. Design and implement automated testing strategies. Test and debug CMODELs, RTL simulation and real silicon.</li>
-<li>Write and run low-level graphics tests which expose architectural performance characteristics of competitors' graphics chips. Compare results with nVidia graphics chips. Find shortcomings and strong points of each.  Work with architects to determine underlying causes. Publish and maintain results.</li>
-</ul>
+<P><B>PLATFORM ARCHITECTURE ENGINEER (INTERN.CO-OP POSITION ONLY)</B><BR/><BR/> 
+In this key role, you will be responsible for working on infrastructure for Verilog-based performance tests of full-chip RTL, and adding tests in Verilog in this environment.  This includes writing directed performance tests in C to be run on full-chip RTL, emulation, and real hardware for such areas as Gigabit Ethernet, Serial ATA (disk), etc.
+<BR/><BR/>
+Minimum GPA:  3.5
+<BR/><BR/>
+Pursuing BS/MS/PHD in EE/CS/EECS or related technical field or equivalent. Requires strong programming in C/C++, Verilog.  Experience with HW design, simulation, verification, and HW bring-up.
+</P>
 
-<p>Requirements:</p>
-<ul>
-<li>Degree in relevant discipline (CS, EE, Math). Advanced degrees helpful.</li>
-<li>Relevant industrial experience preferred. Relevant industries include PC or workstation graphics hardware or software development, digital video or image processing, video game software development, rendering software or tools development.</li>
-<li>Strong programming ability: C, C++ and Perl preferred.</li>
-</ul>
-
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=199&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=201&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
