@@ -21,14 +21,7 @@
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <query:linkIterator id="link" list="<%=DBSelectionTask.getNavLinks()%>">
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
-              </TD>
-            </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-          </query:linkIterator>
+          <TR><TD><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="8"></TD></TR>
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>

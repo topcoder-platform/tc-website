@@ -44,10 +44,6 @@ public class QueryDetailTask extends BaseTask implements Task, Serializable {
         }
 	}
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        super.setNavLinks(super.buildNavLinks(getServletPath(), getDb()));
-    }
-
     public void process(String step) throws Exception {
         QueryInputHome qiHome = (QueryInputHome) getInitialContext().lookup(ApplicationServer.Q_QUERY_INPUT);
         QueryInput qi = qiHome.create();

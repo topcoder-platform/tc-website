@@ -41,10 +41,6 @@ public class CommandDetailTask extends BaseTask implements Task, Serializable {
         }
  	}
 
-    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception {
-        super.setNavLinks(super.buildNavLinks(getServletPath(), getDb()));
-    }
-
     public void process(String step) throws Exception {
         CommandQueryHome cqHome = (CommandQueryHome) getInitialContext().lookup(ApplicationServer.Q_COMMAND_QUERY);
         CommandQuery cq = cqHome.create();

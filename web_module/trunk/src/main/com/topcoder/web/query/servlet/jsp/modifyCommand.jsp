@@ -21,14 +21,10 @@
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-          <query:linkIterator id="link" list="<%=ModifyCommandTask.getNavLinks()%>">
-            <TR>
-              <TD CLASS="statText">
-                  <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
-              </TD>
-            </TR>
-            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
-          </query:linkIterator>
+          <jsp:include page="left.jsp">
+            <jsp:param name="<%=Constants.DB_PARAM%>" value="<jsp:getProperty name="ModifyCommandTask" property="Db"/>"/>
+            <jsp:param name="<%=Constants.SERVLET_PATH_PARAM%>" value="<jsp:getProperty name="ModifyCommandTask" property="ServletPath"/>"/>
+          </jsp:include>
         </TABLE>
       </TD>
       <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
