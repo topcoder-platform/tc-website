@@ -27,18 +27,17 @@ public class LoginCommand implements TCESCommand, Serializable {
 	boolean isStepAuth;
 	boolean isStepView;
 
-	Logger log;
+	private static Logger log = Logger.getLogger(LoginCommand.class);
+
 	String message;
 
 	public LoginCommand() {
 		isStepView = true;
 
-		setLog(null);
 		setMessage("");
 	}
 
-	public LoginCommand(String step, Logger log) {
-log.debug("lc--"+step);
+	public LoginCommand(String step) {
 		if (step==null) {
 			isStepView=true;
 			isStepAuth=false;
@@ -46,24 +45,13 @@ log.debug("lc--"+step);
 		else if (step.equals("v")) {
 			isStepAuth=false;
 			isStepView=true;
-log.debug("lc:v");
 		}
 		else if (step.equals("a")) {
 			isStepAuth=true;
 			isStepView=false;
-log.debug("lc:v");
 		}
 
-		setLog(log);
 		setMessage("");
-	}
-
-	public void setLog(Logger log) {
-		this.log=log;
-	}
-
-	public Logger getLog() {
-		return log;
 	}
 
 	public void setMessage(String message) {
@@ -104,7 +92,6 @@ log.debug("lc:v");
 	private void viewAuth(HttpServletRequest request, HttpServletResponse response,
 					 	  	   InitialContext ctx, ServletContext servCtx)  throws Exception
 	{
-log.debug("viewauth");
         String handle = request.getParameter(TCESConstants.HANDLE_PARAM);
         String password = request.getParameter(TCESConstants.PASSWORD_PARAM);
 
@@ -123,7 +110,6 @@ log.debug("viewauth");
 		ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
 
 		if (rsc.getRowCount() == 0) {
-log.debug("User handle incorrect.  Please retry.");
 			setMessage("User handle incorrect.  Please retry.");
 
 			goLoginPage(request,response,servCtx);
@@ -135,12 +121,10 @@ log.debug("User handle incorrect.  Please retry.");
 
 		String actualPassword = TCData.getTCString(rRow, "password");
 		if (actualPassword == null) {
-			log.debug("Exception occured getting user data in handleLogin.");
 			throw new Exception("Unable to read user data from DB in handleLogin");
 		}
 
 		if (!actualPassword.trim().equals(password)) {
-log.debug("Password incorrect.  Please retry.");
 			setMessage("Password incorrect.  Please retry.");
 
 			goLoginPage(request,response,servCtx);
@@ -152,8 +136,9 @@ log.debug("Password incorrect.  Please retry.");
 		session.setAttribute( "user_id", new Integer(TCData.getTCInt(rRow,"user_id")) );
 		request.setAttribute("LoginCommand",this);
 
+		setMessage("Login good!");
+
 		goLoginPage(request,response,servCtx);
-log.debug("login good");
 	}
 
 

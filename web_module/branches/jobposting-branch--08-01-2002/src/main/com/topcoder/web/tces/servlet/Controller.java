@@ -73,7 +73,7 @@ public class Controller extends HttpServlet {
             return;
 		} else if (command.equals("login")) {
 			try {
-				(new LoginCommand(commandStep,log)).processCommand(request, response,
+				(new LoginCommand(commandStep)).processCommand(request, response,
 									                         ctx, getServletContext());
 			} catch (Exception ex) {
 				forwardToErrorPage(request, response, ex);
