@@ -118,8 +118,10 @@ public class ReviewProjectDetail extends Base {
                         //already taken as a non-primary
                         for (Iterator it = reviewerList.iterator(); it.hasNext();) {
                             app = (ReviewBoardApplication)it.next();
-                            if (!app.isSpotFilled())
+                            if (!app.isSpotFilled()) {
                                 app.setPrimary(true);
+                                break;
+                            }
                         }
                     }
                 }
