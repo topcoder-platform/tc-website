@@ -4,7 +4,8 @@
           java.util.Map,
           com.topcoder.web.tc.Constants,
           com.topcoder.web.common.StringUtils,
-          java.text.SimpleDateFormat"
+          java.text.SimpleDateFormat,
+          java.util.Date"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -211,7 +212,7 @@
                    <td class="statText">Best Time</TD>
                    <rsc:iterator list="<%=div1Lang%>" id="resultRow">
 <%--                     <td class="statText"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></TD>--%>
-                     <td class="statText"><%= new java.sql.Time(resultRow.getLongItem("best_time")) %></TD>
+                     <td class="statText"><%= new Date(resultRow.getLongItem("best_time")) %></TD>
                    </rsc:iterator>
                    <rsc:iterator list="<%=div1Overall%>" id="resultRow">
                      <td class="statText"><%= resultRow.getItem("best_time").getResultData()==null?"":sdfTime.format(new java.sql.Time(resultRow.getLongItem("best_time"))) %></td>
