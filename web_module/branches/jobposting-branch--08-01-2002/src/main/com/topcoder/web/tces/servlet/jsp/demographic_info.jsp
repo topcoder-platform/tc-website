@@ -1,4 +1,4 @@
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           java.io.*,
@@ -8,7 +8,18 @@
           com.coolservlets.forum.util.*,
           weblogic.common.T3Services,
           com.topcoder.common.web.data.Navigation,
-          com.topcoder.common.*" %>
+          com.topcoder.common.*,
+          com.topcoder.web.tces.common.*,
+          com.topcoder.web.tces.bean.*" %>
+
+<%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
+
+<jsp:useBean id="DemographicTask" scope="request" class="com.topcoder.web.tces.bean.DemographicTask" />
+
+<% 
+    Map DemoInfoMap = DemographicTask.getDemoInfoMap();
+    List ResponseList = (List)DemoInfoMap.get(TCESConstants.DEMOGRAPHIC_REFERRAL_KEY); 
+%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -16,17 +27,16 @@
     <TITLE>TopCoder Employment Services</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
-    <%@ include file="../script.jsp" %>
   </HEAD>
   <BODY BGCOLOR="#43515E" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-  <%@ include file="../top.jsp" %>
+  <jsp:include page="/top.jsp">
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR>
     <!-- Left Column Begins -->
       <TD WIDTH="170" bgcolor="#001935" VALIGN="top">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <%@ include file="left.jsp" %>
+          <jsp:include page="/left.jsp">
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
       </TD>
@@ -46,17 +56,20 @@
           <TR>
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
-              <P><B>Position Interest</B></P>
               
               <P>
-              <B>Campaign Name</B><BR>
-              Position: <B>DBA</B><BR>
+              <B>Campaign: <jsp:getProperty name="MainTask" property="CampaignName"/></B><BR>
+              
+              <% if (DemographicTask.getPositionID()>0) { %>             
+              Position: <B><jsp:getProperty name="MainTask" property="PositionName"/></B><BR>
+              <% } %>
               </P>
+              
               <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" BORDER="0">               
                 <TR>
-                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (218)</b></TD>
+                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="MainTask" property="StudentCoderCount"/>)</b></TD>
                   <TD BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Professional (115)</b></TD>                                   
+                  <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" WIDTH="50%" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="MainTask" property="ProCoderCount"/>)</b></TD>                                   
                 </TR>
                 <TR>
                   <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
