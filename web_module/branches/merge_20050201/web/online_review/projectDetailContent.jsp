@@ -6,7 +6,6 @@
 <%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
             
 <!-- Start Title -->   
-ERASE THIS!!!: <%= request.getAttribute("sid") %>!!!
 <table width="100%" border="0" cellpadding="0" cellspacing="1" class="forumBkgd">
     <tr>
         <td class="whiteBkgnd">

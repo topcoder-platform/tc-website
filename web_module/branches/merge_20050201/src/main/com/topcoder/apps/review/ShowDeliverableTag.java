@@ -271,9 +271,6 @@ public class ShowDeliverableTag extends BaseTag {
 
                         // if the final review has a positive id, it's because it was retrieved from the db
                         if (finalReview.getId() >= 0) isFinalFixAvailable = true;
-                    } else
-                    {
-                        isFinalFixAvailable = false;
                     }
 
 
