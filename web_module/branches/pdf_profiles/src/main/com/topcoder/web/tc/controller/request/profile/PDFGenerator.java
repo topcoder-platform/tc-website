@@ -851,9 +851,18 @@ public class PDFGenerator extends BaseProcessor {
                     footerimg.scalePercent(70f);
 
                     footerimg.setAbsolutePosition(45,30);
-
+                    
                     cb = writer.getDirectContent();
-                    cb.addImage(footerimg);
+                    cb.beginText();
+                    cb.setColorFill(Color.green);
+                    cb.setColorStroke(Color.green);
+                    cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED ), 14);
+                    cb.setTextMatrix(600, 30);
+                    cb.showText("Hello");
+                    //cb.showText("-" + writer.getPageNumber() + "-");
+                    cb.endText();
+
+                    //cb.addImage(footerimg);
                 } else if(bFirstFooter) {
                     bFirstFooter = false;
                     
@@ -870,7 +879,7 @@ public class PDFGenerator extends BaseProcessor {
                     cb.setFontAndSize(BaseFont.createFont(BaseFont.HELVETICA_BOLD, BaseFont.CP1252, BaseFont.NOT_EMBEDDED ), 14);
                     cb.setTextMatrix(600, 30);
                     cb.showText("Hello");
-                    cb.showText("-" + writer.getPageNumber() + "-");
+                    //cb.showText("-" + writer.getPageNumber() + "-");
                     cb.endText();
 
                     //cb.addImage(footerimg);
