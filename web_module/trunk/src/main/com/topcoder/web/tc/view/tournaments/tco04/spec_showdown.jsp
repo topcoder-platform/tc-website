@@ -39,7 +39,7 @@
 
 		<p><span class="bodySubtitle">PRIZES!</span><br/>Two grand prizes will be given away right before the Championship announcements are made for the Algorithm and 
 		Component Competitions. Each grand prize includes a <strong>Microsoft&#174; Xbox video game console</strong>, an <strong>NVIDIA&#174; graphics 
-		card</strong> and a <strong>Yahoo!&#174; gift pack</strong>.  <a href="">Click here</a> for the complete rules.</p>
+		card</strong> and a <strong>Yahoo!&#174; gift pack</strong>.  <a href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco04&d3=showdown_rules','comp',545,655);">Click here</a> for the complete rules.</p>
 
 		<p>We hope to see you there!</p>
 
