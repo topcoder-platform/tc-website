@@ -158,6 +158,7 @@ public class Constants {
     public static String PREFERENCE_PERMANENT_FALSE;
     
     public static int SKILL_TYPE_LANGUAGES;
+    public static String SKILL_PREFIX;
 
 
     static {
