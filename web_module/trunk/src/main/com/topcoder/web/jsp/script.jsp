@@ -67,6 +67,16 @@ function tcTime()
   w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,status=1");
   return;
 }
+function sponsorLink(spons)
+{
+  w=window.open(spons,"Sponsor");
+  return;
+}
+function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
+{
+  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=no,toolbar=no,location=no,scrollbars=no,menubar=no,status=no");
+  return;
+}
 function goTo(selection)
 {
   sel = selection.options[selection.selectedIndex].value;
