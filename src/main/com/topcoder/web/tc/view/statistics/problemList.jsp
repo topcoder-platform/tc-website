@@ -131,15 +131,16 @@
                <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
                <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
                <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
-               <table border="0" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
+
+               <table border="1" cellspacing="0" cellpadding="2" bgcolor="#001B35" width="100%">
                 <tr>
                     <td colspan="2" class="errorText" align="center">
                         <tc-webtag:errorIterator id="err" name="<%=Constants.CLASS_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="statText">Class Name</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
+                    <td align="right" class="statText" width="50%">Class Name</td>
+                    <td align="left" class="statText" width="50%"><tc-webtag:textInput name="<%=Constants.CLASS_NAME%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -147,8 +148,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="statText">Minimum Division I Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
+                    <td align="right" class="statText">Minimum Division I Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -156,8 +157,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="statText">Maximum Division I Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
+                    <td align="right" class="statText">Maximum Division I Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV1_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -165,8 +166,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="statText">Minimum Division II Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
+                    <td align="right" class="statText">Minimum Division II Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MIN_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -174,8 +175,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="statText">Maximum Division II Success Rate</td>
-                    <td align="center" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
+                    <td align="right" class="statText">Maximum Division II Success Rate</td>
+                    <td align="left" class="statText"><tc-webtag:textInput name="<%=Constants.MAX_DIV2_SUCCESS%>"  size="15" maxlength="15" onkeypress="submitEnter(event)"/><td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -183,8 +184,8 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="statText">Division I Level</td>
-                    <td align="center" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
+                    <td align="right" class="statText">Division I Level</td>
+                    <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV1_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="errorText" align="center">
@@ -192,15 +193,16 @@
                     </td>
                 </tr>
                  <tr>
-                    <td align="center" class="statText">Division II Level</td>
-                    <td align="center" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
+                    <td align="right" class="statText">Division II Level</td>
+                    <td align="left" class="statText"><tc-webtag:rscSelect name="<%=Constants.DIV2_LEVEL%>" list="<%=levels%>" fieldText="level_desc" fieldValue="level_id"/></td>
                  </tr>
                 <tr>
                     <td colspan="2" class="statText" align="center">
-                         <a href="javascript: document.problemListForm.submit();">Submit</a>
+                         <a class=statText href="javascript: document.problemListForm.submit();">Submit</a>
                     </td>
                 </tr>
                <table>
+
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD colspan="11" class="statText"><%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
