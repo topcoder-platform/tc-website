@@ -3,7 +3,7 @@ package com.topcoder.utilities;
 import com.topcoder.shared.util.DBMS;
 
 import java.sql.*;
-import java.util.ArrayList;
+//import java.util.ArrayList;
 
 public class DokkahBlade {
 
@@ -19,10 +19,7 @@ public class DokkahBlade {
             conn = DBMS.getConnection();
 
             DokkahBlade db = new DokkahBlade();
-            ArrayList a = db.find(conn, args);
-            for (int i = 0; i < a.size(); i++) {
-                System.out.println(a.get(i));
-            }
+            db.find(conn, args);
         } catch (Exception e) {
             e.printStackTrace();
             System.exit(1);
@@ -31,11 +28,11 @@ public class DokkahBlade {
 
     }
 
-    private ArrayList find(java.sql.Connection conn, String[] terms) {
+    private void find(java.sql.Connection conn, String[] terms) {
         PreparedStatement ps = null;
         ResultSet rs = null;
         StringBuffer query = null;
-        ArrayList ret = null;
+        //ArrayList ret = null;
         Problem p = null;
 
         try {
@@ -52,14 +49,14 @@ public class DokkahBlade {
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
 
-            ret = new ArrayList();
+            //ret = new ArrayList();
             while (rs.next()) {
                 if (found(rs.getString("component_text"), terms)) {
                     p = new Problem(rs.getInt("component_id"),
                             rs.getString("class_name"),
                             rs.getString("method_name"),
                             rs.getString("component_text"));
-                    ret.add(p);
+                    System.out.println(p);
                 }
             }
         } catch (SQLException se) {
@@ -69,7 +66,7 @@ public class DokkahBlade {
             e.printStackTrace();
             System.exit(1);
         }
-        return ret;
+        //return ret;
 
     }
 
