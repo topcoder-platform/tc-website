@@ -8,6 +8,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.email.bean.*;
 
 /**
@@ -24,6 +25,8 @@ import com.topcoder.web.email.bean.*;
 public class CommandInputIteratorTag
     extends IteratorTag
 {
+    private static Logger log = Logger.getLogger(CommandInputIteratorTag.class);
+
     int commandId;
     Map commandInputMap = null;
 

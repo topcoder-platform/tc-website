@@ -4,6 +4,7 @@
 <% // alternate colors every row...
 	int row = 0;
 	String[] colors = { "#EEEEEE", "#FFFFFF" };
+	String errcolor = "#FF0000";
 %>
 
 <table border=1 cellpadding=2 cellspacing=0>
@@ -44,6 +45,32 @@
 	</td>
 	<td class="bodyText">
 		<%=summary.getStatus()%>
+		<% 
+		int okCount = Integer.parseInt(summary.getStatusOk());
+		int failCount = Integer.parseInt(summary.getStatusFailed());
+		int todoCount = Integer.parseInt(summary.getStatusTodo());
+		int otherCount = Integer.parseInt(summary.getStatusOther());
+		int totalCount = okCount + failCount + todoCount + otherCount;
+		int statusId = Integer.parseInt(summary.getStatusId());
+		if (totalCount < 1) { 
+			if (statusId == EmailConstants.JOB_STATUS_CANCELLED
+		 	 || statusId == EmailConstants.JOB_STATUS_COMPLETE) {
+		%>
+	(never started)
+		<% 
+			} else if (statusId == EmailConstants.JOB_STATUS_ACTIVE) {
+		%>
+	(queued)
+		<% 
+			}
+		} else {
+	%> (<%=okCount%> sent<% 
+			if (failCount > 0) { %>, <font color=<%=errcolor%>><%=failCount%> failed</font><% }
+			if (todoCount > 0) { %>, <%=todoCount%> todo<% }
+			if (otherCount > 0) { %>, <%=otherCount%> other<% }
+	%>)<% 
+		}
+		%>
 	</td>
 	<td class="bodyText">
 <% int jobTypeId = Integer.parseInt(summary.getJobTypeId());
@@ -74,7 +101,7 @@ if (jobTypeId == EmailConstants.JOB_TYPE_PREDETAIL) { %>
 	</a>
 	</td>
 	<td class="bodyText">
-<% int statusId = Integer.parseInt(summary.getStatusId());
+<%
 if (statusId == EmailConstants.JOB_STATUS_CANCELLED) { %>
 
 	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_RESUME_JOB%>', '<%=jobID%>', '<%=thisPage%>');"

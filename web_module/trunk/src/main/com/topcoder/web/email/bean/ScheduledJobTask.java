@@ -8,8 +8,8 @@ import javax.naming.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.shared.ejb.EmailServices.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.resultSet.*;
 
 /**
  * ScheduledJobTask.java
@@ -75,6 +75,8 @@ public class ScheduledJobTask
 				nextPage = askSendTest(request, response);
 			} else if (step.equals(EmailConstants.SCHEDULEDJOB_CHOOSE_TEST_LIST)) {
 				nextPage = chooseTestList(request, response);
+			} else if (step.equals(EmailConstants.SCHEDULEDJOB_CHOOSE_REPORT_TEMPLATE)) {
+				nextPage = chooseReportTemplate(request, response);
 			} else if (step.equals(EmailConstants.SCHEDULEDJOB_SEND_TEST)) {
 				nextPage = sendTestMessage(request, response);
 			} else if (step.equals(EmailConstants.SCHEDULEDJOB_CHOOSE_LIST_EDIT)) {
@@ -156,6 +158,10 @@ public class ScheduledJobTask
 		calendar.add(Calendar.DAY_OF_MONTH, 1);
 		job.setEndDate(calendar.getTime());
 
+		job.setSendTest("x");
+		job.setSendReport("x");
+		job.setSendReminder("x");
+
 		// clear error list
 		request.setAttribute("Error", null);
 
@@ -206,10 +212,103 @@ public class ScheduledJobTask
 		ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
 
 		if (!job.isAdded()) {
+			if (job.getSendTestState()) {
+				ScheduledJobForm testJob = null;
+
+				// clone it
+				try {
+					testJob = (ScheduledJobForm) job.clone();
+				} catch (CloneNotSupportedException e) {
+	
+					throw new ServletException(e.toString());
+				}
+
+				testJob.setSubject("TEST: "+testJob.getSubject());
+
+				// set address list to test address list
+				testJob.setListId(testJob.getTestId());
+				testJob.setCommandId("0");
+	
+				// set start time to now
+				Calendar calendar = new GregorianCalendar();
+				testJob.setStartDate(calendar.getTime());
+	
+				// set end time to tomorrow...
+				calendar.add(Calendar.DAY_OF_MONTH, 1);
+				testJob.setEndDate(calendar.getTime());
+	
+				log.debug("Creating test job:\n" + testJob);
+				// create test job
+				createJob(testJob);
+			}
+
+			if (job.getSendReminderState()) {
+				ScheduledJobForm testJob = null;
+
+				// clone it
+				try {
+					testJob = (ScheduledJobForm) job.clone();
+				} catch (CloneNotSupportedException e) {
+	
+					throw new ServletException(e.toString());
+				}
+
+				testJob.setSubject("REMINDER: "+testJob.getSubject());
+
+				// set address list to test address list
+				testJob.setListId(testJob.getTestId());
+				testJob.setCommandId("0");
+	
+				// set start time to 15 minutes before job's real start
+				Calendar calendar = new GregorianCalendar();
+				calendar.setTime(testJob.getStartDate());
+				calendar.add(Calendar.MINUTE, -15);
+				testJob.setStartDate(calendar.getTime());
+	
+				log.debug("Creating reminder job:\n" + testJob);
+				createJob(testJob);
+			}
+	
+			ScheduledJobForm testJob = null;
+			if (job.getSendReportState()) {
+
+				// clone it
+				try {
+					testJob = (ScheduledJobForm) job.clone();
+				} catch (CloneNotSupportedException e) {
+	
+					throw new ServletException(e.toString());
+				}
+
+				testJob.setSubject("REPORT: "+testJob.getSubject());
+
+				// set address list to test address list
+				testJob.setListId(testJob.getTestId());
+				testJob.setCommandId("0");
+	
+				testJob.setTemplateId(request.getParameter(EmailConstants.REPORT_TEMPLATE_ID));
+
+				// set start time to 1 minute after job's real start
+				// set end time to 1 hour after job's real end
+				Calendar calendar = new GregorianCalendar();
+				calendar.setTime(testJob.getStartDate());
+				calendar.add(Calendar.MINUTE, 1);
+				testJob.setStartDate(calendar.getTime());
+
+				calendar.setTime(testJob.getEndDate());
+				calendar.add(Calendar.HOUR, 1);
+				testJob.setEndDate(calendar.getTime());
+			}
+	
 			log.debug("Adding scheduled job:\n" + job);
-		
+			
 			// create the job
-			createJob(job);
+			int baseJobId = createJob(job);
+
+			if (testJob != null) {
+				log.debug("Creating report job:\n" + testJob);
+				createReportJob(testJob, baseJobId);
+			}
 
 			job.setAdded(true);
 		} else {
@@ -556,6 +655,43 @@ public class ScheduledJobTask
 		return EmailConstants.SCHEDULEDJOB_CHOOSE_TEMPLATE_ADD_PAGE;
 	}
 
+	/**
+	 * Loads the template chooser screen.
+	 *
+	 * @param request	the HttpServletRequest object
+	 * @param response	the HttpServletResponse object
+	 *
+	 * @return String	the URL of the next page
+	 */
+
+	private String chooseReportTemplate(HttpServletRequest request, HttpServletResponse response)
+		throws ServletException
+	{
+		ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+
+		String param = request.getParameter(EmailConstants.ID);
+		if (param != null)
+			job.setTestId(request.getParameter(EmailConstants.ID));
+
+		if (job.getSendReport().length()==0) {
+			// no more information needed, create job
+			return add(request, response);
+		}
+
+		String group = request.getParameter(EmailConstants.REPORT_GROUP);
+		if (group == null) {
+			log.debug("No group specified - choosing first group");
+
+			group = String.valueOf(TemplateTask.getFirstTemplateGroupId());
+		}
+		request.setAttribute(EmailConstants.REPORT_GROUP, group);
+
+		log.debug("Listing templates for group: " + group);
+
+		// forward to template chooser page
+		return EmailConstants.SCHEDULEDJOB_CHOOSE_REPORT_TEMPLATE_PAGE;
+	}
+
 
 	/**
 	 * Chooses command inputs for a predefined query for a new job.
@@ -631,6 +767,19 @@ public class ScheduledJobTask
 	private String chooseTestList(HttpServletRequest request, HttpServletResponse response)
 		throws ServletException
 	{
+		ScheduledJobForm job = (ScheduledJobForm) request.getSession().getAttribute("ScheduledJob");
+
+		job.setTemplateId(request.getParameter("templateId"));
+		log.debug("template id: " + job.getTemplateId());
+		job.setTestId(null);
+
+		if (!job.getSendTestState()
+		 && !job.getSendReportState()
+		 && !job.getSendReminderState()) {
+			// no more information needed, create job
+			return add(request, response);
+		}
+
 		// forward to test list chooser page
 		return EmailConstants.SCHEDULEDJOB_CHOOSE_TEST_LIST_PAGE;
 	}
@@ -1275,6 +1424,61 @@ public class ScheduledJobTask
 		return id;
 	}
 
+	/**
+	 * Creates a new job using the properties from a ScheduledJobForm object.
+	 *
+	 * @param job	the ScheduledJobForm containing the necessary information
+	 *
+	 * @return int	the job id of the new job
+	 */
+
+	private static int createReportJob(ScheduledJobForm job, int baseJobId)
+		throws ServletException
+	{
+		int id = -1;
+
+		Context context = null;
+		try {
+			context = new InitialContext();
+			EmailJobHome emailJobHome = (EmailJobHome) context.lookup(EmailConstants.SCHEDULEDJOB_EJB);
+			EmailJob emailJob = emailJobHome.create();
+
+			id = emailJob.createEmailReportJob(
+						baseJobId,
+						Integer.parseInt(job.getTemplateId()),
+						Integer.parseInt(job.getListId()),
+						Integer.parseInt(job.getCommandId()),
+						job.getStartDate(),
+						job.getEndDate(),
+						job.getFromAddress(),
+						job.getFromPersonal(),
+						job.getSubject());
+
+			// if there's a predefined query, set the parameters
+			if (Integer.parseInt(job.getCommandId()) != EmailConstants.NO_COMMAND_ID) {
+				Map commandInputMap = job.getCommandInputMap();
+				for (Iterator i = commandInputMap.keySet().iterator(); i.hasNext(); ) {
+					String field = (String) i.next();
+					String value = (String) commandInputMap.get(field);
+					emailJob.setCommandParam(id, Integer.parseInt(field), value);
+				}
+			}
+
+		} catch (Exception e) {
+			log.error("Error creating job", e);
+			throw new ServletException(e.toString());
+		} finally {
+			if (context != null) {
+				try {
+					context.close();
+				} catch (NamingException e) {
+				}
+			}
+		}
+
+		return id;
+	}
+
 
 	/**
 	 * Updates a job using properties from a ScheduledJobForm object.
@@ -1595,6 +1799,22 @@ public class ScheduledJobTask
 			jobSummary.setFromPersonal(fromPersonal);
 			jobSummary.setSubject(subject);
 			jobSummary.setStatus(emailJob.getStatusIdText(statusId));
+			int rc[] = new int[4];
+			Map rmap = emailJob.getJobDetailResults(jobId);
+			Collection values = rmap.values();
+			Iterator itr = values.iterator();
+			for (int i=0; itr.hasNext(); i++) {
+				int value = ((Integer)itr.next()).intValue();
+				if (value >= 0 && value < rc.length)
+					rc[value]++;
+				else
+					rc[rc.length-1]++;
+			}
+			jobSummary.setStatusTodo(String.valueOf(""+rc[0]));
+			jobSummary.setStatusOk(String.valueOf(""+rc[1]));
+			jobSummary.setStatusFailed(String.valueOf(""+rc[2]));
+			jobSummary.setStatusOther(String.valueOf(""+rc[3]));
+				
 			jobSummary.setStatusId(String.valueOf(statusId));
 			jobSummary.setJobTypeId(String.valueOf(jobTypeId));
 		} catch (Exception e) {
@@ -1748,6 +1968,9 @@ public class ScheduledJobTask
 		scheduledJob.setEndMonth(request.getParameter("endMonth"));
 		scheduledJob.setEndDay(request.getParameter("endDay"));
 		scheduledJob.setEndYear(request.getParameter("endYear"));
+		scheduledJob.setSendTest(request.getParameter("sendTest"));
+		scheduledJob.setSendReport(request.getParameter("sendReport"));
+		scheduledJob.setSendReminder(request.getParameter("sendReminder"));
 	}
 
 }

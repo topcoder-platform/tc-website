@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to iterate through all id's/name's of address
@@ -22,6 +23,8 @@ import com.topcoder.web.email.bean.*;
 public class AddressListIDNameIteratorTag
     extends IDNameIteratorTag
 {
+    private static Logger log = Logger.getLogger(AddressListIDNameIteratorTag.class);
+
     // the address list group
     protected int group;
 

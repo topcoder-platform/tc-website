@@ -21,6 +21,10 @@ public class JobSummary
 	protected Date startDate;
 	protected Date endDate;
 	protected String status;
+	protected String statusOk;
+	protected String statusFailed;
+	protected String statusTodo;
+	protected String statusOther;
 	protected int statusId;
 	protected int jobTypeId;
 
@@ -86,6 +90,46 @@ public class JobSummary
 	public String getStatus()
 	{
 		return status;
+	}
+
+	public void setStatusOk(String status)
+	{
+		this.statusOk = status;
+	}
+
+	public String getStatusOk()
+	{
+		return statusOk;
+	}
+
+	public void setStatusFailed(String status)
+	{
+		this.statusFailed = status;
+	}
+
+	public String getStatusFailed()
+	{
+		return statusFailed;
+	}
+
+	public void setStatusTodo(String status)
+	{
+		this.statusTodo = status;
+	}
+
+	public String getStatusTodo()
+	{
+		return statusTodo;
+	}
+
+	public void setStatusOther(String status)
+	{
+		this.statusOther = status;
+	}
+
+	public String getStatusOther()
+	{
+		return statusOther;
 	}
 
 	public void setStatusId(String statusId)

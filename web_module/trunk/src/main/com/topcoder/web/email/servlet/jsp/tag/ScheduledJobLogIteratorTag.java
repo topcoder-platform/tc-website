@@ -10,6 +10,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * ScheduledJobLogIteratorTag.java
@@ -25,6 +26,8 @@ import com.topcoder.web.email.bean.*;
 public class ScheduledJobLogIteratorTag
     extends IteratorTag
 {
+    private static Logger log = Logger.getLogger(ScheduledJobLogIteratorTag.class);
+
     // list of log entries
     List logList;
 

@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to iterate through all id's/name's of email
@@ -22,6 +23,7 @@ import com.topcoder.web.email.bean.*;
 public class TemplateIDNameIteratorTag
     extends IDNameIteratorTag
 {
+    private static Logger log = Logger.getLogger(TemplateIDNameIteratorTag.class);
     
     // the template group
     protected int group;

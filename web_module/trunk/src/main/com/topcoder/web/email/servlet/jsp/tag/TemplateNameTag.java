@@ -9,6 +9,7 @@ import javax.servlet.http.*;
 
 import com.topcoder.web.email.servlet.*;
 import com.topcoder.web.email.bean.*;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * Custom tag to retrieve the name of a template, given its id
@@ -21,6 +22,7 @@ import com.topcoder.web.email.bean.*;
 public class TemplateNameTag
     extends BodyTagSupport
 {
+    private static Logger log = Logger.getLogger(TemplateNameTag.class);
     // the template id
     protected int templateId;
 

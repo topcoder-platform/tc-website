@@ -14,7 +14,7 @@
 <form>
 <p class="bodyText">
 <email:addressListIterator id="idname" group="<%=String.valueOf(EmailConstants.TEST_LIST_GROUP_ID)%>">
-	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_SEND_TEST%>', '<%=idname.getId()%>');"
+	<a href="javascript:taskSubmit('<%=EmailConstants.SCHEDULEDJOB_TASK%>', '<%=EmailConstants.SCHEDULEDJOB_CHOOSE_REPORT_TEMPLATE%>', '<%=idname.getId()%>');"
 		onMouseOver="window.status='Choose list'; return true;"
 		onMouseOut="window.status=''; return true;">
 	<%=idname.getName()%></a><br>
