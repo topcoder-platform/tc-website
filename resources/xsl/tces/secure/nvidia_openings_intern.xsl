@@ -50,51 +50,91 @@
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
         <TR>
-          <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+          <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/>
+          </TD>
           <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
+            
+            <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
+                <TR>
+                    <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
+                </TR>
+                <TR>
+                    <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText">
+                    <A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Full Time Positions</A> | 
+                    <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">Intern/Co-op Positions</A> | 
+                    <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | 
+                    <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | 
+                    <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A>
+                    </TD>
+                </TR>   
+            </TABLE>
+         </TD>
+     </TR>
+    
+    <TR>
+        <TD COLSPAN="2">
+            <TABLE>
+                <TR>
+                    <TD> <IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/> 
+                    </TD>
+                    <TD><P class="promoText" align="right">SOFTWARE &amp; GRAPHICS<BR/>New College Graduate, INTERN &#38; Co-op Positions</P>
+                   
+                    </TD>
+                </TR>
+            </TABLE>
+        </TD>
+    </TR>
+    
+    <TR>
+        <TD COLSPAN="2" CLASS="BODYTEXT">
+            <P>We are reinventing the visual experience beyond the bleeding-edge with the best hardware and software innovation.  The culture promotes 
+            and inspires our driven team of world-class engineers and developers to be at the top of their game...and to have fun along the way!  We are shaping 
+            the world of tomorrow...today.  Are you ready?</P>
+            
+            <P>At NVIDIA, we thrive on innovation, we're passionate about developing revolutionary technology, and we have the most brilliant minds in graphics, 
+            hardware, and software.  If this sounds like the place you want to be, see what opportunities are waiting for you! </P>
+            
+            <P>Positions are available in our Santa Clara, CA headquarters in the following areas:</P>
+            <P> <UL>
+            <LI>Architecture</LI>
+            <LI>Marketing – Demo &#38; Performance Teams</LI>
+            <LI>Software Engineering</LI>
+            <LI>IT Business Development &#40;Engineering&#41;</LI>
+            </UL></P>
+            
+            <P>All positions are for New College Graduate &#40;NCG&#41;, Internship, and Co-op opportunities, unless otherwise indicated:</P>
 
-<TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
-   <TR>
-      <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;NVIDIA Jobs</B></TD>
-  </TR>
-  <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=nvidia_openings&amp;a=secure" CLASS="bodyText">Full Time Positions</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">Intern/Co-op Positions</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=products" CLASS="bodyText" TARGET="_blank">Products</A> | <A HREF="http://www.nvidia.com/view.asp?PAGE=benefits" CLASS="bodyText" TARGET="_blank">Benefits</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">NVIDIA Main Page</A></TD>
-  </TR>
-</TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>
-<B>Intern/Co-op Positions</B><BR/> 
-NVIDIA's Intern &amp; Co-op Program is a year-round program offering work
-terms ranging from 3 to 6 months. In addition to a competitive salary, we
-provide relocation assistance and housing assistance for those that do not
-reside or attend a university in the Bay Area. For more information, check out
-<A HREF="http://www.nvidia.com" CLASS="bodyText" TARGET="_blank">www.nvidia.com</A>.
-</P>
-<P> 
-Below is the current listing of intern and co-op positions within
-NVIDIA.  All positions are available in Santa Clara, CA, Austin, TX, and
-Durham, NC unless otherwise noted. All resumes will be considered for
-Santa Clara, and if you are interested in another location, please
-indicate your location preference on your resume.  Click on the job
-title for the position description and requirements.
-</P>
 
 <TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
    <TR>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_embedsofteng_intern&amp;a=secure" CLASS="bodyText">EMBEDDED SOFTWARE ENGINEER INTERN</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01_intern&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01_intern&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER INTERN/CO-OP</A></B><BR/><BR/></P>      
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_embedsofteng_intern&amp;a=secure" CLASS="bodyText">SOFTWARE ENGINEER</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_softeng01_intern&amp;a=secure" CLASS="bodyText">GRAPHICS ARCHITECTURE ENGINEER</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01_intern&amp;a=secure" CLASS="bodyText">3D GRAPHICS APPLICATION SOFTWARE ENGINEER</A></B><BR/><BR/>
+        <B><A HREF="/?&amp;t=tces&amp;c=nvidia_syssofteng01_intern&amp;a=secure" CLASS="bodyText">CAD ENGINEER*</A></B><BR/><BR/></P>       
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
        <P>       
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01_intern&amp;a=secure" CLASS="bodyText">ARCHITECT INTERN/CO-OP</A></B><BR/><BR/>  
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PLATFORM ARCHITECT INTERN/CO-OP</A></B><BR/><BR/>
-       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_netsofteng01_intern&amp;a=secure" CLASS="bodyText">NETWORKING SOFTWARE INTERN/CO-OP</A></B><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/><IMG SRC="/i/header_new.gif" WIDTH="46" HEIGHT="20" ALT="" VALIGN="bottom" BORDER="0"/><BR/><BR/></P>        
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_archeng01_intern&amp;a=secure" CLASS="bodyText">SYSTEMS SOFTWARE ENGINEER</A></B><BR/><BR/>  
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_platarcheng01_intern&amp;a=secure" CLASS="bodyText">PERFORMANCE ANALYSIS SOFTWARE ENGINEER</A></B><BR/><BR/>
+       <B><A HREF="/?&amp;t=tces&amp;c=nvidia_netsofteng01_intern&amp;a=secure" CLASS="bodyText">WEB SOFTWARE ENGINEER</A></B><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/><IMG SRC="/i/header_new.gif" WIDTH="46" HEIGHT="20" ALT="" VALIGN="bottom" BORDER="0"/><BR/><BR/></P>        
     </TD>
   </TR>
-</TABLE> 
+</TABLE> <BR/>
+        <P>*Intern/Co-op Position Only</P>
+
+        <P>As an New College Grad at NVIDIA, your career starts faster than the speed of light!  You will be working side by side with some of the world’s best engineers, and you will have an opportunity 
+        of a lifetime to make your mark in history.  Where your career will go…only you can tell!</P>
+
+        <P>As an intern/co-op at NVIDIA, you will be empowered to show what you can do.  You are a valuable member of our team and play a critical role in the development of our latest products.  
+        Your success will be determined by your technical strength and undisputed proactive attitude. </P>
+        
+        <P>If you are highly motivated and passionate about winning, check out the possibilities waiting for you.</P>
+        <P>At NVIDIA, the sky's the limit!  Visualize your future...We do.</P>
+        <P><STRONG>YOUR FUTURE BEGINS HERE...</STRONG></P>
+
+
 <!--end contextual links-->
           
           <P><BR/></P>
