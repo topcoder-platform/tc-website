@@ -12,7 +12,7 @@ import java.rmi.RemoteException;
  * Dec 20, 2002 12:11:18 AM
  */
 
-public interface SessionProfileLanguage extends EJBObject{
+public interface SessionProfileLanguage extends EJBObject {
 
     /**
      *

@@ -10,7 +10,7 @@ import java.rmi.RemoteException;
  * Dec 19, 2002 11:53:33 PM
  */
 
-public interface Note extends EJBObject{
+public interface Note extends EJBObject {
 
     /**
      *
