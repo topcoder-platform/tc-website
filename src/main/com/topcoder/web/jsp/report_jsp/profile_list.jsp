@@ -297,6 +297,7 @@
               {
                 ocl = document.profileListForm[othercol].length;
                 cl = document.profileListForm[col].length;
+                var s1;
                 for(s1=0;s1 < document.profileListForm[col].options.length;s1++){
                   if(!document.profileListForm[col].options[s1].selected || !(document.profileListForm[col].options[s1].value > "")){continue;}
                   pText = document.profileListForm[col].options[sl].text;
