@@ -20,7 +20,9 @@
 <body>
 
 <!-- Header begins -->
-<jsp:include page="includes/top.jsp" />
+<jsp:include page="includes/top.jsp" >
+  <jsp:param name="isHomePage" value="true"/>
+</jsp:include>
 <!-- Header ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
