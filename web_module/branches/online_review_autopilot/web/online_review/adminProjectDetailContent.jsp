@@ -154,7 +154,7 @@
 <logic:present name="screenings">
             <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd" width="100%">
                 <tr>
-                    <td colspan="3" class="forumTextEven"><strong><bean:message key="prompt.screeningAdmin" /></strong></td>
+                    <td colspan="4" class="forumTextEven"><strong><bean:message key="prompt.screeningAdmin" /></strong></td>
                 </tr>
                 <tr>
                     <td class="forumTitleCenter"><bean:message key="prompt.submission" /></td>

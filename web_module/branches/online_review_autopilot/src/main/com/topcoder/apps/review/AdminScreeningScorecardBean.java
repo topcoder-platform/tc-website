@@ -161,7 +161,7 @@ public class AdminScreeningScorecardBean {
     }
     
     public String getAdvancedToReview() {
-        if(scoreReady) {
+        if(scoreReady && scorecard.isPMReviewed()) {
             if(((InitialSubmission)submission).isAdvancedToReview()) {
                 return "Yes";
             } else {
