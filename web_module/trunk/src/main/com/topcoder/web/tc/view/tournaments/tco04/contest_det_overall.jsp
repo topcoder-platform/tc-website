@@ -73,9 +73,9 @@ else
                                 <td class="sidebarTitle" align=right>Contest Prize</td>
                                 <td class="sidebarTitle" align=center>Results</td>
                             </tr>
-                            <rsc:iterator list="<%=lst%>" id="resultRow">
+                            <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
-                                <% TCO04OverallResult result = (TCO04OverallResult)resultRow; %>
+                                <% TCO04OverallResult result = (TCO04OverallResult)lst.get(i); %>
                                 <td class="sidebarText" ><a href="/stat?c=member_profile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a>
                                 <% if(false)  { 
                                     isComplete = false;%>
@@ -88,7 +88,7 @@ else
                                 <td class="sidebarText" align=right>PAYMENT</td>
                                 <td class="sidebarText" align=center><a href="/tc?module=TCO04MemberResults&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>" />&cr=<%=result.getUserID()%>">results</a></td>
                             </tr>
-                            </rsc:iterator>
+                            <% }%>
                         </table>
                         <%if(!isComplete) {%>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
