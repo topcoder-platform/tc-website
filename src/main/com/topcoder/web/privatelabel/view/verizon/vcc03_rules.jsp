@@ -104,8 +104,8 @@
                             </tr>
 
                             <tr>
-                                <td width="50%" class="sidebarText"><strong>Round #1</strong></td>
-                                <td width="50%" class="sidebarText" align="right"><strong>Friday, October 31, 2003 at 8:00PM</strong></td>
+                                <td width="50%" class="sidebarText">Round #1</td>
+                                <td width="50%" class="sidebarText" align="right">Friday, October 31, 2003 at 8:00PM</td>
                             </tr>
 
                             <tr>
@@ -167,7 +167,7 @@
                            <li>If a tie still remains, all tied coders will advance to the next round</li>
                         </ul>
                         
-                        <p>The handles of the winners of each round of competition will be published on TopCoder's website at <A herf="http://www.topcoder.com/verizon">www.topcoder.com/verizon</A> 
+                        <p>The handles of the winners of each round of competition will be published on TopCoder's website at <A href="http://www.topcoder.com/verizon">www.topcoder.com/verizon</A> 
                         within twelve (12) hours of the completion of the round.  In addition, each winner will be sent an email within twelve (12) hours of the completion of 
                         each round confirming his/her advancement to the next round of competition.</p>
                         
@@ -201,7 +201,7 @@
                         Each finalist will be notified via email that he/she has advanced to the onsite final. Each finalist must confirm his/her attendance in 
                         the Championship Round by Wednesday, November 5th at 9:00pm Eastern Time.  If a contestant does not confirm his/her attendance in 
                         the Championship Round by said date, he/she will forfeit eligibility to receive a prize, and his/her spot in the Contest will be given to 
-                        the next highest scorer from Round 2.  All finalists must arrive at Verizon’s Chennai VDSI offices no later than 5:00pm India Time on 
+                        the next highest scorer from Round 2.  All finalists must arrive at Verizon's Chennai VDSI offices no later than 5:00pm India Time on 
                         Friday, November 7, 2003.  If a contestant who has confirmed his/her attendance in the Championship Round does not arrive at Verizon's 
                         offices by this time, he/she will forfeit eligibility to receive any prize. If a contestant is unable to attend the onsite rounds, he/she will 
                         forfeit eligibility to receive a prize, and his/her spot in the Contest will be given to the next highest scorer from Round #2.</p>
@@ -237,8 +237,8 @@
                             </tr>
 
                             <tr>
-                                <td width="50%" class="sidebarText"><strong>Up to 500 competitors who compete in Round #1</strong></td>
-                                <td width="50%" class="sidebarText" align="right"><strong>Verizon Coding Challenge t-shirt</strong></td>
+                                <td width="50%" class="sidebarText">Up to 500 competitors who compete in Round #1</td>
+                                <td width="50%" class="sidebarText" align="right">Verizon Coding Challenge t-shirt</td>
                             </tr>
 
                             <tr>
@@ -257,13 +257,13 @@
                             </tr>
 
                             <tr>
-                                <td width="50%" class="sidebarText">1st place finisher* - Tournament&nbsp;Champion</td>
-                                <td width="50%" class="sidebarText" align="right">50,000 INR</td>
+                                <td width="50%" class="sidebarText"><strong>1st place finisher* - Tournament&nbsp;Champion</strong></td>
+                                <td width="50%" class="sidebarText" align="right"><strong>50,000 INR</strong></td>
                             </tr>
 
                             <tr>
-                                <td colspan="2" class="sidebarText">* Prize will be awarded at the conclusion of the Championship Round. 
-                                    Winner must be present at the onsite rounds to receive prize.</td>
+                                <td colspan="2" class="sidebarText"><strong>* Prize will be awarded at the conclusion of the Championship Round. 
+                                    Winner must be present at the onsite rounds to receive prize.</strong></td>
                             </tr>
                         </table>
 
