@@ -1215,7 +1215,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
         try {
             query = new StringBuffer(300);
             query.append(" SELECT cs.round_id");
-            query.append(" ,cs.problem_id");
+            query.append(" ,cs.component_id");
             query.append(" ,cp.class_name");
             query.append(" ,cp.method_name");
             query.append(" ,d.difficulty_desc");
@@ -1242,7 +1242,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" ,room r");
             query.append(" ,room_result rr");
             query.append(" ,component cp");
-            query.append(" WHERE cs.problem_state_id = s.problem_state_id");
+            query.append(" WHERE cs.component_state_id = s.component_state_id");
             query.append(" AND u.user_id = cs.coder_id");
             query.append(" AND c.component_state_id = cs.component_state_id");
             query.append(" AND cp.problem_id = p.problem_id");
