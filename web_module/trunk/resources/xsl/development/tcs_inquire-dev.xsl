@@ -133,7 +133,7 @@
 						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
 						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/winner_announced"/><br/>
 						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/final_submission"/><br/>
-
+                                                </p>
 
 <!-- Register at TCS -->
 						
