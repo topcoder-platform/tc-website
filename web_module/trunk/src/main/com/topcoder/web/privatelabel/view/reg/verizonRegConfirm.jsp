@@ -163,7 +163,7 @@
                     Student/Professional
                 </td>
                 <td align="left">
-                    <%=regInfo.isStudent?"Student":"Professional"%>
+                    <%=regInfo.isStudent()?"Student":"Professional"%>
                 </td>
             </tr>
 
