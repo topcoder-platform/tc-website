@@ -81,9 +81,11 @@ log.debug("task = "+taskName);
                     }
                 }
 
+				task.servletPreAction(request, response);
+
                 task.processStep(taskStepName);
 
-                task.servletAction(this, request, response);
+                task.servletPostAction(request, response);
 
                 request.setAttribute( taskName, task );
 

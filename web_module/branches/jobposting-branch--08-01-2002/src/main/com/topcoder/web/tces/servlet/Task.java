@@ -35,7 +35,10 @@ public interface Task {
 
     String getNextPage();
 
-    void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
+    void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+     	throws Exception;
+
+    void servletPostAction(HttpServletRequest request, HttpServletResponse response)
      	throws Exception;
 
     void setAttributes(String paramName, String paramValues[]);

@@ -71,7 +71,12 @@ log.debug("getting handleinput "+handleInput);
         return message;
     }
 
-    public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response) {
+	public void servletPreAction(HttpServletRequest request, HttpServletResponse response) throws Exception
+	{
+	}
+
+    public void servletPostAction(HttpServletRequest request, HttpServletResponse response) throws Exception
+    {
         HttpSession session = request.getSession(true);
 
         if (userIdAuthenticated>0) {

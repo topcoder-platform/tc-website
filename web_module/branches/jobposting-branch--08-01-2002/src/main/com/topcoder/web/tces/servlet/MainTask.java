@@ -28,9 +28,13 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
 	private String companyName;
 
+	private int uid;
+
     public MainTask() {
         super();
         setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
+
+        uid=-1;
     }
 
 	public void setCompanyName(String companyName) {
@@ -41,7 +45,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
 		return companyName;
 	}
 
-    public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
     	throws Exception
     {
         HttpSession session = request.getSession(true);
@@ -51,7 +55,9 @@ public class MainTask extends BaseTask implements Task, Serializable {
 			log.debug("User not authenticated for access to ES main page.");
 			throw new Exception("User not authenticated for access to ES main page.");
 		}
-    }
+
+		uid = userId.intValue();
+	}
 
     public void processStep(String step)
         throws Exception
@@ -72,47 +78,22 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
     private void doGoCampaign() throws Exception
     {
-/*        Request dataRequest = new Request();
-        dataRequest.setContentHandle("tces_user_and_pw");
-        dataRequest.setProperty("hn", getHandleInput() );
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("tces_main");
+        dataRequest.setProperty("uid", Integer.toString(uid) );
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
-        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_User_And_Password");
+        ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Company_Name");
 
         if (rsc.getRowCount() == 0) {
-            setMessage("User handle incorrect.  Please retry.");
-
-            setUserIdAuthenticated(-1);
-
-            setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
-
-            return;
+			throw new Exception ("No company name!");
         }
 
         ResultSetContainer.ResultSetRow rRow = rsc.getRow(0);
 
-        String actualPassword = TCData.getTCString(rRow, "password");
-        if (actualPassword == null) {
-            throw new Exception("Unable to read user data from DB in handleLogin");
-        }
+        setCompanyName( TCData.getTCString(rRow, "company_name") );
 
-        if (!actualPassword.trim().equals(getPasswordInput().trim())) {
-            setMessage("Password incorrect.  Please retry.");
-
-            setUserIdAuthenticated(-1);
-
-            setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
-
-            return;
-        }
-
-        // record in this session that we have authenticated a user.
-
-        setUserIdAuthenticated( TCData.getTCInt(rRow,"user_id") );
-
-        setMessage("Login OK!");
-        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.LOGIN_PAGE);
-        */
+        setNextPage(TCESConstants.JSP_ROOT + TCESConstants.MAIN_PAGE);
     }
 
 
@@ -125,15 +106,6 @@ public class MainTask extends BaseTask implements Task, Serializable {
     public void setAttributes(String paramName, String paramValues[]) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
-
-log.debug("setting param "+paramName+" = "+value);
-
-/*        if (paramName.equalsIgnoreCase(TCESConstants.HANDLE_PARAM))
-            setHandleInput(value);
-        else if (paramName.equalsIgnoreCase(TCESConstants.PASSWORD_PARAM))
-            setPasswordInput(value);
-*/
-
     }
 
 }

@@ -53,7 +53,12 @@ log.debug("next page -> "+nextPage);
         return nextPage;
     }
 
-    public void servletAction(HttpServlet serv, HttpServletRequest request, HttpServletResponse response)
+    public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
+     	throws Exception
+    {
+	}
+
+    public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
     	throws Exception
     {
     }
