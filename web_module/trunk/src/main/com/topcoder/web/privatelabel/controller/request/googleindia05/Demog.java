@@ -31,7 +31,6 @@ public class Demog extends FullRegDemog {
 
         //make a bunch of fields not required
         removeError(Constants.STATE_CODE);
-        removeError(Constants.EMAIL_CONFIRM);
 
     }
 }
