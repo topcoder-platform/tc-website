@@ -184,20 +184,18 @@
 submissions@topcodersoftware.com</a>.
                             </p>
 
-<!--                            
                            <p>
                                 <strong>
                                 <a class="statText">
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('http://172.16.20.222:8080/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=',
- $phase, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
+                                        <xsl:value-of select="concat('http://172.16.20.222:8081/pages/s_upload_submission.jsp?version=', $version, '&amp;phase=',
+ $phase, '&amp;compvers=', /TC/DEVELOPMENT/compvers, '&amp;comp_id=', $componentId, '&amp;Project=', $formattedName)"/>
 
                                     </xsl:attribute>
                                     Upload your submission! &gt;&gt;
                                 </a>
                                </strong>
                             </p>
--->                            
                         <p><br /></p>
                         
                     </td>
