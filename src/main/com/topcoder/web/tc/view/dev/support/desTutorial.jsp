@@ -7,7 +7,7 @@
 <html>
 
 <head>
-<title>Development Tutorial</title>
+<title>Design Tutorial</title>
 
 <jsp:include page="../../script.jsp" />
 
