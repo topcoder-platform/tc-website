@@ -2,7 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
-<title>2003 TopCoder Open sponsored by Intel&#174;  - Summary - Room 2</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Summary - Room 3</title>
 
 <jsp:include page="../../../script.jsp" />
 
@@ -43,11 +43,11 @@
 <!-- Tab bar sublinks-->
 <jsp:include page="../tco03Sublinks.jsp" >
    <jsp:param name="selectedList" value="summary"/>
-   <jsp:param name="selectedTab" value="room2"/>
+   <jsp:param name="selectedTab" value="room3"/>
 </jsp:include>
 
             <p class="terciary">
-                Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room2_analysis">Problem Analysis</a>
+                Play-by-Play&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room3_photos">Photos</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=room3_analysis">Problem Analysis</a>
             </p>
             
             <div class="leadPhoto">
@@ -55,7 +55,7 @@
             <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
             </div>
             
-            <h2>Room 2</h2>
+            <h2>Room 3</h2>
 
             <p>by Matt Murphy, <em>TopCoder Staff</em><br />
             
