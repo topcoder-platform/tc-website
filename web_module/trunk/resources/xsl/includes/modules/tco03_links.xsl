@@ -9,21 +9,17 @@
 <xsl:choose>
    <xsl:when test="$selectedContest='coding'">
                     <td width="50%" align="center">
-                        <img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/><br/>
                         <A href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
                     <td width="50%" align="center">
-                        <img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/><br/>
                         <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
     </xsl:when>
     <xsl:when test="$selectedContest='component'">
                     <td width="50%" align="center">
-                        <img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/><br/>
                         <A href="/index?t=tournaments&amp;c=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
                     <td width="50%" align="center">
-                        <img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/><br/>
                         <A href="/index?t=tournaments&amp;c=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
                     </td>
     </xsl:when>
