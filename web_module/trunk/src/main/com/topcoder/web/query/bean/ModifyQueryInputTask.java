@@ -223,6 +223,7 @@ public class ModifyQueryInputTask extends BaseTask implements Task, Serializable
         ArrayList list = new ArrayList(otherInputList.size());
         InputBean ib = null;
         for ( ; it.hasNext(); ) {
+            ib = new InputBean();
             ib.setInputId(Long.parseLong(rsr.getItem("input_id").toString()));
             ib.setInputCode(rsr.getItem("input_code").toString());
             ib.setInputDesc(rsr.getItem("input_desc").toString());
