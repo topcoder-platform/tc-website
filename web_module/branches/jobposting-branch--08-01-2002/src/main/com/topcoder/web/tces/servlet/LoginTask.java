@@ -146,7 +146,7 @@ log.debug("ROW = "+rRow.toString());
 
         // record in this session that we have authenticated a user.
 
-        setUserIdAuthenticated( TCData.getTCInt(rRow,"user_id", -2, true) );
+        setUserIdAuthenticated( TCData.getTCLong(rRow,"user_id", -2, true) );
 log.debug("USER ID AUTH = "+Integer.toString(getUserIdAuthenticated()) );
         setMessage("Login OK!");
         setNextPage(TCESConstants.LOGIN_OK_PAGE );
