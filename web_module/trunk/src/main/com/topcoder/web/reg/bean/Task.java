@@ -82,6 +82,24 @@ public class Task implements Serializable {
         return true;
     }
 
+    public boolean isNumber(String s, boolean acceptFloat) {
+        if (isEmpty(s)) return false;
+        if (acceptFloat) {
+            try {
+                Float.parseFloat(s);
+            } catch (Exception e) {
+                return false;
+            }
+        } else {
+            for (int i = 0; i < s.length(); i++) {
+                if (!Character.isDigit(s.charAt(i))) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
     public void setUser(User user) {
         log.debug("Task.setUser()");
         if (user != null && (this.user == null || this.user.getUserId() != user.getUserId())) {

@@ -10,7 +10,6 @@ import java.util.Map;
  *
  * @author tbone
  * @version $Revision$
- *
  */
 
 public interface DataAccessInt {

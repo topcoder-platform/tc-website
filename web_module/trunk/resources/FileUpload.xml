@@ -1,0 +1,11 @@
+<config name="File Upload">
+
+<property name="allowed_directories" value="d:/jakarta-tomcat-4.0.3/webapps/upload/examples/uploads" />
+<property name="temp_directory" value="./temp" />
+<property name="default_directory" value="d:/jakarta-tomcat-4.0.3/webapps/upload/examples/uploads" />
+<property name="overwrite_allowed" value="yes" />
+<property name="max_single_file_size" value="100000" />
+<property name="max_total_file_size"  value="500000" />
+
+
+</config>
