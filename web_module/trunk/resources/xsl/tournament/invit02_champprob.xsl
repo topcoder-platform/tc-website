@@ -69,25 +69,25 @@
 <P>
 Saturday, November 23, 2002
 </P>
-              
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
 
-<P>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut 
-laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation 
-ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor 
-in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
-duis dolore te feugait nulla facilisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed 
-diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad 
-minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</P>
+<A NAME="Choosers"></A><FONT SIZE="+2"><B>Choosers</B></FONT><BR/><FONT SIZE="-1">
+    Used as: Level 1</FONT><H4>Implementation</H4><P>
+With a limit of 15 choosers, there are at most 2<SUP>15</SUP> configurations of the choosers, and 15 possible locations for the ball.  This gives us a total of 15*2<SUP>15</SUP> possible states.  We can then move the ball around, according to the rules, and cache the states we reach.  Then, if we ever reach the same state twice, there is a loop, since the sequence of states is totally deterministic.  
+This can be simply implemented by representing each of the states as a bitmask and using an array as a cache.
+</P><P>
+If the input was larger, we might run into memory limits and would have to find a different solution.  One other way to do this is to run the marble through twice, simultaneously, with one marble moving through two choosers at a time, while the other only goes through one at time.  Then, if the one going twice as fast every gets to the same state as the slow one, there is a loop somewhere.  However, this isn't neccessary.
+</P>
+<A NAME="Comment"></A><FONT SIZE="+2"><B>Comment</B></FONT><BR/><FONT SIZE="-1">
+    Used as: Level 2</FONT><H4>Implementation</H4><P>
+This is a classic string parsing problem.  You should start in a CODE state, and then scan the strings, one at a time.  If you hit "//" then you simply ignore the rest of the line.  If you hit "/*", then you ignore until you see "*/".  One thing to watch for is the case {"/*/*/"}, where the output should be {}, not {"*/"}.  It was this case that caused SnapDragon to resubmit.</P><P>
+The most difficult case to handle is probably that involving double quotes.  If you are in the CODE state, and you see a double quote, you should then ignore all characters until you see another double quote.  However, there is the possibility that there will be an escaped double quote, which must not terminate the first double quote.  A few other things to watch out for are slashes at the end of strings, and slashes at the end of one string, followed by an asterisk at the beginning of the next.
 
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
+</P><A NAME="Mirrors"></A><FONT SIZE="+2"><B>Mirrors</B></FONT><BR/><FONT SIZE="-1">
+    Used as: Level 3</FONT><H4>Implementation</H4><P>
+Computational geometry is always ugly, and tonight was certainly no exception.  This problem combined three subtasks.  You have to be able to reflect a ray when it hits a segment, find the intersection of a line and a ray, and find the distance from a line to a point.</P><P>
+Once you solve all of these subproblems using some dot products and cross products and such, its not too hard to combine then, but its certainly not trivial.  You should start with the ray defined by the start input.  Then, you should find the intersection between this ray, and every mirror.  Of all the mirrors that the ray intersects, you have to find the one closest to the start, and pick it.  Then, you also have to check if the ray hits an object before it hits the mirror.  If it does, you are done, otherwise, you reflect the ray with the mirror you found, and repeat the whole process until you either hit an object, yourself, or the hit no mirrors.</P><P>
+One interesting note to add is that there are classes in java.awt which have methods for finding the distance from a line to a point, and whether or not two lines intersect.  Using this can make it much easier, but unfortunately for them, all the coders used C++.
+</P>
 
 
 <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
@@ -121,31 +121,34 @@ Level Three (1000) - <A HREF="/i/invit02/Omaha.pdf" CLASS="bodyText">Omaha</A><B
             </TR>                                             
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
-              
-8:00:00 AM - zoidal opens the Level One problem <BR/>
-8:00:01 AM - derkuci opens the Level One problem <BR/>
-8:00:01 AM - ambrose opens the Level One problem <BR/>
-8:00:02 AM - DjinnKahn opens the Level One problem <BR/>
-8:18:48 AM - DjinnKahn opens the Level Two problem <BR/>
-8:19:21 AM - ambrose submits the Level One problem for 180.11 points <BR/>
-8:19:29 AM - ambrose opens the Level Two problem <BR/>
-8:20:53 AM - zoidal opens the Level Two problem <BR/>
-8:25:52 AM - ambrose submits the Level Two problem for 476.36 points <BR/>
-8:26:03 AM - ambrose opens the Level Three problem <BR/>
-8:30:32 AM - derkuci submits the Level One problem for 140.90 points <BR/>
-8:30:44 AM - derkuci opens the Level Two problem <BR/>
-8:32:07 AM - DjinnKahn submits the Level Two problem for 416.07 points <BR/>
-8:32:14 AM - DjinnKahn opens the Level Three problem <BR/>
-8:35:04 AM - zoidal submits the Level Two problem for 407.77 points <BR/>
-8:35:09 AM - zoidal opens the Level Three problem <BR/>
-8:39:20 AM - derkuci submits the Level Two problem for 459.37 points<BR/> 
-8:39:30 AM - derkuci opens the Level Three problem<BR/> 
-9:04:41 AM - ambrose submits the Level Three problem for 491.61 points<BR/> 
-9:09:24 AM - zoidal submits the Level One problem for 93.30 points<BR/> 
-9:14:57 AM - zoidal submits the Level Three problem for 483.41 points<BR/><BR/>
+<BR/>
+<P><B>CODING PHASE</B>  <BR/>            
+3:00:01 PM - dgarthur opens the Level Two problem <BR/>
+3:00:02 PM - SnapDragon opens the Level One problem <BR/>
+3:00:02 PM - moira opens the Level One problem <BR/>
+3:00:03 PM - John Dethridge opens the Level One problem <BR/>
+3:06:18 PM - SnapDragon submits the Level One problem for 286.24 points (final submission)<BR/>
+3:06:27 PM - SnapDragon opens the Level Two problem <BR/>
+3:11:18 PM - John Dethridge submits the Level One problem for 261.45 points (final submission)<BR/>
+3:11:43 PM - John Dethridge opens the Level Two problem <BR/>
+3:15:08 PM - dgarthur submits the Level Two problem for 438.79 points (final submission)<BR/>
+3:15:12 PM - dgarthur opens the Level One problem <BR/>
+3:18:23 PM - moira submits the Level One problem for 221.34 points (final submission)<BR/>
+3:18:28 PM - moira opens the Level Two problem <BR/>
+3:19:29 PM - SnapDragon submits the Level Two problem for 460.80 points (not the final submission)<BR/>
+3:21:56 PM - SnapDragon submits the Level Two problem for 380.00 points (final submission)<BR/>
+3:22:11 PM - SnapDragon opens the Level Three problem <BR/>
+3:25:17 PM - John Dethridge submits the Level Two problem for 455.08 points (final submission)<BR/>
+3:25:54 PM - John Dethridge opens the Level Three problem <BR/>
+3:25:59 PM - dgarthur submits the Level One problem for 264.03 points (final submission)<BR/>
+3:26:08 PM - dgarthur opens the Level Three problem <BR/>
+4:10:59 PM - moira submits the Level Two problem for 230.24 points (final submission)<BR/>
+4:11:12 PM - moira opens the Level Three problem <BR/>
+4:14:58 PM - SnapDragon submits the Level Three problem for 417.55 points (final submission)</P>
 
-<B>Challenges</B><BR/>
-9:23:18 AM - DjinnKahn challenges ambrose on the Level Two problem successfully<BR/>
+<P><B>CHALLENGE PHASE</B><BR/>
+4:24:06 PM - John Dethridge challenges moira on the Level One problem successfully<BR/>
+4:26:34 PM - SnapDragon challenges dgarthur on the Level Two problem successfully</P>
 
           </TD>
             </TR>            

@@ -58,44 +58,25 @@
       <TD VALIGN="middle" HEIGHT="18" BGCOLOR="#43515E" CLASS="statText"><B>&#160;Microsoft Jobs</B></TD>
   </TR>
   <TR>
-      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
+      <TD VALIGN="middle" HEIGHT="18" CLASS="bodyText"><A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A> | <A HREF="http://www.microsoft.com/careers/benefits.htm" TARGET="_blank" CLASS="bodyText">Benefits</A> | <A HREF="http://www.microsoft.com/careers/diversity.htm" TARGET="_blank" CLASS="bodyText">Diversity</A> | <A HREF="http://www.microsoft.com/careers/nwculture.htm" TARGET="_blank" CLASS="bodyText">Northwest</A> | <A HREF="http://www.microsoft.com/careers/oncampus.htm" TARGET="_blank" CLASS="bodyText">On Campus</A> | <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">Microsoft Main Page</A>
       </TD>
   </TR>
 </TABLE>
 <!--end contextual links-->
-<!-- Client Job List Begins -->
-<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>       
-<P>Below is a listing of current open positions within Microsoft. Click on the job title for the position description and requirements.
-</P>
-<TABLE WIDTH="100%" CELLPADDING="5" CELLSPACING="5" BORDER="0">
-   <TR>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_progmanvb&amp;a=secure" CLASS="bodyText">Program Manager - Visual Basic</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng48615&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #48615</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest53193&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #53193</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest&amp;a=secure" CLASS="bodyText">Software Design Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng1&amp;a=secure" CLASS="bodyText">Software Engineer #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead1&amp;a=secure" CLASS="bodyText">Development Lead #1</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdeseng52721&amp;a=secure" CLASS="bodyText">Software Design Engineer - Req #52721</A></B><BR/><BR/> 
-        <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengintest52832&amp;a=secure" CLASS="bodyText">Software Design Engineer in Test - Req #52832</A></B><BR/>
-        </P>
-      </TD>
-      <TD ALIGN="left" VALIGN="top" CLASS="bodyText">
-       <P>       
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwmbu&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows Management Business Unit</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_devlead2&amp;a=secure" CLASS="bodyText">Development Lead #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softeng2&amp;a=secure" CLASS="bodyText">Software Design Engineer #2</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_seniorsoftdesengwctt&amp;a=secure" CLASS="bodyText">Senior Software Design Engineer - Windows Core Technology team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_softdesengwut&amp;a=secure" CLASS="bodyText">Software Design Engineer - Windows UDDI Team</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_perarch&amp;a=secure" CLASS="bodyText">Performance Architect</A></B><BR/><BR/> 
-       <B><A HREF="/?&amp;t=tces&amp;c=ms_progman53769&amp;a=secure" CLASS="bodyText">Program Manager - Req #53769</A></B><BR/>
-       </P> 
-    </TD>
-  </TR>
-</TABLE> 
+<!-- Job Description Begins -->
+<IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/><BR/>
 
-<!-- Client Job List Ends -->
+
+<P><B>Program Manager - Req #53769</B></P>
+<P>
+Come join one of the coolest technology groups at Microsoft and be a key part of the digital media technology revolution! The Windows Media Foundation Technology team has an opening for a high-energy self-starter to own Program Management responsibilities for delivering innovative server and networking features in the next release of Windows Media Server (WMS). In this role, you will help ensure Microsoft's continued growing success in the streaming of audio/video content in a wide variety of markets. You will gather scenarios and requirements across a diverse set of markets, prioritize them accordingly, and develop a plan to deliver them. You will then help manage the engineering efforts and ensure the project delivers on the vision of making streaming media central to a wide variety of scenarios. You must have at least 4 years of experience in managing the software development process as a Program Manager or development lead. Experience in server technologies, platform APIs, and networking protocol design is required. A proven track record in cross-group collaboration is highly desired. Since much of your work will be very innovative, you will author patents to help protect the company's intellectual property. You will also create detailed presentations, scenarios, and technical specifications related to your areas of ownership. You will spend considerable time meeting with customers gathering requirements and ensure WMS meets their needs. Finally, you will need to make tough decisions, negotiate with other teams, and build consensus based on the fundamental goals of the project and strategic vision of the division. In this position, you will truly have the opportunity to own and drive a major strategic area within the New Media Platforms Division.
+</P>
+  
+
+
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=90&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=ms_openings&amp;a=secure" CLASS="bodyText">Back to Jobs</A></P>
+
+<!-- Job Description Ends -->
           
           <P><BR/></P>
           </TD>

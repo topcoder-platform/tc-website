@@ -82,7 +82,15 @@ next Single Round Match date.
 	</TR>
   	<TR>
 		<TD COLSPAN="3" BGCOLOR="#ffffff" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-	</TR>  
+	</TR> 
+   <TR>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=ms"><IMG SRC="/i/es/ms/ms_logo.gif" WIDTH="160" HEIGHT="40" ALT="" BORDER="0" VSPACE="10"/></A></TD>
+		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText">At Microsoft, we see no limits to the potential we all might reach because we see no limits to human imagination.  That is what inspires us.  And that is why we create software that helps people and businesses reach their potential.  It's not just our purpose. It's our passion. <A HREF="/?&amp;t=tces&amp;c=ms" CLASS="bodyText">How far will you GO?</A><BR/><BR/></TD>
+	</TR>
+	<TR>
+		<TD COLSPAN="3" BGCOLOR="#43515E" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+	</TR>      
    <TR>
 		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=solipsys"><IMG SRC="/i/es/solipsys/solipsys_logo.gif" WIDTH="135" HEIGHT="60" BORDER="0"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
