@@ -512,20 +512,6 @@
                 </tr>
                 
 <!-- Private Label Events -->
-                <tr>
-                    <td id="leftSubnav">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="/TC/Command='private_label_index'">leftSubnavOn</xsl:when>
-                            <xsl:when test="/TC/Command='sunnetwork2002'">leftSubnavOn</xsl:when>
-                            <xsl:when test="/TC/Command='javaone2003'">leftSubnavOn</xsl:when>
-                            <xsl:when test="starts-with(/TC/Command,'vcc03_')">leftSubnavOn</xsl:when>
-                            <xsl:otherwise>leftSubnav</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=private_label_index">Private Label Events</A></td>
-                </tr>
-                
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
                 <xsl:call-template name="tc_info_row"/>
