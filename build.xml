@@ -287,7 +287,7 @@
      <target name="package-EJB-EmailServicesBean" depends="compile">
          <antcall target="build-ejb-unit">
              <param name="unit-jar-name" value="EmailServices"/>
-             <param name="unit-class-path" value="com/topcoder/shared/ejb/EmailServices"/>
+             <param name="unit-class-path" value="${shared}com/topcoder/shared/ejb/EmailServices"/>
          </antcall>
          <jar jarfile="${ejb_jars}/EmailServices.jar" update="true">
              <zipfileset dir="${classes}" includes="com/topcoder/shared/ejb/BaseEJB.class"/>
