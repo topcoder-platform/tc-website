@@ -132,8 +132,7 @@
                 <tr valign="top">
                     <td width="100%" class="bodyText">
                         <p><strong>Catalog Subscriptions</strong><br>
-                        <a href="/components/subscriptions.jsp">Subscribe</a> to one of Topcoder Software Catalogs today. We offer three subscription
-                        levels to serve a wide range of budgets.</p>
+                        <a href="/components/subscriptions.jsp">Subscribe</a> to the Topcoder Software Component Catalog today.  <strong>FREE</strong> developer subscriptions available.</p>
                     </td>
                 </tr>
             </table>
