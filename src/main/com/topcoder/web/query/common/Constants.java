@@ -33,7 +33,6 @@ public class Constants {
     public static String PASSWORD_PARAM;
     public static String DB_PARAM;
     public static String COMMAND_ID_PARAM;
-    public static String COMMAND_GROUP_ID_PARAM;
     public static String QUERY_ID_PARAM;
     public static String INPUT_ID_PARAM;
     public static String GROUP_ID_PARAM;
@@ -50,6 +49,7 @@ public class Constants {
     public static String SORT_ORDER_PARAM;
     public static String RANKING_PARAM;
     public static String SERVLET_PATH_PARAM;
+    public static String SEARCH_CRITERIA_PARAM;
 
     public static String LOGIN_TASK;
     public static String DB_SELECTION_TASK;
@@ -63,6 +63,7 @@ public class Constants {
     public static String MODIFY_QUERY_INPUT_TASK;
     public static String MODIFY_INPUT_TASK;
     public static String MODIFY_COMMAND_QUERY_TASK;
+    public static String QUERY_SEARCH_TASK;
 
     public static String LOGIN_NAME;
     public static String DB_SELECTION_NAME;
@@ -76,6 +77,7 @@ public class Constants {
     public static String MODIFY_QUERY_INPUT_NAME;
     public static String MODIFY_INPUT_NAME;
     public static String MODIFY_COMMAND_QUERY_NAME;
+    public static String QUERY_SEARCH_NAME;
 
     public static String NEW_STEP;
     public static String SAVE_STEP;
@@ -114,7 +116,6 @@ public class Constants {
         PASSWORD_PARAM = servletConfig.getInitParameter("password_param");
         DB_PARAM = servletConfig.getInitParameter("db_param");
         COMMAND_ID_PARAM = servletConfig.getInitParameter("command_id_param");
-        COMMAND_GROUP_ID_PARAM = servletConfig.getInitParameter("command_group_id_param");
         QUERY_ID_PARAM = servletConfig.getInitParameter("query_id_param");
         INPUT_ID_PARAM = servletConfig.getInitParameter("input_id_param");
         GROUP_ID_PARAM = servletConfig.getInitParameter("group_id_param");
@@ -131,6 +132,7 @@ public class Constants {
         SORT_ORDER_PARAM = servletConfig.getInitParameter("sort_order_param");
         RANKING_PARAM = servletConfig.getInitParameter("ranking_param");
         SERVLET_PATH_PARAM = servletConfig.getInitParameter("servlet_path_param");
+        SEARCH_CRITERIA_PARAM = servletConfig.getInitParameter("search_criteria_param");
 
         LOGIN_TASK = servletConfig.getInitParameter("login_task");
         DB_SELECTION_TASK = servletConfig.getInitParameter("db_selection_task");
@@ -144,6 +146,7 @@ public class Constants {
         MODIFY_QUERY_INPUT_TASK = servletConfig.getInitParameter("modify_query_input_task");
         MODIFY_INPUT_TASK = servletConfig.getInitParameter("modify_input_task");
         MODIFY_COMMAND_QUERY_TASK = servletConfig.getInitParameter("modify_command_query_task");
+        QUERY_SEARCH_TASK = servletConfig.getInitParameter("query_search_task");
 
         LOGIN_NAME = servletConfig.getInitParameter("login_name");
         DB_SELECTION_NAME = servletConfig.getInitParameter("db_selection_name");
@@ -157,6 +160,7 @@ public class Constants {
         MODIFY_QUERY_INPUT_NAME = servletConfig.getInitParameter("modify_query_input_name");
         MODIFY_INPUT_NAME = servletConfig.getInitParameter("modify_input_name");
         MODIFY_COMMAND_QUERY_NAME = servletConfig.getInitParameter("modify_command_query_name");
+        QUERY_SEARCH_NAME = servletConfig.getInitParameter("query_search_name");
 
         NEW_STEP = servletConfig.getInitParameter("new_step");
         SAVE_STEP = servletConfig.getInitParameter("save_step");
