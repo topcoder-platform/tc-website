@@ -23,15 +23,17 @@
                     <td class=brLeftCol valign="top"><a href="/pl/?&module=Static&d1=brooks&d2=overview"><img src="/i/events/brooks/overview.gif" alt="" width="146" height="19" border="0"></a></td> 
 --%>
 					<td width="100%" valign="top">
+                        <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                             <tr>
-                                <td class="brBodyTitle" align=right>Registration
+                                <td class="brBodyTitle" align=right width="50%">Registration
                                 </td>
-                                <td class="brBodyTitle" align=right nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
+                                <td class="brBodyTitle" align=right width="50%" nowrap=nowrap><A href="/pl/?&module=Static&d1=brooks&d2=overview" class="brBodyTitle">Back to Overview</A>
                                 </td>
                            </tr>
                            <tr>
                                 <td class="brBody" colspan=2 align=center>Thank you for registering!</td>
                             </tr>
+                        </table>
 
 						<p><br/></p>
 					</td> 
