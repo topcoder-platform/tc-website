@@ -19,7 +19,7 @@
 
 <!-- Top begins -->
 <jsp:include page="../includes/top.jsp" >
-  <jsp:param name="isSponsorPage" value="true"/>
+    <jsp:param name="level1" value="sponsorship"/>
 </jsp:include>
 <!-- Top ends -->
 
