@@ -4,7 +4,7 @@
 
 <html>
   <head>
-    <title>Test Arguments</title>
+    <title>Test Results</title>
    <link type="text/css" rel="stylesheet" href="/css/screening.css" >
   </head>
   <body>
