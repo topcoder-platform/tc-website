@@ -75,12 +75,12 @@ function getProblemDetail(id) {
 	        </tr>
                 <tr>
                     <td class="bodyText">
-                        <strong>Problem Set:</strong> <screen:beanWrite name='sessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
+                        <strong>Begin Time:</strong> <screen:beanWrite name='sessionInfo' property='beginDate' format='MM/dd/yyyy hh:mm a'/>
                     </td>
 	        </tr>
                 <tr>
                     <td class="bodyText">
-                        <strong>Problem Set:</strong> <screen:beanWrite name='sessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
+                        <strong>End Time:</strong> <screen:beanWrite name='sessionInfo' property='endDate' format='MM/dd/yyyy hh:mm a'/>
                     </td>
 	        </tr>
 	    </table>
