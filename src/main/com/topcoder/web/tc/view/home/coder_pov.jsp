@@ -30,7 +30,7 @@ Jan_Kuipers, finishing in around 35 minutes.  Next in line was haha,
 who finished just a few minutes later.  Rounding out the top 3 was
 marian, over 100 points behind haha.
 
-						<a href="/index?t=statistics&c=srm228_prob" class="bodyText"><strong>full&#160;story</strong></a>
+						<a href="/index?t=statistics&c=srm229_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
