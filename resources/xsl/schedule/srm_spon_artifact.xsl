@@ -65,7 +65,7 @@
                 <P><B>Need quick answers to your Programming Questions?</B></P>
                 <P><B>Tired of wasting time looking for code?</B></P>
                 
-                <P>If so the Artifact Desktop can help. It's a free application that provides access to the global Artifact developer Network. This network contains thousands of code snippets and thousands of experienced developers.
+                <P>If so the Artifact Desktop can help. It's a free application that provides access to the global Artifact Developer Network. This network contains thousands of code snippets and thousands of experienced developers.
                 The Artifact Desktop helps you to quickly locate code you need from our network's repository. You can search for code snippets by language, platform, category and more.</P>
                 
                 <P>For immediate answers to your programming questions use the Artifact Desktop's instant messaging and chat functionality to tap the expertise of other developers in the Artifact Network.</P>
