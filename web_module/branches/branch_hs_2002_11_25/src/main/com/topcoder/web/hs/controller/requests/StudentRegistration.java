@@ -518,7 +518,7 @@ public class StudentRegistration extends Base {
       Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
                                        ApplicationServer.SECURITY_HOST);
 
-      utx_common=Transaction.get(ctx);
+      utx_common=(UserTransaction)ctx.lookup("java:comp/UserTransaction");
       utx_common.begin();
 
       PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
@@ -539,7 +539,7 @@ public class StudentRegistration extends Base {
 
       ctx=TCContext.getInitial();
 
-      utx_tchs=Transaction.get(ctx);
+      utx_tchs=(UserTransaction)ctx.lookup("java:comp/UserTransaction");
       utx_tchs.begin();
 
       UserHome uh=(UserHome)ctx.lookup(UserHome.EJB_REF_NAME);
