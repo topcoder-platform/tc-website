@@ -222,7 +222,29 @@ public final class TaskStatic {
                 document.addTag(tournamentTag);
             }
         } catch (Exception e) {
-            log.error("failed to get tco03 top 100 from db");
+            log.error("failed to get tco03 advancers from db");
+            e.printStackTrace();
+        }
+
+        try {
+            if (requestCommand.equals("tco03_bracket")) {
+                ctx = TCContext.getInitial();
+                dataRequest = new Request();
+                dataRequest.setContentHandle(requestCommand);
+                dai = dai = new CachedDataAccess((javax.sql.DataSource) ctx.lookup(DBMS.OLTP_DATASOURCE_NAME));
+                Map advMap = dai.getData(dataRequest);
+                ResultSetContainer advRsc = (ResultSetContainer) advMap.get(requestCommand);
+
+                String sortCol = request.getParameter("sc");
+                String sortDir = request.getParameter("sdir");
+                if (sortCol != null && sortDir != null) {
+                    advRsc.sortByColumn(sortCol, "seed", sortDir.trim().toLowerCase().equals("asc"), true);
+                }
+                tournamentTag.addTag(advRsc.getTag("Competitors", "Competitor"));
+                document.addTag(tournamentTag);
+            }
+        } catch (Exception e) {
+            log.error("failed to get tco03 advancers from db");
             e.printStackTrace();
         }
 
