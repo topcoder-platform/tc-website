@@ -56,7 +56,7 @@
 <!-- TCO Head Begins -->
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about" target="_top"><img src="/i/tournament/tccc04/tccc04_home_banner2.gif" alt="2004 TopCoder Collegiate Challenge" width="540" height="99" border="0"/></A><br/>
+                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=overview" target="_top"><img src="/i/tournament/tccc04/tccc04_home_banner2.gif" alt="2004 TopCoder Collegiate Challenge" width="540" height="99" border="0"/></A><br/>
                 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br/>
             </div>
 <!-- TCO Head Ends -->
@@ -80,7 +80,7 @@
             travel form. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master
             account.  You will be required, however, to provide a credit card upon check-in for any incidental expenses.
             <BR/><BR/>
-            <b>At the TCCC04, you will be sharing a hotel room with another competitor.</b>  Once the finalists have
+            <b>At the TCO04, you will be sharing a hotel room with another competitor.</b>  Once the finalists have
             been announced, you can email <a href="mailto:bhealy@topcoder.com">Barbara Healy</a> with any preference you may have for a
             roommate.  We will do everything possible to accommodate your request. <BR/>
         <BR/>
@@ -249,13 +249,9 @@
                 <td colspan="2">
                     <br/><br/>
             <font color="#ff0000">PLEASE NOTE:</font>
-            Guests are invited to attend the TCCC04; however, all costs (hotel, travel, meals, etc.) are at their own
-                expense. TopCoder is offering a spectator package for members and guests to join us at this most exciting
-                tournament yet!  For a cost of $495 per person, the spectator package includes 2 nights at the hotel, 2 meals with
-                the competitors, attendance at all onsite events (competitions, technical presentations, etc.) and an
-                assortment of TopCoder Gear.  The package does not include any travel to the event, or attendance at the Awards Dinner.
+            Guests are invited to attend the TCO04; however, all costs (hotel, travel, meals, etc.) are at their own
+                expense.
                 <br/><br/>
-            For more details, click <a href="http://www.topcoder.com/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=spectator_package">here</a>
                 </td>
             </tr>
 

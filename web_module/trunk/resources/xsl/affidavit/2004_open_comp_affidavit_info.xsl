@@ -56,7 +56,7 @@
 <!-- TCO Head Begins -->
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about" target="_top"><img src="/i/tournament/tccc04/tccc04_home_banner2.gif" alt="2004 TopCoder Collegiate Challenge" width="540" height="99" border="0"/></A><br/>
+                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=tccc04_about" target="_top"><img src="/i/tournament/tccc04/tccc04_home_banner2.gif" alt="2004 TopCoder Open" width="540" height="99" border="0"/></A><br/>
                 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br/>
             </div>
 <!-- TCO Head Ends -->
@@ -69,7 +69,7 @@
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
-                            Congratulations on your performance in the 2004 TopCoder Collegiate Challenge, Sponsored by Yahoo!&#174;
+                            Congratulations on your performance in the 2004 TopCoder&#174; Open, Sponsored by Microsoft!&#174;
                         </p>
 
                         <p><strong>A.  To be completed by everyone by 9:00 PM ET Wednesday, March 17:</strong></p>
@@ -84,7 +84,7 @@
                                 <li>
                                 <p>
                                     <strong>QUESTIONNAIRE</strong> - Form must be completed and submitted by 9:00 PM ET on Wednesday, March 17.
-                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=202">2004 TopCoder Collegiate Challenge Questionnaire</a>.
+                                    View the <a href="/tc?&amp;module=ViewSurvey&amp;sid=203">2004 TopCoder Open Questionnaire</a>.
                                     Complete ALL questions.  Please note that responses to the questions will be used in the TCCC04 program.
                                 </p>
                                 </li>
@@ -94,7 +94,7 @@
                                 <li>
                                 <p><strong>TRAVEL INFORMATION PAGE</strong> - form must be completed and submitted by 9:00 PM ET on Wednesday, March 24.</p>
 
-                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_comp_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
+                                <p>View the <a href="/?&amp;t=affidavit&amp;c=2004_open_comp_travel_info">Travel Information Page.</a> Complete ALL questions.</p>
                                 </li>
 
                                 <li>
@@ -102,11 +102,11 @@
                                 <p>
                                 <xsl:choose>
                                     <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
-                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_comp_affidavit">
+                                        We do not have a notarized affidavit from you on file. View a <a href="/?&amp;t=affidavit&amp;c=2004_open_comp_affidavit">
                                         printable version</a> of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                                     </xsl:when>
                                     <xsl:otherwise>
-                                        View a <a href="/?&amp;t=affidavit&amp;c=2004_collegiate_comp_affidavit">printable version</a> of your affidavit.  Please read
+                                        View a <a href="/?&amp;t=affidavit&amp;c=2004_open_comp_affidavit">printable version</a> of your affidavit.  Please read
                                         the affidavit, sign it and return it to us at the address below.  Note that you do not have to have this affidavit
                                         notarized because we already have a notorized affidavit on file for you.
                                     </xsl:otherwise>
