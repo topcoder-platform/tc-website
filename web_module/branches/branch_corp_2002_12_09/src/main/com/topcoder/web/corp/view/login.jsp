@@ -50,10 +50,6 @@
               </b></TD>
            </TR>
            <TR>
-              <TD HEIGHT="20" VALIGN="TOP" ALIGN="right"><tc-webtag:chkBox name="sticky-login" /></TD>
-              <TD colspan="2" CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="left">'Sticky' login (uses cookies to get automaticaly logged	in):&#160;&#160;</TD>
-           </TR>
-           <TR>
               <TD>&#160;</TD>
               <TD CLASS="statTextBig" VALIGN="top" colspan="2">&#160;
                  <INPUT NAME="submit" TYPE="submit" VALUE="Log me in"/>
