@@ -1,6 +1,7 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.BaseProcessor;
+import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.messaging.QueueResponseManager;
 import com.topcoder.shared.messaging.TimeOutException;
@@ -14,10 +15,10 @@ import java.util.HashMap;
  */
 public abstract class Base extends BaseProcessor {
     private QueueMessageSender sender;
-    private QueueResponseManager receiver;
+    private WebQueueResponseManager receiver;
 
 
-    public void setReceiver(QueueResponseManager receiver) {
+    public void setReceiver(WebQueueResponseManager receiver) {
         this.receiver = receiver;
     }
 
@@ -33,7 +34,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected Message receive(int waitTime, String correlationId) throws TimeOutException {
-        return (Message)receiver.receive(waitTime, correlationId);
+        return (Message)receiver.receive(waitTime, correlationId, getResponse());
     }
 
 

@@ -9,6 +9,8 @@ import com.topcoder.web.common.security.Constants;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.codinginterface.techassess.controller.request.Base;
+import com.topcoder.web.codinginterface.techassess.model.WebQueueResponseManager;
+import com.topcoder.web.codinginterface.techassess.model.WebResponsePool;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.security.Resource;
@@ -59,9 +61,10 @@ public class MainServlet extends BaseServlet {
         log.info("created queue message sender");
 
         log.debug("create queue response manager");
-        receiver = new QueueResponseManager(ScreeningApplicationServer.JMS_FACTORY,
+        receiver = new WebQueueResponseManager(ScreeningApplicationServer.JMS_FACTORY,
                 DBMS.RESPONSE_QUEUE, context,
-                "serverID = " + com.topcoder.web.codinginterface.techassess.Constants.SERVER_ID);
+                "serverID = " + com.topcoder.web.codinginterface.techassess.Constants.SERVER_ID,
+                new WebResponsePool());
         log.info("created queue response manager");
 
 
