@@ -12,7 +12,6 @@ import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.TCSEmailMessage;
 import com.topcoder.shared.util.EmailEngine;
 import com.topcoder.shared.util.ApplicationServer;
