@@ -33,7 +33,12 @@
 <%-- CONTENT --%>
             <td class=bodyContent>
             <br /><br />
-            <p class=pC><span class=bodySmallTitle>Processing...</span></p>
+            <table cellspacing=0 cellpadding=5 border=0 class=processingTable>
+               <tr>
+                  <td><p class=pC><span class=bodySmallTitle>Processing...</span></p></td>
+                  <td><img src="/i/corp/screening/processing.gif" alt=""/></td>
+               </tr>
+            </table>
             <br /><br />
             </td>
             <td class=bodyR>&#160;</td>
