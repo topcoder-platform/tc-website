@@ -91,6 +91,9 @@ public class Search extends Base {
         int count=findMembers(member_list,sb);
         log.debug("Search found '"+count+"' matching members");
       }
+      else {
+        log.debug("invalid");
+      }
 
       sb.setMemberList(member_list);
 
