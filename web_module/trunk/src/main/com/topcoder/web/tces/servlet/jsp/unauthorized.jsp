@@ -11,12 +11,11 @@
 <HTML>
   <HEAD>
     <TITLE>TopCoder | Employment Services</TITLE>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
     <jsp:include page="script.jsp" />
     
   </HEAD>
-  <BODY id="tces">
+  <body>
   <jsp:include page="top.jsp" />             
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
@@ -33,7 +32,7 @@
        <!-- Gutter Ends -->
        <!-- Body Area -->
        <!-- Center Column Begins -->
-      <TD class="statText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
+      <TD class="bodyText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
         <jsp:include page="body_top.jsp" >
            <jsp:param name="image" value="tces"/>
            <jsp:param name="image1" value="steelblue"/>
@@ -42,20 +41,20 @@
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
             <TD WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD class="statText" COLSPAN="2" VALIGN="top" WIDTH="100%">
+            <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%">
               <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <P></P>
               <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
                 <TR>
-                  <TD class="statText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
+                  <TD class="bodyText" HEIGHT="18" COLSPAN="20"><BR></TD>                  
                 </TR>                
                 <TR>
-                  <TD class="statText" HEIGHT="18" align="left" colspan="20">
+                  <TD class="bodyText" HEIGHT="18" align="left" colspan="20">
 
                       <!-- Error message content pane -->
      Your request could not be processed because you do not have permission.
      If you feel you have reached this page in error and
-     would like to report this to TopCoder click <A CLASS="statText" HREF="mailto:service@topcoder.com">here</A>.
+     would like to report this to TopCoder click <A class="bodyText" HREF="mailto:service@topcoder.com">here</A>.
 
 <%--
 <!-- web-app debug time stack trace  BEGIN -->
@@ -100,8 +99,11 @@ if( excCaught != null ) { excCaught.printStackTrace(new java.io.PrintWriter(out)
       <TD WIDTH="25"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
     </TR>
-  </TABLE>
-  <!-- Body Ends -->
+</TABLE>
 
-  </BODY>
+<!-- Footer begins -->
+<jsp:include page="foot.jsp" />             
+<!-- Footer ends -->
+
+</BODY>
 </HTML>

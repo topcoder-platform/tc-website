@@ -27,12 +27,11 @@
 <HTML>
   <HEAD>
     <TITLE>TopCoder | Employment Services</TITLE>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-    <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
     <jsp:include page="script.jsp" />
     
   </HEAD>
-  <BODY id="tces">
+  <body>
   <jsp:include page="top.jsp" />             
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
@@ -49,7 +48,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
         <!-- Center Column Begins -->
-      <TD class="statText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
+      <TD class="bodyText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
         <jsp:include page="body_top.jsp" >
            <jsp:param name="image" value="tces"/>  
            <jsp:param name="image1" value="steelblue"/>  
@@ -58,10 +57,10 @@
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
           <TR>
             <TD WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-            <TD class="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
+            <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <P ALIGN="center">
                 <tces:trailIterator id="trailItem" trailList="<%=DemographicTask.getTrail()%>">
-                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
+                  <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="bodyText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
                 </tces:trailIterator>
               </P> 
               <P>
@@ -80,44 +79,44 @@
                 
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
                         <TR>
-                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
+                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
                         </TR>
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
                         </TR>                
 
                         <tces:mapIterator id="responseRow" MapList="<%=(List)StudentResponseList%>">                    
                             <TR>
-                              <TD class="statText" HEIGHT="18">
+                              <TD class="bodyText" HEIGHT="18">
                                 <%=(String)responseRow.get("title")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)responseRow.get("percent")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)responseRow.get("count")%>
                               </TD>                  
                             </TR>                     
                         </tces:mapIterator>
 <%--
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
                         </TR>                
 
                         <tces:mapIterator id="notify" MapList="<%=(List)StudentNotifyList%>">                    
                             <TR>
-                              <TD class="statText" HEIGHT="18">
+                              <TD class="bodyText" HEIGHT="18">
                                 <%=(String)notify.get("title")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)notify.get("percent")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)notify.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -132,23 +131,23 @@
                         %>
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
                         </TR>                
 
 
                         <tces:mapIterator id="resp" MapList="<%=(List)StudentResponsesList%>">                                
                             <TR>
-                              <TD class="statText" HEIGHT="18">
+                              <TD class="bodyText" HEIGHT="18">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)resp.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -163,15 +162,15 @@
                    <% }else{ %>
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
                         <TR>
-                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Student (0)</b></TD>
+                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Student (0)</b></TD>
                         </TR>
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
                         </TR>                
                       </TABLE>
                    <% } %>
@@ -180,7 +179,7 @@
                     
                 <TD WIDTH="10%">
                     <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935">
-                        <TR HEIGHT="18"><TD BACKGROUND="/i/steel_bluebv_bg.gif"><BR></TD></TR>
+                        <TR HEIGHT="18"><TD class="testTableTitle"><BR></TD></TR>
                         <TR><TD><BR></TD></TR>
                     </TABLE>
                 </TD>
@@ -192,22 +191,22 @@
                   
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
                         <TR>
-                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
+                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
                         </TR>
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>                  
                         </TR>                
 
                         <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">                    
                             <TR>
-                              <TD class="statText" HEIGHT="18">
+                              <TD class="bodyText" HEIGHT="18">
                                 <%=(String)responseRow.get("title")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)responseRow.get("percent")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)responseRow.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -216,22 +215,22 @@
 <%--
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
                         </TR>                
 
                         <tces:mapIterator id="notify" MapList="<%=(List)ProNotifyList%>">                    
                             <TR>
-                              <TD class="statText" HEIGHT="18">
+                              <TD class="bodyText" HEIGHT="18">
                                 <%=(String)notify.get("title")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)notify.get("percent")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)notify.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -246,23 +245,23 @@
                         %>
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
                         </TR>                
 
 
                         <tces:mapIterator id="resp" MapList="<%=(List)ProResponsesList%>">                                
                             <TR>
-                              <TD class="statText" HEIGHT="18">
+                              <TD class="bodyText" HEIGHT="18">
                                 <%=(String)resp.get("title")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)resp.get("percent")%>
                               </TD>
-                              <TD class="statText">
+                              <TD class="bodyText">
                                 <%=(String)resp.get("count")%>
                               </TD>                  
                             </TR>                     
@@ -277,15 +276,15 @@
                    <% }else{ %>
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
                         <TR>
-                          <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
+                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
                         </TR>
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
                         </TR>                
 
                         <TR>
-                          <TD class="statText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
+                          <TD class="bodyText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
                         </TR>                
                       </TABLE>
                     <% } %>
@@ -320,8 +319,11 @@
       <TD WIDTH="25"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
     </TR>
-  </TABLE>
-  <!-- Body Ends -->
+</TABLE>
 
-  </BODY>
+<!-- Footer begins -->
+<jsp:include page="foot.jsp" />             
+<!-- Footer ends -->
+
+</BODY>
 </HTML>

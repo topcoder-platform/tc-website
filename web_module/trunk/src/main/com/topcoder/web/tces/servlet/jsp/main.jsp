@@ -9,19 +9,18 @@
 <%@ taglib uri="/tces-taglib.tld" prefix="tces"%>
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML id="tces">
+<HTML>
 <HEAD>
 
 <TITLE>TopCoder | Employment Services</TITLE>
 
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css">
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
 
 <jsp:include page="script.jsp" />
     
 </HEAD>
 
-<BODY id="tces">
+<body>
 
 <jsp:include page="top.jsp" />             
 
@@ -39,7 +38,7 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <TD class="statText" width="100%" align="center"><br>
+        <TD class="bodyText" width="100%" align="center"><br>
                     
             <jsp:include page="body_top.jsp" >
                 <jsp:param name="image" value="tces" />
@@ -56,13 +55,13 @@
                         <IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="10" BORDER="0">
                         <TABLE ID="dataTable" WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                             <TR>
-                                <TD WIDTH="5" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD colspan="2" class="statText" BACKGROUND="/i/steel_bluebv_bg.gif"><strong>Campaign Name</strong></TD>
-                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" nowrap="nowrap"><strong>Start Date</strong></TD>
-                                <TD WIDTH="10" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText" BACKGROUND="/i/steel_bluebv_bg.gif" nowrap="nowrap"><strong>End Date</strong></TD>
-                                <TD WIDTH="5" BACKGROUND="/i/steel_bluebv_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                                <TD WIDTH="5" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
+                                <TD colspan="2" class="testTableTitle"><strong>Campaign Name</strong></TD>
+                                <TD WIDTH="10" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD class="testTableTitle" nowrap="nowrap"><strong>Start Date</strong></TD>
+                                <TD WIDTH="10" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                                <TD class="testTableTitle" nowrap="nowrap"><strong>End Date</strong></TD>
+                                <TD WIDTH="5" class="testTableTitle"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                             </TR>
     
                 <%
@@ -95,11 +94,11 @@
                             <TR>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="98%" class="statText"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="statText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
+                                <TD WIDTH="98%" class="bodyText"><A HREF="<jsp:getProperty name="MainTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CAMPAIGN_DETAIL_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=campaignInfo.getItem("campaign_id").toString()%>" class="bodyText"><%=campaignInfo.getItem("campaign_name").toString()%></A></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="1%" class="statText" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></TD>
+                                <TD WIDTH="1%" class="bodyText" nowrap="nowrap"><%=campaignInfo.getItem("start_date").toString()%></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                                <TD WIDTH="1%" class="statText" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></TD>
+                                <TD WIDTH="1%" class="bodyText" nowrap="nowrap"><%=campaignInfo.getItem("end_date").toString()%></TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                             </TR>
 
@@ -109,9 +108,9 @@
                 
                             <TR>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
-                                <TD class="statText" colspan="6">
+                                <TD class="bodyText" colspan="6">
                                     <IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="5" BORDER="0"><br>
-                                    Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" CLASS="statText">tces@topcoder.com</A> to renew your contract.</TD>
+                                    Your job campaigns have expired.  Contact <A HREF="mailto:tces@topcoder.com" class="bodyText">tces@topcoder.com</A> to renew your contract.</TD>
                                 <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"></TD>
                             </TR>
 
@@ -140,6 +139,10 @@
 
     </TR>
 </TABLE>
+
+<!-- Footer begins -->
+<jsp:include page="foot.jsp" />             
+<!-- Footer ends -->
 
 </BODY>
 </HTML>
