@@ -157,7 +157,7 @@
  <% } %>
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="PrimaryReviewPrice" format="#,###.00"/></td>
  <td class="projectCells" align="right">$<tc:beanWrite name="price" property="ReviewPrice" format="#,###.00"/></td>
- <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_passsed_screening_count"/></td>
+ <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="submission_passed_screening_count"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_start" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="review_end" format="MM.dd.yyyy"/></td>
  <td class="projectCells" align="center"><rsc:item row="<%=resultRow%>" name="available_spots"/></td>
