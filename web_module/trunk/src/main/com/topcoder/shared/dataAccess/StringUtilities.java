@@ -79,7 +79,7 @@ public class StringUtilities {
         if (result.getClass().isArray()) {
             String type = result.getClass().getComponentType().toString();
 
-            buf.append("[");
+            buf.append("{");
             try {
                 if (type.equals("int")) {
                     int[] temp = (int[]) result;
@@ -143,16 +143,16 @@ public class StringUtilities {
                 }
             } catch (Exception e) {
             }
-            buf.append("]");
+            buf.append("}");
         } else if (result instanceof java.util.ArrayList) {
             ArrayList tmp = (ArrayList) result;
-            buf.append("[");
+            buf.append("{");
             for (int i = 0; i < tmp.size(); i++) {
                 buf.append(makePrettier(tmp.get(i)));
                 if (i != tmp.size() - 1)
                     buf.append(", ");
             }
-            buf.append("]");
+            buf.append("}");
         } else if (result instanceof String) {
             buf.append("\"");
             buf.append(result.toString());
