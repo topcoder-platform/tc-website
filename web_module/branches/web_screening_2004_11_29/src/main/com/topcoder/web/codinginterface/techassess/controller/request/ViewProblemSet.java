@@ -1,15 +1,13 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.codinginterface.techassess.Constants;
-import com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo;
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.shared.netCommon.screening.request.ScreeningGetProblemSetsRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
-import java.util.List;
-import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * User: dok
@@ -49,15 +47,11 @@ public class ViewProblemSet extends Base {
             ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
 
             ScreeningProblemSet[] problemSets= response.getProblemSets();
-            List problems = null;
+            ScreeningProblemSet problems = null;
             for (int i=0; i<problemSets.length; i++) {
                 if (problemSets[i].getType().intValue()==problemType) {
                     //ok, we found the set, now we need to get the actual problems
-                    problems = new ArrayList(1);
-                    problems.add(new ProblemSetInfo(problemSets[i].getProblemSetDesc(), problemSets[i].getProblemSetName(),
-                        problemSets[i].getStartTime(), problemSets[i].getCompletionTime().longValue(),
-                        problemSets[i].getStatus(), problemSets[i].getType().intValue(),
-                        problemSets[i].getProblemLabels()));
+                    problems = problemSets[i];
 
                     //figure out where to go next if they click continue
                     if (i<problemSets.length-1) {
@@ -75,9 +69,9 @@ public class ViewProblemSet extends Base {
                 }
             }
             if (problems!=null)
-                log.debug("there are " + problems.size()+ " problems");
+                log.debug("there are " + problems.getProblemLabels().length + " problems");
 
-            setDefault(Constants.PROBLEM_SETS, problems);
+            setDefault(Constants.PROBLEMS, Arrays.asList(problems.getProblemLabels()));
             setDefault(Constants.PROBLEM_TYPE_ID, new Integer(problemType));
 
 
