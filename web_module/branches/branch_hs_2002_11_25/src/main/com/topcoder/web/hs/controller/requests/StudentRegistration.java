@@ -502,18 +502,18 @@ public class StudentRegistration extends Base {
   private void persistStudent(StudentRegistrationBean _srb) throws Exception {
     UserTransaction utx=null;
     try {
-      utx=Transaction.get();
-      System.out.println("utx="+utx);
-      Transaction.begin(utx);
+      /*utx=EJBContext.getUserTransaction();
+      utx.begin();*/
 
       Context ctx=TCContext.getContext(ApplicationServer.JBOSS_JNDI_FACTORY,
                                        ApplicationServer.SECURITY_HOST);
+
       PrincipalMgrRemoteHome pmrh=(PrincipalMgrRemoteHome)
                                 ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
       PrincipalMgrRemote pmr=pmrh.create();
 
-      TCSubject tcs=new TCSubject(0);
-      UserPrincipal up=pmr.createUser(_srb.getHandle(),_srb.getPassword(),tcs);
+      UserPrincipal up;
+      up=pmr.createUser(_srb.getHandle(),_srb.getPassword(),new TCSubject(0));
       long user_id=up.getId();
 
       ctx=TCContext.getInitial();
@@ -552,32 +552,20 @@ public class StudentRegistration extends Base {
       Rating rating=rh.create();
       rating.createRating(user_id);
 
-      Transaction.commit(utx);
+      /*utx.commit();*/
     }
     catch (Exception _e) {
       _e.printStackTrace();
-      System.out.println("utx:="+utx);
       if (utx!=null) {
-        Transaction.rollback(utx);
+        try {
+          utx.rollback();
+        }
+        catch (Exception _e1) {
+          /* do nothing */
+        }
       }
       throw(_e);
     }
-    /*catch (RemoteException _re) {
-      _re.printStackTrace();
-      throw(new Exception(_re.getMessage()));
-    }
-    catch (CreateException _ce) {
-      _ce.printStackTrace();
-      throw(new Exception(_ce.getMessage()));
-    }
-    catch (NamingException _ne) {
-      _ne.printStackTrace();
-      throw(new Exception(_ne.getMessage()));
-    }
-    catch (GeneralSecurityException _gse) {
-      _gse.printStackTrace();
-      throw(new Exception(_gse.getMessage()));
-    }*/
   }
 
 };
