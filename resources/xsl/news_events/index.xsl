@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
+<!-- BWO -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html"><img src="/i/pressroom/wsjo.gif" alt="wsjo" width="135" height="50" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html">Win in a Corporate Competition, Land on Square That Offers a Job</A></strong></font><br />
+                         More companies are using competitions to discover candidates with standout skills and talent. Fields such as architecture and fashion design have long held competitions to allow students to showcase their work. But others, including technology companies and advertisers, also are interested in seeing how people perform against their peers.<span class="prHead"> [June 1]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  USDC -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">

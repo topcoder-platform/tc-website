@@ -61,6 +61,8 @@
 <!-- 2004 -->
                             <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">2004</font></td></tr>
 
+                            <tr><td class="newsText"><A href="http://online.wsj.com/article_email/0,,SB108605863196125506-IVjeoNllaV3nJunZXSGcaaBm4,00.html" target="_blank">Win in a Corporate Competition, Land on Square That Offers a Job</A> [June 1 - WSJ]</td></tr>
+
                             <tr><td class="newsText"><A href="/?&amp;t=news_events&amp;c=art_04_29_04" target="_blank">And The Champion Coders Are...</A> [April 29 - BusinessWeek]</td></tr>
 
                             <tr><td class="newsText"><A href="http://biz.yahoo.com/prnews/040422/dcth080_1.html" target="_blank">ASA Honors Po-Shen Loh</A> [April 22 - Yahoo!]</td></tr>
