@@ -95,7 +95,7 @@
 						<p><strong>Winning Designer</strong><br />
 						Total Payment - $1,500.00<br />
 						First Payment - $1,125.00<br />
-						Final Payment - $875.00<br />
+						Final Payment - $375.00<br />
 						</p>
 						<strong>Second Place Designer</strong><br />
 						Total Payment - $225.00
