@@ -39,7 +39,7 @@
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
                     <td class="bodyText">
-                        <p><span class=testHead>Campaign Results</span><br/>
+                        <p><span class="testHead">Campaign Results</span><br/>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.COMPANY_INFO)%>">
                         Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>
@@ -69,27 +69,31 @@
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/results/campaignResults.jsp?<%=Constants.SORT_BY%>=name">
+                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=first_name">
                             Name
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">State/<br/>Province</A>
+                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=state_code">
+                            State/<br/>Province
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">Country</A>
+                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=country_name">Country</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/">Type</A>
+                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=coder_type_desc">Type</A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">Position</A>
+                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=job_desc">Position</A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">Problem</A>
+                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=problem_name">Problem</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/">Time</A>
+                        <A class=screeningHeader href="/testing/results/campaignResults.jsp?<%=Constants.SORT_BY%>=total_time">
+                            Time
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
                         <A class=screeningHeader href="/">Problem<br/>Results</A>
@@ -102,15 +106,16 @@
                     </td>
                 </tr>
 
-
                 <%
                     int counter = 0;
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
                 %>
 
-                <screen:resultSetRowIterator id="row"
-                    list="<%=(List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST)%>">
+
+<%--                <screen:resultSetRowIterator id="row"
+                        list="<%=(List) request.getAttribute(Constants.CAMPAIGN_RESULTS_LIST)%>"> --%>
+
                 <tr>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
@@ -150,7 +155,7 @@
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <A href='/corp/testing/?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>view</A>
+                        <A href='/corp/testing/?<%=Constants.MODULE_KEY%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>view</A>
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
@@ -196,7 +201,8 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
+                    <td class="bodyText" align=right>
+                    Showing 1-20:&#160;&#160;&#160;<A href="/">Prev 20</A> | <A href="/">Next 20</a></td>
                 </tr>
             </table>
 
@@ -205,13 +211,14 @@
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
-        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/corp/clear.gif" width="25" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
     </tr>
 </table>
 
-  <jsp:include page="../../foot.jsp" />
+
+<jsp:include page="../../foot.jsp" />
 
 </body>
 </html>

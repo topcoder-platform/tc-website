@@ -1,5 +1,4 @@
-<%@ page import="java.util.List,
-                 com.topcoder.web.corp.common.Constants,
+<%@ page import="java.util.List,com.topcoder.web.corp.common.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -93,22 +92,34 @@ if ( plugin ) {
             <table cellspacing="0" cellpadding="0" width="600" class="screeningFrame">
                 <tr>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">Name</A>
+                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=first_name">
+                            Name
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">State/<br/>Province</A>
+                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=state_code">
+                            State/<br/>Province
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">Country</A>
+                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=country_name">
+                            Country
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/">Type</A>
+                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=coder_type_desc">
+                            Type
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%">
-                        <A class=screeningHeader href="/">Problem</A>
+                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=problem_name">
+                            Problem
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="/">Time</A>
+                        <A class=screeningHeader href="/testing/results/positionResults.jsp?<%=Constants.SORT_BY%>=total_time">
+                            Time
+                        </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
                         <A class=screeningHeader href="/">Problem<br/>Results</A>
@@ -127,7 +138,8 @@ if ( plugin ) {
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
                 %>
 
-                <screen:resultSetRowIterator id="row" list="<%=(List) request.getAttribute(Constants.POSITION_INFO)%>">
+<%--                <screen:resultSetRowIterator id="row" list="<%=(List) request.getAttribute(Constants.POSITION_INFO)%>"> --%>
+
                 <tr>
 
                     <td class='<%=cssClasses[counter % 2]%>' nowrap=nowrap>
@@ -149,7 +161,7 @@ if ( plugin ) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>'>
-                        <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.PROBLEM_DETAIL_PAGE%>&<%=Constants.PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>
+                        <A href='?<%=Constants.MODULE_KEY%>=PopulateProblemDetail&<%=Constants.ROUND_PROBLEM_ID%>=<screen:resultSetItem row="<%=row%>" name="problem_id" />'>
                             <screen:resultSetItem row="<%=row%>" name="problem_name" />
                         </A>
                     </td>

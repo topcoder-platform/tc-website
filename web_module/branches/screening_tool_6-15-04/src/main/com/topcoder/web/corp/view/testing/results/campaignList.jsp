@@ -1,5 +1,4 @@
-<%@ page import="com.topcoder.web.corp.common.Constants,
-                 java.util.List"%>
+<%@ page import="com.topcoder.web.corp.common.Constants, java.util.List"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -29,7 +28,6 @@
                 <tr valign="top">
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
-                        <scre>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.COMPANY_INFO)%>">
                         Company Name: <screen:resultSetItem row="<%=row%>" name="company_name" /><br/>

@@ -169,6 +169,36 @@ public class Constants
     public static String COMPANY_INFO;
 
     /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
+     * job position the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_info" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_INFO;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the results for
+     * job position the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_results_list" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_RESULTS_LIST;
+
+    /**
+     * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the results for
+     * job position the user is associated with.</p>
+     *
+     * <p>The controller servlet configuration file must have a "position_results_page" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String POSITION_RESULTS_PAGE;
+
+    /**
      * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a JSP page
      * providing the users with details of profile for requested candidate.</p>
      *
@@ -319,6 +349,16 @@ public class Constants
      * @since Screening Tool 1.1
      */
     public static String POSITION_LIST_PROCESSOR;
+
+    /**
+     * <p>A <code>String</code> name of a configuration parameter of a controller servlet holding the name of a
+     * parameter of incoming request containing the name of a column to sort the data list against.</p>
+     *
+     * <p>The controller servlet configuration file must have a "sort_by" parameter specified.</p>
+     *
+     * @since Screening Tool 1.1
+     */
+    public static String SORT_BY;
 
     //Profile constants
     public static String PROFILE_INFO;

@@ -50,27 +50,33 @@ public class PositionResults extends BaseScreeningProcessor {
 
         TCRequest request = getRequest();
 
+        // Get the user ID from request
+        long userId = getUser().getId();
+
         // Check if the position ID had been provided with request
         String positionId = request.getParameter(Constants.JOB_POSITION_ID);
         if (positionId == null) {
             // notify the user about the error
-            log.error("Position ID is not specified.");
+            log.info("Position ID is not specified.");
             throw new ScreeningException("No job position ID had been specified.");
         }
+
+        log.info("Got the request to get the results for position : " + positionId + ", user : " + userId);
 
         // Construct a request for position details
         Request dr = new Request();
         dr.setContentHandle(Constants.POSITION_INFO);
         dr.setProperty("jpid", positionId);
-        dr.setProperty("uid", String.valueOf(getUser().getId()));
+        dr.setProperty("uid", String.valueOf(userId));
 
         try {
             // Execute the request for position details
-            Map map = Util.getDataAccess(true).getData(dr);
+            Map map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                throw new ScreeningException("Position details retrieval error.");
+                log.info("The details retrieval for position " + positionId + " failed." );
+                throw new ScreeningException("Position details retrieval error for position : " + positionId);
             }
 
             // Get the position details and save them to request for further rendering by the position results JSP
@@ -90,11 +96,13 @@ public class PositionResults extends BaseScreeningProcessor {
             dr.setProperty("jpid", positionId);
 
             // Execute a request for position results
-            map = Util.getDataAccess(true).getData(dr);
+            map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null) {
-                throw new ScreeningException("Position results retrieval error.");
+                log.info("The search for results for position " + positionId + " returned null.");
+                throw new ScreeningException("Position results retrieval error for position : " + positionId
+                        + ", company : " + companyId + ", campaign : " + campaignId);
             }
 
             // Save the position results to request for further rendering by the position results JSP

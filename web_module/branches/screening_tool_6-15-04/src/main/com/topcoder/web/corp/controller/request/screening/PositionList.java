@@ -51,42 +51,49 @@ public class PositionList extends BaseScreeningProcessor {
 
         TCRequest request = getRequest();
 
+        // Get the userId from request
+        long userId = getUser().getId();
+
         // Check if the campaign ID had been provided with request
         String campaignId = request.getParameter(Constants.CAMPAIGN_ID);
         if (campaignId == null) {
             // notify the user about the error
-            log.error("Campaign ID is not specified.");
+            log.info("Campaign ID is not specified.");
             throw new ScreeningException("No campaign ID had been specified.");
         }
 
-        log.info("Got the request to display the positions for campaign : " + campaignId);
+        log.info("Got the request to display the positions for campaign : " + campaignId + ", user : " + userId);
 
         // Construct a request for company details
         Request dr = new Request();
         dr.setContentHandle(Constants.COMPANY_INFO);
-        dr.setProperty("uid", String.valueOf(getUser().getId()));
+        dr.setProperty("uid", String.valueOf(userId));
 
         try {
             // Execute the request for company details
-            log.info("Getting the company details for user : " + getUser().getId());
-            Map map = Util.getDataAccess(true).getData(dr);
+            log.info("Getting the company details for user : " + userId);
+            Map map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.error("Got the error while getting the company details.");
-                throw new ScreeningException("Company info data retrieval error.");
+                log.info("The company details retrieval failed for user : " + userId);
+                throw new ScreeningException("Company info data retrieval error for user : " + userId);
             }
 
             // Get the company details and save them to request for further rendering by the positions list JSP
             ResultSetContainer result = (ResultSetContainer) map.get(Constants.COMPANY_INFO);
+            request.setAttribute(Constants.COMPANY_INFO, result);
 
             // Notify the user if there is more than 1 company
             if (result.size() != 1) {
-                log.error("Got the exception while getting company details for user : " + getUser().getId());
+                log.info("The user " + userId + " has more than 1 company associated with him.");
+                log.info("The following companies had been found:");
+                for (int i = 0; i < result.size(); i++) {
+                    ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(i);
+                    log.info(row.getStringItem("company_name"));
+                }
                 throw new ScreeningException("The user should be associated only with 1 company at once.");
             }
-
-            request.setAttribute(Constants.COMPANY_INFO, result);
 
             // Get the company ID for further use
             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(0);
@@ -99,13 +106,16 @@ public class PositionList extends BaseScreeningProcessor {
             dr.setProperty("cm", companyId);
 
             // Execute the request for campaign details
-            log.info("Getting the details for campaign : " + campaignId + " and company : " + companyId);
-            map = Util.getDataAccess(true).getData(dr);
+            log.info("Getting the details for campaign : " + campaignId + ", company : " + companyId + ", user : "
+                + userId);
+            map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.error("The request for campaign details failed.");
-                throw new ScreeningException("Company campaign details retrieval error.");
+                log.info("The campaign details retrieval failed for user : " + userId + ", campaign : " + campaignId
+                        + ", company : " + companyId);
+                throw new ScreeningException("Company campaign details retrieval error for campaign : " + campaignId
+                        + ", company : " + companyId + ", user : " + userId);
             }
 
             // Save the campaign details to request for further rendering by the newly created "Campaig positions list"
@@ -120,10 +130,20 @@ public class PositionList extends BaseScreeningProcessor {
             dr.setProperty("cm", companyId);
 
             // Execute the request for campaign positions list
-            log.info("Getting the positions for campaign : " + campaignId + " and company : " + companyId);
-            map = Util.getDataAccess(true).getData(dr);
+            log.info("Getting the positions for campaign : " + campaignId + ", company : " + companyId + ", user : "
+                    + userId);
+            map = Util.getDataAccess(false).getData(dr);
+
+            // Notify the user if something went wrong
+            if (map == null) {
+                log.info("The campaign positions retrieval failed for user : " + userId + ", campaign : " + campaignId
+                        + ", company : " + companyId);
+                throw new ScreeningException("Company campaign positions retrieval error for campaign : " + campaignId
+                        + ", company : " + companyId + ", user : " + userId);
+            }
 
             result = (ResultSetContainer) map.get(Constants.CAMPAIGN_POSITIONS_LIST);
+            log.info("The number of positions found for campaign " + campaignId + " is : " + result.size());
 
             // Check if there is a single position for the campaign
             if (result.size() == 1) {
@@ -137,8 +157,7 @@ public class PositionList extends BaseScreeningProcessor {
                 setIsNextPageInContext(false);
             } else {
                 // Otherwise redirect the user to campaign positions list
-                log.info("Forwarding the request to " + Constants.CAMPAIGN_POSITIONS_PAGE
-                        + ". The number of positions is : " + result.size());
+                log.info("Forwarding the request to " + Constants.CAMPAIGN_POSITIONS_PAGE);
                 request.setAttribute(Constants.CAMPAIGN_POSITIONS_LIST, result);
                 setNextPage(Constants.CAMPAIGN_POSITIONS_PAGE);
                 setIsNextPageInContext(true);

@@ -49,33 +49,36 @@ public class CampaignList extends BaseScreeningProcessor {
      */
     protected void screeningProcessing() throws TCWebException {
 
+        // Get the user ID from request
+        long userId = getUser().getId();
+        log.info("Got the request to display the campaigns for user : " + userId);
+
         // Construct a request for company details
         Request dr = new Request();
         dr.setContentHandle(Constants.COMPANY_INFO);
-        dr.setProperty("uid", String.valueOf(getUser().getId()));
-
-        log.info("Got the request to display the campaigns for user : " + getUser().getId());
+        dr.setProperty("uid", String.valueOf(userId));
 
         try {
             // Execute the request for company details
-            log.info("Getting the company details for user : " + getUser().getId());
-            Map map = Util.getDataAccess(true).getData(dr);
+            log.info("Getting the company details for user : " + userId);
+            Map map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null || map.size() != 1) {
-                log.error("Got the exception while getting company details for user : " + getUser().getId());
-                throw new ScreeningException("Data retrieval error.");
+                log.info("The company details retrieval failed for user : " + userId);
+                throw new ScreeningException("Company details retrieval error for user : " + userId);
             }
 
             TCRequest request = getRequest();
 
             // Get the company details and save them to request for further rendering by the campaigns list JSP
             ResultSetContainer result = (ResultSetContainer) map.get(Constants.COMPANY_INFO);
+            request.setAttribute(Constants.COMPANY_INFO, result);
 
             // Notify the user if there is more than 1 company
             if (result.size() != 1) {
-                log.error("Got the exception while getting company details for user : " + getUser().getId());
-                log.info("The following companies found:");
+                log.info("The user " + userId + " has more than 1 company associated with him.");
+                log.info("The following companies had been found:");
                 for (int i = 0; i < result.size(); i++) {
                     ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(i);
                     log.info(row.getStringItem("company_name"));
@@ -83,33 +86,33 @@ public class CampaignList extends BaseScreeningProcessor {
                 throw new ScreeningException("The user should be associated only with 1 company at once.");
             }
 
-            request.setAttribute(Constants.COMPANY_INFO, result);
-
             // Construct new request for company campaigns list
             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) result.get(0);
+            String companyId = row.getStringItem("company_id");
             dr = new Request();
             dr.setContentHandle(Constants.COMPANY_CAMPAIGNS_LIST);
-            dr.setProperty("cm", row.getStringItem("company_id"));
+            dr.setProperty("cm", companyId);
 
             // Execute the request for company campaigns list
-            log.info("Getting the campaigns list for user : " + getUser().getId() + " and company :"
-                    + row.getStringItem("company_id"));
-            map = Util.getDataAccess(true).getData(dr);
+            log.info("Getting the campaigns list for user : " + userId + " and company :" + companyId);
+            map = Util.getDataAccess(false).getData(dr);
 
             // Notify the user if something went wrong
             if (map == null) {
-                log.error("Got the exception while getting campaigns list for user : " + getUser().getId());
-                throw new ScreeningException("Company campaigns list retrieval error.");
+                log.error("Got the exception while getting campaigns list for user : " + userId);
+                throw new ScreeningException("Company campaigns list retrieval error for user : " + userId + " and "
+                    + "company : " + companyId);
             }
 
             result = (ResultSetContainer) map.get(Constants.COMPANY_CAMPAIGNS_LIST);
+            log.info("The number of campaigns found is : " + result.size());
 
             // Check if there is a single campaign for the company
             if (result.size() == 1) {
                 // if so redirect the user to campaign position list
                 row = (ResultSetContainer.ResultSetRow) result.get(0);
                 String campaignId = row.getStringItem("campaign_id");
-                log.info("There is a single campaign for the user. Will redirect to campaign : "
+                log.info("There is a single campaign for the user : " + userId + ". Will redirect to campaign : "
                         + campaignId);
                 setNextPage(buildProcessorURL(Constants.POSITION_LIST_PROCESSOR, null) + "&" + Constants.CAMPAIGN_ID
                         + "=" + campaignId);

@@ -120,9 +120,9 @@ function getProblemDetail(id) {
                         </screen:resultSetRowIterator>
 
                         <!-- Address info -->
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(List) request.getAttribute(Constants.CANDIDATE_ADDRESS_INFO)%>">
                         <tr>
-                            <screen:resultSetRowIterator id="row"
-                                   list="<%=(List) request.getAttribute(Constants.CANDIDATE_ADDRESS_INFO)%>">
                             <td class="screeningCellOdd" align=right>Address 1:</td>
                             <td class="screeningCellOdd">
                                 <screen:resultSetItem row="<%=row%>" name="address1" />
@@ -216,13 +216,17 @@ if ( MM_FlashCanPlay ) {
                             <td class="screeningHeader" colspan=2>Demographic Info</td>
                         </tr>
 
+                        <%
+                            int counter = 0;
+                            String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
+                        %>
                         <screen:resultSetRowIterator id="row"
                                 list="<%=(List) request.getAttribute(Constants.CANDIDATE_DEMOGRAPHIC_INFO)%>">
                         <tr>
-                            <td class="screeningCellOdd">
+                            <td class="<%=cssClasses[counter % 2]%>">
                                 <screen:resultSetItem row="<%=row%>" name="demographic_question_text" />
                             </td>
-                            <td class="screeningCellOdd">
+                            <td class="<%=cssClasses[counter++ % 2]%>">
                                 <screen:resultSetItem row="<%=row%>" name="demographic_answer_text" />
                             </td>
                         </tr>
@@ -243,17 +247,17 @@ if ( MM_FlashCanPlay ) {
                <screen:resultSetRowIterator id="row"
                        list="<%=(List) request.getAttribute(Constants.CANDIDATE_NOTES)%>">
                 <tr>
-                    <td valign=top width="70%"class=screeningCellOdd>
+                    <td valign=top width="70%"class="<%=cssClasses[counter % 2]%>">
                       <strong>
                         <screen:resultSetItem row="<%=row%>" name="text" />
                       </strong>
                     </td>
 
-                    <td valign=top width="15%"class=screeningCellOdd align=center>
+                    <td valign=top width="15%"class="<%=cssClasses[counter % 2]%>" align=center>
                         <screen:resultSetItem row="<%=row%>" name="created_by" />
                     </td>
 
-                    <td valign=top width="15%"class=screeningCellOdd align=center>
+                    <td valign=top width="15%"class="<%=cssClasses[counter++ % 2]%>" align=center>
                         <screen:resultSetItem row="<%=row%>" name="create_date" />
                     </td>
                 </tr>
@@ -277,29 +281,29 @@ if ( MM_FlashCanPlay ) {
                <screen:resultSetRowIterator id="row"
                        list="<%=(List) request.getAttribute(Constants.CANDIDATE_PROBLEMS_INFO)%>">
                 <tr>
-                    <td width="30%" class="screeningCellOdd">
+                    <td width="30%" class="<%=cssClasses[counter % 2]%>">
                         <A href="javascript:getProblemDetail(<screen:resultSetItem row="<%=row%>" name="problem_id" />);">
                             <screen:resultSetItem row="<%=row%>" name="problem_name" />
                         </A>
                     </td>
 
-                    <td width="14%" align="center" class="screeningCellOdd">
+                    <td width="14%" align="center" class="<%=cssClasses[counter % 2]%>">
                         <screen:resultSetItem row="<%=row%>" name="language_name" />
                     </td>
 
-                    <td width="14%" align="center" class="screeningCellOdd">
+                    <td width="14%" align="center" class="<%=cssClasses[counter % 2]%>">
                         <screen:resultSetItem row="<%=row%>" name="status_desc" />
                     </td>
 
-                    <td width="14%" align="center" class="screeningCellOdd">
+                    <td width="14%" align="center" class="<%=cssClasses[counter % 2]%>">
                         <screen:resultSetItem row="<%=row%>" name="total_time" />
                     </td>
 
-                    <td width="14%" align="center" class="screeningCellOdd">
+                    <td width="14%" align="center" class="<%=cssClasses[counter % 2]%>">
                         <screen:resultSetItem row="<%=row%>" name="candidate_percentile" />
                     </td>
 
-                    <td width="14%" align="center" class="screeningCellOdd">
+                    <td width="14%" align="center" class="<%=cssClasses[counter++ % 2]%>">
                         <A href="javascript:getProblemDetail(<screen:resultSetItem row="<%=row%>" name="problem_id" />);">
                             view
                         </A>
