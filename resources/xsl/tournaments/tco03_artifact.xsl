@@ -82,7 +82,7 @@
                         
            	<p class="promoText">Get the Artifact Desktop now, and build better software - faster </p>
            	
-           	<p class="promoText">To visit Artifact's Netork click <strong><A href="http://www.artifactnetwork.com" target="_blank">here</A></strong>. </p>
+           	<p class="promoText">To visit Artifact's Network click <strong><A href="http://www.artifactnetwork.com" target="_blank">here</A></strong>. </p>
                         
                    </td>
                 </tr>
