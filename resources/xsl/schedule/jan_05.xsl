@@ -115,18 +115,55 @@
                             <tr> 
                                 <td id="calendar">9<br/><br/><br/><br/><br/></td>
                                 <td id="calendar">10</td>
-                                <td id="calendar">11</td>
-                                <td id="calendar">12</td>
+                                <td id="calendarTCCC05">
+                                    <span id="calendarTCCC05Date">11</span><br/>
+                                    <strong>2005 TopCoder Collegiate Challenge</strong><br/>
+                                    Registration Closes: 9:00 AM ET<br/>
+                                    Qualification Round<br/>
+                                    START: 12:00 PM ET (noon)<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">Details</A>
+                                    </td>
+                                <td id="calendarTCCC05">
+                                    <span id="calendarTCCC05Date">12</span><br/>
+                                    <strong>2005 TopCoder Collegiate Challenge</strong><br/>
+                                    Qualification Round<br/>
+                                    END: 12:00 PM ET (noon)<br/>
+                                    &#160;<br />
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">Details</A>
+                                    </td>
                                 <td id="calendar">13</td>
                                 <td id="calendar">14</td>
-                                <td id="calendar">15</td>
+                                <td id="calendarTCCC05">
+                                    <span id="calendarTCCC05Date">15</span><br/>
+                                    <strong>2005 TopCoder Collegiate Challenge</strong><br/>
+                                    Online Round #1<br/>
+                                    Registration: 9:00AM - 11:55AM ET<br/>
+                                    Compete: 12:00 PM(noon)<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">Details</A>
+                                    </td>
                             </tr>
                             
                             <tr> 
                                 <td id="calendar">16</td>
                                 <td id="calendar">17</td>
                                 <td id="calendar">18</td>
-                                <td id="calendar">19</td>
+                                <td id="calendarTCCC05">
+                                    <span id="calendarTCCC05Date">19</span><br/>
+                                    <strong>2005 TopCoder Collegiate Challenge</strong><br/>
+                                    Online Round #2<br/>
+                                    Registration: 6:30PM - 9:25PM ET<br/>
+                                    Compete: 9:30 PM<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">Details</A>
+                                    </td>
                                 <td id="calendar">20</td>
                                 <td id="calendar">21</td>
                                 <td id="calendarSRM">
@@ -142,7 +179,16 @@
                                 <td id="calendar">23</td>
                                 <td id="calendar">24</td>
                                 <td id="calendar">25</td>
-                                <td id="calendar">26</td>
+                                <td id="calendarTCCC05">
+                                    <span id="calendarTCCC05Date">26</span><br/>
+                                    <strong>2005 TopCoder Collegiate Challenge</strong><br/>
+                                    Online Round #3<br/>
+                                    Registration: 6:30PM - 9:25PM ET<br/>
+                                    Compete: 9:30 PM<br/>
+                                    &#160;<br />
+                                    <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
+                                    <A class="calendarTCCC05Link" href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc05&amp;d3=alg_schedule">Details</A>
+                                    </td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">27</span><br />
                                     <strong>Match 228</strong><br />
