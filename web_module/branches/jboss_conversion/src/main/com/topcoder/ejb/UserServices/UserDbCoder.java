@@ -1040,8 +1040,8 @@ final class UserDbCoder {
 
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, user.getUserId());
-            ps.setInt(2, user.getUserId());
+            ps.setLong(1, user.getUserId());
+            ps.setLong(2, user.getUserId());
             rs = ps.executeQuery();
             if (rs.next()) {
                 HashMap userTypeDetails = user.getUserTypeDetails();

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Coder implements Serializable, TagRenderer {
 
-    private int coderId;
+    private long coderId;
     private String firstName;
     private String lastName;
     private String middleName;
@@ -155,7 +155,7 @@ public class Coder implements Serializable, TagRenderer {
 
 
     //Set
-    public void setCoderId(int coderId) {
+    public void setCoderId(long coderId) {
         this.coderId = coderId;
     }
 
@@ -292,7 +292,7 @@ public class Coder implements Serializable, TagRenderer {
     }
 
     // Get
-    public int getCoderId() {
+    public long getCoderId() {
         return coderId;
     }
 

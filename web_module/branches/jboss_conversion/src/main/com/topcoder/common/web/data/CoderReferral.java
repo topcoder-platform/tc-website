@@ -11,7 +11,7 @@ public class CoderReferral implements Serializable, TagRenderer, Modifiable {
 
     private int coderId;
     private Referral referral;
-    private int referenceId;
+    private long referenceId;
     private String other;
     private String modified;
 
@@ -42,7 +42,7 @@ public class CoderReferral implements Serializable, TagRenderer, Modifiable {
         this.referral = referral;
     }
 
-    public void setReferenceId(int referenceId) {
+    public void setReferenceId(long referenceId) {
         this.referenceId = referenceId;
     }
 
@@ -63,7 +63,7 @@ public class CoderReferral implements Serializable, TagRenderer, Modifiable {
         return referral;
     }
 
-    public int getReferenceId() {
+    public long getReferenceId() {
         return referenceId;
     }
 

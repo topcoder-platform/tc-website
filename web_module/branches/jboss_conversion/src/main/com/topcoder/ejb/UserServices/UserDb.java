@@ -54,7 +54,7 @@ final class UserDb {
             conn = DBMS.getTransConnection();
             insertSecureObject(conn, user);
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, user.getUserId());
+            ps.setLong(1, user.getUserId());
             ps.setString(2, user.getHandle());
             ps.setString(3, user.getPassword());
             ps.setString(4, user.getStatus());
@@ -187,7 +187,7 @@ final class UserDb {
                 ps.setString(4, user.getEmail());
                 ps.setString(5, user.getLoggedIn());
                 ps.setString(6, user.getTerms());
-                ps.setInt(7, user.getUserId());
+                ps.setLong(7, user.getUserId());
                 int regVal = ps.executeUpdate();
                 if (regVal != 1) {
                     throw new TCException("ejb.User.UserDb:updateUser():did not update record:\n");
@@ -299,7 +299,7 @@ final class UserDb {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(query.toString());
             log.debug("EJB CODER ID=" + user.getUserId());
-            ps.setInt(1, user.getUserId());
+            ps.setLong(1, user.getUserId());
             rs = ps.executeQuery();
             if (rs.next()) {
                 UserType userType = user.getDefaultUserType();
@@ -452,7 +452,7 @@ final class UserDb {
         /**************************************************************/
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, user.getUserId());
+            ps.setLong(1, user.getUserId());
             rs = ps.executeQuery();
             ArrayList groupUsers = new ArrayList();
             while (rs.next()) {
@@ -494,7 +494,7 @@ final class UserDb {
         try {
             user.setUserId(DBMS.getTransSeqId(conn, DBMS.JMA_SEQ));
             ps = conn.prepareStatement(query);
-            ps.setInt(1, user.getUserId());
+            ps.setLong(1, user.getUserId());
             ps.executeUpdate();
         } catch (Exception ex) {
             throw new TCException(
@@ -538,7 +538,7 @@ final class UserDb {
         /**************************************************************/
         try {
             ps = conn.prepareStatement(query);
-            ps.setInt(1, groupUser.getUserId());
+            ps.setLong(1, groupUser.getUserId());
             ps.setLong(2, groupUser.getGroup().getGroupId());
             int regVal = ps.executeUpdate();
             if (regVal != 1) {
@@ -584,9 +584,9 @@ final class UserDb {
                         String query = "UPDATE group_user SET user_id=?, group_id=? WHERE user_id=? AND group_id=?";
                         /**************************************************************/
                         ps = conn.prepareStatement(query);
-                        ps.setInt(1, user.getUserId());
+                        ps.setLong(1, user.getUserId());
                         ps.setLong(2, groupUser.getGroup().getGroupId());
-                        ps.setInt(3, user.getUserId());
+                        ps.setLong(3, user.getUserId());
                         ps.setLong(4, groupUser.getGroup().getGroupId());
                         int regVal = ps.executeUpdate();
                         if (regVal != 1) {
@@ -608,7 +608,7 @@ final class UserDb {
                         String query = "DELETE FROM group_user WHERE user_id=? AND group_id=?";
                         /**************************************************************/
                         ps = conn.prepareStatement(query);
-                        ps.setInt(1, user.getUserId());
+                        ps.setLong(1, user.getUserId());
                         ps.setLong(2, groupUser.getGroup().getGroupId());
                         int regVal = ps.executeUpdate();
                         if (regVal != 1) {
@@ -649,7 +649,7 @@ final class UserDb {
                 /**************************************************************/
                 ps = conn.prepareStatement(query);
                 ps.setInt(1, user.getDefaultUserType().getUserTypeId());
-                ps.setInt(2, user.getUserId());
+                ps.setLong(2, user.getUserId());
                 int regVal = ps.executeUpdate();
                 if (regVal != 1) {
                     StringBuffer msg = new StringBuffer(200);

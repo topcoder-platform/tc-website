@@ -654,7 +654,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         try {
             conn = DBMS.getConnection(getDS());
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, result.getUserId());
+            ps.setLong(1, result.getUserId());
             rs = ps.executeQuery();
             if (rs.next()) {
                 UserType userType = result.getDefaultUserType();
@@ -728,7 +728,7 @@ public class AuthenticationServicesBean extends BaseEJB {
         /**************************************************************/
         try {
             ps = conn.prepareStatement(query.toString());
-            ps.setInt(1, user.getUserId());
+            ps.setLong(1, user.getUserId());
             rs = ps.executeQuery();
             ArrayList groupUsers = user.getGroups();
             while (rs.next()) {
