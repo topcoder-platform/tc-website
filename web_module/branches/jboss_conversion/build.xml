@@ -643,7 +643,7 @@
                  <include name="problem.xsd"/>
                  <include name="Resume.properties"/>
                  <include name="TC.properties"/>
-                 <include name="TC.properties"/>
+                 <include name="cache.properties"/>
              </fileset>
          </copy>
          <copy todir="${jboss_conf}">
