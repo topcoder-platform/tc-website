@@ -10,7 +10,7 @@
   <servlet-name>Admin</servlet-name>
   <display-name>Admin</display-name>
   <description>Admin App</description>
-  <servlet-class>com.topcoder.web.servlet.admin.TC</servlet-class>
+  <servlet-class>com.topcoder.web.admin.controller.TC</servlet-class>
 </servlet>
 
 <servlet-mapping>
