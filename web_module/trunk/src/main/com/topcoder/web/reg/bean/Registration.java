@@ -402,7 +402,7 @@ public class Registration
             if (isEmpty(this.handle)) {
                 addError(HANDLE, "Please enter your desired handle.");
             } else if (!isValidHandle(this.handle)) {
-                addError(HANDLE, "Your handle may contain only letters, numbers, underscore, dash and period.");
+                addError(HANDLE, "Your handle may contain only letters, numbers, {}[]()-_.");
             } else if
             (
             // if handle has the word "guest" in it
@@ -564,7 +564,7 @@ public class Registration
         }
     }
 
-    private boolean isValidHandle(String handle) {
+    public static boolean isValidHandle(String handle) {
         for (int i = 0; i < handle.length(); i++) {
             if (HANDLE_ALPHABET.indexOf(handle.charAt(i)) == -1) {
                 return false;
@@ -1539,8 +1539,9 @@ public class Registration
         country.setCountryCode(this.country);
         coder.setHomeCountry(country);
         coder.setHomePhone(phone);
-        //only set the handle if they're creating an account, we don't allow handle updates
-        if (isRegister())
+        //only set the handle if they're creating an account, or their old handle is invalid.
+        //we don't allow handle updates otherwise
+        if (isRegister() || !isValidHandle(user.getHandle()))
             user.setHandle(handle);
         user.setPassword(password);
         user.setEmail(email);

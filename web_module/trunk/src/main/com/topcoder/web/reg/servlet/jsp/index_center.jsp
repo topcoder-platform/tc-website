@@ -284,7 +284,13 @@ Founder and Chairman, TopCoder, Inc.
   <% } else { %>
     <tr align="right" valign="middle">
       <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Handle</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-      <td colspan="2" class="statTextBig" align="left" valign="middle"><jsp:getProperty name="Registration" property="Handle" /></td>
+      <td colspan="2" class="statTextBig" align="left" valign="middle">
+        <% if (Registration.isValidHandle(Registration.getHandle())) { %>
+            <jsp:getProperty name="Registration" property="Handle" />
+        <% } else { %>
+          <input type="text" name="<%=Registration.HANDLE%>" value ="<jsp:getProperty name="Registration" property="Handle" />" size="30" maxlength="15">
+        <% } %>
+      </td>
     </tr>
   <% } %>
 
