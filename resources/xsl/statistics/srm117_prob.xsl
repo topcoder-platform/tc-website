@@ -80,14 +80,6 @@
 Tuesday, October 22, 2002
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 
-<P> The point values in Division I made little sense, as two trivial problems
-    were worth 350 and 650 points (extremely high based on historical values for Level 1
-   and Level 2 problems), while the Level 3 problem was worth only 850 points (extremely
-   low based on the same sort of historical values).  The Level 3 problem required
-   some degree of aptitude when it comes to dynamic programming, while the other two
-   problems were just a matter of typing speed and correctness, so it seems that the
-   points in this match were skewed in favor of the latter attributes.</P>
-
 <FONT SIZE="+2"><B>DrinkMix</B></FONT><BR/>
 
     Used as: Division-II, Level 1:
