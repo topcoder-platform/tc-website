@@ -122,7 +122,7 @@
                                                     <p>
                                                         <strong>Business Requirement Specification </strong>
                                                         <br/>
-                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/Specification_Project_Plan.pdf">Business Requirement Specification</a> for this application project.
+                                                        View the <a target="_new" class="bodyText" href="/i/development/downloads/OrderFulfillment-Spec-1_0.pdf">Business Requirement Specification</a> for this application project.
                                                     </p>
                                                     <!-- Technologies -->
                                                     <p class="noSpListTitle">
