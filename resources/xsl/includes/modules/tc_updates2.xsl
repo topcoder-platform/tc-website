@@ -23,6 +23,25 @@
 							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR> 
               	<TR> 
                 	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Members in the News</B></FONT></TD>
+              	</TR>        		
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.03.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://www.bayarea.com/mld/cctimes/living/community/states/california/counties/contra_costa_county/cities_neighborhoods/3033826.htm" CLASS="bodyGeneric">Computer wiz takes on high on-line stakes</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>
+              				<TR> 
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+                				<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="top">04.03.02</TD>
+                				<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
+								<TD CLASS="bodyText" BGCOLOR="#FFFFFF" VALIGN="bottom"><A HREF="http://daily.stanford.edu/daily/servlet/Story?id=8141&amp;section=News&amp;date=04-08-2002" CLASS="bodyGeneric">Students advance to TopCoders finals</A></TD>
+              				    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+              				</TR>
+							<TR><TD BGCOLOR="#FFFFFF" COLSPAN="5"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD></TR> 
+              	<TR> 
+                	<TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
                 	<TD COLSPAN="4" CLASS="bodyText" VALIGN="middle"><FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Industry Related News</B></FONT></TD>
               	</TR>        		
               				<TR> 
