@@ -62,17 +62,13 @@
                 <p><span class="bodySubtitle">The details:</span><br/>
 
                 <ul>
-                    <li><strong>$100,000 prize purse</strong><br />
-                    <li><strong>Competition Starts</strong><br />
-                        January 27, 2004 - Component<br />
-                        February 23, 2004 - Algorithm<br /></li>
-                    <li><strong>Onsite Finals</strong><br />
-                     April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</li>
-                 <li><strong>Free Competition</strong></li>
-                 <li><strong>Open to all eligible college students</strong></li>
-                </ul>
+                    <li><strong> April 15 & 16, 2004 at the Boston Park Plaza Hotel & Towers in Boston, MA, USA</strong></li>
+                    <li><strong>Price: $495</strong></li>
+                    <li><strong>Offer valid until 9 AM March 22, 2004</strong></li>
+                    <li><strong>Does not include transportation</strong></li>
+               </ul>
             
-                <p>See the official rules and regulations for more details.</p>
+                <p>Sign up for the spectator package now!</p>
             
 
 
