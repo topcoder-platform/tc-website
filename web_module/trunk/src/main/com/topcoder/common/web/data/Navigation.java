@@ -93,7 +93,7 @@ public final class Navigation
         this();
         try {
             WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
-                    request, response);
+                    request, response, BasicAuthentication.MAIN_SITE);
             PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
             TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
             info = new CoderSessionInfo(request, authentication, user.getPrincipals());

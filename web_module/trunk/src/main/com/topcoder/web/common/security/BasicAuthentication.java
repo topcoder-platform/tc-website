@@ -40,6 +40,7 @@ public class BasicAuthentication implements WebAuthentication {
     public static final PathResource CORP_SITE = new PathResource("/corp");
     public static final PathResource MAIN_SITE = new PathResource("/main");
     public static final PathResource HS_SITE = new PathResource("/hs");
+    public static final PathResource PRIVATE_LABEL_SITE = new PathResource("/pl");
 
     private BasicAuthentication() {
         this.defaultCookiePath = MAIN_SITE;

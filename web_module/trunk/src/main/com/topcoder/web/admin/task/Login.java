@@ -30,7 +30,7 @@ public class Login {
             log.debug("login attempt[login/passw]: " + handle + "/" + passw);
             User possibleUser = new SimpleUser(0, handle, passw);
             try {
-                WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
+                WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
                 authToken.login(possibleUser);
                 log.debug("user " + possibleUser.getUserName() + " has logged in");
                 nextPage = request.getContextPath();

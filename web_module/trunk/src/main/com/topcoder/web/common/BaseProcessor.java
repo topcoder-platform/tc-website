@@ -4,6 +4,7 @@ import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.servlet.http.HttpServletRequest;
@@ -66,9 +67,9 @@ public abstract class BaseProcessor implements RequestProcessor {
      * call this to send the browser a new cookie when the user updates their password;
      * probably ought to use auth.login() instead
      */
-    protected void reissueCookie() {
+    protected void reissueCookie(Resource r) {
         try {
-            ((BasicAuthentication) auth).setCookie(getUser().getId());
+            ((BasicAuthentication) auth).setCookie(r, getUser().getId());
         } catch (Exception e) {
             /* this should not happen, but is not a big deal if it does... they just have to login again later */
             log.warn("caught exception reissuing cookie", e);

@@ -209,7 +209,7 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected WebAuthentication createAuthentication(HttpServletRequest request,
                                                      HttpServletResponse response) throws Exception {
-        return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
+        return new BasicAuthentication(new SessionPersistor(request.getSession()), request, response, BasicAuthentication.MAIN_SITE);
     }
 
     /* TODO implement a cached authorization object */
