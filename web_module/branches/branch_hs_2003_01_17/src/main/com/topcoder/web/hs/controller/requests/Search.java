@@ -376,6 +376,18 @@ public class Search extends Base {
      /* this should never happen */
       _nfe.printStackTrace();
     }
+
+    String next=getParameter(request,"next","");
+    if (!"".equals(next)) {
+      if ("true".equals(next)) {
+        _sb.setStart(new Integer(_sb.getStart().intValue()+_sb.getMaxResultsPerPage()));
+        _sb.setEnd(new Integer(_sb.getEnd().intValue()+_sb.getMaxResultsPerPage()));
+      }
+      else if ("false".equals(next)) {
+        _sb.setStart(new Integer(_sb.getStart().intValue()-_sb.getMaxResultsPerPage()));
+        _sb.setEnd(new Integer(_sb.getEnd().intValue()-_sb.getMaxResultsPerPage()));
+      }
+    }
     
     map.put(DataAccessConstants.COMMAND,"member_search");
     map.put(HANDLE_INPUT_CODE,handle_pattern);
