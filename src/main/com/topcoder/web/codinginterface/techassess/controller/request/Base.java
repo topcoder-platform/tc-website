@@ -360,6 +360,10 @@ public abstract class Base extends BaseProcessor {
         return ret;
     }
 
+    protected void setUserMessage(String message) {
+        getRequest().setAttribute(Constants.USER_MESSAGE, message);
+    }
+
 
     private final class Logouter implements Serializable, HttpSessionBindingListener {
 
