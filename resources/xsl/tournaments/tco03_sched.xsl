@@ -101,7 +101,7 @@
                         Registration:  6:00 PM - 8:55 PM<br />
                         Compete: 9:00 PM<br />
                     </td>
-                    <td class="sidebarText" align="center">All members who have not previously qualified</td>
+                    <td class="sidebarText" align="center">All members who have not previously qualified - limited to the first 1,000 participants to register</td>
                     <td class="sidebarText" align="center">200</td>
                 </tr>
 
@@ -112,7 +112,7 @@
                         Registration:  7:00 PM - 9:55 PM<br />
                         Compete: 10:00 PM<br />
                     </td>
-                    <td class="sidebarText" align="center">All members who have not previously qualified</td>
+                    <td class="sidebarText" align="center">All members who have not previously qualified - limited to the first 1,000 participants to register</td>
                     <td class="sidebarText" align="center">200</td>
                 </tr>
 
@@ -120,7 +120,6 @@
                     <td class="sidebarText" colspan="4">
                         *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate"
                         will be the following day at the same time.<br/>
-                        * Registration is limited to the first 1,000 participants to register.
                     </td>
                 </tr>
             </table><br />
