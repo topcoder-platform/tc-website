@@ -109,6 +109,10 @@ public interface PactsConstants {
     // to use the default EMPTY_DATE_STRING above, or null
     public static final String ANOTHER_EMPTY_DATE_STRING = "00/00/00";
 
+    // Decimal Format string - monies should be displayed to the user in a
+    // standard format.  MTM 6/5/02
+    public static final String DECIMAL_FORMAT_STRING = "$ ############,##0.00";
+
     // These describe what is in a particular ResultSetContainer
     // dpecora 3/25 - this is a mess (mea culpa), so revised.  The old version
     // is commented out below
