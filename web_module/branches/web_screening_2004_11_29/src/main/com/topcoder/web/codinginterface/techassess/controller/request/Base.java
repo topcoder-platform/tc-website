@@ -93,7 +93,7 @@ public abstract class Base extends BaseProcessor {
         }
     }
 
-    protected String buildProcessorReqestString(String processor, String[] keys, String[] values) {
+    protected String buildProcessorRequestString(String processor, String[] keys, String[] values) {
         if (keys.length!=values.length)
             throw new IllegalArgumentException("the number of parameter keys must be the same as the number of values");
 
