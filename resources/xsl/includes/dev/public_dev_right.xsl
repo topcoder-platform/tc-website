@@ -53,7 +53,7 @@
                                 <td class="devProjectWinnerMoney"></td>
                             </tr>
                             <tr>
-                                <td class="devProjectWinner">Winning Developer:</td>
+                                <td class="devProjectWinner2">Winning Developer:</td>
                                 <td class="devProjectWinnerMoney2">$833.00</td>
                             </tr>
 
@@ -67,12 +67,12 @@
                             </tr>                            
                             <tr>
                                 <td class="devProjectWinner2">Winning Developer:</td>
-                                <td class="devProjectWinnerMoney2">$333.00</td>
+                                <td class="devProjectWinnerMoney">$333.00</td>
                             </tr>
 
                             <tr>
                                 <td class="devProjectSecond">Second Place:</td>
-                                <td class="devProjectSecondMoney">$125.00</td>
+                                <td class="devProjectSecondMoney2">$125.00</td>
                             </tr>                            
                         </table>
                     </td>
