@@ -40,12 +40,12 @@
 					</tr>
 					<tr><td class=tableText colspan=2>&#160;</td></tr>
 					<tr>
-						<td class=tableText align=right>ID:</td>
-						<td class=tableText><INPUT TYPE="TEXT" NAME="ID" SIZE="20" VALUE=""></td>
+						<td class=loginLeft>ID:</td>
+						<td class=loginRight><INPUT TYPE="TEXT" NAME="ID" SIZE="20" VALUE=""></td>
 					</tr>
 					<tr>
-						<td class=tableText align=right>Password:</td>
-						<td class=tableText><INPUT TYPE="PASSWORD" NAME="password" SIZE="20" VALUE=""></td>
+						<td class=loginLeft>Password:</td>
+						<td class=loginRight><INPUT TYPE="PASSWORD" NAME="password" SIZE="20" VALUE=""></td>
 					</tr>
 					<tr>
 						<td class=tableText align=right>&#160;</td>
