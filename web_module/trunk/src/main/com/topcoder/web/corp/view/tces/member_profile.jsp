@@ -177,35 +177,38 @@
                     </TR>
                   </tces:rowIterator>
 
+					<% 
+					i++;
+					%> 
                     <TR>
-                      <TD class="screeningCellOdd" HEIGHT="18">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" HEIGHT="18">
                         &#160;<b>All</b>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("total_presented") %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("total_submitted") %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("total_submit_percent") %>%
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("correct") %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("total_overall_accuracy") %>%
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("avg_submission_points") %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIStatistic("avg_overall_points") %>
                       </TD>
-                      <TD class="screeningCellOdd" nowrap=nowrap align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=right>
                         <%= JSPUtils.timeFormat(MemberProfileTask.getDivIStats().getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
@@ -225,52 +228,61 @@
                       <TD class="screeningHeader" align=center>Avg<br/>Time to<br/>Submit</TD>
                     </TR>
 
+				<%
+				i=0;
+				%>
                   <tces:rowIterator id="language" rowList="<%=MemberProfileTask.getDivIStatsByLang()%>">
+					<% 
+					i++;
+					%> 
                     <TR>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <nobr>&#160;<b><%= language.getItem("language_name").toString() %></b></nobr>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= language.getItem("submitted").toString() %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= JSPUtils.autoFormat(language.getItem("submit_percent")) %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= language.getItem("num_correct").toString() %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= JSPUtils.autoFormat(language.getItem("submission_accuracy")) %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= JSPUtils.autoFormat(language.getItem("avg_submission_points")) %>
                       </TD>
-                      <TD class="screeningCellOdd" nowrap=nowrap align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=right>
                         <%= JSPUtils.timeFormat(language.getItem("avg_submit_time")) %>
                       </TD>
                     </TR>
                   </tces:rowIterator>
                 <% if (MemberProfileTask.hasMultipleDivILanguage()) { %>
+					<% 
+					i++;
+					%> 
                     <TR>
-                      <TD class="screeningCellOdd" HEIGHT="18">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         &#160;<b>All</b>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIStatistic("total_submitted") %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIStatistic("total_submit_percent") %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIStatistic("correct") %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIStatistic("total_submission_accuracy") %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIStatistic("avg_submission_points") %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= JSPUtils.timeFormat(MemberProfileTask.getDivIStats().getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
@@ -299,71 +311,79 @@
                     </TR>
 
 
-
+				<%
+				int i=0;
+				%>
                   <tces:rowIterator id="level" rowList="<%=MemberProfileTask.getDivIIStatsByLevel()%>">
-                    <TR>
-                      <TD class="screeningCellOdd">
+					<% 
+					i++;
+					%> 
+                    <TR>                      
+						<TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <nobr>&#160;<b><%= level.getItem("level_desc").toString() %></b></nobr>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= level.getItem("presented").toString() %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= level.getItem("submitted").toString() %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(level.getItem("submit_percent")) %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= level.getItem("correct").toString() %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(level.getItem("submission_accuracy")) %>%
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(level.getItem("overall_accuracy")) %>%
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(level.getItem("avg_submission_points")) %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(level.getItem("avg_final_points")) %>
                       </TD>
-                      <TD class="screeningCellOdd" nowrap=nowrap align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=right>
                         <%= JSPUtils.timeFormat(level.getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
                   </tces:rowIterator>
 
+					<% 
+					i++;
+					%> 
                     <TR>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         &#160;<b>All</b>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("total_presented") %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("total_submitted") %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIIStatistic("total_submit_percent") %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("correct") %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIIStatistic("total_submission_accuracy") %>%
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIIStatistic("total_overall_accuracy") %>%
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIIStatistic("avg_submission_points") %>
                       </TD>
-                      <TD class="screeningCellOdd" align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= MemberProfileTask.getDivIIStatistic("avg_overall_points") %>
                       </TD>
-                      <TD class="screeningCellOdd" nowrap=nowrap align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=right>
                         <%= JSPUtils.timeFormat(MemberProfileTask.getDivIIStats().getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
@@ -385,53 +405,62 @@
 
 
 
+				<%
+				i=0;
+				%>
                   <tces:rowIterator id="language" rowList="<%=MemberProfileTask.getDivIIStatsByLang()%>">
+					<% 
+					i++;
+					%> 
                     <TR>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <nobr>&#160;<b><%= language.getItem("language_name").toString() %></b></nobr>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= language.getItem("submitted").toString() %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= JSPUtils.autoFormat(language.getItem("submit_percent")) %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= language.getItem("num_correct").toString() %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= JSPUtils.autoFormat(language.getItem("submission_accuracy")) %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= JSPUtils.autoFormat(language.getItem("avg_submission_points")) %>
                       </TD>
-                      <TD class="screeningCellOdd" nowrap=nowrap align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=right>
                         <%= JSPUtils.timeFormat(language.getItem("avg_submit_time")) %>
                       </TD>
                     </TR>
                   </tces:rowIterator>
 
                 <% if (MemberProfileTask.hasMultipleDivILanguage()) { %>
+					<% 
+					i++;
+					%> 
                     <TR>
-                      <TD class="screeningCellOdd" HEIGHT="18">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" HEIGHT="18">
                         &#160;<b>All</b>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("total_submitted") %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("total_submit_percent") %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("correct") %>
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("total_submission_accuracy") %>%
                       </TD>
-                      <TD class="screeningCellOdd">
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <%= MemberProfileTask.getDivIIStatistic("avg_submission_points") %>
                       </TD>
-                      <TD class="screeningCellOdd" nowrap=nowrap align=right>
+                      <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" nowrap=nowrap align=right>
                         <%= JSPUtils.timeFormat(MemberProfileTask.getDivIIStats().getItem("avg_time_elapsed")) %>
                       </TD>
                     </TR>
