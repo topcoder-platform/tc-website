@@ -56,7 +56,7 @@
                 <tr valign="top">
                     <td class="prText" width="100%"><img src="/i/clear.gif" alt="" width="400" height="1" border="0"/><br />
                         <div align="center">
-                        <p><span class="bodyTitle">GOOGLE CODE JAME COMES TO INDIA</span><br />
+                        <p><span class="bodyTitle">GOOGLE CODE JAM COMES TO INDIA</span><br />
                         <span class="bodySubTitle"><em>Google Research &amp; Development Centre in Bangalore Launches Google India Code Jam to Find South Asia's Best Programmers</em></span></p>
                         </div>
                         
