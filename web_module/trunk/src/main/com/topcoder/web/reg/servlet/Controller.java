@@ -30,6 +30,7 @@ public class Controller
 
     public void service(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
+        log.debug("service called...");
         HttpSession session = null;
         try {
             if (request.getContentType() == null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0) {
@@ -41,10 +42,8 @@ public class Controller
                     forwardToError(request, response, new TaskException(TASK + " not found in request."));
                     return;
                 }
-//                session = request.getSession(true); // for now create a new session, later this'll be done in the front page
-                session = request.getSession(false); // for now create a new session, later this'll be done in the front page
+                session = request.getSession(true); // for now create a new session, later this'll be done in the front page
                 if (session == null) {
-                    log.debug("XXX session was null");
                     session = request.getSession(true);
                 }
                 Object taskObject = session.getAttribute(taskName);
@@ -76,35 +75,16 @@ public class Controller
                         return;
                     }
                 }
+                com.topcoder.web.reg.bean.Registration r = (com.topcoder.web.reg.bean.Registration)task;
                 task.setUser(getUser(session));
-/*
-                task.setStep(request.getParameter(STEP));
-*/
-                log.debug("**************session test****************");
-                log.debug("get attr: " + session.getAttribute("butt"));
-                session.setAttribute("butt", "big ass butt");                
-                log.debug("set attr");
-                log.debug("**************session test****************");
+                task.setStep(request.getParameter(STEP));  //the only use for this seems to be to clear notifications
 
-
-                log.debug("bean step: " + task.getStep());
-                log.debug("step: " + request.getParameter(STEP));
-                log.debug("firstname: " + ((com.topcoder.web.reg.bean.Registration)task).getFirstName());
                 Enumeration parameterNames = request.getParameterNames();
                 while (parameterNames.hasMoreElements()) {
                     String parameterName = parameterNames.nextElement().toString();
                     String[] parameterValues = request.getParameterValues(parameterName);
                     if (parameterValues != null) {
-                        //if (parameterValues.length == 1)
-                        //{
-                        //task.setAttribute(parameterName,request.getParameter(parameterName));
-                        //}
-                        //else if (parameterValues.length > 1)
-                        //{
-
                         task.setAttributes(parameterName, parameterValues);
-
-                        //}
                     }
                 }
 
