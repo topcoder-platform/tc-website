@@ -79,44 +79,56 @@
                             <tr valign="top"><td align="left" class="smallText">SnapDragon takes Round One with ease.</td></tr>
                         </table>
                                 
-                        <h2>As expected, SnapDragon struts his stuff</h2>
+                        <h2> The Sweet 16 </h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
-                        Friday, April 4, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current brackets</a></p>
+                        Thursday, April 3, 2003<br />
+                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current bracket</a></p>
 
-                        <p>In front of a sparse crowd, the morning competitors dealt with some minor system issues and tough 
-                        problem statements as the first round of competition started at 8:00am. </p>
+                       	<p>Competitors representing schools such as Duke, Michigan, Minnesota, Stanford, and UCLA 
+                       	will face off this weekend in an effort to be crowned champion of a collegiate tournament.  
+                       	Is it the culmination of the NCAA Men's Basketball tournament?  Nope, it's the Collegiate 
+                       	Challenge Finals - TopCoder style.</p>
 
-                        <p>All four competitors started the round by opening the 300-point problem.  Ten minutes later, 
-                        <b>SnapDragon</b> was the first to weigh in with a submission for 268.59 points.  Within the next 
-                        minute, both <b>malpt</b> and <b>ambrose</b> submitted their solutions for 260.51 points and 257.85 points, 
-                        respectively.  <b>kyky</b> worked on his solution for 7 more minutes before submitting for 219.80 points.</p>
+						<p>The field of over 500 college programmers has been narrowed to 16.  By Friday, it will be 
+						reduced again to just 4.  Saturday afternoon will see one coder presented with a very big 
+						check (in size and amount) and awarded the title of 2003 Sun Microsystems and TopCoder 
+						Collegiate Challenge Champion.</p>
 
-                        <p>Surprisingly, <b>malpt</b> submitted his solution to the 500-point problem after only working on it 
-                        for 7 minutes, receiving just over 370 points.  Upon further inspection of the problem statement, 
-                        however, he quickly realized that he had misread it, and began working on his resubmission.  
-                        <b>ambrose</b> was next to submit a solution 35 minutes into the contest, and received 326.37 points 
-                        for the 500-point problem.  Two minutes later, <b>SnapDragon</b> submitted his 500-point solution for 
-                        300.55 points.  <b>kyky</b>, after reading the 1050-point problem, decided to work on the 500 instead.  
-                        Unfortunately, he would not submit a solution to either problem.</p>
+						<p>Tonight, however, we took the opportunity to relax and introduce ourselves to one 
+						another.  15 of the 16 competitors were on location at the time of the reception, and 
+						with 11 competitors new to the onsite finals, there were many introductions to be made. 
+						Fashionable red and black competition gear was handed out to all the participants - 
+						mandatory attire for the Final Four on Saturday.  The crowd broke up shortly after 
+						the rules were laid out, and the competitors are hoping to get a good night's sleep 
+						before a very big day of competition tomorrow.</p>  
 
-                        <p>For the next 36 minutes, all was quiet on the submission front.  Then, with seven minutes left in 
-                        the coding phase, <b>malpt</b> resubmitted his solution to the 500-point problem for 150.00 points, 
-                        losing over half of his original points and decreasing his point total to 410.51.  <b>SnapDragon</b> 
-                        had the last say, submitting his solution to the 1050-point problem with five minutes left in 
-                        the round for 521.09 points.  At the end of the coding phase, the point totals stood at 
-                        1090.23 (<b>SnapDragon</b>), 584.22 (<b>ambrose</b>), 410.51 (<b>malpt</b>), and 219.80 (<b>kyky</b>).</p>
+						<p>Here's the lineup:<br />
+						<br />
+						Room 1, 10am:<br />
+						evd<br />
+						StefanPochmann<br />
+						Yarin<br />
+						yike<br />
+						<br />
+						Room 2, 1pm:<br />
+						axch<br />
+						dmwright<br />
+						mathewsb<br />
+						niteneb<br />
+						<br />
+						Room 3, 4pm:<br />
+						ante<br />
+						bstanescu<br />
+						sjelkjd<br />
+						WhiteShadow<br />
+						<br />
+						Room 4, 7pm:<br />
+						dgarthur<br />
+						DjinnKahn<br />
+						jburnim<br />
+						O_O<br />
+						</p>
 
-                        <p>The challenge phase was quiet for nearly 14 minutes.  Then, after lots of thought, testing, 
-                        and agonizing, <b>SnapDragon</b> successfully challenged <b>ambrose</b>'s 500-point solution, further 
-                        increasing his lead by 50 points.  The system test phase was kind to everyone but <b>kyky</b>, 
-                        who lost his 219.80 points, causing him to finish with 0 points.</p>
-
-                        <p>In the end, <b>SnapDragon</b> showed why he is the current Top Coder, being the only competitor 
-                        of the round to finish all three problems and submit a successful challenge.  Perhaps 
-                        <b>malpt</b>'s simple statement summed it up best: "It's tough to beat <b>SnapDragon</b> when he 
-                        correctly solves all three problems."  Luckily for <b>malpt</b>, the casino floor is just 
-                        a short walk away _ he can always place his winnings on double zero, spin the roulette wheel, and hope for the best...</p>
                     </td>
                 </tr>
             </table>
