@@ -124,6 +124,11 @@
                                         <br/>
                                         The Application Design Specification is to be completed by the Designers as part of
                                         their submission for the design project.
+                                        <br/>
+                                        <br/>
+                                        The Application Development Scope Document is to be completed by the Developers as part of
+                                        their submission for the design project.
+
                                     </td>
                                     <td></td>
                                     <td class="bodyText" valign="top">
@@ -145,6 +150,15 @@
                                                 </td>
                                                 <td class="bodyText">
                                                     <a target="tcsdocs" href="/i/development/downloads/Application_Design_Specification.rtf" class="bodyText">Application Design Specification</a>
+                                                </td>
+                                            </tr>
+                                            <tr valign="top">
+                                                <td class="bodyText">01.12.2004</td>
+                                                <td class="bodyText">
+                                                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
+                                                </td>
+                                                <td class="bodyText">
+                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Development_Scope.rtf" class="bodyText">Application Development Scope</a>
                                                 </td>
                                             </tr>
                                         </table>
@@ -196,10 +210,6 @@
                                         <br/>
                                         The Application Development Specification is to be completed by the Developers as part of
                                         their submission for the design project.
-                                        <br/>
-                                        <br/>
-                                        The Application Development Scope Document is to be completed by the Developers as part of
-                                        their submission for the design project.
                                     </td>
                                     <td></td>
                                     <td class="bodyText" valign="top">
@@ -221,15 +231,6 @@
                                                 </td>
                                                 <td class="bodyText">
                                                     <a target="tcsdocs" href="/i/development/downloads/Application_Development_Specification.rtf" class="bodyText">Application Development Specification</a>
-                                                </td>
-                                            </tr>
-                                            <tr valign="top">
-                                                <td class="bodyText">01.12.2004</td>
-                                                <td class="bodyText">
-                                                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
-                                                </td>
-                                                <td class="bodyText">
-                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Development_Scope.rtf" class="bodyText">Application Development Scope</a>
                                                 </td>
                                             </tr>
 
