@@ -72,11 +72,9 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
                <blockquote>
                <h2>Advancers</h2>
-               </blockquote>
 <!-- Online Rounds begins -->
-
-            <a name="sched"></a>
-            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
+            <p align="right"><a href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_advancers">Round 1</a>&#160;|&#160;Finals</p>
+            <table align="center" border="0" cellpadding="2" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="crpfTitle" width="100%" colspan="3" bgcolor="#4E9DD5">Finals</td>
                </tr>
@@ -85,11 +83,13 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     <td class="crpfAdvancersSort" width="25%" align="left" nowrap="nowrap">Handle</td>
                     <td class="crpfAdvancersSort" width="65%" align="right" nowrap="nowrap">Points</td>
                </tr>
-<tr valign="top"><td class="sidebarText" align="right">1st</td><td class="sidebarText" align="left">Maris</td><td class="sidebarText" align="right">1550.73</td></tr>
-<tr valign="top"><td class="sidebarText" align="right">2nd</td><td class="sidebarText" align="left">kyky</td><td class="sidebarText" align="right">1533.18</td></tr>
-<tr valign="top"><td class="sidebarText" align="right">3rd</td><td class="sidebarText" align="left">srowen</td><td class="sidebarText" align="right">1522.72</td></tr>
-<tr valign="top"><td class="sidebarText" align="right">4th</td><td class="sidebarText" align="left">po</td><td class="sidebarText" align="right">1498.53</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">1st</td><td class="sidebarText" align="left">jms137</td><td class="sidebarText" align="right">1316.57</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">2nd</td><td class="sidebarText" align="left">John Dethridge</td><td class="sidebarText" align="right">1209.47</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">3rd</td><td class="sidebarText" align="left">po</td><td class="sidebarText" align="right">1203.13</td></tr>
+<tr valign="top"><td class="sidebarText" align="right">4th</td><td class="sidebarText" align="left">hamster</td><td class="sidebarText" align="right">1067.53</td></tr>
             </table><br />
+            </blockquote>
+
 <!-- Online Rounds ends -->
 <!-- Center Column Ends -->
 
