@@ -9,40 +9,41 @@
    User activeUser = auth.getActiveUser();
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
 %>
+
 <a name="top"/>
-<table width="100%" border="0" cellpadding="3" cellspacing="0" bgcolor="#333333">    
+<table width="100%" border="0" cellpadding="3" cellspacing="0" class="search">    
     <tr valign="middle">
-        <td width="100%" align="right" class="globalNavSmall" nowrap="0"> 
+        <td class="login" width="99%">&nbsp;</td>
+        <td class="login" nowrap="nowrap">
     <% if (activeUser.isAnonymous()) {  // no logged user %>
            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="globalNavSmall" target="_parent">Login</a>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Register</a>
     <% } else { %>
-            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="globalNavSmall" target="_parent">Logout</a>
+            <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">My Account</a>
     <% } %>
 
-<% if (isHomePage) { %>
-            &#160;
-<% } else { %>
-            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=index" target="_parent" class="globalNavSmall">Home</a>
-<%  } %>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=about&d2=index" class="loginLinks">About TopCoder Corp Services</a>
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=contact&d2=index" class="loginLinks">Contact Us</a>
         </td>
-        <td width="15" bgcolor="#333333"><img src="/i/clear.gif" width="30" height="1" border="0" /></td>
+        <td class="login" width="10">&nbsp;</td>
     </tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">
     <tr valign="middle">
-        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
+        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0" /></td>
         <td width="206">
 
 <% if (isHomePage) { %>
-        <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" />
+        <img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="5" />
 <% } else { %>
         <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=index" class="globalNavSmall" target="_parent"><img src="/i/logo_corp.gif" width="206" height="49" border="0" vspace="10" /></a>
 <%  } %>
 
         </td>
-        <td width="20" bgcolor="#000000"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
-        <td width="100%" nowrap="nowrap" align="right" bgcolor="#000000">
+        <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15" /></td>
+        <td width="100%" nowrap="nowrap" align="right">
 <% if( activeUser.isAnonymous() ) { %>
            <table border="0" cellpadding="0" cellspacing="0" align="right">
                 <tr valign="middle"><form name="frmMiniLogin" method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
@@ -61,19 +62,29 @@
             &#160;
 <% } %>
         </td>
-        <td width="10" bgcolor="#000000"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></td>
     </tr>
-</table>           
+    <tr><td height="4" class="headStripe" colspan="5"><img src="/images/clear.gif" alt="" height="4" border="0" /></td></tr>
+</table>
+<!-- Header ends -->
 
 <!-- Main Navigation bar begins -->
 <table width="100%" border="0" cellpadding="3" cellspacing="0" class="topNavBar">
     <tr valign="middle">
-        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="topNav"><%=activeUser.isAnonymous()?"Registration":"Update"%></a></td>
+<% if (isHomePage) { %>
+
+<% } else { %>
+        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="index.jsp" class="topNav">Home</a></td>
+<%  } %>
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/testing/" class="topNav">Testing Application Management Tool</a></td>
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/tces/?task=MainTask" class="topNav">Recruiting Reporting Tool</a></td>
         <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="http://www.topcodersoftware.com" class="topNav">TopCoder Software</a></td>
         <td class="topNav" width="99%">&#160;</td>  
     </tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/images/clear.gif" alt="" width="10" height="2" border="0" /></td></tr>
 </table>
 <!-- Main Navigation bar ends -->
 

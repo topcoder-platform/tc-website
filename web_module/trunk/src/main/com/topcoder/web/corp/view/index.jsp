@@ -24,10 +24,10 @@
 </jsp:include>
 <!-- Header ends -->
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr>
 <!-- Left Column Begins -->
-        <td width="170" valign="top">
+        <td width="170" valign="top" bgcolor="#CCCCCC">
         <jsp:include page="includes/left.jsp" >
             <jsp:param name="level1" value="testing"/>
             <jsp:param name="level2" value="overview"/>
