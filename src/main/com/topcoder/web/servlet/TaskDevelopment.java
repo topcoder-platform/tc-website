@@ -223,7 +223,7 @@ public final class TaskDevelopment {
                             phaseId = versions[i].getPhase();
                         }
                     }
-                    componentManager = getComponentManager(componentId, versionId);
+                    componentManager = getComponentManager(lngComponent, versionId);
                     
                     if(phaseId == ComponentVersionInfo.SPECIFICATION)
                     {
@@ -690,6 +690,7 @@ public final class TaskDevelopment {
 
        Catalog catalog = null;
        try{
+            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
             Object objTechTypes = CONTEXT.lookup("CatalogEJB");
             CatalogHome home = (CatalogHome) PortableRemoteObject.narrow(objTechTypes, CatalogHome.class);
 	        catalog = home.create();
@@ -710,4 +711,5 @@ public final class TaskDevelopment {
        return catalog;
     }    
 
+    
 }
