@@ -79,7 +79,7 @@
 
             <table border="0" cellspacing="0" cellpadding="3" background="/i/steel_darkblue_bg.gif" bgcolor="#001B35" width="100%">
 
-                <tr><td colspan="11" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 
                 <tr>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
@@ -91,47 +91,39 @@
                         <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                 </tr>
 
-                <tr><td colspan="11" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
+                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
 
                 
 <!-- Component Design Projects begin -->
 
                 <tr>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
-                    <td class="statText" colspan="9"><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
+                    <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Component Design Project Status</h1></td>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="2" class="statText" align="center"><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText"><font size="-3">Design Projects</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Design<br />Posting</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Initial<br />Submit</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Screening<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Review<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Aggregation<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Final<br />Submit</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Design<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Actual<br />Complete</font></td>
+                    <td background="/i/steel_bluebv_bg.gif" width="40%" class="statText">Design Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Initial<br />Submit</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Review<br />Complete</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Final<br />Submit</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Design<br />Complete</td>
                     <td background="/i/steel_bluebv_bg.gif" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
                 </tr>
 
 				<tr>
 					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-					<td background="" class="statText"><font size="-3">Project Title</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
+					<td background="" class="statText">Project Title</td>
+					<td background="" class="statText" align="center">00.00.00</td>
+					<td background="" class="statText" align="center">00.00.00</td>
+					<td background="" class="statText" align="center">00.00.00</td>
+					<td background="" class="statText" align="center">00.00.00</td>
 					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
 				</tr>                 
                
 
-                <tr><td colspan="11" background=""><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
+                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="15" alt="" border="0" /></td></tr>
 
 
 <!-- Component Design Projects ends -->
@@ -143,40 +135,32 @@
 
  				<tr>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
-                    <td class="statText" colspan="9"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
+                    <td class="statText" colspan="55"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
                     <td background="" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="2" class="statText" align="center"><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText"><font size="-3">Development Projects</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Development<br />Posting</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Initial<br />Submit</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Screening<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Review<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Aggregation<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Final<br />Submit</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Design<br />Complete</font></td>
-                    <td background="/i/steel_bluebv_bg.gif" width="10%" class="statText" align="center"><font size="-3">Actual<br />Complete</font></td>
+                    <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText">Development Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Initial<br />Submit</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Review<br />Complete</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Final<br />Submit</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Design<br />Complete</td>
                     <td background="/i/steel_bluebv_bg.gif" width="2" class="statText"><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
                 </tr>
 
 				<tr>
 					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
-					<td background="" class="statText"><font size="-3">Project Title</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
-					<td background="" class="statText" align="center"><font size="-3">00.00.00</font></td>
+					<td background="" class="statText">Project Title</td>
+					<td background="" class="statText" align="center">00.00.00</td>
+					<td background="" class="statText" align="center">00.00.00</td>
+					<td background="" class="statText" align="center">00.00.00</td>
+					<td background="" class="statText" align="center">00.00.00</td>
 					<td><img src="/i/clear.gif" alt="" width="2" height="18" border="0" /></td>
 				</tr>                 
                
 
-                <tr><td colspan="11" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
+                <tr><td colspan="7" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
 
 
             </table>
