@@ -84,10 +84,12 @@ public boolean isPrime (int n)
 	if (n&lt;=1) return false;
 	if (n==2) return true;
 	if (n%2==0) return false;
-	
-	for (int i=3; i&lt;=Math.sqrt(n); i+=2)
-		if (n%i==0) return false;
-	
+	int m=Math.sqrt(n);
+
+	for (int i=3; i&lt;=m; i+=2)
+		if (n%i==0)
+			return false;
+
 	return true;
 }
 </pre>
@@ -108,17 +110,18 @@ All the remaining numbers are prime and we can safely terminate the algorithm. B
 public boolean[] sieve(int n)
 {
 	boolean[] prime=new boolean[n+1];
-	Arrays.fill(prime,true);		
-prime[0]=false;			
-prime[1]=false;			
+	Arrays.fill(prime,true);
+	prime[0]=false;
+	prime[1]=false;
+	int m=Math.sqrt(n);
 
-	for (int i=2; i&lt;=Math.sqrt(n); i++)
+	for (int i=2; i&lt;=m; i++)
 		if (prime[i])
 			for (int k=i*i; k&lt;=n; k+=i)
 				prime[k]=false;
 
 	return prime;
-}
+} 
 </pre>
 In the above method, we create a boolean array prime which stores the primality of each number less of equal than n. If prime[i] is true then number i is prime. The outer loop finds the next prime while the inner loop removes all the multiples of the current prime.
 <br /><br />
@@ -127,10 +130,10 @@ In the above method, we create a boolean array prime which stores the primality 
 The greatest common divisor (GCD) of two numbers a and b is the greatest number that divides evenly into both a and b. Naively we could start from the smallest of the two numbers and work our way downwards until we find a number that divides into both of them:
 <pre class="code">
 for (int i=Math.min(a,b); i&gt;=1; i--)
-if (a%i==0 &amp;&amp; b%i==0)
-return i;
+   if (a%i==0 &amp;&amp; b%i==0)
+      return i;
 </pre>
-Although this method is fast enough, there is a faster method called Euclid's algorithm. Euclid's algorithm iterates over the two numbers until a remainder of 0 is found. For example, suppose we want to find the GCD of 2336 and 1314. We begin by expressing the larger number (2336) in terms of the smaller number (1314) plus a remainder:
+Although this method is fast enough for most applications, there is a faster method called Euclid's algorithm. Euclid's algorithm iterates over the two numbers until a remainder of 0 is found. For example, suppose we want to find the GCD of 2336 and 1314. We begin by expressing the larger number (2336) in terms of the smaller number (1314) plus a remainder:
 <pre class="code">
 2336 = 1314 x 1 + 1022
 </pre>
@@ -197,7 +200,7 @@ We can use induction to show that Euler's formula works. We must begin the induc
 thus (n+1) - E + F = 2
 </pre>
 Since V = n + 1, we have V - E + F = 2. Hence by the principal of mathematical induction we have proven Euler's formula.
-
+<br /><br />
 <span class="bodySubtitle">Bases</span><br />
 A very common problem faced by TopCoder competitors during contests involves converting to and from binary and decimal representations (amongst others).
 <br /><br />
