@@ -270,11 +270,10 @@
                 var list = document.profileListForm.relocateAnswers;
                 for (i=0; i<list.length; i++) {
                   if (list.options[i].selected==true) {
-                    if(i==list.length-1)
-                      ret+=list[i].value;
-                    else ret+=list[i].value+",";
+                    ret+=list[i].value+",";
                   }
                 }
+                ret=ret.substring(0, ret.length-2);
                 document.profileListForm.<%=Constants.REPORT_RELOCATE_KEY%>.value=ret;
               }
               function checkRelocate() {
