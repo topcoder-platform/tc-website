@@ -117,8 +117,9 @@ public class StatisticsHttpServlet extends HttpServlet{
       // the next line works for Servlet 2.3
       // Map map = request.getParameterMap();
 
-      StatRequestBean srb = reparseArrays(map);
+      StatRequestBean srb = new StatRequestBean(map);
 
+      ServletContext sctx = this.getServletContext();
       Map accessMap = (Map)this.getServletContext().getAttribute(ACCESS_MAP_KEY);
       String accessLevel = (String)accessMap.get(srb.getContentHandle());
       Navigation nav = (Navigation)request.getSession().getAttribute("navigation");
@@ -130,22 +131,27 @@ public class StatisticsHttpServlet extends HttpServlet{
         if (nav.getUser() == null)
           Log.msg("[*** stats *** " + srb.getContentHandle() + " ***  ***]");
         else Log.msg("[*** stats *** " + srb.getContentHandle() + " *** " + nav.getUser().getHandle() + " ***]");
-       
-        if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.getLoggedIn()))
+     
+        //hoke so that we can reload the properties file on the fly 
+        if (srb.getContentHandle().equals("reload")) {
+          this.reload(sctx);
+          return;
+        }
+ 
+        if (accessLevel.equals(LOGGED_IN_ONLY) && (!nav.getLoggedIn())) {
           response.sendRedirect("http://" + request.getServerName() +
                                 "/?t=authentication&c=login&errorMsg=" +
                                 "You must log in to view this portion of the site.&errorURL=/stat?" +
                                 replace(sQueryString));
+        }
         request.setAttribute("REQUEST_BEAN", srb);
         StatDataAccessInt dai = (StatDataAccessInt)ObjFactory.create(dataClass);
         Map dataMap = dai.getData(srb);
         request.setAttribute("QUERY_RESPONSE", dataMap);
-        ServletContext sctx = this.getServletContext();
         Map mpage = (Map) sctx.getAttribute("PAGECTRL");
         sctx.getRequestDispatcher((String)mpage.get(srb.getContentHandle())).forward(request,response);
       } catch (Exception e) {
         e.printStackTrace();
-        ServletContext sctx = this.getServletContext();
         sctx.getRequestDispatcher(sctx.getAttribute("GLOBAL_ERROR").toString()).forward(request,response);
       }
 
@@ -168,25 +174,5 @@ public class StatisticsHttpServlet extends HttpServlet{
     }
   }
 
-  private StatRequestBean reparseArrays(Map m) {
-    Iterator it = m.entrySet().iterator();
-    Map.Entry me;
-    String[] sArray;
-    String sKey;
-    StatRequestBean srb = new StatRequestBean();
-    while (it.hasNext()) {
-      me = (Map.Entry) it.next();
-      if (me.getValue() instanceof String) {
-        srb.setProperty(me.getKey().toString(), me.getValue().toString());
-      }else {
-        sArray = (String[]) me.getValue();
-        sKey = me.getKey().toString();
-        if (sArray.length > 0)   srb.setProperty(sKey, sArray[0]);
-        for(int i=1; i<sArray.length; i++) {
-           srb.setProperty(me.getKey().toString()+i, sArray[i]);
-        }
-      }
-    }
-    return srb;
-  }
+
 }
