@@ -59,7 +59,7 @@
 <!--body contextual links-->
                         <table width="100%" cellpadding="3" cellspacing="0" border="0">
                             <tr><td valign="middle" bgcolor="#43515E" class="statText"><b>&#160;AlphaSimplex Jobs</b></td></tr>
-                            <tr><td valign="middle" class="bodyText"><A href="#" class="bodyText">Jobs</A></td></tr>
+                            <tr><td valign="middle" class="bodyText"><A href="/?&amp;t=tces&amp;c=alphasimplex_softdev&amp;a=secure" class="bodyText">Jobs</A></td></tr>
                         </table>
 
 <!-- Client Message Begins -->
@@ -91,7 +91,7 @@
                         </ul>
                         <p>Individuals with advanced training in other quantitative disciplines are also encouraged to apply. If you are excited by the prospect of changing the investment management 
                         industry by developing and implementing cutting-edge technologies that span many diverse disciplines, and you are at the top of your field, we want to meet you.  
-                        Check out our open positions <A href="#" class="bodyText">here</A>. </p>
+                        Check out our open positions <A href="/?&amp;t=tces&amp;c=alphasimplex_softdev&amp;a=secure" class="bodyText">here</A>. </p>
 <!-- Client Message Ends -->
 
                         <p><br /></p>
