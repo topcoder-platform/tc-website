@@ -87,7 +87,7 @@ public class SearchResults extends BaseScreeningProcessor {
 	query.append("user u, session s, session_profile sp, email e, ");
 	query.append("coder c, user_address_xref uax, address a, country ct, coder_type cty, ");
 	query.append("session_profile_problem_xref sppx, job_hit jh, job j, ");
-	query.append("problem p, OUTER(component_state cs, submission sbm, company_user_preference cup) ");
+	query.append("problem p, OUTER(component_state cs, OUTER( submission sbm)), OUTER(company_user_preference cup) ");
         query.append("where s.user_id = u.user_id ");
 	query.append("and sp.session_profile_id = s.session_profile_id ");
 	query.append("and e.user_id = u.user_id ");
