@@ -66,11 +66,11 @@
 <!-- OSS-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_11_06_03"><img src="/i/pressroom/att_logo.gif" alt="talbots" width="135" height="70" border="0" /></A></td>
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_11_06_03"><img src="/i/pressroom/att_logo.gif" alt="ATT" width="135" height="70" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_11_06_03">AT&amp;T Foundation to Sponsor TopCoder Charity Tournament</A></strong></font><br />
-                        Telecommunications Giant Supports Christopher Reeve Paralysis Foundation Via Programming Tournament.<span class="prHead">[November 6]</span></p>
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_11_06_03">AT&amp;T Foundation to Sponsor Charity Tournament</A></strong></font><br />
+                        Telecommunications Giant Supports Christopher Reeve Paralysis Foundation Via Programming Tournament.<span class="prHead">&#160;[November 6]</span></p>
 
                     </td>
                 </tr>
@@ -81,11 +81,11 @@
 <!-- OSS-->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_11_03_03"><img src="/i/pressroom/java_oss.gif" alt="talbots" width="135" height="70" border="0" /></A></td>
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_11_03_03"><img src="/i/pressroom/java_oss.gif" alt="OSS" width="135" height="70" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_11_03_03">TopCoder Teams with Telecom Leaders in OSS through Java&#153; Initiative</A></strong></font><br />
-                        Competitive Software Development Methodology Will Be a Part of Standards Development for Operational Support Systems.<span class="prHead">[November 3]</span></p>
+                        Competitive Software Development Methodology Will Be a Part of Standards Development for Operational Support Systems.<span class="prHead">&#160;[November 3]</span></p>
 
                     </td>
                 </tr>
@@ -100,7 +100,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="http://www.masshightech.com/displayarticledetail.asp?Art_ID=63819" target="_blank">A Call for Leadership</A></strong></font><br />
-                        "Does offshore development really reduce costs? Is this the future of IT? Will affirmative answers lead to more layoffs and reduced pay for American IT workers?" <span class="prHead">[October 20]</span></p>
+                        "Does offshore development really reduce costs? Is this the future of IT? Will affirmative answers lead to more layoffs and reduced pay for American IT workers?" <span class="prHead">&#160;[October 20]</span></p>
                         
                     </td>
                 </tr>
@@ -129,7 +129,7 @@
                     <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_10_14_03"><img src="/i/pressroom/talbots.gif" alt="talbots" width="135" height="70" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_10_14_03">Talbots Licenses Component Catalog From TopCoder Software</A></strong></font><br />
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_10_14_03">Talbots Licenses Component Catalog</A></strong></font><br />
                         TopCoder, Inc., the leader in on-line programming competition, skills assessment and competitive software development today announced 
                         that Talbots, a large clothing and specialty retailer, has subscribed to the TopCoder Software .NET Component Catalog. <span class="prHead">[October 14]</span></p>
 
