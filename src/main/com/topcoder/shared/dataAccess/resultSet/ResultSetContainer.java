@@ -368,6 +368,21 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         endRow = end;
     }
 
+    public ResultSetContainer(ResultSetContainer rs, ResultFilter f) {
+        this();
+        log.debug("ResultSetContainer(ResultSetContainer, ResultFilter) called...");
+        initializeMetaData(rs);
+
+        ResultSetRow rsr = null;
+        for (Iterator it = rs.iterator(); it.hasNext();) {
+            rsr = (ResultSetRow)it.next();
+            if (f.include(rsr)) {
+                addRow(rsr);
+            }
+        }
+        endRow = data.size();
+    }
+
 
     // Data item retrieval
     private TCResultItem getItem(ResultSet rs, int i) throws Exception {
@@ -650,6 +665,11 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         data.add(new ResultSetRow(ri));
     }
 
+    private void addRow(ResultSetRow rsr) {
+        data.add(rsr.clone());
+    }
+
+
     // Data addition routine, called from constructor only.
     private void addRowWithNulls(ResultSet rs) throws Exception {
         TCResultItem ri[] = new TCResultItem[columns.length];
@@ -696,6 +716,10 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             // Unlike ResultSets, column indices are zero-based.
             columnNameMap.put(colName, new Integer(i - 1));
         }
+    }
+
+    private void initializeMetaData(ResultSetContainer rs) {
+        System.arraycopy(rs.columns, 0, columns, 0, rs.columns.length);
     }
 
     /********************************************************************/
@@ -882,7 +906,7 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * This class is meant to be a container for specific rows of data.
      * It provides methods for getting specific elements out.
      */
-    public class ResultSetRow implements Cloneable, Serializable {
+    public class    ResultSetRow implements Cloneable, Serializable {
         private TCResultItem[] mtcItems;
 
         /**
