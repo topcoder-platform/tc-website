@@ -161,7 +161,7 @@ function getProblemDetail(id) {
                         <tr>
                             <td class="screeningCellOdd" align=right>Country:</td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=row%>" name="country" />
+                                <screen:resultSetItem row="<%=row%>" name="country_name" />
                             </td>
                         </tr>
                         </screen:resultSetRowIterator>
@@ -264,7 +264,9 @@ if ( MM_FlashCanPlay ) {
                </screen:resultSetRowIterator>
 
                 <tr>
-                    <td class="screeningCellEven" colspan="3" align=center><img src="/i/corp/addNoteButton.gif" border=0/></td>
+                    <td class="screeningCellEven" colspan="3" align=center>
+                       <a href=''><img src="/i/corp/addNoteButton.gif" border=0/></a>
+                    </td>
                 </tr>
             </table>
 
