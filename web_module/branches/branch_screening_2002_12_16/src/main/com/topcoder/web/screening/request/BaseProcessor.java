@@ -3,7 +3,7 @@ package com.topcoder.web.screening.request;
 import com.topcoder.web.common.RequestProcessor;
 
 import javax.servlet.ServletRequest;
-import javax.servlet.http.Cookie;
+import javax.servlet.ServletResponse;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -21,15 +21,15 @@ public abstract class BaseProcessor implements RequestProcessor {
     /** Holds value of property request. */
     private ServletRequest request;
     
-    /** Holds value of property cookies. */
-    private List cookies;
+    /** Holds value of property response. */
+    private ServletResponse response;
     
     /** Creates a new instance of BaseProcessor */
     public BaseProcessor() {
         nextPage = null;
         nextPageInContext = false;
         request = null;
-        cookies = new ArrayList();
+        response = null;
     }
     
     /** Performs the processing of the request.
@@ -79,18 +79,18 @@ public abstract class BaseProcessor implements RequestProcessor {
         this.request = request;
     }
     
-    /** Gets the list of cookies to be added to the servlet response.
-     * @return List containing Cookie objects.
+    /** Getter for property response.
+     * @return Value of property response.
      */
-    public List getCookies() {
-        return this.cookies;
+    protected ServletResponse getResponse() {
+        return this.response;
     }
     
-    /** Adds a cookie to the cookie list.
-     * @param cookie Cookie object to be added.
+    /** Setter for property response.
+     * @param request New value of property response.
      */
-    protected void addCookie(Cookie cookie) {
-        cookies.add(cookie);
+    public void setResponse(ServletResponse response) {
+        this.response = response;
     }
     
 }

@@ -1,6 +1,7 @@
 package com.topcoder.web.common;
 
 import javax.servlet.ServletRequest;
+import javax.servlet.ServletResponse;
 import java.util.List;
 
 /** Interface for classes that process a servlet request.
@@ -33,11 +34,9 @@ public interface RequestProcessor {
      */    
     public void setRequest(ServletRequest sr);
     
-    /** Gets a list of cookies that should be sent with the
-     * servlet's response.
-     * @return A List containing Cookie objects to be added to
-     * the ServletResponse.
+    /** Sets the response object that will be used to respond to the request.
+     * @param sr The ServletResponse object to be used.
      */    
-    public List getCookies();
+    public void setResponse(ServletResponse sr);
     
 }
