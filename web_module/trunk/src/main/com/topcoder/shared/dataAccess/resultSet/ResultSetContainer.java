@@ -1362,6 +1362,19 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
         return this.getRow(iRow).getItem(iCol);
     }
 
+    public long getLongItem(int iRow, int iCol) {
+        return this.getRow(iRow).getLongItem(iCol);
+    }
+
+    public int getIntItem(int iRow, int iCol) {
+        return this.getRow(iRow).getIntItem(iCol);
+    }
+
+    public String getStringItem(int iRow, int iCol) {
+        return this.getRow(iRow).getStringItem(iCol);
+    }
+
+
     /**
      * Returns the item at the specified location
      *
@@ -1370,10 +1383,19 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
      * @return  The specified item
      */
     public TCResultItem getItem(int iRow, String sCol) {
-        if (!isValidColumn(sCol))
-            throw new IllegalArgumentException("Column name " + sCol + " is not valid");
-        int iCol = getColumnIndex(sCol);
-        return this.getItem(iRow, iCol);
+        return this.getItem(iRow, sCol);
+    }
+
+    public int getIntItem(int iRow, String sCol) {
+        return this.getIntItem(iRow, sCol);
+    }
+
+    public long getLongItem(int iRow, String sCol) {
+        return this.getLongItem(iRow, sCol);
+    }
+
+    public String getStringItem(int iRow, String sCol) {
+        return this.getStringItem(iRow, sCol);
     }
 
     /**
