@@ -37,6 +37,7 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.COMMAND_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandTask" property="CommandId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_COMMAND_NAME%></TD></TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandTask%>" key="<%=Constants.COMMAND_DESC_PARAM%>"/></TD></TR>
             <TR>

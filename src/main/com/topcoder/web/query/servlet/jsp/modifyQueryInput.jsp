@@ -29,7 +29,7 @@
           </query:linkIterator>
         </TABLE>
       </TD>
-      <TD WIDTH="4" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
+      <TD WIDTH="4" BGCOLOR="#333333" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" VALIGN="top" ALIGN="left">
         <TABLE WIDTH="80%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="ModifyQueryInputTask" property="ServletPath"/>" method="post" name="ModQueryInputForm" >
@@ -38,6 +38,7 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryInputTask" property="Db"/>">            <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_INPUT_NAME%></TD></TR>
             <TR><TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">Query: <jsp:getProperty name="ModifyQueryInputTask" property="QueryName"/></TD></TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="center" COLSPAN="2">DB: <jsp:getProperty name="ModifyQueryInputTask" property="Db"/></TD>
             </TR>

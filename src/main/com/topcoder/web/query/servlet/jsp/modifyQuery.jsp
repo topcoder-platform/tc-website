@@ -29,13 +29,14 @@
           </query:linkIterator>
         </TABLE>
       </TD>
-      <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
+      <TD WIDTH="4" BGCOLOR="#333333" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <FORM ACTION="<jsp:getProperty name="ModifyQueryTask" property="ServletPath"/>" method="post" name="ModQueryForm" >
             <INPUT TYPE="hidden" NAME="<%=Constants.TASK_PARAM%>" VALUE="<%=Constants.MODIFY_QUERY_TASK%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.QUERY_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyQueryTask" property="QueryId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.MODIFY_QUERY_NAME%></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Name: </TD>

@@ -28,10 +28,11 @@
           </query:linkIterator>
         </TABLE>
       </TD>
-      <TD WIDTH="4" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
+      <TD WIDTH="4" BGCOLOR="#333333" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD>
       <TD CLASS="statText" WIDTH="100%" BGCOLOR="#000000" VALIGN="top">
         <TABLE WIDTH="60%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
           <TR><TD CLASS="statTextBig" COLSPAN="2"><%=Constants.COMMAND_DETAIL_NAME%></TD></TR>
+          <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">Command: <jsp:getProperty name="CommandDetailTask" property="CommandDesc"/></TD></TR>
           <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="statText" COLSPAN="2" ALIGN="center">
