@@ -6,8 +6,6 @@
 
 <jsp:include page="../../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
-
 <% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 

@@ -6,7 +6,6 @@
 
 <jsp:include page="../../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <SCRIPT LANGUAGE="JavaScript">
