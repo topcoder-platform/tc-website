@@ -174,7 +174,7 @@ public class TransactionServlet extends HttpServlet {
                        are not authorized to access, send them to login page.    */
                     log.debug("user unauthorized to access resource and user " +
                             "not logged in, forwarding to login page.");
-                    fetchLoginPage(req, resp, auth);
+                    fetchLoginPage(req, resp);
                     return;
                 } else {
                     /* If the user is logged-in and is not authorized to access
@@ -270,7 +270,7 @@ public class TransactionServlet extends HttpServlet {
                        are not authorized to access, send them to login page.    */
                     log.debug("user unauthorized to access resource and user " +
                             "not logged in, forwarding to login page.");
-                    fetchLoginPage(req, resp, auth);
+                    fetchLoginPage(req, resp);
                     return;
                 } else {
                     /* If the user is logged-in and is not authorized to access
@@ -356,8 +356,10 @@ public class TransactionServlet extends HttpServlet {
         TransactionInfo txInfo = buildTransactionInfo(req, resp);
         InitialContext ic = (InitialContext) TCContext.getInitial();
         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
-            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), Constants.GENERAL_PRODUCT_TERMS_ID);
+        Product product = ((ProductHome) ic.lookup(ProductHome.EJB_REF_NAME)).create();
+        long termsId = product.getTermsOfUseId(txInfo.getProductID());
+        if (!userTerms.hasTermsOfUse(txInfo.getBuyerID(), termsId)) {
+            userTerms.createUserTermsOfUse(txInfo.getBuyerID(), termsId);
         }
         txInfo.setAgreed(true);
         req.setAttribute(Constants.KEY_CCTX_SUM, "" + (txInfo.getCost()));
@@ -488,9 +490,11 @@ public class TransactionServlet extends HttpServlet {
         TransactionInfo txInfo = new TransactionInfo(req, resp);
         InitialContext ic = (InitialContext) TCContext.getInitial();
         TermsOfUse terms = ((TermsOfUseHome) ic.lookup("corp:"+TermsOfUseHome.EJB_REF_NAME)).create();
-        txInfo.setTerms(terms.getText(Constants.GENERAL_PRODUCT_TERMS_ID));
+        Product product = ((ProductHome) ic.lookup(ProductHome.EJB_REF_NAME)).create();
+        long termsId = product.getTermsOfUseId(txInfo.getProductID());
+        txInfo.setTerms(terms.getText(termsId));
         UserTermsOfUse userTerms = ((UserTermsOfUseHome) ic.lookup("corp:"+UserTermsOfUseHome.EJB_REF_NAME)).create();
-        if (userTerms.hasTermsOfUse(txInfo.getBuyerID(), Constants.GENERAL_PRODUCT_TERMS_ID)) {
+        if (userTerms.hasTermsOfUse(txInfo.getBuyerID(), termsId)) {
             txInfo.setAgreed(true);
         } else {
             txInfo.setAgreed(false);
@@ -590,24 +594,8 @@ public class TransactionServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    private void fetchLoginPage(HttpServletRequest request,HttpServletResponse response,WebAuthentication authToken)
+    private void fetchLoginPage(HttpServletRequest request,HttpServletResponse response)
             throws ServletException, IOException {
-/*
-        request.setAttribute("message", "In order to continue, you must provide your user name and "+
-                "password, even if you’ve logged in already.");
-        log.debug("login nextpage will be: " + HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
-        request.setAttribute(Login.KEY_DESTINATION_PAGE, HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
-        Login l = new Login();
-        l.setRequest(request);
-        l.setAuthentication(authToken);
-        try {
-            l.process();
-        } catch (Exception e) {
-            fetchErrorPage(request, response, errorPageSecurity, e);
-        }
-        boolean forward = l.isNextPageInContext();
-        String destination = l.getNextPage();
-*/
         request.setAttribute("message", "In order to continue, you must provide your user name " +
                 "and password, even if you’ve logged in already.");
         request.setAttribute(Login.KEY_DESTINATION_PAGE,

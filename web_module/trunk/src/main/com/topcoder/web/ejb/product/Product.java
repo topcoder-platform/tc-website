@@ -28,6 +28,11 @@ public interface Product extends EJBObject {
      */
     float getCost(long productId) throws RemoteException, EJBException;
 
+    /**
+     * @see com.topcoder.web.ejb.product.ProductBean#getTermsOfUseId
+     */
+    long getTermsOfUseId(long productId) throws RemoteException, EJBException;
+
 
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#setProductDesc
@@ -39,6 +44,12 @@ public interface Product extends EJBObject {
      * @see com.topcoder.web.ejb.product.ProductBean#setCost
      */
     void setCost(long productId, float cost) throws RemoteException, EJBException;
+
+    /**
+     * @see com.topcoder.web.ejb.product.ProductBean#setCost
+     */
+    void setTermsOfUseId(long productId, long termsOfUseId) throws RemoteException, EJBException;
+
 
     /**
      * by djFD 19/03/2002

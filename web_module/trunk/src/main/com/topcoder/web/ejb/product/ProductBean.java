@@ -275,6 +275,85 @@ public class ProductBean implements SessionBean {
         return (ret);
     }
 
+
+    /**
+     *
+     *
+     * @param productId product ID of the entry
+     *
+     * @return a long with the terms of use id associated with this product
+     */
+    public long getTermsOfUseId(long productId) {
+        log.debug("getTermsOfUseId called...product_id: " + productId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+        DataSource ds = null;
+        long ret = 0;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("SELECT terms_of_use_id FROM product " +
+                    "WHERE product_id = ?");
+            ps.setLong(1, productId);
+
+            rs = ps.executeQuery();
+
+            if (rs.next())
+                ret = rs.getLong("terms_of_use_id");
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true,sqe);
+            throw new EJBException("SQLException getting terms of use id");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting terms of use id");
+        } catch (Exception e) {
+            throw new EJBException("Exception getting terms of use id\n" +
+                    e.getMessage());
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet in getTermsOfUseId");
+                }
+            }
+
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in getTermsOfUseId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in getTermsOfUseId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in getTermsOfUseId");
+                }
+            }
+        }
+
+        return (ret);
+    }
+
+
+
     /**
      *
      *
@@ -411,6 +490,75 @@ public class ProductBean implements SessionBean {
             }
         }
     }
+
+    /**
+     *
+     *
+     * @param productId product ID of entry to set
+     * @param termsOfUseId the id of the terms of use entry associated with this product
+     */
+    public void setTermsOfUseId(long productId, long termsOfUseId) {
+        log.debug("setTermsOfUseId called...productId: " + productId + "terms of use id: " +
+                termsOfUseId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+            ds = (DataSource) ctx.lookup((String) ctx.lookup(
+                    "java:comp/env/datasource_name"));
+            conn = ds.getConnection();
+
+            ps = conn.prepareStatement("UPDATE product SET terms_of_use_id = ? " +
+                    "WHERE product_id = ?");
+            ps.setLong(1, termsOfUseId);
+            ps.setLong(2, productId);
+
+            int rows = ps.executeUpdate();
+
+            if (rows != 1)
+                throw new EJBException("Wrong cost of rows in update: " +
+                        rows);
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(
+                    true,
+                    sqe);
+            throw new EJBException("SQLException updating termsOfUseIdt");
+        } catch (NamingException e) {
+            throw new EJBException("NamingException updating termsOfUseId");
+        } catch (Exception e) {
+            throw new EJBException("Exception updating termsOfUseId\n" +
+                    e.getMessage());
+        } finally {
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement in setTermsOfUseId");
+                }
+            }
+
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection in setTermsOfUseId");
+                }
+            }
+
+            if (ctx != null) {
+                try {
+                    ctx.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Context in setTermsOfUseId");
+                }
+            }
+        }
+    }
+
 
     //required ejb methods
     public void ejbActivate() {
