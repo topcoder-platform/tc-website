@@ -124,7 +124,6 @@
                                                         <br/>
                                                         Compensation for the winning solution is distributed in two installments.
                                                         <br/>
-                                                        <br/>
                                                         &#160;&#160;&#160;&#160;&#160;<strong>First Payment:</strong>
                                                         <br/>
                                                         &#160;&#160;&#160;&#160;&#160;When the winning solution is submitted and review board suggestions are integrated.
