@@ -50,7 +50,7 @@
 	<xsl:with-param name="image">development</xsl:with-param>
 	<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
 </xsl:call-template>
-				
+
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr>
 					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
@@ -59,7 +59,8 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>String Class: Development</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String%20Class:%20Development&amp;comp=3501906&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						<p>
+						<a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=String%20Class:%20Development&amp;comp=3501906&amp;date=2&#47;6" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
