@@ -18,7 +18,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Processes the coder demographics task.
+ *
  * @author  George Dean
  */
 public class CoderDemographicsTask extends BaseTask implements Task, Serializable {
@@ -30,11 +30,14 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
     private int jid;
     private int mid;
 
-    /** Holds a List of ResultSetRows containing demographic questions and the coder's responses. */
+    /** Holds value of property questionList. */
     private List questionList;
 
-    /** Holds the coder's handle. */
+    /** Holds value of property handle. */
     private String handle;
+
+    /* Indicates whether the coder is ranked in competition */
+    private boolean isRanked;
 
     /** Creates new CoderDemographicsTask */
     public CoderDemographicsTask() {
@@ -44,11 +47,6 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         uid=-1;
     }
 
-    /** Performs pre-processing for the task.
-     * @param request The servlet request object.
-     * @param response The servlet response object.
-     * @throws Exception
-     */    
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -62,15 +60,31 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         uid = Authentication.userLoggedIn(session);
     }
 
-    /** Processes the given step or phase of the task.
-     * @param step The step to be processed.
-     * @throws Exception
-     */    
     public void processStep(String step) throws Exception {
         viewCoderDemographics();
     }
 
-    private void viewCoderDemographics() throws Exception {
+    public void viewCoderDemographics() throws Exception {
+
+
+        /* we're just running this one so we can figure out if this member
+         * is ranked or not.  could be done more efficiently...obviously TODO
+         */
+        Request dwDataRequest = new Request();
+        dwDataRequest.setContentHandle("tces_member_profile");
+        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()) );
+        DataAccessInt dw = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
+        Map dwResultMap = dw.getData(dwDataRequest);
+        ResultSetContainer dwRSC = null;
+        dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats"); 
+        if (dwRSC.getRowCount() > 0) {
+            setIsRanked(true);
+        } else {
+            setIsRanked(false);
+        }
+
+
+
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_member_demographics");
 
@@ -117,10 +131,6 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         setNextPage( TCESConstants.CODER_DEMOGRAPHICS_PAGE );
     }
 
-    /** Sets attributes for the task.
-     * @param paramName The name of the attribute being set.
-     * @param paramValues The values to be associated with the given attribute.
-     */    
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
@@ -203,4 +213,18 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         this.handle = handle;
     }
 
+    /** Getter for property isRanked.
+     * @return Value of property isRanked
+     */
+    public boolean getIsRanked() {
+        return isRanked;
+    }
+
+    /** Setter for property isRanked.
+     * @param isRanked New value of property isRanked.
+     */
+    public void setIsRanked(boolean isRanked) {
+        this.isRanked=isRanked;
+    }
 }
+
