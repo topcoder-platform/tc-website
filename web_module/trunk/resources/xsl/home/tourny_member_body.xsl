@@ -513,7 +513,7 @@ Division-II was dominated by <B>Pernick</B>, who happened to be a rookie. <B>Per
 coders in Division-II to get the Level 3 problem correct, and his score of 1214.52 was 70 points higher 
 than the next highest score in Division-II. <B>Pernick</B>'s initial rating of 1800 also ties him for 24th 
 in the list of <A CLASS="bodyGeneric">
-        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?c=impressive_debuts</xsl:attribute>highest rating debuts</A>...<A CLASS="bodyGeneric">
+        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=impressive_debuts</xsl:attribute>highest rating debuts</A>...<A CLASS="bodyGeneric">
         <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm105_prob</xsl:attribute>get&#160;analysis
       </A>
     </TD>
