@@ -90,14 +90,13 @@ public class EmailInfo extends BaseModel {
         if(sessionInfo == null) return null;
         SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy hh:mm aa");
         StringBuffer msgText = new StringBuffer(1000);
-        msgText.append("Dear Candidate:\n");
         msgText.append("Thank you for your interest in working at ");
         msgText.append(companyName);
         msgText.append(".  We would like you to participate in the next stage of our screening ");
         msgText.append("process - the Private Candidate Testing Application powered by TopCoder.  ");
         msgText.append("Through this Testing Application, you will be asked to solve algorithmic ");
-        msgText.append("problems as an objective measure of your programming ability, then compared ");
-        msgText.append("to other candidates being evaluated for the same position.\n");
+        msgText.append("problems as an objective measure of your programming ability. Your results ");
+        msgText.append("will then be compared to other candidates being evaluated for the same position.\n");
         msgText.append("\n");
         msgText.append("Please review the Help Manual before getting started: ");
         msgText.append("******<URL to online help manual> OR attached Word document*******\n");
