@@ -95,6 +95,13 @@
                 <tr>
                     <td colspan="6" class="tcoHeader"><a name="design"></a>2003 TopCoder Open Component Design Projects</td>
                 </tr>
+                <tr>
+                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
+                    <td class="bodyText" colspan="6">
+                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> 
+                        in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
+                    </td>
+                </tr>
 
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" width="30%" class="statTextLarge">Design Projects</td>
@@ -148,7 +155,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>The 2003 TCO Component Design Competition begins on 9/4/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>Round 2 of the 2003 TCO Component Design Competition begins on 10/9/2003</strong></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
@@ -217,7 +224,7 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>The 2003 TCO Component Development Competition begins on 9/2/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>Round 2 of the 2003 TCO Component Development Competition begins on 10/7/2003</strong></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
                             <td class="formTextOdd" align="center"></td>
@@ -233,13 +240,6 @@
 <!-- TCO Development Ends -->
 
 <!-- Open Component Design Projects begins -->
-                <tr>
-                    <xsl:variable name="priceFormat" select="'$###,###.00'" />
-                    <td class="bodyText" colspan="6">
-                        <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> 
-                        in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
-                    </td>
-                </tr>
 
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" border="0" /></td></tr>
                 
