@@ -23,12 +23,12 @@
 <!-- Menu bar begins here -->
 <table width="100%" border="0" cellpadding="0" cellspacing="0" id="testTop">
    <tr valign="middle">
-      <td width="15">&#160;</td>
+      <td width="15"><a class="testTopNav" href="#">&#160;</a></td>
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="PopulateSession" styleclass="testTopNav">Create a New Session</screen:servletLink></td>
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="ProfileList" styleclass="testTopNav">Test Profiles</screen:servletLink></td> 
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="ProblemList" styleclass="testTopNav">Problem Sets</screen:servletLink></td>
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="BuildCandidateList" styleclass="testTopNav">Candidates</screen:servletLink></td>          
-      <td width="100%"><img src="/i/ev/clear.gif" width="1" height="20" border="0"/></td>  
+      <td width="100%"><a class="testTopNav" href="#"><div align="right">&#160;</div></a></td>  
    </tr>
 </table>
 <!-- Menu bar ends here -->
