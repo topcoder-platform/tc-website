@@ -135,8 +135,9 @@ DATE<BR/>
   <%
       currentRow = percents.getRow(currentRowPtr);
       int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
-      for(;currentRowPtr<percents.size()&&Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID;
-          currentRow = percents.getRow(currentRowPtr++)){
+      while(currentRowPtr<percents.size() &&
+              Integer.parseInt((currentRow = percents.getRow(currentRowPtr)).getItem("division_id").toString())==currentDivID){
+        currentRowPtr++;
         String problemLevel = currentRow.getItem("problem_level").toString();
         String problemName = currentRow.getItem("problem_name").toString();
         int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
