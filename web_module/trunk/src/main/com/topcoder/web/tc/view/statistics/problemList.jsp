@@ -2,7 +2,8 @@
   language="java"
   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
           java.util.Map,
-          com.topcoder.web.tc.Constants"
+          com.topcoder.web.tc.Constants,
+          com.topcoder.web.common.StringUtils"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
@@ -12,11 +13,15 @@
   function next() {
     document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()+Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
     document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()+Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
+    document.problemListForm.<%=DataAccessConstants.SORT_COLUMN%>.value=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>;
+    document.problemListForm.<%=DataAccessConstants.SORT_DIRECTION%>.value=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>;
     document.problemListForm.submit();
   }
   function previous() {
     document.problemListForm.<%=DataAccessConstants.START_RANK%>.value=<%=rsc.getStartRow()-Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
     document.problemListForm.<%=DataAccessConstants.END_RANK%>.value=<%=rsc.getEndRow()-Constants.PROBLEM_ARCHIVE_SCROLL_SIZE%>;
+    document.problemListForm.<%=DataAccessConstants.SORT_COLUMN%>.value=<%=request.getParameter(DataAccessConstants.SORT_COLUMN)%>;
+    document.problemListForm.<%=DataAccessConstants.SORT_DIRECTION%>.value=<%=request.getParameter(DataAccessConstants.SORT_DIRECTION)%>;
     document.problemListForm.submit();
   }
 //--></script>
@@ -60,6 +65,8 @@
                <input type="hidden" name="module" value="ProblemArchive"/>
                <input type="hidden" name="<%=DataAccessConstants.START_RANK%>" value=""/>
                <input type="hidden" name="<%=DataAccessConstants.END_RANK%>" value=""/>
+               <input type="hidden" name="<%=DataAccessConstants.SORT_COLUMN%>" value=""/>
+               <input type="hidden" name="<%=DataAccessConstants.SORT_DIRECTION%>" value=""/>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="9"><%=(rsc.croppedDataBefore()?"<a href=\"Javascript:previous()\" class=\"statText\">&lt;&lt; prev</a>":"&lt;&lt; prev")%>
