@@ -171,7 +171,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                             
                         <table cellspacing=0 align=center width="100%">
                             <tr>
-                                <td class="leaderTitle" colspan="2">Current Leaders</td>
+                                <td class="leaderTitle" colspan="2" nowrap=nowrap>Current Leaders</td>
                             </tr>
                             <tr>
                                 <td class="leaderHeader">Name</td>
@@ -193,7 +193,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
 
                         <table cellspacing=0 align=center width="100%">
                             <tr>
-                                <td class="leaderTitle" colspan="2">Recent Submissions</td>
+                                <td class="leaderTitle" colspan="2" nowrap=nowrap>Recent Submissions</td>
                             </tr>
                             <tr>
                                 <td class="leaderHeader">Name</td>
@@ -213,7 +213,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                     <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
                         <table cellspacing=0 align=center width="100%">
                             <tr>
-                                <td class="leaderTitle" colspan="2">Current Leaders</td>
+                                <td class="leaderTitle" colspan="2" nowrap=nowrap>Current Leaders</td>
                             </tr>
                             <tr>
                                 <td class="leaderHeader">Name</td>
@@ -235,7 +235,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                     <td valign=top class="leaderParentR" style="border-collapse: collapse" width="25%">
                         <table cellspacing=0 align=center width="100%">
                             <tr>
-                                <td class="leaderTitle" colspan="2">Recent Submissions</td>
+                                <td class="leaderTitle" colspan="2" nowrap=nowrap>Recent Submissions</td>
                             </tr>
                             <tr>
                                 <td class="leaderHeader">Name</td>
