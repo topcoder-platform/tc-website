@@ -22,14 +22,14 @@
 <script language="javascript">
 <!--
     function sort(i){
-        document.revise['module'] = 'LegacyReport';
-        document.revise['t'] = 'profile_search';
-        document.revise['order'] = i;
+        document.revise['module'].value = 'LegacyReport';
+        document.revise['t'].value = 'profile_search';
+        document.revise['order'].value = i;
         document.revise.submit();
     }
     function revise(){
-        document.revise['module'] = 'LegacyReport';
-        document.revise['t'] = 'profile_search';
+        document.revise['module'].value = 'LegacyReport';
+        document.revise['t'].value = 'profile_search';
         document.revise.submit();
     }
     -->
