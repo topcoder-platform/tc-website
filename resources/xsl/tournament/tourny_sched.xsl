@@ -77,20 +77,20 @@
                         &#160;&#160;&#160;&#160;(raindate: Thursday, Feb. 28 @ 10pm EST)<BR/>
 -->
                       </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig">Seed Update</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se32" CLASS="statTextBig">Seed Update</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_w32" CLASS="statTextBig">Seed Update</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_mw32" CLASS="statTextBig">Seed Update</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne32" CLASS="statTextBig">Seed Update</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se32" CLASS="statTextBig">Seed Update</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_w32" CLASS="statTextBig">Seed Update</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_mw32" CLASS="statTextBig">Seed Update</A></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" WIDTH="26%" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig">NE</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig">SE</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_w" CLASS="statTextBig">W</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_mw" CLASS="statTextBig">MW</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig">NE</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se" CLASS="statTextBig">SE</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_w" CLASS="statTextBig">W</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_mw" CLASS="statTextBig">MW</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">512</TD>
@@ -115,18 +115,18 @@
                     </TR>
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Top-10 Winners&#160;</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_ne" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_se" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_w" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_mw" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_ne" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_se" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_w" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_mw" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Summary&#160;</TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=tccc02_nese1_summary" CLASS="statTextBig">NE/SE</A></TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=tccc02_wmw1_summary" CLASS="statTextBig">W/MW</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=tccc02_nese1_summary" CLASS="statTextBig">NE/SE</A></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=tccc02_wmw1_summary" CLASS="statTextBig">W/MW</A></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -148,20 +148,20 @@
                     </TR>                    
                     <TR>
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">&#160;&#160;Regional Semifinals</TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig">Seed Update</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig">Seed Update</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_w" CLASS="statTextBig">Seed Update</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_mw" CLASS="statTextBig">Seed Update</A></TD> 
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig">Seed Update</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se" CLASS="statTextBig">Seed Update</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_w" CLASS="statTextBig">Seed Update</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_mw" CLASS="statTextBig">Seed Update</A></TD> 
                     </TR>                    
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" WIDTH="26%" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig">NE</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig">SE</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_w" CLASS="statTextBig">W</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_mw" CLASS="statTextBig">MW</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig">NE</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se" CLASS="statTextBig">SE</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_w" CLASS="statTextBig">W</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_mw" CLASS="statTextBig">MW</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">128</TD>
@@ -186,17 +186,17 @@
                     </TR>
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Room Winners&#160;</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=top_10_wins_regions" CLASS="statTextBig"><IMG SRC="/i/arrow_white.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></A></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_blue_bg.gif">Summary&#160;</TD>
-                      <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=statistics&amp;c=tccc02_regional_semi" CLASS="statTextBig">All Regions</A></TD>
+                      <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="statText"><A HREF="/index?t=tournament&amp;c=tccc02_regional_semi" CLASS="statTextBig">All Regions</A></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -223,10 +223,10 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" WIDTH="26%" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig">NE</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig">SE</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_w" CLASS="statTextBig">W</A></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_mw" CLASS="statTextBig">MW</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig">NE</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se" CLASS="statTextBig">SE</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_w" CLASS="statTextBig">W</A></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_mw" CLASS="statTextBig">MW</A></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">32</TD>

@@ -72,7 +72,7 @@
 			<xsl:when test="/TC/Command='2002sun_semi'">orangebv_bg</xsl:when>
 			<xsl:when test="/TC/Command='2002sun_champ'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	
-		<A HREF="/index?t=schedule&amp;c=2002sun_sched" CLASS="statTextBig">Round Updates/Schedule</A></TD>
+		<A HREF="/index?t=tournament&amp;c=2002sun_sched" CLASS="statTextBig">Round Updates/Schedule</A></TD>
 	  </TR>
     </TABLE>
 

@@ -70,7 +70,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
           
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
             <!-- <TR>
-              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
             </TR> -->          
             <TR>
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Semifinal Room 4 Summary</TD>
@@ -87,9 +87,9 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 Friday, April 19, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 </P>
-<!-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A>
+<!-- <A HREF="/index?t=tournament&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A>
 <IMG SRC="/i/2002tccc/tourney_photo2.jpg" ALT="" WIDTH="200" HEIGHT="450" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 <IMG SRC="/i/2002tccc/coder_quote2.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/> -->
 
@@ -99,51 +99,51 @@ Three is a very popular number in the 2002 Sun Microsystems and TopCoder Collegi
 It was easy to determine that out of the 16 semifinalists, there were three competitors each 
 <IMG SRC="/i/2002tccc/coder_quote5.gif" ALT="" WIDTH="140" HEIGHT="140" ALIGN="right" HSPACE="10" VSPACE="3" BORDER="0"/>
 from Stanford University and the California Institute of Technology.  Through the first three 
-rounds, one student each from those schools, <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> from Cal Tech and <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> from Stanford, 
+rounds, one student each from those schools, <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> from Cal Tech and <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> from Stanford, 
 has advanced to the finals.  What wasn't common knowledge, however, was that there was another 
 group of three involved in the tournament, the contingent from the state of Michigan.  
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> is a student at the University of Michigan, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> is a Michigan resident, 
-and the 6pm round winner, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, is a student at Michigan Tech.  Following the pattern 
-set by <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, who were the one member of their groups of three to advance 
-to the finals, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> seemed destined to make the finals, after <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> were 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> is a student at the University of Michigan, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> is a Michigan resident, 
+and the 6pm round winner, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, is a student at Michigan Tech.  Following the pattern 
+set by <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> and <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A>, who were the one member of their groups of three to advance 
+to the finals, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> seemed destined to make the finals, after <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> were 
 eliminated earlier in the day.
 </P>
 
 <P>
-The 6pm round turned out to be the closest match of the day, with <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> surviving the 
+The 6pm round turned out to be the closest match of the day, with <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> surviving the 
 failure of his Level One and Two problems to advance to the finals with 510.29 final 
-points.  <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, who was the second seed in the MidWest at the beginning of the Collegiate 
+points.  <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, who was the second seed in the MidWest at the beginning of the Collegiate 
 Challenge, is the only finalist who is not from the West Region.
 </P>
 
 <P>
-"Surprised and ecstatic" were the first words <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> used when asked to describe how he felt 
-about advancing to the finals.  "However, I am a little nervous about the finals," added <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>.  
-"Matching up against the likes of TopCoder veterans <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> will be quite a challenge."
+"Surprised and ecstatic" were the first words <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> used when asked to describe how he felt 
+about advancing to the finals.  "However, I am a little nervous about the finals," added <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>.  
+"Matching up against the likes of TopCoder veterans <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#malpt" CLASS="bodyGeneric">malpt</A> will be quite a challenge."
 </P>
 
 <P>
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
 the Northeast Regional Champion, actually would have won the match 
 had he not attempted an ill-fated challenge.  Entering the "Challenge Phase" with 
 525.69 points from his Level One and Two submissions, which would eventually pass the 
-system test, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> 
-attempted to challenge the Level One submission of <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, which he 
-noticed had been submitted with only seconds left in the "Coding Phase".  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> 
+system test, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> 
+attempted to challenge the Level One submission of <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, which he 
+noticed had been submitted with only seconds left in the "Coding Phase".  <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> 
 ended up being unsuccessful in his challenge, thereby losing 50 points.  That one move 
-has cost <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> anywhere from $4,000 to $99,000 he could have additionally won in the 
-finals, since the Level One and Two submissions of <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> ended up failing the system test, 
+has cost <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> anywhere from $4,000 to $99,000 he could have additionally won in the 
+finals, since the Level One and Two submissions of <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> ended up failing the system test, 
 leaving him with just the 510.29 points he earned on the Level Three problem.  Had 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> not challenged the Level One submission of <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, he would have won the room 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> not challenged the Level One submission of <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, he would have won the room 
 by 15.40 points, 525.69 to 510.29.  Instead of advancing to the finals, 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> 
-finished third with 475.60 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Wasteland" CLASS="bodyGeneric">Wasteland</A> successfully coded the Level One and 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A> 
+finished third with 475.60 points.  <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Wasteland" CLASS="bodyGeneric">Wasteland</A> successfully coded the Level One and 
 Two problems for 489.35 points and a second place finish, while evd earned 449.66 
 points, also from successfully coding the Level One and Two problems. 
 </P>
 
 <P>
-"I thought there was a bug and thought it was a good idea at the time," said <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
+"I thought there was a bug and thought it was a good idea at the time," said <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
 when asked about his unsuccessful challenge.   "Looking at it now, I see that I didn't 
 need to do anything."
 </P>
@@ -222,7 +222,7 @@ need to do anything."
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+<!-- <A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
 <!-- Right Column Include Ends -->        

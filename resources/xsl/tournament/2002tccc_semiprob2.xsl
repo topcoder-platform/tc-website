@@ -145,7 +145,7 @@ Level Three (1000) - <A HREF="/i/2002tccc/Cubes_1000.pdf" CLASS="bodyText">Cubes
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+<!-- <A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
 <!-- Right Column Include Ends -->        

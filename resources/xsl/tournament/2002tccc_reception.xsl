@@ -70,7 +70,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
           
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
             <!-- <TR>
-              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
             </TR> -->          
             <TR>
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Reception Summary</TD>
@@ -97,46 +97,46 @@ pleasantries will most likely turn to game-faces and trash talking.
 </P>
 
 <P>
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, the Southeast Regional champion, and 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, the Southeast Regional champion, and 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>, 
 the Northeast Regional champion, were the first coders 
 to arrive, and both are looking to make amends for lackluster performances as semifinalists in the 2001 TopCoder 
 Invitational.  "We call ourselves members of the Zero Club," said 
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, 
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#ColinMacLeod" CLASS="bodyGeneric">ColinMacLeod</A>, 
 referring to the fact that they both 
 failed to earn any points and finished last in their rooms at the Invitational.  "We can't do any worse," added 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>.  
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ZorbaTHut" CLASS="bodyGeneric">ZorbaTHut</A>.  
 </P>
 
 <P>
 Two other returning semifinalists from the Invitational, 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> and 
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A>, are both battling physical ailments.  
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> and 
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A>, are both battling physical ailments.  
 "I've been sick this whole week and my contacts are bothering me," said 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>.  "I'm mentally prepared, however, 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>.  "I'm mentally prepared, however, 
 and I think the competition in my room is easier than in the Invitational."  
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> was a no-show at the reception 
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#milhouse" CLASS="bodyGeneric">milhouse</A> was a no-show at the reception 
 and unavailable for comment.  The word on the street is that he is suffering from food poisoning...will he show?
 </P>
 
 <P>
-First-time semifinalists <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>, 
+First-time semifinalists <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> and <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>, 
 the MidWest Regional champion, were surprisingly confident in 
 their chances to win.  "I know that a lot of people will be watching, but I'm just going to block them out and get 
-into a zone," said <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> is feeling rather optimistic 
+into a zone," said <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A> is feeling rather optimistic 
 based on his success in the most recent Single Round Match.  
 "I won Room 3 on Monday, so my confidence is definitely high."   While 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> is as sanguine as 
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> and 
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A> is as sanguine as 
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> and 
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#Joe" CLASS="bodyGeneric">Joe</A>, 
 he plans on being careful as well.  "My strategy for the elimination rounds was to be cautious, rather than rush 
 and make mistakes, which is exactly what I plan to do on Friday."
 </P>
 
 <P>
-Tournament favorite <A HREF="/index?t=statistics&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> was 
+Tournament favorite <A HREF="/index?t=tournament&amp;c=2002tccc_favs#dmwright" CLASS="bodyGeneric">dmwright</A> was 
 one of the last participants to show up for the reception, perhaps trying to psych
  out his opponents.  Despite his tournament experience and success, however, he is still humbled by his competition.  
  "I'm sure everyone here has beaten me in a match before, so I have to make sure that I don't make the same mistakes 
@@ -205,7 +205,7 @@ one of the last participants to show up for the reception, perhaps trying to psy
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+<!-- <A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
 <!-- Right Column Include Ends -->        

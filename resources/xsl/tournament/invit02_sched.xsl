@@ -77,16 +77,16 @@
                         &#160;&#160;&#160;&#160;(raindate: Thursday, Feb. 28 @ 10pm EST)<BR/>
 -->
                       </TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig"></A>Part 1</TD>
-                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig"></A>Part 2</TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig"></A>Part 1</TD>
+                      <TD ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se" CLASS="statTextBig"></A>Part 2</TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">1,024</TD>
@@ -124,7 +124,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #2<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -164,7 +164,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #3<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -204,7 +204,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #4<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -258,10 +258,10 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" WIDTH="26%" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #1</FONT></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #2</FONT></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_w" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #3</FONT></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_mw" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #4</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #1</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #2</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_w" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #3</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_mw" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">Room #4</FONT></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">16</TD>
@@ -303,7 +303,7 @@
                     </TR>                    
                     <TR>
                       <TD ALIGN="right" VALIGN="middle" WIDTH="26%" HEIGHT="13" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><B>Total Competitors</B></TD>
-                      <TD COLSPAN="4" ALIGN="center" VALIGN="middle" WIDTH="74%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">1 Room</FONT></TD>
+                      <TD COLSPAN="4" ALIGN="center" VALIGN="middle" WIDTH="74%" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig"></A><FONT COLOR="#FFFFFF">1 Room</FONT></TD>
                     </TR>
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">4</TD>

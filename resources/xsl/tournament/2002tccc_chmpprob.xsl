@@ -64,17 +64,17 @@
 		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="70%" BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">TOURNAMENT LINKS:</TD> 
 		
-		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Brackets</A>&#160;&#160;</TD>
+		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=tournament&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Brackets</A>&#160;&#160;</TD>
 	</TR>                    
 	<TR>
     	<TD COLSPAN="3" VALIGN="top" BGCOLOR="#999999" WIDTH="100%" NOWRAP="0">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>					
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
-			 &#160;<A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A> | 
-			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A> | 			
-			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A> | 
-			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A> | 
+			 &#160;<A HREF="/index?t=tournament&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A> | 
+			 <A HREF="/index?t=tournament&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A> | 			
+			 <A HREF="/index?t=tournament&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A> | 
+			 <A HREF="/index?t=tournament&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A> | 
  			 <A CLASS="bodyText"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register Today!</A> |
 			 <A HREF="/index" CLASS="bodyText">TopCoder Home</A>
 			</TD>									
@@ -196,7 +196,7 @@ Level Three (1000) - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">Pla
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+<!-- <A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
 <!-- Right Column Include Ends -->        

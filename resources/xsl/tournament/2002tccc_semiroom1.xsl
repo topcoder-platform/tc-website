@@ -70,7 +70,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
           
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
             <!-- <TR>
-              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
+              <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
             </TR> -->          
             <TR>
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Semifinal Room 1 Summary</TD>
@@ -86,9 +86,9 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 Friday, April 19, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 </P>
-<!-- <A HREF="/index?t=statistics&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A> -->
+<!-- <A HREF="/index?t=tournament&amp;c=2002tccc_cind#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#" CLASS="bodyGeneric"></A>
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#" CLASS="bodyGeneric"></A> -->
 
 <P>
 While they yawned and wiped the sleep out from their eyes, the four coders in the 8am round of the 2002 Sun 
@@ -97,61 +97,61 @@ game, although the tension filled atmosphere provided as much passion as Game Se
 </P>
 
 <P>
-At about 9:50 am, everyone's eyes had cleared enough to see that Cal Tech's <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> had pulled off a huge 
+At about 9:50 am, everyone's eyes had cleared enough to see that Cal Tech's <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> had pulled off a huge 
 
-upset and advanced to Saturday's final with 600.27 final points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, who began the competition as 
-the 13th Seed in the West region, defeated <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+upset and advanced to Saturday's final with 600.27 final points.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, who began the competition as 
+the 13th Seed in the West region, defeated <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
  (466.07 final points), who was the top-seed in the 
-MidWest region and the Regional Champion, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> (180.11), the top-seed in Southeast region, and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> 
+MidWest region and the Regional Champion, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> (180.11), the top-seed in Southeast region, and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> 
 (93.30), the MidWest's second seed.
 </P>
 
 <P>
 The competition started with all four coders opening the Level One problem.  After compiling and testing 
-for over 20 minutes, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
-, followed minutes after by <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, stopped coding the Level One problem 
-and opened the Level Two problem.  "It was just too tedious," said <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  "I had already spent plenty 
-of time on it, and needed to move on."  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the first to submit code for the Level One problem, 
-and earned 180.11 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> stuck with the problem for a long time and ended up earning 140.90.
+for over 20 minutes, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+, followed minutes after by <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, stopped coding the Level One problem 
+and opened the Level Two problem.  "It was just too tedious," said <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  "I had already spent plenty 
+of time on it, and needed to move on."  <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the first to submit code for the Level One problem, 
+and earned 180.11 points.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> stuck with the problem for a long time and ended up earning 140.90.
 </P>
 
 <P>
-Following suit, everyone next opened, compiled and submitted the Level Two problem.  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the 
-quickest to submit and earned 476.36 points.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> was the fourth to open the problem, but earned 
-the second highest point total, 459.37.  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
- earned 416.07 and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> earned 407.77.
+Following suit, everyone next opened, compiled and submitted the Level Two problem.  <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the 
+quickest to submit and earned 476.36 points.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> was the fourth to open the problem, but earned 
+the second highest point total, 459.37.  <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+ earned 416.07 and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> earned 407.77.
 </P>
 
 <P>
-All four coders had enough time to open the Level Three problem, but only <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>, 491.61 points, 
-and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 483.41, were able to submit their codes before the "Coding Phase" ended.  As a matter 
-of fact, <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> submitted his Level Three code with just seconds remaining.
+All four coders had enough time to open the Level Three problem, but only <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>, 491.61 points, 
+and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 483.41, were able to submit their codes before the "Coding Phase" ended.  As a matter 
+of fact, <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> submitted his Level Three code with just seconds remaining.
 </P>
 
 <P>
-At the end of the "Coding Phase", <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> led with 1148.08 points.  He was followed by <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> 
-(984.48), <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> (600.27), and <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+At the end of the "Coding Phase", <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> led with 1148.08 points.  He was followed by <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> 
+(984.48), <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> (600.27), and <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
  (416.07).  
 </P>
 
 <P>
-Although there was a lot of activity during the "Challenge Phase", the <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+Although there was a lot of activity during the "Challenge Phase", the <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
  challenge of 
-the Level Two submission of <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the only success of the phase.  That challenge cost 
-<A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> the 466.07 points he earned on that problem, and caused him to drop to second place.  
-<A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> was the leader heading to the "System Test Phase".
+the Level Two submission of <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> was the only success of the phase.  That challenge cost 
+<A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> the 466.07 points he earned on that problem, and caused him to drop to second place.  
+<A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> was the leader heading to the "System Test Phase".
 </P>
 
 <P>
-The Level One submissions of <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>, and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> all passed the system test.  <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> 
-also had his Level Two submission pass, as did <A HREF="/index?t=statistics&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
-, but <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> failed.  <A HREF="/index?t=statistics&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> and <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 
+The Level One submissions of <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>, <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A>, and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> all passed the system test.  <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A> 
+also had his Level Two submission pass, as did <A HREF="/index?t=tournament&amp;c=2002tccc_favs#DjinnKahn" CLASS="bodyGeneric">DjinnKahn</A>
+, but <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A> failed.  <A HREF="/index?t=tournament&amp;c=2002tccc_favs#ambrose" CLASS="bodyGeneric">ambrose</A> and <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>, 
 the only two to submit code for the Level Three problem, saw their codes fail.  "I thought my Level 
-Two submission was right, but it ended up timing out," said <A HREF="/index?t=statistics&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  "I knew my Level Three submission was wrong."
+Two submission was right, but it ended up timing out," said <A HREF="/index?t=tournament&amp;c=2002tccc_eyeon#zoidal" CLASS="bodyGeneric">zoidal</A>.  "I knew my Level Three submission was wrong."
 </P>
 
 <P>
-"I feel great," said <A HREF="/index?t=statistics&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>.  "I brought my lap-top with me and last night went to the library 
+"I feel great," said <A HREF="/index?t=tournament&amp;c=2002tccc_cind#derkuci" CLASS="bodyGeneric">derkuci</A>.  "I brought my lap-top with me and last night went to the library 
 and practiced two problems in the TopCoder practice rooms.  I then got a good nights rest to sleep 
 off the jet lag.  I usually go to bed at 3 or 4am, but last night was in bed at 11pm."
 </P>
@@ -225,7 +225,7 @@ off the jet lag.  I usually go to bed at 3 or 4am, but last night was in bed at 
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
+<!-- <A HREF="/index?t=tournament&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
         <xsl:call-template name="public_right_col"/>        
 <!-- Right Column Include Ends -->        

@@ -58,12 +58,12 @@
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
                     <TR>
                       <TD COLSPAN="2" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Regional Championship Seeding</TD>
-                      <TD COLSPAN="2" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"><A HREF="/index?t=schedule&amp;c=tourny_regions_mw32" CLASS="statTextBig">View Semifinal Seeding</A><BR/><A HREF="/index?t=schedule&amp;c=tourny_regions_mw128" CLASS="statTextBig">View Quarter-Final Seeding</A></TD>
+                      <TD COLSPAN="2" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"><A HREF="/index?t=tournament&amp;c=tourny_regions_mw32" CLASS="statTextBig">View Semifinal Seeding</A><BR/><A HREF="/index?t=tournament&amp;c=tourny_regions_mw128" CLASS="statTextBig">View Quarter-Final Seeding</A></TD>
                     </TR>
 						<TR>
-							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne" CLASS="statTextBig">Northeast</A></TD>
-							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se" CLASS="statTextBig">Southeast</A></TD>
-							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_w" CLASS="statTextBig">West</A></TD>
+							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_ne" CLASS="statTextBig">Northeast</A></TD>
+							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_se" CLASS="statTextBig">Southeast</A></TD>
+							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=tournament&amp;c=tourny_regions_w" CLASS="statTextBig">West</A></TD>
 							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">Midwest</TD>
 						</TR>
                     </TABLE>
@@ -76,49 +76,49 @@
 						</TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">University of Michigan Ann Arbor</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=155275" CLASS="coderTextRed">DjinnKahn</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">1</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2524</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Michigan Technological University</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=142795" CLASS="coderTextRed">Joe</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=142795" CLASS="coderTextRed">Joe</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2258</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Purdue University System</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=112939" CLASS="coderTextYellow">zoidal</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=112939" CLASS="coderTextYellow">zoidal</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">3</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">1936</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">University of Minnesota Twin Cities</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=252076" CLASS="coderTextYellow">Wasteland</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">4</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2015</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Iowa State University</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=109965" CLASS="coderTextYellow">vulture</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">6</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">2012</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">University of Michigan Ann Arbor</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=112441" CLASS="coderTextYellow">seacow</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=112441" CLASS="coderTextYellow">seacow</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">8</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">1692</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">Iowa State University</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=156820" CLASS="coderTextYellow">aegis</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=156820" CLASS="coderTextYellow">aegis</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">19</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">1638</TD>
 </TR>
 <TR>
   <TD ALIGN="left" VALIGN="middle" HEIGHT="21" CLASS="statText">University of Wisconsin Parkside</TD>
-  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=statistics&amp;c=member_profile&amp;Coder_Id=154619" CLASS="coderTextBlue">hilfiger</A></TD>
+  <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText"><A HREF="/index?t=tournament&amp;c=member_profile&amp;Coder_Id=154619" CLASS="coderTextBlue">hilfiger</A></TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">56</TD>
   <TD ALIGN="right" VALIGN="middle" HEIGHT="21" CLASS="statText">1327</TD>
 </TR>

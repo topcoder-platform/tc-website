@@ -66,15 +66,15 @@
 	  <TR>
 		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" >
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when><xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
-		<A HREF="/index?t=schedule&amp;c=2002sunnetwork_rules#4" CLASS="statTextBig">Rounds</A></TD> -->
+		<A HREF="/index?t=tournament&amp;c=2002sunnetwork_rules#4" CLASS="statTextBig">Rounds</A></TD> -->
 		<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
 			<!-- <xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='tourny_regions_ne'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute> -->		
-		<A HREF="/index?t=schedule&amp;c=" CLASS="statTextBig"></A><FONT COLOR="#666666">Round Updates</FONT></TD>
+		<A HREF="/index?t=tournament&amp;c=" CLASS="statTextBig"></A><FONT COLOR="#666666">Round Updates</FONT></TD>
 		<TD WIDTH="50%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>		
-		<A HREF="/index?t=schedule&amp;c=2002sunnetwork_rules" CLASS="statTextBig">Rules &amp; Regulations</A></TD>
+		<A HREF="/index?t=tournament&amp;c=2002sunnetwork_rules" CLASS="statTextBig">Rules &amp; Regulations</A></TD>
 		<!-- <TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
 			<xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
