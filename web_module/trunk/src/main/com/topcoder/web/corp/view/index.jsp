@@ -17,11 +17,9 @@
    <tr>
     <!-- Left Column Begins -->
       <td width="170" valign="top">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
+
         <jsp:include page="includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
+
       </td>
       <!-- Left Column Ends -->
 
@@ -31,24 +29,26 @@
 
 <!-- Body Area -->
 
-      <td class="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-         <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+        <td class="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
                 <tr>
-                       <td valign="top" width="50%" class="bodyText">
-                       <font size="3" color="#666666"><b>Candidate Screening</b></font><br><br>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-                      <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="bodyText">Learn More &gt;</a>
+                    <td valign="top" width="50%" class="bodyText">
+                        <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index">Candidate Testing</a></strong></font><br />
+                        TopCoder's Candidate Testing Application allows companies to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index">test the technical abilities</a> 
+                        of candidates during the interview process, thereby reducing the time
+                        incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem solving skills with scenarios that <strong>mirror
+                        on-the-job issues.</strong>  Instead of only assessing an employee's skills months after the hire date, <strong>detailed statistics</strong> and all submitted code
+                        are released to the employers during the interview process as a way to measure and compare candidates.  This information drastically reduces
+                        the time and effort it takes to identify proven developers.</p>
                        </td>
                        <td valign="top"><img src="/i/clear.gif" width="8" height="1"></td>
                        <td valign="top" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1"></td>
                        <td valign="top"><img src="/i/clear.gif" width="8" height="1"></td>
                        <td valign="top" width="50%" class="bodyText">
-                       <font size="3" color="#666666"><b>Employment Services</b></font><br><br>
-                       Dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-                       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam, q
-                      <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index" class="bodyText">Learn More &gt;</a>                 
+                       <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index">Recruiting</a></strong></font><br />
+                        TopCoder Recruiting provides employers with innovative programs designed to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=tces&d2=index">attract, identify, and evaluate</a> 
+                        collegiate candidates and experienced professionals for full time employment consideration.  With a <strong>member base in excess of 24,000</strong>&#151;including more than 12,000 students from over 
+                        750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not found elsewhere.</p>
                        </td>
                 </tr>
                 <tr>
