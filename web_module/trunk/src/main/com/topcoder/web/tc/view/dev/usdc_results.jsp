@@ -64,12 +64,12 @@
                                 <td class=header colspan=6>Weekly Contests</td>
                             </tr>
                             <tr>
-                                <td class="sidebarTitle">Contest</td>
-                                <td class="sidebarTitle" align=center>Start Date</td>
-                                <td class="sidebarTitle" align=center>End Date</td>
-                                <td class="sidebarTitle" align=center>Winner</td>
-                                <td class="sidebarTitle" align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" align=right>Projects</td>
+                                <td class="sidebarTitle" width=50%>Contest</td>
+                                <td class="sidebarTitle" width=10% align=center>Start Date</td>
+                                <td class="sidebarTitle" width=10% align=center>End Date</td>
+                                <td class="sidebarTitle" width=10% align=center>Winner</td>
+                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
+                                <td class="sidebarTitle" width=10% align=right>Projects</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
@@ -93,7 +93,7 @@
                                     sURL = "/tc?module=USDCContestDetails&type=3";
                                 }
                             %>
-                                <td class="sidebarText"><A href="<%=sURL%>&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" nowrap=nowrap><A href="<%=sURL%>&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="start_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
@@ -111,16 +111,16 @@
                                 <td class=header colspan=6>Monthly Contests</td>
                             </tr>
                             <tr>
-                                <td class="sidebarTitle">Contest</td>
-                                <td class="sidebarTitle" align=center>Start Date</td>
-                                <td class="sidebarTitle" align=center>End Date</td>
-                                <td class="sidebarTitle" align=center>Winner</td>
-                                <td class="sidebarTitle" align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" align=right>Projects</td>
+                                <td class="sidebarTitle" width=50%>Contest</td>
+                                <td class="sidebarTitle" width=10% align=center>Start Date</td>
+                                <td class="sidebarTitle" width=10% align=center>End Date</td>
+                                <td class="sidebarTitle" width=10% align=center>Winner</td>
+                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
+                                <td class="sidebarTitle" width=10% align=right>Projects</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" nowrap=nowrap><A href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="start_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
@@ -138,16 +138,16 @@
                                 <td class=header colspan=6>Quarterly Contests</td>
                             </tr>
                             <tr>
-                                <td class="sidebarTitle">Contest</td>
-                                <td class="sidebarTitle" align=center>Start Date</td>
-                                <td class="sidebarTitle" align=center>End Date</td>
-                                <td class="sidebarTitle" align=center>Winner</td>
-                                <td class="sidebarTitle" align=right>Contest Prizes</td>
-                                <td class="sidebarTitle" align=right>Projects</td>
+                                <td class="sidebarTitle" width=50%>Contest</td>
+                                <td class="sidebarTitle" width=10% align=center>Start Date</td>
+                                <td class="sidebarTitle" width=10% align=center>End Date</td>
+                                <td class="sidebarTitle" width=10% align=center>Winner</td>
+                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
+                                <td class="sidebarTitle" width=10% align=right>Projects</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" nowrap=nowrap><A href="/tc?module=USDCContestDetails&type=4&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="start_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="end_date" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
