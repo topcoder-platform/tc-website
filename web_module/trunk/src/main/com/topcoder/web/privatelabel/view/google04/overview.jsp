@@ -44,36 +44,9 @@
 			<br/><br/>
 			<span class=bigTitle>Tough problems. Intense competition. No pressure.</span>
 			<span valign=top>
-			<table class=smallBoxTable align=right cellspacing=0 cellpadding=0>
-				<tr>
-					<td align=center nowrap=nowrap class=smallBlueBox>
-					<span class=bodyTextBlue>Important Dates</span>
-					<br/><br/>
-					<b>Registration Starts</b><br/>
-					Wednesday, September 1st
-					<br/><br/>
-					<b>Qualification Round</b><br/>
-					Wednesday, September 15th
-					<br/><br/>
-					<b>Championship Round</b><br/>
-					Friday, October 15th
-					</td>
-				</tr>
-				<tr><td>&#160;</td></tr>
-				<tr>
-					<td align=center nowrap=nowrap class=smallGreenBox>
-					<span class=bodyTextGreen>$30,000 in<br/>Cash Prizes!</span>
-					<br/><br/>
-					<b>1st Place - $10,000</b><br/>
-					2nd Place - $5,000<br/>
-					3rd Place - $2,500<br/>
-					4th Place - $1,000
-					<br/><br/>
-					5th to 50th Place<br/>get $250 each!
-					</td>
-				</tr>
-			</table>
+			<jsp:include page="right.jsp" />
 			</span>
+
 			<br/><br/>
 			Do you have exceptional programming skills? Can you make computers perform like silicon puppets with just a few well-expressed commands? Are you at ease when faced with a hard stop and a group of peers evaluating every line of your code? Here’s your opportunity to display the grace of the true professional in a reward-rich environment.
 			<br/><br/>
