@@ -106,7 +106,7 @@ public class Registration
     public static final char MASK_CHAR = '*';
     public static final String CHECKBOX_YES = "on";
     //public static final String ACTIVATION_URL = PROTOCOL+"://"+HOST+PAGE_4;
-    public static final String ACTIVATION_URL = PROTOCOL + "://" + HOST + "/?t=authentication&" + CODE + "=";
+    public static final String ACTIVATION_URL = PROTOCOL + "://" + HOST + "/tc?module=Activate&" + CODE + "=";
     public static final int DEFAULT_RATING = 0;
 
     // referral ids
