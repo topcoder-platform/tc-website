@@ -32,6 +32,10 @@ public class Constants {
     public static String VERIZON_REG_CONFIRM_PAGE;
     public static String VERIZON_REG_SUCCESS_PAGE;
     public static String VERIZON_INELIGIBLE_PAGE;
+    public static String GOOGLE_REG_PAGE;
+    public static String GOOGLE_REG_DEMOG_PAGE;
+    public static String GOOGLE_REG_CONFIRM_PAGE;
+    public static String GOOGLE_REG_SUCCESS_PAGE;
     public static String DEFAULT_PAGE;
 
     //main reg parameters
@@ -76,10 +80,14 @@ public class Constants {
     public static String SIMPLE_REG_MAIN;
     public static String SIMPLE_REG_CONFIRM;
     public static String SIMPLE_REG_SUBMIT;
-    public static String FULL_REG_MAIN;
-    public static String FULL_REG_DEMOG;
-    public static String FULL_REG_CONFIRM;
-    public static String FULL_REG_SUBMIT;
+    public static String GOOGLE_REG_MAIN;
+    public static String GOOGLE_REG_DEMOG;
+    public static String GOOGLE_REG_CONFIRM;
+    public static String GOOGLE_REG_SUBMIT;
+    public static String VERIZON_REG_MAIN;
+    public static String VERIZON_REG_DEMOG;
+    public static String VERIZON_REG_CONFIRM;
+    public static String VERIZON_REG_SUBMIT;
 
     //DB's
     public static String REGISTRATION_DB;

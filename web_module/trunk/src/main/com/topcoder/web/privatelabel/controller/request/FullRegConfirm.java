@@ -19,7 +19,7 @@ import java.util.List;
  *
  * @author gpaul 07.07.2003
  */
-public class FullRegConfirm extends FullRegBase {
+abstract class FullRegConfirm extends FullRegBase {
     protected static Logger log = Logger.getLogger(FullRegConfirm.class);
 
     protected void registrationProcessing() throws TCWebException {
@@ -34,19 +34,17 @@ public class FullRegConfirm extends FullRegBase {
         try {
             if (hasErrors()) {
                 getRequest().setAttribute("questionList", getQuestionList());
-                setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
                 setDefaults(regInfo);
             } else {
                 getRequest().setAttribute("responseList", ((FullRegInfo) regInfo).getResponses());
                 getRequest().setAttribute("questionMap", questions);
                 regInfo.setCountryName(findCountry(regInfo.getCountryCode()));
                 regInfo.setStateName(findState(regInfo.getStateCode()));
-                setNextPage(Constants.VERIZON_REG_CONFIRM_PAGE);
             }
         } catch (Exception e) {
             throw new TCWebException(e);
         }
-        setIsNextPageInContext(true);
+        setNextPage();
     }
 
 

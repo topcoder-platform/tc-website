@@ -19,6 +19,8 @@ abstract class SimpleRegBase extends RegistrationBase {
 
     protected abstract void registrationProcessing() throws TCWebException;
 
+    protected abstract void setNextPage();
+
     protected void setDefaults(SimpleRegInfo info) {
         setDefault(Constants.HANDLE, info.getHandle());
         setDefault(Constants.PASSWORD, info.getPassword());
