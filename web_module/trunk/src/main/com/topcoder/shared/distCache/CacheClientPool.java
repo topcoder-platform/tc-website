@@ -28,7 +28,7 @@ public class CacheClientPool {
 
     public synchronized CacheClient getClient() {
         int idx = getNextIndex();
-        checkClient(idx);
+        log.debug("getting client at index: " + idx);
         return cacheClients[idx];
     }
 
@@ -48,18 +48,7 @@ public class CacheClientPool {
         } else {
             index++;
         }
-        log.debug("returning client at index: " + index);
         return index;
     }
 
-    private void checkClient(int i) {
-        try {
-            /** just attempt something simple to see if this client is alive **/
-            cacheClients[i].size();
-        } catch (RemoteException e) {
-            log.debug("Client dead, will attempt to rebuild: " + e.getMessage());
-            /* apparently there is a problem with this client, so create a new one */
-            cacheClients[i] = CacheClientFactory.createCacheClient();
-        }
-    }
 }
