@@ -125,6 +125,7 @@ return false;
                     <br/><br/>
 
 		</tc:preferenceGroupIterator>
+		<p align=center class=bodyText><b>Please check to make sure that your contact information is up-to-date in your profile.</b></p>
 		
         <table border=0 cellpadding=3 cellspacing=0 width="100%" class=bodyText>
 			<tr>
@@ -141,7 +142,6 @@ return false;
 		</FORM>
 
         </div>
-		<p align=center class=bodyText><b>Please check to make sure that your information is up-to-date.</b></p>
         <p><br/></p>
         </td>
 <!-- Center Column Ends -->
