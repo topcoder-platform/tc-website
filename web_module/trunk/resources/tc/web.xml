@@ -160,6 +160,12 @@
         </init-param>
 
         <init-param>
+            <param-name>ProblemRatingInfo</param-name>
+            <param-value>problemRating.Info</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
             <param-name>SubmitRatings</param-name>
             <param-value>problemRating.Submit</param-value>
             <description></description>
