@@ -18,8 +18,6 @@ import java.sql.ResultSet;
 import java.rmi.RemoteException;
 import java.sql.SQLException;
 
-package com.topcoder.web.ejb.user;
-
 
 /**
 * ---------------------------------------------------------------------------
@@ -37,7 +35,6 @@ package com.topcoder.web.ejb.user;
 */
 
 public class UserListTest extends BaseProcessor {
-    private SessionContext ctx;
     private static Logger log = Logger.getLogger(UserListTest.class);
     private static final String dataSourceName = "CORP_OLTP";
 
