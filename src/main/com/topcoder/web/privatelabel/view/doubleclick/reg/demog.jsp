@@ -64,8 +64,8 @@
                    </tr>
                 </pl:questionIterator>
                 <tr>
-                   <td colspan="2" align="center">
-                      <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
+                   <td class="dc_regTableQuestion"></td>
+                   <td class="dc_regTableAnswer"><a class="bodyText_link" href="javascript: document.regForm.submit();">Submit</a>
                    </td>
                 </tr>
 
