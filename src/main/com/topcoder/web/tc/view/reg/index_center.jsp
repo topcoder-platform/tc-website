@@ -323,7 +323,11 @@ function checkInputs(){
                     <td class="registerLabel">Handle</td>
                     <td class="statText">
 
-                    <% if (Registration.isValidHandle(Registration.getHandle())) { %>
+                    <% if (Registration.isValidHandle(Registration.getHandle())
+                           && Registration.getHandle().toLowerCase().indexOf("guest") < 0
+                           && Registration.getHandle().length()>1
+                           && !Registration.containsAllPunctuation(Registration.getHandle())
+                           && Registration.getHandleError().equals("")) {  %>
 
                         <jsp:getProperty name="Registration" property="Handle" />
 
