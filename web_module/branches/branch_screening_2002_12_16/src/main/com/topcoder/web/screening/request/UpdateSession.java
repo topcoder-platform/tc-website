@@ -81,7 +81,9 @@ public class UpdateSession extends BaseSessionProcessor {
             rsc.get(0);
 
         //somehow get dates out and subtract them
-        long testSetASegment = 0;
+        Timestamp start = (Timestamp)row.getItem("start_time").getResultData();
+        Timestamp end = (Timestamp)row.getItem("end_time").getResultData();
+        long testSetASegment = end.getTime() - start.getTime();
 
         segment.createSessionSegment(sessionId, Long.parseLong(Constants.SESSION_SEGMENT_TEST_SET_A_ID), testSetASegment);
 
