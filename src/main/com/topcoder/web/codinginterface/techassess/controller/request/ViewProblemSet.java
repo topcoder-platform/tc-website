@@ -71,7 +71,7 @@ public class ViewProblemSet extends Base {
                         info.setClassName(labels[j].getClassName());
                         info.setStartTime(labels[j].getOpenTime().longValue());
                         info.setProblemTypeId(problemSets[i].getType().intValue());
-                        info.setSubmitTime(info.getSubmitTime());
+                        info.setSubmitTime(labels[j].getSubmitTime().longValue());
                         //todo this sucks that we have to know this, it'd be nice if the objects were populated
                         if (problemSets[i].getType().intValue() == ScreeningConstants.PROBLEM_COMPANY) {
                             info.setTime(labels[j].getLength().longValue());
