@@ -1,12 +1,13 @@
 package com.topcoder.web.ejb.rboard;
 
+import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
 
 /**
  * @author dok
  * Date: Feb 13, 2004
  */
-public interface RBoardUser {
+public interface RBoardUser extends EJBObject {
 
 
     void createRBoardUser(String dataSource, long userId, int phaseId, int statusId,
