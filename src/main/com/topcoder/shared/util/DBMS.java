@@ -2,6 +2,7 @@ package com.topcoder.shared.util;
 
 import javax.sql.DataSource;
 import javax.naming.NamingException;
+import javax.naming.InitialContext;
 import java.io.*;
 import java.sql.*;
 
@@ -111,14 +112,14 @@ public class DBMS {
      * @throws SQLException
      */
     private static final java.sql.Connection getConnection(String dataSourceName) throws SQLException {
-        DataSource ds = null;
+        Connection conn = null;
         try {
-            ds = (DataSource)TCContext.getInitial().lookup(dataSourceName);
+            conn = getConnection(TCContext.getInitial(), dataSourceName);
         } catch (NamingException e) {
             e.printStackTrace();
             throw new SQLException(e.getMessage());
         }
-        return ds.getConnection();
+        return conn;
     }
 
     /**
@@ -128,6 +129,18 @@ public class DBMS {
      */
     public static final java.sql.Connection getDWConnection() throws SQLException {
         return getConnection(DW_DATASOURCE_NAME);
+    }
+
+
+    public static java.sql.Connection getConnection(InitialContext context, String dataSourceName) throws SQLException {
+        DataSource ds = null;
+        try {
+            ds = (DataSource)context.lookup(dataSourceName);
+        } catch (NamingException e) {
+            e.printStackTrace();
+            throw new SQLException(e.getMessage());
+        }
+        return ds.getConnection();
     }
 
     /**
