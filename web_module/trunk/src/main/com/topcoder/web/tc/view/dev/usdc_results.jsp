@@ -89,7 +89,7 @@
                                 }
                                 else
                                 {
-                                    sURL = "/tc?module=USDCContestDetails";
+                                    sURL = "/tc?module=USDCContestDetails&type=3";
                                 }
                             %>
                                 <td class="sidebarText"><A href="<%=sURL%>&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>

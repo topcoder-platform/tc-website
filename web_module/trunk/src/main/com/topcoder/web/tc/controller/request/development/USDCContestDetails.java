@@ -21,7 +21,7 @@ public class USDCContestDetails extends StatBase {
             //first winning submission
             return "usdc_contest_details_first_winner";
         }
-        else if(getRequest().getParameter("type").equals("4"))
+        else if(getRequest().getParameter("type").equals("3"))
         {
             //most submissions (min 2, passing score)
             return "usdc_contest_details_most_submissions";
@@ -35,7 +35,7 @@ public class USDCContestDetails extends StatBase {
     }
     
     String getPageName() {
-        if(getRequest().getParameter("type").equals("4"))
+        if(getRequest().getParameter("type").equals("3"))
         {
             return "/dev/usdc_contest_det_most_submissions.jsp";
         }
