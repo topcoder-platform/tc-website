@@ -137,7 +137,8 @@ public class PositionList extends BaseScreeningProcessor {
                 setIsNextPageInContext(false);
             } else {
                 // Otherwise redirect the user to campaign positions list
-                log.info("Forwarding the request to " + Constants.CAMPAIGN_POSITIONS_PAGE);
+                log.info("Forwarding the request to " + Constants.CAMPAIGN_POSITIONS_PAGE
+                        + ". The number of positions is : " + result.size());
                 request.setAttribute(Constants.CAMPAIGN_POSITIONS_LIST, result);
                 setNextPage(Constants.CAMPAIGN_POSITIONS_PAGE);
                 setIsNextPageInContext(true);
