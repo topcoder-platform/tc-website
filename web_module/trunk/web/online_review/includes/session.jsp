@@ -5,7 +5,11 @@
                  javax.naming.InitialContext,
                  com.topcoder.apps.review.projecttracker.SecurityEnabledUser,
                  com.topcoder.apps.review.Constants,
-                 com.topcoder.apps.review.UtilityBean" %>
+                 com.topcoder.apps.review.UtilityBean,
+                 com.topcoder.dde.util.Cookies,
+                 com.topcoder.apps.review.projecttracker.UserManagerLocal,
+                 com.topcoder.apps.review.projecttracker.UserManagerLocalHome,
+                 javax.rmi.PortableRemoteObject" %>
 <%@ page import="com.topcoder.security.admin.*" %>
 <%@ page import="com.topcoder.security.login.*" %>
 <%@ page import="com.topcoder.security.policy.*" %>
@@ -47,8 +51,20 @@ SecurityEnabledUser securityEnabledUser = (SecurityEnabledUser) session.getAttri
 
 //Attempt to log in the user via cookies
 if (securityEnabledUser == null) {
+    UserManagerLocal userManager = (UserManagerLocal) session.getAttribute("USER_MANAGER_LOCAL");
 
-    securityEnabledUser = getUserFromLoginCookies(request, response, USER_MANAGER);
+    if (userManager == null) {
+        try {
+            Context initial = new InitialContext();
+            Object objref = initial.lookup(UserManagerLocalHome.EJB_REF_NAME);
+            UserManagerLocalHome home = (UserManagerLocalHome) PortableRemoteObject.narrow(objref, UserManagerLocalHome.class);
+            userManager = home.create();
+            session.setAttribute("USER_MANAGER_LOCAL", userManager);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    securityEnabledUser = userManager.getUser(Cookies.getUserFromLoginCookies(request, response, USER_MANAGER));
 
     try {
         if (securityEnabledUser != null) {

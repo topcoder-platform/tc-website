@@ -1,6 +1,7 @@
 <%@ page import="com.topcoder.security.*,
                  java.lang.reflect.UndeclaredThrowableException,
-                 com.topcoder.util.logging.Logger" %>
+                 com.topcoder.util.logging.Logger,
+                 com.topcoder.dde.util.Cookies" %>
 <%@ page import="com.topcoder.security.admin.*" %>
 <%@ page import="com.topcoder.security.login.*" %>
 <%@ page import="com.topcoder.security.policy.*" %>
@@ -61,7 +62,7 @@ User tcUser = (User)session.getValue("TCUSER");
 //Attempt to log in the user via cookies
 if (tcSubject == null) {
 
-    tcSubject = getUserFromLoginCookies(request, response, USER_MANAGER);
+    tcSubject = Cookies.getUserFromLoginCookies(request, response, USER_MANAGER);
 
     try {
         if (tcSubject != null) {
