@@ -251,7 +251,7 @@
     </table>
   </FORM>
   <a href="JavaScript:submitForm()">Submit</a>
-  <a href="/tc?module=LegacyReport&t=profile_search"/>')">Clear</a>
+  <a href="/tc?module=LegacyReport&t=profile_search">Clear</a>
   </body>
 </html>
 

@@ -19,6 +19,27 @@
 
 <html>
   <head>
+<style type="text/css">
+    TABLE.entry TD{ 
+        BORDER-BOTTOM: #777777 1px solid ;
+	    padding: 5px;
+	    font-size: 12px;
+	    font-weight: normal;
+    }
+    A:link {
+	    FONT-WEIGHT: bold; COLOR: #7777FF; TEXT-DECORATION: none
+    }
+    A:visited {
+	    FONT-WEIGHT: bold; COLOR: #7777FF; TEXT-DECORATION: none
+    }
+    A:active {
+	    FONT-WEIGHT: bold; COLOR: #eebb66; TEXT-DECORATION: none
+    }
+    A:hover {
+	    FONT-WEIGHT: bold; COLOR: #eebb66; TEXT-DECORATION: none
+    }
+
+</style>
 <script language="javascript">
 <!--
     function sort(i){
@@ -42,12 +63,12 @@
     <title>TopCoder Reporting</title>
   </head>
   <body>
-    <table>
+    <table class="entry">
     <tr>
     <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
         <td>
             <a href="JavaScript:sort(<%=i%>)">
-                <%=headers.get(Integer.parseInt(i))%>
+                <%=headers.get(Integer.parseInt(i))%>&nbsp;
             </a>
         </td>
     </tc:counter>
@@ -56,7 +77,7 @@
         <tr>
             <tc:counter min="0" max="<%=results.getColumnCount()-1%>" id="i">
                 <td>
-                    <%=resultRow.getStringItem(Integer.parseInt(i))%>
+                    <%=resultRow.getStringItem(Integer.parseInt(i))%>&nbsp;
                 </td>
             </tc:counter>
         </tr>
