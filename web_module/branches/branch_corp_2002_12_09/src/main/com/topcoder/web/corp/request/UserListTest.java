@@ -37,7 +37,7 @@ import java.sql.SQLException;
 class UserListTest extends BaseProcessor {
     private static Logger log = Logger.getLogger(UserListTest.class);
 
-	public UserList() {
+	public UserListTest() {
         pageInContext = true;
         // Next page is user list page and is always in the context.
 	}
@@ -68,12 +68,11 @@ class UserListTest extends BaseProcessor {
      */
     private void setupUsersList() throws Exception {
 
-        log.debug("UserList getting users associated with company ID: " 
-                   + companyID);
-        String companyId = request.getAttribute("companyId");
-        if (companyId == null || companyId.length() == 0) { 
-            throw new Exception("Error getting company attribute");
-        }
+        log.debug("UserList getting users");
+//        String companyId = request.getAttribute("companyId");
+//        if (companyId == null || companyId.length() == 0) { 
+//            throw new Exception("Error getting company attribute");
+//        }
         final String dataSourceName = "CORP_OLTP";
         Context ctx = null;
         PreparedStatement ps = null;
@@ -83,7 +82,7 @@ class UserListTest extends BaseProcessor {
         ResultSetContainer ret = null;
 
         StringBuffer query = new StringBuffer();
-        query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u, contact c WHERE u.user_id = c.contact_id AND c.company_id=");
+        query.append("SELECT u.first_name, u.last_name, u.user_id FROM user u");
 
 //        query.append("SELECT u.user_id 
 //                           , su.user_id AS handle
@@ -96,7 +95,7 @@ class UserListTest extends BaseProcessor {
 //                         AND u.user_id = c.contact_id"
 //                         AND c.company_id = ");
 
-        query.append(Long.toString(companyId));
+//        query.append(Long.toString(companyId));
         try {
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
