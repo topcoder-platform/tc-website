@@ -801,6 +801,7 @@
                  <include name="com/topcoder/web/privatelabel/view/tag/DemographicQuestionIteratorTagInfo.class"/>
                  <include name="com/topcoder/web/privatelabel/view/tag/DemographicAnswerIteratorTagInfo.class"/>
                  <include name="com/topcoder/web/privatelabel/view/tag/DemographicResponseIteratorTagInfo.class"/>
+                 <include name="com/topcoder/web/privatelabel/view/tag/DemographicInput.class"/>
                  <include name="com/fx4m/**/*.class"/>
                  <exclude name="**/*Bean.class"/>
                  <exclude name="**/*Impl.class"/>
