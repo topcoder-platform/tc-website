@@ -83,7 +83,7 @@
                 <tces:rowIterator id="submission" rowList="<%=(List)ProblemSubmissionsTask.getSubmissionList()%>">
                   <TR>
                     <TD class="statText" HEIGHT="18">&#160;
-                        <%= DateFormat.getDateInstance(DateFormat.MEDIUM).format((java.sql.Timestamp)submission.getItem("date").getResultData()) %>
+                        <%= TCESConstants.DATE_FORMAT.format((java.sql.Timestamp)submission.getItem("date").getResultData()) %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
