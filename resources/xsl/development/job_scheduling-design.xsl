@@ -113,7 +113,7 @@
 							Initial Submission Due Date: 12.27.2002<br/>
 							Winner Announced: 01.07.2003<br/>
 							Final Submission Due Date: 01.10.2003<br/>
-							Estimated Development End Date: 02.05.2003</p>
+							Estimated Development End Date: 02.12.2003</p>
 
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
