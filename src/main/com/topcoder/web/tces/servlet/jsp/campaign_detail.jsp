@@ -13,7 +13,7 @@
 <html>
 <head>
 
-<title>topcoder | employment services</title>
+<title>TopCoder | Recruiting Reports</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css">
 
@@ -32,9 +32,9 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
-<!-- Left Column begins -->
-        <td width="170"></td>
-<!-- Left Column ends -->
+<!-- Left Column Begins -->
+      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
+<!-- Left Column Ends -->
 
 <!-- Gutter begins -->
         <td width="6"><img src="/i/clear.gif" width="6" height="8" alt="" border="0"></td>
@@ -43,14 +43,6 @@
 <!-- Center Column begins -->
         <td class="bodyText" width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
         
-<!-- Page Tab begins -->
-            <jsp:include page="body_top.jsp" >
-                <jsp:param name="image" value="tces" />  
-                <jsp:param name="image1" value="steelblue" />  
-                <jsp:param name="title" value="<%=CampaignDetailTask.getCompanyName()%>" />
-            </jsp:include>
-<!-- Page Tab ends -->
-                
             <p align="center">
             <tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
             
@@ -132,6 +124,10 @@
 
     </tr>
 </table>
+
+<!-- Footer begins -->
+<jsp:include page="foot.jsp" />             
+<!-- Footer ends -->
 
 </body>
 </html>

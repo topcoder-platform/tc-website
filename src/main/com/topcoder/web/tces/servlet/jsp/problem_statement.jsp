@@ -12,7 +12,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
-    <TITLE>TopCoder | Employment Services</TITLE>
+    <TITLE>TopCoder | Recruiting Reports</TITLE>
 <LINK REL="stylesheet" TYPE="text/css" HREF="/css/corpStyle.css">
     <jsp:include page="script.jsp" />
     
@@ -24,25 +24,17 @@
   
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
-    <!-- Left Column Begins -->
-      <TD WIDTH="170">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
+<!-- Left Column Begins -->
+      <TD WIDTH="25"><img src="/i/clear.gif" width="25" HEIGHT="11" alt="" BORDER="0"></TD>
+<!-- Left Column Ends -->
+
       <!-- Gutter Begins -->
       <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="8"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
         <!-- Center Column Begins -->
       <TD class="bodyText" width="100%"><img src="/i/clear.gif" width="400" HEIGHT="11" BORDER="0"><BR>
-        <jsp:include page="body_top.jsp" >
-           <jsp:param name="image" value="tces"/>  
-           <jsp:param name="image1" value="steelblue"/>  
-           <jsp:param name="title" value="Problem Statement"/>
-        </jsp:include>
+
         
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
            <TR>
