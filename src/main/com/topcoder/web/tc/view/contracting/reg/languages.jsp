@@ -1,10 +1,20 @@
 <%@  page language="java"  %>
+<%@ page import="com.topcoder.web.tc.Constants,
+                 com.topcoder.web.tc.model.Skill,
+                 java.util.List" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
 <title>TopCoder Contracting</title>
 
 <jsp:include page="../../../script.jsp" />
+
+
+<%
+List skillList = (List)request.getAttribute("skills");
+%>
 
 <SCRIPT TYPE="text/javascript">
 <!--
@@ -78,113 +88,17 @@ return false;
                 </td>
             <% } %>
 			</tr>
+		<%String[] cssClasses = new String[] {"formTextEven", "formTextOdd" };
+                          int i = 0;%>
+                <tc:skillIterator id="skill" list="<%=skillList%>">
+                <tr>
+	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
+                    
+                </tr>
+                </tc:skillIterator>
 	        <tr>
 	            <td class=formTextEven valign=top>JavaScript</td>
-            <% for(int i = 0; i<=10; i++){ %>
 	            <td valign=top align=center class=formTextEven><input type="radio" name=group1 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>VB Script</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group2 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>SQL</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group3 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>HTML</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group4 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>COBOL</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group5 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>FORTRAN</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group6 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Smalltalk</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group7 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Eiffel</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group8 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Lisp</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group9 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>C</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group10 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>C++</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group11 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Java</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group12 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>Visual Basic</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group13 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Pascal</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group14 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>PERL</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group15 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>XML</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group16 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextEven valign=top>XSL</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextEven><input type="radio" name=group17 property=""/></td>
-            <% } %>
-	        </tr>
-	        <tr>
-	            <td class=formTextOdd valign=top>Python</td>
-            <% for(int i = 0; i<=10; i++){ %>
-	            <td valign=top align=center class=formTextOdd><input type="radio" name=group18 property=""/></td>
-            <% } %>
 	        </tr>
 			<tr>
 	            <td class=bodyText valign=middle>Additional Comments:</td>

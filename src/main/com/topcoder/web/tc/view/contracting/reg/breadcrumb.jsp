@@ -9,7 +9,7 @@
 	</tr>
 	<tr>
 	<% if (phase.equals("languages")) {%><td class=vbcON>Languages 2</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=languages" class=vbcLINK>Languages 2</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="/tc?module=ContractingLanguages" class=vbcLINK>Languages 2</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("technologies")) {%><td class=vbcON>Technologies 3</td>
