@@ -108,6 +108,16 @@ public class Constants {
     public static int TOURNAMENT_COMPONENT;
     public static int ACTIVE_REVIEWER;
 
+    /* job posting stuff */
+    public static String JOB_HIT_TYPE_PARAM;
+    public static String JOB_HIT_PREFIX;
+    public static int CLICK_THRU_ID;
+    public static int JOB_POSTING_ID;
+    public static String JOB_ID_PARAM;
+    public static String PROFILE_PAGE;
+    public static String UNRATED_PAGE;
+    public static String NO_RESUME_PAGE;
+
 
     static {
         initialize();
