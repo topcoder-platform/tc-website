@@ -65,13 +65,13 @@ public class NavZoneBean implements Serializable {
     }
     public void setAll(String s, String t) {
         setFolder(0, s);
-        setFolder(1, s);
+        setFolder(1, t);
         setDepth(2);
     }
     public void setAll(String s, String t, String u) {
         setFolder(0, s);
-        setFolder(1, s);
-        setFolder(2, s);
+        setFolder(1, t);
+        setFolder(2, u);
         setDepth(3);
     }
 }

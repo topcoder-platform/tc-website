@@ -1,150 +1,123 @@
 <!--Left Navigation Include Begins-->
 
+<%!  // note that this is a jsp *declaration*, not a scriptlet
+
+/**** THIS CODE DOES NOT CURRENTLY HANDLE RENDERING THREE LEVELS OF MENUS ****/
+
+// highlight the selected menu item by using this property for its table cell
+String selbg = "BACKGROUND=\"/i/graybv_lite_bg.gif\"";
+// highlight other items in the open submenu by using this property for its table cell
+String sibbg = "BACKGROUND=\"/i/steel_gray_bg.gif\"";  // sib for sibling
+// default property for unhighlighted items
+String defbg = "";
+
+// indent root items which are not or cannot open into submenus with this
+String itemind = "<IMG SRC=\"/i/hs/nav_arrow_right.gif\" WIDTH=\"9\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
+// indent titles of open submenus with this
+String openind = "<IMG SRC=\"/i/hs/nav_arrow_bottom.gif\" WIDTH=\"9\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
+// indent submenu items with this
+String subind = "<IMG SRC=\"/i/hs/11x9.gif\" WIDTH=\"11\" HEIGHT=\"9\" ALT=\"\" BORDER=\"0\">";
+
+// spacer between items on the root menu
+String trsep_root = "<TR><TD HEIGHT=\"1\" BGCOLOR=\"#C5C5C9\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+// spacer between items on open submenus
+String trsep_sub = "";//@@@"<TR><TD HEIGHT=\"1\" VALIGN=\"top\"><IMG SRC=\"/i/hs/frame_1pix_bg_lg_top_left.gif\" WIDTH=\"1\" HEIGHT=\"1\" ALT=\"\" BORDER=\"0\"></TD></TR>";
+
+// set below in the service method, as they vary depending on the request
+String root, sub;
+
+// formats a table row for a section header on the root menu
+String rootheader(String text) {
+    return "<TR><TD CLASS=\"titlesidenav\">&nbsp;<B>" + text + "</B></TD></TR>";
+}
+
+// formats a table row for an item on the root menu
+String rootitem(String link, String name, String key, boolean canopen) {
+    String bg = root.equals(key) ? (canopen?sibbg:selbg) : defbg;
+    String img = canopen && root.equals(key) ? openind : itemind;
+    return "<TR><TD CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+}
+
+// formats a table row for an item on a submenu
+String subitem(String link, String name, String key) {
+    String bg = sub.equals(key) ? selbg : sibbg;
+    String img = subind;
+    return "<TR><TD CLASS=\"sidenav\" " + bg + ">&nbsp;<A CLASS=\"sidenav\" HREF=\"" + link + "\">" + img + name + "</A></TD></TR>";
+}
+
+// decides whether a submenu should be rendered
+boolean subopen(String key) {
+    return root.equals(key);
+}
+
+%>
+
 <jsp:useBean id="SessionInfo" class="com.topcoder.web.hs.model.SessionInfoBean" scope="request" />
 <jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
 
+<%  // now a scriptlet
+root = NavZone.getLevel0();
+sub = NavZone.getLevel1();
+%>
 
 <TABLE WIDTH="170" CELLSPACING="0" CELLPADDING="0" BORDER="0" BGCOLOR="#000000">
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="titlesidenav">&nbsp;<B>What's inside</B></TD>
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=home&d2=how_hs_compete" CLASS="sidenav<%=NavZone.getFolder(1).equals("how_hs_compete")?"open":""%>"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>How Schools Compete</A></TD>
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=schedule&d2=schedule" CLASS="sidenav<%=NavZone.getFolder(0).equals("schedule")?"open":""%>"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Schedule</A></TD>
-    </TR>
-    <TR>
-    <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
 
+    <%=trsep_root%>
+    <%=rootheader("What's inside")%>
+    <%=trsep_root%>
+    <%=rootitem("?module=Static&d1=home&d2=how_hs_compete", "How Schools Compete", "home/how_hs_compete", false)%>
+    <%=trsep_root%>
+    <%=rootitem("?module=Static&d1=schedule&d2=schedule", "Schedule", "schedule", false)%>
+    <%=trsep_root%>
 
-<% if(!NavZone.getFolder(0).equals("stats")) { %>
+    <%=rootitem("?module=Statistics&c=round_overview", "Statistics", "stats", true)%>
+    <% if(subopen("stats")) { %>
+        <%=trsep_root%>
+        <%=subitem("?module=Statistics&c=coder_ratings", "Coder Rankings", "coder_ratings")%>
+        <%=subitem("?module=Statistics&c=school_round_rank", "High School Rankings", "school_round_rank")%>
+        <%=subitem("?module=Statistics&c=ratings_history&cr="+SessionInfo.getUserId(), "Rating History", "ratings_history")%>
+        <%=subitem("?module=Static&d1=stats&d2=m_edi", "Match Editorials", "m_edi")%>
+        <%=subitem("?module=Statistics&c=school_round_stats&hs="+SessionInfo.getSchoolId(), "High School Round Stats", "school_round_stats")%>
+        <%=subitem("?module=Statistics&c=round_overview", "Round Overview", "round_overview")%>
+        <%=subitem("?module=Statistics&c=round_stats", "Round Stats", "round_stats")%>
+        <%=subitem("?module=Statistics&c=room_stats", "Room Stats", "room_stats")%>
+        <%=subitem("?module=Statistics&c=member_profile&cr="+SessionInfo.getUserId(), "Member Profile", "member_profile")%>
+    <% } %>
 
-         <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
+    <%=trsep_root%>
+    <%=rootitem("?module=Static&d1=tournaments&d2=tournaments", "Tournaments", "tournaments", false)%>
+    <%=trsep_root%>
 
-<% } else { %>
+    <%=rootitem("?module=Static&d1=faq&d2=faq", "Support/FAQs", "faq", true)%>
+    <% if(subopen("faq")) { %>
+        <%=trsep_root%>
+        <%=subitem("?module=Static&d1=faq&d2=faq", "General FAQ ", "faq")%>
+        <%=subitem("?module=Static&d1=faq&d2=compet_faq", "Competition FAQ ", "compet_faq")%>
+        <%=subitem("?module=Static&d1=faq&d2=compet_proc", "Competition Process", "compet_proc")%>
+        <%=subitem("?module=Static&d1=faq&d2=ratings_ovrev", "Ratings Overview", "ratings_ovrev")%>
+        <%=subitem("?module=Static&d1=faq&d2=editor_info", "Editor Information", "editor_info")%>
+        <%=subitem("?module=Static&d1=faq&d2=soft_req", "Software Requirements", "soft_req")%>
+        <%=subitem("?module=Static&d1=faq&d2=rules_quali", "Rules & Qualification ", "rules_quali")%>
+    <% } %>
 
-         <TD CLASS="sidenav">&nbsp;<A HREF="?module=Statistics&c=round_overview" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Statistics</A></TD>
-     </TR>
-     <TR>
-         <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-     </TR>
-     <TR>
-         <TD CLASS="sidenav">
-                <IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=coder_ratings" CLASS="sidenav<%=NavZone.getFolder(1).equals("coder_ratings")?"open":""%>">Coder Rankings</A> <BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=school_round_rank" CLASS="sidenav<%=NavZone.getFolder(1).equals("school_round_rank")?"open":""%>">High School Rankings</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=ratings_history&cr=<jsp:getProperty name="SessionInfo" property="UserId" />" CLASS="sidenav<%=NavZone.getFolder(1).equals("ratings_history")?"open":""%>">Rating History</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=stats&d2=m_edi" CLASS="sidenav<%=NavZone.getFolder(1).equals("m_edi")?"open":""%>">Match Editorials</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=school_round_stats&hs=<jsp:getProperty name="SessionInfo" property="SchoolId" />" CLASS="sidenav<%=NavZone.getFolder(1).equals("school_round_stats")?"open":""%>">High School Round Stats</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=round_overview" CLASS="sidenav<%=NavZone.getFolder(1).equals("round_overview")?"open":""%>">Round Overview</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=round_stats" CLASS="sidenav<%=NavZone.getFolder(1).equals("round_stats")?"open":""%>">Round Stats</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=room_stats" CLASS="sidenav<%=NavZone.getFolder(1).equals("room_stats")?"open":""%>">Room Stats</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Statistics&c=member_profile&cr=<jsp:getProperty name="SessionInfo" property="UserId" />" CLASS="sidenav<%=NavZone.getFolder(1).equals("member_profile")?"open":""%>">Member Profile</A><BR/>
+    <%=trsep_root%>
+    <%=rootitem("?module=Static&d1=resources&d2=resources", "Resources", "resources", false)%>
+    <%=trsep_root%>
+    <%=rootheader("[TCHS] Corporate")%>
+    <%=trsep_root%>
 
-<% } %>
+    <%=rootitem("?module=Static&d1=about&d2=about", "About Us", "about", true)%>
+    <% if(subopen("about")) { %>
+        <%=trsep_root%>
+        <%=subitem("?module=Static&d1=about&d2=about_member", "For Members", "about_member")%>
+        <%=subitem("?module=Static&d1=about&d2=about_sponsor", "For Sponsors", "about_sponsor")%>
+    <% } %>
 
+    <%=trsep_root%>
+    <%=rootitem("?module=Static&d1=press&d2=press_main", "Press Room", "press", false)%>
+    <%=trsep_root%>
+    <%=rootitem("?module=Static&d1=contacts&d2=contacts", "Contacts", "contacts", false)%>
+    <%=trsep_root%>
 
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=tournaments&d2=tournaments" CLASS="sidenav<%=NavZone.getFolder(0).equals("tournaments")?"open":""%>"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Tournaments</A></TD>
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-
-
-<% if(!NavZone.getFolder(0).equals("faq")) { %>
-
-         <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
-
-<% } else { %>
-
-         <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Support/FAQs</A></TD>
-     </TR>
-     <TR>
-         <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-     </TR>
-     <TR>
-         <TD CLASS="sidenav">
-         <IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=faq" CLASS="sidenav<%=NavZone.getFolder(1).equals("faq")?"open":""%>">General FAQ </A> <BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=compet_faq" CLASS="sidenav<%=NavZone.getFolder(1).equals("compet_faq")?"open":""%>">Competition FAQ </A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=compet_proc" CLASS="sidenav<%=NavZone.getFolder(1).equals("compet_proc")?"open":""%>">Competition Process</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=ratings_ovrev" CLASS="sidenav<%=NavZone.getFolder(1).equals("ratings_ovrev")?"open":""%>">Ratings Overview</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=editor_info" CLASS="sidenav<%=NavZone.getFolder(1).equals("editor_info")?"open":""%>">Editor Information</A><BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=soft_req" CLASS="sidenav<%=NavZone.getFolder(1).equals("soft_req")?"open":""%>">Software Requirements</A> <BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=faq&d2=rules_quali" CLASS="sidenav<%=NavZone.getFolder(1).equals("rules_quali")?"open":""%>">Rules & Qualification </A>
-         </TD>
-
-<% } %>
-
-
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=resources&d2=resources" CLASS="sidenav<%=NavZone.getFolder(0).equals("resources")?"open":""%>"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Resources</A></TD>
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="titlesidenav">&nbsp;<B>[TCHS] Corporate</B></TD>
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-
-
-<% if(!NavZone.getFolder(0).equals("about")) { %>
-
-         <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
-
-<% } else { %>
-
-         <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=about&d2=about" CLASS="sidenav"><IMG SRC="/i/hs/nav_arrow_bottom.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>About Us</A></TD>
-     </TR>
-         <TR>
-         <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-     </TR>
-     <TR>
-         <TD CLASS="sidenav">
-         <IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=about&d2=about_member" CLASS="sidenav<%=NavZone.getFolder(1).equals("about_member")?"open":""%>">For Members</A> <BR/>
- 		<IMG SRC="/i/hs/11x9.gif" WIDTH="11" HEIGHT="9" ALT="" BORDER="0"/><A HREF="?module=Static&d1=about&d2=about_sponsor" CLASS="sidenav<%=NavZone.getFolder(1).equals("about_sponsor")?"open":""%>">For Sponsors</A>
-
-<% } %>
-
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=press&d2=press_main" CLASS="sidenav<%=NavZone.getFolder(0).equals("press")?"open":""%>"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Press Room</A></TD>
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
-    <TR>
-        <TD CLASS="sidenav">&nbsp;<A HREF="?module=Static&d1=contacts&d2=contacts" CLASS="sidenav<%=NavZone.getFolder(0).equals("contacts")?"open":""%>"><IMG SRC="/i/hs/nav_arrow_right.gif" WIDTH="9" HEIGHT="9" ALT="" BORDER="0"/>Contacts</A></TD>
-    </TR>
-    <TR>
-        <TD HEIGHT="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="1" ALT="" BORDER="0"/></TD>
-    </TR>
 </TABLE>
 <!--Left Navigation Include Ends-->

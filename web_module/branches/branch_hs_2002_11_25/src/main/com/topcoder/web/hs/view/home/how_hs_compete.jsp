@@ -1,3 +1,7 @@
+<jsp:useBean id="NavZone" class="com.topcoder.web.hs.model.NavZoneBean" scope="request" />
+<jsp:setProperty name="NavZone" property="Level0" value="how_hs_compete" />
+<jsp:setProperty name="NavZone" property="Level1" value="" />
+
 <HTML>
 <HEAD>
 	<TITLE>::TopCoder High School::</TITLE>
