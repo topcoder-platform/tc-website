@@ -17,6 +17,7 @@
   <jsp:include page="top.jsp" />
 
   <TABLE BGCOLOR="#000000" WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+    <TR><TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>
     <TR>
       <TD WIDTH="170" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -26,6 +27,7 @@
                   <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
               </TD>
             </TR>
+            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           </query:linkIterator>
         </TABLE>
       </TD>
@@ -46,7 +48,7 @@
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyCommandQueryTask%>" key="<%=Constants.COMMAND_ID_PARAM%>"/></TD></TR>
             <TR>
               <TD COLSPAN="2">
-                <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+                <TABLE WIDTH="100%" BGCOLOR="#333333" BORDER="0" CELLPADDING="0" CELLSPACING="0">
                   <TR>
                     <TD CLASS="statTextBig"></TD>
                     <TD CLASS="statTextBig">Query</TD>
@@ -71,6 +73,7 @@
                         </A>
                       </TD>
                     </TR>
+                  <TR><TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
                   </query:commandQueryIterator>
                   <TR>
                     <TD CLASS="statTextBig" COLSPAN="7" ALIGN="center">
@@ -88,6 +91,7 @@
                <query:querySelect name="<%=Constants.QUERY_ID_PARAM%>" class="dropdown" list="<%=ModifyCommandQueryTask.getOtherQueryList()%>" size="10" multiple="false"/>
              </TD>
            </TR>
+           <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
            <TR>
              <TD CLASS="statTextBig" COLSPAN="2" ALIGN="center">
                <A HREF="javascript: document.ModifyCommandQueryForm.<%=Constants.STEP_PARAM%>.value='<%=Constants.NEW_STEP%>';void document.ModifyCommandQueryForm.submit();" class="statText">

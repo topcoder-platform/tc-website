@@ -17,6 +17,7 @@
   <jsp:include page="top.jsp" />
 
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+    <TR><TD COLSPAN="6"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="16"></TD></TR>
     <TR>
       <TD WIDTH="170" bgcolor="#000000" VALIGN="top">
         <TABLE WIDTH="170" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -26,6 +27,7 @@
                   <A HREF="<jsp:getProperty name="link" property="href"/>" class="statText"><jsp:getProperty name="link" property="name"/></A>
               </TD>
             </TR>
+            <TR><TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
           </query:linkIterator>
         </TABLE>
       </TD>
@@ -45,12 +47,14 @@
                 <input type="text" name="<%=Constants.QUERY_NAME_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="Name" />" size="30" maxlength="100"/>
               </TD>
             </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">Ranking: </TD>
               <TD CLASS="statText" ALIGN="left">
                 <query:booleanSelect name="<%=Constants.RANKING_PARAM%>" class="bodyText" selectedValue='<%=ModifyQueryTask.isRanking()?"true":"false"%>'/>
               </TD>
             </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryTask%>" key="<%=Constants.COLUMN_INDEX_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right" WIDTH="50%">Column Index: </TD>
@@ -58,6 +62,7 @@
                 <input type="text" name="<%=Constants.COLUMN_INDEX_PARAM%>" value ="<jsp:getProperty name="ModifyQueryTask" property="ColumnIndex" />" size="3" maxlength="3"/>
               </TD>
             </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="right">DB: </TD>
               <TD CLASS="statText" ALIGN="left">
@@ -69,12 +74,14 @@
                 <% } %>
               </TD>
             </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR><TD CLASS="errorText" COLSPAN="2"><query:error task="<%=ModifyQueryTask%>" key="<%=Constants.QUERY_TEXT_PARAM%>"/></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="left" COLSPAN="2">Query Text:<BR/>
                 <TEXTAREA COLS="80" ROWS="30" WRAP="off" NAME="<%=Constants.QUERY_TEXT_PARAM%>"><jsp:getProperty name="ModifyQueryTask" property="Text"/></TEXTAREA>
               </TD>
             </TR>
+            <TR><TD COLSPAN="2"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8"></TD></TR>
             <TR>
               <TD CLASS="statText" ALIGN="center" COLSPAN="2">
                 <A HREF="javascript:void document.ModQueryForm.submit()" CLASS="statText">
