@@ -13,7 +13,6 @@
 <head>
 <title>TopCoder | Private Label Registration</title>
 </head>
-<% System.out.println("errors: " + request.getAttribute(BaseProcessor.ERRORS_KEY).toString());%>
 <body>
     <table cellpadding="1" cellspacing="3">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">

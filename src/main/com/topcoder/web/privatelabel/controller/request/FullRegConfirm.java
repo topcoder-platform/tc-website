@@ -79,7 +79,7 @@ public class FullRegConfirm extends FullRegBase {
                 try {
                     r.setAnswerId(Long.parseLong(value));
                 } catch (NumberFormatException e) {
-                    addError(key, "Please enter a valid answer.");
+                    r.setAnswerId(-1);//can just set fake answer now, will get checked later
                 }
             } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                 log.debug("don't know what to do with multiselect yet");
@@ -119,7 +119,7 @@ public class FullRegConfirm extends FullRegBase {
                     if (r.getText().length() > 255) {
                         addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a shorter answer.");
                     } else if (q.isRequired() && r.getText().length() < 1) {
-                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please valid answer.");
+                        addError(DemographicInput.PREFIX + r.getQuestionId(), "Please enter a valid answer.");
                     }
                 } else if (q.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
                     //todo handle these
