@@ -57,6 +57,24 @@
                     <td class="bodyText" width="100%">         
 <!-- 2003 Features -->
                         <table width="100%" border="0" cellpadding="3" cellspacing="0">
+                            <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>2005 Features</strong></font></td></tr>        
+
+                            <tr valign="middle">
+                                <td width="20%" class="bodySubtitle"><strong>Date</strong></td>
+                                <td width="20%" class="bodySubtitle"><strong>Author</strong></td>
+                                <td width="60%" class="bodySubtitle"><strong>Feature</strong></td>
+                            </tr>
+                            
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">January 5</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=276230">dimkadimon</A></td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_010505" class="bodyText">Mathematics for TopCoders</A></td>
+                            </tr>
+
+                            <tr><td valign="middle" class="bodyText" colspan="3"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+                        </table>
+
+                        <table width="100%" border="0" cellpadding="3" cellspacing="0">
                             <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>2004 Features</strong></font></td></tr>        
 
                             <tr valign="middle">

@@ -135,8 +135,8 @@
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">16</span><br />
                                     <strong>Match 234</strong><br />
-                                    Register: 6:00&#160;AM<br />
-                                    Compete: 9:00&#160;AM<br />
+                                    Register: 6:00&#160;PM<br />
+                                    Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=6533&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">17</td>
@@ -150,8 +150,8 @@
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">22</span><br />
                                     <strong>Match 235</strong><br />
-                                    Register: 6:00&#160;AM<br />
-                                    Compete: 9:00&#160;AM<br />
+                                    Register: 7:00&#160;PM<br />
+                                    Compete: 10:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=6534&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">23</td>
