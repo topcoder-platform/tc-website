@@ -165,7 +165,7 @@ final class UserDbCoder {
             InitialContext ctx = new InitialContext();
             Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
             Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
-            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
+            UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:"+UserAddressHome.EJB_REF_NAME)).create();
 
             long addressId = addressEJB.createAddress();
             addressEJB.setAddress1(addressId, coder.getHomeAddress1());
@@ -588,7 +588,7 @@ final class UserDbCoder {
                 InitialContext ctx = new InitialContext();
                 Address addressEJB = ((AddressHome) ctx.lookup(AddressHome.EJB_REF_NAME)).create();
                 Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
-                UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
+                UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup("main:"+UserAddressHome.EJB_REF_NAME)).create();
 
                 ResultSetContainer addresses = userAddressEJB.getUserAddresses(coder.getCoderId());
 
