@@ -62,6 +62,11 @@ public class TCCC05ProjectDetails extends StatBase {
                 
             }
             
+            String sub = "";
+            if(rsc.getItem(i, "submit_timestamp").getResultData() != null) {
+                sub = dtfmt.format(rsc.getStringItem(i, "submit_timestamp"));
+            }
+            
             String place = "-";
             if(rsc.getItem(i, "placed").getResultData() != null) {
                 if(rsc.getIntItem(i, "placed") != 0) {
@@ -71,7 +76,7 @@ public class TCCC05ProjectDetails extends StatBase {
             
             arr.add( new TCCC05ProjectDetail(rsc.getStringItem(i, "handle"), pts ,    
                 place, rsc.getDoubleItem(i, "final_score"),
-                rsc.getIntItem(i, "user_id"), prz) );
+                rsc.getIntItem(i, "user_id"), prz, sub) );
         }
 
         Collections.sort(arr, new myComparator());

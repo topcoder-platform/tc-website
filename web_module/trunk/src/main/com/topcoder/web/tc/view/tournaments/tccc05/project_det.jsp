@@ -2,7 +2,9 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  java.util.Map,
                  com.topcoder.shared.dataAccess.DataAccessConstants, 
-                 com.topcoder.shared.util.ApplicationServer"%>
+                 com.topcoder.shared.util.ApplicationServer,
+                 com.topcoder.web.tc.model.TCCC05ProjectDetail,
+                 java.util.List"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -14,6 +16,7 @@
 <% ResultSetContainer rscProject = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tccc05_project_results"); %>
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
+<% List lst = (List)request.getAttribute("results");%>
 <%
     boolean isComplete = false;
     if(rscProject.getIntItem(0, "complete_status") == 1) {
@@ -63,18 +66,21 @@ else
                                 <td class="sidebarTitle" nowrap=nowrap>Competitor</td>
                                 <td class="sidebarTitle" align=center nowrap=nowrap>Submission Date</td>
                                 <td class="sidebarTitle" align=center>Place</td>
+                                <td class="sidebarTitle" align=center>Placement Points</td>
                                 <td class="sidebarTitle" align=center>Score</td>
                                 <td class="sidebarTitle" align=right>Prizes</td>
-                            </tr>
-                            <rsc:iterator list="<%=rsc%>" id="resultRow">
+                            </tr>                           
+                            <%for(int i = 0; i < lst.size(); i++) { %>
                             <tr>
-                                <td class="sidebarText"><a href="/stat?c=member_profile&cr=<rsc:item name="user_id" row="<%=resultRow%>"/>"><rsc:item name="handle" row="<%=resultRow%>"/></a></td>
-                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="submit_timestamp" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><rsc:item name="placed" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=center><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right><rsc:item name="payment" ifNull="" format="$#,##0" row="<%=resultRow%>"/></td>
+                                <% TCCC05ProjectDetail result = (TCCC05ProjectDetail)lst.get(i); %>
+                                <td class="sidebarText"><a href="/stat?c=member_profile&cr=<%=result.getUserID()%>"><%=result.getHandle()%></a></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><%=result.getSubmitTimestamp()%></td>
+                                <td class="sidebarText" align=center><%=result.getPlace()%></td>
+                                <td class="sidebarText" align=center><%=result.getPoints()%></td>
+                                <td class="sidebarText" align=center><%=result.getScore()%></td>
+                                <td class="sidebarText" align=right><%=result.getPayment()%></td>
                             </tr>
-                            </rsc:iterator>
+                            <% }%>
                         </table>
                         <%if(!isComplete) {%>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
