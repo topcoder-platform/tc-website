@@ -111,7 +111,7 @@ return false;
                      <td valign=top align=center class=<%=cssClasses[i % 2]%>>
                         <input type="radio" name="<%=Constants.SKILL_PREFIX + skill.getID()%>" value="<%=i%>"/>
                      </td>
-                     <% }%>
+                     <% }%> 
                 </tr>
                 </tc:skillIterator>
 	        <tr>
