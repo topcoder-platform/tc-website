@@ -41,14 +41,15 @@ public class EmailBean implements SessionBean {
     ctx=_ctx;
   }
 
-  public long createEmail(long _user_id) throws RemoteException {
+  public long createEmail(long _user_id) throws EJBException, RemoteException {
 
     long email_id=0;
 
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
       DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       if (!IdGenerator.isInitialized()) {
@@ -63,38 +64,56 @@ public class EmailBean implements SessionBean {
       query.append("INTO email (email_id,user_id) ");
       query.append("VALUES (?,?)");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setLong(1,email_id);
       ps.setLong(2,_user_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows inserted into "+
-                                  "'email'. Inserted "+rc+", should have "+
-                                  "inserted 1."));
+        throw(new EJBException("Wrong number of rows inserted into 'email'. "+
+                               "Inserted "+rc+", should have inserted 1."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
     return(email_id);
   }
 
   public long getEmailTypeId(long _email_id,long _user_id)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
 
     long email_type_id=0;
 
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
       DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
@@ -102,8 +121,8 @@ public class EmailBean implements SessionBean {
       query.append("FROM email ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setLong(1,_email_id);
       ps.setLong(2,_user_id);
 
@@ -112,31 +131,50 @@ public class EmailBean implements SessionBean {
         email_type_id=rs.getLong(1);
       }
       else {
-        throw(new RemoteException("No rows found when selecting from 'email' "+
-                                  "with email_id="+_email_id+" and "+
-                                  "user_id="+_user_id+"."));
+        throw(new EJBException("No rows found when selecting from 'email' "+
+                               "with email_id="+_email_id+" and "+
+                               "user_id="+_user_id+"."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
     return(email_type_id);
   }
 
   public String getAddress(long _email_id,long _user_id)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
 
     String address="";
 
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
       DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 
       StringBuffer query=new StringBuffer(1024);
@@ -144,8 +182,8 @@ public class EmailBean implements SessionBean {
       query.append("FROM email ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setLong(1,_email_id);
       ps.setLong(2,_user_id);
 
@@ -154,28 +192,48 @@ public class EmailBean implements SessionBean {
         address=rs.getString(1);
       }
       else {
-        throw(new RemoteException("No rows found when selecting from 'email' "+
-                                  "with email_id="+_email_id+" and "+
-                                  "user_id="+_user_id+"."));
+        throw(new EJBException("No rows found when selecting from 'email' "+
+                               "with email_id="+_email_id+" and "+
+                               "user_id="+_user_id+"."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
     return(address);
   }
 
   public void setEmailTypeId(long _email_id,long _user_id,long _email_type_id)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
       DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 		   
       StringBuffer query=new StringBuffer(1024);
@@ -183,34 +241,54 @@ public class EmailBean implements SessionBean {
       query.append("SET email_type_id=? ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setLong(1,_email_type_id);
       ps.setLong(2,_email_id);
       ps.setLong(3,_user_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows updated in 'email'. "+
-                                  "Updated "+rc+", should have updated 1."));
+        throw(new EJBException("Wrong number of rows updated in 'email'. "+
+                               "Updated "+rc+", should have updated 1."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
   }
 
   public void setAddress(long _email_id,long _user_id,String _address)
-                                                        throws RemoteException {
+                                          throws EJBException, RemoteException {
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
     try {
 
-      /* Pull the DataSource object defined as a <resource-ref> in ejb-jar.xml
-       */
       DataSource ds=(DataSource)init_ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
 		   
       StringBuffer query=new StringBuffer(1024);
@@ -218,25 +296,43 @@ public class EmailBean implements SessionBean {
       query.append("SET address=? ");
       query.append("WHERE email_id=? AND user_id=?");
 
-      Connection con=ds.getConnection();
-      PreparedStatement ps=con.prepareStatement(query.toString());
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
       ps.setString(1,_address);
       ps.setLong(2,_email_id);
       ps.setLong(3,_user_id);
 
       int rc=ps.executeUpdate();
       if (rc!=1) {
-        throw(new RemoteException("Wrong number of rows updated in 'email'. "+
-                                  "Updated "+rc+", should have updated 1."));
+        throw(new EJBException("Wrong number of rows updated in 'email'. "+
+                               "Updated "+rc+", should have updated 1."));
       }
     }
     catch (SQLException _sqle) {
       _sqle.printStackTrace();
-      throw(new RemoteException(_sqle.getMessage()));
+      throw(new EJBException(_sqle.getMessage()));
     }
     catch (NamingException _ne) {
       _ne.printStackTrace();
-      throw(new RemoteException(_ne.getMessage()));
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
     }
   }
 
