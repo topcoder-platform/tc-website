@@ -11,8 +11,8 @@
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->
-                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br/>
+                        <img src="/i/m/slowjoe_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=271917"><strong>slowjoe</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
                     </td>
@@ -20,13 +20,14 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td  width="99%" class="bodyText"  valign="top">
-                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_052703</xsl:attribute><font size="4"><strong>Threads and Atomicity</strong></font></a><br />
-                        Tuesday, May 27, 2003</p>
+                        <p><a class="bodyText"><xsl:attribute name="href">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_062603</xsl:attribute><font size="4"><strong>Simple Performance Improvement</strong></font></a><br />
+                        Thursday, June 26, 2003</p>
 
-                        <p>It has been quite a while since I was introduced to the concept of threads. Since then, I have learned many interesting 
-                        features&#151;and headaches&#151;associated with them.  This article discusses probably the most important concept that you as a 
-                        thread programmer need to know: atomicity.
-                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_052703</xsl:attribute><strong>full&#160;story</strong></a></p>
+                        <p>At the Collegiate Challenge finals, there was a discussion about improving performance levels, and it made me think.  
+                        Someone asked two questions: when should he expect his performance to peak, and how high should he expect to go.  No 
+                        answer was given, not surprisingly. I'd like to share a few of my thoughts on improving performance in areas other 
+                        than pure programming ability.
+                        <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_062603</xsl:attribute><strong>full&#160;story</strong></a></p>
                     </td>
                 </tr>
             </table>
