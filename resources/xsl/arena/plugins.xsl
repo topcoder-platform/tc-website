@@ -62,7 +62,7 @@
 
                         <hr width="100%" noshade="noshade" color="#666666" />
                         
-                        <p class="statText"><a href="/contest/classes/How to create an Editor Plugin v2.htm" class="statText">Create your own plugins!</a></p>
+                        <p class="statText"><a href="/contest/classes/How to create an Editor Plugin v3.htm" class="statText">Create your own plugins!</a></p>
 
                         <p class="statText"><a href="/contest/classes/javadoc/plugin-javadocs.jar" class="statText">Get the API</a></p>
 
