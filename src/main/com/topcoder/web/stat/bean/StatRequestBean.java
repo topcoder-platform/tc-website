@@ -12,6 +12,9 @@ import com.topcoder.web.stat.common.StatisticsQueries;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
+ *           initial web load into cvs
+ *
  *           Revision 1.1.2.1  2002/03/16 20:18:09  gpaul
  *           moving these over from the member dev area.
  *
@@ -52,18 +55,41 @@ public class StatRequestBean {
 	 * @return none
 	 */
 	public void setProperties(Map map) {
-		Map.Entry entry;
-		Iterator it = map.entrySet().iterator();
-		String sKey = "";
-		String sValue = (String)map.get(StatisticsQueries.COMMAND_ID);
-		msContentHandle = sValue==null?msContentHandle:sValue;
-		while (it.hasNext()) {
-			entry = (Map.Entry) it.next();
-			sKey = entry.getKey().toString(); //maps can't have null-key
-			sValue = (String) entry.getValue();
-			sValue = sValue==null?"":sValue; //nulls not allowed in Properties
-			mProp.put(sKey, sValue);
-		}
+          Iterator it = map.entrySet().iterator();
+          Map.Entry me = null;
+          String[] sArray = null;
+          String sKey = null;
+          String sValue = null;
+          String arrayType = null;
+          
+          while (it.hasNext()) {
+            me = (Map.Entry) it.next();
+            if (me.getValue() instanceof String) {
+              sKey = me.getKey().toString(); //maps can't have null-key
+	      sValue = (String) me.getValue();
+	      sValue = sValue==null?"":sValue; //nulls not allowed in Properties
+              if (sKey.equals(StatisticsQueries.COMMAND_ID))
+                msContentHandle = sValue;
+	      mProp.put(sKey, sValue);
+            } else if (me.getValue().getClass().isArray()) {
+              arrayType = me.getValue().getClass().getComponentType().toString();
+              // only need to handle String arrays afaik.
+              if (arrayType.equals("class java.lang.String")) {
+                sArray = (String[]) me.getValue();
+                sKey = me.getKey().toString();
+                if (sArray.length > 0) {
+                  mProp.put(sKey, sArray[0]);
+                  // if the COMMAND_ID is in there multiple times,
+                  // we'll just use the first one
+                  if (sKey.equals(StatisticsQueries.COMMAND_ID))
+                    msContentHandle = sArray[0];
+                }
+                for(int i=1; i<sArray.length; i++) {
+                   mProp.put(sKey+i, sArray[i]);
+                }
+              }
+            }
+          }
 	}
 	
 	/**
