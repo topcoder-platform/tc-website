@@ -70,7 +70,7 @@
                 </tr-->
 
                 <tr valign="top">
-                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
+                    <!--<td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>-->
                     <td class="formTextOdd" align="center">$1,860</td>
                     <td class="formTextOdd" align="center">$690</td>
                     <td class="formTextOdd" align="center">closed</td>
@@ -93,13 +93,14 @@
                     <td colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr>
 
-                <!--tr valign="top">
-                    <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
+                <tr valign="top">
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
                     <td class="bodyText" align="center">$1,600</td>
                     <td class="bodyText" align="center">$600</td>
                     <td class="bodyText" align="center">5.27.2003</td>
                 </tr>
 
+                <!--
                 <tr valign="top">
                     <td class="bodyText"><a href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Business Logic</a></td>
                     <td class="bodyText" align="center">$2,400</td>
@@ -112,12 +113,13 @@
                     <td class="bodyText" align="center">$2,400</td>
                     <td class="bodyText" align="center">$900</td>
                     <td class="bodyText" align="center">5.27.2003</td>
-                </tr-->
+                </tr>
+                -->
 
             </table>
-            
+
             <p><br/></p>
-                
+
         </td>
 <!-- Center Column Ends -->
 
