@@ -164,7 +164,7 @@ public class SendEmailTask extends EmailTask implements Runnable {
                         String memberXML = job.getJobDetailData(jobId, detailId);
                         sendMessage(message, templateXSL, memberXML);
                         server.setDetailStatus(jobId, detailId, server.MSG_SENT, "Sent");
-                        log.debug("Job " + jobId + ", Detail " + detailId
+                        log.info("Job " + jobId + ", Detail " + detailId
                                 + ": sent to ("
                                 + message.getToAddress(TCSEmailMessage.TO)[0]
                                 + ")");
