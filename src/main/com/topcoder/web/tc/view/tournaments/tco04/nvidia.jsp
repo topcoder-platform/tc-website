@@ -46,7 +46,7 @@
         <tr> 
         <td colspan="2" class="bodyText" align="left" width="480">
         <p>If you are interested in becoming part of the NVIDIA team, please check out the available positions 
-                       posted on the TopCoder website, as well as on 
+                       posted on the <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting">TopCoder website</a>, as well as on 
                        <a href="http://www.nvidia.com/page/home" target="_blank">www.nvidia.com</a>.</p>
         </td>
         </tr>
