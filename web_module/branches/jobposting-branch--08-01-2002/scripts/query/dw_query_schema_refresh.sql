@@ -99,6 +99,10 @@ INSERT INTO command_query_xref VALUES(29, 51, 1);
 INSERT INTO command_query_xref VALUES(1010, 1000, 1);
 INSERT INTO command_query_xref VALUES(1010, 1001, 2);
 INSERT INTO command_query_xref VALUES(1010, 1002, 3);
+INSERT INTO command_query_xref VALUES(1010, 1011, 4);
+INSERT INTO command_query_xref VALUES(1010, 1012, 5);
+INSERT INTO command_query_xref VALUES(1010, 1013, 6);
+INSERT INTO command_query_xref VALUES(1010, 1014, 7);
 INSERT INTO command_query_xref VALUES(1011, 1003, 1);
 INSERT INTO command_query_xref VALUES(1013, 1004, 1);
 INSERT INTO command_query_xref VALUES(1014, 1005, 1);
@@ -253,4 +257,8 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1009, "N", null, 4, 2);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1010, "N", null, 1000, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1010, "N", null, 4, 2);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1011, "N", null, 1000, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1012, "N", null, 1000, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1013, "N", null, 1000, 1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1014, "N", null, 1000, 1);
 
