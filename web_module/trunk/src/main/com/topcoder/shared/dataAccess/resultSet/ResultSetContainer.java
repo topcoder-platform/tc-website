@@ -911,6 +911,27 @@ public class ResultSetContainer implements Serializable, List, Cloneable {
             return mtcItems[iCol];
         }
 
+        public int getIntItem(int index) {
+            return ((Number)getItem(index).getResultData()).intValue();
+        }
+        public int getIntItem(String col) {
+            return ((Number)getItem(col).getResultData()).intValue();
+        }
+
+        public long getLongItem(int index) {
+            return ((Number)getItem(index).getResultData()).longValue();
+        }
+        public long getLongItem(String col) {
+            return ((Number)getItem(col).getResultData()).longValue();
+        }
+
+        public String getStringItem(int index) {
+            return getItem(index).getResultData().toString();
+        }
+        public String getStringItem(String col) {
+            return getItem(col).getResultData().toString();
+        }
+
         /**
          * This method creates a cloned copy of this row.
          *

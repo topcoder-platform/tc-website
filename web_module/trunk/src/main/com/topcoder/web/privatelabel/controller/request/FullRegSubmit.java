@@ -26,8 +26,13 @@ public class FullRegSubmit extends SimpleRegSubmit {
     }
 
     protected UserPrincipal store(SimpleRegInfo regInfo) throws Exception {
-        return super.store(regInfo);
+        UserPrincipal ret = super.store(regInfo);
         //TODO do the rest of the db stuff, demog etc.
+
+
+
+
+        return ret;
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {

@@ -821,6 +821,7 @@
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc-webtags.tld"/>
+                <include name="privatelabel.tld"/>
             </webinf>
         </war>
         <unwar src="${war.dir}/privatelabel.war" dest="${public_html}/privatelabel/" overwrite="yes"/>
