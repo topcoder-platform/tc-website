@@ -19,6 +19,7 @@
     <property name="taglib" value="${resources}/taglib"/>
     <property name="images" value="images"/>
     <property name="Jive.jar" value="${bin}/Jive.jar"/>
+    <property name="shared.jar" value="${bin}/shared.jar"/>
     <property name="web" value="src/main/com/topcoder/web"/>
     <property name="tc_cluster" value="../weblogic_apps/tc_cluster"/>
     <property name="public_html" value="../weblogic_apps/tc_cluster/public_html"/>
@@ -109,7 +110,7 @@
      </target>
 
 
-    <target name="compile" depends="init,compile_shared">
+    <target name="compile" depends="init,jar_shared">
         <available property="jdk1.4+" classname="java.nio.ByteBuffer" />
         <javac
             srcdir="${java}"
@@ -156,6 +157,14 @@
                 />
         </jar>
     </target>
+
+     <target name="jar_shared" depends="compile_shared">
+         <jar jarfile="${shared.jar}">
+             <fileset dir="${classes}">
+                 <include name="com/topcoder/shared/**/*.class"/>
+             </fileset>
+         </jar>
+     </target>
 
 
     <target name="package-EJB-QueryServicesBean" depends="compile">
@@ -831,12 +840,11 @@
         <delete dir="${public_html}/corp/META-INF"/>
     </target>
 
-     <target name="war-techassess" depends="compile_shared, compile_techassess">
+     <target name="war-techassess" depends="jar_shared, compile_techassess">
          <war warfile="${war.dir}/techassess.war" webxml="${resources}/techassess/web.xml">
              <classes dir="${classes}">
                  <include name="com/topcoder/web/codinginterface/techassess/**"/>
                  <include name="com/topcoder/web/common/**"/>
-                 <include name="com/topcoder/shared/**"/>
              </classes>
 <!--
              <webinf dir="${resources}/taglib">
@@ -855,6 +863,19 @@
              </fileset>
 
          </war>
+     </target>
+
+     <target name="deploy-techassess" depends="war-techassess">
+         <copy todir="../jboss-4.0.0/server/default/lib">
+             <fileset dir="${lib.dir}">
+                 <include name="${shared.jar}"/>
+             </fileset>
+         </copy>
+         <copy todir="../jboss-4.0.0/server/default/deploy">
+             <fileset dir="${war.dir}">
+                 <include name="techassess.war"/>
+             </fileset>
+         </copy>
      </target>
 
     <target name="deploy-corp" depends="war-corp">
