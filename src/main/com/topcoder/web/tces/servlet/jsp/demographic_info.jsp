@@ -170,19 +170,20 @@
                         </TR>                
                       </TABLE>
                    <% } %>
-                   
+
                 </TD>
-                    
+
+
                 <TD WIDTH="10%">
-                    <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935">
+                    <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" >
                         <TR HEIGHT="18"><TD class="testTableTitle"><BR></TD></TR>
                         <TR><TD><BR></TD></TR>
                     </TABLE>
                 </TD>
-                
-                    
+
+
                 <TD width="40%">
-                  
+
                   <% if (DemographicTask.getProCoderCount() > 0) { %>
                   
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
