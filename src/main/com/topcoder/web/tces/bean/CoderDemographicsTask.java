@@ -9,9 +9,12 @@ package com.topcoder.web.tces.bean;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 
 import javax.servlet.http.*;
 import java.io.Serializable;
@@ -38,6 +41,10 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
 
     /* Indicates whether the coder is ranked in competition */
     private boolean isRanked;
+
+    private ResultSetContainer memberInfo;
+    private String jobName;
+    private boolean hasResume;
 
     /** Creates new CoderDemographicsTask */
     public CoderDemographicsTask() {
@@ -88,6 +95,15 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
 
     public void processStep(String step) throws Exception {
         viewCoderDemographics();
+        ResumeServicesHome rHome = null;
+        ResumeServices rServices = null;
+        try {
+            rHome = (ResumeServicesHome) getInitialContext().lookup(ApplicationServer.RESUME_SERVICES);
+            rServices = rHome.create();
+            setHasResume(rServices.hasResume(mid));
+        } catch (Exception e) {
+            log.error("could not determine if user has a resume or not");
+        }
     }
 
     public void viewCoderDemographics() throws Exception {
@@ -153,6 +169,10 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
         }
 
         setQuestionList( qrList );
+
+        setMemberInfo((ResultSetContainer) resultMap.get("TCES_Member_Profile"));
+        setJobName(((ResultSetContainer) resultMap.get("TCES_Position_Name")).
+                getItem(0, "job_desc").toString());
 
         setNextPage( TCESConstants.CODER_DEMOGRAPHICS_PAGE );
     }
@@ -251,6 +271,30 @@ public class CoderDemographicsTask extends BaseTask implements Task, Serializabl
      */
     public void setIsRanked(boolean isRanked) {
         this.isRanked=isRanked;
+    }
+
+    public ResultSetContainer getMemberInfo() {
+        return memberInfo;
+    }
+
+    public void setMemberInfo(ResultSetContainer memberInfo) {
+        this.memberInfo = memberInfo;
+    }
+
+    public String getJobName() {
+        return jobName;
+    }
+
+    public void setJobName(String jobName) {
+        this.jobName = jobName;
+    }
+
+    public boolean hasResume() {
+        return hasResume;
+    }
+
+    public void setHasResume(boolean hasResume) {
+        this.hasResume = hasResume;
     }
 }
 
