@@ -65,15 +65,15 @@
     	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm84_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm84_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm80_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm84_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
 			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
@@ -82,37 +82,22 @@
 	</TR>
  	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
 </TABLE>
-<!--end contextual links <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> -->
+<!--end contextual links <A HREF="/stat?c=last_match&amp;rd=4140" CLASS="bodyGeneric">NDBronson</A> -->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<P><B>Single Round Match 80</B><BR/>
-April 15, 2002</P>
-<P><B>Room 1 Review</B></P>
-
-<P>
-<A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> jumped ahead early with 239.67 points on the
-easy problem.  However, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> came roaring back
-with 434.81 points on the 500 and an impressive 748.43
-points on the 1100, giving him a grand total of
-1405.46.  With a successful challenge of  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth's</A> 500
-point problem, top ranked <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> looked good with a
-commanding lead at 1455.46 points.  However, during the
-system tests, a fault in his 500 point problem surfaced
-dropping him to 1020.65.  This dropped <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> into
-3rd and allowed 2nd ranked <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> to take the lead
-with 1168.21 points, and extend his win streak with his
-third consecutive room 1 win.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A> also continued
-to look good, with second place at 1135.06.  His score
-also gave him enough of a boost to take second away
-from long time competitor, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, who only solved the
-easy and medium problems and dropped down to 4th
-overall.  On the bottom side of things, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">doeth</A> only was
-only able to come up with a successful easy solution
-and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ambrose</A> seems to have not tried, dropping both of
-them well out of Room 1.
-</P>
-
-  
-    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+<P><B>Single Round Match 84</B><BR/>
+April 30, 2002</P>
+<P><B>Rookie Review</B></P>
+<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">cbthiess</A> submitted all three problems in slightly over a half hour, for 1447.52 points. 
+This alone would have sufficed to make him the highest scoring first timer, but he decided to add another 100 points to this by successfully challenging 
+<A HREF="/stat?c=last_match" CLASS="bodyGeneric">NinjaDragon</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">sanderj</A>. 
+This score gave him a debut rating of 1755, 25th all time.  In distant second was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Special-Ed</A> 
+with 1394.41 and a debut rating of 1591.  Other notables included <A HREF="/stat?c=last_match" CLASS="bodyGeneric">fist</A>, with a debut rating 
+of 1550, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">mcrispino</A> with 1527, and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">PurpleBob</A>, 
+with 1516.</P>
+<P>Last SRM's up and comers continued to do well this week.  SRM 83's highest scoring first timer, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">radeye</A>, 
+placed third in room 6, increasing his rating to 1946.  Last week's second place first timer, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">currane</A>, 
+did even better, winning room 10 by submitting all three problems correctly and increasing his rating to 1948.</P>
+<IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
