@@ -34,8 +34,9 @@
             <jsp:param name="title" value="Component Competitions"/>
         </jsp:include>
 
-            <table border=0 cellpadding=2 cellspacing=0 width="100%">
-            </table>
+<table border=0 cellpadding=2 cellspacing=0 width="100%">
+<tr class="bodyText"><td nowrap="nowrap">03.30.05 11:15 AM - </td><td width="100%"><A href="http://software.topcoder.com/index.jsp">"Top 10 Most Downloaded Components" added to TCS homepage</A></td></tr>
+</table>
 
         </div>
         <p><br/></p>
