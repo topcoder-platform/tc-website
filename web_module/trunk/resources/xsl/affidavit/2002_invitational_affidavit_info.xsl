@@ -64,7 +64,7 @@
                     We do not have a notarized affidavit from you on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  This affidavit must be notarized and returned to us at the address below.
                   </xsl:when>
                   <xsl:otherwise>
-                    Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  Please read the affidavit, sign it and return it to us at the address below.
+                    Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.  Please read the affidavit, sign it and return it to us at the address below.  Note that you do not have to have this affidavit notarized because we already have a notorized affidavit on file for you.
                   </xsl:otherwise>
                 </xsl:choose>
                 <BR/>
@@ -93,7 +93,7 @@
               <li>
                 <B>2002 TOPCODER INVITATIONAL QUESTIONNAIRE</B> - completed form must be emailed to <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A> by 12:00PM EST on Monday, Oct. 28th:<BR/><BR/>
 	        Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_questionaire">here</A> to view 
-                the TopCoder 2002 Questionnaire.  Copy this HTML page into a word processor.  Complete 
+                the 2002 TopCoder Invitational Questionnaire.  Copy this HTML page into a word processor.  Complete 
                 ALL questions and return it via email.
                 <BR/>
                 <BR/>

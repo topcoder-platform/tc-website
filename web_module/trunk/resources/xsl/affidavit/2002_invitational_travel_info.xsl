@@ -24,7 +24,7 @@
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
-        TopCoder will secure airline reservations based upon your registration information and email a suggested travel itinerary to you.  Travel arrangements need to be finalized no later than Monday, November 4th.  Please be advised that once airlines tickets are confirmed, any changes are subject to penalty fees at your own expense.<BR/>
+        TopCoder will secure airline reservations (up to a cost of $1,000 per ticket) based upon your registration information and email a travel itinerary to you.  Travel arrangements need to be finalized no later than Monday, November 4th.  Please be advised that once airlines tickets are confirmed, any changes are subject to penalty fees at your own expense.<BR/>
         <BR/>
         <BR/>
         <B><U>AIRPORT TRANSPORTATION:</U></B><BR/>
@@ -58,13 +58,11 @@
         Zip:<BR/>
         <BR/>
         <B>Emergency contact:</B><BR/>
-        <BR/>
         Name:<BR/>
         Phone:<BR/>
         Relationship:<BR/>
         <BR/>
         <B>Media Information:</B> <BR/>
-        <BR/>
         Please list your local newspapers, radio, and television stations.  If you are a student, list both hometown and college locations.<BR/>
         <BR/>
         Newspapers:<BR/>
@@ -75,7 +73,6 @@
         Shirt size (S|M|L|XL|XXL):<BR/>
         <BR/>
         <U><B>GUEST INFORMATION:</B></U><BR/>
-        <BR/>
         Last Name:<BR/>
         First Name:<BR/>
         Date of Birth:<BR/>
@@ -87,7 +84,6 @@
         Relationship:<BR/>
         <BR/>
         <U><B>TRAVEL INFORMATION:</B></U><BR/>
-        <BR/>
         Departure City/Airport:<BR/>
         <BR/>
         November 21, 2002 - preferred departure time (AM|PM):<BR/>

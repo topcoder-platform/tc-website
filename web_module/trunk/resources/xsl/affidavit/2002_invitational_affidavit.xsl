@@ -41,7 +41,7 @@ LIABILITY AND PUBLICITY RELEASE<BR/>
 <BR/>
 </CENTER>
 I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/>, residing at 
-(
+&#160;
 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address1"/>&#160;
 <xsl:if test="/TC/AFFIDAVIT/Affidavit/Info/address2!=''">
   <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address2"/>&#160;
@@ -52,7 +52,7 @@ I, <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/>&#160;<xsl:va
 </xsl:if>
 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
-)
+&#160;
  hereby state:  I am at least 18 years of age.  My date of birth is _________.  I hereby represent I am either:<BR/>
 <BR/>
 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;(a) a U.S.* citizen;<BR/>
