@@ -36,6 +36,7 @@
                 <td <%=even?"bgcolor=\"#ccffcc\"":""%>><rsc:item row="<%=resultRow%>" name="date" format="MM.dd.yyyy hh:mma"/><td>
 
             </tr>
+            <%even=!even;%>
 
         </rsc:iterator>
 
