@@ -57,13 +57,7 @@
 </P>
 
 <P>
-TopCoder Employment Services [TCES] is pleased to announce its Candidate Recruiting Program.  
-Through this program, [TCES] is actively soliciting top companies who are looking to hire software 
-engineers and developers. The targeted companies value programming talent and are interested in 
-hiring TopCoder members. TopCoder members will be notified via email of new job postings to the site, 
-and all members will have the ability to express interest in open positions at these top companies 
-through the job postings and employment advertisements on TopCoder's website. Members will also have 
-an opportunity to showcase their competition achievements and be able to upload resumes as part of the process.
+TopCoder Employment Services [TCES] is pleased to announce its Candidate Recruiting Program. Through this program, [TCES] is actively soliciting top companies who are looking to hire software engineers and developers. The targeted companies value programming talent and are interested in hiring TopCoder members. TopCoder members can choose to be notified via email of new job postings to the site, and all rated members will have the ability to express interest in open positions at these top companies through the job postings and employment advertisements on TopCoder's website. Rated members will also have an opportunity to showcase their competition achievements and be able to upload resumes as part of the process. 
 </P>
 
 <P>
