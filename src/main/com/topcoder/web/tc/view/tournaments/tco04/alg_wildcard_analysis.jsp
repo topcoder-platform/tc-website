@@ -21,22 +21,26 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=pageTitle>Page Title</p>
+        <p class=pageTitle>snewman is back in the battle</p>
 
 		<img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
 		<div class="leadPhoto">
 		<span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=photos">See more photos!</a></p></span>
-		<img src="/i/tournament/tco04/onsite_photos/room1.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
-		<span class="leadPhotoCaption">Caption<br/><br/></span>
+		<img src="/i/tournament/tco04/onsite_photos/shot_wildcard.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+		<span class="leadPhotoCaption">snewman breathes a sigh of relief<br/><br/></span>
 		</div>
 
 		<a href="/stat?c=member_profile&cr=159052"><img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" align="left" class="myStatsPhoto"/></a>
 		<p>by <a href="/stat?c=member_profile&cr=159052">lbackstrom</a>, <br/>
 		<em>TopCoder Member</em><br />
-		Thursday, November 12, 2004<br/>
+		Friday, November 12, 2004<br/>
 		<br/><br/>
 		</p>
 <p>
+As in the TCCC, the wildcard round was extremely close.  John Dethridge, antimatter and snewman start off extremely close after each submitting the easy problem within a minute of each other.  The remaining three coders weren't too far behind, with the sixth submission coming in after 13 minutes.  The medium problem proved to be quite difficult for everyone though, and only antimatter, monsson, and snewman were able to submit it in time.  bstanescu skipped the medium problem after solving the easy, and went straight to the hard problem.  John Detridge also moved on the hard problem without solving the medium, but then went back to the medium.  With about 15 minutes remaining in the coding phase, bstanescu submitted the hard problem and maintained his lead till the end of the coding phase.
+<br/><br/>
+However, his solution used randomness and hill climbing, so there were no guarantees it would pass, even if everything else was correct.  During the challenge phase, no one was able to wade through the longish medium and hard submissions, and going into systests, the top four were bstanescu, antimatter, snewman, and monsoon.  As the results came up, it was revealed that snewman was the only coder to solve two problems, and hence he will join tomek, SnapDragon and reid in the finals - meaning that the top four seeds have all advanced.
+<br/><br/>
 <span class=bodySubtitle>CubeSum</span>
 <br/><Br/>
 In this problem, we want to count the number of ways to pick four perfect

@@ -169,9 +169,9 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
 --%>
 				</p></td></tr>
 				<tr>
-                    <td class="problem" align=center colspan=2>Problem 1</td>
+                    <td class="problem" align=center colspan=2>Problem Set 1</td>
                     <td class="problem" ></td>
-                    <td class="problem" align=center colspan=2>Problem 2</td>
+                    <td class="problem" align=center colspan=2>Problem Set 2</td>
                 </tr>
                 <tr>
                     <td valign=top class="leaderParentL" style="border-collapse: collapse" width="25%">
@@ -206,7 +206,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                             </tr>
                             <tr>
                                 <td class="leaderHeader">Handle</td>
-                                <td class="leaderHeader" align="right">Status</td>
+                                <td class="leaderHeader" align="right">Score</td>
                             </tr>
                              <rsc:iterator list="<%=rscRecentA%>" id="Row" > 
                                 <tr>
@@ -248,7 +248,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("showdown_recent
                             </tr>
                             <tr>
                                 <td class="leaderHeader">Handle</td>
-                                <td class="leaderHeader" align="right">Status</td>
+                                <td class="leaderHeader" align="right">Score</td>
                             </tr>
                             <rsc:iterator list="<%=rscRecentB%>" id="Row" >
                                 <tr>
