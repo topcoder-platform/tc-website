@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
-                        <h2>How Competitions Work</h2><a name="top"></a>
+                        <h3>How Competitions Work</h3><a name="top"></a>
                         
                         <ul>
                             <li><a href="?module=Static&d1=faq&d2=manual_fig1"><b>Figure 1.</b> Login</a></li>

@@ -10,6 +10,7 @@ function openWin(url, name, w, h) {
 
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
+   boolean isGuidePage = "true".equals(request.getParameter("isGuidePage"));
 %>
 
 <a name="top"/>
@@ -70,7 +71,11 @@ function openWin(url, name, w, h) {
 <%  } %>
 
 <% if(SessionInfo.isLoggedIn()) { %>
+    <% if (isGuidePage) { %>
+        <td class="rednavOn" nowrap>Competition Guide</td>
+    <% } else { %>
         <td class="rednav" nowrap><a href="?module=Static&d1=tour&d2=mem_tour" class="rednavLink">Competition Guide</a></td>
+    <%  } %>
 <% } %>
 
         <td class="rednav" nowrap><a href="Javascript:openWin('?module=Static&d1=arena&d2=quick_launch','comp',300,225);" class="rednavLink">Quick Launch&#160;&gt;&gt;</a></td>

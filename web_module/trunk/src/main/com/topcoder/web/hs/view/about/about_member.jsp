@@ -34,7 +34,7 @@
                 
                 <tr>
                     <td width="100%" class="bodyText">
-                        <h2>Members</h2>
+                        <h3>Members</h3>
                         
                         <p>TopCoder High School competitions are designed for those academically inclined students already interested in 
                         computer science.  The key to the competition process is the immediacy and objectivity of each match.  During a TopCoder 

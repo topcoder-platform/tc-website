@@ -28,10 +28,10 @@
             <table cellspacing="0" cellpadding="10" border="0"  width="100%">
                 
                 <tr valign="top">
-                    <td align="left" width="99%" class="statText">
+                    <td align="left" width="99%" class="statTextBig">
                         <img src="/i/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0">
 
-                        <h2>April 2003</strong></h2>
+                        <h3>April 2003</strong></h3>
                         <div align="right"><form name="selectform">
                         <select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
                             <option value="SELECTED">&nbsp;Choose Monthly View</option>

@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%">
-                        <h2>Editor Information</h2><a name="top"></a>
+                        <h3>Editor Information</h3><a name="top"></a>
                         
                         <b>1. STANDARD</b><br>
 The "Standard" editor was created as the default editor. It contains some basic

@@ -46,7 +46,7 @@
                         </table>
 
                         <table cellspacing="0" cellpadding="10" border="0" width="550">
-                            <tr valign="top"><td width="100%" class="statText" align="center"><h2>The following schools qualify for the Championship Match</h2></td></tr>
+                            <tr valign="top"><td width="100%" class="statText" align="center"><h3>The following schools qualify for the Championship Match</h3></td></tr>
                         </table>
                         
                         <table cellspacing="0" cellpadding="3" border="0" width="300">

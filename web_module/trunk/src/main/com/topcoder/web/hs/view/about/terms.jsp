@@ -34,7 +34,7 @@
                 
                 <tr>
                     <td width="100%" class="bodyText">
-                        <h2>Terms and Conditions</h2>
+                        <h3>Terms and Conditions</h3>
 
                         <p> By using this Web site you are indicating your agreement to these Terms of Use ("Terms").  If you do not agree to 
                         these Terms, please do not use the site and exit now.</p>

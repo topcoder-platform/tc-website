@@ -34,7 +34,7 @@
                 
                 <tr valign="top">
                     <td width="100%" class="bodyText">
-                        <h2>How Competitions Work (continued)</h2><a name="top"></a>
+                        <h3>How Competitions Work (continued)</h3><a name="top"></a>
                         
                         <table cellspacing="0" cellpadding="0" border="0"><tr><td class="bodyText"><br>
                    <b>Coding Phase</b>

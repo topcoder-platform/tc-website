@@ -34,7 +34,7 @@
                 
                 <tr>
                     <td width="100%" class="bodyText">
-                        <h2>Privacy Policy</h2>
+                        <h3>Privacy Policy</h3>
 
                         <p>Because we value privacy as much as we value programmers, TopCoder is committed to protecting the privacy of our 
                         users.  We want to provide a safe, secure user experience.  We will use reasonable commercial efforts to ensure that the 
