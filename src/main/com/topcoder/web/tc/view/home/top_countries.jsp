@@ -19,8 +19,8 @@
     <rsc:iterator list="<%=countries%>" id="resultRow">
         <tr>
             <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="rank" row="<%=resultRow%>"/>&#160;&#160;&#160;</td>
-            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><strong><rsc:item name="name" row="<%=resultRow%>"/></strong></td>
-            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" nowrap="nowrap"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
+            <td align="left" class="<%=even?"formHandleEven":"formHandleOdd"%>"><strong><rsc:item name="name" row="<%=resultRow%>"/></strong></td>
+            <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
         </tr>
         <% even = !even;%>
     </rsc:iterator>
