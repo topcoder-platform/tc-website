@@ -291,7 +291,6 @@ public class TestSessionInfo extends BaseModel {
         if(val == null) {
             val = "NO";
         }
-        log.debug("RYAN2 EMAIL IS " + val);
         candidateEmail = val;
     }
 
