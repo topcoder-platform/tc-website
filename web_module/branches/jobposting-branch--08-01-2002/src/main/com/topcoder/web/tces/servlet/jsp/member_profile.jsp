@@ -58,17 +58,17 @@
             <TD BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
             <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
             
-            
+            <P align="center">
             <% if (MemberProfileTask.getImagePath().length() > 0) { %>
             <TABLE WIDTH=100%>
-            <TD ALIGN="right">
+            <TD class="statText" ALIGN="right">
                 <IMG SRC="<%=MemberProfileTask.getImagePath()%>"/>
             </TD>
             <TD WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-            <TD ALIGN="left">
+            <TD class="statText" ALIGN="left">
             <% } %>
             
-            <P align="center"><B>Coder Profile: <%=    MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
+              <B>Coder Profile: <%=    MemberInfo.get(TCESConstants.MEM_INFO_HANDLE_KEY)%> </B>
               <BR>
               <%= MemberInfo.get(TCESConstants.MEM_INFO_FULLNAME_KEY)%>
               <BR>
@@ -81,11 +81,12 @@
                     <%=MemberProfileTask.getJobName()%>
                 </A>
               </B>
-              </P>                            
               
               <% if (MemberProfileTask.getImagePath().length() > 0) { %>
               </TD></TR></TABLE>
               <% } %>
+              </P>                            
+              
               
               <P align="center">
               <A HREF="/tces/tces?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.MEMBER_INTEREST_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberProfileTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberProfileTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberProfileTask.getMemberID()%>" class="statText">
