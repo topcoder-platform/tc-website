@@ -61,7 +61,7 @@
                 <tr valign="top">
                     <td align="left" width="100%" class="bodyText">
 
-                        <p class="promoText"> Change     Technology complexity is increasing at a blistering pace. In both the business and consumer markets, products that were once considered nice-to-haves 
+                        <p class="promoText"> Technology complexity is increasing at a blistering pace. In both the business and consumer markets, products that were once considered nice-to-haves 
                         are rapidly becoming expectations, challenging software developers to create and optimize solutions that fulfill their customers' growing demands.</p>
                         
                         <p class="promoText"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel&#174; Developer Services </strong></A>offers the resources and 
