@@ -49,10 +49,11 @@ public class TCCC05ProjectDetails extends StatBase {
         for(int i = 0; i < rsc.size(); i++)
         {
             int pts = 0;
-            
+            String place = "-";
             if(rsc.getDoubleItem(i, "final_score") >= 70) {
                 if(i < placementPoints.length)  {
                     pts = placementPoints[i];
+                    placed = String.valueOf(i+1);
                 }
             }
             
@@ -65,13 +66,6 @@ public class TCCC05ProjectDetails extends StatBase {
             String sub = "";
             if(rsc.getItem(i, "submit_timestamp").getResultData() != null) {
                 sub = dtfmt.format((Date)rsc.getItem(i, "submit_timestamp").getResultData());
-            }
-                       
-            String place = "-";
-            if(rsc.getItem(i, "placed").getResultData() != null) {
-                if(rsc.getIntItem(i, "placed") != 0) {
-                    place = String.valueOf(rsc.getIntItem(i, "placed"));
-                }
             }
             
             arr.add( new TCCC05ProjectDetail(rsc.getStringItem(i, "handle"), pts ,    
