@@ -81,7 +81,7 @@ next Single Round Match date.
 		<TD COLSPAN="3" VALIGN="middle" HEIGHT="17" BGCOLOR="#43515E" CLASS="statText">&#160;<B>Employers</B></TD>
 	</TR>
     <TR>
-		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=nvidia"><IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="150" HEIGHT="103" BORDER="0"/></A></TD>
+		<TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=nvidia"><IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" BORDER="0"/></A></TD>
 		<TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="100%" VALIGN="middle" CLASS="bodyText"><B>NVIDIA&#174; Corporation (Nasdaq: NVDA)</B> is the worldwide leader in graphics processors and media and communications devices.  At NVIDIA we work hard. We thrive on innovation. We define the cutting-edge. We deliver to the nth degree.
          <A HREF="/?&amp;t=tces&amp;c=nvidia" CLASS="bodyText">Click here</A> to check out our open Software Engineering positions.<BR/><BR/></TD>

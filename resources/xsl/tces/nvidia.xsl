@@ -89,7 +89,7 @@
       </TD>
   </TR>
 </TABLE>
-<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="150" HEIGHT="103" ALT="" BORDER="0"/>
+<IMG SRC="/i/es/nvidia/nvidia_logo.gif" WIDTH="120" HEIGHT="83" ALT="" BORDER="0"/>
 
 <P>Founded in 1993, NVIDIA has quickly become the worldwide leader in graphics processors and media communications devices. In fact, NVIDIA was the first 3D graphics semiconductor company to deliver a complete top-to-bottom family of 3D solutions.</P>
 
