@@ -187,6 +187,7 @@
 		<td class="<%=tabLev3.equals("spectator")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spectator_package" class="subNavLink">Spectator Package</a></td>
 		--%>
 		<td class="<%=tabLev3.equals("schedule")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=onsite_schedule" class="subNavLink">Schedule</a></td>
+		<td class="<%=tabLev3.equals("showdown")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=spec_showdown" class="subNavLink">Spectator Showdown</a></td>
 		<td class="<%=tabLev3.equals("directions")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=directions" class="subNavLink">Directions</a></td>
 		<td class="<%=tabLev3.equals("transportation")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=transportation" class="subNavLink">Transportation</a></td>
 		<td class="<%=tabLev3.equals("hotels")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=hotels" class="subNavLink">Hotels</a></td>
