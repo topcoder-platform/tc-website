@@ -67,12 +67,15 @@ public class SubmissionInfo implements java.io.Serializable {
 
         Request dr = new Request();
         dr.setContentHandle("problemResults");
-        dr.setProperty(Constants.USER_ID, String.valueOf(user.getId()));
+        dr.setProperty("uid", String.valueOf(user.getId()));
         dr.setProperty(Constants.PROBLEM_TYPE_ID, String.valueOf(problemTypeId));
         dr.setProperty(Constants.PROBLEM_ID, String.valueOf(problemId));
         dr.setProperty(Constants.SESSION_ID, String.valueOf(sessionId));
         dr.setProperty(Constants.ROUND_ID, String.valueOf(sessionRoundId));
 
+        //we're using cached becuase currently there is nowhere in the system that
+        //accesses this that may first access it before someone has submitted
+        //and then again after thus getting a bad value from the cache
         Map map = cached.getData(dr);
         if(map == null)
             throw new ScreeningException("getData failed!");
