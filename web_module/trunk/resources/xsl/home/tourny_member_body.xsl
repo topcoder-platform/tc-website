@@ -100,7 +100,7 @@
     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText">
       <xsl:choose>
-      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='false'">
+      <xsl:when test="/TC/HOME/InvitationalInfo/IsRegistered='0'">
         <xsl:choose>
         <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/is_eligible='false'">
           <xsl:choose>
