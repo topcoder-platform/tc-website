@@ -14,60 +14,74 @@
 <title>TopCoder | Private Label Registration</title>
 
 <jsp:include page="../script.jsp" />
+
 </head>
+
 <body>
 
 <!-- TCO Header -->
+
 <a name="top_page"></a>
-<!--
-            <object 
-            type="application/x-shockwave-flash"
-            data="/i/tournament/vcc03/vcc03_still.swf"
-            width="100%"
-            height="125"
-            border="0">           
-            <param name="movie" value="/i/tournament/vcc03/vcc03_still.swf" />
-            <param name="quality" value="high" />
-            <param name="salign" value="t">
-            </object>
--->
-        <img src="/i/tournament/vcc03/vcc03.jpg" width="750" height="120" border="0"/>
-
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-   <tr valign="top">
+<table  width="100%" border="0" cellspacing="0" cellpadding="0" class="bodyText">
+   <tr>
 
 <!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Left Column Begins-->
-         <td>
-         <p><img src="/i/clear.gif" width="180" height="10" border="0"/><br />
-         <img src="/i/tournament/vcc03/vcc03_right.gif" width="180" height="400" border="0"/><br />
-         <img src="/i/clear.gif" width="180" height="40" border="0"/>
-         </p>
+<!-- Header -->
+         <td width="100%" valign="top" class="bodyText" colspan="3">
+       
+         <table  width="100%" align="center" border="0" cellspacing="0" cellpadding="0" class="bodyText">
+            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_logo_white.gif" width="300" height="150" border="0"/></td></tr>
+            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
+            <tr><td colspan="9" align="center"><img src="/i/events/google2003/google_tagline.gif" width="173" height="15" border="0"/></td></tr>
+            <tr><td colspan="9"><img src="/i/clear.gif" width="10" height="20"></td></tr>
+
+            <tr>
+               <td width="50%">&nbsp;</td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_overview" style="text-decoration:none" ><font size="-1">Overview</font></a></td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_sched" style="text-decoration:none" ><font size="-1">Schedule</font></a></td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
+               <td bgcolor="#efefef" align="center" width=95 nowrap><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview" style="text-decoration:none" ><font size="-1"><img src="/i/events/google2003/rules_arrow_blue.gif" width="15" height="10" border="0"/>Rules</font></a></td>
+               <td width=15><img src="/i/clear.gif" width="15" height="1"></td>
+               <td bgcolor="#3366cc" align="center" width=95 nowrap><font color="#ffffff" size="-1"><b>Overview</b></font></td>
+               <td width="50%">&nbsp;</td>
+            </tr>
+            <tr>
+               <td colspan=9 bgcolor=#3366cc><img width=1 height=1 alt=""></td>
+            </tr>
+         </table>
+         </td>
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+      </tr>
+      <tr>
+
+<!-- Gutter Begins -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Left Column Begins -->
+        <td width="150" valign="top">      
+            <img src="/i/clear.gif" width="150" height="10" border="0"/><br />
+            <img src="/i/events/google2003/left.gif" width="150" height="450" border="0" usemap="#tchome"/>
+            <map name="tchome"><area shape="rect" alt="TC" coords="1,1,149,49" href="/" /></map>
          </td>         
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->  
-        <td class="bodyText" width="100%">
+<!-- Center Column Begins-->
+         <td width="100%" class="bodyText" valign="top">
+            <img src="/i/clear.gif" width="10" height="10" border="0"/><br />            
 
-<!-- Tab bar links-->
-<jsp:include page="../verizon/verizonLinks.jsp" >
-   <jsp:param name="selectedTab" value="register_now"/>
-</jsp:include>
-<!-- Tab bar sub links-->
-<jsp:include page="../verizon/verizonSublinks.jsp" >
-   <jsp:param name="selectedList" value="register_now"/>
-   <jsp:param name="selectedTab" value=""/>
-</jsp:include>   
-
-      <blockquote>
       <h2>Registration</h2>
       <table cellpadding="1" cellspacing="3" class="bodyText" align="center">
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
@@ -116,27 +130,20 @@
             </tr>
          </form>
          </table>
-      </blockquote>
-   </td>
+            <p><br /></p>
+         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="15"><img src="/i/clear.gif" width="15" height="1" alt="" border="0" /></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Right Column Begins -->
-<!-- Right Column Ends -->
-
-<!-- Gutter Begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/>
-        </td>
-<!-- Gutter Ends -->
-   
-</tr>
+    </tr>
 </table>
 
-<jsp:include page="../verizon/verizon_foot.jsp" />
+<!-- Footer Begins -->
+<jsp:include page="../google/google_foot.jsp" />
+<!-- Footer Ends -->
 
 </body>
-
 </html>
