@@ -34,31 +34,26 @@
             </table>
 
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
-            
-            <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
-                <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
+
+            <table cellspacing="0" cellpadding="3" width="70%" border="0">
+                <tr><td class="bodyText"><strong>Test Profile: </strong><jsp:getProperty name="profile" property="profileName" /></td></tr>
 
                 <tr>
-                    <td class="testTableSubtitleOdd"><strong>Name:</strong></td>
-                    <td class="testTableOdd"><jsp:getProperty name="profile" property="profileName" /></td>
-                    <td class="errorTextOdd">&#160;</td>
+                  <td class="bodyText"><strong>Available Languages: </strong>
+                    <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
+                    <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
+                      <screen:resultSetItem row="<%=row%>" name="language_name" />&#160;
+                    <% } %>
+                    </screen:resultSetRowIterator>
+                  </td>
                 </tr>
 
-                <tr>
-                    <td class="testTableSubtitleEven"><strong>Problem Set:</strong></td>
-                        <screen:resultSetRowIterator id="row" list="<%=profile.getProblemSetList()%>">
-                        <% if(profile.isSelectedTestSetA(row.getItem("round_id").toString())) { %>
-                            <td class="testTableEven"><screen:resultSetItem row="<%=row%>" name="name" /></td>
-                        <% } %>
-                        </screen:resultSetRowIterator>
-                    <td class="errorTextEven">&#160;</td>
-                </tr>
             </table>
-            
+
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
- 
+
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="6">Test Set A</td></tr>
                 <tr>
@@ -69,7 +64,7 @@
                     <td width="40%" align="center" class="testFormHeader">Algorithmic Categories</td>
                     <td width="10" class="testFormHeader"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
-            
+
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
@@ -95,7 +90,6 @@
                  </tr>
 
                 <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
-                <input type="hidden" name="testSetB" value="<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>" >
                 <tr>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td class="testTableOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
@@ -105,23 +99,6 @@
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>
-
-                <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td></tr>
-
-                <tr>
-                    <td class="testTableTitle" colspan="6">Available Languages</td>
-                </tr>
-
-                <screen:resultSetRowIterator id="row" list="<%=profile.getLanguageList()%>">
-                <% if(profile.hasLanguage(row.getItem("language_id").toString())) { %>
-                    <input type="HIDDEN" name="language" value="<screen:resultSetItem row="<%=row%>" name="language_id" />">
-                <tr>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                    <td class="testTableOdd" colspan="4"><screen:resultSetItem row="<%=row%>" name="language_name" /></td>
-                    <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
-                </tr>
-                <% } %>
-                </screen:resultSetRowIterator>
 
                 <tr><td colspan="6"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
             </table>
