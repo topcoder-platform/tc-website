@@ -115,12 +115,13 @@ public class EmailInfo extends BaseModel {
         msgText.append("Password:  ");
         msgText.append(candidatePassword);
         msgText.append("\n\n");
-        msgText.append("Windows, Linux and Unix users can access the Testing Application here: ");
-        msgText.append("http://corporate.topcoder.com/testing/testingApp.jsp?company=");
+        msgText.append("Windows, Linux and Unix users need to have the Java 1.4.x runtime installed and can access ");
+        msgText.append("the Testing Application here: http://corporate.topcoder.com/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
-        msgText.append("Mac OS X users (with the Java Web Start installed) can access the Testing Application ");
-        msgText.append("here: http://corporate.topcoder.com/testing/JNLPServlet?company=");
+        msgText.append("Mac OS X users need to have the Java 1.4.x runtime installed which requires OS X version ");
+        msgText.append("10.2.x.  You may access the Testing Application here: ");
+        msgText.append("http://corporate.topcoder.com/testing/testingApp.jsp?company=");
         msgText.append(companyId);
         msgText.append("\n\n");
         msgText.append("Best of luck!\n");
