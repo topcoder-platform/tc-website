@@ -46,9 +46,9 @@ public class SessionSegmentBean extends BaseEJB {
             StringBuffer query = new StringBuffer(240);
 
             query.append("INSERT INTO session_segment (session_id,");
-            query.append("session_segment_id, start_time, end_time,");
-            query.append("modify_date, create_date, segment_length)");
-            query.append(" VALUES(?,?,?,?,?,?,?) ");
+            query.append("session_segment_id,");
+            query.append("segment_length)");
+            query.append(" VALUES(?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -58,7 +58,7 @@ public class SessionSegmentBean extends BaseEJB {
             pstmt.setLong(1,sessionId);
             pstmt.setLong(2,sessionSegmentId);
 
-            pstmt.setLong(7,segmentLength);
+            pstmt.setLong(3,segmentLength);
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {

@@ -68,8 +68,8 @@ public class SessionProfileProblemBean extends BaseEJB {
 
             query.append("INSERT INTO session_profile_problem_xref ");
             query.append("(session_profile_id, problem_id, problem_type_id, ");
-            query.append("sort_order, modify_date, create_date, ");
-            query.append("session_round_id) VALUES(?,?,?,?,?,?,?) ");
+            query.append("sort_order, ");
+            query.append("session_round_id) VALUES(?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -80,7 +80,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.setLong(2,problemId);
             pstmt.setInt(3,problemTypeId);
             pstmt.setInt(4,sortOrder);
-            pstmt.setLong(7,sessionRoundId);
+            pstmt.setLong(5,sessionRoundId);
 
         } catch (SQLException sqe) {
             StringBuffer exceptionBuf = new StringBuffer(200);

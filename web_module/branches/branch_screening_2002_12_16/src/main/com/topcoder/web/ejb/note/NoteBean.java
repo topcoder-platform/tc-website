@@ -50,8 +50,8 @@ public class NoteBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(180);
             query.append("INSERT INTO note (note_id, text, submitted_by, ");
-            query.append("note_type_id, modify_date, create_date) ");
-            query.append("VALUES(?,?,?,?,CURRENT,CURRENT) ");
+            query.append("note_type_id) ");
+            query.append("VALUES(?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

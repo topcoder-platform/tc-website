@@ -61,8 +61,8 @@ public class SessionProfileBean extends BaseEJB {
             StringBuffer query = new StringBuffer(180);
             query.append("INSERT INTO session_profile (session_profile_id, ");
             query.append("session_profile_desc, session_round_id, ");
-            query.append("modify_date, create_date, company_id) ");
-            query.append("VALUES(?,?,?,CURRENT,CURRENT,?) ");
+            query.append("company_id) ");
+            query.append("VALUES(?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);

@@ -77,9 +77,9 @@ public class SessionBean extends BaseEJB {
 
             query.append("INSERT INTO session (session_id, " );
             query.append("session_profile_id, user_id, begin_time, end_time, ");
-            query.append("send_rep_email, send_candidate_email, modify_date, ");
-            query.append("create_date, create_user_id) ");
-            query.append("VALUES(?,?,?,?,?,?,?,?,?,?) ");
+            query.append("send_rep_email, send_candidate_email, ");
+            query.append("create_user_id) ");
+            query.append("VALUES(?,?,?,?,?,?,?,?) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -95,7 +95,7 @@ public class SessionBean extends BaseEJB {
             pstmt.setTimestamp(5,endTime);
             pstmt.setBoolean(6,sendRepEmail);
             pstmt.setBoolean(7,sendCandidateEmail);
-            pstmt.setLong(10,createUserId);
+            pstmt.setLong(8,createUserId);
 
             pstmt.executeUpdate();
 
