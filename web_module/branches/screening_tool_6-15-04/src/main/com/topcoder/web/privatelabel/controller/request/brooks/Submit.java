@@ -283,10 +283,10 @@ public class Submit extends FullRegSubmit {
                 buf.append("\n\n");
                 buf.append("The following session has been scheduled for you:\n\n");
                 buf.append("Begin: ");
-                buf.append(new SimpleDateFormat("MM/DD/YYYY HH:mm a").format(transBegin));
+                buf.append(new SimpleDateFormat("MM/DD/yyyy hh:mm a").format(transBegin));
                 buf.append(" IST\n");
                 buf.append("End: ");
-                buf.append(new SimpleDateFormat("MM/DD/YYYY HH:mm a").format(transEnd));
+                buf.append(new SimpleDateFormat("MM/DD/yyyy hh:mm a").format(transEnd));
                 buf.append(" IST\n");
                 buf.append("Login: ");
                 buf.append(info.getHandle());
