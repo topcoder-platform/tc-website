@@ -59,7 +59,15 @@ public class ArgumentIterator extends BodyTagSupport {
         return arguments.length > 0 ? EVAL_BODY_TAG : SKIP_BODY;
     }
 
+    public void doInitBody() throws JspException {
+        process();
+    }
+
     public int doAfterBody() throws JspException {
+        return process();
+    }
+
+    private int process() throws JspException{
         if (index < arguments.length) {
             pageContext.setAttribute(INDEX, String.valueOf(index), PageContext.PAGE_SCOPE);
             pageContext.setAttribute(ARGUMENT, new DataTypeRenderer(arguments[index]).toPlainText(language),
