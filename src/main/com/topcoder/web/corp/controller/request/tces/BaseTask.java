@@ -20,6 +20,7 @@ import javax.sql.DataSource;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
+import java.util.Iterator;
 
 
 /**
@@ -229,6 +230,31 @@ public abstract class BaseTask implements Task {
         else
             dAccess = new DataAccess(datasource);
         return dAccess;
+    }
+
+    protected boolean isRestrictedCampaign(long campaignId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("restricted_campaign");
+        r.setProperty("cid", String.valueOf(campaignId));
+        return !((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("restricted_campaign")).isEmpty();
+    }
+
+    protected String getRoundList(long campaignId) throws Exception {
+        Request r = new Request();
+        r.setContentHandle("campaign_rounds");
+        r.setProperty("cid", String.valueOf(campaignId));
+        ResultSetContainer rsc = ((ResultSetContainer)getDataAccess(getOltp()).getData(r).get("campaign_rounds"));
+        StringBuffer buf = new StringBuffer();
+        ResultSetContainer.ResultSetRow row = null;
+        for (Iterator it = rsc.iterator(); it.hasNext();) {
+            row = (ResultSetContainer.ResultSetRow)it.next();
+            buf.append(row.getLongItem("round_id"));
+            buf.append(", ");
+        }
+        buf.setLength(buf.length()-2);
+        log.debug("round list is " + buf.toString());
+        return buf.toString();
+
     }
 
 }
