@@ -6,6 +6,8 @@ package com.topcoder.apps.review;
 
 import com.topcoder.util.log.Level;
 
+import com.topcoder.apps.review.document.FixItem;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.apache.struts.action.ActionError;
@@ -23,14 +25,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class SaveFinalReviewAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -45,11 +47,11 @@ public final class SaveFinalReviewAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "SaveFinalReviewAction: User '" 
-                        + orpd.getUser().getHandle() + "' in session " 
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "SaveFinalReviewAction: User '"
+                        + orpd.getUser().getHandle() + "' in session "
                         + request.getSession().getId());
-        
+
         FinalReviewForm frForm = (FinalReviewForm) form;
 
         // Check valid token
@@ -64,16 +66,31 @@ public final class SaveFinalReviewAction extends ReviewAction {
             // Call the business layer
             FinalReviewData data = frForm.toReviewData(orpd);
             ResultData result = new BusinessDelegate().finalReview(data);
-        
+
             if (result instanceof SuccessResult)  {
                 request.getSession().removeAttribute(mapping.getAttribute());
                 resetToken(request);
+
+
+                // check if there is a non fixed item
+                FixItem[] items = data.getFinalReview().getFixCheckList();
+
+                boolean finalFixOk = true;
+
+                for (int i = 0; i < items.length; i++)
+                    if (items [i].getFinalFixStatus().getId() == 1) { // fix constant!
+                        finalFixOk= false;
+                        break;
+                    }
+
+                if (finalFixOk) {
+                    AutoPilot.finalReviewEmail(data);
+                } else {
+                    AutoPilot.finalReviewFailed(data);
+                }
+
             }
-            
-            if(result instanceof SuccessResult) {
-                AutoPilot.finalReviewEmail(data);
-            }
-        
+
             return result;
         }
     }
