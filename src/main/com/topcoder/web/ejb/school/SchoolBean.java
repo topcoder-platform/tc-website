@@ -18,6 +18,58 @@ import java.sql.SQLException;
 public class SchoolBean extends BaseEJB {
     private static Logger log = Logger.getLogger(SchoolBean.class);
 
+    public long createSchool(String dataSource, String idDataSource, String sortLetter, String city, String country, long userId, String name) throws EJBException {
+        log.debug("create school (many fields) called...");
+
+        long school_id = 0;
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            ctx = new InitialContext();
+
+            if (!IdGenerator.isInitialized()) {
+                IdGenerator.init(new SimpleDB(), (DataSource) ctx.lookup(idDataSource), "sequence_object", "name",
+                        "current_value", 9999999999L, 1, false);
+            }
+
+            school_id = IdGenerator.nextId("SCHOOL_SEQ");
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("INSERT ");
+            query.append("INTO school (school_id, sort_letter, city, country_code, user_id, name) ");
+            query.append("VALUES (?, ?, ?, ?, ?, ?)");
+
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, school_id);
+            ps.setString(2, sortLetter);
+            ps.setString(3, city);
+            ps.setString(4, country);
+            ps.setLong(5, userId);
+            ps.setString(6, name);
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows inserted into " +
+                        "'school'. Inserted " + rc + ", should have " +
+                        "inserted 1."));
+            }
+        } catch (SQLException _sqle) {
+            DBMS.printSqlException(true, _sqle);
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+            throw(new EJBException(_ne.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+        return (school_id);
+    }
+    
     public long createSchool(String dataSource, String idDataSource) throws EJBException {
         log.debug("create school called...");
 

@@ -27,4 +27,6 @@ public interface School extends EJBObject {
     public void setShortName(long schoolId, String shortName, String dataSource)
             throws EJBException, RemoteException;
 
+    public long createSchool(String dataSource, String idDataSource, String sortLetter, String city, String country, long userId, String name)
+            throws EJBException, RemoteException;
 }
