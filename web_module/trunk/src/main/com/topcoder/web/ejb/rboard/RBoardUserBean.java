@@ -15,7 +15,7 @@ public class RBoardUserBean extends BaseEJB {
                                  boolean hasContract, boolean canReviewJava,
                                  boolean canReviewDotNet, boolean canReviewFlash) {
         int ret = insert("rboard_user",
-                new String[]{"user_id", "phase_id", "status_id", "constract_ind", "java_ind", "net_ind", "flash_ind"},
+                new String[]{"user_id", "phase_id", "status_id", "contract_ind", "java_ind", "net_ind", "flash_ind"},
                 new String[]{String.valueOf(userId), String.valueOf(phaseId), String.valueOf(statusId),
                              hasContract ? "1" : "0", canReviewJava ? "1" : "0", canReviewDotNet ? "1" : "0",
                              canReviewFlash ? "1" : "0"},
@@ -41,10 +41,10 @@ public class RBoardUserBean extends BaseEJB {
         }
     }
 
-    public void setHasContract(String dataSource, long userId, int phaseId, boolean hasConstract) {
+    public void setHasContract(String dataSource, long userId, int phaseId, boolean hasContract) {
         int ret = update("rboard_user",
-                new String[]{"constract_ind"},
-                new String[]{hasConstract ? "1" : "0"},
+                new String[]{"contract_ind"},
+                new String[]{hasContract ? "1" : "0"},
                 new String[]{"user_id", "phase_id"},
                 new String[]{String.valueOf(userId), String.valueOf(phaseId)},
                 dataSource);
@@ -110,7 +110,7 @@ public class RBoardUserBean extends BaseEJB {
 
     public boolean hasContract(String dataSource, long userId, int phaseId) {
         return selectInt("rboard_user",
-                "constract_ind",
+                "contract_ind",
                 new String[]{"user_id", "phase_id"},
                 new String[]{String.valueOf(userId), String.valueOf(phaseId)},
                 dataSource).intValue() == 1;
