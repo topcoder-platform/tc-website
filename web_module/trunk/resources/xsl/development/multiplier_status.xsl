@@ -145,7 +145,7 @@
                             </td>
                             <td>
                                  <CENTER>
-                                    <xsl:if test="./submission_date = ./min_sub_date">
+                                    <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
                                         <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" />  
         			    </xsl:if>
                                  </CENTER>
@@ -218,7 +218,7 @@
                             </td>
                             <td>
                                  <CENTER>
-                                    <xsl:if test="./submission_date = ./min_sub_date">
+                                    <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
                                         <img src="/i/development/multiplier.gif" width="23" height="21" alt="" border="0" /> 
         			    </xsl:if>
                                  </CENTER>
