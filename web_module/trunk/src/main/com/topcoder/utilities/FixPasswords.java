@@ -17,6 +17,7 @@ import javax.naming.Context;
 import java.util.Iterator;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 /**
  * @author  dok
@@ -45,31 +46,30 @@ public class FixPasswords {
         String s = "select su.password, u.user_id from user u, security_user su where u.user_id =su.login_id";
         String t = "update user set password = ?  where user_id = ?";
 
-
-        DataAccessInt dai = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
-        QueryRequest qr = new QueryRequest();
-        qr.addQuery("all", s);
-        ResultSetContainer rsc = (ResultSetContainer)dai.getData(qr).get("all");
-
         PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
         PrincipalMgrRemote pmr = pmrh.create();
         ResultSetContainer.ResultSetRow row = null;
         Connection conn = null;
         PreparedStatement ps =null;
+        PreparedStatement ps1 = null;
+        ResultSet rs = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(t);
+            ps1 = conn.prepareStatement(s);
             int count = 0;
-            for (Iterator it = rsc.iterator(); it.hasNext();) {
-                row = (ResultSetContainer.ResultSetRow)it.next();
-                String pass = pmr.getPassword(row.getLongItem("user_id"));
+            rs = ps1.executeQuery();
+            while (rs.next()) {
+                String pass = pmr.getPassword(rs.getLong("user_id"));
                 ps.setString(1, pass);
-                ps.setLong(2, row.getLongItem("user_id"));
+                ps.setLong(2, rs.getLong("user_id"));
                 count += ps.executeUpdate();
                 if (count%25==0) System.out.println(""+count + " records updated");
             }
         } finally {
+            try {rs.close();} catch (Exception e) {};
             try {ps.close();} catch (Exception e) {};
+            try {ps1.close();} catch (Exception e) {};
             try {conn.close();} catch (Exception e) {};
         }
     } catch (Exception e) {
