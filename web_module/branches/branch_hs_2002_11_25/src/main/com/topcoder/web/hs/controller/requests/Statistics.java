@@ -22,7 +22,7 @@ public class Statistics extends Base {
         Data.initializeDataTypes();
         request.setAttribute("CODER_COLORS", new CoderRatingStyleBean());
 
-        Map map = gpm(request);
+        Map map = getParameterMap(request);
         Request dataRequest = new Request(map);
         request.setAttribute("REQUEST_BEAN", dataRequest);
 
@@ -34,10 +34,10 @@ public class Statistics extends Base {
         setIsNextPageInContext(true);
     }
 
-    //@@@ why doesnt getParameterMap work?
-    private static Map gpm(ServletRequest r) {
-        Enumeration e = r.getParameterNames();
+    /** This exists as a request method, but only in 2.3 or later of the servlet API. */
+    private static Map getParameterMap(ServletRequest r) {
         Map m = new HashMap();
+        Enumeration e = r.getParameterNames();
         while(e.hasMoreElements()) {
             String s = (String)e.nextElement();
             m.put(s, r.getParameter(s));
