@@ -812,6 +812,12 @@
             <param-value>candidateProblemInfo</param-value>
             <description>the name of a query to be used to get the details for candidate's solutions for testing problems</description>
         </init-param>
+        
+        <init-param>
+            <param-name>candidate_preference_info</param-name>
+            <param-value>candidatePreferenceInfo</param-value>
+            <description>the name of a query to be used to get the details for candidate's solutions for testing problems</description>
+        </init-param>
 
         <init-param>
             <param-name>candidate_notes</param-name>

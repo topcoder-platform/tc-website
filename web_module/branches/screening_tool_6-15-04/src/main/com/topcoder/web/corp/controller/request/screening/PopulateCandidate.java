@@ -211,6 +211,12 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     // Save the candidate's problem solving data to the request
                     result = (ResultSetContainer) map.get(Constants.CANDIDATE_PROBLEMS_INFO);
                     request.setAttribute(Constants.CANDIDATE_PROBLEMS_INFO, result);
+                    
+                    result = (ResultSetContainer) map.get(Constants.CANDIDATE_PREFERENCE_INFO);
+                    request.setAttribute(Constants.CANDIDATE_PREFERENCE_INFO, result);
+                    
+                    request.setAttribute(Constants.USER_ID, String.valueOf(getUser().getId()));
+                    
                     log.info("The problems info list contains : " + result.size() + " records");
 
                 } else {

@@ -166,6 +166,8 @@ function getProblemDetail(id) {
                         </tr>
                         </screen:resultSetRowIterator>
 
+                        <screen:resultSetRowIterator id="row"
+                                list="<%=(List) request.getAttribute(Constants.CANDIDATE_PREFERENCE_INFO)%>">
                         <tr>
                             <td class="screeningCellEven" align=right>Preference Level:</td>
                             <td class="screeningCellEven" valign=middle>
@@ -182,12 +184,12 @@ if ( MM_FlashCanPlay ) {
                     document.write(' align="middle">');
                     document.write(' <param name="allowScriptAccess" value="sameDomain" />');
                     document.write(' <param name="movie" ');
-                    document.write(' value="/i/corp/screeningRatingEven.swf"/>');
+                    document.write(' value="/i/corp/screeningRatingEven.swf?preference=<screen:resultSetItem row="<%=row%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<screen:resultSetItem row="<%=row%>" name="user_id"/>"/>');
                     document.write(' <param name="menu" value="false" />');
                     document.write(' <param name="quality" value="high" />');
                     document.write(' <param name="bgcolor" value="#ffffff" />');
                     document.write(' <embed ');
-                    document.write(' src="/i/corp/screeningRatingEven.swf" ');
+                    document.write(' src="/i/corp/screeningRatingEven.swf?preference=<screen:resultSetItem row="<%=row%>" name="preference"/>&sendurl=/corp/testing/?module=UpdatePreference&userId=<%=request.getAttribute(Constants.USER_ID)%>&cid=<screen:resultSetItem row="<%=row%>" name="user_id"/>" ');
                     document.write(' menu="false" ');
                     document.write(' quality="high" ');
                     document.write(' bgcolor="#ffffff" ');
@@ -204,6 +206,7 @@ if ( MM_FlashCanPlay ) {
 </SCRIPT>
                             </td>
                         </tr>
+                         </screen:resultSetRowIterator>
                     </table>
                     </td>
 

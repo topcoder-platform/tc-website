@@ -156,6 +156,8 @@ public class Constants
      * @since Screening Tool 1.1
      */
     public static String CANDIDATE_PROBLEMS_INFO;
+    
+    public static String CANDIDATE_PREFERENCE_INFO;
 
     /**
      * <p>A <code>String</code> name of the command within <code>Query Tool</code> to be executed to get the details for
