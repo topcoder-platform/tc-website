@@ -19,12 +19,12 @@
 <% ResultSetContainer rscProject = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_details"); %>
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("project_results"); %>
 <% ResultSetContainer rscContest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest_details"); %>
-<%
+<%--<%
     boolean isComplete = false;
     if(rscProject.getIntItem(0, "complete_status") == 1) {
         isComplete = true;
     }
-%>
+%>--%>
 <body>
 
 <jsp:include page="../top.jsp" >
@@ -78,7 +78,7 @@ else
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
                                 <td class=usdcTitle><A class= usdcTitle href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> - <A class="usdcTitle" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
-                                <%if(!isComplete) {%>*<%}%>
+                                <%--<%if(!isComplete) {%>*<%}%>--%>
                                 </td>
                             </tr>
                         </table>
@@ -100,13 +100,13 @@ else
                             </tr>
                             </rsc:iterator>
                         </table>
-                        <%if(!isComplete) {%>
+                        <%--<%if(!isComplete) {%>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
                               <td class="bodyText">* This project is still in progress, results subject to change</td>
                             </tr>
                         </table>
-                        <% } %>
+                        <% } %>--%>
                         <br/>
 
         <p><br/></p>
