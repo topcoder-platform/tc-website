@@ -127,7 +127,8 @@ final class UserDb {
                 }
             }
 
-            UserPrincipal up = pmr.getUser(user.getUserId());
+            //we're in a transaction on the security user table, so we can't select out the user principal object.
+            UserPrincipal up = new UserPrincipal("", user.getUserId());
             pmr.addUserToGroup(anonGroup, up, tcs);
             pmr.addUserToGroup(userGroup, up, tcs);
 
