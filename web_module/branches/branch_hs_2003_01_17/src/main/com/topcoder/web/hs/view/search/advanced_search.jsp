@@ -1,5 +1,6 @@
 <%@ page errorPage="../home/error.jsp" %>
 <%@ taglib uri="/search-taglib.tld" prefix="adv" %>
+<%@ page import="com.topcoder.web.hs.model.*","java.util.*" %>
 <jsp:useBean id="search" type="com.topcoder.web.hs.model.SearchBean" scope="request"/>
 <%@ include file="head.inc" %>
 <P><BR></P>   
@@ -85,6 +86,47 @@
   </TR>
   <TR>
    <TD CLASS="statText" COLSPAN="4" ><IMG BORDER="0" HEIGHT="12" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD>
+  </TR>
+  <% if (search.hasMemberList()) {
+       if (search.getMemberList().size()==0) { %>
+  <TR>
+   <TD CLASS="bodyText" ALIGN="center">
+    No members found.
+   </TD>
+  </TR>
+    <% } else { %>
+  <TR>
+   <TD COLSPAN="4">
+    <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+     <TR>
+      <TD COLSPAN="5" ALIGN="left">
+       &nbsp;Search Results:&nbsp;&nbsp;<jsp:getProperty name="search" property="Start"/> to <jsp:getProperty name="search" property="End"/>
+      </TD>
+     </TR>
+     <TR>
+      <TD COLSPAN="5" ALIGN="center">
+       <%=(search.getHasPrev()?"<A HREF="">&lt;&lt; prev</A>":"&lt;&lt; prev")%> | <%=(search.getHasNext()?"<A HREF="">next &gt;&gt;</A>":"&gt;&gt; next")%>
+      </TD>
+     </TR>
+     <TR>
+      <TD>Handle</TD>
+      <TD>Rating</TD>
+      <TD>State</TD>
+      <TD>School</TD>
+      <TD>Last Competed</TD>
+     </TR>
+    <% List member_list=search.getMemberList();
+       for (int i=0;i<member_list.size();i++) {
+         SearchMemberBean smb=(SearchMemberBean)member_list.get(i); %>
+     <TR>
+      <TD><%=smb.getHandle()%></TD>
+      <TD><%=smb.getRating().toString()%></TD>
+      <TD><%=smb.getStateCode()%></TD>
+      <TD><%=smb.getSchoolName()%></TD>
+      <TD><%=smb.getLastCompeted()%></TD>
+     </TR>
+    <% } %>
+    </TABLE>
   </TR>
  </TABLE>
  <SCRIPT type="text/javascript">
