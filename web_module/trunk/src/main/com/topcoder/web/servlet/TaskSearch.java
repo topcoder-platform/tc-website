@@ -346,7 +346,6 @@ public final class TaskSearch {
                     for (int i = 0; i < referrals.size(); i++) {
                         com.topcoder.common.web.data.stat.coder.Coder referral = (com.topcoder.common.web.data.stat.coder.Coder) referrals.get(i);
                         dataRequest.setProperty("cr", String.valueOf(referral.getCoderId()));
-log.debug("key: " + dataRequest.getCacheKey());
                         resultMap = dai.getData(dataRequest);
                         rsc = (ResultSetContainer) resultMap.get("Coder_Data");
                         if (!rsc.isEmpty()) {
