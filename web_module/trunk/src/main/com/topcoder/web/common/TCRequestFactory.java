@@ -4,7 +4,15 @@ import javax.servlet.http.HttpServletRequest;
 
 public class TCRequestFactory {
     public static TCRequest createRequest(HttpServletRequest r) {
-        //we only have one implementation right now, just just return it
-        return new SimpleRequest(r);
+        String contentType = r.getContentType();
+        TCRequest ret = null;
+        //we'll cheat so that we don't have to instantiate an object to examine
+        //the request only to find out that it is not a multipart request
+        if (contentType == null || !contentType.toLowerCase().startsWith("multipart/form-data")) {
+            ret = new SimpleRequest(r);
+        } else {
+            //don't have the implementation for this yet
+        }
+        return ret;
     }
 }
