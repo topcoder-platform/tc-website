@@ -17,6 +17,12 @@
 		<jsp:param name="tabLev1" value="login"/>
 		</jsp:include>
 
+		<table cellspacing=0 cellpadding=0 class=timeTable>
+			<tr>
+				<td class=timeCell>Current Time: 3:43:50 PM</td>
+			</tr>
+		</table>
+
 		<table cellspacing=0 cellpadding=0 class=bodyTable>
 			<tr>
 				<td><img src="/i/corp/screening/bodyTL.gif" alt=""/></td>
