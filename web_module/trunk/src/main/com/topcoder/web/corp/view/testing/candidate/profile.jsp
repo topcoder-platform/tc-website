@@ -314,7 +314,8 @@ if ( MM_FlashCanPlay ) {
                     </td>
 
                     <td width="14%" align="center" class="<%=cssClasses[counter++ % 2]%>">
-                        <A href="javascript:getProblemDetail('<screen:resultSetItem row="<%=row%>" name="session_round_id" />,<screen:resultSetItem row="<%=row%>" name="problem_id" />');">
+                        
+                        <A href="/corp/testing/?module=ProblemResult&sid=<screen:resultSetItem row="<%=row%>" name="session_id" />&rid=<screen:resultSetItem row="<%=row%>" name="session_round_id" />&pid=<screen:resultSetItem row="<%=row%>" name="problem_id" />&ptid=4">
                             view
                         </A>
                     </td>
