@@ -48,17 +48,9 @@
     <tag>
         <name>answerInput</name>
         <tagclass>com.topcoder.web.tc.view.tag.AnswerInput</tagclass>
+        <teiclass>com.topcoder.web.tc.view.tag.AnswerInputTagInfo</teiclass>
+        <bodycontent>JSP</bodycontent>
         <info></info>
-        <attribute>
-            <name>answer</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
-        <attribute>
-            <name>question</name>
-            <required>true</required>
-            <rtexprvalue>true</rtexprvalue>
-        </attribute>
         <attribute>
             <name>question</name>
             <required>true</required>
