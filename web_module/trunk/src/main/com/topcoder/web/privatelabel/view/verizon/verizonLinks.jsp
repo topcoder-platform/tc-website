@@ -28,6 +28,14 @@
             <% } else { %>
                  <td class="statTextBig" width="88"><A href="/pl/?&module=Static&d1=verizon&d2=vcc03_rules_overview" class="statTextBig"><img src="/i/tournament/vcc03/tab_rules_off.gif" alt="Rules" width="88" height="22" border="0" /></A></td>
             <% } %>
+
+<!-- Register Now tab -->
+            <% if (selectedTab.equals("register_now")) {%>
+                 <td class="statTextBig" width="88"><A href="/pl/?&module=FullReg&cid=1"class="statTextBig"><img src="/i/tournament/vcc03/tab_register_now_on.gif" alt="register_now" width="88" height="22" border="0" /></A></td>
+            <% } else { %>
+                 <td class="statTextBig" width="88"><A href="/pl/?&module=FullReg&cid=1"class="statTextBig"><img src="/i/tournament/vcc03/tab_register_now_off.gif" alt="register_now" width="88" height="22" border="0" /></A></td>
+            <% } %>
+            
                                 
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
    </tr>

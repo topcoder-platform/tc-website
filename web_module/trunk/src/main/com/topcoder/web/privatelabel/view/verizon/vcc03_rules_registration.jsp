@@ -68,7 +68,7 @@
             
             <p>
             Registration will open on Monday, August 4th and will close on Friday, August 15th.  Registration is unlimited, however only the first 
-            500 eligible individuals to register will be invited to compete.  Official invitations will be emailed on Monday, August 18th. 
+            500 eligible individuals to register will be invited to compete.  Official invitations will be emailed on Monday, August 18th.  
             </p>
             <p><br/></p>
             <p><a href="pl/?&module=FullReg&cid=1">Register</a></p>
