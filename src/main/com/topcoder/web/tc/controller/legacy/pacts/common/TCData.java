@@ -20,8 +20,7 @@ public class TCData {
                                  String key, long defaultVal,
                                  boolean printException) {
         try {
-            return ((Long) ((TCLongResult) row.getItem(key)).
-                    getResultData()).longValue();
+            return row.getLongItem(key);
         } catch (Exception e) {
             log.debug("getTCLong got excepted with key=" + key);
             if (printException) {
@@ -40,8 +39,7 @@ public class TCData {
                                String key, int defaultVal,
                                boolean printException) {
         try {
-            return ((Integer) ((TCIntResult) row.getItem(key)).
-                    getResultData()).intValue();
+            return row.getIntItem(key);
         } catch (Exception e) {
             log.debug("getTCInt got excepted with key=" + key);
             if (printException) {
@@ -60,7 +58,7 @@ public class TCData {
                                      String key, String defaultVal,
                                      boolean printException) {
         try {
-            return ((TCStringResult) row.getItem(key)).toString();
+            return row.getStringItem(key);
         } catch (Exception e) {
             log.debug("getTCString got excepted with key=" + key);
             if (printException) {
@@ -118,8 +116,7 @@ public class TCData {
                                      String key, double defaultVal,
                                      boolean printException) {
         try {
-            return ((Double) ((TCDoubleResult) row.getItem(key)).
-                    getResultData()).doubleValue();
+            return row.getDoubleItem(key);
         } catch (Exception e) {
             log.debug("getTCDouble got excepted with key=" + key);
             if (printException) {
@@ -138,8 +135,7 @@ public class TCData {
                                    String key, float defaultVal,
                                    boolean printException) {
         try {
-            return ((Float) ((TCFloatResult) row.getItem(key)).
-                    getResultData()).floatValue();
+            return row.getFloatItem(key);
         } catch (Exception e) {
             log.debug("getTCDouble got excepted with key=" + key);
             if (printException) {
