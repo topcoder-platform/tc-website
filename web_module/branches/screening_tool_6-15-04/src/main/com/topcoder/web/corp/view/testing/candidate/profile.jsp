@@ -158,7 +158,7 @@ Scott the Tree: Oh yeah, go ahead and bitch, but you don't see anyone trying to 
                     <td width="14%" align="center" class="screeningHeader">Results</td>
                 </tr>
                 <tr>
-                    <td width="30%" class="screeningCell">Problem Name</td>
+                    <td width="30%" class="screeningCell"><A href="/">Rain</A></td>
                     <td width="14%" align="center" class="screeningCell">Java</td>
                     <td width="14%" align="center" class="screeningCell">done</td>
                     <td width="14%" align="center" class="screeningCell">00:40.20</td>
