@@ -6,7 +6,7 @@
                                     
                                     <p>Online elmination rounds began on <strong>March 20, 2003</strong>. The final field of schools were brought to Homer Babbidge
                                     Library at the <a href="http://www.uconn.edu" target="_blank" class="statTextBig"><strong>University of Connecticut</strong></a> in Storrs, CT 
-                                    to compete head-to-head on <strong>May 20, 2003.</strong>.</p>
+                                    to compete head-to-head on <strong>May 20, 2003</strong>.</p>
                                 </td>
                             </tr>
                         </table>

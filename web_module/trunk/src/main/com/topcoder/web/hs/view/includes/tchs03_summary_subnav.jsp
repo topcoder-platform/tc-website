@@ -15,12 +15,12 @@
         <td class="tourney_subnav" nowrap="nowrap"><a href="?module=Static&d1=tournaments&d2=tchs03_summary_home" class="statText"><strong>Summary</strong></a></td>
 <%  } %>
 
-<!-- Photos tab
+<!-- Photos tab -->
  <% if (isPhotosPage) { %>
         <td class="tourney_subnav_on" nowrap="nowrap"><a href="?module=Static&d1=tournaments&d2=tchs03_summary_photos" class="statText"><strong>Photos</strong></a></td>
 <% } else { %>
         <td class="tourney_subnav" nowrap="nowrap"><a href="?module=Static&d1=tournaments&d2=tchs03_summary_photos" class="statText"><strong>Photos</strong></a></td>
-<%  } %> -->
+<%  } %>
 
 
 <!-- Problems -->
