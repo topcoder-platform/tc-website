@@ -73,7 +73,7 @@
                      <xsl:value-of select="reason_text"/><BR/>  
                      </xsl:for-each>
                      <xsl:if test="/TC/HOME/CollegiateInfo/showLink='true'"><BR/>
-                     Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462" class="statText">here</A> to register.<BR/>
+                     Click <A HREF="/TourneyReg?&amp;rd=4462&amp;cd=4462" class="statText">here</A> to sign up.<BR/>
                      </xsl:if><BR/>
                    </td>
           <td valign="top" width="1"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>                  
