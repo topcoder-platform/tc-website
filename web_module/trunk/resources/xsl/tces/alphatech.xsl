@@ -71,7 +71,7 @@
                         projects we get to work on. ALPHATECH offers a stimulating work environment for highly motivated engineers, 
                         scientists, and mathematicians who have a passion for excellence. Our project teams attack and solve some of 
                         todays most challenging problems, using an ever-expanding technology base. Ninety percent of our technical 
-                        staff members have earned advanced degrees.</p>
+                        staff members have earned advanced degrees.</p> 
 
                         <p>Our outstanding technical staff is made up of 120+ of the brightest minds from some of the most 
                         prestigious engineering schools. We are always looking for new talent, new ideas, and new applications for 
