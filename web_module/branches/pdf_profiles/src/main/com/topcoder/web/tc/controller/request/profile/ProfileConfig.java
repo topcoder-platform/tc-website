@@ -46,7 +46,9 @@ public class ProfileConfig extends BaseProcessor {
             info.setHandle(userbean.getHandle(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             info.setName(userbean.getFirstName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME) + " " + userbean.getLastName(uid, DBMS.COMMON_OLTP_DATASOURCE_NAME));
             
-            getRequest().setAttribute("info", info);
+            System.out.println(info.getHandle());
+            
+            getRequest().setAttribute("configInfo", info);
 
             setNextPage(Constants.PROFILE_CONFIG_PAGE); 
             setIsNextPageInContext(true);
