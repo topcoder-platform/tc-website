@@ -106,8 +106,8 @@ return false;
                           int c = 0;%>
                 <tc:skillIterator id="skill" list="<%=skillList%>">
                 <tr>
-	            <td class=<%=cssClasses[i % 2]%> valign=top><%=skill.getText()%></td>
-                     <% for(i = 0; i<=10; i++){ %>
+	            <td class=<%=cssClasses[c % 2]%> valign=top><%=skill.getText()%></td>
+                     <% for(int i = 0; i<=10; i++){ %>
                      <td valign=top align=center class=<%=cssClasses[c % 2]%>>
                         <input type="radio" name="<%=Constants.SKILL_PREFIX + skill.getID()%>" value="<%=i%>"/>
                      </td>
