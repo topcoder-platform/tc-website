@@ -68,13 +68,13 @@ public class QueryMover {
             q.initTarget();
             log.info("target init complete");
             ctx = TCContext.getContext(targetContextFactory, targetContextURL);
-            utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
-            utx.begin();
+//            utx = (UserTransaction) ctx.lookup("javax.transaction.UserTransaction");
+//            utx.begin();
             for (int i = 0; i < args.length; i++) {
                 long command = Long.parseLong(args[i]);
                 q.moveCommand(command);
             }
-            utx.commit();
+//            utx.commit();
         } catch (SecurityException e) {
             try {
                 utx.rollback();
