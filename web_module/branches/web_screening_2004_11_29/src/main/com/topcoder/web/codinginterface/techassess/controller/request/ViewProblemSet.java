@@ -14,7 +14,7 @@ import java.util.ArrayList;
  * Date: Dec 22, 2004
  * Time: 3:13:10 PM
  */
-public class ViewProblemSet extends Index {
+public class ViewProblemSet extends Base {
 
     /* we really just need to load up the problem sets for this request
      * if it's too slow making them distinct requests, we can starting throwing

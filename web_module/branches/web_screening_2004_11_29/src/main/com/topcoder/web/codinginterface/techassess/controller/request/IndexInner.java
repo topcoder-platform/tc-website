@@ -1,6 +1,5 @@
 package com.topcoder.web.codinginterface.techassess.controller.request;
 
-import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.codinginterface.techassess.Constants;
 
 /**
