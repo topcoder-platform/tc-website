@@ -22,10 +22,10 @@
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><screen:img page="/ev/clear.gif" width="10" height="1" /></TD>
+      <TD VALIGN="top"><img src="/i/ev/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><screen:img page="/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Candidate List</B></FONT><BR/>                 
 <P>
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
@@ -33,13 +33,13 @@
 </P><BR>       
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">                   
            <TR>
-              <TD COLSPAN="7"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="7" ALIGN="center"><screen:link page="/screening?rp=PopulateCandidate&referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:link></TD>
+              <TD COLSPAN="7" ALIGN="center"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:servletLink></TD>
            </TR>
            <TR>
-              <TD COLSPAN="7"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>           	        
 	        <TR>
 		       <TD VALIGN="middle" COLSPAN="2" ALIGN="center" HEIGHT="15" CLASS="statText" BGCOLOR="#999999"><B>&#160;Email Address</B></TD>		       
@@ -50,38 +50,32 @@
 		       <TD VALIGN="middle" ALIGN="center" CLASS="statText" BGCOLOR="#999999"><B>&#160;Notes</B></TD>		       		       	        
 	        </TR>
            <TR>
-              <TD COLSPAN="8"><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD>
+              <TD COLSPAN="8"><img src="/i/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>	        
             <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
             <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
 	        <TR>
-   <% 
-    String linkUrl = "/screening?referrer=BuildCandidateList&rp=PopulateCandidate&userId=" + row.getItem("user_id");
-    %>
-		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:link page="<%=linkUrl%>" styleClass="bodyText">Edit</screen:link></TD>
-		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="address" /></TD>		       
-		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:link page="/screening?rp=testResults" styleClass="bodyText">See Results</screen:link></TD>       
+		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;</TD>
+		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="handle" /></TD>		       
+		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:servletLink processor="TestResults" styleClass="bodyText">See Results</screen:servletLink></TD>       
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="begin_time" /></TD>
 		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="end_time" /></TD>		       
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;In Progress...</TD>
-   <% 
-    linkUrl = "/screening?rp=NoteList&userId=" + row.getItem("user_id");
-    %>
-		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:link page="<%=linkUrl%>" styleClass="bodyText">View</screen:link></TD>		       		       	        
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="status" /></TD>
+		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyText">&#160;<screen:servletLink processor="NoteList" param="<%= "userId=" + row.getItem("user_id") %>" styleClass="bodyText">View</screen:servletLink></TD>		       		       	        
 	        </TR>
             </screen:resultSetRowIterator>
            <TR>
-              <TD COLSPAN="7"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="7"><img src="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="7" ALIGN="center"><screen:link page="/screening?rp=PopulateCandidate&referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:link></TD>
+              <TD COLSPAN="7" ALIGN="center"><screen:servletLink processor="PopulateCandidate" param="referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:servletLink></TD>
            </TR>
          </TABLE>
 <P><BR/></P>    
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><screen:img page="/ev/clear.gif" width="10" height="1" border="0" /></TD>
+      <TD WIDTH="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0" /></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>
