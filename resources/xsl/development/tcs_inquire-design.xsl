@@ -176,14 +176,14 @@
 
 <!-- Register at TCS -->
 
-                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
                            <p><strong>View the <A target="_blank">
                                         <xsl:attribute name="href">
                                             <xsl:value-of select="concat('http://software.topcoder.com/catalog/document?id=', $docId)"/>
                                         </xsl:attribute>
                                         Requirement Specification</A> for this component project</strong>
                             </p>
-</xsl:if>
+
+                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
 
                            <p><strong><A>
                                     <xsl:attribute name="href">
@@ -191,7 +191,7 @@
                                     </xsl:attribute>
                                     Register</A> for this Component Project to get information necessary to submit a solution</strong>
                             </p>
-                            
+                        </xsl:if>                            
                             <p><br /></p>
                            
                             <p><strong>Upload Your Submission</strong><br/>
