@@ -1,6 +1,7 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-  <xsl:template name="public_dev_left">
+	<xsl:import href="../modules/calendar.xsl"/>
+	<xsl:template name="public_dev_left">
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr valign="top">
 					<td width="25" bgcolor="#999999" align="right"><img src="/i/sub_navbox_top_left.gif" width="25" height="1" border="0"/><br/><img src="/i/sub_navbox_btm_left.gif" width="25" height="21" border="0"/></td>
@@ -24,6 +25,12 @@
 				<tr><td colspan="2" background=""><img src="/i/clear.gif" width="1" height="1" border="0" vspace="2"/></td><td width="1" background=""><img src="/i/clear.gif" width="1" height="1" border="0"/></td></tr>
 				<tr><td colspan="3" background="/i/steel_gray_bg.gif" align="right"><img src="/i/sub_navbox_btm_right.gif" width="13" height="17" border="0"/></td></tr>
 			</table>
+
+			<table border="0" cellspacing="0" cellpadding="0">
+				<tr><td height="5"><img src="/i/clear.gif" width="5" height="5" border="0" /></td></tr>
+			</table>
+
+			<xsl:call-template name="calendar"/>
 
 			<img src="/i/logo_ghosted_bracket.gif" width="160" height="77" border="0" alt="[ TopCoder ]" vspace="10"/>
 
