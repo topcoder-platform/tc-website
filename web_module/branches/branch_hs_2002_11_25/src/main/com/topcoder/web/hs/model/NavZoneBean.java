@@ -4,7 +4,8 @@ import java.io.*;
 import java.util.*;
 
 /**
- * This is not model.  Other JSPs use it to tell left_nav what submenu to render open.
+ * This bean maintains a list of Strings, representing a path on the web site.
+ * The left_nav JSP uses this context information to vary rendering of a multilevel menu.
  *
  * @author Ambrose Feinstein
  */
@@ -30,7 +31,31 @@ public class NavZoneBean implements Serializable {
         }
     }
 
-    public String getFolder() { return getFolder(0); }
+    public String[] getFolder() {
+        return folder.toArray(new String[0]);
+    }
 
-    public void setFolder(String f) { setFolder(0, f); }
+    public void setFolder(String[] s) {
+        folder = new ArrayList(Arrays.asList(s));
+    }
+
+    public int getDepth() {
+        return folder.size();
+    }
+
+    public void setDepth(int d) {
+        setFolder(d, null);
+    }
+
+    public String getRoot() { return getFolder(0); }
+    public void setRoot(String s) { setFolder(0, s); }
+
+    public String getLevel0() { return getFolder(0); }
+    public void setLevel0(String s) { setFolder(0, s); }
+    public String getLevel1() { return getFolder(1); }
+    public void setLevel1(String s) { setFolder(1, s); }
+    public String getLevel2() { return getFolder(2); }
+    public void setLevel2(String s) { setFolder(2, s); }
+    public String getLevel3() { return getFolder(3); }
+    public void setLevel3(String s) { setFolder(3, s); }
 }
