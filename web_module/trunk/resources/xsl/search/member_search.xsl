@@ -352,8 +352,8 @@
                                         <xsl:call-template name="ScrollLinks">
                                             <xsl:with-param name="ShowPrev"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowPrevious"/></xsl:with-param>
                                             <xsl:with-param name="ShowNext"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowNext"/></xsl:with-param>
-                                            <xsl:with-param name="PrevLink">javascript:document.simpleSearch.Next.value='false';javascript:document.simpleSearch.submit()</xsl:with-param>
-                                            <xsl:with-param name="NextLink">javascript:document.simpleSearch.Next.value='true';javascript:document.simpleSearch.submit()</xsl:with-param>
+                                            <xsl:with-param name="PrevLink">javascript:document.searchForm.Next.value='false';javascript:document.searchForm.submit()</xsl:with-param>
+                                            <xsl:with-param name="NextLink">javascript:document.searchForm.Next.value='true';javascript:document.searchForm.submit()</xsl:with-param>
                                         </xsl:call-template>
                                     </xsl:if>
                                 </td>
@@ -397,8 +397,8 @@
                                         <xsl:call-template name="ScrollLinks">
                                             <xsl:with-param name="ShowPrev"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowPrevious"/></xsl:with-param>
                                             <xsl:with-param name="ShowNext"><xsl:value-of select="/TC/MEMBER_SEARCH/MemberSearch/Scroll/AllowNext"/></xsl:with-param>
-                                            <xsl:with-param name="PrevLink">javascript:document.simpleSearch.Next.value='false';javascript:document.simpleSearch.submit()</xsl:with-param>
-                                            <xsl:with-param name="NextLink">javascript:document.simpleSearch.Next.value='true';javascript:document.simpleSearch.submit()</xsl:with-param>
+                                            <xsl:with-param name="PrevLink">javascript:document.searchForm.Next.value='false';javascript:document.searchForm.submit()</xsl:with-param>
+                                            <xsl:with-param name="NextLink">javascript:document.searchForm.Next.value='true';javascript:document.searchForm.submit()</xsl:with-param>
                                         </xsl:call-template>
                                     </xsl:if>
                                 </td>
