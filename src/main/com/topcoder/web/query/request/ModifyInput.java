@@ -3,7 +3,7 @@ package com.topcoder.web.query.request;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.ejb.QueryServices.Input;
+import com.topcoder.web.ejb.query.Input;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 

@@ -1,12 +1,12 @@
 package com.topcoder.utilities.querymover;
 
 import com.topcoder.web.query.bean.*;
-import com.topcoder.web.query.ejb.QueryServices.Query;
-import com.topcoder.web.query.ejb.QueryServices.QueryInput;
-import com.topcoder.web.query.ejb.QueryServices.CommandQuery;
-import com.topcoder.web.query.ejb.QueryServices.Command;
-import com.topcoder.web.query.ejb.QueryServices.Input;
-import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
+import com.topcoder.web.ejb.query.Query;
+import com.topcoder.web.ejb.query.QueryInput;
+import com.topcoder.web.ejb.query.CommandQuery;
+import com.topcoder.web.ejb.query.Command;
+import com.topcoder.web.ejb.query.Input;
+import com.topcoder.web.ejb.query.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
