@@ -5,7 +5,7 @@ import java.io.*;
 import java.util.*;
 import java.math.*;
 import org.apache.log4j.*;
-import com.topcoder.shared.dataAccess.common.StringUtilities;
+import com.topcoder.shared.dataAccess.StringUtilities;
 import com.topcoder.shared.util.DBMS;
 
 
