@@ -1,6 +1,7 @@
 package com.topcoder.common.web.data;
 
 import java.io.Serializable;
+import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.common.web.xml.*;
 import com.topcoder.common.web.error.*;
 import java.util.*;
@@ -548,7 +549,6 @@ public final class ContestAdmin implements Serializable, Base {
       result.addTag( new ValueTag("AdEndMinute", AdEndMinute) );
       result.addTag( new ValueTag("AdEndSecond", AdEndSecond) );
       result.addTag( language.getXML() );
-      result.addTag( group.getXML() );
       result.addTag( new ValueTag("Modified", Modified) );
 
       int i=0;

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 import java.sql.Date;
 import com.topcoder.common.web.xml.*;
+import com.topcoder.ejb.AuthenticationServices.*;
 
 
 public final class Contest implements Serializable, Base, Comparable {
@@ -190,7 +191,6 @@ public final class Contest implements Serializable, Base, Comparable {
       result.addTag( new ValueTag("AdTask", adTask) ); 
       result.addTag( new ValueTag("AdCommand", adCommand) );
       result.addTag( language.getXML() );
-      result.addTag( group.getXML() );
     }catch (Exception e)  {
       throw new Exception("common.web.data.Contest getXML ERROR: " + e);
     }
