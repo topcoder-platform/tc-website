@@ -52,7 +52,6 @@ public class Submit extends Base {
                 closeProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_SET,
                         new String[] {Constants.PROBLEM_TYPE_ID},
                         new String[] {String.valueOf(problemTypeId)}));
-                setIsNextPageInContext(false);
             } else if (response.getStatus()==ScreeningSubmitResponse.ERROR) {
                 throw new NavigationException(response.getMessage(),
                         buildProcessorRequestString(Constants.RP_VIEW_PROBLEM,
