@@ -100,7 +100,7 @@
                 <li><strong>Online Round 2</strong><br />
                Up to ten (10) coders will compete and two (2) will advance.  </li>
 
-                <li><strong>Online Round 3</strong><br />
+                <li><strong>Onsite Championship Round 3</strong><br />
                 Two (2) members will compete.  The member with the highest score of the final submission will be declared the winner.</li>
             </ul>
             
