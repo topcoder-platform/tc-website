@@ -34,8 +34,7 @@ public class TestResults extends BaseScreeningProcessor {
      */
     protected void screeningProcessing() throws TCWebException {
         try {
-            log.info("USAGE TYPE CODE");
-            
+           
             DataAccessInt dAccess = Util.getDataAccess();
             Request dr = new Request();
             dr.setProperties(HttpUtils.parseQueryString(getRequest().getQueryString()));
