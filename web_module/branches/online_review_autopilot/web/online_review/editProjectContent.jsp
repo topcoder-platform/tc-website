@@ -90,14 +90,14 @@
                     <td class="forumTitleCenter"><strong><bean:message key="prompt.timelineStart" /></strong></td>
 <logic:iterate  id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
                     <td class="forumTextCenterOdd">
-                        <html:text property='<%="phaseStart["+pIdx+"]"%>' size="10" /></td>
+                        <html:text property='<%="phaseStart["+pIdx+"]"%>' size="15" /></td>
 </logic:iterate>                    
                 </tr>
                 <tr>
                     <td class="forumTitleCenter"><strong><bean:message key="prompt.timelineEnd" /></strong></td>
 <logic:iterate  id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
                     <td class="forumTextCenterOdd">
-                        <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="10" /></td>
+                        <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="15" /></td>
 </logic:iterate>                    
                 </tr>
             </table>
