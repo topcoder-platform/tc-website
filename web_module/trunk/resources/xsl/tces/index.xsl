@@ -156,6 +156,44 @@
 <!-- Nvidia ends -->
                         
                             <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+
+<!-- Vertex begins -->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
+                                <td width="99%" class="bodyText">Vertex Pharmaceuticals Incorporated is a global biotechnology company focused on the 
+                                discovery, development and commercialization of breakthrough drugs for a range of serious diseases. We are looking for an 
+                                expert Java &amp; Oracle developer to fill a newly created position.  See all the <A href="/?&amp;t=tces&amp;c=vertex" class="bodyText" target="_top">details</A>.<br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+ <!--Vertex ends -->
+
+
+<!-- GE begins
+ <TR>
+        <TD VALIGN="middle" CLASS="bodyText" ALIGN="center"><A HREF="/?&amp;t=tces&amp;c=ge"><IMG SRC="/i/es/ge/ge_logo.gif" WIDTH="70" HEIGHT="60" ALT="" BORDER="0"/></A></TD>
+        <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+        <TD VALIGN="middle" CLASS="bodyText">
+<A HREF="/?&amp;t=tces&amp;c=ge" CLASS="bodyText">Click here</A> for information about GE's premier entry-level Information Management Leadership Program (IMLP).  
+IMLP puts information management careers on the fast track. Program graduates are in tremendous demand throughout GE.<BR/><BR/>        
+       </TD>
+    </TR>
+    <tr>
+        <td colspan="3" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+    </tr>
+ GE ends -->
+
+<!-- Apex begins ### Contract expired 6/9/03 ###
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=apex"><img src="/i/es/apex/apexlogo.gif" width="82" height="71" alt="Apex" border="0"/></a></td>
+                                <td class="bodyText" width="99%">Apex is a company built upon a set of core values that guide their every action - excellence, human 
+                                    dignity and integrity.  They consider themselves "the best place for the best people to work."  
+                                    <a href="/?&amp;t=tces&amp;c=apex" class="bodyText">Click here</a> to view current job opportunities available at Apex.<br /><br /></td>
+                            </tr>
+                        
+                            <tr><td colspan="2" bgcolor="#43515E"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td></tr>
+ Apex ends -->
+
                         </table>
 
                         <p><br /></p>
