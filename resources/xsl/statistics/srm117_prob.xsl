@@ -94,30 +94,30 @@ Tuesday, October 22, 2002
     <BLOCKQUOTE>
     <TABLE CELLSPACING="2">
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Value</B>
         </TD>
-        <TD STYLE="background: #eee;">250</TD>
+        <TD CLASS="bodyText" STYLE="background: #eee;">250</TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Submission Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">133/196 (67.86%)
+        <TD CLASS="bodyText" STYLE="background: #eee;">133/196 (67.86%)
         </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Success Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">85/133 (63.91%)
+        <TD CLASS="bodyText" STYLE="background: #eee;">85/133 (63.91%)
         </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>High Score</B>
         </TD>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>androm</B> for 244.74 points
         </TD>
       </TR>
@@ -137,30 +137,30 @@ Tuesday, October 22, 2002
     <BLOCKQUOTE>
     <TABLE CELLSPACING="2">
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Value</B>
         </TD>
-        <TD STYLE="background: #eee;">1000</TD>
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">1000</TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>Submission Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">21/196 (10.71%)
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">21/196 (10.71%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>Success Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">4/ 21 (19.05%)
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">4/ 21 (19.05%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>High Score</B>
         </TD>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>smai</B> for 514.86 points
                 </TD>
       </TR>
@@ -205,30 +205,30 @@ Tuesday, October 22, 2002
             :<BLOCKQUOTE>
     <TABLE CELLSPACING="2">
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>Value</B>
         </TD>
-        <TD STYLE="background: #eee;">550</TD>
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">550</TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>Submission Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">81/196 (41.33%)
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">81/196 (41.33%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>Success Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">46/81  (56.79%)
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">46/81  (56.79%)
         </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>High Score</B>
         </TD>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>rschutt</B> for
                     495.06 points
                 </TD>
@@ -240,36 +240,36 @@ Tuesday, October 22, 2002
             :<BLOCKQUOTE>
     <TABLE CELLSPACING="2">
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>Value</B>
         </TD>
-        <TD STYLE="background: #eee;">300</TD>
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">300</TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" CLASS="bodyText" STYLE="background: #eee;">
           <B>Submission Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">125
+        <TD CLASS="bodyText" STYLE="background: #eee;">125
     /
     136
     (91.91%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Success Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">100
+        <TD CLASS="bodyText" STYLE="background: #eee;">100
     /
     125
     (80%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>High Score</B>
         </TD>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Saxophonist</B> for
                     281.77 points
                 </TD>
@@ -418,36 +418,36 @@ Cb -&gt; Cb Db Eb Fb Gb Ab Bb Cb
             :<BLOCKQUOTE>
     <TABLE CELLSPACING="2">
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Value</B>
         </TD>
-        <TD STYLE="background: #eee;">650</TD>
+        <TD CLASS="bodyText" STYLE="background: #eee;">650</TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Submission Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">38
+        <TD CLASS="bodyText" STYLE="background: #eee;">38
     /
     136
     (27.94%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Success Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">22
+        <TD CLASS="bodyText" STYLE="background: #eee;">22
     /
     38
     (57.89%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>High Score</B>
         </TD>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>NDBronson</B> for
                     540.33 points
                 </TD>
@@ -494,46 +494,43 @@ Cb -&gt; Cb Db Eb Fb Gb Ab Bb Cb
                 we store the floor information (e.g., marking with 'T' as in the examples
                 given in the problem statement).
             </P>
-<A NAME="RadioTower"></A>
-<FONT SIZE="+2">
-  <B>RadioTower</B>
-</FONT>
+<FONT SIZE="+2"><B>RadioTower</B></FONT>
 <BR/>
 
     Used as: Division-I, Level 3
             :<BLOCKQUOTE>
     <TABLE CELLSPACING="2">
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Value</B>
         </TD>
-        <TD STYLE="background: #eee;">850</TD>
+        <TD CLASS="bodyText" STYLE="background: #eee;">850</TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Submission Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">32
+        <TD CLASS="bodyText" STYLE="background: #eee;">32
     /
     136
     (23.53%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>Success Rate</B>
         </TD>
-        <TD STYLE="background: #eee;">18
+        <TD CLASS="bodyText" STYLE="background: #eee;">18
     /
     32
     (56.25%)
 </TD>
       </TR>
       <TR>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>High Score</B>
         </TD>
-        <TD STYLE="background: #eee;">
+        <TD CLASS="bodyText" STYLE="background: #eee;">
           <B>John Dethridge</B> for
                     724.82 points
                 </TD>
