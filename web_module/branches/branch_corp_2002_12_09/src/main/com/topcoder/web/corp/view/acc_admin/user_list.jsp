@@ -18,12 +18,6 @@
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>
 
-<H1>
-<%=rsc.size()%><BR>
-<%=rsc.toString()%><BR>
-</H1>
-
-
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
    <TR>
     <!-- Left Column Begins -->
