@@ -68,19 +68,19 @@
             <TD class="statText" ALIGN="left">
             
               <B>Member Profile: <%= MemberInfo.getItem(0, "handle").toString()%> </B>
-              <BR/>
+              <BR>
               <%= MemberInfo.getItem(0, "first_name").toString()%> <%= MemberInfo.getItem(0, "last_name").toString()%> 
-              <BR/>
+              <BR>
               <%= MemberInfo.getItem(0, "address1").toString()%>
-              <%= MemberInfo.getItem(0, "address1").toString().equals("")?"":"\n<BR/>\n"+MemberInfo.getItem(0, "address2").toString()+"\n<BR/>\n"%>
+              <%= MemberInfo.getItem(0, "address1").toString().equals("")?"":"<BR>"+MemberInfo.getItem(0, "address2").toString()+"<BR>"%>
               <%= MemberInfo.getItem(0, "city").toString()%>,
               <%= MemberInfo.getItem(0, "state_code").toString()%>
               <%= MemberInfo.getItem(0, "zip").toString()%>
-              <BR/>
+              <BR>
               <A HREF="mailto:<%=MemberInfo.getItem(0, "email").toString() %>" CLASS="statText"><%= MemberInfo.getItem(0, "email").toString() %></A> | <%= MemberInfo.getItem(0, "home_phone").toString()%> 
-              <BR/>
+              <BR>
               <B>Interested in:</B> <jsp:getProperty name="MemberProfileTask" property="JobName"/>
-              <BR/>
+              <BR>
               <% if (MemberProfileTask.hasResume()) { %>
                 <a href="/Resume?&t=CorporateDownloadTask&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="CampaignID"/>&<%=TCESConstants.JOB_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="JobID"/>&<%=TCESConstants.MEMBER_ID_PARAM%>=<jsp:getProperty name="MemberProfileTask" property="MemberID"/>" class="statText"><B>Resume</B></a>
               <% } %>
