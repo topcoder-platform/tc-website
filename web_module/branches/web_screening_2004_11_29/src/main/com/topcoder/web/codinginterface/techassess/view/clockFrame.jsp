@@ -16,6 +16,7 @@
             Object o = request.getAttribute(Constants.PROBLEM_SETS);
             List problems = null;
             if (o!=null) {
+                System.out.println("o was not null\n\n\n\n\n\n");
                 if (o instanceof ScreeningProblemSet) {
                     problems = new ArrayList();
                     problems.add(o);
@@ -30,7 +31,8 @@
                     %> times(<%=i%>) = new Date(<%=((ScreeningProblemSet)problems.get(i)).getCompletionTime().intValue()%>); <%
                     %> ids(<%=i%>) = 'problemTimer<%=((ScreeningProblemSet)problems.get(i)).getProblemLabels()[0].getComponentID()%>'; <%
                 }
-            }
+            } else System.out.println("o was null, wtf?\n\n\n\n\n\n");
+
         %>
 
 
