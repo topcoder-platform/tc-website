@@ -76,8 +76,7 @@ United States Tax Withholding on IRS form W-8BEN.  We use this information to ve
 the IRS should you be a winner.  From time to time, we may use the contact information to alert members of new competitions and communicate news, events and reminders.  If you do 
 not want to be alerted of any of these items, do not check the "Contest Notification" box on the registration form or at any time thereafter you can send us an e-mail asking to be 
 removed from this notification listing to service@topcoder.com.  During competition, users participating will be shown and identified only by their handles, which are their public 
-login names.  A TopCoder member's handle, rating, date registered, winnings to date, skill set, and personal quote will be publicly available to any participants of the TopCoder 
-web site and competition applications.<br/><br/>
+login names.  A TopCoder member's handle, rating, country, school, competition statistics, date registered, winnings to date, skill set, and personal quote will be publicly available to any participants of the TopCoder web site and competition applications.<br/><br/>
 Spectators are allowed to view the competition without identifying themselves, but competition participants must be members and must login to prove it.  All source code created 
 during the competition will be available to anyone - spectators, members and sponsors and may be subject to challenge from other members.  Your performance in a competition will 
 allow us to help balance the competition.  It will be recorded to calculate competition rating values and it will be posted on the web site and in the competition area.  Winners' 
