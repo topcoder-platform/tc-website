@@ -109,7 +109,7 @@ public abstract class BaseServlet extends HttpServlet {
             loginfo.append("[**** ");
             loginfo.append(info.getHandle());
             loginfo.append(" **** ");
-            loginfo.append(request.getRemoteHost());
+            loginfo.append(request.getRemoteAddr());
             loginfo.append(" **** ");
             loginfo.append(request.getMethod());
             loginfo.append(" ");

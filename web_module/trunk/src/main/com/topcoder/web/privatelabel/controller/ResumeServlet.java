@@ -28,7 +28,7 @@ public class ResumeServlet extends BaseServlet {
             loginfo.append("[**** ");
             loginfo.append("resume");
             loginfo.append(" **** ");
-            loginfo.append(request.getRemoteHost());
+            loginfo.append(request.getRemoteAddr());
             loginfo.append(" **** ");
             loginfo.append(request.getMethod());
             loginfo.append(" ****]");
