@@ -12,6 +12,7 @@ import com.topcoder.ejb.ContestAdminServices.ContestAdminServicesHome;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 
 import javax.naming.Context;
@@ -84,7 +85,7 @@ public final class SystemTestCaseReport {
 
         try {
             Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminHome");
+            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
             try {
                 contestEJB = contestHome.create();
                 int roundId = 0;
@@ -173,7 +174,7 @@ public final class SystemTestCaseReport {
 
         try {
             Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminHome");
+            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
             try {
                 contestEJB = contestHome.create();
                 int roundId = 0;
@@ -248,7 +249,7 @@ public final class SystemTestCaseReport {
 
         try {
             Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminHome");
+            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
             try {
                 contestEJB = contestHome.create();
                 int roundId = 0;
@@ -316,7 +317,7 @@ public final class SystemTestCaseReport {
 
         try {
             Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminHome");
+            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
             try {
                 contestEJB = contestHome.create();
                 int roundId = Integer.parseInt(request.getParameter("roundid"));
@@ -357,7 +358,7 @@ public final class SystemTestCaseReport {
 
         try {
             Context ctx = TCContext.getInitial();
-            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminHome");
+            ContestAdminServicesHome contestHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
             try {
                 contestEJB = contestHome.create();
                 roundList = contestEJB.getRoundList();
