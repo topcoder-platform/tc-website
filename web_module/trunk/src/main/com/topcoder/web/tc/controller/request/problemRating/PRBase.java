@@ -76,6 +76,7 @@ abstract public class PRBase extends Base {
             ProblemRatingQuestion prq = new ProblemRatingQuestion();
             prq.setQuestion(row.getStringItem("question"));
             prq.setID(row.getIntItem("question_id"));
+            prq.setQuestionDesc(row.getStringItem("question_desc"));
             questions.add(prq);
         }
         getRequest().setAttribute("problemRatingQuestions",questions);

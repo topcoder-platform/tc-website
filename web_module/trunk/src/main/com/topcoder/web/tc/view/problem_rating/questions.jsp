@@ -17,14 +17,14 @@
 
 <!-- Gutter Begins -->
         <td width="10"><img src="/i/clear.gif" width="10" height="1"></td>
-<!-- Gutter Ends --> 
+<!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
         <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="problem_rating"/>  
-           <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value=""/>  
+           <jsp:param name="image" value="problem_rating"/>
+           <jsp:param name="image1" value="white"/>
+           <jsp:param name="title" value=""/>
         </jsp:include>
 
 <p class="header">Problem:&nbsp;<%= request.getAttribute("problemName") %></p>
@@ -46,7 +46,7 @@
             <td class="bodyText">
                 <jsp:getProperty name="quest" property="question"/>
             </td>
-            <td class="bodyText" width="100%">question description goes here</td>
+            <td class="bodyText" width="100%"><jsp:getProperty name="quest" property="question_desc"/></td>
             <tc:counter min="1" max="10" inc="1" id="rating">
             <td valign="top">
                 <% boolean checked = rating.equals(request.getParameter("q"+quest.getID())); %>
