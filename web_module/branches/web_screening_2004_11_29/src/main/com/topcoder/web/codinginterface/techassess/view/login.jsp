@@ -8,14 +8,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" >
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 
-
-<%
-  System.out.println("request errors: " + request.getAttribute(BaseProcessor.ERRORS_KEY));
-    System.out.println("request defaults: " + request.getAttribute(BaseProcessor.DEFAULTS_KEY));
-    System.out.println("session errors: " + session.getAttribute(BaseProcessor.ERRORS_KEY));
-      System.out.println("session defaults: " + session.getAttribute(BaseProcessor.DEFAULTS_KEY));
-
-%>
 <script type="text/javascript">
 function submitEnter(e) {
     var keycode;

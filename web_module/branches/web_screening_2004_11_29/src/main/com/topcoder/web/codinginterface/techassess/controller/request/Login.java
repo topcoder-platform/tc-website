@@ -84,7 +84,6 @@ public class Login extends Base {
 
             }
         } else {
-            addError(Constants.HANDLE, "Please enter your Login");
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
         }
