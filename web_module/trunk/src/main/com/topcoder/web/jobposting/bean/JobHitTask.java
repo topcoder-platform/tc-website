@@ -47,6 +47,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     private String school;
     private String memberSince;
     private String mostRecentEvent;
+    private String gpa;
+    private String gpaScale;
     private Map demographics;
     private boolean hasResume;
 
@@ -72,6 +74,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setSchool("");
         setMemberSince("");
         setMostRecentEvent("");
+        setGpa("");
+        setGpaScale("");
         setDemographics(new TreeMap());
         setHasResume(false);
     }
@@ -181,6 +185,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setEmail(user.getEmail());
         setCoderType(coder.getCoderType().getCoderTypeDesc());
         setCoderTypeId(Integer.toString(coder.getCoderType().getCoderTypeId()));
+        setGpa(String.valueOf(coder.getCurrentSchool().getGpa()));
+        setGpaScale(String.valueOf(coder.getCurrentSchool().getGpaScale()));
         if (!oltpResult.isEmpty()) {
             setSchool(oltpResult.getItem(0, "school_name").toString());
             setMemberSince(oltpResult.getItem(0, "member_since_date").toString());
@@ -392,6 +398,23 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     public void setMostRecentEvent(String mostRecentEvent) {
         this.mostRecentEvent = mostRecentEvent;
     }
+
+    public String getGpa() {
+        return gpa;
+    }
+  
+    public void setGpa(String gpa) {
+        this.gpa = gpa;
+    }
+
+    public String getGpaScale() {
+        return gpaScale;
+    }
+  
+    public void setGpaScale(String gpaScale) {
+        this.gpaScale = gpaScale;
+    }
+
 
 
     /** Retreives and parses a date from a ResultSetRow
