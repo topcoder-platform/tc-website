@@ -124,19 +124,19 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$design-phase">
                         <tr><td colspan="5" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
-                        <xsl:variable name="initial_submission_date">
+                        <xsl:variable name="initial_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
                         </xsl:variable>
                         <xsl:variable name="posting_date">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
                         </xsl:variable>
-                        <xsl:variable name="winner_announced_date">
+                        <xsl:variable name="winner_announced">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
                         </xsl:variable>
-                        <xsl:variable name="final_submission_date">
+                        <xsl:variable name="final_submission">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
                         </xsl:variable>
-                        <xsl:variable name="estimated_dev_date">
+                        <xsl:variable name="estimated_dev">
                             <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="estimated_dev_date"/></xsl:call-template>
                         </xsl:variable>
                         <tr valign="top">
@@ -144,7 +144,7 @@
                             <td background="" class="statText">
                                 <a class="statText">
                                     <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission_date, '&amp;final_submission_date=', $final_submission_date, '&amp;winner_announced_date=', $winner_announced_date, '&amp;posting_date=', $posting_date, '&amp;estimated_dev_date=', $estimated_dev_date)"/>
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-design&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date, '&amp;estimated_dev=', $estimated_dev)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                 </a>
                             </td>
@@ -196,17 +196,17 @@
                 <xsl:for-each select="/TC/DEVELOPMENT/projects/project">
                     <xsl:if test="./phase_id=$dev-phase">
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                        <xsl:variable name="initial_submission_date">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template>
+                        <xsl:variable name="initial_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="initial_submission"/></xsl:call-template>
                         </xsl:variable>
                         <xsl:variable name="posting_date">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting_date"/></xsl:call-template>
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="posting"/></xsl:call-template>
                         </xsl:variable>
-                        <xsl:variable name="winner_announced_date">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced_date"/></xsl:call-template>
+                        <xsl:variable name="winner_announced">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="winner_announced"/></xsl:call-template>
                         </xsl:variable>
-                        <xsl:variable name="final_submission_date">
-                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template>
+                        <xsl:variable name="final_submission">
+                            <xsl:call-template name="urldate"><xsl:with-param name="DATE" select="final_submission"/></xsl:call-template>
                         </xsl:variable>
 
                         <tr valign="top">
@@ -214,13 +214,13 @@
                             <td background="" class="statText">
                                 <a class="statText">
                                     <xsl:attribute name="href"> 
-                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission_date, '&amp;final_submission_date=', $final_submission_date, '&amp;winner_announced_date=', $winner_announced_date, '&amp;posting_date=', $posting_date)"/>
+                                        <xsl:value-of select="concat('/index?t=development&amp;c=tcs_inquire-dev&amp;comp=', ./component_id, '&amp;docId=', ./document_id, '&amp;version=', ./version, '&amp;payment=', ./price, '&amp;date=', $initial_submission, '&amp;final_submission=', $final_submission, '&amp;winner_announced=', $winner_announced, '&amp;posting_date=', $posting_date)"/>
                                     </xsl:attribute><xsl:value-of select="./component_name"/>
                                 </a>
                             </td>
                             <td background="" class="statText" align="center"><xsl:value-of select="./total_inquiries"/></td>
                             <td background="" class="statText" align="center"><xsl:value-of select="format-number(./price, $priceFormat)"/></td>
-                            <td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
+                            <td background="" class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission"/></xsl:call-template></td>
                             <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                         </tr>
                     </xsl:if>
