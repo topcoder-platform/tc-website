@@ -38,10 +38,11 @@
             
 <!-- Practice Arena tab -->
             <% if (selectedTab.equals("arena")) {%>
-                 <td class="statTextBig" width="108"><A href="/pl/"class="statTextBig"><img src="/i/tournament/vcc03/tab_arena_on.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="108"><A href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,225);"class="statTextBig"><img src="/i/tournament/vcc03/tab_arena_on.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="108"><A href="/pl/"class="statTextBig"><img src="/i/tournament/vcc03/tab_arena_off.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="108"><A href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,225);"class="statTextBig"><img src="/i/tournament/vcc03/tab_arena_off.gif" alt="Arena" width="108" height="22" border="0" /></A></td>
             <% } %>            
+
                                 
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
    </tr>
