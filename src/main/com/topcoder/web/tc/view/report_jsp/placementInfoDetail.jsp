@@ -49,8 +49,6 @@ List industryList = (List)request.getAttribute("industrySkills");
                 <% } else { %>
                      <A HREF="/tc?module=EditNote&uid=<jsp:getProperty name="contractingInfo" property="userId" />"/>">Add Note</A>
                 <% } %>
-
-				<td align=center><p><a href="/tc?module=LegacyReport&t=profile&ha=<%=request.getAttribute(Constants.HANDLE)%>">View Report Profile</a></p></td>
             </tr>
         </table>
 
