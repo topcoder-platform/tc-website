@@ -36,6 +36,7 @@ import com.topcoder.dde.catalog.ComponentManager;
 import com.topcoder.dde.catalog.ComponentSummary;
 import com.topcoder.dde.catalog.ComponentVersionInfo;
 import com.topcoder.dde.catalog.Document;
+import com.topcoder.dde.catalog.Technology;
 import com.topcoder.dde.user.RegistrationInfo;
 import com.topcoder.dde.forum.DDEForumHome;
 import com.topcoder.dde.forum.DDEForum;
@@ -207,8 +208,15 @@ public final class TaskDevelopment {
                 {
                     long componentId = Long.parseLong(comp);
 
-                    ComponentManager componentManager  = getComponentManager(componentId);
+                    ComponentManager componentManager  = getComponentManager(componentId, Long.parseLong(request.getParameter("phase")));
                     ComponentInfo componentInfo  = componentManager.getComponentInfo();
+                    Collection technologies = componentManager.getTechnologies();
+                    Technology summaries[] = (Technology[])technologies.toArray(new Technology[0]);
+                    RecordTag techonolgiesTag = new RecordTag("technologies");
+                    for(int i =0;i < summaries.length;i++){
+                       technologiesTag.addTag(new ValueTag("techName", summaries[i].getName());
+                    }
+                    devTag.addTag(technologiesTag);
 
                     devTag.addTag(new ValueTag("componentName", componentInfo.getName()));
                     devTag.addTag(new ValueTag("formattedName", formatName("This is a test")));
