@@ -89,8 +89,6 @@
                     <td class="statText" align="center"></td>
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                 </tr>
-            </table>
-            <table border="0" cellspacing="0" cellpadding="3" bgcolor="#001B35" width="100%">
 
                 <tr valign="top">
                     <td width="3" ><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
@@ -111,7 +109,7 @@
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="statText"><a href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Application Front End</a></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Application Front End</a></td>
                     <td class="statText" align="center">$1,600</td>
                     <td class="statText" align="center">$600</td>
                     <td class="statText" align="center">6.16.2003</td>
@@ -121,7 +119,7 @@
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="statText"><a href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Application Business Logic</a></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-bl">Online Review Application Business Logic</a></td>
                     <td class="statText" align="center">$2,400</td>
                     <td class="statText" align="center">$900</td>
                     <td class="statText" align="center">6.16.2003</td>
@@ -131,7 +129,7 @@
                 <tr valign="top">
                     <td width="3"><img src="/i/clear.gif" width="3" height="1" alt="" border="0" /></td>
                     <td width="1" ><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
-                    <td class="statText"><a href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Application Persistence Layer</a></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-pl">Online Review Application Persistence Layer</a></td>
                     <td class="statText" align="center">$2,400</td>
                     <td class="statText" align="center">$900</td>
                     <td class="statText" align="center">6.16.2003</td>
