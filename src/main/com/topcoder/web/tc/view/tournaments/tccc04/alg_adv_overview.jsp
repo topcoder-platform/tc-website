@@ -52,7 +52,7 @@
 
             <h2>Overview</h2>
 
-            <p>This will be Dok's advancers/elimination page.</p>
+            <p>Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tccc04_alg_adv_overview&trans=true">here</a> to reset the list to its originally sorted format.</p>
 
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr>
