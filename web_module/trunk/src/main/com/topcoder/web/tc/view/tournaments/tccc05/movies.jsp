@@ -30,6 +30,10 @@
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG"><img src="/i/tournament/tccc05/onsite_movies/gr_03.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tccc05/onsite_movies/gr_03.MPG">The winner of the<br>TCCC05...  poker tournie (2.8 MB)</A><br/></td>
             </tr>
+			<tr>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/reception.mov"><img src="/i/tournament/tccc05/onsite_movies/reception.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tccc05/onsite_movies/reception.mov">Reception (3.4 MB)</A><br/></td>
+            </tr>
       </table>
 
         </div>
