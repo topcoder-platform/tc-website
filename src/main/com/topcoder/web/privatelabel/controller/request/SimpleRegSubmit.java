@@ -93,10 +93,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
         InitialContext securityCtx = null;
         try {
             ctx = new InitialContext();
-            User user = (User)createEJB(ctx, User.class);
-            Address address = (Address)createEJB(ctx, Address.class);
-            Email email = (Email)createEJB(ctx, Email.class);
-            UserAddress userAddress = (UserAddress)createEJB(ctx, UserAddress.class);
+            User user = (User)createEJB(ctx, User.class, "main:");
+            Address address = (Address)createEJB(ctx, Address.class, "main:");
+            Email email = (Email)createEJB(ctx, Email.class, "main:");
+            UserAddress userAddress = (UserAddress)createEJB(ctx, UserAddress.class, "main:");
 
 
             securityCtx = (InitialContext) TCContext.getContext(
