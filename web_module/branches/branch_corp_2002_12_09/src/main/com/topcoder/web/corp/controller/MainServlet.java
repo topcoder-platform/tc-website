@@ -139,19 +139,24 @@ public class MainServlet extends HttpServlet {
                     req = (RequestProcessor) opClass.newInstance();
                     req.setRequest( request );
                     req.process();
-                    sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
                     found = true;
                 }
                 catch( Exception e ) {
-                    /* Could not  module */
-                    sendToErrorPage( request, response, e );
+                    /* Could not process module */
+                    log.debug( "doGet: bad module" );
+                    //sendToErrorPage( request, response, e );
                 }
                 break;
             }
         }
         
-        if( !found ) {
-            sendToErrorPage( request, response, new Exception("404?") );
+        if( found ) {
+            log.debug( "doGet: module found" );
+            //sendToPage( request, response, req.getNextPage(), req.isNextPageInContext() );
+        }
+        else {
+            log.debug( "doGet: module not found" );
+            //sendToErrorPage( request, response, new Exception("404?") );
         }
         /*
     	// I suppose for testing purposes that 'pr' request parameter defines
