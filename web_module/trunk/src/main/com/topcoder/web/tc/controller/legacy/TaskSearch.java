@@ -84,9 +84,9 @@ public final class TaskSearch {
             }
             //****************************refer*********************************
             else if (command.equals("refer")) {
-                if (!(nav.isIdentified()))
-                    result = search(HTMLmaker, request, nav, document, search, listTag);
-                result = displayReferrals(HTMLmaker, request, nav, document, search, listTag);
+                if (nav.isIdentified())
+                    result = displayReferrals(HTMLmaker, request, nav, document, search, listTag);
+                else throw new PermissionException(new SimpleUser(nav.getUserId(), "", ""), new PathResource("referrals"));
             } else {
                 result = TaskStatic.process(request, response, HTMLmaker, nav, document);
             }
