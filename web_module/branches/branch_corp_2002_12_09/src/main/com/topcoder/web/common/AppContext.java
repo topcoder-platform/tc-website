@@ -84,10 +84,10 @@ public class AppContext {
         if( propertiesFileName != null ) {
             File dir = new File((new File(propertiesFileName)).getParent());
             if( dir == null ) {
-                log.debug("-- dir --"+dir);
+                System.err.println("-- dir --"+dir);
             }
             else {
-                log.debug("-- dir path --"+dir.getAbsolutePath());
+                System.err.println("-- dir path --"+dir.getAbsolutePath());
             }
                 
             persistStore = PersistStore.getInstance(dir);

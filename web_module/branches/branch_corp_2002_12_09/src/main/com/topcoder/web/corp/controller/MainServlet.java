@@ -59,7 +59,6 @@ public class MainServlet extends HttpServlet {
      * @throws     ServletException
      * */
     public void init() throws ServletException {
-        System.err.println("---"+System.getProperty("weblogic.httpd.servlet.classpath")+"---");
     	servletConfig = getServletConfig();
     	String propsFileName = servletConfig.getServletContext().getRealPath(servletConfig.getInitParameter(KEY_CFG_CONTEXT));
     	
