@@ -13,13 +13,12 @@
   </servlet>
   
   <security-constraint>
-		<web-resource-collection>
-  		<web-resource-name>stats</web-resource-name> 
-  		<url-pattern>/*</url-pattern> 
-  		<http-method>GET</http-method> 
-  		<http-method>POST</http-method> 
-  		<description>stats</description> 
-  		</web-resource-collection>
+        <web-resource-collection>
+          <web-resource-name>stats</web-resource-name> 
+          <url-pattern>/*</url-pattern> 
+          <http-method>GET</http-method> 
+          <http-method>POST</http-method> 
+          </web-resource-collection>
   </security-constraint>
 
   <!-- The Welcome File List -->
@@ -29,8 +28,8 @@
   
  <!-- The not-good File List -->
   <error-page>
-	<exception-type>java.lang.Exception</exception-type>
-	<location>/errorPage.jsp</location>
+    <exception-type>java.lang.Exception</exception-type>
+    <location>/errorPage.jsp</location>
   </error-page> 
 
   <!-- Struts Tag Library Descriptors -->
