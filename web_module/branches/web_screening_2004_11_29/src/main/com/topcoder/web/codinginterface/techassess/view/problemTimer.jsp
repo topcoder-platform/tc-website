@@ -67,8 +67,8 @@ if (o!=null) {
                       else
                         time = endTimes[i] - correctedLocalTime.getTime();
                     }
+                    text = convertToTimeString(time);
                 }
-                text = convertToTimeString(time);
                 if (top.mainFrame) {
                     updateDivOrSpan(top.mainFrame.document, ids[i], text);
                 }
