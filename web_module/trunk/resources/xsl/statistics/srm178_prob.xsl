@@ -330,8 +330,8 @@ analogous approach is to consider, for any given length, how many strings (which
 defined inductively.  Let A(k) and N(k) denote how many strings of length k end with 'a', or do not
 respectively.  Again, we are only referring to the strings that do not contain &quot;ab&quot;.  We
 then have the following recurrence:<pre>
-         A(k) = A(k-1) + N(k-1) for k > 0       (1)
-         N(k) = 2*A(k-1) + N(k-1) for k > 0     (2)
+         A(k) = A(k-1) + N(k-1) for k > 0       (1)                            
+         N(k) = 2*N(k-1) +A(k-1) for k > 0     (2)                             
 </pre>
 These recurrence relations are staring at you when you build the DFA.  The reasoning is as follows:
 <ul>
