@@ -36,7 +36,7 @@ public class ProfileSearch extends Base {
         }
 
     }
-
+    
     private String buildQuery(TCRequest request){
         List[] skills = buildSkillsQuery(request);
         List[] demo = buildDemoQuery(request);
@@ -47,12 +47,8 @@ public class ProfileSearch extends Base {
             return null;
         }
         StringBuffer query = new StringBuffer(5000);
-        query.append("SELECT ");
-        query.append(skills[0].get(0));
-        query.append(".coder_id FROM ");
-        query.append(tables.get(0));
-        query.append('\n');
-        for(int i = 1; i<tables.size(); i++){
+        query.append("SELECT c.coder_id FROM coder c\n");
+        for(int i = 0; i<tables.size(); i++){
             query.append("     , ");
             query.append(tables.get(i));
             query.append('\n');
@@ -81,7 +77,10 @@ public class ProfileSearch extends Base {
                 query.append(demoId);
                 query.append(".demographic_question_id = ");
                 query.append(demoId);
-                query.append(" AND demographic_answer_id ");
+                query.append(" AND ");
+                query.append("dr");
+                query.append(demoId);
+                query.append(".demographic_answer_id ");
                 int ans = Integer.parseInt(values[0]);
                 if(values.length == 1){
                     query.append(" = ");
@@ -97,6 +96,9 @@ public class ProfileSearch extends Base {
                 if(values.length > 1){
                     query.append(")");
                 }
+                query.append(" AND dr");
+                query.append(demoId);
+                query.append(".coder_id = c.coder_id");
                 tables.add("demographic_response dr"+demoId);
                 constraints.add(query.toString());
             }
@@ -126,6 +128,9 @@ public class ProfileSearch extends Base {
                     query.append(skillId);
                     query.append(".ranking >= ");
                     query.append(skillLevel);
+                    query.append(" AND cs");
+                    query.append(skillId);
+                    query.append(".coder_id = c.coder_id");
                     tables.add("coder_skill cs"+skillId);
                     constraints.add(query.toString());
                 }
