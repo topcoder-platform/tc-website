@@ -44,7 +44,7 @@
             code="com.topcoder.client.contestApplet.LaunchApplet.class"
             codebase="http://www.topcoder.com/contest/classes"
             name="LaunchApplet"
-            archive="GoogleContestApplet.jar"
+            archive="DblClkContestApplet.jar"
             host="www.topcoder.com"
             port="5071"
             tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=listener+port=5071"
