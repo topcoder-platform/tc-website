@@ -35,6 +35,18 @@ public class BuildCandidateList extends BaseScreeningProcessor {
             if (map != null && map.size() == 1) {
                 ResultSetContainer result =
                         (ResultSetContainer) map.get(Constants.CANDIDATE_LIST_QUERY_KEY);
+                
+                String sortBy = getRequest().getParameter(Constants.SORT_BY);
+                if (sortBy != null) {
+                    if(sortBy.equals("preference"))
+                    {
+                        result.sortByColumn(sortBy, false);
+                    }
+                    else
+                        result.sortByColumn(sortBy, true);
+                    
+                    getRequest().setAttribute(Constants.SORT_BY, sortBy);
+                }
                 getRequest().setAttribute(Constants.CANDIDATE_LIST_QUERY_KEY, result);
             }
             
