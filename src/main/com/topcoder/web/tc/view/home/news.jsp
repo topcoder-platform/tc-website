@@ -6,6 +6,18 @@
 
 <%--------------------------------------------------------%>
    <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.28.05<br>1:05 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description">Announcing the TCCC05 Spectator Showdown</A></span><br><br>
+      Come to the TCCC05 and compete for prizes like a Motorola Moto Razr V3 phone!
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=ss_description">full story</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tournie">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/pressroom.gif" alt="Press Releases & Articles" border="0" /><br>02.25.05<br>11:55 AM</td>
       <td class="newsTextCell"><span class="newsTitle"><A href="/?&t=news_events&c=art_02_13_05">Program for life</A></span><br><br>
       "Warsaw University graduates are some of the best computer scientists in the world."
@@ -19,15 +31,18 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.24.05<br>9:30 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span>&#160;by <A href="/stat?c=member_profile&cr=10407399">timmac</A><br><br>
-      This match seemed to have a lot less challenges than other matches, but the systests were brutal for many coders, especially on the division 1 650 and 900.
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm232_prob">SRM 232 - Problem Set & Analysis</A></span><br><br>
+      This match seemed to have a lot less challenges than other matches, but the systests were brutal for many coders, especially on the division 1 650 and 900.</td>
+      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=10407399">timmac</A><br><img src="/i/m/timmac_mug.gif" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/index?t=statistics&c=srm232_prob">full story</A>&#160;|&#160;
          <A href="/?t=statistics&c=editorial_archive">archive</A>
    </td></tr>
-
+ 
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/alg.gif" alt="Algorithm Competition News" border="0" /><br>02.23.05<br>12:45 PM</td>
@@ -79,8 +94,11 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.21.05<br>11:20 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm231_prob">SRM 231 - Problem Set & Analysis</A></span>&#160;by <A href="/stat?c=member_profile&cr=159052">lbackstrom</A><br><br>
-      SRM 231 gave division 2 coders a welcome reprieve from the difficulties of the last few matches.
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm231_prob">SRM 231 - Problem Set & Analysis</A></span><br><br>
+      SRM 231 gave division 2 coders a welcome reprieve from the difficulties of the last few matches.</td>
+      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=159052">lbackstrom</A><br><img src="/i/m/lbackstrom_mug.gif" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -148,8 +166,12 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/education.gif" alt="Educational Content" border="0" /><br>02.09.05<br>4:54 PM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity1">Computational Complexity: Section 1</A></span>&#160;by <A href="/stat?c=member_profile&cr=8357090">misof</A><br><br>
-      "In this article I'll try to introduce you to the area of computation complexity."
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/tc?module=Static&d1=tutorials&d2=complexity1">Computational Complexity: Section 1</A></span><br><br>
+      "In this article I'll try to introduce you to the area of computation complexity."</td>
+      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=8357090">misof</A><br><img src="/i/m/misof_mug.gif" /></td></tr></table>
+      </td>
    </tr>
    <tr><td class="newsLinksCell">
          <A href="/tc?module=Static&d1=tutorials&d2=complexity1">full article</A>&#160;|&#160;
@@ -171,8 +193,11 @@
 <%--------------------------------------------------------%>
    <tr>
       <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/analysis.gif" alt="Problem Set & Analysis" border="0" /><br>02.09.05<br>10:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/index?t=statistics&c=srm230_prob">SRM 230 - Problem Set & Analysis</A></span>&#160;by <A href="/stat?c=member_profile&cr=251317">brett1479</A><br><br>
-      Last night's SRM was one of the most exciting in recent history.  <b>SnapDragon</b>, <b>tomek</b>, <b>JohnDethridge</b>, and <b>radeye</b> were neck and neck till the very end.
+      <td class="newsTextCell">
+      <table cellspacing="0" cellpadding="0" class="newsPhotoTable"><tr>
+      <td valign="top"><span class="newsTitle"><A href="/index?t=statistics&c=srm230_prob">SRM 230 - Problem Set & Analysis</A></span><br><br>
+      Last night's SRM was one of the most exciting in recent history.  <b>SnapDragon</b>, <b>tomek</b>, <b>JohnDethridge</b>, and <b>radeye</b> were neck and neck till the very end.</td>
+      <td class="newsPhoto">by <A href="/stat?c=member_profile&cr=251317">brett1479</A><br><img src="/i/m/brett1479_mug.gif" /></td></tr></table>
       </td>
    </tr>
    <tr><td class="newsLinksCell">
@@ -226,18 +251,6 @@
    <tr><td class="newsLinksCell">
          <A href="/?&t=news_events&c=pr_02_07_05">full story</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
-   </td></tr>
-
-<%--------------------------------------------------------%>
-   <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/employment.gif" alt="Employment Opportunities" border="0" /><br>02.04.05<br>12:00 PM</td>
-      <td class="newsTextCell"><span class="newsTitle">New job openings at <A href="/tc?module=Static&d1=contracting&d2=jumptrading">JumpTrading</A> and <A href="/tc?module=Static&d1=contracting&d2=oreilly">O'Reilly</A></span><br><br>
-      <A href="/tc?module=Static&d1=contracting&d2=jumptrading">JumpTrading</A> is offering a position as a Professional Trader and <A href="/tc?module=Static&d1=contracting&d2=oreilly">O'Reilly</A> has a spot open for a Software Engineer, available to <strong>ALL</strong> TopCoder members.
-      </td>
-   </tr>
-   <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
-         <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
 </table>
