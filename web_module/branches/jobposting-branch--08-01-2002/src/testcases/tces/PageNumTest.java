@@ -128,32 +128,31 @@ public class PageNumTest implements TestConst{
 
 	// Page methods - each page is process by a method
 
-	// page 0
-	public WebResponse loginPage() throws IOException, org.xml.sax.SAXException{
+	// page 1 - loginTask
+	public WebResponse loginTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			return wc.getResponse( new PostMethodWebRequest( LOGIN_URL ) );
+			WebResponse resp	=  wc.getResponse( new PostMethodWebRequest( LOGIN_URL ) );
+			TestMessage.addDetailMessage( "loginTask: " );
+			if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+			return resp;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
 
-	// page 1 - loginTask
-	public WebResponse loginTask() throws IOException, org.xml.sax.SAXException{
+	public WebResponse userLogin() throws IOException, org.xml.sax.SAXException{
 		try{
-			WebResponse resp	= loginPage();
-			TestMessage.addDetailMessage( "loginTask: " );
-			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
+			WebResponse resp	=  loginTask();
+			if(resp!=null) { 
 				WebForm form		= resp.getFormWithName( LOGIN_FORM );
 				WebRequest req		= form.getRequest();
 				req.setParameter( USER_FIELD, USER_DATA );
 				req.setParameter( PASSWORD_FIELD, PASSWORD_DATA );
-				return wc.getResponse( req );
+				resp = wc.getResponse( req );
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -161,15 +160,11 @@ public class PageNumTest implements TestConst{
 	// page 2 - mainTask
 	public WebResponse mainTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			WebResponse resp	= loginTask();
+			WebResponse resp	= userLogin();
 			TestMessage.addDetailMessage( "mainTask: " );
-			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				return getLinkOfRowWith(resp, mainTableRow, "task="+PAGE_2_TABLE_LINK_HREF);
-			}
-			return null;
+			if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+			return resp;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -181,17 +176,12 @@ public class PageNumTest implements TestConst{
 			WebResponse resp	= mainTask();
 			TestMessage.addDetailMessage( "campaignDetailTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				if(to_4_5 == 4){
-					WebLink viewLink = resp.getLinkWith(VIEW_HIT_LINK_TEXT);
-					return (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
-				}else{
-					return getLinkOfRowWith(resp, campaignDetailRow, "task="+PAGE_3_TABLE_LINK_HREF);
-				}
+				resp = getLinkOfRowWith(resp, mainTableRow, "task="+PAGE_3_LINK_HREF);
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -199,21 +189,16 @@ public class PageNumTest implements TestConst{
 	// page 4 - campaignInterestTask
 	public WebResponse campaignInterestTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_4_5 = 4;
 			WebResponse resp	= campaignDetailTask();
 			TestMessage.addDetailMessage( "campaignInterestTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				if(to_6_7 == 6){
-					WebLink viewLink = resp.getLinkWith(VIEW_COL_DEMO_LINK_TEXT);
-					return (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
-				}else{
-					return getLinkOfRowWith(resp, campaignInterestRow, "task="+PAGE_4_TABLE_LINK_HREF);
-				}
+				WebLink viewLink = resp.getLinkWith(VIEW_HIT_LINK_TEXT);
+				resp =  (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -221,21 +206,15 @@ public class PageNumTest implements TestConst{
 	// page 5 - positionInterestTask
 	public WebResponse positionInterestTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_4_5 = 5;
 			WebResponse resp	= campaignDetailTask();
 			TestMessage.addDetailMessage( "positionInterestTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				if(to_6_7 == 7){
-					WebLink viewLink = resp.getLinkWith(VIEW_COL_DEMO_LINK_TEXT);
-					return (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
-				}else{
-					return getLinkOfRowWith(resp, positionInterestRow, "task="+PAGE_5_TABLE_LINK_HREF);
-				}
+				resp =   getLinkOfRowWith(resp, campaignDetailRow, "task="+PAGE_5_LINK_HREF);
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -243,19 +222,18 @@ public class PageNumTest implements TestConst{
 	// page 6 - overallDemographicInfoTask
 	public WebResponse overallDemographicInfoTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_6_7 = 6;
 			WebResponse resp;
-			if(from_4_5 == 4)	
-				resp	= campaignInterestTask();
-			else	
-				resp	= positionInterestTask();
+			if(from_4_5 == 4)	resp	= campaignInterestTask();
+			else				resp	= positionInterestTask();
 			TestMessage.addDetailMessage( "overallDemographicInfoTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
+				WebLink viewLink = resp.getLinkWith(VIEW_COL_DEMO_LINK_TEXT);
+				resp =  (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
-			return resp;
+			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -263,28 +241,17 @@ public class PageNumTest implements TestConst{
 	// page 7 - memberProfileTask
 	public WebResponse memberProfileTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_6_7 = 7;
 			WebResponse resp;
-			if(from_4_5 == 4)	
-				resp	= campaignInterestTask();
-			else	
-				resp	= positionInterestTask();
+			if(from_4_5 == 4)	resp	= campaignInterestTask();
+			else				resp	= positionInterestTask();
 			TestMessage.addDetailMessage( "memberProfileTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				WebLink viewLink=null;
-				if (to_8_9_10 == 8){
-					viewLink = resp.getLinkWith(CODER_DEMO_LINK_TEXT);
-				}else if (to_8_9_10 == 9){
-					viewLink = resp.getLinkWith(CODER_COMP_HIST_LINK_TEXT);
-				}else if (to_8_9_10 == 10){
-					viewLink = resp.getLinkWith(CODER_PROB_SUBM_LINK_TEXT);
-				}
-				return (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
+				resp = getLinkOfRowWith(resp, campaignInterestRow, "task="+PAGE_7_LINK_HREF);
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -292,15 +259,16 @@ public class PageNumTest implements TestConst{
 	// page 8 - individualDemographicInfoTask
 	public WebResponse individualDemographicInfoTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_8_9_10 = 8;
 			WebResponse resp	= memberProfileTask();
 			TestMessage.addDetailMessage( "individualDemographicInfoTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
+				WebLink viewLink = resp.getLinkWith(CODER_DEMO_LINK_TEXT);
+				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
-			return resp;
+			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -308,24 +276,16 @@ public class PageNumTest implements TestConst{
 	// page 9 - competitionHistoryTask
 	public WebResponse competitionHistoryTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_8_9_10 = 9;
 			WebResponse resp	= memberProfileTask();
 			TestMessage.addDetailMessage( "competitionHistoryTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				WebLink viewLink=null;
-				if (to_11_12_13 == 11){
-					viewLink = resp.getLinkWith(RATING_HIST_GRAPH_LINK_TEXT);
-				}else if (to_11_12_13 == 12){
-					viewLink = resp.getLinkWith(OVERALL_RATING_DIST_GRAPH_LINK_TEXT);
-				}else{
-					return getLinkOfRowWith(resp, competitionHistoryRow, "task="+PAGE_9_TABLE_LINK_HREF);
-				}
-				return (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	// goto  CampaignInterest
+				WebLink viewLink = resp.getLinkWith(CODER_COMP_HIST_LINK_TEXT);
+				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -333,16 +293,16 @@ public class PageNumTest implements TestConst{
 	// page 10 - problemSubmissionTask
 	public WebResponse problemSubmissionTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_8_9_10 = 10;
 			WebResponse resp	= memberProfileTask();
 			TestMessage.addDetailMessage( "problemSubmissionTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				return getLinkOfRowWith(resp, problemSubmissionRow, "task="+PAGE_10_TABLE_LINK_HREF);
+				WebLink viewLink = resp.getLinkWith(CODER_PROB_SUBM_LINK_TEXT);
+				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -350,15 +310,16 @@ public class PageNumTest implements TestConst{
 	// page 11 - ratingHistoryTask
 	public WebResponse ratingHistoryTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_11_12_13 = 11;
 			WebResponse resp	= competitionHistoryTask();
 			TestMessage.addDetailMessage( "ratingHistoryTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
+				WebLink viewLink = resp.getLinkWith(RATING_HIST_GRAPH_LINK_TEXT);
+				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
-			return resp;
+			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -366,15 +327,16 @@ public class PageNumTest implements TestConst{
 	// page 12 - overallRatingDistributionGraphTask
 	public WebResponse overallRatingDistributionGraphTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_11_12_13 = 12;
 			WebResponse resp	= competitionHistoryTask();
 			TestMessage.addDetailMessage( "overallRatingDistributionGraphTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
+				WebLink viewLink = resp.getLinkWith(OVERALL_RATING_DIST_GRAPH_LINK_TEXT);
+				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
-			return resp;
+			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -382,16 +344,15 @@ public class PageNumTest implements TestConst{
 	// page 13 - competitionStatisticsTask
 	public WebResponse competitionStatisticsTask() throws IOException, org.xml.sax.SAXException{
 		try{
-			to_11_12_13 = 13;
 			WebResponse resp	= competitionHistoryTask();
 			TestMessage.addDetailMessage( "competitionStatisticsTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				return getLinkOfRowWith(resp, competitionStatsRow, "task="+PAGE_13_TABLE_LINK_HREF);
+				resp = getLinkOfRowWith(resp, 0, "task="+PAGE_13_LINK_HREF);
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -400,19 +361,16 @@ public class PageNumTest implements TestConst{
 	public WebResponse problemStatisticsTask() throws IOException, org.xml.sax.SAXException{
 		try{
 			WebResponse resp;
-			if(from_10_13 == 10)	
-				resp	= problemSubmissionTask();
-			else	
-				resp	= competitionStatisticsTask();
+			if(from_10_13 == 10)	resp	= problemSubmissionTask();
+			else					resp	= competitionStatisticsTask();
 			TestMessage.addDetailMessage( "problemStatisticsTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
-				WebLink viewLink = resp.getLinkWith(PROB_STMT_LINK_TEXT);
-				return (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				resp	= getLinkOfRowWith(resp, 0, "task="+PAGE_14_LINK_HREF);
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;	
 			}
 			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}
@@ -423,11 +381,13 @@ public class PageNumTest implements TestConst{
 			WebResponse resp	= problemStatisticsTask();
 			TestMessage.addDetailMessage( "problemStatementTask: " );
 			if(resp!=null){
-				TestMessage.addDetailMessage( resp.getURL() );
+				WebLink viewLink = resp.getLinkWith(PROB_STMT_LINK_TEXT);
+				resp = (viewLink==null)?null:wc.getResponse( viewLink.getRequest() );	
+				if(resp!=null) { TestMessage.addDetailMessage( " = " + resp.getURL() ); }
+				return resp;
 			}
-			return resp;
+			return null;
 		}catch(com.meterware.httpunit.HttpInternalErrorException hiee){
-			TestMessage.addError(hiee.getMessage());
 			return null;
 		}		 
 	}

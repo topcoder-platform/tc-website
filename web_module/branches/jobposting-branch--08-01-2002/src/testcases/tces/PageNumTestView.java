@@ -35,8 +35,7 @@ public class PageNumTestView{
 			long fileId = System.currentTimeMillis();
 			String beginTime = "Start Time: " + getCurrentTime();
 
-			pageNumTestEndNode();
-			pageNumTestMultPathNode();
+			testNodes();
 
 			String endTime = "End Time: " + getCurrentTime();
 
@@ -50,53 +49,58 @@ public class PageNumTestView{
 		return null;
 	}
 
-	//		PageNumTest.setShowTableDetail(true);
-	private static void pageNumTestEndNode(){
-		TestMessage.addTitleMessage("TESTING END-NODES");
+	private static void testNodes(){
+		TestMessage.addTitleMessage("TESTING NODES");
 		try{
-		// Test end-node: 6, 8, 11, 12, 15
-			TestMessage.addSubTitleMessage("TESTING END-NODES: 6");
-			PageNumTest.checkResponse((new PageNumTest()).overallDemographicInfoTask());	
-			TestMessage.addSubTitleMessage("TESTING END-NODES: 8");
-			PageNumTest.checkResponse((new PageNumTest()).individualDemographicInfoTask());	
-			TestMessage.addSubTitleMessage("TESTING END-NODES: 11");
-			PageNumTest.checkResponse((new PageNumTest()).ratingHistoryTask());	
-			TestMessage.addSubTitleMessage("TESTING END-NODES: 12");
-			PageNumTest.checkResponse((new PageNumTest()).overallRatingDistributionGraphTask());	
-			TestMessage.addSubTitleMessage("TESTING END-NODES: 15");
-			PageNumTest.checkResponse((new PageNumTest()).problemStatementTask());	
-		}catch(org.xml.sax.SAXException se){
-		}catch(IOException ioe){
-		}
-	}
-	private static void pageNumTestMultPathNode(){
-		TestMessage.addTitleMessage("TESTING MULT-PATH-NODES");
-		try{
-		// Test mult-path-node
 			PageNumTest pnt;
+		// Test node: 3 & up - page 3 guarantees flow of page 1, 2
+
+			TestMessage.addSubTitleMessage("TESTING NODES: 3");
+			PageNumTest.checkResponse((new PageNumTest()).campaignDetailTask());	
+			TestMessage.addSubTitleMessage("TESTING NODES: 4");
+			PageNumTest.checkResponse((new PageNumTest()).campaignInterestTask());	
+			TestMessage.addSubTitleMessage("TESTING NODES: 5");
+			PageNumTest.checkResponse((new PageNumTest()).positionInterestTask());	
+
 			//	6 thru 4 & 5
-			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 6 thru 4");
+			TestMessage.addSubTitleMessage("TESTING NODES: 6 thru 4");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(4);			
 			PageNumTest.checkResponse(pnt.overallDemographicInfoTask());	
-			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 6 thru 5");
+			TestMessage.addSubTitleMessage("TESTING NODES: 6 thru 5");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(5);			
 			PageNumTest.checkResponse(pnt.overallDemographicInfoTask());	
 
 			//	7 thru 4 & 5
-			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 7 thru 4");
+			TestMessage.addSubTitleMessage("TESTING NODES: 7 thru 4");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(4);			
 			PageNumTest.checkResponse(pnt.memberProfileTask());	
-			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 7 thru 5");
+			TestMessage.addSubTitleMessage("TESTING NODES: 7 thru 5");
 			pnt = new PageNumTest();	pnt.setFrom_4_5(5);			
 			PageNumTest.checkResponse(pnt.memberProfileTask());	
 
-			//	14 thru 13 & 10
-			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 14 thru 10");
-			pnt = new PageNumTest();	pnt.setFrom_10_13(10);		
+			TestMessage.addSubTitleMessage("TESTING NODES: 8");
+			PageNumTest.checkResponse((new PageNumTest()).individualDemographicInfoTask());	
+			TestMessage.addSubTitleMessage("TESTING NODES: 9");
+			PageNumTest.checkResponse((new PageNumTest()).competitionHistoryTask());	
+			TestMessage.addSubTitleMessage("TESTING NODES: 10");
+			PageNumTest.checkResponse((new PageNumTest()).problemSubmissionTask());	
+			TestMessage.addSubTitleMessage("TESTING NODES: 11");
+			PageNumTest.checkResponse((new PageNumTest()).ratingHistoryTask());	
+			TestMessage.addSubTitleMessage("TESTING NODES: 12");
+			PageNumTest.checkResponse((new PageNumTest()).overallRatingDistributionGraphTask());	
+			TestMessage.addSubTitleMessage("TESTING NODES: 13");
+			PageNumTest.checkResponse((new PageNumTest()).competitionStatisticsTask());	
+
+			//	14 thru 10 & 13
+			TestMessage.addSubTitleMessage("TESTING NODES: 14 thru 10");
+			pnt = new PageNumTest();	pnt.setFrom_10_13(10);			
 			PageNumTest.checkResponse(pnt.problemStatisticsTask());	
-			TestMessage.addSubTitleMessage("TESTING MULT-PATH-NODES: 14 thru 13");
-			pnt = new PageNumTest();	pnt.setFrom_10_13(13);		
+			TestMessage.addSubTitleMessage("TESTING NODES: 14 thru 13");
+			pnt = new PageNumTest();	pnt.setFrom_10_13(13);			
 			PageNumTest.checkResponse(pnt.problemStatisticsTask());	
+
+			TestMessage.addSubTitleMessage("TESTING NODES: 15");
+			PageNumTest.checkResponse((new PageNumTest()).problemStatementTask());	
 
 		}catch(org.xml.sax.SAXException se){
 		}catch(IOException ioe){

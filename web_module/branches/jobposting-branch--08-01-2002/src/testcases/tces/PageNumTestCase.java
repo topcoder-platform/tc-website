@@ -22,12 +22,12 @@ public class PageNumTestCase extends TestCase  {
 	}
 
 
-	// Test end-node: 6, 8, 11, 12, 15
+	// Test node: 3 & up - page 3 guarantees flow of page 1, 2
 
-	public void testEndNode6(){
+	public void testNode3(){
 		try{
 			TestMessage.clearMessage(true,false);
-			WebResponse resp = (new PageNumTest()).overallDemographicInfoTask();
+			WebResponse resp = (new PageNumTest()).campaignDetailTask();
 			PageNumTest.checkResponse(resp);
 			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
 		}catch(org.xml.sax.SAXException se){
@@ -35,7 +35,81 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
-	public void testEndNode8(){
+	public void testNode4(){
+		try{
+			TestMessage.clearMessage(true,false);
+			WebResponse resp = (new PageNumTest()).campaignInterestTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode5(){
+		try{
+			TestMessage.clearMessage(true,false);
+			WebResponse resp = (new PageNumTest()).positionInterestTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode6thru4(){
+		try{
+			TestMessage.clearMessage(true,false);
+			PageNumTest pnt = new PageNumTest();	
+			pnt.setFrom_4_5(4);			
+			WebResponse resp = pnt.overallDemographicInfoTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode6thru5(){	// other path
+		try{
+			TestMessage.clearMessage(true,false);
+			PageNumTest pnt = new PageNumTest();	
+			pnt.setFrom_4_5(5);			
+			WebResponse resp = pnt.overallDemographicInfoTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode7thru4(){	// other path
+		try{
+			TestMessage.clearMessage(true,false);
+			PageNumTest pnt = new PageNumTest();	
+			pnt.setFrom_4_5(4);			
+			WebResponse resp = pnt.memberProfileTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode7thru5(){	// other path
+		try{
+			TestMessage.clearMessage(true,false);
+			PageNumTest pnt = new PageNumTest();	
+			pnt.setFrom_4_5(5);			
+			WebResponse resp = pnt.memberProfileTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode8(){
 		try{
 			TestMessage.clearMessage(true,false);
 			WebResponse resp = (new PageNumTest()).individualDemographicInfoTask();
@@ -46,7 +120,29 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
-	public void testEndNode11(){
+	public void testNode9(){
+		try{
+			TestMessage.clearMessage(true,false);
+			WebResponse resp = (new PageNumTest()).competitionHistoryTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode10(){
+		try{
+			TestMessage.clearMessage(true,false);
+			WebResponse resp = (new PageNumTest()).problemSubmissionTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
+
+	public void testNode11(){
 		try{
 			TestMessage.clearMessage(true,false);
 			WebResponse resp = (new PageNumTest()).ratingHistoryTask();
@@ -57,7 +153,7 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
-	public void testEndNode12(){
+	public void testNode12(){
 		try{
 			TestMessage.clearMessage(true,false);
 			WebResponse resp = (new PageNumTest()).overallRatingDistributionGraphTask();
@@ -68,10 +164,10 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
-	public void testEndNode15(){
+	public void testNode13(){
 		try{
 			TestMessage.clearMessage(true,false);
-			WebResponse resp = (new PageNumTest()).problemStatementTask();
+			WebResponse resp = (new PageNumTest()).competitionStatisticsTask();
 			PageNumTest.checkResponse(resp);
 			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
 		}catch(org.xml.sax.SAXException se){
@@ -79,67 +175,7 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
-	// Test mult-path-node
-
-	//	6 thru 4 & 5
-	
-	public void testMultPathNode6thru4(){
-		try{
-			TestMessage.clearMessage(true,false);
-			PageNumTest pnt = new PageNumTest();	
-			pnt.setFrom_4_5(4);			
-			WebResponse resp = pnt.overallDemographicInfoTask();
-			PageNumTest.checkResponse(resp);
-			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
-		}catch(org.xml.sax.SAXException se){
-		}catch(IOException ioe){
-		}
-	}
-
-	public void testMultPathNode6thru5(){
-		try{
-			TestMessage.clearMessage(true,false);
-			PageNumTest pnt = new PageNumTest();	
-			pnt.setFrom_4_5(5);			
-			WebResponse resp = pnt.overallDemographicInfoTask();
-			PageNumTest.checkResponse(resp);
-			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
-		}catch(org.xml.sax.SAXException se){
-		}catch(IOException ioe){
-		}
-	}
-
-	//	7 thru 4 & 5
-
-	public void testMultPathNode7thru4(){
-		try{
-			TestMessage.clearMessage(true,false);
-			PageNumTest pnt = new PageNumTest();	
-			pnt.setFrom_4_5(4);			
-			WebResponse resp = pnt.memberProfileTask();
-			PageNumTest.checkResponse(resp);
-			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
-		}catch(org.xml.sax.SAXException se){
-		}catch(IOException ioe){
-		}
-	}
-
-	public void testMultPathNode7thru5(){
-		try{
-			TestMessage.clearMessage(true,false);
-			PageNumTest pnt = new PageNumTest();	
-			pnt.setFrom_4_5(5);			
-			WebResponse resp = pnt.memberProfileTask();
-			PageNumTest.checkResponse(resp);
-			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
-		}catch(org.xml.sax.SAXException se){
-		}catch(IOException ioe){
-		}
-	}
-
-	//	14 thru 10 & 13
-
-	public void testMultPathNode14thru10(){
+	public void testNode14thru10(){// other path
 		try{
 			TestMessage.clearMessage(true,false);
 			PageNumTest pnt = new PageNumTest();	
@@ -152,7 +188,7 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
-	public void testMultPathNode14thru13(){
+	public void testNode14thru13(){// other path
 		try{
 			TestMessage.clearMessage(true,false);
 			PageNumTest pnt = new PageNumTest();	
@@ -165,6 +201,16 @@ public class PageNumTestCase extends TestCase  {
 		}
 	}
 
+	public void testNode15(){
+		try{
+			TestMessage.clearMessage(true,false);
+			WebResponse resp = (new PageNumTest()).problemStatementTask();
+			PageNumTest.checkResponse(resp);
+			assertTrue(TestMessage.getMessage(), !PageNumTest.hasError(resp));
+		}catch(org.xml.sax.SAXException se){
+		}catch(IOException ioe){
+		}
+	}
 
 }
 

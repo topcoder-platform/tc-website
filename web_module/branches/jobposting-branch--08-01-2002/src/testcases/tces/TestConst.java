@@ -37,14 +37,12 @@ public interface TestConst{
 	
 	public static final String PROB_STMT_LINK_TEXT			= "Problem Statement";
 
-	// table link  - href
-	public static final String PAGE_2_TABLE_LINK_HREF		= "CampaignDetailTask";
-	public static final String PAGE_3_TABLE_LINK_HREF		= "PositionInterestTask";
-	public static final String PAGE_4_TABLE_LINK_HREF		= "MemberProfileTask";
-	public static final String PAGE_5_TABLE_LINK_HREF		= "MemberProfileTask";
-	public static final String PAGE_9_TABLE_LINK_HREF		= "CompetitionStatisticsTask";
-	public static final String PAGE_10_TABLE_LINK_HREF		= "ProblemStatisticsTask";
-	public static final String PAGE_13_TABLE_LINK_HREF		= "ProblemStatisticsTask";
+	// link href from table
+	public static final String PAGE_3_LINK_HREF		= "CampaignDetailTask";
+	public static final String PAGE_5_LINK_HREF		= "PositionInterestTask";
+	public static final String PAGE_7_LINK_HREF		= "MemberProfileTask";
+	public static final String PAGE_13_LINK_HREF	= "CompetitionStatisticsTask";
+	public static final String PAGE_14_LINK_HREF	= "ProblemStatisticsTask";
 
 
 
