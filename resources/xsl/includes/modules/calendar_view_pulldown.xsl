@@ -3,12 +3,12 @@
   <xsl:template name="calendar_view_pulldown">
             <select name="quickstat" size="1" class="dropdown" onchange="window.location='/index?t=schedule&amp;c='+this.options[this.selectedIndex].value">
               <option value="" selected="selected">Choose Monthly View</option>
-              <option value="">--- 2004 ---</option>
+              <option value="index">--- 2004 ---</option>
               <option value="apr_04">April</option> 
               <option value="mar_04">March</option>
               <option value="feb_04">February</option>              
               <option value="jan_04">January</option>
-              <option value="">--- 2003 ---</option>
+              <option value="index">--- 2003 ---</option>
               <option value="dec_03">December</option>                                                                                  
               <option value="nov_03">November</option>
               <option value="oct_03">October</option>
