@@ -1,7 +1,8 @@
 <%@ page import="com.topcoder.web.corp.common.Constants,
                  com.topcoder.web.corp.model.TestSessionInfo,
                  java.util.Date,
-                 com.topcoder.shared.dataAccess.DataAccessConstants" %>
+                 com.topcoder.shared.dataAccess.DataAccessConstants,
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
@@ -18,6 +19,9 @@
 <jsp:include page="../includes/top.jsp" />
 <!-- Header ends -->
 
+<% ResultSetContainer results = request.getAttribute("candidateList");%>
+
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 
@@ -32,7 +36,8 @@
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Candidate Status</h1>
-                        <p>Below is a list of all candidates.  Clicking on a candidate will bring you to the Candidate Info page.<br/><br/></p>
+                        <p>Below is a list of candidates.  Clicking on a candidate will bring you to the Candidate Info page.<br/>
+                        Viewing Candidate <%=results.getStartRow()%> to <%=results.getEndRow()%> of <%= request.getAttribute(DataAccessConstants.NUMBER_RECORDS)%><br/><br/></p>
                     </td>
                 </tr>
             </table>
