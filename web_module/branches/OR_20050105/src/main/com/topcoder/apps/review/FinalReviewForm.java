@@ -255,6 +255,7 @@ public class FinalReviewForm extends AggregationWorksheetForm {
                             responses);
 
         statuses = businessDelegate.getFinalFixStatuses();
+        setApproved(false);
     }
 
     /**
@@ -268,4 +269,13 @@ public class FinalReviewForm extends AggregationWorksheetForm {
         finalReview.setCompleted(true);
         return new FinalReviewData(orpd, finalReview);
     }
+
+    /**
+     * @see org.apache.struts.action.ActionForm#reset(org.apache.struts.action.ActionMapping, javax.servlet.http.HttpServletRequest)
+     */
+    public void reset(ActionMapping mapping, HttpServletRequest request) {
+        super.reset(mapping, request);
+        setApproved(false);
+    }
+
 }
