@@ -464,6 +464,7 @@ else if (command.equals("send")) {
                                     if (!projBean.hasUserReviewedProject(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                         if (!projBean.isUserWinningDesigner(projId, nav.getSessionInfo().getUserId(), DBMS.TCS_OLTP_DATASOURCE_NAME)) {
                                             //check max rated / unrated
+                                            log.debug("RYAN RATING IS:" + rating);
                                             if(rating == 0 && projBean.getUnratedRegistrantCount(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) >= projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME) ) {
                                                 //reg full - unrated
                                                 devTag.addTag(new ValueTag("max_reg", projBean.getMaxUnratedRegistrants(projId, DBMS.TCS_OLTP_DATASOURCE_NAME)));
