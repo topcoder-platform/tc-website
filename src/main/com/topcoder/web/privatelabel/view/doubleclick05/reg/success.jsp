@@ -8,7 +8,8 @@
 
 <jsp:include page="../../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick05.css"/>
 
 </head>
 <body align="center">
@@ -24,7 +25,7 @@
 	      <img src="/i/events/doubleclick/image1.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Registration Successful!</p>
+         <p class="bigTitle">Registration Successful!</p>
          <p>Be sure to spend time in the Practice Room by clicking the Competition Arena link above.<br/><br/>
 
             Good luck to you in the Arena!</p>
