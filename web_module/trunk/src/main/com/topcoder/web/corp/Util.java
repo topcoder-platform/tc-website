@@ -48,7 +48,7 @@ public class Util {
         try {
             ic = (InitialContext)TCContext.getInitial();
             TransactionManager tm;
-            tm = (TransactionManager) ic.lookup(ApplicationServer.TRANS_FACTORY);
+            tm = (TransactionManager) ic.lookup(ApplicationServer.TRANS_MANAGER);
             tm.begin();
             return tm.getTransaction();
         } finally {
