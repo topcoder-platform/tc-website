@@ -12,7 +12,7 @@
 <body>
 <jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <tc-webtag:useBean id="problemSet" name="<%=Constants.PROBLEMS%>" type="com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet" toScope="page" />
-<% List problems = Arrays.asList(problemSet.getProblemLabels());%>
+<% List probs = Arrays.asList(problemSet.getProblemLabels());%>
 <tc-webtag:useBean id="problemType" name="<%=Constants.PROBLEM_TYPE_ID%>" type="java.lang.Integer" toScope="page" />
 <tc-webtag:useBean id="continueLink" name="<%=Constants.CONTINUE_LINK%>" type="java.lang.String" toScope="page" />
 <tc-webtag:useBean id="continueDesc" name="<%=Constants.CONTINUE_DESC%>" type="java.lang.String" toScope="page" />
@@ -120,7 +120,7 @@
                   <td class=tableHeader50>Coding Status</td>
                   <td class=tableHeader align=center>Coding Time</td>
                </tr>
-               <tc-webtag:listIterator id="problem" list="problems">
+               <tc-webtag:listIterator id="problem" list="probs">
                    <tr>
                       <td class=tableTextOdd><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=<%=Constants.RP_VIEW_PROBLEM%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=problemType%>&<%=Constants.COMPONENT_ID%>=<jsp:getProperty name="problem" property="componentID"/>" target="_top"><img src="/i/corp/screening/buttonOpen.gif" alt="" /></a></td>
                       <td class=tableTextOdd><jsp:getProperty name="problem" property="className"/></td>
