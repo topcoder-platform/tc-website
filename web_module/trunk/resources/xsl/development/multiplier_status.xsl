@@ -75,7 +75,7 @@
 <!-- Component Design Projects begin -->
             <table class="formFrame" cellspacing="0" cellpadding="3" width="100%">
                     <xsl:if test="/TC/DEVELOPMENT/multiplier/status/phase=$design-phase">
-                <tr valign="middle"><td class="projectTitles" colspan="7"><a name="design"></a>Component Design Multiplier Status</td></tr>
+                <tr valign="middle"><td class="projectTitles" colspan="7"><a name="design"></a>Component Design Status</td></tr>
 
                 <tr valign="middle">
                     <td width="35" class="projectHeaders" align="center">Catalog</td>
@@ -143,7 +143,7 @@
 
 <!-- Component Dev Projects begin -->
                     <xsl:if test="/TC/DEVELOPMENT/multiplier/status/phase=$dev-phase">
-                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="development"></a><font size="3"><strong>Component Development Multiplier Status</strong></font></td></tr>
+                <tr valign="middle"><td bgcolor="#999999" class="statText" colspan="7"><a name="development"></a><font size="3"><strong>Component Development Status</strong></font></td></tr>
 
                 <tr valign="middle">
                     <td width ="35" class="projectHeaders" align="center">Catalog</td>
