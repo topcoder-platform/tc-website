@@ -23,7 +23,7 @@
                     Map dataMap = null;
                     dataMap = dai.getData(dataRequest);
 					
-					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demographic_logged_in");
+					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_demographic_time_online");
 					
 					
 			%>	
@@ -33,18 +33,35 @@
 
 
 <table width="100%" class="srmFrame">
-<tr><td colspan="2" class="srmQuestion">People Logged In</td></tr>
+<tr><td colspan="2" class="srmQuestion">Competitor Time Online</td></tr>
 <tr>
 <td class="bodyText"><strong>Time</strong></td>
 <td class="bodyText"><strong>Number Logged In</strong></td>
 </tr>
-
-<%boolean even=false;%>
-  <rsc:iterator list="<%=rsc%>" id="Row" >
 <tr>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="(expression)"%>' row="<%=Row%>"/></td>
-  <td class="<%=even?"srmTableEven":"srmTableOdd"%>" ><rsc:item name='<%="num_logged_in"%>' row="<%=Row%>"/></td>
-</tr><%even=!even;%>
-</rsc:iterator>
+  <td class="srmTableEven">0-1 Hours</td>
+  <td class="srmTableEven" ><%= rsc.getItem(0,"one_hour") %></td>
+</tr>
+<tr>
+  <td class="srmTableOdd">1-2 Hours</td>
+  <td class="srmTableOdd" ><%= rsc.getItem(0,"two_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableEven">2-3 Hours</td>
+  <td class="srmTableEven" ><%= rsc.getItem(0,"three_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableOdd">3-4 Hours</td>
+  <td class="srmTableOdd" ><%= rsc.getItem(0,"four_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableEven">4-5 Hours</td>
+  <td class="srmTableEven" ><%= rsc.getItem(0,"five_hours") %></td>
+</tr>
+<tr>
+  <td class="srmTableOdd">5+ Hours</td>
+  <td class="srmTableOdd" ><%= rsc.getItem(0,"five_plus") %></td>
+</tr>
+
 </table>
   

@@ -26,7 +26,7 @@
                     dataMap = dai.getData(dataRequest);
 					
 					ResultSetContainer rsc = (ResultSetContainer)dataMap.get("srm_qry_chooser");
-					
+					String link=request.getParameter("link")==null?"srm_index":request.getParameter("link");
 			%>	
 <script language="JavaScript">
 <!--
@@ -44,7 +44,7 @@ function goTo(selection){
 <select name="round" onChange="goTo(this)">
 	<option value='#'>Select SRM to view...</option>
 		<rsc:iterator list="<%=rsc%>" id="Row" >
-				<option value='srm_index.jsp?&rd=<rsc:item name="id" row='<%=Row%>'/>'>
+				<option value='<%=link%>.jsp?&rd=<rsc:item name="id" row='<%=Row%>'/>'>
 		<rsc:item name="contest_name" row='<%=Row%>'/></option>
 	</rsc:iterator>
  </select></td>
