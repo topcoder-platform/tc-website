@@ -33,26 +33,38 @@
 		       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
 		       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
-<FORM>
+<screen:form name='note' method='POST' action='<%=Constants.CONTROLLER_URL%>'>
+         <INPUT type="hidden" name='<%=Constants.REQUEST_PROCESSOR%>' value='NoteCreate'/>
+         <INPUT type="hidden" name='<%=Constants.FIRST_ATTEMPT%>' value='false'/>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">           
            <TR>
               <TD ALIGN="center" CLASS="bodyText"><A HREF="/eval/cand_setup.jsp" CLASS="bodyText"><jsp:getProperty name="candidateInfo" property="emailAddress"/></A></TD>
            </TR>           
            <TR>
-              <TD ALIGN="center"><TEXTAREA NAME="" COLS="80" ROWS="4"></TEXTAREA></TD>
+              <TD class="errorText" align="left" valign="middle">
+                  <% if((String)request.getAttribute(Constants.MESSAGE_PARAMETER) != null){ %>
+                      &nbsp;<BR>
+                      <%= request.getAttribute(Constants.MESSAGE_PARAMETER).toString() %>
+                      <BR>&nbsp;
+                  <% }else if((String)request.getParameter(Constants.MESSAGE_PARAMETER) != null){ %>
+                      &nbsp;<BR>
+                      <%= request.getParameter(Constants.MESSAGE_PARAMETER) %>
+                      <BR>&nbsp;
+                  <% } %>
+              </TD>
+           </TR>           
+           <TR>
+              <TD ALIGN="center"><TEXTAREA NAME="<%=Constants.NOTE_TEXT%>" COLS="80" ROWS="4"></TEXTAREA></TD>
            </TR>    
            
-           <TR>
-              <TD class="errorText" align="left" valign="middle"></TD>
-           </TR>           
            <TR>
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
-              <TD ALIGN="center"><A HREF="/eval/note_list.jsp" CLASS="bodyText">Save</A></TD>
+              <TD ALIGN="center"><A HREF="Javascript:document.note.submit()" CLASS="bodyText">Save</A></TD>
            </TR>           
          </TABLE>                        
-</FORM>         
+</screen:form>         
 <P><BR/></P>   
      </TD>
 <!-- Body Area Ends -->
