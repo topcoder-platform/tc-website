@@ -6,6 +6,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCException;
 
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
@@ -103,10 +104,10 @@ public abstract class BaseProcessor implements RequestProcessor {
             log.debug("calling businessProcessing");
             try {
                 businessProcessing();
-            } catch (TCWebException e) {
+            } catch (TCException e) {
                 throw e;
             } catch (Exception e) {
-                throw new TCWebException(e);
+                throw new TCException(e);
             }
         } finally {
             close(ctx);

@@ -16,18 +16,21 @@ public class Login extends Base {
     protected void businessProcessing() throws Exception {
 
         String handle = null;
+        String password = null;
+        long companyId = 0;
+
         if (hasParameter(Constants.HANDLE)) {
             handle = getRequest().getParameter(Constants.HANDLE).trim();
         } else {
             addError(Constants.HANDLE, "Please enter your user name");
         }
-        String password = null;
+
         if (hasParameter(Constants.PASSWORD)) {
             password = getRequest().getParameter(Constants.PASSWORD);
         } else {
             addError(Constants.PASSWORD, "Please enter your password");
         }
-        long companyId = 0;
+
         if (hasParameter(Constants.COMPANY_ID)) {
             companyId = Long.parseLong(getRequest().getParameter(Constants.COMPANY_ID));
         } else {
