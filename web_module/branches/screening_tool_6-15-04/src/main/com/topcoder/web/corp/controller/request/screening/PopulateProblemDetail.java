@@ -25,7 +25,7 @@ public class PopulateProblemDetail extends BaseScreeningProcessor {
         long problemId = Long.parseLong(roundProblemId.substring(index + 1));
         ProblemInfo info = null;
         try {
-            if(getRequest().getAttribute(Constants.USAGE_TYPE) != null && ((Long)getRequest().getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING)
+            if(super.getUsageType() == Constants.USAGE_TYPE_SCREENING)
             {
                 info =
                     ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
