@@ -47,15 +47,32 @@
 
 
 <!-- Tab bar links-->
+<%
+if( rscContest.getIntItem(0, "phase_id") == 112)
+{
+%>
 <jsp:include page="usdc_links.jsp" >
    <jsp:param name="selectedTab" value="results"/>
    <jsp:param name="selectedTab2" value="design"/>
 </jsp:include>
+<%
+}
+else
+{
+%>
+<jsp:include page="usdc_links.jsp" >
+   <jsp:param name="selectedTab" value="results"/>
+   <jsp:param name="selectedTab2" value="development"/>
+</jsp:include>
+<%
+}
+%>
+
 
                         <br/>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
                             <tr>
-                                <td class=usdcTitle><A class= usdcTitle href="/"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> - <A class="usdcTitle" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
+                                <td class=usdcTitle><A class= usdcTitle href="/tc?module=USDCContestProjects&ct=<rsc:item name="contest_id" row="<%=rscContest.getRow(0)%>"/>"><rsc:item name="contest_name" row="<%=rscContest.getRow(0)%>"/></A> - <A class="usdcTitle" href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=<rsc:item name="component_id" row="<%=rscProject.getRow(0)%>"/>"><rsc:item name="component_name" row="<%=rscProject.getRow(0)%>"/></A>
                             </tr>
                         </table>
                         <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
