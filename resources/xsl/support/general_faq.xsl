@@ -52,55 +52,74 @@
 					<TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                    <BR/>
                    <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0">
-                        <TR><TD VALIGN="middle" ALIGN="left"><A HREF="#10" CLASS="bodyText"><B>What Is "TopCoder"?</B></A></TD></TR>
+                        <TR><TD VALIGN="middle" ALIGN="left"><A HREF="#10" CLASS="bodyText">What Is "TopCoder"?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#20" CLASS="bodyText"><B>What's in it for me?</B></A></TD></TR>
+                        <TR><TD><A HREF="#20" CLASS="bodyText">What's in it for me?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#25" CLASS="bodyText"><B>What's in it for TopCoder?</B></A></TD></TR>
+                        <TR><TD><A HREF="#25" CLASS="bodyText">What's in it for TopCoder?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#30" CLASS="bodyText"><B>Who can participate in TopCoder tournaments?</B></A></TD></TR>
+                        <TR><TD><A HREF="#30" CLASS="bodyText">Who can participate in TopCoder tournaments?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#40" CLASS="bodyText"><B>Who are the creators of the "TopCoder" site?</B></A></TD></TR>
+                        <TR><TD><A HREF="#40" CLASS="bodyText">Who are the creators of the "TopCoder" site?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#45" CLASS="bodyText"><B>What technologies have been used to build TopCoder's site and tournament applications?</B></A></TD></TR>
+                        <TR><TD><A HREF="#45" CLASS="bodyText">What technologies have been used to build TopCoder's site and tournament applications?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#50" CLASS="bodyText"><B>If I give you private information, how do I know it'll be safe?</B></A></TD></TR>
+                        <TR><TD><A HREF="#50" CLASS="bodyText">If I give you private information, how do I know it'll be safe?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#60" CLASS="bodyText"><B>How does the tournament work?</B></A></TD></TR>
+                        <TR><TD><A HREF="#60" CLASS="bodyText">How does the tournament work?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#65" CLASS="bodyText"><B>Do you really think this is a good way to measure the relative merit of programmers?</B></A></TD></TR>
+                        <TR><TD><A HREF="#65" CLASS="bodyText">Do you really think this is a good way to measure the relative merit of programmers?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#67" CLASS="bodyText"><B>Who owns the source code that I write during tournaments?</B></A></TD></TR>
+                        <TR><TD><A HREF="#67" CLASS="bodyText">Who owns the source code that I write during tournaments?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#70" CLASS="bodyText"><B>Who's supplying the prizes?</B></A></TD></TR>
+                        <TR><TD><A HREF="#70" CLASS="bodyText">Who's supplying the prizes?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#80" CLASS="bodyText"><B>How does the rating system work?</B></A></TD></TR>
+                        <TR><TD><A HREF="#80" CLASS="bodyText">How does the rating system work?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#90" CLASS="bodyText"><B>How will I know where I stand in the ratings?</B></A></TD></TR>
+                        <TR><TD><A HREF="#90" CLASS="bodyText">How will I know where I stand in the ratings?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#110" CLASS="bodyText"><B>How do I find out when the next tournament is being held?</B></A></TD></TR>
+                        <TR><TD><A HREF="#110" CLASS="bodyText">How do I find out when the next tournament is being held?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#120" CLASS="bodyText"><B>In contests open to everyone, will college students be competing against professionals, or will there be separate divisions?</B></A></TD></TR>
+                        <TR><TD><A HREF="#120" CLASS="bodyText">In contests open to everyone, will college students be competing against professionals, or will there be separate divisions?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#130" CLASS="bodyText"><B>What do I need to do in order to participate in a TopCoder match?</B></A></TD></TR>
+                        <TR><TD><A HREF="#130" CLASS="bodyText">What do I need to do in order to participate in a TopCoder match?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#140" CLASS="bodyText"><B>If I miss the match registration period, can TopCoder just place me in a room, allowing me to compete?</B></A></TD></TR>
+                        <TR><TD><A HREF="#140" CLASS="bodyText">If I miss the match registration period, can TopCoder just place me in a room, allowing me to compete?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
-                        <TR><TD><A HREF="#150" CLASS="bodyText"><B>After I register for a TopCoder competition, do I need to stay logged into the applet until the competition starts?</B></A></TD></TR>
+                        <TR><TD><A HREF="#150" CLASS="bodyText">After I register for a TopCoder competition, do I need to stay logged into the applet until the competition starts?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#160" CLASS="bodyText"><B>How long do TopCoder competitions last?</B></A></TD></TR>
+                        <TR><TD><A HREF="#160" CLASS="bodyText">How long do TopCoder competitions last?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#170" CLASS="bodyText"><B>How do I get paid after I've won money in a TopCoder competition?</B></A></TD></TR>
+                        <TR><TD><A HREF="#170" CLASS="bodyText">How do I get paid after I've won money in a TopCoder competition?</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                        
-                        <TR><TD><A HREF="#180" CLASS="bodyText"><B>I'm having a problem with font properties on Linux platforms.</B></A></TD></TR>
-
-                                                                      
+                        <TR><TD><A HREF="#180" CLASS="bodyText">I'm having a problem with font properties on Linux platforms.</A></TD></TR>
+                        
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#mac1" CLASS="bodyText"><B>The small HTML window that holds the contest applet does not load up the applet in MAC OSX</B></A></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>C++</B></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#181" CLASS="bodyText">How is my submission judged?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#182" CLASS="bodyText">What hardware does TopCoder use?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#183" CLASS="bodyText">What software does TopCoder use?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#184" CLASS="bodyText">What compiler options are used?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                                                                        
+                        <TR><TD><A HREF="#185" CLASS="bodyText">What libraries are available?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#186" CLASS="bodyText">How do i get 64-bit integers?</A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#187" CLASS="bodyText">What STL types are available?</A></TD></TR>                        
+                        
+                        
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#mac2" CLASS="bodyText"><B>Once I log into the Arena the menu's are transparent in MAC OSX </B></A></TD></TR>                         
-                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>
-                        <TR><TD><A HREF="#mac3" CLASS="bodyText"><B>I tried loading the Arena through the JWS link and I'm getting an error when JWS is running that the applet cannot be loaded.</B></A></TD></TR>
+                        <TR><TD HEIGHT="5" VALIGN="top" CLASS="bodyText"><B>MAC OSX</B></TD></TR>                                                                    
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#mac1" CLASS="bodyText">The small HTML window that holds the contest applet does not load up the applet in MAC OSX</A></TD></TR>                        
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#mac2" CLASS="bodyText">Once I log into the Arena the menu's are transparent in MAC OSX </A></TD></TR>                         
+                        <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>
+                        <TR><TD><A HREF="#mac3" CLASS="bodyText">I tried loading the Arena through the JWS link and I'm getting an error when JWS is running that the applet cannot be loaded.</A></TD></TR>
                         <TR><TD HEIGHT="5" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD></TR>                       
                         <TR>
                             <TD CLASS="bodyText">
@@ -201,9 +220,80 @@
                         <TR><TD CLASS="bodyText"><A NAME="180"><B>I'm having a problem with font properties on Linux platforms.</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">Apparently, Sun has a problem with their font.properties file on the Linux platform that is causing errors with some fonts (Arial is one of them).  The fix is to replace the font.properties file with the following: <A HREF="http://java.sun.com/j2se/1.3/font.properties" TARGET="_blank" CLASS="bodyText">http://java.sun.com/j2se/1.3/font.properties</A></TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
-                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-                        
                        
+                       
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="181"><B>How is my submission judged?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>TopCoder submissions typically consist of a single class definition.  For each test, one instance of the class is constructed; then the method described in the problem is called with the test arguments.  Therefore, your method must be public, and your class must be instantiable: public default constructor, no abstract methods, etc.</P>
+<P>C++ submissions may also define other classes and global variables or functions.  However, defining main() will prevent your submission from linking, and referring to library globals (stdout or cout for example) before your method is called is not guaranteed to work as expected.</P>
+<P>Each C++ test is performed in a separate process.  The instance of your class used by the tester is not guaranteed to be destroyed.  The process is forcibly terminated after consuming 8 seconds of CPU time.  At most 64 megabytes of memory may be mapped.  Stack space is limited to 8 megabytes (the Linux default).  Most system calls are emulated or ignored.  Note especially that fork() or use of threads (library or kernel) will fail, and use of temporary files is not permitted.</P>
+<P>If your method does not return before the process exits (due to exceeding the time limit, an uncaught exception, segmentation fault, divide by zero, etc), it has failed the test.</P>
+<P>If your method does return a value, that is the only basis for judging correctness.  Anything printed to stdout or stderr is ignored, although you will see it when testing your own code.  Output may even return an IO error, and takes extra time during testing; you are advised not to leave unnecessary IO in your final submission. </P>                       
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="182"><B>What hardware does TopCoder use?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">We use 4-way 500 Mhz Pentium III Xeon systems.  Each processor has separate 16kb level one caches for instructions and data, and its own 1024kb level two cache clocked at core speed.</TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="183"><B>What software does TopCoder use?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>Linux 2.4, gcc 2.96 (Redhat 7.1 default), glibc-2.2.2, and libstdc++-3.</P>
+<P>
+pointers to appropriate docs for each<BR/>
+<A HREF="http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/gcc-2.95.3/gcc.html</A><BR/>
+<A HREF="http://www.gnu.org/software/libc/" TARGET="_blank" CLASS="bodyText">http://www.gnu.org/software/libc/</A><BR/>
+<A HREF="http://gcc.gnu.org/onlinedocs/libstdc%2B%2B/documentation.html" TARGET="_blank" CLASS="bodyText">http://gcc.gnu.org/onlinedocs/libstdc++/documentation.html</A><BR/>
+</P>
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="184"><B>What compiler options are used?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>The compiler is invoked as:</P>
+<P>g++ -Wall -W -Wshadow -O2 -s -pipe</P>           
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="185"><B>What libraries are available?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">Only default libraries will be linked with your code.  Math functions requiring libm on some platforms, eg cos(), are automatically linked if needed.</TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="186"><B>How do i get 64-bit integers?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">
+<P>
+Integer types on our platform:<BR/>
+  char - 8 bits (signed)<BR/>
+  short - 16 bits<BR/>
+  int - 32 bits<BR/>
+  long - 32 bits<BR/>
+  long long - 64 bits<BR/>
+</P>
+<P>long long is not merely a gcc extension, but part of ISO C99.</P>
+<P>If you test locally with a compiler other than gcc, the preprocessor may be useful for hiding the differences.  For example:</P>
+<P>
+#ifdef __GNUC__<BR/>
+#define int64 long long<BR/>
+#else /* MSVC, say */<BR/>
+#define int64 __int64<BR/>
+#endif<BR/>
+</P>
+<P>In this way, you can test the same code using 64 bit integers in our environment and on your system.</P>
+<P>The C++ standard libraries do not include support for arbitrary precision arithmetic.</P>
+
+                        </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>                                                
+                        <TR><TD CLASS="bodyText"><A NAME="187"><B>What STL types are available?</B></A></TD></TR>
+                        <TR><TD CLASS="bodyText">All of the standard value types and container types should be present.
+Some extensions are also present, including most of those from SGI's STL, such as rope, hash_set, hash_map, tree, slist, etc.
+                            </TD></TR>
+                        <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>                                                                                                                                                
+                                               
+
+                        
+                        <TR><TD HEIGHT="20" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
                         <TR><TD CLASS="bodyText"><A NAME="mac1"><B>The small HTML window that holds the contest applet does not load up the applet in MAC OSX</B></A></TD></TR>
                         <TR><TD CLASS="bodyText">A workaround is to load the arena through Java Web Start (JWS).  A link that allows you to load the arena through JWS and more info on JWS is available on TopCoder home page.</TD></TR>
                         <TR><TD VALIGN="bottom" ALIGN="left"><A HREF="#top" CLASS="bodyText">[back to top]</A></TD></TR>
