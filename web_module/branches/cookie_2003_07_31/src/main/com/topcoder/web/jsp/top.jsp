@@ -5,9 +5,11 @@
           com.topcoder.common.web.util.*,
           java.text.DecimalFormat,
           com.topcoder.common.web.data.Navigation,
-          java.util.HashMap" %>
-<jsp:usebean id="sessionInfo" class="com.topcoder.web.tc.model.CoderSessionInfo" scope="request" />
+          java.util.HashMap,
+          com.topcoder.web.tc.model.CoderSessionInfo" %>
 <%
+   Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+   CoderSessionInfo sessionInfo = nav.getSessionInfo();
    String styleClass = "coderTextWhite";
    DataCache dcHome = com.topcoder.common.web.util.Cache.get();
    int rating = 0;
