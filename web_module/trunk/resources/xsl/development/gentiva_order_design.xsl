@@ -89,8 +89,6 @@
                                                         <strong>
                                                             <a name="overview">Overview</a>
                                                         </strong>
-                                                        <br/>
-
                                                     </p>
 
                                                     <p>The Gentiva Order Processing application gives users the ability to track
