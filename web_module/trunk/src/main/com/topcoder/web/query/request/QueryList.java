@@ -6,7 +6,6 @@ import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.query.common.Util;
 
 import java.util.Enumeration;
 
@@ -44,7 +43,7 @@ public class QueryList extends BaseProcessor {
 
     protected void businessProcessing() throws TCWebException {
         try {
-            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+            Query q = (Query) createEJB(getInitialContext(), Query.class);
             setQueryList(q.getAllQueries(false, getDb()));
             getRequest().setAttribute(this.getClass().getName().substring(this.getClass().getName().lastIndexOf(".") + 1), this);
         } catch (TCWebException e) {

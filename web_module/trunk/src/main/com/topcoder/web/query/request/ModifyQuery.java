@@ -2,7 +2,6 @@ package com.topcoder.web.query.request;
 
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Query;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
@@ -52,7 +51,7 @@ public class ModifyQuery extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         String step = getRequest().getParameter(Constants.STEP_PARAM);
         try {
-            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+            Query q = (Query) createEJB(getInitialContext(), Query.class);
 
 
             if (step != null && step.equals(Constants.SAVE_STEP)) {

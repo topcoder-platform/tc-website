@@ -4,7 +4,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.bean.CommandQueryBean;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.bean.QueryBean;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.web.common.BaseProcessor;
@@ -61,9 +60,9 @@ public class ModifyCommandQuery extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         String step = getRequest().getParameter(Constants.STEP_PARAM);
         try {
-            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
-            Command c = (Command) Util.createEJB(getInitialContext(), Command.class);
-            Query q = (Query) Util.createEJB(getInitialContext(), Query.class);
+            CommandQuery cq = (CommandQuery) createEJB(getInitialContext(), CommandQuery.class);
+            Command c = (Command) createEJB(getInitialContext(), Command.class);
+            Query q = (Query) createEJB(getInitialContext(), Query.class);
 
             setCommandDesc(c.getCommandDesc(getCommandId(), getDb()));
 

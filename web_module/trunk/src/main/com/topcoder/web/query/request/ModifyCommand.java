@@ -3,7 +3,6 @@ package com.topcoder.web.query.request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Command;
 import com.topcoder.web.query.ejb.QueryServices.CommandGroup;
 import com.topcoder.web.common.BaseProcessor;
@@ -53,8 +52,8 @@ public class ModifyCommand extends BaseProcessor {
     protected void businessProcessing() throws TCWebException {
         String step = getRequest().getParameter(Constants.STEP_PARAM);
         try {
-            Command c = (Command) Util.createEJB(getInitialContext(), Command.class);
-            CommandGroup cg = (CommandGroup) Util.createEJB(getInitialContext(), CommandGroup.class);
+            Command c = (Command) createEJB(getInitialContext(), Command.class);
+            CommandGroup cg = (CommandGroup) createEJB(getInitialContext(), CommandGroup.class);
 
 
             setGroups(cg.getAllCommandGroups(getDb()));

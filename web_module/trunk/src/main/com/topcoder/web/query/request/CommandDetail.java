@@ -3,7 +3,6 @@ package com.topcoder.web.query.request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.query.common.Constants;
-import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.*;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
@@ -46,10 +45,10 @@ public class CommandDetail extends BaseProcessor {
 
     public void businessProcessing() throws TCWebException {
         try {
-            CommandQuery cq = (CommandQuery) Util.createEJB(getInitialContext(), CommandQuery.class);
-            Command c = (Command) Util.createEJB(getInitialContext(), Command.class);
-            CommandGroup cg = (CommandGroup) Util.createEJB(getInitialContext(), CommandGroup.class);
-            QueryInput qi = (QueryInput) Util.createEJB(getInitialContext(), QueryInput.class);
+            CommandQuery cq = (CommandQuery) createEJB(getInitialContext(), CommandQuery.class);
+            Command c = (Command) createEJB(getInitialContext(), Command.class);
+            CommandGroup cg = (CommandGroup) createEJB(getInitialContext(), CommandGroup.class);
+            QueryInput qi = (QueryInput) createEJB(getInitialContext(), QueryInput.class);
 
             setQueryList(cq.getQueriesForCommand(getCommandId(), getDb()));
             setGroupId(c.getCommandGroupId(getCommandId(), getDb()));
