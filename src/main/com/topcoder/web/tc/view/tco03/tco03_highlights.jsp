@@ -60,39 +60,30 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
 
 <!-- Tab bar sublinks-->
 <jsp:include page="tco03Sublinks.jsp" >
-   <jsp:param name="selectedList" value="coding_advancers"/>
-   <jsp:param name="selectedTab" value="highlights"/>
+   <jsp:param name="selectedList" value=""/>
+   <jsp:param name="selectedTab" value=""/>
 </jsp:include>
 
             <h2>Advancers</h2>
             
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
                <tr>
-                  <td width = "40%" align = "left" class="advancers_roundid"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
+                  <td width = "40%" align = "left" class="advancers_header">Round</td>
                   <td width = "20%" align = "right" class="advancers_header">Advancers</td>
                   <td width = "20%" align = "right" class="advancers_header">Room Winners</td>
                   <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
                </tr>
                <tr>
-                  <td width = "40%" align = "left" class="advancers_text"></td>
-                  <td width = "20%" align = "right" class="advancers_text">100</td>
-                  <td width = "20%" align = "right" class="advancers_text">n/a</td>
-                  <td width = "20%" align = "right" class="advancers_text">n/a</td>
-               </tr>
-            </table>
-            <br/>
-            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
-               <tr>
-                  <td width = "40%" align = "left" class="advancers_roundid"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Qualification Round 1</a></td>
-                  <td width = "20%" align = "right" class="advancers_header">Advancers</td>
-                  <td width = "20%" align = "right" class="advancers_header">Room Winners</td>
-                  <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
+                  <td align = "left" class="advancers_roundid"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/index?t=tournaments&amp;c=tco03_top100">100</a></td>
+                  <td align = "right" class="advancers_faded">n/a</td>
+                  <td align = "right" class="advancers_faded">n/a</td>
                </tr>
                <tr>
-                  <td width = "40%" align = "left" class="advancers_text"></td>
-                  <td width = "20%" align = "right" class="advancers_text">100</td>
-                  <td width = "20%" align = "right" class="advancers_text">n/a</td>
-                  <td width = "20%" align = "right" class="advancers_text">n/a</td>
+                  <td align = "left" class="advancers_roundid"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700" class="topLink">Qualification Round 1</a></td>
+                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700">200</a></td>
+                  <td align = "right" class="advancers_faded">n/a</td>
+                  <td align = "right" class="advancers_faded">n/a</td>
                </tr>
             </table>
 
