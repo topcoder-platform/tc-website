@@ -43,7 +43,7 @@
             <table width="350" border="0" cellpadding="3" cellspacing="0" class="loginForm">
                 <tr><td class="testTableTitle">Login</td></tr>
                 <tr valign="middle">
-                <form method="post" name="frmLogin" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
+                <form method="post" name="frmLoginfrmLogin" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                     <td class="statText" align="center">
 
 <%
@@ -79,7 +79,7 @@
                             </tr>
                     </table>
                     <script>
-                      document.loginform.<%=username.equals("")?Login.KEY_USER_HANDLE:Login.KEY_USER_PASS%>.focus();
+                      document.frmLogin.<%=username.equals("")?Login.KEY_USER_HANDLE:Login.KEY_USER_PASS%>.focus();
                     </script>
 
                     </td>
