@@ -1,4 +1,4 @@
-package com.topcoder.web.screening.ejb.coder;
+package com.topcoder.web.corp.ejb.coder;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 /**
  *
  * @author Fred Wang (silentmobius)
- * @version $Revision$ 
+ * @version $Revision$
  * Jan 27, 2003 1:34:56 AM
  */
 public interface CompanyCandidate extends EJBObject {

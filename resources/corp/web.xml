@@ -204,7 +204,7 @@
         <servlet-name>tces</servlet-name>
         <display-name>tces</display-name>
         <description>The job posting servlet</description>
-        <servlet-class>com.topcoder.web.tces.servlet.Controller</servlet-class>
+        <servlet-class>com.topcoder.web.corp.controller.TCESServlet</servlet-class>
 
         <init-param>
             <param-name>jsp_root</param-name>
@@ -496,7 +496,7 @@
         <servlet-name>screening</servlet-name>
         <display-name>screening</display-name>
         <description>The main controller servlet</description>
-        <servlet-class>com.topcoder.web.screening.controller.MainServlet</servlet-class>
+        <servlet-class>com.topcoder.web.corp.controller.ScreeningServlet</servlet-class>
 
         <!-- begin parameters required by BaseServlet -->
         <init-param>
@@ -1246,7 +1246,7 @@
         <servlet-name>JNLPServlet</servlet-name>
         <display-name>JNLPServlet</display-name>
         <description></description>
-        <servlet-class>com.topcoder.web.screening.controller.JNLPServlet</servlet-class>
+        <servlet-class>com.topcoder.web.corp.controller.JNLPServlet</servlet-class>
     </servlet>
 
 

@@ -5,9 +5,9 @@
     <enterprise-beans>
         <session>
             <ejb-name>Coder</ejb-name>
-            <home>com.topcoder.web.screening.ejb.coder.CoderHome</home>
-            <remote>com.topcoder.web.screening.ejb.coder.Coder</remote>
-            <ejb-class>com.topcoder.web.screening.ejb.coder.CoderBean</ejb-class>
+            <home>com.topcoder.web.corp.ejb.coder.CoderHome</home>
+            <remote>com.topcoder.web.corp.ejb.coder.Coder</remote>
+            <ejb-class>com.topcoder.web.corp.ejb.coder.CoderBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
             <resource-ref>
@@ -18,9 +18,9 @@
         </session>
         <session>
             <ejb-name>CompanyCandidate</ejb-name>
-            <home>com.topcoder.web.screening.ejb.coder.CompanyCandidateHome</home>
-            <remote>com.topcoder.web.screening.ejb.coder.CompanyCandidate</remote>
-            <ejb-class>com.topcoder.web.screening.ejb.coder.CompanyCandidateBean</ejb-class>
+            <home>com.topcoder.web.corp.ejb.coder.CompanyCandidateHome</home>
+            <remote>com.topcoder.web.corp.ejb.coder.CompanyCandidate</remote>
+            <ejb-class>com.topcoder.web.corp.ejb.coder.CompanyCandidateBean</ejb-class>
             <session-type>Stateless</session-type>
             <transaction-type>Container</transaction-type>
             <resource-ref>

@@ -1,6 +1,4 @@
-package com.topcoder.web.screening.ejb.coder;
-
-import com.topcoder.web.screening.ejb.coder.Coder;
+package com.topcoder.web.corp.ejb.coder;
 
 import javax.ejb.EJBHome;
 import javax.ejb.CreateException;

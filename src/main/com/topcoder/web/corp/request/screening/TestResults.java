@@ -9,7 +9,6 @@ import com.topcoder.web.corp.common.PermissionDeniedException;
 import com.topcoder.web.corp.common.ScreeningException;
 import com.topcoder.web.corp.common.Util;
 import com.topcoder.web.corp.model.*;
-import com.topcoder.web.screening.model.*;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 

@@ -1,4 +1,4 @@
-package com.topcoder.web.screening.ejb.coder;
+package com.topcoder.web.corp.ejb.coder;
 
 import java.sql.Date;
 import javax.ejb.EJBObject;

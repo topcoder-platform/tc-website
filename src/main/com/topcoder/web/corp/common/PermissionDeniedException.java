@@ -1,4 +1,4 @@
-package com.topcoder.web.screening.common;
+package com.topcoder.web.corp.common;
 
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.Resource;
