@@ -985,6 +985,19 @@
         </java>
     </target>
 
+    <target name="fixpassword" depends="compile">
+        <java classname="com.topcoder.utilities.PasswordFix" fork="false">
+            <classpath>
+                <pathelement location="${classes}"/>
+                <pathelement location="${resources}"/>
+                <fileset dir="${jars.dir}">
+                    <include name="**/*.jar"/>
+                </fileset>
+                <pathelement path="${env.CLASSPATH}"/>
+            </classpath>
+        </java>
+    </target>
+
     <target name="whitespace" depends="compile">
         <java classname="com.topcoder.utilities.RemoveWhiteSpace" fork="false">
             <arg value="${file}"/>

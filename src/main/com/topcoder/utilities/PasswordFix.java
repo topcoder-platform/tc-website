@@ -3,12 +3,8 @@ package com.topcoder.utilities;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.web.ejb.user.User;
-import com.topcoder.web.ejb.user.UserHome;
 import com.topcoder.web.ejb.password.PasswordRemoteHome;
 import com.topcoder.web.ejb.password.PasswordRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.admin.PrincipalMgrRemote;
 
 import javax.naming.Context;
 import javax.sql.DataSource;
@@ -29,6 +25,7 @@ public class PasswordFix {
         public static void main(String args[]) {
             PasswordFix um = new PasswordFix();
             try {
+                log.debug("first");
                 Context ctx = TCContext.getInitial();
                 long begin = System.currentTimeMillis();
                 int count = um.getUsers(ctx);
