@@ -50,6 +50,12 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     /* Holds the order that the hit list should be sorted in */
     private String sortOrder;
 
+    /* Holds the field that the hit list should be sorted by */
+    private String backSortBy;
+
+    /* Holds the order that the hit list should be sorted in */
+    private String backSortOrder;
+
     /* Creates new PositionInterestTask */
     public PositionInterestTask() {
         super();
@@ -236,74 +242,22 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         }
 
         setHitList((ResultSetContainer)resultMap.get("TCES_Position_Hit_List"));
-/*
-        rsc = (ResultSetContainer) resultMap.get("TCES_Position_Hit_List");
-        ArrayList hitList = new ArrayList();
-        ResultSetContainer.ResultSetRow hitListRow = null;
-        for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
-            hitListRow = rsc.getRow(rowI);
-            HashMap hit = new HashMap();
-
-            hit.put("coder_id",
-                    ((Long)hitListRow.getItem("coder_id").getResultData()).toString().trim() );
-            hit.put("ha",
-                    hitListRow.getItem("handle").toString().trim().toLowerCase() );
-            hit.put("handle",
-                    hitListRow.getItem("handle").toString().trim() );
-            if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
-                hit.put("rating",
-                        ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
-                hit.put("ra",((Integer)hitListRow.getItem("rating").getResultData()));
-            }
-            else {
-                // member is unrated.
-                hit.put("rating", "Not rated");
-                hit.put("ra",new Integer(0));
-            }
-            hit.put("state",
-                    hitListRow.getItem("state_code").toString().trim() );
-
-            if ( ((String)hit.get("state")).trim().length()>0)
-                hit.put("st",((String)hit.get("state")).trim().toUpperCase());
-            else
-                hit.put("st","ZZZ");
-
-            hit.put("country",
-                    hitListRow.getItem("country_code").toString().trim() );
-            hit.put("type",
-                    hitListRow.getItem("coder_type_desc").toString().trim() );
-            hit.put("school",
-                    hitListRow.getItem("school_name").toString().trim() );
-
-            hit.put("gpa",
-                    hitListRow.getItem("gpa").toString().trim() );
-            hit.put("has_resume",
-                    hitListRow.getItem("has_resume").toString().trim() );
-            hit.put("grad_year",
-                    hitListRow.getItem("grad_year").toString().trim() );
-            hit.put("grad_month",
-                    hitListRow.getItem("grad_month").toString().trim() );
-
-            if (((String)hit.get("school")).trim().length() > 0 &&
-                ((String)hit.get("school")).indexOf("N/A") < 0) {
-                hit.put("sc",
-                        hitListRow.getItem("school_name").toString().trim().toLowerCase() );
-            }
-            else
-                hit.put("sc", "zzz"); // to ensure last in sortlist.
-
-            hit.put("hit_date",
-                    getDate(hitListRow, "timestamp"));
-            hit.put("hd",
-                    hitListRow.getItem("timestamp").toString() );
-
-            hitList.add(hit);
-        }
-*/
 
         if (sortBy!=null&&sortBy.length()>0) {
             if (sortOrder.length()>0) {
-                getHitList().sortByColumn(sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC));
+                if (backSortBy!=null&&backSortBy.length()>0) {
+                    if (backSortOrder.length()>0) {
+                        getHitList().sortByColumn(sortBy, backSortBy,
+                            sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
+                            backSortOrder.equals(TCESConstants.SORT_ORDER_ASC));
+                    } else {
+                        getHitList().sortByColumn(sortBy, backSortBy,
+                            sortOrder.equals(TCESConstants.SORT_ORDER_ASC),
+                            true);
+                    }
+                } else {
+                    getHitList().sortByColumn(sortBy,sortOrder.equals(TCESConstants.SORT_ORDER_ASC));
+                }
             }
             else {
                 getHitList().sortByColumn(sortBy,true);
@@ -322,6 +276,10 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
             sortBy = value;
         if (paramName.equalsIgnoreCase(TCESConstants.SORT_ORDER_PARAM))
             sortOrder = value;
+        if (paramName.equalsIgnoreCase(TCESConstants.BACK_SORT_PARAM))
+            backSortBy = value;
+        if (paramName.equalsIgnoreCase(TCESConstants.BACK_SORT_ORDER_PARAM))
+            backSortOrder = value;
         if (paramName.equalsIgnoreCase(TCESConstants.CAMPAIGN_ID_PARAM))
             setCampaignID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.JOB_ID_PARAM))
