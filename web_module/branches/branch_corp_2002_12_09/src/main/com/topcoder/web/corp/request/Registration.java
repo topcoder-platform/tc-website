@@ -166,7 +166,7 @@ public final class Registration extends UserEdit {
         );
 
         valid &= // zip validity (required)
-        checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN,
+        checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_ZIPCODE_EN,
             true, 1, "Ensure ZIP code is not empty and, consists of digits only"
         );
         return valid;
@@ -328,14 +328,19 @@ public final class Registration extends UserEdit {
         ).create();
 
         long addressID = -1;
-        if( secTok.createNew ) {
+        if( ! secTok.createNew ) { // editing mode
+            ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID);
+            try {
+                String tmp = rsc.getItem(0, "address_id").getResultData().toString();
+                addressID = Long.parseLong(tmp);
+            }
+            catch(IndexOutOfBoundsException ignore) { }
+        }
+        if( addressID < 0 ) {
+            // either create mode or editing mode but there was not an address yet
             addressID = addrTable.createAddress();
             xrefUserAddr.createUserAddress(targetUserID, addressID);
             addrTable.setAddressTypeId(addressID, 1); // *HARDCODED*
-        }
-        else {
-            addressID = 101; // until next method implemented
-            //addressID = xrefUserAddr.getAddressID(targetUserID);
         }
         addrTable.setAddress1(addressID, compAddress);
         addrTable.setAddress2(addressID, compAddress2);
@@ -369,17 +374,32 @@ public final class Registration extends UserEdit {
         UserAddress xrefUserAddr = (
             (UserAddressHome)ic.lookup(UserAddressHome.EJB_REF_NAME)
         ).create();
-        long addrID = 101; // until next method implemented
-//        addrID = xrefUserAddr.getAddressID(userID);
-
-        Address addrTable = (
-            (AddressHome)ic.lookup(AddressHome.EJB_REF_NAME)
-        ).create();
-        compAddress  = addrTable.getAddress1(addrID);
-        compAddress2 = addrTable.getAddress2(addrID);
-        city         = addrTable.getCity(addrID);
-        state        = addrTable.getStateCode(addrID);
-        zip          = addrTable.getZip(addrID);
-        country      = addrTable.getCountryCode(addrID);
+        long addrID = -1;
+        ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID);
+        try {
+            String tmp = rsc.getItem(0, "address_id").getResultData().toString();
+            addrID = Long.parseLong(tmp);
+        }
+        catch(IndexOutOfBoundsException ignore) { }
+        
+        if( addrID < 0 ) { // user has not an address yet
+            compAddress  = "";
+            compAddress2 = "";
+            city         = "";
+            state        = "";
+            zip          = "";
+            country      = "";
+        }
+        else {
+            Address addrTable = (
+                (AddressHome)ic.lookup(AddressHome.EJB_REF_NAME)
+            ).create();
+            compAddress  = addrTable.getAddress1(addrID);
+            compAddress2 = addrTable.getAddress2(addrID);
+            city         = addrTable.getCity(addrID);
+            state        = addrTable.getStateCode(addrID);
+            zip          = addrTable.getZip(addrID);
+            country      = addrTable.getCountryCode(addrID);
+        }
     }
 }

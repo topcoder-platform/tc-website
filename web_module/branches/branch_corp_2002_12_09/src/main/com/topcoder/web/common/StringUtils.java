@@ -18,6 +18,7 @@ public final class StringUtils {
         ALPHABET_ALPHA_UPPER_EN;
     
     public static final String ALPHABET_DIGITS_EN = "0123456789";
+    public static final String ALPHABET_ZIPCODE_EN = "0123456789-";
     
     public static final String ALPHABET_PUNCTUATION_EN = "-,.";
     
