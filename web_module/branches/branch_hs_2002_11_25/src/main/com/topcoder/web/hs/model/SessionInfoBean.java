@@ -27,5 +27,5 @@ public class SessionInfoBean {
   public int    getRating() { return rating; }
   public void   setRating(int rating) { this.rating = rating; }
 
-  public boolean isLoggedIn() { return group != 'A'; }
+  public boolean isLoggedIn() { return group != 'G'; }
 }

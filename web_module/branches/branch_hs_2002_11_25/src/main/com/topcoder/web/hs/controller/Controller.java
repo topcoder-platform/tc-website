@@ -33,7 +33,6 @@ public final class Controller extends HttpServlet {
             RequestProcessor rp;
             try {
 //@@@ debug things here to clean up later
-                if(request.getParameter("e") != null) throw new java.lang.Error("testing");
                 //System.out.println("request.getContextPath()="+request.getContextPath());
                 //System.out.println("request.getServletPath()="+request.getServletPath());
 
@@ -68,9 +67,8 @@ public final class Controller extends HttpServlet {
             }
 
         /* things are extremely broken, make one last attempt to get an error message to the logs and browser */
-        } catch(Exception e2) {
+        } catch(Exception e) {
             e.printStackTrace();
-            e2.printStackTrace();
             response.setStatus(500);  //@@@ this doesnt seem to work
             PrintWriter out = response.getWriter();
             out.println("<html><head><title>Internal Error</title></head>");

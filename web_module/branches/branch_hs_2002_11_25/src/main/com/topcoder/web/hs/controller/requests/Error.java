@@ -16,7 +16,7 @@ public class Error extends Base {
     public void process() {
         super.process();
 
-        setNextPage("/hs"+"error.jsp");  //@@@ remove prefix... make relative to controller servlet
+        setNextPage("/hs"+"/error.jsp");  //@@@ remove prefix... make relative to controller servlet
         setIsNextPageInContext(true);
     }
 
