@@ -32,7 +32,7 @@
 <head>
     <xsl:call-template name="Preload" />
 
- <title>Multiplier Status for TopCoder Software Development</title>
+ <title>Status for TopCoder Software Development</title>
 
     <xsl:call-template name="CSS" />
 
@@ -65,7 +65,7 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Components</xsl:with-param>
+            <xsl:with-param name="title">&#160;Component Submissions</xsl:with-param>
             </xsl:call-template>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
@@ -73,9 +73,29 @@
 
                 <tr>
                     <td class="bodyText" colspan="5">
-                        <p>This page will be updated when a project date changes.  If you have specific questions about any projects, 
+                        
+                        <ul><strong>Multiplier Rules</strong>
+                        <li>
+                            The multiplier will only be active during the online rounds.  <br />
+                            It will not be active for the final competition.
+                        </li>
+                        <li>
+                            The member with the first submission for each component will be given the multiplier.  
+                        </li>
+                        <li>
+                            This multiplier will be used to double the component prize <strong>IF</strong> the member places in 1st or 2nd place for that component.  
+                        </li>
+                        <li>
+                            If a member resubmits a solution, the new submission date is used to determine who has recieved the multiplier.
+                        </li>
+                        <li>
+                            As with the standard competition, 1st and 2nd place is limited to those submissions that pass screening <br />
+                           and receive a review score greater than 74.  
+                        </li>
+                        </ul>
+
+                        <p>If you have specific questions about any projects, 
                         email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p> 
-                        <p>Note that project winners will not be announced until after the Review Complete date.</p>
                     </td>
                 </tr>
 
