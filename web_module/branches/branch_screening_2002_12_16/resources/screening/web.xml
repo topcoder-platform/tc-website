@@ -14,10 +14,23 @@
   <servlet-class>com.topcoder.web.screening.controller.MainServlet</servlet-class>
 
   <init-param>
+    <param-name>processors_package</param-name>
+    <param-value>com.topcoder.web.screening.request</param-value>
+    <description></description>
+  </init-param>
+  
+  <init-param>
+    <param-name>processors_param</param-name>
+    <param-value>rp</param-value>
+    <description></description>
+  </init-param>
+  
+  <init-param>
     <param-name>db_selection_page</param-name>
     <param-value>dbSelection.jsp</param-value>
     <description></description>
   </init-param>
+  
 
   <init-param>
     <param-name>query_package</param-name>
