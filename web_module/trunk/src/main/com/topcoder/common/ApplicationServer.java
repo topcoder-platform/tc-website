@@ -26,11 +26,11 @@ public class ApplicationServer {
   public static int                   ENVIRONMENT                  = DEV;
   public static int                   WEBLOGIC_PORT                = 7030;
   public static String                SERVER_NAME                  = "beta.dev.topcoder.com";
-  public static String                HOST_URL                     = "t3://172.16.1.152:7030";
-  public static String                CONTEST_HOST_URL             = "t3://172.16.1.152:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.1.152" };
-  public final static String          BASE_DIR                     = "/export/home/beta/classes";
-  public static String                MPSQAS_HOST_URL              = "t3://172.16.1.152:7020";
+  public static String                HOST_URL                     = "t3://172.16.20.41:7030";
+  public static String                CONTEST_HOST_URL             = "t3://172.16.20.41:7010";
+  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.20.41" };
+  public final static String          BASE_DIR                     = "/export/home/apps/web/build/classes";
+  public static String                MPSQAS_HOST_URL              = "t3://172.16.20.41:7020";
 
 
   //** QA (GLASTONBURY **//
