@@ -49,18 +49,18 @@
 
         <!-- pages -->
         <init-param>
-            <param-name>registration_page</param-name>
-            <param-value>/reg/registration.jsp</param-value>
+            <param-name>simple_reg_page</param-name>
+            <param-value>/reg/simpleReg.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>registration_confirm_page</param-name>
-            <param-value>/reg/registrationConfirm.jsp</param-value>
+            <param-name>simple_reg_confirm_page</param-name>
+            <param-value>/reg/simpleRegConfirm.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>registration_success_page</param-name>
-            <param-value>/reg/registrationSuccess.jsp</param-value>
+            <param-name>simple_reg_success_page</param-name>
+            <param-value>/reg/simpleRegSuccess.jsp</param-value>
             <description></description>
         </init-param>
         <init-param>
@@ -193,27 +193,20 @@
 
         <!-- processors -->
         <init-param>
-            <param-name>registration_main</param-name>
-            <param-value>Registration</param-value>
+            <param-name>simple_reg_main</param-name>
+            <param-value>SimpleReg</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>registration_main</param-name>
-            <param-value>Registration</param-value>
+            <param-name>simple_reg_confirm</param-name>
+            <param-value>SimpleRegConfirm</param-value>
             <description></description>
         </init-param>
         <init-param>
-            <param-name>registration_confirm</param-name>
-            <param-value>RegistrationConfirm</param-value>
+            <param-name>simple_reg_submit</param-name>
+            <param-value>SimpleRegSubmit</param-value>
             <description></description>
         </init-param>
-        <init-param>
-            <param-name>registration_submit</param-name>
-            <param-value>RegistrationSubmit</param-value>
-            <description></description>
-        </init-param>
-
-
 
 
     </servlet>

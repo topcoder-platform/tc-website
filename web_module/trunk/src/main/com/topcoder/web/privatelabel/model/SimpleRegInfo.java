@@ -5,7 +5,12 @@ import com.topcoder.web.privatelabel.Constants;
 
 import javax.servlet.http.HttpServletRequest;
 
-public class RegistrationInfo extends Base {
+/**
+ *
+ * @author gpaul 06.26.2003
+ */
+public class SimpleRegInfo {
+
     private String handle;
     private String password;
     private String passwordConfirm;
@@ -20,15 +25,14 @@ public class RegistrationInfo extends Base {
     private String stateCode;
     private String stateName;
     private String city;
-    private String state;
     private String zip;
     private long companyId;
 
-    public RegistrationInfo() {
-
+    public SimpleRegInfo() {
     }
 
-    public RegistrationInfo(HttpServletRequest request) {
+    public SimpleRegInfo(HttpServletRequest request) {
+        this();
         setHandle(StringUtils.checkNull(request.getParameter(Constants.HANDLE)));
         setPassword(StringUtils.checkNull(request.getParameter(Constants.PASSWORD)));
         setPasswordConfirm(StringUtils.checkNull(request.getParameter(Constants.PASSWORD_CONFIRM)));
@@ -44,6 +48,7 @@ public class RegistrationInfo extends Base {
         setZip(StringUtils.checkNull(request.getParameter(Constants.ZIP)));
         setCompanyId(Long.parseLong(StringUtils.checkNull(request.getParameter(Constants.COMPANY_ID))));
     }
+
 
     public String getHandle() {
         return handle;
@@ -125,6 +130,14 @@ public class RegistrationInfo extends Base {
         this.countryCode = countryCode;
     }
 
+    public String getCountryName() {
+        return countryName;
+    }
+
+    public void setCountryName(String countryName) {
+        this.countryName = countryName;
+    }
+
     public String getStateCode() {
         return stateCode;
     }
@@ -133,20 +146,20 @@ public class RegistrationInfo extends Base {
         this.stateCode = stateCode;
     }
 
+    public String getStateName() {
+        return stateName;
+    }
+
+    public void setStateName(String stateName) {
+        this.stateName = stateName;
+    }
+
     public String getCity() {
         return city;
     }
 
     public void setCity(String city) {
         this.city = city;
-    }
-
-    public String getState() {
-        return state;
-    }
-
-    public void setState(String state) {
-        this.state = state;
     }
 
     public String getZip() {
@@ -163,22 +176,6 @@ public class RegistrationInfo extends Base {
 
     public void setCompanyId(long companyId) {
         this.companyId = companyId;
-    }
-
-    public String getCountryName() {
-        return countryName;
-    }
-
-    public void setCountryName(String countryName) {
-        this.countryName = countryName;
-    }
-
-    public String getStateName() {
-        return stateName;
-    }
-
-    public void setStateName(String stateName) {
-        this.stateName = stateName;
     }
 
 }
