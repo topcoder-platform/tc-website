@@ -9,6 +9,10 @@ import com.topcoder.shared.security.Resource;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 
+/**
+ *
+ * @author gpaul 06.26.2003
+ */
 public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
 

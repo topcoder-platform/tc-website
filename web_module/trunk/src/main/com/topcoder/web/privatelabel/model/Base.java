@@ -1,5 +1,9 @@
 package com.topcoder.web.privatelabel.model;
 
+/**
+ *
+ * @author gpaul 06.26.2003
+ */
 public class Base {
     private boolean isNew;
 
