@@ -36,27 +36,27 @@
                </tr>
                 <tr>
                    <td class="testTableTitle_off" width="10%" align="center">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournament&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=seed&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Seed
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="left">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournament&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=handle_sort&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Handle
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="30%" align="center">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournament&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=round_name&<%=DataAccessConstants.SORT_DIRECTION%>=asc">
                            Problem Set
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="15%" align="right">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournament&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=rating&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Rating
                        </a>
                    </td>
                    <td class="testTableTitle_off" width="15%" align="right">
-                       <a class="statTextBig" href="/tc?module=SimpleStats&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
+                       <a class="statTextBig" href="/tc?module=SimpleStats&d1=tournament&d2=tco04&d3=alg_qualification&c=tco04_alg_qual&trans=true&<%=DataAccessConstants.SORT_COLUMN%>=points&<%=DataAccessConstants.SORT_DIRECTION%>=desc">
                            Points
                        </a>
                    </td>
