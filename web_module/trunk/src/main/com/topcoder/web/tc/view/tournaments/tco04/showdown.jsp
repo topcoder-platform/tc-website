@@ -225,7 +225,7 @@ ResultSetContainer rscRecentB = (ResultSetContainer)dataMap.get("recent_set_b");
                                     <td class="leaderCell"><rsc:item name="rank" row="<%=Row%>"/><%=". "+JSPUtils.htmlEncode(Row.getStringItem("name"))%></td>
                                     <td class="leaderCell" align="right"><rsc:item name='score' row='<%=Row%>' format="0.00"/></td>
                                 </tr>
-                            </rcs:iterator>
+                            </rsc:iterator>
                             <% j++;%>
                         </table>
                     </td>
