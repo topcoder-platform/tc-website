@@ -59,7 +59,10 @@
                                     <BR/>
 <P><B>Overview</B></P>
 
-<P>The Timer component provides "stopwatch" type functionality to existing and new software. This component allows for run-time performance analysis by enabling developers to clock the execution speed of specified code blocks. As with existing logging solutions, implementing the timer solution is configurable so as to enable real-time configuration modifications. In addition, the timer component is designed to have minimal impact on processing speed.</P>
+<P>The Timer component provides "stopwatch" type functionality to existing and new software. This component allows for run-time performance analysis by enabling developers to clock the execution speed of specified code blocks. As with existing logging solutions, implementing the timer solution is configurable so as to enable real-time configuration modifications. In addition, the timer component is designed to have minimal impact on processing speed.
+<BR/>
+For more details, check out the <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300028&cat=13">Timer Component</a> at <a href="www.topcodersoftware.com">topcodersoftware.com</a>.
+</P>
 
 <P><B>Project Type</B></P>
 
