@@ -56,16 +56,19 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
+<!-- Title -->
 							<h1 class="devSubhead"><strong>Code Formatter: Design</strong></h1>
                                     
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Code Formatter: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
+<!-- Overview -->
 							<p><strong>Overview</strong><br />
 							The Code Formatter transforms source code to a new style based on defined formatting standards. The API for the component takes source code and an XML file with the style information for the code transformation. The component outputs a new version of the source code in the file format described in the XML.
                             </p><p>
                             A good example of the Code Formatter is in the distributed development environment TopCoder employs to build software components. In order to best enforce coding standards, the Code Formatter can be used as a plugin to the source control system to be applied prior to both checkins and checkouts. This allows us to provide consistency in the format and style of our source code as well as allow developers to code in the format they are most comfortable with.
 							</p>
 
+<!-- Project Type -->
 							<p><strong>Project Type</strong><br />
 							Component Design Project: Provide a complete design for the Code Formatter component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
@@ -74,10 +77,16 @@
                             
 							<p><strong>Technologies</strong></p>
 
+<!-- Technologies -->
 							<ul>
 								<li>Java 1.4</li>
 							</ul>
 
+<!-- Documentation -->
+						<p><strong>Documentation</strong><br />
+						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3309474">documentation</a> for this project is available on the TopCoder Software web site.</ul>
+
+<!-- Payment -->
 							<p><strong>Payment</strong><br />
 							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
 							First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
@@ -92,6 +101,7 @@
 							First Deliverable - $157.50<br/>
 							Project Completion - $52.50</p>
 
+<!-- Definition of Completion -->
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
 							<ul>
@@ -100,6 +110,7 @@
 								<li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
 							</ul>
 
+<!-- Eligibility Requirements -->
 							<p><strong>Eligibility</strong><br />
 							You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
@@ -110,6 +121,7 @@
 								<li>A Non-US Citizen working in your country of residence.</li>
 							</ol>
 
+<!-- Time Line -->
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
@@ -119,6 +131,7 @@
 							Final Submission Due Date: 1.27.2003<br/>
                             Estimated Development End Date: 3.3.2003</p>
 
+<!-- Register at TCS -->
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
                             <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Code Formatter: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>

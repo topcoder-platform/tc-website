@@ -56,27 +56,36 @@
 						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
 						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
+<!-- Title -->
 							<h1 class="devSubhead"><strong>Object Pool: Development</strong></h1>
                                     
 							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Pool: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
+<!-- Overview -->
 							<p><strong>Overview</strong><br />
 							The Object Pool component provides functionality to create and manage a "Pool" of Java objects.  Objects in the pool are created once and reused numerous times.  This eliAminates the need for continual object initialization and destruction; therefore, saving resources and reducing compilation overhead.
                             </p><p>While a pool can be used for any object type, it is most beneficial to use with objects that have a relatively high initialization overhead.  An example being the creation of database connection objects. 
 							</p>
 
+<!-- Project Type -->
 							<p><strong>Project Type</strong><br />
 							Component Development Project: Provide a complete development solution for the Object Pool component.<br />
 							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
 							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
 
+<!-- Technologies -->
 							<p><strong>Technologies</strong></p>
 
 							<ul>
 								<li>Java 1.4</li>
 							</ul>
 
+<!-- Documentation -->
+						<p><strong>Documentation</strong><br />
+						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2300000">documentation</a> for this project is available on the TopCoder Software web site.</ul>
+
+<!-- Payment -->
 							<p><strong>Payment</strong><br />
 							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed at the completion of the project*.</p>
 							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
@@ -86,6 +95,7 @@
 							
 							<p>Total Payment - $240.00</p>
 
+<!-- Definition of Completion -->
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
 							<ul>
@@ -94,6 +104,7 @@
 								<li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
 							</ul>
 
+<!-- Eligibility Requirements -->
 							<p><strong>Eligibility</strong><br />
 							You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
@@ -104,6 +115,7 @@
 								<li>A Non-US Citizen working in your country of residence.</li>
 							</ol>
 
+<!-- Time Line -->
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
@@ -112,6 +124,7 @@
 							Winner Announced: 2.5.2003<br/>
 							Final Submission Due Date: 2.10.2003</p>
 
+<!-- Register at TCS -->
 							<p>After inquiring for this project please make sure you are registered at <a href="http://www.topcodersoftware.com" class="statText">TopCoder Software</a>.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
 
                             <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Object Pool: Development" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
