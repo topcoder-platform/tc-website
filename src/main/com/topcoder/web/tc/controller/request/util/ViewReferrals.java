@@ -17,7 +17,7 @@ public class ViewReferrals extends Base {
         if (userIdentified()) {
             Request r = new Request();
             r.setContentHandle("referral_list");
-            r.setProperty("cr", String.valueOf(getUser().getId()));
+            r.setProperty("uid", String.valueOf(getUser().getId()));
             try {
                 getRequest().setAttribute("referralList", getDataAccess().getData(r).get("referral_list"));
                 setNextPage(Constants.REFERRALS);
