@@ -1,3 +1,5 @@
+<LINK REL="stylesheet" TYPE="text/css" HREF="/css/hs.css"/>
+<%--
 <STYLE TYPE="text/css">
 
 .subNav { font-family:tahoma, arial, verdana, helvetica, sans-serif; color:#FFCC33; font-size:10px; font-weight:bold; text-decoration:none }
@@ -224,3 +226,4 @@ A.resoursesnav:visited { font-family:arial, verdana, helvetica, sans-serif; font
 A.resoursesnav:hover { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#001934; text-decoration:none }
 A.resoursesnav:active { font-family:arial, verdana, helvetica, sans-serif; font-size:10px; font-weight: bold; color:#FFDE00; text-decoration:none }
 </Style>
+--%>
