@@ -51,7 +51,7 @@ function openWin(url, name, w, h) {
 	
 	<div align="center">
 <%-- Google Header--%>
-<img width="276" height="110" src="/i/events/google2003/codejam_info.gif" alt="Google Code Jam logo">
+<img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif">
 
 <table border=0 cellspacing=5 width="740">
    <tr> 
@@ -72,7 +72,7 @@ function openWin(url, name, w, h) {
                   <b><font size="+1">Official Rules and Regulations</font></b><br>
                   <font size="-2">&nbsp; &nbsp; &nbsp; &nbsp;<a href="#summary">Summary of the Tournament</a> | <a href="#about">About the Tournament</a> | <a href="#prizes">About the Prizes</a> | <a href="#conditions">Conditions of Participation</a></font>
                   <br><br>
-                  <img align="right" src="http://www.google.com/codejam/codejam_info.gif" hspace="10" vspace="5" width="150" height="390" border="0">
+                  <img align="right" src="/i/events/google2003/codejam_info.gif" alt="Google Code Jam logo" hspace="10" vspace="5" width="150" height="390" border="0">
                   <p><font size="-1">
                   <font color="#ff0000">No purchase necessary to enter or win.</font></font></p>
 		
