@@ -32,7 +32,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 		<table width="100%" cellpadding="0" cellspacing="5" align="center" >
             <tr>
 				<td align=right width="65%"><b>Preferences</b></td>
-				<td width="35%"><a href="javascript:goToPage('ContractingPreferences');">edit<a/></td>
+				<td width="35%"></td>
             </tr>
             <tc:listIterator id="prefGroup" list="<%=prefList%>">
             <tr>
@@ -57,7 +57,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
             <tr>
 				<td align=right><b>Technology Skills</b></td>
-				<td><a href="javascript:goToPage('ContractingTechnologies');">edit<a/></td>
+				<td></td>
             </tr>
             <tc:listIterator id="tech" list="<%=techList%>">
               <tr>
@@ -70,7 +70,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
             <tr>
 				<td align=right><b>Databases</b></td>
-				<td valign=top><a href="javascript:goToPage('ContractingDatabases');">edit<a/></td>
+				<td valign=top></td>
             </tr>
             <tc:listIterator id="db" list="<%=dbList%>">
               <tr>
@@ -84,7 +84,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 		<table width="100%" cellpadding="0" cellspacing="5" align="center" >
             <tr>
 				<td align=right width="65%"><b>Language Skills</b></td>
-				<td valign=top width="35%"><a href="javascript:goToPage('ContractingLanguages');">edit<a/></td>
+				<td valign=top width="35%"></td>
             </tr>
             <tc:listIterator id="lang" list="<%=langList%>">
               <tr>
@@ -97,7 +97,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
             <tr>
 				<td align=right><b>Operating Systems</b></td>
-				<td valign=top><a href="javascript:goToPage('ContractingOS');">edit<a/></td>
+				<td valign=top></td>
             </tr>
             <tc:listIterator id="os" list="<%=osList%>">
               <tr>
@@ -109,7 +109,7 @@ List industryList = (List)request.getAttribute("industrySkills");
 
             <tr>
 				<td align=right><b>Industries</b></td>
-				<td valign=top><a href="javascript:goToPage('ContractingIndustries');">edit<a/></td>
+				<td valign=top></td>
             </tr>
             <tc:listIterator id="industry" list="<%=industryList%>">
               <tr>
