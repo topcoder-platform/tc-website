@@ -30,7 +30,7 @@
             
         <p class=bigTitle>Student Representatives</p>
 
-               <p>The following is a list of all referrals TopCoder student representatives for the TCCC05.</p>
+               <p>The following is the results for the TCCC05 Referral Program.</p>
 
                 <table width="510" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
