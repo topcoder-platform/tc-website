@@ -623,7 +623,7 @@ public class TCLoadRequests extends TCLoad {
                 boolean found = false;
                 for (Iterator it = otherPageNameMap.entrySet().iterator(); it.hasNext()&&!found;) {
                     me = (Map.Entry)it.next();
-                    if (url.equals(me.getKey()) || url.startsWith((String)me.getKey())) {
+                    if (url.equals(me.getKey())) {
                         ret = (String)me.getKey();
                         found = true;
                     }
