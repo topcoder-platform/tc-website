@@ -47,6 +47,7 @@
                 <tr valign="top">
                     <td align="left" width="510">
                         <table border="0" cellpadding="0" cellspacing="0">
+                            
                             <tr>
                                <td colspan="2" align="center"><img src="/i/sponsor/intel_ids/IDS_TC-header.gif" width="510" height="115" /></td>
                               </tr>
@@ -59,43 +60,55 @@
                             	<td>
                             		<table>
                             			<tr align="left" width="255" >
+                            				
+                            				
                             				<td class="bodyText" >
                             					<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; 
                             					Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              					take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
-                            				</td></tr>
+                            				</td>
+                            			</tr>
                             				
                             		<tr>
-                            			<td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
-                            			technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer 
-                            			Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
-                            			time-to-market advantage and make your software sing. Fast.</p></td>
-                            		</tr> </table>
+                            				<td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and 
+                            				technical white papers, membership with <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel Developer 
+                            				Services</strong> </a> gives you FREE access to tools and resources that can maximize your code's performance, give you 
+                            				time-to-market advantage and make your software sing. Fast.</p></td>
+                            		</tr> 
+                            		</table>
                             	</td>
                             	
                             	<td>
                             		<table>
-                            			
-                            			
                             			<tr width="255" >
-                            				<td align="center" ><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" />
-                            </td></tr>
-                            				
-                            		<tr>
-                            			<td align ="left">
-                            			<table>
-                            				<tr>
-                            					<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                            					<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
-                            						mobile-technology-based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
-                            						<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
+                            				<td align="center" ><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /></td>
+                            			</tr>
+                            			
+                            			<tr>
+                            				<td align ="left">
+                            						
+                            						<table>
+                            								<tr>
+                            									<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                            									<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
+                            									mobile-technology-based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
+                            										<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
+                            								</tr>
+                            								<tr><td><img src="/i/spacer.gif" height="13" width="13"/></td></tr>
+                            						</table>
+                            						
+                            					</td>
                             				</tr>
-                            		<tr><td><img src="/i/spacer.gif" height="13" width="13"/></td></tr>
-                            	</table>
+                            								
+                            						</tr>
+                            				</table>
+                            			</td>
+                            		
+                            		
                             		</tr> 
-                            		</table>
-                            	</td>
-                          </tr>
+                            	</table>
+                            </td>
+                         </tr>
                             
                            
              
