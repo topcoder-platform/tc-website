@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="/errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -35,7 +36,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-            <h1 class="testHead">Top TopCoder Problem Results</h1>             
+            <h1 class="testHead">Top TopCoder Problem Results</h1>
             <P>Below are the submitted code and system test results for the highest TopCoder point-getter.</P>
 
             <FORM>
@@ -45,7 +46,8 @@
            </TR>
            <TR>
               <TD CLASS="bodyText" VALIGN="top">
-              <PRE><jsp:getProperty name="submissionInfo" property="code" /></PRE>
+              <%--this should really get plugged into the formatter object --%>
+              <PRE><%=StringUtils.htmlEncode(submissionInfo.getCode())%></PRE>
               </TD>
            </TR>           
            <TR>

@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ page errorPage="/errorPage.jsp" %>
-<%@ page import="com.topcoder.web.screening.common.Constants" %>
+<%@ page import="com.topcoder.web.screening.common.Constants,
+                 com.topcoder.web.common.StringUtils" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
@@ -95,7 +96,7 @@ function getTCProblemResults(coderId, roundId, problemId) {
            </TR>
            <TR>
               <TD CLASS="bodyText" VALIGN="top">
-              <PRE><jsp:getProperty name="submissionInfo" property="code" /></PRE>
+              <PRE><%=StringUtils.htmlEncode(submissionInfo.getCode())%></PRE>
               </TD>
            </TR>           
            <TR>
