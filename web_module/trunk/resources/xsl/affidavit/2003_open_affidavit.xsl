@@ -7,27 +7,6 @@
         <TITLE>AFFIDAVIT OF ELIGIBILITY/LIABILITY &amp; PUBLICITY RELEASE</TITLE>
       </HEAD>
       <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<!--
-        <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#FFFFFF">
-            <TR><TD VALIGN="middle" CLASS="bodyText" ><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >has notorized affidavit <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >has tax form <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/has_tax_form"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >has image <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/has_image"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >handle <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/handle"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >first name <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/first_name"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >last name <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >email <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/email"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >address1 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address1"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >address2 <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/address2"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >city <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/city"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >state code <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/stat_code"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >zip <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >country <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >home phone <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/home_phone"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >work phone <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/work_phone"/></TD></TR>
-            <TR><TD VALIGN="middle" CLASS="bodyText" >coder_type <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/coder_type_desc"/></TD></TR>
-        </TABLE>
--->
 <xsl:choose>
 <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='United States'">
   <P>
@@ -250,7 +229,7 @@
             <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/city"/>,
             <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
             <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
-        , do solemnly and sincerely declare as follows
+        , do solemnly and sincerely declare as follows:
     </xsl:otherwise>
 </xsl:choose>
 <BR/>
@@ -267,9 +246,9 @@
     </xsl:if>
     <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/city"/>,
     <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/zip"/>&#160;
-    <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>
+    <xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/country_name"/>.
   </LI>
-  <LI>I am submitting this statutory declaration with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 TopCoder Open Coding Tournament (the "Contest").</LI>
+  <LI>I am submitting this statutory declaration with the understanding that it will be relied upon to determine my eligibility to receive the prize for which my entry has been submitted in the 2003 TopCoder Open Coding Tournament, sponsored by Intel&#174;(the "Contest").</LI>
   <LI>I hereby represent that I am 18 years of age or older, and I have complied with, and will continue to comply with, all the rules and regulations of this Contest and that I have perpetrated no fraud or deception in entering the Contest or in claiming any prize that may be awarded to me.  I hereby represent further that my performance in the Contest is a result of my efforts alone and all ideas for code or challenges submitted by me during the course of the Contest were mine alone.</LI>
   <LI>Further, I represent that the following information contained in TopCoder's member database represents my personal, identifying information, and that such information is true, accurate and comprehensive:</LI>
   <HR/>

@@ -140,8 +140,9 @@
                                 </li>
                             </ol>
                         <div align="center">
-                            Address to send affidavits &amp; tax forms to:
-                            TopCoder Attn: Tom Longo<br/>
+                            Address to send affidavits &amp; tax forms to:<br/>
+                            TopCoder <br/>
+                            Attn: Tom Longo<br/>
                             703 Hebron Avenue<br/>
                             Glastonbury, CT 06033
                         </div>
