@@ -59,7 +59,7 @@
 <!-- Title -->
 							<h1 class="devSubhead"><strong>Financial Calculator: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Financial Calculator: Design&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;comp=3312997&amp;Project=Financial20%Calculator:%20Design&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
 <!-- Overview -->
 							<p><strong>Overview</strong><br />
@@ -134,7 +134,7 @@
 <!-- Register at TCS -->
 							
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Financial Calculator: Design&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;comp=3312997&amp;Project=Financial%20Calculator:%20Design&amp;date=2&#47;5" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
