@@ -71,7 +71,7 @@
                                         <!-- Title -->
                                         <table cellspacing="0" class="formFrame" align="center" width="530">
                                             <tr>
-                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Gentiva Order Processing</td>
+                                                <td class="projectTitles" nowrap="nowrap">Design Application Project - Health Care Order Processing</td>
                                             </tr>
                                             <tr>
                                                 <td class="projectHeaders" align="left">Overview</td>
@@ -86,7 +86,7 @@
                                                 <td class="bodyText">
                                                     <!-- Overview -->
                                                     <p>
-                                                        The Gentiva Order Processing application gives users the ability to track
+                                                        The Health Care Order Processing application gives users the ability to track
                                                         and process incoming health care orders from the Gentiva ordering software.
                                                         This processing consists of submitting the orders to one of several back-end
                                                         systems as well as flagging orders for supervisor review.
