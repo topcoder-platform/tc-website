@@ -54,7 +54,7 @@
 
                       <!-- Error message content pane -->
                    <DIV CLASS="headerWhite">    
-                        You do not enough priveleges to perform this action<br>
+                        You do not enough priveleges to access this resource<br>
                         If you think this page was shown by mistake, please contact us<br>
                         We are sorry for any inconveniences caused by this<br>
                         site administration<br><br>
