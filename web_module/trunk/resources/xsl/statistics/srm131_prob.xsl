@@ -132,9 +132,9 @@
                                             students' coding abilities, and lets them know who they are going up against in
                                             the real world.
                                         </P>
-                                        <a name="Collatz"></a>
+                                        <a name="CSCourse"></a>
                                         <font size="+2">
-                                            <b>Collatz</b>
+                                            <b>CSCourse</b>
                                         </font>
                                         <br/>
                                         <font size="-1">
@@ -145,26 +145,26 @@
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Value</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">300</td>
+                                                        <td style="background: #eee;" class="bodyText">250</td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Submission Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">148
+                                                        <td style="background: #eee;" class="bodyText">252
                                                             /
-                                                            150
-                                                            (98.67%)
+                                                            264
+                                                            (95.45%)
                                                         </td>
                                                     </tr>
                                                     <tr>
                                                         <td style="background: #eee;" class="bodyText">
                                                             <b>Success Rate</b>
                                                         </td>
-                                                        <td style="background: #eee;" class="bodyText">146
+                                                        <td style="background: #eee;" class="bodyText">138
                                                             /
-                                                            148
-                                                            (98.65%)
+                                                            252
+                                                            (54.76%)
                                                         </td>
                                                     </tr>
                                                     <tr>
@@ -172,8 +172,8 @@
                                                             <b>High Score</b>
                                                         </td>
                                                         <td style="background: #eee;" class="bodyText">
-                                                            <b>Karshikinpa</b> for
-                                                            298.54 points
+                                                            <b>stingant</b> for
+                                                            245.21 points
                                                         </td>
                                                     </tr>
                                                 </table>
