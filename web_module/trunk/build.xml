@@ -599,6 +599,18 @@
         </jar>
     </target>
 
+    <target name="package-EJB-ProjectBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Project"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/project"/>
+        </antcall>
+        <jar jarfile="${ejb_jars}/Project.jar" update="true">
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/BaseEJB.class"/>
+            <zipfileset dir="${classes}" includes="com/topcoder/web/ejb/project/*"/>
+        </jar>
+    </target>
+
+
     <target name="deploy">
         <antcall target="deploy-tc"/>
         <antcall target="deploy-admin"/>
@@ -1025,6 +1037,7 @@
         <antcall target="package-EJB-UserEvent"/>
         <!-- Since Screening Tool 1.1 -->
         <antcall target="package-EJB-PreferenceLevelBean"/>
+        <antcall target="package-EJB-ProjectBean"/>
         <antcall target="war-tc"/>
     </target>
 
