@@ -875,7 +875,7 @@
                 <include name="com/fx4m/**/*.class" />
             </classes>
             <classes dir="${resources}">
-                <include name="com/topcoder/servlet/requestFileUpload.xml"/>
+                <include name="com/topcoder/servlet/request/FileUpload.xml"/>
             </classes>
             <webinf dir="${resources}/taglib">
                 <include name="tc.tld"/>
