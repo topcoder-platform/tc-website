@@ -4,6 +4,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.ejb.EJBObject;
 import java.rmi.RemoteException;
+import java.sql.Timestamp;
 
 /**
  * @author dok
@@ -25,5 +26,6 @@ public interface RBoardApplication extends EJBObject {
 
     ResultSetContainer getReviewers(String dataSource, long projectId, int phaseId) throws RemoteException;
 
+    Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) throws RemoteException;
 }
 

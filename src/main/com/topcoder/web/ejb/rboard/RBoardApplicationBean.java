@@ -6,6 +6,7 @@ import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
+import java.sql.Timestamp;
 
 /**
  * @author dok
@@ -93,4 +94,12 @@ public class RBoardApplicationBean extends BaseEJB {
                     dataSource);
     }
 
+    public Timestamp getLatestReviewApplicationTimestamp(String dataSource, long userId) {
+        return selectLatestTimestamp("rboard_application",
+                "create_date",
+                new String[] {"user_id"},
+                new String[] {String.valueOf(userId)},
+                dataSource);
+    }
+    
 }
