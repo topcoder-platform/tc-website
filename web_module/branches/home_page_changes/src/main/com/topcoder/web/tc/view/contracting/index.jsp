@@ -52,11 +52,10 @@ return false;
             <jsp:param name="title" value=""/>
         </jsp:include>
 
-		<table align=right border=0 cellpadding=5 cellspacing=0 width="100%">
-			<tr>
-				<td align=center><img src="/i/clear.gif" border=1 width=500 height=100/></td>
-			</tr>
-		</table>
+		<div align=center>
+		<img src="/i/clear.gif" border=1 width=500 height=100/>
+		</div>
+
 		<p>
 		Welcome to TopCoder Employment Opportunities, your source for full time and contract programming work. In today's world, all major artists and professional athletes are represented by agents who find them the best opportunities.  Finally, the time has come for top programmers of the world reap the same benefits.  
 		<br/><br/>
