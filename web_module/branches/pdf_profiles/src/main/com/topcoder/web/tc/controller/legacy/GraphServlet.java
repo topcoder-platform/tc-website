@@ -97,6 +97,14 @@ public final class GraphServlet extends HttpServlet {
                 addToCache(dataRequest, result);
             }
             /***********************************************************************/
+            else if (dataRequest.getContentHandle().equals("rating_distribution_graph_profile")) {
+                //result = getFromCache(dataRequest);
+                //if (result == null) {
+                    result = getRatingsDistributionProfile(dataRequest);
+                //}
+                //addToCache(dataRequest, result);
+            }
+            /***********************************************************************/
             else if (dataRequest.getContentHandle().equals("rating_distribution_graph_dark")) {
                 result = getFromCache(dataRequest);
                 if (result == null) {
@@ -881,6 +889,69 @@ public final class GraphServlet extends HttpServlet {
             baos = new ByteArrayOutputStream();
             PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
             out.setMargin(10, 10, 10, 10);
+            out.render(g);
+            return baos.toByteArray();
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new NavigationException(e);
+        }
+    }
+    
+    private static byte[] getRatingsDistributionProfile(RequestInt dataRequest)
+            throws NavigationException {
+
+        log.debug("taskGraph:getRatingsDistributionProfile called...");
+
+        BarGraph g = null;
+        ByteArrayOutputStream baos = null;
+        Iterator it = null;
+        Map resultMap = null;
+        DataAccessInt dai = null;
+        ResultSetContainer rsc = null;
+        ResultSetContainer.ResultSetRow rsr = null;
+
+        try {
+            dai = new CachedDataAccess(DBMS.DW_DATASOURCE_NAME);
+            resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("Rating_Distribution_Graph");
+
+            g = new BarGraph();
+            g.optionTitle("Rating Distribution");
+            g.optionTitleStyle(titleStyle);
+            g.optionXAxisLabel("Rating");
+            g.optionYAxisLabel("Number of Coders");
+            g.optionXAxisLabelStyle(labelStyle);
+            g.optionYAxisLabelStyle(labelStyle);
+            g.optionYAxisStyle(axisStyle);
+            g.optionXAxisStyle(axisStyle);
+            g.optionXAxisTextRotation(45);
+
+            g.optionAxisStyle(new Style(YELLOW));
+
+            it = rsc.iterator();
+            while (it.hasNext()) {  //there's only gonna be one
+                rsr = (ResultSetContainer.ResultSetRow) it.next();
+                for (int i = 0; i < rsc.getColumnCount(); i++) {
+                    g.set(rating_segments[i],
+                            ((java.math.BigInteger) (rsr.getItem(i)).getResultData()).doubleValue());
+                    if (i < 9)
+                        g.setColor(rating_segments[i], GRAY);
+                    else if (i >= 9 && i < 12)
+                        g.setColor(rating_segments[i], GREEN);
+                    else if (i >= 12 && i < 15)
+                        g.setColor(rating_segments[i], BLUE);
+                    else if (i >= 15 && i < 22)
+                        g.setColor(rating_segments[i], GOLD);
+                    else if (i >= 22 && i < 30)
+                        g.setColor(rating_segments[i], RED);
+                }
+            }
+            baos = new ByteArrayOutputStream();
+            PNGOutput out = new PNGOutput(600, 400, Color.black, baos);
+            out.setMargin(10, 10, 10, 10);
+            out.setColor(GREEN);
+            out.line(10,10,10,400);
             out.render(g);
             return baos.toByteArray();
 
