@@ -140,6 +140,12 @@ function goTo(selection){
 	table.setRowColor(0,"\"#093158\"");	
 	table.setClassName("statText");
 	table.setRowBold(0,true);	
+        table.setWidth("100%");	
+ 	table.setColumnWidth(0, "35%");
+ 	table.setColumnWidth(1, "25%");
+ 	table.setColumnWidth(2, "20%");
+ 	table.setColumnWidth(3, "10%");
+ 	table.setColumnWidth(4, "10%");		
 	out.print(table.getHtml());
     }
 %>
