@@ -130,6 +130,7 @@ public class BasicAuthentication implements WebAuthentication {
             }
         }
         catch(Exception e) {
+            e.printStackTrace(System.err);
             throw new InvalidLogonException(e);
         }
         if( ! desiredUser.getPassword().equals(user.getPassword()) ) {
