@@ -342,11 +342,12 @@ public class PLLoadCoders extends TCLoad {
             query.append("       ,email ");                     // 20
             query.append("       ,last_login ");                // 21
             query.append("       ,coder_region_code ");         // 22
-            query.append("       ,password)");                  // 23
+            query.append("       ,password ");                  // 23
+            query.append("       ,terms ");                     //24
             query.append(" VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
-            query.append("?,?,?)");  // 23
+            query.append("?,?,?,?)");  // 23
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
@@ -374,7 +375,8 @@ public class PLLoadCoders extends TCLoad {
             query.append("       ,last_login = ? ");                // 20
             query.append("       ,coder_region_code = ? ");         // 21
             query.append("       ,password = ?");                   // 22
-            query.append("WHERE coder_id = ?");                     // 23
+            query.append("       ,terms = ?");                      // 23
+            query.append("WHERE coder_id = ?");                     // 24
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             // Our select statement to determine if a particular row is
@@ -422,7 +424,8 @@ public class PLLoadCoders extends TCLoad {
                     psUpd.setTimestamp(20, rs.getTimestamp(21));  // last_login
                     psUpd.setString(21, rs.getString(22));  // coder_region_code
                     psUpd.setString(22, ""); //clear the password, dw don't need it
-                    psUpd.setInt(23, coder_id);  // coder_id
+                    psUpd.setString(23, ""); //terms
+                    psUpd.setInt(24, coder_id);  // coder_id
 
                     // Now, execute the insert of the new row
                     retVal = psUpd.executeUpdate();
