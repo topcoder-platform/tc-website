@@ -12,6 +12,8 @@ import java.rmi.RemoteException;
  */
 public interface CoderHome extends EJBHome{
 
+     public static final String EJB_REF_NAME = "com.topcoder.web.hs.ejb.coder.CoderHome";
+
     /**
      *
      * @return Coder EJB Object
