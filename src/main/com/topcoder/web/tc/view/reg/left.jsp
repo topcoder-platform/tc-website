@@ -8,8 +8,8 @@
 
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <tr><td id="leftNavTitle" >Please Read:</td></tr>
-                <tr><td id="leftNav"><A href="/tc?module=Static&d1=about_tc&d2=terms" class="left">Terms, Revisions</A></td></tr>
-                <tr><td id="leftNav"><A href="/tc?module=Static&d1=about_tc&d2=privacy" class="left">Privacy Policy</A></td></tr>
+                <tr><td id="leftNav"><A href="/tc?module=Static&d1=about&d2=terms" class="left">Terms, Revisions</A></td></tr>
+                <tr><td id="leftNav"><A href="/tc?module=Static&d1=about&d2=privacy" class="left">Privacy Policy</A></td></tr>
             </table>
 
             <img alt="" width="180" height="23" src="/i/left_nav_btm.gif" border="0"/><br/><br/>

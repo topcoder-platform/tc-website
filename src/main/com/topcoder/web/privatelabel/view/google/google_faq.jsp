@@ -116,7 +116,7 @@ Shortly following the qualification period, the testing will be done.  As soon a
 <small> &copy;2003 Google -
 <a href="http://www.google.com/">Home</a> -
 <a href="http://www.google.com/about.html">All About Google</a> -
-<a href="/tc?module=Static&d1=about_tc&d2=index">About TopCoder</a> -
+<a href="/tc?module=Static&d1=about&d2=index">About TopCoder</a> -
 <a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>

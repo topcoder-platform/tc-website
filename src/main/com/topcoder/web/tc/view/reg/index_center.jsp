@@ -103,7 +103,7 @@ function checkInputs(){
                         sponsors to get their message across in an appealing and non-intrusive manner.  Because we take our relationship with sponsors seriously, we
                         believe that they have value to provide.  We ask that you listen to what they have to say.</p>
 
-                        <p>Please read the <A href="/tc?module=Static&d1=about_tc&d2=terms" class="statTextBig">Terms of Use</A> and <A href="/tc?module=Static&d1=about_tc&d2=privacy"class="statTextBig">Privacy Policy</A>, and let me be the first to say good luck in the arena.</p>
+                        <p>Please read the <A href="/tc?module=Static&d1=about&d2=terms" class="statTextBig">Terms of Use</A> and <A href="/tc?module=Static&d1=about&d2=privacy"class="statTextBig">Privacy Policy</A>, and let me be the first to say good luck in the arena.</p>
 
                         <p>Jack Hughes<br>
                         Founder and Chairman, TopCoder, Inc.</p>

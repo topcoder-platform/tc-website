@@ -6,11 +6,11 @@
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr><td width="100%" class="footer">
         <a href="/" class="footerLinks">Home</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about_tc&d2=index" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</a>&#160;&#160;|&#160;&#160;
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=news_events&c=index" class="footerLinks">Press Room</a>&#160;&#160;|&#160;&#160;
         <a href="http://<%=ApplicationServer.SERVER_NAME%>/?&t=contacts&c=index" class="footerLinks">Contact Us</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about_tc&d2=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
-        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about_tc&d2=terms" class="footerLinks">Terms</a></td></tr>
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=privacy" class="footerLinks">Privacy</a>&#160;&#160;|&#160;&#160;
+        <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=terms" class="footerLinks">Terms</a></td></tr>
 
 <!-- Member sites -->
     <tr><td width="100%" class="footer"><a href="/tc" class="footerLinks">Developer Center</a>&#160;&#160;|&#160;&#160;
