@@ -92,7 +92,8 @@
                                                         support engineers to examine and resolve these errors.
 
                                                         The IQM application project integrates several custom component projects that provide basic
-                                                        functionality with the Struts-based front-end.
+                                                        functionality with the Struts-based front-end: IQM Error Management, IQM BO Report Forwarder,
+                                                        IQM System Administration.
                                                     </p>
 
                                                     <p>
