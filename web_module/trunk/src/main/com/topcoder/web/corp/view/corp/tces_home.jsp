@@ -52,8 +52,8 @@
                         
                       <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=recruiting&d3=index">Recruiting</a></span><br>
                         We provide employers with innovative programs designed to attract, identify, and evaluate collegiate candidates and 
-                        experienced professionals for full time employment consideration.  With a member base in excess of 20,000&#151;including 
-                        more than 12,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including 
+                        experienced professionals for full time employment consideration.  With a member base in excess of 30,000&#151;including 
+                        more than 17,000 students from over 750 schools&#151;employers obtain objective measurement detail about candidates, including 
                         code samples and statistics, that is not found elsewhere.</p>
 
                         <p><span class="bodySubtitle"><a href="?module=Static&d1=corp&d2=testing&d3=index">Testing</a></span><br>
