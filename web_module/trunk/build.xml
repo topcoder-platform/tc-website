@@ -103,12 +103,12 @@
 
    <target name="moveStruts" depends="check_java_version">
       <copy todir="${public_html}/WEB-INF/lib">
-         <fileset dir="" >
-                 <include name="$struts.dir/*.jar" />
+         <fileset dir="${struts.dir}" >
+                 <include name="*.jar" />
          </fileset>
       </copy>
       <copy todir="${public_html}/WEB-INF">
-         <fileset dir="" >
+         <fileset dir="${struts.dir}" >
                  <include name="*.tld" />
          </fileset>
       </copy>
