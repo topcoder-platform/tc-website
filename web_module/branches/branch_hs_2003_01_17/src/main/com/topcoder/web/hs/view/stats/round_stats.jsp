@@ -68,7 +68,7 @@ pageContext.setAttribute("resultSetDates", rdlist);
 String currSchool = "";
 if(bSchool) {
   currSchool = resultRow_0==null?srb.getProperty("hs"):resultRow_0.getItem("school_id").toString();
-  ResultSetContainer hslist = (ResultSetContainer) queryEntries.get("Schools_List");
+  ResultSetContainer hslist = (ResultSetContainer) queryEntries.get("Round_Schools_Competed");
   pageContext.setAttribute("resultSetSchools", hslist);
 }
 %>
@@ -113,7 +113,7 @@ if(bSchool) {
                      <SELECT NAME="Contest" onchange="goTo(this)" CLASS="dropdown">
                        <OPTION value="#">Select school:</OPTION>
                        <logic:iterate name="resultSetSchools" id="resultRow" type="ResultSetContainer.ResultSetRow">
-                         <OPTION value="?module=Statistics&c=<%=sContentHandle%>&rd=<%=currRound%>&hs=<bean:write name="resultRow" property='<%= "item[" + 0 /* school_id */ + "]" %>'/>" <%= (resultRow.getItem(0).toString().equals(currSchool)) ? "SELECTED" : ""%> ><bean:write name="resultRow" property='<%= "item[" + 1 /* school full_name */ + "]" %>'/></OPTION>
+                         <OPTION value="?module=Statistics&c=<%=sContentHandle%>&rd=<%=currRound%>&hs=<bean:write name="resultRow" property='<%= "item[" + 0 /* school_id */ + "]" %>'/>" <%= (resultRow.getItem(0).toString().equals(currSchool)) ? "SELECTED" : ""%> ><%= resultRow.getItem("attended").toString().equals("0") ? "" : "* " %><bean:write name="resultRow" property='<%= "item[" + 1 /* school full_name */ + "]" %>'/></OPTION>
                        </logic:iterate>
                      </SELECT>
                      </FORM>
