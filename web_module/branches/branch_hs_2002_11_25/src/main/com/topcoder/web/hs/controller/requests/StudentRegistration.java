@@ -51,13 +51,13 @@ public class StudentRegistration extends Base {
 
   private final int MAX_LAST_NAME_LENGTH=64;
 
-  private final static String FIRST_NAME_TOO_LONG="The last name field must "+
-                                                  "be less than 64 characters "+
+  private final static String LAST_NAME_TOO_LONG="The last name field must be "+
+                                                  "less than 64 characters "+
                                                   "long";
 
   private final static String INVALID_STATE_CODE="Please select a state";
 
-  private final static String INVALID_SCHOOL_ID="
+  private final static String INVALID_SCHOOL_ID="Please select a school";
 
   private final static String HANDLE_NOT_EMPTY="Ensure that the handle field "+
                                                "is not empty";
@@ -67,7 +67,7 @@ public class StudentRegistration extends Base {
                                               "0123456789"+
                                               "-_.";
 
-  private final static String INVALID_HANLDE="The handle field must contain "+
+  private final static String INVALID_HANDLE="The handle field must contain "+
                                              "only alpha numeric symbols";
 
   private final static String PASSWORD_NOT_EMPTY="Ensure that the password "+
@@ -89,7 +89,7 @@ public class StudentRegistration extends Base {
   private final static String EMAIL_NO_MATCH="The email field does not match "+
                                              "the re-typed email";
 
-  private final static String MUST_AGREE_TERMS="You must agree to the terms "
+  private final static String MUST_AGREE_TERMS="You must agree to the terms "+
                                                "and conditions to register";
 
   protected void businessProcessing() throws Exception {
@@ -291,7 +291,7 @@ public class StudentRegistration extends Base {
 
     /* Check for valid state code
      */
-    if (!isValidListValue(_srb.getStateCode(),_srb,getStateList())) {
+    if (!isValidListValue(_srb.getStateCode(),_srb.getStateList())) {
       addErrorMessage(errors,"StateCode",INVALID_STATE_CODE);
       is_valid=false;
     }
@@ -315,7 +315,7 @@ public class StudentRegistration extends Base {
     }
     else {
       boolean valid_handle=true;
-      for (int i=0;i<handle.length;i++) {
+      for (int i=0;i<handle.length();i++) {
         if (HANDLE_ALPHABET.indexOf(handle.charAt(i))==-1) {
           valid_handle=false;
           break;
@@ -384,7 +384,7 @@ public class StudentRegistration extends Base {
   }
 
   private boolean isValidListValue(Object _value,List _list) {
-    if (_value==null||_value.length()==0) {
+    if (_value==null) {
       return(false);
     }
     for (Iterator iterator=_list.iterator();iterator.hasNext();) {
