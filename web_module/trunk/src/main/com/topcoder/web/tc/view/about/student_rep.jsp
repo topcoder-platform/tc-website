@@ -76,8 +76,8 @@
                                         <li>Include how many posters you want - they come in packages of 10.</li>
                                         <li>Include your mailing address in the e-mail.  This will be the address where the posters are sent.</li>         
                                     </ol>
-                       <p>There can only be one Rep at each school. We will be posting each Rep, their school name, and 
-                       the number of new members who have registed from their school on the website. Positions will be filled on a first come, first served basis, so act fast!</p>
+                       <p>There can only be one Rep at each school. <a href="/tc?module=TCCC05StudentReps">Click here</a> to view each Rep, their school name, and 
+                       the number of new members who have registed from their school. Positions will be filled on a first come, first served basis, so act fast!</p>
                 
                         
                         <img src="/i/clear.gif" alt="" width="175" height="1" border="0" />
