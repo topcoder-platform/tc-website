@@ -20,7 +20,6 @@ import com.topcoder.shared.security.SimpleUser;
 
 import java.util.Iterator;
 import java.util.Map;
-import java.util.List;
 
 /**
  *
@@ -37,7 +36,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
           so it should be good
         */
         commit(regInfo);
-        handleActivation();
+        handleActivation(regInfo);
         setNextPage();
         clearRegInfo();
     }
@@ -107,7 +106,7 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
      * default is do nothing, subclasses can implement something more interesting
      * @throws TCWebException
      */
-    protected void handleActivation() throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info) throws TCWebException {
 
     }
 
