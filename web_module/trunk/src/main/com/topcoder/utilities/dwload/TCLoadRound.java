@@ -1472,9 +1472,11 @@ public class TCLoadRound extends TCLoad {
         int retVal = 0;
         int count = 0;
         PreparedStatement psSel = null;
+        PreparedStatement psSel2 = null;
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
         ResultSet rs = null;
+        ResultSet rs2 = null;
         StringBuffer query = null;
 
         try {
@@ -1565,19 +1567,7 @@ public class TCLoadRound extends TCLoad {
             query.append("       ,rr.division_seed ");                       // 30
             query.append("       ,pt.payment_type_id");                      // 31
             query.append("       ,pt.payment_type_desc");                    // 32
-            query.append("       ,(select count(*)");                        // 33
-            query.append("           from room_result rr1");
-            query.append("              , round_segment rs1");
-            query.append("              , round_segment rs2");
-            query.append("          where rs1.round_id = rr1.round_id");
-            query.append("            and rs1.segment_id = 1");
-            query.append("            and rs2.round_id = rr.round_id");
-            query.append("            and rs2.segment_id = 1");
-            query.append("            and rs1.start_time < rs2.start_time");
-            query.append("            and rr1.rated_flag = 1");
-            query.append("            and rr.round_id = rs2.round_id");
-            query.append("            and rr1.coder_id = rr.coder_id) as num_ratings");
-            query.append("       ,rr.rated_flag");                           //34
+            query.append("       ,rr.rated_flag");                           //33
             query.append("  FROM room_result rr ");
             query.append("  JOIN room r ON rr.round_id = r.round_id ");
             query.append("   AND rr.room_id = r.room_id ");
@@ -1594,6 +1584,22 @@ public class TCLoadRound extends TCLoad {
             query.append("           AND gu.group_id IN (13,14))");
 
             psSel = prepareStatement(query.toString(), SOURCE_DB);
+
+            query = new StringBuffer(100);
+            query.append("select count(*) as count");
+            query.append(    " , rr1.coder_id");
+            query.append( " from room_result rr1");
+            query.append(    " , round_segment rs1");
+            query.append(    " , round_segment rs2");
+            query.append(" where rs1.round_id = rr1.round_id");
+            query.append(  " and rs1.segment_id = 1");
+            query.append(  " and rs2.round_id = ?");
+            query.append(  " and rs2.segment_id = 1");
+            query.append(  " and rs1.start_time < rs2.start_time");
+            query.append(  " and rr1.rated_flag = 1");
+            query.append(" group by rr1.coder_id");
+
+            psSel = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
             query.append("INSERT INTO room_result ");
@@ -1647,6 +1653,15 @@ public class TCLoadRound extends TCLoad {
             psSel.setInt(1, fRoundId);
             rs = psSel.executeQuery();
 
+            psSel2.setInt(1, fRoundId);
+            rs2 = psSel2.executeQuery();
+
+            HashMap ratingsMap = new HashMap();
+
+            while (rs2.next()) {
+                ratingsMap.put(new Long(rs2.getLong("coder_id")), new Integer(rs2.getInt("count")));
+            }
+
             while (rs.next()) {
                 int round_id = rs.getInt(1);
                 int room_id = rs.getInt(2);
@@ -1696,7 +1711,8 @@ public class TCLoadRound extends TCLoad {
                     psIns.setInt(31, rs.getInt("payment_type_id"));
                     psIns.setString(32, rs.getString("payment_type_desc"));
                 }
-                psIns.setInt(33, rs.getInt("rated_flag")==1?rs.getInt("num_ratings")+1:rs.getInt("num_ratings"));
+                int numRatings = ((Integer)ratingsMap.get(new Long(coder_id))).intValue();
+                psIns.setInt(33, rs.getInt("rated_flag")==1?numRatings+1:numRatings);
                 psIns.setInt(34, rs.getInt("rated_flag"));
 
                 retVal = psIns.executeUpdate();
@@ -1992,7 +2008,6 @@ public class TCLoadRound extends TCLoad {
         PreparedStatement psSel = null;
         PreparedStatement psIns = null;
         PreparedStatement psDel = null;
-        PreparedStatement psUpd = null;
         ResultSet rs = null;
         StringBuffer query = null;
 
@@ -2057,9 +2072,6 @@ public class TCLoadRound extends TCLoad {
             psDel.executeUpdate();
 
             while (rs.next()) {
-                int challenger_id = rs.getInt(7);
-                int defendant_id = rs.getInt(2);
-
                 psIns.clearParameters();
                 psIns.setInt(1, rs.getInt(1));  // challenge_id
                 psIns.setInt(2, rs.getInt(2));  // defendant_id
