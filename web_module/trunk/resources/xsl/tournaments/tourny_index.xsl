@@ -62,7 +62,11 @@
 						</TR>
 						<TR><TD COLSPAN="2"><BR/></TD></TR>
 						<TR>
-							<TD ALIGN="left" CLASS="statText" VALIGN="top"><A HREF="/index?t=tournaments&amp;c=tccc03_sched" CLASS="statTextBig">Date: April, 2003<BR/>Location: University Park Hotel @ MIT<BR/>Cambridge, MA<BR/>Total Purse: $100,000<BR/></A></TD>
+							<TD ALIGN="left" CLASS="statText" VALIGN="top">
+							    <A HREF="/index?t=tournaments&amp;c=tccc03_champ" CLASS="statTextBig">Date: April, 2003<BR/>
+							    Location: University Park Hotel @ MIT<BR/>
+							    Cambridge, MA<BR/>
+							    Total Purse: $100,000<BR/></A></TD>
 							<TD ALIGN="left" CLASS="statText" VALIGN="top">Date: November, 2003<BR/>Location: TBD<BR/><!-- Sponsor: TBD<BR/> -->Total Purse: TBD<BR/><!-- <A HREF="/index?t=tournaments&amp;c=invit02_sched" CLASS="statTextBig">Go to Summary</A> --></TD>
 						</TR>						
 						<TR><TD COLSPAN="2"><BR/></TD></TR>
