@@ -40,13 +40,13 @@
 
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <HTML>
   <HEAD>
     <TITLE>Round Tables</TITLE>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
     <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>
     <jsp:include page="../script.jsp" />
-    <%@ include file="rating.jsp" %>
 
   </HEAD>
   <BODY>
@@ -123,7 +123,7 @@
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                         <TD VALIGN="top" class="statText"><I><%=(forumDescription!=null)?forumDescription:"&nbsp;"%></I></TD>
                         <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                        <TD VALIGN="top" ALIGN="left" CLASS="statText"><%=dateFormatter.format(forum.getModifiedDate())+(handle==null?"":" by "+getUserDisplay(forum.getUser()))%></TD>
+                        <TD VALIGN="top" ALIGN="left" CLASS="statText"><%=dateFormatter.format(forum.getModifiedDate())+(handle==null?"":" by ")%><tc-webtag:handle coderId='<%=forum.getUser().getID()%>' context="algorithm"/></TD>
                       </TR>
     <TR>
       <TD COLSPAN="7"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
