@@ -2,8 +2,6 @@ package com.topcoder.web.ejb.company;
 
 import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.util.idgenerator.IdGenerator;
-import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
