@@ -2,19 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/global_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/public_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>Single Round Match (SRM) Schedule at TopCoder</TITLE>
-        <xsl:call-template name="CSS"/>      
+        <xsl:call-template name="CSS"/>
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
@@ -38,7 +38,7 @@
         <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="5" BORDER="0"/></TD>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins -->    
+<!-- Center Column Begins -->
         <TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
               <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
@@ -70,7 +70,7 @@
                                   </IMG>
                                 </xsl:otherwise>
                               </xsl:choose>
-  
+
                               <TR BGCOLOR="#CCCCCC">
                                 <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
                                 <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>
@@ -93,14 +93,14 @@
                               </TR>
                             </TD>
                           </TR>
-  
-                      
+
+
                       <xsl:if test="$roundId='4365'">
                         <TR><TD COLSPAN="3" ALIGN="center" class="bodyText">
                           <A HREF="/?&amp;t=schedule&amp;c=srm_spon_artifact">...More about Artifact</A>
                         </TD></TR>
                       </xsl:if>
-                      
+
                       <TR>
                         <TD COLSPAN="3" ALIGN="left" class="bodyText">
                             <center><BR/>All times are Eastern Time unless otherwise noted<BR/><BR/></center>
@@ -113,7 +113,7 @@
                                     <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                                         <tr>
                                         <td align="left" valign="middle">
-If you're a member of Intel Developer Services AND take part in Single Round Match 210, you'll be eligible for a chance to win one Intel&#174; Centrino&#153; mobile technology-based notebook!
+If you're a member of <a href="/?t=sponsor&c=link&link=http://www.intel.com/IDS&refer=srm_details" target="_blank">Intel Developer Services</a> AND take part in Single Round Match 210, you'll be eligible for a chance to win one Intel&#174; Centrino&#153; mobile technology-based notebook!
                                         </td>
                                     </tr>
                                         <tr valign="top">
@@ -223,13 +223,13 @@ If you're a member of Intel Developer Services AND take part in Single Round Mat
 
                         </TD>
                 </TR>
-                      
+
                 <TR>
                     <TD COLSPAN="3" ALIGN="center">
                         <table width="100%" cellspacing="0" cellpadding="3" border="0" bgcolor="#EEEEEE">
                             <tr valign="middle"><td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Getting started in the Competition Arena</font></td></tr>
-                            <tr> 
-                                <td class="bodyText"> 
+                            <tr>
+                                <td class="bodyText">
                                     <p style="padding: 3px">Load the Competition Arena as an <A class="bodyText" href="Javascript:arena()">Applet</A><br/>
                                     Load the Competition Arena as a <A class="bodyText" href="/contest/arena/ContestAppletProd.jnlp">Java Web Start Application</A><br/>
                                     Don't have JWS? <A class="bodyText" href="http://java.sun.com/products/javawebstart/index.html" target="_blank">Download</A> it on java.sun.com<br/>
@@ -280,11 +280,11 @@ If you're a member of Intel Developer Services AND take part in Single Round Mat
                       <LI>All US* Citizens</LI>
                       <LI>All Lawful Permanent Residents of the US (i.e., Green Card Holders)</LI>
                       <LI>All Citizens and Legal Permanent Residents of Canada, excluding Quebec</LI>
-                      <LI>All Citizens and Legal Permanent Residents of China</LI>                      
+                      <LI>All Citizens and Legal Permanent Residents of China</LI>
                       <LI>All Citizens and Legal Permanent Residents of Australia</LI>
                       <LI>All Citizens and Legal Permanent Residents of India</LI>
                       <LI>All Citizens and Legal Permanent Residents of Ireland</LI>
-                      <LI>All Citizens and Legal Permanent Residents of New Zealand</LI>                      
+                      <LI>All Citizens and Legal Permanent Residents of New Zealand</LI>
                       <LI>All Citizens and Legal Permanent Residents of the United Kingdom</LI>
                       <LI>All non-immigrants** currently residing in the US with a valid Visa</LI></UL>
                       *(including the US Territories of Guam, Puerto Rico and the US Virgin Islands)<BR/>
@@ -317,9 +317,9 @@ If you're a member of Intel Developer Services AND take part in Single Round Mat
               </xsl:choose>
 
                         </TABLE>
-            
+
                         <P><BR/></P>
-                        
+
                     </TD>
                 </TR>
             </TABLE>
@@ -332,7 +332,7 @@ If you're a member of Intel Developer Services AND take part in Single Round Mat
 
 <!-- Right Column Begins -->
         <TD WIDTH="170"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-            <xsl:call-template name="public_right_col"/>       
+            <xsl:call-template name="public_right_col"/>
         </TD>
 <!-- Right Column Ends -->
 
