@@ -13,7 +13,7 @@
         <td nowrap="0">
             <xsl:attribute name="class">
             <xsl:choose>
-                <xsl:when test="/TC/Task='home'">topNavOn</xsl:when>
+                <xsl:when test="/TC/Task!='tces'and/TC/Task!='development'">topNavOn</xsl:when>
                 <xsl:otherwise>topNav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
