@@ -11,8 +11,6 @@
 
 <%
    boolean isHomePage = "true".equals(request.getParameter("isHomePage"));
-   boolean isTCESPage = "true".equals(request.getParameter("isTCESPage"));
-   boolean isSponsorPage = "true".equals(request.getParameter("isSponsorPage"));
 %>
 
 <a name="top"></a>
@@ -56,43 +54,5 @@
 <!-- Header ends -->
 
 <!-- Main Navigation bar begins -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr valign="middle">
-        <td class="topNav" width="49%">&#160;</td>
-
-<!-- Do not use until new topcoder.com home page launches
-<% if (isHomePage) { %>
-        <td class="topNavOn" nowrap>Home</td>
-<% } else { %>
-        <td class="topNav" nowrap><a href="/" class="topLink">Home</a></td>
-<%  } %>
- -->
-
-<!-- Member sites -->
-        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>" class="topLink">Competition</a></td>
-        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=development&c=index" class="topLink">Development</a></td>
-        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SERVER_NAME%>/?t=tces&c=index" class="topLink">Job Listing</a></td>
-
-<!-- Corporate sites -->
-        <td class="topNav" nowrap><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>" class="topLink">Software</a></td>
-
-<% if (isTCESPage) { %>
-        <td class="topNavOn" nowrap><a href="/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
-<% } else { %>
-        <td class="topNav" nowrap><a href="/?module=Static&d1=corp&d2=tces_home" class="topLink">Employment Services</a></td>
-<%  } %>
-
-<% if (isSponsorPage) { %>
-        <td class="topNavOn" nowrap><a href="/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</a></td>
-<% } else { %>
-        <td class="topNav" nowrap><a href="/?module=Static&d1=corp&d2=spon_prog&d3=index" class="topLink">Sponsorship</a></td>
-<%  } %>
-
-        <td class="topNav" width="49%">&#160;</td> 
-    </tr>
-</table>
-
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-	<tr><td width="100%" height="2" class="nonBreadcrumb"><img src="/i/corp/clear.gif" alt="" width="10" height="2" alt="" border="0"></td></tr>
-</table>
+<jsp:include page="../menu.jsp"/>
 <!-- Main Navigation bar ends -->
