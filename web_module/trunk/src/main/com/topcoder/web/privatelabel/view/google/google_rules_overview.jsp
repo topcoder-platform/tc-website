@@ -87,7 +87,7 @@ function openWin(url, name, w, h) {
 The Google&#153; Code Jam 2003 is being offered by Google Inc. ("Google") and TopCoder, Inc. ("TopCoder").  Google is using the results of the Code Jam 2003 to identify possible candidates for employment.  Google Code Jam 2003 will take place between Wednesday, October 1 and Friday, November 14, 2003.  It begins with a 2-week online registration, after which all registered individuals will participate in a Qualification Round to determine who will compete in the programming tournament.  The tournament consists of three (3) days of qualification, two (2) online elimination rounds and one (1) onsite final round.  All participants who compete in Round 1 (the first online elimination round) will receive a Google Code Jam 2003 t-shirt.  In addition, Google will award a total of  $25,000 in cash prizes to the 25 finalists in the tournament.
 <br><br>
 <strong>Eligibility</strong><br>
-All citizens and lawful permanent residents of the following countries (and all non-immigrants currently residing in the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate affidavit and tax form:
+All individuals who are 18 years of age or older are eligible to register and compete in the Google Code Jam 2003.  All citizens and lawful permanent residents of the following countries (and all non-immigrants currently residing in the United States with a valid Visa) are eligible to win cash prizes after completing the appropriate affidavit and tax form:
 <ul>
 <li>	Australia 
 <li>	Canada (excluding Quebec) 
