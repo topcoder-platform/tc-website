@@ -17,7 +17,7 @@
   <jsp:include page="top.jsp" />
 
   <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></TR>
+    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
       <td width="170" bgcolor="#000000" valign="top">
         <jsp:include page="left.jsp" flush="true">
@@ -28,19 +28,19 @@
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top">
         <table width="60%" border="0" cellpadding="0" cellspacing="0">
-          <tr><td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td></TR>
+          <tr><td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td></tr>
           <tr>
             <td class="statText" ALIGN="right">DB:&#160;</td>
             <td class="statText" ALIGN="left">
               <jsp:getProperty name="QueryList" property="Db"/>
             </td>
-          </TR>
-          <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+          </tr>
+          <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
           <tr bgcolor="#333333">
             <td></td>
             <td class="statTextBig">Query Name</td>
-          </TR>
-          <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+          </tr>
+          <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
           <query:resultSetRowIterator id="query" list="<%=QueryList.getQueryList()%>">
             <tr>
               <td class="statText" ALIGN="right">
@@ -54,7 +54,7 @@
                   <query:resultSetItem row="<%=query%>" name="name"/>
                 </A>
               </td>
-            </TR>
+            </tr>
           </query:resultSetRowIterator>
         </table>
       </td>
@@ -62,7 +62,7 @@
       <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
       </td>
       <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
-    </TR>
+    </tr>
   </table>
   <jsp:include page="bottom.jsp" />
   </BODY>

@@ -17,7 +17,7 @@
   <jsp:include page="top.jsp" />
 
   <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></TR>
+    <tr><td colspan="6"><img src="/i/clear.gif" width="4" height="16"></td></tr>
     <tr>
       <td width="170" bgcolor="#000000" valign="top">
         <jsp:include page="left.jsp" flush="true">
@@ -32,31 +32,31 @@
             <INPUT TYPE="hidden" NAME="<%=Constants.GROUP_ID_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="GroupId"/>">
             <INPUT TYPE="hidden" NAME="<%=Constants.STEP_PARAM%>" VALUE="<%=Constants.SAVE_STEP%>">
             <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyGroup" property="Db"/>">
-            <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_GROUP_NAME%></td></TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            <tr><td class="statTextBig" colspan="2"><%=Constants.MODIFY_GROUP_NAME%></td></tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
               <td class="statText" ALIGN="right">DB:&#160;</td>
               <td class="statText" ALIGN="left">
                   <jsp:getProperty name="ModifyGroup" property="Db"/>
               </td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_ID_PARAM%>"/></td></TR>
-            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_DESC_PARAM%>"/></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_ID_PARAM%>"/></td></tr>
+            <tr><td class="errorText" colspan="2"><query:error task="<%=ModifyGroup%>" key="<%=Constants.GROUP_DESC_PARAM%>"/></td></tr>
             <tr>
               <td class="statText" ALIGN="right" width="50%">Name: </td>
               <td class="statText" ALIGN="left" width="50%">
                 <input type="text" name="<%=Constants.GROUP_DESC_PARAM%>" value ="<jsp:getProperty name="ModifyGroup" property="GroupDesc" />" size="30" maxlength="100">
               </td>
-            </TR>
-            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+            </tr>
+            <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></tr>
             <tr>
               <td class="statText" ALIGN="center" colspan="2">
                 <A href="javascript:void document.ModGroupForm.submit()" class="statText">
                   [save]
                 </A>
               </td>
-            </TR>
+            </tr>
           <FORM>
         </table>
       </td>
@@ -64,7 +64,7 @@
       <td width="10" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"><BR>
       </td>
       <td width="25" bgcolor="#000000"><img src="/i/clear.gif" width="25" height="1" border="0"></td>
-    </TR>
+    </tr>
   </table>
   <jsp:include page="bottom.jsp" />
   </BODY>
