@@ -2,7 +2,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
     <xsl:import href="../includes/modules/calendar.xsl"/>
     <xsl:import href="../includes/modules/simple_search.xsl"/>
-    <xsl:import href="../includes/modules/corp_nav.xsl"/>
     <xsl:import href="../includes/modules/my_stats.xsl"/>
     <xsl:import href="../includes/modules/countries2.xsl"/>
     <xsl:import href="../includes/modules/srm_dates.xsl"/>
