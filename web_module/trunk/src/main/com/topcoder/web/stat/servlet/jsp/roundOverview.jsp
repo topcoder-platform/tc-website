@@ -61,7 +61,10 @@
     ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
     ResultSetContainer.ResultSetRow currentRow = null;
-    int topN = Integer.parseInt(srb.getProperty("er","5"));
+    int topN = 5;
+    try{
+    	topN = Integer.parseInt(srb.getProperty("er","5"));
+    }catch(Exception e){}
     boolean lastMatch = request.getParameter("rd") == null;
 //    if(!lastMatch)lastMatch = request.getAttribute("rd").toString().length()==0;
     if(topN<0||topN>100)topN = 5;
