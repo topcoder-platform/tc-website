@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+
+<html>
+  <head>
+    <title></title>
+  </head>
+  <body>
+        Debug boxes:
+        <form name=frmTesting>
+        <!-- this will be dynamically written out by the backend for this page -->
+        <input type=text name=arg0 value="" />
+        <input type=text name=arg1 value="" />
+        
+        <script language="javascript">
+            //written to page by backend
+            var numArgs = 2;
+            var arg0type = "String[]";
+            var arg1type = "int";
+            
+            var arg0displayType = "vector<string>";
+            var arg1displayType = "int";
+            
+            //arg types are expected to be in java, arg display types can be anything
+            
+            //startup, load variables from the parent
+            for(var i = 0; i < numArgs; i++) {
+                putValue("document.frmTesting", "arg" + i, getValue("parent.document.forms[0]", "arg" + i));
+            }
+            
+            function putValue(root, name, newValue) {
+                if(eval(root + ".getElementById")) {
+                    eval(root + ".getElementById('" + name + "').value = newValue;");
+                } else if(eval(root + ".all")) {
+                    eval(root + ".all." + name + ".value = newValue;");
+                } else {
+                    
+                }
+            }
+            
+            function getValue(root, name) {
+                if(eval(root + ".getElementById")) {
+                    return eval(root + ".getElementById('" + name + "').value;");
+                } else if(eval(root + ".all")) {
+                    return eval(root + ".all." + name + ".value;");
+                } else {
+                    return "";
+                }
+            }
+        </script>
+        </form>
+  </body>
+</html>
