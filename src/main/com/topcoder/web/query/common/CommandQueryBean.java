@@ -1,6 +1,8 @@
 package com.topcoder.web.query.common;
 
-public class CommandQueryBean {
+import java.io.Serializable;
+
+public class CommandQueryBean implements Serializable {
 
     private long commandId;
     private long queryId;
