@@ -31,12 +31,6 @@
                 </TR>             
               </xsl:for-each>                     
               <TR> 
-                <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3" ALIGN="right"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/>
-                  <IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/>
-                  <A HREF="/stat?&amp;c=school_avg_rating" CLASS="statText">all ranked schools</A>&#160;&#160; 
-                </TD>
-              </TR>              
-              <TR> 
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
               </TR>              
           </TABLE>
