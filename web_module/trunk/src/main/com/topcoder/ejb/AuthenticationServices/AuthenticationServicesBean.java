@@ -1,81 +1,23 @@
 package com.topcoder.ejb.AuthenticationServices;
 
+
 import javax.ejb.*;
 import java.io.Serializable;
 import java.util.*;
 import java.rmi.RemoteException;
 import java.sql.*;
 
+
+/////////////////////////////////////////////////////////
 public class AuthenticationServicesBean extends BaseEJB {
+/////////////////////////////////////////////////////////
+
 
   private static final boolean VERBOSE = false;
 
   private static String DS = null;
   private static Integer STAFF_GROUP_ID = null;
   private static Integer STAFF_ACCESS_LEVEL = null;
-
-  
-  ///////////////////////////////////////////////////////////////////////////////
-  private String getDS () { 
-  ///////////////////////////////////////////////////////////////////////////////
-    if ( DS == null ) {
-      javax.naming.Context ctx = null;
-      try {
-        ctx = new javax.naming.InitialContext();
-        javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
-        synchronized (this) {
-          DS = (java.lang.String) env.lookup ( "DS" );
-        }
-      } catch ( Exception e ) {
-        e.printStackTrace();
-      } finally {
-        if ( ctx != null ) { try { ctx.close(); } catch ( Exception ignore ) {} }
-      }
-    }
-    return DS;
-  } 
-
-
-  ///////////////////////////////////////////////////////////////////////////////
-  private Integer getStaffGroupId () {
-  ///////////////////////////////////////////////////////////////////////////////
-    if ( STAFF_GROUP_ID == null ) {
-      javax.naming.Context ctx = null;
-      try {
-        ctx = new javax.naming.InitialContext();
-        javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
-        synchronized (this) {
-          STAFF_GROUP_ID = (java.lang.Integer) env.lookup ( "STAFF_GROUP_ID" );
-        }
-      } catch ( Exception e ) {
-        e.printStackTrace();
-      } finally {
-        if ( ctx != null ) { try { ctx.close(); } catch ( Exception ignore ) {} }
-      }
-    }
-    return STAFF_GROUP_ID;
-  }
-
-
-  ///////////////////////////////////////////////////////////////////////////////
-  private Integer getStaffAccessLevel () {
-  ///////////////////////////////////////////////////////////////////////////////
-    if ( STAFF_ACCESS_LEVEL == null ) {
-      javax.naming.Context ctx = null;
-      try {
-        ctx = new javax.naming.InitialContext();
-        javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
-        synchronized (this) {
-          STAFF_ACCESS_LEVEL = (java.lang.Integer) env.lookup ( "STAFF_ACCESS_LEVEL" );
-        }
-      } catch ( Exception e ) {
-        e.printStackTrace();
-      } finally {
-        if ( ctx != null ) { try { ctx.close(); } catch ( Exception ignore ) {} }
-      }
-    }
-    return STAFF_ACCESS_LEVEL;
-  }
 
 
 //****************************************************************************************
@@ -220,7 +162,7 @@ public class AuthenticationServicesBean extends BaseEJB {
   * Returns the authentication object for a given handle and password.
   * @param handle the user's name.
   * @param password the user's password.
-  * @return a com.topcoder.common.web.data.Authentication object.
+  * @return an Authentication object.
   */
   ///////////////////////////////////////////////////////////////////////////////
   public Authentication authenticate ( String handle, String password ) 
@@ -276,7 +218,7 @@ public class AuthenticationServicesBean extends BaseEJB {
  /**
   * Returns the activation code for a valid coder_id. 
   * @param coderId the user's id.
-  * @return a com.topcoder.common.web.data.Authentication object representing the coder's credentials
+  * @return an Authentication object representing the coder's credentials
   */
   /////////////////////////////////////////////////////////////////////////
   public Authentication getActivation ( int coderId ) 
@@ -333,6 +275,7 @@ public class AuthenticationServicesBean extends BaseEJB {
 
  /**
   * Returns a user's credentials for a valid firstName, lastName, and email.
+  * (used to create an email for a forgotten password)
   * @param firstName the user's first name.
   * @param lastName the user's last name.
   * @param email the user's email address.
@@ -521,10 +464,10 @@ public class AuthenticationServicesBean extends BaseEJB {
   * @param the permission assignee (usually a user).
   * @return the highest permission granted for the given sector/assignee combo.
   */
-  ///////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
   public Permission getSectorPermission ( Sector sector, PermissionAssignee assignee ) 
     throws RemoteException {
-  ///////////////////////////////////////////////////////////////
+  ////////////////////////////////////////////////////////////////////////////////////
     Permission result = new Permission();
     result.setSector ( sector );
     result.setSId ( assignee.getSId() );
@@ -580,6 +523,11 @@ public class AuthenticationServicesBean extends BaseEJB {
   }
 
 
+ /**
+  * Loads a User object from the DB for the given user id.
+  * @param a valid user id.
+  * @return a populated user object.
+  */
   ///////////////////////////////////////////////////////////////
   public User loadUser ( int userId ) throws RemoteException {
   ///////////////////////////////////////////////////////////////
@@ -654,9 +602,12 @@ public class AuthenticationServicesBean extends BaseEJB {
   }
 
 
-//
-// PRIVATE METHODS
-//
+
+
+
+//****************************************************************************************
+//                                 Private Members
+//****************************************************************************************
 
 
   /////////////////////////////////////////////////////////////////
@@ -877,6 +828,70 @@ public class AuthenticationServicesBean extends BaseEJB {
     }
     return result;
   }
+
+
+  ///////////////////////////////////////////////////////////////////////////////
+  private String getDS () {
+  ///////////////////////////////////////////////////////////////////////////////
+    if ( DS == null ) {
+      javax.naming.Context ctx = null;
+      try {
+        ctx = new javax.naming.InitialContext();
+        javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
+        synchronized (this) {
+          DS = (java.lang.String) env.lookup ( "DS" );
+        }
+      } catch ( Exception e ) {
+        e.printStackTrace();
+      } finally {
+        if ( ctx != null ) { try { ctx.close(); } catch ( Exception ignore ) {} }
+      }
+    }
+    return DS;
+  }
+
+
+  ///////////////////////////////////////////////////////////////////////////////
+  private Integer getStaffGroupId () {
+  ///////////////////////////////////////////////////////////////////////////////
+    if ( STAFF_GROUP_ID == null ) {
+      javax.naming.Context ctx = null;
+      try {
+        ctx = new javax.naming.InitialContext();
+        javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
+        synchronized (this) {
+          STAFF_GROUP_ID = (java.lang.Integer) env.lookup ( "STAFF_GROUP_ID" );
+        }
+      } catch ( Exception e ) {
+        e.printStackTrace();
+      } finally {
+        if ( ctx != null ) { try { ctx.close(); } catch ( Exception ignore ) {} }
+      }
+    }
+    return STAFF_GROUP_ID;
+  }
+
+
+  ///////////////////////////////////////////////////////////////////////////////
+  private Integer getStaffAccessLevel () {
+  ///////////////////////////////////////////////////////////////////////////////
+    if ( STAFF_ACCESS_LEVEL == null ) {
+      javax.naming.Context ctx = null;
+      try {
+        ctx = new javax.naming.InitialContext();
+        javax.naming.Context env = (javax.naming.Context) ctx.lookup ( "java:comp/env" );
+        synchronized (this) {
+          STAFF_ACCESS_LEVEL = (java.lang.Integer) env.lookup ( "STAFF_ACCESS_LEVEL" );
+        }
+      } catch ( Exception e ) {
+        e.printStackTrace();
+      } finally {
+        if ( ctx != null ) { try { ctx.close(); } catch ( Exception ignore ) {} }
+      }
+    }
+    return STAFF_ACCESS_LEVEL;
+  }
+
 
 
 }
