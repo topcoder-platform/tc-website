@@ -14,6 +14,9 @@ import java.util.Iterator;
 
 public class Results extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
+        //we're assuming that the survey had some questions associated with
+        //it originally, and the got pruned because they were all free
+        //form questions
         if (questionInfo.isEmpty()) {
             setNextPage(Constants.SURVEY_THANKS);
             setIsNextPageInContext(true);
