@@ -20,7 +20,7 @@ import com.topcoder.common.web.render.ProblemRenderer;
 
 public class ProblemStatementTag extends TagSupport {
 
-    private Color textColor = Color.BLACK;
+    private Color textColor = Color.black;
     private String text;
     private Language language;
 
