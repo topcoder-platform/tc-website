@@ -21,8 +21,8 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 
+import java.util.Enumeration;
 import com.topcoder.shared.security.ClassResource;
-
 import com.topcoder.web.tc.model.ContractingInfo;
 /**
  *
@@ -69,11 +69,44 @@ abstract public class ContractingBase extends BaseProcessor {
        return dAccess;
     }
     
-    protected abstract void setDefaults(ContractingInfo info);
+    protected void setDefaults(ContractingInfo info) {
+        
+        
+    };
     
     protected abstract void setNextPage();
     
-    protected abstract ContractingInfo updateContractingInfo(ContractingInfo info);
+    protected ContractingInfo updateContractingInfo(ContractingInfo info) {
+        if(getRequestParamater("dataToLoad") != null && getRequestParamater("dataToLoad").equals("preferences")) {
+            log.debug("LOADING DATA FROM REQUEST");
+            info.clearPreferences();
+            
+            //get list of preferences 
+            Enumeration en = getRequest().getParameterNames();
+            while(en.hasMoreElements()) {
+                String param = (String)en.nextElement();
+                if(param.startsWith(Constants.PREFERENCE_PREFIX)) {
+                    //get id from end of string
+                    String prefId = param.substring(Constants.PREFERENCE_PREFIX.length());
+                        
+                    String val = getRequestParamater(param);
+                    
+                    info.setPreference(prefId, val);
+                    log.debug("SET PREFERENCE " + prefId + " TO " + val);
+                }
+            }
+        }
+        
+        return info;
+    }
+    
+    public String getRequestParamater(String param) {
+        return getRequest().getParameter(param);
+    }
+    
+    public boolean hasRequestParameter(String param) {
+        return getRequest().getParameter(param) != null;
+    }
     
     protected abstract void contractingProcessing() throws TCWebException;
 
