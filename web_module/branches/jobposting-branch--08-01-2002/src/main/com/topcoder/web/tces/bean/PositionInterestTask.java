@@ -181,7 +181,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
             hit.put("school",
                     hitListRow.getItem("school_name").toString() );
             hit.put("hit_date",
-                    dateToString( (TCTimestampResult)hitListRow.getItem("timestamp").getResultData() ));
+                    getDate(hitListRow, "timestamp"));
 
             hitList.add(hit);
         }
