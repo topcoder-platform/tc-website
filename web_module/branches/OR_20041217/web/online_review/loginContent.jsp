@@ -40,7 +40,7 @@
                         <p><strong>Forgot your password?</strong><br/>
                         If you cannot remember your password <a href="http://www.topcoder.com/tc?&module=PasswordEmail">click here</a> and we can send it to you via email.</p>
 
-                        <p><strong>New to TopCoder? PROBANDO!!! delete this!</strong><br/>
+                        <p><strong>New to TopCoder?</strong><br/>
                         <a href="https://www.topcoder.com/reg/index.jsp">Register now.</a> After you complete the registration process, we will send your account activation code via email.</p>
                     </td>
                 </tr>
