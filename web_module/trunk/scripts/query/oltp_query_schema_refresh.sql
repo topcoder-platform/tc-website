@@ -24,6 +24,7 @@ INSERT INTO command VALUES(44,'pro_referral_graph',2);
 INSERT INTO command VALUES(45,'profile_list',4);
 INSERT INTO command VALUES(46,'profile_list_menu',4);
 INSERT INTO command (command_id, command_desc, command_group_id) VALUES ( 47, 'Top Input Rated', 1 );
+INSERT INTO command VALUES(48,'profile_detail',4);
 
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
@@ -56,10 +57,13 @@ INSERT INTO command_query_xref VALUES(44,66,1);
 INSERT INTO command_query_xref VALUES(45,67,1);
 INSERT INTO command_query_xref VALUES(45,68,2);
 INSERT INTO command_query_xref VALUES(45,69,3);
+INSERT INTO command_query_xref VALUES(45,72,4);
 INSERT INTO command_query_xref VALUES(46,67,1);
 INSERT INTO command_query_xref VALUES(46,68,2);
 INSERT INTO command_query_xref VALUES(46,69,3);
+INSERT INTO command_query_xref VALUES(46,72,4);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES ( 47, 70, 1 );
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES ( 48, 71, 1 );
 
 
 INSERT INTO input_lu VALUES(3,"cr",1001,"Coder ID");
@@ -90,6 +94,7 @@ INSERT INTO input_lu VALUES(36,"cts",1005,"coder types");
 INSERT INTO input_lu VALUES(37,"fn",1005,"first name");
 INSERT INTO input_lu VALUES(38,"ln",1005,"last name");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES ( 39, 'top', 1001, 'No of Top Rated Coders' );
+INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES ( 40, 'ais', 1001, 'answer id' );
 
 
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(50,"N",null,18,1);
@@ -119,4 +124,6 @@ INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(69,'Y',"2147483647",33,10);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(69,'Y',"%",37,11);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(69,'Y',"%",38,12);
-INSERT INTO query_input_xref (query_id, optional, input_id, sort_order) VALUES (70,'N',39,1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(69,'N',"12,13,14",40,13);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(70,'N',null,39,1);
+INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(71,'N',null,3,1);
