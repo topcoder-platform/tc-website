@@ -86,8 +86,6 @@
                 the project, you are agreeing to the requirements and committing to perform the work outlined in
                 the requirement specifications.
             </p>
-            <p cass="bodyText" align="right"><A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tccc04&amp;d3=comp_des_rd1">View</A> TCCC04 Design project submitters!</p>
-
 
 <!-- Open Component Design Projects begins -->
 
