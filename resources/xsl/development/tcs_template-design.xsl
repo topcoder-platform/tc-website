@@ -65,7 +65,7 @@
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						<<<overview>>>
+						<<<OVERVIEW>>>
 						</p>
 
 <!-- Project Type -->
