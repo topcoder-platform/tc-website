@@ -14,8 +14,14 @@ import java.util.Iterator;
 
 public class Results extends SurveyData {
     protected void surveyProcessing() throws TCWebException {
-        setNextPage(Constants.SURVEY_RESULTS);
-        setIsNextPageInContext(true);
+        if (isTournamentSurvey()) {
+            setNextPage(Constants.SURVEY_THANKS);
+            setIsNextPageInContext(true);
+        } else {
+            setNextPage(Constants.SURVEY_RESULTS);
+            setIsNextPageInContext(true);
+
+        }
     }
 
     protected List makeAnswerInfo(long questionId) throws Exception {
@@ -46,6 +52,17 @@ public class Results extends SurveyData {
         }
         return questionList;
     }
+
+    protected final boolean isTournamentSurvey() {
+        Question q = null;
+        boolean found = false;
+        for (Iterator it = questionInfo.iterator(); it.hasNext()&&!found;) {
+            q = (Question) it.next();
+            found |= q.getTypeId() == Constants.TOURNAMENT_SURVEY_QUESTION;
+        }
+        return found;
+    }
+
 
 
 }
