@@ -1,6 +1,9 @@
 package com.topcoder.shared.docGen.xml.xsl;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.distCache.CacheClientPool;
+
+import java.rmi.RemoteException;
 
 /**
  * XSLTransformerCache.java
@@ -14,14 +17,16 @@ import com.topcoder.shared.util.logging.Logger;
 
 public class XSLTransformerCache {
 
-    private static java.util.HashMap cache = null;
+//    private static java.util.HashMap cache = null;
+    private static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 6;  //cache em for 6 hours
+    public static final String CACHE_PREFIX = "xsl_file:";
     private static XSLTransformerCache xslTransformerCache = null;
     private static Logger log = Logger.getLogger(XSLTransformerCache.class);
 
 
     /* Singleton -- the constructor is private, must use getInstance. */
     private XSLTransformerCache() {
-        cache = new java.util.HashMap(50);
+//        cache = new java.util.HashMap(50);
     }
 
 
@@ -42,27 +47,26 @@ public class XSLTransformerCache {
      * this is not strictly necessary, but we would need another method taking both a key and
      * a template stream.
      *
-     * @param cacheKey the unique identifier for the XSLTransformerWrapper possibly in the cache.
+     * @param fileName the unique identifier for the XSLTransformerWrapper possibly in the cache.
      *
      * @return a XSLTransformerWrapper identified by the cacheKey.
      *
      * @throws Exception
      */
-    public XSLTransformerWrapper getXSLTransformerWrapper(String cacheKey)
+    public XSLTransformerWrapper getXSLTransformerWrapper(String fileName)
             throws Exception {
-        log.debug("XSLTransformerCache.getXSLTransformerWrapper for " + cacheKey);
+        log.debug("XSLTransformerCache.getXSLTransformerWrapper for " + fileName);
         XSLTransformerWrapper result = null;
         try {
-            if (cacheKey == null) throw new Exception("The cacheKey can not be null.");
-            if (cache.containsKey(cacheKey)) {
-                result = (XSLTransformerWrapper) cache.get(cacheKey);
-            } else {
-                java.io.File file = new java.io.File(cacheKey);
-                if (!file.exists()) throw new Exception("Unable to find file " + cacheKey + ".");
+            if (fileName == null) throw new Exception("The fileName can not be null.");
+            result = (XSLTransformerWrapper) CacheClientPool.getPool().getClient().get(CACHE_PREFIX+fileName);
+            if (result==null) {
+                java.io.File file = new java.io.File(fileName);
+                if (!file.exists()) throw new Exception("Unable to find file " + fileName + ".");
                 result = new XSLTransformerWrapper(file);
-                log.debug("adding " + cacheKey + " to cache.");
-                cache.put(cacheKey, result);
-                log.debug("cache size is now: " + cache.size());
+                log.debug("adding " + fileName + " to cache.");
+                CacheClientPool.getPool().getClient().set(CACHE_PREFIX+fileName, result, DEFAULT_EXPIRE_TIME);
+                log.debug("cache size is now: " + CacheClientPool.getPool().getClient().size());
             }
         } catch (Exception e) {
             throw  e;
@@ -76,26 +80,33 @@ public class XSLTransformerCache {
      *
      * @return true of the cache is empty.
      */
+/*
     public boolean isEmpty() {
         return cache.isEmpty();
     }
-
+*/
     /**
      * Remove the XSLTransformerWrapper instance from the cache indicated by the cacheKey.
      *
      * @param cacheKey the unique identifier for the XSLTransformerWrapper in the cache.
      */
-    public synchronized void remove(String cacheKey) {
-        cache.remove(cacheKey);
+/*
+    public synchronized void remove(String fileName) {
+        cache.remove(CACHE_PREFIX+fileName);
     }
+*/
 
     /**
      * Remove all XSLTransformerWrapper instances from the cache.
      */
-    public synchronized void clear() {
-        long size = cache.size();
-        cache.clear();
-        log.info("XSL cache cleared.  " + size + " --> " + cache.size());
+    public void clear() throws Exception {
+        try {
+            long size = CacheClientPool.getPool().getClient().size();
+            CacheClientPool.getPool().getClient().clearCache();
+            log.info("XSL cache cleared.  " + size + " --> " + CacheClientPool.getPool().getClient().size());
+        } catch (RemoteException e) {
+            throw new Exception(""+e);
+        }
     }
 
     /**
@@ -105,8 +116,15 @@ public class XSLTransformerCache {
      *
      */
     public int size() {
-        return cache.size();
+        int size = 0;
+        try {
+            size = CacheClientPool.getPool().getClient().size();
+        } catch (RemoteException e) {
+            e.printStackTrace();
+        }
+        return size;
     }
+
 
 
 }
