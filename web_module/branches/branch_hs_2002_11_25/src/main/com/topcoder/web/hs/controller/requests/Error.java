@@ -5,7 +5,6 @@ package com.topcoder.web.hs.controller.requests;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
-import java.util.*;
 
 /**
  * A RequestProcessor which handles an exception which occured during a previous attempt at dispatching a request.
@@ -32,7 +31,7 @@ public class Error extends Base {
         request.setAttribute("error_name", en);
         request.setAttribute("error_cause", et);
 
-        setNextPage("/hs"+"/home/error.jsp");  //@@@ remove prefix... make relative to controller servlet
+        setNextPage("/home/error.jsp");  //@@@ name this
         setIsNextPageInContext(true);
     }
 }

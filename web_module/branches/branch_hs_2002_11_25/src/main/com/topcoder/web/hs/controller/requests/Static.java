@@ -2,8 +2,6 @@ package com.topcoder.web.hs.controller.requests;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.io.*;
-import java.util.*;
 
 /**
  * A RequestProcessor which builds a path to a static page out of a numbered series of parameters.
@@ -25,12 +23,12 @@ public class Static extends Base {
 
         /* default path if not logged in */
         if(path.equals(""))
-          path = "/home/index";  //@@@ name this
+            path = "/home/index";  //@@@ name this
         path += ".jsp";
 
         /* here we should check whether the path is allowed for this type of user */
 
-        setNextPage("/hs"+path);  //@@@ remove prefix... make relative to controller servlet
+        setNextPage(path);  //@@@ remove prefix... make relative to controller servlet
         setIsNextPageInContext(true);
     }
 
