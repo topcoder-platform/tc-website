@@ -16,6 +16,8 @@ import com.topcoder.apps.review.security.AdminPermission;
 
 import org.apache.struts.util.MessageResources;
 import java.util.Iterator;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * <p>
@@ -46,151 +48,151 @@ public final class BusinessDelegate {
     // --------------------------------------------------------- Public Methods
 
     /**
-	 * Set whether to use mockup data.
+     * Set whether to use mockup data.
      *
      * @param useMockup Whether to use mockup data.
-	 */
-	public void setUseMockup(boolean useMockup)
-	{
+     */
+    public void setUseMockup(boolean useMockup)
+    {
         this.useMockup = useMockup;
-	}
+    }
 
-	/**
-	 * Process the login and return the result.
+    /**
+     * Process the login and return the result.
      *
-	 * @param data The input action data.
-	 * @return the result of login.
-	 */
-	public ResultData login(ActionData data)
-	{
+     * @param data The input action data.
+     * @return the result of login.
+     */
+    public ResultData login(ActionData data)
+    {
         if (useMockup) {
             return new FEMockupData().login(data);
-		} else {
+        } else {
             return new Login().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the my open projects information.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the my open projects information.
+     *
+     * @param data The input action data.
      * @return the my open projects information.
-	 */
-	public ResultData viewMyOpenProjects(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData viewMyOpenProjects(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().viewMyOpenProjects(data);
-		} else {
+        } else {
             return new ViewMyOpenProjects().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the all projects information.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the all projects information.
+     *
+     * @param data The input action data.
      * @return the all projects information.
-	 */
-	public ResultData viewAllOpenProjects(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData viewAllOpenProjects(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().viewAllOpenProjects(data);
-		} else {
+        } else {
             return new ViewAllProjects().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the project detail information.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the project detail information.
+     *
+     * @param data The input action data.
      * @return the project detail information.
-	 */
-	public ResultData projectDetail(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData projectDetail(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().projectDetail(data);
-		} else {
+        } else {
             return new ProjectDetail().start(data);
         }
-	}
+    }
 
-	/**
-	 * Submit the solution.
-	 *
-	 * @param data The input action data.
+    /**
+     * Submit the solution.
+     *
+     * @param data The input action data.
      * @return the result of submission.
-	 */
-	public ResultData submitSolution(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData submitSolution(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().submitSolution(data);
-		} else {
+        } else {
             return new SubmitSolution().start(data);
         }
-	}
+    }
 
-	/**
-	 * Sent the message to project manager.
-	 *
-	 * @param data The input action data.
+    /**
+     * Sent the message to project manager.
+     *
+     * @param data The input action data.
      * @return the result of sending.
-	 */
-	public ResultData sendContactPM(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData sendContactPM(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().sendContactPM(data);
-		} else {
+        } else {
             return new ContactProductManager().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the screening scorecard list.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the screening scorecard list.
+     *
+     * @param data The input action data.
      * @return the screening scorecard list.
-	 */
-	public ResultData getScreeningList(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData getScreeningList(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().getScreeningList(data);
-		} else {
+        } else {
             return new RetrieveScreeningScorecards().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the screening scorecard.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the screening scorecard.
+     *
+     * @param data The input action data.
      * @return the screening scorecard.
-	 */
-	public ResultData screeningScorecard(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData screeningScorecard(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().screeningScorecard(data);
-		} else {
+        } else {
             return new ScreenProject().start(data);
         }
-	}
+    }
 
-	/**
-	 * Return the review scorecard list.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the review scorecard list.
+     *
+     * @param data The input action data.
      * @return the review scorecard list.
-	 */
-	public ResultData getReviewList(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData getReviewList(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().getReviewList(data);
-		} else {
+        } else {
             return new RetrieveReviewScorecards().start(data);
         }
-	}
+    }
 
-	/**
+    /**
      * Return the review scorecard.
      *
      * @param data The input action data.
@@ -199,25 +201,25 @@ public final class BusinessDelegate {
     public ResultData reviewScorecard(ActionData data) {
         if (useMockup) {
             return new FEMockupData().reviewScorecard(data);
-		} else {
+        } else {
             return new ReviewProject().start(data);
         }
     }
 
-	/**
-	 * Return the test case review list.
-	 *
-	 * @param data The input action data.
+    /**
+     * Return the test case review list.
+     *
+     * @param data The input action data.
      * @return the test case review list.
-	 */
-	public ResultData testCaseReviews(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData testCaseReviews(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().testCaseReviews(data);
-		} else {
+        } else {
             return new com.topcoder.apps.review.TestCaseReview().start(data);
         }
-	}
+    }
 
     /**
      * Return the aggregation worksheet.
@@ -228,7 +230,7 @@ public final class BusinessDelegate {
     public ResultData aggregationWorksheet(ActionData data) {
         if (useMockup) {
             return new FEMockupData().aggregationWorksheet(data);
-		} else {
+        } else {
             return new AggregateProject().start(data);
         }
     }
@@ -242,25 +244,25 @@ public final class BusinessDelegate {
     public ResultData aggregationReview(ActionData data) {
         if (useMockup) {
             return new FEMockupData().aggregationReview(data);
-		} else {
+        } else {
             return new ReviewAggregate().start(data);
         }
     }
 
-	/**
-	 * Submit the final fix.
-	 *
-	 * @param data The input action data.
+    /**
+     * Submit the final fix.
+     *
+     * @param data The input action data.
      * @return the result of submission.
-	 */
-	public ResultData submitFinalFix(ActionData data)
-	{
-		if (useMockup) {
+     */
+    public ResultData submitFinalFix(ActionData data)
+    {
+        if (useMockup) {
             return new FEMockupData().submitFinalFix(data);
-		} else {
+        } else {
             return new SubmitFinalFix().start(data);
         }
-	}
+    }
 
     /**
      * Return the final review.
@@ -271,7 +273,7 @@ public final class BusinessDelegate {
     public ResultData finalReview(ActionData data) {
         if (useMockup) {
             return new FEMockupData().finalReview(data);
-		} else {
+        } else {
             return new com.topcoder.apps.review.FinalReview().start(data);
         }
     }
@@ -285,7 +287,7 @@ public final class BusinessDelegate {
     public ResultData projectAdmin(ActionData data) {
         if (useMockup) {
             return new FEMockupData().projectAdmin(data);
-		} else {
+        } else {
             return new ProjectAdministration().start(data);
         }
     }
@@ -299,7 +301,7 @@ public final class BusinessDelegate {
     public ResultData submissionDownload(ActionData data) {
         if (useMockup) {
             return new FEMockupData().submissionDownload(data);
-		} else {
+        } else {
             return new SubmissionDownload().start(data);
         }
     }
@@ -356,11 +358,12 @@ public final class BusinessDelegate {
      * @param typeId The project type id.
      * @param isAggregator Whether the user is an aggregator.
      * @param isSubmitted Whether the user has submitted the solution.
+     * @param isFinalReviewAvailable Whether the final review is available
      * @return the deliverable name and action list.
      */
     public String[] getDeliverable(Phase phase, long roleId, boolean isWinner, boolean isAdmin,
                                    boolean isLink, boolean isFinished, long typeId, boolean isAggregator,
-                                   boolean isSubmitted) {
+                                   boolean isSubmitted, boolean isFinalReviewAvailable) {
         MessageResources messages = MessageResources.getMessageResources(Constants.MESSAGE_RESOURCE_KEY);
         long phaseId = phase.getId();
 
@@ -688,92 +691,96 @@ public final class BusinessDelegate {
             if (roleId == Constants.ROLE_DESINGER_DEVELOPER) {
                 // Designer / Developer
                 if (isLink && isSubmitted) {
+                    List deliverables = new ArrayList();
+
+                    // Common for all the designer/developers
+                    deliverables.add(messages.getMessage("prompt.screeningScorecard"));
+                    deliverables.add("/screeningScorecard.do?action=view");
+                    deliverables.add(messages.getMessage("prompt.reviewScorecard"));
+                    deliverables.add("/reviewScorecardList.do?action=view");
+                    deliverables.add(messages.getMessage("prompt.appeals"));
+                    deliverables.add("/appealScorecardList.do");
+
                     if (isWinner && typeId == ProjectType.ID_DESIGN) {
-                        return new String[] {
-                            messages.getMessage("prompt.screeningScorecard"),
-                            "/screeningScorecard.do?action=view",
-                            messages.getMessage("prompt.reviewScorecard"),
-                            "/reviewScorecardList.do?action=view",
-                            messages.getMessage("prompt.appeals"),
-                            "/appealScorecardList.do",
-                            messages.getMessage("prompt.aggregationWorksheet"),
-                            "/aggregation.do?action=view",
-                            messages.getMessage("deliverable.uploadFinalFixes"),
-                            "/submitSolution.do"
-                        };
+                        deliverables.add(messages.getMessage("prompt.aggregationWorksheet"));
+                        deliverables.add("/aggregation.do?action=view");
+                        deliverables.add(messages.getMessage("deliverable.uploadFinalFixes"));
+                        deliverables.add("/submitSolution.do");
+
+                        if (isFinalReviewAvailable) {
+                            deliverables.add (messages.getMessage("prompt.finalReview"));
+                            deliverables.add ("/finalReview.do?action=edit");
+                        }
+
                     } else if (isWinner && typeId == ProjectType.ID_DEVELOPMENT) {
-                        return new String[] {
-                            messages.getMessage("prompt.screeningScorecard"),
-                            "/screeningScorecard.do?action=view",
-                            messages.getMessage("prompt.reviewScorecard"),
-                            "/reviewScorecardList.do?action=view",
-                            messages.getMessage("prompt.appeals"),
-                            "/appealScorecardList.do",
-                            messages.getMessage("prompt.aggregationWorksheet"),
-                            "/aggregation.do?action=view",
-                            messages.getMessage("prompt.testcases"),
-                            "/testCaseList.do",
-                            messages.getMessage("deliverable.uploadFinalFixes"),
-                            "/submitSolution.do"
-                        };
-                    } else {
-                        return new String[] {
-                            messages.getMessage("prompt.screeningScorecard"),
-                            "/screeningScorecard.do?action=view",
-                            messages.getMessage("prompt.reviewScorecard"),
-                            "/reviewScorecardList.do?action=view",
-                            messages.getMessage("prompt.appeals"),
-                            "/appealScorecardList.do"
-                        };
+                        deliverables.add (messages.getMessage("prompt.aggregationWorksheet"));
+                        deliverables.add ("/aggregation.do?action=view");
+                        deliverables.add (messages.getMessage("prompt.testcases"));
+                        deliverables.add ("/testCaseList.do");
+                        deliverables.add (messages.getMessage("deliverable.uploadFinalFixes"));
+                        deliverables.add ("/submitSolution.do");
+
+                        if (isFinalReviewAvailable) {
+                            deliverables.add (messages.getMessage("prompt.finalReview"));
+                            deliverables.add ("/finalReview.do?action=edit");
+                        }
                     }
+                    return (String[]) deliverables.toArray(new String[0]);
                 }
             } else if (roleId == Constants.ROLE_PROJECT_MANAGER || isAdmin) {
                 if (isLink) {
-                    return new String[] {
-                        messages.getMessage("prompt.submission"),
-                        "/projectDetail.do?action=" + Constants.PHASE_SUBMISSION,
-                        messages.getMessage("prompt.screeningScorecard"),
-                        "/projectDetail.do?action=" + Constants.PHASE_SCREENING,
-                        messages.getMessage("prompt.reviewScorecard"),
-                        "/projectDetail.do?action=" + Constants.PHASE_REVIEW,
-                        messages.getMessage("prompt.testcases"),
-                        "/testCaseList.do",
-                        messages.getMessage("prompt.appeals"),
-                        "/projectDetail.do?action=" + Constants.PHASE_APPEALS,
-                        messages.getMessage("prompt.aggregationWorksheet"),
-                        "/aggregation.do?action=admin",
-                        messages.getMessage("prompt.finalFix"),
-                        "/projectDetail.do?action=" + Constants.PHASE_FINAL_FIX,
-                        messages.getMessage("deliverable.terminateProject"),
-                        "/editProject.do?action=terminate",
-                        messages.getMessage("deliverable.editProject"),
-                        "/editProject.do?action=edit"
-                    };
+                    List deliverables = new ArrayList();
+                    deliverables.add(messages.getMessage("prompt.submission"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_SUBMISSION);
+                    deliverables.add(messages.getMessage("prompt.screeningScorecard"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_SCREENING);
+                    deliverables.add(messages.getMessage("prompt.reviewScorecard"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_REVIEW);
+                    deliverables.add(messages.getMessage("prompt.testcases"));
+                    deliverables.add("/testCaseList.do");
+                    deliverables.add(messages.getMessage("prompt.appeals"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_APPEALS);
+                    deliverables.add(messages.getMessage("prompt.aggregationWorksheet"));
+                    deliverables.add("/aggregation.do?action=admin");
+                    deliverables.add(messages.getMessage("prompt.finalFix"));
+                    deliverables.add("/projectDetail.do?action=" + Constants.PHASE_FINAL_FIX);
+                    deliverables.add(messages.getMessage("deliverable.terminateProject"));
+                    deliverables.add("/editProject.do?action=terminate");
+                    deliverables.add(messages.getMessage("deliverable.editProject"));
+                    deliverables.add("/editProject.do?action=edit");
+
+                    if (isFinalReviewAvailable) {
+                        deliverables.add (messages.getMessage("prompt.finalReview"));
+                        deliverables.add ("/finalReview.do?action=edit");
+                    }
+
+                    return (String[]) deliverables.toArray(new String[0]);
                 }
-           } else if (roleId == Constants.ROLE_REVIEWER) {
-              // Reviewer
-               if (typeId == ProjectType.ID_DESIGN) {
-                   return new String[]{
-                       messages.getMessage("prompt.screeningScorecard"),
-                       "/screeningScorecardList.do",
-                       messages.getMessage("prompt.reviewScorecard"),
-                       "/reviewScorecardList.do",
-                        messages.getMessage("prompt.appeals"),
-                        "/appealScorecardList.do"
-                   };
-               } else {
-                   return new String[]{
-                       messages.getMessage("prompt.screeningScorecard"),
-                       "/screeningScorecardList.do",
-                       messages.getMessage("prompt.reviewScorecard"),
-                       "/reviewScorecardList.do",
-                       messages.getMessage("prompt.appeals"),
-                       "/appealScorecardList.do",
-                       messages.getMessage("prompt.testcases"),
-                       "/testCaseList.do"
-                   };
-               }
+            } else if (roleId == Constants.ROLE_REVIEWER) {
+                // Reviewer
+                List deliverables = new ArrayList();
+
+                deliverables.add(messages.getMessage("prompt.screeningScorecard"));
+                deliverables.add("/screeningScorecard.do?action=view");
+                deliverables.add(messages.getMessage("prompt.reviewScorecard"));
+                deliverables.add("/reviewScorecardList.do?action=view");
+                deliverables.add(messages.getMessage("prompt.appeals"));
+                deliverables.add("/appealScorecardList.do");
+
+                if (typeId == ProjectType.ID_DEVELOPMENT) {
+                    deliverables.add (messages.getMessage("prompt.testcases"));
+                    deliverables.add ("/testCaseList.do");
+                }
+
+                if (isFinalReviewAvailable) {
+                    deliverables.add (messages.getMessage("prompt.finalReview"));
+                    deliverables.add ("/finalReview.do?action=edit");
+                }
+
+                return (String[]) deliverables.toArray(new String[0]);
            }
+
+
         } else if (phaseId == Constants.PHASE_FINAL_REVIEW) {
             // Final Review
             if (roleId == Constants.ROLE_DESINGER_DEVELOPER) {
@@ -1175,9 +1182,9 @@ public final class BusinessDelegate {
      */
     public ResultData getTestCases(ActionData data) {
         if (useMockup) {
-			// TODO Fix mockup?
+            // TODO Fix mockup?
             return null;
-		} else {
+        } else {
             return new RetrieveTestCases().start(data);
         }
     }
@@ -1189,28 +1196,28 @@ public final class BusinessDelegate {
      */
     public ResultData testCasesDownload(ActionData data) {
         if (useMockup) {
-			// TODO Fix mockup?
+            // TODO Fix mockup?
             return null;
-		} else {
+        } else {
             return new TestCasesDownload().start(data);
         }
     }
 
     /**
-	 * Submit the testcases.
-	 *
-	 * @param data The input action data.
+     * Submit the testcases.
+     *
+     * @param data The input action data.
      * @return the result of submission.
-	 */
-	public ResultData submitTestCases(ActionData data)
-	{
-		if (useMockup) {
-			// TODO Fix mockup?
+     */
+    public ResultData submitTestCases(ActionData data)
+    {
+        if (useMockup) {
+            // TODO Fix mockup?
             return null;
-		} else {
+        } else {
             return new SubmitTestCases().start(data);
         }
-	}
+    }
 
     public ScorecardTemplate[] getScorecardTemplates() {
         if (useMockup) {
