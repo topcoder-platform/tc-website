@@ -61,7 +61,12 @@
       Online Review Reports
       <UL>
         <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=submit_review_testcases&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Online Review Test Case Review Status</A></LI>
-        <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reviewer_status&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Online Review Reviewer Status</A></LI>        
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reviewer_status&"+Constants.DB_KEY+"="+Query.TCS_CATALOG%>">Online Review Reviewer Status</A></LI>
+      </UL>
+
+      Private Label Reports
+      <UL>
+        <LI><A HREF="<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY+"&"+DataAccessConstants.COMMAND+"=reg_info&"+Constants.DB_KEY+"=DC_OLTP"%>">DoubleClick Registration</A></LI>
       </UL>
 
   </body>
