@@ -141,7 +141,7 @@ public class EmailInfo extends BaseModel {
         msgText.append(sdf.format(sessionInfo.getEndDate()));
         msgText.append("\n");
         msgText.append("\n");
-        msgText.append("Access their information by logging into the Testing Application ");
+        msgText.append("Access this individual's information by logging into the Testing Application ");
         msgText.append("Management Tool http://corporate.topcoder.com/testing and clicking on Candidates.");
         msgText.append("\n");
         msgText.append("\n");
