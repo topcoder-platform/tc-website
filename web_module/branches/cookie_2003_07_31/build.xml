@@ -503,10 +503,7 @@
 
     <target name="corp-ejb-all" depends="compile">
         <!-- QueryServices ejb -->
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="QueryServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
-        </antcall>
+        <antcall target="package-EJB-QueryServicesBean"/>
 
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="DataCache"/>
@@ -595,10 +592,6 @@
             <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/screening"/>
         </antcall>
 
-        <antcall target="build-ejb-unit">
-            <param name="unit-jar-name" value="QueryServices"/>
-            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
-        </antcall>
     </target>
 
     <target name="build-ejb-unit" depends="compile">
