@@ -56,7 +56,8 @@ public class UserNoteBean extends BaseEJB {
         try {
             StringBuffer query = new StringBuffer(120);
             query.append("INSERT INTO user_note_xref (user_id, ");
-            query.append("note_id) values(?,?,?,?) ");
+            query.append("note_id, modify_date, create_date) ");
+            query.append("values(?,?,CURRENT,CURRENT) ");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
