@@ -40,10 +40,10 @@ public class Login extends Base {
         String messageId = send(request);
         log.debug("sent message " + messageId);
 
+        log.debug(Thread.currentThread().toString());
         ObjectMessage response = receive(2000, messageId);
         log.debug("response " + response);
 
-        log.debug(Thread.currentThread().toString());
 
         setNextPage(Constants.PAGE_INDEX);
         setIsNextPageInContext(true);
