@@ -44,7 +44,7 @@ String sClassName = null;
 String sProblemText = null;
 Problem problem = null;
 if (rsc!=null && !rsc.isEmpty()) {
-  resultRow_0 rsc.isValidRow(0)? rsc.getRow(0):null;
+  resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
   sClassName = resultRow_0!=null?resultRow_0.getItem("class_name").toString():"";
   sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toString():"";
   // jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
