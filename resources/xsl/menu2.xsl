@@ -37,7 +37,7 @@
             </IMG>
           </A> -->        
           <A onMouseOver="changeImages('image4', 'image4on')" onMouseOut="changeImages('image4', 'image4off')" TARGET="_parent">
-            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=index</xsl:attribute>
+            <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/stat?&amp;c=index</xsl:attribute>
             <IMG NAME="image4" ALT="Statistics" WIDTH="69" HEIGHT="21" BORDER="0">
               <xsl:attribute name="SRC">/i/menu_stats_<xsl:choose><xsl:when test="/TC/Task='statistics'">on</xsl:when><xsl:otherwise>off</xsl:otherwise></xsl:choose>.gif</xsl:attribute>
             </IMG>
