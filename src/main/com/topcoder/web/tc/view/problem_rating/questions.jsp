@@ -1,8 +1,7 @@
 <%@  page language="java"  %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
-<jsp:useBean id="problemRatingQuestions" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
-<jsp:useBean id="" scope="request" class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" />
+<jsp:useBean id="problemRatingQuestions" scope="request" class="java.util.List" />
 <html>
 <head>
 <title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
