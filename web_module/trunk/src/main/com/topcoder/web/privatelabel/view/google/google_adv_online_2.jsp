@@ -88,7 +88,7 @@ body,td,font,p,a
 
                       <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="400">
                         <tr>
-                           <td class="advancersTitle" align="left" colspan="2">Online Round 2</td>
+                           <td class="advancersTitle" align="left" colspan="2">Online Round 2 </td>
                         </tr>
                         <tr>
                            <td class="google_round_id" width="30%">Handle</td>
@@ -117,13 +117,15 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >radeye</td><td class="sidebarText" align="right">630.92</td></tr> 
 <tr><td class="sidebarText" align="left" >tomek</td><td class="sidebarText" align="right">626.29</td></tr> 
 <tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="right">624.15</td></tr> 
-<tr><td class="sidebarText" align="left" >AdrianKuegel</td><td class="sidebarText" align="right">623.41</td></tr> 
+<tr><td class="sidebarText" align="left" >AdrianKuegel*</td><td class="sidebarText" align="right">623.41</td></tr> 
 <tr><td class="sidebarText" align="left" >ValD</td><td class="sidebarText" align="right">620.40</td></tr> 
 <tr><td class="sidebarText" align="left" >dvickrey</td><td class="sidebarText" align="right">620.08</td></tr>
 
                      </table>
 
                         </font></p>
+                        
+                        <p class="bodyText">* Due to a scheduling conflict, ante will be replacing AdrianKuegel for the final round</p>
 
                         </td>
                      </tr>
