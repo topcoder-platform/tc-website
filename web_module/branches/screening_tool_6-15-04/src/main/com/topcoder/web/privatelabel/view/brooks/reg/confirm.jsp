@@ -44,11 +44,6 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="brRegTableQuestion">Handle</td>
-                            <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Handle"/></td>
-                        </tr>
-
-                        <tr>
                             <td class="brRegTableQuestion">First Name</td>
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="FirstName"/></td>
                         </tr>
@@ -62,17 +57,6 @@
                             <td class="brRegTableQuestion">Last Name</td>
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="LastName"/></td>
                         </tr>
-
-                        <tr>
-                            <td class="brRegTableQuestion">Password</td>
-                            <td class="brRegTableAnswer">********</td>
-                        </tr>
-
-                        <tr>
-                            <td class="brRegTableQuestion">Confirm Password</td>
-                            <td class="brRegTableAnswer">********</td>
-                        </tr>
-
                         <tr>
                             <td class="brRegTableQuestion">Email Address</td>
                             <td class="brRegTableAnswer"><jsp:getProperty name="regInfo" property="Email"/></td>
