@@ -10,7 +10,7 @@
 <html>
 <head>
 
-<title>2004 JavaOne Coding Challenge</title>
+<title>2004 TopCoder Open - Computer Programming Tournament</title>
 
  <STYLE TYPE="text/css">
  <!--
