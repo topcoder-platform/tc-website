@@ -1,12 +1,14 @@
 package com.topcoder.web.query.request;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.web.query.common.Constants;
 import com.topcoder.web.query.common.Util;
 import com.topcoder.web.query.ejb.QueryServices.Input;
 import com.topcoder.web.common.BaseProcessor;
 
 import java.util.Enumeration;
+import java.util.HashSet;
 
 /**
  * @author Greg Paul
@@ -22,6 +24,7 @@ public class ModifyInput extends BaseProcessor {
     private String inputCode;
     private String inputDesc;
     private int dataTypeId;
+    private HashSet illegalInputs;
 
     /* Creates a new Login */
     public ModifyInput() {
@@ -31,6 +34,14 @@ public class ModifyInput extends BaseProcessor {
         inputCode = "";
         inputDesc = "";
         dataTypeId = 0;
+        illegalInputs = new HashSet();
+        illegalInputs.add(DataAccessConstants.COMMAND.toLowerCase());
+        illegalInputs.add(DataAccessConstants.NUMBER_RECORDS.toLowerCase());
+        illegalInputs.add(DataAccessConstants.START_RANK.toLowerCase());
+        illegalInputs.add(DataAccessConstants.END_RANK.toLowerCase());
+        illegalInputs.add(DataAccessConstants.SORT_COLUMN.toLowerCase());
+        illegalInputs.add(DataAccessConstants.SORT_QUERY.toLowerCase());
+        illegalInputs.add(DataAccessConstants.SORT_DIRECTION.toLowerCase());
     }
 
 
@@ -112,7 +123,7 @@ public class ModifyInput extends BaseProcessor {
             addError(Constants.INPUT_CODE_PARAM, "Input Code too long");
         } else if (containsNonLetters(inputCode)) {
             addError(Constants.INPUT_CODE_PARAM, "Invalid input code, letters only");
-        } else if (inputCode.trim().toLowerCase().equals(com.topcoder.shared.dataAccess.DataAccessConstants.COMMAND)) {
+        } else if (illegalInputs.contains(inputCode.trim().toLowerCase())) {
             addError(Constants.INPUT_CODE_PARAM, "Invalid input code");
         }
     }
