@@ -1,7 +1,6 @@
 package com.topcoder.web.tc.controller.request.survey;
 
 import com.topcoder.web.common.TCWebException;
-import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.view.tag.AnswerInput;
@@ -13,20 +12,13 @@ import javax.naming.InitialContext;
 import java.util.*;
 
 public class Submit extends View {
-    protected void businessProcessing() throws TCWebException {
-        long surveyId;
-        try {
-            surveyId = Long.parseLong(getRequest().getParameter(Constants.SURVEY_ID));
-        } catch (NullPointerException e) {
-            throw new NavigationException("Request is missing survey parameter");
-        }
+    protected void surveyProcessing() throws TCWebException {
 
         try {
-            List questions = getQuestionInfo();
             String paramName = null;
             for (Enumeration params = getRequest().getParameterNames(); params.hasMoreElements();) {
                 paramName = (String)params.nextElement();
-                Question q = validateAnswer(paramName, questions);
+                Question q = validateAnswer(paramName, questionInfo);
                 if (hasErrors()) {
                     setNextPage(Constants.SURVEY_VIEW);
                     setIsNextPageInContext(true);
@@ -48,7 +40,7 @@ public class Submit extends View {
                         setNextPage(Constants.SURVEY_THANKS);
                         setIsNextPageInContext(true);
                     } else {
-                        setNextPage("?" + Constants.MODULE_KEY + "=SurveyResults&"+Constants.SURVEY_ID+"="+surveyId);
+                        setNextPage("?" + Constants.MODULE_KEY + "=SurveyResults&"+Constants.SURVEY_ID+"="+survey.getId());
                         setIsNextPageInContext(false);
                     }
                 }

@@ -9,8 +9,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import java.util.List;
 
 public class Results extends SurveyData {
-    protected void businessProcessing() throws TCWebException {
-        super.businessProcessing();
+    protected void surveyProcessing() throws TCWebException {
         setNextPage(Constants.SURVEY_RESULTS);
         setIsNextPageInContext(true);
     }

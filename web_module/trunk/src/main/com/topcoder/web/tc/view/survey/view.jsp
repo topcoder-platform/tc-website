@@ -4,7 +4,7 @@
 <%@ taglib uri="/rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="/tc.tld" prefix="tc" %>
 <jsp:useBean id="questionInfo" scope="request" class="java.util.List" />
-<jsp:useBean id="surveyId" scope="request" class="java.lang.Long" />
+<jsp:useBean id="surveyInfo" scope="request" class="com.topcoder.web.tc.model.Survey" />
 <jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <html>
 <head>
@@ -13,7 +13,7 @@
 <body>
     <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="surveyForm">
         <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="SubmitSurvey"/>
-        <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyId%>"/>
+        <input type="hidden" name="<%=Constants.SURVEY_ID%>" value="<%=surveyInfo.getId()%>"/>
         <tc:questionIterator list="<%=questionInfo%>" id="question">
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>

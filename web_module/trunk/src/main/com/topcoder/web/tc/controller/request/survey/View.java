@@ -12,9 +12,7 @@ import java.util.Iterator;
 import java.util.ArrayList;
 
 public class View extends SurveyData {
-    protected void businessProcessing() throws TCWebException {
-        super.businessProcessing();
-        getRequest().setAttribute(Constants.SURVEY_ID, new Long(surveyId));
+    protected void surveyProcessing() throws TCWebException {
         setNextPage(Constants.SURVEY_VIEW);
         setIsNextPageInContext(true);
     }
