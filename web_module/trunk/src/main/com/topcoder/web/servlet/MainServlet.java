@@ -209,6 +209,10 @@ public final class MainServlet extends HttpServlet {
             else if (requestTask.equals("home")) {
                 HTMLString = TaskHome.process(request, response, htmlMaker, nav, document);
             }
+            //************************ home ************************
+            else if (requestTask.equals("affidavit")) {
+                HTMLString = TaskAffidavit.process(request, response, htmlMaker, nav, document);
+            }
             //************************ sponsor ************************
             else if (requestTask.equals("sponsor")) {
                 HTMLString = TaskSponsor.process(request, response, htmlMaker, nav, document);
