@@ -53,6 +53,7 @@ public class Authentication implements Serializable {
             return true;
         } catch (Exception e) {
         }
+        return false;
     }
 
     public static boolean isLoggedIn(HttpSession session) {
