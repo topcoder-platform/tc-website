@@ -61,7 +61,6 @@ abstract class TermsBase extends Base {
     }
 
 
-    protected abstract void TermsProcessing() throws TCWebException;
     protected abstract Calendar getEnd();
     protected abstract Calendar getBeginning();
     protected abstract String getEventName();

@@ -1,6 +1,7 @@
 package com.topcoder.web.tc.controller.request.util;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.TCRequest;
 
 import java.util.Calendar;
 
@@ -13,9 +14,18 @@ public class TCO04AlgorithmTermsAgree extends TermsAgreeBase {
     //dammit, my kingdom for some multiple inheritance!!!
     private TCO04AlgorithmTerms helper = new TCO04AlgorithmTerms();
 
-
-    protected void TermsProcessing() throws TCWebException {
-
+    /**
+     * We need this method so that we can set the request on our
+     * little helper processor.  We can't have multiple inheritance
+     * so we need this processor so that we can access some
+     * of the convenience methods in <cdoe>TermsBase</code>
+     * but we want to use the business logic
+     * contained in <code>TermsAgreeBase</code>
+     * @param request
+     */
+    public void setRequest(TCRequest request) {
+        super.setRequest(request);
+        helper.setRequest(request);
     }
 
     protected Calendar getEnd() {
