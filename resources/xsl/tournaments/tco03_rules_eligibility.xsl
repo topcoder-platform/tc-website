@@ -81,7 +81,8 @@
             <ul>
                 <li>Must be at least 18 years of age (as of October 7, 2003); AND</li>
                 <li>Must be one of the 100 highest rated TopCoder members as of October 7th AND have participated in at least three 
-                (3) TopCoder rated events (i.e., Single Round Matches and previous tournaments) prior to October 7th; OR</li>
+                (3) TopCoder rated events (i.e., Single Round Matches and previous tournaments) prior to October 7th with at one (1) of those
+                events being between July 7th and October 7th; OR</li>
                 <li>Must be one of the top 200 scorers in one of the two Qualification Rounds being held on October 7th and October 9th.</li>
             </ul>
 

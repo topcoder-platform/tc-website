@@ -110,12 +110,13 @@
             registration form to register for the tournament. In order to be eligible to participate in the tournament, you must 
             have completed any and all registration forms required by TopCoder.</p>
 
-            <p>As a condition of winning and redeeming a prize, winners will be required to return by Tuesday, October 28th a 
+            <p>As a condition of winning and redeeming a cash prize, winners will be required to return by Tuesday, October 28th a
             completed (i) notarized Affidavit of Eligibility and Liability and Publicity Release, (ii) competitor questionnaire, 
             (iii) travel form, and (iv) IRS Form W-9 or W-8BEN, as appropriate, if one is not already on file with TopCoder. 
             In completing the Affidavit of Eligibility and Liability and Publicity Release, a winner (i) confirms his/her 
             eligibility, (ii) represents and warrants that he/she has not cheated; that the idea for the code and/or challenge 
-            submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted, (iv) authorizes 
+            submitted is his/hers alone, (iii) verifies the accuracy of the demographic information submitted to, and contained
+            in, the TopCoder member database, (iv) authorizes
             TopCoder to publicize the tournament's results, (v) agrees to sign any applicable forms required by tax authorities, 
             (vi) licenses to TopCoder rights to all information submitted during the tournament (including rights to source code 
             and other executables), and (vii) releases TopCoder from liability arising out of any prize won. TopCoder requires 
