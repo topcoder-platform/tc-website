@@ -13,6 +13,10 @@ import java.io.*;
  */
 public class Error extends Base {
 
+    /** Override this to avoid all the auth stuff. */
+    protected void baseProcessing() throws Exception {
+    }
+
     protected void businessProcessing() throws Exception {
 
         Exception e = (Exception)request.getAttribute("exception");

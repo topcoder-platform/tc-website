@@ -40,14 +40,14 @@ public final class Controller extends HttpServlet {
                 if(!isLegal(cmd)) throw new IllegalArgumentException("invalid command: "+cmd);
                 cmd = "com.topcoder.web.hs.controller.requests."+cmd;
 
-//@@@ so im supposed to check auth here and inside static, and i have no way to pass the pieces in... great.
-
                 rp = (RequestProcessor)Class.forName(cmd).newInstance();
                 rp.setRequest(request);
                 rp.setResponse(response);
                 rp.process();
 
             } catch(Exception e) {
+
+                e.printStackTrace();
 
                 /* try to forward to the error page */
                 request.setAttribute("exception", e);

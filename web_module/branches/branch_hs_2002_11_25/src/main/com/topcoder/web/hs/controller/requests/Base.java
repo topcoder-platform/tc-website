@@ -43,7 +43,7 @@ public abstract class Base implements RequestProcessor {
     }
 
     /** Some things we want to do for all subclassed request processors. */
-    private final void baseProcessing() throws Exception {
+    protected void baseProcessing() throws Exception {
 
         Persistor persistor = new SessionPersistor(((HttpServletRequest)request).getSession());
         auth = new BasicAuthentication(persistor, request, response);
