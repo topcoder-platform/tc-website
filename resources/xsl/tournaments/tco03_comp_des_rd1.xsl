@@ -86,7 +86,7 @@
                 <tr valign="middle">
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="10%" align="center">Seed</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left">Handle</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Average Score</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Average Score*</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="30%" align="right">Round Scores</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Tournament Earnings</td>
                 </tr>
@@ -139,6 +139,8 @@
                     <td class="formHandleEven" align="right">$158.00</td>
                 </tr>
 
+                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the best level I score and the best level II score</td></tr>
+
             </table>
            
            <br/><br/>
@@ -151,9 +153,9 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center" class="formFrame">
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="10%" align="center">Seed</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="10%" align="center">Rank</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left">Handle</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Average Score</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Average Score*</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="30%" align="right">Round Scores</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Tournament Earnings</td>
                 </tr>
@@ -182,6 +184,8 @@
                     <td class="formHandleOdd" align="right">$105.00</td>
                 </tr>
 
+                <tr valign="middle"><td background="/i/graybv_bg.gif" class="statTextLarge" width="20%" align="left" colspan="5">*the average of the best level I score and the best level II score</td></tr>
+
             </table>            
 
            <br/><br/>
@@ -194,12 +198,13 @@
 
             <table border="0" cellspacing="0" cellpadding="3" width="500" align="center" class="formFrame">
                 <tr valign="middle">
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="25%">Project Name</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="35%">Project Name</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" width="15" align="center">Total<br/>Submissions</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="10%" align="center">Place</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%">Winner(s)</td>
-                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="17%" align="right">Board&#160;Score</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="center">Place</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="20%">Winner(s)</td>
+                    <td background="/i/graybv_bg.gif" class="statTextLarge" width="15%" align="right">Board&#160;Score</td>
                 </tr>
+
                 <tr valign="middle">
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7411659" class="statText" target="_blank">Business Date Utility</a></td>
                     <td class="formHandleOdd" align="center">3</td>
