@@ -159,7 +159,9 @@ public class CommandGroupBean extends BaseEJB {
             StringBuffer query = new StringBuffer();
             query.append(" SELECT command_group_name");
             query.append(     " , command_group_id");
+            query.append(     " , LOWER(command_group_name)");
             query.append(  " FROM command_group_lu");
+            query.append( " ORDER BY 3 ASC");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
             ds = (DataSource)ctx.lookup(dataSourceName);
