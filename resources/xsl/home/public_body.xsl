@@ -71,8 +71,8 @@
                 <table border="0" cellspacing="1" cellpadding="0" width="100%" bgcolor="#FFFFFF">
                     <tr>
                         <td valign="top" colspan="3" class="bodyText"><a class="bodyGeneric">
-                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 139</strong></a><br />
-                            Tuesday, March 18, 2003<br /><br />
+                            <xsl:attribute name="HREF">/stat?&amp;c=last_match</xsl:attribute><strong>Single Round Match 140</strong></a><br />
+                            Wednesday, March 26, 2003<br /><br />
                         </td>
                     </tr>
 
@@ -140,24 +140,24 @@
                 <tr><td valign="top" colspan="7"><img src="/i/label_coder_view.gif" alt="Coder's Point of View" width="148" height="26" border="0" /></td></tr>
 
                 <tr>
-                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/brett1479_mug.jpg" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
-                        By&#160;brett1479<br/><i>[TC]&#160;Member</i><br /></td>
+                    <td valign="top" width="55" align="left" class="bodyText" rowspan="2"><img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" hspace="6" vspace="1"/><br />
+                        By&#160;Yarin<br/><i>[TC]&#160;Member</i><br /></td>
                     <td valign="top" width="8" rowspan="2"><img src="/i/clear.gif" alt="" width="8" height="1" border="0" /></td>
                     <td valign="top" width="100%" align="left" class="bodyText" colspan="2">
-                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 139</strong></font></td>
+                        <font size="2" color="#000000" face="arial, verdana"><strong>Single Round Match 140</strong></font></td>
                 </tr>
 
                 <tr>
                     <td valign="top" class="bodyText" width="100%">
                         <a class="bodyGeneric">
-                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm139_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
+                        <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=statistics&amp;c=srm140_prob</xsl:attribute><strong>Problem Set Analysis &amp; Opinion</strong></a><br />
 
-                        <p>This SRM featured a set of unique problems that gave many coders a hard time. The division 1 medium, a numerical 
-                        analysis problem, had a few tricks that caught many competitors. The division 1 hard asked coders to embed a path on 
-                        the surface of a rectangular solid. At first glance, the problem seems trivial, but rectangular solids aren't as simple 
-                        as they look. As a result, few coders solved all of the problems correctly. Once the challenge phase was over, 
-                        antimatter led the pack with SnapDragon close behind. In division 2, a newcomer by the name of aneubeck beat 
-                        all competitors with an impressive 1673.43.</p>
+                        <p>Another difficult Division-I hard problem made the competition miserable for everyone in Division-I. After the system 
+                        testing phase, none of the 11 submissions were still standing. The other two problems had high acceptance rates, and 
+                        very few successful challenges were delivered on those two. <b>radeye</b> became the top scorer in Divison-I thanks to two 
+                        fast submissions and two successful challenges. Division-II had a well balanced problem set where several people got 
+                        all three problems, and <b>fx4m</b> was the one to get them all fastest.
+						</p>
                     </td>
                 </tr>
             </table>
@@ -255,7 +255,7 @@
             <map name="srmanimation_home">
               <!--   <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="javascript:void window.open('http://www.gentleware.com')" /> -->
                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> 
-                <area shape="poly" alt="SRM Match 139" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4490&amp;t=schedule&amp;c=srm" />
+                <area shape="poly" alt="SRM Match 139" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4495&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 
