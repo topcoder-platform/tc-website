@@ -69,33 +69,157 @@
 <P>
 Friday, November 22, 2002
 </P>
-              
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
 
-<P>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut 
-laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad minim veniam, quis nostrud exerci tation 
-ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.  Duis autem vel eum iriure dolor 
-in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis 
-at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue 
-duis dolore te feugait nulla facilisi.  Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed 
-diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.  Ut wisi enim ad 
-minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.</P>
+<a name="RoadTrip"></a><font size="+2"><b>RoadTrip</b></font><br/><font size="-1">
+    Used as: Level 1</font><h4>Implementation</h4>
+<p>
+                This problem is strongly reminiscent of the programming language <a href="http://www.catseye.mb.ca/esoteric/befunge/" target="_blank">BeFunge</a>.
+                In a sense, this problem calls for the implementation of an evaluator for a very simplified version
+                of the language.  The program is the two-dimensional character array given as input, and the commands
+                are either no-ops (the dots) or turns (left, right, or 180 degrees).  Input to the program would be
+                a starting location and a direction, and the output would be the number of locations visited at least once.
+                The problem then just calls for evaluating the input program for all possible
+                inputs, and returning the maximal output.  You must also detect infinite loops, and terminate any program
+                that enters one.
+            </p>
+<p>
+                The easiest method for handling motion and turns is by specifying an array of position offsets to
+                represent movement in each direction.  For example:
+            </p>
+<pre>
+    int[][] dxy = {
+        { 0, 1 },   // east
+        { -1, 0 },  // north
+        { 0, -1 },  // west
+        { 1, 0 },   // south
+    }
+</pre>
+<p>
+                Each row in this array represents movement in a particular direction, and the rows are ordered
+                such that the row following represents a left turn and the row preceding represents a right turn.
+                The first column is the row offset, and the second column is the column offset.  Thus <tt>{0, 1}</tt>
+                represents no change in row and a positive change in column, which corresponds to eastward movement.
+                To turn left, then, one just adds <tt>1</tt> to the current direction and then takes that value
+                mod <tt>4</tt> (so, a left turn when the direction is <tt>3</tt> yields <tt>0</tt>).  A right turn
+                consists of subtracting <tt>1</tt>, but the modulus operator doesn't work the same way for negative
+                numbers.  It is easier to add <tt>3</tt> instead (since <tt>3</tt> and <tt>-1</tt> are congruent modulo <tt>4</tt>).
+                This method is useful for many, many grid traversal problems.
+            </p>
+<p>
+                Now all that is left is detection of infinite loops.  An infinite loop will only occur if you
+                revisit a previously visited location and leave it in the same direction that you have left it before.
+                Thus, maintain a three-dimensional boolean array, where the indices represent row, column, and direction.
+                When you leave a location, check the appropriate element in the array.  If it is true, you have entered
+                an infinite loop, and might as well terminate the program, as no new locations will ever be visited.
+                Otherwise, set the appropriate element in the array to true and continue evaluation.
+            </p>
+<p>
+                Simply evaluate the program for all possible locations and directions, and count how many locations are
+                visited.  Then just return the maximum.
+            </p>
+<p>&#160;</p>
+<a name="GraphPaths"></a><font size="+2"><b>GraphPaths</b></font><br/><font size="-1">
+    Used as: Level 2</font><h4>Implementation</h4>
+<p>
+                It's clear from the examples that simply iterating paths is not the answer, as there
+                can be up to 2<sup>63</sup> paths that one must count.  Instead we must count the paths
+                without iterating them.  In fact, a dynamic programming solution is called for.
+            </p>
+<p>Suppose that we know the number of paths of length <tt>a</tt> between all pairs of vertices,
+                as well as the number of paths of length <tt>b</tt>.
+                Can we use this information to compute the number of paths of length <tt>a + b</tt> for all pairs?
+                We can, and it's actually quite easy.  If there exist <tt>m</tt> paths of length <tt>a</tt> from
+                vertex <tt>i</tt> to vertex <tt>j</tt>, and there exist <tt>n</tt> paths of length <tt>b</tt>
+                from vertex <tt>j</tt> to vertex <tt>k</tt>, then there must be <tt>m * n</tt> paths of length
+                <tt>a + b</tt> from vertex <tt>i</tt> to vertex <tt>k</tt>.  Thus with three nested <tt>for</tt>
+                loops, one can easily generate a matrix giving number of paths of a particular length from similar
+                matrices for smaller lengths.</p>
+            
+<p>Now we can see how to solve this problem in time that is proportional to the logarithm of
+                the given length.  Simply look at the binary representation of the length.  The binary representation
+                is a way of decomposing a value into a sum of powers of <tt>2</tt>.  So, all we have to do is
+                compute the number of paths between all pairs of vertices for all lengths that are powers of <tt>2</tt>
+                (up to a certain point).</p>
+<p>
+                For this, we again use the method described above.  If we know the number of paths of length <tt>a</tt>,
+                we can compute the number of paths of length <tt>a + a</tt>.  So, we build a three-dimensional array,
+                <tt>paths</tt>, where <tt>paths[x][i][j]</tt> gives the number of paths of length <tt>2<sup>x</sup></tt> from vertex
+                <tt>i</tt> to vertex <tt>j</tt>.  The range of the first index needs to be <tt>0..30</tt> (since
+                the base-2 logarithm of the maximum length we will be given is less than 31).  We initialize <tt>paths[0]</tt>
+                to be all zeros, except where an edge exists from <tt>i</tt> to <tt>j</tt>.  If there is an edge from
+                <tt>i</tt> to <tt>j</tt>, then <tt>paths[0][i][j] = 1</tt>.</p>
 
-<P>Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum 
-dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent 
-luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis 
-eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum.</P>
-
+<p>We then successively build <tt>paths[1]</tt> through <tt>paths[30]</tt>.  Since we're going to have
+                to repeat this process later on to obtain the answer for our given length, it is a good idea to
+                develop this process as a function, which takes two two-dimensional matrices (representing the number of
+                paths between all pairs for two different lengths) and returns a two-dimensional matrix (representing
+                    the number of paths between all pairs for the sum of the two input lengths).  Then, to build
+                <tt>paths[n]</tt>, we simply pass two references to <tt>paths[n - 1]</tt> to this function.
+                The function also has to handle overflow detection.  Basically, before increasing any value, verify that
+                the amount it is going to be increased by is less than the difference between the maximum value and its
+                current value.  If so, replace it with <tt>-1</tt>.</p>
+                
+<p>Once we build <tt>paths</tt>, we are ready to compute the answer.  We initialize a two-dimensional
+                <tt>sum</tt> to all zeros, and then set <tt>sum[i][i] = 1</tt> for all vertices <tt>i</tt>.  This
+                represents the number of paths of length 0.  We then iterate through the bits of <tt>length</tt>.
+                If bit <tt>i</tt> is <tt>1</tt>, then we pass <tt>sum</tt> and <tt>paths[i]</tt> to the function
+                we implemented above and replace <tt>sum</tt> with its return value.  After we've done this for all
+                the bits of <tt>length</tt>, we have our answer for all pairs of vertices.  We simply look up the
+                value at the location specified by the input parameters and return it.</p>
+<p>&#160;</p>
+<a name="HigherMaze"></a><font size="+2"><b>HigherMaze</b></font><br/><font size="-1">
+    Used as: Level 3</font><h4>Implementation</h4>
+<p>
+                This is just a suped up version of a typical breadth-first-search problem, something which should pose
+                little challenge to competitors that have made it to the semi-finals.  The most interesting aspect of
+                this problem is the input, part of which specifies parameters to a pseudo-random number generator which
+                is used to populate the graph before the search is performed.  This might make testing and challenging
+                more difficult, but the problem statement explicitly specifies how to code the generator, so it should
+                not pose much difficulty as far as coding goes.
+            </p>
+<p>
+                There are at most <tt>20<sup>5</sup> = 3200000</tt> locations in the graph.  There's no problem with storing
+                information for all of these in memory.  The general process of a breadth-first search is then as follows.
+            </p>
+<p>
+                The primary data structure for a breadth-first search is a priority queue.  The values that are stored in
+                the priority queue are tuples.  Each such tuple represents a location and a cost for reaching that location.
+                Thus the priority queue is initially populated with the starting location with a cost of zero.
+            </p>
+<p>
+                We then process this queue until it is either empty or a tuple representing the destination location reaches
+                the head of the queue.  If the queue ever becomes empty, then that means there is no path from the source
+                to the destination.  While the queue is not empty, we pull out the value at its head and process it to
+                obtain new values to add to the queue.
+            </p>
+<p>
+                Each value that we pull from the queue represents a location we can reach (and the minimal cost of reaching
+                that location).  For each location we reach, we generate the locations of all its neighbors (which may include
+                neighbors reached directly through wormholes) and compute the costs
+                for reaching each of these locations by passing through the current location.  That is, we compute the cost
+                of travelling from the current location to a neighbor, and add that cost to the cost of reaching the current
+                location.  We then construct a tuple for associating each of the neighboring locations with the computed cost
+                for each, and add them to the priority queue.  Note that for efficiency we should not add a tuple to the
+                queue if there has already been added to the queue a tuple for the same location with a lower cost.  Therefore
+                we also maintain a map, with location as the key, giving the minimum cost (if any) of reaching each location
+                from the source.
+            </p>
+<p>
+                This is all standard fare, and all of the contestants have probably solved this problem for two, three, or even
+                four dimensions (I recall an ACM ICPC problem a few years ago that was four-dimensional).  This is just
+                a generalization of the same problem.  Generalizing the solution is trivial, except for the matter of iterating
+                neighbors.  Writing code to generate neighbors of an arbitrary location in <i>n</i> dimensions is trivial if
+                <i>n</i> is constant for your program, but it's slightly harder to generalize for any <i>n</i>.  This consists
+                of generating all <i>n</i>-element arrays where the values of each element can be either <tt>-1</tt>, <tt>0</tt>,
+                or <tt>1</tt>, and this could easily be done in a simple recursive function.
+            </p>
 
 <IMG SRC="/i/m/Logan_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;Logan<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=112902" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
           </TD>
             </TR>                  
-            <TR>
+            <!-- <TR>
               <TD VALIGN="middle" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Semifinal Room 1 Problems</TD>
             </TR>
             <TR>
@@ -109,7 +233,7 @@ Level Two (500) - <A HREF="/i/invit02/Roadmap.pdf" CLASS="bodyText">Roadmap</A><
 Level Three (1000) - <A HREF="/i/invit02/Omaha.pdf" CLASS="bodyText">Omaha</A><BR/>
 
           </TD>
-            </TR>
+            </TR> -->
             <TR>
               <TD VALIGN="middle"><A NAME="log"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
             </TR>             
@@ -122,30 +246,31 @@ Level Three (1000) - <A HREF="/i/invit02/Omaha.pdf" CLASS="bodyText">Omaha</A><B
             <TR>
               <TD VALIGN="top" CLASS="bodyText">
               
-8:00:00 AM - zoidal opens the Level One problem <BR/>
-8:00:01 AM - derkuci opens the Level One problem <BR/>
-8:00:01 AM - ambrose opens the Level One problem <BR/>
-8:00:02 AM - DjinnKahn opens the Level One problem <BR/>
-8:18:48 AM - DjinnKahn opens the Level Two problem <BR/>
-8:19:21 AM - ambrose submits the Level One problem for 180.11 points <BR/>
-8:19:29 AM - ambrose opens the Level Two problem <BR/>
-8:20:53 AM - zoidal opens the Level Two problem <BR/>
-8:25:52 AM - ambrose submits the Level Two problem for 476.36 points <BR/>
-8:26:03 AM - ambrose opens the Level Three problem <BR/>
-8:30:32 AM - derkuci submits the Level One problem for 140.90 points <BR/>
-8:30:44 AM - derkuci opens the Level Two problem <BR/>
-8:32:07 AM - DjinnKahn submits the Level Two problem for 416.07 points <BR/>
-8:32:14 AM - DjinnKahn opens the Level Three problem <BR/>
-8:35:04 AM - zoidal submits the Level Two problem for 407.77 points <BR/>
-8:35:09 AM - zoidal opens the Level Three problem <BR/>
-8:39:20 AM - derkuci submits the Level Two problem for 459.37 points<BR/> 
-8:39:30 AM - derkuci opens the Level Three problem<BR/> 
-9:04:41 AM - ambrose submits the Level Three problem for 491.61 points<BR/> 
-9:09:24 AM - zoidal submits the Level One problem for 93.30 points<BR/> 
-9:14:57 AM - zoidal submits the Level Three problem for 483.41 points<BR/><BR/>
+<BR/><B>CODING PHASE</B><BR/>
+8:00:02 AM - malpt opens the Level One problem<BR/>
+8:00:04 AM - ambrose opens the Level One problem<BR/>
+8:00:05 AM - SnapDragon opens the Level One problem<BR/>
+8:00:07 AM - kyky opens the Level One problem<BR/>
+8:10:02 AM - SnapDragon submits the Level One problem for 268.59 points (final submission)<BR/>
+8:10:08 AM - SnapDragon opens the Level Two problem<BR/>
+8:11:27 AM - malpt submits the Level One problem for 260.51 points (final submission)<BR/>
+8:11:40 AM - malpt opens the Level Two problem<BR/>
+8:11:57 AM - ambrose submits the Level One problem for 257.85 points (final submission)<BR/>
+8:12:06 AM - ambrose opens the Level Two problem<BR/>
+8:18:23 AM - malpt submits the Level Two problem for 370.92 points (not the final submission)<BR/>
+8:18:46 AM - kyky submits the Level One problem for 219.80 points (final submission)<BR/>
+8:18:55 AM - kyky opens the Level Three problem<BR/>
+8:22:59 AM - kyky opens the Level Two problem<BR/>
+8:35:37 AM - ambrose submits the Level Two problem for 326.37 points (final submission)<BR/>
+8:35:50 AM - ambrose opens the Level Three problem<BR/>
+8:37:26 AM - SnapDragon submits the Level Two problem for 300.55 points (final submission)<BR/>
+8:37:36 AM - SnapDragon opens the Level Three problem<BR/>
+9:13:57 AM - malpt submits the Level Two problem for 150.00 points (final submission)<BR/>
+9:15:36 AM - SnapDragon submits the Level Three problem for 521.09 points (final submission)<BR/><BR/>
 
-<B>Challenges</B><BR/>
-9:23:18 AM - DjinnKahn challenges ambrose on the Level Two problem successfully<BR/>
+<B>CHALLENGE PHASE</B><BR/>
+9:38:16 AM - SnapDragon challenges ambrose on the Level Two problem successfully<BR/>
+
 
           </TD>
             </TR>            
