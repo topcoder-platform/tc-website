@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/dgarthur_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=262936"><strong>dgarthur</strong></a><br/>
+                        <img src="/i/m/lbackstrom_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=159052"><strong>lbackstrom</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,15 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm182_prob">SRM 182 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, February 7, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm183_prob">SRM 183 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, February 11, 2004</p>
 
                         <p>
-A level one problem with some nasty boundary cases and a devious level two problem made this SRM a tough one for 
-many Division 1 participants. Coding phase saw <b>nicka81</b> jump into an early lead with exceptionally fast 
-submissions on the two harder problems. He had to resubmit the hard, however, which allowed <b>jshute</b> to pass him.
+ Division 1 had a pretty hard set last night, with a slightly harder easy problem, and a 
+ tricky medium geometry problem that stumped most coders. Only 24 of them where 
+ able to successfully pass the medium, though many tried. The hard involved dynamic 
+ programming/memoization, and though it had a higher success rate, many fewer 
+ people submitted it.
 
-                       <a href="/?t=statistics&amp;c=srm182_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                       <a href="/?t=statistics&amp;c=srm183_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
