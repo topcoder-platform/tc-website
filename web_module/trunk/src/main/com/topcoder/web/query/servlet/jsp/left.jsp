@@ -1,10 +1,10 @@
 <%@  page
   language="java"
-  errorPage="/errorPage.jsp"
+  errorPage="errorPage.jsp"
   import="com.topcoder.web.query.common.Constants"%>
 <%
     String db = request.getParameter(Constants.DB_PARAM)==null?"":request.getParameter(Constants.DB_PARAM);
-    String servletPath = request.getParameter(Constants.SERVLET_PATH_PARAM)==null?"":request.getParameter(Constants.SERVLET_PATH_PARAM);
+    String servletPath = request.getContextPath() + request.getServletPath();
     String begin = servletPath+"?"+Constants.TASK_PARAM+"=";
     String end = "&"+Constants.DB_PARAM+"="+db;
 %>
