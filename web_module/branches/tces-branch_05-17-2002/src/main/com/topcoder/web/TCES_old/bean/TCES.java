@@ -169,6 +169,13 @@ if (this.isValid(parameterValues)) {
 
 
 if (doUpdate) {
+        coderObject.address1 = null;
+        coderObject.address2 = null;
+        coderObject.city = null;
+        coderObject.state_code = null;
+        coderObject.zip = null;
+        coderObject.country_code = null;
+        coderObject.home_phone = null;
         coderObject.work_phone=null;
         coderObject.middle_name=null;
         coderObject.activation_code=null;
