@@ -128,7 +128,7 @@ String endYear = "";
 </tr>    
   
 <tr valign="middle">
-<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Education</td>
+<td colspan="5" class="statTextBig" valign="middle" background="/i/steel_bluebv_bg.gif" height="16">&nbsp;Work History</td>
 </tr>
   
 <tr valign="middle">
@@ -141,10 +141,27 @@ String endYear = "";
 <td colspan="3" class="errorText" align="left" valign="middle"></td>
 </tr>
 
+
+<% // COMPANY %>
+
 <tr>
-<td width="45%" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Company</b>&nbsp;</td>
-<td colspan="4" class="statTextBig" align="left" valign="middle"><img src="/i/clear.gif" width="1" height="1" border="0"><input type="text" name="firstName" value ="<%= company %>" size="30" maxlength="30"></td>
+<td colspan="5"><table width="100%" cellpadding="0" cellspacing="0" border="0">
+<tr>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company</td>
+<td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
+<td class="statTextBig" align="left" valign="middle"><input type="text" name="firstName" value="<%= company %>" size="30" maxlength="30"></td>
 </tr>
+</table>
+</td>
+</tr>
+<tr>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
+<td colspan="3" class="errorText" align="left" valign="middle"></td>
+</tr>
+
+
+
 
 <tr valign="middle">
 <td colspan="5" class="statTextBig" valign="middle"><img src="/i/clear.gif" width="1" height="18" border="0"></td>
