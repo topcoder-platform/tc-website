@@ -2,10 +2,13 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 <xsl:import href="../menu.xsl"/>
 <xsl:import href="../top.xsl"/>
+
+<xsl:preserve-space elements="*"/> 
 <xsl:template match="/">
 
 <html>
 <head>
+<title>Contest Round Administrative Menu Page</title>
 </head>
 <body>
       <xsl:call-template name="Top"/>
@@ -13,10 +16,10 @@
 
 
 <SCRIPT TYPE="text/Javascript"><![CDATA[
- function doSubmit(roomid) {
+ function doSubmit(roundId) {
     document.frmResults.Task.value    = 'challenge';
-    document.frmResults.Command.value = 'getChallengeList';
-    document.frmResults.roomid.value = roomid;
+    document.frmResults.Command.value = 'getRoomList';
+    document.frmResults.results.value = roundId;
     document.frmResults.filter.value = 90;
     document.frmResults.submit();
   }
@@ -29,30 +32,39 @@
       <br/><br/>
       <table width="319" cellspacing="0" cellpadding="0" border="5">
         <tr>
-          <td align="center" valign="center" width="50" height="20">
-            <xsl:text>Round Id</xsl:text>
+          <td>
+            <xsl:text>Problem Id</xsl:text>
           </td>
-          <td align="center" valign="center" width="250" height="20">
-            <xsl:text>Room Id</xsl:text>
+          <td>
+            <xsl:text>Class Name</xsl:text>
           </td>
-          <td align="center" valign="center" width="250" height="20">
-            <xsl:text>Room Description</xsl:text>
+          <td>
+            <xsl:text>Method Name</xsl:text>
+          </td>
+          <td>
+            <xsl:text>Difficulty Level</xsl:text>
           </td>
          </tr>
-         <xsl:for-each select="/TC/CHALLENGE/Contest">
+         <xsl:for-each select="/TC/CHALLENGE/Problem">
             <tr>
                 <td>
-                      <xsl:value-of select="RoundId"/>
-                </td>
-                <td>
                     <A>
-                      <xsl:attribute name="HREF">JavaScript:doSubmit('<xsl:value-of select="RoomId"/>')
+                      <xsl:attribute name="HREF">JavaScript:doSubmit('<xsl:value-of select="ProblemId"/>')
                       </xsl:attribute>
-                      <xsl:value-of select="RoomId"/>
+                      <xsl:value-of select="ProblemId"/>
                     </A>
                 </td>
                 <td>
-                    <xsl:value-of select="RoomDesc"/>
+                      <xsl:value-of select="ClassName"/>
+                 </td>
+                 <td>
+                      <xsl:value-of select="MethodName"/>
+                 </td>
+                 <td>
+                      <xsl:value-of select="DifficultyDesc"/>
+                 </td>
+                <td>
+                    <xsl:value-of select="Pr"/> / <xsl:value-of select="RoundName"/>
                 </td>
             </tr>
          </xsl:for-each>
@@ -65,12 +77,7 @@
 <xsl:attribute name="ACTION">http<xsl:value-of select="/TC/AdminURL"/></xsl:attribute>
 <INPUT TYPE="HIDDEN" NAME="Task" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="Command" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="roomid" VALUE=""/>
-<INPUT TYPE="HIDDEN" NAME="roundid"> 
-  <xsl:attribute name="VALUE">
-      <xsl:value-of select="/TC/CHALLENGE/Contest/RoundId"/>
-  </xsl:attribute>
-</INPUT>
+<INPUT TYPE="HIDDEN" NAME="results" VALUE=""/>
 <INPUT TYPE="HIDDEN" NAME="filter" VALUE=""/>
 </FORM>
 
