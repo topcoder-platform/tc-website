@@ -120,6 +120,7 @@ public final class TaskAuthentication {
         try {
             String url = request.getParameter("errorURL");
             if (url==null) url = Conversion.checkNull((String) request.getAttribute("errorURL"));
+            if (url.equals("")) url = Conversion.checkNull((String)request.getAttribute(BaseServlet.NEXT_PAGE_KEY));
 
             String msg = request.getParameter("errorMsg");
             if (msg==null) msg = Conversion.checkNull((String) request.getAttribute("errorMsg"));
@@ -232,7 +233,6 @@ public final class TaskAuthentication {
                             new SessionPersistor(request.getSession()), request, response);
                     //we're gonna cheat and not do the actual login, just set the cookie
                     auth.setCookie(nav.getUserId());
-
 
                     if (loginURL.equals("")) {
                         result = "home";
