@@ -690,6 +690,8 @@
         <antcall target="package-EJB-TermsOfUseBean"/>
         <antcall target="package-EJB-EmailBean"/>
         <antcall target="package-EJB-SchoolBean"/>
+        <antcall target="package-EJB-RatingBean"/>
+        <antcall target="package-EJB-CoderBean"/>
    </target>
 
    
