@@ -82,7 +82,8 @@ public class DemographicQuestion extends Base implements Comparable {
             a = (DemographicAnswer)it.next();
             this.answers.put(new Long(a.getAnswerId()), a.clone());
         }
-        log.debug("answers: " + a.toString());
+        log.debug("answers: " + answers.size());
+        log.debug(answers.toString());
     }
 
     private void setAnswers(HashMap answers) {
