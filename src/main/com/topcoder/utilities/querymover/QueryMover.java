@@ -28,8 +28,8 @@ public class QueryMover {
 //    private static final String sourceDSN = "HS_DW";
 //    private static final String targetDSN = "DW";
 
-    private static final String sourceDSN = "OLTP";
-    private static final String targetDSN = "OLTP";
+    private static final String sourceDSN = "SCREENING_OLTP";
+    private static final String targetDSN = "SCREENING_OLTP";
 
     private static final String sourceContextFactory = "weblogic.jndi.WLInitialContextFactory";
     private static final String targetContextFactory = "weblogic.jndi.WLInitialContextFactory";
