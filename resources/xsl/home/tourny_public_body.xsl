@@ -96,6 +96,7 @@
 <B>When:</B> October 8th - November 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
 <B>Total Prize:</B> $150,000<BR/><BR/>
+<B>TopCoder Announces Field for the <BR/>2002 TopCoder Invitational <BR/>Programming Tournament</B>...<A CLASS="bodyGeneric"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=news_events&amp;c=pr_10_28_02</xsl:attribute>full&#160;article</A>
 <!--
 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute>Login</A> to sign up!<BR/>
 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>-->
