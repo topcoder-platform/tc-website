@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.termsofuse;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 
@@ -18,6 +19,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class TermsOfUseBean implements SessionBean {
+    private static Logger log = Logger.getLogger(TermsOfUseBean.class);
 
     private final static String DATA_SOURCE = "java:comp/env/datasource_name";
     private final static String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
@@ -114,8 +116,9 @@ public class TermsOfUseBean implements SessionBean {
 
         long terms_of_use_type_id = 0;
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
 
@@ -127,11 +130,11 @@ public class TermsOfUseBean implements SessionBean {
             query.append("FROM terms_of_use ");
             query.append("WHERE terms_of_use_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, _terms_of_use_id);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 terms_of_use_type_id = rs.getLong(1);
             } else {
@@ -146,18 +149,25 @@ public class TermsOfUseBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
             if (ps != null) {
                 try {
                     ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
                 }
             }
-            if (con != null) {
+            if (conn != null) {
                 try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
                 }
             }
         }
@@ -221,9 +231,9 @@ public class TermsOfUseBean implements SessionBean {
 
         String text = null;
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
         try {
 
             String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
@@ -234,11 +244,11 @@ public class TermsOfUseBean implements SessionBean {
             query.append("FROM terms_of_use ");
             query.append("WHERE terms_of_use_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, _terms_of_use_id);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 text = DBMS.getTextString(rs, 1);
             } else {
@@ -256,18 +266,25 @@ public class TermsOfUseBean implements SessionBean {
             _e.printStackTrace();
             throw(new EJBException(_e.getMessage()));
         } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
             if (ps != null) {
                 try {
                     ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
                 }
             }
-            if (con != null) {
+            if (conn != null) {
                 try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
                 }
             }
         }

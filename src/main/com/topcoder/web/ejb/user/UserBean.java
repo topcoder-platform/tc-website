@@ -53,12 +53,12 @@ public class    UserBean implements SessionBean {
         ctx = _ctx;
     }
 
-    public void createUser(long _user_id, String _handle, char _status)
+    public void createUser(long userId, String handle, char status)
             throws EJBException, RemoteException {
 
-        log.debug("createUser called. user_id=" + _user_id + " " +
-                "handle=" + _handle + " " +
-                "status=" + _status);
+        log.debug("createUser called. user_id=" + userId + " " +
+                "handle=" + handle + " " +
+                "status=" + status);
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -75,9 +75,9 @@ public class    UserBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
-            ps.setString(2, _handle);
-            ps.setString(3, "" + _status);
+            ps.setLong(1, userId);
+            ps.setString(2, handle);
+            ps.setString(3, "" + status);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -108,10 +108,10 @@ public class    UserBean implements SessionBean {
         }
     }
 
-    public void setFirstName(long _user_id, String _first_name)
+    public void setFirstName(long userId, String _first_name)
             throws EJBException, RemoteException {
 
-        log.debug("setFirstName called. user_id=" + _user_id + " " +
+        log.debug("setFirstName called. user_id=" + userId + " " +
                 "first_name=" + _first_name);
 
         Connection con = null;
@@ -130,7 +130,7 @@ public class    UserBean implements SessionBean {
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
             ps.setString(1, _first_name);
-            ps.setLong(2, _user_id);
+            ps.setLong(2, userId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -162,10 +162,10 @@ public class    UserBean implements SessionBean {
         }
     }
 
-    public void setLastName(long _user_id, String _last_name)
+    public void setLastName(long userId, String _last_name)
             throws EJBException, RemoteException {
 
-        log.debug("setLastName called. user_id=" + _user_id + " " +
+        log.debug("setLastName called. user_id=" + userId + " " +
                 "last_name=" + _last_name);
 
         Connection con = null;
@@ -184,7 +184,7 @@ public class    UserBean implements SessionBean {
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
             ps.setString(1, _last_name);
-            ps.setLong(2, _user_id);
+            ps.setLong(2, userId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -215,11 +215,11 @@ public class    UserBean implements SessionBean {
         }
     }
 
-    public void setUserStatusId(long _user_id, long _user_status_id)
+    public void setStatus(long userId, char status)
             throws EJBException, RemoteException {
 
-        log.debug("setUserStatusId called. user_id=" + _user_id + " " +
-                "user_status_id=" + _user_status_id);
+        log.debug("setStatus called. user_id=" + userId + " " +
+                "status=" + status);
 
         Connection con = null;
         PreparedStatement ps = null;
@@ -231,13 +231,13 @@ public class    UserBean implements SessionBean {
 
             StringBuffer query = new StringBuffer(1024);
             query.append("UPDATE user ");
-            query.append("SET user_status_id=? ");
+            query.append("SET status=? ");
             query.append("WHERE user_id=?");
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_status_id);
-            ps.setLong(2, _user_id);
+            ps.setString(1, String.valueOf(status));
+            ps.setLong(2, userId);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
@@ -255,28 +255,29 @@ public class    UserBean implements SessionBean {
                 try {
                     ps.close();
                 } catch (Exception _e) {
-                    log.debug("setUserStatusId error. Failed to close PreparedStatement");
+                    log.debug("setStatus error. Failed to close PreparedStatement");
                 }
             }
             if (con != null) {
                 try {
                     con.close();
                 } catch (Exception _e) {
-                    log.debug("setUserStatusId error. Failed to close Connection");
+                    log.debug("setStatus error. Failed to close Connection");
                 }
             }
         }
     }
 
-    public String getFirstName(long _user_id)
+    public String getFirstName(long userId)
             throws EJBException, RemoteException {
 
-        log.debug("getFirstName called. user_id=" + _user_id);
+        log.debug("getFirstName called. user_id=" + userId);
 
         String first_name = null;
 
         Connection con = null;
         PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
 
@@ -290,14 +291,14 @@ public class    UserBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 first_name = rs.getString(1);
             } else {
                 throw(new EJBException("No rows found when selecting from 'user' with " +
-                        "user_id=" + _user_id + "."));
+                        "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true,_sqle);
@@ -306,6 +307,13 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("getFirstName error. Failed to close ResultSet");
+                }
+            }
             if (ps != null) {
                 try {
                     ps.close();
@@ -324,15 +332,16 @@ public class    UserBean implements SessionBean {
         return (first_name);
     }
 
-    public String getLastName(long _user_id)
+    public String getLastName(long userId)
             throws EJBException, RemoteException {
 
-        log.debug("getLastName called. user_id=" + _user_id);
+        log.debug("getLastName called. user_id=" + userId);
 
         String last_name = null;
 
         Connection con = null;
         PreparedStatement ps = null;
+        ResultSet rs = null;
 
         try {
 
@@ -346,14 +355,14 @@ public class    UserBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
                 last_name = rs.getString(1);
             } else {
                 throw(new EJBException("No rows found when selecting from 'user' with " +
-                        "user_id=" + _user_id + "."));
+                        "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true,_sqle);
@@ -362,6 +371,13 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("getLastName error. Failed to close ResultSet");
+                }
+            }
             if (ps != null) {
                 try {
                     ps.close();
@@ -380,36 +396,36 @@ public class    UserBean implements SessionBean {
         return (last_name);
     }
 
-    public long getUserStatusId(long _user_id)
+    public char getStatus(long userId)
             throws EJBException, RemoteException {
 
-        log.debug("getUserStatusId called. user_id=" + _user_id);
+        log.debug("getStatus called. user_id=" + userId);
 
-        long user_status_id = 0;
+        char status = 0;
 
         Connection con = null;
         PreparedStatement ps = null;
-
+        ResultSet rs = null;
         try {
 
             String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
             DataSource ds = (DataSource) init_ctx.lookup(ds_name);
 
             StringBuffer query = new StringBuffer(1024);
-            query.append("SELECT user_status_id ");
+            query.append("SELECT status ");
             query.append("FROM user ");
             query.append("WHERE user_id=?");
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
 
-            ResultSet rs = ps.executeQuery();
+            rs = ps.executeQuery();
             if (rs.next()) {
-                user_status_id = rs.getLong(1);
+                status = rs.getString(1).charAt(0);
             } else {
                 throw(new EJBException("No rows found when selecting from 'user' with " +
-                        "user_id=" + _user_id + "."));
+                        "user_id=" + userId + "."));
             }
         } catch (SQLException _sqle) {
             DBMS.printSqlException(true,_sqle);
@@ -418,22 +434,29 @@ public class    UserBean implements SessionBean {
             _ne.printStackTrace();
             throw(new EJBException(_ne.getMessage()));
         } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("getStatus error. Failed to close ResultSet");
+                }
+            }
             if (ps != null) {
                 try {
                     ps.close();
                 } catch (Exception _e) {
-                    log.debug("getUserStatusId error. Failed to close PreparedStatement");
+                    log.debug("getStatus error. Failed to close PreparedStatement");
                 }
             }
             if (con != null) {
                 try {
                     con.close();
                 } catch (Exception _e) {
-                    log.debug("getUserStatusId error. Failed to close Connection");
+                    log.debug("getStatus error. Failed to close Connection");
                 }
             }
         }
-        return (user_status_id);
+        return (status);
     }
 
     public boolean userExists(long userId) throws EJBException {

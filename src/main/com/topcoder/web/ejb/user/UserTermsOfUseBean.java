@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.user;
 
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 
 import javax.ejb.CreateException;
 import javax.ejb.EJBException;
@@ -17,6 +18,7 @@ import java.sql.ResultSet;
 
 public class UserTermsOfUseBean implements SessionBean {
 
+    private static Logger log = Logger.getLogger(UserTermsOfUseBean.class);
     private final static String DATA_SOURCE = "java:comp/env/datasource_name";
 
     private transient InitialContext init_ctx = null;
@@ -47,7 +49,7 @@ public class UserTermsOfUseBean implements SessionBean {
         ctx = _ctx;
     }
 
-    public void createUserTermsOfUse(long _user_id, long _terms_of_use_id)
+    public void createUserTermsOfUse(long userId, long _terms_of_use_id)
             throws EJBException, RemoteException {
 
         Connection con = null;
@@ -65,7 +67,7 @@ public class UserTermsOfUseBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
             ps.setLong(2, _terms_of_use_id);
 
             int rc = ps.executeUpdate();
@@ -98,7 +100,7 @@ public class UserTermsOfUseBean implements SessionBean {
         }
     }
 
-    public void removeUserTermsOfUse(long _user_id, long _terms_of_use_id)
+    public void removeUserTermsOfUse(long userId, long _terms_of_use_id)
             throws EJBException, RemoteException {
 
         Connection con = null;
@@ -116,7 +118,7 @@ public class UserTermsOfUseBean implements SessionBean {
 
             con = ds.getConnection();
             ps = con.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            ps.setLong(1, userId);
             ps.setLong(2, _terms_of_use_id);
 
             int rc = ps.executeUpdate();
@@ -153,7 +155,7 @@ public class UserTermsOfUseBean implements SessionBean {
     public boolean hasTermsOfUse(long userId, long termsOfUseId)
             throws EJBException, RemoteException {
 
-        Connection con = null;
+        Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         boolean ret = false;
@@ -167,8 +169,8 @@ public class UserTermsOfUseBean implements SessionBean {
             query.append("FROM user_terms_of_use_xref ");
             query.append("WHERE user_id=? AND terms_of_use_id=?");
 
-            con = ds.getConnection();
-            ps = con.prepareStatement(query.toString());
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
             ps.setLong(1, userId);
             ps.setLong(2, termsOfUseId);
 
@@ -184,22 +186,22 @@ public class UserTermsOfUseBean implements SessionBean {
             if (rs != null) {
                 try {
                     rs.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
                 }
             }
             if (ps != null) {
                 try {
                     ps.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
                 }
             }
-            if (con != null) {
+            if (conn != null) {
                 try {
-                    con.close();
-                } catch (Exception _e) {
-                    /* do nothing */
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
                 }
             }
         }

@@ -6,22 +6,22 @@ import java.rmi.RemoteException;
 
 public interface UserSchool extends EJBObject {
 
-    public void createUserSchool(long _user_id, long _school_id)
+    public void createUserSchool(long userId, long schoolId)
             throws EJBException, RemoteException;
 
-    public void removeUserSchool(long _user_id, long _school_id)
+    public void removeUserSchool(long userId, long schoolId)
             throws EJBException, RemoteException;
 
-    public void setCurrentUserSchoolId(long _user_id, long _school_id)
+    public void setCurrentUserSchoolId(long userId, long schoolId)
             throws EJBException, RemoteException;
 
-    public long getCurrentUserSchoolId(long _user_id)
+    public long getCurrentUserSchoolId(long userId)
             throws EJBException, RemoteException;
 
-    public boolean isCurrentUserSchoolId(long _user_id, long _school_id)
+    public boolean isCurrentUserSchoolId(long userId, long schoolId)
             throws EJBException, RemoteException;
 
-    public boolean exists(long _user_id, long _school_id)
+    public boolean exists(long userId, long schoolId)
             throws EJBException, RemoteException;
 
 }
