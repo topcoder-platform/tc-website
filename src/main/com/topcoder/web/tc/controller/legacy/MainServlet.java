@@ -151,6 +151,11 @@ public final class MainServlet extends HttpServlet {
             trail.append(" ****]");
             log.info(trail.toString());
             User user = nav.getUser();
+            if (user==null)  {
+                //user must have been transient and we got a navigation object that had been serialized at some point
+                user = new User();
+                nav.setUser(user);
+            }
             if (nav.isLoggedIn()) {
                 user.setLoggedIn("Y");
             } else {
