@@ -10,7 +10,7 @@
 
 <table width="180" border="0" cellspacing="0" cellpadding="5" bgcolor="#555555">
     <tr>
-        <td class="statTextBig" bgcolor="#333333">January: <a href="/stat?c=member_profile&cr=8355516" class="coderTextRed">Eryx</a></td>
+        <td class="statTextBig" bgcolor="#333333">February: <a href="/stat?c=member_profile&cr=308953" class="coderTextRed">Mike Mirzayanov</a></td>
     </tr>
 </table>
 
@@ -22,24 +22,19 @@
     </tr>
 
     <tr>
-        <td class="formHandleOdd" nowrap="nowrap">SRM 177</td>
-        <td class="formHandleOdd" align="right">2210</td>
-        <td rowspan="4" align="center" valign="middle"><img src="/i/m/Eryx_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
+        <td class="formHandleOdd" nowrap="nowrap">SRM 180</td>
+        <td class="formHandleOdd" align="right">2343</td>
+        <td rowspan="4" align="center" valign="middle"><img src="/i/m/Mike-Mirzayanov_mug.gif" alt="" width="55" height="61" border="0" class="myStatsPhoto"/></td>
     </tr>
 
     <tr>
-        <td class="formHandleEven">SRM 176</td>
-        <td class="formHandleEven" align="right">2250</td>
+        <td class="formHandleEven">SRM 179</td>
+        <td class="formHandleEven" align="right">2237</td>
     </tr>
 
     <tr>
-        <td class="formHandleOdd">SRM 175</td>
-        <td class="formHandleOdd" align="right">2022</td>
-    </tr>
-
-    <tr>
-        <td class="formHandleEven">SRM 174</td>
-        <td class="formHandleEven" align="right">1594</td>
+        <td class="formHandleOdd">SRM 178</td>
+        <td class="formHandleOdd" align="right">2110</td>
     </tr>
 </table>
 
