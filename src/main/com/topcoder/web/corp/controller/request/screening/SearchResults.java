@@ -27,21 +27,21 @@ import com.topcoder.web.corp.common.Util;
  * @author  rfairfax
  */
 public class SearchResults extends BaseScreeningProcessor {
-    
+
     protected void screeningProcessing() throws com.topcoder.web.common.TCWebException {
-        
+
         try {
         SearchModel sm = getSearchModel();
-        
+
         setDefault(Constants.FIRST_NAME, sm.getFirstName());
         setDefault(Constants.LAST_NAME, sm.getLastName());
         setDefault(Constants.EMAIL_ADDRESS, sm.getEmailAddress());
-        
+
         //demographic responses
         List responses = sm.getResponses();
         DemographicResponse response = null;
         DemographicQuestion question = null;
-        
+
         HashMap multiAnswerMap = new HashMap();
         Map questions = getQuestions(getUser().getId())  ;
         for (Iterator it = responses.iterator(); it.hasNext();) {
@@ -66,41 +66,41 @@ public class SearchResults extends BaseScreeningProcessor {
             String s = String.valueOf(((Long)it.next()).longValue());
             setDefault(Constants.DEMOG_PREFIX + s, multiAnswerMap.get(new Long(s)));
         }
-        
+
         getRequest().setAttribute("searchResults", sm);
-        
-        setNextPage(Constants.SEARCH_RESULTS_PAGE); 
-        setIsNextPageInContext(true); 
+
+        setNextPage(Constants.SEARCH_RESULTS_PAGE);
+        setIsNextPageInContext(true);
         } catch (Exception e)
         {
             throw new TCWebException(e);
         }
     }
-    
+
     private SearchModel getSearchModel() throws Exception {
         SearchModel ret = new SearchModel();
-        
+
         ret.setFirstName(StringUtils.checkNull(getRequest().getParameter(Constants.FIRST_NAME)));
         ret.setLastName(StringUtils.checkNull(getRequest().getParameter(Constants.LAST_NAME)));
         ret.setEmailAddress(StringUtils.checkNull(getRequest().getParameter(Constants.EMAIL_ADDRESS)));
-        
+
         ret.setUserId(getUser().getId());
 
         String start = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.START_RANK));
         if (start.equals(""))
-            ret.setStart(1); 
+            ret.setStart(1);
         else ret.setStart(Integer.parseInt(start));
 
         String end = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.END_RANK));
-        if (end.equals("")) 
-            ret.setEnd(Constants.SEARCH_SCROLL_SIZE); 
+        if (end.equals(""))
+            ret.setEnd(Constants.SEARCH_SCROLL_SIZE);
         else ret.setEnd(Integer.parseInt(end));
 
         //make sure we like the size they they're searching for
         if (ret.getEnd()-ret.getStart()>(Constants.SEARCH_SCROLL_SIZE-1)) {
             ret.setEnd(ret.getStart()+(Constants.SEARCH_SCROLL_SIZE-1));
         }
-        
+
         StringBuffer query = new StringBuffer(1000);
         StringBuffer countQuery = new StringBuffer(1000);
         //generate results
@@ -139,7 +139,7 @@ public class SearchResults extends BaseScreeningProcessor {
         query.append("where s.user_id = u.user_id ");
 	query.append("and sp.session_profile_id = s.session_profile_id ");
 	query.append("and e.user_id = u.user_id ");
-	query.append("and e.primary = 1 ");
+	query.append("and e.primary_ind = 1 ");
 	query.append("and c.coder_id = u.user_id ");
 	query.append("and uax.user_id = u.user_id ");
 	query.append("and a.address_id = uax.address_id ");
@@ -164,7 +164,7 @@ public class SearchResults extends BaseScreeningProcessor {
 	query.append("and sp.company_id = (select company_id from contact where contact_id = ");
         query.append(getUser().getId());
         query.append(") ");
-        
+
         //additional restrictions here
         if(!"".equals(ret.getFirstName().trim()))
         {
@@ -178,13 +178,13 @@ public class SearchResults extends BaseScreeningProcessor {
         {
             query.append("and lower(e.address) like '" + ret.getEmailAddress().toLowerCase() + "' ");
         }
-        
+
         //load demographic info
         List l = getQuestionList();
         Collections.sort(l);
 
         ret.setQuestions(l);
-        
+
         //get the demographic responses
         DemographicQuestion q = null;
         String[] values = null;
@@ -193,10 +193,10 @@ public class SearchResults extends BaseScreeningProcessor {
         List questionList = getQuestionList();
         //loop through all the questions
         List responses = new ArrayList();
-        
+
         for (Iterator it = questionList.iterator(); it.hasNext();) {
             q = (DemographicQuestion) it.next();
-            key = Constants.DEMOG_PREFIX + q.getId(); 
+            key = Constants.DEMOG_PREFIX + q.getId();
             values = getRequest().getParameterValues(key);
             if (values != null) {
                 String value = null;
@@ -228,26 +228,26 @@ public class SearchResults extends BaseScreeningProcessor {
                 }
             }
         }
-        
+
         ret.setResponses(responses);
-        
+
         countQuery.append("select count(*) as count from table(multiset( ");
         countQuery.append(query.toString());
         countQuery.append("))");
-        
+
         QueryRequest r = new QueryRequest();
         r.addQuery("search", query.toString());
         r.addQuery("count", countQuery.toString());
         r.setProperty("search"+DataAccessConstants.START_RANK, String.valueOf(ret.getStart()));
         r.setProperty("search"+DataAccessConstants.END_RANK, String.valueOf(ret.getEnd()));
 
-        
+
         QueryDataAccess cda = new QueryDataAccess(Constants.DATA_SOURCE);
         //cda.setExpireTime(1); //cache for 15 minutes
         Map res = cda.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) res.get("search");
         ResultSetContainer rscCount = (ResultSetContainer) res.get("count");
-        
+
         ret.setResults(rsc);
         ret.setTotal(rscCount.getIntItem(0, "count"));
         if (ret.getEnd() > ret.getTotal()) {
@@ -256,16 +256,16 @@ public class SearchResults extends BaseScreeningProcessor {
         if (ret.getTotal()==0) {
             ret.setStart(0);
         }
-        
+
         return ret;
     }
-    
+
     protected final List getQuestionList() throws Exception {
         //in case we need the list before we've populated it.  this is most
         //likely to happen in makeRegInfo()
         Map questions;
         questions = getQuestions(getUser().getId());
-        
+
         List ret = new ArrayList(questions.size());
         DemographicQuestion q = null;
         for (Iterator it = questions.values().iterator(); it.hasNext();) {
@@ -288,12 +288,12 @@ public class SearchResults extends BaseScreeningProcessor {
         DemographicQuestion q = null;
         for (Iterator it = questions.iterator(); it.hasNext();) {
             row = (ResultSetContainer.ResultSetRow) it.next();
-            q = makeQuestion(row); 
+            q = makeQuestion(row);
             ret.put(new Long(q.getId()), q);
         }
         return ret;
     }
-     
+
      private static DemographicQuestion makeQuestion(ResultSetContainer.ResultSetRow row) throws Exception {
         DemographicQuestion ret = new DemographicQuestion();
         ret.setId(row.getLongItem("demographic_question_id"));
@@ -320,7 +320,7 @@ public class SearchResults extends BaseScreeningProcessor {
         ret.setAnswers(answerList);
         return ret;
     }
-     
+
      private static DemographicAnswer makeAnswer(ResultSetContainer.ResultSetRow row) {
         DemographicAnswer ret = new DemographicAnswer();
         ret.setAnswerId(row.getLongItem("demographic_answer_id"));
@@ -329,7 +329,7 @@ public class SearchResults extends BaseScreeningProcessor {
         ret.setSort(row.getIntItem("sort"));
         return ret;
     }
-     
+
      protected static DemographicQuestion findQuestion(long questionId, Map questions) {
         DemographicQuestion ret = null;
         Long id = new Long(questionId);
@@ -338,5 +338,5 @@ public class SearchResults extends BaseScreeningProcessor {
         }
         return ret;
     }
-    
+
 }

@@ -1,7 +1,7 @@
 /*
  * UserManagerBean.java
  *
- * Copyright © 2003, TopCoder, Inc. All rights reserved
+ * Copyright ï¿½ 2003, TopCoder, Inc. All rights reserved
  *
  */
 package com.topcoder.apps.review.projecttracker;
@@ -134,7 +134,7 @@ public class UserManagerBean implements SessionBean {
                         "WHERE su.user_id = ? AND " +
                         "su.login_id = u.user_id AND " +
                         "su.login_id = e.user_id AND " +
-                        "e.primary = 1");
+                        "e.primary_ind = 1");
                 ps.setString(1, reqHandle);
             } else {
                 //info("getUser sql-query!");
@@ -145,7 +145,7 @@ public class UserManagerBean implements SessionBean {
                         "WHERE su.login_id = ? AND " +
                         "su.login_id = u.user_id AND " +
                         "su.login_id = e.user_id AND " +
-                        "e.primary = 1");
+                        "e.primary_ind = 1");
                 ps.setLong(1, userId);
             }
             rs = ps.executeQuery();
@@ -195,7 +195,7 @@ public class UserManagerBean implements SessionBean {
                                 error("UserManagerBean.getUser(), secuity-exception when looking up permissions: " +
                                         e2.toString());
                                 throw new RuntimeException(e2);
-                            } 
+                            }
                         }
                     }
                     user = new SecurityEnabledUser(loginId, handle, firstName, lastName, email, perm, tcSubject);

@@ -246,7 +246,7 @@ logger.debug("got ds");
             long emailId =  localIdGen.nextId("EMAIL_SEQ");
 
             logger.debug("getting email id HERE 2");
-            String emailQuery = " INSERT INTO  common_oltp:email (email_id, user_id, address, primary, email_type_id)" +
+            String emailQuery = " INSERT INTO  common_oltp:email (email_id, user_id, address, primary_ind, email_type_id)" +
                            " VALUES (?,?,?,?,?)";
             ps1 = conn.prepareStatement(emailQuery);
             ps1.setLong(1, emailId);
@@ -282,7 +282,7 @@ logger.debug("got ds");
             logger.debug("address xref done");
 
             long phoneId = localIdGen.nextId("PHONE_SEQ");
-            String phoneQuery = "INSERT INTO common_oltp:phone (user_id, phone_id, phone_number, primary) VALUES(?,?,?,1)";
+            String phoneQuery = "INSERT INTO common_oltp:phone (user_id, phone_id, phone_number, primary_ind) VALUES(?,?,?,1)";
             ps4 = conn.prepareStatement(phoneQuery);
             ps4.setLong(1, userId);
             ps4.setLong(2, phoneId);

@@ -191,7 +191,7 @@ public class ProjectTrackerBean implements SessionBean {
                 long projectVersionId = rs.getLong(11);
                 long compVersId = rs.getLong(12);
                 String catalogName = rs.getString(13);
-                long levelId = rs.getLong(14);                
+                long levelId = rs.getLong(14);
                 boolean autopilot = rs.getBoolean(15);
 
                 ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
@@ -1356,7 +1356,7 @@ public class ProjectTrackerBean implements SessionBean {
                         "su.login_id = rur.login_id AND " +
                         "su.login_id = u.user_id AND " +
                         "su.login_id = e.user_id AND " +
-                        "e.primary = 1 " +
+                        "e.primary_ind = 1 " +
                         "ORDER BY rur.r_role_id, rur.r_resp_id");
             } else {
                 ps = conn.prepareStatement(
@@ -1762,7 +1762,7 @@ public class ProjectTrackerBean implements SessionBean {
             // Clean up this variable for reuse - bblais
             Common.close(ps);
             ps = null;
-            
+
             //insert default scorecards
             long templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ScreeningScorecard.SCORECARD_TYPE).getId();
             ps = conn.prepareStatement(
@@ -1772,10 +1772,10 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(1,projectId);
             ps.setInt(2, ScreeningScorecard.SCORECARD_TYPE);
             ps.setLong(3, templateId);
-            
+
             ps.executeUpdate();
             ps.close();
-            
+
             templateId = documentManager.getDefaultScorecardTemplate(projectTypeId, ReviewScorecard.SCORECARD_TYPE).getId();
             ps = conn.prepareStatement(
                                     "INSERT INTO project_template " +
@@ -1784,10 +1784,10 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(1,projectId);
             ps.setInt(2, ReviewScorecard.SCORECARD_TYPE);
             ps.setLong(3, templateId);
-            
+
             ps.executeUpdate();
             ps.close();
-            
+
             ps = null;
 
             // Create security manager roles for project

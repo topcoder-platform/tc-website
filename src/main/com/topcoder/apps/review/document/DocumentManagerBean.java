@@ -64,7 +64,7 @@ public class DocumentManagerBean implements SessionBean {
     private DataSource dataSource;
     private ProjectTrackerLocal projectTracker;
     private IdGen idGen;
-    
+
     private static final double EPS = 1e-10;
 
 
@@ -1359,7 +1359,7 @@ public class DocumentManagerBean implements SessionBean {
         "WHERE s.cur_version = 1 AND " +
         "s.project_id = ? AND " +
         "s.submission_type = ? AND " +
-        "e.primary = 1 AND " +
+        "e.primary_ind = 1 AND " +
         "e.user_id = uc.user_id AND " +
         "su.login_id = uc.user_id AND " +
         "su.login_id = rur.login_id AND " +
@@ -1431,7 +1431,7 @@ public class DocumentManagerBean implements SessionBean {
                         "s.submission_id = ? AND " +
                         "s.submission_type = ? AND " +
                         "s.is_removed = ? AND " +
-                        "e.primary = 1 AND " +
+                        "e.primary_ind = 1 AND " +
                         "e.user_id = uc.user_id AND " +
                         "su.login_id = uc.user_id AND " +
                         "su.login_id = s.submitter_id AND " +
@@ -1562,7 +1562,7 @@ public class DocumentManagerBean implements SessionBean {
                                                     boolean good = true;
                                                     for(int z = 0; z < scorecards.length; z++)
                                                     {
-                                                        if((!scorecards[z].getSubmission().equals(obj1)) && scorecards[z].isCompleted() 
+                                                        if((!scorecards[z].getSubmission().equals(obj1)) && scorecards[z].isCompleted()
                                                             && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
                                                             && scorecards[z].getSubmission().getSubmitter().getId() == ((InitialSubmission)obj2).getSubmitter().getId())
                                                         {
@@ -1572,14 +1572,14 @@ public class DocumentManagerBean implements SessionBean {
                                                     if(good)
                                                         vals[0]++;
                                             }
-                                            
+
                                             if(scorecards[y].getSubmission().equals((InitialSubmission)obj2) && scorecards[y].isCompleted())
                                             {
                                                     double scr = scorecards[y].getScore();
                                                     boolean good = true;
                                                     for(int z = 0; z < scorecards.length; z++)
                                                     {
-                                                        if((!scorecards[z].getSubmission().equals(obj2)) && scorecards[z].isCompleted() 
+                                                        if((!scorecards[z].getSubmission().equals(obj2)) && scorecards[z].isCompleted()
                                                             && scorecards[z].getAuthor().getId() == scorecards[y].getAuthor().getId() && (scr - scorecards[z].getScore()) < EPS
                                                             && scorecards[z].getSubmission().getSubmitter().getId() == ((InitialSubmission)obj1).getSubmitter().getId())
                                                         {
@@ -4562,15 +4562,15 @@ public class DocumentManagerBean implements SessionBean {
             Common.close(conn, ps, rs);
         }
     }
-    
+
     public ScorecardTemplate getDefaultScorecardTemplate(long projectTypeId, long scorecardTypeId) {
         ScorecardTemplate st = null;
-        
+
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
-        
-        try { 
+
+        try {
             conn = dataSource.getConnection();
 
             ps = conn.prepareStatement(
@@ -4585,7 +4585,7 @@ public class DocumentManagerBean implements SessionBean {
 
             if (rs.next()) {
                 long templateId = rs.getLong(1);
-                
+
                 st = getScorecardTemplate(templateId);
             } else {
                 throw new RuntimeException("No default found");
@@ -4888,7 +4888,7 @@ public class DocumentManagerBean implements SessionBean {
                     }
                 }
             } // end save questions
-            
+
             if(template.isDefault()) {
                 //update default_ind = 0 for all other scorecards with same type
                 ps = conn.prepareStatement(
@@ -4898,7 +4898,7 @@ public class DocumentManagerBean implements SessionBean {
                         "AND scorecard_type = ? ");
                 ps.setInt(1, template.getProjectType());
                 ps.setInt(2, template.getScorecardType());
-                
+
                 int nr = ps.executeUpdate();
                 Common.close(ps);
             }
