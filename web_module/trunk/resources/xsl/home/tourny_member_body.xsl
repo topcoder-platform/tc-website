@@ -599,14 +599,14 @@ and a pair of challenges...
      </TD>
   <!-- Center Column Ends -->    
     <TD BGCOLOR="#001935" VALIGN="top" CLASS="statText" WIDTH="244"><IMG SRC="/i/clear.gif" ALT="" WIDTH="244" HEIGHT="1" BORDER="0"/><BR/>
-<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=apex</xsl:attribute></A>  
-<IMG USEMAP="#apex_home" SRC="/i/es/apex/apex_home.gif" alt="" width="244" height="160" border="0"/>  
+<A><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=fbi</xsl:attribute></A>  
+<IMG USEMAP="#fbi_home" SRC="/i/es/fbi/fbi_home.gif" alt="" width="244" height="160" border="0"/>  
   <BR/>
-<map name="apex_home">
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4350"/>
-<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/>
-<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4350&amp;t=schedule&amp;c=srm"/> -->
-<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=apex"/>
+<map name="fbi_home">
+<!-- <area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?c=round_stats&amp;rd=4350"/>
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/stat?&amp;c=last_match"/> -->
+<area alt="" shape="poly" coords="229,104,120,105,105,94,11,95,10,120,36,146,229,148" href="/?ContestId=4360&amp;t=schedule&amp;c=srm"/>
+<area alt="" shape="poly" coords="225,88,124,89,106,77,8,77,9,31,230,30" href="/?&amp;t=tces&amp;c=fbi"/>
 </map>
 <A HREF="/?&amp;t=development&amp;c=index">
 <IMG SRC="/i/tcs_board.gif" ALT="TCS" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
@@ -655,8 +655,8 @@ and a pair of challenges...
             </TABLE><BR/>
 <!-- <A HREF="/?&amp;t=schedule&amp;c=2002sun_sched">
 <IMG SRC="/i/2002sn_winner.gif" ALT="SunNetwork Coding Challenge" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A> -->           
-<A HREF="/stat?c=member_profile&amp;cr=296745" CLASS="coderTextRed">
-<IMG SRC="/i/codermonth_sept.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="5" BORDER="0"/></A>
+<A HREF="/stat?c=member_profile&amp;cr=294543">
+<IMG SRC="/i/codermonth_oct.gif" ALT="Coder of the Month" WIDTH="244" HEIGHT="156" VSPACE="10" BORDER="0"/></A>
     </TD>
 <!-- Body Area Ends -->
   </TR>   
