@@ -29,7 +29,7 @@
 
             
             <p>
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="510" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr valign="top">
                     <td class="sidebarText" width="25%">Registration</td>
                     <td class="sidebarText" width="75%">
@@ -46,8 +46,8 @@
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="20%">Round</td>
+                    <td class="sidebarTitle" width="40%">Date and Time*</td>
                     <td class="sidebarTitle" width="20%"># of Competitors</td>
                     <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
@@ -67,10 +67,10 @@
 
             <p><span class="bodySubtitle">Online Elimination Rounds</span></p>
 
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="510" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="20%">Round</td>
+                    <td class="sidebarTitle" width="40%">Date and Time*</td>
                     <td class="sidebarTitle" width="20%"># of Competitors</td>
                     <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
@@ -90,7 +90,7 @@
                     <td class="sidebarText">Online Round #2</td>
                     <td class="sidebarText">
                         Tuesday, September 14th<br />
-                        Login by:  9:20 PM ET<br />
+                        Registration: 6:30 PM - 9:25 PM ET<br />
                         Compete: 9:30 PM ET<br />
                     </td>
                     <td class="sidebarText">200</td>
@@ -101,7 +101,7 @@
                     <td class="sidebarText">Online Round #3</td>
                     <td class="sidebarText">
                         Wednesday, September 22nd<br />
-                        Login by:  9:20 PM ET<br />
+                        Registration: 6:30 PM - 9:25 PM ET<br />
                         Compete: 9:30 PM ET<br />
                     </td>
                     <td class="sidebarText">100</td>
@@ -112,7 +112,7 @@
                     <td class="sidebarText">Online Round #4</td>
                     <td class="sidebarText">
                         Wednesday, September 29th<br />
-                        Login by:  9:20 PM ET<br />
+                        Registration: 6:30 PM - 9:25 PM ET<br />
                         Compete: 9:30 PM ET<br />
                     </td>
                     <td class="sidebarText">50</td>
@@ -129,10 +129,10 @@
             
             <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span></p>
 
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+            <table width="510" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="20%">Round</td>
+                    <td class="sidebarTitle" width="40%">Date and Time*</td>
                     <td class="sidebarTitle" width="20%"># of Competitors</td>
                     <td class="sidebarTitle" width="20%"># of Advancers</td>
                 </tr>
