@@ -3,6 +3,7 @@
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 
 <jsp:usebean id="memberSearch" class="com.topcoder.web.tc.model.MemberSearch" scope="request" />
+
 <% ResultSetContainer results = memberSearch.getResults();%>
 
 
@@ -26,8 +27,6 @@
                           <%=results.getEndRow()%>
                   </td>
               </tr>
-
-
 
               <tr valign="middle">
                   <td class="statText" height="16" colspan="7" align="center">
