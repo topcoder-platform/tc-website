@@ -12,6 +12,9 @@ import com.topcoder.web.stat.common.StatisticsQueries;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.2  2002/05/30 14:44:47  gpaul
+ *           changed StatRequestBean to have a better construstor that would be able to parse the Map produced by HttpUtils on a request.queryString
+ *
  *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
  *           initial web load into cvs
  *
@@ -142,4 +145,15 @@ public class StatRequestBean {
 		if (sKey.equals(StatisticsQueries.COMMAND_ID)) 
 			msContentHandle = sVal;
 	}
+
+    public String toString()
+    {
+        StringBuffer sb = new StringBuffer();
+        Enumeration e = mProp.elements();
+        while(e.hasMoreElements())
+        {
+            sb.append(e.nextElement().toString());
+        }
+        return sb.toString();
+    }
 }
