@@ -65,7 +65,7 @@ By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/>
 Powerball, "It's America's Game", and it's extremely popular.  And to think of it, why wouldn't it be?   Powerball is a lotto game, which is a combined large jackpot game and a cash game.  Twice a week, drawings are held where participants must match five balls, plus the "red powerball" to balls that are randomly chosen, to win a jackpot which has many times exceeded $50 million.  It only costs one dollar to play, so it's worth a shot, but the odds to win the jackpot are 1:80,089,128.  Hardly a sure thing.  Playing the lottery is more of a matter of luck rather than skill, although the people who constantly play the numbers of their birthday or their kids age's will tell you differently.
 </P>
 
-<P>
+<P><IMG SRC="/i/f/feat_060502_tn1.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="3" ALIGN="left" BORDER="0"/>
 TopCoder, although not as widely known as Powerball, is becoming pretty popular itself, averaging close to 60 new members per day, and has also been known to pay out a pretty penny to its members.  <A HREF="/stat?c=member_profile&amp;cr=105922" CLASS="bodyGeneric">qubits</A>
  was TopCoder's first big winner, rewarded with $100,000 for winning the 2001 TopCoder Collegiate Challenge.  Although TopCoder's $100,000 grand prize is nowhere near a reward of $50 million from Powerball, <B>qubits</B> decided the odds of TopCoder were more in his favor, as he could use his skills, rather than rely on luck, to earn a big payday.
 </P>
