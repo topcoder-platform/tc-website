@@ -1,17 +1,9 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<xsl:import href="../css.xsl"/>
-<xsl:import href="top.xsl"/>
-<xsl:import href="adminLeft.xsl"/>
 <xsl:template match="/">
 <html>
 <head>
 <title>Internal Error</title>
-
-
-
-<xsl:call-template name="CSS"/>
-
 
 
 </head>
@@ -22,14 +14,6 @@
   <tr>
     <td colspan="2" valign="top">
 
-      <xsl:choose>
-        <xsl:when test="/TC/LoggedIn='true'">
-          <xsl:call-template name="TopLoggedIn"/>
-        </xsl:when>
-        <xsl:otherwise>  
-          <xsl:call-template name="TopLoggedOut"/>
-        </xsl:otherwise>
-      </xsl:choose>
 
     </td>
     <td width="100%" bgcolor="#4d0000"><img src="/images/spacer.gif" width="1" height="1"/></td>
@@ -42,18 +26,8 @@
 
 
 
-        <xsl:choose>
-          <xsl:when test="/TC/LoggedIn='true'">
-            <xsl:call-template name="Home_LI"/> 
-          </xsl:when>
-          <xsl:otherwise>  
-            <xsl:call-template name="Home_LO"/>
-          </xsl:otherwise>
-        </xsl:choose>
-
       <tr>
         <td valign="top">
-          <xsl:call-template name="LeftSideNavBarForm"/>
         </td>
       </tr>
     </table>
