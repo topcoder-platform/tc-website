@@ -18,7 +18,6 @@ public class PathResource implements Resource {
         if (i >= 0)
             this.name = path.substring(0, i);
         else this.name = path;
-        log.debug("path was: " + path + " set name to : " + name);
     }
 
     public String getName() {
