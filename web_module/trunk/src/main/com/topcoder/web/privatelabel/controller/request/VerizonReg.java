@@ -5,11 +5,7 @@ import com.topcoder.web.privatelabel.model.SimpleRegInfo;
 
 public class VerizonReg extends FullReg {
     protected void setNextPage() {
-        if (hasErrors()) {
-            setNextPage(Constants.VERIZON_REG_PAGE);
-        } else {
-            setNextPage(Constants.VERIZON_REG_DEMOG_PAGE);
-        }
+        setNextPage(Constants.VERIZON_REG_PAGE);
         setIsNextPageInContext(true);
     }
 

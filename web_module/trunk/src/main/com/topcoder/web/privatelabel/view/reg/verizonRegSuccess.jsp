@@ -46,11 +46,11 @@
 <td class="bodyText" width="100%">
 
 <!-- Tab bar links-->
-<jsp:include page="./verizon/verizonLinks.jsp" >
+<jsp:include page="../verizon/verizonLinks.jsp" >
    <jsp:param name="selectedTab" value="register_now"/>
 </jsp:include>
 <!-- Tab bar sub links-->
-<jsp:include page="./verizon/verizonSublinks.jsp" >
+<jsp:include page="../verizon/verizonSublinks.jsp" >
    <jsp:param name="selectedList" value="register_now"/>
    <jsp:param name="selectedTab" value=""/>
 </jsp:include>
@@ -86,7 +86,7 @@ If you would like to upload a resume, click <a href="JavaScript:void window.open
 </table>
 
 <!-- Footer Begins -->
-<jsp:include page="../verizon/verizon_foot.jsp" />
+<jsp:include page=".../verizon/verizon_foot.jsp" />
 <!-- Footer Ends -->
 
 </body>

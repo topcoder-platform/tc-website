@@ -4,11 +4,7 @@ import com.topcoder.web.privatelabel.Constants;
 
 public class GoogleReg extends FullReg {
     protected void setNextPage() {
-        if (hasErrors()) {
-            setNextPage(Constants.GOOGLE_REG_PAGE);
-        } else {
-            setNextPage(Constants.GOOGLE_REG_DEMOG_PAGE);
-        }
+        setNextPage(Constants.GOOGLE_REG_PAGE);
         setIsNextPageInContext(true);
     }
 }
