@@ -25,7 +25,7 @@
 
 </head>
 
-<BODY BGCOLOR="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 
 <!-- Header Begins -->
 	<xsl:call-template name="Top"/>
@@ -40,99 +40,116 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-			<td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" alt="" border="0"/></td>
+		<td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" alt="" border="0"/></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->  
-			<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
-				<xsl:call-template name="BodyTop">
-					<xsl:with-param name="image1">steelblue</xsl:with-param>
-					<xsl:with-param name="image">development</xsl:with-param>
-					<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
-				</xsl:call-template>
-				
-				<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
-					<tr>
-						<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-						<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
+		<td class="bodyText" width="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" vspace="5" alt="" border="0"/><br/>
+<xsl:call-template name="BodyTop">
+	<xsl:with-param name="image1">steelblue</xsl:with-param>
+	<xsl:with-param name="image">development</xsl:with-param>
+	<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+</xsl:call-template>
+				<xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
+		        <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
+		        <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>				
+			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
+				<tr>
+					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+					<td class="statText" colspan="2" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
 							
 <!-- Title -->
-							<h1 class="devSubhead"><strong>Generic Data Object: Design</strong></h1>
+						<h1 class="devSubhead"><strong>Generic Data Object: Design</strong></h1>
                                     
-							<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Data Object: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+
 
 <!-- Overview -->
-							<p><strong>Overview</strong><br />
-							The Generic Data Object is used to provide a generic interface for managing data. The component supports multiple implementations that enable users to choose both the in-memory storage and, if required, physical persistence implementations. Abstracting this information enables the developer to focus on programming business logic while enabling the system architect to have more control over the low-level implementation details.
-							</p>
+						<p><strong>Overview</strong><br />
+						The Generic Data Object is used to provide a generic interface for managing data.  The component supports multiple implementations that enable users to choose both in-memory storage and, if required, physical persistence implementations.  Abstracting this information enables the developer to focus on programming business logic while enabling the system architect to have more control over the low-level implementation details.
+
+An example usage of the Generic Data Object is the HTTPSession object.  Instead of calling methods on the session object directly, the Generic Data Object can be used.  This will allow the application architect to define and modify the implementation of that data object at any time.  In this example, the options available to the architect include implementing an HTTPSession version of the data object for in-memory persistence of data, or implementing a relational database version to persist data directly to a database.
+						</p>
 
 <!-- Project Type -->
-							<p><strong>Project Type</strong><br />
-							Component Design Project: Provide a complete design for the Generic Data Object component.<br />
-							Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
-							If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
+						<p><strong>Project Type</strong><br />
+						Component Design Project: Provide a complete design for the Generic Data Object component.<br />
+						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> before you submit a solution. 
+						If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="statText">Documentation and Sample Submissions</a> for more information.
                             </p>
                             
 <!-- Technologies -->
-							<p><strong>Technologies</strong></p>
-
-							<ul>
-								<li>Java 1.4</li>
-							</ul>
+						<p><strong>Technologies</strong></p>
+						<ul>
+							<li>Java 1.4</li>
+						</ul>
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4202835">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" target="_new" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4202835">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
-							<p><strong>Payment</strong><br />
-							TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
-							First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
-							Second Milestone: Is marked by the completion of the development project*.</p>
+						<p><strong>Payment</strong><br />
+						TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
+						First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
+						Second Milestone: Is marked by the completion of the development project*.</p>
 
-							<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
+						<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the Development Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 							
-							<p><strong>Designer</strong><br />
-							Royalty Percentage - 25%</p>
+						<p><strong>Designer</strong><br />
+						Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - $175.00<br/>
-							First Deliverable - $131.25<br/>
-							Project Completion - $43.75</p>
+						<p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
+						First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
+					    Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
 <!-- Definition of Completion -->
-							<p><sup>*</sup>Completion of the project is defined as follows:</p>
+						<p><sup>*</sup>Completion of the project is defined as follows:</p>
 
-							<ul>
-								<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
-								<li>The Submission has been selected by the board as the winning submission.</li>
-								<li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
-							</ul>
+						<ul>
+							<li>The Initial Submission has been delivered by the Initial Submission Due Date.</li>
+							<li>The Submission has been selected by the board as the winning submission.</li>
+							<li>Final payment is conditional on acceptance of the fully functional component by the Development Review Board.</li>
+						</ul>
 
 <!-- Eligibility Requirements -->
-							<p><strong>Eligibility</strong><br />
-							You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
+						<p><strong>Eligibility</strong><br />
+						You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 
-							<ol>
-								<li>A US Citizen </li>
-								<li>A Lawful Permanent Resident of the US</li>
-								<li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
-								<li>A Non-US Citizen working in your country of residence.</li>
-							</ol>
+						<ol>
+							<li>A US Citizen </li>
+							<li>A Lawful Permanent Resident of the US</li>
+							<li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
+							<li>A Non-US Citizen working in your country of residence.</li>
+						</ol>
 
 <!-- Time Line -->
-							<p><strong>Time Line</strong><br/>
-							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
+						<p><strong>Time Line</strong><br/>
+						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-							<p>Component Posting: 1.9.2003<br/>
-							Initial Submission Due Date: 1.15.2003<br/>
-							Winner Announced: 1.23.2003<br/>
-							Final Submission Due Date: 1.27.2003<br/>
-                            Estimated Development End Date: 3.3.2003</p>
+						<p><br/>
+						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
+						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/><br/>
+						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/><br/>
+						Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/DesDevFinal"/></p>
+
 
 <!-- Register at TCS -->
+						   <p>
+        						<strong>View the <a class="statText" target="_new"  href= "<<<REQUIREMENTS_FILE>>>">Requirement Specification</a> for this component project &gt;&gt;</strong>
+                            </p>
+						
 
+						   <p>
+						        <strong>
+        						<a class="statText">
+        						    <xsl:attribute name="href">
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;version=1&amp;phase=112&amp;comp=4202835&amp;c=tcs_inquire&amp;Project=Generic%20Data%20Object:%20Design&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+                                    </xsl:attribute>
+                                    Register for the Component Project
+        						</a>
+        						to get information necessary to submit a solution &gt;&gt;</strong>
+                            </p>
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Generic Data Object: Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 						<p><br /></p>
 					</td>
 
@@ -175,7 +192,7 @@
 	<xsl:call-template name="Foot" />
 <!-- Footer ends -->
 
-</BODY>
+</body>
 </html>
 	</xsl:template>
 </xsl:stylesheet>

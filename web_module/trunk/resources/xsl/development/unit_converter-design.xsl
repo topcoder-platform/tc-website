@@ -50,7 +50,9 @@
 	<xsl:with-param name="image">development</xsl:with-param>
 	<xsl:with-param name="title">&#160;Component Development</xsl:with-param>
 </xsl:call-template>
-				
+				<xsl:variable name='month' select='/TC/DEVELOPMENT/month'/>
+		        <xsl:variable name='day' select='/TC/DEVELOPMENT/day'/>
+		        <xsl:variable name='year' select='/TC/DEVELOPMENT/year'/>				
 			<table border="0" cellspacing="0" cellpadding="0" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
 				<tr>
 					<td bgcolor="#000033" background="/i/steel_darkblue_bg.gif" valign="top" width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
@@ -59,11 +61,13 @@
 <!-- Title -->
 						<h1 class="devSubhead"><strong>Unit Converter: Design</strong></h1>
                                     
-						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Unit%20Converter:%20Design&amp;comp=4228038" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+
 
 <!-- Overview -->
 						<p><strong>Overview</strong><br />
-						The Unit Converter component supports the conversion of data between existing and target units of measure.  A wide range of unit types are supported, including volume (liters, gallons), power(watts, megowatts) and distance(inches, feet, meters, miles, nautical miles).  Furthermore, additional unit types and conversion routines can be added to the Unit Converter to support ongoing conversion needs.
+						The Unit Converter component supports the conversion of data between an existing and target unit of measure.  A wide range of unit types are supported, including volume (liters, gallons), power (watts, megowatts) and distance (inches, feet, meters, miles, nautical miles).  Furthermore, the Unit Converter can be enhanced to handle additional unit types and conversion routines.
+
+An example usage of the Unit Conversion component is to convert a temperature reading.  For example, given 32 degrees Fahrenheit with a target of Celsius, the component should return 0 degrees. 
 						</p>
 
 <!-- Project Type -->
@@ -81,7 +85,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4228038">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" target="_new" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=4228038">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 						<p><strong>Payment</strong><br />
@@ -94,9 +98,9 @@
 						<p><strong>Designer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - $210.00<br/>
-						First Deliverable - $157.50<br/>
-						Project Completion - $52.50</p>
+						<p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
+						First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
+					    Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -122,16 +126,30 @@
 						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-							<p>Component Posting: 1.16.2003<br/>
-							Initial Submission Due Date: 1.22.2003<br/>
-							Winner Announced: 1.23.2003<br/>
-							Final Submission Due Date: 2.3.2003<br/>
-                            Estimated Development End Date: 3.10.2003</p>
+						<p><br/>
+						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
+						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/><br/>
+						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/><br/>
+						Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/DesDevFinal"/></p>
+
 
 <!-- Register at TCS -->
+						   <p>
+        						<strong>View the <a class="statText" target="_new"  href= "<<<REQUIREMENTS_FILE>>>">Requirement Specification</a> for this component project &gt;&gt;</strong>
+                            </p>
 						
 
-                            <p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Unit%20Converter:%20Design&amp;comp=4228038" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
+						   <p>
+						        <strong>
+        						<a class="statText">
+        						    <xsl:attribute name="href">
+        						        <xsl:value-of select="concat('/?&amp;t=development&amp;version=1&amp;phase=112&amp;comp=4228038&amp;c=tcs_inquire&amp;Project=Unit%20Converter:%20Design&amp;date=', $month, '&#47;', $day, '&#47;', $year)"/>
+                                    </xsl:attribute>
+                                    Register for the Component Project
+        						</a>
+        						to get information necessary to submit a solution &gt;&gt;</strong>
+                            </p>
+
 						<p><br /></p>
 					</td>
 
