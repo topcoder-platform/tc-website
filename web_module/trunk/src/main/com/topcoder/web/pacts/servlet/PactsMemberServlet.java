@@ -24,7 +24,7 @@ import java.util.*;
 import java.text.*;
 
 public class PactsMemberServlet extends HttpServlet implements PactsConstants {
-    private static Category log = PactsLog.getInstance(PactsMemberServlet.class.getName()); 
+    private static Category log = Category.getInstance(PactsMemberServlet.class.getName()); 
     /**
      * this method handles all incoming http get requests.  It will
      * check to make sure the session has been autheniticated and that
@@ -605,16 +605,8 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	// IMPLEMENT WHEN WE HAVE ACCESS TO THE MAIN SITE
 	String forwardingURL = request.getRequestURI();
 	forwardingURL += (request.getQueryString()==null) ? "" : request.getQueryString();
-	//  jevans changed String editHref = "/ref/index.jsp?forward=/PactsMemberServlet";
-	  String editHref = "/reg/index.jsp";
-	  forward(editHref,request,response);
-        /*try {
-          log.error("error in do personal infor post");
-          response.sendRedirect("http://www.topcoder.com");
-        } catch (Exception e) {
-          e.printStackTrace();
-        }
-*/
+	String editHref = "/ref/index.jsp?forward=/PactsMemberServlet";
+	forward(editHref,request,response);
     }
 
     /**
@@ -628,7 +620,7 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
      * @param response the http response
      */
     private void doAffirmAffidavit(HttpServletRequest request, 
-				   HttpServletResponse response){
+				   HttpServletResponse response) {
 	HttpSession session = request.getSession();
 	Navigation nav = (Navigation) session.getAttribute(NAV_OBJECT_ATTR);
 	AffidavitBean bean = new AffidavitBean();
@@ -660,6 +652,11 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	if(birthday == null) {
 	    log.debug("did not get the birthday in affidavit affirmation");
 	    birthday  = a.affidavit._birthday;
+	} else {
+	    // the birthday was there, get a new affidavit with it in there
+	    // STK 5/28/2002
+	    log.debug("getting the affidavit with new birthday " + birthday);
+	    a = bean.getAffidavitWithText(affidavitId,birthday);
 	}
 
 
@@ -667,7 +664,11 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	// affiavid and member that is logged in
 	if(nav.getUserId() != a.affidavit._header._user._id) {
 	    log.error("the user id in the affidavit does not match the nav id");
-	    forward("/pacts/client/MemberError.jsp",request,response);
+	    // changed error page jevans 5/29/02 5:39 pm  forward("/pacts/client/MemberError.jsp",request,response);
+	    forward("/errorPage.jsp",request,response);
+	    //Exception e = new Exception("the user id in the affidavit does not match the nav id");
+	    //throw e;
+
 	    return;
 	}
 
@@ -677,8 +678,11 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	try {
 	    d = dfmt.parse(birthday);
 	} catch( Exception e3) {
-	    log.debug("exception parsing the date");
-	    forward("/pacts/client/MemberError.jsp?errorMsg=\"birthday is malformed, please use " + DATE_FORMAT_STRING + " format\"",request, response);
+	    log.debug("exception parsing the date, the text is:\n" + birthday);
+	    // changed error page jevans 5/29/02 5:39 pm  forward("/pacts/client/MemberError.jsp?errorMsg=\"birthday is malformed, please use " + DATE_FORMAT_STRING + " format\"",request, response);
+	    forward("/errorPage.jsp?errorMsg=\"birthday is malformed, please use " + DATE_FORMAT_STRING + " format\"",request, response);
+	    //Exception e = new Exception("birthday is malformed, please use " + DATE_FORMAT_STRING + " format");
+	    //throw e;
 	    return;
 	}
 
@@ -686,7 +690,11 @@ public class PactsMemberServlet extends HttpServlet implements PactsConstants {
 	if(a.payment._country.equals("India")) {
 	    if((aged==null) || (family==null) || (aged.length()==0) || (family.length()==0) ) {
 		log.debug("did not get the aged or family text");
-		forward("/pacts/client/MemberError.jsp?errorMsg=\"error affirming the affidavit, make sure you fill in the aged and family edit boxes\"",request, response);
+	    // changed error page jevans 5/29/02 5:39 pm  forward("/pacts/client/MemberError.jsp?errorMsg=\"error affirming the affidavit, make sure you fill in the aged and family edit boxes\"",request, response);
+		forward("/errorPage.jsp?errorMsg=\"error affirming the affidavit, make sure you fill in the aged and family edit boxes\"",request, response);
+		//Exception e = new Exception("error affirming the affidavit, make sure you fill in the aged and family edit boxes");
+
+		//throw e;
 		return;
 	    }
 
