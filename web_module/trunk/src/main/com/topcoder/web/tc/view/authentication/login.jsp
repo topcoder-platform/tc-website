@@ -63,11 +63,7 @@ function submitEnter(e) {
 
 <!-- Center Column begins -->
         <td width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="login"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Login"/>
-        </jsp:include>
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                <tr valign="top">
                     <td class="bodyText" width="100%">
