@@ -102,7 +102,11 @@ import java.util.*;
  *     <ul>
  *       <li><strong>query_id</strong> is the id of the query whose inputs were are setting up</li>
  *       <li><strong>optional</strong> is a flag that allows us to set defaults for this input</li>
- *       <li><strong>default_value</strong> is the default value if this input was not specified at execution time</li>
+ *       <li>
+ *         <strong>default_value</strong> is the default value if this input was not specified
+ *         at execution time.  it should not include the INPUT_DELIMITER specified in the
+ *         DataAccess.properties file.
+ *       </li>
  *       <li><strong>input_id</strong> is the id of the input we are associating with this query</li>
  *       <li><strong>sort_order</strong> is simply a way to sort the inputs for a given query, each
  *         record in query_input_xref for a particular query should have a distinct  value for sort_order</li>
@@ -228,14 +232,9 @@ public class DataRetriever implements DataRetrieverInt {
             }
         } else if (dataType == DataAccessConstants.STRING_INPUT) {
             try {
-                // Check position of reserved characters
-                int inputDelimiterPos = input.indexOf(DataAccessConstants.INPUT_DELIMITER);
-                int defaultMarkerPos = input.indexOf(DataAccessConstants.SPECIAL_DEFAULT_MARKER);
-                // Check for the presence of unwanted stuff
-                if (inputDelimiterPos > -1 || defaultMarkerPos > -1)
-                    return false;
-
-                // Passed checks OK
+                /* not doing any checking here cuz i can't think of anything that makes
+                 * sense to check for
+                 */
                 return true;
             } catch (Exception e) {
                 return false;
@@ -276,7 +275,7 @@ public class DataRetriever implements DataRetrieverInt {
         // Thus the substitution process is not table-based (no query_input_xref entries here).
         // It is assumed that inputs have already passed validation in executeCommand(),
         // which should be the case if the input resolution order is specified properly in
-        // query_input_xref.
+        // query_input_xref.  default inputs can not include the INPUT_DELIMITER or this will fail.
         while ((i = specialQuery.indexOf(DataAccessConstants.INPUT_DELIMITER)) >= 0) {
             j = specialQuery.indexOf(DataAccessConstants.INPUT_DELIMITER, i + 1);
             if (j < 0)
@@ -497,11 +496,20 @@ public class DataRetriever implements DataRetrieverInt {
                 queryTextMap.put(tempId, queryText);
             } // end loop over query inputs
 
-            // Check we filled in all the inputs.
+            /* Check we filled in all the inputs.
+             * this should be fine unless input was filled in with
+             * itself surrounded by the INPUT_DELIMITER.  example:
+             * input code = cr, and value = @cr@
+             */
             for (i = 0; i < queryIdList.length; i++) {
                 String queryText = (String) queryTextMap.get(new Integer(queryIdList[i]));
-                if (queryText.indexOf(DataAccessConstants.INPUT_DELIMITER) >= 0)
-                    throw new Exception("Query input entries missing from database: " + queryText);
+                for (int j=0; j<rowcount; j++) {
+                    if (queryText.indexOf(DataAccessConstants.INPUT_DELIMITER +
+                            rsc.getItem(i, "input_code").toString() +
+                            DataAccessConstants.INPUT_DELIMITER) > -1) {
+                        throw new Exception("Query input entries missing from database: " + queryText);
+                    }
+                }
             }
         } catch (Exception e) {
             handleException(e, query.toString(), inputs);
