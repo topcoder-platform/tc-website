@@ -41,10 +41,10 @@
   }
   else {
    document.regForm.school.disabled=false
-   document.regForm.school.options.length=schools[idx].size+1
-   for (i=0;i<schools[idx].size;i++) {
-    document.regForm.school.options(i+1).text=schools[idx][i]
-    document.regForm.school.options(i+1).value=codes[idx][i]
+   document.regForm.school.options.length=schools(idx).length+1
+   for (i=0;i<schools(idx).length;i++) {
+    document.regForm.school.options(i+1).text=schools(idx)(i)
+    document.regForm.school.options(i+1).value=codes(idx)(i)
    } 
   }
  }
