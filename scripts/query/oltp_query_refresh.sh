@@ -260,6 +260,7 @@ SELECT u.user_id
        ,c.relocate
        ,co.country_name
        ,ct.coder_type_desc
+       ,r.rating
        ,r.num_ratings
        ,da1.demographic_answer_text as grad_year
        ,dr2.demographic_response as company
