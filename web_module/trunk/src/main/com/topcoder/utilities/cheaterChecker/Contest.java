@@ -35,7 +35,7 @@ public class Contest {
             if (submissions != null && submissions.size() > 0) {
                 Submission temp = (Submission) submissions.get(0);
                 log.info("running contest fraud detect for round: " + roundId + " component: " +
-                        temp.getClassName() + "(" + componentId + ")");
+                        temp.getClassName() + "(" + componentId + ") for " + submissions.size() + " submissions");
 
                 List normalizedSource = new ArrayList(submissions.size());
                 for (int i = 0; i < submissions.size(); i++) {
