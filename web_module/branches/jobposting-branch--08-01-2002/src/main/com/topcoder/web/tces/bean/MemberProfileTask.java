@@ -399,7 +399,7 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[4],
                    decFmt.format( submitAcc )+"%");
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
-                   decFmt.format( avgSubPts )+"%");
+                   decFmt.format( avgSubPts ));
         totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
                    decFmt.format( avgTimeToSubmit ) );
 
