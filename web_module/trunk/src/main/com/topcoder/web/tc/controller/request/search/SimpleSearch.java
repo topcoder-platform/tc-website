@@ -10,7 +10,6 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
 
 import java.util.Map;
-import java.util.List;
 
 public class SimpleSearch extends Base {
     protected void businessProcessing() throws TCWebException {
@@ -22,7 +21,7 @@ public class SimpleSearch extends Base {
             if (results.getTotal()==1) {
                 long userId = results.getResults().getLongItem(0, "user_id");
                 setNextPage("/stat?c=member_profile&cr="+userId);
-                setIsNextPageInContext(true);
+                setIsNextPageInContext(false);
             } else {
                 setNextPage(Constants.SIMPLE_SEARCH_RESULTS);
                 setIsNextPageInContext(true);
