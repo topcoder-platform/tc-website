@@ -10,7 +10,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.corp.common.JSPUtils;
-import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
 import com.topcoder.security.NotAuthorizedException;
@@ -33,6 +32,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
     private int cid;
     private int jid;
     private int mid;
+    private long roundId;
 
     /** Holds value of property problemID. */
     private int problemID;
@@ -117,6 +117,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         dataRequest.setProperty("jid", Integer.toString(getJobID()));
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
         dataRequest.setProperty("pm", Integer.toString(getProblemID()));
+        dataRequest.setProperty("rd", String.valueOf(getRoundId()));
 
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
@@ -165,6 +166,8 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
             setMemberID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.PROBLEM_ID_PARAM))
             setProblemID(Integer.parseInt(value));
+        if (paramName.equalsIgnoreCase(TCESConstants.ROUND_ID_PARAM))
+            setRoundId(Integer.parseInt(value));
     }
 
     /** Creates new ProblemStatisticsTask */
@@ -271,6 +274,14 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
      */
     public void setProblemStatsByLanguage(List problemStatsByLanguage) {
         this.problemStatsByLanguage = problemStatsByLanguage;
+    }
+
+    public long getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(long roundId) {
+        this.roundId = roundId;
     }
 
 }

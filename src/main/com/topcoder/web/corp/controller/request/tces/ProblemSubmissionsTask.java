@@ -12,7 +12,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.user.Contact;
-import com.topcoder.web.corp.common.TCESAuthenticationException;
 import com.topcoder.web.corp.common.TCESConstants;
 import com.topcoder.web.corp.controller.request.tces.BaseTask;
 import com.topcoder.security.NotAuthorizedException;
@@ -36,6 +35,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
     private int jid;
     private int mid;
     private long companyId;
+    private long roundId;
 
     /** Holds value of property handle. */
     private String handle;
@@ -122,6 +122,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()));
         dataRequest.setProperty("jid", Integer.toString(getJobID()));
         dataRequest.setProperty("mid", Integer.toString(getMemberID()));
+        dataRequest.setProperty("rd", String.valueOf(getRoundId()));
 
         Map resultMap = getDataAccess(getOltp()).getData(dataRequest);
 
@@ -179,7 +180,10 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
             setJobID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
             setMemberID(Integer.parseInt(value));
+        if (paramName.equalsIgnoreCase(TCESConstants.ROUND_ID_PARAM))
+            setRoundId(Long.parseLong(value));
     }
+
 
     /** Getter for property campaignID.
      * @return Value of property campaignID.
@@ -285,6 +289,14 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
 
     public boolean isRestrictedCampaign() {
         return restricted;
+    }
+
+    public long getRoundId() {
+        return roundId;
+    }
+
+    public void setRoundId(long roundId) {
+        this.roundId = roundId;
     }
 
 }
