@@ -29,6 +29,7 @@ public class TCESConstants {
     public static String PROBLEM_SUBMISSIONS_PAGE = "/problem_submissions.jsp";
     public static String PROBLEM_STATISTICS_PAGE = "/problem_statistics.jsp";
     public static String PROBLEM_STATEMENT_PAGE = "/problem_statement.jsp";
+    public static String MEMBER_INTEREST_PAGE = "/member_interest.jsp";
 
     public static String LOGIN_TASK = "LoginTask";
     public static String LOGIN_TASK_STEP_VIEW = "v";
@@ -45,6 +46,7 @@ public class TCESConstants {
     public static String PROBLEM_SUBMISSIONS_TASK = "ProblemSubmissionsTask";
     public static String PROBLEM_STATISTICS_TASK = "ProblemStatisticsTask";
     public static String PROBLEM_STATEMENT_TASK = "ProblemStatementTask";
+    public static String MEMBER_INTEREST_TASK = "MemberInterestTask";
 
     public static String TASK_PARAM = "task";
     public static String STEP_PARAM = null;
