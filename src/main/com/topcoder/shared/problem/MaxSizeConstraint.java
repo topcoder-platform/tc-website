@@ -64,6 +64,12 @@ public class MaxSizeConstraint
       //left to logan to fill in to match the dtd...
       return "";
     }
+
+    public String toPlainText(Language l){
+        //todo this isn't used now, so this doesn't to anything cause there's no time
+        return toHTML(l);
+    }
+
 }
 
 

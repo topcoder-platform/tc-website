@@ -8,9 +8,7 @@ import com.topcoder.shared.netCommon.CSWriter;
 import java.io.IOException;
 import java.io.ObjectStreamException;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.util.*;
 
 /**
  * A <code>NodeElement</code> represents an XML element.  It has a name, a (possibly empty) set
@@ -77,19 +75,24 @@ public class NodeElement
     String toMarkup(Language language)
     {
         StringBuffer buf = new StringBuffer(64 * children.size());
+        boolean print = new ArrayList(Arrays.asList(
+                ProblemConstants.XML_ONLY_TAGS)).indexOf(name) == -1;
 
-        buf.append('<');
-        buf.append(name);
-        for(Iterator i = attributes.keySet().iterator(); i.hasNext(); ) {
-            String key = (String)i.next();
-
-            buf.append(' ');
-            buf.append(key);
-            buf.append("=\"");
-            buf.append(ProblemComponent.encodeHTML((String)attributes.get(key)));
-            buf.append('"');
+        if(language == null || print)
+        {
+          buf.append('<');
+          buf.append(name);
+          for(Iterator i = attributes.keySet().iterator(); i.hasNext(); ) {
+              String key = (String)i.next();
+   
+              buf.append(' ');
+              buf.append(key);
+              buf.append("=\"");
+              buf.append(ProblemComponent.encodeHTML((String)attributes.get(key)));
+              buf.append('"');
+          }
+          buf.append('>');
         }
-        buf.append('>');
         for(int i = 0; i < children.size(); i++) {
             Element e = (Element)children.get(i);
 
@@ -98,9 +101,12 @@ public class NodeElement
             else
                 buf.append(e.toHTML(language));
         }
-        buf.append("</");
-        buf.append(name);
-        buf.append('>');
+        if(language == null || print)
+        {
+          buf.append("</");
+          buf.append(name);
+          buf.append('>');
+        }
         return buf.toString();
     }
 
@@ -113,6 +119,11 @@ public class NodeElement
     {
         return toMarkup(null);
     }
+    public String toPlainText(Language lang){
+        //TODO this isn't currently used, and there's no time to add it right now
+        return toHTML(lang);
+    }
+
 }
 
 

@@ -64,6 +64,12 @@ public class TestCase
             text = "";
         else
             text = annotation.toXML();
+
+        this.output = ProblemComponent.decodeXML(this.output);
+        for(int i = 0; i < this.input.length; i++)
+        {
+          this.input[i] = ProblemComponent.decodeXML(this.input[i]);
+        }
     }
 
     /**
@@ -78,14 +84,7 @@ public class TestCase
      */
     public TestCase(String[] input, Element annotation, boolean example)
     {
-        this.input = input;
-        this.output = UNKNOWN_OUTPUT;
-        this.annotation = annotation;
-        this.example = example;
-        if(annotation == null)
-            text = "";
-        else
-            text = annotation.toXML();
+      this(input, UNKNOWN_OUTPUT, annotation, example);
     }
 
     public void customWriteObject(CSWriter writer)
@@ -166,11 +165,15 @@ public class TestCase
 
         buf.append("<li>");
         for(int i = 0; i < input.length; i++) {
-            buf.append(input[i]);
+            buf.append("<tt>");
+            buf.append(ProblemComponent.encodeHTML(input[i]));
+            buf.append("</tt>");
             buf.append("<br>");
         }
         buf.append("<br>Returns: ");
-        buf.append(output);
+        buf.append("<tt>");
+        buf.append(ProblemComponent.encodeHTML(output));
+        buf.append("</tt>");
         if(annotation != null) {
             buf.append("<p>");
             buf.append(annotation.toHTML(language));
@@ -188,11 +191,11 @@ public class TestCase
         buf.append('>');
         for(int i = 0; i < input.length; i++) {
             buf.append("<input>");
-            buf.append(input[i]);
+            buf.append(ProblemComponent.encodeXML(input[i]));
             buf.append("</input>");
         }
         buf.append("<output>");
-        buf.append(output);
+        buf.append(ProblemComponent.encodeXML(output));
         buf.append("</output>");
         if(text != null && !text.equals(""))
         {
@@ -201,6 +204,33 @@ public class TestCase
         }
         buf.append("</test-case>");
         return buf.toString();
+    }
+
+    public String toPlainText(Language language)
+    {
+        StringBuffer buf = new StringBuffer(256);
+
+//        buf.append("<li>");
+        for(int i = 0; i < input.length; i++) {
+            buf.append(input[i]);
+            buf.append("\n");
+        }
+        buf.append("\nReturns: ");
+        buf.append(output);
+        if(annotation != null) {
+            buf.append("\n\n");
+            buf.append(annotation.toPlainText(language));
+        }
+        return buf.toString();
+    }
+
+
+    public boolean equals(Object obj)
+    {
+      if(obj == null || !(obj instanceof TestCase)) return false;
+
+      TestCase t = (TestCase)obj;
+      return toXML().equals(t.toXML());
     }
 }
 

@@ -42,13 +42,13 @@ public class CharacterValue
     public void customWriteObject(CSWriter writer)
         throws IOException
     {
-        writer.writeObject(new Character(value));
+        writer.writeInt((int)value);
     }
 
     public void customReadObject(CSReader reader)
         throws IOException, ObjectStreamException
     {
-        value = ((Character)reader.readObject()).charValue();
+        value = (char)reader.readInt();
     }
 
     public String encode()

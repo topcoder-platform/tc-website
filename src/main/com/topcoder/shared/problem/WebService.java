@@ -95,6 +95,16 @@ public class WebService implements Element
     return html.toString();
   }
 
+    public String toPlainText(Language language)
+    {
+      StringBuffer html = new StringBuffer();
+      html.append("WEB SERVICE: ");
+      html.append(name);
+        html.append("\n");
+      return html.toString();
+    }
+
+
   public String toXML()
   {
     StringBuffer xml = new StringBuffer();

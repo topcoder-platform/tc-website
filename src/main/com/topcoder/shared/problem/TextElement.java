@@ -41,7 +41,7 @@ public class TextElement
         text = reader.readString();
     }
 
-    /*
+    
     public String getEditableText()
     {
         return text;
@@ -51,7 +51,6 @@ public class TextElement
     {
         this.text = text;
     }
-    */
 
     public String toHTML(Language language)
     {
@@ -67,5 +66,12 @@ public class TextElement
     {
         return text;
     }
+
+    public String toPlainText(Language language)
+    {
+        return text;
+    }
+
 }
+
 
