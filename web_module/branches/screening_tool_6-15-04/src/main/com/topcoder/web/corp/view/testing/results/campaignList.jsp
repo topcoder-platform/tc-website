@@ -4,6 +4,11 @@
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
+<jsp:useBean id="<%=Constants.COMPANY_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.COMPANY_CAMPAIGNS_LIST%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
 </HEAD>
@@ -28,8 +33,8 @@
                     <td class="bodyText">
                         <p><span class=testHead>Campaign List</span><br/>
                         <scre>
-                        <screen:resultSetRowIterator id="companyInfo" list="<%=request.getParameter(Constants.COMPANY_INFO)%>">
-                        Company Name: <screen:resultSetItem row="<%=companyInfo%>" name="company_name" /><br/>
+                        <screen:resultSetRowIterator id="companyInfo" list="<%=Constants.COMPANY_INFO%>">
+                        Company Name: <screen:resultSetItem row="companyInfo" name="company_name" /><br/>
                         </screen:resultSetRowIterator>
                         </p>
                     </td>
@@ -51,21 +56,21 @@
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                 %>
                 <screen:resultSetRowIterator id="companyCampaignsList"
-                                             list="<%=request.getParameter(Constants.COMPANY_CAMPAIGNS_LIST)%>">
+                                             list="<%=Constants.COMPANY_CAMPAIGNS_LIST%>">
                 <tr>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="nowrap">
-                        <a href="/corp/testing/results/campaignResults.jsp?campaign_id=<screen:resultSetItem row="<%=companyCampaignsList%>" name="campaign_id" />">
-                            <screen:resultSetItem row="<%=companyCampaignsList%>" name="campaign_name" />
+                        <a href="/corp/testing/results/campaignResults.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="companyCampaignsList" name="campaign_id" />">
+                            <screen:resultSetItem row="companyCampaignsList" name="campaign_name" />
                         </a>
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" align="center">
-                        <screen:resultSetItem row="<%=companyCampaignsList%>" name="most_recent_activity" />
+                        <screen:resultSetItem row="companyCampaignsList" name="most_recent_activity" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="right">
-                        <screen:resultSetItem row="<%=companyCampaignsList%>" name="candidates_num" />
+                        <screen:resultSetItem row="companyCampaignsList" name="candidates_num" />
                     </td>
                     <td class="<%=cssClasses[counter++ % 2]%>" nowrap="center">
-                        <A href='/corp/testing/results/positionList.jsp?campaign_id=<screen:resultSetItem row="<%=companyCampaignsList%>" name="campaign_id" />'>view</A>
+                        <A href='/corp/testing/results/positionList.jsp?<%=Constants.CAMPAIGN_ID%>=<screen:resultSetItem row="companyCampaignsList" name="campaign_id" />'>view</A>
                     </td>
                 </tr>
                 </screen:resultSetRowIterator>

@@ -5,6 +5,19 @@
 <title>Topcoder | Testing Application Management Tool</title>
 
 <jsp:include page="../includes/script.jsp"/>
+<jsp:useBean id="<%=Constants.CANDIDATE_PERSONAL_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_ADDRESS_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_EMAIL%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_DEMOGRAPHIC_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_NOTES%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+<jsp:useBean id="<%=Constants.CANDIDATE_PROBLEMS_INFO%>"
+             class="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" scope="request" />
+
 <%@ taglib uri="screening.tld" prefix="screen" %>
 
 <SCRIPT LANGUAGE="JavaScript">
@@ -87,79 +100,79 @@ function getProblemDetail(id) {
                         <tr>
                             <td class="screeningHeader" colspan=2>Personal Info</td>
                         </tr>
-                        <screen:resultSetRowIterator id="personalInfo" list="<%=request.getParameter(Constants.CANDIDATE_PERSONAL_INFO)%>">
+                        <screen:resultSetRowIterator id="personalInfo" list="<%=Constants.CANDIDATE_PERSONAL_INFO%>">
                         <tr>
                             <td class="screeningCellOdd" align=right nowrap=nowrap>First Name:</td>
                             <td class="screeningCellOdd" width="100%">
-                                <screen:resultSetItem row="<%=personalInfo%>" name="first_name" />
+                                <screen:resultSetItem row="personalInfo" name="first_name" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right nowrap=nowrap>Middle Initial:</td>
                             <td class="screeningCellEven">
-                                <screen:resultSetItem row="<%=personalInfo%>" name="middle_name" />
+                                <screen:resultSetItem row="personalInfo" name="middle_name" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right nowrap=nowrap>Last Name:</td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=personalInfo%>" name="last_name" />
+                                <screen:resultSetItem row="personalInfo" name="last_name" />
                             </td>
                         </tr>
                         </screen:resultSetRowIterator>
 
-                        <screen:resultSetRowIterator id="emailInfo" list="<%=request.getParameter(Constants.CANDIDATE_EMAIL)%>">
+                        <screen:resultSetRowIterator id="emailInfo" list="<%=Constants.CANDIDATE_EMAIL%>">
                         <tr>
                             <!-- Email address -->
                             <td class="screeningCellEven" align=right nowrap=nowrap>Email Address:</td>
                             <td class="screeningCellEven">
-                                <screen:resultSetItem row="<%=emailInfo%>" name="email_address" />
+                                <screen:resultSetItem row="emailInfo" name="email_address" />
                             </td>
                         </tr>
                         </screen:resultSetRowIterator>
 
                         <!-- Address info -->
-                        <screen:resultSetRowIterator id="addressInfo" list="<%=request.getParameter(Constants.CANDIDATE_ADDRESS_INFO)%>">
+                        <screen:resultSetRowIterator id="addressInfo" list="<%=Constants.CANDIDATE_ADDRESS_INFO%>">
                         <tr>
                             <td class="screeningCellOdd" align=right>Address 1:</td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=addressInfo%>" name="address1" />
+                                <screen:resultSetItem row="addressInfo" name="address1" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right>Address 2:</td>
                             <td class="screeningCellEven">
-                                <screen:resultSetItem row="<%=addressInfo%>" name="address2" />
+                                <screen:resultSetItem row="addressInfo" name="address2" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right>Address 3:</td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=addressInfo%>" name="address3" />
+                                <screen:resultSetItem row="addressInfo" name="address3" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right>City:</td>
                             <td class="screeningCellEven">
-                                <screen:resultSetItem row="<%=addressInfo%>" name="city" />
+                                <screen:resultSetItem row="addressInfo" name="city" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right>State:</td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=addressInfo%>" name="state_code" />
+                                <screen:resultSetItem row="addressInfo" name="state_code" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellEven" align=right>Zip Code:</td>
                             <td class="screeningCellEven">
-                                <screen:resultSetItem row="<%=addressInfo%>" name="zip" />
+                                <screen:resultSetItem row="addressInfo" name="zip" />
                             </td>
                         </tr>
                         <tr>
                             <td class="screeningCellOdd" align=right>Country:</td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=addressInfo%>" name="country" />
+                                <screen:resultSetItem row="addressInfo" name="country" />
                             </td>
                         </tr>
                         </screen:resultSetRowIterator>
@@ -214,13 +227,13 @@ if ( MM_FlashCanPlay ) {
                             <td class="screeningHeader" colspan=2>Demographic Info</td>
                         </tr>
 
-                        <screen:resultSetRowIterator id="demographicInfo" list="<%=request.getParameter(Constants.CANDIDATE_DEMOGRAPHIC_INFO)%>">
+                        <screen:resultSetRowIterator id="demographicInfo" list="<%=Constants.CANDIDATE_DEMOGRAPHIC_INFO%>">
                         <tr>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=demographicInfo%>" name="demographic_question_text" />
+                                <screen:resultSetItem row="demographicInfo" name="demographic_question_text" />
                             </td>
                             <td class="screeningCellOdd">
-                                <screen:resultSetItem row="<%=demographicInfo%>" name="demographic_answer_text" />
+                                <screen:resultSetItem row="demographicInfo" name="demographic_answer_text" />
                             </td>
                         </tr>
                         </screen:resultSetRowIterator>
@@ -237,20 +250,20 @@ if ( MM_FlashCanPlay ) {
                     <td width="15%" align="center" class="screeningHeader">Date Created</td>
                 </tr>
 
-               <screen:resultSetRowIterator id="notes" list="<%=request.getParameter(Constants.CANDIDATE_NOTES)%>">
+               <screen:resultSetRowIterator id="notes" list="<%=Constants.CANDIDATE_NOTES%>">
                 <tr>
                     <td valign=top width="70%"class=screeningCellOdd>
                       <strong>
-                        <screen:resultSetItem row="<%=notes%>" name="text" />
+                        <screen:resultSetItem row="notes" name="text" />
                       </strong>
                     </td>
 
                     <td valign=top width="15%"class=screeningCellOdd align=center>
-                        <screen:resultSetItem row="<%=notes%>" name="created_by" />
+                        <screen:resultSetItem row="notes" name="created_by" />
                     </td>
 
                     <td valign=top width="15%"class=screeningCellOdd align=center>
-                        <screen:resultSetItem row="<%=notes%>" name="create_date" />
+                        <screen:resultSetItem row="notes" name="create_date" />
                     </td>
                 </tr>
                </screen:resultSetRowIterator>
