@@ -84,7 +84,7 @@
 
 <!-- Documentation -->
 						<p><strong>Documentation</strong><br />
-						All <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3312997">documentation</a> for this project is available on the TopCoder Software web site.</p>
+						All <a class="statText" href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3312997">documentation</a> for this project is available on the TopCoder Software web site.</p>
 
 <!-- Payment -->
 							<p><strong>Payment</strong><br />
