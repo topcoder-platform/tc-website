@@ -9,6 +9,7 @@ public class TCESConstants {
     public static String JSP_ROOT = null;
     public static String ERROR_PAGE = null;
     public static String LOGIN_PAGE = null;
+    public static String MAIN_PAGE = null;
 
 	public static String STEP_PARAM = null;
 	public static String JOB_ID_PARAM = null;
@@ -25,6 +26,7 @@ public class TCESConstants {
 		JSP_ROOT = servletConfig.getInitParameter("jsp_root");
         ERROR_PAGE = servletConfig.getInitParameter("error_page");
     	LOGIN_PAGE = servletConfig.getInitParameter("login_page");
+    	MAIN_PAGE = servletConfig.getInitParameter("main_page");
 
 		STEP_PARAM = servletConfig.getInitParameter("step_param");
 		JOB_ID_PARAM = servletConfig.getInitParameter("job_id_param");

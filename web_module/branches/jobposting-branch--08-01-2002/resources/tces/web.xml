@@ -30,6 +30,14 @@
   </init-param>
 
   <init-param>
+    <param-name>main_page</param-name>
+    <param-value>main.jsp</param-value>
+    <description>
+      The company's main page
+    </description>
+  </init-param>
+
+  <init-param>
     <param-name>error_page</param-name>
     <param-value>/errorPage.jsp</param-value>
     <description>
