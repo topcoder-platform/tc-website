@@ -113,7 +113,7 @@ Plain Dealer Reporter</P>
 <P>"Most of my friends think they are going to the NBA," he said, laughing. "But they are taking notice [of technology]."</P>
 <P>Contact Chris Seper at:<BR/>
 cseper@plaind.com, 216-999-5405<BR/><BR/>
-© 2002 The Plain Dealer. Used with permission.<BR/>
+&#64;2002 The Plain Dealer. Used with permission.<BR/>
 Copyright 2002 cleveland.com. All Rights Reserved.</P>
 						</TD></TR>                                                                 
 					</TABLE>
