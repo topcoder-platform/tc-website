@@ -5,7 +5,8 @@ public class ResumeTaskException extends Exception {
         super(s);
     }
     ResumeTaskException(Exception e){
-        super(e);
+        super(e.getMessage());
+        setStackTrace(e.getStackTrace());
     }
     ResumeTaskException(){
         super();
