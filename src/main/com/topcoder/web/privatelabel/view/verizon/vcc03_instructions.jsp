@@ -130,23 +130,48 @@
                         The solution class you create and all of its members must be defined as public in order for the TopCoder servers to have access to your class members 
                            and invoke the appropriate methods.  Below you will find code templates for Java, C++, C# and VB.NET:</dd><br/>
                            
-                        <dd><strong>Java Code Template</strong><br/></dd><br/>
+                        <dd><strong>Java Code Template</strong><br/>
                         
-                        <tt>import &#60;necessary classes&#62;<br/>
+                        import &#60;necessary classes&#62;<br/>
                         public class &#60;class-name&#62; {<br/>
-                        public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br?>
+                        public &#60;return-type&#62; &#60;method-name&#62;(&#60;argument-type&#62; arg1) {<br/>
                         //your source here<br/>
                         return &#60;results&#62;;<br/>
                         }<br/>
-                        }</tt>
+                        }</dd><br/>
                           
 
-                          <dd><strong>C++ Code Template</strong><br/></dd><br/>
+                          <dd><strong>C++ Code Template</strong><br/>
+                          #include &#60;necessary classes&#62;<br/>
+                          using namespace std; //Required for TopCoder gcc compiler<br/>
+                          class &#60;class-name&#62;<br/>
+                          {<br/>
+                          public:
+                          &#60;return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1)<br/>
+                          {<br/>
+                          //your source here<br/>
+                          return &#60result&#62;;<br/>
+                          } ;<br/>
+                          } ; </dd><br/>
                           
                           
-                          <dd><strong>C# Code Template</strong><br/></dd><br/>
+                          <dd><strong>C# Code Template</strong><br/>
+                          using &#60necessary classes&#62;;<br/><br/>
+                          public class &#60class-name&#62; { <br/>
+                          public &#60return-type&#62; &#60method-name&#62; (&#60argument-type&#62; arg1) {<br/>
+                          //your source here<br/>
+                          return &#60result&#62;;<br/>
+                          }<br/>
+                          }</dd><br/>
                           
-                          <dd><strong>VB.NET Code Template</strong><br/></dd><br/>
+                          <dd><strong>VB.NET Code Template</strong><br/>
+                          <tt> Imports &#60necessary-classes&#62;<br/><br/>
+                          Publicc Class &#60class-name&#62;<br/><br/>
+                          public Function &#60method-name&#62; (arg1 as &#60argument-type&#62;) As &#60return-type&#62;<br/>
+                          --your source here<br/>
+                          Return &#60result&#62;<br/>
+                          End Function<br/><br/>
+                          End Class </tt> </dd><br/>
                           
                           
                           <dd><strong>Compiling</strong><br/>
@@ -154,7 +179,7 @@
                         compilation will dictate to which language compiler the compilation request is sent.  A compilation request will send the code that is currently in the coding 
                         window to the TopCoder compiler.  If a compilation is successful, you will be notified of such.  If the compilation is not successful, the errors that are 
                         returned by the compiler will be displayed to you in the compilation results window.  Once a successful compilation is accomplished, the resultant compiled 
-                        object will be stored on TopCoder’s server.  Any user test or code submission will always utilize the most recent successfully compiled code.</dd><br/>
+                        object will be stored on TopCoder's server.  Any user test or code submission will always utilize the most recent successfully compiled code.</dd><br/>
                           
                           
                             <dd><strong>User Testing</strong><br/>
