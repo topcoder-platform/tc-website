@@ -44,9 +44,18 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     /** Holds value of property overallStatsByLevel. */
     private List overallStatsByLevel;
     
+    public String autoFormat(TCResultItem result){
+        switch(result.getType()){
+            case TCResultItem.DOUBLE:
+                return TCESConstants.NUMBER_FORMAT.format(((Double)result.getResultData()).doubleValue())
+            default:
+                return result.toString();
+        }
+    }
+    
     public String getStatistic(String name){
         try{
-            return getCompetitionStats().getItem(name).toString();
+            return autoFormat(getCompetitionStats().getItem(name));
         }catch(NullPointerException npe){
             log.debug("Null pointer exception in CompetitionStatisticsTask.getStatistic(\""
                       + name + "\")");
