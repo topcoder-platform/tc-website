@@ -318,19 +318,6 @@
 
             <table width="100%" border="0" cellpadding="5" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><a href="/stat?c=member_profile&amp;cr=265522"><img src="/i/m/veredox_mug.gif" alt="veredox" width="63" height="70" border="0" /></a></td>
-                    <td width="99%" class="bodyText">
-                        <p>
-                        <a class="bodyText" href="/stat?c=member_profile&amp;cr=265522"><strong>veredox</strong></a> graduated with a BS in Network Computing from Northern Michigan University.  As a part of the review board, he wants to make sure TCS provides the highest quality components.
-                        </p>                       
-                     </td>
-                </tr>
-            </table>            
-
-            <hr width="100%" size="1" noshade="noshade" />
-
-            <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                <tr valign="top">
                     <td width="274"><a href="/stat?c=member_profile&amp;cr=286907"><img src="/i/m/WishingBone_mug.gif" alt="WishingBone" width="63" height="70" border="0" /></a></td>
                     <td width="99%" class="bodyText">
                         <p>
