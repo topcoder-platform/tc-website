@@ -28,21 +28,18 @@
 
 <body>
 
-       <td class="promoText" width="99%">
-            <table border="0" cellspacing="10" cellpadding="0" width="100%">
-                
-                            
-              <tr valign="top">
-                    <td align="left" width="100%" class="bodyText">
-
-                        <tr><td><table><tr><td align="center"><img src="/i/sponsor/intel_ids/sample_header.gif" width="510" height="64"/></td></tr> </table></td></tr>
-                        <tr>
-                        <td align="left" width="100%" class="bodyText">
-                        <table border="0" cellpadding="4" cellspacing="0">
-                            <tr valign="top">
-                                <td valign="top" width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                                <td valign="top" width="99%" class="bodyText"><strong>Technical Training.</strong> 
-                                Offered in classrooms as well as via online tutorials and webcasts, our training can help you get up to speed on the latest information to develop and enhance your solutions.<br />
+<table border="0" cellspacing="15" cellpadding="0" width="100%">
+    <tr valign="top">
+        <td align="center"><img src="/i/sponsor/intel_ids/sample_header.gif" width="510" height="64"/></td>
+    </tr>
+    
+    <tr>
+        <td align="left" width="100%" class="bodyText">
+            <table border="0" cellpadding="4" cellspacing="0">
+                <tr valign="top">
+                    <td valign="top" width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                    <td valign="top" width="99%" class="bodyText"><strong>Technical Training.</strong> 
+                        Offered in classrooms as well as via online tutorials and webcasts, our training can help you get up to speed on the latest information to develop and enhance your solutions.<br />
                                     <ul>
                                     <li>"Building Mobile Apps for Intermittant Connections"</li>
                                     <li>"Thread Programming and Hyper-Threading Technology"</li>
@@ -85,17 +82,14 @@
                                     <li>Comprehensive technical support  </li>
                                     <li>Industry Segments &#151; Digital Media, Games </li>
                                     <li>Extensive marketing and promotional opportunities</li></ul>
-                                </td>
-                            </tr>
+                        </td>
+                    </tr>
                             
-                        </table>
-                            
-                
-
-                    </td>
-                </tr>
             </table>
         </td>
+    </tr>
+</table>
+
 </body>
 
 </html>
