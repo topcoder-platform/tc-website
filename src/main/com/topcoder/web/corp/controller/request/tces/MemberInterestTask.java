@@ -43,6 +43,8 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
     /** Holds value of property memberHitList. */
     private List hitList;
 
+    private boolean isRanked;
+
     /** Creates new MemberInterestTask */
     public MemberInterestTask() {
         super();
@@ -144,6 +146,16 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Member_Hit_List");
         setHitList(rsc);
+
+
+        Request dwDataRequest = new Request();
+        dwDataRequest.setContentHandle("TCES_Coder_Stats");
+        dwDataRequest.setProperty("mid", Integer.toString(getMemberID()));
+
+        Map dwResultMap = getDataAccess(getDw()).getData(dwDataRequest);
+        ResultSetContainer dwResult = (ResultSetContainer)dwResultMap.get("TCES_Coder_Stats");
+        setRanked(!dwResult.isEmpty());
+
 
         setNextPage(TCESConstants.MEMBER_INTEREST_PAGE);
     }
@@ -260,6 +272,14 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
      */
     public void setHitList(List hitList) {
         this.hitList = hitList;
+    }
+
+    public boolean isRanked() {
+        return isRanked;
+    }
+
+    public void setRanked(boolean ranked) {
+        isRanked = ranked;
     }
 
 }

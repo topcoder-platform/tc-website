@@ -52,19 +52,21 @@
                     <TR>
                         <TD class="bodyText" ALIGN="center" WIDTH="33%">
                           <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.CODER_DEMOGRAPHICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">
-                            Coder Demographic Info</A>                          
+                            Coder Demographic Info</A>
                         </TD>
+                        <% if (MemberInterestTask.isRanked()) { %>
                         <TD class="bodyText" ALIGN="center" WIDTH="33%">
                           <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_HISTORY_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">
                             Coder Competition History</A>
                         </TD>
                         <TD class="bodyText" ALIGN="center" WIDTH="33%">
                           <A HREF="<jsp:getProperty name="MemberInterestTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_SUBMISSIONS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=MemberInterestTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=MemberInterestTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=MemberInterestTask.getMemberID()%>" class="bodyText">
-                            Coder Problem Submissions</A>                          
+                            Coder Problem Submissions</A>
                         </TD>
+                        <% } %>
                     </TR>
-                  </TABLE>               
-              
+                  </TABLE>
+
               <P>
               <FONT SIZE="5" COLOR="#FFFFFF" FACE="arial, verdana, tahoma">Member Interest</FONT>
               <BR/>
