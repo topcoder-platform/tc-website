@@ -20,7 +20,7 @@
         <td width="180">
             <jsp:include page="includes/global_left.jsp">
                 <jsp:param name="level1" value="events"/>
-                <jsp:param name="level2" value="private_label"/> 
+                <jsp:param name="level2" value="private_label"/>
             </jsp:include>
         </td>
 <!-- Left Column Ends -->
@@ -29,21 +29,22 @@
         <td width="15"><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
 <!-- Gutter Ends -->
 
-<!-- Center Column Begins --> 
+<!-- Center Column Begins -->
          <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
                <jsp:include page="body_top.jsp" >
-                  <jsp:param name="image" value="events"/>  
-                  <jsp:param name="image1" value="white"/>  
-                  <jsp:param name="title" value="Private Label"/>  
+                  <jsp:param name="image" value="events"/>
+                  <jsp:param name="image1" value="white"/>
+                  <jsp:param name="title" value="Private Label"/>
                </jsp:include>
-               
+
             <img src="/i/clear.gif" alt="" width="1" height="15" border="0"/><br/>
 
 <!-- Upcoming Tournaments begins -->
+<%--
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Upcoming Private Label Events</font></td></tr>
             </table>
-            
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -62,9 +63,9 @@
                     <td valign="bottom" width="1%"><img src="/i/clear.gif" alt="Logo" width="113" height="73" border="0" hspace="2" align="right" /></td>
                 </tr>
             </table>
-            
+--%>
 <%--                <hr width="100%" size="1" noshade="noshade" />
-            
+
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google&d2=google_overview"><img src="/i/events/verizon2003/index_verizon.gif" alt="2003 VCC" width="274" height="66" border="0" /></A></td>
@@ -88,7 +89,7 @@
             <table width="100%" border="0" cellpadding="4" cellspacing="0">
                 <tr><td class="statTextBig" bgcolor="#858B91"><font size="3">Past Private Label Events</font></td></tr>
             </table>
-               
+
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -140,7 +141,7 @@
          <td width="170">
             <jsp:include page="public_right.jsp">
                <jsp:param name="level1" value="review_board"/>
-               <jsp:param name="level2" value="competition"/> 
+               <jsp:param name="level2" value="competition"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
