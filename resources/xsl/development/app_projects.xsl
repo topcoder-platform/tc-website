@@ -114,27 +114,7 @@
                                     <td class="projectCells" align="right">$500.00 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
                                     <td class="projectCells" align="right">04/16/2004 9:00 PM ET</td>
                                 </tr>
-
-<!--
-                                <tr valign="top">
-                                    <td class="projectCells" colspan="4">
-                                        <a href="?t=development&amp;c=online_gift_card_v10_dev">Online Gift Card Sales</a>
-                                    </td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Site Development</td>
-                                    <td class="projectCells" align="right">$833 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$313 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">closed</td>
-                                </tr>
-                                <tr valign="top">
-                                    <td class="projectCells"> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;Supporting Operations</td>
-                                    <td class="projectCells" align="right">$333 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">$125 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
-                                    <td class="projectCells" align="right">closed</td>
-                                </tr>
                                 -->
--->
                             </table>
 
                             <p>
