@@ -14,151 +14,132 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
-        <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Statistics</TITLE>
-        <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <xsl:call-template name="Top"/>
+
+<html>
+
+<head>
+
+<xsl:call-template name="Preload"/>      
+
+<title>Competition Statistics at TopCoder</title>
+
+<xsl:call-template name="CSS"/>      
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
+</head>
+
+<body>
+
+<xsl:call-template name="Top"/>
+
 <!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-	<TR>
-    <!-- Left Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
-        <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->			
-<!-- Left Column Include Ends -->							
-	  	</TD>
-	<!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-		<TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="8" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
 
-<!-- Body Area -->
-	<!-- Center Column Begins -->	
-		<TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">steelblue</xsl:with-param>
-  <xsl:with-param name="image">statistics</xsl:with-param>
-  <xsl:with-param name="title">&#160;Quick Stats</xsl:with-param>
-</xsl:call-template>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
-	<TR>
-		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"/>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">		
-	<TR>
-		<TD CLASS="bodyText" VALIGN="top" WIDTH="50%"><A HREF="/stat?&amp;c=winning_debuts" CLASS="statText"><IMG SRC="/i/stat_labels_win_debuts.gif" ALT="Winning Debuts" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-		<TD ROWSPAN="12" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>		
-		<TD CLASS="bodyText" VALIGN="top" WIDTH="50%"><A HREF="/stat?&amp;c=highest_accuracy" CLASS="statText"><IMG SRC="/i/stat_labels_sub.gif" ALT="Submission Accuracy" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-	</TR>
-	<TR>
-		<TD CLASS="statText" VALIGN="top" WIDTH="50%">This chart represents those members who won their room in their initial Single Round Match... // <A HREF="/stat?&amp;c=winning_debuts" CLASS="statText">more</A></TD>
-		<TD CLASS="statText" VALIGN="top" WIDTH="50%">Submission Accuracy is measured by dividing the  number of correct submissions by the number of total submissions by a member...// <A HREF="/stat?&amp;c=highest_accuracy" CLASS="statText">more</A></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="2" CLASS="statText" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
-	</TR>		
-	<TR>
-		<TD CLASS="bodyText" VALIGN="top"><A HREF="/stat?&amp;c=all_time_wins" CLASS="statText"><IMG SRC="/i/stat_labels_all_wins.gif" ALT="All-Time Wins" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-		<TD CLASS="bodyText" VALIGN="top"><A HREF="/stat?&amp;c=impressive_debuts" CLASS="statText"><IMG SRC="/i/stat_labels_imp_debuts.gif" ALT="Impressive Debuts" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-	</TR>
-	<TR>
-		<TD CLASS="statText" VALIGN="top">This chart ranks the Top-10 in Single Round Match Room Wins.<BR/>
-		<A HREF="/stat?&amp;c=all_time_wins" CLASS="statText">Overall</A> : 
-		<A HREF="/stat?&amp;c=all_time_wins_by_div&amp;dn=1" CLASS="statText">Division I</A> : 
-		<A HREF="/stat?&amp;c=all_time_wins_by_div&amp;dn=2" CLASS="statText">Division II</A><BR/>
-		</TD>
-		<TD CLASS="statText" VALIGN="top">This chart represents the members who have made the most impressive debuts in a Single Round Match... // <A HREF="/stat?&amp;c=impressive_debuts" CLASS="statText">more</A></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="2" CLASS="statText" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
-	</TR>	
-	<TR>
-		<TD CLASS="bodyText" VALIGN="top"><A HREF="/stat?&amp;c=highest_totals&amp;dn=1" CLASS="statText"><IMG SRC="/i/stat_labels_total.gif" ALT="Highest Match Total" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-		<TD CLASS="bodyText" VALIGN="top"><A HREF="/stat?&amp;c=most_consecutive_wins&amp;dn=1" CLASS="statText"><IMG SRC="/i/stat_labels_consec_wins.gif" ALT="Consecutive Wins" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-	</TR>
-	<TR>
-		<TD CLASS="statText" VALIGN="top">This chart represents the Top-10 highest point totals earned in a Single Round Match.<BR/>
-		<A HREF="/stat?&amp;c=highest_totals&amp;dn=1" CLASS="statText">Division I</A> : 
-		<A HREF="/stat?&amp;c=highest_totals&amp;dn=2" CLASS="statText">Division II</A><BR/>
-		</TD>
-		<TD CLASS="statText" VALIGN="top">This chart represents the longest consecutive room win streaks in Single Round Matches.<BR/>
-		<A HREF="/stat?&amp;c=most_consecutive_wins&amp;dn=1" CLASS="statText">Division I</A> : 
-		<A HREF="/stat?&amp;c=most_consecutive_wins&amp;dn=2" CLASS="statText">Division II</A><BR/>
-		</TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="2" CLASS="statText" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
-	</TR>	
-	<TR>
-		<TD CLASS="bodyText" VALIGN="top"><A HREF="/stat?&amp;c=biggest_rating_gains&amp;dn=1" CLASS="statText"><IMG SRC="/i/stat_labels_rating.gif" ALT="Rating Point Gain" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-		<TD CLASS="bodyText" VALIGN="top"><A HREF="/stat?&amp;c=best_challengers" CLASS="statText"><IMG SRC="/i/stat_labels_chall.gif" ALT="Challenge Success" WIDTH="158" HEIGHT="17" BORDER="0"/></A></TD>
-	</TR>
-	<TR>
-		<TD CLASS="statText" VALIGN="top">This chart represents the biggest rating point gain in a Single Round Match.<BR/>
-		<A HREF="/stat?&amp;c=biggest_rating_gains&amp;dn=1" CLASS="statText">Division I</A> : 
-		<A HREF="/stat?&amp;c=biggest_rating_gains&amp;dn=2" CLASS="statText">Division II</A><BR/>
-		</TD>
-		<TD CLASS="statText" VALIGN="top">Challenge Success is a percentage based on successful challenges divided by total challenges... // <A HREF="/stat?&amp;c=best_challengers" CLASS="statText">more</A></TD>
-	</TR>
-	<TR>
-		<TD COLSPAN="2" CLASS="statText" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
-	</TR>	
-</TABLE>
-			<P><BR/></P>	
-				 	</TD>
-					<TD VALIGN="top" WIDTH="10" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>				 
-				</TR>				
-			</TABLE>
-			<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#000033" WIDTH="60%" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="14"><IMG SRC="/i/table_mid_left2x.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" BGCOLOR="#000033" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="14"><IMG SRC="/i/clear.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
-	<!-- Center Column Ends -->
-<!-- Body Area Ends -->
+<!-- Left Column Begins -->
+        <td width="170" valign="top">
+            <xsl:call-template name="global_left"/>
+        </td>
+<!-- Left Column Ends -->
 
-	<!-- Gutter -->
-		<TD WIDTH="4" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-	<!-- Right Column Begins -->
-		<TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
-        </TD>
-	<!-- Right Column Ends -->
-	<!-- Gutter -->
-		<TD WIDTH="10" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-	</TR>
-</TABLE>
+<!-- Gutter Begins -->
+        <td width="10" valign="top"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->    
+        <td class="statText" width="100%" valign="top">
+            <xsl:call-template name="BodyTop">
+                <xsl:with-param name="image1">steelblue</xsl:with-param>
+                <xsl:with-param name="image">statistics</xsl:with-param>
+                <xsl:with-param name="title">&#160;Quick Stats</xsl:with-param>
+            </xsl:call-template>
+
+            <table border="0" cellspacing="0" cellpadding="5" bgcolor="#001B35" width="100%">
+                <tr>
+                    <td>
+                        <table border="0" cellspacing="0" cellpadding="5" bgcolor="#001B35" width="100%">        
+                            <tr valign="top">
+                                <td class="statText" width="50%">
+                                    <a href="/stat?&amp;c=winning_debuts" class="statText"><img src="/i/stat_labels_win_debuts.gif" alt="Winning Debuts" width="158" height="17" border="0"/></a><br />
+                                    This chart represents those members who won their room in their initial Single Round Match... // <a href="/stat?&amp;c=winning_debuts" class="statText">more</a><br /></td>
+                                <td class="statText" width="50%">
+                                    <a href="/stat?&amp;c=highest_accuracy" class="statText"><img src="/i/stat_labels_sub.gif" alt="Submission Accuracy" width="158" height="17" border="0"/></a><br />
+                                    Submission Accuracy is measured by dividing the  number of correct submissions by the number of total submissions by a member...// <a href="/stat?&amp;c=highest_accuracy" class="statText">more</a><br /></td>
+                            </tr>
+                            
+                            <tr valign="top">
+                                <td class="statText">
+                                    <a href="/stat?&amp;c=all_time_wins" class="statText"><img src="/i/stat_labels_all_wins.gif" alt="All-Time Wins" width="158" height="17" border="0"/></a><br />
+                                    This chart ranks the Top-10 in Single Round Match Room Wins.<br/>
+                                    <a href="/stat?&amp;c=all_time_wins" class="statText">Overall</a> : 
+                                    <a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=1" class="statText">Division I</a> : 
+                                    <a href="/stat?&amp;c=all_time_wins_by_div&amp;dn=2" class="statText">Division II</a><br/></td>
+                                <td class="statText">
+                                    <a href="/stat?&amp;c=impressive_debuts" class="statText"><img src="/i/stat_labels_imp_debuts.gif" alt="Impressive Debuts" width="158" height="17" border="0"/></a><br />
+                                    This chart represents the members who have made the most impressive debuts in a Single Round Match... // <a href="/stat?&amp;c=impressive_debuts" class="statText">more</a><br /></td>
+                            </tr>
+    
+                            <tr>
+                                <td class="statText" valign="top">
+                                    <a href="/stat?&amp;c=highest_totals&amp;dn=1" class="statText"><img src="/i/stat_labels_total.gif" alt="Highest Match Total" width="158" height="17" border="0"/></a><br />
+                                    This chart represents the Top-10 highest point totals earned in a Single Round Match.<br/>
+                                    <a href="/stat?&amp;c=highest_totals&amp;dn=1" class="statText">Division I</a> : 
+                                    <a href="/stat?&amp;c=highest_totals&amp;dn=2" class="statText">Division II</a><br/></td>
+                                <td class="statText" valign="top">
+                                    <a href="/stat?&amp;c=most_consecutive_wins&amp;dn=1" class="statText"><img src="/i/stat_labels_consec_wins.gif" alt="Consecutive Wins" width="158" height="17" border="0"/></a><br />
+                                    This chart represents the longest consecutive room win streaks in Single Round Matches.<br/>
+                                    <a href="/stat?&amp;c=most_consecutive_wins&amp;dn=1" class="statText">Division I</a> : 
+                                    <a href="/stat?&amp;c=most_consecutive_wins&amp;dn=2" class="statText">Division II</a><br/></td>
+                            </tr>
+                            
+                            <tr>
+                                <td class="statText" valign="top">
+                                    <a href="/stat?&amp;c=biggest_rating_gains&amp;dn=1" class="statText"><img src="/i/stat_labels_rating.gif" alt="Rating Point Gain" width="158" height="17" border="0"/></a><br />
+                                    This chart represents the biggest rating point gain in a Single Round Match.<br/>
+                                    <a href="/stat?&amp;c=biggest_rating_gains&amp;dn=1" class="statText">Division I</a> : 
+                                    <a href="/stat?&amp;c=biggest_rating_gains&amp;dn=2" class="statText">Division II</a><br/></td>
+                                <td class="statText" valign="top">
+                                    <a href="/stat?&amp;c=best_challengers" class="statText"><img src="/i/stat_labels_chall.gif" alt="Challenge Success" width="158" height="17" border="0"/></a><br />
+                                    Challenge Success is a percentage based on successful challenges divided by total challenges... // <a href="/stat?&amp;c=best_challengers" class="statText">more</a><br /></td>
+                            </tr>
+                        </table>
+                        
+                        <p><br/></p>
+                        
+                    </td>
+                </tr>                
+            </table>
+            
+            <p><br/></p>
+
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
+<!-- Gutter Ends -->
+
+<!-- Right Column Begins -->
+        <td width="170"><img src="/i/clear.gif" width="170" height="1" alt="" border="0" /><br />
+            <xsl:call-template name="public_right_col"/>       
+        </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0" /></td>
+<!-- Gutter Ends -->
+
+    </tr>
+</table>
 <!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+
+<xsl:call-template name="Foot"/>
+
+</body>
+</html>
+
   </xsl:template>
 </xsl:stylesheet>
 
