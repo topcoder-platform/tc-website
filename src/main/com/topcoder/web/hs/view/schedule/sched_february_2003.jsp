@@ -44,10 +44,10 @@
                         <!--<IMG SRC="/i/hs/calendar_holder.gif" BORDER="0">-->
                         
                      
-<BR><P><B>March 2003</B></P><DIV ALIGN="right"><form name="selectform"><select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
+<BR><P><B>February 2003</B></P><DIV ALIGN="right"><form name="selectform"><select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
 <OPTION value="SELECTED">&nbsp;Choose Monthly View</OPTION>
 <OPTION VALUE="schedule">--- 2003 ---</OPTION>
-<OPTION VALUE="sched_march_2003">&nbsp;February</OPTION>
+<OPTION VALUE="sched_february_2003">&nbsp;February</OPTION>
 <OPTION VALUE="sched_march_2003">&nbsp;March</OPTION>
 <OPTION VALUE="sched_april_2003">&nbsp;April</OPTION>
 <OPTION VALUE="sched_may_2003">&nbsp;May</OPTION>
