@@ -36,9 +36,18 @@
       <tr><td>Zipcode: <input type="text" name="zipcode" size="5"></td></tr>
       <tr><td>City: <input type="text" name="city" size="15"></td></tr>
       <tr><td>Company: <input type="text" name="company" size="15"></td></tr>
-         <rsc:iterator list="<%=states%>" id="resultRow">
-           <rsc:item name="state_code" row="<%=resultRow%>"/>
-         </rsc:iterator>
+      <tr><td><select name="states" multiple size=5>
+        <rsc:iterator list="<%=states%>" id="resultRow">
+          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"</option>
+        </rsc:iterator>
+        </select>
+      </td></tr>
+      <tr><td><select name="countries" multiple size=5>
+        <rsc:iterator list="<%=countries%>" id="resultRow">
+          <option value="<rsc:item name="state_code" row="<%=resultRow%>"/>"</option>
+        </rsc:iterator>
+        </select>
+      </td></tr>
     </table>
   </FORM>
   </body>
