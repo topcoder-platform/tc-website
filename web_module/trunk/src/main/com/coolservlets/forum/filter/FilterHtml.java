@@ -68,6 +68,9 @@ import com.coolservlets.codeviewer.*;
  */
 public class FilterHtml extends ForumMessageFilter implements Serializable {
 
+    private static final String OPEN_PRE = "<pre>";
+    private static final String CLOSE_PRE= "</pre>";
+
     /**
      * Property values of the filter.
      */
@@ -236,10 +239,21 @@ public class FilterHtml extends ForumMessageFilter implements Serializable {
         for( int i=0; i<input.length(); i++ ) {
             ch = input.charAt(i);
             if( ch == '<' ) {
-                buf.append( "&lt;" );
+                if (input.substring(i, i+OPEN_PRE.length()).toLowerCase().equals(OPEN_PRE)) {
+                    buf.append(OPEN_PRE);
+                    i+=OPEN_PRE.length()-1;
+                } else if (input.substring(i, i+CLOSE_PRE.length()).toLowerCase().equals(CLOSE_PRE)) {
+                        buf.append(CLOSE_PRE);
+                        i+=CLOSE_PRE.length()-1;
+                } else {
+                    buf.append( "&lt;" );
+                }
             }
             else if( ch == '>' ) {
-                buf.append( "&gt;" );
+                if (!input.substring(i-(OPEN_PRE.length()-1), i+1).toLowerCase().equals(OPEN_PRE) &&
+                    !input.substring(i-(CLOSE_PRE.length()-1), i+1).toLowerCase().equals(CLOSE_PRE)) {
+                    buf.append( "&gt;" );
+                }
             }
             else {
                 buf.append( ch );
