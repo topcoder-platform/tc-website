@@ -102,6 +102,9 @@ public class Legacy extends Base {
                 } else if (task.equals(Constants.REPORT_PROFILE_DETAIL_KEY)) {
                     response_addr = Constants.REPORT_PROFILE_DETAIL_ADDR;
                     getProfileDetail(getRequest());
+                } else if (task.equals(Constants.REPORT_PROFILE_SEARCH_KEY)) {
+                    response_addr = Constants.REPORT_PROFILE_SEARCH_ADDR;
+                    getProfileDetail(getRequest());
                 } else {
                     throw new NavigationException("Invalid task " + task);
                 }

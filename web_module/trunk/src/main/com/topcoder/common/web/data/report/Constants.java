@@ -13,6 +13,7 @@ public class Constants {
     public static String REPORT_RESULT_ADDR = "/result.jsp";
     public static String REPORT_PARAM_ADDR = "/param.jsp";
     public static String REPORT_PROFILE_DETAIL_ADDR = "/profile_detail.jsp";
+    public static String REPORT_PROFILE_SEARCH_ADDR = "/profile_search.jsp";
     public static String REPORT_PROFILE_ADDR = "/profile.jsp";
     public static String REPORT_TCS_PROFILE_ADDR = "/tcs_profile.jsp";
     public static String REPORT_PROFILE_LIST_ADDR = "/profile_list.jsp";
@@ -29,6 +30,7 @@ public class Constants {
     public static String PROCESSED_KEY = "processed";
     public static String REFRESH_SCHOOL_KEY = "refresh";
     public static String REPORT_PROFILE_KEY = "profile";
+    public static String REPORT_PROFILE_SEARCH_KEY = "profile_search";
     public static String REPORT_PROFILE_DETAIL_KEY = "profile_detail";
     public static String REPORT_PROFILE_LIST_KEY = "profile_list";
     public static String REPORT_PROFILE_LIST_MENU_KEY = "profile_list_menu";
