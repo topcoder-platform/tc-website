@@ -262,7 +262,7 @@ public abstract class Base extends BaseProcessor {
     }
 
 
-    protected static  ArrayList getLanguages(ArrayList languageIds) {
+    protected static ArrayList getLanguages(ArrayList languageIds) {
         ArrayList languages = new ArrayList(languageIds.size());
         for (Iterator it = languageIds.iterator(); it.hasNext();) {
             switch (((Integer)it.next()).intValue()) {

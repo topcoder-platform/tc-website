@@ -13,7 +13,6 @@ public class ProblemInfo {
 
     private String code = null;
     private long componentId = 0;
-    private boolean editable = false;
     private Language language = null;
     private Problem problem = null;
     private int problemType = 0;
@@ -22,10 +21,9 @@ public class ProblemInfo {
 
     }
 
-    public ProblemInfo(String code, long componentId, boolean editable, int languageId, Problem problem, int problemType) {
+    public ProblemInfo(String code, long componentId, int languageId, Problem problem, int problemType) {
         this.code = code;
         this.componentId = componentId;
-        this.editable = editable;
         this.language = BaseLanguage.getLanguage(languageId);
         this.problem = problem;
         this.problemType = problemType;
@@ -45,14 +43,6 @@ public class ProblemInfo {
 
     public void setComponentId(long componentId) {
         this.componentId = componentId;
-    }
-
-    public boolean isEditable() {
-        return editable;
-    }
-
-    public void setEditable(boolean editable) {
-        this.editable = editable;
     }
 
     public Language getLanguage() {

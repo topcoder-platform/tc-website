@@ -2,14 +2,14 @@ package com.topcoder.web.codinginterface.techassess.controller.request;
 
 import com.topcoder.web.common.NavigationException;
 import com.topcoder.web.codinginterface.techassess.Constants;
+import com.topcoder.web.codinginterface.techassess.model.ProblemInfo;
 import com.topcoder.shared.netCommon.screening.request.ScreeningOpenComponentForCodingRequest;
-import com.topcoder.shared.netCommon.screening.response.ScreeningGetProblemSetsResponse;
+import com.topcoder.shared.netCommon.screening.response.ScreeningOpenComponentResponse;
 import com.topcoder.shared.screening.common.ScreeningApplicationServer;
 
 /**
  * User: dok
  * Date: Dec 6, 2004
- * Time: 11:18:10 AM
  */
 public class ViewProblem extends Base {
 
@@ -47,22 +47,12 @@ public class ViewProblem extends Base {
             showProcessingPage(buildProcessorRequestString(Constants.RP_VIEW_PROBLEM_RESPONSE,
                     new String[] {Constants.MESSAGE_ID}, new String[]{String.valueOf(getMessageId())}));
 
-            ScreeningGetProblemSetsResponse response = (ScreeningGetProblemSetsResponse)receive(5000);
+            ScreeningOpenComponentResponse response = (ScreeningOpenComponentResponse)receive(5000);
 
-
-
-
-
-
-
-
+            setDefault(Constants.PROBLEM, new ProblemInfo(response.getCode(), response.getComponentID(),
+                    response.getLanguageID().intValue(), response.getProblem(), response.getProblemType() ));
 
             closeProcessingPage();
-
-
-
-            setNextPage(Constants.PAGE_INDEX);
-            setIsNextPageInContext(true);
 
         }
 
