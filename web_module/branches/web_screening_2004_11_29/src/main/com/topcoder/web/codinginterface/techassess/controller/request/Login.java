@@ -49,7 +49,7 @@ public class Login extends Base {
 
                 send(request);
 
-                /*send them over to the login response page.  we're including the message
+                /* send them over to the login response page.  we're including the message
                  * id parameter so that we can be sure that we can accurately link the response
                  * and the response together.  we're going over the top for this because it's
                  * possible that they have two browsers logged in in the same session.  if they
