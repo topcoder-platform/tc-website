@@ -46,12 +46,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     /* Holds the name of the company in whose job the member expressed interest */
     private String companyName;
 
-    /* Holds a list of mappings of statistics by level */
-    private List statsByLevel;
-
-    /* Holds a list of mappings of statistics by language */
-    private List statsByLang;
-
     /* Indicates whether the coder is a student */
     private boolean isStudent;
 
@@ -65,6 +59,30 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
 
     private int uid;
 
+    /** Holds data about the coder's Division I performance. */
+    private ResultSet.ResultSetRow divIStats;
+    
+    /** Holds flag indicating whether coder has participated in Division I. */
+    private boolean hasDivisionI;
+    
+    /** Holds flag indicating whether coder has participated in Division II. */
+    private boolean hasDivisionII;
+    
+    /** Holds data about the coder's Division II performance. */
+    private ResultSet.ResultSetRow divIIStats;
+    
+    /** Holds list of Division I performance stats aggregated by problem level. */
+    private List divIStatsByLevel;
+    
+    /** Holds list of Division I performance stats aggregated by language. */
+    private List divIStatsByLang;
+    
+    /** Holds list of Division II performance stats aggregated by problem level. */
+    private List divIIStatsByLang;
+    
+    /** Holds list of Division I performance stats aggregated by language. */
+    private List divIIStatsByLevel;
+    
     /** Creates new MemberProfileTask */
     public MemberProfileTask() {
         super();
@@ -147,34 +165,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         this.isStudent = isStudent;
     }
 
-    /** Getter for property statsByLevel.
-     * @return Value of property statsByLevel
-     */
-    public List getStatsByLevel() {
-        return statsByLevel;
-    }
-
-    /** Setter for property statsByLevel.
-     * @param statsByLevel New value of property statsByLevel.
-     */
-    public void setStatsByLevel(List statsByLevel) {
-        this.statsByLevel = statsByLevel;
-    }
-
-    /** Getter for property statsByLang.
-     * @return Value of property statsByLang
-     */
-    public List getStatsByLang() {
-        return statsByLang;
-    }
-
-    /** Setter for property statsByLang.
-     * @param statsByLang New value of property statsByLang.
-     */
-    public void setStatsByLang(List statsByLang) {
-        this.statsByLang = statsByLang;
-    }
-
     /** Getter for property campaignID.
      * @return Value of property campaignID
      */
@@ -246,6 +236,26 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
     }
 
 
+    public String getDivIStatistic(String name){
+        try{
+            return JSPUtils.autoFormat(getDivIStats().getItem(name));
+        }catch(NullPointerException npe){
+            log.debug("Null pointer exception in MemberProfileTask.getDivIStatistic(\""
+                      + name + "\")");
+            return "";
+        }
+    }
+
+    public String getDivIIStatistic(String name){
+        try{
+            return JSPUtils.autoFormat(getDivIIStats().getItem(name));
+        }catch(NullPointerException npe){
+            log.debug("Null pointer exception in MemberProfileTask.getDivIIStatistic(\""
+                      + name + "\")");
+            return "";
+        }
+    }
+
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -302,11 +312,6 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
         NumberFormat decFmt = TCESConstants.NUMBER_FORMAT;
 
         Map memberInfo = new HashMap();
-        ArrayList statsByLevel = new ArrayList();
-        ArrayList statsByLang = new ArrayList();
-
-        setStatsByLevel(statsByLevel);
-        setStatsByLang(statsByLang);
         setMemberInfo(memberInfo);
 
         // set up Data Warehouse query command.
@@ -413,114 +418,35 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             memberInfo.put(TCESConstants.MEM_RATING_MOSTRECENT_KEY,
                                 getDate(memStatsRow,"last_rated_event") );
             
+            setHasDivisionI(false);
             dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D1");
             if (dwRSC.getRowCount() > 0) {
-                memStatsRow = dwRSC.getRow(0);
-                memberInfo.put(TCESConstants.MEM_RATING_AVGPOINTS_KEY,
-                                decFmt.format(Double.parseDouble(memStatsRow.getItem("avg_contest_points").toString())) );
+                setDivIStats(dwRSC.getRow(0));
+                
+                dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D1");
+                setDivIStatsByLevel( (List) dwRSC );
+                
+                dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Language_D1");
+                setDivIStatsByLang( (List) dwRSC );
+                if (!getDivIStatsByLevel().isEmpty() && !getDivIStatsByLang().isEmpty()) {
+                    setHasDivisionI(true);
+                }
             }
 
-
-            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D1");
-            ResultSetContainer.ResultSetRow memStatLvlRow = null;
-            for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
-                memStatLvlRow = dwRSC.getRow(rowI);
-                Map level = new HashMap();
-
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[0],
-                           memStatLvlRow.getItem("level_desc").toString() );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1],
-                           memStatLvlRow.getItem("presented").toString() );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2],
-                           memStatLvlRow.getItem("submitted").toString() );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                           decFmt.format( Double.parseDouble(memStatLvlRow.getItem("submit_percent").toString()) )+"%" );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4],
-                           memStatLvlRow.getItem("correct").toString() );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                           decFmt.format( Double.parseDouble(memStatLvlRow.getItem("submission_accuracy").toString()) ) +"%");
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                           decFmt.format( Double.parseDouble(memStatLvlRow.getItem("overall_accuracy").toString()) )+"%" );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
-                           decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_submission_points").toString()) ) );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
-                           decFmt.format( Double.parseDouble(memStatLvlRow.getItem("avg_final_points").toString()) ) );
-                level.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
-                           JSPUtils.timeFormat(memStatLvlRow.getItem("avg_time_elapsed")) );
-
-                statsByLevel.add(level);
+            setHasDivisionII(false);
+            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D2");
+            if (dwRSC.getRowCount() > 0) {
+                setDivIIStats(dwRSC.getRow(0));
+                
+                dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Level_D2");
+                setDivIIStatsByLevel( (List) dwRSC );
+                
+                dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Language_D2");
+                setDivIIStatsByLang( (List) dwRSC );
+                if (!getDivIIStatsByLevel().isEmpty() && !getDivIIStatsByLang().isEmpty()) {
+                    setHasDivisionII(true);
+                }
             }
-            // make a total row and add it to the maplist
-            Map totalLevel = new HashMap();
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[0],
-                            "All" );
-
-            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_D1");
-            ResultSetContainer.ResultSetRow memStatRow = dwRSC.getRow(0);
-
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[1],
-                       memStatRow.getItem("total_presented").toString() );
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[2],
-                       memStatRow.getItem("total_submitted").toString() );
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[3],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("total_submit_percent").toString()) )+"%" );
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[4],
-                       memStatRow.getItem("correct").toString() );
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[5],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("total_submission_accuracy").toString()) ) +"%");
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[6],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("total_overall_accuracy").toString()) )+"%" );
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[7],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("avg_submission_points").toString()) ) );
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[8],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("avg_overall_points").toString()) ) );
-            totalLevel.put( TCESConstants.MEM_RATING_STATSBYLEVEL_KEYS[9],
-                       JSPUtils.timeFormat(memStatRow.getItem("avg_time_elapsed")) );
-
-            statsByLevel.add(totalLevel);
-
-
-            dwRSC = (ResultSetContainer) dwResultMap.get("TCES_Coder_Stats_by_Language_D1");
-            ResultSetContainer.ResultSetRow memStatLangRow = null;
-            for (int rowI=0;rowI<dwRSC.getRowCount();rowI++) {
-                memStatLangRow = dwRSC.getRow(rowI);
-                Map language = new HashMap();
-
-                language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[0],
-                           memStatLangRow.getItem("language_name").toString() );
-                language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[1],
-                           memStatLangRow.getItem("submitted").toString() );
-                language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[2],
-                           decFmt.format( Double.parseDouble( memStatLangRow.getItem("submit_percent").toString())) + "%" );
-                language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[3],
-                           memStatLangRow.getItem("num_correct").toString() );
-                language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[4],
-                           decFmt.format( Double.parseDouble( memStatLangRow.getItem("submission_accuracy").toString())) +"%" );
-                language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
-                           decFmt.format( Double.parseDouble( memStatLangRow.getItem("avg_submission_points").toString())) );
-                language.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
-                           JSPUtils.timeFormat(memStatLangRow.getItem("avg_submit_time")) );
-
-                statsByLang.add(language);
-            }
-
-            Map totalLang = new HashMap();
-            totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[0],
-                            "All" );
-            totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[1],
-                       memStatRow.getItem("total_submitted").toString() );
-            totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[2],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("total_submit_percent").toString()) )+"%" );
-            totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[3],
-                       memStatRow.getItem("correct").toString() );
-            totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[4],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("total_submission_accuracy").toString()) ) +"%");
-            totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[5],
-                       decFmt.format( Double.parseDouble(memStatRow.getItem("avg_submission_points").toString()) ) );
-            totalLang.put( TCESConstants.MEM_RATING_STATSBYLANG_KEYS[6],
-                       JSPUtils.timeFormat(memStatRow.getItem("avg_time_elapsed")) );
-
-            statsByLang.add(totalLang);
         }
         else {
             setIsRanked(false);
@@ -541,6 +467,118 @@ public class MemberProfileTask extends BaseTask implements Task, Serializable {
             setMemberID(Integer.parseInt(value));
     }
 
+    /** Getter for property divIStats.
+     * @return Value of property divIStats.
+     */
+    public ResultSet.ResultSetRow getDivIStats() {
+        return this.divIStats;
+    }
+    
+    /** Setter for property divIStats.
+     * @param divIStats New value of property divIStats.
+     */
+    public void setDivIStats(ResultSet.ResultSetRow divIStats) {
+        this.divIStats = divIStats;
+    }
+    
+    /** Getter for property hasDivisionI.
+     * @return Value of property hasDivisionI.
+     */
+    public boolean isHasDivisionI() {
+        return this.hasDivisionI;
+    }
+    
+    /** Setter for property hasDivisionI.
+     * @param hasDivisionI New value of property hasDivisionI.
+     */
+    public void setHasDivisionI(boolean hasDivisionI) {
+        this.hasDivisionI = hasDivisionI;
+    }
+    
+    /** Getter for property hasDivisionII.
+     * @return Value of property hasDivisionII.
+     */
+    public boolean isHasDivisionII() {
+        return this.hasDivisionII;
+    }
+    
+    /** Setter for property hasDivisionII.
+     * @param hasDivisionII New value of property hasDivisionII.
+     */
+    public void setHasDivisionII(boolean hasDivisionII) {
+        this.hasDivisionII = hasDivisionII;
+    }
+    
+    /** Getter for property divIIStats.
+     * @return Value of property divIIStats.
+     */
+    public ResultSet.ResultSetRow getDivIIStats() {
+        return this.divIIStats;
+    }
+    
+    /** Setter for property divIIStats.
+     * @param divIIStats New value of property divIIStats.
+     */
+    public void setDivIIStats(ResultSet.ResultSetRow divIIStats) {
+        this.divIIStats = divIIStats;
+    }
+    
+    /** Getter for property divIStatsByLevel.
+     * @return Value of property divIStatsByLevel.
+     */
+    public List getDivIStatsByLevel() {
+        return this.divIStatsByLevel;
+    }
+    
+    /** Setter for property divIStatsByLevel.
+     * @param divIStatsByLevel New value of property divIStatsByLevel.
+     */
+    public void setDivIStatsByLevel(List divIStatsByLevel) {
+        this.divIStatsByLevel = divIStatsByLevel;
+    }
+    
+    /** Getter for property divIStatsByLang.
+     * @return Value of property divIStatsByLang.
+     */
+    public List getDivIStatsByLang() {
+        return this.divIStatsByLang;
+    }
+    
+    /** Setter for property divIStatsByLang.
+     * @param divIStatsByLang New value of property divIStatsByLang.
+     */
+    public void setDivIStatsByLang(List divIStatsByLang) {
+        this.divIStatsByLang = divIStatsByLang;
+    }
+    
+    /** Getter for property divIIStatsByLang.
+     * @return Value of property divIIStatsByLang.
+     */
+    public List getDivIIStatsByLang() {
+        return this.divIIStatsByLang;
+    }
+    
+    /** Setter for property divIIStatsByLang.
+     * @param divIIStatsByLang New value of property divIIStatsByLang.
+     */
+    public void setDivIIStatsByLang(List divIIStatsByLang) {
+        this.divIIStatsByLang = divIIStatsByLang;
+    }
+    
+    /** Getter for property divIIStatsByLevel.
+     * @return Value of property divIIStatsByLevel.
+     */
+    public List getDivIIStatsByLevel() {
+        return this.divIIStatsByLevel;
+    }
+    
+    /** Setter for property divIIStatsByLevel.
+     * @param divIIStatsByLevel New value of property divIIStatsByLevel.
+     */
+    public void setDivIIStatsByLevel(List divIIStatsByLevel) {
+        this.divIIStatsByLevel = divIIStatsByLevel;
+    }
+    
 }
 
 
