@@ -792,7 +792,6 @@
                 <include name="errorPage.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
-                <include name="logoutHelper.jsp"/>
                 <include name="menu.jsp"/>
 		<include name="corpMenu.jsp"/>
             </fileset>
@@ -1009,7 +1008,6 @@
             <fileset dir="${java}/com/topcoder/web/jsp">
                 <include name="errorPage.jsp"/>
                 <include name="top.jsp"/>
-                <include name="logoutHelper.jsp"/>
                 <include name="foot.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="script.jsp"/>
