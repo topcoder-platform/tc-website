@@ -42,13 +42,25 @@
 <!-- Center Column Begins -->
 <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br />
 
-
+<%
+if(request.getParamter("ph") == 112)
+{
+%>
 <!-- Tab bar links-->
 <jsp:include page="usdc_links.jsp" >
    <jsp:param name="selectedTab" value="results"/>
-   <jsp:param name="selectedTab2" value="<%=request.getParameter("ph")=="112"?"design":"development"%>"/>
+   <jsp:param name="selectedTab2" value="design"/>
 </jsp:include>
-<%=request.getParameter("ph")%>
+<%
+}
+else
+{
+<jsp:include page="usdc_links.jsp" >
+   <jsp:param name="selectedTab" value="results"/>
+   <jsp:param name="selectedTab2" value="development"/>
+</jsp:include>    
+}
+%>
                         <br/>
                         <a name="week"></a>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="0" class="bodyText">
