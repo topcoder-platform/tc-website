@@ -1,152 +1,160 @@
-<HTML>
-<HEAD>
-	<title>TopCoder | High School</title>
-    <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-    <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html lang="en">
+
+<head>
+
+    <title>TopCoder | High School</title>
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities.">
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++">
+
 <jsp:include page="../includes/css.jsp" />
-</HEAD>
-<BODY BGCOLOR="#001934" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+
+</head>
+
+<body>
+
 <jsp:include page="../includes/top.jsp" />
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
-<TR><TD>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-    <TR VALIGN="top">
-		<TD WIDTH="170" BGCOLOR="#001934">
-        <jsp:include page="../includes/left_nav.jsp" />
+
+<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+    <tr valign="top">
+        <td width="170" bgcolor="#001934">
+
+<!-- Left Column begins -->
+<jsp:include page="../includes/left_nav.jsp" />
 <jsp:include page="../includes/left_calendar.jsp" />
-        </TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_left.gif" WIDTH="1" HEIGHT="3" ALT="" BORDER="0"></TD>
-        <TD VALIGN="top" BACKGROUND="/i/hs/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
-            <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
-    <TR>
-        <TD>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/hs/headinginside_sched.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
-             </TD></TR>
-            </TABLE>
-        </TD>
-    </TR>
-    <TR>
-        <TD>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR>
-            <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                </TR>
-                </TABLE>
-            </TD>
-            <TD HEIGHT="100%" CLASS="bodyText">
-            <!-- Body Starts-->
-                        <!--<IMG SRC="/i/hs/calendar_holder.gif" BORDER="0">-->
+<!-- Left Column ends -->
 
+        </td>
+        
+<!-- Center Column begins -->
+        <td width="1" bgcolor="#c5c5c9" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
+        <td width="1" bgcolor="#000000" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top_left.gif" width="1" height="3" alt="" border="0"></td>
+        <td valign="top" background="/i/hs/bluegradiant_bg.gif" bgcolor="#FFFFFF">
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td align="left" height="44" width="348"><img src="/i/hs/headinginside_sched.gif" width="348" height="44" alt="Schedule" border="0"></td>
+                    <td background="/i/hs/headinginside_1pix_bg.gif" align="left" width="99%" height="44">&nbsp;</td>
+                </tr>
 
-<BR><P><B>May 2003</B></P><DIV ALIGN="right"><form name="selectform"><select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
-<OPTION value="SELECTED">&nbsp;Choose Monthly View</OPTION>
-<OPTION VALUE="schedule">--- 2003 ---</OPTION>
-<OPTION VALUE="sched_march_2003">&nbsp;March</OPTION>
-<OPTION VALUE="sched_april_2003">&nbsp;April</OPTION>
-<OPTION VALUE="sched_may_2003">&nbsp;May</OPTION>
-</select>
-</form></DIV>
-<TABLE CELLPADDING="1" CELLSPACING="0" BORDER="0" WIDTH="100%" BACKGROUND="/i/hs/steel_gray_bg.gif">
-<TR>
-<TD COLSPAN="2" VALIGN="top">
-<TABLE CELLPADDING="3" CELLSPACING="1" BORDER="0" WIDTH="100%">
-<TR>
-<TD ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Sun</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Mon</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Tues</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Wed</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Thurs</B></TD>
-<TD WIDTH="20%" ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Fri</B></TD>
-<TD ALIGN="center" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" CLASS="registerNav"><B>Sat</B></TD>
-</TR>
-<TR BGCOLOR="#FFFFFF">
-<TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
-<TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
-<TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
-<TD BGCOLOR="#CCCCCC" CLASS="smallText" VALIGN="top" ALIGN="left">&nbsp;</TD>
-<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>1</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Match 8</B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/hs/clear.gif"><BR></TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">2</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">3</TD>
-</TR>
-<TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">4</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">5</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">6</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">7</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">8</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">9</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">10</TD>
-</TR>
-<TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">11</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">12</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">13</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">14</TD>
-<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>15</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>SemiFinal </B></SPAN><BR>Register: 2:00&nbsp;PM<BR>Compete: 3:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/hs/clear.gif"><BR></TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">16</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">17</TD>
-</TR>
-<TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">18</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">19</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">20</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">21</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">22</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">23</TD>
-<TD CLASS="smallText" VALIGN="top" ALIGN="left"><FONT COLOR="#FF0000"><B>24</B></FONT><BR><SPAN CLASS="bodyTextBold"><B>Championship </B></SPAN><BR><BR>Compete: 12:00&nbsp;PM<BR><IMG BORDER="0" HEIGHT="1" WIDTH="50" SRC="/i/hs/clear.gif"><BR></TD>
-</TR>
-<TR BGCOLOR="#FFFFFF">
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">25</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">26</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">27</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">28</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">29</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">30</TD>
-<TD BACKGROUND="/i/hs/calendar_bg.gif" CLASS="smallText" VALIGN="top" ALIGN="left">31</TD>
-</TR>
-</TR>
-</TABLE>
-</TD>
-</TR>
-</TABLE>
+                <tr>
+                    <td colspan="2" height="10"><img src="/i/hs/clear_10_pix_width.gif" width="10" height="10" alt="" border="0"></td>
+                </tr>
+            </table>
 
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr>
+                    <td width="10"><img src="/i/hs/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
+                    <td height="100%" class="bodyText">
+                        <p><strong>May 2003</strong></p>
+                        <div align="right"><form name="selectform">
+                        <select onchange="window.location='?module=Static&d1=schedule&d2='+this.options[this.selectedIndex].value" class="dropdown" size="1" name="quickstat">
+                            <option value="SELECTED">&nbsp;Choose Monthly View</option>
+                            <option value="schedule">--- 2003 ---</option>
+                            <option value="sched_march_2003">&nbsp;March</option>
+                            <option value="sched_april_2003">&nbsp;April</option>
+                            <option value="sched_may_2003" selected>&nbsp;May</option>
+                        </select>
+                        </form></div>
 
+                        <table width="100%" cellspacing="1" cellpadding="3" id="calendarFrame">
+                            <tr> 
+                                <td id="calendarDays" width="12%">Sun</td>
+                                <td id="calendarDays" width="15%">Mon</td>
+                                <td id="calendarDays" width="15%">Tues</td>
+                                <td id="calendarDays" width="15%">Wed</td>
+                                <td id="calendarDays" width="15%">Thurs</td>
+                                <td id="calendarDays" width="15%">Fri</td>
+                                <td id="calendarDays" width="13%">Sat</td>
+                            </tr>
+                          
+                            <tr> 
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarBlank">&#160;</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">1</span><br>
+                                    <strong>Match 8</strong><br>
+                                    Register: 2:00&nbsp;PM<br>
+                                    Compete: 3:00&nbsp;PM<br>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
+                                <td id="calendar">2</td>
+                                <td id="calendar">3</td>
+                            </tr>
 
+                            <tr> 
+                                <td id="calendar">4<br>&nbsp;<br>&nbsp;<br></td>
+                                <td id="calendar">5</td>
+                                <td id="calendar">6</td>
+                                <td id="calendar">7</td>
+                                <td id="calendar">8</td>
+                                <td id="calendar">9</td>
+                                <td id="calendar">10</td>
+                            </tr>
 
-<P><BR></P>
-<P><BR></P>
+                            <tr> 
+                                <td id="calendar">11</td>
+                                <td id="calendar">12</td>
+                                <td id="calendar">13</td>
+                                <td id="calendar">14</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">15</span><br>
+                                    <strong>SemiFinal</strong><br>
+                                    Register: 2:00&nbsp;PM<br>
+                                    Compete: 3:00&nbsp;PM<br>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
+                                <td id="calendar">16</td>
+                                <td id="calendar">17</td>
+                            </tr>
 
-            <!--Body Ends -->
-            </TD>
-             <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                </TABLE>
-            </TD>
-           </TR>
-          </TABLE>
-         </TD>
-        </TR>
+                            <tr> 
+                                <td id="calendar">18</td>
+                                <td id="calendar">19</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">20</span><br>
+                                    <strong>Championship</strong><br>
+                                    at UConn Storrs Campus<br>
+                                    Compete: 12:00&nbsp;PM<br>
+                                    <img border="0" height="1" width="50" src="/i/hs/clear.gif" alt=""></td>
+                                <td id="calendar">21</td>
+                                <td id="calendar">22</td>
+                                <td id="calendar">23</td>
+                                <td id="calendar">24</td>
+                            </tr>
 
-       </TABLE>
-        </TD>
-        <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
+                            <tr> 
+                                <td id="calendar">25<br>&nbsp;<br>&nbsp;<br></td>
+                                <td id="calendar">26</td>
+                                <td id="calendar">27</td>
+                                <td id="calendar">28</td>
+                                <td id="calendar">29</td>
+                                <td id="calendar">30</td>
+                                <td id="calendar">31</td>
+                            </tr>
+                        </table>
 
-<jsp:include page="../includes/right_resources.jsp" /></TD>
-	</TR>
-</TABLE>
-</TD></TR></TABLE>
+                        <p><br></p>
+                        
+                    </td>
+                    <td width="10"><img src="/i/hs/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
+                </tr>
+            </table>
+        </td>
+<!-- Center Column Ends -->
 
-<jsp:include page="../includes/foot.jsp" />
-</BODY>
-</HTML>
+<!-- Gutter -->
+        <td width="1" bgcolor="#000000" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top.gif" width="1" height="18" alt="" border="0"></td>
+        <td width="1" bgcolor="#C5C5C9" valign="top"><img src="/i/hs/frame_1pix_bg_lg_top_right.gif" width="1" height="18" alt="" border="0"></td>
+        <td width="10" bgcolor="#001934"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<!-- Footer begins -->
+<jsp:include page="../includes/foot.jsp"/>
+<!-- Footer ends -->
+
+</body>
+</html>
