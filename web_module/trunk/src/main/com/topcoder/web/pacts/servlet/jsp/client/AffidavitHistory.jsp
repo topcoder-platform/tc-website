@@ -120,7 +120,7 @@ function goTo(selection){
 	    href = PactsHtmlHelpers.createPactsHtmlHref(
 	            PactsConstants.MEMBER_SERVLET_URL,
 	            vec, PactsConstants.PAYMENT_TASK, 
-	            PactsConstants.PAYMENT_DETAILS_CMD, str);
+	            PactsConstants.PAYMENT_DETAILS_CMD, str, "statText");
 	    tableData.setElement(i,2,href);
 
 	    // notarized
@@ -138,7 +138,7 @@ function goTo(selection){
 	table.setCellPadding("2");
 	table.setBorder("0");
 	table.setRowColor(0,"\"#093158\"");	
-	table.setFontSize("0");
+	table.setClassName("statText");
 	table.setRowBold(0,true);	
 	out.print(table.getHtml());
     }
