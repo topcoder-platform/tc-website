@@ -80,7 +80,7 @@ public class ProjectDetail implements Model {
             // get testcases if in review phase
             TestCase[] testCases = null;
             if (project.getCurrentPhase().getId() == Phase.ID_REVIEW) {
-            	testCases = documentManager.getTestCases(project, -1, user.getTCSubject());
+                testCases = documentManager.getTestCases(project, -1, user.getTCSubject());
             }
 
             // strip screening & review scorecards
@@ -104,7 +104,7 @@ public class ProjectDetail implements Model {
 
             // Get scorecard template id:s
             long[] templateId = projectTracker.getProjectTemplates(project.getId());
-            
+
             return new ProjectRetrieval(project, temp, submissions, testCases, templateId);
 
         // throw RuntimeExceptions and Errors, wrap other exceptions in FailureResult
@@ -186,6 +186,11 @@ public class ProjectDetail implements Model {
                   && scorecards[i].getSubmission().getSubmitter().getId() == user.getId();
             // submitters can see all scorecards during appeals phase
             ok |= isSubmitter && project.getCurrentPhase().getId() == Phase.ID_APPEALS;
+
+            // by cucu
+            // submitters can see all scorecards during appeals response phase
+            ok |= isSubmitter && project.getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE;
+
             if (ok) {
                 scorecards[j++] = scorecards[i];
             }

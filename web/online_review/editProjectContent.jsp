@@ -80,8 +80,15 @@
 
                 
                 <tr valign=top>
+<% 
+   int startColumns[] = {0, 4, 7}; 
+   int endColumns[] = {3, 6, 9}; 
+   int column = 0;
+   
+%>
+
 <logic:iterate id="phaseInstance" indexId="pIdx" name="projectForm" property="timeline">
-<%if(pIdx.intValue() % 3 == 0) {%>
+<%if(pIdx.intValue()  == startColumns[column]) {%>
 
                     <td>
                         <table border="0" cellpadding="0" cellspacing="1" class="forumBkgd"  width="100%">
@@ -105,8 +112,10 @@
                     <td class="forumTextCenterOdd">
                         <html:text property='<%="phaseEnd["+pIdx+"]"%>' size="20" /></td>
                 </tr>
-<%if(pIdx.intValue() % 3 == 2) {%>
-
+<%if(pIdx.intValue() == endColumns[column]) {
+	column++; 
+	%>
+ 
                         </table>
                     </td>
 <%}%>

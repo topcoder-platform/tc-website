@@ -80,22 +80,22 @@ public class AutoPilotTimer
     private class SubmissionTask extends TimerTask {
         public void run() {
             logger.debug("AUTO PILOT TIMER FIRED");
-            
+
             try {
                 //setup user
                 TCSubject subject = new TCSubject(100129);
                 subject.addPrincipal(new RolePrincipal("Administrator", 1));
-                
+
                 UserManagerLocal userManager = EJBHelper.getUserManager();
                 DocumentManagerLocal docManager = EJBHelper.getDocumentManager();
-                
+
                 SecurityEnabledUser user = userManager.getUser(subject);
-                
+
                 //get projects that are in submission phase and have submission end time > current
-                ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker(); 
+                ProjectTrackerLocal projectTracker = EJBHelper.getProjectTracker();
 
                 UserProjectInfo[] projs = projectTracker.getProjectInfo(user.getTCSubject());
-                
+
                 for(int i = 0; i < projs.length;i++) {
                     if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_SUBMISSION) {
                         if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
@@ -103,42 +103,80 @@ public class AutoPilotTimer
                             //move to screening
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                             ProjectForm form = new ProjectForm();
-                            
+
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
-                            
+
                             if(!p.getAutoPilot()) continue;
-                            
+
                             form.fromProject(p);
-                            
+
                             form.setScorecardTemplates(docManager.getScorecardTemplates());
-                            
+
                             form.setCurrentPhase("Screening");
-                            
+
                             form.setReason("auto pilot advancing to screening");
-                            
+
                             //check for screening scorecard template
                             if(form.getScreeningTemplateId() == -1 ) {
                                 String template = docManager.getDefaultScorecardTemplate(p.getProjectType().getId(), ScreeningScorecard.SCORECARD_TYPE).getName();
                                 form.setScreeningTemplate(template);
                             }
-                            
+
                             ProjectData data = form.toActionData(orpd);
-                            ResultData result = new BusinessDelegate().projectAdmin(data); 
+                            ResultData result = new BusinessDelegate().projectAdmin(data);
                             if(!(result instanceof SuccessResult)) {
                                 logger.debug("ERROR " + result.toString() );
                             }
                         }
+// by cucu
+                    // if in appeals phase and it ended, move to appeals response
+                    } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
+                        if(projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
+                            logger.debug("SELECTED: " + projs[i].getProjectName());
+
+                            //move to appeals response
+                            OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
+                            ProjectForm form = new ProjectForm();
+
+                            Project p = projectTracker.getProject(projs[i], user.getTCSubject());
+
+                            if(!p.getAutoPilot()) continue;
+
+                            form.fromProject(p);
+
+                            form.setSendMail(true);
+
+                            form.setScorecardTemplates(docManager.getScorecardTemplates());
+
+                            form.setCurrentPhase("Appeals Response");
+
+                            form.setReason("auto pilot advancing to Appeals Response");
+
+
+                            ProjectData data = form.toActionData(orpd);
+                            ResultData result = new BusinessDelegate().projectAdmin(data);
+                            if(!(result instanceof SuccessResult)) {
+                                logger.debug("ERROR " + result.toString() );
+                            }
+                        }
+                    }
+// end by cucu
+
+/* commented by cucu
+                    // It doesn't make too much sense to have the timer check for appeals to be finished, because this is already checked
+                    // when an appeal is solved.
+
                     } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
                         if(projs[i].getCurrentPhaseInstance() != null && projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
-                            
+
                             OnlineReviewProjectData orpd = new OnlineReviewProjectData(user, projs[i]);
                             ProjectForm form = new ProjectForm();
-                            
+
                             Project p = projectTracker.getProject(projs[i], user.getTCSubject());
-                            
+
                             if(!p.getAutoPilot()) continue;
-                            
+
                             //check appeals
                             boolean good = true;
                             Appeal[] appeals = docManager.getAppeals(p, -1, -1, user.getTCSubject());
@@ -148,14 +186,14 @@ public class AutoPilotTimer
                                     break;
                                 }
                             }
-                            
+
                             if(!good) continue;
-                            
+
                             //lookup pm
                             String email = "";
-                            UserRole[] participants = p.getParticipants(); 
+                            UserRole[] participants = p.getParticipants();
                             for(int j = 0; j < participants.length;j++) {
-                                if( participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER ) { 
+                                if( participants[j].getRole().getId() == Role.ID_PRODUCT_MANAGER ) {
                                     email = participants[j].getUser().getEmail();
                                 }
                             }
@@ -164,7 +202,7 @@ public class AutoPilotTimer
                                 continue;
                             }
 
-			    
+
 
                             //override, change me
                             //email = "rfairfax@topcoder.com";
@@ -180,6 +218,7 @@ public class AutoPilotTimer
                             //sendMail("autopilot@topcoder.com", email, "AutoPilot: Appeals Notification", mail.toString());
                         }
                     }
+                    */
                 }
             } catch(Exception e) {
                 if(!(e instanceof NameNotFoundException))
@@ -193,7 +232,7 @@ public class AutoPilotTimer
      */
     public void startService() throws Exception {
         try {
-    
+
             timer = new Timer();
             Calendar c = Calendar.getInstance();
             String beginMonth = String.valueOf(c.get(Calendar.MONTH) + 1);
@@ -202,7 +241,7 @@ public class AutoPilotTimer
             String beginHour = String.valueOf(c.get(Calendar.HOUR_OF_DAY));
 
             Date beginDate = formDate(beginYear, beginMonth, beginDay, beginHour);
-            
+
             timer.scheduleAtFixedRate(new SubmissionTask(), beginDate, //initial delay
                     DELAY * 60 * 1000); //subsequent rate
             isInitialised = Boolean.TRUE;
@@ -213,7 +252,7 @@ public class AutoPilotTimer
         }
         status = "Initialized";
     }
-    
+
     private Date formDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
         if(year == null || month == null || day == null || hour == null) {
@@ -227,19 +266,19 @@ public class AutoPilotTimer
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
     }
-    
+
     private static int[] months =
         new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH,
                   Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY,
                   Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER,
                   Calendar.NOVEMBER, Calendar.DECEMBER};
-                  
+
   static void sendMail(String from, String to, String subject, String messageText) throws Exception {
-        TCSEmailMessage message = new TCSEmailMessage(); 
+        TCSEmailMessage message = new TCSEmailMessage();
         message.setFromAddress(from);
-        message.setToAddress(to, TCSEmailMessage.TO); 
+        message.setToAddress(to, TCSEmailMessage.TO);
         message.setSubject(subject);
         message.setBody(messageText);
-        EmailEngine.send(message); 
+        EmailEngine.send(message);
     }
 }

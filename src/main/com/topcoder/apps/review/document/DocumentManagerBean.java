@@ -759,9 +759,17 @@ public class DocumentManagerBean implements SessionBean {
                     perm = true;
                 }
             } else {
+/*  by cucu
                 if ((Common.isRole(scorecard.getProject(), requestor.getUserId(), Role.ID_REVIEWER) &&
                      scorecard.getProject().getCurrentPhase().getId() == Phase.ID_REVIEW ||
                      scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS) ||
+                    (Common.isAdmin(requestor))) {
+                    perm = true;
+                }*/
+                if ((Common.isRole(scorecard.getProject(), requestor.getUserId(), Role.ID_REVIEWER) &&
+                     scorecard.getProject().getCurrentPhase().getId() == Phase.ID_REVIEW ||
+                     scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS ||
+                     scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE) ||
                     (Common.isAdmin(requestor))) {
                     perm = true;
                 }
@@ -779,8 +787,13 @@ public class DocumentManagerBean implements SessionBean {
             if (scorecardIsCompleted &&
                     !(Common.isAdmin(requestor) ||
                       Common.isRole(scorecard.getProject(), requestorId, Role.ID_PRODUCT_MANAGER))) {
-                if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
+/* by cucu
+            if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
                         scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
+*/
+                if (!(Common.isRole(scorecard.getProject(), requestorId, Role.ID_REVIEWER) &&
+                        scorecard.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS_RESPONSE)) {
+
                     String infoMsg = "DM.saveScorecard():\n" +
                             "scorecard_id: " + scorecard.getId() + "\n" +
                             "Scorecard is already completed!";
@@ -860,10 +873,10 @@ public class DocumentManagerBean implements SessionBean {
                         error("DM.saveScorecard(), RemoteException trying to use id-generator:\n" + e1.toString());
                         throw new RuntimeException("DM.saveScorecard(), RemoteException trying to use id-generator:\n" + e1.toString());
                     } finally {
-                    	//close the PreparedStatement so it can be reused later - bblais
+                        //close the PreparedStatement so it can be reused later - bblais
                         Common.close(rs);
-                    	Common.close(ps);
-                    	rs = null;
+                        Common.close(ps);
+                        rs = null;
                         ps = null;
                     }
                     info("DM.saveScorecard(), Saving a new scorecard, id: " + scorecard.getId());
@@ -1201,7 +1214,7 @@ public class DocumentManagerBean implements SessionBean {
                         throw new InvalidEditException(errorMsg);
                     }
 
-		    //close the PreparedStatement so it can be reused later - bblais
+            //close the PreparedStatement so it can be reused later - bblais
                     Common.close(ps);
                     ps = null;
 
@@ -1306,7 +1319,7 @@ public class DocumentManagerBean implements SessionBean {
     public InitialSubmission getInitialSubmission(Project project, long subId, TCSubject requestor) {
         AbstractSubmission sub[] = getSubmissions(project, requestor, InitialSubmission.SUBMISSION_TYPE, subId, false, true);
         if (sub.length == 1) {
-        	return (InitialSubmission) sub[0];
+            return (InitialSubmission) sub[0];
         }
         else return null;
     }
@@ -2330,8 +2343,8 @@ public class DocumentManagerBean implements SessionBean {
                         Common.isRole(worksheet.getProject(), requestor.getUserId(), Role.ID_PRODUCT_MANAGER)) &&
                         !allowSaveFlag) {
                     String errorMsg = "DM.saveAggregation():\n" +
-                        	"aggregation_id: " + worksheet.getId() + "\n" +
-                        	"AggregationWorksheet is already completed!";
+                            "aggregation_id: " + worksheet.getId() + "\n" +
+                            "AggregationWorksheet is already completed!";
                     error(errorMsg);
                     ejbContext.setRollbackOnly();
                     throw new DocumentAlreadySubmittedException(errorMsg);
@@ -3976,7 +3989,7 @@ public class DocumentManagerBean implements SessionBean {
                             "ReviewerResponsibilityManager");
                     testCaseType = revRespManager.getResponsibility(testCaseTypeId);
                 } else {
-                	testCaseType = new ReviewerResponsibility(0, "");
+                    testCaseType = new ReviewerResponsibility(0, "");
                 }
 
                 URL testcasesURL;
@@ -4011,13 +4024,13 @@ public class DocumentManagerBean implements SessionBean {
                     UserRole[] part = project.getParticipants();
                     ReviewerResponsibility revResp = new ReviewerResponsibility(0, "");
                     for (int i = 0; i < part.length; i++) {
-						if (part[i].getUser().getId() == reqUser.getId() &&
-								part[i].getRole().getId() == Role.ID_REVIEWER) {
-							revResp = part[i].getReviewerResponsibility();
-						}
-					}
+                        if (part[i].getUser().getId() == reqUser.getId() &&
+                                part[i].getRole().getId() == Role.ID_REVIEWER) {
+                            revResp = part[i].getReviewerResponsibility();
+                        }
+                    }
                     if (revResp == null)
-                    	revResp = new ReviewerResponsibility(0,"");
+                        revResp = new ReviewerResponsibility(0,"");
                     TestCase testCase = new TestCase(-1, null, reqUser, project, revResp, -1);
                     testcaseList.add(testCase);
                 }

@@ -1,5 +1,6 @@
 <%@ page language="java" %>
 <%@ page import="com.topcoder.apps.review.projecttracker.ProjectType" %> 
+<%@ page import="com.topcoder.apps.review.projecttracker.Phase" %> 
 <%@ page import="java.util.HashMap" %> 
 <%@ page import="com.topcoder.apps.review.document.Appeal" %> 
 <%@ taglib uri="/WEB-INF/review.tld" prefix="review" %>
@@ -128,7 +129,16 @@ if (appeal != null) {
 %>
   			    	<%=appealStatus%></td>
 			    	<td width="10%" valign="top" class="forumTextOdd">
+
+
+<%     if ((appeal != null) || (theForm.getProject().getCurrentPhase().getId() == Phase.ID_APPEALS)) {
+
+%>
 			    	<input type="button" onClick='document.location="<%= response.encodeURL("/review/appeal.do?id="+theForm.getProject().getId()+"&qid="+qidValue+"&aid="+aidValue) %>"' value="Appeal" class="submitButton"/></td>
+<%}
+%>
+			    	
+			    	
 </logic:present>
 			    </tr>
 	<logic:notEqual name="question" property="type" value="objective">

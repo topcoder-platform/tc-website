@@ -180,19 +180,19 @@ public final class ProjectDetailAction extends ReviewAction {
                 if (isAdmin || isPM) {
                     //hork up scorecards by setting advanced to review flag
                     //flag is set if scorecard isn't PM reviewed, and it in top 5 overall scores
-                    
+
                     //get top 5 scores first
                     ArrayList scores = new ArrayList();
-                    
+
                     AbstractScorecard[] scorecards = pr.getScorecards();
-                    
+
                     double minscore;
                     try {
                         minscore = ConfigHelper.getMinimumScore();
                     } catch(Exception e) {
                         minscore = 75;
                     }
-                
+
                     for(int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
@@ -209,10 +209,10 @@ public final class ProjectDetailAction extends ReviewAction {
                     Collections.sort(scores);
                     Collections.reverse(scores);
                     //remove all but top five scores.  No need to check ties, this will gaurentee they advance
-                    while(scores.size() > 5) {                
+                    while(scores.size() > 5) {
                         scores.remove(5);
                     }
-                    
+
                     for(int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
@@ -226,7 +226,7 @@ public final class ProjectDetailAction extends ReviewAction {
                             }
                         }
                     }
-                    
+
                     AdminScreeningScorecardBean[] beans =
                         new AdminScreeningScorecardBean[submissions.length];
                     for (int i = 0; i < submissions.length; i++) {
@@ -281,33 +281,33 @@ public final class ProjectDetailAction extends ReviewAction {
                     }
                 }
                 Project project = pr.getProject();
-            	if (project.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) {
+                if (project.getProjectType().getId() == ProjectType.ID_DEVELOPMENT) {
                     // Check that all testcases are uploaded (if development project)
                     TestCase[] testcases = pr.getTestCases();
-            		if (isAdmin || isPM) {
-	            		UserRole[] roles = project.getParticipants();
-	            		int nrReviewers = 0;
-	                    for (int i = 0; i < roles.length; i++) {
-	                        if (roles[i].getRole().getId() == Role.ID_REVIEWER) {
-	                        	nrReviewers++;
-	                        }
-	                    }
-	                    if (testcases != null && testcases.length != nrReviewers) {
-	                        String notice = utility.getNotice();
-	                        if (notice == null) notice = "";
-	                        else notice += "\n";
-	                        notice += messages.getMessage("prompt.missingTestcases");
-	                        utility.setNotice(notice);
-	                    }
-            		} else if (isReviewer) {
-            			boolean isMissing = true;
+                    if (isAdmin || isPM) {
+                        UserRole[] roles = project.getParticipants();
+                        int nrReviewers = 0;
+                        for (int i = 0; i < roles.length; i++) {
+                            if (roles[i].getRole().getId() == Role.ID_REVIEWER) {
+                                nrReviewers++;
+                            }
+                        }
+                        if (testcases != null && testcases.length != nrReviewers) {
+                            String notice = utility.getNotice();
+                            if (notice == null) notice = "";
+                            else notice += "\n";
+                            notice += messages.getMessage("prompt.missingTestcases");
+                            utility.setNotice(notice);
+                        }
+                    } else if (isReviewer) {
+                        boolean isMissing = true;
                         for (int i = 0; i < testcases.length; i++) {
                             if (testcases[i].getReviewer().getId() == orpd.getUser().getId() &&
                                     testcases[i].getId() != -1) {
                                 isMissing = false;
                                 break;
                             }
-            			}
+                        }
                         if (isMissing) {
                             String notice = utility.getNotice();
                             if (notice == null) notice = "";
@@ -315,8 +315,9 @@ public final class ProjectDetailAction extends ReviewAction {
                             notice += messages.getMessage("prompt.missingTestcases");
                             utility.setNotice(notice);
                         }
-            		}
-            	}
+                    }
+                }
+/* by cucu
             } else if (phaseId == Constants.PHASE_APPEALS) {
                 AppealData aData = new AppealData(orpd, null, -1, -1);
                 AppealsRetrieval ar = (AppealsRetrieval)businessDelegate.appealProject(aData);
@@ -324,17 +325,45 @@ public final class ProjectDetailAction extends ReviewAction {
 
                 // check that all appeals are resolved
                 for (int i = 0; i < appeals.length; i++) {
-					if (!appeals[i].isResolved() &&
-							(isAdmin || isPM || (isReviewer && 
-									orpd.getUser().getId() == appeals[i].getReviewer().getId()))) {
+                    if (!appeals[i].isResolved() &&
+                            (isAdmin || isPM || (isReviewer &&
+                                    orpd.getUser().getId() == appeals[i].getReviewer().getId()))) {
                         String notice =
                             messages.getMessage("prompt.unresolvedAppeals");
                         utility.setNotice(notice);
                         break;
-					}
-				}
+                    }
+                }
 
                 request.setAttribute(Constants.APPEAL_LIST_KEY, appeals);
+*/
+            } else if (phaseId == Constants.PHASE_APPEALS) {
+                AppealData aData = new AppealData(orpd, null, -1, -1);
+                AppealsRetrieval ar = (AppealsRetrieval)businessDelegate.appealProject(aData);
+                Appeal[] appeals = ar.getAppeals();
+                request.setAttribute(Constants.APPEAL_LIST_KEY, appeals);
+
+            } else if (phaseId == Constants.PHASE_APPEALS_RESPONSE) {
+                AppealData aData = new AppealData(orpd, null, -1, -1);
+                AppealsRetrieval ar = (AppealsRetrieval)businessDelegate.appealProject(aData);
+                Appeal[] appeals = ar.getAppeals();
+
+                // check that all appeals are resolved
+                for (int i = 0; i < appeals.length; i++) {
+                    if (!appeals[i].isResolved() &&
+                            (isAdmin || isPM || (isReviewer &&
+                                    orpd.getUser().getId() == appeals[i].getReviewer().getId()))) {
+                        String notice =
+                            messages.getMessage("prompt.unresolvedAppeals");
+                        utility.setNotice(notice);
+                        break;
+                    }
+                }
+
+                request.setAttribute(Constants.APPEAL_LIST_KEY, appeals);
+// end by cucu
+
+
             } else if (phaseId == Constants.PHASE_AGGREGATION) {
                 AggregationData data = new AggregationData(orpd, null);
                 result = businessDelegate.aggregationWorksheet(data);

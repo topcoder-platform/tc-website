@@ -5,6 +5,7 @@
 package com.topcoder.apps.review;
 
 import com.topcoder.apps.review.document.Appeal;
+import com.topcoder.apps.review.projecttracker.Phase;
 import com.topcoder.util.log.Level;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,7 +17,7 @@ import org.apache.struts.action.ActionForwards;
 
 /**
  * <p>
- * Extends from <strong>ReviewAction</strong> that let the user appeal 
+ * Extends from <strong>ReviewAction</strong> that let the user appeal
  * a quesiton in a scorecard.
  * </p>
  *
@@ -24,14 +25,14 @@ import org.apache.struts.action.ActionForwards;
  * @version 1.0
  */
 public final class AppealAction extends ReviewAction {
-    
+
     /**
      * <p>
      * Call the business logic layer and set session if possible.
      * </p>
      *
      * @return the result data.
-     * 
+     *
      * @param mapping The ActionMapping used to select this instance
      * @param form The optional ActionForm bean for this request (if any)
      * @param request The HTTP request we are processing
@@ -46,11 +47,11 @@ public final class AppealAction extends ReviewAction {
                                    HttpServletResponse response,
                                    ActionErrors errors,
                                    ActionForwards forwards,
-                                   OnlineReviewProjectData orpd) {        
-        log(Level.INFO, "AppealAction: User '" 
-                + orpd.getUser().getHandle() + "' in session " 
+                                   OnlineReviewProjectData orpd) {
+        log(Level.INFO, "AppealAction: User '"
+                + orpd.getUser().getHandle() + "' in session "
                 + request.getSession().getId());
-        
+
         long qid = -1;
         long aid = -1;
         //long aid = orpd.getUser().getId();
@@ -69,7 +70,7 @@ public final class AppealAction extends ReviewAction {
         if (request.getParameter(Constants.ACTION_KEY) != null) {
             action = request.getParameter(Constants.ACTION_KEY).toString();
         }
-        
+
         // Call the business layer
         BusinessDelegate businessDelegate = new BusinessDelegate();
         AppealData data = new AppealData(orpd, null, aid, qid);
@@ -85,6 +86,7 @@ public final class AppealAction extends ReviewAction {
             ((AppealForm) form).fromAppeal(appeal, orpd.getProject().getId());
             ((AppealForm)form).setProject(orpd.getProject());
 
+/* by cucu
             if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
                     appeal.getId() == -1) {
                 request.setAttribute("appealerEdit", new Boolean(true));
@@ -92,6 +94,16 @@ public final class AppealAction extends ReviewAction {
                     !appeal.isResolved()) {
                 request.setAttribute("reviewerEdit", new Boolean(true));
             }
+*/
+            long phaseId = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
+            if (appeal.getAppealer().getId() == orpd.getUser().getId() &&
+                    appeal.getId() == -1 && phaseId == Phase.ID_APPEALS) {
+                request.setAttribute("appealerEdit", new Boolean(true));
+            } else if (appeal.getReviewer().getId() == orpd.getUser().getId() &&
+                    !appeal.isResolved() && phaseId == Phase.ID_APPEALS_RESPONSE) {
+                request.setAttribute("reviewerEdit", new Boolean(true));
+            }
+
 /*
             if (Constants.ACTION_EDIT.equals(action) && ar.getWorksheet().isCompleted()) {
                 action = Constants.ACTION_VIEW;
@@ -102,16 +114,16 @@ public final class AppealAction extends ReviewAction {
             request.getSession().setAttribute(mapping.getAttribute(), form);
 
             saveToken(request);
-            
+
             forwards.removeForward(mapping.findForward(Constants.SUCCESS_KEY));
-            if (Constants.ACTION_EDIT.equals(action) 
+            if (Constants.ACTION_EDIT.equals(action)
                     || Constants.ACTION_ADMIN.equals(action)) {
                 forwards.addForward(mapping.findForward(Constants.EDIT_KEY));
             } else {
                 forwards.addForward(mapping.findForward(Constants.VIEW_KEY));
             }
         }
-        
+
         return result;
     }
 }
