@@ -126,7 +126,7 @@ String selectedGradYear = "";
 </tr>
     
 <tr>
-<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 1: Select State/Area<br>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 1: Select State/Area<br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= cities.getSelectBox("", "", "", "") %>
 </b><br><br>
@@ -137,14 +137,14 @@ String selectedGradYear = "";
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td width="6%" align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
 <td align="center" width="2%"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td width="45%" class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 2: Select School<br>
+<td width="45%" class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 2: Select School<br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= schools.getSelectBox("", "", "", "") %>
-</b>
-<b>&nbsp;School not listed?<br>
+</b><br><br>
+<b>&nbsp;School not listed?</b><br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<input type="text"><br><br>
-</b></td>
+</td>
 </tr>
 
 
@@ -162,7 +162,7 @@ String selectedGradYear = "";
 </tr>
 
 <tr>
-<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 3: Select Degree Type</b><br>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 3: Select Degree Type</b><br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= degreeTypes.getSelectBox("", "", "", "") %>
 <br><br>
@@ -172,11 +172,11 @@ String selectedGradYear = "";
 <br><br>
 </td>
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
+<td align="center" valign="top"><font color="#ffffff">&gt;&gt;</font></td>
 <td align="center"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Major</b><br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
-<%= majors.getSelectBox("", "", "", "") %>
+&nbsp;<%= majors.getSelectBox("", "", "", "") %>
 </td>
 </tr>
 
@@ -194,7 +194,7 @@ String selectedGradYear = "";
 </tr>
 
 <tr>
-<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 5: Select Start Date<br>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 5: Select Start Date<br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
 <br><br>
@@ -202,7 +202,7 @@ String selectedGradYear = "";
 <td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
 <td align="center" valign="middle"><font color="#ffffff">&gt;&gt;</font></td>
 <td align="center"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-<td class="statTextBig" align="left" valign="middle" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Graduation Date<br>
+<td class="statTextBig" align="left" valign="top" background="/i/steel_gray_bg.gif"><b>&nbsp;Step 4: Select Graduation Date<br>
 <img src="/i/clear.gif" height="3" width="1" border="0"><br>
 &nbsp;<%= months.getSelectBox("", "", "", "") %>&nbsp;<%= years.getSelectBox("", "", "", "") %>
 <br><br>
