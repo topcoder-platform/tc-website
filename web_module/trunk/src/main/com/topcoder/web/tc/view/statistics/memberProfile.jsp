@@ -74,7 +74,7 @@ if (!rsc.isEmpty()) {
 
       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
-             <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/>
+             <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="126">
 
          <% if (rsc.isEmpty()) { %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
@@ -89,15 +89,40 @@ if (!rsc.isEmpty()) {
                 </TR>
               </TABLE>
          <% } else {%>
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <TR>
-                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="126">
+
+                <TR>
+                   <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD COLSPAN="5" CLASS="statTextLarge">
+                   <TD CLASS="statTextLarge">
           <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
                      <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
                    </TD>
+                 </TR>
+                <TR>
+                   <TD CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                 </TR>
+
+                 <TR>
+                   <TD CLASS="statText" ROWSPAN="12" VALIGN="top">
+<% if (vieweeHasImage) { %>
+                     <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+<% } else if (nav.isIdentified()) { %>
+                     <A HREF="<%="https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+<% } else { %>
+                     <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
+<% } %>
+                     <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
+                   </TD>
+                 </TR>
+               </TABLE>
+             </TD>
+             <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="384">
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+                 <TR>
+                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
@@ -113,16 +138,6 @@ if (!rsc.isEmpty()) {
 
 
                  <TR>
-                   <TD CLASS="statText" ROWSPAN="12" VALIGN="top">
-<% if (vieweeHasImage) { %>
-                     <IMG SRC="<bean:write name="resultRow" property='<%= "item[" + 22 /*"image path"*/ + "]" %>'/>" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/><IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
-<% } else if (nav.isIdentified()) { %>
-                     <A HREF="<%="https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_submit.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
-<% } else { %>
-                     <A HREF="<%="/tc?&module=Login&message=You must log in to submit your photo.&nextpage=https://"+request.getServerName()+"/Registration"%>"><IMG SRC="/i/m/nophoto_login.gif" WIDTH="126" HEIGHT="140" ALIGN="left" BORDER="0"/></A>
-<% } %>
-                     <IMG SRC="/i/clear.gif" ALT="" WIDTH="4" HEIGHT="1" BORDER="0"/>
-                   </TD>
                    <TD CLASS="statText" WIDTH="50%">Country:</TD>
                    <TD CLASS="statText" WIDTH="20%"ALIGN="right"><rsc:item name="country_name" row="<%=rsr%>"/></TD>
                    <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -220,10 +235,11 @@ if (!rsc.isEmpty()) {
                 <TR>
                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
                 </TR>
-                <TR>
-                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                </TR>
               </TABLE>
+            </TD>
+          </TR>
+          <TR>
+            <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%" colspan="2">
 <%
 ResultSetContainer rsc4 = (ResultSetContainer) queryEntries.get("Coder_Submission_Summary_Div_1");
 ResultSetContainer rsc6 = (ResultSetContainer) queryEntries.get("Coder_Submission_Totals_Div_1");
@@ -371,9 +387,6 @@ pageContext.setAttribute("resultSet", rsc3);
    <% } %>
 <% } %>
             </TD>
-          </TR>
-          <TR>
-            <TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
           </TR>
         </TABLE>
         </logic:present>
