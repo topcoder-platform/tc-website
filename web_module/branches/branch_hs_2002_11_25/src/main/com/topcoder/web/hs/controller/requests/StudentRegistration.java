@@ -62,7 +62,6 @@ public class StudentRegistration extends Base {
       DataSource ds=(DataSource)ctx.lookup(DBMS.OLTP_DATASOURCE_NAME);
       DataAccessInt dai=new CachedDataAccess(ds);
 
-      List schools=new ArrayList();
 
       /* check to see if the users has picked a state */
       String pick=request.getParameter("state");
@@ -72,11 +71,10 @@ public class StudentRegistration extends Base {
         map.put(STATE,pick);
         Request req=new Request(map);
         Map picked=dai.getData(req);
-        schools=(List)picked.get("state_schools");
+        Map data=(Map)request.getAttribute("STUDENT_DATA");
+        data.put("school_list",picked.get("state_schools"));
       }
 
-      Map data=(Map)request.getAttribute("STUDENT_DATA");
-      data.put("school_list",schools);
       request.setAttribute("STUDENT_DATA",data);
 
     }
@@ -112,6 +110,8 @@ public class StudentRegistration extends Base {
     map.put(DataAccessConstants.COMMAND,"student_form");
     Request req=new Request(map);
     Map data=dai.getData(req);
+    
+    data.put("school_list",new ArrayList());
 
     request.setAttribute("STUDENT_DATA",data);
 
