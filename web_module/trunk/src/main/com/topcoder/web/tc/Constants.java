@@ -34,6 +34,8 @@ public class Constants {
     public static String PROBLEM_RATING_RESULTS;
     public static String PROBLEM_RATING_QUESTIONS;
 
+    public static String HIGHEST_RATING;
+
     private Constants() {
     }
 
