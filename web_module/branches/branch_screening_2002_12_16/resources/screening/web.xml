@@ -413,6 +413,12 @@
     <description></description>
   </init-param>
 
+  <init-param>
+    <param-name>create_profile_processor</param-name>
+    <param-value>CreateProfile</param-value>
+    <description></description>
+  </init-param>
+
   <!-- Problem constants -->
   <init-param>
     <param-name>problem_list_page</param-name>
