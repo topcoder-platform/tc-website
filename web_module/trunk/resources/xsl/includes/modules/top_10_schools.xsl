@@ -3,15 +3,6 @@
   <xsl:template name="top_10_schools">
       <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" VALIGN="top" BGCOLOR="#001935">
                  <TR> 
-                  <TD VALIGN="middle" BGCOLOR="#001935" HEIGHT="18" CLASS="moduleTitle"><IMG SRC="/i/module_labels_10_coders.gif" ALT="Top 10 Coders" WIDTH="166" HEIGHT="17" BORDER="0"/></TD>
-                </TR>
-                 <TR> 
-                  <TD BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-                </TR>
-                 <TR> 
-                  <TD BGCOLOR="#001935"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
-                </TR>           
-            <TR> 
                 <TD BACKGROUND="/i/steel_gray_bg.gif"> 
                   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="0" BACKGROUND="/i/steel_darkblue_bg.gif" BGCOLOR="#001935">
                       <TR BGCOLOR="#000033">
@@ -22,7 +13,7 @@
                                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" ROWSPAN="16" WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
               </TR> 
               <TR>
-                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="3" HEIGHT="16">&#160;Division-I</TD>                    
+                <TD CLASS="statTextBig" VALIGN="middle" ALIGN="center" COLSPAN="3" HEIGHT="16">&#160;Schools</TD>                    
               </TR>                           
               <TR>
                 <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="13" ALIGN="right">Rank&#160;&#160;</TD>  
@@ -55,9 +46,6 @@
               <TR> 
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
               </TR>                       
-              <TR> 
-                <TD CLASS="statText" COLSPAN="3" HEIGHT="12" ALIGN="right"><IMG SRC="/i/mystats_icon.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0" HSPACE="3"/><A HREF="/stat?c=coder_ratings" CLASS="statText">all ranked coders</A>&#160;&#160;</TD>
-              </TR>                      
               <TR> 
                 <TD BACKGROUND="/i/steel_darkblue_bg.gif" COLSPAN="3"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8" BORDER="0"/></TD>
               </TR>              
