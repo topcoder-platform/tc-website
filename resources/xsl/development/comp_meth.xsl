@@ -49,17 +49,12 @@
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">white</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
-            <xsl:with-param name="title">&#160;Component Development</xsl:with-param>
+            <xsl:with-param name="title">&#160;Components</xsl:with-param>
             </xsl:call-template>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="top">
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td height="10"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                </tr>
-            </table>
-                
-            <table border="0" cellspacing="0" cellpadding="10" width="100%">
+            
+            <img src="/i/clear.gif" alt="" width="240" height="20" border="0" />
+                            
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td class="bodyText"><div align="center"><h2 class="devSubhead"><strong>TopCoder Software Component Development Methodology</strong></h2></div></td>
                 </tr>
