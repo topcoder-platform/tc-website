@@ -232,7 +232,7 @@ public abstract class BaseTask implements Task {
         return dAccess;
     }
 
-    protected boolean isRestrictedCampaign(long campaignId) throws Exception {
+    public boolean isRestrictedCampaign(long campaignId) throws Exception {
         Request r = new Request();
         r.setContentHandle("restricted_campaign");
         r.setProperty("cid", String.valueOf(campaignId));
