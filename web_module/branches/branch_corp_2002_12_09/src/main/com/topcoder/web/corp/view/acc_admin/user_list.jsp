@@ -3,7 +3,7 @@
   errorPage="/error.jsp"
   
 %>
-<%@ taglib uri="/WEB-INF/tc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%
     ResultSetContainer rsc = (ResultSetContainer)
             request.getAttribute("companyUsers")
@@ -48,19 +48,19 @@
 	</TR>
 
 
-<!--
-	<rsc:iterator list="<%=rsc%>" id="resultRow">
+
+	<tc-webtagiterator list="<%=rsc%>" id="resultRow">
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			&#160;<rsc:item name="user_id" row="<%=resultRow%>"/></TD>
+			&#160;<tc-webtagitem name="user_id" row="<%=resultRow%>"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<rsc:item name="first_name" row="<%=resultRow%>"/></TD>
+			<tc-webtagitem name="first_name" row="<%=resultRow%>"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<rsc:item name="last_name" row="<%=resultRow%>"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<rsc:item name="user_id" row="<%=resultRow%>"/>" CLASS="bodyText">Edit</A></TD>		
+			<tc-webtagitem name="last_name" row="<%=resultRow%>"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtagitem name="user_id" row="<%=resultRow%>"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
-	</rsc:iterator>
--->
+	</tc-webtagiterator>
+
 
 
 	<TR>

@@ -110,8 +110,7 @@ public class UserListTest extends BaseProcessor {
 
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
-            throw new Exception("SQLException processing users query: " +
-                                    query.toString());
+            throw new Exception("SQLException processing users query");
         } catch (NamingException e) {
             throw new Exception("NamingException getting users");
         } catch (Exception e) {
