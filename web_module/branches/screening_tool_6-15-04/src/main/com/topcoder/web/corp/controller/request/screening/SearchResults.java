@@ -30,6 +30,8 @@ public class SearchResults extends BaseScreeningProcessor {
         setDefault(Constants.LAST_NAME, sm.getLastName());
         setDefault(Constants.EMAIL_ADDRESS, sm.getEmailAddress());
         
+        getRequest().setAttribute("searchResults", sm);
+        
         setNextPage(Constants.SEARCH_RESULTS_PAGE); 
         setIsNextPageInContext(true); 
         } catch (Exception e)
