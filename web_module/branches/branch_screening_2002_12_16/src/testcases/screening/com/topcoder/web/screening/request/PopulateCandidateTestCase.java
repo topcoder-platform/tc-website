@@ -3,6 +3,7 @@ package com.topcoder.web.screening.request;
 import junit.framework.TestCase;
 
 import com.topcoder.web.screening.model.CandidateInfo;
+import com.topcoder.web.screening.common.Constants;
 
 import com.topcoder.web.test.ServletRequestHelper;
 
@@ -27,7 +28,7 @@ public class PopulateCandidateTestCase extends TestCase {
     }
 
     public void testProcessWithCandidateInfo() {
-        helper.setAttribute("candidateInfo", new CandidateInfo());
+        helper.setAttribute(Constants.CANDIDATE_INFO, new CandidateInfo());
         try {
             pCand.process();
         }
@@ -37,7 +38,7 @@ public class PopulateCandidateTestCase extends TestCase {
     }
 
     public void testProcessWithCandidateId() {
-        helper.setParameter("candidateId", "123");
+        helper.setParameter(Constants.USER_ID, "123");
         try {
             pCand.process();
         }
@@ -45,9 +46,9 @@ public class PopulateCandidateTestCase extends TestCase {
             fail(e.getMessage());
         }
 
-        CandidateInfo info = (CandidateInfo)helper.getAttribute("candidateInfo");
+        CandidateInfo info = (CandidateInfo)helper.getAttribute(Constants.CANDIDATE_INFO);
         assertNotNull("candidateInfo wasn't created in process call", info);
-        assertEquals(new Long(123), info.getCandidateId());
+        assertEquals(new Long(123), info.getUserId());
     }
 
     public void testProcessWithoutParams() {
