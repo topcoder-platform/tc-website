@@ -53,7 +53,12 @@ public class BuildCandidateList extends BaseScreeningProcessor {
             
             dataRequest.setProperty("candidateList"+DataAccessConstants.START_RANK, String.valueOf(startVal));
             dataRequest.setProperty("candidateList"+DataAccessConstants.END_RANK, String.valueOf(endVal));
-            dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN)));
+            String sortCol = StringUtils.checkNull(getRequest().getParameter(DataAccessConstants.SORT_COLUMN));
+            if(sortCol.equals(""))
+            {
+                sortCol = "handle";
+            }
+            dataRequest.setProperty(DataAccessConstants.SORT_COLUMN, sortCol);
             
             Map map = dAccess.getData(dataRequest);
 
