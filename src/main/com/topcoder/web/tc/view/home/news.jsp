@@ -6,8 +6,20 @@
 
 <%--------------------------------------------------------%>
    <tr>
-      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.21.05<br>11:00 AM</td>
-      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">Prof. Steven Skiena to speak at TCCC05</A></span><br><br>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tc.gif" alt="General TopCoder News" border="0" /><br>02.21.05<br>9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle">New /tc homepage</span><br><br>
+      Welcome to the new <A href="/tc">www.topcoder.com/tc</A> homepage!  We'll be posting all TC related news here as it happens.
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="http://software.topcoder.com/components/subscriptions.jsp">register</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_tc">archive</A>
+   </td></tr>
+
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/tournie.gif" alt="Tournament News" border="0" /><br>02.21.05<br>9:30 AM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=skiena">Professor Steven Skiena to speak at TCCC05</A></span><br><br>
       The well-known author and algorist Prof. Steven Skiena will be featured presenter at the TCCC05 finals!
       </td>
    </tr>
@@ -24,7 +36,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">register</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
@@ -70,7 +82,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">register</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
@@ -142,7 +154,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="/tc?module=Static&d1=contracting&d2=index">register</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=contracting&d2=index">see all available jobs</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_employment">archive</A>
    </td></tr>
 
