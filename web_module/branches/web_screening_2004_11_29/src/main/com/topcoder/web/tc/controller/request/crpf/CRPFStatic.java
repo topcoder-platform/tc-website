@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class CRPFStatic extends Static {
 
-    public void businessProcessing() throws TCWebException {
+    public void businessProcessing() throws Exception {
         Request r = new Request();
         r.setContentHandle("crpf_donation_total");
 

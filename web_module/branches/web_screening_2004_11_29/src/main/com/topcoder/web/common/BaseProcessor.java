@@ -92,7 +92,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     /**
      * Subclasses should do their work by implementing this method.
      */
-    abstract protected void businessProcessing() throws TCWebException;
+    abstract protected void businessProcessing() throws Exception;
 
     /**
      * This is final to discourage overriding it.  Instead subclasses should implement businessProcessing().
@@ -101,7 +101,13 @@ public abstract class BaseProcessor implements RequestProcessor {
         try {
             baseProcessing();
             log.debug("calling businessProcessing");
-            businessProcessing();
+            try {
+                businessProcessing();
+            } catch (TCWebException e) {
+                throw e;
+            } catch (Exception e) {
+                throw new TCWebException(e);
+            }
         } finally {
             close(ctx);
         }
