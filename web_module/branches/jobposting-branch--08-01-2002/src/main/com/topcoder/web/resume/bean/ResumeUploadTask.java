@@ -20,7 +20,7 @@ public class ResumeUploadTask extends ResumeTask{
     private byte file[] = null;
     private int fileType = -1;
     private String fileName = null;
-    private static final String SUCCESS = "/";
+    private static final String SUCCESS = "/resume/upload_success.jsp";
     public ResumeUploadTask(FileUpload fu) throws ResumeTaskException{
         UploadedFile uf = null;
         byte[] fileBytes = null;

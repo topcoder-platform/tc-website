@@ -1,5 +1,5 @@
 <%@ page language="java"%>
-<%@ page errorPage="error.jsp"%>
+<%@ page errorPage="/errorPage.jsp"%>
 <%@ page import="com.topcoder.web.resume.servlet.*,
                  com.topcoder.shared.util.TCContext,
                  com.topcoder.ejb.ResumeServices.ResumeServicesHome,
