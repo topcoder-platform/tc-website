@@ -15,4 +15,6 @@ public interface Response extends EJBObject {
     public void setResponseText(long userId, long questionId, String text, String dataSource) throws RemoteException, EJBException;
 
     public ResultSetContainer getResponses(long userId, String dataSource) throws RemoteException, EJBException;
+
+    public int remove(long userId, long questionId, String dataSource) throws RemoteException, EJBException;
 }

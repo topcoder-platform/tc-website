@@ -187,4 +187,41 @@ public class ResponseBean extends BaseEJB {
     }
 
 
+        public int remove(long userId, long questionId, String dataSource) {
+        log.debug("remove called... user_id="+userId+" questionId="+questionId);
+
+        Context ctx = null;
+        PreparedStatement ps = null;
+        Connection conn = null;
+        DataSource ds = null;
+
+        try {
+            ctx = new InitialContext();
+
+            ds = (DataSource) ctx.lookup(dataSource);
+            conn = ds.getConnection();
+
+            StringBuffer query = new StringBuffer(500);
+            query.append("DELETE FROM demographic_response WHERE demographic_question_id = ? AND coder_id = ?");
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+            ps.setLong(2, questionId);
+
+            int ret = ps.executeUpdate();
+            return ret;
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException getting responses for user="+userId);
+        } catch (NamingException e) {
+            throw new EJBException("NamingException getting responses for user="+userId);
+        } catch (Exception e) {
+            throw new EJBException("Exception getting responses for user="+userId+":\n" + e.getMessage());
+        } finally {
+            close(ps);
+            close(conn);
+            close(ctx);
+        }
+    }
+
 }
