@@ -91,8 +91,8 @@
                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="10%">Rating</td>
                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="center" width="5%">State</td>
-                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="center" width="5%">Country</td>
-                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="30%"># of Rated Events</td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="center" width="10%">Country</td>
+                  <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="20%"># of Rated Events</td>
                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="30%">Last Date Competed</td>
                   <td background="/i/steel_bluebv_bg.gif" class="statText" valign="middle" align="right" width="3"><img src="/i/clear.gif" alt="" width="3" height="1" border="0"/></td>
               </tr>
