@@ -122,6 +122,7 @@
                                                         above the minimum score of 50.
                                                         <br/>
                                                         <br/>
+                                                        <strong> First Place Compensation: </strong>
                                                         Compensation for the winning solution is distributed in two installments.
                                                         <br/>
                                                         &#160;&#160;&#160;&#160;&#160;<strong>First Payment:</strong>
@@ -134,6 +135,7 @@
                                                         &#160;&#160;&#160;&#160;&#160;At the completion of the development project*.
                                                         <br/>
                                                         <br/>
+                                                        <strong> First Place Compensation: </strong>
                                                         Compensation for the second place designer will be paid in one installment
                                                         following the completion of the design project.
                                                     </p>
