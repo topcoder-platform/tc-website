@@ -111,6 +111,14 @@ public abstract class BaseTask implements Task {
     public void setAuthToken(WebAuthentication auth) {
         authToken = auth;
     }
+
+    /** checks if a user is logged in, use from inherited task pages 
+     * @return boolean if user is logged in
+     */
+    protected boolean isUserLoggedIn() {
+        User curUser = getAuthenticityToken().getUser();
+        return (!curUser.isAnonymous());
+    }
 //----------
 
 
