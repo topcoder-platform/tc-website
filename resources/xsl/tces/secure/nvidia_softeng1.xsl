@@ -27,7 +27,7 @@
 <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
   <TR>
     <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+    <TD WIDTH="180" VALIGN="top">
   <!-- Global Seconday Nav Begins -->    
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->  
