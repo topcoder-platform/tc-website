@@ -247,18 +247,21 @@ public class ProfileSearch extends Base {
     }
     private String stringMatcher(String val, String col, boolean cs){
         boolean like = false;;
-        String rv;
+        String rc, rv;
         if(cs){
+            rc = "'"+col+"'";
             rv = "'"+val+"'";
         }else if(col.equals("u.handle")){
-            rv = "u.handle_lower";
+            rc = "u.handle_lower";
+            rv = "lower('"+val+"')";
         }else{
+            rc = "lower('"+col+"')";
             rv = "lower('"+val+"')";
         }
         if(val.indexOf('%') != -1 || val.indexOf('_') != -1){
-            return "    AND "+col+" LIKE "+rv+"\n";
+            return "    AND "+rc+" LIKE "+rv+"\n";
         } else {
-            return "    AND "+col+" = "+rv+"\n";
+            return "    AND "+rc+" = "+rv+"\n";
         }
     }
     private String buildCoderConstraints(TCRequest request, boolean skill){
