@@ -106,7 +106,7 @@
                                 
                 <tr valign="middle">
                     <td class="bodyText" valign="top"><strong>TopCoder Software Component Tutorials</strong><br />
-                        The TopCoder Component Tutorial provides a detailed guideline to designing and developmenting TopCoder Software components.</td>
+The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder Software's review board members on writing TopCoder Software components.</td> 
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
