@@ -36,15 +36,6 @@
                         <table width="100%" cellpadding="0" cellspacing="3" border="0" >
                         <tr>
                             <td class="brErrorText" colspan="2">
-                                <tc-webtag:errorIterator id="err" name="<%=Constants.HANDLE%>"><%=err%><br/></tc-webtag:errorIterator>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="brRegTableQuestion">Handle</td>
-                            <td class="brRegTableAnswer"><tc-webtag:textInput name="<%=Constants.HANDLE%>"  size="15" maxlength="<%=Constants.MAX_HANDLE_LENGTH%>" editable="<%=regInfo.isNew()%>"/></td>
-                        </tr>
-                        <tr>
-                            <td class="brErrorText" colspan="2">
                                 <tc-webtag:errorIterator id="err" name="<%=Constants.FIRST_NAME%>"><%=err%><br/></tc-webtag:errorIterator>
                             </td>
                         </tr>
