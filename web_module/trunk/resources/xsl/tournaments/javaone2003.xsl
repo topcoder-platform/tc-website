@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>      
 
-<title>Sun Microsystems JavaOne Coding Challenge, June 10-12, San Francisco, CA, Powered by TopCoder</title>
+<title>Sun Microsystems JavaOne Coding Challenge, June 10-12, San Francisco, CA, Powered by [TopCoder]&#174;</title>
 
 <xsl:call-template name="CSS"/>      
 
@@ -97,7 +97,7 @@
 <!-- JavaOne Coding Challenge -->
                             <tr valign="bottom">
                                 <td class="statTextBig" bgcolor="#333399"><p style="font-family: Verdana; font-size: 15px;">JavaOne Coding Challenge</p></td>
-                                <td class="statTextSmall" bgcolor="#333399" nowrap="nowrap" align="right">Powered by TopCoder<span class="super">TM</span></td>
+                                <td class="statTextSmall" bgcolor="#333399" nowrap="nowrap" align="right">Powered by [TopCoder]&#174;</td>
                             </tr>
                             
                             <tr>
