@@ -18,6 +18,7 @@ public class ProblemRenderer implements ElementRenderer {
     }
     
     public String toHTML(Language language) {
+        StringBuffer html = new StringBuffer();
         if (!problem.getProblemText().equals("")) {
             html.append(problem.getProblemText());
             html.append("<hr>");
