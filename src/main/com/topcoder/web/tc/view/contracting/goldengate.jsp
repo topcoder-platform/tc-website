@@ -43,18 +43,18 @@
       <A href="#job2">Senior Software Developer</A>
       <br><br>
 
-      <hr noshade="noshade" size="1" />      
+      <hr noshade="noshade" size="1" />
       <a name="job1"></a>
       <span class="bodySubtitle">Technical Lead</span>
       <br><br>
       <strong>Company Description</strong><br>
       GoldenGate Software, a fast-growing San Francisco enterprise software company, is the leading vendor of products for data synchronization, integration, continuity, migration, and warehousing.  GoldenGate synchronizes data from diverse systems and databases by capturing, transforming, and delivering data at extremely high rates and large volumes.  Our products solve business critical data needs around the world.
-      <br><br>	
+      <br><br>
       <strong>Job Description</strong><br>
       GoldenGate is seeking a senior-level software developer who has a hunger to solve complex problems, and is highly motivated.  The candidate must be an experienced and creative software developer with a minimum of 10+ years experience writing efficient, commercial quality, mission critical software.  This candidate must also have experience managing small development teams and have a proven track record of successful development projects.
-      <br><br>	
+      <br><br>
       This is a challenging full-time position based in the San Francisco financial district that provides excellent technical and career opportunities for a talented and enthusiastic developer.  Some travel may be required.
-      <br><br>	
+      <br><br>
       <strong>Skills Required</strong><br>
       The right candidate must have:
       <ul>
@@ -71,7 +71,7 @@
       <li>ability to manage and mentor developers</li>
       <li>ability to manage projects and communicate project status to upper management</li>
       </ul>
-      
+
       <span class="bodySubtitle">Responsibilities</span><br>
       The right candidate must exhibit a strong knowledge of coding principles and architecture and be able to use that knowledge to mentor other developers and solve difficult problems.  A technical lead has two distinct roles.  One role is to mentor developers, schedule resources, and track/report progress of the development staff.  The second role is to triage customer and prospect issues and resolve high priority or difficult issues as necessary.  The time allocated for each of these roles should be split 50/50 throughout a normal workday.
       <br><br>
@@ -93,10 +93,10 @@
       </ul>
 
       <br><br>
-      <a href="/tc?module=JobHit&jid=274&jt=2">Register for this position here!</a>
+      <a href="/tc?module=JobHit&jid=274&jt=4">Register for this position here!</a>
 		<br/><br/>
 
-      <hr noshade="noshade" size="1" />      
+      <hr noshade="noshade" size="1" />
       <a name="job2"></a>
       <span class="bodySubtitle">Senior Software Developer</span>
       <br><br>
@@ -118,9 +118,9 @@
       <li>experience with one or more of the following databases:  Oracle, DB2, MySQL, MS SQLServer, Sybase</li>
       <li>experience with  two or more of the following platforms: Win2K, Linux, Solaris, AIX, HP-UX, IBM MF (OS/390 or z/OS)</li>
       </ul>
-      
+
       <strong>Responsibilities</strong><br>
-      A technical lead must exhibit a strong knowledge of the source code and architecture and be able to use that knowledge to mentor other developers and solve difficult problems.  A technical lead has two distinct roles.  One role is to mentor developers, schedule resources, and track/report progress of the development staff.  The second role is to triage customer and prospect issues and resolve high priority or difficult issues as necessary.  The time allocated for each of these roles should be split 50/50 throughout a normal workday.  
+      A technical lead must exhibit a strong knowledge of the source code and architecture and be able to use that knowledge to mentor other developers and solve difficult problems.  A technical lead has two distinct roles.  One role is to mentor developers, schedule resources, and track/report progress of the development staff.  The second role is to triage customer and prospect issues and resolve high priority or difficult issues as necessary.  The time allocated for each of these roles should be split 50/50 throughout a normal workday.
       <br><br>
       The right candidate must have the ability to work well on a "team" as well as be able to work independently with minimal supervision.  Candidate must be comfortable in working in an environment where sharing ideas, learning new technologies, and being creative is fostered.  This candidate should have a desire to learn new things and work in a fast-paced environment.  Prior experience working for a software product company is required.  This candidate must be able to design and develop solutions to a wide variety of problems.  Strong problem solving skills are a must.  Some of your work responsibilities will include:
       <ul>
@@ -140,10 +140,10 @@
       </ul>
 
       <br><br>
-      <a href="/tc?module=JobHit&jid=275&jt=2">Register for this position here!</a>
+      <a href="/tc?module=JobHit&jid=275&jt=4">Register for this position here!</a>
 		<br/><br/>
 
-      <hr noshade="noshade" size="1" />      
+      <hr noshade="noshade" size="1" />
 		<br/><br/>
 		</p>
 
