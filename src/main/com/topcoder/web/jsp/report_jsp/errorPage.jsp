@@ -8,7 +8,6 @@
   </head>
   <body>
     <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>><< back to main menu<a><br/><br/>
-    <center>
     <br/><pre>
 <%
 Throwable requestException = null;
