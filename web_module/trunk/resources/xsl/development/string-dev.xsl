@@ -91,7 +91,7 @@
 						<p><strong>Developer</strong><br />
 						Royalty Percentage - 25%</p>
 							
-						<p>Total Payment - 120 - <xsl:value-of select="/TC/DEVELOPMENT/payment"/></p>
+						<p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/></p>
 
 <!-- Definition of Completion -->
 						<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -117,10 +117,10 @@
 						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 							
-						<p>Component Posting: 1.23.2003<br/>
-						Initial Submission Due Date: 2.6.2003 - <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
-						Winner Announced: 2.19.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DevWinner"/><br/>
-						Final Submission Due Date: 2.24.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DevFinal"/></p>
+						<p><!--Component Posting: 1.23.2003<br/>-->
+						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
+						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/DevWinner"/><br/>
+						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/DevFinal"/></p>
 <!-- Register at TCS -->
 						
 

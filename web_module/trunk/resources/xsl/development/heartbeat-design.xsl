@@ -105,9 +105,9 @@
 							<p><strong>Designer</strong><br />
 							Royalty Percentage - 25%</p>
 							
-							<p>Total Payment - 210.00 - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
-							First Deliverable - 157.50 - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
-							Project Completion - 52.50 - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
+							<p>Total Payment - <xsl:value-of select="/TC/DEVELOPMENT/payment"/><br/>
+							First Deliverable - <xsl:value-of select="/TC/DEVELOPMENT/first_payment"/><br/>
+							Project Completion - <xsl:value-of select="/TC/DEVELOPMENT/second_payment"/></p>
 
 <!-- Definition of Completion -->
 							<p><sup>*</sup>Completion of the project is defined as follows:</p>
@@ -133,11 +133,11 @@
 							<p><strong>Time Line</strong><br/>
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-						<p>Component Posting: 1.30.2003 <br/>
-						Initial Submission Due Date: 2.5.2003 - <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
-						Winner Announced: 2.13.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/><br/>
-						Final Submission Due Date: 2.17.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/><br/>
-						Estimated Development End Date: 3.26.2003 - <xsl:value-of select="/TC/DEVELOPMENT/DesDevFinal"/></p>
+						<p><!-- Component Posting: 1.30.2003 <br/> -->
+						Initial Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/date"/><br/>
+						Winner Announced: <xsl:value-of select="/TC/DEVELOPMENT/DesWinner"/><br/>
+						Final Submission Due Date: <xsl:value-of select="/TC/DEVELOPMENT/DesFinal"/><br/>
+						Estimated Development End Date: <xsl:value-of select="/TC/DEVELOPMENT/DesDevFinal"/></p>
 <!-- Register at TCS -->
 
 
