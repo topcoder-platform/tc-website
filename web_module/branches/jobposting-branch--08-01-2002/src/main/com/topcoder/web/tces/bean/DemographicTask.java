@@ -250,6 +250,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
                 double pct =
                     (((Long)demoInfoRow.getItem("resp_count").getResultData())).doubleValue()
                     / ((double) getStudentCoderCount());
+                pct = (int)(pct*10000+0.5)/100.0;
 
                 HashMap respItem = new HashMap();
 
