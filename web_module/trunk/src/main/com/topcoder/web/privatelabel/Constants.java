@@ -56,9 +56,9 @@ public class Constants {
     public static int MAX_EMAIL_LENGTH;
 
     //processors
-    public static String SIMPLE_REGISTRATION_MAIN;
-    public static String SIMPLE_REGISTRATION_CONFIRM;
-    public static String SIMPLE_REGISTRATION_SUBMIT;
+    public static String SIMPLE_REG_MAIN;
+    public static String SIMPLE_REG_CONFIRM;
+    public static String SIMPLE_REG_SUBMIT;
 
 
     //DB's
