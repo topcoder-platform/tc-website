@@ -47,10 +47,10 @@ public class Login extends BaseProcessor {
 
         log.debug("instantiate queue message sender");
         String jmsFactory = ScreeningApplicationServer.JMS_FACTORY;
-        String queueName = ScreeningApplicationServer.EVENT_QUEUE;
         Context context = ScreeningContext.getJMSContext();
 
-        QueueMessageSender qms = new QueueMessageSender(jmsFactory, queueName, context);
+        QueueMessageSender qms = new QueueMessageSender(jmsFactory,
+                ScreeningApplicationServer.REQUEST_QUEUE, context);
         qms.setPersistent(false);
         qms.setDBPersistent(false);
         qms.setFaultTolerant(false);
@@ -58,7 +58,8 @@ public class Login extends BaseProcessor {
         String messageId = qms.sendMessageGetID(new HashMap(), request);
         log.debug("sent message " + messageId);
 
-        QueueMessageReceiver qmr = new QueueMessageReceiver(jmsFactory, queueName, context, messageId);
+        QueueMessageReceiver qmr = new QueueMessageReceiver(jmsFactory,
+                ScreeningApplicationServer.RESPONSE_QUEUE, context, request.getSelector());
         ObjectMessage response = qmr.getMessage(2000);
         log.debug("response " + response);
 
