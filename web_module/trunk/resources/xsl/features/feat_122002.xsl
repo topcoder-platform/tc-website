@@ -65,12 +65,12 @@ By&#160;KaiEl,<I>TopCoder Member</I><BR/>
 Anyone who's been with TopCoder for long enough should be used to the troubles that occasionally 
 come up during Single Round Matches. Whether it's due to an error in the problem statement, system 
 testing or some other part of the process, sometimes there is an issue that compromises the fairness 
-or feasibility of counting the results of a contest. Some coder's get mad about having their 75 
+or feasibility of counting the results of a contest. Some coders get mad about having their 75 
 minutes of hard work thrown out, but most of them accept that accidents do happen.
 </P>
 
 <P>
-When there's a similar problem at a $50,000 tournament, though, then people tend to be less accepting.
+When there's a $150,000 tournament, though, people tend to be less accepting.
 </P>
 
 <P>
@@ -85,7 +85,7 @@ the morning and afternoon drive-time slots for the past month.
 <P>
 But for all the chatter and all the writings about this issue, no two people seem to share 
 exactly the same opinion on the controversy. True, you can generally divide those concerned 
-into "the decisions was fair" and "the decision was unfair" camps, but even then you'll find 
+into "the decision was fair" and "the decision was unfair" camps, but even then you'll find 
 that people disagree on why the decision was fair or unfair, what the best course of action 
 would have been, and what should be done to prevent these kinds of problems from happening 
 in the future. Where is the middle ground in the debate? What is the general mood of the 
@@ -100,7 +100,7 @@ TopCoder community nearly a month after the controversy began? I was asked to fi
 Even though there is a general agreement about the course of events that led up to the 
 controversial decision to re-run the final round, there's some disagreement as to the 
 details of what actually happened at the contest. The account of <B>John Dethridge</B>, one of
- the four finalists that participated in the disputed round, is probably the most reliable place to start.
+ the four finalists that participated in the disputed round, is probably the most logical place to start.
 </P>
 
 <P>
@@ -124,7 +124,7 @@ understood this didn't happen."
 </P>
 
 <P>
-<B>Lars</B>, problem coordinator for the match, clarifies the nature of the problem and the 
+Lars Backstrom (<B>lbackstrom</B>), problem coordinator for the match, clarifies the nature of the problem and the 
 manner in which it was discovered: "With about 15 minutes left, I became suspicious 
 that there might be an error because <B>John Dethridge</B> was getting most of the examples right.  
 I went back to double check everything and it became evident that I had introduced an off by 
@@ -152,7 +152,7 @@ long time," <B>John Dethridge</B> said, "so the administrator spoke with me to c
 
 <P>
 After the coding and challenge phases were over, the contest administrators went into 
-the "war room," the place where the system tests were being run. This is when Jack Hughes, founder and CEO of TopCoder, became aware of the situation.
+the "war room," the place where the system tests were being run. This is when Jack Hughes, founder of TopCoder, became aware of the situation.
 </P>
 
 <P>
@@ -160,11 +160,11 @@ the "war room," the place where the system tests were being run. This is when Ja
 </P>
 
 <P>
-"I was very relieved," said <B>SnapDragon</B>, another of the four finalists, of his mood after the completion of the first contest. During the challenge phase of that round, <B>SnapDragon</B> has successfully challenged <B>John Dethridge</B>'s code on the 500-point problem, seemingly leaving him with a secure lead. If all of <B>SnapDragon</B>'s code passed the system tests, or if he and <B>John Dethridge</B> both failed on the 1100-point problem, then there was no way he could lose.
+"I was very relieved," said <B>SnapDragon</B>, another of the four finalists, of his mood after the completion of the first contest. During the challenge phase of that round, <B>SnapDragon</B> had successfully challenged <B>John Dethridge</B>'s code on the 500-point problem, seemingly leaving him with a secure lead. If all of <B>SnapDragon</B>'s code passed the system tests, or if he and <B>John Dethridge</B> both failed on the 1100-point problem, then there was no way he could lose.
 </P>
 
 <P>
-"John seemed upset, understandably," <B>SnapDragon</B> said. "The crowd was supportive, and I think a lot of people were assuming I had probably won. Including me."
+"<B>John Dethridge</B> seemed upset, understandably," <B>SnapDragon</B> said. "The crowd was supportive, and I think a lot of people were assuming I had probably won. Including me."
 </P>
 
 <P>
@@ -172,7 +172,7 @@ This assumption would not last, however, as the administrators soon called the f
 </P>
 
 <P>
-"Since we did not have enough information of what exactly went wrong, the most circulated guess was that John argued that had he been able to submit 1K with 15 minutes to go, he had a chance to fix his 500," said <B>kyky</B> one of the on-site spectators. "The assumption was that both <B>John Dethridge</B>'s and <B>SnapDragon</B>'s 1K passed the system tests." According to Hughes, however, no system tests had been run at this point, although the submitted code of all the competitors had been looked at.
+"Since we did not have enough information of what exactly went wrong, the most circulated guess was that <B>John Dethridge</B> argued that had he been able to submit the 1K with 15 minutes to go, then he would have a chance to fix his 500," said <B>kyky</B> one of the on-site spectators. "The assumption was that both <B>John Dethridge</B>'s and <B>SnapDragon</B>'s 1K passed the system tests." According to Hughes, however, no system tests had been run at this point, although the submitted code of all the competitors had been looked at.
 </P>
 
 <P>
@@ -200,7 +200,7 @@ After being assembled in the 'war room' for 20 to 25 minutes, the administrators
 </P>
 
 <P>
-"I figured that if John had a decent shot at the question but could not answer it due to the error, then neither could anyone else.  I essentially looked at the competition as fatally flawed. I do remember, after making the decision, that <B>John Dethridge</B> was arguing that for some reason or other having had the information would have given him more time to work on the other problems as well."
+"I figured that if <B>John Dethridge</B> had a decent shot at the question but could not answer it due to the error, then neither could anyone else.  I essentially looked at the competition as fatally flawed. I do remember, after making the decision, that <B>John Dethridge</B> was arguing that for some reason or other having had the information would have given him more time to work on the other problems as well."
 </P>
 
 <P>

@@ -254,18 +254,19 @@ By&#160;KaiEl<BR/><I>[TC] Member</I><BR/><BR/>
 <A CLASS="bodyGeneric">
   <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=feat_122002</xsl:attribute>
   <B>The Big Rerun</B></A><BR/>
-<I>A Complete Breakdown of the 2002 Invitational Controversy</I><BR/>
+<I>A Complete Breakdown of the 2002 Invitational Championship Round</I><BR/>
 Friday, December 20, 2002<BR/>
 
 <P>
 Anyone who's been with TopCoder for long enough should be used to the troubles that occasionally 
 come up during Single Round Matches. Whether it's due to an error in the problem statement, system 
 testing or some other part of the process, sometimes there is an issue that compromises the fairness 
-or feasibility of counting the results of a contest. Some coder's get mad about having their 75 
-minutes of hard work thrown out, but most of them accept that accidents do happen.</P>
+or feasibility of counting the results of a contest. Some coders get mad about having their 75 
+minutes of hard work thrown out, but most of them accept that accidents do happen.
+</P>
 
 <P>
-When there's a similar problem at a $50,000 tournament, though, then people tend to be less accepting.
+When there's a $150,000 tournament, though, people tend to be less accepting.
 </P>
 
 <P>
