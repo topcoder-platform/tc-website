@@ -1,4 +1,5 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <html>
 <head>
 <title>Technical Assessment</title>
@@ -6,6 +7,11 @@
 <link type="text/css" rel="stylesheet" href="/css/screening.css" >
 </head>
 <body>
+<jsp:useBean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
+<tc-webtag:useBean id="problem" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.problem.Problem" scope="page" property="problem"/>
+<tc-webtag:useBean id="language" name="<%=Constants.PROBLEM%>" type="com.topcoder.shared.language.Language" scope="page" property="language"/>
+<tc-webtag:useBean id="languages" name="<%=Constants.LANGUAGES%>" type="java.util.List" scope="page" />
+
 
 <table class=bodyCenter cellspacing=0 cellpadding=0>
    <tr>
@@ -38,9 +44,9 @@
                   <td align=left><span class=bodySmallTitle>Problem Statement</span></td>
                   <td align=right>
                   Choose your language:
-                  <input type="radio" name="language" value="java">&#160;Java&#160;
-                  <input type="radio" name="language" value="cplus">&#160;C++&#160;
-                  <input type="radio" name="language" value="csharp">&#160;C#&#160;
+                  <tc-webtag:listIterator id="language" list="languagess">
+                    <input type="radio" name="<%=Constants.LANGUAGE_ID%>" value="<jsp:getProperty name="language" property="id"/>">&#160;<jsp:getProperty name="language" property="name"/>&#160;
+                  </tc-webtag:listIterator>
                   </td>
                </tr>
             </table>

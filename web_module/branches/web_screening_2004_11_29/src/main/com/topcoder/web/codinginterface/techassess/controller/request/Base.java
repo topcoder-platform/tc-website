@@ -16,10 +16,7 @@ import com.topcoder.shared.language.CPPLanguage;
 import com.topcoder.shared.language.CSharpLanguage;
 import com.topcoder.shared.language.VBLanguage;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Iterator;
-import java.util.ArrayList;
+import java.util.*;
 import java.io.PrintWriter;
 import java.io.IOException;
 
@@ -36,6 +33,7 @@ public abstract class Base extends BaseProcessor {
     private String messageId = null;
     private long sessionId = -1;
     private long companyId = -1;
+    private List languages = null;
 
 
     public void setReceiver(WebQueueResponseManager receiver) {
@@ -64,6 +62,24 @@ public abstract class Base extends BaseProcessor {
         return messageId;
     }
 
+    public void setLanguages(List languages) {
+        this.languages = languages;
+        getRequest().getSession().setAttribute(Constants.LANGUAGES, languages);
+    }
+
+    public List getLanguages() throws TCWebException {
+        if (languages==null) {
+            List temp = (List) getRequest().getSession().getAttribute(Constants.LANGUAGES);
+            if (temp == null)
+                throw new TCWebException("languages have not been set");
+            else {
+                languages = temp;
+            }
+        }
+        return languages;
+
+    }
+
     public void setSessionId(long sessionId) {
         //log.debug("session id set to " + sessionId);
         this.sessionId = sessionId;
@@ -74,7 +90,7 @@ public abstract class Base extends BaseProcessor {
         if (sessionId < 0) {
             Long temp = (Long) getRequest().getSession().getAttribute(Constants.SESSION_ID);
             if (temp == null)
-                throw new TCWebException("session id has not be set");
+                throw new TCWebException("session id has not been set");
             else {
                 sessionId = temp.longValue();
             }
