@@ -19,13 +19,19 @@
    <jsp:include page="../top.jsp" />
    <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
      <TR>
-       <TD WIDTH="180" VALIGN="top">
+        <TD WIDTH="180">
+<!-- Left nav begins -->
             <jsp:include page="../includes/global_left.jsp">
                 <jsp:param name="level1" value="statistics"/>
             </jsp:include>
-       </TD>
-       <TD WIDTH="10" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD CLASS="bodyText" WIDTH="100%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="1" VSPACE="5" BORDER="0"><BR/>
+<!-- Left nav ends -->
+        </TD>
+
+<!-- Gutter begins -->
+       <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
+<!-- Gutter ends -->
+
+        <TD CLASS="bodyText" WIDTH="99%" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="240" HEIGHT="15" BORDER="0"><BR/>
 
 <%
 Request srb = (Request) request.getAttribute("REQUEST_BEAN");
@@ -72,40 +78,45 @@ pageContext.setAttribute("resultRow", rsr);
 %>
 
 		<bean:define id="coderrank" name="resultRow" property='<%= "item[" + 1 /*"coder_score"*/ + "]" %>'/>			
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
-                 <TR>
-                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
-                 </TR>  
-                 <TR>
-                   <TD COLSPAN="4" CLASS="statTextLarge">
-<B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
-                   </TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="4" CLASS="statText" VALIGN="middle" HEIGHT="16">
+                        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+                            <TR>
+                                <TD colspan="2" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                            </TR>  
+                
+                            <TR VALIGN="middle">
+                                <TD CLASS="statTextLarge">
+                                    <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
+                                </TD>
+                            
+                                <TD width="99%" CLASS="statText" HEIGHT="16" align="right">
                      <A HREF="/stat?c=member_profile&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Profile</A>
                      |   
-                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design History</A>
-                     |   
-                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development History</A>
-                     |   
-<% 
-   if(srb.getProperty("pi").equals("113"))
-   {
-%>
-                     <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating History</A>
-<%
-   }
-   else{
-%>
-                     <A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating History</A>
+
+<% if(srb.getProperty("pi").equals("112")) { %>
+                     <strong>Design Rating</strong>
+<% } else { %>
+                     <A HREF="/stat?c=tcs_ratings_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Rating</A>
 <%}%>
-                   </TD>
-                 </TR>
-                 <TR>
-                     <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
-                 </TR>      
-               </TABLE>
+
+                     |   
+                     <A HREF="/stat?c=component_history&pi=112&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Design Earnings</A>
+                     |   
+
+<% if(srb.getProperty("pi").equals("113")) { %>
+                      <strong>Development Rating</strong>
+<% } else { %>
+                     <A HREF="/stat?c=tcs_ratings_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Rating</A>
+<%}%>
+
+                     |   
+                     <A HREF="/stat?c=component_history&pi=113&cr=<%= pageContext.getAttribute("coder_id") %>" CLASS="statText">Development Earnings</A>
+                                </TD>
+                            </TR>
+                            
+                            <TR>
+                                <TD COLSPAN="2" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="8" BORDER="0"></TD>
+                            </TR>      
+                        </TABLE>
 <% 
 } //end if not empty
 ResultSetContainer rsc2 = (ResultSetContainer) queryEntries.get("TCS_Ratings_History");
@@ -142,7 +153,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
 %>
           
                
-               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="3" BGCOLOR="#001B35" WIDTH="100%">
   		<% if (!bEmpty) { %>
                  <TR>
                    <TD BACKGROUND="/i/steel_gray_bg3.gif" CLASS="statTextBig" COLSPAN="6" HEIGHT="18">&#160;Ratings History
@@ -150,11 +161,9 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
                      <A HREF="JavaScript:getGraph('/graph?c=rating_history_graph&amp;cr=<%=pageContext.getAttribute("coder_id")%>','800','600', 'history')" class="statText">&#160;&#160;rating history graph</a>
                      <A HREF="JavaScript:getGraph('/graph?c=rating_distribution_graph','600','400', 'distribution')" class="statText">&#160;&#160;distribution graph</a>
 -->
-</TD>
+                    </TD>
                 </TR>
-                 <TR>
-                   <TD COLSPAN="6"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
+                 
 			<% if (rsc2.croppedDataBefore() ||  rsc2.croppedDataAfter()) { %>
 				 <TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" COLSPAN="6" HEIGHT="16" align="center">
 				<% if (rsc2.croppedDataBefore()) { %>
@@ -189,7 +198,7 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
                    <TD CLASS="statText" VALIGN="middle" ALIGN="center">
                        <bean:write name="resultRow2" property='<%= "item[" + 1 /* competition type*/ + "]" %>'/>
                    </TD>
-                   <TD CLASS="statText" VALIGN="middle" ALIGN="right"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
+                   <TD CLASS="statText" VALIGN="middle" ALIGN="center"><bean:write name="resultRow2" property='<%= "item[" + 5 /* new Rating */ + "]" %>'/></TD>
                    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
 				 </logic:iterate>
@@ -233,16 +242,24 @@ String sSortUrl = "/stat?c=tcs_ratings_history&cr="+srb.getProperty("cr")+"&sq=t
          <p><br></p>
          <!-- END BODY -->
 
+        </TD>
+
+<!-- Gutter begins -->
+       <TD WIDTH="15"><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"></TD>
+<!-- Gutter ends -->
+
+        <TD width="170">
+<!-- right begins -->
+            <jsp:include page="../public_right.jsp">
+                <jsp:param name="level1" value="profile"/>
+            </jsp:include>
+<!-- right ends -->
        </TD>
+
+<!-- Gutter begins -->
        <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-       <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
-         <jsp:include page="../public_right.jsp" >
-             <jsp:param name="level1" value="profile"/>
-         </jsp:include>
-       </TD>
-    <!-- Gutter -->
-    <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
+<!-- Gutter ends -->
+
      </TR>
    </TABLE>
    <jsp:include page="../foot.jsp" />
