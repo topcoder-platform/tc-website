@@ -1,7 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@page import="com.topcoder.web.corp.request.Registration" %>
-<% String appContext = request.getContextPath(); %>
+<%@page import="com.topcoder.web.corp.request.Registration,
+                com.topcoder.web.corp.Constants" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
@@ -31,7 +31,7 @@
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
-<FORM action="<%=appContext%>/" method="POST">
+<FORM action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>" method="POST">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 
 <!-- FIRST NAME -->

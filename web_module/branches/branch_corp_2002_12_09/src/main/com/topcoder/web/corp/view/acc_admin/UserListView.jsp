@@ -1,8 +1,10 @@
 <%@ page
   language="java"
   errorPage="/error.jsp"
-   import="com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
-          java.util.Map"
+  import="com.topcoder.shared.dataAccess.*,
+          com.topcoder.shared.dataAccess.resultSet.*,
+          java.util.Map,
+          com.topcoder.web.corp.Constants"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%    
@@ -14,7 +16,6 @@
 <TITLE>TopCoder - Portal</TITLE>
 <jsp:include page="../script.jsp"/>
 </HEAD>
-<% String appContext = request.getContextPath(); %> 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>
 
@@ -65,12 +66,12 @@
                         <tc-webtag:item row="<%=resultRow%>" name="first_name"/></TD>
                 <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>">
                         <tc-webtag:item row="<%=resultRow%>" name="last_name"/></TD>
-                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=appContext%>/?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>          
+                <TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="<%=bgColor%>"> <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit&id=<tc-webtag:item row="<%=resultRow%>" name="user_id"/>" CLASS="bodyText">Edit</A></TD>          
           </TR>
         </tc-webtag:iterator>
 
         <TR>
-                <TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=appContext%>/?module=UserEdit" CLASS="bodyText">Add</A></TD>         
+                <TD COLSPAN="4" VALIGN="middle" CLASS="bodyText" HEIGHT="15" ALIGN="center"><A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" CLASS="bodyText">Add</A></TD>         
         </TR>                           
 </TABLE>
 <P><BR></P>    

@@ -6,6 +6,7 @@ import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.corp.Util;
 
 /**
  * class to process a log in request.  it will take at least the following
@@ -104,7 +105,7 @@ public class Login extends BaseProcessor {
 
         // if destination is null then controller will fetch recently viewed page
         if( destination == null ) {
-            nextPage = "/corp/";
+            nextPage = Util.appRootPage(request);
         }
         else {
             nextPage = destination;

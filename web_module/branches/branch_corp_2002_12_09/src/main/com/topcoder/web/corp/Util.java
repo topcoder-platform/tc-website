@@ -4,6 +4,7 @@ import java.rmi.RemoteException;
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.NotSupportedException;
 import javax.transaction.SystemException;
 import javax.transaction.Transaction;
@@ -129,4 +130,16 @@ public class Util {
             closeIC(ic);
         }
     }
+    
+    /**
+     * Returns corp web application path composed from context path and servlet
+     * path which is semantically same as root (very first) page of application.
+     * 
+     * @param req
+     * @return String 
+     */
+    public static String appRootPage(HttpServletRequest req) {
+        return req.getContextPath()+req.getServletPath();
+    }
+    
 }

@@ -1,5 +1,7 @@
 package com.topcoder.web.corp.request;
 
+import com.topcoder.web.corp.Util;
+
 /**
  * class to process a log out request.  should simply be a call to an
  * authentication object logout().
@@ -18,7 +20,7 @@ public class Logout extends BaseProcessor {
         authToken.logout();
         pageInContext = false;
         //nextPage = null; // controller will fetch recently viewed page
-        nextPage = "/corp/";
+        nextPage = Util.appRootPage(request);
         return;
     }
 }

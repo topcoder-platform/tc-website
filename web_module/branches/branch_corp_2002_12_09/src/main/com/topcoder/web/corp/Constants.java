@@ -36,6 +36,8 @@ public class Constants {
     public  static final String KEY_CCTX_URL            = "cctx-payflow-url";
     public  static final String KEY_CCTX_TYPE           = "cctx-type";
     public  static final String KEY_CCTX_SUM            = "cctx-sum";
+    
+    public static final String KEY_LINK_PREFIX          = "url-prefix";
 
     // and their defaults
     private static final String DEF_SECURITY_CONTEXT_FACTORY =

@@ -1,10 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="com.topcoder.web.corp.Constants" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
 <jsp:include page="../script.jsp"/>
 </HEAD>
-<% String appContext = request.getContextPath(); %> 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
 <jsp:include page="../includes/top.jsp"/>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
@@ -25,7 +25,7 @@
       <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <FONT SIZE="3" COLOR="#666666"><B>Account Administration</B></FONT><BR>
 <P>
-<A HREF="<%=appContext%>/?module=UserList" CLASS="bodyText">User List</A> | <A HREF="<%=appContext%>/?module=UserEdit" CLASS="bodyText">Create/Modify User</A>
+<A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserList" CLASS="bodyText">User List</A> | <A HREF="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=UserEdit" CLASS="bodyText">Create/Modify User</A>
 </P>
 
 <P>

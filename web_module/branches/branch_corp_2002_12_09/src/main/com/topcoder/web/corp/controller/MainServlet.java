@@ -18,6 +18,7 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCESAuthorization;
 import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
 
 
@@ -76,6 +77,12 @@ public class MainServlet extends HttpServlet {
         log.debug("URI: "+
             request.getRequestURI()+"["+request.getQueryString()+"]" 
         );
+        
+        // put prefix of the url into request
+        request.setAttribute(
+            Constants.KEY_LINK_PREFIX,
+            Util.appRootPage(request)
+        ); 
         String dest = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
         String processorName = request.getParameter(KEY_MODULE);
 

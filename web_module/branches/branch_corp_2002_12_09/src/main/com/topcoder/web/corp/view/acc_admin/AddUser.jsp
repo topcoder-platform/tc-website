@@ -1,10 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@page import="com.topcoder.web.corp.request.Registration,
+                com.topcoder.web.corp.Constants,
                 com.topcoder.web.common.security.SessionPersistor,
                 com.topcoder.web.common.security.BasicAuthentication "
 %>
-<% String appContext = request.getContextPath(); %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
@@ -46,7 +46,7 @@ function getPermissions(url,wd,ht) {
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>                    
-<FORM method="POST" action="<%=appContext%>/">
+<FORM method="POST" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>">
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
     <input type="hidden" name="module" value="UserEdit"/>
     <% String id = (String)request.getAttribute("id");

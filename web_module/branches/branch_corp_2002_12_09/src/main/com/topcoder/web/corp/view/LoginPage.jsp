@@ -1,8 +1,10 @@
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%@ page import="com.topcoder.web.corp.request.Login" %>
+<%@ page import="com.topcoder.web.corp.request.Login
+                 com.topcoder.web.corp.Constants"
+%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
-<HEAD><% String appContext = request.getContextPath(); %> 
+<HEAD>
 <TITLE>TopCoder - Portal</TITLE>
 <jsp:include page="script.jsp"/>
 </HEAD>
@@ -25,7 +27,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
       <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="50" BORDER="0"><BR>
-                <FORM METHOD="post" NAME="frmLogin" action="<%=appContext%>/?module=Login">
+                <FORM METHOD="post" NAME="frmLogin" action="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Login">
                     <INPUT NAME="module" TYPE="hidden" VALUE="Login"/>
                     <INPUT NAME="dest" TYPE="hidden" VALUE="<%=request.getParameter("dest")%>"/>
                 <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="60%" ALIGN="center">
