@@ -58,6 +58,22 @@
             
             <hr width="100%" size="1px" noshade>
             
+<!-- ABB begins -->
+            <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                <tr valign="top">
+                    <td width="170"><img src="/images/abb_logo.gif" alt="Borders" width="170" height="57" border="0" /></td>
+                    
+                    <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
+                    
+                    <td width="99%" class="bodyText">
+                        <p>A leader in power and automation technologies that enable customers to improve performance while lowering environmental impact. </p>
+                    </td>
+                </tr>
+            </table>
+<!-- ABB ends -->
+            
+             <hr width="100%" size="1px" noshade>
+            
 <!-- Borders begins -->
             <table border="0" cellpadding="0" cellspacing="0" width="100%">
                 <tr valign="top">
