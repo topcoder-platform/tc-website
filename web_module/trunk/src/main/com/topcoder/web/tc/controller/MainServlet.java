@@ -41,16 +41,18 @@ public class MainServlet extends BaseServlet {
         //just trying to protect against invalid requests getting to the
         //app server.  currently, we don't have a way to stop this ad the web
         //server layer.
-        if (request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
-            super.process(request, response);
-        else {
-            log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
-            response.setStatus(400);
-            PrintWriter out = response.getWriter();
-            out.println("<html><head><title>IInvalid Request - Wrong Server Name</title></head>");
-            out.println("<body><h4>Your request was invalid for this server.</h4>");
-            out.println("</body></html>");
-            out.flush();
+        if (ApplicationServer.PROD==ApplicationServer.ENVIRONMENT) {
+            if (request.getServerName().startsWith(ApplicationServer.SERVER_NAME))
+                super.process(request, response);
+            else {
+                log.error(request.getRemoteHost() + " Made an Invalid Request - Wrong Server Name " + request.getServerName());
+                response.setStatus(400);
+                PrintWriter out = response.getWriter();
+                out.println("<html><head><title>IInvalid Request - Wrong Server Name</title></head>");
+                out.println("<body><h4>Your request was invalid for this server.</h4>");
+                out.println("</body></html>");
+                out.flush();
+            }
         }
 
     }
