@@ -60,42 +60,42 @@ public class Contest {
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 */
-                fraud = new SimilarSourceSubsequences(normalizedSource, submissions);
+                fraud = new SimilarSourceSubsequences(normalizedSource, submissions, Fraud.MAX_REPORT);
                 log.info("****************** SIMILAR SUBSEQUENCES **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
-                fraud = new EditDistance(normalizedSource, submissions);
+                fraud = new EditDistance(normalizedSource, submissions, Fraud.MAX_REPORT);
                 log.info("****************** EDIT DISTANCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
-                fraud = new SimilarHistogram(nonNormalizedSource, submissions);
+                fraud = new SimilarHistogram(nonNormalizedSource, submissions, Fraud.MAX_REPORT);
                 log.info("****************** SIMILAR HISTOGRAM **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
-                fraud = new Similar(nonNormalizedSource, submissions);
+                fraud = new Similar(nonNormalizedSource, submissions, Fraud.MAX_REPORT);
                 log.info("****************** SIMILAR SOURCE **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
-                fraud = new Same(normalizedSource, submissions);
+                fraud = new Same(normalizedSource, submissions, Fraud.MAX_REPORT);
                 log.info("****************** SAME NORMALIZED SOURCE**************************");
                 fraud.execute();
                 log.info(fraud.getReport());
                 log.info("**********************************************************");
                 allPotentialViolators.addAll(fraud.getPotentialViolators());
 
-                fraud = new CPS(submissions);
+                fraud = new CPS(submissions, Fraud.MAX_REPORT);
                 log.info("****************** CPS **************************");
                 fraud.execute();
                 log.info(fraud.getReport());
