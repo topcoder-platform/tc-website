@@ -43,17 +43,17 @@
    <jsp:param name="tabLev3" value="schedule"/>
 </jsp:include>
 
-<h3>Schedule of Events</h3>
+<h3>Schedule of Onsite Events</h3>
             
             <div align="center">
             <table border="0" cellpadding="5" cellspacing="0">
                 <tr>
-                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Wednesday, December 3</strong></td>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Wednesday, April 14</strong></td>
                 </tr>
                 
                 <tr>
                     <td class="bodyText" bgcolor="#EEEEEE">6:00pm - 8:00pm</td>
-                    <td class="bodyText" bgcolor="#EEEEEE">Welcome Reception *</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Welcome Reception</td>
                 </tr>
 
                 <tr>
@@ -61,7 +61,7 @@
                 </tr>
                 
                 <tr>
-                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Thursday, December 4</strong></td>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Thursday, April 15</strong></td>
                 </tr>
                 
                 <tr>
@@ -71,69 +71,56 @@
                 
                 <tr>
                     <td class="bodyText">11:45am - 1:00pm</td>
-                    <td class="bodyText">Lunch *</td>
+                    <td class="bodyText">Lunch</td>
                 </tr>
                 
                 <tr>
                     <td class="bodyText" bgcolor="#EEEEEE">1:00pm - 2:45pm</td>
                     <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 2</td>
                 </tr>
+                
+                
                 <tr>
-                    <td class="bodyText">2:45pm - 3:45pm</td>
-                    <td class="bodyText">Revelation Presentation</td>
+                    <td class="bodyText">4:00pm - 5:45pm</td>
+                    <td class="bodyText">Semifinal Room 3</td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE">4:00pm - 5:45pm</td>
-                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 3</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">5:45pm - 6:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">TopCoder Software Presentation</td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">5:45pm - 6:45pm</td>
-                    <td class="bodyText">TopCoder Software Presentation</td>
+                    <td class="bodyText">7:00pm - 8:45pm</td>
+                    <td class="bodyText">Wildcard Round</td>
                 </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE">7:00pm - 8:45pm</td>
-                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 4</td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText">8:30pm - 10:00pm</td>
-                    <td class="bodyText">NVIDIA Gathering *</td>
-                </tr>
-
+    
                 <tr>
                     <td colspan="2" class="bodyText">&nbsp;</td>
                 </tr>
                 
                 <tr>
-                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Friday, December 5</strong></td>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Friday, April 16</strong></td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#CCFF66"><strong>8:00am - 12:00pm</strong></td>
-                    <td class="bodyText" bgcolor="#CCFF66"><strong>Component Competiton Finals</strong></td>
+                    <td class="bodyText" bgcolor="#006666"><strong><font color="#FFFFFF">8:00am - 12:00pm</font></strong></td>
+                    <td class="bodyText" bgcolor="#006666"><strong><font color="#FFFFFF">Component Competiton Finals</font></strong></td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">12:00pm - 1:00pm</td>
-                    <td class="bodyText">Lunch *</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">12:00pm - 1:00pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Lunch </td>
                 </tr>
                 
                 <tr>
-                    <td class="bodyText" bgcolor="#EEEEEE">12:00pm - 3:30pm</td>
-                    <td class="bodyText" bgcolor="#EEEEEE">Review of Component Competition</td>
-                </tr>
+                    <td class="bodyText">12:00pm - 3:30pm</td>
+                    <td class="bodyText">Review of Component Competition</td>
+                </tr>      
                 
                 <tr>
-                    <td class="bodyText">1:00pm - 2:30pm</td>
-                    <td class="bodyText">Intel&#174; Technical Presentation</td>
-                </tr>
-                
-                <tr>
-                    <td class="bodyText" bgcolor="#CCFF66"><strong>3:00pm - 4:45pm</strong></td>
-                    <td class="bodyText" bgcolor="#CCFF66"><strong>Coding Tournament Finals</strong></td>
+                    <td class="bodyText" bgcolor="#006666"><strong><font color="#FFFFFF">3:00pm - 4:45pm</font></strong></td>
+                    <td class="bodyText" bgcolor="#006666"><strong><font color="#FFFFFF">Coding Tournament Finals</font></strong></td>
                 </tr>
                 
                 <tr>
@@ -143,12 +130,12 @@
                 
                 <tr>
                     <td class="bodyText" bgcolor="#EEEEEE">6:00pm - 7:00pm</td>
-                    <td class="bodyText" bgcolor="#EEEEEE">Cocktail Hour *</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Cocktail Hour </td>
                 </tr>
                 
                 <tr>
                     <td class="bodyText">7:00pm - 9:00pm</td>
-                    <td class="bodyText">Dinner and Awards Presentation *</td>
+                    <td class="bodyText">Dinner and Awards Presentation </td>
                 </tr>
 
                 <tr>
@@ -159,9 +146,7 @@
                     <td colspan="2" class="bodyText">&nbsp;</td>
                 </tr>
                 
-                <tr>
-                    <td colspan="2" class="smallText">* Open to competitors, their guests, and sponsors only.</td>
-                </tr>
+                
                 
             </table>
             </div>
