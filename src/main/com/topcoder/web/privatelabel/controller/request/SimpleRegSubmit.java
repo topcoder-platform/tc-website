@@ -59,6 +59,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
             Transaction.commit(tx);
         } catch (Exception e) {
             try {
+                log.debug("caught exception, attempt to roll back");
                 if (tx != null) {
                     Transaction.rollback(tx);
                 }
@@ -67,6 +68,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 ex.printStackTrace();
             }
             try {
+                log.debug("attempt to remove the security_user " + newUser + " " + newUser==null?"":newUser.getId());
                 //since we don't have a transaction spanning the security
                 //stuff, attempt to remove this newly created user manually
                 if (newUser != null && newUser.getId() > 0) {
