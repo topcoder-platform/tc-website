@@ -1283,6 +1283,7 @@ log (Level.INFO, "StartDate [" + i+"]=" +startDate);
 
             startDates[i] = dateFormatter.format(phase.getStartDate());
             endDates[i] = dateFormatter.format(phase.calcEndDate());
+            startDate = phase.calcEndDate();
             i++;
         }
 
