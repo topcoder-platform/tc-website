@@ -47,7 +47,7 @@
                     <td class="bodyText" width="99%">
                         <img src="/i/clear.gif" width="1" height="7" alt="" border="0"><br>
 
-                        <h2 class="corpHead">Managment Tool</h2>
+                        <h2 class="corpHead">Management Tool</h2>
                         
                         <h3><strong>Session Administration</strong></h3>
                         
@@ -85,6 +85,7 @@
 <!-- Right Column begins -->
                     <jsp:include page="../includes/right.jsp">
                         <jsp:param name="level1" value="testing"/>
+                        <jsp:param name="level2" value="management"/> 
                     </jsp:include>
 <!-- Right Column ends -->
 
