@@ -3,7 +3,7 @@ package com.topcoder.web.privatelabel.model;
 import java.util.List;
 import java.util.ArrayList;
 
-public class DemographicQuestion {
+public class DemographicQuestion extends Base {
     public static final int MULTIPLE_SELECT = 1;
     public static final int SINGLE_SELECT = 2;
     public static final int FREE_FORM = 3;
