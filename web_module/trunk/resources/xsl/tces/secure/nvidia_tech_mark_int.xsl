@@ -62,17 +62,24 @@
 
 
 
-<P><B>WEB SOFTWARE ENGINEER</B><br/><br/>
-Role/Responsibilities:
-<br/><br/>
-Develop business applications to automate key internal business processes at NVIDIA.  This involves building web-based user interfaces, designing database schemas, coding business rules and workflow logic, and creating dynamically driven reports. Typical projects combine workflow automation, complex user interfaces, database design, and reporting.
-<br/><br/>
-Minimum GPA: GPA 3.5
-<br/><br/>
-Candidates should have solid programming background with an emphasis on current web technologies.  Required Skills: Visual Basic.Net, ASP.Net, JavaScript, DHTML, XML, Microsoft SQL database design and T-SQL programming.</P>
+<P><B>TECHNICAL MARKETING ENGINEER INTERN</B></P>
+<p>Evaluating our latest GPU characteristics:</p>
+<ul>
+<li>Power consumption</li>
+<li>Power reduction features</li>
+<li>Display interfaces</li>
+<li>Video BIOS</li>
+<li>Drivers</li>
+</ul>
+
+<p>Interfacing with design engineering, failure analysis, marketing and sales organizations.  Verification of schematics and PCB layout.  Ensuring that LCD supplier displays are validated with NVIDIA GPUÕs.  Interfacing with NVIDIA partners during the design process.  Ensuring that the documentation (datasheets, design guides, and application notes) is accurate and up to date.</p>
+
+<p>Minimum GPA: 3.5</p>
+
+<p>BSEE or Senior standing at an accredited Electrical Engineering program.  Knowledge of PC platform, AGP and PCI interface, LCD displays, display interfaces, LVDS, TMDS, spread-spectrum are plus.  Must have excellent communication skills, be a strong leader, and must be comfortable driving the process to meet deadlines.</p>
 
 
-<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=202&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
+<P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=203&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_jobs&amp;a=secure" CLASS="bodyText">More Positions at NVIDIA</A></P>   
 
 <!--end contextual links-->
           
