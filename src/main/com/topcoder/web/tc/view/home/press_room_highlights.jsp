@@ -6,6 +6,8 @@
             </table>
 
             <table width="530" border="0" cellspacing="0" cellpadding="4">   
+            	<tr><td class="prHead"><A href="/?&t=news_events&c=pr_09_02_04">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</A> [September 2]</td></tr>  
+            
             	<tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_18_04">Intel Corporation Sponsors 2004 TopCoder Open Tournament</A> [August 18]</td></tr>  
             
                 <tr><td class="prHead"><A href="/?&t=news_events&c=art_08_10_04">Better than You: King of code</A> [August 10 - Red Herring]</td></tr>  
@@ -13,8 +15,6 @@
                 <tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_10_04">TopCoder Software Wins New Customer Contracts</A> [August 10]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&t=news_events&c=pr_08_04_04">NVIDIA Named Premier Level Sponsor of 2004 TopCoder Open Tournament</A> [August 4]</td></tr>  
-
-                <tr><td class="prHead"><A href="/?&t=news_events&c=pr_07_28_04">TopCoder Announces Microsoft as Title Sponsor for 2004 TopCoder Open Tournament</A> [July 28]</td></tr>  
 
                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="10" border="0" /></td></tr> 
           </table>

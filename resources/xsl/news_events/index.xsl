@@ -63,6 +63,20 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
             
+<!-- Yahoo! TCO-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_09_02_04"><img src="/i/pressroom/yahoo_logo.gif" alt="yahoo" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_02_04">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</A></strong></font><br />
+                        "As a sponsor of the TopCoder Collegiate Challenge, Yahoo! had the opportunity to recruit several truly talented individuals. We are excited to continue our relationship with TopCoder and are looking forward to meeting with the top talent competing in the TopCoder Open," said Libby Sartain, Senior Vice President, Human Resources and Chief People Yahoo. <span class="prHead">[September 1]</span></p>
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!--  Intel Sponsor TCO04 -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
@@ -71,20 +85,6 @@
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_08_18_04">Intel Corporation Sponsors 2004 TopCoder Open Tournament</A></strong></font><br />
                           "We are pleased to participate as a sponsor of the 2004 TopCoder Open, which is recognized as one of the pre-eminent events of its kind in the world," said Melissa Laird, general manager, Solutions Enabling Division, Intel Corporation. "We look forward to an exciting tournament and the interaction with an exceptional field of contestants."<span class="prHead"> [August 18]</span></p>
-                    </td>
-                </tr>
-            </table>
-
-            <hr width="100%" size="1" noshade="noshade" />
-
-<!-- Yahoo! TCO-->
-            <table width="100%" border="0" cellpadding="0" cellspacing="0">
-                <tr valign="top">
-                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_09_02_04"><img src="/i/pressroom/yahoo_logo.gif" alt="yahoo" border="0" /></A></td>
-                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
-                    <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_09_02_04">Yahoo! Signs On as Premier Sponsor of 2004 TopCoder Open</A></strong></font><br />
-                        "We are thrilled to be a part of this exciting coding competition for the 3rd consecutive year," said Daniel Rohrer, Manager of DirectX Graphics. "The characteristics that allow TopCoder competitors to be successful closely mirror qualities we look for in our engineers at NVIDIA" <span class="prHead">[August 4]</span></p>
                     </td>
                 </tr>
             </table>
