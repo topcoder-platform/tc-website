@@ -55,7 +55,7 @@
 
          <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <tr>
-             <td class="statText">
+             <td class="statTextBig">
                Problem Name:
              </td>
              <td class="statText">
@@ -65,7 +65,7 @@
              </td>
            </tr>
            <tr>
-             <td class="statText">
+             <td class="statTextBig">
                Used In:
              </td>
              <td class="statText">
@@ -73,7 +73,7 @@
              </td>
            </tr>
            <tr>
-             <td class="statText">
+             <td class="statTextBig">
                Used As:
              </td>
              <td class="statText">
@@ -85,9 +85,9 @@
          <table BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
 
            <tr>
-             <td></td>
+             <td BACKGROUND="/i/steel_bluebv_bg.gif" ></td>
              <rsc:iterator list="<%=divisionInfo%>" id="resultRow">
-               <td class="statText"><rsc:item name="division" row="<%=resultRow%>"/></TD>
+               <td BACKGROUND="/i/steel_bluebv_bg.gif" class="statTextBig"><rsc:item name="division" row="<%=resultRow%>"/></TD>
              </rsc:iterator>
            </tr>
            <tr>
