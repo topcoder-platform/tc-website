@@ -45,19 +45,18 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">statisticsw</xsl:with-param>
-  <xsl:with-param name="title">&#160;Championship:&#160;Summary&#160;&amp;&#160;Photos</xsl:with-param>
+  <xsl:with-param name="title">&#160;The&#160;2002&#160;Sun/TopCoder&#160;Collegiate&#160;Challenge</xsl:with-param>
 </xsl:call-template>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
   <TR>
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
-<SPAN>  
+<DIV ALIGN="center"><IMG SRC="/i/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" BORDER="0"/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%" ALIGN="right">
  	<TR>
-        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center"><IMG SRC="/i/02tccc_logow_sm.gif" ALT="" WIDTH="96" HEIGHT="74" ALIGN="left" HSPACE="5" VSPACE="15" BORDER="0"/></TD> 	
-        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+        <!-- <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center"><IMG SRC="/i/02tccc_logow_sm.gif" ALT="" WIDTH="96" HEIGHT="74" ALIGN="left" HSPACE="5" VSPACE="15" BORDER="0"/></TD> 	
+        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
         <TD COLSPAN="3" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
 	<TR><TD COLSPAN="3" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
@@ -65,30 +64,27 @@
 		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="70%" BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">TOURNAMENT LINKS:</TD> 
 		
-		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Bracket&#160;Update</A>&#160;&#160;</TD>
+		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Brackets</A>&#160;&#160;</TD>
 	</TR>                    
 	<TR>
     	<TD COLSPAN="3" VALIGN="top" BGCOLOR="#999999" WIDTH="100%" NOWRAP="0">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>					
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A><BR/>			
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A><BR/>
-			</TD>
-			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0"><BR/>
-			- <A HREF="#" CLASS="bodyText">link</A><BR/>
-			- <A HREF="#" CLASS="bodyText">link</A><BR/>
+			 &#160;<A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A> | 
+			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A> | 			
+			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A> | 
+			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A> | 
+			 <A HREF="/reg/index.jsp" CLASS="bodyText">Register Today!</A> | 
+			 <A HREF="/index" CLASS="bodyText">TopCoder Home</A>
 			</TD>									
         </TR>
-		<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
+		<TR><TD VALIGN="top" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 		</TABLE>
 		</TD>
-	</TR>
- 	<TR><TD COLSPAN="3" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
-</TABLE></SPAN> 
-<BR CLEAR="all"/>         
+	</TR>                
+</TABLE></DIV> 
+<BR CLEAR="all"/>       
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
             <!-- <TR>
               <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
@@ -97,7 +93,7 @@
               <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Summary</TD>
             </TR>
             <TR>
-              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                                             
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">

@@ -45,19 +45,18 @@
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
   <xsl:with-param name="image">statisticsw</xsl:with-param>
-  <xsl:with-param name="title">&#160;Championship:&#160;Problems&#160;&amp;&#160;Chrono&#160;Logs</xsl:with-param>
+  <xsl:with-param name="title">&#160;The&#160;2002&#160;Sun/TopCoder&#160;Collegiate&#160;Challenge</xsl:with-param>
 </xsl:call-template>
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
   <TR>
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="statTextBig" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
-<SPAN>  
+<DIV ALIGN="center"><IMG SRC="/i/sun_banner_white.gif" ALT="" WIDTH="428" HEIGHT="84" BORDER="0"/>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="100%" ALIGN="right">
  	<TR>
-        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center"><IMG SRC="/i/02tccc_logow_sm.gif" ALT="" WIDTH="96" HEIGHT="74" ALIGN="left" HSPACE="5" VSPACE="15" BORDER="0"/></TD> 	
-        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+        <!-- <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText" ALIGN="center"><IMG SRC="/i/02tccc_logow_sm.gif" ALT="" WIDTH="96" HEIGHT="74" ALIGN="left" HSPACE="5" VSPACE="15" BORDER="0"/></TD> 	
+        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD> -->
         <TD COLSPAN="3" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" HEIGHT="5" BORDER="0"/></TD>
     </TR> 
 	<TR><TD COLSPAN="3" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
@@ -65,59 +64,69 @@
 		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 		<TD WIDTH="70%" BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">TOURNAMENT LINKS:</TD> 
 		
-		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Bracket&#160;Update</A>&#160;&#160;</TD>
+		<TD WIDTH="30%" BGCOLOR="#FFFFFF" VALIGN="middle" ALIGN="right" CLASS="moduleTitle"><A HREF="/index?t=statistics&amp;c=2002tccc_breakdown" CLASS="bodyText">-&#160;Brackets</A>&#160;&#160;</TD>
 	</TR>                    
 	<TR>
     	<TD COLSPAN="3" VALIGN="top" BGCOLOR="#999999" WIDTH="100%" NOWRAP="0">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>					
 			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0">&#160;&#160;<B>Championship:</B><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A><BR/>			
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A><BR/>
-			- <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A><BR/>
-			</TD>
-			<TD VALIGN="top" CLASS="bodyText" NOWRAP="0"><BR/>
-			- <A HREF="#" CLASS="bodyText">link</A><BR/>
-			- <A HREF="#" CLASS="bodyText">link</A><BR/>
+			 &#160;<A HREF="/index?t=statistics&amp;c=2002tccc_chmp" CLASS="bodyText">Summary</A> | 
+			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob" CLASS="bodyText">Problems</A> | 			
+			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmpprob#log" CLASS="bodyText">Chrono Log</A> | 
+			 <A HREF="/index?t=statistics&amp;c=2002tccc_chmp#photo" CLASS="bodyText">Photos</A> | 
+			 <A HREF="/reg/index.jsp" CLASS="bodyText">Register Today!</A> | 
+			 <A HREF="/index" CLASS="bodyText">TopCoder Home</A>
 			</TD>									
         </TR>
-		<TR><TD VALIGN="top" COLSPAN="3" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
+		<TR><TD VALIGN="top" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 		</TABLE>
 		</TD>
-	</TR>
- 	<TR><TD COLSPAN="3" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
-</TABLE></SPAN> 
-<BR CLEAR="all"/>         
-          
+	</TR>              
+</TABLE></DIV> 
+<BR CLEAR="all"/>           
           <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">         
             <TR>
-              <TD VALIGN="top" COLSPAN="2" CLASS="bodyText"><IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" ALIGN="left" HSPACE="5" BORDER="0"/>Problems Statements are available for download.</TD>
+              <TD VALIGN="top" COLSPAN="2" CLASS="bodyText"><IMG SRC="/i/pdf_iconw.gif" ALT="" WIDTH="31" HEIGHT="31" ALIGN="left" HSPACE="5" VSPACE="3" BORDER="0"/>Problems statements and solutions are available for download.</TD>
             </TR>
             <TR>
-              <TD VALIGN="middle" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
+              <TD VALIGN="middle" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                         
             <TR>
-              <TD VALIGN="middle" HEIGHT="18" WIDTH="50%" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Problems</TD>
-              <TD VALIGN="middle" HEIGHT="18" WIDTH="50%" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">Solutions</TD>              
+              <TD VALIGN="middle" HEIGHT="18" WIDTH="50%" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;&#160;Championship Problems (.pdf)</TD>
+              <TD VALIGN="middle" HEIGHT="18" WIDTH="50%" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">Solutions (.pdf)</TD>              
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="3" BORDER="0"/></TD>
             </TR>                                                                                         
             <TR>
               <TD VALIGN="top" CLASS="bodyText">             
-Level 1 (250) - <A HREF="/i/2002tccc/MuseumGuard_250.pdf" CLASS="bodyText">MuseumGuard</A> (.pdf)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rm=68&amp;rd=68&amp;pm=690&amp;cr=114853" CLASS="bodyText">Solution</A></TD>
+Level One (250) - <A HREF="/i/2002tccc/MuseumGuard_250.pdf" CLASS="bodyText">MuseumGuard</A> by jay_peg</TD>
+              <TD VALIGN="top" CLASS="bodyText">
+              <A HREF="/i/2002tccc/dmwright_level1.pdf" CLASS="bodyText">dmwright</A> | 
+              <A HREF="/i/2002tccc/derkuci_level1.pdf" CLASS="bodyText">derkuci</A> | 
+              <A HREF="/i/2002tccc/malpt_level1.pdf" CLASS="bodyText">malpt</A> | 
+              <A HREF="/i/2002tccc/Joe_level1.pdf" CLASS="bodyText">Joe</A>
+              </TD>
             </TR>                                             
             <TR>              
               <TD VALIGN="top" CLASS="bodyText">
-Level 2 (500) - <A HREF="/i/2002tccc/NumList_500.pdf" CLASS="bodyText">NumList</A> (.pdf)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rd=68&amp;rm=68&amp;cr=114853&amp;pm=565" CLASS="bodyText">Solution</A></TD>
+Level Two (500) - <A HREF="/i/2002tccc/NumList_500.pdf" CLASS="bodyText">NumList</A> by alexcchan</TD>
+              <TD VALIGN="top" CLASS="bodyText">
+              <A HREF="/i/2002tccc/dmwright_level2.pdf" CLASS="bodyText">dmwright</A> | 
+              <A HREF="/i/2002tccc/derkuci_level2.pdf" CLASS="bodyText">derkuci</A> | 
+              <A HREF="/i/2002tccc/malpt_level2.pdf" CLASS="bodyText">malpt</A> | 
+              <A HREF="/i/2002tccc/Joe_level2.pdf" CLASS="bodyText">Joe</A>
+              </TD>
             </TR>                                             
             <TR>              
               <TD VALIGN="top" CLASS="bodyText">              
-Level 3 (1000) - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">PlanetX</A> (.pdf)</TD>
-              <TD VALIGN="top" CLASS="bodyText"><A HREF="/stat?c=problem_solution&amp;rd=68&amp;rm=68&amp;cr=114853&amp;pm=663" CLASS="bodyText">Solution</A></TD>
+Level Three (1000) - <A HREF="/i/2002tccc/PlanetX_1000.pdf" CLASS="bodyText">PlanetX</A> by NDBronson</TD>
+              <TD VALIGN="top" CLASS="bodyText">
+              <A HREF="/i/2002tccc/dmwright_level3.pdf" CLASS="bodyText">dmwright</A> | 
+              <A HREF="/i/2002tccc/derkuci_level3.pdf" CLASS="bodyText">derkuci</A> | 
+              <A HREF="/i/2002tccc/malpt_level3.pdf" CLASS="bodyText">malpt</A> 
+              </TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="2"><A NAME="log"></A><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
