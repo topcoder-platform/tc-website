@@ -24,11 +24,15 @@
 	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=databases" class=vbcLINK>Databases 5</A></td><% } %>
 	</tr>
 	<tr>
-	<% if (phase.equals("confirm")) {%><td class=vbcON>Confirm 6</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=confirm" class=vbcLINK>Confirmation 6</A></td><% } %>
+	<% if (phase.equals("databases")) {%><td class=vbcON>Industries 6</td>
+	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=industries" class=vbcLINK>Industries 6</A></td><% } %>
 	</tr>
 	<tr>
-	<% if (phase.equals("success")) {%><td class=vbcON>Done 7</td>
+	<% if (phase.equals("confirm")) {%><td class=vbcON>Confirm 7</td>
+	<% } else { %><td class=vbcOFF><A href="/tc?module=Static&d1=contracting&d2=reg&d3=confirm" class=vbcLINK>Confirmation 7</A></td><% } %>
+	</tr>
+	<tr>
+	<% if (phase.equals("success")) {%><td class=vbcON>Done 8</td>
 	<% } else { %><td class=vbcOFF>Done 7</td><% } %>
 	</tr>
 
