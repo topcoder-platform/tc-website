@@ -10,180 +10,157 @@
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
-    <HTML>
-      <HEAD>
-        <xsl:call-template name="Preload"/>      
-        <TITLE>TopCoder :: Schedule</TITLE>
-        <xsl:call-template name="CSS"/>      
-        <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
-        <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
-        <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-        <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
-      </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-        <xsl:call-template name="Top"/>
-<!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-  <TR>
-    <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->  
-    <!-- Global Seconday Nav Begins -->  
-        <xsl:call-template name="global_left"/>
-  <!-- Global Seconday Nav Ends -->      
-<!-- Left Column Include Ends -->          
-      </TD>
-  <!-- Left Column Ends -->
-	<!-- Gutter Begins -->
-		<TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
 
-<!-- Body Area -->
-  <!-- Center Column Begins -->
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
-<xsl:call-template name="BodyTop">
-  <xsl:with-param name="image1">white</xsl:with-param>
-  <xsl:with-param name="image">schedule</xsl:with-param>
-  <xsl:with-param name="title">&#160;Match Sponsorship</xsl:with-param>
-</xsl:call-template>			
-			<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-        <TR>
-          <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-          <TD CLASS="bodyText" COLSPAN="2" ALIGN="left" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%">
-            <TABLE BORDER="0" CELLPADDING="4" CELLSPACING="0" ALIGN="left" BGCOLOR="#FFFFFF">                               
-                <TR>
-                  <TD VALIGN="TOP" ALIGN="LEFT" BGCOLOR="#FFFFFF">
-                    <IMG ALT="" HEIGHT="1" WIDTH="200" SRC="/i/clear.gif" BORDER="0"/>
-                  </TD>
-                  <TD colspan="3"/>
-                </TR>
-                <TR>
-                  <TD VALIGN="TOP" ALIGN="LEFT" BGCOLOR="#FFFFFF" CLASS="bodyText">
-                <xsl:attribute name="ROWSPAN"><xsl:value-of select="2*count(/TC/SCHEDULE/Contests/Contest[not(ContestId='1000' or ContestId='50')])+5"/></xsl:attribute>
+<html>
+
+<head>
+
+<xsl:call-template name="Preload"/>      
+
+<title>Intel is a proud sponsor of TopCoder Coding Competitions</title>
+
+<xsl:call-template name="CSS"/>      
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
+</head>
+
+<body>
+
+<!-- Header begins -->
+<xsl:call-template name="Top"/>
+<!-- Header ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+<!-- Left Column Begins -->
+        <td width="180">
+            <xsl:call-template name="global_left"/>
+        </td>
+<!-- Left Column Ends -->
+
+<!-- Center Column Begins -->	
+        <td class="promoText" width="99%">
+            <table border="0" cellspacing="10" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td align="left" width="100%">
+                        <table border="0" cellpadding="0" cellspacing="0">
+                            <tr>
+                                <td><embed src="/i/sponsor/intel_ids/ids_movie.swf" quality="high" wmode="opaque" bgcolor="#8D9AC1" width="289" height="130" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></td>
+                                <td valign="top" rowspan="2"><img src="/i/sponsor/intel_ids/intel_dev_services_2.gif" alt="Intel Developer Services--Maximize You Code" width="275" height="55" /></td>
+                            </tr>
+                            <tr>
+                                <td valign="bottom"><img src="/i/sponsor/intel_ids/yellow.gif" width="289" height="12" /></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+                            
+                <tr valign="top">
+                    <td align="left" width="100%" class="bodyText">
+
+                        <p class="promoText"> Technology complexity is increasing at a blistering pace. In both the business and consumer markets, products that were once considered nice-to-haves 
+                        are rapidly becoming expectations, challenging software developers to create and optimize solutions that fulfill their customers' growing demands.</p>
+                        
+                        <p class="promoText"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel&#174; Developer Services </strong></A>offers the resources and 
+                        opportunities you need to keep stride with industry innovations, take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
+                        
+                        <p class="promoText">With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
+                        <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel Developer Services</strong></A> gives you <strong>FREE</strong> access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p>
+                        
+                        
+                        <p class="promoCallout">Register at <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">www.intel.com/IDS</A> today and get FREE 
+                        technical resources designed to help you capitalize on today's technology trends&#58;</p>
+                        
+           
+                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
+                            <tr valign="top">
+                        <td align="center" width="100%"><img src="/i/sponsor/intel_ids/intel_centrino.gif" alt="Intel Developer Services--Maximize You Code" width="493" height="174" /></td>
+                            </tr>
+                        </table>
+                        
             
-                <IMG SRC="/i/artifact/logo_artifact.gif" WIDTH="342" HEIGHT="77" ALT="" BORDER="0" VSPACE="10"/>
-                <P><B>Need quick answers to your Programming Questions?</B></P>
-                <P><B>Tired of wasting time looking for code?</B></P>
-                
-                <P>If so, the Artifact Desktop can help. It's a free application that provides access to the global Artifact Developer Network. This network contains thousands of code snippets and thousands of experienced developers.
-                The Artifact Desktop helps you to quickly locate code you need from our network's repository. You can search for code snippets by language, platform, category and more.</P>
-                
-                <P>For immediate answers to your programming questions, use the Artifact Desktop's instant messaging and chat functionality to tap the expertise of other developers in the Artifact Network.</P>
-                
-                <P><B>Get the Artifact Desktop now, and build better software - faster</B></P>
-                
-                <P><B>Visit Artifact's site <A HREF="http://www.hypertracker.com/go/artifactsoftware/tc2/" CLASS="bodyText" target="_blank">Click here.</A></B></P>
-                
-                    <P><BR/></P>
-                  </TD>
-                 <!-- <TD COLSPAN="3" BGCOLOR="#FFFFFF"><IMG ALT="" HEIGHT="1" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                </TR>
-                <TR>
-                  <TD colspan="3" CLASS="moduleTitle" BACKGROUND="/i/steel_gray_bg.gif"><IMG ALT="" HEIGHT="1" WIDTH="170" SRC="/i/clear.gif" BORDER="0"/><BR/>
-                    <B>Active Single Round Matches</B>
-                    <BR/><DIV CLASS="smallFoot">Note: Eastern Time unless otherwise specified</DIV>
-                  </TD>
-                  <TD ><IMG ALT="" HEIGHT="1" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                </TR>
-                <TR>
-                  <TD BACKGROUND="/i/next_srm_bg.gif" VALIGN="top"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/mystats_icon.gif" BORDER="0"/></TD>
-                  <TD BACKGROUND="/i/next_srm_bg.gif" CLASS="smallText" VALIGN="top">
-                    <A HREF="/?t=schedule&amp;c=practice_room" CLASS="statText"><B>Practice Room 1</B>
-                      <BR/>
-                    </A>
-                  </TD>
-                  <TD BACKGROUND="/i/next_srm_bg.gif"><IMG ALT="" HEIGHT="1" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                  <TD BGCOLOR="#FFFFFF"><IMG ALT="" HEIGHT="1" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                </TR>
-                <TR>
-                  <TD BACKGROUND="/i/next_srm_bg.gif" COLSPAN="3"><IMG ALT="" HEIGHT="2" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                  <TD BGCOLOR="#FFFFFF"><IMG ALT="" HEIGHT="1" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>-->
-                </TR>
-                <xsl:for-each select="/TC/SCHEDULE/Contests/Contest[not(ContestId='1000' or ContestId='50')]">
-                  <xsl:variable name="start_hr">
-                    <xsl:value-of select="number(substring(ContestStartTimestamp,12,2))"/>
-                  </xsl:variable>
-                  <xsl:variable name="start_min">
-                    <xsl:value-of select="substring(ContestStartTimestamp,15,2)"/>
-                  </xsl:variable>
-                  <xsl:variable name="am_pm">
-                    <xsl:value-of select="substring(ContestStartTimestamp,21,2)"/>
-                  </xsl:variable>
-                  <TR>
-                    <TD BACKGROUND="/i/next_srm_bg.gif" VALIGN="top"><IMG ALT="" WIDTH="10" HEIGHT="10" SRC="/i/mystats_icon.gif" BORDER="0"/></TD>
-                    <TD BACKGROUND="/i/next_srm_bg.gif" CLASS="statText" VALIGN="top">
-                      <A HREF="" CLASS="statText">
-                         <xsl:attribute name="HREF">/?RoundId=<xsl:value-of select="ContestId"/>&amp;t=schedule&amp;c=srm</xsl:attribute>
-                         <b>
-                           <xsl:value-of select="substring(ContestStartTimestamp,0,11)"/><br/>
-                           <xsl:value-of select="ContestName"/>
-                         </b>
-                         <br/>
-                         Registration Begins:  <xsl:value-of select="substring(ContestStartTimestamp,0,6)"/>
-                         <font size="1">&#160;</font>
-                         <xsl:value-of select="$start_hr"/>:<xsl:value-of select="$start_min"/>&#160;<xsl:value-of select="$am_pm"/>
-                         <br/>
-                         Competition:  <xsl:value-of select="substring(ContestStartTimestamp,0,6)"/>&#160;
-                         <xsl:choose>
-                           <xsl:when test="ContestId='4031'">2:00 PM<br/></xsl:when>
-                           <xsl:otherwise>
-                             <xsl:value-of select="number($start_hr)+2"/>:<xsl:value-of select="format-number(number($start_min)-30,'00')"/>&#160;<xsl:value-of select="$am_pm"/><br/>
-                           </xsl:otherwise>
-                         </xsl:choose>
-                      </A>
-                    </TD>
-                    <TD BACKGROUND="/i/next_srm_bg.gif"><IMG ALT="" HEIGHT="1" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                  </TR>
-                  <TR>
-                    <TD BACKGROUND="/i/next_srm_bg.gif" COLSPAN="3"><IMG ALT="" HEIGHT="2" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                  </TR>
-                </xsl:for-each>
-                <TR>
-                  <TD COLSPAN="3" BGCOLOR="#FFFFFF"><IMG ALT="" HEIGHT="5" WIDTH="5" SRC="/i/clear.gif" BORDER="0"/></TD>
-                </TR>                                                
-              </TABLE>
-					</TD>
-					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-				<TR>
-					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
-				<TR>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
-				<TR>
-					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>
-			</TABLE>
-		</TD>
-	<!-- Center Column Ends -->
-<!-- Body Area Ends -->
+                       <table border="0" cellpadding="4" cellspacing="0">
+                            <tr valign="top">
+                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                                <td valign="top" width="99%" class="bodyText"><strong>Technical Training.</strong>
+                                Offered in classrooms as well as via online tutorials and webcasts, our training can help you get up to speed on the latest information to develop and enhance your solutions.<br />
+                                   <li>"Building Mobile Apps for Intermittant Connections"</li>
+                                    <li>"Thread Programming and Hyper-Threading Technology"</li>
+                                    <li>"3D Animation for Engineers"</li>
+                                    <li>"Steal Our Secrets &#151; Make Your .NET* App Run Faster"</li><br />
+                                </td>
+                            </tr>
 
-  <!-- Gutter -->
-    <TD WIDTH="4" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-  <!-- Right Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins --> 
-        <xsl:call-template name="public_right_col"/>       
-<!-- Right Column Include Ends -->        
-        </TD>
-  <!-- Right Column Ends -->
-  <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-  </TR>
-</TABLE>
-<!-- Body Ends -->
-        <xsl:call-template name="Foot"/>
-      </BODY>
-    </HTML>
+                            <tr valign="top">
+                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                                <td valign="top" width="99%" class="bodyText"><strong>Focused Content.</strong>
+                                Keep informed with articles and conversation on today's hottest software technologies and topics<br />
+                                    <li>Code Central &#151; offering free samples and downloads</li>
+                                    <li>Columns and Case Studies</li>
+                                    <li>Developer Community Forums</li>
+                                    <li>Developer Solutions Catalog &#151; a dynamic resource in which you can showcase your software products</li><br />
+                                </td>
+                            </tr>
+
+                            <tr valign="top">
+                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                                <td valign="top" width="99%" class="bodyText"><strong>Developer Centers.</strong>
+                                These topic-specific community forums provide technical, e-Business and strategic content and developer discussions tailored to your software needs and interests. Some examples&#58;<br />
+                                    <li>Software Technologies &#151; Mobile Technology, Peer-to-Peer, Java, .NET, Handheld and Wireless App Development</li>
+                                    <li>Intel Processors &#151; Itanium Processor Family, Pentium 4 Processor, Xeon Processor</li>
+                                     <li>Industry Segments &#151; Digital Media, Games</li>
+                                    <li>Operating Systems &#151; Windows&#42;, Linux&#42;</li><br />
+                                </td>
+                            </tr>
+                            
+                            <tr valign="top">
+                                <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
+                                <td valign="top" width="99%" class="bodyText"><strong>Early Access Program.</strong>
+                                Part of a company&#63; If yes, membership to the Early Access Program gives your company early access to the following&#58;<br />
+                                    <li>Intel's next-generation platforms &#151; directly or through Protected Remote Access</li>
+                                    <li>Comprehensive technical support</li>
+                                    <li>Industry Segments &#151; Digital Media, Games</li>
+                                    <li>Extensive marketing and promotional opportunities</li><br />
+                                </td>
+                            </tr>
+                            
+         
+                            
+                        </table>
+                            
+                        
+                        <p class="promoCallout">Give your applications a technology edge. Join <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">Intel Developer Services</A> today.</p>
+                        
+                        <p><br /></p>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+<!-- Center Column Ends -->
+
+<!-- Right Column Begins -->
+        <td width="170" valign="top"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>
+            <xsl:call-template name="public_right_col"/>       
+        </td>
+<!-- Right Column Ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<!-- Footer begins -->
+<xsl:call-template name="Foot"/>
+<!-- Footer ends -->
+
+</body>
+
+</html>
+
   </xsl:template>
 </xsl:stylesheet>
-
