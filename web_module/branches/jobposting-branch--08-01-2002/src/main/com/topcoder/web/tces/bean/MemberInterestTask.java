@@ -112,7 +112,7 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
         setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Member_Hit_List");
-        setMemberHitList( (List)rsc );
+        setHitList( (List)rsc );
         
         setNextPage( TCESConstants.MEMBER_INTEREST_PAGE );
     }
@@ -217,14 +217,14 @@ public class MemberInterestTask extends BaseTask implements Task, Serializable {
      * @return Value of property memberHitList.
      */
     public List getHitList() {
-        return this.memberHitList;
+        return this.hitList;
     }
     
     /** Setter for property memberHitList.
      * @param memberHitList New value of property memberHitList.
      */
-    public void setHitList(List memberHitList) {
-        this.memberHitList = memberHitList;
+    public void setHitList(List hitList) {
+        this.hitList = hitList;
     }
     
 }

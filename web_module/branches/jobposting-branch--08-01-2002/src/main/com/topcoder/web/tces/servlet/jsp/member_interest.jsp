@@ -66,7 +66,7 @@
                 </TR>
 
 
-                <tces:rowIterator id="hit" mapList="<%=(List)MemberInterestTask.getHitList()%>">
+                <tces:rowIterator id="hit" rowList="<%=(List)MemberInterestTask.getHitList()%>">
 
                 <TR>
                   <TD class="statText" HEIGHT="18">&#160;

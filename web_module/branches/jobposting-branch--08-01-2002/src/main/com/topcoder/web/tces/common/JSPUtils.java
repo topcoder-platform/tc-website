@@ -84,7 +84,7 @@ public class JSPUtils {
             case TCResultItem.BIGDECIMAL:
                 return TCESConstants.NUMBER_FORMAT.format(((BigDecimal)result.getResultData()).doubleValue());
             case TCResultItem.DATETIME:
-                return TCESConstants.DATE_FORMAT.format((Date)result.getResultData());
+                return TCESConstants.DATE_FORMAT.format((java.sql.Timestamp)result.getResultData());
             default:
                 return result.toString();
         }
