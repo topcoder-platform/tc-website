@@ -433,7 +433,8 @@
                 <include name="com/topcoder/apps/review/autopilottimer/**/*"/>
                 <include name="com/topcoder/apps/review/security/**/*"/>
                 <include name="com/topcoder/apps/review/*"/>
-		<include name="com/topcoder/dde/util/ApplicationServer.class"/>
+        		<include name="com/topcoder/dde/util/ApplicationServer.class"/>
+                <include name="com/topcoder/dde/util/Cookies.class"/>
             </classes>
 
 
@@ -476,7 +477,7 @@
             <metainf dir="${javasrc}/main/com/topcoder/apps/review/cacherefresher" includes="*.xml"/>
         </jar>
     </target>
-    
+
     <target name="auto_pilot_timer" depends="compile">
         <jar jarfile="${builddir}/auto_pilot_timer.sar" basedir="${build_classdir}" includes="com/topcoder/apps/review/autopilottimer/**,
                         com/topcoder/apps/review/document/**,

@@ -14,6 +14,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.MessageDigest;
 
 /**
+ * This class is shameful cuz it totally screws up the dependency structure between
+ * online reivew, dde and the new software site.
  * @author  dok
  * @version  $Revision$ $Date$
  * Create Date: Feb 4, 2005
