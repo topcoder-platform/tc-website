@@ -40,7 +40,7 @@
 <!--CRPF Header-->
                <table align="center">
                   <tr>
-                     <td><A href="/tc/?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></A></td>
+                     <td><A href="/tc?&module=Static&d1=crpf&d2=index"><img src="/i/tournament/crpf03/crpf_banner.gif" width="505" height="152" border="0"  vspace="15"/></A></td>
                   </tr>
                </table>
                
@@ -84,7 +84,7 @@
                <li>If a top four point scorer is also a top four fundraiser, then TopCoder will choose an additional wildcard from the random drawing.</li>
                </ul>
 
-               <p>The grand prize is an expenses paid trip to New York City on Monday, November 24th to attend <a href="/tc/?module=Static&d1=crpf&d2=crpf_overview"><i>A Magical Evening</i></a>, 
+               <p>The grand prize is an expenses paid trip to New York City on Monday, November 24th to attend <a href="/tc?module=Static&d1=crpf&d2=crpf_overview"><i>A Magical Evening</i></a>,
                the annual star-studded gala ball benefiting CRPF. <i>A Magical Evening</i> will be held at the Marriott Marquis at 5:00pm. If a grand-prize winner is 
                unable to attend <i>A Magical Evening</i>, he/she will forfeit his/her eligibility to receive a prize, and his/her prize will be given to the next eligible 
                member (i.e. next highest scorer if a high-scorer can not attend, the next highest fund-raiser if a top fund-raiser can not attend, etc.). </p>

@@ -11,11 +11,11 @@
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr>                
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-                    <td class="<%=tab.equals("overview")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc/?&module=Static&d1=crpf&d2=crpf_rules_overview" class="topLink">Overview</a></td>
-                    <td class="<%=tab.equals("eligibility")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc/?&module=Static&d1=crpf&d2=crpf_rules_eligibility" class="topLink">Eligibility</a></td>
-                    <td class="<%=tab.equals("conditions")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc/?&module=Static&d1=crpf&d2=crpf_rules_conditions" class="topLink">Conditions of Participation</a></td>
-                    <td class="<%=tab.equals("structure")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc/?&module=Static&d1=crpf&d2=crpf_rules_structure" class="topLink">Structure</a></td>
-                    <td class="<%=tab.equals("prizes")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc/?&module=Static&d1=crpf&d2=crpf_rules_prizes" class="topLink">Prizes</a></td>
+                    <td class="<%=tab.equals("overview")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=Static&d1=crpf&d2=crpf_rules_overview" class="topLink">Overview</a></td>
+                    <td class="<%=tab.equals("eligibility")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=Static&d1=crpf&d2=crpf_rules_eligibility" class="topLink">Eligibility</a></td>
+                    <td class="<%=tab.equals("conditions")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=Static&d1=crpf&d2=crpf_rules_conditions" class="topLink">Conditions of Participation</a></td>
+                    <td class="<%=tab.equals("structure")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=Static&d1=crpf&d2=crpf_rules_structure" class="topLink">Structure</a></td>
+                    <td class="<%=tab.equals("prizes")?"tourney_subnav_on":"tourney_subnav"%>" width="1" nowrap="nowrap"><a href="/tc?&module=Static&d1=crpf&d2=crpf_rules_prizes" class="topLink">Prizes</a></td>
                     <td class="tourney_subnav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statTextBig" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>

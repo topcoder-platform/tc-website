@@ -129,7 +129,7 @@
                                     Register: 6:00&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/tc/?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">12</span><br />
                                     <strong>Match 171</strong><br />
@@ -145,7 +145,7 @@
                                     Login by: 8:50&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/tc/?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
                             </tr>
@@ -159,7 +159,7 @@
                                     Login by: 8:50&#160;PM<br />
                                     Compete: 9:00&#160;PM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
-                                    <A href="/tc/?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
+                                    <A href="/tc?module=Static&amp;d1=crpf&amp;d2=crpf_sched">Details</A></td>
                                 <td id="calendar">18</td>
                                 <td id="calendar">19</td>
                                 <td id="calendarSRM">

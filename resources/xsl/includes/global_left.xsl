@@ -442,7 +442,7 @@
                 </tr>
                 <tr>
                     <td id="leftSubnav">
-                        <A class="leftOn" href="/tc/?&amp;module=Static&amp;d1=crpf&amp;d2=index">Charity</A>
+                        <A class="leftOn" href="/tc?&amp;module=Static&amp;d1=crpf&amp;d2=index">Charity</A>
                     </td>
                 </tr>
 <!-- Private Label Events -->
@@ -1016,7 +1016,7 @@
 </xsl:template>
 
 <xsl:template name="reviewboard_row">
-                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left" href="/tc/?module=Static&amp;d1=review_board&amp;d2=competition">Review Boards</A></td></tr>
+                <tr><td id="leftNav" ><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/><A class="left" href="/tc?module=Static&amp;d1=review_board&amp;d2=competition">Review Boards</A></td></tr>
 </xsl:template>
 
 <xsl:template name="press_row">
