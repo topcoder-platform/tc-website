@@ -1,76 +1,104 @@
-<HTML>
-<HEAD>
-	<title>TopCoder | High School</title>
-    <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
-    <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+<html>
+
+<head>
+
+<title>TopCoder | High School</title>
+
+<meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
+<meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
+
 <jsp:include page="../includes/css.jsp" />
-</HEAD>
-<BODY BGCOLOR="#001934" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+
+</head>
+
+<body>
+
+<!-- Top begins -->
 <jsp:include page="../includes/top.jsp" />
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
-<TR><TD>
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
-    <TR VALIGN="top">
-		<TD WIDTH="170" BGCOLOR="#001934">
-        <jsp:include page="../includes/left_nav.jsp" />
-        <jsp:include page="../includes/left_calendar.jsp" />
-        </TD>
-        
-        
-        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
-            <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" WIDTH="100%">
-    <TR>
-        <TD>
-            <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
-             <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG SRC="/i/headinginside_faq.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
-             </TD></TR>
-            </TABLE>
-        </TD>
-    </TR>
-    <TR>
-        <TD>
-        <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-        <TR>
-            <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                </TR>
-                </TABLE>
-            </TD>
-            <TD HEIGHT="100%" CLASS="bodyText">
-            <!--Body starts here-->
-<BR><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD VALIGN="top" HEIGHT="1"><IMG BORDER="0" SRC="/i/clear.gif" WIDTH="2" HEIGHT="1" ALT=""></TD><TD VALIGN="top"><BR><TABLE BACKGROUND="/i/steel_darkblue_bg.gif" CELLPADDING="1" CELLSPACING="0" BORDER="0" WIDTH="104"><TR><TD CLASS="statText" BACKGROUND="/i/steel_blue_bg.gif" HEIGHT="18" VALIGN="middle" ALIGN="left" COLSPAN="4">&nbsp;&nbsp; Rating Key</TD></TR><TR><TD WIDTH="5" ROWSPAN="7"><IMG BORDER="0" HEIGHT="1" WIDTH="5" SRC="/i/clear.gif"></TD><TD WIDTH="100%"><IMG BORDER="0" HEIGHT="1" WIDTH="1" SRC="/i/clear.gif"></TD><TD WIDTH="10" ROWSPAN="7"><IMG BORDER="0" HEIGHT="1" WIDTH="10" SRC="/i/clear.gif"></TD></TR><TR><TD ALIGN="left" CLASS="coderTextRed">2200+</TD></TR><TR><TD ALIGN="left" CLASS="coderTextYellow">1500 - 2199</TD></TR><TR><TD ALIGN="left" CLASS="coderTextBlue">1200 - 1499</TD></TR><TR><TD ALIGN="left" CLASS="coderTextGreen">900 - 1199</TD></TR><TR><TD ALIGN="left" CLASS="bodyText"><font COLOR="#CCCCCC">0 - 899</Font></TD></TR><TR><TD><IMG BORDER="0" HEIGHT="5" WIDTH="1" SRC="/i/clear.gif"></TD></TR><TR BGCOLOR="#FFFFFF"><TD VALIGN="top" CLASS="smallText" COLSPAN="3">A coder's handle is color-coded depending on their rating within the Competition Arena.</TD></TR></TABLE></TD><TD VALIGN="top"><IMG BORDER="0" SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" ALT=""></TD><TD VALIGN="top"><TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"><TR><TD COLSPAN="2"><IMG BORDER="0" SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" ALT=""></TD></TR><TR><TD><IMG BORDER="0" SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" ALT=""></TD><TD CLASS="bodyText"><BR><BR><B>How the TopCoder Rating System Works:</B><BR><BR>
-										The following statistics are kept about each coder:
-										<UL><LI>Rating</LI><LI>Volatility</LI><LI>Number of times previously rated</LI></UL>
-										Before competing, new members ratings are provisional.<BR><BR>
-										After a competition the algorithm below is applied to the competitors. First, the ratings of members who have previously competed are calculated, with new members' performances not considered. Second, new members are given a rating based on their performance relative to everyone in the competition.
-										<P><A CLASS="bodyText" HREF="?module=Static&d1=faq&d2=ratings_cal">How ratings are calculated</A></P></TD></TR></TABLE></TD></TR></TABLE><P><BR></P>
-              <!--Body Ends Here-->
-            </TD>
-             <TD>
-                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
-                 <TR>
-                    <TD WIDTH="10"><IMG SRC="/i/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                 </TR>
-                </TABLE>
-            </TD>
-           </TR>
-          </TABLE>
-         </TD>
-        </TR>
+<!-- Top ends -->
 
-       </TABLE>
-        </TD>
-        
-        
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+    <tr valign="top">
 
-<jsp:include page="../includes/right_resources.jsp" /></TD>
-	</TR>
-</TABLE>
-</TD></TR></TABLE>
+<!-- Left Column begins -->
+        <td width="170" bgcolor="#001934">
+            <jsp:include page="../includes/left_nav.jsp" />
+            <jsp:include page="../includes/left_calendar.jsp" />
+        </td>
+<!-- Left Column begins -->
+        
+<!-- Center Column begins -->
+        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
+            <table cellspacing="0" cellpadding="10" border="0" width="100%">
+                <tr><td width="100%" bgcolor="#001934"><img src="/i/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
+                
+                <tr valign="top">
+                    <td width="100%" class="bodyText">
+                        <h2>How Ratings Work</h2><a name="top"></a>
+                        
+                        <table cellspacing="0" cellpadding="0" border="0">
+                            <tr valign="top">
+                                <td>
+                                    <table width="100" cellpadding="5" cellspacing="0" bgcolor="001935" border="0">
+                                        <tr><td class="statTextLarge" background="/i/steel_bluebv_bg.gif" align="left">Rating Key</td></tr>
+                                        
+                                        <tr><td align="left" class="coderTextRed">2200+</td></tr>
+                                        
+                                        <tr><td align="left" class="coderTextYellow">1500 - 2199</td></tr>
+                                        
+                                        <tr><td align="left" class="coderTextBlue">1200 - 1499</td></tr>
+                                        
+                                        <tr><td align="left" class="coderTextGreen">900 - 1199</td></tr>
+                                        
+                                        <tr><td align="left" class="bodyText"><font color="#CCCCCC">0 - 899</font></td></tr>
+                                        
+                                        <tr><td class="smallText" bgcolor="#FFFFFF">A coder's handle is color-coded depending on their rating within the Competition Arena.</td></tr>
+                                    </table>
+                                </td>
+                                
+                                <td><img border="0" src="/i/clear.gif" width="10" height="1" alt=""></td>
+
+                                <td valign="top">
+                                    <table cellspacing="0" cellpadding="0" border="0">
+                                        <tr>
+                                            <td class="bodyText">
+                                                <p>The following statistics are kept about each coder:</p>
+                                                <ul>
+                                                    <li>Rating</li>
+                                                    <li>Volatility</li>
+                                                    <li>Number of times previously rated</li>
+                                                </ul>
+                                                
+                                                <p>Before competing, new members ratings are provisional.</p>
+                                                
+                                                <p>After a competition the algorithm below is applied to the competitors. First, the ratings of members who have previously 
+                                                competed are calculated, with new members' performances not considered. Second, new members are given a rating based on 
+                                                their performance relative to everyone in the competition.</p>
+                                                
+                                                <p><a href="?module=Static&d1=faq&d2=ratings_cal">How ratings are calculated</a></p>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        
+                        <p><br></p>
+
+                    </td>
+                </tr>
+            </table>
+        </td>
+        
+        <td width="" bgcolor="#001934" valign="top">
+            <jsp:include page="../includes/right_resources.jsp" />
+        </td>
+
+    </tr>
+</table>
+
 <jsp:include page="../includes/foot.jsp" />
-</BODY>
-</HTML>
+
+</body>
+
+</html>
