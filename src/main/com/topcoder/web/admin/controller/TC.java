@@ -11,7 +11,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.admin.task.*;
-import com.topcoder.web.admin.Constants;
+import com.topcoder.web.admin.XSLConstants;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -90,7 +90,7 @@ public final class TC extends HttpServlet {
                     if (requestCommand.equals("")) {
                         html = Home.process(request, response, renderer, nav, document);
                     } else {
-                        html = renderer.render(document, Constants.DIR + requestCommand);
+                        html = renderer.render(document, XSLConstants.DIR + requestCommand);
                     }
                 }
                 //************************ challenge ************************
@@ -107,7 +107,7 @@ public final class TC extends HttpServlet {
                         msg.append(":\n");
                         throw new NavigationException(
                                 msg.toString()
-                                , Constants.NAVIGATION_ERROR_URL
+                                , XSLConstants.NAVIGATION_ERROR_URL
                         );
                     }
                 out = response.getWriter();
@@ -158,7 +158,7 @@ public final class TC extends HttpServlet {
                     document = new XMLDocument("TC");
                     addURLTags(request, document);
                 }
-                html = renderer.render(document, Constants.INTERNAL_ERROR_URL);
+                html = renderer.render(document, XSLConstants.INTERNAL_ERROR_URL);
                 out.print(html);
                 out.flush();
                 log.error("com.topcoder.web.admin.controller.TC:INTERNAL ERROR:\n" + e);
