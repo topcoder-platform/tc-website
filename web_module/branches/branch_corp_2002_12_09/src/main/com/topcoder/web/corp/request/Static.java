@@ -14,7 +14,7 @@ import com.topcoder.web.corp.Util;
 * any directory (below the root) The request processor gets the list of 
 * parameters out of the request, validates them, and then processes them. 
 *
-* @version   1.1.2.22
+* @version   1.1.2.24
 * @author    Daniel Cohn
 */
 
@@ -42,8 +42,8 @@ public class Static extends BaseProcessor {
 
         if (!havePermission()) { 
              log.debug(
-                 "user [id="+tcUser.getUserId()+"] does not have enough " +
-                 "permissions to access: " + nextPage
+                 "user [id="+authToken.getActiveUser().getId()+"] does not " +
+                 "have enough permissions to access: " + nextPage
              );
             /* Controller should catch NotAuthorizedException and forward
                to login page if user is anonymous and send to permission 
