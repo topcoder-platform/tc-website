@@ -51,16 +51,17 @@ function goTo(selection){
          </TABLE>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
-            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/> 
+            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
-                    This chart represents the Top-25 in Challenge Success.  Challenge Success is a percentage based on successful challenges divided by total challenges. 
+                    This chart represents the Top-25 in Challenge Success.  Challenge Success is a percentage based on
+                    successful challenges divided by total challenges.
                   </P>
                   <P CLASS="statText">
-              Note: Based on a minimum of 20 challenges
+              Note: Based on a minimum of 20 challenges, only includes those coders that have competed in the last 6 monthes.
                   </P>
                   <!-- Stats Intro Begins -->
                   <jsp:include page="qsIntro.jsp" />

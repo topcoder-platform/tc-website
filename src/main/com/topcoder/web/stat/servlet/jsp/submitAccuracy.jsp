@@ -51,17 +51,18 @@ function goTo(selection){
          </TABLE>
          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
-            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/> 
+            <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
               <TR>
                 <TD VALIGN="top" WIDTH="100%"><IMG src="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                   <P CLASS="statText">
                     Top 25 Overall</p><p CLASS="statText">
-                    This chart ranks the top-25 in Submission Accuracy. Submission Accuracy is measured by dividing the number of correct submissions by the number of total submissions by a member. 
+                    This chart ranks the top-25 in Submission Accuracy. Submission Accuracy is measured by dividing the
+                    number of correct submissions by the number of total submissions by a member.
                   </P>
                   <P CLASS="statText">
-                    Note: Based on a minimum of 50 submissions
+                    Note: Based on a minimum of 50 submissions, only includes those coders that have competed in the last 6 monthes.
                   </P>
                   <!-- Stats Intro Begins -->
                   <jsp:include page="qsIntro.jsp" />
