@@ -26,6 +26,14 @@
 
 <xsl:call-template name="CSS"/>
 
+<script>
+function openWin(url, name, w, h) {
+    win = window.open(url, 'biowin', "scrollbars=yes,toolbar=no,resizable=no,menubar=no,width="+w+",height="+h);
+    win.location.href = url;
+    win.focus();
+}
+</script>
+
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
 
@@ -100,8 +108,8 @@ The Problems
 </H1> 
 
 <font size="+2"> 
-<b>BritishCoins</b> 
-</font><br/> 
+<b>BritishCoins</b>
+</font><A href="Javascript:openProblemRating(1246)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level One: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -181,7 +189,7 @@ Alternatively, we can write all the math in a single line as
 
 <font size="+2"> 
 <b>ParallelSpeedup</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1247)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -324,7 +332,7 @@ See, for example, <b>Yarin</b>'s and <b>ChristopherH</b>'s solutions.
 
 <font size="+2"> 
 <b>ShortPalindromes</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1248)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division Two - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -429,7 +437,7 @@ See newcomer <b>moggy</b>'s solution for a nice example of this approach.
 
 <font size="+2"> 
 <b>ContinuedFractions</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1255)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Two: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
@@ -582,7 +590,7 @@ the remaining elements
 
 <font size="+2"> 
 <b>Scheduling</b> 
-</font><br/> 
+</font><A href="Javascript:openProblemRating(1255)"><img src="/i/rate_it.gif" width="60" height="18" border="0" hspace="10"/></A><br/> 
 Used as: Division One - Level Three: <blockquote><table cellspacing="2"> 
   <tr> 
     <td class="bodyText" style="background: #eee;"> 
