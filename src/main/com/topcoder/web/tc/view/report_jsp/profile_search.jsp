@@ -12,49 +12,6 @@
 <html>
   <head>
     <title>TopCoder Reporting</title>
-<script language="javascript">
-<!--
-    function remove( a ){
-        var i;
-        var j = 0;
-        for(i = 0; i<document.search[a].length; i++){
-            if(document.search[a].options[i].selected){
-                j++;
-            }else{
-                document.search[a].options[i-j] = document.search[a].options[i];
-                document.search[a].options[i] = null;
-            }
-        }
-    }
-    function itemAdd( a, b, c)
-    {
-        var i;
-        var j = document.search[b].selectedIndex;
-        for(i = 0; i<document.search[a].length; i++){
-            if(document.search[a].options[i].selected){
-                var len = document.search[c].length;
-                var val1 = document.search[a].options[i].val;
-                var text1 = document.search[a].options[i].text;
-                var text2 = document.search[b].options[j].text;
-                op = new Option();
-                op.value = val1+"_"+text2;
-                op.text = text1+" >= "+text2;
-                document.search[c].options[len] = op;
-            }
-        }
-    }
-    function submitForm(){
-        var list;
-        <rsc:iterator list="<%=skill_types%>" id="resultRow">
-        list = document.search.skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>;
-        for (i=0; i<list.options.length; i++){
-            list.options[i].selected=true;
-        }
-        </rsc:iterator>
-        document.search.submit();
-    }
-    -->
-</script>
   </head>
   <body>
 <%
@@ -191,6 +148,49 @@
   </FORM>
   <a href="JavaScript:sumbitForm()">Submit</a>
   </body>
+<script language="javascript">
+<!--
+    function remove( a ){
+        var i;
+        var j = 0;
+        for(i = 0; i<document.search[a].length; i++){
+            if(document.search[a].options[i].selected){
+                j++;
+            }else{
+                document.search[a].options[i-j] = document.search[a].options[i];
+                document.search[a].options[i] = null;
+            }
+        }
+    }
+    function itemAdd( a, b, c)
+    {
+        var i;
+        var j = document.search[b].selectedIndex;
+        for(i = 0; i<document.search[a].length; i++){
+            if(document.search[a].options[i].selected){
+                var len = document.search[c].length;
+                var val1 = document.search[a].options[i].val;
+                var text1 = document.search[a].options[i].text;
+                var text2 = document.search[b].options[j].text;
+                op = new Option();
+                op.value = val1+"_"+text2;
+                op.text = text1+" >= "+text2;
+                document.search[c].options[len] = op;
+            }
+        }
+    }
+    function submitForm(){
+        var list;
+        <rsc:iterator list="<%=skill_types%>" id="resultRow">
+        list = document.search.skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>;
+        for (i=0; i<list.options.length; i++){
+            list.options[i].selected=true;
+        }
+        </rsc:iterator>
+        document.search.submit();
+    }
+    -->
+</script>
 </html>
 
 
