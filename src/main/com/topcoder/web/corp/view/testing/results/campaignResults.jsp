@@ -97,6 +97,10 @@ function getProblemDetail(id) {
                     <%
                         if (startIndex > 0) {
                     %>
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=0&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
+                        First
+                    </A>
+                    |
                     <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.SEARCH_SCROLL_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Prev <%=Math.min(startIndex, Constants.SEARCH_SCROLL_SIZE)%>
                     </A>
@@ -108,8 +112,20 @@ function getProblemDetail(id) {
                     | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.SEARCH_SCROLL_SIZE%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
                         Next <%=Math.min(info.size() - startIndex - Constants.SEARCH_SCROLL_SIZE,Constants.SEARCH_SCROLL_SIZE)%>
                       </a>
+                    |
+                    <%
+                            int end = info.size() - (info.size() % Constants.SEARCH_SCROLL_SIZE);
+                    %>
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=end-1%>&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
+                        Last
+                      </a>
                     <%  } %>
                     </td>
+
+
+
+
+
                 </tr>
             </table>
 

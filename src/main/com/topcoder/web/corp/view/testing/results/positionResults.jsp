@@ -120,7 +120,7 @@ function getProblemDetail(id) {
                         if (startIndex > 0) {
                     %>
                     <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=0&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
-                        Go to Beginning
+                        First
                     </A>
                     |
                     <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.SEARCH_SCROLL_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
@@ -139,7 +139,7 @@ function getProblemDetail(id) {
                         int end = info.size() - (info.size() % Constants.SEARCH_SCROLL_SIZE);
                     %>
                     <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=end-1%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
-                        Go to End
+                        Last
                       </a>
                     <%  } %>
                     </td>
