@@ -23,6 +23,7 @@ import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.coderskill.CoderSkill;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.user.UserNote;
+import com.topcoder.web.ejb.email.Email;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -37,10 +38,12 @@ public class Submit  extends ContractingBase {
         try {
             UserTransaction ut = Transaction.get(getInitialContext());
             ut.begin();
+            
+            InitialContext ctx = null;
 
             try {
                 //prefs
-                InitialContext ctx = TCContext.getInitial();
+                ctx = TCContext.getInitial();
                 UserPreference prefbean = (UserPreference)createEJB(ctx, UserPreference.class);
                 
                 //load pref group list, iterate through each one, deleting, updating
@@ -193,6 +196,27 @@ public class Submit  extends ContractingBase {
                 ut.rollback();
                 throw e;
             }
+            
+            //send confirmation email
+            
+            //lookup email address
+            Email emailbean = (Email)createEJB(ctx, Email.class);
+            String email = "";
+            long emailId = emailbean.getPrimaryEmailId(info.getUserID(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            email = emailbean.getAddress(emailId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+            
+            TCSEmailMessage mail = new TCSEmailMessage();
+            mail.setSubject("TopCoder Placement Registration");
+            StringBuffer msgText = new StringBuffer(3000);
+
+            msgText.append("Thank you for registering/updating your personal information and skills in the TopCoder Placement database.  When a position arises for which you are a match, a TopCoder representative will contact you.\n\n");
+            msgText.append("If you have any questions, please contact us at service@topcoder.com.\n\n");
+            msgText.append("- The TopCoder Placement Team");
+
+            mail.setBody(msgText.toString());
+            mail.addToAddress(email, TCSEmailMessage.TO);
+            mail.setFromAddress("service@topcoder.com");
+            EmailEngine.send(mail);
         } catch(TCWebException tce) {
             throw tce;
         } catch(Exception e) {
