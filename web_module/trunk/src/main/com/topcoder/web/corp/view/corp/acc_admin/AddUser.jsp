@@ -61,8 +61,7 @@
 <!-- LOGIN -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="username"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableOdd"></td>
+                    <td class="errorTextOdd" colspan="2"><tc-webtag:errorIterator id="err" name="username"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -74,8 +73,7 @@
 <!-- PASSWORD -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="password"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableEven"></td>
+                    <td class="errorTextEven" colspan="2"><tc-webtag:errorIterator id="err" name="password"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -87,8 +85,7 @@
 <!-- PASSWORD VERIFICATION -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="password-once-more"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableOdd"></td>
+                    <td class="errorTextOdd" colspan="2"><tc-webtag:errorIterator id="err" name="password-once-more"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -100,8 +97,7 @@
 <!-- FIRST NAME -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="first-name"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableEven"></td>
+                    <td class="errorTextEven"  colspan="2"><tc-webtag:errorIterator id="err" name="first-name"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -113,8 +109,7 @@
 <!-- LAST NAME -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="last-name"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableOdd"></td>
+                    <td class="errorTextOdd" colspan="2"><tc-webtag:errorIterator id="err" name="last-name"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -126,8 +121,7 @@
 <!-- EMAIL -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="email"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableEven"></td>
+                    <td class="errorTextEven" colspan="2"><tc-webtag:errorIterator id="err" name="email"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -139,8 +133,7 @@
   <!-- EMAIL VERIFICATION -->
                 <tr>
                     <td class="testTableOdd" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextOdd"><tc-webtag:errorIterator id="err" name="email-once-more"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableOdd"></td>
+                    <td class="errorTextOdd" colspan="2"><tc-webtag:errorIterator id="err" name="email-once-more"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -152,8 +145,7 @@
 <!-- PHONE -->
                 <tr>
                     <td class="testTableEven" width="60"><img src="/i/corp/clear.gif" width="60" height="1" alt="" border="0"></td>
-                    <td class="errorTextEven"><tc-webtag:errorIterator id="err" name="phone"><%=err%></tc-webtag:errorIterator></td>
-                    <td class="testTableEven"></td>
+                    <td class="errorTextEven" colspan="2"><tc-webtag:errorIterator id="err" name="phone"><%=err%></tc-webtag:errorIterator></td>
                 </tr>
 
                 <tr>
@@ -162,7 +154,7 @@
                     <td class="testTableEven"><tc-webtag:textInput name="phone" size="30" maxlength="100"/></td>
                 </tr>
             </table>
-            
+
             <p><br></p>
 
             <table cellspacing="0" cellpadding="3" width="80%" class="testFrame">
@@ -183,7 +175,7 @@
     <% } %>
                 <tr><td colspan="3"><IMG src="/i/corp/clear.gif" WIDTH="1" HEIGHT="2" BORDER="0"></td></tr>
             </table>
-            
+
             <p><br></p>
 
             <table cellspacing="0" cellpadding="3" width="80%">
@@ -191,9 +183,9 @@
                     <TD ALIGN="center" VALIGN="middle" CLASS="bodyText"><input type="button" onClick="Javascript:clearForm(document.frmUserEdit)" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>
                 </TR>
             </table>
-            
+
             </form>
-            
+
             <p><br></p>
 
         </td>
