@@ -38,7 +38,7 @@
             <tr><td id="<%=level2.equals("coder_ratings")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/stat?&c=coder_ratings">Coder Rankings</a></td></tr>
             <tr><td id="<%=level2.equals("editorial_archive")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=editorial_archive">Match Editorials</a></td></tr>
             <tr><td id="<%=level2.equals("quick_stats")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=statistics&c=quick_stats">Quick Stats</a></td></tr>
-            <tr><td id="<%=level2.equals("search")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/?t=search">Advanced Member Search</a></td></tr>
+            <tr><td id="<%=level2.equals("search")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?module=ViewAdvanced">Advanced Member Search</a></td></tr>
             <tr><td id="<%=level2.equals("member_surveys")?"leftSubnavOn":"leftSubnav"%>"><a class="leftOn" href="/tc?&module=SurveyList">Member Surveys</a></td></tr>
             <tr><td id="leftNav"><a class="left" href="/?&t=features&c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Features</a></td></tr>
             <tr><td id="leftNav"><a class="left" href="/?&t=tournaments&c=tourny_index"><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Events</a></td></tr>

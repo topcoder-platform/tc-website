@@ -140,7 +140,7 @@
 
 <!-- Advanced Member Search -->
                 <tr>
-                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=search</xsl:attribute>Advanced Member Search</A></td>
+                    <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewAdvanced</xsl:attribute>Advanced Member Search</A></td>
                 </tr>
                 <tr>
                     <td id="leftSubnav">
@@ -213,7 +213,7 @@
 
 <!-- Advanced Member Search -->
                 <tr>
-                    <td id="leftSubnavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=search</xsl:attribute>Advanced Member Search</A></td>
+                    <td id="leftSubnavOn"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=ViewAdvanced</xsl:attribute>Advanced Member Search</A></td>
                 </tr>
                 <tr>
                     <td id="leftSubnav">
