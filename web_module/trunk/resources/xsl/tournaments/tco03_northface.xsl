@@ -101,7 +101,8 @@
                     <td class="promoText" width="99%">
                         <p>U.S. Labor Department Statistics project that computer software engineering will be the fastest-growing occupation through 2010.* Northface University was founded to meet the industry 
                         demand for graduates with hands-on project and team collaboration skills. Our misson is to give the next generation of software developers the real-world training they need to succeed on the 
-                        job from day one. Northface University's model-driven program gets you out of the classroom and into a high-paying job in just 28 months. </br> 
+                        job from day one. Northface University's model-driven program gets you out of the classroom and into a high-paying job in just 28 months. </p> 
+                        <br/> <p>
                         *U.S. Dept of Labor's Bureau of Labor Statistics, 2002-03</p>
                         </td></tr>
                         
@@ -113,7 +114,8 @@
                     <td class="promoText" width="99%">
                         <p>If you attend Northface University, you'll graduate in 28 months an have an average starting salary of $52,000/yr.* That gives you three and a half years to work, and earn 
                         approximately $156,000. That's enough to pay back your tuition plus $96,000, all before your friends at a tradtional university even graduate. 
-                        </br>*National Association of Colleges and Employers</p>
+                        </p>
+                        <br/><p>*National Association of Colleges and Employers</p>
                         </td></tr>
                         
                         
@@ -123,13 +125,11 @@
                         
                 <tr valign="top">
                     <td class="promoText" width="99%">
-                        <p>Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience. </p>
+                        <p>Computer science graduates enjoy favorable job prospects and salaries, particularly if they have practical experience. </p></td>
                         
                         <td colspan="2" align="left">
                         <img src="/i/sponsor/northface/northface_graph.gif" alt="Northface" width="245" height="120" border="0" />
-                        </td>
-                        
-                        </td></tr>
+                       </td></tr>
             </table>
             
             <p><br/></p>
