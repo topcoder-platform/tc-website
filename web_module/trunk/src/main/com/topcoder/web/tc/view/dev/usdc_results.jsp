@@ -71,14 +71,13 @@
                                 <td class="sidebarTitle" align=center>Winner</td>
                                 <td class="sidebarTitle" align=right>Contest Prizes</td>
                             </tr>
-                            RYAN WAS HERE
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
-                                <td class="sidebarText" align=center>somedude</td>
-                                <td class="sidebarText" align=right>$1,000</td>
+                                <td class="sidebarText"><A href="/tc?module=USDCContestDetails&ct=<rsc:item name="contest_id" row="<%=resultRow%>"/>"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="contest_start_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center nowrap=nowrap><rsc:item name="contest_end_timestamp" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=center><rsc:item name="handle" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right><rsc:item name="prize_payment" row="<%=resultRow%>"/></td>
                             </tr>
                             </rsc:iterator>
                         </table>

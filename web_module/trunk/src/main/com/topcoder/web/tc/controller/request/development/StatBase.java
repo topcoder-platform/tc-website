@@ -26,6 +26,8 @@ public abstract class StatBase extends Base {
     abstract String getCommandName();
     abstract String getPageName();
     
+    abstract void statProcessing() throws TCWebException;
+    
     protected void developmentProcessing() throws TCWebException {
 
         Request dataRequest = new Request();
@@ -52,6 +54,8 @@ public abstract class StatBase extends Base {
             String nextPage = getPageName();
             setNextPage(nextPage);
             setIsNextPageInContext(true);
+            
+            statProcessing();
 
         } catch (TCWebException e) {
             throw new TCWebException(e);
