@@ -50,6 +50,8 @@ public final class Registration extends UserEdit {
     public static final String KEY_STATE     = "prim-company-state";
     public static final String KEY_ZIP       = "prim-company-zip";
     public static final String KEY_COUNTRY   = "prim-company-country";
+    
+    private static final String COUNTRY_USA  = "840"; 
 
     private String title;
     private String company;
@@ -177,19 +179,21 @@ public final class Registration extends UserEdit {
             "punctuation signs only (no more than 3 words)"
         );
 
-        valid &= // state validity (required)
-        checkStateOrCountryAgainstDB(
-            KEY_STATE,
-            state,
-            "Please choose state from the list carefully"
-        );
-
         valid &= // country validity (required)
         checkStateOrCountryAgainstDB(
             KEY_COUNTRY,
             country,
             "Please choose country from the list carefully"
         );
+        
+        if( COUNTRY_USA.equals(country) ) {
+            valid &= // state validity (required if and only if country is USA)
+            checkStateOrCountryAgainstDB(
+                KEY_STATE,
+                state,
+                "Please choose state from the list carefully"
+            );
+        }
 
         valid &= // zip validity (required)
         checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_ZIPCODE_EN,
@@ -371,9 +375,14 @@ public final class Registration extends UserEdit {
         addrTable.setAddress1(addressID, compAddress);
         addrTable.setAddress2(addressID, compAddress2);
         addrTable.setCity(addressID, city);
-        addrTable.setStateCode(addressID, state);
-        addrTable.setZip(addressID, zip);
         addrTable.setCountryCode(addressID, country);
+        if( COUNTRY_USA.equals(country) ) {
+            addrTable.setStateCode(addressID, state);
+        }
+        else {
+            addrTable.setStateCode(addressID, null);
+        }
+        addrTable.setZip(addressID, zip);
     }
     
     /**
@@ -424,9 +433,14 @@ public final class Registration extends UserEdit {
             compAddress  = addrTable.getAddress1(addrID);
             compAddress2 = addrTable.getAddress2(addrID);
             city         = addrTable.getCity(addrID);
-            state        = addrTable.getStateCode(addrID);
-            zip          = addrTable.getZip(addrID);
             country      = addrTable.getCountryCode(addrID);
+            zip          = addrTable.getZip(addrID);
+            if( COUNTRY_USA.equals(country) ) {
+                state = addrTable.getStateCode(addrID);
+            }
+            else {
+                state = "";
+            } 
         }
     }
     
