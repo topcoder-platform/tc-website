@@ -105,16 +105,25 @@ The QA Developer is responsible for testing the completed component. Tests shoul
                                     <b>Functional Overview of Web-Based Content Submission/Review</b>
                                     <BR/>
                                     <BR/>
-TopCoder Members
+Members
 <ul>
 <li>The editorial content will be posted through a web-based user interface.</li>
+<li>Choice of predefined templates that determine the placement and formatting of editorial content.</li>
 <li>Security will be based on TopCoder Member accounts and groups of Member accounts.</li>
 <li>TopCoder Members will be able to add/edit/review submissions associated with their TopCoder account.</li>
+<li>Search/replace functionality to change search criteria into dynamic links (the destination of the link determined by the template chosen).</li>
 </ul>
-TopCoder Administrators
+Administrative
 <ul>
 <li>TopCoder Administrators will have a web-based user interface to add/edit/review submissions from TopCoder Members.</li>
 <li>The Administrative utility will also provide the ability to create, track, and move multiple versions of a content submission in multiple environments. For example, a version of content submitted by a user, a quality assurance version for review by TopCoder administrators, and a production version.</li>
+<li>Web-based user interface to add/edit/review templates for editorial content.</li>
+</ul>
+System
+<ul>
+<li>Content cache.</li>
+<li>Custom tag post processing for dynamic links.</li>
+<li>Page templates that can call content from the file system or database.</li>
 </ul>
 Technologies
 <ul>
