@@ -56,12 +56,12 @@
             <a name="registration"></a>
             <h3><a href="#top"><img src="/i/navigation/back_to_top.gif" alt="back to top" width="83" height="23" border="0" align="right">
             </a>Registration</h3>
-			Registration for the 2005 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM ET on Monday, December 20, 2004, and will close at 9:00AM ET on Tuesday, January 11, 2005.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, however each individual may only register once.
+			Registration for the 2005 TopCoder Collegiate Challenge Algorithm Competition will open at 9:00AM EST on Monday, December 20, 2004, and will close at 9:00AM EST on Tuesday, January 11, 2005.  In order to be eligible to compete in the Algorithm Competition, competitors must be a registered TopCoder member and have registered separately for the Algorithm Competition.  Registration for the competition is unlimited, however each individual may only register once.
 			<br/><br/>
             <a name="qualification"></a>
-			<span class=bodySubtitle>Qualification Round - 12:00PM ET Tuesday, January 11 - 12:00PM ET Wednesday, January 12, 2005</span>
+			<span class=bodySubtitle>Qualification Round - 12:00PM EST Tuesday, January 11 - 12:00PM EST Wednesday, January 12, 2005</span>
 			<br/><br/>
-			The Qualification Round will be open for 24 hours from 12:00PM ET Tuesday, January 11 through 12:00PM ET Wednesday, January 12, 2005.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time during the 24 hours.
+			The Qualification Round will be open for 24 hours from 12:00PM EST Tuesday, January 11 through 12:00PM EST Wednesday, January 12, 2005.  Each competitor may participate in the Qualification Round at any time during the 24 hours.  Competitors may only attempt to qualify one time during the 24 hours.
 			<br/><br/>
 			The Qualification Round will consist of only two phases: the Coding Phase and System Testing Phase.<br/>
 			<b>Note: The Qualification Round will not include a Challenge Phase.</b>
@@ -86,7 +86,7 @@
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="50%" class="sidebarTitle">Round of Competition</td>
-					<td width="50%" class="sidebarTitle">Date and Time * (all Eastern Time)</td>
+					<td width="50%" class="sidebarTitle">Date and Time * (all Eastern Standard Time)</td>
 				</tr>
 				<tr>
                     <td width="50%" class="sidebarText">Online Round #1</td>
@@ -139,7 +139,7 @@
 			</ul>
 
             <span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br/>
-			The twenty-four (24) advancers from Online Round #4 will travel to the Santa Clara Marriott on Tuesday, March 8th or Wednesday, March 9th to compete in the Semifinal round of the tournament being held on Thursday, March 10.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM on Wednesday, March 9th.  All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM ET on Friday, February 18, 2005.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.
+			The twenty-four (24) advancers from Online Round #4 will travel to the Santa Clara Marriott on Tuesday, March 8th or Wednesday, March 9th to compete in the Semifinal round of the tournament being held on Thursday, March 10.  All contestants must arrive at the Santa Clara Marriott no later than 4:00 PM PST on Wednesday, March 9th.  All contestants must confirm their attendance at the onsite rounds no later than 5:00 PM EST on Friday, February 18, 2005.  If a contestant is unable to attend the onsite rounds, he/she will forfeit his/her eligibility to receive any prizes awarded to onsite finalists, and his/her spot in the tournament will be given to the next highest overall scorer from Online Round #4.
 			<br/><br/>
 			TopCoder will provide travel arrangements for each competitor, up to a cost of $1,000 per person.  (That is, if a contestant's airfare is greater than $1,000, the contestant will be responsible for the difference between the cost of the airfare and $1,000.)  TopCoder will also provide ground transportation to and from the airport, as well as hotel accommodations and certain meals for each contestant.  All other expenses are the responsibility of the contestant.  TopCoder will not provide travel or lodging accommodations for competitor guests at the 2005 TCCC.
 			<br/><br/>
@@ -149,7 +149,7 @@
 			<table width="500" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td width="50%" class="sidebarTitle">Round of Competition</td>
-                    <td width="50%" class="sidebarTitle">Date and Time (all Pacific Time)</td>
+                    <td width="50%" class="sidebarTitle">Date and Time (all Pacific Standard Time)</td>
 				</tr>
 				<tr>
 					<td width="50%" class="sidebarText">Semifinal Room #1</td>
@@ -250,7 +250,7 @@
 			<br/><br/>
 			Winners in each round of competition will be those competitors who win the most points in their respective rooms. All decisions relating to the viability of submissions, the ranking of submissions and all other matters pertaining to the tournament shall be within the sole discretion of TopCoder or its designee and shall be final and binding in all respects.
 			<br/><br/>
-			Prizewinners will be notified via e-mail within 10 days of the completion of each round that they have won a prize.  Room winners from Online Rounds #1, #2, and #3, as well as all contestants who advance to Online Round #4 must complete the following documents by 9:00 PM ET on Wednesday, February 2, 2005:
+			Prizewinners will be notified via e-mail within 10 days of the completion of each round that they have won a prize.  Room winners from Online Rounds #1, #2, and #3, as well as all contestants who advance to Online Round #4 must complete the following documents by 9:00 PM EST on Wednesday, February 2, 2005:
 
 			<ul>
 			<li>Competitor questionnaire - the questions and responses may be published in the 2005 TopCoder Collegiate Challenge Program
@@ -258,7 +258,7 @@
 			<li>Applicable tax form (unless one is already on file with TopCoder)
 			</ul>
 
-			Contestants who advance to the onsite tournament rounds must also complete the following item and submit it to TopCoder by 5:00 PM ET on Friday, February 18, 2005:
+			Contestants who advance to the onsite tournament rounds must also complete the following item and submit it to TopCoder by 5:00 PM EST on Friday, February 18, 2005:
 
 			<ul><li>Travel form - provides TopCoder with the appropriate travel information for your trip to the onsite tournament rounds</li></ul>
 
