@@ -55,6 +55,7 @@
                 <% if (ModifyCommandTask.isNewCommand()) { %>
                   <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyCommandTask.getDb()%>"/>
                 <% } else { %>
+                  <INPUT TYPE="hidden" NAME="<%=Constants.DB_PARAM%>" VALUE="<jsp:getProperty name="ModifyCommandTask" property="Db"/>">
                   <jsp:getProperty name="ModifyCommandTask" property="Db"/>
                 <% } %>
               </TD>
