@@ -247,17 +247,22 @@
                 <xsl:call-template name="stats_row"/>
                 
                 <tr>
-                    <td id="leftNavOn">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                            <xsl:when test="/TC/Command='index'">leftNavSelect</xsl:when>
-                            <xsl:otherwise>leftNavOn</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Features</A>
+                    <td id="leftNavOn"><A class="leftOn" href="/?&amp;t=features&amp;c=index"><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0" />Features</A>
                     </td>
                 </tr>
 
+                <tr>
+                    <td id="leftSubnav">
+                        <xsl:attribute name="id">
+                        <xsl:choose>
+                            <xsl:when test="/TC/Command='index'">leftSubnavOn</xsl:when>
+                            <xsl:otherwise>leftSubnav</xsl:otherwise>
+                        </xsl:choose>
+                        </xsl:attribute>
+                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=features&amp;c=index</xsl:attribute>Archive</A>
+                    </td>
+                </tr>
+                
                 <tr>
                     <td id="leftSubnav">
                         <xsl:attribute name="id">
