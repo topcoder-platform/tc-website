@@ -167,6 +167,7 @@ public class TCLoadRequests extends TCLoad {
 
                 retVal = psIns.executeUpdate();
 
+                count+=retVal;
                 if (retVal != 1) {
                     log.info("TCLoadRequests:site_hit Insert for " +
                             "url_id  " + urlId + " user id " +  rs.getString("user_id") + " time " + time +
