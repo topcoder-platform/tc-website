@@ -61,7 +61,7 @@
                 <tr valign="top">
                     <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
                     <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
-                        <p><font color="#CC0000"><strong>IMPORTANT INFORMATION NEEDED</strong></font></p><br/><br/>
+                        <p><font color="#CC0000"><strong>IMPORTANT INFORMATION NEEDED</strong></font></p><br/>
                         <p><strong>Please read all instructions carefully before proceeding.</strong></p>
 
                         <p>
