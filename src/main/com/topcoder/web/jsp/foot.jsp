@@ -8,7 +8,7 @@
 <!-- TopCoder Links Begins -->
     <tr><td width="100%" class="footer">
             <A href="/" class="footerLinks">Home</A>&#160;&#160;|&#160;&#160;
-            <A href="/?t=about_tc&c=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
+            <A href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=about&d2=index" class="footerLinks">About TopCoder</A>&#160;&#160;|&#160;&#160;
             <a href="http://<%=ApplicationServer.SERVER_NAME%>/tc?module=Static&d1=review_board&d2=competition" class="footerLinks">Review Boards</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=news_events&c=index" class="footerLinks">Press Room</A>&#160;&#160;|&#160;&#160;
             <A href="/?t=contacts&c=index" class="footerLinks">Contact Us</A>&#160;&#160;|&#160;&#160;
