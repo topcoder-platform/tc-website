@@ -61,6 +61,7 @@ public class TCES extends Task implements Serializable {
 		    
 		public boolean setAttributes(String param, String[] values) {
 			htParams.put(param, values);
+      Log.msg(" => TCES.setAttributes():" + param + ":" + values.length);
 			return true;
 		}
 				
@@ -80,13 +81,11 @@ public class TCES extends Task implements Serializable {
 					coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
 					boolean doUpdate = false;
 					if (htParams.get("firstName") != null) {
-      			Log.msg(" => TCES.process():first_name='" + "" + htParams.get("firstName") + "'");
-						coderObject.first_name = "" + htParams.get("firstName");
+						coderObject.first_name = ((String[])htParams.get("firstName"))[0];
 						doUpdate = true;
 					}
 					if (htParams.get("lastName") != null) {
-      			Log.msg(" => TCES.process():last_name='" + "" + htParams.get("lastName") + "'");
-						coderObject.last_name = "" + htParams.get("lastName");
+						coderObject.last_name = ((String[])htParams.get("lastName"))[0]
 						doUpdate = true;
 					}
 					if (doUpdate) {
@@ -117,6 +116,7 @@ public class TCES extends Task implements Serializable {
 						coderObject.image=null;
 						coderObject.date_of_birth=null;
 						coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
+						isTaskValidated = true;
 					}
 		/*
 					UserBean beanUser = new UserBean();
