@@ -100,7 +100,7 @@ By&#160;KaiEl,<I>TopCoder Member</I><BR/>
 </P>
 	
 <P>
-	Sometimes, however, the most inspired problem ideas are the hardest to actually use. "The only problem I have with the truly inspirational, 'aha that's a great problem,' problem is that I usually don't get anyone solving them," B<B>brett1479</B> says. "I have definitely come up with ones that I determined were algorithmically impossible given the constraints." 
+	Sometimes, however, the most inspired problem ideas are the hardest to actually use. "The only problem I have with the truly inspirational, 'aha that's a great problem,' problem is that I usually don't get anyone solving them," <B>brett1479</B> says. "I have definitely come up with ones that I determined were algorithmically impossible given the constraints." 
 </P>
 
 <P>
