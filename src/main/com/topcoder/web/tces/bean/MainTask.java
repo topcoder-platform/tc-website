@@ -106,6 +106,10 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_List");
 
+/*
+   grp 09/09/2002 - i hate this, so i'm killing it.  there's no reason to wrap the 
+                    results in a list of hashmaps.
+
         ArrayList campaignInfoList = new ArrayList();
         for (int rowI=0;rowI<rsc.getRowCount();rowI++) {
             HashMap campaignInfo = new HashMap();
@@ -120,8 +124,10 @@ public class MainTask extends BaseTask implements Task, Serializable {
             campaignInfoList.add(campaignInfo);
         }
 
-
         setCampaignInfoList( campaignInfoList );
+*/
+
+        setCampaignInfoList(rsc);
 
         setNextPage( TCESConstants.MAIN_PAGE );
     }
