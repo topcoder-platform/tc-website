@@ -36,7 +36,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     private String campaignStatus;
 
     /* Holds a list of mappings representing hits on this position */
-    private ArrayList hitList;
+    private ResultSetContainer hitList;
 
     /* Holds the id of the user currently logged in */
     private int uid;
@@ -106,14 +106,14 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
     /** Setter for property hitList.
      * @param hitList New value of property hitList.
      */
-    public void setHitList( ArrayList hitList ) {
+    public void setHitList( ResultSetContainer hitList ) {
         this.hitList=hitList;
     }
 
     /** Getter for property hitList
      * @return Value of property hitList
      */
-    public List getHitList() {
+    public ResultSetContainer getHitList() {
         return hitList;
     }
 
@@ -235,6 +235,8 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
                                  "does not belong to uid="+Integer.toString(uid) );
         }
 
+        setHitList((ResultSetContainer)resultMap.get("TCES_Position_Hit_List"));
+/*
         rsc = (ResultSetContainer) resultMap.get("TCES_Position_Hit_List");
         ArrayList hitList = new ArrayList();
         ResultSetContainer.ResultSetRow hitListRow = null;
@@ -309,6 +311,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
 
         setHitList( hitList );
+*/
 
         setNextPage( TCESConstants.POSITION_INTEREST_PAGE );
     }
