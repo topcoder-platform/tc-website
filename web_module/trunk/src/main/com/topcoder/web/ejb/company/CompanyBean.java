@@ -5,6 +5,7 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.util.idgenerator.IdGenerator;
 import com.topcoder.util.idgenerator.sql.SimpleDB;
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.ejb.EJBException;
 import javax.naming.Context;
@@ -45,20 +46,7 @@ public class CompanyBean extends BaseEJB {
         try {
             ctx = new InitialContext();
 
-            if (!IdGenerator.isInitialized()) {
-                IdGenerator.init(
-                        new SimpleDB(),
-                        (DataSource) ctx.lookup(DATA_SOURCE),
-                        "sequence_object",
-                        "name",
-                        "current_value",
-                        9999999999L,
-                        1,
-                        false
-                );
-            }
-
-            ret = IdGenerator.nextId("COMPANY_SEQ");
+            ret = IdGeneratorClient.getSeqId("COMPANY_SEQ");
 
             conn = DBMS.getConnection(JTS_DATA_SOURCE);
 
