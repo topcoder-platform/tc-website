@@ -125,7 +125,7 @@ public class Registration
     private final static String HANDLE_ALPHABET="ABCDEFGHIJKLMNOPQRSTUVWXYZ"+
                                                 "abcdefghijklmnopqrstuvwxyz"+
                                                 "0123456789"+
-                                                "-_.";
+                                                "-_.{}[]()";
 
     // school ids
     //public static final int OTHER_SCHOOL = 0;
