@@ -105,7 +105,8 @@ public class BasicAuthentication implements WebAuthentication {
     /**
      * Get the user for this session.  May return information based on a
      * cookie from a prior session.  If no login has occurred and no cookie
-     * is present, returns an anonymous user.
+     * is present, returns an anonymous user.  Whatever happens, we cache
+     * the user in the persistor for future use.
      */
     public User getActiveUser() {
         User u = getUserFromPersistor();
@@ -114,9 +115,9 @@ public class BasicAuthentication implements WebAuthentication {
             if (u==null) {
                 u = guest;
             }
-        } else {
-            setUserInPersistor(u);
         }
+        setUserInPersistor(u);
+
         return u;
     }
 
