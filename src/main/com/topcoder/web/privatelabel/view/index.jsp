@@ -9,5 +9,5 @@ it should remain generic for any company that might to private label stuff.<br/>
 for company specific content we'll need a different page/backend<br/>
 <br/>
 <br/>
-<a href="?&<%=Constants.MODULE_KEY+"="+Constants.SIMPLE_REGISTRATION_MAIN+"&"+Constants.COMPANY_ID+"=1"%>">Register</a>
+<a href="?&<%=Constants.MODULE_KEY+"="+Constants.SIMPLE_REG_MAIN+"&"+Constants.COMPANY_ID+"=1"%>">Register</a>
 </body>
