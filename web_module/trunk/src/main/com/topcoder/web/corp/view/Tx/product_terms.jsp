@@ -38,16 +38,13 @@
 
 As a TopCoder Customer, you must agree to the Customer Terms below.  Please read the Customer Terms, and click "I Agree to the Customer Terms and Conditions stated above" to finalize your purchase.  If you do not agree to these Customer Terms and Conditions, click <A HREF="/" CLASS="bodyText">here</A> to go back.<BR/><BR/>
 
-
-Customer Terms and Conditions ("Customer Terms")<BR/><BR/>
-
 </P><BR>
 <FORM action="<%=request.getContextPath()+"/Tx/?"+TransactionServlet.KEY_OPERATION+"="+TransactionServlet.OP_TX_BEGIN%>" method="POST" name="frmTerms">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
   <jsp:useBean id="TransactionInfo" scope="request" class="com.topcoder.web.corp.model.TransactionInfo" />
 
   <TR valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Terms of Use</B></FONT></TD>
+    <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Customer Terms and Conditions ("Customer Terms")</B></FONT></TD>
   </TR>
   <TR align="right" valign="middle">
     <TD COLSPAN="4" CLASS="bodyText" ALIGN="center" VALIGN="middle"><tc-webtag:textArea name="<%=Constants.KEY_TERMS%>" text="<%=TransactionInfo.getTerms()%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
