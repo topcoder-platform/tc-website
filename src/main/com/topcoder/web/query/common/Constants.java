@@ -179,6 +179,10 @@ public class Constants {
         DB_LIST.add(new DatabaseBean("VERIZON_OLTP", "Verizon"));
         DB_LIST.add(new DatabaseBean("VERIZON_DW", "Verizon DW"));
         DB_LIST.add(new DatabaseBean("GOOGLE_OLTP", "Google"));
-        DB_LIST.add(new DatabaseBean("GOOGLE_DW", "Google DW"));    }
+        DB_LIST.add(new DatabaseBean("GOOGLE_DW", "Google DW"));
+        DB_LIST.add(new DatabaseBean("DC_OLTP", "DoubleClick"));
+        DB_LIST.add(new DatabaseBean("DC_DW", "DoubleClick DW"));
+    }
+
 }
 
