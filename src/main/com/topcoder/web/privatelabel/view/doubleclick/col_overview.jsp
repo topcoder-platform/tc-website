@@ -1,13 +1,14 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
 
 <title>DoubleClick</title>
 
 <jsp:include page="../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
 
 </head>
 <body align="center">
@@ -17,13 +18,12 @@
    <jsp:param name="tabLev2" value="overview"/>
 </jsp:include>
 
-<div class="dc_bodyTable">
-
-   <div CLASS="dc_headerPic">
-      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
-   </div>
-
-   <div CLASS="dc_bodyText">
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dc_headerPic">
+	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	  	</td>
+		<td class="dc_bodyText">
          <p class="pageTitle">New York's Finest</p>
          <p>Do you like to solve problems? Do math and science interest you? Do you spend your time online looking for the next challenge?</p>
 
@@ -37,7 +37,7 @@
          Participants will have their choice of using Java, C++, C# or VB - the most relevant of current software development technologies - to solve complex algorithmic problems. </p>
 
          <p><span class="dc_subTitle">Here's what you do</span><br/>
-         Download the DoubleClick 2004 Coding Challenge Qualification Round <a href="/">Competition Manual</a>.</p>
+         Download the DoubleClick 2004 Coding Challenge Qualification Round <a class="bodyText_link" href="/">Competition Manual</a>.</p>
 
          <p>The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints.  Here's how it works:</p>
 
@@ -73,10 +73,11 @@
 
          <p>Those finalists not finishing as one of the top five scorers in the Final Round will each receive $200.</p>
 
-         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
+         <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the <a class="bodyText_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Official Rules and Regulations</a>.</p>
 
-   </div>
-</div>
+		</td>
+	</tr>
+</table>
    
 <jsp:include page="foot.jsp" />
 

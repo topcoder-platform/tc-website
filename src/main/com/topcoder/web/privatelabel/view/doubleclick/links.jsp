@@ -12,21 +12,21 @@
    <tr valign="top">
       <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
 <% if (tabLev2.equals("overview")) {%>
-                 <td align="center" class="dc_subnav_on"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" class="dc_subnav_on_link">Tournament Overview</A></td>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_overview">Tournament Overview</a></td>
 <% } else { %>
-                 <td align="center" class="dc_subnav"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" class="dc_subnav_link">Tournament Overview</A></td>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_overview">Tournament Overview</a></td>
 <% } %>
 
 <% if (tabLev2.equals("schedule")) {%>
-                 <td align="center" class="dc_subnav_on"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_schedule" class="dc_subnav_on_link">Schedule</A></td>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_schedule">Schedule</a></td>
 <% } else { %>
-                 <td align="center" class="dc_subnav"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_schedule" class="dc_subnav_link">Schedule</A></td>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_schedule">Schedule</a></td>
 <% } %>
 
 <% if (tabLev2.equals("rules")) {%>
-                 <td align="center" class="dc_subnav_on"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_rules" class="dc_subnav_on_link">Rules</A></td>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Rules</a></td>
 <% } else { %>
-                 <td align="center" class="dc_subnav"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_rules" class="dc_subnav_link">Rules</A></td>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=col_rules">Rules</a></td>
 <% } %>
 
       <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
@@ -38,21 +38,21 @@
    <tr valign="top">
       <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
 <% if (tabLev2.equals("overview")) {%>
-                 <td align="center" class="dc_subnav_on"><A href="/pl/?&module=Static&d1=doubleclick&d2=int_overview" class="dc_subnav_on_link">Tournament Overview</A></td>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_overview" class="dc_subnav_on_link">Tournament Overview</a></td>
 <% } else { %>
-                 <td align="center" class="dc_subnav"><A href="/pl/?&module=Static&d1=doubleclick&d2=int_overview" class="dc_subnav_link">Tournament Overview</A></td>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_overview" class="dc_subnav_link">Tournament Overview</a></td>
 <% } %>
 
 <% if (tabLev2.equals("schedule")) {%>
-                 <td align="center" class="dc_subnav_on"><A href="/pl/?&module=Static&d1=doubleclick&d2=int_schedule" class="dc_subnav_on_link">Schedule</A></td>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_schedule" class="dc_subnav_on_link">Schedule</a></td>
 <% } else { %>
-                 <td align="center" class="dc_subnav"><A href="/pl/?&module=Static&d1=doubleclick&d2=int_schedule" class="dc_subnav_link">Schedule</A></td>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_schedule" class="dc_subnav_link">Schedule</a></td>
 <% } %>
 
 <% if (tabLev2.equals("rules")) {%>
-                 <td align="center" class="dc_subnav_on"><A href="/pl/?&module=Static&d1=doubleclick&d2=int_rules" class="dc_subnav_on_link">Rules</A></td>
+                 <td align="center" class="dc_subnav_on"><a class="dc_subnav_on_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_rules" class="dc_subnav_on_link">Rules</a></td>
 <% } else { %>
-                 <td align="center" class="dc_subnav"><A href="/pl/?&module=Static&d1=doubleclick&d2=int_rules" class="dc_subnav_link">Rules</A></td>
+                 <td align="center" class="dc_subnav"><a class="dc_subnav_link" href="/pl/?&module=Static&d1=doubleclick&d2=int_rules" class="dc_subnav_link">Rules</a></td>
 <% } %>
 
       <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
