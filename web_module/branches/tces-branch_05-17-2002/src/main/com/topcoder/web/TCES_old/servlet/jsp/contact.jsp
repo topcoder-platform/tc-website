@@ -56,7 +56,10 @@
 
 <!--trj insert 6/11/2002 1943 -->
 <%
+
+
 CoderObject objCoder = tces.getCoderObject();
+UserObject objUser = tces.getUserObject();
 String firstName = objCoder.first_name;
 String lastName = objCoder.last_name;
 String address1 = objCoder.address1;
@@ -66,13 +69,13 @@ String state = objCoder.state_code;
 String zip = objCoder.zip;
 String country = objCoder.country_code;
 String phone = objCoder.home_phone;
-String handle = "";
-String email = "";
-String remail = "";
+String handle = objUser.handle;
+String email = objUser.email;
+String remail = email;
 String quote = objCoder.quote;
-out.print("Notify:" + objCoder.notify);
-out.print("EmployerSearch:" + objCoder.employer_search);
 
+
+//xxx todo: still have to find out where these are coming from
 boolean nextCompetition = true;
 boolean competitionResults = true;
 boolean employmentOpportunities = true;
@@ -96,12 +99,26 @@ try {
 CountryBean beanCountry = new CountryBean();
 Lookup countries;
 try {
-    countries = beanCountries.listCountryCodeCountryName();
+    countries = beanCountry.listCountryCodeCountryName();
 } catch (SQLException ecx) {
 //xxx todo: add exception handling
 }
 
+EditorBean beanEditor = new EditorBean();
+Lookup editors;
+try {
+    editors = beanEditor.listEditorCodeEditorName();
+} catch (SQLException exc) {
+//xxx todo: add exception handling
+}
 
+LanguageBean beanLanguage = new LanguageBean();
+Lookup languages;
+try {
+    languages = beanLanguage.listEditorCodeEditorName();
+} catch (SQLException exc) {
+//xxx todo: add exception handling
+}
 
 %>
 
@@ -218,247 +235,8 @@ SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0
 "></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="statTextBig">
       
-      <SELECT NAME="country" CLASS="dropdown">
-<OPTION VALUE=""></OPTION><OPTION VALUE="840">United States</OPTION>
-<OPTION VALUE="036">Australia</OPTION>
-<OPTION VALUE="124">Canada</OPTION>
-<OPTION VALUE=" ">-----------------------</OPTION>
-<OPTION VALUE="004">Afghanistan</OPTION>
-<OPTION VALUE="008">Albania</OPTION>
-<OPTION VALUE="012">Algeria</OPTION>
-<OPTION VALUE="016">American Samoa</OPTION>
-<OPTION VALUE="020">Andorra</OPTION>
-<OPTION VALUE="024">Angola</OPTION>
-<OPTION VALUE="660">Anguilla</OPTION>
-<OPTION VALUE="010">Antarctica</OPTION>
-<OPTION VALUE="028">Antigua and Barbud</OPTION>
-<OPTION VALUE="032">Argentina</OPTION>
-<OPTION VALUE="051">Armenia</OPTION>
-<OPTION VALUE="533">Aruba</OPTION>
-<OPTION VALUE="040">Austria</OPTION>
-<OPTION VALUE="031">Azerbaijan</OPTION>
-<OPTION VALUE="044">Bahamas</OPTION>
-<OPTION VALUE="048">Bahrain</OPTION>
-<OPTION VALUE="050">Bangladesh</OPTION>
-<OPTION VALUE="052">Barbados</OPTION>
-<OPTION VALUE="112">Belarus</OPTION>
-<OPTION VALUE="056">Belgium</OPTION>
-<OPTION VALUE="084">Belize</OPTION>
-<OPTION VALUE="204">Benin</OPTION>
-<OPTION VALUE="060">Bermuda</OPTION>
-<OPTION VALUE="064">Bhutan</OPTION>
-<OPTION VALUE="068">Bolivia</OPTION>
-<OPTION VALUE="070">Bosnia and Herzego</OPTION>
-<OPTION VALUE="072">Botswana</OPTION>
-<OPTION VALUE="074">Bouvet Island</OPTION>
-<OPTION VALUE="076">Brazil</OPTION>
-<OPTION VALUE="086">British Indian Oce</OPTION>
-<OPTION VALUE="096">Brunei Darussalam</OPTION>
-<OPTION VALUE="100">Bulgaria</OPTION>
-<OPTION VALUE="854">Burkina Faso</OPTION>
-<OPTION VALUE="108">Burundi</OPTION>
-<OPTION VALUE="116">Cambodia</OPTION>
-<OPTION VALUE="120">Cameroon</OPTION>
-<OPTION VALUE="132">Cape Verde</OPTION>
-<OPTION VALUE="136">Cayman Islands</OPTION>
-<OPTION VALUE="140">Central African Re</OPTION>
-<OPTION VALUE="148">Chad</OPTION>
-<OPTION VALUE="152">Chile</OPTION>
-<OPTION VALUE="156">China</OPTION>
-<OPTION VALUE="162">Christmas Island</OPTION>
-<OPTION VALUE="166">Cocos (Keeling) Is</OPTION>
-<OPTION VALUE="170">Colombia</OPTION>
-<OPTION VALUE="174">Comoros</OPTION>
-<OPTION VALUE="178">Congo</OPTION>
-<OPTION VALUE="184">Cook Islands</OPTION>
-<OPTION VALUE="188">Costa Rica</OPTION>
-<OPTION VALUE="384">Cote D'Ivoire</OPTION>
-<OPTION VALUE="191">Croatia (Local Nam</OPTION>
-<OPTION VALUE="192">Cuba</OPTION>
-<OPTION VALUE="196">Cyprus</OPTION>
-<OPTION VALUE="203">Czech Republic</OPTION>
-<OPTION VALUE="208">Denmark</OPTION>
-<OPTION VALUE="262">Djibouti</OPTION>
-<OPTION VALUE="212">Dominica</OPTION>
-<OPTION VALUE="214">Dominican Republic</OPTION>
-<OPTION VALUE="626">East Timor</OPTION>
-<OPTION VALUE="218">Ecuador</OPTION>
-<OPTION VALUE="818">Egypt</OPTION>
-<OPTION VALUE="222">El Salvador</OPTION>
-<OPTION VALUE="226">Equatorial Guinea</OPTION>
-<OPTION VALUE="232">Eritrea</OPTION>
-<OPTION VALUE="233">Estonia</OPTION>
-<OPTION VALUE="231">Ethiopia</OPTION>
-<OPTION VALUE="238">Falkland Islands (</OPTION>
-<OPTION VALUE="234">Faroe Islands</OPTION>
-<OPTION VALUE="242">Fiji</OPTION>
-<OPTION VALUE="246">Finland</OPTION>
-<OPTION VALUE="250">France</OPTION>
-<OPTION VALUE="254">French Guiana</OPTION>
-<OPTION VALUE="258">French Polynesia</OPTION>
-<OPTION VALUE="260">French Southern Te</OPTION>
-<OPTION VALUE="266">Gabon</OPTION>
-<OPTION VALUE="270">Gambia</OPTION>
-<OPTION VALUE="268">Georgia</OPTION>
-<OPTION VALUE="276">Germany</OPTION>
-<OPTION VALUE="288">Ghana</OPTION>
-<OPTION VALUE="292">Gibraltar</OPTION>
-<OPTION VALUE="300">Greece</OPTION>
-<OPTION VALUE="304">Greenland</OPTION>
-<OPTION VALUE="308">Grenada</OPTION>
-<OPTION VALUE="312">Guadeloupe</OPTION>
-<OPTION VALUE="316">Guam</OPTION>
-<OPTION VALUE="320">Guatemala</OPTION>
-<OPTION VALUE="324">Guinea</OPTION>
-<OPTION VALUE="624">Guinea-Bissau</OPTION>
-<OPTION VALUE="328">Guyana</OPTION>
-<OPTION VALUE="332">Haiti</OPTION>
-<OPTION VALUE="334">Heard and Mc Donal</OPTION>
-<OPTION VALUE="340">Honduras</OPTION>
-<OPTION VALUE="344">Hong Kong</OPTION>
-<OPTION VALUE="348">Hungary</OPTION>
-<OPTION VALUE="352">Iceland</OPTION>
-<OPTION VALUE="356">India</OPTION>
-<OPTION VALUE="360">Indonesia</OPTION>
-<OPTION VALUE="364">Iran (Islamic Repu</OPTION>
-<OPTION VALUE="368">Iraq</OPTION>
-<OPTION VALUE="372">Ireland</OPTION>
-<OPTION VALUE="376">Israel</OPTION>
-<OPTION VALUE="380">Italy</OPTION>
-<OPTION VALUE="388">Jamaica</OPTION>
-<OPTION VALUE="392">Japan</OPTION>
-<OPTION VALUE="400">Jordan</OPTION>
-<OPTION VALUE="398">Kazakhstan</OPTION>
-<OPTION VALUE="404">Kenya</OPTION>
-<OPTION VALUE="296">Kiribati</OPTION>
-<OPTION VALUE="410">Korea, Democratic </OPTION>
-<OPTION VALUE="408">Korea, Republic of</OPTION>
-<OPTION VALUE="414">Kuwait</OPTION>
-<OPTION VALUE="417">Kyrgyzstan</OPTION>
-<OPTION VALUE="418">Lao People's Democ</OPTION>
-<OPTION VALUE="428">Latvia</OPTION>
-<OPTION VALUE="422">Lebanon</OPTION>
-<OPTION VALUE="426">Lesotho</OPTION>
-<OPTION VALUE="430">Liberia</OPTION>
-<OPTION VALUE="434">Libyan Arab Jamahi</OPTION>
-<OPTION VALUE="438">Liechtenstein</OPTION>
-<OPTION VALUE="440">Lithuania</OPTION>
-<OPTION VALUE="442">Luxembourg</OPTION>
-<OPTION VALUE="446">Macau</OPTION>
-<OPTION VALUE="807">Macedonia, Former </OPTION>
-<OPTION VALUE="450">Madagascar</OPTION>
-<OPTION VALUE="454">Malawi</OPTION>
-<OPTION VALUE="458">Malaysia</OPTION>
-<OPTION VALUE="462">Maldives</OPTION>
-<OPTION VALUE="466">Mali</OPTION>
-<OPTION VALUE="470">Malta</OPTION>
-<OPTION VALUE="584">Marshall Islands</OPTION>
-<OPTION VALUE="474">Martinique</OPTION>
-<OPTION VALUE="478">Mauritania</OPTION>
-<OPTION VALUE="480">Mauritius</OPTION>
-<OPTION VALUE="175">Mayotte</OPTION>
-<OPTION VALUE="484">Mexico</OPTION>
-<OPTION VALUE="583">Micronesia, Federa</OPTION>
-<OPTION VALUE="498">Moldova, Republic </OPTION>
-<OPTION VALUE="492">Monaco</OPTION>
-<OPTION VALUE="496">Mongolia</OPTION>
-<OPTION VALUE="500">Montserrat</OPTION>
-<OPTION VALUE="504">Morocco</OPTION>
-<OPTION VALUE="508">Mozambique</OPTION>
-<OPTION VALUE="104">Myanmar</OPTION>
-<OPTION VALUE="516">Namibia</OPTION>
-<OPTION VALUE="520">Nauru</OPTION>
-<OPTION VALUE="524">Nepal</OPTION>
-<OPTION VALUE="528">Netherlands</OPTION>
-<OPTION VALUE="530">Netherlands Antill</OPTION>
-<OPTION VALUE="540">New Caledonia</OPTION>
-<OPTION VALUE="554">New Zealand</OPTION>
-<OPTION VALUE="558">Nicaragua</OPTION>
-<OPTION VALUE="562">Niger</OPTION>
-<OPTION VALUE="566">Nigeria</OPTION>
-<OPTION VALUE="570">Niue</OPTION>
-<OPTION VALUE="574">Norfolk Island</OPTION>
-<OPTION VALUE="580">Northern Mariana I</OPTION>
-<OPTION VALUE="578">Norway</OPTION>
-<OPTION VALUE="512">Oman</OPTION>
-<OPTION VALUE="586">Pakistan</OPTION>
-<OPTION VALUE="585">Palau</OPTION>
-<OPTION VALUE="591">Panama</OPTION>
-<OPTION VALUE="598">Papua New Guinea</OPTION>
-<OPTION VALUE="600">Paraguay</OPTION>
-<OPTION VALUE="604">Peru</OPTION>
-<OPTION VALUE="608">Philippines</OPTION>
-<OPTION VALUE="612">Pitcairn</OPTION>
-<OPTION VALUE="616">Poland</OPTION>
-<OPTION VALUE="620">Portugal</OPTION>
-<OPTION VALUE="630">Puerto Rico</OPTION>
-<OPTION VALUE="634">Qatar</OPTION>
-<OPTION VALUE="638">Reunion</OPTION>
-<OPTION VALUE="642">Romania</OPTION>
-<OPTION VALUE="643">Russian Federation</OPTION>
-<OPTION VALUE="646">Rwanda</OPTION>
-<OPTION VALUE="659">Saint Kitts and Ne</OPTION>
-<OPTION VALUE="662">Saint Lucia</OPTION>
-<OPTION VALUE="670">Saint Vincent and </OPTION>
-<OPTION VALUE="882">Samoa</OPTION>
-<OPTION VALUE="674">San Marino</OPTION>
-<OPTION VALUE="678">Sao Tome and Princ</OPTION>
-<OPTION VALUE="682">Saudi Arabia</OPTION>
-<OPTION VALUE="686">Senegal</OPTION>
-<OPTION VALUE="690">Seychelles</OPTION>
-<OPTION VALUE="694">Sierra Leone</OPTION>
-<OPTION VALUE="702">Singapore</OPTION>
-<OPTION VALUE="703">Slovakia (Slovak R</OPTION>
-<OPTION VALUE="705">Slovenia</OPTION>
-<OPTION VALUE="090">Solomon Islands</OPTION>
-<OPTION VALUE="706">Somalia</OPTION>
-<OPTION VALUE="710">South Africa</OPTION>
-<OPTION VALUE="239">South Georgia and </OPTION>
-<OPTION VALUE="724">Spain</OPTION>
-<OPTION VALUE="144">Sri Lanka</OPTION>
-<OPTION VALUE="654">St. Helena</OPTION>
-<OPTION VALUE="666">St. Pierre and Miq</OPTION>
-<OPTION VALUE="736">Sudan</OPTION>
-<OPTION VALUE="740">Suriname</OPTION>
-<OPTION VALUE="744">Svalbard and Jan M</OPTION>
-<OPTION VALUE="748">Swaziland</OPTION>
-<OPTION VALUE="752">Sweden</OPTION>
-<OPTION VALUE="756">Switzerland</OPTION>
-<OPTION VALUE="760">Syrian Arab Republ</OPTION>
-<OPTION VALUE="158">Taiwan</OPTION>
-<OPTION VALUE="762">Tajikistan</OPTION>
-<OPTION VALUE="834">Tanzania, United R</OPTION>
-<OPTION VALUE="764">Thailand</OPTION>
-<OPTION VALUE="768">Togo</OPTION>
-<OPTION VALUE="772">Tokelau</OPTION>
-<OPTION VALUE="776">Tonga</OPTION>
-<OPTION VALUE="780">Trinidad and Tobag</OPTION>
-<OPTION VALUE="788">Tunisia</OPTION>
-<OPTION VALUE="792">Turkey</OPTION>
-<OPTION VALUE="795">Turkmenistan</OPTION>
-<OPTION VALUE="796">Turks and Caicos I</OPTION>
-<OPTION VALUE="798">Tuvalu</OPTION>
-<OPTION VALUE="800">Uganda</OPTION>
-<OPTION VALUE="804">Ukraine</OPTION>
-<OPTION VALUE="784">United Arab Emirat</OPTION>
-<OPTION VALUE="826">United Kingdom</OPTION>
-<OPTION VALUE="581">United States Mino</OPTION>
-<OPTION VALUE="858">Uruguay</OPTION>
-<OPTION VALUE="860">Uzbekistan</OPTION>
-<OPTION VALUE="548">Vanuatu</OPTION>
-<OPTION VALUE="336">Vatican City State</OPTION>
-<OPTION VALUE="862">Venezuela</OPTION>
-<OPTION VALUE="704">Viet Nam</OPTION>
-<OPTION VALUE="092">Virgin Islands (Br</OPTION>
-<OPTION VALUE="850">Virgin Islands (U.</OPTION>
-<OPTION VALUE="876">Wallis and Futuna </OPTION>
-<OPTION VALUE="732">Western Sahara</OPTION>
-<OPTION VALUE="887">Yemen</OPTION>
-<OPTION VALUE="891">Yugoslavia</OPTION>
-<OPTION VALUE="180">Zaire</OPTION>
-<OPTION VALUE="894">Zambia</OPTION>
-<OPTION VALUE="716">Zimbabwe</OPTION>
-</SELECT>
+      
+<%= countries.getSelectBox(country, "country", "dropdown", "") %>
 
     </TD>
   </TR>
@@ -533,9 +311,7 @@ ALIGN="left" VALIGN="middle"></TD>
     <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" 
 BACKGROUND="/i/steel_gray_bg.gif"><B>Email</B>&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" 
 BORDER="0"></TD>
-    <TD COLPSAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="email" VALUE ="<%= email 
-%>" size="30" 
-maxlength="100"></TD>
+    <TD COLPSAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="email" VALUE ="<%= email %>" size="30" maxlength="100"></TD>
   </TR>
     <TR>
         <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD COLSPAN="2" CLASS="errorText" 
@@ -563,7 +339,7 @@ ALIGN="left" VALIGN="middle"></TD>
   <TR>
     <TD CLASS="statTextBig" ALIGN="right" VALIGN="middle" BACKGROUND="/i/steel_gray_bg.gif">Quote&nbsp;</TD><TD><IMG 
 SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="quote" VALUE ="<%= remail 
+    <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle"><INPUT TYPE="text" NAME="quote" VALUE ="<%= quote 
 %>" size="30" 
 maxlength="255"></TD>
   </TR>
@@ -593,7 +369,16 @@ Notification</TD>
 Competition&nbsp;</TD>
       <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
       <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
-        <INPUT TYPE="checkbox" NAME="notify_1" CLASS="statText" CHECKED />
+
+<%
+String checkedString;
+if (nextCompetition) {
+    checkedString = "checked=\"checked\"";
+} else {
+    checkedString = "";
+}
+%>
+        <INPUT TYPE="checkbox" NAME="notify_1" CLASS="statText" <%= checkedString %> />
       </TD>
     </TR>
   
@@ -608,7 +393,15 @@ Competition&nbsp;</TD>
 Results&nbsp;</TD>
       <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
       <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
-        <INPUT TYPE="checkbox" NAME="notify_2" CLASS="statText" CHECKED />
+<%
+
+if (competitionResults) {
+    checkedString = "checked=\"checked\"";
+} else {
+    checkedString = "";
+}
+%>
+        <INPUT TYPE="checkbox" NAME="notify_2" CLASS="statText" <%= checkedString %> />
       </TD>
     </TR>
   
@@ -623,7 +416,15 @@ Results&nbsp;</TD>
 Opportunities&nbsp;</TD>
       <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
       <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
-        <INPUT TYPE="checkbox" NAME="notify_3" CLASS="statText" CHECKED />
+<%
+
+if (employmentOpportunities) {
+    checkedString = "checked=\"checked\"";
+} else {
+    checkedString = "";
+}
+%>
+        <INPUT TYPE="checkbox" NAME="notify_3" CLASS="statText" <%= checkedString %> />
       </TD>
     </TR>
   
@@ -638,7 +439,15 @@ Opportunities&nbsp;</TD>
 Opportunities&nbsp;</TD>
       <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
       <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
-        <INPUT TYPE="checkbox" NAME="notify_4" CLASS="statText" CHECKED />
+<%
+
+if (memberDevelopment) {
+    checkedString = "checked=\"checked\"";
+} else {
+    checkedString = "";
+}
+%>
+        <INPUT TYPE="checkbox" NAME="notify_4" CLASS="statText" <%= checkedString %> />
       </TD>
     </TR>
   
@@ -653,7 +462,15 @@ Opportunities&nbsp;</TD>
 Events&nbsp;</TD>
       <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
       <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
-        <INPUT TYPE="checkbox" NAME="notify_5" CLASS="statText" CHECKED />
+<%
+
+if (newsEvents) {
+    checkedString = "checked=\"checked\"";
+} else {
+    checkedString = "";
+}
+%>
+        <INPUT TYPE="checkbox" NAME="notify_5" CLASS="statText" <%= checkedString %> />
       </TD>
     </TR>
   
@@ -680,10 +497,8 @@ ALIGN="left" VALIGN="middle"></TD>
 Editor&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
         
-    <SELECT NAME="editor" CLASS="dropdown">
-<OPTION VALUE=""></OPTION><OPTION VALUE="1">JVI</OPTION>
-<OPTION VALUE="0">Standard</OPTION>
-</SELECT>
+<%= editors.getSelectBox(editor, "editor", "dropdown", "") %>
+
 </TD>
   </TR>
   <TR>
@@ -702,11 +517,8 @@ ALIGN="left" VALIGN="middle"></TD>
 Language&nbsp;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" CLASS="statTextBig" ALIGN="left" VALIGN="middle">
         
-        <SELECT NAME="language" CLASS="dropdown">
-<OPTION VALUE=""></OPTION><OPTION VALUE="1">Java</OPTION>
-<OPTION VALUE="3">C ++</OPTION>
-<OPTION VALUE="4">C#</OPTION>
-</SELECT>
+<%= languages.getSelectBox(language, "language", "dropdown", "") %>
+
 </TD>
   </TR>
   <TR>

@@ -56,6 +56,8 @@
 
 
 <%
+
+ProfileExperienceObject profExp = tces.getProfileExperienceObject();
 	// load fields from bean
 	Lookup gpas = new Lookup();
 	gpas.addPair("0", "4.0");
@@ -104,21 +106,24 @@
 	industries.addPair("1", "Finance");
 	industries.addPair("2", "Adult");
 	
-	String company = "";
-	String city = "";
-	String selectedState = "";
-	String selectedCountry = "";
-	String selectedIndustry = "";
-	String url = "";
-	String selectedTitle = "";
-	String selectedRole = "";
-	String selectedManagement = "";
-	String selectedNumberPeople = "";
+	String company = profExp.organization_name;
+	String city = profExp.city;
+	String selectedState = profExp.state_code;
+	String selectedCountry = profExp.country_code;
+	String selectedIndustry = profExp.industry_id;
+	String url = profExp.organization_url;
+	String selectedTitle = profExp.job_title;
+	String selectedRole = profExp.job_role_id;
+	String selectedManagement = profExp.job_type_id;
+	String selectedNumberPeople = profExp.organization_size_id;
 	
-	String startMonth = "";
-	String startYear = "";
-	String endMonth = "";
-	String endYear = "";
+        Calendar c = new GregorianCalendar();
+        c.setTime(profExp.date_start);
+	String startMonth = c.get(Calendar.MONTH) + 1;
+	String startYear = c.get(Calendar.YEAR) + 1900;
+        c.setTime(profExp.date_end);
+	String endMonth = c.get(Calendar.MONTH) + 1;
+	String endYear = c.get(Calendar.YEAR) + 1900;
 %>
 
 <FORM NAME="frm" ACTION="<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
@@ -181,7 +186,7 @@
 <tr>
 <td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">City&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
-<td class="statTextBig" align="left" valign="middle"><%= cities.getSelectBox("", "", "", "") %></td>
+<td class="statTextBig" align="left" valign="middle"><%= cities.getSelectBox(selectedCity, "city", "", "") %></td>
 </tr>
 </table>
 </td>
@@ -200,7 +205,7 @@
 <tr>
 <td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">State&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
-<td class="statTextBig" align="left" valign="middle"><%= states.getSelectBox("", "", "", "") %></td>
+<td class="statTextBig" align="left" valign="middle"><%= states.getSelectBox(selectedState, "state", "", "") %></td>
 </tr>
 </table>
 </td>
@@ -219,7 +224,7 @@
 <tr>
 <td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Country&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
-<td class="statTextBig" align="left" valign="middle"><%= countries.getSelectBox("", "", "", "") %></td>
+<td class="statTextBig" align="left" valign="middle"><%= countries.getSelectBox(selectedCountry, "country", "", "") %></td>
 </tr>
 </table>
 </td>
@@ -239,7 +244,7 @@
 <tr>
 <td width="150" class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Industry&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
-<td class="statTextBig" align="left" valign="middle"><%= industries.getSelectBox("", "", "", "") %></td>
+<td class="statTextBig" align="left" valign="middle"><%= industries.getSelectBox(selectedIndustry, "industry", "", "") %></td>
 </tr>
 </table>
 </td>
