@@ -4,11 +4,12 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.web.tc.Constants,
                  com.topcoder.web.tc.model.SoftwareComponent,
-                 com.topcoder.web.tc.model.ReviewBoardApplication"%>
+                 com.topcoder.web.tc.model.ReviewBoardApplication,
+                 java.util.List"%>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
-<jsp:useBean id="prices" scope="request" class="java.util.List"/>
+<%List prices = (List)request.getAttribute("prices");%>
 <%ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>
 <%--<% ResultSetContainer projectList = (ResultSetContainer)request.getAttribute("projectList");%>--%>
 
