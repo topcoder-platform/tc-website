@@ -53,7 +53,7 @@
   </attribute>
  </tag>
  <tag>
-  <name>listValue</name>
+  <name>listText</name>
   <info>Returns the 'text' for a given 'value' in a text/value pair list</info>
   <tagclass>com.topcoder.web.hs.view.tag.RegistrationValue</tagclass>
   <bodycontent>empty</bodycontent>
