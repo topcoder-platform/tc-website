@@ -107,7 +107,7 @@ received, the category was not offered, etc.), that prize will be forfeited.</p>
 
 <p>Member profiles have been modified to reflect a reliability factor for all component design and development competitions. 
 The reliability factor is calculated as the percent of projects that a member registers for in which that same 
-member presents a timely submission that achieves the minimum passing component score of 70.</p>
+member presents a timely submission that passes screening.</p>
 
 <p>Members will be eligible to receive a bonus on top of any prize money won if their Reliability Ratings are equal to or exceed 
 80%. Winning members with Reliability Ratings equal to or exceeding 80% and less than 90% will receive a bonus equal to 10% 
