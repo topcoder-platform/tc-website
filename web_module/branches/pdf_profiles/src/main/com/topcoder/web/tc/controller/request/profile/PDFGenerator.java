@@ -868,6 +868,8 @@ public class PDFGenerator extends BaseProcessor {
                     Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
                     footerimg.setAlignment(Element.ALIGN_LEFT);
                     footerimg.scalePercent(70f);
+                    
+                    footerimg.setAbsolutePosition(45,30);
 
                     cb = writer.getDirectContent();
                     cb.beginText();
