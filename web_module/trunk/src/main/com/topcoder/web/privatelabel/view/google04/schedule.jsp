@@ -120,7 +120,7 @@
 				</tr>
 				<tr valign="top">
 					<td class="sidebarText">Championship Round</td>
-					<td class="sidebarText">Friday, October 15th<br />START: 4:00 PM<br /></td>
+					<td class="sidebarText">Friday, October 15th<br />START: 3:45 PM<br /></td>
 					<td class="sidebarText" align="center">50</td>
 					<td class="sidebarText" align="center">n/a</td>
 				</tr>
