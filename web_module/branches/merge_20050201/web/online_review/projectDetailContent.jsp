@@ -300,8 +300,8 @@
         <td align="center" class="lightBkgnd">
             <table border="0" cellpadding="0" cellspacing="4">
                 <tr>
-                    <td><review:showDeliverable name="project" property="project" button="true" styleClass="submitButton" /></td>
-                    <td><review:contactPM name="project" property="id" button="true" styleClass="submitButton" /></td>
+                    <td><review:showDeliverable name="project" property="project" button="true" styleClass="submitButton" />
+                    <review:contactPM name="project" property="id" button="true" styleClass="submitButton" /></td>
                 </tr>
             </table>
         </td>

@@ -349,7 +349,7 @@ public class ShowDeliverableTag extends BaseTag {
                     result.append(" class=\"" + styleClass + "\"");
                 }
                 result.append(">");
-                if (pages.size() > 4 && i == pages.size() / 2) {
+                if (pages.size() > 4 && i == (pages.size() + 1) / 2) {
                     result.append("<br>");
                 }
             } else {
