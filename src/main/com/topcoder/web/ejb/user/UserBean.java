@@ -434,6 +434,63 @@ public class UserBean implements SessionBean {
         return (user_status_id);
     }
 
+    public boolean userExists(long userId) throws EJBException {
+        PreparedStatement ps = null;
+        ResultSet rs = null;
+        Connection conn = null;
+
+        boolean userExists = false;
+
+        try {
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("SELECT 'X' ");
+            query.append("FROM user ");
+            query.append("WHERE user_id=?");
+
+            String ds_name = (String) init_ctx.lookup(DATA_SOURCE);
+            DataSource ds = (DataSource) init_ctx.lookup(ds_name);
+
+            conn = ds.getConnection();
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+
+            rs = ps.executeQuery();
+            userExists =  rs.next();
+        } catch (SQLException _sqle) {
+            _sqle.printStackTrace();
+            throw(new EJBException(_sqle.getMessage()));
+        } catch (NamingException _ne) {
+            _ne.printStackTrace();
+            throw(new EJBException(_ne.getMessage()));
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (ps != null) {
+                try {
+                    ps.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+
+        return userExists;
+    }
+
+
 }
 
 ;

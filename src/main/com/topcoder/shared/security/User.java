@@ -6,7 +6,7 @@ package com.topcoder.shared.security;
  * @author Greg Paul, Ambrose Feinstein
  */
 public interface User {
-
+    /** Constants for anonymous users */
     public long getId();
 
     public String getUserName();

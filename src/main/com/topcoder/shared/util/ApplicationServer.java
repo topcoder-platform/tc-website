@@ -6,6 +6,7 @@ import java.util.StringTokenizer;
  * A class to hold application wide constants
  * @author Steve Burrows
  * @version $Revision$
+ * @version $Revision$
  */
 public class ApplicationServer {
 
@@ -21,6 +22,7 @@ public class ApplicationServer {
     public static String CONTEST_HOST_URL = bundle.getProperty("CONTEST_HOST_URL", "t3://172.16.20.40:9003");
     public static String[] WEBLOGIC_CLUSTER_IP = getClusterArray(bundle.getProperty("WEBLOGIC_CLUSTER_IP", "172.16.20.41"));
     public static String BASE_DIR = bundle.getProperty("BASE_DIR", "/usr/web/build/classes");
+    public static String SECURITY_PROVIDER_URL = bundle.getProperty("SECURITY_PROVIDER_URL", "172.16.20.40:1099");
 
     public static String IAGREE = bundle.getProperty("IAGREE", BASE_DIR + "/com/topcoder/common/terms.txt");
     public final static String JNDI_FACTORY = bundle.getProperty("JNDI_FACTORY", "weblogic.jndi.WLInitialContextFactory");
@@ -32,7 +34,6 @@ public class ApplicationServer {
 
     public static String TCS_APP_SERVER_URL = bundle.getProperty("TCS_APP_SERVER_URL", "172.16.20.222:1099");
 
-    public static String SECURITY_PROVIDER_URL = bundle.getProperty("SECURITY_PROVIDER_URL", "172.16.20.40:1099");
     public static String AUTHENTICATION_SERVICES = bundle.getProperty("AUTHENTICATION_SERVICES", "com.topcoder.ejb.AuthenticationServicesHome");
     public static String CODER_STATISTICS = bundle.getProperty("CODER_STATISTICS", "com.topcoder.ejb.CoderStatisticsHome");
     public static String DATA_CACHE = bundle.getProperty("DATA_CACHE", "com.topcoder.ejb.DataCacheHome");
@@ -56,6 +57,9 @@ public class ApplicationServer {
     public static String Q_QUERY = bundle.getProperty("Q_QUERY", "com.topcoder.web.query.ejb.QueryServices.Query");
     public static String Q_QUERY_INPUT = bundle.getProperty("Q_QUERY_INPUT", "com.topcoder.web.query.ejb.QueryServices.QueryInput");
 
+    //formats used by informix for converting string to date(time)
+    public static String INFORMIX_DATE_FORMAT = bundle.getProperty("INFORMIX_DATE_FORMAT", "MM/dd/yy");
+    public static String INFORMIX_DATETIME_FORMAT = bundle.getProperty("INFORMIX_DATETIME_FORMAT", "yyyy-MM-dd HH:mm:ss.SSS");
 
     private static String[] getClusterArray(String s) {
         StringTokenizer st = new StringTokenizer(s, ",");
