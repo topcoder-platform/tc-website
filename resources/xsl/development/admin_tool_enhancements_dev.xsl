@@ -203,8 +203,8 @@
                                                     <td class="bodyText" align="right">9.29.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="bodyText">Design Start:</td>
-                                                    <td class="bodyText" align="right">7.22.2003</td>
+                                                    <td class="bodyText">Development Start:</td>
+                                                    <td class="bodyText" align="right">10.01.2003</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="bodyText">Phase 1 Due:
