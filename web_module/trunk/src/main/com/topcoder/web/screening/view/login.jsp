@@ -39,16 +39,9 @@
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
-<!-- Left Column Begins -->
-        <td width="22" bgcolor="#000000">
-
-        <jsp:include page="includes/left.jsp" />
-
-        </td>
-<!-- Left Column Ends -->
 
 <!-- Gutter begins -->
-        <td><img src="/i/clear.gif" width="10" alt="" height="1"></td>
+        <td><img src="/i/clear.gif" width="25" alt="" height="1"></td>
 <!-- Gutter ends -->
 
 <!-- Center Column begins -->
@@ -76,7 +69,8 @@
                        <table border="0" cellpadding="3" cellspacing="0" align="center">
                             <tr valign="middle">
                                 <td class="loginText" align="right">User Name:</td>
-                                <td colspan="2" align="left"><input maxlength="15" size="12" name="<%=Constants.HANDLE%>" type="text" onKeyPress="submitEnter(event)" value=""></td>
+                                <td align="left"><input maxlength="15" size="12" name="<%=Constants.HANDLE%>" type="text" onKeyPress="submitEnter(event)" value=""></td>
+                                <td class="loginText">&#160</td>
                             </tr>
 
                             <tr valign="middle">
@@ -96,7 +90,7 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- Gutter ends -->
 
     </tr>

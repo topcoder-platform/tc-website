@@ -58,42 +58,36 @@ function submitSession() {
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
-<!-- left column begins -->
-        <td width="22" bgcolor="#000000">
-
-        <jsp:include page="/includes/left.jsp" />
-
-      </td>
-<!-- left column ends -->
 
 <!-- gutter begins -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- gutter ends -->
 
 <!-- Middle column begins -->
-        <td class="bodyText" width="100%"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
             <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr valign="top">
                     <td class="bodyText">
                         <h1 class="testHead">Create a New Session</h1>
                         <p>Here you will create a session by selecting a Test Profile and assigning a candidate to it by following these steps:</p>
                         <ol>
-                            <li>Select a Test Profile. If you wish to create a new Test Profile, click "Create a New Test Profile".</li>
-                            <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click "Add a Candidate".</li>
+                            <li>Select a Test Profile. If you wish to create a new Test Profile, click <strong>Create a New Test Profile</strong>.</li>
+                            <li>Select a candidate to assign to the Test Profile.  If you wish to add a new candidate, click <strong>Add a Candidate</strong>.</li>
                             <li>Set the timeframe for when the candidate can access the Testing Application. Be sure to allow at least a 3-hour window during which the candidate can participate.</li>
                         </ol>
                     </td>
                 </tr>
             </table>
 
+            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
+            
              <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr><td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
+                <tr><screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
+                    <input type="HIDDEN" name="rp" value="" >
+                    <td width="100%"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"></td>
+                </tr>
             </table>
  
-            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
-            <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-            <input type="HIDDEN" name="rp" value="" >
-
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>
                 <tr>
@@ -220,7 +214,7 @@ function submitSession() {
                 </tr>
                 
                 <tr valign="middle">
-                    <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()">click here</a><img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
+                    <td class="testTableOdd" colspan="3"><a href="JavaScript:showEmail()">Preview</a> the email template<img src="/i/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
             </table>
 
@@ -235,7 +229,7 @@ function submitSession() {
 <!-- Middle Column ends -->
 
 <!-- Gutter -->
-        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
 <!-- Gutter Ends -->
 
     </tr>
