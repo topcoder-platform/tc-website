@@ -5,11 +5,11 @@
 <table width=100% border=0 cellspacing=0 cellpadding=0 align=right valign=top class=bodyText>
 	<tr>
 	<% if (phase.equals("preferences")) {%><td class=vbcON>Preferences 1</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=ContractingPreferences" class=vbcLINK>Preferences 1</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('Preferences');" class=vbcLINK>Preferences 1</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("languages")) {%><td class=vbcON>Languages 2</td>
-	<% } else { %><td class=vbcOFF><A href="/tc?module=ContractingLanguages" class=vbcLINK>Languages 2</A></td><% } %>
+	<% } else { %><td class=vbcOFF><A href="javascript:goToPage('Languages');" class=vbcLINK>Languages 2</A></td><% } %>
 	</tr>
 	<tr>
 	<% if (phase.equals("technologies")) {%><td class=vbcON>Technologies 3</td>
