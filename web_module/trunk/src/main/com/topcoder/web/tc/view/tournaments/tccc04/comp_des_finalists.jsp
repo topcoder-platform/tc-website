@@ -49,29 +49,41 @@
 <!-- Design Winners Begins -->
             <table border="0" cellspacing="0" cellpadding="3" width="450" align="center" class="formFrame">
                 <tr valign="middle">
-                    <td class="advTitle" colspan="3">Design Finalists</td>
+                    <td class="advTitle" colspan="4">Design Finalists</td>
                 </tr>
                 <tr valign="middle">
-                    <td class="advHeader" width="20%" align="left">Handle</td>
-                    <td class="advHeader" width="60%" align="right">Score</td>
+                    <td class="advHeader" width="40%" align="left">Handle</td>
+                    <td class="advHeader" width="20%" align="center">Round 1 Score</td>
+                    <td class="advHeader" width="20%" align="center">Round 2 Score</td>
+                    <td class="advHeader" width="20%" align="right">** Cumulative Score</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=278342">adic</a></td>
-                    <td class="advCell" align="right">81.15</td>
+                    <td class="advCell" align="center">83.46</td>
+                    <td class="advCell" align="center">81.15</td>
+                    <td class="advCell" align="right">188.96</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=302018">Tomson</a></td>
-                    <td class="advCell" align="right">78.00</td>
+                    <td class="advCell" align="center">84.74</td>
+                    <td class="advCell" align="center">78.00</td>
+                    <td class="advCell" align="right">186.14</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=289824">MPhk</a></td>
-                    <td class="advCell" align="right">77.25</td>
+                    <td class="advCell" align="center">80.86</td>
+                    <td class="advCell" align="center">77.25</td>
+                    <td class="advCell" align="right">181.29</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell" align="left"><a href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
-                    <td class="advCell" align="right">76.57</td>
+                    <td class="advCell" align="center">78.33</td>
+                    <td class="advCell" align="center">76.57</td>
+                    <td class="advCell" align="right">177.87</td>
                 </tr>
-            </table>        
+            </table>
+        
+        <p align="center">** Cumulative score = Highest individual component score from Online Round #1 + (Highest individual component score from Online Round #2 x 1.3)</p>
 
          <p><br/></p>
          </td>
