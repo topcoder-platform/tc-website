@@ -20,6 +20,7 @@
         <xs:enumeration value="String"/>
         <xs:enumeration value="String[]"/>
         <xs:enumeration value="String[][]"/>
+        <xs:enumeration value="Matrix2D"/>
     </xs:restriction>
 </xs:simpleType>
 
