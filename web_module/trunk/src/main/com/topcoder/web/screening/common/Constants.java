@@ -162,6 +162,7 @@ public class Constants
         USER_ID = config.getInitParameter("user_id_parameter");
         CANDIDATE_ID = config.getInitParameter("candidate_id_parameter");
         EMAIL_ADDRESS = config.getInitParameter("email_address_parameter");
+        MESSAGE_PARAMETER = config.getInitParameter("message_parameter");
         FIRST_ATTEMPT = config.getInitParameter("first_attempt_parameter");
         REFERRER = config.getInitParameter("referrer_parameter");
         REQUEST_PROCESSOR = config.getInitParameter("request_processor_parameter");
