@@ -174,13 +174,13 @@ public class TCLoadRequests extends TCLoad {
                             " session " + rs.getString("session_id") + " modified " + retVal + " rows, not one.");
                 }
 
-                printLoadProgress(count, "request");
+                printLoadProgress(count, "site _it");
             }
 
-            log.info("Records loaded for request: " + count);
+            log.info("Records loaded for site_hit: " + count);
         } catch (SQLException sqle) {
             DBMS.printSqlException(true, sqle);
-            throw new Exception("Load of 'request' table failed.\n" +
+            throw new Exception("Load of 'site_hit' table failed.\n" +
                     sqle.getMessage());
         } finally {
             close(rs);
