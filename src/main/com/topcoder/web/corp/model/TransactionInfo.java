@@ -334,6 +334,7 @@ public class TransactionInfo {
                 (DataSource)ic.lookup(DBMS.CORP_OLTP_DATASOURCE_NAME)
             );
             dataRequest.setContentHandle("cmd-roles-per-product");
+            dataRequest.setProperty("prodID", ""+productID);
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("qry-roles-per-product");
             for( int i=0; i<rsc.size(); ++i ) {
