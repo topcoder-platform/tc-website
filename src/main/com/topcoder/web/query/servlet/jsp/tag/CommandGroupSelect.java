@@ -1,11 +1,12 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.web.common.tag.SelectTag;
 
 import javax.servlet.jsp.JspException;
 import java.util.List;
 
-public class CommandGroupSelect extends Select {
+public class CommandGroupSelect extends SelectTag {
 
     private ResultSetContainer list;
 
@@ -17,15 +18,15 @@ public class CommandGroupSelect extends Select {
         this.list = list;
     }
 
-    String getOptionValue(Object o) {
+    protected String getOptionValue(Object o) {
         return ((ResultSetContainer.ResultSetRow)o).getItem("command_group_id").toString();
     }
 
-    String getOptionText(Object o) {
+    protected String getOptionText(Object o) {
         return ((ResultSetContainer.ResultSetRow)o).getItem("command_group_name").toString();
     }
 
-    List getSelectOptions() throws JspException {
+    protected List getSelectOptions() throws JspException {
         return list;
     }
 }

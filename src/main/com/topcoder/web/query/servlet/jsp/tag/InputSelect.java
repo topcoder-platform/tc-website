@@ -1,12 +1,13 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
 import com.topcoder.web.query.bean.InputBean;
+import com.topcoder.web.common.tag.SelectTag;
 
 import javax.servlet.jsp.JspException;
 import java.util.List;
 
 
-public class InputSelect extends Select {
+public class InputSelect extends SelectTag {
 
     private List list;
 
@@ -18,16 +19,16 @@ public class InputSelect extends Select {
         this.list = list;
     }
 
-    String getOptionValue(Object o) {
+    protected String getOptionValue(Object o) {
         return ""+((InputBean)o).getInputId();
     }
 
-    String getOptionText(Object o) {
+    protected String getOptionText(Object o) {
         return ((InputBean)o).getInputCode() + " - " +
                ((InputBean)o).getInputDesc();
     }
 
-    List getSelectOptions() throws JspException {
+    protected List getSelectOptions() throws JspException {
         return list;
     }
 }
