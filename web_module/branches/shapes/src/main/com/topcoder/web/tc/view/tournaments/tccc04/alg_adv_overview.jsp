@@ -73,7 +73,9 @@
 				<% String sLink = "/stat?c=member_profile&cr=";%>
                 <rsc:iterator list="<%=rsc%>" id="resultRow">
 <td align="center" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="seed" row="<%=resultRow%>"/></td>
-<td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><tc:ratingImage link='<%=sLink + resultRow.getIntItem("coder_id")%>' bg='B' cid='<%=resultRow.getIntItem("coder_id")%>' /></td>
+
+<td class="<%=even?"formHandleEven":"formHandleOdd"%>" ><tc:ratingImage link='<%=sLink + resultRow.getIntItem("user_id")%>' bg='B' cid='<%=resultRow.getIntItem("user_id")%>' /></td>
+
 <td align="right" class="<%=even?"formHandleEven":"formHandleOdd"%>" ><rsc:item name="rating" row="<%=resultRow%>"/>&#160;&#160;</td>
 <% if (StringUtils.checkNull(resultRow.getStringItem("round1")).equals("Eliminated")) { %>
 <td  class="<%=even?"eliminateDk":"eliminateLt"%>"><rsc:item name="round1" row="<%=resultRow%>"/></td>
