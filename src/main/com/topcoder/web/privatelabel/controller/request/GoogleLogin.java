@@ -157,21 +157,23 @@ public class GoogleLogin extends FullLogin {
                 row = (ResultSetContainer.ResultSetRow) it.next();
                 question = findQuestion(row.getLongItem("demographic_question_id"));
                 //only add the response if we have a mapping for it
-                if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(question.getId()))) {
-                    DemographicResponse r = new DemographicResponse();
-                    r.setQuestionId(question.getId());
-                    r.setSort(row.getIntItem("sort"));
-                    if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
-                            question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
-                        long answerId = row.getLongItem("demographic_answer_id");
-                        //check if we have a mapping for the answer, if so, add the response
-                        if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
-                            r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
+                if (question != null) {
+                    if (TC_TO_PL_QUESTION_MAP.containsKey(new Long(question.getId()))) {
+                        DemographicResponse r = new DemographicResponse();
+                        r.setQuestionId(question.getId());
+                        r.setSort(row.getIntItem("sort"));
+                        if (question.getAnswerType() == DemographicQuestion.SINGLE_SELECT ||
+                                question.getAnswerType() == DemographicQuestion.MULTIPLE_SELECT) {
+                            long answerId = row.getLongItem("demographic_answer_id");
+                            //check if we have a mapping for the answer, if so, add the response
+                            if (TC_TO_PL_ANSWER_MAP.containsKey(new Long(answerId))) {
+                                r.setAnswerId(((Long) TC_TO_PL_ANSWER_MAP.get(new Long(answerId))).longValue());
+                                info.addResponse(r);
+                            }
+                        } else {
+                            r.setText(row.getStringItem("demographic_response"));
                             info.addResponse(r);
                         }
-                    } else {
-                        r.setText(row.getStringItem("demographic_response"));
-                        info.addResponse(r);
                     }
                 }
             }
