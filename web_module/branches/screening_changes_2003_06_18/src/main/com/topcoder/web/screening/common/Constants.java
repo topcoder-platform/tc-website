@@ -12,7 +12,6 @@ public class Constants
 
     private static boolean isInitialized;
 
-    public static String JSP_ROOT;
     //Controller Servlet Constants
     public static String VALID_CHAR_LIST;
     public static String VALID_PASS_CHAR_LIST;

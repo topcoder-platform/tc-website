@@ -6,6 +6,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.screening.common.AnonymousUserException;
@@ -141,23 +142,6 @@ public abstract class BaseProcessor implements RequestProcessor {
         return dAccess;
     }
     
-    protected void requireLogin() throws Exception{
-        User user = getAuthentication().getUser();
-        if(user.isAnonymous()){
-            HttpServletRequest request = (HttpServletRequest)getRequest();
-            String redirect = request.getServletPath();
-            if(request.getMethod().equals("GET") && request.getQueryString() != null){
-                redirect = redirect + '?' + request.getQueryString();
-            }
-            request.setAttribute(Login.KEY_DESTINATION_PAGE,redirect);
-            request.setAttribute(Constants.MESSAGE_PARAMETER,"In order to continue, you must provide your user name " +
-                            "and password, even if you’ve logged in already.");
-            throw new AnonymousUserException(
-                "Login required for " + this.getClass().getName());
-        }
-    }
-
-
     protected void addError(String key, Object error) {
         if (!hasError(key)) {
             errors.put(key, error);
