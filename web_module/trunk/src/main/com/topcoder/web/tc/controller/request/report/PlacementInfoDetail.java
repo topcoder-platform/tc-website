@@ -207,6 +207,12 @@ public class PlacementInfoDetail extends Base {
                 }
             }
 
+            Request noteRequest = new Request();
+            noteRequest.setContentHandle("has_notes");
+            r.setProperty(Constants.USER_ID, String.valueOf(userId));
+            getRequest().setAttribute("has_notes",
+                    Boolean.valueOf(getDataAccess().getData(noteRequest).get("has_notes").equals("1")));
+
             ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
 
             User user = (User)createEJB(getInitialContext(), User.class);
