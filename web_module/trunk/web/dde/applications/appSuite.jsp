@@ -53,13 +53,11 @@
 <!-- Gutter 1 ends -->
 
 <!-- Middle Column begins -->
-        <td width="99%" height=800>
-            <img src="/images/clear.gif" width="1" height="15" alt="" border="0"><br>
-            <div align="center">
-            
+        <td width="99%" align=center valign=top>
+        <img src="/images/clear.gif" alt="" width="450" height="10" border="0" />
 <object
 classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
-codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=6,0,0,0"
+codebase="http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=7,0,0,0"
 width="800"
 height="450"
 id="appSuite"
@@ -70,12 +68,12 @@ align="top"
 <param name="align" value="t" />
 <param name="salign" value="t" />
 <param name="menu" value="false" />
-<param name="bgcolor" value="#ffffff" />
+<param name="bgcolor" value="#FFFFFF" />
 <embed
 src="/images/flash/appSuiteDetails.swf"
 menu="false"
 quality="high"
-bgcolor="#ffffff"
+bgcolor="#FFFFFF"
 width="800"
 height="450"
 name="appSuite"
@@ -85,26 +83,14 @@ type="application/x-shockwave-flash"
 pluginspage="http://www.macromedia.com/go/getflashplayer" />
 </object>
 
-            <p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
-
+			<p><font size="3"><strong><a href="http://www.topcoder.com/?t=contacts&c=index">Contact us</a> today so we can get started developing your next application.</strong></font></p>
             <p><br></p>
-
-            </div>
         </td>
 <!-- Middle Column ends -->
 
 <!-- Gutter 2 begins -->
         <td width="15"><img src="/images/clear.gif" alt="" width="15" height="10" border="0" /></td>
 <!-- Gutter 2 ends -->
-
-<!-- Right Column begins -->
-        <td width="170">
-        </td>
-<!--Right Column ends -->
-
-<!-- Gutter 3 begins -->
-        <td width="10"><img src="/images/clear.gif" alt="" width="10" height="10" border="0" /></td>
-<!-- Gutter 3 ends -->
 
     </tr>
 </table>
