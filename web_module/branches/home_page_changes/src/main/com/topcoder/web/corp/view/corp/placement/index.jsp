@@ -40,8 +40,20 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column begins -->
-        <td width="100%">
+        <td width="100%" align=center>
 
+        <div class="plmtBody">
+		<div align=center>
+		<img src="/i/corp/clear.gif" border=1 width=500 height=100/>
+		</div>
+
+		<p>
+		TopCoder attracts the best software developers to our international programming tournaments. Programmers, team leaders, and software architects join TopCoder to demonstrate their prowess in software development. Only through competition can the most talented developers be found. TopCoder provides placement services for those companies looking to hire fulltime employees. TopCoder works with companies to define a position description including geographic location, skill sets desired, special requirements, salary, etc. TopCoder will then contact members directly about the position and determine the most appropriate candidates based on the position description and feedback from the hiring company. To learn more about our placement services, contact us at <A href="mailto:tces@topcoder.com">tces@topcoder.com</A>.
+		<br/><br/>
+		TopCoder also provides contract programming services utilizing our member base to handle client needs. Through our competition platform, we measure the relevant skills of developers including problem solving skills, programming ability, and quality assurance. TopCoder works with companies to define the requirements for the contract position and then search our member base for the most appropriate candidates. To learn more about our placement services, contact us at <A href="mailto:tces@topcoder.com">tces@topcoder.com</A>.
+		</p>
+
+        </div>
 
         <p><br></p>
 		</td>
