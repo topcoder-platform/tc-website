@@ -42,6 +42,8 @@
             <img src="/i/clear.gif" alt="" width="1" height="20" border="0"/><br/>
 
             <form action="<%=sessionInfo.getServletPath()%>" method="POST" name="frmTerms">
+              <input type="hidden" name="<%=Constants.PROJECT_ID%>" value="<%=request.getParameter(Constants.PROJECT_ID)%>"/>
+              <input type="hidden" name="<%=Constants.PHASE_ID%>" value="<%=request.getParameter(Constants.PHASE_ID)%>"/>
 
             <table border="0" cellspacing="0" cellpadding="5">
                 <tr valign="middle">

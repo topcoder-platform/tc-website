@@ -27,10 +27,7 @@ public class ProjectReviewApply extends Base {
             projectId = Long.parseLong(getRequest().getParameter(Constants.PROJECT_ID));
             phaseId = Integer.parseInt(getRequest().getParameter(Constants.PHASE_ID));
 
-            if (getUser().isAnonymous()) {
-                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-            } else {
-
+            if (userIdentified()) {
 
                 RBoardUser rbu = (RBoardUser) createEJB(getInitialContext(), RBoardUser.class);
 
@@ -38,8 +35,8 @@ public class ProjectReviewApply extends Base {
                 //talking high volume here
                 Request r = new Request();
                 r.setContentHandle("review_project_detail");
-                r.setProperty("pj", StringUtils.checkNull(getRequest().getParameter("pj")));
-                r.setProperty("ph", StringUtils.checkNull(getRequest().getParameter("ph")));
+                r.setProperty(Constants.PROJECT_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PROJECT_ID)));
+                r.setProperty(Constants.PHASE_ID, StringUtils.checkNull(getRequest().getParameter(Constants.PHASE_ID)));
                 Map results = getDataAccess().getData(r);
                 ResultSetContainer detail = (ResultSetContainer) results.get("review_project_detail");
                 int catalog = detail.getIntItem(0, "category_id");
@@ -69,7 +66,10 @@ public class ProjectReviewApply extends Base {
                     throw new TCWebException("unknown catalog found " + catalog);
                 }
 
+            } else {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
             }
+
 
         } catch (TCWebException e) {
             throw e;
