@@ -23,6 +23,7 @@ function openWnd(pageUrl) {
 </SCRIPT>
 
 <jsp:useBean id="ProblemStatisticsTask" scope="request" class="com.topcoder.web.tces.bean.ProblemStatisticsTask" />
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -92,7 +93,7 @@ function openWnd(pageUrl) {
               </p>
       
               <p>
-                <A HREF="javascript:openWnd('/tces/?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATEMENT_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%=ProblemStatisticsTask.getProblemID()%>')" class="bodyText">
+                <A HREF="javascript:openWnd('<%=sessionInfo.getServletPath()%>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.PROBLEM_STATEMENT_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=ProblemStatisticsTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=ProblemStatisticsTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=ProblemStatisticsTask.getMemberID()%>&<%=TCESConstants.PROBLEM_ID_PARAM%>=<%=ProblemStatisticsTask.getProblemID()%>')" class="bodyText">
                   View Problem Statement
                 </A>
               </P>
