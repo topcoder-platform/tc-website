@@ -14,7 +14,7 @@
                         <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">                
                             <tr valign="middle">
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
-                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects <xsl:value-of select="./component_id"/></td>
+                                <td background="/i/graybv_bg.gif" bgcolor="#666666" width="164" class="statText">Design Projects2 <xsl:value-of select="./component_id"/></td>
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="70" class="statText" align="center">Submit by</td>
                                 <td background="/i/graybv_bg.gif" bgcolor="#666666" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                             </tr>
