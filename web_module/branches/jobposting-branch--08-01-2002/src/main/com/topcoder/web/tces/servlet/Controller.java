@@ -3,9 +3,7 @@ package com.topcoder.web.tces.servlet;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.util.DBMS;
 import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
 import com.topcoder.web.tces.common.*;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServices;
 import com.topcoder.web.tces.ejb.TCESServices.TCESServicesHome;
@@ -13,7 +11,6 @@ import com.topcoder.web.tces.bean.*;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.http.*;
 import java.io.IOException;
 import java.util.*;
@@ -39,10 +36,11 @@ public class Controller extends HttpServlet {
     /**
      * This method handles requests.
      *
-     * @param HttpServletRequest    the servlet request object
-     * @param HttpServletResponse    the servlet response object
+     * @param request the servlet request object
+     * @param  response the servlet response object
      *
      * @throws ServletException
+     * @throws IOException
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -173,15 +171,6 @@ log.debug(task.getNextPage());
                     new Exception("Don't recognize command: " + command));
             return;
         }
-    }
-
-
-    private boolean isWord(String s) {
-        if (s == null || s.length() == 0) return false;
-        for (int i = 0; i < s.length(); i++) {
-            if (!Character.isLetter(s.charAt(i))) return false;
-        }
-        return true;
     }
 
     private void forwardToErrorPage(HttpServletRequest request, HttpServletResponse response,
