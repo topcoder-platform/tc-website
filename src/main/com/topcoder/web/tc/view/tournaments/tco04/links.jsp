@@ -162,10 +162,12 @@
 		<td class="<%=tabLev3.equals("rules")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_rules" class="subNavLink">Rules</a></td>
 	<% } else if (tabLev2.equals("design")) {%>
 		<td class="<%=tabLev3.equals("results")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=TCO04Results&ph=112" class="subNavLink">Results</a></td>
+		<td class="<%=tabLev3.equals("finals")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_finals" class="subNavLink">Finals</a></td>
 		<td class="<%=tabLev3.equals("summary")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_summary" class="subNavLink">Summary</a></td>
 		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_des_bracket" class="subNavLink">Bracket</a></td>
 	<% } else if (tabLev2.equals("development")) {%>
 		<td class="<%=tabLev3.equals("results")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=TCO04Results&ph=113" class="subNavLink">Results</a></td>
+		<td class="<%=tabLev3.equals("finals")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_finals" class="subNavLink">Finals</a></td>
 		<td class="<%=tabLev3.equals("summary")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_summary" class="subNavLink">Summary</a></td>
 		<td class="<%=tabLev3.equals("bracket")?"subNav_On":"subNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=comp_dev_bracket" class="subNavLink">Bracket</a></td>
 	<% } else { %>
