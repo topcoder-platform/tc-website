@@ -827,6 +827,23 @@
         <delete dir="${public_html}/privatelabel/META-INF"/>
     </target>
 
+    <target name="deploy-tc" depends="compile">
+        <war warfile="${war.dir}/tc.war" webxml="${resources}/tc/web.xml">
+            <fileset dir="${java}/com/topcoder/web/tc/view">
+                <include name="**/*.jsp"/>
+            </fileset>
+            <classes dir="${classes}">
+                <include name="com/topcoder/shared/util/"/>
+                <include name="com/topcoder/shared/dataAccess/"/>
+                <include name="com/topcoder/web/common/" />
+                <include name="com/topcoder/web/tc/" />
+            </classes>
+        </war>
+        <unwar src="${war.dir}/tc.war" dest="${public_html}/tc/" overwrite="yes"/>
+        <delete dir="${public_html}/tc/META-INF"/>
+    </target>
+
+
     <target name="moveQueries" depends="compile">
         <java classname="com.topcoder.utilities.querymover.QueryMover" fork="true">
             <arg value="11024"/>
