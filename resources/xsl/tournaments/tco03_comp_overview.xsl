@@ -6,6 +6,7 @@
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
+  <xsl:import href="../includes/modules/tco03_suplinks.xsl"/>
   <xsl:import href="../includes/modules/tco03_links.xsl"/>
   <xsl:import href="../includes/modules/tco03_sublinks.xsl"/>  
   <xsl:import href="../includes/global_left.xsl"/> 
@@ -62,9 +63,14 @@
 <!-- TCO Header -->
             <div align="center"><img src="/i/tournament/tco03/header_tco_main.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" vspace="15" /></div>
 
+<!-- Tab bar suplinks-->
+            <xsl:call-template name="tco03_suplinks">
+                <xsl:with-param name="selectedTab">component</xsl:with-param>
+            </xsl:call-template>
+
 <!-- Tab bar links-->
             <xsl:call-template name="tco03_links">
-                <xsl:with-param name="selectedTab">overview</xsl:with-param>
+                <xsl:with-param name="selectedTab">component_overview</xsl:with-param>
             </xsl:call-template>
 
 <!-- Tab bar sub links-->
