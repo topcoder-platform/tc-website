@@ -1,0 +1,171 @@
+<html>
+<head>
+	<title>TopCoder Software</title>
+</head>
+<link rel="stylesheet" type="text/css" href="tcs_style.css">
+<body class="body">
+<form action="#" method="#">
+<!--start logo/tag-->
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+<td BGCOLOR="#000000" WIDTH="15"><a NAME="top"></a><img BORDER="0" HEIGHT="1" WIDTH="15" SRC="i/clear.gif"></td>
+<td width="240" height="80" align="left" bgcolor="#000000">
+<a href="index.shtml">
+<img src="i/tcs_logo_onblack2.gif" alt="TopCoder Software" width="206" height="49" border="0" vspace="10"/></a>
+</td>
+<td width="100%" valign="bottom" align="right" bgcolor="#000000"><img src="i/top_tagline.gif" alt="Building Software Better and Faster!" width="450" height="30" border="0" hspace="20"/><img src="i/clear.gif" alt="TopCoder Software" width="20" height="1" border="0"/><BR></td>
+</tr>
+<tr>
+<td colspan="3" bgcolor="#333333"><img src="i/clear.gif" alt="TopCoder Software" width="1" height="4" border="0"/></td>
+</tr>
+<!-- <tr>
+<td colspan="2" bgcolor="#000000"><img src="i/clear.gif" alt="TopCoder Software" width="1" height="1" border="0"/></td>
+</tr> -->
+</table>
+<!--end logo/tag-->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#cc0000">
+<tr>
+<td colspan="13" bgcolor="#000000"><img src="i/clear.gif" alt="TopCoder Software" width="1" height="1" border="0"/></td>
+<td bgcolor="#333333"><img src="i/clear.gif" alt="TopCoder Software" width="1" height="1" border="0"/></td>
+</tr>
+<tr>
+	<td width="10%" align="center" valign="middle" class="topNav">&#160;<!-- <a href="index.shtml" class="topNav">HOME</a> -->&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="i/clear.gif" alt="" width="1" border="0"/></td>
+	<td width="10%" align="center" valign="middle" class="topNav">&#160;<a href="aboutIndex.shtml" class="topNav">ABOUT</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="i/clear.gif" alt="" width="1" border="0"/></td>
+	<td width="15%" align="center" valign="middle" class="topNav">&#160;<a href="compIndex.shtml" class="topNav">COMPONENTS</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="i/clear.gif" alt="" width="1" border="0"/></td>
+	<td width="15%" align="center" valign="middle" class="topNav">&#160;<a href="catalogIndex.shtml" class="topNav">CATALOG</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="i/clear.gif" alt="" width="1" border="0"/></td>
+	<td width="15%" align="center"v class="topNav">&#160;<a href="notification/login.jsp" class="topNav">COLLABORATE</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="i/clear.gif" alt="" width="1" border="0"/></td>
+	<td width="15%" align="center" valign="middle" class="topNav">&#160;<a href="resourcesIndex.shtml" class="topNav">RESOURCES</a>&#160;</td>
+	<td width="1" bgcolor="#660000"><img src="i/clear.gif" alt="" width="1" border="0"/></td>	
+	<td width="20%" align="center" valign="middle" class="topNav" bgcolor="#FF9900">&#160;<a href="notification/create.jsp" class="topNav"><B>TEST&#160;DRIVE</B></a>&#160;</td>	
+	<td width="150" bgcolor="#000000"><!-- <img src="i/clear.gif" alt="" width="150" height="21" border="0"/> --><img src="i/topNavEnd2.gif" alt="" width="150" height="21" border="0"/></td>
+</tr>
+<tr>
+	<td colspan="14" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+</tr>
+
+
+<!-- <tr>
+	<td width="75" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="1" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="75" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+	<td width="209" bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" heigth="1" border="0"/></td>
+</tr> -->
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<td colspan="2" align="left" bgcolor="#b2b2b2" class="lColText">&#160;<!-- <img src="i/homeLargeHead.gif" alt="" width="600" height="48" border="0"/> --></td>
+	<!--r col-->
+	<td rowspan="2" width="150" valign="top" bgcolor="#547584">
+	<table width="150" border="0" cellpadding="2" cellspacing="0" align="center">
+	<tr><td><img src="i/clear.gif" alt="" width="150" height="10" border="0"/></td></tr>
+	<tr><td>
+	<A HREF="notification/create.jsp"><img src="i/rColTestDrive2.gif" alt="" width="150" height="135" border="0"/></A><BR>
+	<A HREF="notification/login.jsp"><img src="i/rColCollaborate.gif" alt="" width="150" height="135" border="0"/></A><BR></td></tr>
+	<!-- <tr><td align="left"><a href="compDef.shtml"><img src="i/rColHome.gif" alt="" width="150" height="135" border="0"/></a></td></tr> -->
+	</table>
+
+	</td>
+</tr>
+<tr>
+	<!--l col-->
+	<td width="140" height="96" valign="top" bgcolor="#b2b2b2" background="i/lColGraphic.gif" class="lColText">
+	<img src="i/clear.gif" alt="" width="140" height="1" border="0"/><br/>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+	<TR>
+     	<TD class="smallText">&#160;&#160;</TD>
+		<TD bgcolor="#333333" class="lColText" align="center" height="18" valign="middle"><FONT COLOR="#FFFFFF"><B>View Point</B></FONT></TD>
+	    <TD class="smallText">&#160;</TD>
+	</TR>
+	<TR>
+	    <TD colspan="3" class="smallText"><img src="i/clear.gif" alt="" width="1" height="4" border="0"/></TD>
+	</TR>		
+	<TR>
+		<TD class="smallText">&#160;&#160;</TD>
+		<TD class="smallText"><B>"We estimate that by 2003, 70% of new applications will be deployed as 
+		a combination of pre-assembled and newly created components integrated to form complex business systems."</B><br/><br/>
+	<span align="right">- Gartner Group</span></TD>
+	    <TD class="smallText">&#160;</TD>
+	</TR>
+</TABLE>
+<span align="center"><a href="compDef.shtml"><img src="i/tcs_icon.gif" alt="" width="150" height="135" border="0" vspace="10"/></a></span>
+	</td>
+	<!--m col-->
+	<td width="100%" valign="top" bgcolor="#b2b2b2">
+	<img src="i/clear.gif" alt="" width="1" height="1" border="0"/><br/>
+	<table width="100%" border="0" cellpadding="6" cellspacing="0" align="center">
+<tr>
+	<td align="left" class="bodyText">		
+	<b>A bold statement, but one we can back up.</b><br/>
+	Using a unique approach to distributed development and the creation of components, 
+	TopCoder Software is answering the need for a more productive and less costly approach to software development.
+		
+	</td>
+	<!-- <td rowspan="3" width="5"><img src="i/clear.gif" alt="" width="5" height="1" border="0"/></td>
+	<td rowspan="3" valign="top" width="150">
+	<a href="notification/create.jsp"><img src="i/homeTestDrive2.gif" alt="" width="150" height="135" border="0"/></a><br/>
+	<a href="notification/login.jsp"><img src="i/homeCollaborate.gif" alt="" width="150" height="135" border="0"/></a><br/>
+	</td> -->
+</tr>
+<tr><td align="left" class="bodyText">
+	<p><a href="aboutIndex.shtml" class="bodyText"><img src="i/homeBenefitsHeader.gif" alt="who benefits" width="160" height="21" border="0"/></a><br/>
+Companies in all industries can benefit from the increased <a href="aboutProd.shtml" class="bodyText">productivity</a>, 
+	use of standard frameworks and <a href="aboutReuse.shtml" class="bodyText">reuse</a> of components while software integrators can benefit 
+	by adding more value for their customers.<br/><br/>
+	For examples and to see what's available, visit our <a href="catalogIndex.shtml" class="bodyText">Component Sales Catalog</a>.</p>
+	</td>
+</tr>
+<tr>
+	<td align="left" class="bodyText"><a href="compIndex.shtml" class="bodyText"><img src="i/homeComponentsHeader.gif" alt="about components" width="160" height="21" border="0"/></a><br/>
+	<b>Uncertain about components and their role?</b><br>
+	The following will show you the <a href="compDef.shtml" class="bodyText">Definition of a Component</a>, 
+	the advantage of <a href="compBuy.shtml" class="bodyText">Purchasing Components</a>, and a complete review of 
+	<a href="compBuild.shtml" class="bodyText">Distributed Development</a>.
+	</td>
+</tr>
+<tr><td colspan="3"><img src="i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+</table>
+
+	</td>
+</tr>
+<tr>
+	<td colspan="4" align="center">
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<tr>
+	<!-- <td width="151"><img src="i/clear.gif" alt="" width="151" height="1" border="0"/></td> -->
+	<td align="left" class="footer" bgcolor="#000000" height="20" valign="middle">&#160;&#160;&#160;&#160;&#160;<a href="index.shtml" class="footer">Home</a>&#160;&#160;&#160;&#160;&#160;<a href="aboutIndex.shtml" class="footer">About</a>&#160;&#160;&#160;&#160;&#160;<a href="contactIndex.shtml" class="footer">Contact&#160;Us</a>&#160;&#160;&#160;&#160;&#160;<a href="privacyIndex.shtml" class="footer">Privacy</a>&#160;&#160;&#160;&#160;&#160;<a href="termsIndex.shtml" class="footer">Terms</a></td>
+	<!-- <td width="250"><img src="i/clear.gif" alt="" width="250" height="1" border="0"/></td> -->
+</tr>
+<tr>
+<td bgcolor="#666666"><img src="i/clear.gif" alt="" width="1" height="6" border="0"/></td>
+</tr>
+<tr>
+<td bgcolor="#000000"><img src="i/clear.gif" alt="" width="1" height="1" border="0"/></td>
+</tr>
+<tr>
+<td class="smallGrayText" align="center" height="20" valign="middle">Copyright &copy; 2002 TopCoder Software, Inc. All Rights Reserved.</td>
+</tr>
+</table>
+
+	</td>
+</tr>
+</table>
+</form>
+</body>
+</html>
