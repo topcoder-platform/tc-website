@@ -2,19 +2,19 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>  
+  <xsl:import href="../includes/body_top.xsl"/>
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/global_left.xsl"/>
-  <xsl:import href="../includes/pr_right_col.xsl"/>     
+  <xsl:import href="../includes/pr_right_col.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
       <HEAD>
-        <xsl:call-template name="Preload"/>      
+        <xsl:call-template name="Preload"/>
         <TITLE>TopCoder Expands to Include Employment Services</TITLE>
-        <xsl:call-template name="CSS"/>      
+        <xsl:call-template name="CSS"/>
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
@@ -27,11 +27,11 @@
 	<TR>
     <!-- Left Column Begins -->
 		<TD WIDTH="180" VALIGN="top">
-<!-- Left Column Include Begins -->	
-    <!-- Global Seconday Nav Begins -->	
+<!-- Left Column Include Begins -->
+    <!-- Global Seconday Nav Begins -->
         <xsl:call-template name="global_left"/>
-	<!-- Global Seconday Nav Ends -->	
-<!-- Left Column Include Ends -->    		
+	<!-- Global Seconday Nav Ends -->
+<!-- Left Column Include Ends -->
 	  	</TD>
 	<!-- Left Column Ends -->
 	<!-- Gutter Begins -->
@@ -39,7 +39,7 @@
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
-	<!-- Center Column Begins -->	
+	<!-- Center Column Begins -->
 		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">white</xsl:with-param>
@@ -55,16 +55,16 @@
               Host of Computer Programming Contests Offers More to Members and Clients</P>
 
 <P>
-<B>GLASTONBURY, CT., Oct. 22, 2002</B> - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has expanded its business offering to include employment services. <A HREF="/?&amp;t=tces&amp;c=index" CLASS="bodyText">TopCoder Employment Services (TCES)</A> is designed to improve an organization's often-inefficient hiring process by providing an unmatched method to identify proficient computer programmers.
+<B>GLASTONBURY, CT., Oct. 22, 2002</B> - TopCoder, Inc., a company committed to identifying and promoting computer programming talent through competition, today announced it has expanded its business offering to include employment services. <A HREF="/corp/?module=Static&amp;d1=corp&amp;d2=tces_home" CLASS="bodyText">TopCoder Employment Services (TCES)</A> is designed to improve an organization's often-inefficient hiring process by providing an unmatched method to identify proficient computer programmers.
 </P>
 
 <P>
 "We hear from companies every day that receive thousands of resumes each week and dedicate significant resources to find qualified candidates amongst a mountain of paper," said Paul Moriarty, director, employment services for TopCoder. "When hiring programmers, companies lack objective data and history of work samples, which are critical measures in assessing skills and projecting productivity.  TopCoder Employment Services provides recruiters and hiring engineers with an unprecedented amount of quick, valuable information to make more informed decisions about a candidate's abilities."
 </P>
- 
+
 <P>
 <B>TCES Candidate Recruiting Program</B><BR/>
-During the hiring process, companies typically ask engineers to screen candidates for technical prowess, yet those engineers are provided with little technical information about the candidate's programming ability.  TopCoder's Candidate Recruiting Program provides companies with that information.  Data about the TopCoder member base, recently described by Business 2.0 as "one of the richer databases of programming talent ever assembled," effectively supplements a company's recruiting and screening efforts. 
+During the hiring process, companies typically ask engineers to screen candidates for technical prowess, yet those engineers are provided with little technical information about the candidate's programming ability.  TopCoder's Candidate Recruiting Program provides companies with that information.  Data about the TopCoder member base, recently described by Business 2.0 as "one of the richer databases of programming talent ever assembled," effectively supplements a company's recruiting and screening efforts.
 Since launching this service in September of 2002, several companies have enlisted in TopCoder's Candidate Recruiting Program; General Electric, NVIDIA Corporation, Google, Apex Data Services and the FBI are using this program in their hiring efforts.
 </P>
 
@@ -82,7 +82,7 @@ Employment Services has been able to provide more technically qualified programm
 </P>
 
 <P>
-Companies enlist in the TCES Candidate Recruiting Program for terms of 3 to 12 months.  Based on the duration of the program, companies post job descriptions at www.topcoder.com.  TopCoder members respond to desired positions, and the responses are managed via an easy-to-navigate reporting and tracking application.  Each company creates a private database of interested candidates, which contains specific information about each TopCoder member that has applied, including competition statistics, code samples and resume information.  Unlike traditional job sites that offer nothing in the way of skills assessment, TopCoder's system allows employers to find developers with specific skills and an ability to determine proficiency within that skill set.  This dramatically reduces the amount of time involved in verifying proficiency. 
+Companies enlist in the TCES Candidate Recruiting Program for terms of 3 to 12 months.  Based on the duration of the program, companies post job descriptions at www.topcoder.com.  TopCoder members respond to desired positions, and the responses are managed via an easy-to-navigate reporting and tracking application.  Each company creates a private database of interested candidates, which contains specific information about each TopCoder member that has applied, including competition statistics, code samples and resume information.  Unlike traditional job sites that offer nothing in the way of skills assessment, TopCoder's system allows employers to find developers with specific skills and an ability to determine proficiency within that skill set.  This dramatically reduces the amount of time involved in verifying proficiency.
 </P>
 
 
@@ -102,13 +102,13 @@ TopCoder, Inc. organizes and hosts online and onsite programming competitions fo
 				</TR>
 				<TR>
 					<TD COLSPAN="4" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
-				</TR>   	
+				</TR>
 				<TR>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="11" ALIGN="right"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" WIDTH="75"><IMG SRC="/i/table_mid_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-				</TR>	
+				</TR>
 				<TR>
 					<TD VALIGN="top" WIDTH="11" ALIGN="right" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="8" BORDER="0"/></TD>
 					<TD VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="14"><IMG SRC="/i/table_btm_left2.gif" ALT="" WIDTH="14" HEIGHT="8" BORDER="0"/></TD>
@@ -125,9 +125,9 @@ TopCoder, Inc. organizes and hosts online and onsite programming competitions fo
     <!-- Gutter Ends -->
 	<!-- Right Column Begins -->
 		<TD WIDTH="170" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<!-- Right Column Include Begins --> 
-        <xsl:call-template name="pr_right_col"/>       
-<!-- Right Column Include Ends -->        
+<!-- Right Column Include Begins -->
+        <xsl:call-template name="pr_right_col"/>
+<!-- Right Column Include Ends -->
         </TD>
 	<!-- Right Column Ends -->
 	<!-- Gutter -->
