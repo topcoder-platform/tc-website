@@ -53,6 +53,8 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
         for (Iterator it = ((FullRegInfo)regInfo).getResponses().iterator(); it.hasNext();) {
             r = (DemographicResponse) it.next();
             q = (DemographicQuestion) questions.get(new Long(r.getQuestionId()));
+            int numRemoved = response.remove(ret.getId(), r.getQuestionId(), transDb);  //remove the response if it currently exists
+            log.debug(numRemoved + " responses removed");
             response.createResponse(ret.getId(), r.getQuestionId(), transDb);
             if (q.getAnswerType()==DemographicQuestion.SINGLE_SELECT ||
                     q.getAnswerType()==DemographicQuestion.MULTIPLE_SELECT ) {
