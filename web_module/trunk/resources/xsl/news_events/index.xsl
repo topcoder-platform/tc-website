@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
+<!-- SJ Mercury article -->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="http://www.bayarea.com/mld/mercurynews/business/7269666.htm" target="_blank"><img src="/i/pressroom/sj_mercury_logo.gif" alt="Mercury" width="135" height="30" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="http://www.bayarea.com/mld/mercurynews/business/7269666.htm" target="_blank">Google puts coders to the test</A></strong></font><br />
+                        "Jimmy Mardell, 25, of Stockholm, Sweden, was announced the winner Friday of Google's second annual Code Jam. He beat out more than 5,000 of the world's top programmers who signed up to compete in Google's contest to solve coding problems on deadline" <span class="prHead">&#160;[November 15]</span></p>
+                        
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- 2003 TCO Announcment -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
