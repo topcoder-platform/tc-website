@@ -1,7 +1,13 @@
 package com.topcoder.web.tces.common;
 
-import java.math.BigDecimal;
 import com.topcoder.shared.dataAccess.resultSet.TCResultItem;
+
+import java.math.BigDecimal;
+import java.util.TreeMap;
+import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  * <p>Title: JSPUtils </p>
@@ -66,7 +72,7 @@ public class JSPUtils {
         else
             return "";
     }
-    
+
     public static String timeFormat(TCResultItem result) {
         double millisec = Double.parseDouble(result.toString());
         int sec = (int)(millisec / 1000);
@@ -74,7 +80,7 @@ public class JSPUtils {
         sec %= 60;
         return min + " mins " + sec + " secs";
     }
-    
+
     public static String autoFormat(TCResultItem result) {
         switch(result.getType()){
             case TCResultItem.DOUBLE:
@@ -89,5 +95,39 @@ public class JSPUtils {
                 return result.toString();
         }
     }
-    
+
+    public static void sortMapList(List mapList, String fieldName, boolean ascending) {
+        TreeMap mapsMap = new TreeMap();
+        ArrayList sortedMapList = new ArrayList();
+
+        Iterator maps = mapList.iterator();
+        while (maps.hasNext()) {
+            Map curMap = (Map)maps.hasNext();
+
+            ArrayList keyDupList = null;
+            if (!mapsMap.containsKey(curMap.get(fieldName)))
+                keyDupList = new ArrayList();
+                mapsMap.put(curMap.get(fieldName), keyDupList);
+            }
+            else {
+                keyDupList = mapsMap.get( curMap.get(fieldName));
+            }
+
+            keyDupList.add(curMap);
+        }
+
+        while (mapsMap.size()>0) {
+            List keyDupList = mapsMap.get(ascending?mapsMap.firstKey():mapsMap.lastKey() );
+
+            Iterator keyDups = keyDupList.iterator();
+            while (keyDups.hasNext()) {
+                sortedMapList.add( keyDups.next() );
+            }
+
+            sortedMapList.remove( ascending?mapsMap.firstKey():mapsMap.lastKey() );
+        }
+
+        mapList = sortedMapList;
+    }
+
 }
