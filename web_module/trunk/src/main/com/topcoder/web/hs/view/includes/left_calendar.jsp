@@ -1,9 +1,9 @@
 <!--Small Calendar Starts-->
-            <table width="170" bgcolor="#333333" cellspacing="0" cellpadding="0" border="0">
+            <table width="170" bgcolor="#001934" cellspacing="0" cellpadding="0" border="0">
                 <tr> 
                     <td valign="top">
                         <table width="100%" border="0" cellspacing="1" cellpadding="1">
-                            <tr><td colspan="7" class="statTextBig" nowrap="nowrap" align="center" height="18">March 2003 Match Dates</td></tr>
+                            <tr><td colspan="7" class="statTextBig" align="center" nowrap="nowrap" height="18">March 2003 Match Dates</td></tr>
 
                             <tr> 
                                 <td id="calendarDays" width="15%">S</td>
@@ -85,20 +85,6 @@
                 </tr>
             </table>
 <!--Small Calendar ends-->
-
-<!--Schools Starts-->
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="baseline">
-                    <td>
-                        <map name="details">
-                            <area alt="" shape="poly" coords="88,52,88,62,108,62,108,72,160,72,160,51" href="?module=Static&d1=registration&d2=registration">
-                        </map>
-                        &nbsp;<img src="/i/hs/left_schools2.gif" width="164" height="80" alt="" border="0" usemap="#details">
-                    </td>
-                </tr>
-            </table>
-<!--Schools Ends-->
-            <br>
 
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="baseline"><td><br><img src="/i/hs/left_bottom_elements.gif" width="170" height="116" alt="" border="0"></td></tr>

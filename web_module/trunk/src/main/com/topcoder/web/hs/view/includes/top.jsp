@@ -10,7 +10,7 @@ function openWin(url, name, w, h) {
 
 <a name="top"/>
 <!-- Global Links begins -->
-<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#333333">
+<table border="0" cellspacing="0" cellpadding="3" width="100%" bgcolor="#001934">
     <tr valign="top" >
         <td width="100%" class="globalNavSmall" align="right">
 

@@ -5,9 +5,9 @@
 /**** THIS CODE DOES NOT CURRENTLY HANDLE RENDERING THREE LEVELS OF MENUS ****/
 
 // highlight the selected menu item by using this property for its table cell
-String selbg = "background=\"/i/hs/graybv_lite_bg.gif\"";
+String selbg = "background=\"/i/hs/s_calendar_bg.gif\"";
 // highlight other items in the open submenu by using this property for its table cell
-String sibbg = "background=\"/i/hs/steel_gray_bg.gif\"";  // sib for sibling
+String sibbg = "bgcolor=\"#4D5B99\"";  // sib for sibling
 // default property for unhighlighted items
 String defbg = "";
 
@@ -68,7 +68,7 @@ root = NavZone.getLevel0();
 sub = NavZone.getLevel1();
 %>
 
-<table width="170" cellspacing="0" cellpadding="0" border="0" bgcolor="#000000">
+<table width="170" cellspacing="0" cellpadding="0" border="0" bgcolor="#26386B">
 
     <%=rootheader("What's Inside")%>
     
