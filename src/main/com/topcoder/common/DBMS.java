@@ -13,8 +13,8 @@ public class DBMS {
     private static final TCResourceBundle bundle = new TCResourceBundle("DBMS");    
 
     private static String DEFAULT_INFORMIX_CONNECT_STRING = "jdbc:informix-sqli://172.16.20.25:1526/devoltp:INFORMIXSERVER=tc_memeber_dev_tcp;user=coder;password=coder";
-    private static String INFORMIX_CONNECT_STRING = getProperty("INFORMIX_CONNECT_STRING", DEFAULT_INFORMIX_CONNECT_STRING);
-    private final static String JDBC_DRIVER = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
+    public static String INFORMIX_CONNECT_STRING = getProperty("INFORMIX_CONNECT_STRING", DEFAULT_INFORMIX_CONNECT_STRING);
+    public final static String JDBC_DRIVER = getProperty("JDBC_DRIVER", "weblogic.jdbc.jts.Driver");
 
     public static final int INFORMIX = 1;
     public static int DB = getIntProperty("DB", INFORMIX);

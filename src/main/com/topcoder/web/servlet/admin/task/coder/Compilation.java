@@ -62,7 +62,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestAdminServicesEJB = contestAdminServicesHome.create();
           rounds = contestAdminServicesEJB.getRounds();
@@ -108,7 +108,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestAdminServicesEJB = contestAdminServicesHome.create();
           coders = contestAdminServicesEJB.getCodersByRound(Integer.parseInt(request.getParameter("RoundId")));
@@ -157,7 +157,7 @@
      
       try {
         Context ctx = TCContext.getInitial();
-        ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup("jma.ContestAdminServicesHome");
+        ContestAdminServicesHome contestAdminServicesHome = (ContestAdminServicesHome) ctx.lookup(ApplicationServer.CONTEST_ADMIN_SERVICES);
         try {
           contestAdminServicesEJB = contestAdminServicesHome.create();
           compilations = contestAdminServicesEJB.getCoderCompilations(Integer.parseInt(request.getParameter("RoundId")), Integer.parseInt(request.getParameter("CoderId")));

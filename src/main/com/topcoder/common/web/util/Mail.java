@@ -20,7 +20,7 @@ public class Mail {
     InitialContext ctx = null;
     QueueMessageSender qMessSender = null;
     try {
-      ctx = TCContext.getInitial( "t3://192.168.12.51:7030" );
+      ctx = TCContext.getInitial( ApplicationServer.HOST_URL );
       HashMap props = new HashMap();
       props.put( "MailSubject", mail.getMailSubject() );
       props.put( "MailSentDate", new Long(mail.getMailSentDate().getTime()) );

@@ -13,6 +13,9 @@ import com.topcoder.web.stat.common.*;
  * @version $Revision$
  * @internal Log of Changes:
  *           $Log$
+ *           Revision 1.1  2002/06/05 02:45:38  gpaul
+ *           this data retrieval bean gets a connection to the transational db instead of the warehouse
+ *
  *           Revision 1.1.1.1  2002/04/02 17:20:38  steveb
  *           initial web load into cvs
  *
@@ -62,7 +65,7 @@ public class OLTPDataRetrievalBean implements StatDataAccessInt {
         try {
             Context c = TCContext.getInitial();
             StatisticsHome sh = (StatisticsHome) 
-                c.lookup("com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
+                c.lookup(ApplicationServer.STATISTICS);
             Statistics s = sh.create();
             Map map = s.executeCommand(request.getProperties(), "OLTP");
             return map;

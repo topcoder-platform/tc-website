@@ -1,97 +1,52 @@
 package com.topcoder.common;
 
+import java.util.*;
+import com.topcoder.server.util.TCResourceBundle;
+
 public class ApplicationServer {
 
+  private static TCResourceBundle bundle = new TCResourceBundle("ApplicationServer");
 
-  //Environments
-  public static final int PROD     = 1;
-  public static final int QA       = 2;
-  public static final int DEV      = 3;
+  public static final int PROD     = bundle.getIntProperty("PROD", 1); 
+  public static final int QA       = bundle.getIntProperty("QA", 2);
+  public static final int DEV      = bundle.getIntProperty("DEV", 3);
 
+  public static int      ENVIRONMENT           = bundle.getIntProperty("SELECTED_ENVIRONMENT", DEV);
+  public static int      WEBLOGIC_PORT         = bundle.getIntProperty("SELECTED_WEBLOGIC_PORT", 7030);
+  public static String   SERVER_NAME           = bundle.getProperty("SELECTED_SERVER_NAME", "172.16.20.20");
+  public static String   HOST_URL              = bundle.getProperty("SELECTED_HOST_URL", "t3://172.16.20.41:7030");
+  public static String   CONTEST_HOST_URL      = bundle.getProperty("SELECTED_CONTEST_HOST_URL", "t3://172.16.20.41:7010");
+  public static String   MPSQAS_HOST_URL       = bundle.getProperty("SELECTED_MPSQAS_HOST_URL", "t3://172.16.20.41:7030");
+  public static String[] WEBLOGIC_CLUSTER_IP   = getClusterArray(bundle.getProperty("SELECTED_WEBLOGIC_CLUSTER_IP", "172.16.20.41"));
+  public static String   BASE_DIR              = bundle.getProperty("SELECTED_BASE_DIR", "/usr/web/build/classes");
 
-  /** DEV **/
-/*
-  public static int                   ENVIRONMENT                  = DEV;
-  public static int                   WEBLOGIC_PORT                = 7001;
-  public static String                SERVER_NAME                  = "172.16.1.153";
-  public static String                HOST_URL                     = "t3://172.16.1.152:7001";
-  public static String                CONTEST_HOST_URL             = "t3://172.16.1.152:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.1.152" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/classes";
-*/
+  public       static String IAGREE          = bundle.getProperty("IAGREE", BASE_DIR + "/com/topcoder/common/terms.txt");
+  public final static String JNDI_FACTORY    = bundle.getProperty("JNDI_FACTORY", "weblogic.jndi.WLInitialContextFactory");
+  public final static String JMS_FACTORY     = bundle.getProperty("JMS_FACTORY", "jms.connection.jmsFactory");
+  public final static String JMS_BKP_FACTORY = bundle.getProperty("JMS_BKP_FACTORY", "jms.connection.jmsFactory_BKP");
+  public final static String TRANS_FACTORY   = bundle.getProperty("TRANS_FACTORY", "javax.transaction.UserTransaction");
 
+  public static String AUTHENTICATION_SERVICES = bundle.getProperty("AUTHENTICATION_SERVICES", "com.topcoder.ejb.AuthenticationServicesHome");
+  public static String CODER_STATISTICS        = bundle.getProperty("CODER_STATISTICS", "com.topcoder.ejb.CoderStatisticsHome");
+  public static String DATA_CACHE              = bundle.getProperty("DATA_CACHE", "com.topcoder.ejb.DataCacheHome");
+  public static String REPORTING               = bundle.getProperty("REPORTING", "com.topcoder.ejb.ReportingHome");
+  public static String SEARCH                  = bundle.getProperty("SEARCH", "com.topcoder.ejb.SearchHome");
+  public static String USER_SERVICES           = bundle.getProperty("USER_SERVICES", "com.topcoder.ejb.UserServicesHome");
+  public static String UTIL                    = bundle.getProperty("UTIL", "com.topcoder.ejb.UtilHome");
+  public static String MPSQAS_SERVICES         = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
+  public static String STATISTICS              = bundle.getProperty("STATISTICS", "com.topcoder.web.stat.ejb.Statistics.StatisticsHome");
+  public static String CONTEST_ADMIN_SERVICES  = bundle.getProperty("CONTEST_ADMIN_SERVICES", "jma.ContestAdminServicesHome");
+  public static String PACTS_SERVICES          = bundle.getProperty("PACTS_SERVICES", "com.topcoder.web.pacts.ejb.PactsServicesHome");
+  public static String PROJECT_SERVICES        = bundle.getProperty("PROJECT_SERVICES", "tc.ProjectServicesHome");
 
-  //** BETA DEV GLASTONBURY **//
-
-  public static int                   ENVIRONMENT                  = DEV;
-  public static int                   WEBLOGIC_PORT                = 7030;
-  public static String                SERVER_NAME                  = "beta.dev.topcoder.com";
-  public static String                HOST_URL                     = "t3://172.16.20.41:7030";
-  public static String                CONTEST_HOST_URL             = "t3://172.16.20.41:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.20.41" };
-  public static String                BASE_DIR                     = "/usr/web/build/classes";
-  public static String                MPSQAS_HOST_URL              = "t3://172.16.20.41:7020";
-
-
-  //** QA (GLASTONBURY **//
-/*
-  public static int                   ENVIRONMENT                  = QA;
-  public static int                   WEBLOGIC_PORT                = 7030;
-  public static String                SERVER_NAME                  = "beta.topcoder.com";
-  public static String                HOST_URL                     = "t3://172.16.212.51:7030";
-  public static String                CONTEST_HOST_URL             = "t3://172.16.212.52:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "172.16.212.51", "172.16.212.52" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/classes";
-*/  
-
-
-  //** QA (EXODUS)**/
-/*
-  public static int                   ENVIRONMENT                  = QA;
-  public static int                   WEBLOGIC_PORT                = 7001;
-  public static String                SERVER_NAME                  = "www.topcoder.com";
-  public static String                HOST_URL                     = "t3://jma-cluster.topcoder.com:7001";
-  public static String                CONTEST_HOST_URL             = "t3://192.168.12.52:7013";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "192.168.12.51", "192.168.12.52" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/jma_QA";
-*/
-
-
-  //** EXODUS **/
-/*
-  public static int                   ENVIRONMENT                  = PROD;
-  public static int                   WEBLOGIC_PORT                = 7001;
-  public static String                SERVER_NAME                  = "www.topcoder.com";
-  public static String                HOST_URL                     = "t3://jma-cluster.topcoder.com:7001";
-  public static String                CONTEST_HOST_URL             = "t3://192.168.12.52:7010";
-  public static String[]              WEBLOGIC_CLUSTER_IP          = { "192.168.12.51", "192.168.12.52" };
-  public final static String          BASE_DIR                     = "/export/home/weblog5/jma";
-*/
-
-  public       static String IAGREE = BASE_DIR + "/com/topcoder/common/terms.txt";
-  public final static String JNDI_FACTORY="weblogic.jndi.WLInitialContextFactory";
-  public final static String JMS_FACTORY="jms.connection.jmsFactory";
-  public final static String JMS_BKP_FACTORY="jms.connection.jmsFactory_BKP";
-  public final static String TRANS_FACTORY="javax.transaction.UserTransaction";
-  public final static String EMAIL_QUEUE="eMailQueue";
-
-
-  // WEBSITE EJBS
-  public static String AUTHENTICATION_SERVICES    = "com.topcoder.ejb.AuthenticationServicesHome";
-  public static String CODER_STATISTICS           = "com.topcoder.ejb.CoderStatisticsHome";
-  public static String CORPORATE_CONTACT_SERVICES = "com.topcoder.ejb.CorporateContactServicesHome";
-  public static String DATA_CACHE                 = "com.topcoder.ejb.DataCacheHome";
-  public static String GRAPH                      = "com.topcoder.ejb.GraphHome";
-  public static String NEWS_SERVICES              = "com.topcoder.ejb.NewsServicesHome";
-  public static String REPORTING                  = "com.topcoder.ejb.ReportingHome";
-  public static String SEARCH                     = "com.topcoder.ejb.SearchHome";
-  public static String USER_SERVICES              = "com.topcoder.ejb.UserServicesHome";
-  public static String UTIL                       = "com.topcoder.ejb.UtilHome";
-
-  public final static String COMPILE_SERVICES="jma.CompileServicesHome";
-  public final static String TEST_SERVICES="jma.TestServicesHome";
-  public final static String CONTEST_SERVICES="jma.ContestServicesHome";
-  public final static String WORLD_SERVICES="jma.WorldServicesHome";
-  public final static String MPSQAS_SERVICES="jma.MPSQASServicesHome";
-
+  private static String[] getClusterArray(String s) {
+    StringTokenizer st = new StringTokenizer(s, ",");
+    String[] ret = new String[st.countTokens()];
+    int i=0; 
+    while(st.hasMoreTokens()) {
+      ret[i] = st.nextToken();
+      i++;
+    }
+    return ret;
+  }
 }

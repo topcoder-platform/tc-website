@@ -6,12 +6,13 @@ import java.util.*;
 import javax.naming.*;
 import com.topcoder.web.project.common.*;
 import com.topcoder.web.project.ejb.ProjectServices.*;
+import com.topcoder.common.ApplicationServer;
 
 public final class ProjectBean {
     
     private final static boolean VERBOSE = true;
     
-    protected final static String PROJECTSERVICESHOME = "tc.ProjectServicesHome";
+    protected final static String PROJECTSERVICESHOME = ApplicationServer.PROJECT_SERVICES;
     protected static ProjectServices projectServices = null;
     protected static Exception exception = null;
 
