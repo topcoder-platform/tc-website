@@ -610,6 +610,8 @@
          <copy todir="${jboss_lib}">
              <fileset dir="${resources}">
                  <include name="CorpConstants.properties"/>
+                 <include name="ApplicationServer.properties"/>
+                 <include name="DBMS.properties"/>
                  <include name="DataAccess.properties"/>
                  <include name="PrivateLabel.properties"/>
                  <include name="jive.properties"/>
