@@ -76,10 +76,10 @@
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Graphics Architecture Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">3D Graphics Applications Software Engineer</A><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Platform Architecture Engineer (Intern/Co-op position only)</A><BR/><BR/>
-       <b>IT/BUSINESS DEVELOPMENT</b><BR/>
-       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Web Software Engineer</A><BR/><BR/>
       </TD>
       <TD ALIGN="left" VALIGN="top" CLASS="bodyText" width="50%">
+       <b>IT/BUSINESS DEVELOPMENT</b><BR/>
+       <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Web Software Engineer</A><BR/><BR/>
        <b>MARKETING</b><BR/>
        <A HREF="/?&amp;t=tces&amp;c=nvidia_soft_eng&amp;a=secure" CLASS="bodyText">Technical Marketing Engineering Intern</A><BR/><BR/>
        <b>HARDWARE</b><BR/>
