@@ -6,7 +6,7 @@ import javax.ejb.EJBObject;
 
 public interface Rating extends EJBObject {
 
-  public long createRating() throws EJBException, RemoteException;
+    public void createRating(long coderId) throws EJBException, RemoteException;
 
 
 };

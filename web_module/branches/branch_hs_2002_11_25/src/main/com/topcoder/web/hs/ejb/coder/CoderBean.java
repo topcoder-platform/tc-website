@@ -1,13 +1,14 @@
 package com.topcoder.web.hs.ejb.coder;
 
-import com.topcoder.shared.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import javax.ejb.EJBException;
+import javax.ejb.SessionBean;
+import javax.ejb.SessionContext;
+import javax.ejb.CreateException;
 import java.rmi.RemoteException;
 import java.sql.*;
 
@@ -17,80 +18,100 @@ import java.sql.*;
  * @version $Revision$
  * Jan 9, 2003 12:48:54 AM
  */
-public class CoderBean extends BaseEJB {
+public class CoderBean implements SessionBean {
 
     private static Logger log = Logger.getLogger(CoderBean.class);
-    private static final String dataSourceName = "java:comp/env/datasource";
+    private transient InitialContext ctx = null;
+    private SessionContext sessCtx;
+    private DataSource ds;
 
-    /**
-     *
-     * @param coderId
-     * @param coderStatusId
-     * @throws RemoteException
-     */
-    public void createCoder(long coderId, int coderStatusId)
-            throws RemoteException {
-        log.debug("createCoder called. coderId: " + coderId
-                + "coderStatusId: " + coderStatusId);
+    public void ejbActivate() {
+        /* do nothing */
+    }
 
-        Context ctx = null;
-        PreparedStatement pstmt = null;
-        Connection conn = null;
-        DataSource ds = null;
+    public void ejbPassivate() {
+        /* do nothing */
+    }
 
+    public void ejbCreate() throws CreateException {
         try {
-            StringBuffer query = new StringBuffer();
-            query.append("INSERT INTO coder (coder_id, " +
-                    "member_since, create_date, modify_date, status)"
-                    + " values(?,?,?,?,?) ");
-
             ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
-            conn = ds.getConnection();
-            pstmt = conn.prepareStatement(query.toString());
-
-            pstmt.setLong(1,coderId);
-            pstmt.setInt(5,coderStatusId);
-
-            pstmt.executeUpdate();
-
-        } catch (SQLException sqe) {
-            throw new EJBException("SQLException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
-        } catch (Exception e) {
-            throw new EJBException("Exception creating Coder coderId: " + coderId + "coderStatusId: " + coderStatusId);
-        } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in createCoder");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in createCoder");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in createCoder");}}
+            ds = (DataSource) ctx.lookup("java:comp/env/datasource");
+        } catch (NamingException ne) {
+            ne.printStackTrace();
         }
+    }
+
+    public void ejbRemove() {
+        /* do nothing */
+    }
+
+    public void setSessionContext(SessionContext sessCtx) {
+        sessCtx = sessCtx;
     }
 
     /**
      *
      * @param coderId
-     * @param memberSince
      * @throws RemoteException
      */
+    public void createCoder(long coderId)
+            throws RemoteException {
+        log.debug("createCoder called. coderId: " + coderId);
+
+        PreparedStatement pstmt = null;
+        Connection conn = null;
+
+        try {
+            StringBuffer query = new StringBuffer(200);
+            query.append("INSERT ");
+            query.append( " INTO coder (coder_id)");
+            query.append(" VALUES (?) ");
+
+            conn = ds.getConnection();
+            pstmt = conn.prepareStatement(query.toString());
+
+            pstmt.setLong(1, coderId);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException sqe) {
+            throw new EJBException("SQLException creating Coder coderId: " + coderId);
+        } catch (Exception e) {
+            throw new EJBException("Exception creating Coder coderId: " + coderId);
+        } finally {
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+    }
+
     public void setMemberSince(long coderId, Date memberSince)
             throws RemoteException {
         log.debug("setMemberSince called. coderId: "
-                 + coderId + " memberSince: " + memberSince);
+                + coderId + " memberSince: " + memberSince);
 
-        Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("UPDATE coder set member_since = ? where " +
-                "coder_id = ?");
+            query.append(" UPDATE coder ");
+            query.append(   " SET member_since = ?");
+            query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
@@ -101,62 +122,173 @@ public class CoderBean extends BaseEJB {
 
         } catch (SQLException sqe) {
             throw new EJBException("SQLException in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
         } catch (Exception e) {
             throw new EJBException("Exception in setMemberSince coderId: " + coderId + " memberSince: " + memberSince);
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setMemberSince");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setMemberSince");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setMemberSince");}}
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
         }
     }
+
 
     /**
      *
      * @param coderId
-     * @param coderStatusId
+     * @param quote
      * @throws RemoteException
      */
-    public void setCoderStatusId(long coderId, int coderStatusId)
+    public void setQuote(long coderId, String quote)
             throws RemoteException {
+        log.debug("setQuote called. coderId: "
+                + coderId + " quote: " + quote);
 
-        log.debug("setCoderStatusId called. coderId: "
-                 + coderId + " coderStatusId: " + coderStatusId);
-
-        Context ctx = null;
         PreparedStatement pstmt = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("UPDATE coder set status = ? where " +
-                "coder_id = ?");
+            query.append(" UPDATE coder ");
+            query.append(   " SET quote = ?");
+            query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
             pstmt = conn.prepareStatement(query.toString());
 
-            pstmt.setInt(1, coderStatusId);
+            pstmt.setString(1, quote);
             pstmt.setLong(2, coderId);
 
             pstmt.executeUpdate();
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
+            throw new EJBException("SQLException in setQuote coderId: " + coderId + " quote: " + quote);
         } catch (Exception e) {
-            throw new EJBException("Exception in setCoderStatusId coderId: " + coderId + " coderStatusId: " + coderStatusId);
+            throw new EJBException("Exception in setQuote coderId: " + coderId + " quote: " + quote);
         } finally {
-            if (pstmt != null) {try {pstmt.close();} catch (Exception ignore) {log.error("FAILED to close PreparedStatement in setCoderStatus");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in setCoderStatus");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in setCoderStatus");}}
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
         }
     }
+
+
+    public void setEditorId(long coderId, int editorId)
+            throws RemoteException {
+        log.debug("setEditorId called. coderId: "
+                + coderId + " editorId: " + editorId);
+
+        PreparedStatement pstmt = null;
+        Connection conn = null;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append(" UPDATE coder ");
+            query.append(   " SET editor_id = ?");
+            query.append( " WHERE coder_id = ?");
+
+            conn = ds.getConnection();
+            pstmt = conn.prepareStatement(query.toString());
+
+            pstmt.setInt(1, editorId);
+            pstmt.setLong(2, coderId);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException sqe) {
+            throw new EJBException("SQLException in setEditorId coderId: " + coderId + " editor id: " + editorId);
+        } catch (Exception e) {
+            throw new EJBException("Exception in setEditorId coderId: " + coderId + " editor id: " + editorId);
+        } finally {
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+    }
+
+
+
+    public void setLanguageId(long coderId, int languageId)
+            throws RemoteException {
+        log.debug("setLanguage called. coderId: "
+                + coderId + " languageId: " + languageId);
+
+        PreparedStatement pstmt = null;
+        Connection conn = null;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append(" UPDATE coder ");
+            query.append(   " SET language_id = ?");
+            query.append( " WHERE coder_id = ?");
+
+            conn = ds.getConnection();
+            pstmt = conn.prepareStatement(query.toString());
+
+            pstmt.setInt(1, languageId);
+            pstmt.setLong(2, coderId);
+
+            pstmt.executeUpdate();
+
+        } catch (SQLException sqe) {
+            throw new EJBException("SQLException in setLanguageId coderId: " + coderId + " languageId: " + languageId);
+        } catch (Exception e) {
+            throw new EJBException("Exception in setLanguageId coderId: " + coderId + " languageId: " + languageId);
+        } finally {
+            if (pstmt != null) {
+                try {
+                    pstmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close PreparedStatement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+    }
+
+
+
 
     /**
      *
@@ -164,154 +296,240 @@ public class CoderBean extends BaseEJB {
      * @return Member Since Date
      * @throws RemoteException
      */
-    public Date getMemberSince(long coderId)
-            throws RemoteException {
+    public Date getMemberSince(long coderId) throws RemoteException {
         log.debug("getMemberSince called. coderId: " + coderId);
 
-        Context ctx = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         Connection conn = null;
-        DataSource ds = null;
         ResultSet rs = null;
         Date memberSince = null;
 
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("SELECT member_since from coder " +
-                     "where coder_id = " + coderId);
+            query.append(" SELECT member_since ");
+            query.append( " FROM coder ");
+            query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
-            stmt = conn.createStatement();
+            stmt = conn.prepareStatement(query.toString());
+
+            stmt.setLong(1, coderId);
 
             rs = stmt.executeQuery(query.toString());
-            if ( rs.next() ) {
+            if (rs.next()) {
                 memberSince = rs.getDate(1);
-            }
-            else{
+            } else {
                 throw new EJBException("EJBException in getMemberSince"
-                + " empty result set for query: " + query.toString());
+                        + " empty result set for query: " + query.toString());
             }
 
         } catch (SQLException sqe) {
             throw new EJBException("SQLException in getMemberSince coderId: " + coderId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getMemberSince coderId: " + coderId);
         } catch (Exception e) {
             throw new EJBException("Exception in getMemberSince coderId: " + coderId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getMemberSince");}}
-            if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getMemberSince");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getMemberSince");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getMemberSince");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Statement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
         }
         return memberSince;
     }
 
-    /**
-     *
-     * @param coderId
-     * @return coderStatusId int
-     * @throws RemoteException
-     */
-    public int getCoderStatusId(long coderId)
-            throws RemoteException {
-        log.debug("getCoderStatusId called. coderId: " + coderId);
 
-        Context ctx = null;
-        Statement stmt = null;
+    public String getQuote(long coderId) throws RemoteException {
+        log.debug("getQuote called. coderId: " + coderId);
+
+        PreparedStatement stmt = null;
         Connection conn = null;
-        DataSource ds = null;
         ResultSet rs = null;
-        int coderStatusId = -1;
+        String quote = null;
 
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("SELECT status from coder " +
-                     "where coder_id = " + coderId);
+            query.append(" SELECT quote");
+            query.append( " FROM coder ");
+            query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
-            stmt = conn.createStatement();
+            stmt = conn.prepareStatement(query.toString());
+
+            stmt.setLong(1, coderId);
 
             rs = stmt.executeQuery(query.toString());
-            if ( rs.next() ) {
-                coderStatusId = rs.getInt(1);
-            }
-            else{
-                throw new EJBException("EJBException in getMemberSince"
-                + " empty result set for query: " + query.toString());
+            if (rs.next()) {
+                quote = rs.getString(1);
+            } else {
+                throw new EJBException("EJBException in getQuote"
+                        + " empty result set for query: " + query.toString());
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getCoderStatusId coderId: " + coderId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getCoderStatusId coderId: " + coderId);
+            throw new EJBException("SQLException in getQuote coderId: " + coderId);
         } catch (Exception e) {
-            throw new EJBException("Exception in getCoderStatusId coderId: " + coderId);
+            throw new EJBException("Exception in getQuote coderId: " + coderId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getCoderStatusId");}}
-            if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getCoderStatusId");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getCoderStatusId");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getCoderStatusId");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Statement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
         }
-        return coderStatusId;
+        return quote;
     }
 
-    /**
-     *
-     * @param coderId
-     * @return Coder Status Description
-     * @throws RemoteException
-     */
-    public String getCoderStatusDesc(long coderId)
-            throws RemoteException {
-        log.debug("getCoderStatusDesc called. coderId: " + coderId);
+    public int getEditorId(long coderId) throws RemoteException {
+        log.debug("getEditorId called. coderId: " + coderId);
 
-        Context ctx = null;
-        Statement stmt = null;
+        PreparedStatement stmt = null;
         Connection conn = null;
-        DataSource ds = null;
         ResultSet rs = null;
-        String coderStatusDesc = null;
+        int editorId;
 
         try {
             StringBuffer query = new StringBuffer();
 
-            query.append("SELECT coder_status_desc from coder a, coder_status_lu b " +
-                     "where a.coder_id = " + coderId +
-                    " and a.status = b.coder_status_id");
+            query.append(" SELECT editor_id ");
+            query.append( " FROM coder ");
+            query.append( " WHERE coder_id = ?");
 
-            ctx = new InitialContext();
-            ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
-            stmt = conn.createStatement();
+            stmt = conn.prepareStatement(query.toString());
+
+            stmt.setLong(1, coderId);
 
             rs = stmt.executeQuery(query.toString());
-            if ( rs.next() ) {
-                coderStatusDesc = rs.getString(1);
-            }
-            else{
-                throw new EJBException("EJBException in getCoderStatusDesc"
-                + " empty result set for query: " + query.toString());
+            if (rs.next()) {
+                editorId = rs.getInt(1);
+            } else {
+                throw new EJBException("EJBException in getEditorId"
+                        + " empty result set for query: " + query.toString());
             }
 
         } catch (SQLException sqe) {
-            throw new EJBException("SQLException in getCoderStatusDesc coderId: " + coderId);
-        } catch (NamingException e) {
-            throw new EJBException("NamingException in getCoderStatusDesc coderId: " + coderId);
+            throw new EJBException("SQLException in getEditorId coderId: " + coderId);
         } catch (Exception e) {
-            throw new EJBException("Exception in getCoderStatusDesc coderId: " + coderId);
+            throw new EJBException("Exception in getEditorId coderId: " + coderId);
         } finally {
-            if (rs != null) {try {rs.close();} catch (Exception ignore) {log.error("FAILED to close ResultSet in getCoderStatusDesc");}}
-            if (stmt != null) {try {stmt.close();} catch (Exception ignore) {log.error("FAILED to close Statement in getCoderStatusDesc");}}
-            if (conn != null) {try {conn.close();} catch (Exception ignore) {log.error("FAILED to close Connection in getCoderStatusDesc");}}
-            if (ctx != null) {try {ctx.close();} catch (Exception ignore) {log.error("FAILED to close Context in getCoderStatusDesc");}}
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Statement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
         }
-        return coderStatusDesc;
+        return editorId;
     }
+
+
+    public int getLanguageId(long coderId) throws RemoteException {
+        log.debug("getLanguageId called. coderId: " + coderId);
+
+        PreparedStatement stmt = null;
+        Connection conn = null;
+        ResultSet rs = null;
+        int languageId;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append(" SELECT language_id ");
+            query.append( " FROM coder ");
+            query.append( " WHERE coder_id = ?");
+
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement(query.toString());
+
+            stmt.setLong(1, coderId);
+
+            rs = stmt.executeQuery(query.toString());
+            if (rs.next()) {
+                languageId= rs.getInt(1);
+            } else {
+                throw new EJBException("EJBException in getLanguageId"
+                        + " empty result set for query: " + query.toString());
+            }
+
+        } catch (SQLException sqe) {
+            throw new EJBException("SQLException in getLanguageId coderId: " + coderId);
+        } catch (Exception e) {
+            throw new EJBException("Exception in getLanguageId coderId: " + coderId);
+        } finally {
+            if (rs != null) {
+                try {
+                    rs.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close ResultSet");
+                }
+            }
+            if (stmt != null) {
+                try {
+                    stmt.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Statement");
+                }
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (Exception ignore) {
+                    log.error("FAILED to close Connection");
+                }
+            }
+        }
+        return languageId;
+    }
+
+
+
 }

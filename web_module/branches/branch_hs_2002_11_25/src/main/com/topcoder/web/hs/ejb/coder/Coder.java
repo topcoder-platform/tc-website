@@ -2,6 +2,7 @@ package com.topcoder.web.hs.ejb.coder;
 
 import java.sql.Date;
 import javax.ejb.EJBObject;
+import javax.ejb.EJBException;
 import java.rmi.RemoteException;
 
 /**
@@ -15,54 +16,78 @@ public interface Coder extends EJBObject {
     /**
      *
      * @param coderId
-     * @param coderStatusId
      * @throws RemoteException
      */
-    public void createCoder(long coderId, int coderStatusId)
-            throws RemoteException;
-
+    public void createCoder(long coderId) throws EJBException, RemoteException;
     /**
      *
      * @param coderId
      * @param memberSince
      * @throws java.rmi.RemoteException
      */
-    public void setMemberSince(long coderId, Date memberSince)
-            throws RemoteException;
-
-    /**
-     *
-     * @param coder_id
-     * @param coderStatusId
-     * @throws java.rmi.RemoteException
-     */
-    public void setCoderStatusId(long coder_id, int coderStatusId)
-            throws RemoteException;
+    public void setMemberSince(long coderId, Date memberSince) throws EJBException, RemoteException;
 
     /**
      *
      * @param coderId
-     * @return Member Since Date
-     * @throws java.rmi.RemoteException
+     * @param quote
+     * @throws EJBException
+     * @throws RemoteException
      */
-    public Date getMemberSince(long coderId)
-            throws RemoteException;
+    public void setQuote(long coderId, String quote) throws EJBException, RemoteException;
 
     /**
      *
      * @param coderId
-     * @return coderStatusId int
-     * @throws java.rmi.RemoteException
+     * @param editorId
+     * @throws EJBException
+     * @throws RemoteException
      */
-    public int getCoderStatusId(long coderId)
-            throws RemoteException;
+    public void setEditorId(long coderId, int editorId) throws EJBException, RemoteException;
 
     /**
      *
      * @param coderId
-     * @return Coder Status Description
-     * @throws java.rmi.RemoteException
+     * @param languageId
+     * @throws EJBException
+     * @throws RemoteException
      */
-    public String getCoderStatusDesc(long coderId)
-            throws RemoteException;
+    public void setLanguageId(long coderId, int languageId) throws EJBException, RemoteException;
+
+    /**
+     *
+     * @param coderId
+     * @return
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    public Date getMemberSince(long coderId)  throws EJBException, RemoteException;
+
+    /**
+     *
+     * @param coderId
+     * @return
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    public String getQuote(long coderId) throws EJBException, RemoteException;
+
+    /**
+     *
+     * @param coderId
+     * @return
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    public int getEditorId(long coderId) throws EJBException, RemoteException;
+
+    /**
+     *
+     * @param coderId
+     * @return
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    public int getLanguageId(long coderId) throws EJBException, RemoteException;
+
 }
