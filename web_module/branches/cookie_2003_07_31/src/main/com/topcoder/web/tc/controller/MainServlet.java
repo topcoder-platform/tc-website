@@ -7,6 +7,7 @@ import com.topcoder.web.tc.Constants;
 import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Resource;
+import com.topcoder.common.web.data.Navigation;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -30,8 +31,15 @@ public class MainServlet extends BaseServlet {
 
     protected SessionInfo createSessionInfo(HttpServletRequest request,
                                             WebAuthentication auth, Set groups) throws Exception {
-        SessionInfo ret = null;
-        ret = new CoderSessionInfo(request, auth, groups);
+        Navigation nav = (Navigation)request.getSession(true).getAttribute("navigation");
+        CoderSessionInfo ret = null;
+        if (nav == null) {
+            ret = new CoderSessionInfo(request, auth, groups);
+            nav = new Navigation(request, ret);
+            request.setAttribute("navigation", nav);
+        } else {
+            ret = nav.getSessionInfo();
+        }
         return ret;
     }
 }

@@ -83,15 +83,10 @@ public final class Navigation
         info = new CoderSessionInfo();
     }
 
-
-    public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
+    public Navigation(HttpServletRequest request, CoderSessionInfo info) throws TCException {
         this();
         try {
-            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
-                    request, response);
-            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
-            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
-            info = new CoderSessionInfo(request, authentication, user.getPrincipals());
+            this.info = info;
             String appName = StringUtils.checkNull(request.getParameter("AppName"));
             if (browser==null) {
                 browser = new Browser();
@@ -106,6 +101,19 @@ public final class Navigation
             }
         } catch (Exception e) {
             throw new TCException("MainServlet:setupSession:ERROR:\n" + e);
+        }
+    }
+
+    public Navigation(HttpServletRequest request, HttpServletResponse response) throws TCException {
+        try {
+            WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(request.getSession()),
+                    request, response);
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+            info = new CoderSessionInfo(request, authentication, user.getPrincipals());
+            this(request, info);
+        } catch (Exception e) {
+            throw new TCException();
         }
     }
 
