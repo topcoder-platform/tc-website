@@ -25,7 +25,7 @@ INSERT INTO command VALUES(45,'profile_list',4);
 INSERT INTO command VALUES(46,'profile_list_menu',4);
 INSERT INTO command (command_id, command_desc, command_group_id) VALUES ( 47, 'Top Input Rated', 1 );
 INSERT INTO command VALUES(48,'profile_detail',4);
-
+INSERT INTO command VALUES(49,'Email all TopCoder members',1);
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
 INSERT INTO data_type VALUES (1002,'Decimal Input');
@@ -64,6 +64,7 @@ INSERT INTO command_query_xref VALUES(46,69,3);
 INSERT INTO command_query_xref VALUES(46,72,4);
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES ( 47, 70, 1 );
 INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES ( 48, 71, 1 );
+INSERT INTO command_query_xref (command_id, query_id, sort_order) VALUES ( 49, 73, 1 );
 
 
 INSERT INTO input_lu VALUES(3,"cr",1001,"Coder ID");
