@@ -491,11 +491,6 @@
                         <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tourny_index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Events</A>
                     </td>
                 </tr>
-                <tr>
-                    <td id="leftNavOn">
-                        <A class="leftOn"><xsl:attribute name="HREF">/tc/?&amp;module=Static&amp;d1=crpf&amp;d2=crpf_overview</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Charity</A>
-                    </td>
-                </tr>
 
 <!-- Tournaments -->
                 <tr>
@@ -513,9 +508,14 @@
                             <xsl:otherwise>leftSubnav</xsl:otherwise>
                         </xsl:choose>
                         </xsl:attribute>
-                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_index">Tournaments</A></td>
+                        <A class="leftOn" href="/?&amp;t=tournaments&amp;c=tourny_index">Tournaments</A>
+                    </td>
                 </tr>
-
+                <tr>
+                    <td id="leftSubnav">
+                        <A class="leftOn" href="/tc/?&amp;module=Static&amp;d1=crpf&amp;d2=crpf_overview">Charity</A>
+                    </td>
+                </tr>
 <!-- Private Label Events -->
                 <xsl:call-template name="rtables_row"/>
                 <xsl:call-template name="rules_row"/>
