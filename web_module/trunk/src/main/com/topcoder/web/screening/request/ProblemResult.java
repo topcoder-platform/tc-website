@@ -17,11 +17,11 @@ public class ProblemResult extends BaseProcessor {
      */
     public void process() throws Exception {
 
-        SubmissionInfo sinfo = SubmissionInfo.createSubmissionInfo(getAuthentication().getActiveUser(),
+        SubmissionInfo sinfo = new SubmissionInfo(getAuthentication().getActiveUser(),
                 Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)),
                 Long.parseLong(getRequest().getParameter(Constants.ROUND_ID)),
                 Long.parseLong(getRequest().getParameter(Constants.PROBLEM_ID)),
-                Long.parseLong(getRequest().getParameter(Constants.PROBLEM_TYPE_ID)));
+                Integer.parseInt(getRequest().getParameter(Constants.PROBLEM_TYPE_ID)));
 
         getRequest().setAttribute("submissionInfo", sinfo);
 
