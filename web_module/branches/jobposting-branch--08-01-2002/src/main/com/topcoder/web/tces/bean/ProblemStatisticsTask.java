@@ -1,7 +1,7 @@
 /*
- * CompetitionStatisticsTask.java
+ * ProblemStatisticsTask.java
  *
- * Created on August 27, 2002, 12:07 AM
+ * Created on August 27, 2002, 1:07 PM
  */
 
 package com.topcoder.web.tces.bean;
@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * @author  George Dean
  */
-public class CompetitionStatisticsTask extends BaseTask implements Task, Serializable {
+public class ProblemStatisticsTask extends BaseTask implements Task, Serializable {
     
     private static Logger log = Logger.getLogger(CompetitionStatisticsTask.class);
 
@@ -32,20 +32,17 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     private int jid;
     private int mid;
     
-    /** Holds value of property roundID. */
-    private int roundID;
+    /** Holds value of property problemID. */
+    private int problemID;
     
     /** Holds value of property handle. */
     private String handle;
     
-    /** Holds value of property competitionStats. */
-    private ResultSetContainer.ResultSetRow competitionStats;
+    /** Holds value of property problemStats. */
+    private ResultSetContainer.ResultSetRow problemStats;
     
-    /** Holds value of property coderStatsByLevel. */
-    private List coderStatsByLevel;
-    
-    /** Holds value of property overallStatsByLevel. */
-    private List overallStatsByLevel;
+    /** Holds value of property problemStatsByLanguage. */
+    private List problemStatsByLanguage;
     
     public String timeFormat(TCResultItem result){
         double millisec = Double.parseDouble(result.toString());
@@ -70,20 +67,12 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     
     public String getStatistic(String name){
         try{
-            return autoFormat(getCompetitionStats().getItem(name));
+            return autoFormat(getProblemStats().getItem(name));
         }catch(NullPointerException npe){
-            log.debug("Null pointer exception in CompetitionStatisticsTask.getStatistic(\""
+            log.debug("Null pointer exception in ProblemStatisticsTask.getStatistic(\""
                       + name + "\")");
             return "";
         }
-    }
-    
-    /** Creates new CompetitionStatisticsTask */
-    public CompetitionStatisticsTask() {
-        super();
-        setNextPage(TCESConstants.COMPETITION_STATISTICS_PAGE);
-
-        uid=-1;
     }
     
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
@@ -101,18 +90,18 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     }
 
     public void processStep(String step) throws Exception {
-        viewCompetitionStatistics();
+        viewProblemStatistics();
     }
     
-    private void viewCompetitionStatistics() throws Exception {
+    private void viewProblemStatistics() throws Exception {
         Request dataRequest = new Request();
-        dataRequest.setContentHandle("tces_competition_statistics");
+        dataRequest.setContentHandle("tces_problem_statistics");
 
         dataRequest.setProperty("uid", Integer.toString(uid) );
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
         dataRequest.setProperty("jid", Integer.toString(getJobID()) );
         dataRequest.setProperty("mid", Integer.toString(getMemberID()) );
-        dataRequest.setProperty("rd", Integer.toString(getRoundID()) );
+        dataRequest.setProperty("pm", Integer.toString(getProblemID()) );
         
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
@@ -135,19 +124,16 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
         resultMap = dai.getData(dataRequest);
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Comp_Stats");
+        rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Problem_Stats");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("No competition data!");
+            throw new Exception ("No problem data!");
         }
-        setCompetitionStats( rsc.getRow(0) );
+        setProblemStats( rsc.getRow(0) );
 
-        rsc = (ResultSetContainer) resultMap.get("TCES_Coder_Comp_Stats_by_Level");
-        setCoderStatsByLevel( (List)rsc );
+        rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Stats_by_Language");
+        setProblemStatsByLanguage( (List)rsc );
         
-        rsc = (ResultSetContainer) resultMap.get("TCES_Overall_Comp_Stats_by_Level");
-        setOverallStatsByLevel( (List)rsc );
-        
-        setNextPage( TCESConstants.COMPETITION_STATISTICS_PAGE );
+        setNextPage( TCESConstants.PROBLEM_STATISTICS_PAGE );
     }
     
     public void setAttributes(String paramName, String[] paramValues) {
@@ -160,8 +146,16 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
             setJobID(Integer.parseInt(value));
         if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
             setMemberID(Integer.parseInt(value));
-        if (paramName.equalsIgnoreCase(TCESConstants.ROUND_ID_PARAM))
-            setRoundID(Integer.parseInt(value));
+        if (paramName.equalsIgnoreCase(TCESConstants.PROBLEM_ID_PARAM))
+            setProblemID(Integer.parseInt(value));
+    }
+    
+    /** Creates new ProblemStatisticsTask */
+    public ProblemStatisticsTask() {
+        super();
+        setNextPage(TCESConstants.PROBLEM_STATISTICS_PAGE);
+
+        uid=-1;
     }
     
     /** Getter for property campaignID.
@@ -206,18 +200,18 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         mid = memberID;
     }
     
-    /** Getter for property roundID.
-     * @return Value of property roundID.
+    /** Getter for property problemID.
+     * @return Value of property problemID.
      */
-    public int getRoundID() {
-        return this.roundID;
+    public int getProblemID() {
+        return this.problemID;
     }
     
-    /** Setter for property roundID.
-     * @param roundID New value of property roundID.
+    /** Setter for property problemID.
+     * @param problemID New value of property problemID.
      */
-    public void setRoundID(int roundID) {
-        this.roundID = roundID;
+    public void setProblemID(int problemID) {
+        this.problemID = problemID;
     }
     
     /** Getter for property handle.
@@ -234,46 +228,32 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
         this.handle = handle;
     }
     
-    /** Getter for property competitionStats.
-     * @return Value of property competitionStats.
+    /** Getter for property problemStats.
+     * @return Value of property problemStats.
      */
-    public ResultSetContainer.ResultSetRow getCompetitionStats() {
-        return this.competitionStats;
+    public ResultSetContainer.ResultSetRow getProblemStats() {
+        return this.problemStats;
     }
     
-    /** Setter for property competitionStats.
-     * @param competitionStats New value of property competitionStats.
+    /** Setter for property problemStats.
+     * @param problemStats New value of property problemStats.
      */
-    public void setCompetitionStats(ResultSetContainer.ResultSetRow competitionStats) {
-        this.competitionStats = competitionStats;
+    public void setProblemStats(ResultSetContainer.ResultSetRow problemStats) {
+        this.problemStats = problemStats;
     }
     
-    /** Getter for property coderStatsByLevel.
-     * @return Value of property coderStatsByLevel.
+    /** Getter for property problemStatsByLanguage.
+     * @return Value of property problemStatsByLanguage.
      */
-    public List getCoderStatsByLevel() {
-        return this.coderStatsByLevel;
+    public List getProblemStatsByLanguage() {
+        return this.problemStatsByLanguage;
     }
     
-    /** Setter for property coderStatsByLevel.
-     * @param coderStatsByLevel New value of property coderStatsByLevel.
+    /** Setter for property problemStatsByLanguage.
+     * @param problemStatsByLanguage New value of property problemStatsByLanguage.
      */
-    public void setCoderStatsByLevel(List coderStatsByLevel) {
-        this.coderStatsByLevel = coderStatsByLevel;
-    }
-    
-    /** Getter for property overallStatsByLevel.
-     * @return Value of property overallStatsByLevel.
-     */
-    public List getOverallStatsByLevel() {
-        return this.overallStatsByLevel;
-    }
-    
-    /** Setter for property overallStatsByLevel.
-     * @param overallStatsByLevel New value of property overallStatsByLevel.
-     */
-    public void setOverallStatsByLevel(List overallStatsByLevel) {
-        this.overallStatsByLevel = overallStatsByLevel;
+    public void setProblemStatsByLanguage(List problemStatsByLanguage) {
+        this.problemStatsByLanguage = problemStatsByLanguage;
     }
     
 }
