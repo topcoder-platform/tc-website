@@ -42,5 +42,7 @@
     </tr>
 </table>
 
+<p class="compCopyright">Copyright © 2001-2003, TopCoder, Inc. All rights reserved.</p>
+
 </body>
 </html>
