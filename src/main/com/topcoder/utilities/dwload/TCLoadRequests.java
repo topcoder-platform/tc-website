@@ -396,7 +396,7 @@ public class TCLoadRequests extends TCLoad {
         PreparedStatement ps = null;
         Timestamp ret = null;
         try {
-            ps = prepareStatement(NEWEST_REQUEST_TIME, TARGET_DB);
+            ps = prepareStatement(NEWEST_REQUEST_TIME, SOURCE_DB);
             rs = ps.executeQuery();
             if (rs.next()) {
                 ret = rs.getTimestamp(1);
