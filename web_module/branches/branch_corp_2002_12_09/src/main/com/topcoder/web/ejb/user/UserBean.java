@@ -74,9 +74,9 @@ public class UserBean implements SessionBean {
             ret = IdGenerator.nextId("USER_SEQ");
 
             StringBuffer query = new StringBuffer();
-            query.append("INSERT INTO user (user_id, create_date, modify_date) VALUES ('");
+            query.append("INSERT INTO user (user_id, create_date, modify_date) VALUES (");
             query.append(Long.toString(ret));
-            query.append("','now','now')");
+            query.append(",'now','now')");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();

@@ -74,9 +74,9 @@ public class CompanyBean implements SessionBean {
             ret = IdGenerator.nextId("COMPANY_SEQ");
 
             StringBuffer query = new StringBuffer();
-            query.append("INSERT INTO company (company_id, create_date, modify_date) VALUES ('");
+            query.append("INSERT INTO company (company_id, create_date, modify_date) VALUES (");
             query.append(Long.toString(ret));
-            query.append("','now','now')");
+            query.append(",'now','now')");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();

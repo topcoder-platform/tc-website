@@ -76,7 +76,7 @@ public class AddressBean implements SessionBean {
             StringBuffer query = new StringBuffer();
             query.append("INSERT INTO address (address_id, create_date, modify_date) VALUES (");
             query.append(Long.toString(ret));
-            query.append("','now','now')");
+            query.append(",'now','now')");
 
             ds = (DataSource)ctx.lookup(dataSourceName);
             conn = ds.getConnection();
