@@ -95,9 +95,8 @@
                     <td width="30%" class="projectHeaders">Projects</td>
                     <td class="projectHeaders" align="center">Designer</td>
                     <td class="projectHeaders" align="center">Design<br />Rating</td>
-                    <td class="projectHeaders" align="center">Inquiry<br />Date</td>
+                    <td class="projectHeaders" align="center">Registration<br />Date</td>
                     <td class="projectHeaders" align="center">Submission<br />Date</td>
-                    <td class="projectHeaders" align="center">Multiplier</td>
                 </tr>
 
 
@@ -148,11 +147,6 @@
                                     -
                                 </xsl:otherwise>
                             </xsl:choose>
-                            </td>
-                            <td class="projectCells">
-                                    <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
-                                        <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0" />
-                    			    </xsl:if>
                             </td>
                         </tr>
                 </xsl:for-each>
@@ -171,7 +165,6 @@
                     <td class="projectHeaders" align="center">Developer<br />Rating</td>
                     <td class="projectHeaders" align="center">Inquiry<br />Date</td>
                     <td class="projectHeaders" align="center">Submission<br />Date</td>
-                    <td class="projectHeaders" align="center">Multiplier</td>
                 </tr>
 
                 <xsl:for-each select="/TC/DEVELOPMENT/multiplier/status">
@@ -222,11 +215,6 @@
                                 </xsl:otherwise>
                             </xsl:choose>
                             </td>
-                            <td class="projectCells">
-                                    <xsl:if test="./submission_date = ./min_sub_date and not(./submission_date='')">
-                                        <img src="/i/development/multiplierLGray.gif" width="23" height="21" alt="" border="0" />
-                    			    </xsl:if>
-                            </td>
                         </tr>
                 </xsl:for-each>
                     </xsl:if>
@@ -234,33 +222,6 @@
 <!-- Component Dev Projects ends -->
 
             <br/><br/>
-
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr>
-                    <td class="bodyText" colspan="5">
-
-                        <ul><strong>Multiplier Rules</strong>
-                        <li>
-                            The member with the first submission for each component will be given the multiplier.
-                        </li>
-                        <li>
-                            The multiplier will be used to double the component payment <strong>IF</strong> the member places in 1st or 2nd place for that component.  <br />
-                            There will be no 3rd place prizes.
-                        </li>
-                        <li>
-                            If a member resubmits a solution, the new submission date is used to determine who has recieved the multiplier.
-                        </li>
-                        <li>
-                            As with the standard competition, 1st and 2nd place is limited to those submissions that pass screening <br />
-                           and receive a review score greater than 75.
-                        </li>
-                        </ul>
-
-                        <p>If you have specific questions about any projects,
-                        email <a href="mailto:service@topcodersoftware.com" class="bodyText">service@topcodersoftware.com</a>.</p>
-                    </td>
-                </tr>
-            </table>
 
 
             <p><br /></p>
