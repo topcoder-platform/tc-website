@@ -16,8 +16,14 @@ function showEmail() {
     var cmd = "toolbar=no,menubar=no,location=no,scrollbars=yes,resizable=yes,top=" + top + ",left=" + left + ",width=" + width + ",height=" + height + ",status=0";
     var name="previewEmail";
     var cid = document.sessionSetupForm.cid.options[document.sessionSetupForm.cid.selectedIndex].value;
-    var cEmail = document.sessionSetupForm.candidateEmail.options[document.sessionSetupForm.candidateEmail.selectedIndex].value;
-    var rEmail = document.sessionSetupForm.repEmail.options[document.sessionSetupForm.repEmail.selectedIndex].value;
+    var cEmail = "NO";
+    if(document.sessionSetupForm.candidateEmail.checked) {
+        cEmail = "YES";
+    }
+    var rEmail = "NO";
+    if(document.sessionSetupForm.repEmail.checked) {
+        rEmail = "YES";
+    }
     <% String url = Constants.CONTROLLER_URL + "?" + Constants.REQUEST_PROCESSOR + "=PreviewEmail"; %>
     window.open('<screen:rewrite page="<%=url%>" />&<%=Constants.CANDIDATE_ID%>='+ cid + "&<%=Constants.REP_EMAIL%>=" + rEmail + "<%=Constants.CANDIDATE_EMAIL%>=" + cEmail,name,cmd);
     return;
