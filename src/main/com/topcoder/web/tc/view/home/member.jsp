@@ -30,8 +30,12 @@
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td width="100%" valign="top"><img src="/i/clear.gif" width="510" height="1" border="0"/></td>
-
+        <td width="100%" align="center" valign="top">
+        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
+        <jsp:include page="big_promo.jsp" />
+        <img src="/i/clear.gif" alt="" width="1" height="10" border="0" />
+        <jsp:include page="small_promos.jsp" />
+         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter -->
