@@ -573,7 +573,7 @@ score was seen: <b>1601.35</b> by first timer <b>Yi Zhang</b>. The runner ups in
 <IMG SRC="/i/tces_promo.gif" alt="" width="244" height="77" border="0"/></A> -->
 
 <!-- Software Promo Begins -->
-                    <a href="/?&amp;t=development&amp;c=comp_projects"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
+                    <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
 <!-- Software Promo Ends -->
 
 <!-- Software Leader Board Begins -->
