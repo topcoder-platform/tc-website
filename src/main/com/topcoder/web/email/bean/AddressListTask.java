@@ -107,7 +107,7 @@ public class AddressListTask
             throws ServletException {
         // create a new AddressListForm bean
         AddressListForm addressList = new AddressListForm();
-        request.setAttribute("AddressList", addressList);
+        request.getSession().setAttribute("AddressList", addressList);
 
         // clear error list
         request.setAttribute("Error", null);
@@ -130,7 +130,7 @@ public class AddressListTask
     private String add(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the newly created address list
-        AddressListForm addressList = (AddressListForm) request.getAttribute("AddressList");
+        AddressListForm addressList = (AddressListForm) request.getSession().getAttribute("AddressList");
 
         setProperties(addressList, request);
 
@@ -176,7 +176,7 @@ public class AddressListTask
 
         AddressListForm list = retrieveAddressList(listId);
 
-        request.setAttribute("AddressList", list);
+        request.getSession().setAttribute("AddressList", list);
 
         // clear error list
         request.setAttribute("Error", null);
@@ -200,7 +200,7 @@ public class AddressListTask
     private String save(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the edited address list
-        AddressListForm addressList = (AddressListForm) request.getAttribute("AddressList");
+        AddressListForm addressList = (AddressListForm) request.getSession().getAttribute("AddressList");
 
         setProperties(addressList, request);
 
@@ -241,7 +241,7 @@ public class AddressListTask
     private String showAddMember(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // clear out member data
-        request.setAttribute("MemberData", null);
+        request.getSession().setAttribute("MemberData", null);
 
 
 
@@ -293,7 +293,7 @@ public class AddressListTask
     private String addMember(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve AddressListForm bean
-        AddressListForm addressList = (AddressListForm) request.getAttribute("AddressList");
+        AddressListForm addressList = (AddressListForm) request.getSession().getAttribute("AddressList");
 
         MemberData memberData = new MemberData();
         setMemberProperties(memberData, request);
@@ -341,7 +341,7 @@ public class AddressListTask
     private String editMember(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve AddressListForm bean
-        AddressListForm addressList = (AddressListForm) request.getAttribute("AddressList");
+        AddressListForm addressList = (AddressListForm) request.getSession().getAttribute("AddressList");
 
         int listId, memberId;
         try {
@@ -355,7 +355,7 @@ public class AddressListTask
 
         log.debug("editing member:\n" + memberData);
 
-        request.setAttribute("MemberData", memberData);
+        request.getSession().setAttribute("MemberData", memberData);
 
         // forward to the address list member editing page
         return EmailConstants.ADDRESSLIST_EDIT_MEMBER_PAGE;
@@ -373,9 +373,9 @@ public class AddressListTask
     private String saveMember(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve AddressListForm bean
-        AddressListForm addressList = (AddressListForm) request.getAttribute("AddressList");
+        AddressListForm addressList = (AddressListForm) request.getSession().getAttribute("AddressList");
         // retrieve MemberData bean
-        MemberData memberData = (MemberData) request.getAttribute("MemberData");
+        MemberData memberData = (MemberData) request.getSession().getAttribute("MemberData");
         setMemberProperties(memberData, request);
 
         // validate member data
@@ -418,7 +418,7 @@ public class AddressListTask
     private String deleteMember(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve AddressListForm bean
-        AddressListForm addressList = (AddressListForm) request.getAttribute("AddressList");
+        AddressListForm addressList = (AddressListForm) request.getSession().getAttribute("AddressList");
 
         int listId, memberId;
         try {
@@ -469,7 +469,7 @@ public class AddressListTask
     private String bulkAdd(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve AddressListForm bean
-        AddressListForm addressList = (AddressListForm) request.getAttribute("AddressList");
+        AddressListForm addressList = (AddressListForm) request.getSession().getAttribute("AddressList");
 
         int listId;
         try {

@@ -95,7 +95,7 @@ public class TemplateTask
             throws ServletException {
         // create a new template form bean
         EmailTemplateForm template = new EmailTemplateForm();
-        request.setAttribute("EmailTemplate", template);
+        request.getSession().setAttribute("EmailTemplate", template);
 
         // clear error list
         request.setAttribute("Error", null);
@@ -118,7 +118,7 @@ public class TemplateTask
     private String add(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the template to be added
-        EmailTemplateForm template = (EmailTemplateForm) request.getAttribute("EmailTemplate");
+        EmailTemplateForm template = (EmailTemplateForm) request.getSession().getAttribute("EmailTemplate");
 
         if (!template.isAdded()) {
             template.setName(request.getParameter("name"));
@@ -175,7 +175,7 @@ public class TemplateTask
 
         // retrieve template information
         EmailTemplateForm template = retrieveTemplate(templateId);
-        request.setAttribute("EmailTemplate", template);
+        request.getSession().setAttribute("EmailTemplate", template);
 
         // clear error list
         request.setAttribute("Error", null);
@@ -198,7 +198,7 @@ public class TemplateTask
     private String save(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the edited template
-        EmailTemplateForm template = (EmailTemplateForm) request.getAttribute("EmailTemplate");
+        EmailTemplateForm template = (EmailTemplateForm) request.getSession().getAttribute("EmailTemplate");
 
         int templateId;
         try {
