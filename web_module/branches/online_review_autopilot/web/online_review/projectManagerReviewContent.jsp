@@ -46,7 +46,7 @@
 <logic:equal name="submissionForm" property="isScreening" value="true">
 							<tr>
 								<td class="whiteBkgnd" align="center" colspan="2">
-								    <html:checkbox property="advanced" /></td>
+								    Advance to Review: <html:checkbox property="advanced" /></td>
 							</tr>
                                                         <tr>
 								<td class="whiteBkgnd" align="center" colspan="2">

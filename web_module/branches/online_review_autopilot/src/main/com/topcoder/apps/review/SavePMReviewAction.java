@@ -7,6 +7,7 @@ package com.topcoder.apps.review;
 import com.topcoder.apps.review.document.AbstractScorecard;
 import com.topcoder.apps.review.document.ScreeningScorecard;
 import com.topcoder.apps.review.document.ReviewScorecard;
+import com.topcoder.apps.review.document.InitialSubmission;
 
 import com.topcoder.util.log.Level;
 
@@ -97,6 +98,8 @@ public final class SavePMReviewAction extends ReviewAction {
 
                             if (scorecard instanceof ScreeningScorecard) {
                                 if (((SubmissionForm) form).getIsScreening()) {
+                                    ((InitialSubmission)((SubmissionForm) form).getSubmission()).setAdvancedToReview(((SubmissionForm) form).getAdvanced());
+                                    
                                     ScreeningData sData = new ScreeningData(orpd, sid, (ScreeningScorecard) scorecard);
                                     result = businessDelegate.screeningScorecard(sData);
                                 }
