@@ -182,7 +182,7 @@ public class GraphServlet extends HttpServlet {
 
         try {
 
-            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.DW_DATASOURCE_NAME));
+            dai = new CachedDataAccess((javax.sql.DataSource) TCContext.getInitial().lookup(DBMS.HS_DW_DATASOURCE_NAME));
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Rating_History_Graph");
 
