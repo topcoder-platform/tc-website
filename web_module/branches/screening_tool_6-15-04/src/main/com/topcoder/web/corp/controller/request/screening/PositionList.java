@@ -116,6 +116,8 @@ public class PositionList extends BaseScreeningProcessor {
             log.info("Getting the positions for campaign : " + campaignId + " and company : " + companyId);
             map = Util.getDataAccess(true).getData(dr);
 
+            result = (ResultSetContainer) map.get(Constants.CAMPAIGN_POSITIONS_LIST);
+
             // Check if there is a single position for the campaign
             if (result.size() == 1) {
                 // if so redirect the user to position results list
@@ -123,7 +125,8 @@ public class PositionList extends BaseScreeningProcessor {
                 log.info("There is a single position for campaign. Redirecting the request to "
                         + buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null) + "&"
                         + Constants.JOB_POSITION_ID + "=" + row.getStringItem("job_id"));
-                setNextPage(buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null));
+                setNextPage(buildProcessorURL(Constants.POSITION_RESULTS_PROCESSOR, null) + "&"
+                        + Constants.JOB_POSITION_ID + "=" + row.getStringItem("job_id"));
                 setIsNextPageInContext(false);
             } else {
                 // Otherwise redirect the user to campaign positions list
