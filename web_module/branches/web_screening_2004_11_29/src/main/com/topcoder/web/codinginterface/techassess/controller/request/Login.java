@@ -45,7 +45,7 @@ public class Login extends Base {
         log.debug("sent message " + messageId);
 
         log.debug(Thread.currentThread().toString());
-        ObjectMessage response = receive(2000, messageId);
+        ObjectMessage response = receive(5000, messageId);
         log.debug("response " + response);
 
         setNextPage(Constants.PAGE_INDEX);
