@@ -32,20 +32,18 @@
     <!--------main content table------------>
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
       <TR>
-        <!-- Left Column Begins -->
+
+<!-- Left Column Begins -->
         <TD WIDTH="180" VALIGN="top">
-          <!-- Left Column Include Begins -->
-          <!-- Global Seconday Nav Begins -->
          <jsp:include page="../includes/global_left.jsp" />
-          <!-- Global Seconday Nav Ends -->
-          <!-- Left Column Include Ends -->
         </TD>
-        <!-- Left Column Ends -->
-        <!-- Gutter Begins -->
+<!-- Left Column Ends -->
+
+<!-- Gutter Begins -->
         <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-        <!-- Center Column Begins -->
+<!-- Gutter Ends -->
+
+<!-- Center Column Begins -->
         <TD class="statText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="round_tables"/>
@@ -55,16 +53,13 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
   <TR>
     <TD BGCOLOR="#001B35" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-
+    <TD class="statText" COLSPAN="2" VALIGN="top" BGCOLOR="#001B35" WIDTH="100%">
+        
+        <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="10" BORDER="0"/><BR/>
 
                 <form action="/rtables/search.jsp" method="post" name="searchForm" onSubmit="return authorizedSubmit">
 
                 <TABLE BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-
-
-
-
 
 <%  ////////////////////////
 
