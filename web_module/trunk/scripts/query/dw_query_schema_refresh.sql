@@ -29,12 +29,12 @@ INSERT INTO command VALUES(22,"top_room_winners",6);
 INSERT INTO command VALUES(23,"top_ranked_div_1",6);
 INSERT INTO command VALUES(24,"top_ranked_div_2",6);
 INSERT INTO command VALUES(25,"div_2_problem_level_stats",6);
-INSERT INTO command VALUES(26,"rating_history_graph",6);
-INSERT INTO command VALUES(27,"rating_distribution_graph",6);
-INSERT INTO command VALUES(28,"submission_information",6);
-INSERT INTO command VALUES(29,"rating_distribution_graph_dark",6);
+INSERT INTO command VALUES(26,"rating_history_graph",2);
+INSERT INTO command VALUES(27,"rating_distribution_graph",2);
+INSERT INTO command VALUES(28,"submission_information",3);
+INSERT INTO command VALUES(29,"rating_distribution_graph_dark",2);
 INSERT INTO command VALUES(30,"index",6);
-INSERT INTO command VALUES(31,"problem_distribution_graph",6);
+INSERT INTO command VALUES(31,"problem_distribution_graph",2);
 INSERT INTO command VALUES(32,"school_avg_rating",6);
 
 INSERT INTO command_query_xref VALUES(1, 1, 1);
@@ -118,7 +118,7 @@ INSERT INTO input_lu VALUES(16, "sd", 1004, "Sort direction");
 INSERT INTO input_lu VALUES(17, "cu", 1001, "Current User ID");
 INSERT INTO input_lu VALUES(18, "ra", 1001, "Rating");
 INSERT INTO input_lu VALUES(19, "pss", 1005, "Problem Status");
-INSERT INTO input_lu VALUES(20, "nrn", 1001, "min num ratings");
+INSERT INTO input_lu VALUES(20, "nrn", 1001, "Min Num Ratings");
 
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1, "Y", "$26", 1, 1);
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES (1, "Y", "1", 11, 2);
