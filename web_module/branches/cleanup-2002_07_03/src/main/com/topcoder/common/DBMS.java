@@ -5,7 +5,7 @@ import java.io.*;
 import javax.naming.*;
 import javax.transaction.*;
 import java.sql.*;
-import com.topcoder.server.util.TCResourceBundle;
+import com.topcoder.shared.util.TCResourceBundle;
 
 
 public class DBMS {

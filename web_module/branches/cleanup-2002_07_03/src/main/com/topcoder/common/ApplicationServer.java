@@ -1,7 +1,7 @@
 package com.topcoder.common;
 
 import java.util.*;
-import com.topcoder.server.util.TCResourceBundle;
+import com.topcoder.shared.util.TCResourceBundle;
 
 public class ApplicationServer {
 
