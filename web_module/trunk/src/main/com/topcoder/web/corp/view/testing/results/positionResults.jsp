@@ -193,6 +193,9 @@ function getProblemDetail(id) {
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=preference&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">Preference<br/>Level</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=resume_sort&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">Resume</A>
+                    </td>
+                    <td class="screeningHeader" width="10%" align=center>
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=note_text&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%>">Notes</A>
                     </td>
                 </tr>
@@ -272,7 +275,9 @@ function getProblemDetail(id) {
                         pluginspage="http://www.macromedia.com/go/getflashplayer" />
                         </object>
                     </td>
-
+                    <td class='<%=cssClasses[counter % 2]%>' align=center>
+                        <A href='?<%=Constants.MODULE_KEY%>=DownloadResume&<%=Constants.USER_ID%>=<%=row.getStringItem("user_id")%>'><%=row.getStringItem("resume_text")%></A>
+                    </td>
                     <td class='<%=cssClasses[counter++ % 2]%>' align=center>
                         <A href='?<%=Constants.MODULE_KEY%>=<%=Constants.POPULATE_CANDIDATE_PROCESSOR%>&<%=Constants.CANDIDATE_ID%>=<%=row.getStringItem("user_id")%>'>
                             <%=row.getStringItem("note_text")%>
