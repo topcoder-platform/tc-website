@@ -3,10 +3,10 @@
     <Property name="DriverClass">
         <Value>com.informix.jdbc.IfxDriver</Value>
     </Property>
-    <Property name="ConnectionURL">
+    <Property name="SourceDB">
         <Value>jdbc:informix-sqli://192.168.14.51:2020/tcs_catalog:INFORMIXSERVER=informixoltp_tcp;user=coder;password=teacup</Value>
     </Property>
-    <Property name="HistoryLength">
-        <Value>50</Value>
+    <Property name="TargetDB">
+        <Value>jdbc:informix-sqli://192.168.14.52:2022/tcs_dw:INFORMIXSERVER=datawarehouse_tcp;user=coder;password=teacup</Value>
     </Property>
 </CMConfig>

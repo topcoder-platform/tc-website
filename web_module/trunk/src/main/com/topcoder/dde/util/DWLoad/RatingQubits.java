@@ -25,26 +25,9 @@ public class RatingQubits {
 
     public static void main(String[] args) {
         int numArgs = args.length;
-        int phaseId = -1;
-        int compId = -1;
         boolean isFinal = true;
         boolean runAll = false;
         RatingQubits tmp = new RatingQubits();
-        if (numArgs == 1 && args[0].equals("ALL"))
-        {
-            runAll = true;
-        }
-        else if (numArgs != 3) {
-            System.out.println("SYNTAX: java com.topcoder.utilities.RatingQubits <phase id> <comp_vers id> <isFinal true/false>");
-            return;
-        }
-        else
-        {
-            phaseId = Integer.parseInt(args[0]);
-            compId = Integer.parseInt(args[1]);
-            isFinal = "true".equals(args[2]);
-
-        }
 
         //Load our configuration
         String namespace = RatingQubits.class.getName();
@@ -86,33 +69,16 @@ public class RatingQubits {
             return;
         }
 
-
-
-
-// dpecora - wrap connection to enable external call (specifically,
-// from AdminServicesBean)
-
         Connection c = null;
         try {
             Class.forName(jdbcDriver);
             c = DriverManager.getConnection(connectionURL);
 
             c.setAutoCommit(true);
-            if(runAll){
-                tmp.runAllScores(c, historyLength);
-            }
-            else{
-                tmp.runRatings(c, phaseId, compId, isFinal, historyLength);
-
-            }
+            tmp.runAllScores(c, historyLength);
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            try {
-                //if (c != null) c.setAutoCommit(true);
-            } catch (Exception e1) {
-                System.out.println ("exception A: " + e1);
-            }
             try {
                 if (c != null) c.close();
             } catch (Exception e1) {
@@ -123,25 +89,94 @@ public class RatingQubits {
 
     public void runAllScores(Connection conn, String historyLength)
     {
-        String sqlStr ="   SELECT distinct phase_id, comp_vers_id, submission_date" +
-                       "     FROM user_component_score" +
-                       "    WHERE processed = 0 " +
-                       " ORDER BY phase_id asc, submission_date asc";
         PreparedStatement ps = null;
         ResultSet rs = null;
-
+        
         try{
+            
+            /*
+            //nullout existing ratings
+            String sqlStr = "update project_result set old_rating = null, new_rating = null";
+            ps = conn.prepareStatement(sqlStr);
+            ps.execute();
+        */
+            //design
+            String sqlStr ="select distinct pr.project_id, " +
+                            "case when exists(select end_date from phase_instance " +
+                            "where project_id = pr.project_id and phase_id = 1 " +
+                            "and cur_version = 1) " +
+                            "then (select end_date from phase_instance " + 
+                            "where project_id = pr.project_id and phase_id = 1 " +
+                            "and cur_version = 1) " +
+                            "else (select end_date from phase_instance " +
+                            "where project_id = pr.project_id and phase_id = 8 " +
+                            "and cur_version = 1) " +
+                            "end as ProjectDate, " +
+                            "p.comp_vers_id " + 
+                            "from project_result pr, " +
+                            "project p, " +
+                            "outer comp_version_dates cd " +
+                            "where p.project_id = pr.project_id " +
+                            "and p.cur_version = 1 " +
+                            "and p.project_stat_id in (2,4,6) " +
+                            "and p.project_type_id = 1 " +
+                            "and pr.rating_ind = 1" +
+                            "and cd.comp_vers_id = p.comp_vers_id " +
+                            "and cd.phase_id = (case when p.project_type_id = 1 then 112 else 113 end  ) " +
+                            "order by 2";
+    
             ps = conn.prepareStatement(sqlStr);
             rs = ps.executeQuery();
-            while (rs.next()) {
-                this.runRatings(conn, rs.getInt("phase_id"), rs.getInt("comp_vers_id"), true, historyLength);
-            }
+            
+            this.rateProjects(conn, rs, 112, historyLength);
+            
+            rs.close();
+            rs = null;
+            ps.close();
+            ps = null;
+            
+            //dev
+
+            sqlStr = "select distinct pr.project_id, " +
+                            "case when exists(select end_date from phase_instance " +
+                            "where project_id = pr.project_id and phase_id = 1 " +
+                            "and cur_version = 1) " +
+                            "then (select end_date from phase_instance " + 
+                            "where project_id = pr.project_id and phase_id = 1 " +
+                            "and cur_version = 1) " +
+                            "else (select end_date from phase_instance " +
+                            "where project_id = pr.project_id and phase_id = 8 " +
+                            "and cur_version = 1) " +
+                            "end as ProjectDate, " +
+                            "p.comp_vers_id " +
+                            "from project_result pr, " +
+                            "project p, " +
+                            "outer comp_version_dates cd " +
+                            "where p.project_id = pr.project_id " +
+                            "and p.cur_version = 1 " +
+                            "and p.project_stat_id in (2,4,6) " +
+                            "and p.project_type_id = 2 " +
+                            "and pr.rating_ind = 1" +
+                            "and cd.comp_vers_id = p.comp_vers_id " +
+                            "and cd.phase_id = (case when p.project_type_id = 1 then 112 else 113 end  ) " +
+                            "order by 2";
+
+        
+            ps = conn.prepareStatement(sqlStr);
+            rs = ps.executeQuery();
+            
+            this.rateProjects(conn, rs, 113, historyLength);
+            
+            rs.close();
+            rs = null;
+            ps.close();
+            ps = null;
         }
         catch(SQLException sqe){
-            System.err.println(sqe);
+            sqe.printStackTrace();
         }
         catch(Exception sqe){
-            System.err.println("Exception:" + sqe);
+            sqe.printStackTrace();
         }
         finally{
             if(rs != null)
@@ -153,288 +188,253 @@ public class RatingQubits {
         }
 
    }
-
-    // This function is what should be called if updating ratings from an external program
-    // It is assumed that autocommit is false on the connection if updating ratings
-    public void runRatings(Connection c, int phaseId, int compId, boolean isFinal, String historyLength) throws Exception {
-        try {
-            rateDesigns(c, phaseId, compId, isFinal, historyLength);
-            if (isFinal) {
-                //c.commit();
-            }
-        } catch (Exception e) {
-            try {
-//                System.out.println("trying to commit" + e);
-//                if (isFinal) c.rollback();
-            } catch (Exception e1) {
-                System.out.println ("exception C: " + e1);
-            }
-            throw e;
+    
+    private class rating
+    {
+        public long user_id;
+        public double rating;
+        public int num_ratings;
+        public double vol;
+        public double rating_no_vol;
+        public int last_component_rated = 0;
+        
+        public rating(long user_id, double rating, int num_ratings, double vol, double rating_no_vol)
+        {
+            this.user_id = user_id;
+            this.rating = rating;
+            this.num_ratings = num_ratings;
+            this.vol = vol;
+            this.rating_no_vol = rating_no_vol;
         }
     }
-
-
-    private void rateDesigns(Connection conn, int phaseId, int compVersId, boolean isFinal, String historyLength) throws Exception {
-        PreparedStatement ps = null, ps2 = null;
-        ResultSet rs2 = null, rsUser = null;
+    
+    private class history
+    {
+        public long user_id;
+        public double score;
+        public double rating;
+        public double vol;
+        
+        public history(long user_id, double score, double rating, double vol)
+        {
+            this.user_id = user_id;
+            this.score = score;
+            this.rating = rating;
+            this.vol = vol;
+        }
+    }
+    
+    private void rateProjects(Connection conn, ResultSet rs, int phaseId, String historyLength) throws Exception {
+        PreparedStatement ps = null;
+        ResultSet rs2 = null;
         StringBuffer sqlStr = new StringBuffer(400);
-        int i,room,newrating,newvol,coder,retVal,newratingnovol,levelId;
-        double score;
-        ArrayList results, resultsplusprov;
-        Vector names,ratings,volatilities,timesplayed,scores,endratings,endvols,endratingsnovol,ratingsplusprov,namesplusprov,
-                volatilitiesplusprov,timesplayedplusprov,scoresplusprov,stringnames,stringnamesplusprov;
+        int i,levelId;
+        ArrayList resultsplusprov;
+        Vector ratingsplusprov,namesplusprov,volatilitiesplusprov,timesplayedplusprov,scoresplusprov;
+        
+        Vector names, endratings, endvols, endratingsnovol, scores;
+        
+        levelId = -1;
+        
+        TreeMap ratings = new TreeMap(); //contains all rating info
+        ArrayList histories = new ArrayList();
+        
+        //clear history
+        histories = new ArrayList();
 
-        endratings = new Vector();
-        endvols = new Vector();
-        endratingsnovol = new Vector();
-        try {
-
-      Timestamp currentTime = new Timestamp((new java.util.Date()).getTime());
-          //Timestamp currentTime = ServerContestConstants.getCurrentTimestamp(conn);
-
-          for (levelId = 100; levelId <= 500; levelId += 100) {
-              //Timestamp currentTime = ServerContestConstants.getCurrentTimestamp(conn);
-
+        for(i = 0; i < Integer.parseInt(historyLength); i++)
+        {
+            histories.add(null);
+        }
+        
+        while(rs.next())
+        {
+            /*if(rs.getInt("level_id") != levelId)
+            {
+                //new level
+                levelId = rs.getInt("level_id");
+                System.out.println("Processing new level: " + levelId);
+        
+                //clear history
+                histories = new ArrayList();
+        
+                for(i = 0; i < Integer.parseInt(historyLength); i++)
+                {
+                    histories.add(null);
+                }
+            } */
+            
+            //new project
             int processed = 0;
-            names = new Vector();
             namesplusprov = new Vector();
-            ratings = new Vector();
             ratingsplusprov = new Vector();
-            volatilities = new Vector();
             volatilitiesplusprov = new Vector();
-            timesplayed = new Vector();
             timesplayedplusprov = new Vector();
-            scores = new Vector();
             scoresplusprov = new Vector();
-            stringnames = new Vector();
-            stringnamesplusprov = new Vector();
+            
+            names = new Vector();
+            endratings = new Vector();
+            endvols = new Vector();
+            endratingsnovol = new Vector();
+            scores = new Vector();
 
-                    sqlStr.replace(0, sqlStr.length(), "UPDATE user_component_score SET processed=1 ");
-                            sqlStr.append(" WHERE processed = 0 and comp_vers_id = ? and phase_id = ?");
-                    //sqlStr.append(" WHERE comp_vers_id = ? and phase_id = ?");
-                    ps = conn.prepareStatement(sqlStr.toString());
-                    ps.setInt(1, compVersId);
-                    ps.setInt(2, phaseId);
-                    retVal = ps.executeUpdate();
-                    ps.close();
-                    ps = null;
-
-
-            //get a bunch of info of designers
-            sqlStr.replace(0, sqlStr.length(), "SELECT user_id, score, create_date_time, comp_vers_id, submission_date");
-            sqlStr.append(" FROM user_component_score");
-            sqlStr.append(" WHERE comp_vers_id = ? and phase_id = ? and level_id = ? and processed = 1");
-                sqlStr.append(" ORDER BY submission_date");
-
+            
+            //get all submissions for this project
+            sqlStr.replace(0, sqlStr.length(), "SELECT * ");
+            sqlStr.append(" FROM project_result");
+            sqlStr.append(" WHERE project_id = ? and rating_ind = 1");
+            
             ps = conn.prepareStatement(sqlStr.toString());
-            ps.setInt(1, compVersId);
-            ps.setInt(2, phaseId);
-            ps.setInt(3, levelId);
+            ps.setLong(1, rs.getLong("project_id"));
             rs2 = ps.executeQuery();
-
-            //add each coder and his info to the vectors.
-            String handle = "";
 
             while (rs2.next()) {
                 processed++;
-                // First add developers
-                sqlStr.replace(0, sqlStr.length(), " SELECT rating, num_ratings, vol, rating_no_vol");
-                sqlStr.append(" FROM user_rating");
-                sqlStr.append(" WHERE user_id = ? and phase_id = ?");
-                ps2 = conn.prepareStatement(sqlStr.toString());
-
-                int userID = rs2.getInt("user_id");
-                double rndScore = rs2.getDouble("score");
-                ps2.setInt(1, userID);
-
-                ps2.setInt(2, phaseId);
-                rsUser = ps2.executeQuery();
-
-                namesplusprov.add("" + userID);
-
-                handle = ""+userID;
-
-                stringnamesplusprov.add(handle);
-                scoresplusprov.add(new Double(rndScore));
-                if (rsUser.next()) {
-                    Integer temp = new Integer(rsUser.getInt("num_ratings"));
-
-                    ratingsplusprov.add(new Double(rsUser.getDouble("rating")));
-                   // timesplayedplusprov.add(new Integer(rsUser.getInt("num_ratings")));
-                    timesplayedplusprov.add(temp);
-                    volatilitiesplusprov.add(new Double(rsUser.getDouble("vol")));
-
-                } else {
-                    sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (num_ratings, user_id, phase_id) VALUES(0,?,?)");
-                    ps2 = conn.prepareStatement(sqlStr.toString());
-                    ps2.setInt(1, userID);
-                    ps2.setInt(2, phaseId);
-
-                    retVal = ps2.executeUpdate();
-
-
-                    ratingsplusprov.add(new Double(initialScore));
-                    timesplayedplusprov.add(new Integer(0));
-                    volatilitiesplusprov.add(new Double(initialVolatility));
+                
+                namesplusprov.add("" + rs2.getLong("user_id"));
+                scoresplusprov.add(new Double(rs2.getDouble("final_score")));
+                
+                if(!ratings.containsKey("" + rs2.getLong("user_id")))
+                {
+                    rating r = new rating(rs2.getLong("user_id"), initialScore, 0, initialVolatility, initialScore);
+                    ratings.put("" + rs2.getLong("user_id"), r);
                 }
-                ps2.close();
-                ps2 = null;
+
+                rating r = (rating) ratings.get("" + rs2.getLong("user_id"));
+                ratingsplusprov.add(new Double(r.rating));
+                timesplayedplusprov.add(new Integer(r.num_ratings));
+                volatilitiesplusprov.add(new Double(r.vol));
             }
-            System.out.println("Processing " + processed + " entries for level " + levelId);
-            if (processed == 0)
-              continue;
+            
             rs2.close();
             rs2 = null;
             ps.close();
             ps = null;
-
-            // Next load history database
-            PreparedStatement ps3 = null;
-            ResultSet rs = null;
-            try {
-                StringBuffer query = new StringBuffer(100);
-                query.append("SELECT " + (historyLength == null ? "" : ("FIRST " + historyLength)) + " score, rating, vol, phase_id, level_id, timestamp FROM tcs_ratings_history WHERE phase_id = ? AND level_id = ? ORDER BY timestamp desc");
-                ps3 = conn.prepareStatement(query.toString());
-                ps3.setLong(1, phaseId);
-                ps3.setLong(2, levelId);
-                rs = ps3.executeQuery();
-                while (rs.next()) {
-                    Double result = new Double(rs.getDouble(1));
-                    Double rating = new Double(rs.getDouble(2));
-                    Double vol = new Double(rs.getDouble(3));
-                    namesplusprov.add("0");
-                    timesplayedplusprov.add(new Integer(1));
-                    scoresplusprov.add(result);
-                    stringnamesplusprov.add("0");
-                    volatilitiesplusprov.add(vol);
-                    ratingsplusprov.add(rating);
-                }
-                rs.close();
-                rs = null;
-                ps3.close();
-                ps3 = null;
-            } finally {
-                try { if (rs != null) rs.close(); } catch (SQLException ignore) {}
-                try { if (ps3 != null) ps3.close(); } catch (SQLException ignore) {}
+            
+            if (processed == 0)
+            {
+                System.out.println("PROCESSING ERROR: NO RECORDS FOR PROJECT " + rs.getLong("project_id"));
             }
 
-            //run qubits rating algorithm on them
-            //log.info("Ratings for provisional: round " + roundId + ", div " + divisionId + ":");
+            System.out.println("Running ratings for project: " + rs.getLong("project_id") + " (" + processed + " ratings)");
+            
+            processed = 0;
+            for(i = 0; i < Integer.parseInt(historyLength); i++)
+            {
+                history h = (history)histories.get(i);
+                if(h == null)
+                {
+                    break;
+                }
+                processed++;
+                
+                namesplusprov.add("0");
+                timesplayedplusprov.add(new Integer(1));
+                scoresplusprov.add(new Double(h.score));
+                volatilitiesplusprov.add(new Double(h.vol));
+                ratingsplusprov.add(new Double(h.rating));
+            }
+            
+            System.out.println("History length is " + processed);
 
-            resultsplusprov = rateEvent(namesplusprov, ratingsplusprov, volatilitiesplusprov, timesplayedplusprov, scoresplusprov, stringnamesplusprov, false);
-
+            resultsplusprov = rateEvent(namesplusprov, ratingsplusprov, volatilitiesplusprov, timesplayedplusprov, scoresplusprov);
+            
             names = (Vector) resultsplusprov.get(3);
             endratings = (Vector) resultsplusprov.get(2);
             endvols = (Vector) resultsplusprov.get(1);
             endratingsnovol = (Vector) resultsplusprov.get(0);
+            scores = (Vector) resultsplusprov.get(4);
 
-
-            if (isFinal) {
-///////////////////////////////////////////////////////////////////////////////////////////
-                while (endratings.size() > 0) {
-
-
-
-                    newrating = Math.round(((Double) endratings.remove(0)).floatValue());
-                    newratingnovol = Math.round(((Double) endratingsnovol.remove(0)).floatValue());
-                    newvol = Math.round(((Double) endvols.remove(0)).floatValue());
-                    coder = (new Integer(names.remove(0).toString())).intValue();
-                    score = ((Double) scoresplusprov.remove(0)).floatValue();
-
-
-                    sqlStr.replace(0, sqlStr.length(), "UPDATE user_component_score SET processed=2, rating = ? ");
-                    sqlStr.append(" WHERE processed = 1 and comp_vers_id = ? and phase_id = ? and user_id = ?");
-
-                    ps = conn.prepareStatement(sqlStr.toString());
-                    ps.setDouble(1, newrating);
-                    ps.setInt(2, compVersId);
-                    ps.setInt(3, phaseId);
-                    ps.setInt(4, coder);
-                    //System.out.println(compVersId + ":" + phaseId + sqlStr.toString());
-                    retVal = ps.executeUpdate();
-
-                    ps.close();
-                    ps = null;
-
-
-                    if (coder == 0) {
-                        // This is a database entry - skip it
-                        continue;
-                    }
-                    sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating SET rating = ?, vol = ? ,rating_no_vol = ?, last_component_rated = ?, num_ratings = num_ratings + 1, ");
-                    sqlStr.append(" mod_date_time = CURRENT WHERE user_id = ? and phase_id = ?");
-                    ps = conn.prepareStatement(sqlStr.toString());
-                    ps.setDouble(1, newrating);
-                    ps.setInt(2, newvol);
-                    ps.setInt(3, newratingnovol);
-                    ps.setInt(4, compVersId);
-                    ps.setInt(5, coder);
-                    ps.setInt(6, phaseId);
-                    retVal = ps.executeUpdate();
-                    ps.close();
-                    ps = null;
-
-                    //if (retVal != 1)
-                    //    log.error("ERROR: New rating not updated in CODER_RATING table");
-
-                    // Don't forget to add score entry to design score history database
-                    ps = conn.prepareStatement("INSERT INTO tcs_ratings_history (phase_id, level_id, score, rating, vol, timestamp) VALUES (?, ?, ?, ?, ?, ?)");
-                    ps.setLong(1, phaseId);
-                    ps.setLong(2, levelId);
-                    ps.setDouble(3, score);
-                    ps.setDouble(4, newrating);
-                    ps.setDouble(5, newvol);
-                    ps.setDate(6, new Date(System.currentTimeMillis()));
-                    ps.executeUpdate();
-                    ps.close();
-                    ps = null;
-                } // end while loop over endratings
-//		tailFile(database, 50 /* lines */);
+            while (endratings.size() > 0) {
+                int newrating = Math.round(((Double) endratings.remove(0)).floatValue());
+                int newratingnovol = Math.round(((Double) endratingsnovol.remove(0)).floatValue());
+                int newvol = Math.round(((Double) endvols.remove(0)).floatValue());
+                int coder = (new Integer(names.remove(0).toString())).intValue();
+                double score = ((Double) scores.remove(0)).floatValue();
                 
-                //change money values for people who received multiplier
-            }
-          }
-
-// All changes made
-        } catch (Exception e) {
-                System.out.println("Thrown Error A " + e);
-            //log.error(e);
-            throw e;
-        } finally {
-            try {
-                if (rs2 != null) rs2.close();
-            } catch (Exception e1) {
-            }
-            try {
-                if (ps != null) ps.close();
-            } catch (Exception e1) {
+                rating r = (rating) ratings.get("" + coder);
+                
+                //update project_result record with new and old rating
+                sqlStr.replace(0, sqlStr.length(), "UPDATE project_result SET old_rating = ?, new_rating = ? ");
+                sqlStr.append(" WHERE project_id = ? and user_id = ? ");
+                
+                ps = conn.prepareStatement(sqlStr.toString());
+                ps.setDouble(1, r.rating);
+                ps.setInt(2, newrating);
+                ps.setInt(3, rs.getInt("project_id"));
+                ps.setInt(4, coder);
+                
+                ps.execute();
+                ps.close();
+                ps = null;
+                
+                //update user_rating
+                r.rating = newrating;
+                r.vol = newvol;
+                r.rating_no_vol = newratingnovol;
+                r.num_ratings++;
+                r.last_component_rated = rs.getInt("comp_vers_id");
+                
+                ratings.put("" + coder, r);
+                
+                //insert history
+                history h = new history(coder, score, newrating, newvol);
+                System.out.println("HISTORY UPDATE: " + coder + ", " + score + ", " + newrating + ", " + newvol);
+                
+                //rotate history
+                Collections.rotate(histories, 1);
+                histories.set(0, h);
             }
         }
-    }
-////////////////////////////////////////////////////////////////////////////////////////////////////
-//    void tailFile(String filename, int linesSaved) {
-//    ArrayList lines = new ArrayList();
-//    String line;
-//
-//    try {
-//        BufferedReader br = new BufferedReader(new FileReader(filename));
-//
-//	line = br.readLine();
-//	while (line != null) {
-//	    lines.add(line);
-//	    line = br.readLine();
-//	}
-//	br.close();
-//        FileOutputStream fos = new FileOutputStream(filename, false);
-//	PrintStream ps = new PrintStream(fos);
-//	for (int i = Math.max(0, lines.size() - linesSaved); i < lines.size(); i++) {
-//	    ps.println(lines.get(i).toString());
-//        }
-//        ps.close();
-//    } catch (Exception e) {}
-//}
+        
+        //commit final ratings to DB
+        Object[] vals = ratings.values().toArray();
+        for(i = 0; i < vals.length; i++)
+        {
+            rating r = (rating) vals[i];
+            
+            //System.out.println(r.user_id + "\t" + r.rating);
+            
+            sqlStr.replace(0, sqlStr.length(), "UPDATE user_rating set rating = ?, vol = ?, rating_no_vol = ?, last_component_rated = ?, num_ratings = ?, mod_date_time = CURRENT ");
+            sqlStr.append(" where phase_id = ? and user_id = ?");
+            
+            ps = conn.prepareStatement(sqlStr.toString());
+            ps.setDouble(1, r.rating);
+            ps.setDouble(2, r.vol);
+            ps.setDouble(3, r.rating_no_vol);
+            ps.setInt(4, r.last_component_rated);
+            ps.setInt(5, r.num_ratings);
+            ps.setInt(6, phaseId);
+            ps.setDouble(7, r.user_id);
+            
+            int retVal = ps.executeUpdate();
+            
+            ps.close();
+            ps = null;
+            
+            if(retVal == 0)
+            {
 
-//-------------FUNCTIONS AND VARIABLES USED BY QUBITS RATING SYSTEM-----------------------
+                sqlStr.replace(0, sqlStr.length(), "INSERT INTO user_rating (user_id, phase_id, rating, vol, rating_no_vol, last_component_rated, num_ratings, mod_date_time, create_date_time) ");
+                sqlStr.append(" values (?, ?, ?, ?, ?, ?, ?, CURRENT, CURRENT )");
+                ps = conn.prepareStatement(sqlStr.toString());
+                ps.setDouble(1, r.user_id);
+                ps.setInt(2, phaseId);
+                ps.setDouble(3, r.rating);
+                ps.setDouble(4, r.vol);
+                ps.setDouble(5, r.rating_no_vol);
+                ps.setInt(6, r.last_component_rated);
+                ps.setInt(7, r.num_ratings);
+
+                ps.execute();
+                
+                ps.close();
+                ps = null;
+            }
+             
+        }   
+    }
+    
     int STEPS = 100;
     double initialScore = 1200.0;
     double oneStdDevEquals = 1200.0; /* rating points */
@@ -454,7 +454,9 @@ public class RatingQubits {
     int people4 = 0;
     double sqdf = 0.0;
 
-    private ArrayList rateEvent(Vector names, Vector ratings, Vector volatilities, Vector timesPlayed, Vector scores, Vector stringnames, boolean prov) {
+    private ArrayList rateEvent(Vector names, Vector ratings, Vector volatilities, Vector timesPlayed, Vector scores) {
+        //prov = false
+        
         Vector eranks = new Vector();
         Vector eperf = new Vector();
         Vector ranks = new Vector();
@@ -462,8 +464,9 @@ public class RatingQubits {
         Vector newVolatility = new Vector();
         Vector newRating = new Vector();
         Vector newRatingWithVol = new Vector();
+        Vector newScores = new Vector();
         int i, j;
-        double aveVol = 0,rating,vol;
+        double aveVol = 0,rating,vol, score;
 
         /* COMPUTE AVERAGE RATING */
         double rave = 0.0;
@@ -519,7 +522,22 @@ public class RatingQubits {
             i += count;
         }
 
-
+        //clear out history entries at this point
+        for (i = 0; i < names.size(); i++) {
+            if ("0".equals((String)names.elementAt(i))) {
+                names.remove(i);
+                timesPlayed.remove(i);
+                ratings.remove(i);
+                volatilities.remove(i);
+                eranks.remove(i);
+                eperf.remove(i);
+                scores.remove(i);
+                ranks.remove(i);
+                perf.remove(i);
+                i--;
+            }
+        }
+        
 
         /* UPDATE RATINGS */
         for (i = 0; i < names.size(); i++) {
@@ -568,55 +586,37 @@ public class RatingQubits {
         for (i = 0; i < newVolatility.size(); i++) {
             rating = ((Double) newRating.elementAt(i)).doubleValue();
             vol = ((Double) newVolatility.elementAt(i)).doubleValue();
+            score = ((Double) scores.elementAt(i)).doubleValue();
             newRatingWithVol.addElement(new Double(rating + volatilityWeight * (aveVol - vol)));
-            if (prov && ((Integer) timesPlayed.elementAt(i)).intValue() > 0) {
-                names.remove(i);
-                timesPlayed.remove(i);
-                ratings.remove(i);
-                volatilities.remove(i);
-                eranks.remove(i);
-                eperf.remove(i);
-                scores.remove(i);
-                ranks.remove(i);
-                perf.remove(i);
-                newRating.remove(i);
-                newVolatility.remove(i);
-                newRatingWithVol.remove(i);
-                stringnames.remove(i);
-                i--;
-            }
+            newScores.addElement(new Double(score));
         }
 
         System.out.println("Handle   Player  # Rate Vol Es.R E.SD  Score  Ac.R A.SD D.SD N.RT N.V N.VR");
         for (i = 0; i < names.size(); i++) {
-            if (!"0".equals((String)stringnames.elementAt(i)))
-            if (!prov || (prov && ((Integer) timesPlayed.elementAt(i)).intValue() == 0))
-                System.out.println(
-                        fS1((String) stringnames.elementAt(i)) + " " +
-                        ((String) names.elementAt(i)) + "  " +
-                        ((Integer) timesPlayed.elementAt(i)).intValue() + " " +
-                        in4((Double) ratings.elementAt(i)) + " " +
-                        ((Double) volatilities.elementAt(i)).intValue() + " " +
-                        rat((Double) eranks.elementAt(i)) + " " +
-                        fD2((Double) eperf.elementAt(i)) + " " +
-                        scr((Double) scores.elementAt(i)) + " " +
-                        rat((Double) ranks.elementAt(i)) + " " +
-                        fD2((Double) perf.elementAt(i)) + " " +
-                        fD2(new Double(((Double) perf.elementAt(i)).doubleValue(
-) -
-                        ((Double) eperf.elementAt(i)).doubleValue())) +
-                        " " + in4((Double) newRating.elementAt(i)) + " " +
-                        ((Double) newVolatility.elementAt(i)).intValue()
-                        + " " + in4((Double) newRatingWithVol.elementAt(i))
-                );
+            System.out.println(
+                    fS1((String) names.elementAt(i)) + " " +
+                    ((String) names.elementAt(i)) + "  " +
+                    ((Integer) timesPlayed.elementAt(i)).intValue() + " " +
+                    in4((Double) ratings.elementAt(i)) + " " +
+                    ((Double) volatilities.elementAt(i)).intValue() + " " +
+                    rat((Double) eranks.elementAt(i)) + " " +
+                    fD2((Double) eperf.elementAt(i)) + " " +
+                    scr((Double) scores.elementAt(i)) + " " +
+                    rat((Double) ranks.elementAt(i)) + " " +
+                    fD2((Double) perf.elementAt(i)) + " " +
+                    fD2(new Double(((Double) perf.elementAt(i)).doubleValue() -
+                    ((Double) eperf.elementAt(i)).doubleValue())) +
+                    " " + in4((Double) newRating.elementAt(i)) + " " +
+                    ((Double) newVolatility.elementAt(i)).intValue()
+                    + " " + in4((Double) newRatingWithVol.elementAt(i))
+            );
         }
-        System.out.println(newRating.size() + ":" + newVolatility.size()   + ":" + newRatingWithVol.size()
-            + ":" + names.size() );
         ArrayList al = new ArrayList();
         al.add(newRating);
         al.add(newVolatility);
         al.add(newRatingWithVol);
         al.add(names);
+        al.add(newScores);
         return al;
     }
 
