@@ -535,7 +535,7 @@ public class Registration
                     String strAnswerId = (String) answerList.get(i);
                     if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_EMPLOYED) && strAnswerId.equals(DEMOGRAPHIC_ANSWER_EMPLOYED_YES)) {
                         employed = true;
-                    } else if (strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
+                    } else if (!isNumber(this.school)&&strQuestionId.equals(DEMOGRAPHIC_QUESTION_OTHER_SCHOOL) && !strAnswerId.equals("")) {
                         this.schoolName = strAnswerId;
                         this.school = "-1";
                     }
@@ -1737,7 +1737,9 @@ public class Registration
                     } else {
                         //lookup school by name
                         InitialContext ctxSchool = TCContext.getInitial();
-                        com.topcoder.web.ejb.school.School s = (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool, com.topcoder.web.ejb.school.School.class);
+                        com.topcoder.web.ejb.school.School s =
+                                (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool,
+                                        com.topcoder.web.ejb.school.School.class);
 
                         schoolId = s.getSchoolId(this.schoolName, DBMS.OLTP_DATASOURCE_NAME);
                         if (schoolId == 0) {
