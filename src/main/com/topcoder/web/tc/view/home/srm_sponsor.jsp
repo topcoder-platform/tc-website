@@ -22,7 +22,7 @@
     </tr>
     <tr>
         <td>SRM 214</td>
-        <td>Oct 4</td>
+        <td>Oct 6</td>
         <td>1:00pm</td>
     </tr>
     <tr>
