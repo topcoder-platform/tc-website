@@ -23,4 +23,3 @@ public class CommandInputIteratorTagInfo extends TagExtraInfo {
     }
 
 }
-

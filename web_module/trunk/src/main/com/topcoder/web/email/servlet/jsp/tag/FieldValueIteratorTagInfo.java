@@ -23,4 +23,3 @@ public class FieldValueIteratorTagInfo extends TagExtraInfo {
     }
 
 }
-

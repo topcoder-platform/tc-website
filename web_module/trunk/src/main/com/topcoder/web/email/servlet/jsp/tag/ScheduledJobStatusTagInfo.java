@@ -23,4 +23,3 @@ public class ScheduledJobStatusTagInfo extends TagExtraInfo {
     }
 
 }
-

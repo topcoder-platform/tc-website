@@ -98,5 +98,3 @@ href="PactsMemberServlet?<%= PactsConstants.TASK_STRING %>=<%= PactsConstants.AF
 
 
 
-
-
