@@ -2,6 +2,7 @@ package com.topcoder.web.common;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 /**
  * Provide a way to get an implementation of the TCRequest interface given
@@ -15,6 +16,15 @@ public class HttpObjectFactory {
         //the request only to find out that it is not a multipart request
         if (contentType == null || !contentType.toLowerCase().startsWith("multipart/form-data")) {
             ret = new SimpleRequest(r);
+        } else if(contentType.toLowerCase().startsWith("multipart/form-data")) {
+            try
+            {
+                ret = new MultipartRequest(r);
+            }
+            catch(IOException ex)
+            {
+                return null;
+            }
         } else {
             //don't have the implementation for this yet
             ret = new SimpleRequest(r);

@@ -35,6 +35,21 @@ public interface Session extends EJBObject {
     /**
      *
      * @param sessionId
+     * @param jobId
+     */
+    public void setJobId(long sessionId, long jobId)
+            throws RemoteException;
+    
+    /**
+     *
+     * @param sessionId
+     * @param jobId
+     */
+    public long getJobId(long sessionId)
+            throws RemoteException;
+    /**
+     *
+     * @param sessionId
      * @param sessionProfileId
      */
     public void setSessionProfileId(long sessionId, long sessionProfileId)

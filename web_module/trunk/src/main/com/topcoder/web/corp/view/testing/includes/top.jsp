@@ -1,4 +1,5 @@
-<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
+<%@ page import="com.topcoder.shared.util.ApplicationServer,
+                    com.topcoder.web.corp.common.Constants"%>
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <a name="top"></a>
 
@@ -9,10 +10,12 @@
     <tr valign="middle">
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap>
-<% if(!sessionInfo.isAnonymous()) { %>
+<% if(sessionInfo.isAnonymous()) { %>
+            &#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Login" class="loginLinks" target="_parent">Login</a>
+<%} else { %>
              <strong>Hello, <jsp:getproperty name="sessionInfo" property="Handle" />.</strong>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/?module=Logout" class="loginLinks" target="_parent">Logout</a>
-<%} %>
+<% }%>
             &#160;&#160;|&#160;&#160;<a href="http://<%=ApplicationServer.CORP_SERVER_NAME%>/" class="loginLinks">Corporate Services Home</a>
         </td>
         <td class="login" width="10">&nbsp;</td>
@@ -44,8 +47,17 @@
         <td width="1" class="testTop">&#160;</td>
         <td nowrap class="testTop"><screen:servletLink processor="ProblemList" styleclass="topLink">Problem Sets</screen:servletLink></td>
         <td width="1" class="testTop">&#160;</td>
-        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidates</screen:servletLink></td>
+        <% if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+        <td nowrap class="testTop"><screen:servletLink processor="CampaignList" styleclass="topLink">Results</screen:servletLink></td>
+        <td width="1" class="testTop">&#160;</td>
+        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidate Status</screen:servletLink></td>
+        <td class="testTop">&#160;</td>
+        <td nowrap class="testTop"><screen:servletLink processor="Search" styleclass="topLink">Search</screen:servletLink></td>
         <td class="testTop" width="49%">&#160;</td>
+        <% } else { %>
+        <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidate Status</screen:servletLink></td>
+        <td class="testTop" width="49%">&#160;</td>
+        <% } %>
    </tr>
 </table>
 

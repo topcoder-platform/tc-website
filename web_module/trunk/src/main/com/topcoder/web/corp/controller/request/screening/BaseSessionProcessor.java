@@ -15,7 +15,7 @@ import javax.servlet.http.HttpSession;
 import java.text.SimpleDateFormat;
 import java.util.Map;
 
-public abstract class BaseSessionProcessor extends BaseProcessor {
+public abstract class BaseSessionProcessor extends BaseScreeningProcessor {
         private final static Logger log = Logger.getLogger(BaseSessionProcessor.class);
     private static int BEGIN = 0;
     private static int END = 1;

@@ -1,1 +1,4 @@
-nohup java -cp "/usr/web/resources:/usr/web/lib/jars/log4j.jar:/usr/web/lib/jars/ifxjdbc.jar:/usr/web/lib/jars/jdbc7.0-1.2.jar:/usr/web/lib/jars/xml/2.2.D14/xerces.jar:/usr/web/build/classes" com.topcoder.utilities.dwload.TCLoadUtility -xmlfile /usr/web/scripts/dwload/loadtcs.xml >> /usr/web/scripts/dwload/tcs_load.log 2>&1 &
+CP=../../resources:../../build/classes:$CLASSPATH:../../lib/jars/log4j-1.2.7.jar:../../lib/jars/log4j-boot.jar
+
+java -cp $CP com.topcoder.utilities.dwload.TCLoadUtility -xmlfile loadtcs.xml 
+
