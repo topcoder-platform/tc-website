@@ -5,8 +5,8 @@
           java.util.Map"
 %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
-<%
-    ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
+<%    
+	ResultSetContainer rsc = (ResultSetContainer)request.getAttribute("companyUsers");
 %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
@@ -52,12 +52,12 @@
 	<tc-webtag:iterator id="resultRow" collection="<%=rsc%>">
 	  <TR>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			&#160;<tc-webtag:item name="user_id" row="<%=(ResultSetRow)resultRow%>"/></TD>
+			&#160;<tc-webtag:item name="user_id" row="<%=resultRow%>"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<tc-webtag:item name="first_name" row="<%=(ResultSetRow)resultRow%>"/></TD>
+			<tc-webtag:item name="first_name" row="<%=resultRow%>"/></TD>
 		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC">
-			<tc-webtag:item name="last_name" row="<%=(ResultSetRow)resultRow%>"/></TD>
-		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtag:item name="user_id" row="<%=(ResultSetRow)resultRow%>"/>" CLASS="bodyText">Edit</A></TD>		
+			<tc-webtag:item name="last_name" row="<%=resultRow%>"/></TD>
+		<TD VALIGN="middle" CLASS="bodyText" HEIGHT="15" BGCOLOR="#CCCCCC"><A HREF="<%=appContext%>/?module=static&d1=acc_admin&d2=add_usr&userId=<tc-webtag:item name="user_id" row="<%=resultRow%>"/>" CLASS="bodyText">Edit</A></TD>		
 	  </TR>
 	</tc-webtag:iterator>
 
