@@ -35,7 +35,7 @@
         <jsp:include page="../body_top.jsp" >
            <jsp:param name="image" value="help"/>  
            <jsp:param name="image1" value="white"/>  
-           <jsp:param name="title" value="Competition Manual"/>  
+           <jsp:param name="title" value="Algorithm Competition Guide"/>  
         </jsp:include>
 
         <h2>Practicing / Training in the TopCoder Arena</h2>
@@ -56,25 +56,25 @@
 		<li>
         <a name="selectingproblems"></a>
 			<p><span class="bodySubtitle">1.2 Selecting a Problem</span><br/>
-			Once in a practice room, you will need to select a problem before you can begin coding.  To select a problem, click on the "Select One" drop-down box.  In the list you will see point values that correspond to the difficulty of the problem - the higher the value, the more difficult the problem will be.  Problems with higher point values have the potential to yield higher points for a successful submission.  Once a problem is selected, TopCoder's server will begin keeping track of how long the problem has been open.  The elapsed time between opening a problem and submitting a solution for that problem is the biggest factor in determining how many points are received upon submission of a solution.  You may open more than one problem at a time - but keep in mind that the clock will be ticking for each problem, independent of one another.  Once a problem is selected, the Coding Window will appear.
+			Once in a practice room, you will need to select a problem before you can begin coding.  To select a problem, click on the "Select One" drop-down box.  In the list you will see point values that correspond to the difficulty of the problem - the higher the value, the more difficult the problem will be.  Problems with higher point values have the potential to yield higher points for a successful submission.  Once a problem is selected, TopCoder's server will begin keeping track of how long the problem has been open.  The elapsed time between opening a problem and submitting a solution for that problem is the biggest factor in determining how many points are received upon submission of a solution.  You may open more than one problem at a time - but keep in mind that the clock will be ticking for each problem, independent of one another.  Once a problem is selected, the <A href="/tc?module=Static&d1=help&d2=codingWindow">Coding Window</A> will appear.
 		</li>
 		<li>
         <a name="systemtesting"></a>
 			<p><span class="bodySubtitle">1.3 System Testing</span><br/>
-			After you've submitted one or more problems in a practice room, you have the option of running the system tests.  During the system tests, various sets of valid input parameters are applied to your submission, with the output from your submission being compared against the expected output for each test case.  If the expected output does not match the received output for one or more of the test cases, your submission will be marked as "Failed System Test" and the points that you received for that submission will be subtracted from your total score.  The execution time for system tests in a practice room will vary depending on the number of submissions you have, the number of test cases there are, and the efficiency of your submissions.  Just keep in mind that you may need to wait a minute or more for all tests to finish.  Individual system test case results may be seen using the Room Summary Window.
+			After you've submitted one or more problems in a practice room, you have the option of running the system tests.  During the system tests, various sets of valid input parameters are applied to your submission, with the output from your submission being compared against the expected output for each test case.  If the expected output does not match the received output for one or more of the test cases, your submission will be marked as "Failed System Test" and the points that you received for that submission will be subtracted from your total score.  The execution time for system tests in a practice room will vary depending on the number of submissions you have, the number of test cases there are, and the efficiency of your submissions.  Just keep in mind that you may need to wait a minute or more for all tests to finish.  Individual system test case results may be seen using the <A href="/tc?module=Static&d1=help&d2=roomSummary">Room Summary Window</A>.
 			The system testing option is only available in a practice room - it will not be available in a competition room during a rated event.  In a rated event, the system tests will run automatically - following the challenge phase.
 		</li>
 		<li>
         <a name="roomsummary"></a>
 			<p><span class="bodySubtitle">1.4 The Room Summary</span><br/>
-			The room summary window allows you to view information about other competitors and is also the interface for the challenge functionality.  Check here for a detailed description of the Room Summary Window.
+			The room summary window allows you to view information about other competitors and is also the interface for the challenge functionality.  Check here for a detailed description of the <A href="/tc?module=Static&d1=help&d2=roomSummary">Room Summary Window</A>.
 		</li>
 		<li>
         <a name="challenging"></a>
 			<p><span class="bodySubtitle">1.5 Challenging</span><br/>
 			When you are in a practice room, the phases behave as if the coding phase and the challenge phase are running simultaneously and perpetually.  At any time, you may view the source code of any other competitors in a practice room - and you have the option to challenge any of the submissions.  The challenge restrictions that are regularly in place during a rated event have been lifted for the practice rooms.  Therefore, you may challenge regardless of your current point total and you may challenge any submission at any time, regardless of its status.
 			<br/><br/>
-			Here's a link for a description of the Challenge Phase during a rated event.
+			Here's a link for a description of the <A href="/tc?module=Static&d1=help&d2=ratedEvent#challenge">Challenge Phase</A> during a rated event.
 		</li>
 		<li>
         <a name="clearingproblems"></a>
