@@ -149,6 +149,25 @@
   </tag>
 
   <tag>
+    <name>error</name>
+    <tagclass>com.topcoder.web.query.servlet.jsp.tag.ErrorTag</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>
+      Tag to get an error associated with a key
+    </info>
+    <attribute>
+      <name>task</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>key</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
     <name>commandGroupSelect</name>
     <info>
         Generates an html select box with command groups

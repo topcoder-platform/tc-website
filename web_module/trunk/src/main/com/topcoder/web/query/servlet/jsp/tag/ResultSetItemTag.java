@@ -30,10 +30,5 @@ public class ResultSetItemTag extends TagSupport  {
         return SKIP_BODY;
     }
 
-    public void release() {
-        row = null;
-        name = null;
-    }
-
 }
 

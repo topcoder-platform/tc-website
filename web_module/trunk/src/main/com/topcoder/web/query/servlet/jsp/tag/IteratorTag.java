@@ -9,20 +9,10 @@ import java.util.Collection;
 
 
 /**
-
  * Custom tag that iterates through a collection of Objects
-
  *
-
  * @author	James Lee (jameslee@cs.stanford.edu)
-
- * @version	1.0
-
- *
-
  */
-
-
 public class IteratorTag extends BodyTagSupport {
 
     // Collection to iterate through
