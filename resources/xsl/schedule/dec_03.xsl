@@ -105,7 +105,7 @@
                                     <span id="calendarTCO03Date">5</span><br />
                                     <strong>2003 TCO: Coding</strong><br />
                                     Championship<br />
-                                    Compete: 1:00&#160;PM<br />
+                                    Compete: 3:00&#160;PM<br />
                                     <!-- Sponsor: <A href="/?t=tces&amp;c=index"></A><br /> -->
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_schedule" class="statText">Details</A></td>
@@ -205,3 +205,4 @@
 
   </xsl:template>
 </xsl:stylesheet>
+
