@@ -20,7 +20,6 @@
         <xs:enumeration value="String"/>
         <xs:enumeration value="String[]"/>
         <xs:enumeration value="String[][]"/>
-        <xs:enumeration value="Matrix2D"/>
     </xs:restriction>
 </xs:simpleType>
 
@@ -70,6 +69,7 @@
 <xs:group name="inline">
     <xs:choice>
         <xs:element ref="type"/>
+        <xs:element ref="table"/>
         <xs:group ref="fontstyle"/>
         <xs:group ref="heading"/>
         <xs:group ref="special"/>
@@ -245,13 +245,13 @@
         </xs:sequence>
     </xs:complexType>
 </xs:element>
-<xs:element name="table">
+<xs:element name="table" >
     <xs:complexType>
         <xs:sequence>
-            <xs:element name="tr" minOccurs="0" maxOccurs="unbounded">
+            <xs:element name="tr" minOccurs="0" maxOccurs="unbounded" >
                 <xs:complexType>
                     <xs:sequence>
-                        <xs:element name="td" type="xs:string" minOccurs="0" maxOccurs="unbounded">
+                        <xs:element name="td" type="xs:string" minOccurs="0" maxOccurs="unbounded" >
                         </xs:element>
                     </xs:sequence>
                 </xs:complexType>
@@ -260,5 +260,6 @@
         <xs:attribute name="border" type="xs:int"/>
     </xs:complexType>
 </xs:element>
+
 </xs:schema>
 
