@@ -100,7 +100,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected boolean hasDefault(String key ) {
-        log.debug("defaults is " + defaults);
+        //log.debug("defaults is " + defaults);
         return defaults.containsKey(key);
     }
 
