@@ -26,7 +26,7 @@ public class TCCC05ProjectDetail implements Serializable {
         handle = "";
         points = 0;
         placed = "-";
-        score = 0;
+        score = "";
         userID = 0;
         payment = "";
         submitTimestamp = "";
