@@ -43,6 +43,8 @@ public class StudentRegistrationBean implements Serializable {
 
   private String terms_of_use=null;
 
+  private Long school_coach_count=null;
+
   public StudentRegistrationBean() {
     /* do nothing */
   }
@@ -197,6 +199,14 @@ public class StudentRegistrationBean implements Serializable {
 
   public void setTermsOfUse(String _terms_of_use) {
     terms_of_use=_terms_of_use;
+  }
+
+  public Long getSchoolCoachCount() {
+    return(school_coach_count);
+  }
+
+  public void setSchoolCoachCount(Long _school_coach_count) {
+    school_coach_count=_school_coach_count;
   }
 
 };
