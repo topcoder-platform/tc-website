@@ -34,15 +34,15 @@
             <TD CLASS="bodyText" VALIGN="top">
             <!--body starts here-->
 
-<font color=white>
-<% String message = (String)request.getAttribute("message");
-   if(message!=null) { %>
-<h3>Message: <%= message %></h3>
-<% }
+<%
    if(exception==null) exception = (Exception)request.getAttribute("exception");
-   if(exception!=null) {
- %>
-<h3>Error: <%= exception.getMessage() %></h3>
+   String message = (String)request.getAttribute("message");
+   if(message==null && exception!=null) message = exception.getMessage();
+   if(message==null) message = "";
+%>
+<font color="white">
+<h3>Error: <%= message %></h3>
+<p>Your request could not be processed.  Please inform TopCoder.</p>
 <%--
 <h3>Exception: <%= exception.toString() %></h3>
 <h3>Trace:</h3>
