@@ -27,10 +27,10 @@ if (document.images) {
 	userAdminoff.src = "/images/userAdmin_off.gif";
 
 	listsAdminon = new Image();
-	listsAdminon.src = "/images/userAdmin_hover.gif";
+	listsAdminon.src = "/images/listAdmin_hover.gif";
 
 	listsAdminoff = new Image();
-	listsAdminoff.src = "/images/userAdmin_off.gif";
+	listsAdminoff.src = "/images/listAdmin_off.gif";
 
 	scorecardAdminon = new Image();
 	scorecardAdminon.src = "/images/userAdmin_hover.gif";
