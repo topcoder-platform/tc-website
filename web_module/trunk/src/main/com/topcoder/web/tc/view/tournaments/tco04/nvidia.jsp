@@ -35,9 +35,9 @@
                        At NVIDIA we set unprecedented standards of excellence.   We do so in our vision, our values, and our 
                        work.  We believe that you become the best by hiring the best, and know that as long as we have a superior 
                        engineering team, we'll continue to lead the graphics industry into a new era of multimedia innovation.  
-                       We are excited to partner with Topcoder for the third year, as we know that the most brilliant minds in 
+                       We are excited to partner with TopCoder for the third year, as we know that the most brilliant minds in 
                        the coding world come together in these competitions.  We are looking forward to meeting the finalists 
-                       at the 2004 Topcoder Open, and to discussing the possibilities about your future career path here at 
+                       at the 2004 TopCoder Open, and to discussing the possibilities about your future career path here at 
                        NVIDIA.</p>
                      </td>
                      
@@ -65,12 +65,12 @@
           
                         
                         <p>We constantly evaluate opportunities to partner with organizations that fit our corporate culture and objectives, and we're pleased to again be a part of 
-                        TopCoder's programming competitions, again as a premier sponsor of the TopCoder Collegiate Challenge.  "NVIDIA truly believes that the TopCoder arena 
+                        TopCoder's programming competitions, again as a premier sponsor of the TopCoder Open.  "NVIDIA truly believes that the TopCoder arena 
                         fosters an unparalleled competitive spirit among the most brilliant programmers in the world. We are proud to be a part of this initiative again," said Daniel 
                         Rohrer, Manager of Direct X Graphics at NVIDIA. "Our corporate culture encourages innovation and excellence and the TopCoder competition model is a perfect complement to that philosophy."</p>
                         
                         
-                        <p>We at NVIDIA wish you the best of luck in the Collegiate Challenge, and encourage you to explore your potential for innovation in future 
+                        <p>We at NVIDIA wish you the best of luck in the Open, and encourage you to explore your potential for innovation in future 
                         TopCoder programs and at NVIDIA.  Regardless of points earned or rounds won, NVIDIA is proud of all who support and invest in TopCoder initiatives, and we 
                         look forward to a long and productive relationship with TopCoder and its participants.</p>
                         
@@ -84,7 +84,7 @@
 <!-- Right Column-->
         <td width=170 align=right>       	
             <jsp:include page="../../public_right.jsp">
-            <jsp:param name="level1" value="tco04"/>
+            <jsp:param name="level1" value="nvidia"/>
             </jsp:include>
          </td>
 		
