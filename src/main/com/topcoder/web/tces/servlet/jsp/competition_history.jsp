@@ -106,36 +106,37 @@
                 </TR>
 
                 
-
+                <% int i=0; i%>
                 <tces:mapIterator id="comp" mapList="<%=(List)CompetitionHistoryTask.getCompetitionList()%>">
+                <% i++; %>
                   <TR>
-                    <TD class="bodyText" HEIGHT="18">&#160;
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">&#160;
                         <%= (String)comp.get("date") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                       <A HREF="<jsp:getProperty name="CompetitionHistoryTask" property="ServletPath"/>?<%=TCESConstants.TASK_PARAM%>=<%=TCESConstants.COMPETITION_STATISTICS_TASK%>&<%=TCESConstants.CAMPAIGN_ID_PARAM%>=<%=CompetitionHistoryTask.getCampaignID()%>&<%=TCESConstants.JOB_ID_PARAM%>=<%=CompetitionHistoryTask.getJobID()%>&<%=TCESConstants.MEMBER_ID_PARAM%>=<%=CompetitionHistoryTask.getMemberID()%>&<%=TCESConstants.ROUND_ID_PARAM%>=<%= (String)comp.get("round_id") %>" class="bodyText">
                         <%= (String)comp.get("contest_name") %>
                       </A>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= (String)comp.get("division_name") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= (String)comp.get("final_points") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= (String)comp.get("avg_points") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= (String)comp.get("old_rating") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <%= (String)comp.get("new_rating") %>
                     </TD>
                   </TR>

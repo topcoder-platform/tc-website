@@ -100,14 +100,15 @@
                 </TR>
 
                 
-
+                <% int i=0; %>
                 <tces:mapIterator id="question" mapList="<%=(List)CoderDemographicsTask.getQuestionList()%>">
+                <% i++; %>
                   <TR>
-                    <TD class="bodyText" HEIGHT="18">&#160;
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">&#160;
                         <%= (String)question.get("question") %>
                     </TD>
-                    <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
-                    <TD class="bodyText">
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>"><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
+                    <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                         <b><%= (String)question.get("response") %></b>
                     </TD>
                   </TR>
