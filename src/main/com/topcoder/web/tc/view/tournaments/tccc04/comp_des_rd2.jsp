@@ -48,7 +48,7 @@
 
 <!-- Design Winners Begins -->
 
-            <table border="0" cellspacing="0" cellpadding="3" width="450" align="center" class="formFrame">
+            <table border="0" cellspacing="0" cellpadding="6" width="450" align="center" class="formFrame">
                 <tr valign="middle">
                     <td class="advTitle" colspan="3">Design Participants</td>
                 </tr>

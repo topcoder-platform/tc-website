@@ -43,11 +43,9 @@
    <jsp:param name="tabLev3" value="room1"/>
 </jsp:include>
 
-            <p class="terciary">
-                <a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=alg_room1">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;Problem Analysis
-            </p>
-            
+            <img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
             <div class="leadPhoto">
+            <span class="bodyText" align="center"><p align="center"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=photos">See more photos!</a></p></span>
             <img src="/i/tournament/tccc04/room1/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">photo caption<br/><br/></span>
             </div>
