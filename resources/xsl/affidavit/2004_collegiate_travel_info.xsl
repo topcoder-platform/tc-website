@@ -61,10 +61,6 @@
             </div>
 <!-- TCO Head Ends -->
 
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
-                <tr valign="top">
-                    <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
-                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
         <h2>Travel Information</h2>
         <p>
         <B><U>HOTEL INFORMATION:</U></B><BR/>
@@ -96,18 +92,14 @@
         <BR/>
             The Boston Park Plaza Hotel provides a shuttle to and from Logan International Airport every half hour.
             Further information on where to board upon your arrival at the airport will be indicated on your itinerary.
-         <BR/>
-        <BR/>
-        <CENTER>
-          <H1>Travel Form</H1>
-        </CENTER>
         </p>
 
 
         <TABLE border="0" cellspacing="3" cellpadding="0" width="100%" class="bodyText">
-    <FORM name="questForm" method="POST" action="/">
+        <FORM name="questForm" method="POST" action="/">
         <INPUT TYPE="hidden" NAME="t" VALUE="affidavit"/>
         <INPUT TYPE="hidden" NAME="c" VALUE="2004_collegiate_submit_info"/>
+            <TR><TD COLSPAN="2"><H1 align="center">Travel Form</H1></TD></TR>
             <TR><TD COLSPAN="2"><U><B>COMPETITOR INFORMATION:</B></U><BR/></TD></TR>
 
             <TR>
@@ -118,19 +110,16 @@
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q2" VALUE="Last Name"/>Last Name: </TD>
               <TD align="left"><INPUT TYPE="text" NAME="a2" size="20"><xsl:attribute name="value"><xsl:value-of select="/TC/AFFIDAVIT/Affidavit/Info/last_name"/></xsl:attribute></INPUT><BR/></TD>
-                <td></td>
             </TR>
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q3" VALUE="Social Security #"/>Social Security #: </TD>
               <TD align="left"><INPUT TYPE="text" NAME="a3" size="10"/></TD>
-                <td></td>
             </TR>
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q4" VALUE="Date of Birth"/>Date of Birth: </TD>
               <TD align="left"><INPUT TYPE="text" NAME="a4" size="10"/></TD>
-                <td></td>
             </TR>
 
             <TR>
@@ -148,8 +137,6 @@
           <TD align="left"><INPUT TYPE="text" NAME="a7" size="15"/></TD>
         </TR>
 
-
-            <BR/>
             <TR><TD COLSPAN="2"><U><B>Mailing address:</B></U></TD></TR>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q8" VALUE="Street Address"/>Street Address:</TD>
@@ -176,7 +163,6 @@
               <TD align="left"><INPUT TYPE="text" NAME="a12" size="15"/></TD>
             </TR>
 
-            <BR/>
             <TR><TD COLSPAN="2"><U><B>Emergency contact:</B></U></TD></TR>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q13" VALUE="Emergency contact Name"/>Name:</TD>
@@ -192,10 +178,6 @@
               <TD align="right"><INPUT TYPE="hidden" NAME="q15" VALUE="Emergency contact Relationship"/>Relationship:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a15" size="30"/></TD>
             </TR>
-
-            <BR/>
-
-
             <TR><TD COLSPAN="2"><U><B>Media Information:</B></U></TD></TR>
 
             <TR>
@@ -219,14 +201,12 @@
               <TD align="left"><INPUT TYPE="text" NAME="a18" size="50"/></TD>
             </TR>
 
-            <BR/>
             <TR><TD COLSPAN="2"><U><B>TRAVEL INFORMATION:</B></U></TD></TR>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q26" VALUE="Departure City/Airport"/>Departure City/Airport:</TD>
               <TD align="left"><INPUT TYPE="text" NAME="a26" size="50"/></TD>
             </TR>
 
-            <BR/>
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q28" VALUE="April 14, 2004 - preferred departure time"/>April 14, 2004 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a28"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
@@ -236,8 +216,6 @@
               <TD align="right"><INPUT TYPE="hidden" NAME="q29" VALUE="April 17, 2004 - preferred departure time:"/>April 17, 2004 - preferred departure time:</TD>
               <TD align="left"><SELECT name="a29"><OPTION value="AM">AM</OPTION><OPTION value="PM">PM</OPTION></SELECT></TD>
             </TR>
-
-            <BR/>
 
             <TR>
               <TD align="right"><INPUT TYPE="hidden" NAME="q30" VALUE="Seating preference"/>Seating preference:</TD>
@@ -272,16 +250,8 @@
             </tr>
 
         </TABLE>
-
-
-
-
-
-                    </td>
-                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
-                </tr>
-                <tr><td colspan="4" valign="top" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
-            </table>
+        
+        <p><br/></p>
         </td>
 <!-- Center Column Ends -->
 
