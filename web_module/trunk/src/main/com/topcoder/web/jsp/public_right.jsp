@@ -42,11 +42,7 @@ function find(n) {
 
 			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
 			
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            
-            <jsp:include page="../calendar.jsp" />
+			<img src="/i/tournament/tco04/right_header.gif" alt="Great Opportunities are Available from our Sponsors" width="170" height="36" border="0" /><br />
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
@@ -62,7 +58,13 @@ function find(n) {
 			
 			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
 			
-            <a href="mailto:sponsorships@topcoder.com"><img src="/i/tournament/tco04/sponsorship.gif" alt="Sponsorship" width="170" height="101" border="0" /></a><br />
+            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo"><img src="/i/tournament/tco04/yahoo_right.gif" alt="Yahoo!" width="170" height="80" border="0" /></a><br />
+            
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
+            
+            <jsp:include page="../calendar.jsp" />
+            
+
 
             <p><br/></p>
 
@@ -73,16 +75,13 @@ function find(n) {
 
 			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
 			
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
-			
-			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            
-            <jsp:include page="../calendar.jsp" />
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=joblisting"><img src="/i/tournament/tco04/mc_animated.gif" alt="Jobs at Microsoft" width="170" height="90" border="0" /></a><br />    
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=microsoft&d4=joblisting"><img src="/i/tournament/tco04/mc_animated.gif" alt="Jobs at Microsoft" width="170" height="90" border="0" /></a><br />
-			
+            <jsp:include page="../calendar.jsp" />
+            
+            
             <p><br/></p>
 
 <!-- Microsoft ends -->
@@ -92,16 +91,12 @@ function find(n) {
 
 			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
 			
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting"><img src="/i/tournament/tco04/nvidia_jobs.gif" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
 			
 			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <jsp:include page="../calendar.jsp" />
-            
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            
-            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=nvidia&d4=joblisting"><img src="/i/tournament/tco04/nvidia_jobs.gif" alt="NVIDIA" width="170" height="80" border="0" /></a><br />
-			
+          	
             <p><br/></p>
 
 <!-- NVIDIA ends -->
@@ -111,16 +106,12 @@ function find(n) {
 
 			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
 			
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
+			 <a href="/?RoundId=5856&t=schedule&c=srm"><img src="/i/tournament/tco04/intel_opportunities.jpg" alt="Intel Opportunities" width="170" height="80" border="0" /></a><br />
 			
 			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <jsp:include page="../calendar.jsp" />
             
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            
-            <a href="/?RoundId=5856&t=schedule&c=srm"><img src="/i/tournament/tco04/intel_opportunities.jpg" alt="Intel Opportunities" width="170" height="80" border="0" /></a><br />
-			
             <p><br/></p>
 
 <!-- Intel ends -->
@@ -130,16 +121,12 @@ function find(n) {
 
 			<img src="/i/clear.gif" alt="" width="170" height="15" border="0" /><br />
 			
-			<a href="http://www.topcoder.com/"><img src="/i/tournament/tco04/topcoder_logo.gif" alt="" width="170" height="40" border="0" /></a><br />
+			<a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=joblisting"><img src="/i/tournament/tco04/yahoo_jobs.gif" alt="Yahoo Job Opportunities" width="170" height="80" border="0" /></a><br />
 			
 			<img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
             <jsp:include page="../calendar.jsp" />
             
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            
-            <a href="/tc?module=Static&d1=tournaments&d2=tco04&d3=yahoo&d4=joblisting"><img src="/i/tournament/tco04/yahoo_jobs.gif" alt="Yahoo Job Opportunities" width="170" height="80" border="0" /></a><br />
-			
             <p><br/></p>
 
 <!-- Yahoo ends -->
