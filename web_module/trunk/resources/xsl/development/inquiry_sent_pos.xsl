@@ -66,12 +66,12 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%"><img src="/i/clear.gif" alt="" width="240" height="10" border="0" /><br />
                 <tr valign="top">
-                    <td class="statText" width="100%">
+                    <td class="bodyText" width="100%">
                         
                         <p><strong>Your inquiry has been sent. Thank You!</strong></p>
         
                             Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/> component.  You now have access to the
-                            <a class="statText">
+                            <a>
                                 <xsl:attribute name="href">
                                     <xsl:value-of select="concat('http://software.topcoder.com/forum/c_forum.jsp?f=',$FORUMID)"/>
                                 </xsl:attribute>
@@ -82,15 +82,15 @@
                                 <!-- xsl:when test="$design=1" -->
                                 <xsl:when test="contains($Project, 'Design')">
                                     which can be used to obtain design documentation (see the Design Phase Documents thread), as well as to ask questions regarding the component design. Please post your questions at any time and a product manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early! 
-                                    <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design through the project's <a class="statText" href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">TopCoder posting page</a>.  All late submissions will be ignored. Also, a reminder that this is a competition, and only the top 3 submissions will receive payment.</p>
+                                    <p>The deadline for submitting a design is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design through the project's <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">TopCoder posting page</a>.  All late submissions will be ignored. Also, a reminder that this is a competition, and only the top 3 submissions will receive payment.</p>
                                 </xsl:when>
                                 <xsl:otherwise>
                                     which can be used to obtain the component design (See "Development Phase Documents" thread), as well as to ask questions regarding the development process or the component design. Please post your questions at any time and the component designer will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered, so get your questions in early!
-                                    <p>The deadline for submitting a solution is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design through the project's <a class="statText" href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">TopCoder posting page</a>.  All late submissions will be ignored. Also, a reminder that this is a competition, and only the top 3 submissions will receive payment.</p>
+                                    <p>The deadline for submitting a solution is <xsl:value-of select="/TC/DEVELOPMENT/date"/> at 11:59 PM EST.  Please submit your design through the project's <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_projects">TopCoder posting page</a>.  All late submissions will be ignored. Also, a reminder that this is a competition, and only the top 3 submissions will receive payment.</p>
                                 </xsl:otherwise>
                             </xsl:choose>
 
-                        <p>If you have any questions please contact <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
+                        <p>If you have any questions please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
                         
                         <p><br /></p>
                         

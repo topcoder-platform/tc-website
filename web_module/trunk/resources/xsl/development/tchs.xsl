@@ -49,13 +49,13 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
     <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-    <TD CLASS="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+    <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
                                     <FORM method="POST" name="frmInquire" ACTION="/">
                                         <INPUT VALUE="development" NAME="t" TYPE="hidden"/><INPUT VALUE="inquire" NAME="c" TYPE="hidden"/><INPUT VALUE="" NAME="Project" TYPE="hidden"/><INPUT VALUE="" NAME="To" TYPE="hidden"/>
                                     </FORM>
                                     <b>TopCoder High School</b>
                                     <BR/>
-                                    <a href="Javascript:document.frmInquire.Project.value='TopCoder High School';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <a href="Javascript:document.frmInquire.Project.value='TopCoder High School';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" class="bodyText"><b>Click here to inquire &gt;&gt;</b></a>
                                     <BR/>
 <P>
 <B>Purpose</B>
@@ -102,33 +102,33 @@ The QA Developer will be responsible for finalizing the system architecture and 
 <P>
 The following section describes the required tasks. 
 <UL>
-	<LI> Login</LI>
+    <LI> Login</LI>
       <UL>
-	    <LI> Implement a new authentication scheme using a TopCoder Software security component.</LI>
+        <LI> Implement a new authentication scheme using a TopCoder Software security component.</LI>
       </UL>
    <LI> Statistics</LI>
-      <UL>    	 
-	    <LI> All of the topcoder.com statistics functionality will be ported over to the new TopCoder High School website.</LI>
-	    <LI> Statistics will be enhanced to provide high school information. </LI>
+      <UL>         
+        <LI> All of the topcoder.com statistics functionality will be ported over to the new TopCoder High School website.</LI>
+        <LI> Statistics will be enhanced to provide high school information. </LI>
       </UL>
    <LI> Registration</LI>
       <UL>
-	     <LI> Implement a new registration path for coaches.</LI>
-	        <UL>
-	          <LI> Registration will be based on an approved High School list</LI>
+         <LI> Implement a new registration path for coaches.</LI>
+            <UL>
+              <LI> Registration will be based on an approved High School list</LI>
             </UL>
-	     <LI> Implement a new registration path for students.</LI>      
-	        <UL>
-	          <LI> Student's registration will be based on a coach's registration.</LI>
+         <LI> Implement a new registration path for students.</LI>      
+            <UL>
+              <LI> Student's registration will be based on a coach's registration.</LI>
             </UL>      
       </UL>
-<!--	</UL>
+<!--    </UL>
 <LI> JSP Conversion</LI>
    <UL>
-	 <LI> All of the new TopCoder High School website will be rendered by JSP</LI>
-	 <LI> Existing static XSL topcoder.com pages will be converted to JSP and implemented on the High School Website.  Pages to convert are</LI>
+     <LI> All of the new TopCoder High School website will be rendered by JSP</LI>
+     <LI> Existing static XSL topcoder.com pages will be converted to JSP and implemented on the High School Website.  Pages to convert are</LI>
        <UL>
-	     <LI> Public Home Page</LI>
+         <LI> Public Home Page</LI>
          <LI> Member (student/coach) Home Page</LI>
          <LI> All FAQ</LI>       
          <LI> About Us</LI> 
@@ -137,16 +137,16 @@ The following section describes the required tasks.
          <LI> Calendar</LI>                       
        </UL>
    </UL> -->
-	<LI> New Areas</LI>
+    <LI> New Areas</LI>
    <UL>
-	 <LI> Member Tour</LI>
+     <LI> Member Tour</LI>
        <UL>
-	     <LI> A section on the website that new members will use to get familiar with the TopCoder High School website and arena</LI>
-       </UL>	 
-	 <LI> Resources</LI>
+         <LI> A section on the website that new members will use to get familiar with the TopCoder High School website and arena</LI>
+       </UL>     
+     <LI> Resources</LI>
        <UL>
-	     <LI>A page devoted to providing links and resources for new coders to learn Java, C++ and C#</LI>
-       </UL>	 
+         <LI>A page devoted to providing links and resources for new coders to learn Java, C++ and C#</LI>
+       </UL>     
    </UL>
 </UL>  
 </P>
@@ -165,14 +165,14 @@ The purpose of the Application definition and understanding phase is to finalize
 
 <I>Requirements</I>
 <UL>
-	<LI> Dataflow diagrams</LI> 
-	<LI> Database Schema</LI>  
-	<LI> GUI requirements: HTML page design, required data elements and process flow</LI> 
+    <LI> Dataflow diagrams</LI> 
+    <LI> Database Schema</LI>  
+    <LI> GUI requirements: HTML page design, required data elements and process flow</LI> 
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: Product Manager</LI> 
+    <LI> Primary: Product Manager</LI> 
 </UL>
 
 <P>
@@ -181,16 +181,16 @@ The purpose of the Application definition and understanding phase is to finalize
 
 <I>Requirements</I>
 <UL>
-	<LI> Connect and download code from CVS</LI> 
-	<LI> Connect to Database</LI>  
-	<LI> Connect to development servers and configure development accounts</LI>
-	<LI> Build Code Base</LI>  
-	<LI> Review TopCoder Software components to be used</LI>	
+    <LI> Connect and download code from CVS</LI> 
+    <LI> Connect to Database</LI>  
+    <LI> Connect to development servers and configure development accounts</LI>
+    <LI> Build Code Base</LI>  
+    <LI> Review TopCoder Software components to be used</LI>    
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: Developers</LI> 
+    <LI> Primary: Developers</LI> 
 </UL>
 
 <P>
@@ -199,17 +199,17 @@ The purpose of the Application definition and understanding phase is to finalize
 
 <I>Requirements</I>
 <UL>
-	<LI> Definition of what each test case evaluates and how it is executed. Examples include:</LI>
+    <LI> Definition of what each test case evaluates and how it is executed. Examples include:</LI>
       <UL>
-	    <LI>Run unit test harness (i.e. JUnit, HttpUnit)</LI> 
-	    <LI>Define GUI click path</LI>      
-     </UL>	 
-	<LI> Start on main.jsp, click "Login", etc</LI>  	
+        <LI>Run unit test harness (i.e. JUnit, HttpUnit)</LI> 
+        <LI>Define GUI click path</LI>      
+     </UL>     
+    <LI> Start on main.jsp, click "Login", etc</LI>      
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: QA Developer</LI> 
+    <LI> Primary: QA Developer</LI> 
 </UL>
 
 
@@ -227,14 +227,14 @@ The Development phase begins when there is a finalized design document. During t
 
 <I>Requirements</I>
 <UL>
-	<LI> During development, resolve any design issues with the project team</LI> 
-	<LI> Check source code into CVS on a daily basis.</LI>  
-	<LI> Upon completion of the Development phase, a functionally working application must exist in CVS and in the shared development environment.</LI>
+    <LI> During development, resolve any design issues with the project team</LI> 
+    <LI> Check source code into CVS on a daily basis.</LI>  
+    <LI> Upon completion of the Development phase, a functionally working application must exist in CVS and in the shared development environment.</LI>
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: Developers</LI> 
+    <LI> Primary: Developers</LI> 
 </UL>
 
 <P>
@@ -243,15 +243,15 @@ The Development phase begins when there is a finalized design document. During t
 
 <I>Requirements</I>
 <UL>
-	<LI> Develop automated and manual test cases.</LI> 
-	<LI> Implement the examples as outlined in the specifications document.</LI>  
-	<LI> Check source code into CVS on a daily basis.</LI>
-	<LI> Upon completion of the Development phase, all test cases must exist in CVS.</LI>	
+    <LI> Develop automated and manual test cases.</LI> 
+    <LI> Implement the examples as outlined in the specifications document.</LI>  
+    <LI> Check source code into CVS on a daily basis.</LI>
+    <LI> Upon completion of the Development phase, all test cases must exist in CVS.</LI>    
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: QA Developer</LI> 
+    <LI> Primary: QA Developer</LI> 
 </UL>
 
 
@@ -261,13 +261,13 @@ The Development phase begins when there is a finalized design document. During t
 
 <I>Requirements</I>
 <UL>
-	<LI> Finalize deployment documentation for the application. Summarize technologies used and how to implement the application. Be sure to include package dependencies and required entries to the CLASSPATH. </LI> 
-	<LI> A general overview of how to implement the future enhancements as listed in the design specs must also be addressed.</LI>  	
+    <LI> Finalize deployment documentation for the application. Summarize technologies used and how to implement the application. Be sure to include package dependencies and required entries to the CLASSPATH. </LI> 
+    <LI> A general overview of how to implement the future enhancements as listed in the design specs must also be addressed.</LI>      
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: Developers</LI> 
+    <LI> Primary: Developers</LI> 
 </UL>
 
 <P>
@@ -276,13 +276,13 @@ The Development phase begins when there is a finalized design document. During t
 
 <I>Requirements</I>
 <UL>
-	<LI> Build the Application</LI> 
-	<LI> Deploy the application in QA</LI>  	
+    <LI> Build the Application</LI> 
+    <LI> Deploy the application in QA</LI>      
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: Developers</LI> 
+    <LI> Primary: Developers</LI> 
 </UL>
 
 <P>
@@ -299,14 +299,14 @@ All application source code undergoes testing. All code is reviewed to determine
 
 <I>Requirements</I>
 <UL>
-	<LI> Execute Unit tests in selected test harness</LI> 
-	<LI> Execute manual tests</LI>
-	<LI> Test required component examples</LI>
+    <LI> Execute Unit tests in selected test harness</LI> 
+    <LI> Execute manual tests</LI>
+    <LI> Test required component examples</LI>
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: QA Developer</LI> 
+    <LI> Primary: QA Developer</LI> 
 </UL>
 
 <P>
@@ -315,14 +315,14 @@ All application source code undergoes testing. All code is reviewed to determine
 
 <I>Requirements</I>
 <UL>
-	<LI> Validate design is implemented correctly</LI> 
-	<LI> Check code for proper commenting and adherence to coding standards.</LI>
-	<LI> A report of the QA Developer's findings must be posted to the newsgroup for the developers and product manager to review.</LI>
+    <LI> Validate design is implemented correctly</LI> 
+    <LI> Check code for proper commenting and adherence to coding standards.</LI>
+    <LI> A report of the QA Developer's findings must be posted to the newsgroup for the developers and product manager to review.</LI>
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: QA Developer</LI> 
+    <LI> Primary: QA Developer</LI> 
 </UL>
 
 <P>
@@ -331,12 +331,12 @@ All application source code undergoes testing. All code is reviewed to determine
 
 <I>Requirements</I>
 <UL>
-	<LI> Provide ongoing support and fixes for any errors found during testing</LI>
+    <LI> Provide ongoing support and fixes for any errors found during testing</LI>
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: Developers</LI> 
+    <LI> Primary: Developers</LI> 
 </UL>
  
 <P>
@@ -344,7 +344,7 @@ All application source code undergoes testing. All code is reviewed to determine
 </P>
 
 <UL>
-	<LI> Primary: QA Developer</LI>
+    <LI> Primary: QA Developer</LI>
 </UL>
 
 <P>
@@ -361,14 +361,14 @@ This phase requires the submission of required documentation, source code, test 
 
 <I>Requirements</I>
 <UL>
-	<LI> Validate design is implemented correctly</LI> 
-	<LI> Check code for proper commenting and adherence to coding standards.</LI>
-	<LI> A report of the QA Developer's findings must be posted to the newsgroup for the developers and product manager to review.</LI>
+    <LI> Validate design is implemented correctly</LI> 
+    <LI> Check code for proper commenting and adherence to coding standards.</LI>
+    <LI> A report of the QA Developer's findings must be posted to the newsgroup for the developers and product manager to review.</LI>
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: QA Developer</LI> 
+    <LI> Primary: QA Developer</LI> 
 </UL>
 
 <P>
@@ -377,19 +377,19 @@ This phase requires the submission of required documentation, source code, test 
 
 <I>Requirements</I>
 <UL>
-	<LI> Execute Unit tests in selected test harness</LI> 
-	<LI> Execute manual tests </LI>
-	<LI> Test required component examples</LI>
+    <LI> Execute Unit tests in selected test harness</LI> 
+    <LI> Execute manual tests </LI>
+    <LI> Test required component examples</LI>
 </UL>
 
 <I>Accountability</I> 
 <UL>
-	<LI> Primary: QA Developer</LI> 
+    <LI> Primary: QA Developer</LI> 
 </UL>
 
 <B>Application sign off</B> 
 <UL>
-	<LI> Primary: Product Manager</LI> 
+    <LI> Primary: Product Manager</LI> 
 </UL>
 
 
@@ -403,7 +403,7 @@ The application components go through final approval from the product manager. O
 
 <B>Application sign off</B> 
 <UL>
-	<LI> Primary: Product Manager</LI> 
+    <LI> Primary: Product Manager</LI> 
 </UL>
 
 <P>
@@ -442,11 +442,11 @@ The QA Developer will be paid a total of $1,200 in the following installments as
 <P>
 *Successful Production Deployment is defined as follows:  
 <UL>
-	<LI> All tasks assigned by the product manager have been completed.</LI>
-	<LI> The deliverables are functioning properly and integrated within the other project software deliverables.</LI>
-	<LI> The product manager has signed off on all delivered application components.</LI>
-	<LI> Project/task completion is not defined by any dates listed above. The dates are to be used as guidelines and may change throughout the project. </LI> 
-	<LI> Final payment is conditional on the fully functional application as defined in the requirements and by the product manager.</LI>
+    <LI> All tasks assigned by the product manager have been completed.</LI>
+    <LI> The deliverables are functioning properly and integrated within the other project software deliverables.</LI>
+    <LI> The product manager has signed off on all delivered application components.</LI>
+    <LI> Project/task completion is not defined by any dates listed above. The dates are to be used as guidelines and may change throughout the project. </LI> 
+    <LI> Final payment is conditional on the fully functional application as defined in the requirements and by the product manager.</LI>
 </UL>
 </P>
 
@@ -457,10 +457,10 @@ The QA Developer will be paid a total of $1,200 in the following installments as
 <P>
 You must be a rated TopCoder member, meeting all of the membership requirements and fit into one of the following categories: 
 <UL>
-	<LI> A US Citizen</LI>
-	<LI> A Lawful Permanent Resident of the US (i.e., a Green Card holder) </LI>
-	<LI> Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
-	<LI> A Non US Citizen working in their country of residence. </LI>
+    <LI> A US Citizen</LI>
+    <LI> A Lawful Permanent Resident of the US (i.e., a Green Card holder) </LI>
+    <LI> Currently lawfully residing in the US with valid employment authorization to act as an independent contractor.</LI>
+    <LI> A Non US Citizen working in their country of residence. </LI>
 
 </UL>
 </P>
@@ -485,7 +485,7 @@ Project Start Date: November 25, 2002<BR/>
 Project End Date:  January 17, 2003<BR/>
 </P>
 
-                                    <a href="Javascript:document.frmInquire.Project.value='TopCoder High School';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+                                    <a href="Javascript:document.frmInquire.Project.value='TopCoder High School';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" class="bodyText"><b>Click here to inquire &gt;&gt;</b></a>
           <P><br/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
@@ -523,7 +523,7 @@ Project End Date:  January 17, 2003<BR/>
         </TD>
   <!-- Right Column Ends -->
   <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+    <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   </TR>
 </TABLE>

@@ -50,12 +50,12 @@
 
             <table border="0" cellspacing="0" cellpadding="10" width="100%"><img src="/i/clear.gif" width="10" height="10" alt="" border="0" /><br />
                 <tr valign="top">
-                    <td class="statText" width="100%">
+                    <td class="bodyText" width="100%">
                         <p><strong>Thank you, <xsl:value-of select="/TC/DEVELOPMENT/handle"/>, for your inquiry.</strong></p>
                         
-                        <p>Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit <a class="statText" href="http://software.topcoder.com">TopCoder Software</a>. Your TopCoder handle and password will give you access to post questions or comments on the <a class="statText"  href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums</a>.</p>
+                        <p>Unfortunately, you are not yet a rated TopCoder member. You can get rated by participating in our Coding Competitions. Please check the current schedule for details regarding upcoming matches. To view other components and discuss component ideas with other members, visit <a href="http://software.topcoder.com">TopCoder Software</a>. Your TopCoder handle and password will give you access to post questions or comments on the <a href="http://software.topcoder.com/forum/c_active_collab.jsp">Customer Forums</a>.</p>
                         
-                        <p>If you have any problems please contact <a class="statText" href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
+                        <p>If you have any problems please contact <a href="mailto:service@topcodersoftware.com">service@topcodersoftware.com</a></p>
 
                         <p><br /></p>
                         

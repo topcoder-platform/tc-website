@@ -49,7 +49,7 @@
 
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
-    <TD CLASS="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+    <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 
             <FORM name="frmSend" method="POST" action="/">
               <INPUT TYPE="hidden" NAME="t" VALUE="development"/>
@@ -63,13 +63,13 @@
               <table width="100%" cellspacing="0" cellpadding="0" border="0">
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
-                  <td align="right" valign="top" class="statText">Project:&#160;&#160;</td>
-                  <td align="left" valign="top" class="statText">
+                  <td align="right" valign="top" class="bodyText">Project:&#160;&#160;</td>
+                  <td align="left" valign="top" class="bodyText">
                       <b><xsl:value-of select="/TC/DEVELOPMENT/ProjectName"/></b><br/><br/>
                   </td>
                 </tr>
                 <tr>
-                  <td align="right" valign="top" class="statText">
+                  <td align="right" valign="top" class="bodyText">
                     Experience:&#160;&#160;
                   </td>
                   <td align="left" valign="top">
@@ -78,7 +78,7 @@
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
-                  <td align="right" valign="top" class="statText">
+                  <td align="right" valign="top" class="bodyText">
                     Hours per Week &#160;&#160;<br/>Available for Project: &#160;&#160;
                   </td>
                   <td align="left" valign="top">
@@ -93,7 +93,7 @@
                 </tr>
                 <tr><td><img src="/i/clear.gif" width="1" height="10" alt="" /></td></tr>
                 <tr>
-                  <td align="right" valign="top" class="statText">
+                  <td align="right" valign="top" class="bodyText">
                     Comment: &#160;&#160;
                   </td>
                   <td align="left" valign="top">

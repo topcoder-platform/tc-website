@@ -47,29 +47,16 @@
   <xsl:with-param name="title">&#160;Overview</xsl:with-param>
 </xsl:call-template>
 
-
-
-
-
-
-<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" HEIGHT="69%">
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
   <TR>
-    <TD CLASS="statText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+    <TD class="bodyText" COLSPAN="2" VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
       <p><b>&#160;&#160;Thank you for your inquiry.
       <BR/>A TopCoder Software Product Manager will contact you to explain the next steps in the process.
       </b></p>
     </TD>
-    <TD VALIGN="top" BACKGROUND="" BGCOLOR="#000033" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="30" BORDER="0"/></TD>
+    <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="30" BORDER="0"/></TD>
   </TR>
 </TABLE>
-
-
-
-
-
-
-
-
 
     </TD>
   <!-- Center Column Ends -->
@@ -86,7 +73,7 @@
         </TD>
   <!-- Right Column Ends -->
   <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
+    <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   </TR>
 </TABLE>

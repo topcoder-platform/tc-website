@@ -50,7 +50,7 @@
                                     <td  valign="top" width="11">
                                         <img src="/i/clear.gif" alt="" width="11" height="1" border="0"/>
                                     </td>
-                                    <td class="statText" colspan="2" valign="top"  width="100%">
+                                    <td class="bodyText" colspan="2" valign="top"  width="100%">
                                         <img src="/i/clear.gif" alt="" width="240" height="1" border="0"/>
                                         <br/>
 
@@ -81,7 +81,7 @@
                                             <br/>
                                             Application Design Project: Provide a complete design for the Online Review
                                             application.   Please review the TopCoder Software
-                                            <a class="statText" href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
+                                            <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
                                         <!-- Technologies -->
                                         <p>
@@ -151,71 +151,71 @@
                                         <p>
                                             <table border="0" cellspacing="0" cellpadding="0"  width="40%">
                                                 <tr>
-                                                    <td class="statText" ><b/>Application Project Posting:</td>
-                                                    <td class="statText" align="right"><b/>7.15.2003</td>
+                                                    <td class="bodyText" ><b/>Application Project Posting:</td>
+                                                    <td class="bodyText" align="right"><b/>7.15.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Member Selection:</td>
-                                                    <td class="statText" align="right">7.18.2003</td>
+                                                    <td class="bodyText">Member Selection:</td>
+                                                    <td class="bodyText" align="right">7.18.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Member Acceptance:</td>
-                                                    <td class="statText" align="right">7.21.2003</td>
+                                                    <td class="bodyText">Member Acceptance:</td>
+                                                    <td class="bodyText" align="right">7.21.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Design Start:</td>
-                                                    <td class="statText" align="right">7.22.2003</td>
+                                                    <td class="bodyText">Design Start:</td>
+                                                    <td class="bodyText" align="right">7.22.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Phase 1 Due:
+                                                    <td class="bodyText">Phase 1 Due:
                                                         <br/>&#160;&#160;&#160;Use Cases
                                                         <br/>&#160;&#160;&#160;Class Diagrams
                                                         <br/>&#160;&#160;&#160;Sequence Diagrams
                                                     </td>
-                                                    <td class="statText" valign="top" align="right">7.28.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">7.28.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Phase 2 Due:
+                                                    <td class="bodyText">Phase 2 Due:
                                                         <br/> &#160;&#160;&#160;Design Specification
                                                     </td>
-                                                    <td class="statText" valign="top" align="right">8.04.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">8.04.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Phase 3 Due:
+                                                    <td class="bodyText">Phase 3 Due:
                                                         <br/>&#160;&#160;&#160;Test Plan
                                                         <br/>&#160;&#160;&#160;Development Scope Document
                                                     </td>
-                                                    <td class="statText" valign="top" align="right">8.11.2003</td>
+                                                    <td class="bodyText" valign="top" align="right">8.11.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Winner Announced:</td>
-                                                    <td class="statText" align="right">8.13.2003</td>
+                                                    <td class="bodyText">Winner Announced:</td>
+                                                    <td class="bodyText" align="right">8.13.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Updated Submission Due Date:</td>
-                                                    <td class="statText" align="right">8.15.2003</td>
+                                                    <td class="bodyText">Updated Submission Due Date:</td>
+                                                    <td class="bodyText" align="right">8.15.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Estimated Development End Date:</td>
-                                                    <td class="statText" align="right">10.06.2003</td>
+                                                    <td class="bodyText">Estimated Development End Date:</td>
+                                                    <td class="bodyText" align="right">10.06.2003</td>
                                                 </tr>
                                             </table>
                                         </p>
                                         <!-- Register at TCS -->
                                         <p>
                                             <strong>View the
-                                                <a target="_new" class="statText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
+                                                <a target="_new" class="bodyText" href="/i/development/downloads/AdminToolRequirementsSpecification-web.pdf">Requirement Specification</a> for this application project &gt;&gt;
                                             </strong>
                                         </p>
                                         <p>
                                             <strong>
-                                                <!--<a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt; -->
+                                                <!--<a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt; -->
                                                 Inquiry is closed.
                                             </strong>
                                         </p>
                                         <p>
                                             <!--To submit a solution, email your submissions to
-                                            <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.
+                                            <a href="mailto:submissions@topcodersoftware.com" class="bodyText">submissions@topcodersoftware.com</a>.
                                             -->
                                         </p>
                                         <p>
