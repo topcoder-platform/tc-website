@@ -87,7 +87,7 @@ function openWin(url, name, w, h) {
 With the TopCoder Open only a few weeks off, familiar faces are beginning to resurface in order to
 regain their competition form.  snewman, who only started competing again recently,  doesn't seem to
 need much practice.  He placed second in a relatively tight race.  kalinov, the eventual winner,
-earned 300 point during one of the most vicious challenge phases in recent history.  38 competitors
+earned 300 points during one of the most vicious challenge phases in recent history.  38 competitors
 submitted the Div 1 Hard, but only 12 were correct.  In Division 2, newcomers rem and martinp534 came
 out on top, besting all of the Div 2 veterans.  We wish them good luck in Division 1.
 </p>
