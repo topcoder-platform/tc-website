@@ -93,9 +93,9 @@ public class Controller extends HttpServlet {
                           request.getRemoteHost() + " ****]");  
 
                 String taskClassName = TCESConstants.TCES_PACKAGE + "." 
-                                           + taskName
+                                           + taskName;
 
-                /* Initializing WebAuthentication tokens in each task */
+                /* User authorization checking */
                 SessionPersistor persistor = SessionPersistor.getInstance(
                     request.getSession(true)
                 );
