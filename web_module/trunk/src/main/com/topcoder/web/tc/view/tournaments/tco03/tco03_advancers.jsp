@@ -10,6 +10,7 @@
 
 <jsp:include page="../../script.jsp" />
 <% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("tco03_advancers"); %>
+<% ResultSetContainer contest = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("contest info"); %>
 
 </head>
 
@@ -57,7 +58,7 @@
 
             <table width="400" align="center" border="0" cellpadding="6" cellspacing="0" class="formFrame">
                 <tr>
-                  <td class="header" width="100%" colspan="4">Round ID</td>
+                  <td class="header" width="100%" colspan="4"><rsc:iterator list="<%=contest%>" id="resultRow"><rsc:item name="name" row="<%=resultRow%>"/></rsc:iterator></td>
                </tr>
                 <tr>
                    <td class="testTableTitle_off" width="10%" align="center">
