@@ -108,6 +108,17 @@ li {
 							If you do not have Microsoft Word 2000, please submit a Deployment Guide in rtf or txt format.  Please use this <a target="tcsdocs" href="/i/development/downloads/Deployment_Guide.pdf" class="statText">PDF version</a> as a reference.
 							</p>
 
+                            <p><strong>Screening and Review Scorecards</strong><br />
+							The screening and review scorecards are used by the Architecture and Development Review Boards to score component submissions.
+							All members who submit a design or development solution will receive the populated scorecards from the review boards.
+							<ul>
+							  <li><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Screening_Scorecard.pdf" class="statText">Design Screening Scorecard</a></li>
+							  <li><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Design_Review_Scorecard.pdf" class="statText">Design Review Scorecard</a></li>
+							  <li><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Screening_Scorecard.pdf" class="statText">Development Screening Scorecard</a></li>
+							  <li><a target="tcsdocs" href="/i/development/downloads/TopCoder_Software_Development_Review_Scorecard.pdf" class="statText">Development Review Scorecard</a></li>
+							</ul>
+							</p>
+
 							<p>For more information about deliverables see the <a href="/?&amp;t=development&amp;c=comp_meth" class="statText">TopCoder Component Methodology.</a></p>
 					</td>
 

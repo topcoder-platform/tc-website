@@ -130,11 +130,11 @@
 							
 							All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 
-							<p>Component Posting: 1.9.2003<br/>
-							Initial Submission Due Date: 1.15.2003<br/>
+							<p>Component Posting: 1.16.2003<br/>
+							Initial Submission Due Date: 1.22.2003<br/>
 							Winner Announced: 1.23.2003<br/>
-							Final Submission Due Date: 1.27.2003<br/>
-                            Estimated Development End Date: 3.3.2003</p>
+							Final Submission Due Date: 2.3.2003<br/>
+                            Estimated Development End Date: 3.10.2003</p>
 
 <!-- Register at TCS -->
 							<p>After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.</p>
