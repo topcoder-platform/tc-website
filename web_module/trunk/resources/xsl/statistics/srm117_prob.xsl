@@ -408,7 +408,6 @@ Cb -&gt; Cb Db Eb Fb Gb Ab Bb Cb
                 in the code.  The rest is just handling the spaces between notes so that there
                 is no trailing space.
             </P>
-<P>&nbsp;</P>
 <A NAME="Tiling"></A>
 <FONT SIZE="+2">
   <B>Tiling</B>
