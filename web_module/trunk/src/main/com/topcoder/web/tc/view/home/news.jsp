@@ -12,7 +12,7 @@
       </td>
    </tr>
    <tr><td class="newsLinksCell">
-         <A href="http://software.topcoder.com/index.jsp">full story</A>&#160;|&#160;
+         <A href="http://software.topcoder.com/index.jsp">see the Top 10</A>&#160;|&#160;
          <A href="/tc?module=Static&d1=home&d2=news_archive_comp">archive</A>
    </td></tr>
 
