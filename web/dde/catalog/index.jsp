@@ -21,7 +21,7 @@
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-    <title>Your submission has successfully been uploaded to TopCoder</title>
+    <title>Find Components</title>
     <link rel="stylesheet" type="text/css" href="/includes/tcs_style.css" />
     <script language="JavaScript" type="text/javascript" src="/scripts/javascript.js"></script>
 </head>
