@@ -1841,6 +1841,7 @@ public class Registration
         }
         if (!found) {
           CoderConfirmation c = new CoderConfirmation();
+          c.setCoderId(coder.getCoderId());
           c.setCode(getSunConfirm());
           c.setContestId(SUN_CONTEST_ID);
           c.setModified("A");
