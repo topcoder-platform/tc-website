@@ -55,6 +55,9 @@
                 op.value = val1+"_"+text2;
                 op.text = text1+" >= "+text2;
                 document.search[c].options[len] = op;
+                hid = new Hidden();
+                hid.value = text1;
+                document.search['skill_name_'+val1] = hid;
             }
         }
     }

@@ -21,10 +21,16 @@ public class ProfileSearch extends Base {
         try {
             if (((SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
                 String response_addr = Constants.REPORT_PROFILE_SEARCH_RESULTS_ADDR;
-                String query = buildQuery(getRequest());
-                log.debug(query.length()+" chars");
-                log.debug(query);
+                ArrayList headers = new ArrayList();
+                String query = buildQuery(getRequest(), headers);
+                QueryDataAccess qda = new QueryDataAccess(DBMS.OLTP_DATASOURCE_NAME);
+                QueryRequest qr = new QueryRequest();
+                qr.addQuery("results",query);
+                Map m = qda.getData(qr);
+
                 getRequest().setAttribute("QUERY",query);
+                getRequest().setAttribute("column_headers",headers);
+                getRequest().setAttribute(Constants.REPORT_PROFILE_SEARCH_RESULTS_KEY,m);
                 setNextPage(Constants.JSP_ADDR + response_addr);
                 setIsNextPageInContext(true);
             } else {
@@ -38,33 +44,43 @@ public class ProfileSearch extends Base {
 
     }
     
-    private String buildQuery(TCRequest request){
-        List[] skills = buildSkillsQuery(request);
+    private String buildQuery(TCRequest request, List headers){
+        headers.addAll(Arrays.asList(new String[]{"Handle", "First Name", "Last Name", "City", "State", "Country", "Algorithm Rating", "Design Rating", "Development Rating"}));
+        List[] skills = buildSkillsQuery(request, headers);
         boolean skill = skills[0].size() > 0;
         List[] demo = buildDemoQuery(request);
         List tables, constraints;
-        (tables = skills[0]).addAll(demo[0]);
-        (constraints = skills[1]).addAll(demo[1]);
+        (tables = demo[0]).addAll(skills[0]);
+        (constraints = demo[1]).addAll(skills[1]);
+        
         StringBuffer query = new StringBuffer(5000);
-        query.append("SELECT u.handle,\n");
-        query.append("  c.first_name,\n");
-        query.append("  c.last_name,\n");
-        query.append("  c.city,\n");
-        query.append("  st.state_name,\n");
-        query.append("  cry.country_name,\n");
-        query.append("  r.rating,\n");
-        query.append("  (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112),\n");
-        query.append("  (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113)\n");
+        query.append("SELECT u.handle as Handle\n");
+        query.append("  , c.first_name as First_Name\n");
+        query.append("  , c.last_name as Last_Name\n");
+        query.append("  , c.city as City\n");
+        query.append("  , st.state_name as State\n");
+        query.append("  , cry.country_name as Country\n");
+        query.append("  , r.rating as Algorithm_Rating\n");
+        query.append("  , (select ur1.rating from tcs_catalog:user_rating ur1 where ur1.user_id = c.coder_id AND ur1.phase_id = 112) as Design_Rating\n");
+        query.append("  , (select ur2.rating from tcs_catalog:user_rating ur2 where ur2.user_id = c.coder_id AND ur2.phase_id = 113) as Development_Rating\n");
+        for(int i = 0; i<skills[2].size(); i++){
+            query.append("  , ");
+            query.append((String)skills[2].get(i));
+            query.append('\n');
+        }
         query.append("  FROM coder c,\n");
         query.append("    rating r,\n");
         query.append("    user u,\n");
+
         String comp = request.getParameter("company");
         if(comp != null && comp.length() > 0){
             query.append("    demographic_response drc,\n");
         }
+
         if("on".equals(request.getParameter("resume"))){
             query.append("    resume res,\n");
         }
+
         for(int i = 0; i<tables.size(); i++){
             String tab = (String)tables.get(i);
             query.append("    ");
@@ -85,6 +101,7 @@ public class ProfileSearch extends Base {
             query.append(stringMatcher(comp));
             query.append('\n');
         }
+
         if("on".equals(request.getParameter("resume"))){
             query.append("    AND res.coder_id = c.coder_id\n");
         }
@@ -139,11 +156,12 @@ public class ProfileSearch extends Base {
         }
         return new List[]{tables,constraints};
     }
-    private List[] buildSkillsQuery(TCRequest request){
+    private List[] buildSkillsQuery(TCRequest request, List headers){
         Enumeration e = request.getParameterNames();
         ArrayList skills = new ArrayList();
         List tables = new ArrayList();
         List constraints = new ArrayList();
+        List selects = new ArrayList();
         while (e.hasMoreElements()) {
             String param = (String) e.nextElement();
             String[] values = request.getParameterValues(param);
@@ -152,6 +170,7 @@ public class ProfileSearch extends Base {
                     int idx = values[i].indexOf("_");
                     int skillId = Integer.parseInt(values[i].substring(0,idx));
                     int skillLevel = Integer.parseInt(values[i].substring(idx+1));
+                    String name = (String)request.getParameter("skill_name_"+skillId);
                     StringBuffer query = new StringBuffer(100);
                     query.append("cs");
                     query.append(skillId);
@@ -167,10 +186,12 @@ public class ProfileSearch extends Base {
                     query.append(".coder_id = c.coder_id");
                     tables.add("coder_skill cs"+skillId);
                     constraints.add(query.toString());
+                    selects.add("cs"+skillId+".ranking as skill_name_"+skillId);
+                    headers.add(request.getParameter("skill_name_"+skillId));
                 }
             }
         }
-        return new List[]{tables,constraints};
+        return new List[]{tables,constraints, selects};
     }
     private String stringMatcher(String s){
         if(s.indexOf('%') != -1 || s.indexOf('_') != -1){
@@ -266,23 +287,23 @@ public class ProfileSearch extends Base {
         }
         String place = request.getParameter("placement");
         if(place.equals("either") || place.equals("none") && skill){
-            query.append("    AND c.coder_id IN (select up1.user_id FROM up1.preference_value_id IN (32, 34))\n");
+            query.append("    AND c.coder_id IN (select up1.user_id FROM user_preference up1 WHERE up1.preference_value_id IN (32, 34))\n");
         }else if(place.equals("contract")){
-            query.append("    AND c.coder_id IN (select up1.user_id FROM up1.preference_value_id = 32)\n");
+            query.append("    AND c.coder_id IN (select up1.user_id FROM user_preference up1 WHERE up1.preference_value_id = 32)\n");
         }else if(place.equals("full")){
-            query.append("    AND c.coder_id IN (select up1.user_id FROM up1.preference_value_id = 34)\n");
+            query.append("    AND c.coder_id IN (select up1.user_id FROM user_preference up1 WHERE up1.preference_value_id = 34)\n");
         }
         if("on".equals(request.getParameter("travel"))){
             if(place.equals("full")){
-                query.append("    AND c.coder_id IN (select up2.user_id FROM up2.preference_value_id = 26)\n");
+                query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id = 26)\n");
             }else if(place.equals("contract")){
-                query.append("    AND c.coder_id IN (select up2.user_id FROM up2.preference_value_id = 17)\n");
+                query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id = 17)\n");
             }else{
-                query.append("    AND c.coder_id IN (select up2.user_id FROM up2.preference_value_id IN (17,26))\n");
+                query.append("    AND c.coder_id IN (select up2.user_id FROM user_preference up2 WHERE up2.preference_value_id IN (17,26))\n");
             }
         }
         if("on".equals(request.getParameter("auth"))){
-            query.append("    AND c.coder_id IN (select up3.user_id FROM up3.preference_value_id = 28)\n");
+            query.append("    AND c.coder_id IN (select up3.user_id FROM user_preference up3 WHERE up3.preference_value_id = 28)\n");
         }
 
         return query.toString();

@@ -32,6 +32,7 @@ public class Constants {
     public static String REFRESH_SCHOOL_KEY = "refresh";
     public static String REPORT_PROFILE_KEY = "profile";
     public static String REPORT_PROFILE_SEARCH_KEY = "profile_search";
+    public static String REPORT_PROFILE_SEARCH_RESULTS_KEY = "profile_search_results";
     public static String REPORT_PROFILE_DETAIL_KEY = "profile_detail";
     public static String REPORT_PROFILE_LIST_KEY = "profile_list";
     public static String REPORT_PROFILE_LIST_MENU_KEY = "profile_list_menu";
