@@ -2,11 +2,11 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top.xsl"/>
   <xsl:import href="../script.xsl"/>
-  <xsl:import href="../includes/body_top.xsl"/>
+  <xsl:import href="../includes/body_top.xsl"/>  
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/tournament_links.xsl"/>
+  <xsl:import href="../includes/modules/tournament_links.xsl"/>  
   <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
@@ -21,31 +21,34 @@
         <META NAME="description" CONTENT="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
         <META NAME="keywords" CONTENT="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
       </HEAD>
-      <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+      <BODY BGCOLOR="#CCCCCC" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+        <a name="top_page"></a>
+        <xsl:variable name="contestId">
+          <xsl:value-of select="/TC/SCHEDULE/ContestId"/>
+        </xsl:variable>
         <xsl:call-template name="Top"/>
-<!-- Body Begins -->
-<TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
-  <TR>
-    <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
-<!-- Left Column Include Begins -->  
-    <!-- Global Seconday Nav Begins -->  
-        <xsl:call-template name="global_left"/>
-  <!-- Global Seconday Nav Ends -->      
-<!-- Left Column Include Ends -->          
-      </TD>
-  <!-- Left Column Ends -->
-  <!-- Gutter Begins -->
-    <TD WIDTH="4" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/table_top_fill.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
-
-<!-- Body Area -->
-	<!-- Center Column Begins -->	
-		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#FFFFFF" VALIGN="top">
+        <!-- Body Begins -->
+        <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
+          <TR>
+            <!-- Left Column Begins -->
+            <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+              <!-- Left Column Include Begins -->  
+              <!-- Global Seconday Nav Begins -->  
+              <xsl:call-template name="global_left"/>
+              <!-- Global Seconday Nav Ends -->      
+              <!-- Left Column Include Ends -->          
+            </TD>
+            <!-- Left Column Ends -->
+            <!-- Gutter Begins -->
+            <TD WIDTH="4" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="26" BORDER="0"/></TD>
+            <!-- Gutter Ends -->
+            <!-- Body Area -->
+            <!-- Center Column Begins -->  
+		<TD CLASS="bodyText" WIDTH="100%" BGCOLOR="#CCCCCC" VALIGN="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">steelblue</xsl:with-param>
   <xsl:with-param name="image">tournaments_blue</xsl:with-param>
-  <xsl:with-param name="title">&#160;Tournaments</xsl:with-param>
+  <xsl:with-param name="title">&#160;</xsl:with-param>
 </xsl:call-template>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
 	<TR>
@@ -54,8 +57,8 @@
     <!-- Coder of the Week Pulldown Begins -->				
         <xsl:call-template name="tournament_links"/>
 	<!-- Coder of the Week Pulldown Ends -->
-					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" WIDTH="100%" ALIGN="center">
-						<TR><TD WIDTH="100%" ALIGN="center" HEIGHT="90" VALIGN="top"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" BORDER="0"/></TD></TR>
+					<!--<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" WIDTH="100%" ALIGN="center">
+						<TR><TD WIDTH="100%" ALIGN="center" HEIGHT="90" VALIGN="top"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" BORDER="0"/></TD></TR>-->
 					</TABLE>
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="2" CELLSPACING="0" BACKGROUND="/i/steel_blue_bg.gif" ALIGN="center">
 						<TR><TD COLSPAN="4" ALIGN="center" VALIGN="middle" HEIGHT="21" CLASS="statText" BGCOLOR="#666666">First Elimination Round Seeding</TD></TR>

@@ -238,7 +238,7 @@ Room 4 was won by the number four seed, <A HREF="/?t=statistics&amp;c=member_pro
 
 <P>
 View the Top-10 room winners:<BR/>
-<A HREF="/index?t=statistics&amp;c=top_10_wins_regions" CLASS="statText">All Regions</A> 
+<A HREF="/index?t=tournaments&amp;c=top_10_wins_regions" CLASS="statText">All Regions</A> 
 <!-- | <A HREF="/index?t=statistics&amp;c=top_4_wins_se" CLASS="statText">Southeast</A><BR/>
 <A HREF="/index?t=statistics&amp;c=top_4_wins_w" CLASS="statText">West</A> | <A HREF="/index?t=statistics&amp;c=top_4_wins_mw" CLASS="statText">Midwest</A><BR/>
  --></P>
