@@ -69,6 +69,7 @@
             </map>
             </div>
 -->
+
             <table border="0" cellspacing="0" cellpadding="0" align="center">
                 <tr>
                      <td align="center" colspan="3"><img src="/i/tournament/tco03/tco_promo_big.gif" alt="Save the date!" width="503" height="170" border="0" vspace="5"/></td>
