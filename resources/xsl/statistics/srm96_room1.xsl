@@ -97,22 +97,22 @@ June 11, 2002</P>
 <p>
             The contest began in a very competitive manner, when four coders submitted their solutions
             to the Level 1 problem all within a single minute.
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154754&amp;rd=4200&amp;rm=5852">kv</a>, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a>, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=274023&amp;rd=4200&amp;rm=5852">venco</a>, and <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=272072&amp;rd=4200&amp;rm=5852">SnapDragon</a>
+            <B>kv</B>, <B>ZorbaTHut</B>, <B>venco</B>, and <B>SnapDragon</B>
             started out with scores with a range of only 2 points.
         </p>
 <p>
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a> took over the lead at the 24 minute mark with his submission of
+            <B>ZorbaTHut</B> took over the lead at the 24 minute mark with his submission of
             the Level 2 problem for 396.86 points (for the best Level 2 score across division 1).
-            After looking at the Level 2 problem for 15 minutes, <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270505&amp;rd=4200&amp;rm=5852">John Dethridge</a> gave up
+            After looking at the Level 2 problem for 15 minutes, <B>John Dethridge</B> gave up
             and attacked the Level 3 problem.  This resulted in his taking over the lead with his
             submission for 583.53 points (for the best Level 3 score across division 1).
         </p>
 <p>
             However, it would be the coders that managed to complete all three problems that would rule the day.
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a> would be first to complete the entire set, submitting the Level 3 problem
+            <B>ZorbaTHut</B> would be first to complete the entire set, submitting the Level 3 problem
             for 471.14 points with 15 minutes remaining in the Coding Phase.  This would later be trumped
-            by <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156592&amp;rd=4200&amp;rm=5852">benetin</a>'s submission for 564.92 points, with 5 minutes remaining.
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=158067&amp;rd=4200&amp;rm=5852">KurtSteinkraus</a> was the last coder to complete the entire set, submitting his
+            by <B>benetin</B>'s submission for 564.92 points, with 5 minutes remaining.
+            <B>KurtSteinkraus</B> was the last coder to complete the entire set, submitting his
             Level 3 solution with only a minute remaining in the Coding Phase for 337.16 points.
         </p>
 <p>
@@ -120,38 +120,38 @@ June 11, 2002</P>
     </p>
 <ol>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156592&amp;rd=4200&amp;rm=5852">benetin</a>
+    <B>benetin</B>
             - 1138.47</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a>
+    <B>ZorbaTHut</B>
             - 1137.03</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=158067&amp;rd=4200&amp;rm=5852">KurtSteinkraus</a>
+    <B>KurtSteinkraus</B>
             - 968.17</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270505&amp;rd=4200&amp;rm=5852">John Dethridge</a>
+    <B>John Dethridge</B>
             - 836.37</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=260835&amp;rd=4200&amp;rm=5852">reid</a>
+    <B>reid</B>
             - 611.04</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=142795&amp;rd=4200&amp;rm=5852">Joe</a>
+    <B>Joe</B>
             - 550.54</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=272072&amp;rd=4200&amp;rm=5852">SnapDragon</a>
+    <B>SnapDragon</B>
             - 519.74</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154754&amp;rd=4200&amp;rm=5852">kv</a>
+    <B>kv</B>
             - 510.56</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=274023&amp;rd=4200&amp;rm=5852">venco</a>
+    <B>venco</B>
             - 507.68</li>
 </ol>
 <b>Challenge Phase</b>
 <p>
-            Only one challenge occurred during the Challenge Phase.  <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=260835&amp;rd=4200&amp;rm=5852">reid</a> challenged
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=158067&amp;rd=4200&amp;rm=5852">KurtSteinkraus</a>'s Level 2 problem after noticing a fencepost error.
-            This knocked <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=158067&amp;rd=4200&amp;rm=5852">KurtSteinkraus</a> from third to fifth place and moved <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=260835&amp;rd=4200&amp;rm=5852">reid</a>
+            Only one challenge occurred during the Challenge Phase.  <B>reid</B> challenged
+            <B>KurtSteinkraus</B>'s Level 2 problem after noticing a fencepost error.
+            This knocked <B>KurtSteinkraus</B> from third to fifth place and moved <B>reid</B>
             up to fourth.
         </p>
 <p>
@@ -159,69 +159,69 @@ June 11, 2002</P>
     </p>
 <ol>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156592&amp;rd=4200&amp;rm=5852">benetin</a>
+    <B>benetin</B>
             - 1138.47</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a>
+    <B>ZorbaTHut</B>
             - 1137.03</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270505&amp;rd=4200&amp;rm=5852">John Dethridge</a>
+    <B>John Dethridge</B>
             - 836.37</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=260835&amp;rd=4200&amp;rm=5852">reid</a>
+    <B>reid</B>
             - 661.04</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=158067&amp;rd=4200&amp;rm=5852">KurtSteinkraus</a>
+    <B>KurtSteinkraus</B>
             - 596.61</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=142795&amp;rd=4200&amp;rm=5852">Joe</a>
+    <B>Joe</B>
             - 550.54</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=272072&amp;rd=4200&amp;rm=5852">SnapDragon</a>
+    <B>SnapDragon</B>
             - 519.74</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154754&amp;rd=4200&amp;rm=5852">kv</a>
+    <B>kv</B>
             - 510.56</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=274023&amp;rd=4200&amp;rm=5852">venco</a>
+    <B>venco</B>
             - 507.68</li>
 </ol>
 <b>System Test Phase</b>
 <p>
-            Only one submission failed the system tests.  <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156592&amp;rd=4200&amp;rm=5852">benetin</a>'s Level 3 problem failed,
-            knocking him from first place to fifth place.  This left <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a> as the only
+            Only one submission failed the system tests.  <B>benetin</B>'s Level 3 problem failed,
+            knocking him from first place to fifth place.  This left <B>ZorbaTHut</B> as the only
             coder in Room 1 to solve the entire problem set, consequently giving him the win for the night.
-            <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270505&amp;rd=4200&amp;rm=5852">John Dethridge</a>'s impressive performance on the two problems he did complete
-            gave him a strong second place finish, with <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=260835&amp;rd=4200&amp;rm=5852">reid</a> coming in at third.
+            <B>John Dethridge</B>'s impressive performance on the two problems he did complete
+            gave him a strong second place finish, with <B>reid</B> coming in at third.
         </p>
 <b>Final Results</b>
 <ol>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=152347&amp;rd=4200&amp;rm=5852">ZorbaTHut</a>
+    <B>ZorbaTHut</B>
             - 1137.03</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=270505&amp;rd=4200&amp;rm=5852">John Dethridge</a>
+    <B>John Dethridge</B>
             - 836.37</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=260835&amp;rd=4200&amp;rm=5852">reid</a>
+    <B>reid</B>
             - 661.04</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=158067&amp;rd=4200&amp;rm=5852">KurtSteinkraus</a>
+    <B>KurtSteinkraus</B>
             - 596.61</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=156592&amp;rd=4200&amp;rm=5852">benetin</a>
+    <B>benetin</B>
             - 573.55</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=142795&amp;rd=4200&amp;rm=5852">Joe</a>
+    <B>Joe</B>
             - 550.54</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=272072&amp;rd=4200&amp;rm=5852">SnapDragon</a>
+    <B>SnapDragon</B>
             - 519.74</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=154754&amp;rd=4200&amp;rm=5852">kv</a>
+    <B>kv</B>
             - 510.56</li>
   <li>
-    <a class="bodyGeneric" href="http://www.topcoder.com/stat?c=coder_room_stats&amp;cr=274023&amp;rd=4200&amp;rm=5852">venco</a>
+    <B>venco</B>
             - 507.68</li>
 </ol>
 
