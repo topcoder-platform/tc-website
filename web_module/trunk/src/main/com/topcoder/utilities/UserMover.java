@@ -148,11 +148,11 @@ public class UserMover {
             query.append(     ", c.city");
             query.append(     ", c.zip");
             query.append(     ", CASE WHEN u.status='A' THEN 1 ELSE 0 END as status_order");
-            query.append(  "from user u");
+            query.append( " from user u");
             query.append(     ", coder c");
-            query.append( "where u.user_id = c.coder_id");
+            query.append(" where u.user_id = c.coder_id");
             query.append(  " and u.user_id = 114443");
-            query.append( "order by status_order desc");
+            query.append(" order by status_order desc");
 
             ps = conn.prepareStatement(query.toString());
             rs = ps.executeQuery();
