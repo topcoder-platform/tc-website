@@ -137,7 +137,7 @@
   </TR>
   <TR>
    <TD></TD>
-   <TD><IMG SRc="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+   <TD><IMG SRC="/i/hs/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2"><BR></TD>
   </TR>
   <TR>
