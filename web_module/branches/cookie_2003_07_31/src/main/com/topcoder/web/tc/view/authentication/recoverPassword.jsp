@@ -110,7 +110,7 @@ function submitEnter(e) {
                     <tr><td><br/></td></tr>
                     <tr>
                         <td colspan="2" align="center">
-                            <a href="javascript void document.frmPass.submit()">Submit</a>
+                            <a href="JavaScript:document.frmPass.submit()">Submit</a>
                         </td>
                     </tr>
                 </form>
