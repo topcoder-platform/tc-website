@@ -36,16 +36,18 @@
   var idx=state.selectedIndex
   if (idx==-1) {
    school.disabled=true
-   school.options.length=0
+   school.selectedIndex=0
+   school.options.length=1
   }
   else {
    school.disabled=false
-   school.options.length=schools[idx].size
+   school.options.length=schools[idx].size+1
    for (i=0;i<schools[idx].size;i++) {
-    school.options(i).text=schools[idx][i]
-    school.options(i).value=codes[idx][i]
+    school.options(i+1).text=schools[idx][i]
+    school.options(i+1).value=codes[idx][i]
    } 
   }
+ }
 </SCRIPT>
 <P><B>Registration for Students</B></P>
 <P>Welcome to TopCoder HighSchool. Before you register, there are a few things we think you should know: First, and most importantly, TopCoder is a commercial site. We charge sponsors for the right to advertise on our site. This money pays for the operation of the site and the prizes awarded in competitions.</P>
@@ -119,7 +121,7 @@
    <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
    <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
     <SELECT DISABLED NAME="school" CLASS="dropdown">
-     <OPTION VALUE=""></OPTION>
+     <OPTION VALUE="-1">Pick a school</OPTION>
     </SELECT>
    </TD>
   </TR>
