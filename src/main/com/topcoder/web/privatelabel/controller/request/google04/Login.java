@@ -123,6 +123,7 @@ public class Login extends FullLogin {
         long userId = getAuthentication().getActiveUser().getId();
 
         if (hasCompanyAccount) {
+            log.error("HERE");
             info = getCommonInfo(userId, db);
 
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
