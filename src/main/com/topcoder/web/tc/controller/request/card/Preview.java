@@ -45,9 +45,9 @@ public class Preview extends Base {
                 (ResultSetContainer)getDataAccess(DBMS.DW_DATASOURCE_NAME, true).getData(r).get("Coder_Data");
         //if they've been rated in one of the competitions
         boolean rated = false;
-        if (coderInfo.getIntItem(0, "rating")>0 ||
+        if (!coderInfo.isEmpty() && (coderInfo.getIntItem(0, "rating")>0 ||
                 (coderInfo.getItem(0, "design_rating").getResultData()!=null&&coderInfo.getIntItem(0, "design_rating")>0) ||
-                (coderInfo.getItem(0, "development_rating").getResultData()!=null&&coderInfo.getIntItem(0, "development_rating")>0)) {
+                (coderInfo.getItem(0, "development_rating").getResultData()!=null&&coderInfo.getIntItem(0, "development_rating")>0))) {
             rated = true;
         }
         return rated;

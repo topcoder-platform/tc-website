@@ -73,6 +73,7 @@ public class Constants {
 
     public static String CARD_PREVIEW;
     public static String CARD_INSTRUCTIONS;
+    public static String DOWNLOADS;
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
