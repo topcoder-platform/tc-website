@@ -152,7 +152,7 @@ function getPermissions(url,wd,ht) {
     <TD COLSPAN="4" CLASS="bodyText" HEIGHT="15" VALIGN="middle">&#160;Permission 2</TD>
   </TR>
   <TR>
-     <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="bodyText"><a HREF="JavaScript:getPermissions('/portal/acc_admin/permissions.jsp','300','400')" class="bodyText">Add/Remove Permissions</A></td>
+     <TD COLSPAN="4" ALIGN="center" VALIGN="middle" CLASS="bodyText"><a HREF="JavaScript:getPermissions('<%=appContext%>/acc_admin/permissions.jsp','300','400')" class="bodyText">Add/Remove Permissions</A></td>
   </TR>
     <TR>
         <TD COLSPAN="4"><HR NOSHADE="0"></TD>
