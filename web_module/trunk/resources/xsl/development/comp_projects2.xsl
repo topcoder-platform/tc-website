@@ -109,7 +109,7 @@
                     <xsl:variable name="price" select="./price"/>
                     <xsl:variable name="comp" select="./component_id"/>
                     <xsl:variable name="initial_submission_date">
-                        <xsl:call-template name="formatmmddyyyyhhmi"><xsl:value-of select="./initial_submission_date"/></xsl:call-template>
+                        <xsl:call-template name="formatmmddyyyyhhmi"><xsl:with-param name="DATE" select="./initial_submission_date"/>"</xsl:call-template>
                     </xsl:variable name>
                     <tr valign="top">
                         <td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
