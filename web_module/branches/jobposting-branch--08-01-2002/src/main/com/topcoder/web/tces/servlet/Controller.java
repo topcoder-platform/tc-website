@@ -80,6 +80,11 @@ public class Controller extends HttpServlet {
 
                 request.setAttribute( taskName, task );
 
+if (task.getNextPage()==null)
+    log.debug("nextpagenull");
+else
+    log.debug(task.getNextPage());
+
                 getServletContext().getRequestDispatcher( response.encodeURL(task.getNextPage()) ).forward(request, response);
 
             }
