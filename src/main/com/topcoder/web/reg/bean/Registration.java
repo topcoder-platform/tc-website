@@ -1916,25 +1916,61 @@ public class Registration
         {
             try
             {
+
+
                 TCSEmailMessage mail = new TCSEmailMessage();
                 mail.setSubject("TopCoder Activation");
-                StringBuffer msgText = new StringBuffer(1000);
-                msgText.append("Your TopCoder activation code is ");
-                msgText.append(activationCode);
-                msgText.append("\n\n");
-                msgText.append("To activate your account:\n\n");
-                msgText.append("1) Navigate to the following WWW URL:\n");
+                StringBuffer msgText = new StringBuffer(3000);
+
+
+                msgText.append("TOPCODER ACCOUNT ACTIVATION INFORMATION\n\n");
+                msgText.append("Your TopCoder activation code is " + activationCode + "\n\n");
+                msgText.append("To activate your account, navigate to the following WWW URL:\n");
                 msgText.append(ACTIVATION_URL);
                 msgText.append(activationCode);
-                msgText.append("\n");
-                msgText.append("If you can not click on the web address above, please copy the address ");
-                msgText.append("into your web browser to continue.  If the address spans two lines, ");
-                msgText.append("please make sure you copy and paste both sections without any spaces between ");
-                msgText.append("them.\n\n");
-                msgText.append("2) Login to TopCoder with your handle and password.\n");
-                msgText.append("\n\nThank You for registering with TopCoder!\n");
-                msgText.append("\n\nThis is an automated message.  ");
-                msgText.append("Please do not reply to this email.");
+                msgText.append("If you cannot click on the web address above, please copy");
+                msgText.append(" the address into your web browser to continue.  If the ");
+                msgText.append("address spans two lines, please make sure you copy and paste");
+                msgText.append(" both sections without any spaces between them.\n\n");
+                msgText.append("You may utilize your activated TopCoder handle and password ");
+                msgText.append("in order to access your member home page on TopCoder’s web site ");
+                msgText.append("(www.topcoder.com <http://www.topcoder.com>).  Your handle and");
+                msgText.append(" password will also provide you with access to the TopCoder ");
+                msgText.append("Competition Arena, where you can practice, chat, and compete ");
+                msgText.append("in rated events.\n\n\n");
+                msgText.append("TOPCODER RATED EVENTS\n\n");
+                msgText.append("Establishing a TopCoder rating will provide you with a number ");
+                msgText.append("of benefits, including possible invitations to major tournaments ");
+                msgText.append("with large cash prizes, TopCoder employment services, and the ");
+                msgText.append("ability to apply for participation in TopCoder compensated ");
+                msgText.append("software development projects.\n\n");
+                msgText.append("Participating in TopCoder rated events (held weekly) will allow ");
+                msgText.append("you to establish a TopCoder rating.  Competing in a single rated");
+                msgText.append(" event is all it takes to become a rated member, however most ");
+                msgText.append("major tournaments will require that you have participated in ");
+                msgText.append("at least three rated events.  You can view a schedule of TopCoder ");
+                msgText.append("events here:\n");
+                msgText.append("<http://www.topcoder.com/?&t=schedule&c=index>\n\n");
+                msgText.append("You may view all current development projects here: ");
+                msgText.append("<http://www.topcoder.com/?&t=development&c=index> (you must login ");
+                msgText.append("with your TopCoder handle and password).\n\n\n");
+                msgText.append("PRACTICING TOPCODER\n\n");
+                msgText.append("TopCoder provides a number of practice rooms that will allow ");
+                msgText.append("you to become acclimated with our competition environment before ");
+                msgText.append("you participate in your first rated event.  Each practice room has ");
+                msgText.append("a problem set that was actually used in a previous rated event.  ");
+                msgText.append("In addition, participating in a practice room is a very similar ");
+                msgText.append("experience to competing in an actual rated event.  The practice ");
+                msgText.append("rooms are available around the clock.\n\n");
+                msgText.append("You can download and run the TopCoder Competition Arena Applet from here:\n");
+                msgText.append("http://www.topcoder.com/?&t=schedule&c=practice_room\n\n");
+                msgText.append("We also suggest that you read up on the rules and competition process ");
+                msgText.append("from the FAQs and links that are available here:\n");
+                msgText.append("http://www.topcoder.com/?&t=support&c=index\n\n");
+                msgText.append("If you have any questions about how to participate, feel free ");
+                msgText.append("to email them to service@topcoder.com.\n\n");
+                msgText.append("Thank you for registering with TopCoder and we look forward ");
+                msgText.append("to seeing you in the arena!");
                 mail.setBody(msgText.toString());
                 mail.addToAddress(email,TCSEmailMessage.TO);
                 mail.setFromAddress("service@topcoder.com");
