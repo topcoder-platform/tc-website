@@ -994,7 +994,7 @@ SELECT r.rating
      , cps.problems_presented AS total_presented
      , cps.problems_submitted AS total_submitted
      , (CASE WHEN cps.problems_presented = 0 THEN 0.0
-             ELSE cps.problems_submitted / cps.problems_presented
+             ELSE cps.problems_submitted / cps.problems_presented * 100
              END) AS total_submit_percent
      , cps.problems_correct AS correct
      , (CASE WHEN cps.problems_submitted = 0 THEN 0.0
