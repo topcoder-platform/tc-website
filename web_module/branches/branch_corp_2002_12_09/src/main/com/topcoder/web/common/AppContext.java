@@ -75,7 +75,7 @@ public class AppContext {
         InitialContext ic = getSecurityContext(); 
         log.debug("initial security context: "+ic);
 
-        NamingEnumeration e = (NamingEnumeration)ic.list("security");
+        NamingEnumeration e = (NamingEnumeration)ic.list("");
         while(e.hasMoreElements()) {
             log.debug(e.nextElement());
         }
