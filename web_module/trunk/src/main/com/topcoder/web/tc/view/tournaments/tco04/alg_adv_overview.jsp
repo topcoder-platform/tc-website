@@ -33,7 +33,7 @@
 
             <h2>Overview</h2>
 
-            <p>Click a column title to sort the list of advancers by that column. Click <a href="">here</a> to reset the list to its originally sorted format.</p>
+            <p>Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tco04_alg_adv_overview&d1=tournaments&d2=tco04&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.</p>
 
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
                 <tr>
