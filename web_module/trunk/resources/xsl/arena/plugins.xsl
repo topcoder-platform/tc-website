@@ -116,8 +116,8 @@
                         Description: Plugin that will allow you to write pre/post processing source code scripts for use with other editor plugins<br />
                         Author: Pops<br />
                         Date: 1/10/2003<br />
-                        <a href="/contest/classes/CodeProcessor/How to use CodeProcessor v2.htm" class="statText">Documentation</a><br />
-                        <a href="/contest/classes/CodeProcessor/CodeProcessor v1.20 release notes.htm" class="statText">Release Notes</a><br />
+                        <a href="/contest/classes/CodeProcessor/How%20to%20use%20CodeProcessor%20v2.htm" class="statText">Documentation</a><br />
+                        <a href="/contest/classes/CodeProcessor/CodeProcessor%20v1.20%20release%20notes.htm" class="statText">Release Notes</a><br />
                         Version: 1.2<br />
                         EntryPoint: codeprocessor.EntryPoint (case sensitive)<br />
                         ClassPath: CodeProcessor.jar<br />
@@ -131,7 +131,7 @@
                         Author: Pops<br />
                         Date: 1/10/2003<br />
                         <a href="/contest/classes/PopsEdit/PopsEdit.htm" class="statText">Documentation</a><br />
-                        <a href="/contest/classes/PopsEdit/PopsEdit v2.80 release notes.htm" class="statText">Release Notes</a><br />
+                        <a href="/contest/classes/PopsEdit/PopsEdit%20v2.80%20release%20notes.htm" class="statText">Release Notes</a><br />
                         Version: 2.80<br />
                         EntryPoint: popsedit.EntryPoint (case sensitive)<br />
                         ClassPath: PopsEdit.jar<br />
@@ -145,7 +145,7 @@
                         Author: Pops<br />
                         Date: 1/10/2003<br />
                         <a href="/contest/classes/FileEdit/FileEdit.htm" class="statText">Documentation</a><br />
-                        <a href="/contest/classes/FileEdit/FileEdit v2.70 Release Notes.htm" class="statText">Release Notes</a><br />
+                        <a href="/contest/classes/FileEdit/FileEdit%20v2.70%20Release%20Notes.htm" class="statText">Release Notes</a><br />
                         Version: 2.70<br />
                         Plugin Entry Point: fileedit.EntryPoint<br />
                         Plugin ClassPath: FileEdit.jar<br />
