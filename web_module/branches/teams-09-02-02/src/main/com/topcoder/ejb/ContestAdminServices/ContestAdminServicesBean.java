@@ -1230,7 +1230,7 @@ public class ContestAdminServicesBean extends com.topcoder.shared.ejb.BaseEJB {
             query.append(" ,s.submission_text");
             query.append(" ,l.language_name");
             query.append(" ,rp.points");
-            query.append(" FROM component_state ps, ");
+            query.append(" FROM component_state cs, ");
             query.append(" OUTER submission s");
             query.append(" ,user u");
             query.append(" ,compilation c");
