@@ -6,8 +6,8 @@ import com.topcoder.shared.security.AuthorizationException;
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.security.policy.GenericPermission;
-import com.topcoder.security.policy.PolicyRemoteHome;
-import com.topcoder.security.policy.PolicyRemote;
+import com.topcoder.security.policy.PolicyLocalHome;
+import com.topcoder.security.policy.PolicyLocal;
 import com.topcoder.shared.util.ApplicationServer;
 
 import java.util.Hashtable;
@@ -56,11 +56,11 @@ public class TCSAuthorization implements Authorization {
                 ApplicationServer.SECURITY_PROVIDER_URL);
             ctx = new InitialContext(env);
 
-            PolicyRemoteHome pHome = (PolicyRemoteHome)
+            PolicyLocalHome pHome = (PolicyLocalHome)
                 PortableRemoteObject.narrow(
-                    ctx.lookup(PolicyRemoteHome.class.getName()),
-                    PolicyRemoteHome.class);
-            PolicyRemote policy = pHome.create();
+                    ctx.lookup(PolicyLocalHome.class.getName()),
+                    PolicyLocalHome.class);
+            PolicyLocal policy = pHome.create();
 
             GenericPermission permission = new GenericPermission(r.getName());
 
@@ -80,8 +80,9 @@ public class TCSAuthorization implements Authorization {
         catch (GeneralSecurityException e) {
             throw new AuthorizationException(e);
         }
-        catch (RemoteException e) {
+/*        catch (RemoteException e) {
             throw new AuthorizationException(e);
         }
+ */
     }
 }
