@@ -66,7 +66,7 @@
                                 <td class="sidebarTitle" align=right>Contest Earnings</td>
                             </tr>
                             <tr>
-                                <td class="sidebarText"><A href="/">Week 1</A></td>
+                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Week 1</A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
                                 <td class="sidebarText" align=center>somedude</td>
@@ -93,7 +93,7 @@
                                 <td class="sidebarTitle" align=right>Contest Earnings</td>
                             </tr>
                             <tr>
-                                <td class="sidebarText"><A href="/">Month 1</A></td>
+                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Month 1</A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
                                 <td class="sidebarText" align=center>somedude</td>
@@ -120,7 +120,7 @@
                                 <td class="sidebarTitle" align=right>Contest Earnings</td>
                             </tr>
                             <tr>
-                                <td class="sidebarText"><A href="/">Quarter 1</A></td>
+                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Quarter 1</A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
                                 <td class="sidebarText" align=center>somedude</td>
