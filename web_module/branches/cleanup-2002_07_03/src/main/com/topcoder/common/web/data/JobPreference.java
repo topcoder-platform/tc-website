@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class JobPreference implements Serializable, Base, Cloneable {
+public class JobPreference implements Serializable, TagRenderer, Cloneable {
 
   private int coderId;
   private Job job;

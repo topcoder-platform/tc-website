@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class Editor implements Serializable, Base {
+public class Editor implements Serializable, TagRenderer {
 
 
   private int editorId;

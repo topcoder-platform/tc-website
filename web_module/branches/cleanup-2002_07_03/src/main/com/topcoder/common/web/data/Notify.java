@@ -6,7 +6,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public final class Notify 
-  implements Serializable, Base {
+  implements Serializable, TagRenderer {
 
   private int notifyId;
   private String name;

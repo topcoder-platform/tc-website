@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class JobLevel implements Serializable, Base {
+public class JobLevel implements Serializable, TagRenderer {
 
   private int JobLevelId;
   private String JobLevelDesc;

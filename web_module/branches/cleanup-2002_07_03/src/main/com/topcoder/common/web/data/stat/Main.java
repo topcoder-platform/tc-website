@@ -4,12 +4,11 @@ import java.io.Serializable;
 import java.util.*;
 import java.sql.Date;
 import com.topcoder.shared.docGen.xml.*;
-import com.topcoder.common.web.data.Base;
 import com.topcoder.common.web.data.stat.coder.*;
 import com.topcoder.common.web.data.stat.problem.*;
 import com.topcoder.common.web.data.stat.contest.*;
 
-public final class Main implements Serializable, Base {
+public final class Main implements Serializable, TagRenderer {
 
   private int ContestId;
   private String ContestName;

@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.error.*;
 
-public final class SystemTestCaseReport implements Serializable, Base {
+public final class SystemTestCaseReport implements Serializable, TagRenderer {
 
   private Problem problem;
   private java.sql.Timestamp processingTime;
@@ -176,7 +176,7 @@ public final class SystemTestCaseReport implements Serializable, Base {
   }
   
 
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("SystemTestCaseReport");
@@ -197,7 +197,7 @@ public final class SystemTestCaseReport implements Serializable, Base {
       result.addTag( new ValueTag("Received", received.toString()) ); 
       result.addTag( new ValueTag("Viewable", viewable) );
     }catch (Exception e)  {
-      throw new TCException("common.web.data.SytemTestCaseReport getXML ERROR: " + e);
+      throw new Exception("common.web.data.SytemTestCaseReport getXML ERROR: " + e);
     }
     return result;
   }

@@ -5,7 +5,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public final class Degree 
-  implements Serializable, Cloneable, Base {
+  implements Serializable, Cloneable, TagRenderer {
 
   private int DegreeId;
   private String DegreeDesc;

@@ -6,7 +6,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 //////////////////////////////////////////////////////
-public final class SortKey implements Serializable, Base {
+public final class SortKey implements Serializable, TagRenderer {
 //////////////////////////////////////////////////////
   
   private int  key;

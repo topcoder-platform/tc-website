@@ -8,7 +8,7 @@ public final class ExperienceType
   implements 
     Serializable
     ,Cloneable
-    ,Base
+    ,TagRenderer
   {
 
   private int ExperienceTypeId;

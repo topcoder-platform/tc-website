@@ -8,7 +8,7 @@ public final class Title
   implements 
     Serializable
     ,Cloneable
-    ,Base
+    ,TagRenderer
   {
 
   private int TitleId;

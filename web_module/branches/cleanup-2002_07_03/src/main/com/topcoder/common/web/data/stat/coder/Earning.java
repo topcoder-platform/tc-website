@@ -5,7 +5,7 @@ import java.text.*;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.*;
 
-public final class Earning implements Comparable, Serializable, Base {
+public final class Earning implements Comparable, Serializable, TagRenderer {
 
   private String contestName;
   private int contestId;
@@ -150,7 +150,7 @@ public final class Earning implements Comparable, Serializable, Base {
       result.addTag( new ValueTag("FinishPosition", finishPosition));
       result.addTag( new ValueTag("Amount", amount));
       result.addTag( new ValueTag("EventDate", DateFormat.getDateInstance(DateFormat.MEDIUM).format(eventDate)) );
-      result.addTag(sort.getXML());
+      result.addTag(sort.getXML() );
     }catch (Exception e)  {
       e.printStackTrace();
       throw new Exception("common.web.data.stat.coder.Earning getXML ERROR: " + e);

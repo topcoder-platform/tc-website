@@ -5,7 +5,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public final class ContestNav
-  implements Serializable, Comparable, Base {
+  implements Serializable, Comparable, TagRenderer {
 
   private int ContestId;
   private int ContestNavId;

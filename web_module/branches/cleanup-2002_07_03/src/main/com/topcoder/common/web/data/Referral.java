@@ -6,7 +6,7 @@ import com.topcoder.common.web.constant.*;
 import com.topcoder.common.web.error.*;
 
 
-public class Referral implements Serializable, Base { //, Cloneable {
+public class Referral implements Serializable, TagRenderer { //, Cloneable {
 
   public static int INACTIVE = 0;
   public static int ACTIVE = 1;
@@ -76,17 +76,17 @@ public class Referral implements Serializable, Base { //, Cloneable {
     return statusId;
   }
 
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = getReferralXML();
     } catch (Exception e) {
-      throw new TCException("common.web.data.Referral:getXML:ERROR:\n"+e);
+      throw new Exception("common.web.data.Referral:getXML:ERROR:\n"+e);
     }
     return result;
   }
   
-  protected RecordTag getReferralXML() throws TCException {
+  protected RecordTag getReferralXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Referral");
@@ -95,7 +95,7 @@ public class Referral implements Serializable, Base { //, Cloneable {
       result.addTag(new ValueTag("Sort", sort));
       result.addTag(new ValueTag("StatusId", statusId));
     } catch (Exception e)  {
-      throw new TCException("common.web.data.Referral:getReferralXML:ERROR:\n"+e);
+      throw new Exception("common.web.data.Referral:getReferralXML:ERROR:\n"+e);
     }
     return result;
   }

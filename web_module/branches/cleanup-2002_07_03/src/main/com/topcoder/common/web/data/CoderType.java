@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class CoderType implements Cloneable, Serializable, Base {
+public class CoderType implements Cloneable, Serializable, TagRenderer {
 
 
   private int coderTypeId;

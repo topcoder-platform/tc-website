@@ -8,7 +8,7 @@ import com.topcoder.shared.docGen.xml.*;
 public class Link 
   implements 
     Serializable
-    ,Base
+    ,TagRenderer
     //,Comparable
     //,Cloneable
     //,Modifiable 
@@ -151,7 +151,7 @@ public class Link
   }
 
 
-  public RecordTag getXML () throws Exception {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Link");

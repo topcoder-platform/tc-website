@@ -8,7 +8,7 @@ import javax.naming.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.shared.docGen.xml.*;
 
-public class MemberSearch implements Base, Serializable {
+public class MemberSearch implements TagRenderer, Serializable {
 
   private String handle;
   private String state;
@@ -121,7 +121,7 @@ public class MemberSearch implements Base, Serializable {
       result.addTag( new ValueTag("MinNumRatings", minNumRatings) );
       result.addTag( new ValueTag("MaxNumRatings", maxNumRatings) );
       result.addTag( new ValueTag("IsResult", isResult));
-      result.addTag(scroll.getXML());
+      result.addTag(scroll.getXML() );
       result.addTag(RecordTag.getListXML("CoderList", coders));
     } catch (Exception e)  {
       throw new Exception("common.MemberSearch:getXML:ERROR:\n"+e);

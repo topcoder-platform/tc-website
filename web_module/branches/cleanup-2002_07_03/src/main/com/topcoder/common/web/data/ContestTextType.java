@@ -5,7 +5,7 @@ import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.error.*;
 
 
-public final class ContestTextType implements Serializable, Base {
+public final class ContestTextType implements Serializable, TagRenderer {
   private String TextType;
   private String TextTypeDesc;
 
@@ -32,14 +32,14 @@ public final class ContestTextType implements Serializable, Base {
     return TextTypeDesc;
   }
   
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("ContestTextType");
       result.addTag( new ValueTag("TextType", TextType) );
       result.addTag( new ValueTag("TextTypeDesc", TextTypeDesc) );
     }catch (Exception e)  {
-      throw new TCException("common.web.data.ContestTextType getXML ERROR: " + e);
+      throw new Exception("common.web.data.ContestTextType getXML ERROR: " + e);
     }
     return result;
   }

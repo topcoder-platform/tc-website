@@ -18,7 +18,7 @@ import com.topcoder.shared.util.logging.Logger;
 */
 ////////////////////////////////////////////////////////////////////////////
 public final class CoderRegistration extends Coder
-  implements Serializable, Base {
+  implements Serializable, TagRenderer {
 ////////////////////////////////////////////////////////////////////////////
 
   private String LastSchoolLetterCriteria;

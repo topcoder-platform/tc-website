@@ -8,7 +8,7 @@ import java.text.*;
 
 import com.topcoder.shared.docGen.xml.*;
 
-public class SearchResult implements Serializable, Base {
+public class SearchResult implements Serializable, TagRenderer {
   
   private int coderId;
   private String handle;

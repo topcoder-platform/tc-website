@@ -5,7 +5,7 @@ import java.sql.Date;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public final class EMailMessage implements Serializable, Base {
+public final class EMailMessage implements Serializable, TagRenderer {
   private int MailId;
   private String MailSubject;
   private java.sql.Date MailSentDate;

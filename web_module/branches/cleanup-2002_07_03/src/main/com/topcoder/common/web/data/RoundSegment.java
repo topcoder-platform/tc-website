@@ -8,7 +8,7 @@ import java.sql.Timestamp;
 import java.text.DecimalFormat;
 
 
-public final class RoundSegment implements Serializable, Base {
+public final class RoundSegment implements Serializable, TagRenderer {
 
 
   private int contestId;
@@ -335,7 +335,7 @@ public final class RoundSegment implements Serializable, Base {
     return this.modified;
   }
 
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       DecimalFormat fmt = new DecimalFormat ( "00" );
@@ -369,7 +369,7 @@ public final class RoundSegment implements Serializable, Base {
       result.addTag( new ValueTag("Status", status) );
       result.addTag( new ValueTag("Modified", modified) );
     }catch (Exception e)  {
-      throw new TCException("common.web.data.RoundSegment getXML ERROR: " + e);
+      throw new Exception("common.web.data.RoundSegment getXML ERROR: " + e);
     }
     return result;
   }

@@ -5,7 +5,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public final class Education 
-  implements Serializable, Cloneable, Base, Modifiable {
+  implements Serializable, Cloneable, TagRenderer, Modifiable {
 
   private int educationId;
   private int coderId;

@@ -7,7 +7,7 @@ import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.ejb.AuthenticationServices.*;
 
 
-public final class Contest implements Serializable, Base, Comparable {
+public final class Contest implements Serializable, TagRenderer, Comparable {
 
   private int contestId;
   private String contestName;

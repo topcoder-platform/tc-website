@@ -7,7 +7,7 @@ import com.topcoder.common.web.constant.*;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class JobAd implements Comparable, Serializable, Base {
+public class JobAd implements Comparable, Serializable, TagRenderer {
   
   private int JobPostingId;
   private String CompanyName;
@@ -158,7 +158,7 @@ public class JobAd implements Comparable, Serializable, Base {
         result.addTag ( new ValueTag("AdStart", AdStart)         );
       }
       if (Sort != null) {
-        result.addTag ( Sort.getXML()                            );
+        result.addTag ( Sort.getXML() );
       }
     } catch ( Exception e )  {
       throw new Exception ( "common.web.data.JobAd getXML ERROR:"+e );

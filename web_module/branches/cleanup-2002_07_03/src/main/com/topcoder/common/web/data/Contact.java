@@ -6,7 +6,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public class Contact 
-  implements Serializable, Base, QueryCriteria {
+  implements Serializable, TagRenderer, QueryCriteria {
   
   private int ContactId;
   private int CompanyId;

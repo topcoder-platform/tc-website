@@ -8,7 +8,7 @@ public final class Organization
   implements 
     Serializable
     ,Cloneable
-    ,Base
+    ,TagRenderer
   {
 
   private int OrganizationId;

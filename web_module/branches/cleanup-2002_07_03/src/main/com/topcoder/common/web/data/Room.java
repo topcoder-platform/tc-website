@@ -6,7 +6,7 @@ import com.topcoder.common.web.error.*;
 import java.util.*;
 
 
-public final class Room implements Serializable, Base {
+public final class Room implements Serializable, TagRenderer {
 	
   private int contestId;
   private int roundId;
@@ -86,7 +86,7 @@ public final class Room implements Serializable, Base {
     return this.modified;
   }
 
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Contest");
@@ -96,7 +96,7 @@ public final class Room implements Serializable, Base {
       result.addTag( new ValueTag("RoomDesc", roomDesc) );
       result.addTag( new ValueTag("Modified", modified) );
     }catch (Exception e)  {
-      throw new TCException("common.Room getXML ERROR: " + e);
+      throw new Exception("common.Room getXML ERROR: " + e);
     }
     return result;
   }

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.*;
 
 import com.topcoder.shared.docGen.xml.*;
-public final class SurveyAnswer implements Serializable, Base {
+public final class SurveyAnswer implements Serializable, TagRenderer {
 
   private int AnswerId;
   private int QuestionId;

@@ -5,7 +5,7 @@ import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.constant.*;
 
-public final class Rank implements Comparable, Serializable, Base {
+public final class Rank implements Comparable, Serializable, TagRenderer {
 
   private int rank;
   private String handle;
@@ -109,7 +109,7 @@ public final class Rank implements Comparable, Serializable, Base {
       result.addTag( new ValueTag("Handle", handle));
       result.addTag( new ValueTag("Rating", rating));
       result.addTag( new ValueTag("CoderId", coderId));
-      result.addTag( sort.getXML());
+      result.addTag( sort.getXML() );
     }catch (Exception e)  {
       throw new Exception("common.web.data.stat.coder.Rank getXML ERROR: " + e);
     }

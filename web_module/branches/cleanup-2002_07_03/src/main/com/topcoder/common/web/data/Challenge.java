@@ -10,7 +10,7 @@ import java.text.DecimalFormat;
 import java.sql.Timestamp;
 
 public final class Challenge
-  implements Serializable, Base {
+  implements Serializable, TagRenderer {
 
   private static final int JAVA = 1;
   private static final int UNSUCCESSFUL_CHALLENGE = -50;
@@ -331,19 +331,19 @@ public final class Challenge
     return str.toString();
   }
 
-  public RecordTag getXML() throws TCException {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Challenge");
       result.addTag( new ValueTag("ChallengeId", challengeId) );
       result.addTag( new ValueTag("ContestId", contestId));
       result.addTag( new ValueTag("RoundId", roundId));
-      result.addTag( room.getXML()  );
+      result.addTag( room.getXML() );
       result.addTag( new ValueTag("ChallengerId", challengerId) );
       result.addTag( new ValueTag("ChallengerName", chalHandle) );
       result.addTag( new ValueTag("DefendantId", defendantId) );
       result.addTag( new ValueTag("DefendantName", defHandle) );
-      result.addTag( problem.getXML()  );
+      result.addTag( problem.getXML() );
       result.addTag( new ValueTag("Language", language ) );
       result.addTag( new ValueTag("ExpectedResult", Conversion.checkNull(StringUtilities.makePretty(expectedResult))));
       result.addTag( new ValueTag("ExpectedResultType", expectedResultType) );
@@ -361,7 +361,7 @@ public final class Challenge
       result.addTag( new ValueTag("Args", Conversion.checkNull(StringUtilities.makePretty(args))));
       result.addTag( new ValueTag("SubmitTime", new java.sql.Timestamp(submitTime).toString()) );
     }catch (Exception e)  {
-      throw new TCException("common.web.data.Challenge getXML ERROR: " + e);
+      throw new Exception("common.web.data.Challenge getXML ERROR: " + e);
     }
     return result;
   }

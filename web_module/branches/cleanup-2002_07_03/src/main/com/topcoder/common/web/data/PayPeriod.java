@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class PayPeriod implements Serializable, Base {
+public class PayPeriod implements Serializable, TagRenderer {
 
   private int PayPeriodId;
   private String PayPeriodDesc;

@@ -5,7 +5,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public final class SkillType 
-  implements Serializable, Cloneable, Base {
+  implements Serializable, Cloneable, TagRenderer {
 
   private int SkillTypeId;
   private String SkillTypeDesc;

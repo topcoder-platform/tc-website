@@ -6,7 +6,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 //////////////////////////////////////////////////////
-public final class Scroll implements Serializable, Base {
+public final class Scroll implements Serializable, TagRenderer {
 //////////////////////////////////////////////////////
   
   private boolean Next;

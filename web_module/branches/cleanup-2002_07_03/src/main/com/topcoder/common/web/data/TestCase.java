@@ -4,7 +4,7 @@ package com.topcoder.common.web.data;
   import java.io.Serializable;
   import com.topcoder.shared.docGen.xml.*;
 
-   public final class TestCase implements Serializable, Base {
+   public final class TestCase implements Serializable, TagRenderer {
 
      private int problemId;
      private int testCaseId;

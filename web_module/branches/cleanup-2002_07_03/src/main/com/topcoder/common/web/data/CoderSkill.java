@@ -6,7 +6,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public final class CoderSkill 
-  implements Serializable, Cloneable, Comparable, Base, Modifiable {
+  implements Serializable, Cloneable, Comparable, TagRenderer, Modifiable {
 
   private int CoderId;
   private Skill Skill;

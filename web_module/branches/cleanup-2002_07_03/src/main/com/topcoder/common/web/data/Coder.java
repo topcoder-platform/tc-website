@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.common.web.util.*;
 
-public class Coder implements Serializable, Base {
+public class Coder implements Serializable, TagRenderer {
   
   private int coderId;
   private String firstName;

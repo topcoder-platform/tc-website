@@ -9,7 +9,7 @@ public class DemographicResponse
   implements 
     Cloneable
     ,Serializable
-    ,Base
+    ,TagRenderer
     ,Modifiable {
 
 

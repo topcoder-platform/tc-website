@@ -5,7 +5,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
 public final class Region 
-  implements Serializable, Cloneable, Base, QueryCriteria {
+  implements Serializable, Cloneable, TagRenderer, QueryCriteria {
 
   private String RegionCode;
   private Country Country;

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import com.topcoder.shared.docGen.xml.*;
 
 public class CorporateContact
-  implements Serializable, Base, QueryCriteria {
+  implements Serializable, TagRenderer, QueryCriteria {
 
   private int CorporateContactId;
   private ContactSubject ContactSubject;

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class DemographicQuestion implements Serializable, Base, Cloneable {
+public class DemographicQuestion implements Serializable, TagRenderer, Cloneable {
 
 
   private int demographicQuestionId;

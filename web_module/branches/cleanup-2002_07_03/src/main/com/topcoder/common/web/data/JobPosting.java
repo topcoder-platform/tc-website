@@ -6,7 +6,7 @@ import com.topcoder.shared.docGen.xml.*;
 
 
 public class JobPosting
-  implements Serializable, Base, Modifiable {
+  implements Serializable, TagRenderer, Modifiable {
 
   private int jobPostingId;
   private int subscriberId;
@@ -360,13 +360,13 @@ public class JobPosting
       result.addTag(new ValueTag("Title", title));
       result.addTag(new ValueTag("SalaryMin", salaryMin));
       result.addTag(new ValueTag("SalaryMax", salaryMax));
-      result.addTag(payPeriod.getXML());
-      result.addTag(jobLevel.getXML());
-      result.addTag(job.getXML());
+      result.addTag(payPeriod.getXML() );
+      result.addTag(jobLevel.getXML() );
+      result.addTag(job.getXML() );
       result.addTag(new ValueTag("Description", description));
       result.addTag(new ValueTag("City", city));
-      result.addTag(state.getXML());
-      result.addTag(country.getXML());
+      result.addTag(state.getXML() );
+      result.addTag(country.getXML() );
       result.addTag(new ValueTag("Ad", ad));
       result.addTag(new ValueTag("Status", status));
       result.addTag(new ValueTag("AdStart", adStart));
@@ -386,7 +386,7 @@ public class JobPosting
       result.addTag(new ValueTag("AdPhone", adPhone));
       result.addTag(new ValueTag("AdFax", adFax));
       result.addTag(new ValueTag("AdEmail", adEmail));
-      result.addTag(billingContact.getXML());
+      result.addTag(billingContact.getXML() );
       result.addTag(new ValueTag("Modified", modified));
     } catch ( Exception e )  {
       throw new Exception (

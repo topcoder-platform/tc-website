@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.shared.util.logging.Logger;
 
-public final class Forum implements Serializable, Base {
+public final class Forum implements Serializable, TagRenderer {
 
   private int ForumId;
   private String ForumName;

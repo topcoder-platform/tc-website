@@ -6,7 +6,7 @@ import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.constant.*;
 import com.topcoder.shared.docGen.xml.*;
 
-public final class Coder implements Serializable, Base, Comparable {
+public final class Coder implements Serializable, TagRenderer, Comparable {
 
   private int coderId;
   private String handle;
@@ -482,7 +482,7 @@ public final class Coder implements Serializable, Base, Comparable {
         result.addTag(new ValueTag("MemberSince", DateFormat.getDateInstance(DateFormat.LONG).format(memberSince)));
       }
       if (sort != null) {
-        result.addTag(sort.getXML());
+        result.addTag(sort.getXML() );
       }
       result.addTag(new ValueTag("TotalEarnings", totalEarnings));
       result.addTag(new ValueTag("NumCompetitions", numCompetitions));

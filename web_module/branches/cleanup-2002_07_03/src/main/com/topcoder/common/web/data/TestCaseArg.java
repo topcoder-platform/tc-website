@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 
-public final class TestCaseArg implements Serializable, Base {
+public final class TestCaseArg implements Serializable, TagRenderer {
 
   private int problemId;
   private int testCaseId;

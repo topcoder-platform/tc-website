@@ -5,7 +5,7 @@ import java.sql.Date;
 import com.topcoder.shared.docGen.xml.*;
 
 
-public class ContactMail implements Serializable, Base {
+public class ContactMail implements Serializable, TagRenderer {
 
   private int MailId;
   private ContactSubject ContactSubject;

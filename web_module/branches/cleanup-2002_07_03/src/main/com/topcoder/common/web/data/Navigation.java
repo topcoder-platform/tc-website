@@ -417,13 +417,13 @@ public final class Navigation
       result.addTag( new ValueTag("Serializable", serializable) );
       result.addTag( browser.getXML() );
       if (serializable) {
-        result.addTag(userSerializable.getXML());
+        result.addTag(userSerializable.getXML() );
       } else {
-        result.addTag(user.getXML());
+        result.addTag(user.getXML() );
       }
       RecordTag objectsTag = new RecordTag("SessionObjects");
       for (Iterator objects = sessionObjects.values().iterator(); objects.hasNext(); ) {
-        objectsTag.addTag( ((Base)objects.next()).getXML() );
+        objectsTag.addTag( ((TagRenderer)objects.next()).getXML() );
       }
       result.addTag(objectsTag); 
       result.addTag( new ValueTag("NewNav", newNav) );

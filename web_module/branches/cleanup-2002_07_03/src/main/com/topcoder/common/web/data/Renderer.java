@@ -8,7 +8,7 @@ import com.topcoder.shared.docGen.xml.*;
 public class Renderer 
   implements 
     Serializable
-    ,Base
+    ,TagRenderer
     //,Comparable
     //,Cloneable
     //,Modifiable 
@@ -141,7 +141,7 @@ public class Renderer
   }
 
 
-  public RecordTag getXML () throws Exception {
+  public RecordTag getXML() throws Exception {
     RecordTag result = null;
     try {
       result = new RecordTag("Renderer");

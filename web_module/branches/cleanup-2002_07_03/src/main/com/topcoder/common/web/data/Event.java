@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import com.topcoder.shared.docGen.xml.*;
 
-public class Event implements Serializable, Base {
+public class Event implements Serializable, TagRenderer {
 
   private int EventId;
   private int EventTypeId;

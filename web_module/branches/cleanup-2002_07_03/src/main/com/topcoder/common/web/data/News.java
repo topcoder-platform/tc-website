@@ -8,7 +8,7 @@ import com.topcoder.shared.docGen.xml.*;
 public class News 
   implements 
     Serializable 
-    ,Base 
+    ,TagRenderer 
     ,Comparable 
     ,QueryCriteria 
     ,Modifiable 
