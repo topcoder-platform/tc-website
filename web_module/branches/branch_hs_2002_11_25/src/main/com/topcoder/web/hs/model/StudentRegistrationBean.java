@@ -11,17 +11,21 @@ public class StudentRegistrationBean implements Serializable {
 
   private String state_code=null;
 
-  private Integer school_id=null;
+  private String school_id=null;
 
   private String handle=null;
 
   private String password=null;
 
+  private String confirm_password=null;
+
   private String email=null;
 
-  private Integer editor_id=null;
+  private String confirm_email=null;
 
-  private Integer language_id=null;
+  private String editor_id=null;
+
+  private String language_id=null;
 
   private List state_list=null;
 
@@ -59,11 +63,11 @@ public class StudentRegistrationBean implements Serializable {
     state_code=_state_code;
   }
 
-  public Integer getSchoolId() {
+  public String getSchoolId() {
     return(school_id);
   }
 
-  public void setSchoolId(Integer _school_id) {
+  public void setSchoolId(String _school_id) {
     school_id=_school_id;
   }
 
@@ -75,6 +79,22 @@ public class StudentRegistrationBean implements Serializable {
     handle=_handle;
   }
 
+  public String getPassword() {
+    return(password);
+  }
+
+  public void setPassword(String _password) {
+    password=_password;
+  }
+
+  public String getConfirmPassword() {
+    return(confirm_password);
+  }
+
+  public void setConfirmPassword(String _confirm_password) {
+    confirm_password=_confirm_password;
+  }
+
   public String getEmail() {
     return(email);
   }
@@ -83,19 +103,60 @@ public class StudentRegistrationBean implements Serializable {
     email=_email;
   }
 
-  public Integer getEditorId() {
+  public String getConfirmEmail() {
+    return(confirm_email);
+  }
+
+  public void setConfirmEmail(String _confirm_email) {
+    confirm_email=_confirm_email;
+  }
+
+  public String getEditorId() {
     return(editor_id);
   }
 
-  public void setEditorId(Integer _editor_id) {
+  public void setEditorId(String _editor_id) {
     editor_id=_editor_id;
   }
 
-  public Integer getLanguageId() {
+  public String getLanguageId() {
     return(language_id);
   }
 
-  public void setLanguageId(Integer _language_id) {
+  public void setLanguageId(String _language_id) {
     language_id=_language_id;
   }
+
+  public List getStateList() {
+    return(state_list);
+  }
+
+  public void setStateList(List _state_list) {
+    state_list=_state_list;
+  }
+
+  public List getSchoolList() {
+    return(school_list);
+  }
+
+  public void setSchoolList(List _school_list) {
+    school_list=_school_list;
+  }
+
+  public List getEditorList() {
+    return(editor_list);
+  }
+
+  public void setEditorList(List _editor_list) {
+    editor_list=_editor_list;
+  }
+
+  public List getLanguageList() {
+    return(language_list);
+  }
+
+  public void setLanguageList(List _language_list) {
+    language_list=_language_list;
+  }
+
 };
