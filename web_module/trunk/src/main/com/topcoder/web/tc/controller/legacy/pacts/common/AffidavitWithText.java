@@ -14,17 +14,17 @@ public class AffidavitWithText {
     private boolean hasTaxForm=false;
     private boolean hasNotarizedAffidavit=false;
     private boolean hasAllDemographicAnswers=false;
-    public long daysLeft;  // the number of days left that it can be affirmed online
+    //public long daysLeft;  // the number of days left that it can be affirmed online
 
     public AffidavitWithText() {
         affidavit = new Affidavit();
         affidavitText = new String("");
         payment = new Payment();
-        daysLeft = 0;
+        //daysLeft = 0;
     }
 
     public boolean canAffirmOnline() {
-        return hasTaxForm && hasNotarizedAffidavit && hasAllDemographicAnswers && daysLeft>0;
+        return hasTaxForm && hasNotarizedAffidavit && hasAllDemographicAnswers && affidavit._daysLeftToAffirm>0;
     }
 
     public boolean hasTaxForm() {

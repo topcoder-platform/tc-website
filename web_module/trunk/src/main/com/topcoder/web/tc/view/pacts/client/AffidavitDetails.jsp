@@ -92,7 +92,7 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
         <li>You do not have a tax form on file.</li>
       <% } else if (!a.hasAllDemographicAnswers()) { %>
         <li>Your demographic answers are incomplete.</li>
-      <% } else if (a.daysLeft<=0) { %>
+      <% } else if (a.affidavit._daysLeftToAffirm<=0) { %>
         <li>This affidavit has expired.</li>
       <% } %>
       </ul>
