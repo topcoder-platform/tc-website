@@ -77,6 +77,11 @@ public class Constants {
     public static String DEMO_REG_SUCCESS_PAGE;
     public static String DEMO_ACTIVATION_PAGE;
     
+    public static String AMAZON_REG_PAGE;
+    public static String AMAZON_REG_DEMOG_PAGE;
+    public static String AMAZON_REG_CONFIRM_PAGE;
+    public static String AMAZON_REG_SUCCESS_PAGE;
+    
     public static int QUESTION_AREAS_OF_INTEREST;
 
     //main reg parameters
@@ -160,6 +165,10 @@ public class Constants {
     public static String DEMO_REG_CONFIRM;
     public static String DEMO_REG_SUBMIT;
     public static String DEMO_ACTIVATION;
+    public static String AMAZON_REG_MAIN;
+    public static String AMAZON_REG_DEMOG;
+    public static String AMAZON_REG_CONFIRM;
+    public static String AMAZON_REG_SUBMIT;
     
     public static String BROOKS_REFERRAL_QUESTION_ID;
 
