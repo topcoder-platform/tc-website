@@ -58,6 +58,25 @@
             <description></description>
         </init-param>
 
+        <!-- processor mappings -->
+        <init-param>
+            <param-name>Results</param-name>
+            <param-value>survey.Results</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>Submit</param-name>
+            <param-value>survey.Submit</param-value>
+            <description></description>
+        </init-param>
+
+        <init-param>
+            <param-name>View</param-name>
+            <param-value>survey.View</param-value>
+            <description></description>
+        </init-param>
+
 
         <init-param>
             <param-name>static_prefix</param-name>
