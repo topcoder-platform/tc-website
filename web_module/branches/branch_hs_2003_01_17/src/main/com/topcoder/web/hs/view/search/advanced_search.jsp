@@ -7,8 +7,8 @@
 <FORM METHOD="get" name="advForm">
  <INPUT TYPE="hidden" NAME="module" VALUE="Search">
  <INPUT TYPE="hidden" NAME="cmd" VALUE="adv">
- <INPUT TYPE="hidden" NAME="prev" VALUE="<jsp:getProperty name="search" property="Prev"/>">
- <INPUT TYPE="hidden" NAME="next" VALUE="<jsp:getProperty name="search" property="Next"/>">
+ <INPUT TYPE="hidden" NAME="start" VALUE="<jsp:getProperty name="search" property="Start"/>">
+ <INPUT TYPE="hidden" NAME="end" VALUE="<jsp:getProperty name="search" property="End"/>">
  <TABLE WIDTH="100%" CELLPADDING="0" CELLSPACING="0" BORDER="0">
   <TR>
    <TD COLSPAN="4" BACKGROUND="/i/steel_darkblue_bg.gif"><IMG SRC="/i/hs/clear.gif" HEIGHT="4" WIDTH="1" BORDER="0"></TD>
