@@ -28,7 +28,7 @@
                         <INPUT type="hidden" name='<%=Constants.MODULE_KEY%>' value='Search'/>
                           <jsp:include page="searchForm.jsp"/>
                           <jsp:include page="resultsForm.jsp"/>
-                      </form>
+                      </screen:form>
 <P><BR/></P>
 </td> 
 
