@@ -3,9 +3,9 @@ package com.topcoder.web.tces.servlet;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.tces.bean.Task;
+import com.topcoder.web.tces.bean.Authentication;
 import com.topcoder.web.tces.common.TCESConstants;
 import com.topcoder.web.tces.common.TCESAuthenticationException;
-import com.topcoder.web.tces.common.Authentication;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletException;
