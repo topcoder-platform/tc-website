@@ -45,7 +45,7 @@
                 <li><strong>Open to all eligible college students over the age of 18.</strong></li>
             </ul>
             
-            See the official rules and regulations for more details.
+            See the official <A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_rules">rules and regulations</A> for more details.
 
         </div>
 		</td>
