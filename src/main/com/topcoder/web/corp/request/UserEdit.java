@@ -121,17 +121,17 @@ public class UserEdit extends BaseProcessor {
             icEJB = (InitialContext)TCContext.getInitial();
             storeUserDataIntoDB(icEJB);
 
-            tx.commit();
             secTx.commit();
+            tx.commit();
         } catch (Exception exc) {
             //rollbackHelper(tx);
             try {
-                tx.rollback();
+                secTx.rollback();
             } catch (Exception e) {
                 e.printStackTrace();
             }
             try {
-                secTx.rollback();
+                tx.rollback();
             } catch (Exception e) {
                 e.printStackTrace();
             }
