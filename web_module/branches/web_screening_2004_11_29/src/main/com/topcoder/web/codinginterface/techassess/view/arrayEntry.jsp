@@ -1,4 +1,4 @@
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@ page import="com.topcoder.web.codinginterface.CodingInterfaceConstants"%><!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 
 <html>
   <head>
@@ -59,7 +59,7 @@
             displayArgType = getValue("window.opener.document.frmTesting", "arrayDisplayArgType");
 
             //load data
-            var tmpVal = getValue("window.opener.document.forms[0]", "arg" + arg);
+            var tmpVal = getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + arg);
             document.frmArray.inputText.value = tmpVal;
             addBrackets();
 
@@ -78,13 +78,8 @@
 
                 arr = arr.substring(0, arr.length-1);
 
-                putValue("window.opener.document.forms[0]", "arg" + arg, arr);
-                <%--
-                figure out how to indicate that we're modifying.  this is tricky cuz we're using
-                a button for array entry and text input item for non arrays.  i guess we'd have
-                the dynamically change the src for the image.
-                putValue("window.opener.document.forms[0]", "arg" + arg + "input", "modify");
-                --%>
+                putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + arg, arr);
+                window.opener.setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + arg);
 
                 window.close();
                 window.opener.focus();

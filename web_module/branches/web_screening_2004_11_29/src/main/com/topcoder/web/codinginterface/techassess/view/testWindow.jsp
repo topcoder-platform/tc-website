@@ -28,16 +28,18 @@
           <input type="hidden" name="arrayArg" value=0 />
           <input type="hidden" name="arrayArgType" value="" />
           <input type="hidden" name="arrayDisplayArgType" value="" />
-        <!-- this will be dynamically written out by the backend for this page -->
         <table border=0 width="100%">
             <ci:argumentIterator problem="prob" language="language">
-                <input type="hidden" name="arg<%=argumentIndex%>input" value="" />
                 <tr>
                     <td>
                         <%=StringUtils.htmlEncode(argument)%>
                     </td>
                     <td>
-                        <%=inputElement%>
+                        <% if (Integer.parseInt(argumentDimension)>0) { %>
+                          <a href="Javascript:launchArray(<%=argumentIndex%>);"><img id="<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT + argumentIndex%>" src="/i/corp/screening/buttonCreate.gif" alt="Create"/></a>
+                        <% } else { %>
+                          <input type="text" name="<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT + argumentIndex%>" size="20" maxlength="50" value=""/>
+                        <% }%>
                     </td>
                 </tr>
             </ci:argumentIterator>
@@ -67,23 +69,21 @@
             for(var i = 0; i < numArgs; i++) {
                 switch(argTypes[i]) {
                     case "String[]":
-<%--                figure out how to indicate that we're modifying.  this is tricky cuz we're using
-                a button for array entry and text input item for non arrays.  i guess we'd have
-                the dynamically change the src for the image.
-
-                        if(getValue("window.opener.document.forms[0]", "arg" + i) != "") {
-                            putValue("document.frmTesting", "arg" + i + "input", "modify");
+                        if(getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i) != "") {
+                            setModify("<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
                         }
---%>
                         break;
                     case "int":
-                        putValue("document.frmTesting", "arg" + i + "input", getValue("window.opener.document.forms[0]", "arg" + i));
+                        putValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i, getValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i));
                         break;
                     default:
                         break;
                 }
             }
 
+            function setModify(name) {
+                function putAttrib("document.frmTesting", name, "src", "/i/corp/screening/buttonModify.gif") {
+            }
 
             function launchArray(id) {
                 if(windowHandle && !windowHandle.closed) {
@@ -105,7 +105,7 @@
             function ok() {
                 //validate
                 for(var i = 0; i < numArgs; i++) {
-                    var val = getValue("document.frmTesting", "arg" + i + "input");
+                    var val = getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
                     switch(argTypes[i]) {
                         case "String[]":
                             break;
@@ -113,7 +113,7 @@
                         case "long":
                             if(val == "" || isNaN(parseInt(val))) {
                                 alert("Argument " + (i+1) + " must be a valid integer.");
-                                doFocus("document.frmTesting", "arg" + i + "input");
+                                doFocus("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
                                 return;
                             }
                             break;
@@ -121,14 +121,14 @@
                         case "double":
                             if(val == "" || isNaN(parseFloat(val))) {
                                 alert("Argument " + (i+1) + " must be a valid double.");
-                                doFocus("document.frmTesting", "arg" + i + "input");
+                                doFocus("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
                                 return;
                             }
                             break;
                         case "boolean":
                             if(val.toLowerCase() != "true" && val.toLowerCase() != "false") {
                                 alert("Argument " + (i+1) + " must be either true or false.");
-                                doFocus("document.frmTesting", "arg" + i + "input");
+                                doFocus("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i);
                                 return;
                             }
                             break;
@@ -141,7 +141,7 @@
                 //put values in hidden fields
                 //we put it in the parent so that they can close the testing window and still have the values around.
                 for(var i = 0; i < numArgs; i++) {
-                    alert("put " + getValue("document.frmTesting", "arg" + i + "input").toLowerCase() + " in for arg " + i);
+                    alert("put " + getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase() + " in for arg " + i);
                     switch(argTypes[i]) {
                         case "String[]":
                         case "int[]":
@@ -150,20 +150,20 @@
                             break;
                         case "int":
                         case "long":
-                            putValue("window.document.forms[0]", "arg" + i, parseInt(getValue("document.frmTesting", "arg" + i + "input")));
-                            putValue("window.opener.document.forms[0]", "arg" + i, parseInt(getValue("document.frmTesting", "arg" + i + "input")));
+                            putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseInt(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
+                            putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseInt(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
                             break;
                         case "double":
-                            putValue("window.document.forms[0]", "arg" + i, parseFloat(getValue("document.frmTesting", "arg" + i + "input")));
-                            putValue("window.opener.document.forms[0]", "arg" + i, parseFloat(getValue("document.frmTesting", "arg" + i + "input")));
+                            putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseFloat(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
+                            putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, parseFloat(getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i)));
                             break;
                         case "boolean":
-                            putValue("window.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input"));
-                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input"));
+                            putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
+                            putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i));
                             break;
                         default:
-                            putValue("window.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input").toLowerCase());
-                            putValue("window.opener.document.forms[0]", "arg" + i, getValue("document.frmTesting", "arg" + i + "input").toLowerCase());
+                            putValue("window.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase());
+                            putValue("window.opener.document.forms[0]", "<%=CodingInterfaceConstants.TEST_ARGUMENT%>" + i, getValue("document.frmTesting", "<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT%>" + i).toLowerCase());
                             break;
                     }
                 }
@@ -175,6 +175,16 @@
             function cancel() {
                 window.close();
                 window.opener.focus();
+            }
+            function submitEnter(e) {
+                var keycode;
+                if (window.event) keycode = window.event.keyCode;
+                else if (e) keycode = e.which;
+                else return true;
+                if (keycode == 13) {
+                    window.document.frmTesting.submit();
+                    return false;
+                } else return true;
             }
         </script>
         </form>
