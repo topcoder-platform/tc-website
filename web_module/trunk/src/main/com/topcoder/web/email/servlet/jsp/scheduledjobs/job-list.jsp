@@ -1,4 +1,5 @@
 <%@ page import="com.topcoder.web.email.servlet.*" %>
+<%@ taglib uri="/email-taglib.tld" prefix="email"%>
 <jsp:useBean id="JobList" scope="session" class="java.util.ArrayList"/>
 
 
