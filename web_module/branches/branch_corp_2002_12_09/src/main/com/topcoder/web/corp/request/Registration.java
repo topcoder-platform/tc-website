@@ -67,10 +67,6 @@ public class Registration extends BaseRegistration {
     private String zip;
     private String country;
 
-    
-    private boolean stateFieldEmpty = false;
-    private boolean countryFieldEmpty = false;
-    
     public Registration() {
         pageInContext = true;
         // For this processor next page is always in the context. It is either
@@ -82,14 +78,21 @@ public class Registration extends BaseRegistration {
      * @see com.topcoder.web.common.AbstractRequestProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
-        // for all methods except POST
-        //just return form to the user
+        // for all methods except POST just return form to the user
+        // depending on whether user is primary person or regular user
+        boolean userKnown = ! authToken.getActiveUser().isAnonymous();
+        boolean isPrimaryPerson = isPrimaryContact(); 
         if( ! "POST".equals(request.getMethod()) ) {
-            // if it ts primary contact, then send user to the UserEdit module
-            if( ! isPrimaryContact() ) {
-                nextPage = Constants.USEREDIT_PAGE_RETRY;
+            if( userKnown ) {
+                if( isPrimaryPerson ) { // populate from db primary data
+                    retrieveFromDB(authToken.getActiveUser().getId());
+                    nextPage = Constants.REGISTRATION_PAGE_RETRY;
+                }
+                else { // populate from db regular user 
+                    nextPage = Constants.USEREDIT_PAGE_RETRY;
+                }
             }
-            else {
+            else { // return empty primary contact registration form
                 nextPage = Constants.REGISTRATION_PAGE_RETRY;
             }
             return;
@@ -116,16 +119,6 @@ public class Registration extends BaseRegistration {
         email          = (String) request.getParameter(KEY_EMAIL);
         email2         = (String) request.getParameter(KEY_EMAIL2);
         
-        try {
-            stateFieldEmpty = Integer.parseInt(state) == -1;
-        }
-        catch(Exception ignore ) {}
-        
-        try {
-            countryFieldEmpty = Integer.parseInt(country) == -1;
-        }
-        catch(Exception ignore ) {}
-
         boolean formDataValid = isValid();
         if( formDataValid ) {
             log.debug("data entered seem to be valid");
@@ -326,13 +319,9 @@ public class Registration extends BaseRegistration {
             addrTable.setAddress1(addrID, compAddress1);
             addrTable.setAddress2(addrID, compAddress2);
             addrTable.setCity(addrID, city);
-            if( !stateFieldEmpty ) {
-                addrTable.setStateCode(addrID, state);
-            }
+            addrTable.setStateCode(addrID, state);
             addrTable.setZip(addrID, zip);
-            if( ! countryFieldEmpty ) {
-                addrTable.setCountryCode(addrID, country);
-            }
+            addrTable.setCountryCode(addrID, country);
             
             // link address to the user
             UserAddress xrefUserAddr = (
@@ -458,4 +447,54 @@ public class Registration extends BaseRegistration {
         }
     }
     
+    /**
+     * Fetches a few fields required for primary person. These are Title,
+     * Company, Address, City, State, Zip, Country
+     */
+    protected void retrieveAdditionalFields(InitialContext icEJB, long userID)
+    throws NamingException, RemoteException, CreateException
+    {
+        // title item for user
+        Contact contactTable = (
+            (ContactHome)icEJB.lookup(ContactHome.EJB_REF_NAME)
+        ).create();
+        long companyID = contactTable.getCompanyId(userID);
+        title = contactTable.getTitle(userID);
+        setFormFieldDefault(KEY_TITLE, title);
+        
+        // company item for user
+        Company companyTable = (
+            (CompanyHome)icEJB.lookup(CompanyHome.EJB_REF_NAME)
+        ).create();
+        company = companyTable.getName(companyID);
+        setFormFieldDefault(KEY_COMPANY, company);
+        
+        // address item for user
+        UserAddress xrefUserAddr = (
+            (UserAddressHome)icEJB.lookup(UserAddressHome.EJB_REF_NAME)
+        ).create();
+        long addrID = 101; // until next method implemented
+//        addrID = xrefUserAddr.getAddressID(userID);
+        
+        Address addrTable = (
+            (AddressHome)icEJB.lookup(AddressHome.EJB_REF_NAME)
+        ).create();
+        compAddress1 = addrTable.getAddress1(addrID);
+        setFormFieldDefault(KEY_ADDRLINE1, compAddress1);
+        
+        compAddress2 = addrTable.getAddress2(addrID);
+        setFormFieldDefault(KEY_ADDRLINE2, compAddress2);
+        
+        city = addrTable.getCity(addrID);
+        setFormFieldDefault(KEY_CITY, city);
+        
+        state = addrTable.getStateCode(addrID);
+        setFormFieldDefault(KEY_STATE, state);
+        
+        zip = addrTable.getZip(addrID);
+        setFormFieldDefault(KEY_ZIP, zip);
+        
+        country = addrTable.getCountryCode(addrID);
+        setFormFieldDefault(KEY_COUNTRY, country);
+    }
 }

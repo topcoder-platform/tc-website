@@ -3,6 +3,7 @@ package com.topcoder.web.corp.request;
 import java.rmi.RemoteException;
 
 import javax.ejb.CreateException;
+import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.transaction.Transaction;
 
@@ -12,7 +13,14 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.web.common.StringUtils;
+import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.ejb.phone.Phone;
+import com.topcoder.web.ejb.phone.PhoneHome;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserHome;
 
 /**
  * This class contains some common methods for form processing
@@ -33,9 +41,6 @@ abstract class BaseRegistration extends BaseProcessor {
     public static final String KEY_EMAIL        = "email";
     public static final String KEY_EMAIL2       = "email-once-more";
     
-    
-    
-    
     protected String firstName;
     protected String lastName;
     protected String userName;
@@ -44,7 +49,6 @@ abstract class BaseRegistration extends BaseProcessor {
     protected String password2;
     protected String email;
     protected String email2;
-    
     
     /**
      * simplified validity check - does not use alphabets
@@ -287,5 +291,74 @@ abstract class BaseRegistration extends BaseProcessor {
         );
         return valid;
     }
-    
+
+    /**
+     * Fetches entire form field set. Base fiesld are quyeried here and
+     * additional will be populated in supplyed by subclass method
+     * retrieveAdditionalFields
+     * 
+     * @param userID
+     * @throws Exception
+     */ 
+    protected void retrieveFromDB(long userID) throws Exception {
+        PrincipalMgrRemote mgr = null;
+        InitialContext icEJB = null;
+        Transaction tx = null;
+        UserPrincipal securityUser = null;
+        boolean createNewUser = userID < 0;
+        try {
+            mgr = Util.getPrincipalManager();
+            securityUser = mgr.getUser(userID);
+
+            setFormFieldDefault(KEY_LOGIN, securityUser.getName());
+            String passw = mgr.getPassword(userID);
+            setFormFieldDefault(KEY_PASSWORD, passw);
+            setFormFieldDefault(KEY_PASSWORD2, passw);
+            request.setAttribute(KEY_TARGET_USER_ID, ""+userID);
+
+            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
+
+            // user first, last names
+            User userTable = (
+                (UserHome)icEJB.lookup(UserHome.EJB_REF_NAME)
+            ).create();
+            firstName = userTable.getFirstName(userID);
+            setFormFieldDefault(KEY_FIRSTNAME, firstName);
+            lastName = userTable.getLastName(userID);
+            setFormFieldDefault(KEY_LASTNAME, lastName);
+
+            // email for user
+            Email emailTable = (
+                (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
+            ).create();
+            long emailID = emailTable.getPrimaryEmailId(userID);
+            email = emailTable.getAddress(emailID);
+            setFormFieldDefault(KEY_EMAIL, email);
+            email2 = email;
+            setFormFieldDefault(KEY_EMAIL2, email2);
+
+            // phone
+            Phone phoneTable = (
+                (PhoneHome)icEJB.lookup(PhoneHome.EJB_REF_NAME)
+            ).create();
+            long phoneID = phoneTable.getPrimaryPhoneId(userID);
+            phone = phoneTable.getNumber(phoneID);
+            setFormFieldDefault(KEY_PHONE, phone);
+            
+            retrieveAdditionalFields(icEJB, userID);
+        }
+        finally {
+            Util.closeIC(icEJB);
+        }
+    }
+ 
+    /**
+     * Populates additional fields is requered by subclass
+     * @param ic
+     */ 
+    protected abstract void retrieveAdditionalFields(
+        InitialContext ic,
+        long userID
+    )
+    throws Exception;
 }

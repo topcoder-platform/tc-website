@@ -1,7 +1,9 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@page import="com.topcoder.web.corp.request.Registration,
-                com.topcoder.web.corp.Constants" %>
+                com.topcoder.web.corp.Constants,
+                java.util.HashMap,
+                com.topcoder.web.common.tag.BaseTag" %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
@@ -118,6 +120,11 @@
     <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="prim-company-city" size="30" maxlength="30"/></TD>
   </TR>
 
+<% HashMap defaults = (HashMap)request.getAttribute(BaseTag.CONTAINER_NAME_FOR_DEFAULTS);
+   String defaultState = (defaults==null?null: (String)defaults.get("prim-company-state"));
+   String defaultCountry = (defaults==null?null: (String)defaults.get("prim-company-country"));
+   boolean selected;
+%>
 <!-- STATE/PROVINCE -->
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -131,7 +138,8 @@
         <select name="prim-company-state">
             <option value="-1"></option>
             <tc-webtag:queryIterator command="cmd-states-list" id="resultRow">
-              <option value="<%=resultRow.getItem("state_code")%>"><%=resultRow.getItem("state_name")%></option>
+              <% String stateCode = resultRow.getItem("state_code").toString(); selected = stateCode.equals(defaultState); %>
+              <option value="<%=stateCode%>"<%=selected?"selected":""%>><%=resultRow.getItem("state_name")%></option>
             </tc-webtag:queryIterator>
         </select>
     </TD>
@@ -156,13 +164,16 @@
              <tc-webtag:errorIterator id="err" refname="prim-company-country"><%=err%><br></tc-webtag:errorIterator>
         </TD>
     </TR>
+
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>Country</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
         <select name="prim-company-country">
             <option value="-1"></option>
+
             <tc-webtag:queryIterator command="cmd-countries-list" id="resultRow">
-              <option value="<%=resultRow.getItem("country_code")%>"><%=resultRow.getItem("country_name")%></option>
+              <% String countryCode = resultRow.getItem("country_code").toString(); selected = countryCode.equals(defaultCountry); %>
+              <option value="<%=countryCode%>"<%=selected?"selected":""%>><%=resultRow.getItem("country_name")%></option>
             </tc-webtag:queryIterator>
         </select>
     </TD>
@@ -188,7 +199,11 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
     </TR>
-
+    <% String id = (String)request.getAttribute("id");
+       if( id != null ) { %>
+          <input type="hidden" name="id" value="<%=id%>"/>
+       <%
+       }%>
 <!-- LOGIN -->
     <TR>
         <TD></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
@@ -198,7 +213,7 @@
     </TR>
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>User Name</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput name="username" size="30" maxlength="15"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textInput editable='<%=""+(id==null)%>' name="username" size="30" maxlength="15"/></TD>
   </TR>
 
 <!-- PASSWORD -->

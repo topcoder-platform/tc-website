@@ -301,7 +301,7 @@ public class ContactBean implements SessionBean {
                 "java:comp/env/datasource_name"));
             conn = ds.getConnection();
 
-            ps = conn.prepareStatement("SELECT title FROM user " +
+            ps = conn.prepareStatement("SELECT title FROM contact " +
                                        "WHERE contact_id = ?");
             ps.setLong(1, contactId);
 

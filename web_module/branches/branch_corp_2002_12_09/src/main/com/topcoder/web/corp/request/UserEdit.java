@@ -263,51 +263,8 @@ public class UserEdit extends BaseRegistration {
         }
     }
     
-    private void retrieveFromDB(long userID) throws Exception {
-        PrincipalMgrRemote mgr = null;
-        InitialContext icEJB = null;
-        Transaction tx = null;
-        UserPrincipal securityUser = null;
-        boolean createNewUser = userID < 0;
-        try {
-            mgr = Util.getPrincipalManager();
-            securityUser = mgr.getUser(userID);
-            
-            setFormFieldDefault(KEY_LOGIN, securityUser.getName());
-            String passw = mgr.getPassword(userID);
-            setFormFieldDefault(KEY_PASSWORD, passw);
-            setFormFieldDefault(KEY_PASSWORD2, passw);
-            request.setAttribute(KEY_TARGET_USER_ID, ""+userID);
-
-            icEJB = new InitialContext(Constants.EJB_CONTEXT_ENVIRONMENT);
-
-            // user first, last names
-            User userTable = (
-                (UserHome)icEJB.lookup(UserHome.EJB_REF_NAME)
-            ).create();
-            firstName = userTable.getFirstName(userID);
-            setFormFieldDefault(KEY_FIRSTNAME, firstName);
-            lastName = userTable.getLastName(userID);
-            setFormFieldDefault(KEY_LASTNAME, lastName);
-
-            // email for user
-            Email emailTable = (
-                (EmailHome)icEJB.lookup(EmailHome.EJB_REF_NAME)
-            ).create();
-            long emailID = emailTable.getPrimaryEmailId(userID);
-            email = emailTable.getAddress(emailID); 
-            setFormFieldDefault(KEY_EMAIL, email);
-
-            // phone
-            Phone phoneTable = (
-                (PhoneHome)icEJB.lookup(PhoneHome.EJB_REF_NAME)
-            ).create();
-            long phoneID = phoneTable.getPrimaryPhoneId(userID);
-            phone = phoneTable.getNumber(phoneID);
-            setFormFieldDefault(KEY_PHONE, phone);
-        }
-        finally {
-            Util.closeIC(icEJB);
-        }
-    }
+    /**
+     * Empty method. All required fields was populated in the superclass 
+     */
+    protected void retrieveAdditionalFields(InitialContext ic, long userID) {}
 }
