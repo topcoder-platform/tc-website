@@ -609,7 +609,7 @@ public class TransactionServlet extends HttpServlet {
         String destination = l.getNextPage();
 */
         String destination = "/?"+Constants.KEY_MODULE+"=Login&"+Login.KEY_DESTINATION_PAGE+"="+
-                HttpUtils.getRequestURL(request) + "?" + request.getQueryString();
+                response.encodeRedirectURL(HttpUtils.getRequestURL(request) + "?" + request.getQueryString());
         boolean forward = false;
         fetchRegularPage(request, response, destination, forward);
         return;
