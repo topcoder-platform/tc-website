@@ -246,7 +246,7 @@ public class NotificationBean implements SessionBean {
                 info(((String) entry.getKey())+"="+((String) entry.getValue()));
             }
 
-
+            conn = dataSource.getConnection();
             ps = conn.prepareStatement(
                     "SELECT e.address, nmt.mail_template, nmt.subject, nmt.from,  "+
                     "       u.first_name, u.last_name, u.handle "+
