@@ -55,7 +55,7 @@
                 <tr><td height="3"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
                 <tr valign="top">
                     <td class="bodyText" width="100%">         
-<!-- 2003 Features -->
+<!-- 2005 Features -->
                         <table width="100%" border="0" cellpadding="3" cellspacing="0">
                             <tr><td valign="middle" bgcolor="#999999" colspan="3" class="statText"><font size="3"><strong>2005 Features</strong></font></td></tr>        
 
@@ -65,6 +65,12 @@
                                 <td width="60%" class="bodySubtitle"><strong>Feature</strong></td>
                             </tr>
                             
+                            <tr>
+                                <td valign="middle" class="bodyText" height="14">April 4</td>
+                                <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=119676">Pops</A></td>
+                                <td valign="middle" class="bodyText"><A href="/tc?module=Static&amp;d1=features&amp;d2=040405" class="bodyText">The Design Process - Section 1: some advice...</A></td>
+                            </tr>
+
                             <tr>
                                 <td valign="middle" class="bodyText" height="14">March 2</td>
                                 <td valign="middle" class="bodyText"><A href="/stat?c=member_profile&amp;cr=269886">n0vice</A></td>

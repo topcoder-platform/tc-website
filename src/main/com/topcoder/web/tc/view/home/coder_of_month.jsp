@@ -24,12 +24,12 @@
     </tr>
     <tr>
         <td class="formHandleEven">SRM 235</td>
-        <td class="formHandleOdd" align="right">1591</td>
+        <td class="formHandleEven" align="right">1591</td>
         <td rowspan="3" align="center" valign="middle"><img src="/i/m/niphoton_mug.gif" alt="" border="0" class="myStatsPhoto"/></td>
     </tr>
     <tr>
-        <td class="formHandleOdd">SRM 234</td>
-        <td class="formHandleOdd" align="right">1443</td>
+        <td class="formHandleEven">SRM 234</td>
+        <td class="formHandleEven" align="right">1443</td>
     </tr>
     <tr>
         <td class="formHandleEven">SRM 233</td>
