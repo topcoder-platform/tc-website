@@ -79,10 +79,10 @@
                             <tr valign="top"><td align="left" class="smallText">dmwright at his workstation during Round 2.</td></tr>
                         </table>
                                 
-                        <h2>dmright!</h2>
+                        <h2>dm... right!</h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
                         Friday, April 4, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current bracket</a></p>
+                        <a href="/index?t=tournaments&amp;c=tccc03_brackets" class="bodyText">View current bracket</a></p>
 
                         <p>Consistently calm, <strong>dmwright</strong> showed why this is his 5th straight appearance at the onsite finals by outpacing 
                         his competitors in Round 2. Everyone started the round by opening the 200 pointer first. <strong>niteneb</strong> inched out 
@@ -133,17 +133,17 @@
                              </tr>
                                			
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">niteneb</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">mathewsb</td>
                                  <td width="30" class="bodyText" align="right" nowrap="nowrap">461.87</td>
                              </tr>
                                			
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">mathewsb</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">axch</td>
                                  <td width="30" class="bodyText" align="right" nowrap="nowrap">435.33</td>
                              </tr>
                                			
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">axch</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">niteneb</td>
                                  <td width="30" class="bodyText" align="right" nowrap="nowrap">409.49</td>
                              </tr>
                         </table>		

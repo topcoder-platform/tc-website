@@ -76,62 +76,89 @@
                     <td width="99%" class="bodyText">
                         <table border="0" cellspacing="5" cellpadding="0" align="right" width="200">
                             <tr valign="top"><td align="left"><img src="/i/tournament/tccc03/room3_main.jpg" alt="" width="200" height="433" class="photoFrameBig" /></td></tr>
-                            <tr valign="top"><td align="left" class="smallText">WhiteShadow and dgarthur observe the action.</td></tr>
+                            <tr valign="top"><td align="left" class="smallText">sjelkjd flashes a smile for the camera.</td></tr>
                         </table>
                                 
-                        <h2>Yarin moves on</h2>
+                        <h2>That's suh-jel-kuh-jid to you!</h2>
                         <p>by MaryBeth Biondi, <em>TopCoder Staff</em><br />
                         Friday, April 4, 2003<br />
-                        <a href="/index?t=tournaments&amp;c=tccc03_brackets">View current bracket</a></p>
+                        <a href="/index?t=tournaments&amp;c=tccc03_brackets" class="bodyText">View current bracket</a></p>
 
-                        <p>Maybe it was the later-than-normal start, or the fact that there are so many onsite tournament newbies, 
-                        but the tournament room was bustling with traffic for the Round 1 competition.  More in line with past 
-                        tournaments, however, the problem set seemed to be the big winner of the morning.</p>
+                        <p>Round 3 saw the most submissions during the Coding Phase so far today.  Like Round 2, everyone started out by 
+                        opening the Level 1 problem.  <strong>sjelkjd</strong> chimed in first with a 281.30 submission, followed shortly after by 
+                        <strong>bstanescu's</strong> 277.89-point submission.  <strong>ante</strong> scored third with 261.17 points for his 300-pointer.  While 
+                        <strong>ante</strong> and <strong>sjelkjd</strong> moved on to the 550-point problem, <strong>bstanescu</strong> chose to attack the 1000.  
+                        <strong>WhiteShadow</strong> opted to pass on the 300 and try his luck with the 550.</p>
 
-                        <p><strong>Yarin, </strong><strong>evd</strong> and <strong>yike</strong> started out the round by opening the 200 point problem first.  In what may have been 
-                        a strategic error, <strong>StefanPochmann</strong> took the opposite route by opening the 1000 pointer first.  <strong>Yarin</strong> submitted 
-                        first, gaining 170.84 on his 200 point solution.  <strong>evd</strong> sent his solution in second for 155.93 points on the 
-                        200-pointer.  <strong>yike</strong> was in third, getting 129.35 on his 200-point problem.  Even before <strong>StefanPochmann</strong> 
-                        could submit his 1000-pointer, <strong>Yarin</strong> sent in his solution for the 550 point problem for 337.35 points.  
-                        The 5th submission of the morning came from <strong>StefanPochmann,</strong> giving him 424.74 points for the 
-                        1000-pointer.  Further testing prompted <strong>StefanPochmann</strong> to resubmit his 1000-point solution, which 
-                        cost him an additional 124.74 points, leaving him with exactly 300 points on the problem.  In the 
-                        meantime, <strong>evd</strong> and <strong>yike</strong> attempted to solve the 550 point problem, while <strong>Yarin</strong> worked away on the 1000 
-                        pointer.  <strong>StefanPochmann</strong> surprised the crowd with a last second submission of his 200 point problem for 
-                        163.65 points.</p>
+                        <p><strong>ante</strong> made relatively short work of the 550, submitting next for 413.93 points. <strong>sjelkjd</strong> was in next with 
+                        342.66 points for his 550.  While <strong>WhiteShadow</strong> continued to work on his 550, <strong>bstanescu</strong> logged the 6th 
+                        submission with 630.24 points on his 1000-pointer.  He then moved to the 550, while <strong>ante</strong> and <strong>sjelkjd</strong> 
+                        started work on the 1000.  ante blew through the 1000, getting 870.88 points, only to be bested by <strong>sjelkjd's</strong> 
+                        874.63-point submission for his 1000.  Seeing the quick submissions on the 1000, and the waning time, 
+                        <strong>WhiteShadow</strong> opted to pass on the 550 also and open the 1000-point problem.  The 9th submission of the 
+                        round came from <strong>bstanescu</strong> with 423.90 points on his 550.  The Coding Phase ended with <strong>WhiteShadow</strong> 
+                        finally submitting a solution to his 300-pointer for 123.44 points.</p>
 
-                        <p><strong>StefanPochmann</strong> waited until there were 10 seconds left in the Challenge Phase to provide the only action 
-                        by unsuccessfully challenging <strong>yike's</strong> 200-pointer.  At the end of the challenge phase, the scores were <strong>Yarin</strong> 
-                        with 508.19, <strong>StefanPochmann</strong> with 413.65, <strong>evd</strong> with 159.53 and <strong>yike</strong> with 129.35.</p>
+                        <p>The total points for the Coding Phase looked like this:</p>
 
-                        <p>System tests were kind to everyone except <strong>StefanPochmann,</strong> who lost all his points due to a time-out on the 
-                        200 pointer and a small bug on the 1000.  The results for Round 1 of the 2003 Sun Microsystems and 
-                        TopCoder Collegiate Challenge are a follows:</p>
-                         
-                        <table border="0" cellspacing="10" cellpadding="0">
+                         <table border="0" cellspacing="10" cellpadding="0">
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">Yarin</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">508.19</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">ante</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1545.98</td>
                              </tr>
                                			
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">Evd</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">159.53</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">sjelkjd</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1498.59</td>
                              </tr>
                                			
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap"> Yike</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">129.35</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">bstanescu</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1332.03</td>
                              </tr>
                                			
                             <tr>
-                                <td width="100" class="bodyText" nowrap="nowrap">StefanPochmann</td>
-                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">-50.00</td>
+                                <td width="100" class="bodyText" nowrap="nowrap">WhiteShadow</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">123.44</td>
                              </tr>
                         </table>		
 
-                        <p>Congratulations to <strong>Yarin</strong> on a solid victory this morning!  Good luck to the Round 2 competitors - <strong>axch, </strong>
-                        <strong>dmwright, </strong><strong>mathewsb </strong>and<strong> niteneb.</strong></p>
+                        <p>The Challenge Phase brought the only successful challenge thus far today with <strong>sjelkjd</strong> taking out 
+                        <strong>WhiteShadow's</strong> 300-point submission, leaving him with 0 points.  Late in the Challenge Phase, <strong>ante</strong> 
+                        unsuccessfully challenged <strong>bstanescu's</strong> 550 and 1000-point problems, resulting in 100 fewer points.</p>
+
+                        <p>Scores didn't change as a result of the System Tests, and <strong>sjelkjd</strong> became the 3rd advancer to 
+                        tomorrow's finals.  Final scores:</p>
+
+                         <table border="0" cellspacing="10" cellpadding="0">
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">ante</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1548.59</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">sjelkjd</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1445.98</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">bstanescu</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">1332.03</td>
+                             </tr>
+                               			
+                            <tr>
+                                <td width="100" class="bodyText" nowrap="nowrap">WhiteShadow</td>
+                                 <td width="30" class="bodyText" align="right" nowrap="nowrap">0</td>
+                             </tr>
+                        </table>		
+
+                        <p>Congratulations, sjelkjd!  Let's see who the next finalist will be.</p>
+
+                        <p>Up next:<br />
+                        <strong>dgarthur</strong><br />
+                        <strong>DjinnKahn</strong><br />
+                        <strong>jburnim</strong><br />
+                        <strong>O_O</strong></p>
                     </td>
                 </tr>
             </table>

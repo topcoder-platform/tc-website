@@ -20,12 +20,12 @@
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom2#photo" class="statTextBig">Photos</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiprob2" class="statTextBig">Problems</a><br/>            
                     </td>
-<!--                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 3:</b><br/>
+                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 3:</b><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom3" class="statTextBig">Summary</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom3#photo" class="statTextBig">Photos</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiprob3" class="statTextBig">Problems</a><br/>            
                     </td>
-                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 4:</b><br/>
+<!--                    <td valign="top" class="tourney_subnav" nowrap="0">&#160;&#160;<b>Room 4:</b><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom4" class="statTextBig">Summary</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiroom4#photo" class="statTextBig">Photos</a><br/>
                         - <a href="/index?t=tournaments&amp;c=tccc03_semiprob4" class="statTextBig">Problems</a><br/>            
