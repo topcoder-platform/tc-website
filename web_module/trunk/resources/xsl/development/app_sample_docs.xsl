@@ -133,7 +133,7 @@
                                                     <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
                                                 </td>
                                                 <td class="bodyText">
-                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Design_Deliverables.pdf" class="bodyText">Application Design Deliverables.pdf</a>
+                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Design_Deliverables.pdf" class="bodyText">Application Design Deliverables</a>
                                                 </td>
                                             </tr>
                                             <tr valign="top">
@@ -142,7 +142,7 @@
                                                     <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
                                                 </td>
                                                 <td class="bodyText">
-                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Design_Specification.rtf" class="bodyText">Application Design Specification.rtf</a>
+                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Design_Specification.rtf" class="bodyText">Application Design Specification</a>
                                                 </td>
                                             </tr>
                                         </table>
