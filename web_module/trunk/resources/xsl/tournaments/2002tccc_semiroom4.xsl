@@ -38,7 +38,7 @@ window.open(url,"win",'toolbar=0,location=0,directories=0,status=0,menubar=0,scr
 <TABLE WIDTH="100%" HEIGHT="69%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#CCCCCC">
   <TR>
     <!-- Left Column Begins -->
-    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
+    <TD WIDTH="180" VALIGN="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
         <xsl:call-template name="public_stats_left"/>
