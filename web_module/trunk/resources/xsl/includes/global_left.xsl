@@ -1070,7 +1070,7 @@
 <!-- Navigation Rows Below -->
 <xsl:template name="left_nav_top_row">
                         <img alt="" width="180" height="5" src="/i/spacer.gif" border="0" /><br/>
-                        <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0" /><img alt="" width="10" height="11" src="/i/spacer.gif" border="0" /><br/>
+                        <img alt="" width="170" height="11" src="/i/left_nav_top.gif" border="0" /><br/>
 </xsl:template>
 
 <xsl:template name="left_nav_btm_row">
