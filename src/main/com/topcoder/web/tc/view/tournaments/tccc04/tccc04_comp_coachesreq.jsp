@@ -89,8 +89,8 @@
                     <td class="sidebarText">isv</td>
                     <td class="sidebarText" align="center" nowrap="0"><a href="/stat?c=member_profile&cr=299180">View stats</a></td>
                     <td class="sidebarText" align="center">1</td>
-                    <td class="sidebarText" align="center">1</td>
-                    <td class="sidebarText" align="center" nowrap="0"><a href="mailto:service@topcoder.com?subject=TCCC04  - Coach Request - isv">request this coach</a></td>
+                    <td class="sidebarText" align="center">0</td>
+                    <td class="sidebarText" align="center" nowrap="0"></td>
                 </tr>
                 <tr valign="top">
                     <td class="sidebarText">kyky</td>
