@@ -1,6 +1,9 @@
 <%@ page language="java" isErrorPage="true" %>
 <%@ taglib uri="/WEB-INF/screening.tld" prefix="screen" %>
-<% //if (exception!=null) exception.printStackTrace(out);
+<% if(request.getAttribute("Exception") != null)
+   {
+       exception = (Throwable)request.getAttribute("Exception");
+   }
    String message = (String)request.getAttribute("message");
  %>
 <html>

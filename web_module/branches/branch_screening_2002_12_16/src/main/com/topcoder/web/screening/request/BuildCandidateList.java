@@ -15,7 +15,7 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 public class BuildCandidateList extends BaseProcessor {
     private static final String QUERY_KEY = "candidateList"; //move to constants
-    private static final String DATA_SOURCE = "OLTP_SCREENING"; //move to constants
+    private static final String DATA_SOURCE = "SCREENING_OLTP"; //move to constants
     private static final String FORWARD_URL = "/candidate/candidateList.jsp"; //move to constants
 
     private Request dataRequest;

@@ -88,7 +88,7 @@ public class MainServlet
             rp.setRequest(request);
             rp.setAuthentication(auth);
             rp.process();
-            String wherenow = request.getContextPath() + rp.getNextPage();
+            String wherenow = rp.getNextPage();
             boolean forward = rp.isNextPageInContext();
 
             sendToPage(request, response, wherenow, forward);
@@ -129,8 +129,8 @@ public class MainServlet
     private void sendToErrorPage(HttpServletRequest request, HttpServletResponse response, 
                                  Throwable exception)
                           throws ServletException, IOException {
-        request.setAttribute("exception", exception);
-        sendToPage(request, response, request.getContextPath() + ERROR_PAGE, true);
+        request.setAttribute("Exception", exception);
+        sendToPage(request, response, ERROR_PAGE, true);
     }
 
     /**
