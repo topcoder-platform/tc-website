@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
 
 public class ProfileInfo extends BaseModel {
@@ -21,8 +22,9 @@ public class ProfileInfo extends BaseModel {
     private String testSetAName;
     private ResultSetContainer sessionList;
 
-    public ProfileInfo()
-    {
+    private static Logger log = Logger.getLogger(ProfileInfo.class);
+
+    public ProfileInfo() {
         profileName = "";
         testSetAName = "";
         testSetB = new HashSet();
@@ -34,18 +36,16 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setProfileId( Long val )
-    {
+    public void setProfileId(Long val) {
         profileId = val;
     }
 
     /**
      * Gets the value of <code>profileId</code>.
      *
-     * @return 
+     * @return
      */
-    public Long getProfileId()
-    {
+    public Long getProfileId() {
         return profileId;
     }
 
@@ -54,18 +54,16 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setProfileName( String val )
-    {
+    public void setProfileName(String val) {
         profileName = val;
     }
 
     /**
      * Gets the value of <code>profileName</code>.
      *
-     * @return 
+     * @return
      */
-    public String getProfileName()
-    {
+    public String getProfileName() {
         return profileName;
     }
 
@@ -74,9 +72,9 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setTestSetA( String val )
-    {
-        if(val == null) return;
+    public void setTestSetA(String val) {
+        log.debug("testseta set to : " + val);
+        if (val == null) return;
         testSetA = new Long(val);
     }
 
@@ -85,18 +83,16 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setTestSetA( Long val )
-    {
+    public void setTestSetA(Long val) {
         testSetA = val;
     }
 
     /**
      * Gets the value of <code>testSetA</code>.
      *
-     * @return 
+     * @return
      */
-    public Long getTestSetA()
-    {
+    public Long getTestSetA() {
         return testSetA;
     }
 
@@ -105,18 +101,16 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setProblemSetList( ResultSetContainer val )
-    {
+    public void setProblemSetList(ResultSetContainer val) {
         problemSetList = val;
     }
 
     /**
      * Gets the value of <code>problemSetList</code>.
      *
-     * @return 
+     * @return
      */
-    public ResultSetContainer getProblemSetList()
-    {
+    public ResultSetContainer getProblemSetList() {
         return problemSetList;
     }
 
@@ -125,18 +119,16 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setTestSetAList( List val )
-    {
+    public void setTestSetAList(List val) {
         testSetAList = val;
     }
 
     /**
      * Gets the value of <code>testSetAList</code>.
      *
-     * @return 
+     * @return
      */
-    public List getTestSetAList()
-    {
+    public List getTestSetAList() {
         return testSetAList;
     }
 
@@ -145,18 +137,16 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setTestSetBList( List val )
-    {
+    public void setTestSetBList(List val) {
         testSetBList = val;
     }
 
     /**
      * Gets the value of <code>testSetBList</code>.
      *
-     * @return 
+     * @return
      */
-    public List getTestSetBList()
-    {
+    public List getTestSetBList() {
         return testSetBList;
     }
 
@@ -165,18 +155,16 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setCompanyProblemList( ResultSetContainer val )
-    {
+    public void setCompanyProblemList(ResultSetContainer val) {
         companyProblemList = val;
     }
 
     /**
      * Gets the value of <code>companyProblemList</code>.
      *
-     * @return 
+     * @return
      */
-    public ResultSetContainer getCompanyProblemList()
-    {
+    public ResultSetContainer getCompanyProblemList() {
         return companyProblemList;
     }
 
@@ -185,77 +173,66 @@ public class ProfileInfo extends BaseModel {
      *
      * @param val
      */
-    public void setLanguageList( ResultSetContainer val )
-    {
+    public void setLanguageList(ResultSetContainer val) {
         languageList = val;
     }
 
     /**
      * Gets the value of <code>languageList</code>.
      *
-     * @return 
+     * @return
      */
-    public ResultSetContainer getLanguageList()
-    {
+    public ResultSetContainer getLanguageList() {
         return languageList;
     }
 
-    public void addTestSetB(String[] testSetBArray)
-    {
-        if(testSetBArray == null) return;
-        for(int i = 0; i < testSetBArray.length; ++i)
-        {
+    public void addTestSetB(String[] testSetBArray) {
+        if (testSetBArray == null) return;
+        for (int i = 0; i < testSetBArray.length; ++i) {
             testSetB.add(testSetBArray[i]);
         }
     }
 
-    public void addTestSetB(String aTestSetB)
-    {
-        if(aTestSetB == null) return;
+    public void addTestSetB(String aTestSetB) {
+        if (aTestSetB == null) return;
         testSetB.add(aTestSetB);
     }
 
-    public void removeTestSetB(String aTestSetB)
-    {
-        if(aTestSetB == null) return;
+    public void removeTestSetB(String aTestSetB) {
+        if (aTestSetB == null) return;
         testSetB.remove(aTestSetB);
     }
 
-    public String[] getTestSetB()
-    {
-        return (String [])testSetB.toArray(new String [testSetB.size()]);
+    public String[] getTestSetB() {
+        return (String[]) testSetB.toArray(new String[testSetB.size()]);
     }
 
-    public void addLanguage(String[] languages)
-    {
-        if(languages == null) return;
-        for(int i = 0; i < languages.length; ++i)
-        {
+    public void addLanguage(String[] languages) {
+        if (languages == null) return;
+        for (int i = 0; i < languages.length; ++i) {
             language.add(new Long(languages[i]));
         }
     }
 
     public void addLanguage(String aLanguage) {
-        if(aLanguage == null) return;
+        if (aLanguage == null) return;
         language.add(new Long(aLanguage));
     }
 
-    public Long[] getLanguage()
-    {
-        return (Long [])language.toArray(new Long [language.size()]);
+    public Long[] getLanguage() {
+        return (Long[]) language.toArray(new Long[language.size()]);
     }
 
-    public boolean isSelectedTestSetA(String aRoundId)
-    {
-        if(aRoundId == null || testSetA == null) return false;
+    public boolean isSelectedTestSetA(String aRoundId) {
+        if (aRoundId == null || testSetA == null) return false;
         return testSetA.equals(new Long(aRoundId));
     }
 
     public boolean hasLanguage(String aLanguageId) {
-        if(aLanguageId == null) return false;
+        if (aLanguageId == null) return false;
         return language.contains(new Long(aLanguageId));
     }
-    
+
     /** Getter for property testSetAName.
      * @return Value of property testSetAName.
      */
