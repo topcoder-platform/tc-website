@@ -90,8 +90,10 @@ public class Constants {
 
     public static String DESIGN_REVIEWERS;
     public static String DEV_REVIEWERS;
-    
+
     public static String RATING_SIM;
+
+    public static String PLACEMENT_INFO_DETAIL;
 
     //dev pages
     public static String REVIEW_PROJECT_DETAIL;
@@ -154,25 +156,25 @@ public class Constants {
     public static String CONTRACTING_INDUSTRIES_PAGE;
     public static String CONTRACTING_CONFIRM_PAGE;
     public static String CONTRACTING_SUCCESS_PAGE;
-    
+
     public static int PREFERENCE_SINGLE_ANSWER;
     public static int PREFERENCE_MULTIPLE_ANSWER;
     public static String PREFERENCE_PREFIX;
-    
+
     public static String PREFERENCE_CONTRACTING;
     public static String PREFERENCE_CONTRACTING_TRUE;
     public static String PREFERENCE_CONTRACTING_FALSE;
     public static String PREFERENCE_PERMANENT;
     public static String PREFERENCE_PERMANENT_TRUE;
     public static String PREFERENCE_PERMANENT_FALSE;
-    
+
     public static int SKILL_TYPE_LANGUAGES;
     public static int SKILL_TYPE_TECHNOLOGIES;
     public static int SKILL_TYPE_OS;
     public static int SKILL_TYPE_DATABASES;
     public static int SKILL_TYPE_INDUSTRIES;
     public static String SKILL_PREFIX;
-    
+
     public static String NOTE_PREFIX;
     public static String NOTE_LANGUAGES;
     public static String NOTE_TECHNOLOGIES;
