@@ -465,6 +465,14 @@
             <fileset dir="${java}/com/topcoder/web/stat/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
+            <fileset dir="${java}/com/topcoder/web/jsp">
+                <include name="top.jsp"/>
+                <include name="foot.jsp"/>
+                <include name="script.jsp"/>
+                <include name="errorPage.jsp"/>
+                <include name="my_features.jsp"/>
+                <include name="public_right.jsp"/>
+            </fileset>
             <classes dir="${classes}">
                 <include name="com/topcoder/web/stat/**"/>
             </classes>
