@@ -8,6 +8,6 @@ public class CreateCandidate extends BaseSessionProcessor {
         setNextPage(Constants.CONTROLLER_URL + "?" +
                     Constants.REQUEST_PROCESSOR + "=" + 
                     Constants.POPULATE_CANDIDATE_PROCESSOR);
-        setNextPageInContext(true);
+        setNextPageInContext(false);
     }
 }

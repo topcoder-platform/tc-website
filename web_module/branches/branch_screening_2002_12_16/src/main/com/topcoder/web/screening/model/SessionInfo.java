@@ -1,8 +1,16 @@
 package com.topcoder.web.screening.model;
 
+import java.util.Calendar;
+import java.util.Date;
+
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 public class SessionInfo extends BaseModel {
+    private static int[] months = 
+        new int[]{-1, Calendar.JANUARY, Calendar.FEBRUARY, Calendar.MARCH, 
+                  Calendar.APRIL, Calendar.MAY, Calendar.JUNE, Calendar.JULY, 
+                  Calendar.AUGUST, Calendar.SEPTEMBER, Calendar.OCTOBER, 
+                  Calendar.NOVEMBER, Calendar.DECEMBER};
     private String profileId;
     private String candidateId;
     private ResultSetContainer profileList;
@@ -17,6 +25,11 @@ public class SessionInfo extends BaseModel {
     private String endHour;
     private String candidateEmail;
     private String repEmail;
+
+    public SessionInfo() {
+        candidateEmail="NO";
+        repEmail="NO";
+    }
 
     /**
      * Sets the value of <code>profile</code>.
@@ -265,6 +278,9 @@ public class SessionInfo extends BaseModel {
      */
     public void setCandidateEmail( String val )
     {
+        if(val == null) {
+            val = "NO";
+        }
         candidateEmail = val;
     }
 
@@ -285,6 +301,9 @@ public class SessionInfo extends BaseModel {
      */
     public void setRepEmail( String val )
     {
+        if(val == null) {
+            val = "NO";
+        }
         repEmail = val;
     }
 
@@ -298,6 +317,14 @@ public class SessionInfo extends BaseModel {
         return repEmail;
     }
 
+    public Date getBeginDate() {
+        return formDate(beginYear, beginMonth, beginDay, beginHour);
+    }
+
+    public Date getEndDate() {
+        return formDate(endYear, endMonth, endDay, endHour);
+    }
+
     public boolean isSelectedProfile(String profileId) {
         return this.profileId != null && this.profileId.equals(profileId);
     }
@@ -306,19 +333,12 @@ public class SessionInfo extends BaseModel {
         return this.candidateId != null && this.candidateId.equals(candidateId);
     }
 
-    /*
-    private Date formDate(String day,String month,String year,String tod) {
-         GregorianCalendar gc = new GregorianCalendar();
-         String months[] = new String[]{"April","August","December","February","January","June","July","March","May","November","October","September"};
-         if(Arrays.binarySearch(months,month)==-1) return null;
-         int monthCode[] = new int[]{Calendar.APRIL,Calendar.AUGUST,Calendar.DECEMBER,Calendar.FEBRUARY,Calendar.JANUARY,Calendar.JUNE,Calendar.JULY,Calendar.MARCH,Calendar.MAY,
-         Calendar.NOVEMBER,Calendar.OCTOBER,Calendar.SEPTEMBER};
-         gc.set(Calendar.MONTH,monthCode[Arrays.binarySearch(months,month)]);
-         gc.set(Calendar.DAY_OF_MONTH,Integer.parseInt(day));
-         gc.set(Calendar.YEAR,Integer.parseInt(year));
-         int todint = (tod.endsWith("PM")?12:0)+(Integer.parseInt(tod.substring(0,2))%12);
-         gc.set(Calendar.HOUR,todint);
-         return gc.getTime();
+    private Date formDate(String year, String month, String day, String hour) {
+         Calendar c = Calendar.getInstance();
+         c.set(Integer.parseInt(year), 
+                months[Integer.parseInt(month)],
+                Integer.parseInt(day),
+                Integer.parseInt(hour), 0);
+         return c.getTime();
      }
-     */
 }

@@ -28,7 +28,7 @@ function submitCandidate() {
 }
 
 function submitSession() {
-    document.sessionSetupForm.rp.value="<%=Constants.UPDATE_SESSION_PROCESSOR%>";
+    document.sessionSetupForm.rp.value="<%=Constants.CONFIRM_SESSION_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
 //--></SCRIPT>
@@ -317,10 +317,10 @@ function submitSession() {
               <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
 	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;<input type="checkbox" name="candidateEmail" value="true">&#160;</TD>
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send candidate email reminder&#160;<input type="checkbox" name="candidateEmail" value="YES">&#160;</TD>
 	        </TR>
 	        <TR>
-		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;<input type="checkbox" name="repEmail" value="true">&#160;</TD>
+		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;<input type="checkbox" name="repEmail" value="YES">&#160;</TD>
 	        </TR>
 	        <TR>
 		       <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">To preview the email template <A HREF="JavaScript:showEmail()" CLASS="bodyText">click here</A>.</TD>

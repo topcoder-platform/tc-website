@@ -111,6 +111,14 @@ public class Constants
     public static String SESSION_LOOKUP_COMMAND;
     public static String SESSION_CANDIDATE_INFO_QUERY_KEY;
     public static String SESSION_PROFILE_INFO_QUERY_KEY;
+    public static String SESSION_CONFIRM_PAGE;
+    public static String CONFIRM_SESSION_PROCESSOR;
+    public static String SESSION_SEGMENT_COMMAND;
+    public static String SESSION_SEGMENT_TEST_SET_A_QUERY_KEY;
+    public static String SESSION_SEGMENT_TEST_SET_A_ID;
+    public static String SESSION_SEGMENT_TEST_SET_B_QUERY_KEY;
+    public static String SESSION_SEGMENT_TEST_SET_B_ID;
+    public static String TEST_SET_B_SEGMENT_INTERVAL;
 
     //Common Constants
     public static String DATA_SOURCE;
@@ -261,6 +269,22 @@ public class Constants
             config.getInitParameter("session_candidate_info_query_key");
         SESSION_PROFILE_INFO_QUERY_KEY = 
             config.getInitParameter("session_profile_info_query_key");
+        SESSION_CONFIRM_PAGE =
+            config.getInitParameter("session_confirm_page");
+        CONFIRM_SESSION_PROCESSOR = 
+            config.getInitParameter("confirm_session_processor");
+        SESSION_SEGMENT_COMMAND = 
+            config.getInitParameter("session_segment_command");
+        SESSION_SEGMENT_TEST_SET_A_QUERY_KEY = 
+            config.getInitParameter("session_segment_test_set_a_query_key");
+        SESSION_SEGMENT_TEST_SET_A_ID = 
+            config.getInitParameter("session_segment_test_set_a_id");
+        SESSION_SEGMENT_TEST_SET_B_QUERY_KEY = 
+            config.getInitParameter("session_segment_test_set_b_query_key");
+        SESSION_SEGMENT_TEST_SET_B_ID = 
+            config.getInitParameter("session_segment_test_set_b_id");
+        TEST_SET_B_SEGMENT_INTERVAL = 
+            config.getInitParameter("test_set_b_segment_interval");
 
         //Common Constants
         DATA_SOURCE = config.getInitParameter("data_source_name");
