@@ -32,7 +32,7 @@ public class NavZoneBean implements Serializable {
     }
 
     public String[] getFolder() {
-        return folder.toArray(new String[0]);
+        return (String[])folder.toArray(new String[0]);
     }
 
     public void setFolder(String[] s) {
@@ -58,4 +58,20 @@ public class NavZoneBean implements Serializable {
     public void setLevel2(String s) { setFolder(2, s); }
     public String getLevel3() { return getFolder(3); }
     public void setLevel3(String s) { setFolder(3, s); }
+
+    public void setAll(String s) {
+        setFolder(0, s);
+        setDepth(1);
+    }
+    public void setAll(String s, String t) {
+        setFolder(0, s);
+        setFolder(1, s);
+        setDepth(2);
+    }
+    public void setAll(String s, String t, String u) {
+        setFolder(0, s);
+        setFolder(1, s);
+        setFolder(2, s);
+        setDepth(3);
+    }
 }

@@ -31,7 +31,7 @@ public class Login extends Base {
         }
 
         /* we may have been forwarded here and failed, so make sure we reflect the page contents in the menus */
-        nav.setFolder("login");
+        nav.setAll("login");
 
         setNextPage(Constants.login_form);
         setIsNextPageInContext(true);

@@ -17,7 +17,7 @@ public class Home extends Base {
         else
             path = Constants.member_home;
 
-        nav.setFolder("home");
+        nav.setAll("home");
 
         setNextPage(path);
         setIsNextPageInContext(true);

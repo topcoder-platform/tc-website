@@ -22,8 +22,7 @@ public class Statistics extends Base {
         String cmd = request.getParameter(DataAccessConstants.COMMAND);
 
         /* we do this here so that if the query fails, we still keep our place in the menus */
-        nav.setFolder(0, "stats");
-        nav.setFolder(1, cmd);
+        nav.setAll("stats", cmd);
 
         Data.initializeDataTypes();
         request.setAttribute("CODER_COLORS", new CoderRatingStyleBean());

@@ -14,6 +14,7 @@ public class Static extends Base {
     protected void businessProcessing() throws Exception {
 
         String path = "";
+        nav.setDepth(0);
         for(int i=1; ; i++) {
             String p = request.getParameter("d"+i);
             if(p==null) break;
