@@ -145,7 +145,7 @@ log.debug("setting most recent hit = "+mostRecentHit);
         setMostRecentHit( (getTotalHits()==0)?"N/A":getDate(cpgnHitsRow,"most_recent") );
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
-        if (rsc.getRowCount() == 0) {
+        if (rsc.getRowCount() == "0") {
             throw new Exception (" cid="+Integer.toString(getCampaignID())+
                                  "does not belong to uid="+Integer.toString(uid) );
         }
