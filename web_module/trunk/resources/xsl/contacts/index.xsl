@@ -93,7 +93,8 @@
 
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
-                                    <p><a href="mailto:service@topcoder.com" class="bodyText">Competition Applet / Web Site</a><br />
+                                    <p><a href="mailto:service@topcoder.com" class="bodyText">TopCoder Arena / Web Site Technical Support </a><br />
+
                                     Mike Lydon, CTO<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
