@@ -185,7 +185,7 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" WIDTH="15%" HEIGHT="18"><a href="<%=sSortUrl%>&sc=3&sd=<%= "3".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Date</a></TD>
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="left" WIDTH="32%"><a href="<%=sSortUrl%>&sc=4&sd=<%= "4".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Project / Event</a></TD>
-                                <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="center" WIDTH="18%"><a href="<%=sSortUrl%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Project Type</a></TD>
+                                <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="center" WIDTH="18%"><a href="<%=sSortUrl%>&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Place</a></TD>
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="10%"><a href="<%=sSortUrl%>&sc=6&sd=<%= "6".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Amount</a></TD>
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statText" ALIGN="right" WIDTH="20%"><a href="<%=sSortUrl%>&sc=8&sd=<%= "8".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("desc") ?"asc":"desc"%>" class="statText">Score</a></TD>
                                 <TD BACKGROUND="/i/steel_bluebv_bg.gif" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
@@ -202,7 +202,7 @@ String sSortUrl = "/stat?c=component_history&pi="+srb.getProperty("pi")+ "&cr="+
                                   <TD CLASS="statText" ALIGN="left"><bean:write name="resultRow2" property='<%= "item[" + 4 /* contest name */ + "]" %>'/></TD>
                                 <% } %>
                                 <TD CLASS="statText" ALIGN="center">
-                                    <bean:write name="resultRow2" property='<%= "item[" + 1 /* round name */ + "]" %>'/>
+                                    <bean:write name="resultRow2" property='<%= "item[" + 5 /* place */ + "]" %>'/>
                                 </TD>
                                 <TD CLASS="statText" ALIGN="right">$&nbsp;<bean:write format="0.00" name="resultRow2" property='<%= "item[" + 6 /* money */ + "].resultData" %>'/></TD>
                                 <TD CLASS="statText" ALIGN="right"><bean:write format="0.00" name="resultRow2" property='<%= "item[" + 8 /* score */ + "]" %>'/></TD>
