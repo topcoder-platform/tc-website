@@ -1,88 +1,82 @@
 <project name="topcoder" default="main" basedir=".">
-   <property name="Name"          value="TopCoder" />
-   <property name="build"         value="build" />
-   <property name="war.dir"       value="${build}/wars" />
-   <property name="hs.war.name"      value="hs"/>
-   <property name="tces.war.name"      value="tces"/>
-   <property name="email.war.name"      value="email"/>
-   <property name="corp.war.name"      value="query"/>
-   <property name="query.war.name"      value="query"/>
-   <property name="screening.war.name"      value="screening"/>
-   <property name="ejb_jars"      value="${build}/ejb_jars" />
-   <property name="classes"       value="${build}/classes" />
-   <property name="testclasses"   value="${build}/testcases" />
-   <property name="build.javadocs" value="${build}/javadocs" />
-   <property name="lib.dir"       value="lib" />
-   <property name="jars.dir"      value="${lib.dir}/jars" />
-   <property name="struts.dir"    value="${lib.dir}/jakarta-struts-build-unknown/lib" />
-   <property name="bin"           value="lib/bin" />
-   <property name="src.dir"       value="src"/>
-   <property name="java"          value="${src.dir}/main" />
-   <property name="testjava"      value="${src.dir}/testcases" />
-   <property name="resources"     value="resources" />
-   <property name="taglib"        value="${resources}/taglib" />
-   <property name="images"        value="images" />
-   <property name="Jive.jar"      value="${bin}/Jive.jar"/>
-   <property name="servlets"      value="${build}/servlets" />
-   <property name="web"           value="src/main/com/topcoder/web" />
-   <property name="tc_cluster"   value="/export/home/apps/weblogic_apps/tc_cluster" />
-   <property name="public_html"   value="/export/home/apps/weblogic_apps/tc_cluster/public_html" />
-   <property environment="env"/>
+    <property name="Name" value="TopCoder"/>
+    <property name="build" value="build"/>
+    <property name="war.dir" value="${build}/wars"/>
+    <property name="ejb_jars" value="${build}/ejb_jars"/>
+    <property name="classes" value="${build}/classes"/>
+    <property name="testclasses" value="${build}/testcases"/>
+    <property name="build.javadocs" value="${build}/javadocs"/>
+    <property name="lib.dir" value="lib"/>
+    <property name="jars.dir" value="${lib.dir}/jars"/>
+    <property name="struts.dir" value="${lib.dir}/jakarta-struts-build-unknown/lib"/>
+    <property name="bin" value="lib/bin"/>
+    <property name="src.dir" value="src"/>
+    <property name="java" value="${src.dir}/main"/>
+    <property name="testjava" value="${src.dir}/testcases"/>
+    <property name="resources" value="resources"/>
+    <property name="taglib" value="${resources}/taglib"/>
+    <property name="images" value="images"/>
+    <property name="Jive.jar" value="${bin}/Jive.jar"/>
+    <property name="servlets" value="${build}/servlets"/>
+    <property name="web" value="src/main/com/topcoder/web"/>
+    <property name="tc_cluster" value="../weblogic_corp/tc_cluster"/>
+    <property name="public_html" value="../weblogic_corp/tc_cluster/public_html"/>
+    <property environment="env"/>
 
-   <property name="deprecation"   value="false" />
-   <property name="debug"   value="true" />
-   <property name="junitsummary" value="on" />
+    <property name="deprecation" value="false"/>
+    <property name="debug" value="true"/>
+    <property name="junitsummary" value="on"/>
 
-   <path id="class.path">
-      <pathelement location="${classes}" />
-      <pathelement location="${testclasses}" />
-      <pathelement location="${resources}" />
-      <pathelement location="${images}" />
-      <fileset dir="${jars.dir}">
-         <include name="**/*.jar" />
-      </fileset>
-      <pathelement path="${env.CLASSPATH}"/>
-   </path>
+    <path id="class.path">
+        <pathelement location="${classes}"/>
+        <pathelement location="${testclasses}"/>
+        <pathelement location="${resources}"/>
+        <pathelement location="${images}"/>
+        <fileset dir="${jars.dir}">
+            <include name="**/*.jar"/>
+        </fileset>
+        <pathelement path="${env.CLASSPATH}"/>
+    </path>
 
-   <target name="init">
-      <property name="statservlets"  value="com/topcoder/web/stat/servlet" />
-      <property name="webservlets"   value="com/topcoder/web/servlet" />
-      <property name="pactsservlets" value="com/topcoder/web/pacts/servlet" />
-      <property name="regservlets" value="com/topcoder/web/reg/servlet" />
-      <property name="resumeservlets" value="com/topcoder/web/resume/servlet" />
-      <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet" />
-      <property name="tcesservlets" value="com/topcoder/web/tces/servlet" />
-      <mkdir dir="${classes}" />
-      <mkdir dir="${testclasses}" />
-      <mkdir dir="${bin}" />
-      <mkdir dir="${ejb_jars}" />
-      <mkdir dir="${war.dir}" />
-      <mkdir dir="${servlets}/${statservlets}" />
-      <mkdir dir="${servlets}/${webservlets}" />
-      <mkdir dir="${servlets}/${pactsservlets}" />
-      <mkdir dir="${servlets}/${regservlets}" />
-      <mkdir dir="${servlets}/${resumeservlets}" />
-      <mkdir dir="${servlets}/${jobpostingservlets}" />
-      <mkdir dir="${servlets}/${tcesservlets}" />
-   </target>
+    <target name="init">
+        <property name="statservlets" value="com/topcoder/web/stat/servlet"/>
+        <property name="webservlets" value="com/topcoder/web/servlet"/>
+        <property name="pactsservlets" value="com/topcoder/web/pacts/servlet"/>
+        <property name="regservlets" value="com/topcoder/web/reg/servlet"/>
+        <property name="resumeservlets" value="com/topcoder/web/resume/servlet"/>
+        <property name="jobpostingservlets" value="com/topcoder/web/jobposting/servlet"/>
+        <property name="tcesservlets" value="com/topcoder/web/tces/servlet"/>
+        <mkdir dir="${classes}"/>
+        <mkdir dir="${testclasses}"/>
+        <mkdir dir="${bin}"/>
+        <mkdir dir="${ejb_jars}"/>
+        <mkdir dir="${war.dir}"/>
+        <mkdir dir="${servlets}/${statservlets}"/>
+        <mkdir dir="${servlets}/${webservlets}"/>
+        <mkdir dir="${servlets}/${pactsservlets}"/>
+        <mkdir dir="${servlets}/${regservlets}"/>
+        <mkdir dir="${servlets}/${resumeservlets}"/>
+        <mkdir dir="${servlets}/${jobpostingservlets}"/>
+        <mkdir dir="${servlets}/${tcesservlets}"/>
+    </target>
 
-   <target name="move_file_upload_xml">
-      <property name="toDir" value="${resources}/com/topcoder/servlet/request" />
-      <mkdir dir="${toDir}" />
-      <copy todir="${toDir}">
-         <fileset dir="${resources}" >
-                 <include name="FileUpload.xml" />
-         </fileset>
-      </copy>
-   </target>
+    <target name="move_file_upload_xml">
+        <property name="toDir" value="${resources}/com/topcoder/servlet/request"/>
+        <mkdir dir="${toDir}"/>
+        <copy todir="${toDir}">
+            <fileset dir="${resources}">
+                <include name="FileUpload.xml"/>
+            </fileset>
+        </copy>
+    </target>
 
 
-   <target name="create_public_html">
-      <mkdir dir="${public_html}/WEB-INF/lib" />
-   </target>
+    <target name="create_public_html">
+        <mkdir dir="${public_html}/WEB-INF/lib"/>
+    </target>
 
-   <target name="compile" depends="init">
-      <javac
+    <target name="compile" depends="init">
+        <javac
             srcdir="${java}"
             destdir="${classes}"
             classpathref="class.path"
@@ -92,221 +86,221 @@
             <exclude
                 name="com/topcoder/server/listener/nio/channels/spi/java14/*"
                 unless="jdk1.4+"
-            />
-      </javac>
-      <rmic classname="com.topcoder.shared.distCache.CacheClientImpl"     base="${classes}"/>
-      <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
-   </target>
+                />
+        </javac>
+        <rmic classname="com.topcoder.shared.distCache.CacheClientImpl" base="${classes}"/>
+        <rmic classname="com.topcoder.shared.distCache.CacheServerSyncImpl" base="${classes}"/>
+    </target>
 
-   <target name="full_deploy" depends="build_ejbs,deploy">
-   </target>
+    <target name="full_deploy" depends="build_ejbs,deploy">
+    </target>
 
-   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES">
-   </target>
+    <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES">
+    </target>
 
-   <target name="servlets" depends="compile,move_file_upload_xml">
-      <move todir="${servlets}/${statservlets}">
-         <fileset dir="${classes}/${statservlets}" >
-                 <include name="**/*.class" />
-         </fileset>
-      </move>
-      <move todir="${servlets}/${webservlets}">
-         <fileset dir="${classes}/${webservlets}" >
-                 <include name="**/*.class" />
-         </fileset>
-      </move>
-      <move todir="${servlets}/${pactsservlets}">
-         <fileset dir="${classes}/${pactsservlets}" >
-                 <include name="**/*.class" />
-         </fileset>
-      </move>
-      <move todir="${servlets}/${regservlets}">
-        <fileset dir="${classes}/${regservlets}">
-          <include name="*.class"/>
-        </fileset>
-      </move>
-      <move todir="${servlets}/${regservlets}">
-         <fileset dir="${classes}/${regservlets}" >
-                 <include name="*.class" />
-         </fileset>
-      </move>
-      <move todir="${servlets}/${resumeservlets}">
-         <fileset dir="${classes}/${resumeservlets}" >
-                 <include name="*.class" />
-         </fileset>
-      </move>
-      <move todir="${servlets}/${jobpostingservlets}">
-         <fileset dir="${classes}/${jobpostingservlets}" >
-                 <include name="*.class" />
-         </fileset>
-      </move>
-      <move todir="${servlets}/${tcesservlets}">
-         <fileset dir="${classes}/${tcesservlets}" >
-                 <include name="*.class" />
-         </fileset>
-      </move>
-   </target>
+    <target name="servlets" depends="compile,move_file_upload_xml">
+        <move todir="${servlets}/${statservlets}">
+            <fileset dir="${classes}/${statservlets}">
+                <include name="**/*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${webservlets}">
+            <fileset dir="${classes}/${webservlets}">
+                <include name="**/*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${pactsservlets}">
+            <fileset dir="${classes}/${pactsservlets}">
+                <include name="**/*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${regservlets}">
+            <fileset dir="${classes}/${regservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${regservlets}">
+            <fileset dir="${classes}/${regservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${resumeservlets}">
+            <fileset dir="${classes}/${resumeservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${jobpostingservlets}">
+            <fileset dir="${classes}/${jobpostingservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+        <move todir="${servlets}/${tcesservlets}">
+            <fileset dir="${classes}/${tcesservlets}">
+                <include name="*.class"/>
+            </fileset>
+        </move>
+    </target>
 
-   <target name="moveStruts" depends="create_public_html">
-      <copy todir="${public_html}/WEB-INF/lib">
-         <fileset dir="${struts.dir}" >
-                 <include name="*.jar" />
-         </fileset>
-      </copy>
-      <copy todir="${public_html}/WEB-INF">
-         <fileset dir="${struts.dir}" >
-                 <include name="*.tld" />
-         </fileset>
-      </copy>
-   </target>
+    <target name="moveStruts" depends="create_public_html">
+        <copy todir="${public_html}/WEB-INF/lib">
+            <fileset dir="${struts.dir}">
+                <include name="*.jar"/>
+            </fileset>
+        </copy>
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="${struts.dir}">
+                <include name="*.tld"/>
+            </fileset>
+        </copy>
+    </target>
 
-<!--
-   <target name="moveStruts" depends="check_java_version,create_public_html">
-      <copy todir="${public_html}/WEB-INF/lib">
-         <fileset dir="${jars.dir}" >
-                 <include name="common*.jar" />
-         </fileset>
-         <fileset dir="${jars.dir}" >
-                 <include name="struts.jar" />
-         </fileset>
-      </copy>
-      <copy todir="${public_html}/WEB-INF">
-         <fileset dir="${struts.dir}" >
-                 <include name="*.tld" />
-         </fileset>
-      </copy>
-   </target>
--->
+    <!--
+       <target name="moveStruts" depends="check_java_version,create_public_html">
+          <copy todir="${public_html}/WEB-INF/lib">
+             <fileset dir="${jars.dir}" >
+                     <include name="common*.jar" />
+             </fileset>
+             <fileset dir="${jars.dir}" >
+                     <include name="struts.jar" />
+             </fileset>
+          </copy>
+          <copy todir="${public_html}/WEB-INF">
+             <fileset dir="${struts.dir}" >
+                     <include name="*.tld" />
+             </fileset>
+          </copy>
+       </target>
+    -->
 
-   <target name="moveStats" depends="create_public_html">
-      <copy todir="${public_html}/WEB-INF">
-         <fileset dir="resources/stat" >
-                 <include name="*.tld" />
-         </fileset>
-      </copy>
-   </target>
+    <target name="moveStats" depends="create_public_html">
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="resources/stat">
+                <include name="*.tld"/>
+            </fileset>
+        </copy>
+    </target>
 
-   <target name="moveReg" depends="create_public_html">
-      <copy todir="${public_html}/WEB-INF">
-         <fileset dir="resources/reg" >
-                 <include name="**/*.tld" />
-         </fileset>
-      </copy>
-   </target>
+    <target name="moveReg" depends="create_public_html">
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="resources/reg">
+                <include name="**/*.tld"/>
+            </fileset>
+        </copy>
+    </target>
 
-   <target name="moveTCES" depends="">
-      <copy todir="${public_html}/WEB-INF">
-         <fileset dir="resources/tces" >
-                 <include name="**/*.tld" />
-         </fileset>
-      </copy>
-   </target>
+    <target name="moveTCES" depends="">
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="resources/tces">
+                <include name="**/*.tld"/>
+            </fileset>
+        </copy>
+    </target>
 
-   <target name="jsp" depends="">
-      <property name="stat.trgt"     value="${public_html}/stat_jsp" />
-      <property name="stat.src"      value="${web}/stat/servlet/jsp" />
-      <property name="root.trgt"     value="${public_html}" />
-      <property name="root.src"      value="${web}/jsp" />
-      <property name="pacts.trgt"    value="${public_html}/pacts" />
-      <property name="pacts.src"     value="${web}/pacts/servlet/jsp" />
-<!--
-      <property name="project.trgt"  value="${public_html}/project" />
-      <property name="project.src"   value="${web}/project/servlet/jsp" />
--->
-      <property name="reg.trgt"      value="${public_html}/reg" />
-      <property name="reg.src"       value="${web}/reg/servlet/jsp" />
-<!--
-      <property name="render.trgt"   value="${public_html}/cm" />
-      <property name="render.src"    value="${web}/render/servlet/jsp" />
--->
-      <property name="resume.trgt"   value="${public_html}/resume" />
-      <property name="resume.src"    value="${web}/resume/servlet/jsp" />
-      <property name="jobposting.trgt"      value="${public_html}/jobposting_jsp" />
-      <property name="jobposting.src"       value="${web}/jobposting/servlet/jsp" />
-      <property name="tces.trgt"      value="${public_html}/tces_jsp" />
-      <property name="tces.src"       value="${web}/tces/servlet/jsp" />
+    <target name="jsp" depends="">
+        <property name="stat.trgt" value="${public_html}/stat_jsp"/>
+        <property name="stat.src" value="${web}/stat/servlet/jsp"/>
+        <property name="root.trgt" value="${public_html}"/>
+        <property name="root.src" value="${web}/jsp"/>
+        <property name="pacts.trgt" value="${public_html}/pacts"/>
+        <property name="pacts.src" value="${web}/pacts/servlet/jsp"/>
+        <!--
+              <property name="project.trgt"  value="${public_html}/project" />
+              <property name="project.src"   value="${web}/project/servlet/jsp" />
+        -->
+        <property name="reg.trgt" value="${public_html}/reg"/>
+        <property name="reg.src" value="${web}/reg/servlet/jsp"/>
+        <!--
+              <property name="render.trgt"   value="${public_html}/cm" />
+              <property name="render.src"    value="${web}/render/servlet/jsp" />
+        -->
+        <property name="resume.trgt" value="${public_html}/resume"/>
+        <property name="resume.src" value="${web}/resume/servlet/jsp"/>
+        <property name="jobposting.trgt" value="${public_html}/jobposting_jsp"/>
+        <property name="jobposting.src" value="${web}/jobposting/servlet/jsp"/>
+        <property name="tces.trgt" value="${public_html}/tces_jsp"/>
+        <property name="tces.src" value="${web}/tces/servlet/jsp"/>
 
-      <mkdir dir="${stat.trgt}" />
-      <mkdir dir="${root.trgt}" />
-      <mkdir dir="${pacts.trgt}" />
-<!--
-      <mkdir dir="${project.trgt}" />
--->
-      <mkdir dir="${reg.trgt}" />
-<!--
-      <mkdir dir="${render.trgt}" />
--->
-      <mkdir dir="${resume.trgt}" />
-      <mkdir dir="${jobposting.trgt}" />
+        <mkdir dir="${stat.trgt}"/>
+        <mkdir dir="${root.trgt}"/>
+        <mkdir dir="${pacts.trgt}"/>
+        <!--
+              <mkdir dir="${project.trgt}" />
+        -->
+        <mkdir dir="${reg.trgt}"/>
+        <!--
+              <mkdir dir="${render.trgt}" />
+        -->
+        <mkdir dir="${resume.trgt}"/>
+        <mkdir dir="${jobposting.trgt}"/>
 
-      <copy todir="${stat.trgt}">
-         <fileset dir="${stat.src}" >
-                 <include name="**/*.*" />
-         </fileset>
-      </copy>
-      <copy todir="${root.trgt}">
-         <fileset dir="${root.src}" >
-                 <include name="**/*.*" />
-         </fileset>
-      </copy>
-      <copy todir="${pacts.trgt}">
-         <fileset dir="${pacts.src}" >
-                 <include name="**/*.jsp" />
-         </fileset>
-      </copy>
-<!--
-      <copy todir="${project.trgt}">
-         <fileset dir="${project.src}" >
-                 <include name="**/*.jsp" />
-         </fileset>
-      </copy>
--->
-      <copy todir="${reg.trgt}">
-         <fileset dir="${reg.src}" >
-                 <include name="**/*.jsp" />
-         </fileset>
-      </copy>
-<!--
-      <copy todir="${render.trgt}">
-         <fileset dir="${render.src}" >
-                 <include name="**/*.jsp" />
-         </fileset>
-      </copy>
--->
-      <copy todir="${resume.trgt}">
-         <fileset dir="${resume.src}" >
-                 <include name="**/*.jsp" />
-         </fileset>
-      </copy>
-      <copy todir="${jobposting.trgt}">
-         <fileset dir="${jobposting.src}" >
-                 <include name="**/*.jsp" />
-         </fileset>
-      </copy>
-      <copy todir="${tces.trgt}">
-         <fileset dir="${tces.src}" >
-                 <include name="**/*.jsp" />
-         </fileset>
-      </copy>
-      <copy todir="${public_html}/WEB-INF">
-         <fileset dir="${taglib}" >
-                 <include name="*.tld" />
-         </fileset>
-      </copy>
-   </target>
-
-
-   <target name="run" depends="package">
-   </target>
-
-   <target name="package" depends="jars">
-   </target>
-
-   <target name="jars" depends="package-Jive">
-   </target>
+        <copy todir="${stat.trgt}">
+            <fileset dir="${stat.src}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <copy todir="${root.trgt}">
+            <fileset dir="${root.src}">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
+        <copy todir="${pacts.trgt}">
+            <fileset dir="${pacts.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <!--
+              <copy todir="${project.trgt}">
+                 <fileset dir="${project.src}" >
+                         <include name="**/*.jsp" />
+                 </fileset>
+              </copy>
+        -->
+        <copy todir="${reg.trgt}">
+            <fileset dir="${reg.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <!--
+              <copy todir="${render.trgt}">
+                 <fileset dir="${render.src}" >
+                         <include name="**/*.jsp" />
+                 </fileset>
+              </copy>
+        -->
+        <copy todir="${resume.trgt}">
+            <fileset dir="${resume.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <copy todir="${jobposting.trgt}">
+            <fileset dir="${jobposting.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <copy todir="${tces.trgt}">
+            <fileset dir="${tces.src}">
+                <include name="**/*.jsp"/>
+            </fileset>
+        </copy>
+        <copy todir="${public_html}/WEB-INF">
+            <fileset dir="${taglib}">
+                <include name="*.tld"/>
+            </fileset>
+        </copy>
+    </target>
 
 
-   <target name="javadocs">
+    <target name="run" depends="package">
+    </target>
+
+    <target name="package" depends="jars">
+    </target>
+
+    <target name="jars" depends="package-Jive">
+    </target>
+
+
+    <target name="javadocs">
         <mkdir dir="${build.javadocs}"/>
         <javadoc
             packagenames="com.*"
@@ -318,27 +312,26 @@
         </javadoc>
     </target>
 
-   <target name="clean">
-      <!-- kill the entire build dir -->
-      <delete dir="${build}" />
-      <delete dir="${bin}" />
-   </target>
+    <target name="clean">
+        <!-- kill the entire build dir -->
+        <delete dir="${build}"/>
+        <delete dir="${bin}"/>
+    </target>
 
-      <target name="main">
+    <target name="main">
         <antcall target="run"/>
     </target>
 
-   <target name="package-Jive" depends="compile">
-       <jar jarfile="${Jive.jar}" >
-         <fileset dir="${classes}/"
+    <target name="package-Jive" depends="compile">
+        <jar jarfile="${Jive.jar}">
+            <fileset dir="${classes}/"
                 includes="com/coolservlets/**"
-           />
-       </jar>
-   </target>
+                />
+        </jar>
+    </target>
 
 
-
-   <target name="build_ejbs" depends="compile">
+    <target name="build_ejbs" depends="compile">
         <antcall target="package-EJB-PactsServicesBean"/>
         <antcall target="package-EJB-JavaDocServicesBean"/>
         <antcall target="package-EJB-UserServicesBean"/>
@@ -350,194 +343,121 @@
         <antcall target="package-EJB-ContestAdminServicesBean"/>
         <antcall target="package-EJB-SearchBean"/>
         <antcall target="package-EJB-ReportingBean"/>
-<!--
-        <antcall target="package-EJB-ProjectServicesBean"/>
--->
+        <!--
+                <antcall target="package-EJB-ProjectServicesBean"/>
+        -->
         <antcall target="package-EJB-JobPostingServicesBean"/>
         <antcall target="package-EJB-ResumeServicesBean"/>
         <antcall target="package-EJB-QueryServicesBean"/>
-   </target>
+    </target>
 
-<target name="package-EJB-QueryServicesBean" depends="compile,init-QueryServicesBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-QueryServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="QueryServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
+        </antcall>
+    </target>
 
-<target name="init-QueryServicesBean-properties" >
-       <property name="bean.dir"          value="QueryServices" />
-        <property name="bean.jar.name"     value="QueryServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/query/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
+    <target name="package-EJB-JobPostingServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="JobPostingServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/jobposting/ejb/JobPostingServices"/>
+        </antcall>
+    </target>
 
+    <target name="package-EJB-ResumeServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ResumeServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/resume/ejb/ResumeServices"/>
+        </antcall>
+    </target>
 
-<target name="package-EJB-JobPostingServicesBean" depends="compile,init-JobPostingServicesBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-ReportingBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Reporting"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/Reporting"/>
+        </antcall>
+    </target>
 
-<target name="init-JobPostingServicesBean-properties" >
-       <property name="bean.dir"          value="JobPostingServices" />
-        <property name="bean.jar.name"     value="JobPostingServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/jobposting/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
+    <target name="package-EJB-ProjectServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ProjectServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/project/ejb/ProjectServices"/>
+        </antcall>
+    </target>
 
-<target name="package-EJB-ResumeServicesBean" depends="compile,init-ResumeServicesBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-SearchBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Search"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/Search"/>
+        </antcall>
+    </target>
 
-<target name="init-ResumeServicesBean-properties" >
-       <property name="bean.dir"          value="ResumeServices" />
-        <property name="bean.jar.name"     value="ResumeServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/resume/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
+    <target name="package-EJB-PactsServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="PactsServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/pacts/ejb/PactsServices"/>
+        </antcall>
+    </target>
 
-<target name="package-EJB-ReportingBean" depends="compile,init-ReportingBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-JavaDocServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="JavaDocServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/JavaDocServices"/>
+        </antcall>
+    </target>
 
-<target name="init-ReportingBean-properties" >
-       <property name="bean.dir"          value="Reporting" />
-        <property name="bean.jar.name"     value="Reporting.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
+    <target name="package-EJB-CoderStatisticsBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="CoderStatistics"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/CoderStatistics"/>
+        </antcall>
+    </target>
 
+    <target name="package-EJB-AuthenticationServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="AuthenticationServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/AuthenticationServices"/>
+        </antcall>
+    </target>
 
+    <target name="package-EJB-ContestAdminServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="ContestAdminServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/ContestAdminServices"/>
+        </antcall>
+    </target>
 
-<!--
-<target name="package-EJB-ProjectServicesBean" depends="compile,init-ProjectServicesBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-EmailServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="EmailServices"/>
+            <param name="unit-class-path" value="com/topcoder/shared/ejb/EmailServices"/>
+        </antcall>
+    </target>
 
-<target name="init-ProjectServicesBean-properties" >
-       <property name="bean.dir"          value="ProjectServices" />
-        <property name="bean.jar.name"     value="ProjectServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/project/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
--->
+    <target name="package-EJB-DataCacheBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="DataCache"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/DataCache"/>
+        </antcall>
+    </target>
 
-<target name="package-EJB-SearchBean" depends="compile,init-SearchBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-UtilBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Util"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/Util"/>
+        </antcall>
+    </target>
 
-<target name="init-SearchBean-properties" >
-       <property name="bean.dir"          value="Search" />
-        <property name="bean.jar.name"     value="Search.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-<target name="package-EJB-PactsServicesBean" depends="compile,init-PactsServicesBean-properties,package-EJB-GenericBean"/>
-
-<target name="package-EJB-JavaDocServicesBean" depends="compile,init-JavaDocServicesBean-properties,package-EJB-GenericBean"/>
-
-<target name="init-PactsServicesBean-properties" >
-       <property name="bean.dir"          value="PactsServices" />
-        <property name="bean.jar.name"     value="PactsServicesBean.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/pacts/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-</target>
-
-<target name="init-JavaDocServicesBean-properties" >
-        <property name="bean.dir"          value="JavaDocServices" />
-        <property name="bean.jar.name"     value="JavaDocServicesBean.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-</target>
-
-<target name="package-EJB-CoderStatisticsBean" depends="compile,init-CoderStatisticsBean-properties,package-EJB-GenericBean"/>
-
-<target name="init-CoderStatisticsBean-properties" >
-       <property name="bean.dir"          value="CoderStatistics" />
-        <property name="bean.jar.name"     value="CoderStatistics.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-<target name="package-EJB-AuthenticationServicesBean" depends="compile,init-AuthenticationServicesBean-properties,package-EJB-GenericBean"/>
-
-<target name="init-AuthenticationServicesBean-properties" >
-       <property name="bean.dir"          value="AuthenticationServices" />
-        <property name="bean.jar.name"     value="AuthenticationServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-
-<target name="package-EJB-ContestAdminServicesBean" depends="compile,init-ContestAdminServicesBean-properties,package-EJB-GenericBean"/>
-
-<target name="init-ContestAdminServicesBean-properties" >
-       <property name="bean.dir"          value="ContestAdminServices" />
-        <property name="bean.jar.name"     value="ContestAdminServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-
-    <target name="package-EJB-EmailServicesBean" depends="compile,init-EmailServicesBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-EmailServicesBean-properties" >
-        <property name="bean.dir"          value="EmailServices" />
-        <property name="bean.jar.name"     value="EmailServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/shared/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-
-   <target name="package-EJB-DataCacheBean" depends="compile,init-DataCacheBean-properties,package-EJB-GenericBean"/>
-
-   <target name="init-DataCacheBean-properties" >
-       <property name="bean.dir"          value="DataCache" />
-        <property name="bean.jar.name"     value="DataCache.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-
-
-   <target name="package-EJB-UtilBean" depends="compile,init-UtilBean-properties,package-EJB-GenericBean"/>
-
-   <target name="init-UtilBean-properties" >
-       <property name="bean.dir"          value="Util" />
-        <property name="bean.jar.name"     value="Util.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-
-
-
-   <target name="package-EJB-UserServicesBean" depends="compile,init-UserServicesBean-properties,package-EJB-GenericBean"/>
-
-   <target name="init-UserServicesBean-properties" >
-       <property name="bean.dir"          value="UserServices" />
-        <property name="bean.jar.name"     value="UserServices.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
+    <target name="package-EJB-UserServicesBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="UserServices"/>
+            <param name="unit-class-path" value="com/topcoder/ejb/UserServices"/>
+        </antcall>
+    </target>
 
     <target name="package-EJB-PasswordBean" depends="compile">
-           <jar
+        <jar
             jarfile="${ejb_jars}/password.jar"
             basedir="${classes}"
             includes="com/topcoder/web/ejb/password/**">
@@ -545,63 +465,12 @@
         </jar>
     </target>
 
-
-
-
-
-   <target name="initGenericBean" >
-      <delete dir="${bean.build.dir}"/>
-      <delete dir="${bean.class.dir}/*.class" />
-      <mkdir  dir="${bean.build.dir}"/>
-      <mkdir  dir="${bean.meta-inf.dir}"/>
-   </target>
-
-
-
-
-
-   <target name="package-EJB-GenericBean" depends="initGenericBean">
-
-      <echo message="bean.src.dir ${bean.src.dir} "/>
-      <echo message="bean.build.dir ${bean.build.dir} "/>
-      <echo message="bean.meta-inf.dir ${bean.meta-inf.dir} "/>
-      <echo message="Ant build of ${bean.jar.name} ."/>
-      <copy todir="${bean.meta-inf.dir}">
-         <fileset dir="${bean.src.dir}" >
-                 <include name="*.xml" />
-         </fileset>
-      </copy>
-
-      <javac
-             srcdir="${bean.src.dir}"
-             destdir="${bean.build.dir}"
-             classpathref="class.path"
-             deprecation="${deprecation}"
-             debug="${debug}"
-            >
-      </javac>
-
-      <jar jarfile="${bean.build.dir}/${bean.jar.name}"
-             basedir="${bean.build.dir}"
-             compress="true"
-             excludes="*.jar"
-      />
-
-      <java classname="weblogic.ejbc" fork="yes" classpathref="class.path">
-          <sysproperty value="-compiler" key="javac" />
-          <sysproperty value="-classpath" key="${class.path}" />
-          <arg line="${bean.build.dir}/${bean.jar.name} ${ejb_jars}/${bean.jar.name}" />
-      </java>
-      <echo message="Ant build of ${bean.jar.name} EJB completed successfully."/>
-
-   </target>
-
     <target name="build_wars" depends="compile">
         <delete dir="${war.dir}"/>
-        <mkdir  dir="${war.dir}"/>
+        <mkdir dir="${war.dir}"/>
         <antcall target="war_email"/>
         <antcall target="war_query"/>
-        <antcall target="deploy-screening" />
+        <antcall target="deploy-screening"/>
     </target>
 
     <target name="dev_wars" depends="compile">
@@ -609,50 +478,22 @@
         <antcall target="dev_war_email"/>
     </target>
 
-    <target name="dev_war_query" depends="compile">
-      <delete dir="${tc_cluster}/${query.war.name}"/>
-      <mkdir dir="${tc_cluster}/${query.war.name}"/>
-      <copy todir="${tc_cluster}/${query.war.name}">
-        <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
-          <include name="**/*.jsp"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${query.war.name}/WEB-INF">
-        <fileset dir="${resources}/${query.war.name}">
-          <include name="*.tld"/>
-          <include name="*.xml"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${query.war.name}/classes">
-        <fileset dir="${classes}">
-          <include name="com/topcoder/web/query/**"/>
-        </fileset>
-      </copy>
+    <target name="dev_war_query" depends="war_email">
+        <copy todir="${public_html}" file="${war.dir}/query.war"/>
+        <unwar src="${public_html}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <delete file="${public_html}/query.war"/>
+        <delete dir="${public_html}/query/META-INF"/>
     </target>
 
-    <target name="dev_war_email" depends="compile">
-      <delete dir="${tc_cluster}/${email.war.name}"/>
-      <mkdir dir="${tc_cluster}/${email.war.name}"/>
-      <copy todir="${tc_cluster}/${email.war.name}">
-        <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
-          <include name="**/*.jsp"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${email.war.name}/WEB-INF">
-        <fileset dir="${resources}/${email.war.name}">
-          <include name="*.tld"/>
-          <include name="*.xml"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${email.war.name}/classes">
-        <fileset dir="${classes}">
-          <include name="com/topcoder/web/email/**"/>
-        </fileset>
-      </copy>
+    <target name="dev_war_email" depends="war_email">
+        <copy todir="${public_html}" file="${war.dir}/email.war"/>
+        <unwar src="${public_html}/query.war" dest="${public_html}/email/" overwrite="yes"/>
+        <delete file="${public_html}/email.war"/>
+        <delete dir="${public_html}/email/META-INF"/>
     </target>
 
     <target name="war_email" depends="compile">
-        <war warfile="${war.dir}/${email.war.name}.war" webxml="${resources}/email/web.xml">
+        <war warfile="${war.dir}/email.war" webxml="${resources}/email/web.xml">
             <fileset dir="${java}/com/topcoder/web/email/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
@@ -669,7 +510,7 @@
     </target>
 
     <target name="war_query" depends="compile">
-        <war warfile="${war.dir}/${query.war.name}.war" webxml="${resources}/query/web.xml">
+        <war warfile="${war.dir}/query.war" webxml="${resources}/query/web.xml">
             <fileset dir="${java}/com/topcoder/web/query/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
@@ -682,11 +523,11 @@
         </war>
     </target>
 
-<!-- hs -->
-   <target name="deploy_hs" depends="war_hs,build_hs_ejbs">
-   </target>
+    <!-- hs -->
+    <target name="deploy_hs" depends="war_hs,build_hs_ejbs">
+    </target>
 
-   <target name="build_hs_ejbs" depends="compile">
+    <target name="build_hs_ejbs" depends="compile">
         <antcall target="package-EJB-QueryServicesBean"/>
         <antcall target="package-EJB-UserBean"/>
         <antcall target="package-EJB-TermsOfUseBean"/>
@@ -694,125 +535,70 @@
         <antcall target="package-EJB-SchoolBean"/>
         <antcall target="package-EJB-RatingBean"/>
         <antcall target="package-EJB-CoderBean"/>
-   </target>
-
-
-    <target name="package-EJB-UserBean" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-UserBean-properties" >
-        <property name="bean.dir"          value="user" />
-        <property name="bean.jar.name"     value="User.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
     </target>
 
-    <target name="package-EJB-TermsOfUseBean" depends="compile,init-TermsOfUseBean-properties,package-EJB-GenericBean"/>
 
-    <target name="init-TermsOfUseBean-properties" >
-        <property name="bean.dir"          value="termsofuse" />
-        <property name="bean.jar.name"     value="TermsOfUse.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    <target name="package-EJB-UserBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="User"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/hs"/>
+        </antcall>
     </target>
 
-    <target name="package-EJB-EmailBean" depends="compile,init-EmailBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-EmailBean-properties" >
-        <property name="bean.dir"          value="email" />
-        <property name="bean.jar.name"     value="Email.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
+    <target name="package-EJB-TermsOfUseBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="TermsOfUse"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/termsofuse"/>
+        </antcall>
     </target>
 
-    <target name="package-EJB-SchoolBean" depends="compile,init-SchoolBean-properties,package-EJB-GenericBean"/>
+    <target name="package-EJB-EmailBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Email"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+        </antcall>
+    </target>
 
+    <target name="package-EJB-SchoolBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="School"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/school"/>
+        </antcall>
+    </target>
 
-    <target name="init-SchoolBean-properties" >
-        <property name="bean.dir"          value="school" />
-        <property name="bean.jar.name"     value="School.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
+    <target name="package-EJB-RatingBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Rating"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/rating"/>
+        </antcall>
+    </target>
 
+    <target name="package-EJB-CoderBean" depends="compile">
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Coder"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/coder"/>
+        </antcall>
+    </target>
 
-    <target name="package-EJB-RatingBean" depends="compile,init-RatingBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-RatingBean-properties" >
-        <property name="bean.dir"          value="rating" />
-        <property name="bean.jar.name"     value="Rating.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/hs/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-
-    <target name="package-EJB-CoderBean" depends="compile,init-CoderBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-CoderBean-properties" >
-        <property name="bean.dir"          value="coder" />
-        <property name="bean.jar.name"     value="Coder.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/hs/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-   </target>
-
-
-
-
-    <target name="dev_war_hs" depends="compile">
-      <delete dir="${tc_cluster}/${hs.war.name}"/>
-      <mkdir dir="${tc_cluster}/${hs.war.name}"/>
-      <copy todir="${tc_cluster}/${hs.war.name}">
-        <fileset dir="${java}/com/topcoder/web/hs/view">
-          <include name="**/*.jsp"/>
-          <include name="**/*.inc"/>
-          <include name="**/*.html"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
-        <fileset dir="${resources}/${hs.war.name}">
-          <include name="*.tld"/>
-          <include name="*.xml"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF">
-        <fileset dir="${struts.dir}">
-          <include name="*.tld"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${hs.war.name}/WEB-INF/lib">
-        <fileset dir="${struts.dir}">
-          <include name="*.jar"/>
-        </fileset>
-      </copy>
-      <copy todir="${tc_cluster}/${hs.war.name}/classes">
-        <fileset dir="${classes}">
-          <include name="com/topcoder/web/hs/**"/>
-        </fileset>
-      </copy>
+    <target name="dev_war_hs" depends="war_hs">
+        <copy todir="${public_html}" file="${war.dir}/hs.war"/>
+        <unwar src="${public_html}/hs.war" dest="${public_html}/hs/" overwrite="yes"/>
+        <delete file="${public_html}/hs.war"/>
+        <delete dir="${public_html}/hs/META-INF"/>
     </target>
 
 
     <target name="dev_war_tces" depends="war_tces">
-        <copy todir="${public_html}" file="${war.dir}/${tces.war.name}.war"/>
-        <unwar src="${public_html}/${tces.war.name}.war" dest="${public_html}/${tces.war.name}/" overwrite="yes"/>
-        <delete file="${public_html}/${tces.war.name}.war"/>
-        <delete dir="${public_html}/${tces.war.name}/META-INF"/>
+        <copy todir="${public_html}" file="${war.dir}/tces.war"/>
+        <unwar src="${public_html}/tces.war" dest="${public_html}/tces/" overwrite="yes"/>
+        <delete file="${public_html}/tces.war"/>
+        <delete dir="${public_html}/tces/META-INF"/>
     </target>
 
 
     <target name="war_hs" depends="compile">
-        <war warfile="${war.dir}/${hs.war.name}.war" webxml="${resources}/hs/web.xml">
+        <war warfile="${war.dir}/hs.war" webxml="${resources}/hs/web.xml">
             <fileset dir="${java}/com/topcoder/web/hs/view">
                 <include name="**/*.jsp"/>
                 <include name="**/*.inc"/>
@@ -825,10 +611,10 @@
                 <include name="registration-taglib.tld"/>
             </webinf>
             <webinf dir="${struts.dir}">
-                    <include name="*.tld" />
+                <include name="*.tld"/>
             </webinf>
             <lib dir="${struts.dir}">
-                    <include name="*.jar" />
+                <include name="*.jar"/>
             </lib>
         </war>
     </target>
@@ -837,8 +623,8 @@
 
     <!-- begin corp targets -->
 
-      <target name="war_tces" depends="compile">
-        <war warfile="${war.dir}/${tces.war.name}.war" webxml="${resources}/tces/web.xml">
+    <target name="war_tces" depends="compile">
+        <war warfile="${war.dir}/tces.war" webxml="${resources}/tces/web.xml">
             <fileset dir="${java}/com/topcoder/web/tces/servlet/jsp">
                 <include name="**/*.jsp"/>
             </fileset>
@@ -852,7 +638,7 @@
     </target>
 
     <target name="war_corp" depends="compile,corp-ejb-all">
-        <war warfile="${war.dir}/${corp.war.name}.war" webxml="${resources}/corp/web.xml">
+        <war warfile="${war.dir}/corp.war" webxml="${resources}/corp/web.xml">
             <classes dir="${classes}">
                 <include name="com/topcoder/web/corp/**"/>
                 <include name="com/topcoder/web/common/**"/>
@@ -862,7 +648,7 @@
                 <exclude name="**/*Impl.class"/>
             </classes>
 
-            <webinf dir="${resources}/${corp.war.name}">
+            <webinf dir="${resources}/corp">
                 <include name="tc-webtags.tld"/>
             </webinf>
 
@@ -872,18 +658,18 @@
     </target>
 
     <target name="deploy-corp" depends="war_corp,war_query,war_tces">
-        <unwar src="${war.dir}/${corp.war.name}.war" dest="${public_html}/${corp.war.name}/" overwrite="yes"/>
-        <delete dir="${public_html}/${corp.war.name}/META-INF"/>
+        <unwar src="${war.dir}/corp.war" dest="${public_html}/corp/" overwrite="yes"/>
+        <delete dir="${public_html}/corp/META-INF"/>
 
-        <unwar src="${war.dir}/${query.war.name}.war" dest="${public_html}/${query.war.name}/" overwrite="yes"/>
-        <delete dir="${public_html}/${query.war.name}/META-INF"/>
+        <unwar src="${war.dir}/query.war" dest="${public_html}/query/" overwrite="yes"/>
+        <delete dir="${public_html}/query/META-INF"/>
 
-        <unwar src="${war.dir}/${tces.war.name}.war" dest="${public_html}/${tces.war.name}/" overwrite="yes"/>
-        <delete dir="${public_html}/${tces.war.name}/META-INF"/>
+        <unwar src="${war.dir}/tces.war" dest="${public_html}/tces/" overwrite="yes"/>
+        <delete dir="${public_html}/tces/META-INF"/>
     </target>
 
     <target name="corp-ejb-all" depends="compile">
-        <!-- Resume ejb -->
+        <!-- QueryServices ejb -->
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="QueryServices"/>
             <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
@@ -941,15 +727,17 @@
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="User"/>
             <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/corp"/>
         </antcall>
 
     </target>
 
     <target name="build-ejb-unit" depends="compile">
+        <property name="deploy-desc-path" value="${unit-class-path}"/>
         <!-- check if rebuild required -->
-        <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}.jar" >
+        <uptodate property="remake-ejb-unit" targetfile="${ejb_jars}/${unit-jar-name}.jar">
             <srcfiles dir="${classes}" includes="${unit-class-path}/**/*.class"/>
-            <srcfiles dir="${java}/${unit-class-path}" includes="*.xml"/>
+            <srcfiles dir="${java}/${deploy-desc-path}" includes="*.xml"/>
         </uptodate>
         <antcall target="conditional-build-ejb-unit"/>
     </target>
@@ -957,12 +745,13 @@
     <target name="conditional-build-ejb-unit" unless="remake-ejb-unit">
         <!-- recreate -->
         <property name="tmp-dir" value="${classes}/ejb-stuff"/>
-        <delete dir="${tmp-dir}" />
+        <delete dir="${tmp-dir}"/>
         <mkdir dir="${tmp-dir}"/>
         <!-- zip 'sources' -->
+        <echo message="getting deployment descriptors from ${deploy-desc-path}"/>
         <jar jarfile="${tmp-dir}/${unit-jar-name}.jar">
             <zipfileset dir="${classes}" includes="${unit-class-path}/**/*.class"/>
-            <zipfileset dir="${java}/${unit-class-path}" includes="*.xml" prefix="META-INF"/>
+            <zipfileset dir="${java}/${deploy-desc-path}" includes="*.xml" prefix="META-INF"/>
         </jar>
         <!-- rmi-iiop for weblogic -->
         <java classname="weblogic.ejbc" fork="yes" classpathref="class.path" failonerror="true">
@@ -976,22 +765,21 @@
     <!-- end corp targets -->
 
 
-
     <target name="compile_tests" depends="compile">
         <javac srcdir="${testjava}" destdir="${testclasses}"
-               classpathref="class.path"
-               deprecation="${deprecation}"
-               debug="${debug}">
+            classpathref="class.path"
+            deprecation="${deprecation}"
+            debug="${debug}">
         </javac>
     </target>
 
     <target name="run_tests" depends="compile_tests" description="run junit tests">
-            <junit printsummary="${junitsummary}" fork="yes">
-            <classpath refid="class.path" />
-            <formatter type="xml" />
+        <junit printsummary="${junitsummary}" fork="yes">
+            <classpath refid="class.path"/>
+            <formatter type="xml"/>
             <batchtest todir="${testclasses}">
                 <fileset dir="${testclasses}">
-                    <include name="**/*TestCase.class" />
+                    <include name="**/*TestCase.class"/>
                 </fileset>
             </batchtest>
         </junit>
@@ -1009,68 +797,49 @@
     <!-- screening application specific targets go here -->
     <target name="deploy_screening" depends="compile">
         <delete dir="${war.dir}"/>
-        <mkdir  dir="${war.dir}"/>
+        <mkdir dir="${war.dir}"/>
         <antcall target="war_query"/>
         <antcall target="deploy-screening"/>
-        <antcall target="package-EJB-Coder"/>
-        <antcall target="package-EJB-Email"/>
-        <antcall target="package-EJB-Note"/>
-        <antcall target="package-EJB-Session"/>
-        <antcall target="package-EJB-SessionProfile"/>
-        <antcall target="package-EJB-User"/>
-        <antcall target="package-EJB-QueryServicesBean"/>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Coder"/>
+            <param name="unit-class-path" value="com/topcoder/web/screening/ejb/coder"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Email"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/email"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Note"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/note"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="Session"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/session"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="SessionProfile"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/sessionprofile"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="User"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/user"/>
+            <param name="deploy-desc-path" value="com/topcoder/web/ejb/user/screening"/>
+        </antcall>
+
+        <antcall target="build-ejb-unit">
+            <param name="unit-jar-name" value="QueryServices"/>
+            <param name="unit-class-path" value="com/topcoder/web/query/ejb/QueryServices"/>
+        </antcall>
     </target>
-
-    <target name="package-EJB-Coder" depends="compile,init-ScreeningCoderBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-ScreeningCoderBean-properties" >
-        <property name="bean.dir"          value="coder" />
-        <property name="bean.jar.name"     value="Coder.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/screening/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-    </target>
-
-    <target name="package-EJB-Email" depends="compile,init-EmailBean-properties,package-EJB-GenericBean"/>
-
-    <target name="package-EJB-Note" depends="compile,init-NoteBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-NoteBean-properties" >
-        <property name="bean.dir"          value="note" />
-        <property name="bean.jar.name"     value="Note.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-    </target>
-
-    <target name="package-EJB-Session" depends="compile,init-SessionBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-SessionBean-properties" >
-        <property name="bean.dir"          value="session" />
-        <property name="bean.jar.name"     value="Session.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-    </target>
-
-    <target name="package-EJB-SessionProfile" depends="compile,init-SessionProfileBean-properties,package-EJB-GenericBean"/>
-
-    <target name="init-SessionProfileBean-properties" >
-        <property name="bean.dir"          value="sessionprofile" />
-        <property name="bean.jar.name"     value="SessionProfile.jar" />
-        <property name="bean.pkg.dir"      value="com/topcoder/web/ejb/${bean.dir}" />
-        <property name="bean.src.dir"      value="${java}/${bean.pkg.dir}" />
-        <property name="bean.build.dir"    value="${classes}/${bean.pkg.dir}/build" />
-        <property name="bean.meta-inf.dir" value="${bean.build.dir}/META-INF" />
-    </target>
-
-    <target name="package-EJB-User" depends="compile,init-UserBean-properties,package-EJB-GenericBean"/>
 
     <target name="deploy-screening" depends="compile">
-        <war warfile="${war.dir}/${screening.war.name}.war" webxml="${resources}/screening/web.xml">
+        <war warfile="${war.dir}/screening.war" webxml="${resources}/screening/web.xml">
             <fileset dir="${java}/com/topcoder/web/screening/view">
                 <include name="**/*.jsp"/>
                 <include name="**/*.jpg"/>
@@ -1089,21 +858,21 @@
                 <include name="com/topcoder/shared/netCommon/"/>
                 <include name="com/topcoder/common/web/"/>
 
-                <exclude name="com/topcoder/web/screening/ejb/" />
+                <exclude name="com/topcoder/web/screening/ejb/"/>
             </classes>
 
             <classes dir="${resources}">
-                <include name="ApplicationServer.properties" />
+                <include name="ApplicationServer.properties"/>
             </classes>
 
             <webinf dir="${resources}/screening">
                 <include name="screening.tld"/>
             </webinf>
         </war>
-        <unwar src="${war.dir}/${screening.war.name}.war" dest="${public_html}/${screening.war.name}/" overwrite="yes"/>
-        <delete dir="${public_html}/${screening.war.name}/META-INF"/>
+        <unwar src="${war.dir}/screening.war" dest="${public_html}/screening/" overwrite="yes"/>
+        <delete dir="${public_html}/screening/META-INF"/>
     </target>
-  <!-- end of screening application specific targets -->
+    <!-- end of screening application specific targets -->
 
 </project>
 
