@@ -240,6 +240,12 @@ A:active
 	text-decoration: none;
 }
 
+.appSuiteBody
+{
+	width:510px;
+	margin-top:10px;
+	text-align:left;
+}
 .body
 {
 	background: #FFF;
