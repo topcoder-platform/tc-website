@@ -171,19 +171,3 @@ function goTo(selection) {
 
   else {}
 }
-
-
-function timer(last) {
-  var d = document;
-  var stuff = [['image1.gif', 'link1'], ['image2.gif', 'link2'], ['image3.gif', 'link3']];
-  curr = (last+1)%stuff.length;
-  document.changerImg.src=stuff[curr][0];
-  find('changerHref').href=stuff[curr][1];
-  setTimeout("timer(curr)", 5000);
-}
-function find(n) {
-  var s = document.anchors;
-  for (var i=0; i<s.length; i++) {
-    if (s[i].name==n) return s[i];
-  }
-}
