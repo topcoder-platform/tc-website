@@ -77,12 +77,16 @@ public abstract class BaseServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        doPost(request, response);
+        process(request, response);
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        process(request, response);
+    }
 
+    protected void process(HttpServletRequest request, HttpServletResponse response )
+            throws IOException  {
         RequestProcessor rp = null;
         WebAuthentication authentication = null;
         SessionInfo info = null;
