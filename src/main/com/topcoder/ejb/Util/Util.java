@@ -9,33 +9,36 @@ import com.topcoder.common.web.data.*;
 public interface Util extends EJBObject {
 
   public java.sql.Date getCurrentDate ()
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public java.sql.Time getCurrentTime ()
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public java.sql.Timestamp getCurrentTimestamp ()
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public void insertJMSError ( int coderId, String msg )
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public void incrementAdvertiserHitCount ( int advertiserId )
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public String getRegionCode ( String stateCode, int userTypeId )
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public boolean allowFullResume ( int subscriberId, int coderId )
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public void incrementJobPostingHits ( int jobPostingId, int userId )
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public void incrementPressReleaseHitCount ( int id, String host )
-    throws TCException, RemoteException;
+    throws  RemoteException;
 
   public int logMail ( EMailMessage mail )
+    throws RemoteException;
+
+  public void incrementSponsorHitCount ( String link, String refer )
     throws RemoteException;
 
 }
