@@ -202,6 +202,7 @@ public abstract class Base extends BaseProcessor {
     }
 
     protected void loadUserMessageIntoRequest(String messageId) {
+        log.debug("load message into request");
         //we're overwritting the request user message here, so you better hope that
         //there is nothing of use in it.
         getRequest().setAttribute(Constants.MESSAGE,
