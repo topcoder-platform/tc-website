@@ -354,9 +354,6 @@ public class DBMS {
                 case TAX_FORM_SEQ:
                   query = " execute procedure nextval("+ TAX_FORM_SEQ +") ";
                   break;
-                case SECTOR_SEQ:
-                  query = " execute procedure nextval("+ SECTOR_SEQ +") ";
-                  break;
 
                 default:
                     //Log.msg ( sequence_name + " IS NO A RECOGNIZED SEQUENCE " );
