@@ -463,7 +463,7 @@ public final class BusinessDelegate {
 /* by cucu
         } else if (phaseId == Constants.PHASE_APPEALS) {
 */
-        } else if ((phaseId == Constants.PHASE_APPEALS) || (phaseID == Constants.PHASE_APPEALS_RESPONSE)) {
+        } else if ((phaseId == Constants.PHASE_APPEALS) || (phaseId == Constants.PHASE_APPEALS_RESPONSE)) {
             // Appeals
             if (roleId == Constants.ROLE_DESINGER_DEVELOPER) {
                 // Designer / Developer

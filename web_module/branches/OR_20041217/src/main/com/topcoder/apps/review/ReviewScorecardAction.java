@@ -111,7 +111,7 @@ public final class ReviewScorecardAction extends ReviewAction {
                 orpd.getProject().getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS &&
                 isSubmitter) {*/
 
-        int phase = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
+        long phase = orpd.getProject().getCurrentPhaseInstance().getPhase().getId();
         if (Constants.ACTION_VIEW.equals(action) &&
                  (phase == Phase.ID_APPEALS || phase == Phase.ID_APPEALS_RESPONSE) &&
                 isSubmitter) {
