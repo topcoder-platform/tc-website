@@ -45,29 +45,35 @@
                 <tr>
                     <td width="30%" class="sidebarTitle">Placement</td>
                     <td width="70%" class="sidebarTitle">Winner</td>
+                    <td width="70%" class="sidebarTitle">Score</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText" valign="top">Grand Prize Winner</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="70%" class="sidebarText">Aleksandar Nikov</td>
+                    <td width="70%" class="sidebarText">871.19</td>
                 </tr>
 
                 <tr>
                     <td width="30%" class="sidebarText">1st Runner Up</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="70%" class="sidebarText">Kelly Davis</td>
+                    <td width="70%" class="sidebarText">0.00</td>
                 </tr>
 
                 <tr>
-                    <td width="30%" class="sidebarText">2nd Runner Up</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="30%" class="sidebarText">2nd Runner Up (tie)</td>
+                    <td width="70%" class="sidebarText">Bill Baker</td>
+                    <td width="70%" class="sidebarText">0.00</td>
                 </tr>
 
                 <tr>
-                    <td width="30%" class="sidebarText">3rd Runner Up</td>
-                    <td width="70%" class="sidebarText">Name Here</td>
+                    <td width="30%" class="sidebarText">2nd Runner Up (tie)</td>
+                    <td width="70%" class="sidebarText">Dejan Pazin</td>
+                    <td width="70%" class="sidebarText">0.00</td>
                 </tr>
             </table>
-					
+			
+			<p class ="regmiddle"><a href="/pl/?&module=Static&d1=javaone04&d2=javaone_wednesdayphotos">View Photos</a> from the event.</p>
 					
 					</td>
 				</tr>
