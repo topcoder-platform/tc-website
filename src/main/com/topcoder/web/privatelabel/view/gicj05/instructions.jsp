@@ -75,7 +75,7 @@ From within the competition room, you will access the problem statements that yo
 <span class="greenSubtitle">Coding Phase</span><br>
 The Coding Phase is the period during which each contestant attempts to create solutions to three problem statements. The amount of time you will be given will vary depending on the round of competition:
 <ul>
-<li>In the Qualification Round, the Coding Phase will last 60 mins from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
+<li>In the Qualification Round, the Coding Phase will last 60 minutes from the time that the first problem is opened and the contestants will be given two problems to solve.</li>
 <li>In the Online Round One of the Google India Code Jam, the Coding Phase will last 75 minutes and the contestants will be given three problems to solve.</li>
 <li>In the Onsite Final Round of the GICJ05, the coding phase will last 90 minutes and the contestants will be given four problems to solve.</li>
 </ul>
