@@ -150,7 +150,7 @@
                             </td>
 
                             <td align="left" class="statText">
-                                List will be announced on Saturday, Feb. 22th at 12pm
+                                List will be announced on Saturday, Feb. 22nd at 12pm
                                 </td>
                             </tr>
 
