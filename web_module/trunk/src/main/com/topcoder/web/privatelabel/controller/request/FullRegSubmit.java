@@ -23,7 +23,7 @@ import java.util.Map;
  *
  * @author gpaul 06.26.2003
  */
-abstract class FullRegSubmit extends SimpleRegSubmit {
+public abstract class FullRegSubmit extends SimpleRegSubmit {
     private static final int HIT_TYPE = 3; //private label reg hit type
 
     protected void registrationProcessing() throws TCWebException {
