@@ -36,12 +36,12 @@
                 <tr>
                     <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" border="0"></td>
                     <td>
-                        <table cellspacing="0" cellpadding="3" border="0" width="100%" bgcolor="#FFFFFF">
-                            <tr><td bgcolor="#FFCC33" class="statText"><font color="#CC0000" size="2"><strong>&nbsp;Important Alert&nbsp;</strong></font></td></tr>
-                            <tr><td><div align="center"><a href="?module=Static&d1=schedule&d2=sched_march_2003"><img src="/i/postpone_match.gif" alt="TopCoder High School Match 1 has been postponed by one week" width="268" height="112" vspace="10" border="0"></a></div></td></tr>
+                        <table cellspacing="0" cellpadding="5" border="0" width="100%">
+<!--                             <tr><td bgcolor="#FFCC33" class="statText"><font color="#CC0000" size="2"><strong>&nbsp;Important Alert&nbsp;</strong></font></td></tr>  -->
+                            <tr><td width="100%"><div align="center"><img src="/i/banner_challenge_begins.gif" alt="The Challenge Begins 03.13.2003" width="585" height="88" vspace="10" border="0"></div></td></tr>
                         </table>
             
-                        <table cellspacing="0" cellpadding="0" border="0" width="100%">
+                        <table cellspacing="0" cellpadding="5" border="0" width="100%">
                             <tr>
                                 <td class="bodyText" valign="top">
                                     <!-- <div align="center"><img src="/i/home_sc_center_top2.gif" width="294" height="204" border="0" hspace="5" vspace="5"></div> -->
@@ -51,7 +51,7 @@
                         </table>
 
                         <table cellspacing="0" cellpadding="5" border="0" width="100%">
-                            <tr><td background="/i/blue_heading_bg_tres.gif" class="statText"><strong>&nbsp;<font size="2">Welcome to TopCoder High School.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</font></strong></td></tr>
+                            <tr><td background="/i/blue_heading_bg_tres.gif" class="statText"><strong>&nbsp;<font size="2">Welcome to TopCoder High School&nbsp;</font></strong></td></tr>
                             <tr>
                                 <td bgcolor="#E8E8E8" class="bodyText">
                                     <p>TopCoder, Inc., the leader in online programming competitions, is pleased to announce the launch of TopCoder High School. Through our 
