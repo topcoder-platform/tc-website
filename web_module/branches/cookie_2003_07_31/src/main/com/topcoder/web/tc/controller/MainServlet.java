@@ -4,15 +4,14 @@ import com.topcoder.web.common.BaseServlet;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.security.WebAuthentication;
 import com.topcoder.web.tc.Constants;
+import com.topcoder.web.tc.model.CoderSessionInfo;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.Resource;
-import com.topcoder.common.web.data.Navigation;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+import java.util.Set;
 
 public class MainServlet extends BaseServlet {
     private final static Logger log = Logger.getLogger(MainServlet.class);
@@ -29,4 +28,10 @@ public class MainServlet extends BaseServlet {
         return true;
     }
 
+    protected SessionInfo createSessionInfo(HttpServletRequest request,
+                                            WebAuthentication auth, Set groups) throws Exception {
+        SessionInfo ret = null;
+        ret = new CoderSessionInfo(request, auth, groups);
+        return ret;
+    }
 }
