@@ -21,14 +21,14 @@
 </table>
 
 <!-- Menu bar begins here -->
-<table width="100%" border="0" cellpadding="0" cellspacing="0" background="/i/ev/graybv_lite_bd.gif">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" background="/i/ev/graybv_lite_bg.gif">
    <tr valign="middle">
-      <td width="15"><img src="/i/ev/clear.gif" width="15" height="21" border="0"/></td>
+      <td width="15"><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></td>
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="PopulateSession" styleclass="testTopNav">Create a New Session</screen:servletLink></td>
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="ProfileList" styleclass="testTopNav">Test Profiles</screen:servletLink></td> 
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="ProblemList" styleclass="testTopNav">Problem Sets</screen:servletLink></td>
       <td nowrap="nowrap" class="statText"><screen:servletLink processor="BuildCandidateList" styleclass="testTopNav">Candidates</screen:servletLink></td>          
-      <td width="100%"><img src="/i/ev/clear.gif" width="15" height="21" border="0"/></td>  
+      <td width="100%"><img src="/i/ev/clear.gif" width="15" height="1" border="0"/></td>  
    </tr>
 </table>
 <!-- Menu bar ends here -->
