@@ -86,28 +86,30 @@
                        <tr>
                           <td align=left><span class=bodySmallTitle>Problem Statement</span></td>
                           <td align=right>
-                          Choose your language:
+                          <strong>Choose your language:</strong>
                           <tc-webtag:listIterator id="language" list="languages" type="com.topcoder.shared.language.Language">
                             <tc-webtag:radioButton name="<%=Constants.LANGUAGE_ID%>" value="<%=String.valueOf(language.getId())%>" onClick='<%="JavaScript:doSubmit('"+Constants.RP_SAVE+"')"%>'/>&#160;<jsp:getProperty name="language" property="name"/>&#160;
                           </tc-webtag:listIterator>
                           </td>
                        </tr>
                     </table>
+                           <br>
 
                     <table cellspacing=0 cellpadding=0 border=0 width="100%">
                        <tr>
-                          <td align=left><span class=bodySmallTitle>Class Name: </span></td>
-                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="className"/></span></td>
-                          <td align=left><span class=bodySmallTitle>Return Type: </span></td>
-                          <td align=left><span class=bodySmallTitle><%=StringUtils.htmlEncode(problemInfo.getReturnType())%></span></td>
+                          <td align=left nowrap="nowrap"><strong>Class Name:&#160;&#160;</strong></td>
+                          <td align=left width="50%"><jsp:getProperty name="problemInfo" property="className"/></td>
+                          <td align=left nowrap="nowrap"><strong>Return Type:&#160;&#160;</strong></td>
+                          <td align=left width="50%"><%=StringUtils.htmlEncode(problemInfo.getReturnType())%></td>
                        </tr>
                        <tr>
-                          <td align=left><span class=bodySmallTitle>Method Name: </span></td>
-                          <td align=left><span class=bodySmallTitle><jsp:getProperty name="problemInfo" property="methodName"/></span></td>
-                          <td align=left><span class=bodySmallTitle>Arg Types: </span></td>
-                          <td align=left><span class=bodySmallTitle><%=StringUtils.htmlEncode(problemInfo.getArguments())%></span></td>
+                          <td align=left nowrap="nowrap"><strong>Method Name:&#160;&#160;</strong></td>
+                          <td align=left><jsp:getProperty name="problemInfo" property="methodName"/></td>
+                          <td align=left nowrap="nowrap"><strong>Arg Types:&#160;&#160;</strong></td>
+                          <td align=left><%=StringUtils.htmlEncode(problemInfo.getArguments())%></td>
                        </tr>
                     </table>
+                           <br>
 
                     <iframe src="<jsp:getProperty name="sessionInfo" property="absoluteServletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" width="100%" height="200px" scrolling="auto" frameborder="1">
                     [Your user agent does not support frames or is currently configured not to display frames. However, you may visit <a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?module=<%=Constants.RP_PROBLEM_STATEMENT%>&<%=Constants.MESSAGE_ID%>=<%=request.getParameter(Constants.MESSAGE_ID)%>" target="_top">the related document.</a>]

@@ -4,19 +4,23 @@
 
 <html>
   <head>
-    <title></title>
+    <title>Test Arguments</title>
+   <link type="text/css" rel="stylesheet" href="/css/screening.css" >
   </head>
   <body>
       <table border=0 width="100%">
+               <tr><td class="testWinTitle">Test Arguments</td></tr>
           <tr>
-              <td>
-                  <%=StringUtils.htmlEncode(StringUtils.checkNull((String)request.getAttribute(Constants.MESSAGE)))%>
-              <td>
+              <td align="left">
+<pre>
+<%=StringUtils.htmlEncode(StringUtils.checkNull((String)request.getAttribute(Constants.MESSAGE)))%>
+</pre>
+              </td>
           </tr>
           <tr>
               <td>
                   <a href="Javascript:window.close();"><img src="/i/corp/screening/buttonOK.gif" alt="OK"/></a>
-              <td>
+              </td>
           </tr>
       </table>
   </body>

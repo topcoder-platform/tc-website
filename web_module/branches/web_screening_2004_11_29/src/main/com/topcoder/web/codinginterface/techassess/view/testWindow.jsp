@@ -13,7 +13,8 @@
 
 <html>
   <head>
-    <title></title>
+    <title>Test Arguments</title>
+   <link type="text/css" rel="stylesheet" href="/css/screening.css" >
   </head>
   <body>
         <form name="frmTesting" action="<jsp:getProperty name="sessionInfo" property="servletPath"/>" method="post">
@@ -30,12 +31,13 @@
           <input type="hidden" name="arrayArgType" value="" />
           <input type="hidden" name="arrayDisplayArgType" value="" />
         <table border=0 width="100%">
+               <tr><td class="testWinTitle" colspan="2">Test Arguments</td></tr>
             <ci:argumentIterator problem="prob" language="language">
                 <tr>
-                    <td>
+                    <td width="50%" align="right">
                         <%=StringUtils.htmlEncode(argument)%>
                     </td>
-                    <td>
+                    <td width="50%">
                         <% if (Integer.parseInt(argumentDimension)>0) { %>
                           <a href="Javascript:launchArray(<%=argumentIndex%>);"><img id="<%=CodingInterfaceConstants.TEST_ARGUMENT_INPUT + argumentIndex%>" src="/i/corp/screening/buttonCreate.gif" alt="Create"/></a>
                         <% } else { %>
