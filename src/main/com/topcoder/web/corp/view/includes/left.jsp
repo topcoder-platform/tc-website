@@ -4,7 +4,7 @@
 
 <!-- My Services begins -->
             <table width="170" bgcolor="#000000" cellspacing="0" cellpadding="0" border="0">
-                <tr valign="bottom"><td height="20" class="corpSubNav">My Services</td></tr>
+                <tr valign="bottom"><td height="20" class="myServicesTitle">My Services</td></tr>
 
                 <tr><td class="myServicesBorder"><img alt="" width="170" height="1" src="/i/clear.gif" border="0" /></td></tr>      
 
@@ -36,8 +36,8 @@
 <!-- My Services ends -->
 
 <!-- Company Information begins -->
-            <table width="160" bgcolor="#333333" cellspacing="0" cellpadding="0" border="0">
-                <tr valign="bottom"><td height="20" class="corpSubNav">Corporate Information</td></tr>
+            <table width="170" cellspacing="0" cellpadding="0" border="0">
+                <tr valign="bottom"><td height="20" class="companyInfoTitle">Corporate Information</td></tr>
 
                 <tr><td class="companyInfoBorder"><img alt="" width="170" height="1" src="/i/clear.gif" border="0" /></td></tr>      
 
