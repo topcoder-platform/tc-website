@@ -65,12 +65,12 @@
                  </TR>
                  <TR>
                    <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
-                     <A HREF="/stat?&c=state_avg_rating" CLASS="statText">Top States</A>
+                     <A HREF="/stat?&amp;c=state_avg_rating" CLASS="statText">Top States</A>
                    </TD>
                  </TR>
                  <TR>
                    <TD COLSPAN="5" BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="statText">
-                     <A HREF="/stat?&c=country_avg_rating" CLASS="statText">Top Countries</A>
+                     <A HREF="/stat?&amp;c=country_avg_rating" CLASS="statText">Top Countries</A>
                    </TD>
                  </TR>
                  <TR>
