@@ -109,6 +109,11 @@
             <description></description>
         </init-param>
         <init-param>
+            <param-name>google_activation_page</param-name>
+            <param-value>/reg/googleActivation.jsp</param-value>
+            <description></description>
+        </init-param>
+        <init-param>
             <param-name>default_page</param-name>
             <param-value>/index.jsp</param-value>
             <description></description>
