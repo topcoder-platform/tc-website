@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import com.topcoder.web.common.TCWebException;
+
 /**
  * This is an exception class used by the data interface bean
  * to indicate an attempt to call a search routine with search
@@ -9,7 +11,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * @version 1.00, 03/14/2002
  */
 
-public class UnsupportedSearchException extends Exception {
+public class UnsupportedSearchException extends TCWebException {
     /**
      * Constructs a <code>UnsupportedSearchException</code> object
      * with no message.

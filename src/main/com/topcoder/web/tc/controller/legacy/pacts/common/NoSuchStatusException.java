@@ -1,5 +1,7 @@
 package com.topcoder.web.tc.controller.legacy.pacts.common;
 
+import com.topcoder.web.common.TCWebException;
+
 /**
  * This is an exception class used by the data interface bean
  * and EJB to indicate that no such status exists.  This is
@@ -10,7 +12,7 @@ package com.topcoder.web.tc.controller.legacy.pacts.common;
  * @version 1.00, 03/14/2002
  */
 
-public class NoSuchStatusException extends Exception {
+public class NoSuchStatusException extends TCWebException {
     /**
      * Constructs a <code>NoSuchStatusException</code> object
      * with no message.
