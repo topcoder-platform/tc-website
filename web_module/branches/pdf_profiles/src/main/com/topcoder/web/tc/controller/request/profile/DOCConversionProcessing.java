@@ -57,6 +57,7 @@ public class DOCConversionProcessing extends BaseProcessor {
                     ServletOutputStream sos = getResponse().getOutputStream();
                     sos.write(result);
                     sos.flush();
+                    sos.close();
                     
                     getResponse().flushBuffer();
                 }
