@@ -48,9 +48,9 @@
                 <tr valign="top">
                     <td class="bodyText" width="100%"> 
                     
-                            <div align="center" valign="middle"> <img src="/i/es/header_looking_for.gif" alt="" width="510" height="84" border="0"/></div>
+                                <div align="center"><img src="/i/es/header_looking_for.gif" alt="" width="510" height="68" border="0"/></div>
                        
-                                <p><img src="/i/es/quote_member.gif" alt="" width="246" height="194" border="0" align="right"/>Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
+                                <p><img src="/i/es/quote_member.gif" alt="" width="246" height="194" border="0" align="right"/> <br/><br/>Our clients are interested in hiring and retaining the industry's top talent. They all believe that their most valuable asset is their 
                                 employees. And, like us, they understand the value of making hiring decisions based on an objective measure of coding skill.</p>
 
                                 <p>Only rated members can apply for jobs posted by TCES. This allows companies to differentiate coders 
