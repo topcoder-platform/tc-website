@@ -54,7 +54,7 @@ function getProblemDetail(id) {
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="coder_type"/></td>
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="job"/></td>
                   <td class="screeningCellOdd" align=center><A href="javascript:getProblemDetail('<rsc:item row="<%=resultRow%>" name="session_round_id"/>,<rsc:item row="<%=resultRow%>" name="problem_id"/>');"><rsc:item row="<%=resultRow%>" name="problem_name"/></A></td>
-                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="start_date"/></td>
+                  <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" format="MM/dd/yyyy" name="start_date"/></td>
                   <td class="screeningCellOdd" align=center><rsc:item row="<%=resultRow%>" name="problem_time"/></td>
                   <td class="screeningCellOdd" align=center>
                     <object
@@ -71,7 +71,7 @@ function getProblemDetail(id) {
                     <param name="menu" value="false" />
                     <param name="quality" value="high" />
                     <param name="bgcolor" value="#ffffff" />
-                    <param name="preference" value="3" />
+                    <param name="preference" value="<rsc:item row="<%=resultRow%>" name="preference"/>" />
                     <param name="link" value="/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>" />
                     <embed
                     src="/i/corp/screeningRatingOdd.swf"
@@ -82,8 +82,8 @@ function getProblemDetail(id) {
                     height="12"
                     name="tc_card"
                     align="middle"
-                    preference="3"
-                    link="/corp/testing/?module=UpdatePreference&userId=7267401&cid=9102106" 
+                    preference="<rsc:item row="<%=resultRow%>" name="preference"/>"
+                    link="/corp/testing/?module=UpdatePreference&userId=<%=searchResults.getUserId()%>&cid=<rsc:item row="<%=resultRow%>" name="user_id"/>" 
                     allowScriptAccess="sameDomain"
                     type="application/x-shockwave-flash"
                     pluginspage="http://www.macromedia.com/go/getflashplayer" />
