@@ -315,3 +315,4 @@ function submitEnter(e) {
 </table>
 <jsp:include page="foot.jsp" />
 </body>
+</html>
