@@ -61,7 +61,7 @@
                            </td>
                            </tr>
                            <tr>
-                              <td colspan="2">
+                              <td colspan="2" class="errorText">
                                  <tc-webtag:errorIterator id="err" name="<%=AnswerInput.PREFIX+question.getId()%>"><%=err%></tc-webtag:errorIterator>
                               </td>
                            </tr>
