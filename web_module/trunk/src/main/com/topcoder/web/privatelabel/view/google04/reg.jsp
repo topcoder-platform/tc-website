@@ -203,7 +203,7 @@ function submitEnter(e) {
                     Address2
                 </td>
                 <td align="left">
-                    <tc-webtag:textInput name="<%=Constants.ADDRESS2%>"  size="30" maxlength="50"/>
+                    <tc-webtag:textInput name="<%=Constants.ADDRESS2%>"  size="30" maxlength="100"/>
                 </td>
             </tr>
 
