@@ -123,8 +123,8 @@
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">8:00am - 12:00pm</td>
-                    <td class="bodyText">Component Competiton Finals</td>
+                    <td class="bodyText" bgcolor="#99FF66">8:00am - 12:00pm</td>
+                    <td class="bodyText" bgcolor="#99FF66">Component Competiton Finals</td>
                 </tr>
                 
                 <tr>
@@ -143,8 +143,8 @@
                 </tr>
                 
                 <tr>
-                    <td class="bodyText">3:00pm - 4:45pm</td>
-                    <td class="bodyText">Final Round</td>
+                    <td class="bodyText" bgcolor="#99FF66">3:00pm - 4:45pm</td>
+                    <td class="bodyText" bgcolor="#99FF66">Coding Tournament Finals</td>
                 </tr>
                 
                 <tr>
