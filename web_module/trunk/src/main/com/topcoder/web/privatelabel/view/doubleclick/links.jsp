@@ -4,7 +4,7 @@
 %>
 
 <table width="750" cellpadding="0" cellspacing="7" border="0" align="center">
-   <tr><td align="left" valign="bottom"><a href="http://www.doubleclick.com/us/"><img src="/i/events/doubleclick/dccc_logo.gif" width="200" height="100" alt="DoubleClick" border="0"/></a></td>
+   <tr><td align="left" valign="bottom"><a href="/pl/?&module=Static&d1=doubleclick&d2=col_overview"><img src="/i/events/doubleclick/dccc_logo.gif" width="200" height="100" alt="DoubleClick" border="0"/></a></td>
    <td align="right" valign="bottom"><a href="/"><img src="/i/events/doubleclick/pbtc.gif" width="220" height="70" alt="TopCoder" border="0"/></a></td>
    </tr>
 </table>
