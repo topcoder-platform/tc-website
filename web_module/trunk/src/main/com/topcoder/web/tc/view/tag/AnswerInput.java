@@ -139,11 +139,9 @@ public class AnswerInput extends BaseTag {
             s.append(cssclass);
             s.append("\"");
         }
-        if (getDefaultValue()!=null) {
-            s.append(" value=\"");
-            s.append(getDefaultValue());
-            s.append("\"");
-        }
+        s.append(" value=\"");
+        s.append(answerId);
+        s.append("\"");
         if (getDefaultValue() != null && getDefaultValue().equals(new Long(answerId))) {
             s.append(" checked");
         }
