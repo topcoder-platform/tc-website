@@ -207,12 +207,36 @@ public interface PactsConstants {
     public static final int CONTRACT_INACTIVE_STATUS = 50;
     public static final int CONTRACT_ACTIVE_STATUS = 51;
 
+    /* We get a "printed" status once a payment has been printed to a file
+     * for use in importing into quick books
+     */
     public static final int PRINTED_STATUS = 52;
+
+    /* We get a "paid" status once the checks are in the mail.  A TC rep.
+     * marks payments as having been paid
+     */
     public static final int PAID_STATUS = 53;
+
+    /* We get a "ready to print" status when a TC rep decides the payments are ready to print */
     public static final int READY_TO_PRINT_STATUS = 54;
+
+    /* We get an "on hold" status when the payment is going to someone who doesn't have a
+     * tax form on file at the time of the generation of the payment, or the person
+     * is not active at the time of printing
+     */
     public static final int PAYMENT_ON_HOLD_STATUS = 55;
+
+    /* We get an "owed" status after the associated affidavit is affirmed, or if it's a referral
+     * payment.  In either case, it means we should pay them...
+     */
     public static final int PAYMENT_OWED_STATUS = 56;
+
+    /* We get a "pending" status if they have a tax form on file at the time
+     * of the generation of the payment
+     */
     public static final int PAYMENT_PENDING_STATUS = 64;
+
+    /* We get a "canceled" status when old affidavits expire */
     public static final int PAYMENT_CANCELED_STATUS = 65;
 
     public static final int AFFIDAVIT_PENDING_STATUS = 57;
