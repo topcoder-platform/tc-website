@@ -852,6 +852,7 @@
                 <include name="body_top.jsp"/>
                 <include name="date_time.jsp"/>
                 <include name="menu.jsp"/>
+                <include name="nocache.jsp"/>
                 <include name="top.jsp"/>
                 <include name="includes/global_left.jsp"/>
                 <include name="includes/modules/simpleSearch.jsp"/>
