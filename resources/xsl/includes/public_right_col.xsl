@@ -10,7 +10,7 @@
 <script type="text/javascript"><![CDATA[
 function timer(last) {
   var d = document;
-  var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/?t=tournaments&c=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/?t=tournaments&c=tco03_northface']];
+  var stuff = [['/i/tournament/tco03/promo_sm_revelation.gif', '/?t=tournaments&c=tco03_revelation'], ['/i/tournament/tco03/promo_sm_northface.gif', '/?t=tournaments&c=tco03_northface'], ['/i/tournament/tco03/promo_sm_artifact.gif', '/?t=tournaments&c=tco03_artifact']];
   curr = (last+1)%stuff.length;
   document.changerImg.src=stuff[curr][0];
   find('changerHref').href=stuff[curr][1];
