@@ -8,7 +8,6 @@
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
 
 <jsp:include page="/script.jsp">
-
 <script type="text/javascript" language="Javascript">
 <!--
 function showEmail() {
@@ -87,9 +86,9 @@ function submitSession() {
                 </tr>
             </table>
 
-            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session">
+            <jsp:useBean id="sessionInfo" type="com.topcoder.web.screening.model.SessionInfo" scope="session" />
             <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-            <input type="hidden" name="rp" value="" >
+            <input type="HIDDEN" name="rp" value="" >
 
             <div id="testTableBorder">
             <table border="0" cellspacing="0" cellpadding="3" width="70%">
@@ -97,7 +96,7 @@ function submitSession() {
                 <tr>
                     <td class="testTableOdd">&#160;</td>
                     <td class="testTableOdd">
-                        <select name ="profileid">
+                        <select name ="profileId">
                         <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                         <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
                             <option value="<screen:resultSetItem row="<%=row%>" name="session_profile_id">" SELECTED><screen:resultSetItem row="<%=row%>" name="name"></option>
