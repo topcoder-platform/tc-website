@@ -16,7 +16,8 @@
 <jsp:include page="../../script.jsp" />
 <jsp:include page="../../nocache.jsp"/>
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick05.css"/>
 
 </head>
 <body align="center">
@@ -68,7 +69,7 @@ function changeField() {
 	      <img src="/i/events/doubleclick/image1.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Registration</p>
+         <p class="bigTitle">Registration</p>
          <p>Registration is open until 6:00 PM on Tuesday, March 1st, 2005.</p>
 
         <form action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="POST" name="regForm">
