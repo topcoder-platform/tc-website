@@ -42,6 +42,18 @@
            <jsp:param name="image1" value="white"/>  
            <jsp:param name="title" value="Working at TopCoder"/>  
         </jsp:include>
+        
+                          <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
+                     <TR>
+                        <TD VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
+                        <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/><BR/>
+
+                  <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
+                      <TR>
+                        <TD CLASS="statText" BGCOLOR="#43515E" HEIGHT="18" VALIGN="middle">&#160;&#160;<B>Great Jobs at TopCoder</B></TD>
+                     </TR>
+                  </TABLE>
+<IMG SRC="/i/es/topcoder/topcoder_logo.gif" WIDTH="160" HEIGHT="31" VSPACE="10" BORDER="0"/><BR/>
 
             <table border="0" cellspacing="0" cellpadding="0"  width="100%">
                 <tr valign="top">
