@@ -51,7 +51,7 @@
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
 <P>
-<A HREF="/?t=statistics&amp;c=match_summary" CLASS="bodyText">Match Summary</A> | <A HREF="/stats?c=last_match" CLASS="bodyText">Match Results</A> | <A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">Room 1 Review</A> | <A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">Rookie Review</A> | <A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">Problem Set Analysis &amp; Opinion</A>
+<A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">Room 1 Review</A> | <A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">Rookie Review</A> | <A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">Problem Set Analysis &amp; Opinion</A>
 </P>
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 <P>Algorithms:<BR/>CleanupCrew - 1050<BR/>
