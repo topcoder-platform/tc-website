@@ -31,7 +31,7 @@ public final class TCResourceBundle {
     
     public int getIntProperty(String key, int defaultValue) {
         String str=getProperty(key,Integer.toString(defaultValue));
-        return Integer.parseInt(str);
+        return Integer.parseInt(str.trim());
     }
 
     private static void error(Object message, Throwable t) {
