@@ -72,8 +72,8 @@
 						<img src="/i/clear.gif" alt="" width="240" height="1" border="0" /><br />
 						<p><strong>Your inquiry has been sent. Thank You!</strong></p>
         
-    						<p>
-    						    Thank you for your interest in the Online Review Application: Design project. Detailed information about the project will be sent to you via email by a TopCoder Software Application Manager.  This will include access to a TopCoder Software NewsGroup, which can be used to obtain detailed functional requirements for the application, as well as to ask questions regarding the application design. Please post your questions at any time and an application manager will respond within 24 hours. Any questions asked within 6 hours of the submission due date/time may not be answered in time, so get your questions in early! 
+    						<p><xsl:value-of select="/TC/DEVELOPMENT/Project"/>
+    						    Thank you for your interest in the <xsl:value-of select="/TC/DEVELOPMENT/Project"/>: Design project.  You will be contacted on May 27th by a TopCoder Application Manager.  At that time you will be notified if you were selected as a developer for this project.
     						</p>
                             
                         <p>Please submit your design to <a class="statText" href="mailto:submissions@topcodersoftware.com">submissions@topcodersoftware.com</a>.  All late submissions will be ignored.</p>
