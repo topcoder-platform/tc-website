@@ -94,6 +94,7 @@ public class BasicAuthentication implements WebAuthentication {
         for( int i=0; i<ret.length; ++i ) {
             response.addCookie(ret[i]);
         }
+        response.setHeader("Cache-Control", "no-cache"); 
     }
     
     /**

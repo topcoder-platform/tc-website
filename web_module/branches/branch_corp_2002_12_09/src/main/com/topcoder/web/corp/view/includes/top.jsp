@@ -17,14 +17,14 @@
                 <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% if( auth.getUser().isAnonymous() ) {  // no logged user
  %>
-                <A HREF="<%=appContext%>/?module=Static&d1=LoginPage" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+    <A HREF="<%=appContext%>/?module=Static&d1=LoginPage" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% }
    else {
  %>
-                <A HREF="<%=appContext%>/?module=Logout" CLASS="globalNavSmall" TARGET="_parent">Logout</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+    <A HREF="<%=appContext%>/?module=Logout" CLASS="globalNavSmall" TARGET="_parent">Logout</A>&#160;&#160;&#160;|&#160;&#160;&#160;
 <% }
  %>
-                <A HREF="<%=appContext%>/?module=Static&d1=index" TARGET="_parent" CLASS="globalNavSmall">Home</A></TD>
+         <A HREF="<%=appContext%>/?module=Static&d1=index" TARGET="_parent" CLASS="globalNavSmall">Home</A></TD>
       <TD WIDTH="15" BGCOLOR="#333333"><IMG SRC="/i/p/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
    </TR>
    <TR>
