@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 /**
- * This bean processes a RequestInt and returns the data from the Transactional database.
+ * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from the Transactional database.
  *
  * @author  Dave Pecora
  * @version $Revision$

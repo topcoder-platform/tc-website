@@ -11,7 +11,7 @@ import java.sql.Connection;
 import java.util.Map;
 
 /**
- * This bean processes a RequestInt and returns the data from either the cache if it's available
+ * This bean processes a {@link com.topcoder.shared.dataAccess.RequestInt} and returns the data from either the cache if it's available
  * or the transactional database if what we're looking for is not in the cache.  If we got it from the
  * db, it is added to the cache.
  *
