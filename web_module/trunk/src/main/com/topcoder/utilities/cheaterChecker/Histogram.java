@@ -23,11 +23,12 @@ public class Histogram {
     }
 
     public void add(Object o) {
-        Integer count = (Integer)histogram.remove(o);
-        if (count==null) {
-            histogram.put(o, new Integer(1));
-        } else {
+        Integer count = null;
+        if (histogram.containsKey(o)) {
+            count = (Integer)histogram.get(o);
             histogram.put(o, new Integer(count.intValue()+1));
+        } else {
+            histogram.put(o, new Integer(1));
         }
     }
 
