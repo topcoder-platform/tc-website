@@ -343,7 +343,7 @@ public class Search extends Base {
       }
     }
     catch (NumberFormatException _nfe) {
-      return(false);
+      /* do nothing */
     }
     return(true);
   }
