@@ -1,13 +1,14 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
-<head>
+<head><meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+
 
 <title>DoubleClick</title>
 
 <jsp:include page="../script.jsp" />
 
-<link type="text/css" rel="stylesheet" href="/css/doubleclick.css"/>
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/doubleclick.css"/>
 
 </head>
 <body align="center">
@@ -17,13 +18,12 @@
    <jsp:param name="tabLev2" value="overview"/>
 </jsp:include>
 
-<div class="dc_bodyTable">
-
-   <div CLASS="dc_headerPic">
-      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
-   </div>
-
-   <div CLASS="dc_bodyText">
+<table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
+	<tr>
+		<td class="dc_headerPic">
+	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	  	</td>
+		<td class="dc_bodyText">
          <p class="pageTitle">Announcing the DoubleClick 2004 Coding Challenge!</p>
          
          <p>It's bigger and better than before!  For this year's tournament, we have teamed up with TopCoder - the leader in online programming competitions - to bring you an exciting contest with two online rounds and fantastic prizes for the 10 best performers.</p>
@@ -70,8 +70,11 @@
 
          <p>To find out more detailed information about the DoubleClick 2004 Coding Challenge, please read the Official Rules and Regulations.</p>
 
-   </div>
-</div>
+		</td>
+	</tr>
+</table>
+
+<p><br/></p>
    
 <jsp:include page="foot.jsp" />
 

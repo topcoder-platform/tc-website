@@ -25,7 +25,7 @@
 	  	</td>
 		<td class="dc_bodyText">
             
-	         <p class="pageTitle">Rules</p>
+	         <p class="pageTitle">Official Rules and Regulations</p>
          
             <h3>No purchase necessary to enter or win. The tournament is void where prohibited.</h3>
 
