@@ -74,7 +74,7 @@
 		</TR>
 		<TR>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm83_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=editorial_archive">Archive</A></TD>
+			<TD VALIGN="top" CLASS="bodyText">&#160;</TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
 		</TABLE>
@@ -93,7 +93,7 @@ just do what they said. I suppose some people might have made mistakes with
 floating-point, but if you read the notes it turned out that it was simple
 standard integer division. Do the steps and return the answer, about as
 simple as it gets. Look at basically anybody in the first room for a good
-solution - <A HREF="/stat?c=last_match&amp;rd=4136" CLASS="bodyGeneric">dmwright's</A> 
+solution - <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright's</A> 
 is perhaps better laid out than some (though slightly slower to write).</P>
 
 <P>The 550, on the other hand, was messy and hateful. Look at five people and
