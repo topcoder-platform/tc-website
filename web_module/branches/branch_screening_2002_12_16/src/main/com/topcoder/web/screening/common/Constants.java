@@ -33,10 +33,6 @@ public class Constants
     public static String MAX_PASSWORD_SIZE;
     public static String CANDIDATE_LIST_QUERY_KEY;
 
-    //Security Server Constants
-    public static String SECURITY_CONTEXT_FACTORY;
-    public static String SECURITY_PROVIDER_URL;
-
     //Common Constants
     public static String DATA_SOURCE;
     public static String TX_DATA_SOURCE;
@@ -69,12 +65,6 @@ public class Constants
         MAX_PASSWORD_SIZE = config.getInitParameter("max_password_size");
         CANDIDATE_LIST_QUERY_KEY = 
             config.getInitParameter("candidate_list_query_key");
-
-        //Security Server Constants
-        SECURITY_CONTEXT_FACTORY = 
-            config.getInitParameter("security_context_factory");
-        SECURITY_PROVIDER_URL = 
-            config.getInitParameter("security_provider_url");
 
         //Common Constants
         DATA_SOURCE = config.getInitParameter("data_source_name");
