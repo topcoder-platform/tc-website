@@ -62,26 +62,26 @@
               <% } %>
               </P>
               
-              <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">               
+              <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0">
                 <TR valign='top'>
                 <TD width='40%'>
                 
                   <% if (DemographicTask.getStudentCoderCount() > 0) { %>    
                 
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                         <TR>
-                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
+                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (<jsp:getProperty name="DemographicTask" property="StudentCoderCount"/>)</b></TD>
                         </TR>
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                          <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
                         </TR>
 
                         <% int i=0; %>
                         <tces:mapIterator id="responseRow" MapList="<%=StudentResponseList%>">
                         <% i++; %>
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)responseRow.get("title")%>
                               </TD>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
@@ -92,30 +92,6 @@
                               </TD>                  
                             </TR>                     
                         </tces:mapIterator>
-<%--
-                        <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                        </TR>                
-
-                        <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
-                        </TR>                
-
-                        <tces:mapIterator id="notify" MapList="<%=(List)StudentNotifyList%>">                    
-                            <TR>
-                              <TD class="bodyText" HEIGHT="18">
-                                <%=(String)notify.get("title")%>
-                              </TD>
-                              <TD class="bodyText">
-                                <%=(String)notify.get("percent")%>
-                              </TD>
-                              <TD class="bodyText">
-                                <%=(String)notify.get("count")%>
-                              </TD>                  
-                            </TR>                     
-                        </tces:mapIterator>
---%>
-
 
                         <%
                           while (StudentQuestionIterator.hasNext()) {
@@ -124,11 +100,11 @@
                         %>
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" COLSPAN="3"><BR></TD>
                         </TR>                
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>
+                          <TD class="testFormHeader"COLSPAN="3"><%=question%></TD>
                         </TR>
 
 
@@ -136,7 +112,7 @@
                         <tces:mapIterator id="resp" MapList="<%=StudentResponsesList%>">
                         <% i++; %>
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("title")%>
                               </TD>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
@@ -155,17 +131,15 @@
                       </TABLE>
                       
                    <% }else{ %>
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                         <TR>
-                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Student (0)</b></TD>
+                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Student (0)</b></TD>
                         </TR>
-
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" COLSPAN="3"><BR></TD>
                         </TR>                
-
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
+                          <TD class="bodyText" COLSPAN="3" align="center">No data available.</TD>
                         </TR>                
                       </TABLE>
                    <% } %>
@@ -173,32 +147,27 @@
                 </TD>
 
 
-                <TD WIDTH="10%">
-                    <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" >
-                        <TR HEIGHT="18"><TD class="testTableTitle"><BR></TD></TR>
-                        <TR><TD><BR></TD></TR>
-                    </TABLE>
-                </TD>
+                <TD WIDTH="10%"></TD>
 
 
                 <TD width="40%">
 
                   <% if (DemographicTask.getProCoderCount() > 0) { %>
                   
-                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
+                      <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="3" BORDER="0">
                         <TR>
-                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
+                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (<jsp:getProperty name="DemographicTask" property="ProCoderCount"/>)</b></TD>
                         </TR>
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
+                          <TD class="testFormHeader" COLSPAN="3"><B>How did you hear about TopCoder?</B></TD>
                         </TR>
 
                         <% int i=0; %>
                         <tces:mapIterator id="responseRow" MapList="<%=(List)ProResponseList%>">
                         <% i++; %>
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)responseRow.get("title")%>
                               </TD>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
@@ -210,32 +179,6 @@
                             </TR>                     
                         </tces:mapIterator>
 
-<%--
-
-                        <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
-                        </TR>                
-
-                        <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B>Receive Notification Emails?</B></TD>                  
-                        </TR>                
-
-                        <tces:mapIterator id="notify" MapList="<%=(List)ProNotifyList%>">                    
-                            <TR>
-                              <TD class="bodyText" HEIGHT="18">
-                                <%=(String)notify.get("title")%>
-                              </TD>
-                              <TD class="bodyText">
-                                <%=(String)notify.get("percent")%>
-                              </TD>
-                              <TD class="bodyText">
-                                <%=(String)notify.get("count")%>
-                              </TD>                  
-                            </TR>                     
-                        </tces:mapIterator>
---%>
-
-
                         <%
                           while (ProQuestionIterator.hasNext()) {
                             String question = (String)ProQuestionIterator.next();
@@ -243,18 +186,18 @@
                         %>
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" COLSPAN="3"><BR></TD>
                         </TR>                
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><B><%=question%></B></TD>                  
+                          <TD class="testFormHeader" COLSPAN="3"><B><%=question%></B></TD>
                         </TR>                
 
                         <% i=0; %>
                         <tces:mapIterator id="resp" MapList="<%=ProResponsesList%>">
                         <% i++; %>
                             <TR>
-                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>" HEIGHT="18">
+                              <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
                                 <%=(String)resp.get("title")%>
                               </TD>
                               <TD class="<%=i%2==1?"testTableOdd":"testTableEven"%>">
@@ -275,15 +218,15 @@
                    <% }else{ %>
                       <TABLE WIDTH="100%" CELLSPACING="0" CELLPADDING="0" BORDER="0">               
                         <TR>
-                          <TD class="testTableTitle" HEIGHT="18" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
+                          <TD class="testTableTitle" COLSPAN="3">&#160;<b>Professional (0)</b></TD>
                         </TR>
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3"><BR></TD>                  
+                          <TD class="bodyText" COLSPAN="3"><BR></TD>
                         </TR>                
 
                         <TR>
-                          <TD class="bodyText" HEIGHT="18" COLSPAN="3" align="center">No data available.</TD>                  
+                          <TD class="bodyText" COLSPAN="3" align="center">No data available.</TD>
                         </TR>                
                       </TABLE>
                     <% } %>
