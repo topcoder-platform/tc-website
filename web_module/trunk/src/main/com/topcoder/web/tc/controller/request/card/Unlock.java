@@ -24,15 +24,7 @@ public class Unlock extends Preview {
             if (userLoggedIn()) {
                 if (isRated()) {
                     UserPreference up = (UserPreference) createEJB(getInitialContext(), UserPreference.class);
-                    boolean cardUnlocked = false;
-                    try {
-                        up.getValue(getUser().getId(), Constants.UNLOCK_CARD_PREFERENCE_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
-                        cardUnlocked = true;
-                    } catch (RemoteException e) {
-                        if (!(e.detail instanceof RowNotFoundException))
-                            throw e;
-                    }
-                    if (!cardUnlocked) {
+                    if (!isUnlocked()) {
                         UserTransaction tx = null;
                         tx = Transaction.get();
                         Transaction.begin(tx);
