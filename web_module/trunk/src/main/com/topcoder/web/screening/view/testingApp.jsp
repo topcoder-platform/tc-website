@@ -52,7 +52,7 @@
             if ((port==null) || port.equals("")) port="8001";
 
             String tunnel = request.getParameter("tunnel");
-            if ((tunnel==null) || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening+port=8001";
+            if ((tunnel==null) || tunnel.equals("")) tunnel="http://arena2.topcoder.com/servlet/com.topcoder.utilities.HTTPTunnelling.Tunnel?host=screening&port=8001";
 
             String companyID = request.getParameter("company");
             if ((companyID==null) || companyID.equals("")) companyID="1";
