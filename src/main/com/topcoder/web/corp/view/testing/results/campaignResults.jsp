@@ -256,7 +256,7 @@ function getProblemDetail(id) {
                         pluginspage="http://www.macromedia.com/go/getflashplayer" />
                         </object>
                     </td>
-                    <td class='<%=cssClasses[counter++ % 2]%>' align=center>
+                    <td class='<%=cssClasses[counter % 2]%>' align=center>
                         <A href='?<%=Constants.MODULE_KEY%>=DownloadResume&<%=Constants.USER_ID%>=<%=row.getStringItem("user_id")%>'><%=row.getStringItem("resume_text")%></A>
                     </td>
                     <td class='<%=cssClasses[counter++ % 2]%>' align=center>
