@@ -1,4 +1,4 @@
-<!--Left Navigation Include Begins-->
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%><!--Left Navigation Include Begins-->
 
 <%!  // note that this is a jsp *declaration*, not a scriptlet
 
@@ -121,7 +121,7 @@ sub = NavZone.getLevel1();
     <% } %>
 
 <!-- Contact Us -->
-    <%=rootitem("http://www.topcoder.com/?&t=contacts&c=index", "Contact Us", "contacts", false)%>
+    <%=rootitem("http://"+ApplicationServer.SERVER_NAME+"/?&t=contacts&c=index", "Contact Us", "contacts", false)%>
 
 <!-- News / Features -->
     <%=rootitem("http://www.topcoder.com/?t=news_events&c=index", "News / Features", "press", false)%>
