@@ -21,8 +21,48 @@
 		<td valign=top align=center>
 		<div class=bodySpacer>
             
-        <p class=bigTitle>2004 TopCoder Open - Overview</p>
+        <p class=bigTitle>Advancers - Overview</p>
 
+            <p>Click a column title to sort the list of advancers by that column. Click <a href="?module=SimpleStats&c=tco04_alg_adv_overview&trans=true&d1=tournaments&d2=tco04&d3=alg_adv_overview">here</a> to reset the list to its originally sorted format.</p>
+
+            <table width="500" align="center" border="0" cellpadding="2" cellspacing="0" class="formFrame">
+                <tr class="advHeader">
+                    <td width = "10%" align = "center"><a href="/">Seed</a></td>
+                    <td width = "15%"><a href="/">Handle</a></td>
+                    <td width = "5%" align = "center"><a href="/">Rating</a></td>
+                    <td width = "10%" align = "center"><a href="/">Round 1</a></td>
+                    <td width = "10%" align = "center"><a href="/">Round 2</a></td>
+                    <td width = "10%" align = "center"><a href="/">Round 3</a></td>
+                    <td width = "10%" align = "center"><a href="/">Round 4</a></td>
+                    <td width = "10%" align = "center"><a href="/">Semi</a></td>
+                    <td width = "10%" align = "center"><a href="/">Wildcard</a></td>
+                    <td width = "10%" align = "center"><a href="/">Final</a></td>
+                </tr>
+               <tr class="advanceLt">
+                  <td align="center">test</td>
+                  <td>test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+               </tr>
+               <tr class="advanceDk">
+                  <td align="center">test</td>
+                  <td>test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+                  <td align="center">test</td>
+               </tr>
+            </table>
         </div>
 		</td>
         
