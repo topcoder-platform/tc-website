@@ -14,20 +14,20 @@
 <!-- LEVEL 1 TABS -->
 <% if (tabLev1.equals("overview")) {%>
 	<tr>
+		<td width="100%">&#160;</td>
 		<td valign=bottom align=left rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td>&#160;</td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_overviewOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("algorithm")) { %>
 	<tr>
+		<td width="100%">&#160;</td>
 		<td valign=bottom align=left rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td>&#160;</td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_algOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } else if (tabLev1.equals("component")) { %>
 	<tr>
+		<td width="100%">&#160;</td>
 		<td valign=bottom align=left rowspan=2><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/tournament/tccc05/tccc05_logo.gif" border=0/></A></td>
-		<td>&#160;</td>
 	</tr>
 	<tr><td class=topNavBox><img src="/i/tournament/tccc05/tabs/L1_compOn.gif" alt="" border=0 usemap="#L1_tabs"/></td></tr>
 <% } %>
@@ -37,7 +37,13 @@
 		<td colspan=2>
 		<table border=0 cellspacing=0 cellpadding=0 width="100%">
     		<tr>
-        		<td class=nav align=right width="49%"><img src="/i/tournament/tccc05/tabs/L2_sideDK.gif" border=0 /></td>
+<!--
+        		<td class=nav>&#160;&#160;&#160;</td>
+        		<td class=nav width="50%">&#160;</td>
+        		<td class=nav width="100%">&#160;</td>
+-->
+        		<td class=nav>&#160;&#160;&#160;</td>
+        		<td class=nav align=right><img src="/i/tournament/tccc05/tabs/L2_sideDK.gif" border=0 /></td>
 
 			<% if (tabLev1.equals("overview")) { %>
 				<% if (tabLev2.equals("details")) {%>
@@ -88,8 +94,13 @@
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals"><img src="/i/tournament/tccc05/tabs/L2_developmentOff.gif" alt="" border=0 /></A></td>
 				<% } %>
 			<% } %>
-
-        		<td class=nav align=left width="49%"><img src="/i/tournament/tccc05/tabs/L2_sideLT.gif" border=0 /></td>
+        		<td class=nav align=left><img src="/i/tournament/tccc05/tabs/L2_sideLT.gif" border=0 /></td>
+        		<td class=nav width="100%">&#160;</td>
+<!--
+        		<td class=nav>&#160;&#160;&#160;</td>
+        		<td class=nav width="50%">&#160;</td>
+        		<td class=nav width="100%">&#160;</td>
+-->
 			</tr>
 		</table>
 		</td>
@@ -101,7 +112,12 @@
 		<td colspan=2>
 		<table width="100%" border=0 cellspacing=0 cellpadding=0 class="subNav">
 			<tr>
-				<td width="50%" class=subNavBG>&#160;</td>
+				<td class=subNavBG>&#160;&#160;&#160;</td>
+<!--
+				<td class=subNavBG>&#160;&#160;&#160;</td>
+				<td class=subNavBG width="50%">&#160;</td>
+				<td class=subNavBG width="100%">&#160;&#160;&#160;</td>
+-->
 				<% if (tabLev1.equals("overview")) { %>
 					<% if (tabLev2.equals("join_us")) {%>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=onsite_schedule"><% if (tabLev3.equals("schedule")) {%><img src="/i/tournament/tccc05/tabs/L3_scheduleOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_scheduleOff.gif" border=0><% } %></a></td>
@@ -147,9 +163,13 @@
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_summary"><% if (tabLev3.equals("summary")) {%><img src="/i/tournament/tccc05/tabs/L3_summaryOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_summaryOff.gif" border=0><% } %></a></td>
 						<td class=subnav><a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_bracket"><% if (tabLev3.equals("bracket")) {%><img src="/i/tournament/tccc05/tabs/L3_bracketOn.gif" border=0><% } else { %><img src="/i/tournament/tccc05/tabs/L3_bracketOff.gif" border=0><% } %></a></td>
 					<% } %>
-
 				<% } %>
-				<td width="50%" class=subNavBG>&#160;</td>
+				<td class=subNavBG width="100%">&#160;&#160;&#160;</td>
+<!--
+				<td class=subNavBG width="100%">&#160;&#160;&#160;</td>
+				<td class=subNavBG width="50%">&#160;</td>
+				<td class=subNavBG>&#160;&#160;&#160;</td>
+-->
 			</tr>
 		</table>
 		</td>
