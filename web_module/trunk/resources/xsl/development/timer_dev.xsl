@@ -98,9 +98,9 @@ Members will also collect royalties on the revenue generated from the sale of th
 </P>
 <P>
 Royalty Percentage - 25%<BR/>
-Total Payment - $180.00<BR/>
-First Deliverable - $135.00<BR/>
-Project Completion - $45.00<BR/>
+Total Payment - $240.00<BR/>
+First Deliverable - $180.00<BR/>
+Project Completion - $60.00<BR/>
 </P>
 
 <P>
