@@ -542,7 +542,7 @@ public class TransactionServlet extends HttpServlet {
         String key = req.getParameter(FRMKEY_CCTX_UID);
         if (key == null || key.trim().length() == 0) {
             key = req.getSession(true).getId();
-            if (key==null) log.debug("couldn't find key in request\nit is now\n"+key);
+            log.debug("couldn't find key in request\nit is now\n"+key);
         } else {
             log.debug("key was " + key);
         }
