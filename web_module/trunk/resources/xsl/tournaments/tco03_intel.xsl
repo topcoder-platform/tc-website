@@ -46,22 +46,21 @@
                 <tr valign="top">
                     <td align="left" width="100%">
                         <table border="0" cellpadding="0" cellspacing="0">
+                            
                             <tr>
                                 <td><embed src="/i/sponsor/intel_ids/ids_movie.swf" quality="high" wmode="opaque" bgcolor="#8D9AC1" width="289" height="130" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash"></embed></td>
                                 <td valign="top" rowspan="2"><img src="/i/sponsor/intel_ids/intel_dev_services_2.gif" alt="Intel Developer Services--Maximize You Code" width="275" height="55" /></td>
                             </tr>
+                            
                             <tr>
                                 <td valign="bottom"><img src="/i/sponsor/intel_ids/yellow.gif" width="289" height="12" /></td>
-                                <td></td>
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                            
-                <tr valign="top">
-                    <td align="left" width="100%" class="bodyText">
-
-                        <p class="promoText"> Technology complexity is increasing at a blistering pace. In both the business and consumer markets, products that were once considered nice-to-haves 
+                               <td></td>
+                          </tr>
+                          
+                            <tr>
+                                  <td align="left" class="bodyText">
+                                
+                                 <p class="promoText"> Technology complexity is increasing at a blistering pace. In both the business and consumer markets, products that were once considered nice-to-haves 
                         are rapidly becoming expectations, challenging software developers to create and optimize solutions that fulfill their customers' growing demands.</p>
                         
                         <p class="promoText"><A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><strong>Intel&#174; Developer Services </strong></A>offers the resources and 
@@ -72,17 +71,16 @@
                         
                         
                         <p class="promoCallout">Register at <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank">www.intel.com/IDS</A> today and get FREE 
-                        technical resources designed to help you capitalize on today's technology trends&#58;</p>
+                        technical resources designed to help you capitalize on today's technology trends&#58;</p></td>
                         
-           
-                        <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                            <tr valign="top">
-                        <td align="center" width="100%"><img src="/i/sponsor/intel_ids/intel_centrino.gif" alt="Intel Developer Services--Maximize You Code" width="493" height="174" /></td>
+                            <td valign="top"> <A href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup" target="_blank"><img src="/i/sponsor/intel_centrino_vertical.gif" width="268" height="235" /> </A> </td>
                             </tr>
+                            
                         </table>
-                        
-            
-                       <table border="0" cellpadding="4" cellspacing="0">
+                    </td>
+                </tr>
+                            
+                 <table border="0" cellpadding="4" cellspacing="0">
                             <tr valign="top">
                                 <td width="20"><img src="/i/clear.gif" width="13" height="4" border="0" /><br /><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
                                 <td valign="top" width="99%" class="bodyText"><strong>Technical Training.</strong>
