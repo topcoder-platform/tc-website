@@ -273,7 +273,9 @@
                     ret+=list[i].value+",";
                   }
                 }
-                ret=ret.substring(0, ret.length-2);
+                if (ret.charAt(ret.length-1)==',') {
+                  ret = ret.substring(0, ret.length-2);
+                }
                 document.profileListForm.<%=Constants.REPORT_RELOCATE_KEY%>.value=ret;
               }
               function checkRelocate() {
