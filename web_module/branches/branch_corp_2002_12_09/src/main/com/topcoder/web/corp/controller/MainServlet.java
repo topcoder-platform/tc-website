@@ -267,8 +267,8 @@ public class MainServlet extends HttpServlet {
         );
         String loginPageDest = loginPage + "&" + destParam + "=" +
             java.net.URLEncoder.encode(
-                originatingPage,
-                resp.getCharacterEncoding()
+                originatingPage
+//                , resp.getCharacterEncoding() // 1.4
             );
         fetchRegularPage(req, resp, loginPageDest, true);
     }
