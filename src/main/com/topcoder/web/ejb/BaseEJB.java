@@ -62,7 +62,7 @@ public abstract class BaseEJB implements SessionBean {
             }
             query.append(") values (");
             for (int i=0; i<colValues.length; i++) {
-                query.append(colValues[i]);
+                query.append("?");
                 if (colValues.length>1 && i!=colValues.length-1)
                     query.append(", ");
             }
