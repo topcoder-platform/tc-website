@@ -164,7 +164,7 @@ public class DataCacheBean extends BaseEJB {
         round = new Round();
         round.setRoundId ( rs.getInt(1));
         round.setContestId ( rs.getInt(2));
-        round.setName ( rs.getString(3));
+        round.setRoundName ( rs.getString(3));
         round.setStatus ( rs.getString(4));
         round.setRanRatings ( rs.getInt(5));
         round.setPaidMoney ( rs.getInt(6));
