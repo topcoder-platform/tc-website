@@ -64,7 +64,6 @@
 <P>
 The Simple Cache component provides the ability to quickly and effectively implement a server-side caching strategy. The component is intended for use within a single JVM and supports the caching of any Java Object. The component is designed to provide fast, efficient, multi-threaded access to commonly used objects.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2804505&amp;cat=10" CLASS="statText">Simple Cache Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>
