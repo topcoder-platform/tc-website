@@ -3930,7 +3930,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             getWinners.append("AND rr.coder_id = c.coder_id ");
             getWinners.append("AND rr.coder_id = rp.coder_id ");
             getWinners.append("AND rr.round_id = rp.round_id ");
-            getWinners.append("AND rp.payment_type_id = " + CONTEST_PAYMENT )
+            getWinners.append("AND rp.payment_type_id = " + CONTEST_PAYMENT );
             getWinners.append("ORDER BY rr.room_id, rr.room_placed");
             ResultSetContainer winners = runSelectQuery(c, getWinners.toString(), false);
             int numWinners = winners.getRowCount();
