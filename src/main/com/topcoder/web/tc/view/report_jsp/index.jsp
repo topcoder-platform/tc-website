@@ -1,9 +1,9 @@
-<%--                   
+<%--
 /**
  *  index.jsp
  */
 --%>
-<%@  page 
+<%@  page
   language="java"
   import="java.util.*,
           com.topcoder.common.web.data.report.*"
@@ -21,13 +21,13 @@
 
 <%!
   private String printTree(ReportNode node, StringBuffer buf) {
-    String GET_REPORT_ADDR = Constants.SERVLET_ADDR +  "?" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_RESULT_KEY + "&" + Constants.REPORT_ID_KEY + "="; 
+    String GET_REPORT_ADDR = Constants.SERVLET_ADDR +  "?" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_RESULT_KEY + "&" + Constants.REPORT_ID_KEY + "=";
     ReportNode child = null;
     for (int i=0; i<node.getChildCount(); i++) {
-      child = (ReportNode)node.getChildAt(i); 
+      child = (ReportNode)node.getChildAt(i);
       if (child.isLeaf() && child.getContents() instanceof Report) {
         buf.append("<li><a href=");
-        buf.append(GET_REPORT_ADDR); 
+        buf.append(GET_REPORT_ADDR);
         buf.append(((Report)child.getContents()).getId());
         buf.append(">");
         buf.append(child.getContents().toString());
@@ -35,7 +35,7 @@
       } else {
         if (child.getContents() instanceof Report) {
           buf.append("<li><a href=");
-          buf.append(GET_REPORT_ADDR); 
+          buf.append(GET_REPORT_ADDR);
           buf.append(((Report)child.getContents()).getId());
           buf.append(">");
           buf.append(child.getContents().toString().replace('_',' '));
@@ -48,13 +48,13 @@
         buf.append("</ul>");
       }
     }
-    return buf.toString(); 
+    return buf.toString();
   }
 
 %>
 
-  
-<%  
+
+<%
   ReportNode reportList = null;
   Boolean processed = (Boolean)request.getAttribute(Constants.PROCESSED_KEY);
   if (processed==null || !processed.booleanValue()) {
@@ -84,13 +84,13 @@
       <a href=<%=Constants.SERVLET_ADDR+"?"+Constants.TASK_NAME_KEY+"="+Constants.NEW_REPORT_KEY%>>Additional Reports<a><br/><br/>
 
       <b>Profile Information<b><br/>
-      <ul><li><a href=<%=Constants.SERVLET_ADDR + "?" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>
-      <ul><li><a href=<%=Constants.JSP_ADDR + Constants.REPORT_PROFILE_ADDR%>>Profile Look Up<a></li></ul>
-     <!-- <ul><li><a href=<%=Constants.JSP_ADDR + "?"+Constants.TASK_NAME_KEY+"=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>-->
+      <ul><li><a href=<%=Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>
+      <ul><li><a href=<%=Constants.SERVLET_ADDR + "&" + Constants.TASK_NAME_KEY + "=" + Constants.REPORT_PROFILE_KEY%>>Profile Look Up<a></li></ul>
+     <!-- <ul><li><a href=<%=Constants.JSP_ADDR + "&"+Constants.TASK_NAME_KEY+"=" + Constants.REPORT_PROFILE_LIST_MENU_KEY%>>Profile List<a></li></ul>-->
 
-<%=  
+<%=
        printTree(reportList, new StringBuffer())
 %>
-  </body> 
+  </body>
 </html>
 

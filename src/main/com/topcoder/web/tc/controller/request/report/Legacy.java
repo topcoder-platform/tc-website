@@ -6,6 +6,7 @@ import com.topcoder.common.web.data.report.*;
 import com.topcoder.shared.dataAccess.*;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.security.ClassResource;
 
 import javax.servlet.http.HttpUtils;
 import java.util.Map;
@@ -31,7 +32,7 @@ public class Legacy extends Base {
         try {
             task = getRequest().getParameter(Constants.TASK_NAME_KEY);
 
-            if (((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin())
+            if (((SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY)).isAdmin()) {
 
                 response_addr = getRequest().getParameter(Constants.RESPONSE_ADDR_KEY);
 
@@ -106,7 +107,9 @@ public class Legacy extends Base {
                 }
                 setNextPage(Constants.JSP_ADDR + response_addr);
                 setIsNextPageInContext(true);
-
+            } else {
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+            }
 
         } catch (TCWebException e) {
             throw e;
