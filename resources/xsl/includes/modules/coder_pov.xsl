@@ -12,8 +12,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/Eeyore_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
-                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273434"><strong>Eeyore</strong></a><br/>
+                        <img src="/i/m/schveiguy_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
+                        By&#160;<a class="bodyText" href="/stat?c=member_profile&amp;cr=273217"><strong>schveiguy</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" /> 
 
@@ -22,17 +22,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=tco03_online_rd_1">TCO - Online Round 1 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, October 15, 2003</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm168_prob">SRM 168 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Tuesday, October 21, 2003</p>
 
 <p> 
-Those who hesitated were lost as nearly 500 of TopCoder's best jockeyed
-for position in the first elimination round of the 2003 Open. Nine out of
-ten contestants made Level One and Level Two submissions, but only one out
-of four went on to complete a Level Three problem that asked for a
-simulation of orbiting planets.
+The points flew fast and furious... Until coders ran up against some very
+difficult problems, which made this set one of the harder ones in recent times.
+I had at least two people curse me for writing a difficult set and two people
+praise me for it, so I don't know what the real verdict is, but here's what
+happened anyways.
 
-                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=tco03_online_rd_1</xsl:attribute><strong>full&#160;story</strong></a>
+                       <a class="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=statistics&amp;c=srm168_prob</xsl:attribute><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
