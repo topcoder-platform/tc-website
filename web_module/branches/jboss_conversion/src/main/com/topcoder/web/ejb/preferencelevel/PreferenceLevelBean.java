@@ -11,6 +11,7 @@ import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
 import javax.ejb.EJBException;
+import java.rmi.RemoteException;
 
 /**
  * An implementation class for <code>Preference Level EJB</code>.
