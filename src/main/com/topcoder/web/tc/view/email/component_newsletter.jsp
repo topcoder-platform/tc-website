@@ -12,7 +12,7 @@
 <table border="0" cellspacing="10" cellpadding="0" width="800">
     
     <tr valign="top">
-        <td align="center"><A href="http://software.topcoder.com/index.jsp" target="blank"><img src="/i/email/tcs_logo.gif" width="217" height="64"/></A><img src="/i/email/header_march.gif" width="536" height="64"/></td>
+        <td align="center"><A href="http://software.topcoder.com/index.jsp" target="blank"><img src="/i/email/tcs_logo.gif" width="217" height="64" border="0"/></A><img src="/i/email/header_march.gif" width="536" height="64"/></td>
     </tr>
     
     <tr valign="top">
@@ -65,7 +65,7 @@
 				<table border="0" cellpadding="5" cellspacing="0"width="270">
 				
 				<tr>
-                    <td colspan="2" valign="bottom"><p><strong><font color="#FFFFFF" size="4"><img src="/i/email/iconStatusCompleteSm.gif" width="25" height="17" align="right"/>Completed Components</font></strong></p></td>
+                    <td colspan="2" valign="bottom"><p><strong><font color="#FFFFFF" size="4"><img src="/i/email/iconStatusCompleteSm.gif" width="25" height="17" align="right" border="0"/>Completed Components</font></strong></p></td>
                 </tr>
 
                 
@@ -281,15 +281,15 @@
                 <tr>
                     <td>
                     
-                    <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6511227&ver=1" target="blank"><img src="/i/email/feat_comp_priority_queue.gif" width="170" height="119"/></A><br/>
+                    <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=6511227&ver=1" target="blank"><img src="/i/email/feat_comp_priority_queue.gif" width="170" height="119" border="0"/></A><br/>
                     
                     <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                     
-                    <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2803908&ver=1" target="blank"><img src="/i/email/feat_comp_math_expression.gif" width="170" height="104"/></A><br/>
+                    <A href="http://software.topcoder.com/catalog/c_component.jsp?comp=2803908&ver=1" target="blank"><img src="/i/email/feat_comp_math_expression.gif" width="170" height="104" border="0"/></A><br/>
                     
                     <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                     
-                    <A href="http://software.topcoder.com/forum/c_active_collab.jsp" target="blank"><img src="/i/email/promo_cust_forums_third.gif" width="170" height="120"/></A><br/>
+                    <A href="http://software.topcoder.com/forum/c_active_collab.jsp" target="blank"><img src="/i/email/promo_cust_forums_third.gif" width="170" height="120" border="0"/></A><br/>
                     
                     <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                     
