@@ -180,9 +180,9 @@
                                 <td class="bodyText"><a target="tcsdocs" href="/tc?module=Static&amp;d1=dev&amp;d2=devReviewSample" class="bodyText">Sample Development Review Scorecard</a></td>
                             </tr>
                             <tr valign="top">
-                                <td class="bodyText">04.01.2003</td>
+                                <td class="bodyText">07.27.2004</td>
                                 <td class="bodyText"><img src="/i/clear.gif" alt="" width="10" height="5" border="0" /></td>
-                                <td class="bodyText"><a href="/tc?module=DevStatic&amp;d1=dev&amp;d2=devReviewScoring" class="bodyText">Development Review Scoring</a></td>
+                                <td class="bodyText"><a href="/tc?module=Static&amp;d1=dev&amp;d2=devScoreSheet" class="bodyText">Development Review Scoring</a></td>
                             </tr>
                         </table>
                     </td>

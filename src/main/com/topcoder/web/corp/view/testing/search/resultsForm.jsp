@@ -60,8 +60,8 @@ function getProblemDetail(id) {
               </tr>
                 <%
                     int counter = 0;
-                    String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
-                    String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
+                    String[] cssClasses = {"screeningCellOdd", "screeningCellEven"};
+                    String[] swfFiles = {"/i/corp/screeningRatingOdd.swf", "/i/corp/screeningRatingEven.swf"};
                 %>
 
               <rsc:iterator list="<%=results%>" id="resultRow">
