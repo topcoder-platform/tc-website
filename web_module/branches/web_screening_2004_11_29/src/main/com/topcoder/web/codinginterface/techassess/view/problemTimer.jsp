@@ -20,6 +20,7 @@ if (o!=null) {
                 var times= new Array(<%=problems.size()%>);
                 var ids = new Array(<%=problems.size()%>);
                 var types = new Array(<%=problems.size()%>);
+                var startTimes = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
                     %> times[<%=i%>] = <%=((ProblemSetInfo)problems.get(i)).getTimeRemaining()%>; <%
@@ -43,13 +44,11 @@ if (o!=null) {
         problemServerTime = new Date(problemServerTime.getTime() - ((problemServerOffset - problemOffset) * 60 * 60 * 1000));
 
         var problemSyncedOffset = problemLocalTime.getTime() - problemServerTime.getTime();
-        alert(times);
 
         for (i=0;i<times.length; i++) {
           times[i]=times[i] - ((problemServerOffset - problemOffset) * 60 * 60 * 1000);
         }
 
-        alert(times);
         function problemUpdate() {
             var d = new Date();
             var correctedLocalTime = new Date(d.getTime() - problemSyncedOffset);
