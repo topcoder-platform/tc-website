@@ -69,11 +69,13 @@ public class PasswordEmail extends Base {
     }
 
     private static String clean(String string) {
+        log.debug("in " + string);
         StringBuffer ret = new StringBuffer(string.length()+1);
         StringTokenizer st = new StringTokenizer(string, "\'");
         while(st.hasMoreTokens()) {
             ret.append(st.nextToken()).append("'").append("'");
         }
+        log.debug("out " + ret.toString());
         return ret.toString();
     }
 }
