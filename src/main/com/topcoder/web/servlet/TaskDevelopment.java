@@ -141,37 +141,15 @@ public final class TaskDevelopment {
             else{
                 devTag.addTag(new ValueTag("payment", payment));
             }
-            if(!date.equals(""))
-            {
-
-                Calendar cal = Calendar.getInstance();
-
-                SimpleDateFormat df = new SimpleDateFormat("MM/dd/yyyy");
-                Date initialDate = df.parse(date);
-                devTag.addTag(new ValueTag("date", df.format(initialDate)));
-                cal.setTime(initialDate);
-                devTag.addTag(new ValueTag("month", cal.get(Calendar.MONTH)+ 1));
-                devTag.addTag(new ValueTag("day", cal.get(Calendar.DATE)));
-                devTag.addTag(new ValueTag("year", cal.get(Calendar.YEAR)));
-                cal.add(Calendar.DATE, 8);
-                devTag.addTag(new ValueTag("DesWinner", df.format(cal.getTime())));
-                cal.add(Calendar.DATE, 4);
-                devTag.addTag(new ValueTag("DesFinal", df.format(cal.getTime())));
-                cal.add(Calendar.DATE, 37);
-                devTag.addTag(new ValueTag("DesDevFinal", df.format(cal.getTime())));
-
-
-                cal.setTime(initialDate);
-                cal.add(Calendar.DATE, 13);
-                devTag.addTag(new ValueTag("DevWinner", df.format(cal.getTime())));
-                cal.add(Calendar.DATE, 5);
-                devTag.addTag(new ValueTag("DevFinal", df.format(cal.getTime())));
-
-
-            }
-            else{
-                devTag.addTag(new ValueTag("date", date));
-            }
+            devTag.addTag(new ValueTag("date", date));
+            devTag.addTag(new ValueTag("version", request.getParameter("version")));
+            devTag.addTag(new ValueTag("phase", request.getParameter("phase")));
+            devTag.addTag(new ValueTag("posting_date", request.getParameter("posting_date")));
+            devTag.addTag(new ValueTag("initial_submission", request.getParameter("initial_submission")));
+            devTag.addTag(new ValueTag("final_submission", request.getParameter("final_submission")));
+            devTag.addTag(new ValueTag("winner_announced", request.getParameter("winner_announced")));
+            devTag.addTag(new ValueTag("estimated_dev", request.getParameter("estimated_dev")));
+            
 
 
             if (command.equals("inquire")) {
@@ -239,8 +217,6 @@ public final class TaskDevelopment {
 
                     devTag.addTag(new ValueTag("documentId", request.getParameter("docId")));
                     
-                    devTag.addTag(new ValueTag("phase", request.getParameter("phase")));
-                    devTag.addTag(new ValueTag("version", request.getParameter("version")));
 
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 }
@@ -293,8 +269,6 @@ public final class TaskDevelopment {
                 if (nav.getLoggedIn()) {
                     String version = Conversion.checkNull(request.getParameter("version"));
                     String phase = Conversion.checkNull(request.getParameter("phase"));
-                    devTag.addTag(new ValueTag("version", version));
-                    devTag.addTag(new ValueTag("phase", phase));
                     long userId;
                     devTag.addTag(new ValueTag("Project", project));
 
@@ -328,7 +302,7 @@ public final class TaskDevelopment {
 
 
 
-  	               Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
+  	            Context CONTEXT = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.TCS_APP_SERVER_URL);
 
 
                     com.topcoder.security.UserPrincipal selectedPrincipal = null;
