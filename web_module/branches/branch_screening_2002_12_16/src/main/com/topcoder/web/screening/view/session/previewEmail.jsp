@@ -40,19 +40,14 @@
 <FORM>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
- <% if(emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail()) {%>
+ <% if(emailInfo.getSessionInfo() != null && (emailInfo.getSessionInfo().useCandidateEmail() || emailInfo.getSessionInfo().useRepEmail())) {%>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">
-<strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" /><br /><br />
-<jsp:getProperty name="emailInfo" property="HTMLMsgText" />
-</TD>
-    <%}
-    else {%>
+                <strong>Subject:</strong> <jsp:getProperty name="emailInfo" property="subject" /><br /><br />
+                <jsp:getProperty name="emailInfo" property="HTMLMsgText" />
+              </TD>
+ <% } else { %>
               <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">No email to be sent</TD>
-    <%}
-}
-else {%>
-          <TD CLASS="bodyText" ALIGN="left" VALIGN="middle">No email to be sent</TD>
-<%}%>
+ <% } %>
            </TR>
          </TABLE>             
 </FORM>         
