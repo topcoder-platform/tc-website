@@ -12,9 +12,6 @@
   <xsl:template match="/">
     <HTML>
       <HEAD>
-
-
-
         <xsl:call-template name="Preload"/>      
         <TITLE>TopCoder :: Schedule</TITLE>
         <xsl:call-template name="CSS"/>      
