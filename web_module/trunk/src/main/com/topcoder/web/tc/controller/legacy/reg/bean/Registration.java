@@ -8,6 +8,9 @@ import com.topcoder.ejb.UserServices.UserServices;
 import com.topcoder.ejb.UserServices.UserServicesHome;
 import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
 import com.topcoder.web.ejb.resume.ResumeServices;
@@ -1282,38 +1285,17 @@ public class Registration
 
     protected boolean handleExists(String handle)
             throws TaskException {
-        InitialContext context = null;
-        boolean exists = false;
-        boolean commonExists = false;
+        Request r = new Request();
+        r.setContentHandle("user exists");
+        r.setProperty("hn", handle);
+
+        ResultSetContainer rsc = null;
         try {
-            context = TCContext.getInitial();
-            AuthenticationServices authenticationServices = (AuthenticationServices)BaseProcessor.createEJB(context, AuthenticationServices.class);
-
-            exists = !authenticationServices.validHandle(handle);
-
-            if (!exists) {  //if they don't exist in regular database, check the common one too
-                Hashtable env = new Hashtable();
-                env.put(Context.INITIAL_CONTEXT_FACTORY, ApplicationServer.SECURITY_CONTEXT_FACTORY);
-                env.put(Context.PROVIDER_URL, ApplicationServer.SECURITY_PROVIDER_URL);
-                InitialContext ctx = new InitialContext(env);
-                PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
-                    ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-                PrincipalMgrRemote principalMgr = principalMgrHome.create();
-                try {
-                    principalMgr.getUser(handle);
-                    commonExists = true;
-                } catch (NoSuchUserException ignore) { }
-            }
-
-            log.debug("Registration.handleExists(\"" + handle + "\"): " + exists);
+            rsc = (ResultSetContainer)new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("user exists");
         } catch (Exception e) {
-            log.error(e.toString());
-            throw new TaskException(e);
-        } finally {
-            BaseProcessor.close(context);
+            throw new TaskException("failed trying to check if user exists: " + e.getMessage());
         }
-
-        return exists || commonExists;
+        return !rsc.isEmpty();
     }
 
     protected User getUser(String handle)
