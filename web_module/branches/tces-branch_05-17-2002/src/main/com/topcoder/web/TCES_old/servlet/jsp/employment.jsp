@@ -145,9 +145,9 @@ String endYear = "";
 <% // COMPANY %>
 
 <tr>
-<td colspan="5"><table width="100%" cellpadding="0" cellspacing="0" border="0">
+<td colspan="5"><table width="100%" cellpadding="1" cellspacing="0" border="0">
 <tr>
-<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company</td>
+<td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif">Company&nbsp;</td>
 <td width="1"><img src="/i/clear.gif" height="1" width="1" border="0"></td>
 <td class="statTextBig" align="left" valign="middle"><input type="text" name="firstName" value="<%= company %>" size="30" maxlength="30"></td>
 </tr>
