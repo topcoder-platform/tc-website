@@ -52,14 +52,14 @@
                               </tr>
                             <tr>
                             <td class="bodyText" >
-                            	<p>With technology complexity increasing at a blistering pace, Intel&#174; Developer Services offers the resources and opportunities you need to keep stride with industry innovations,
+                            	<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; Developer Services</strong> </a>offers the resources and opportunities you need to keep stride with industry innovations,
                              	take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p></td>
                              
                             <td align="center"><img src="/i/sponsor/intel_ids/Centrino_Image_embossed.jpg" width="120" height="117" /></td>
                       </tr>
                       <tr>
                             <td valign="top" class="bodyText"><p>How? With offerings such as legacy and emerging code, demos, software documentation, online training, developer forums and technical white papers, membership with 
-                            Intel&#174; Developer Services gives you FREE access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p></td>
+                            Intel Developer Services gives you FREE access to tools and resources that can maximize your code's performance, give you time-to-market advantage and make your software sing. Fast.</p></td>
                             
                           <td>
                             	<table>
