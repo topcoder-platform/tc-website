@@ -1,6 +1,7 @@
 package com.topcoder.web.privatelabel;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCResourceBundle;
 
 import javax.servlet.ServletConfig;
 import java.lang.reflect.Field;
@@ -103,19 +104,26 @@ public class Constants {
     public static int SCHOOL_QUESTION;
     public static int NO_DEGREE_ANSWER;
 
+    private static TCResourceBundle bundle = new TCResourceBundle("PrivateLabel");
+    private static final String INT_NOT_FOUND = "******NOT FOUND******";
+
     private Constants() {
     }
 
     public static void initialize(ServletConfig config) {
 
         Field[] f = Constants.class.getFields();
+        String value;
         for (int i = 0; i < f.length; i++) {
             try {
                 if (!ignore(f[i].getName())) {
                     if (f[i].getType().getName().equals("int")) {
-                        f[i].setInt(null, Integer.parseInt(config.getInitParameter(f[i].getName().toLowerCase())));
+                        value = bundle.getProperty(f[i].getName().toLowerCase(), INT_NOT_FOUND);
+                        if (!value.equals(INT_NOT_FOUND)) {
+                            f[i].setInt(null, Integer.parseInt(value));
+                        }
                     } else if (f[i].getType().getName().equals("java.lang.String")) {
-                        f[i].set(null, config.getInitParameter(f[i].getName().toLowerCase()));
+                        f[i].set(null, bundle.getProperty(f[i].getName().toLowerCase(), null));
                     } else {
                         throw new Exception("Unrecognized type: " + f[i].getType().getName());
                     }
@@ -142,5 +150,7 @@ public class Constants {
         }
         return found;
     }
+
+
 
 }
