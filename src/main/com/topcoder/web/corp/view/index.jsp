@@ -13,7 +13,7 @@
 </head>
 <body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 <jsp:include page="includes/top.jsp"/>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
    <tr>
 
 <!-- Left Column Begins -->
@@ -29,10 +29,10 @@
 <!-- Gutter Ends -->
 
 <!-- Body Area -->
-        <td class="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
-                <tr>
-                    <td valign="top" width="50%" class="corpText">
+        <td width="100%" valign="top"><img src="/i/clear.gif" height="1" vspace="5" border="0"><br />
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td width="50%" class="corpText">
                         <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp">Candidate Testing</a></strong></font><br />
                         TopCoder's Candidate Testing Application allows companies to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp">test the technical abilities</a> 
                         of candidates during the interview process, thereby reducing the time
@@ -46,10 +46,10 @@
                         collegiate candidates and experienced professionals for full time employment consideration.  With a <strong>member base in excess of 24,000</strong>&#151;including more than 12,000 students from over 
                         750 schools&#151;employers obtain objective measurement detail about candidates, including code samples and statistics, that is not found elsewhere.</p>
                        </td>
-                       <td valign="top"><img src="/i/clear.gif" width="8" height="1"></td>
-                       <td valign="top" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1"></td>
-                       <td valign="top"><img src="/i/clear.gif" width="8" height="1"></td>
-                       <td valign="top" width="50%" class="corpText">
+                       <td><img src="/i/clear.gif" width="8" height="1"></td>
+                       <td bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1"></td>
+                       <td><img src="/i/clear.gif" width="8" height="1"></td>
+                       <td width="50%" class="corpText">
                        <p><font size="3" color="#666666"><strong>Sponsorship</strong></font><br />
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
@@ -79,9 +79,9 @@
                        tuer adipiscing elit, sedsed dagna aliquam erat volu adminim veniam, qveniam, q
                       <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=acc_admin&d2=index" class="bodyText">Manage Account&nbsp;&gt;</a>                      
                        </td>
-                       <td valign="top"><img src="/i/clear.gif" width="8" height="1"></td>
-                       <td valign="top" width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1"></td>
-                       <td valign="top"><img src="/i/clear.gif" width="8" height="1"></td>
+                       <td><img src="/i/clear.gif" width="8" height="1"></td>
+                       <td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1"></td>
+                       <td><img src="/i/clear.gif" width="8" height="1"></td>
                        <td width="50%" class="bodyText">&#160;</td>
                 </tr>
             </table>
