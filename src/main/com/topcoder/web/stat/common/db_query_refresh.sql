@@ -1,13 +1,6 @@
 /* To refresh query tables, run this script, then run the 
 db_query_refresh2.sh shell script, then run db_query_refresh3.sql */
 
-delete from query_input;
-delete from command_query_xref;
-delete from command;
-delete from query;
-delete from input_lu;
-delete from data_type where data_type_id > 1000;
-
 /* Numbered from 1001 to avoid conflicts with the other users of this table */
 insert into data_type values(1001, "Integer Input");
 insert into data_type values(1002, "Decimal Input");
