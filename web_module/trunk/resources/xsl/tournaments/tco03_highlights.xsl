@@ -118,10 +118,10 @@ function openWin(url, name, w, h) {
                   <td width = "15%" align = "right" class="advancers_header">radeye's Odds</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_roundid"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702" class="topLink">Online Round 1</a></td>
-                  <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4702">200</a></td>
-                  <td align = "right" class="advancers_faded">n/a</td>
-                  <td align = "right" class="advancers_faded">n/a</td>
+                  <td align = "left" class="advancers_roundid">Online Round 1</td>
+                  <td align = "right" class="advancers_faded">TBD</td>
+                  <td align = "right" class="advancers_faded">TBD</td>
+                  <td align = "right" class="advancers_faded">TBD</td>
                   <td align = "right" class="advancers_faded"><A href="Javascript:openWin('/index?t=tournaments&amp;c=tco03_radeye','comp',900,600);">view</A></td>
                </tr>
             </table>
