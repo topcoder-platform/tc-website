@@ -26,6 +26,11 @@ public class USDCContestDetails extends StatBase {
             //most submissions (min 2, passing score)
             return "usdc_contest_details_most_submissions";
         }
+        else if(getRequest().getParameter("type").equals("4"))
+        {
+            //most submissions (min 2, passing score)
+            return "usdc_contest_details_monthly";
+        }
         else
             return "usdc_contest_details";
     }
@@ -38,6 +43,10 @@ public class USDCContestDetails extends StatBase {
         if(getRequest().getParameter("type").equals("3"))
         {
             return "/dev/usdc_contest_det_most_submissions.jsp";
+        }
+        else if(getRequest().getParameter("type").equals("4"))
+        {
+            return "/dev/usdc_contest_det_monthly.jsp";
         }
         else
             return "/dev/usdc_contest_det.jsp";
