@@ -30,9 +30,9 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
             if ("on".equalsIgnoreCase(getRequest().getParameter(Constants.TERMS_AGREE))) {
                 UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
                 if (!userTerms.hasTermsOfUse(getUser().getId(),
-                        Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME)) {
+                        Constants.REVIEWER_TERMS_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME)) {
                     userTerms.createUserTermsOfUse(getUser().getId(),
-                            Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                            Constants.REVIEWER_TERMS_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
                 }
 
                 apply();
@@ -58,13 +58,13 @@ public class ProjectReviewTermsAgree extends ProjectReviewApply {
         long userId = getUser().getId();
         RBoardApplication rba = (RBoardApplication) createEJB(getInitialContext(), RBoardApplication.class);
 
-        rba.createRBoardApplication(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
+        rba.createRBoardApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId);
         String primary = StringUtils.checkNull(getRequest().getParameter(Constants.PRIMARY_FLAG));
-        rba.setPrimary(DBMS.TCS_OLTP_DATASOURCE_NAME, userId,
+        rba.setPrimary(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId,
                 projectId, phaseId, new Boolean(primary).booleanValue());
         if (phaseId == SoftwareComponent.DEV_PHASE) {
             int reviewTypeId = Integer.parseInt(getRequest().getParameter(Constants.REVIEWER_TYPE_ID));
-            rba.setReviewRespId(DBMS.TCS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
+            rba.setReviewRespId(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, userId, projectId, phaseId, reviewTypeId);
         }
 
         //send email

@@ -75,7 +75,7 @@ public class ProjectReviewApply extends Base {
                 try {
                     tm.begin();
                     
-                    if (rba.exists(DBMS.JTS_TCS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
+                    if (rba.exists(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), projectId, phaseId)) {
                         throw new NavigationException("You have already applied to review this project.");
                     }
                     
@@ -86,7 +86,7 @@ public class ProjectReviewApply extends Base {
                                 + DateTime.timeStampToString(opensOn));
                     }
 
-                    Timestamp lastReviewApp = rba.getLatestReviewApplicationTimestamp(DBMS.JTS_TCS_OLTP_DATASOURCE_NAME,
+                    Timestamp lastReviewApp = rba.getLatestReviewApplicationTimestamp(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME,
                             getUser().getId());
                     if (lastReviewApp != null && System.currentTimeMillis() < lastReviewApp.getTime() + APPLICATION_DELAY) {
                         throw new NavigationException("Sorry, you can not apply for a new review yet.  "
@@ -94,7 +94,7 @@ public class ProjectReviewApply extends Base {
                                 + DateTime.timeStampToString(new Timestamp(lastReviewApp.getTime() + APPLICATION_DELAY)));
                     }
 
-                    ResultSetContainer reviewers = rba.getReviewers(DBMS.JTS_TCS_OLTP_DATASOURCE_NAME, projectId, phaseId);
+                    ResultSetContainer reviewers = rba.getReviewers(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, projectId, phaseId);
 
                     if (reviewers.size() == 3) {
                         throw new NavigationException("Sorry, the project's review positions are already full.");
@@ -122,28 +122,28 @@ public class ProjectReviewApply extends Base {
 
                     try {
                         if (catalog == Constants.JAVA_CATALOG_ID || catalog == Constants.CUSTOM_JAVA_CATALOG_ID) {
-                            if (rbu.canReviewJava(DBMS.JTS_TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            if (rbu.canReviewJava(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                                 applicationProcessing();
                             } else {
                                 throw new NavigationException("Sorry, you can not review this project because " +
                                         "you are not a Java reviewer");
                             }
                         } else if (catalog == Constants.DOT_NET_CATALOG_ID || catalog == Constants.CUSTOM_DOT_NET_CATALOG_ID) {
-                            if (rbu.canReviewDotNet(DBMS.JTS_TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            if (rbu.canReviewDotNet(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                                 applicationProcessing();
                             } else {
                                 throw new NavigationException("Sorry, you can not review this project because " +
                                         "you are not a .Net reviewer");
                             }
                         } else if (catalog == Constants.FLASH_CATALOG_ID) {
-                            if (rbu.canReviewFlash(DBMS.JTS_TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            if (rbu.canReviewFlash(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                                 applicationProcessing();
                             } else {
                                 throw new NavigationException("Sorry, you can not review this project because " +
                                         "you are not a Flash reviewer");
                             }
                         } else if (catalog == Constants.APPLICATIONS_CATALOG_ID) {
-                            if (rbu.canReviewApplication(DBMS.JTS_TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            if (rbu.canReviewApplication(DBMS.TCS_JTS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                                 applicationProcessing();
                             } else {
                                 throw new NavigationException("Sorry, you can not review this project because " +
@@ -186,7 +186,7 @@ public class ProjectReviewApply extends Base {
             UserTermsOfUse userTerms = ((UserTermsOfUse) createEJB(getInitialContext(), UserTermsOfUse.class));
 
             boolean agreed = userTerms.hasTermsOfUse(getUser().getId(),
-                    Constants.REVIEWER_TERMS_ID, DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                    Constants.REVIEWER_TERMS_ID, DBMS.COMMON_JTS_OLTP_DATASOURCE_NAME);
 
             setDefault(Constants.TERMS_AGREE, String.valueOf(agreed));
 
