@@ -415,8 +415,8 @@
 <!-- TCO Promo Starts -->
             <img src="/i/promos/tco_promo_right.gif" alt="Next 2003 TCO Round" width="244" height="132" border="0" usemap="#tco03_home" /><br />
             <map name="tco03_home">
-                <area shape="rect" alt="TCES" coords="1,1,243,85" href="/?t=tournaments&amp;c=tco03_revelation" />
-                <area shape="rect" alt="SRM Match 167" coords="0,93,243,141" href="/index?t=tournaments&amp;c=tco03_sched" />
+                <area shape="rect" alt="TCO - Sponsor" coords="1,1,243,85" href="/?t=tournaments&amp;c=tco03_revelation" />
+                <area shape="rect" alt="TCO - Next Round" coords="0,93,243,141" href="/index?t=tournaments&amp;c=tco03_sched" />
             </map>
         
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0" /><br />
