@@ -18,8 +18,14 @@ public class AdvancedSearch extends SimpleSearch {
             MemberSearch m = getResults();
             getRequest().setAttribute("memberSearch", m);
             setDefaults(m);
-            setNextPage(Constants.ADVANCED_SEARCH_RESULTS);
-            setIsNextPageInContext(true);
+            if (m.getTotal()==1) {
+                long userId = m.getResults().getLongItem(0, "user_id");
+                setNextPage("/stats?c=member_profile&cr="+userId);
+                setIsNextPageInContext(true);
+            } else {
+                setNextPage(Constants.ADVANCED_SEARCH_RESULTS);
+                setIsNextPageInContext(true);
+            }
 
         } catch (TCWebException e) {
             throw e;
