@@ -186,6 +186,7 @@ public class QueryMover {
                 moveQueries(sourceCommandId);
                 moveCommandQueries(newCommandId);
             } else {
+                log.info("command " + sourceCommand.getCommandDesc() + " found, updating...");
                 commandMap.put(new Long(targetCommand.getCommandId()), new Long(sourceCommandId));
                 moveQueries(sourceCommandId);
                 moveCommandQueries(targetCommand.getCommandId());
@@ -307,6 +308,7 @@ public class QueryMover {
         for (Iterator it = getQueryInputs(sourceQI, sourceQueryId, sourceDSN).iterator(); it.hasNext();) {
             qib = (QueryInputBean) it.next();
             long sourceInputId = qib.getInputId();
+log.debug("inputMap: " + inputMap.toString());
             long targetInputId = ((Long) inputMap.get(new Long(sourceInputId))).longValue();
 
             log.info("creating query input record query id: " + targetQueryId + " input id: " + targetInputId);
