@@ -167,10 +167,11 @@
                                                     <td class="statText" align="right">7.22.2003</td>
                                                 </tr>
                                                 <tr>
-                                                    <td class="statText">Phase 1 Due Date:</td>
-                                                    <br/>&#160;&#160;&#160;Use Cases
-                                                    <br/>&#160;&#160;&#160;Class Diagrams
-                                                    <br/>&#160;&#160;&#160;Sequence Diagrams
+                                                    <td class="statText">Phase 1 Due Date:
+                                                        <br/>&#160;&#160;&#160;Use Cases
+                                                        <br/>&#160;&#160;&#160;Class Diagrams
+                                                        <br/>&#160;&#160;&#160;Sequence Diagrams
+                                                    </td>
                                                     <td class="statText" align="right">7.28.2003</td>
                                                 </tr>
                                                 <tr>
