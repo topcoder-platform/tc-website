@@ -109,7 +109,7 @@ way such that the sum stayed simplified, you could run
 into overflow problems on ints.  Also, some solutions
 put the negative sign on the denominator instead of the
 numerator, but they were in good company, as <A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A>
-made the same mistake.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">See Garzahd's solution</A> in room
+made the same mistake.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">See Garzahd's solution</A> in Room
 3 for a quick way to do this without a fraction class.
 </P>
 
@@ -136,77 +136,77 @@ figure out which state it ends up at.  For example, the
 fastest, giving him well over a 100 points more than
 the nearest competitor.
 </P>
-<!-- <P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
+<P><BR/><DIV ALIGN="center"><TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" ALIGN="center">
 <TR>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="left" BGCOLOR="#CCCCCC"><B>&#160;Problem<BR/>&#160;</B></TD>
-	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Points<BR/>&#160;</B></TD>
+	<TD WIDTH="10%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Points<BR/>&#160;</B></TD>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Submission Rate</B></TD>
 	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Submission Succ.</B></TD>
-	<TD WIDTH="20%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Avg. Pts.<BR/>&#160;</B></TD>
-	<TD WIDTH="20%" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>High Score<BR/>&#160;</B></TD>
+	<TD WIDTH="15%" CLASS="bodyText" ALIGN="right" BGCOLOR="#CCCCCC"><B>Avg. Pts.<BR/>&#160;</B></TD>
+	<TD WIDTH="35%" CLASS="bodyText" ALIGN="center" BGCOLOR="#CCCCCC"><B>High&#160;Score<BR/>&#160;</B></TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
 <TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division I</TD></TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 1<BR/>PoemCode</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 1 - Sketch</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
-	<TD CLASS="bodyText" ALIGN="right">99.07%</TD>
-	<TD CLASS="bodyText" ALIGN="right">96.28%</TD>
-	<TD CLASS="bodyText" ALIGN="right">221</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson<BR/>244.20</A></TD>
+	<TD CLASS="bodyText" ALIGN="right">95.27897%</TD>
+	<TD CLASS="bodyText" ALIGN="right">80.25751%</TD>
+	<TD CLASS="bodyText" ALIGN="right">185.33156</TD>
+	<TD CLASS="bodyText" ALIGN="center">ZorbaTHut<BR/>239.67</TD> 
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>Pinball</TD>
-	<TD CLASS="bodyText" ALIGN="right">450</TD>
-	<TD CLASS="bodyText" ALIGN="right">95.81%</TD>
-	<TD CLASS="bodyText" ALIGN="right">51.63%</TD>
-	<TD CLASS="bodyText" ALIGN="right">326</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">Logan<BR/>412.42</A></TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 2 - Integrate</TD>
+	<TD CLASS="bodyText" ALIGN="right">500</TD>
+	<TD CLASS="bodyText" ALIGN="right">78.11159%</TD>
+	<TD CLASS="bodyText" ALIGN="right">32.188843%</TD>
+	<TD CLASS="bodyText" ALIGN="right">302.54666</TD>
+	<TD CLASS="bodyText" ALIGN="center">Garzahd<BR/>446.88</TD> 
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>CleaupCrew</TD>
-	<TD CLASS="bodyText" ALIGN="right">1050</TD>
-	<TD CLASS="bodyText" ALIGN="right">30.23%</TD>
-	<TD CLASS="bodyText" ALIGN="right">11.16%</TD>
-	<TD CLASS="bodyText" ALIGN="right">631</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">thekcc<BR/>981.45</A></TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 3 - Simulate</TD>
+	<TD CLASS="bodyText" ALIGN="right">1100</TD>
+	<TD CLASS="bodyText" ALIGN="right">16.738197%%</TD>
+	<TD CLASS="bodyText" ALIGN="right">3.4334764%</TD>
+	<TD CLASS="bodyText" ALIGN="right">540.5</TD>
+	<TD CLASS="bodyText" ALIGN="center">NDBronson<BR/>748.43</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
 <TR><TD COLSPAN="6" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-<TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division II</TD></TR>
-<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+<TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division II (check back for info)</TD></TR>
+<!-- <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 1<BR/>Scoreboard</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 1 - Rain</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
 	<TD CLASS="bodyText" ALIGN="right">97.65%</TD>
 	<TD CLASS="bodyText" ALIGN="right">97.07%</TD>
 	<TD CLASS="bodyText" ALIGN="right">240</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">kokon<BR/>249.16</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">kokon<BR/>249.16</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 2<BR/>PoemCode</TD>
-	<TD CLASS="bodyText" ALIGN="right">500</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 2 - StringOps</TD>
+	<TD CLASS="bodyText" ALIGN="right">600</TD>
 	<TD CLASS="bodyText" ALIGN="right">91.79%</TD>
 	<TD CLASS="bodyText" ALIGN="right">79.47%</TD>
 	<TD CLASS="bodyText" ALIGN="right">372</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">WhiteShadow<BR/>478.40</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">WhiteShadow<BR/>478.40</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
-	<TD CLASS="bodyText" ALIGN="left">Level 3<BR/>ToyPatrol</TD>
-	<TD CLASS="bodyText" ALIGN="right">1200</TD>
+	<TD CLASS="bodyText" ALIGN="left">Level 3 - Sketch</TD>
+	<TD CLASS="bodyText" ALIGN="right">900</TD>
 	<TD CLASS="bodyText" ALIGN="right">47.80%</TD>
 	<TD CLASS="bodyText" ALIGN="right">3.23%</TD>
 	<TD CLASS="bodyText" ALIGN="right">601</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter<BR/>742.48</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">antimatter<BR/>742.48</TD>
 </TR>
-<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-</TABLE></DIV></P> -->
+<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR> -->
+</TABLE></DIV></P>
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>

@@ -90,13 +90,13 @@ April 15, 2002</P>
 
 <P>
 <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Yarin</A> was the top scoring new member with 1266.37,
-gaining a ranking of 1560 by successfully completing
+gaining a rating of 1560 by successfully completing
 all three problems.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">mparcens</A> was a close second after
 also completing all three problems and successfully
-challenging one problems, for a debut ranking of 1517.
-<A HREF="/stat?c=last_match" CLASS="bodyGeneric">PolariStar</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">carljohn2000</A> also both completed all
+challenging one problem, for a debut rating of 1517. 
+Both <A HREF="/stat?c=last_match" CLASS="bodyGeneric">PolariStar</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">carljohn2000</A> completed all
 three problems for point totals of 1210.35 and 1166.03
-and ranking debuts of 1471 and 1455, repectively.
+and rating debuts of 1471 and 1455, repectively.
 </P>
 
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
