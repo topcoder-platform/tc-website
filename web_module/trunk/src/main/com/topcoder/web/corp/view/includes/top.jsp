@@ -17,10 +17,12 @@
         <td class="login" width="99%">&nbsp;</td>
         <td class="login" nowrap="nowrap">
     <% if (sessionInfo.isGuest()) {  // no logged user %>
-           <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="globalNavSmall" target="_parent">Login</a>
+            You are not logged in.
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=corp&d2=LoginPage" class="loginLinks" target="_parent">Login</a>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">Register</a>
     <% } else { %>
-            Hello <jsp:getproperty name="sessionInfo" property="Handle" /> <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
+            <jsp:getproperty name="sessionInfo" property="Handle" /> is logged in.
+            &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Logout" class="loginLinks" target="_parent">Logout</a>
             &#160;&#160;|&#160;&#160;<a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Registration" class="loginLinks">My Account</a>
     <% } %>
 
@@ -70,17 +72,20 @@
 <!-- Header ends -->
 
 <!-- Main Navigation bar begins -->
-<table width="100%" border="0" cellpadding="3" cellspacing="0" class="topNavBar">
+<table width="100%" border="0" cellpadding="3" cellspacing="0">
     <tr valign="middle">
-<% if (isHomePage) { %>
+        <td class="topNav" width="49%">&#160;</td>  
 
+<% if (isHomePage) { %>
+        <td class="topNavOn" nowrap="nowrap">&nbsp;&nbsp;Home&nbsp;&nbsp;</td>
 <% } else { %>
-        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="index.jsp" class="topNav">Home</a></td>
+        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;<a href="index.jsp" class="topLink">Home</a>&nbsp;&nbsp;</td>
 <%  } %>
-        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/testing/" class="topNav">Testing Application Management Tool</a></td>
-        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="/tces/?task=MainTask" class="topNav">Recruiting Reporting Tool</a></td>
-        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;&nbsp;<a href="http://www.topcodersoftware.com" class="topNav">TopCoder Software</a></td>
-        <td class="topNav" width="99%">&#160;</td>  
+
+        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;<a href="/testing/" class="topLink">Testing Application Management Tool</a>&nbsp;&nbsp;</td>
+        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;<a href="/tces/?task=MainTask" class="topLink">Recruiting Reporting Tool</a>&nbsp;&nbsp;</td>
+        <td class="topNav" nowrap="nowrap">&nbsp;&nbsp;<a href="http://www.topcodersoftware.com" class="topLink">TopCoder Software</a>&nbsp;&nbsp;</td>
+        <td class="topNav" width="49%">&#160;</td>  
     </tr>
 </table>
 
