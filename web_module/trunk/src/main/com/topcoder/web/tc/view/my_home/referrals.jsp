@@ -51,7 +51,7 @@
                 <td>
                     <a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                 </td>
-                <td>
+                <td class="statText">
                     <rsc:item row="<%=info%>" name="member_since" format="MM.dd.yyyy"/>
                 </td>
             </tr>
