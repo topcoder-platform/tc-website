@@ -43,6 +43,7 @@ public class PlacementConfig implements Serializable {
     private String successfulSubmissionPercent;
     private Language lang;
     private String submissionText;
+    private String numContests;
     
     public PlacementConfig() {
         userID = 0;
@@ -67,6 +68,15 @@ public class PlacementConfig implements Serializable {
         successfulSubmissionPercent = "";
         lang = null;
         submissionText = "";
+        numContests = "";
+    }
+    
+    public void setNumContests(String s) {
+        numContests = s;
+    }
+    
+    public String getNumContests() {
+        return numContests;
     }
     
     public void setSubmissionText(String s) {
