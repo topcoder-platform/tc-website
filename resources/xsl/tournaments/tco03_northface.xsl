@@ -47,6 +47,7 @@
                 <td  align="left" width="510" colspan="2"><A href="http://www.northface.edu" target="_blank"><img src="/i/sponsor/northface/northface_banner.gif" alt="Northface" width="510" height="67" border="0" /></A><br/>
                  </td>
              </tr>
+            
             <tr>
                 <td align="left">
                         <img src="/i/sponsor/northface/northface_title_1.gif" alt="Northface" width="360" height="42" border="0" />
@@ -58,14 +59,15 @@
                 </tr>
                         
                <tr valign="top">
-                    <td class="bodyText">
-                        <p>Now there is a university that is dedicated to preparing you for what the U.S. Labor Department says will be the fastest growing field through 
-                        2010: software development. A field with an average starting salary of $52,000* (U.S. Dept. of Labor's Bureau of Labor Statistics, 2002-03).</p>
+                        <td class="bodyText">
+                            <p>Now there is a university that is dedicated to preparing you for what the U.S. Labor Department says will be the fastest growing field through 
+                            2010: software development. A field with an average starting salary of $52,000* (U.S. Dept. of Labor's Bureau of Labor Statistics, 2002-03).</p>
                         </td>
                     </tr>
                         
-                     <tr valign="top"> <td align="left">
-                        <img src="/i/sponsor/northface/northface_title_2.gif" alt="Northface" width="360" height="42" border="0" /></td>
+                     <tr valign="top"> 
+                        <td align="left"> <img src="/i/sponsor/northface/northface_title_2.gif" alt="Northface" width="360" height="42" border="0" />
+                        </td>
                     </tr>   
                         
 		<tr valign="top"> 
@@ -117,7 +119,7 @@
             </tr>
             
             <tr valign="top"> 
-                <td align="left">
+                <td align="left" colspan="2">
                         <img src="/i/sponsor/northface/northface_title_5.gif" alt="Northface" width="360" height="42" border="0" />
                 </td>
             </tr>  
