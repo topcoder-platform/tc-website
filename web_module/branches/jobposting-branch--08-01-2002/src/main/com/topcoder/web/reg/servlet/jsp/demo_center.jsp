@@ -216,7 +216,13 @@ function lookupText(qId){
 
   <tr>
     <td class="statText" align="right" valign="middle" background="/i/steel_gray_bg.gif">GPA Scale&nbsp;</td>
-    <td colspan="2" class="statText" align="left" valign="middle"><input type="text" name="<%=Registration.GPA_SCALE%>" value ="<jsp:getProperty name="Registration" property="GpaScale" />" size="5" maxlength="5"></td>
+    <td colspan="2" class="statText" align="left" valign="middle">
+      <SELECT NAME="<%=Registration.GPA_SCALE%>" SIZE="3" MULTIPLE="false">
+        <OPTION value=""></OPTION>
+        <OPTION value="4.00"<%=Float.parseFloat(Registration.getGpaScale())==4?" selected=\"true\"":""%>>4</OPTION>
+        <OPTION value="5.00"<%=Float.parseFloat(Registration.getGpaScale())==5?" selected=\"true\"":""%>>5</OPTION>
+      </SELECT>
+    </td>
   </tr>
 
   <tr valign="middle">
