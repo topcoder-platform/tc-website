@@ -153,7 +153,7 @@
                   </TD>
                 </TR>
                 
-                </tces:mapIterator>
+                </tces:rowIterator>
 
                 <% if(PositionInterestTask.getHitList().isEmpty()){ %>
                 <TR>
