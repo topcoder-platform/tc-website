@@ -194,6 +194,21 @@
                                     03.14.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/App_Design_Review_Scorecard.dot" class="statText">Design Review Scorecard.dot</a><br />
                                     </td>
                                 </tr>
+                            
+                                <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
+                                
+                                <tr valign="middle">
+                                    <td class="statText" height="15" valign="top"><strong>Development Deliverables</strong><br />
+				    This document proivdes an overview of the development process including the deliverables required for
+				    submission. Submissions which do not meet the screening requirements will not be reviewed by the
+				    Development Review Board.
+                                    </td>
+                                    <td><img src="/i/clear.gif" alt="" height="1" width="1" border="0" /></td>
+                                    <td class="statText" height="15" valign="top">
+                                    <br />
+                                    03.17.2003 &#160;<a target="tcsdocs" href="/i/development/downloads/Developer_Application_Deliverables.pdf" class="statText">Design Screening Scorecard.dot</a><br />
+                                    </td>
+                                </tr>
                                 
                                 <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                             </table>
