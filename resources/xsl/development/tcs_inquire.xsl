@@ -87,7 +87,7 @@ DESIGN AND DEVELOPMENT TERMS
 By indicating your interest in designing or developing a component for TopCoder, you represent to TopCoder the following:
 1.	You are a rated TopCoder member
 2.	You are at least 18 years of age
-3.	You are either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) currently lawfully residing in the U.S. with valid employment authorization to act as an independent contractor, or (iv) a non-U.S. citizen working in your country of residence.
+3.	You are either (i) a U.S. citizen, (ii) a lawful permanent resident of the U.S., (iii) a temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment, or (iv) a non-U.S. citizen working in your country of residence.
 4.	You will abide by the Terms of Use of both TopCoder's and TopCoder Software's websites at www.topcoder.com and www.topcodersoftware.com, respectively.
 5.	You acknowledge that you have read and agree to the TopCoder Software Development Methodology posted at www.topcoder.com/?&amp;t=development&amp;c=index.
 6.	No impediment exists to you participating in design and/or development projects posted on the TopCoder website, and your participation in such projects will not interfere with your performance of any other agreement or obligation which has been or will be made with any third party.
