@@ -31,7 +31,7 @@ public class ResumeUploadTask extends ResumeTask{
                     fileBytes = new byte[(int)uf.getSize()];
                     uf.getInputStream().read(fileBytes);
                     contentType = uf.getContentType();
-                    fileName = uf.getFormFileName();
+                    fileName = uf.getRemoteFileName();
                     file = fileBytes;
                 }
             }
