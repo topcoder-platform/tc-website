@@ -113,20 +113,20 @@ function getProblemDetail(id) {
                     <td class="bodyText">Total Candidates: <b><%= info.size()%></b></td>
 
                     <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
-                        + Math.min(info.size() -  startIndex,Constants.SEARCH_SCROLL_SIZEE)%>:&#160;&#160;&#160;
+                        + Math.min(info.size() -  startIndex,Constants.SEARCH_SCROLL_SIZE)%>:&#160;&#160;&#160;
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.SEARCH_SCROLL_SIZEE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
-                        Prev <%=Math.min(startIndex, Constants.SEARCH_SCROLL_SIZEE)%>
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.SEARCH_SCROLL_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
+                        Prev <%=Math.min(startIndex, Constants.SEARCH_SCROLL_SIZE)%>
                     </A>
                     <%  } %>
 
                     <%
-                        if (startIndex + Constants.SEARCH_SCROLL_SIZEE < info.size()) {
+                        if (startIndex + Constants.SEARCH_SCROLL_SIZE < info.size()) {
                     %>
-                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.SEARCH_SCROLL_SIZEE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
-                        Next <%=Math.min(info.size() - startIndex - Constants.SEARCH_SCROLL_SIZEE,Constants.SEARCH_SCROLL_SIZEE)%>
+                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.SEARCH_SCROLL_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
+                        Next <%=Math.min(info.size() - startIndex - Constants.SEARCH_SCROLL_SIZE,Constants.SEARCH_SCROLL_SIZE)%>
                       </a>
                     <%  } %>
                     </td>
@@ -184,7 +184,7 @@ function getProblemDetail(id) {
                     String[] cssClasses = {"screeningCellEven", "screeningCellOdd"};
                     String[] swfFiles = {"/i/corp/screeningRatingEven.swf", "/i/corp/screeningRatingOdd.swf"};
 
-                    for (int i = startIndex; i < startIndex + Constants.SEARCH_SCROLL_SIZEE && i < info.size(); i++) {
+                    for (int i = startIndex; i < startIndex + Constants.SEARCH_SCROLL_SIZE && i < info.size(); i++) {
                         row = (ResultSetContainer.ResultSetRow) info.get(i);
                 %>
 
@@ -269,20 +269,20 @@ function getProblemDetail(id) {
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
                     <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
-                        + Math.min(info.size() -  startIndex,Constants.SEARCH_SCROLL_SIZEE)%>:&#160;&#160;&#160;
+                        + Math.min(info.size() -  startIndex,Constants.SEARCH_SCROLL_SIZE)%>:&#160;&#160;&#160;
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.SEARCH_SCROLL_SIZEE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
-                        Prev <%=Math.min(startIndex, Constants.SEARCH_SCROLL_SIZEE)%>
+                    <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.SEARCH_SCROLL_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
+                        Prev <%=Math.min(startIndex, Constants.SEARCH_SCROLL_SIZE)%>
                     </A>
                     <%  } %>
 
                     <%
-                        if (startIndex + Constants.SEARCH_SCROLL_SIZEE < info.size()) {
+                        if (startIndex + Constants.SEARCH_SCROLL_SIZE < info.size()) {
                     %>
-                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.SEARCH_SCROLL_SIZEE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
-                        Next <%=Math.min(info.size() - startIndex - Constants.SEARCH_SCROLL_SIZEE,Constants.SEARCH_SCROLL_SIZEE)%>
+                    | <A href="?<%=Constants.MODULE_KEY%>=<%=Constants.POSITION_RESULTS_PROCESSOR%>&<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.SEARCH_SCROLL_SIZE%>&<%=Constants.JOB_POSITION_ID%>=<%=request.getAttribute(Constants.JOB_POSITION_ID)%><%=sortBy == null ? "" : "&" + Constants.SORT_BY + "=" + sortBy%>">
+                        Next <%=Math.min(info.size() - startIndex - Constants.SEARCH_SCROLL_SIZE,Constants.SEARCH_SCROLL_SIZE)%>
                       </a>
                     <%  } %>
                     </td>
