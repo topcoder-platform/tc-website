@@ -13,17 +13,17 @@
 
 <jsp:include page="../links.jsp" >
    <jsp:param name="tabLev1" value="collegiate"/>
-   <jsp:param name="tabLev2" value="Registration"/>
+   <jsp:param name="tabLev2" value="registration"/>
 </jsp:include>
 
-<div CLASS="dc_bodyTable">
-<table width="750" cellspacing="0" border="0" align="center">
+<div CLASS="dc_bodySpacer" align="center">
+<table width="750" cellpadding="0" cellspacing="0">
    <tr>
-      <td  valign="top">
+      <td CLASS="dc_bodyCell">
       <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
       </td>
 
-      <td  valign="top" width="100%">
+      <td width="100%" CLASS="dc_bodyCell">
          <div CLASS="dc_bodyText">
          <p align="left" class="pageTitle">Registration</p>
          <p>Text goes here</p>        
