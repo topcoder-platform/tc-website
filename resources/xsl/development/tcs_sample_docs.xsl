@@ -297,7 +297,7 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                         Visit our 
                         <a>
                            <xsl:attribute name="href"> 
-                           	<xsl:value-of select="concat(/TC/SoftwareHost, '/components/free_components.jsp')"/>
+                           	<xsl:value-of select="concat('http://',/TC/SoftwareHost, '/components/free_components.jsp')"/>
                            </xsl:attribute>Free Components
                         </a> 
                         page for samples of completed components. You are encouraged to download and install these components 
