@@ -72,6 +72,18 @@
 
                         <table border="0" cellspacing="5" cellpadding="0" width="100%">
 
+<!-- DiversifiedData begins -->
+                            <tr valign="top">
+                                <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
+                                <td width="99%" class="bodyText"><strong>Diversified Data, (ASG)</strong>  the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
+                                complex content and knowledge management environments, is looking to hire developers with Unix and Perl experience on a contract-to-hire basis.  Join teams comprised of their leading solutions 
+                                architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
+                                <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
+                            </tr>
+                            
+                            <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
+<!-- DiversifiedData ends -->
+
 <!-- AlphaSimplex begins -->
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=alphasimplex" target="_top"><img src="/i/es/alphasimplex/alphasimplex_logo.gif" width="150" height="57" alt="AlphaSimplex" border="0" /></a></td>
