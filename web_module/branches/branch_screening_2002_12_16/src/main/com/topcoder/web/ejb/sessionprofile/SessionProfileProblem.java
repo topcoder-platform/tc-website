@@ -43,10 +43,11 @@ public interface SessionProfileProblem extends EJBObject {
      *
      * @param sessionProfileId
      * @param problemId
-     * @param sortOrder
+     * @param problemTypeId
      * @throws RemoteException
      */
     public void setSortOrder(long sessionProfileId, long problemId,
+                             int problemTypeId,
                              int sortOrder)
             throws RemoteException;
 
@@ -54,11 +55,13 @@ public interface SessionProfileProblem extends EJBObject {
      *
      * @param sessionProfileId
      * @param problemId
+     * @param problemTypeId
      * @param sessionRoundId
      * @throws RemoteException
      */
     public void setSessionRoundId(long sessionProfileId,
                                   long problemId,
+                                  int problemTypeId,
                                   long sessionRoundId)
             throws RemoteException;
 
@@ -76,20 +79,24 @@ public interface SessionProfileProblem extends EJBObject {
      *
      * @param sessionProfileId
      * @param problemId
-     * @return
+     * @param problemTypeId
+     * @return sortOrder in int
      * @throws RemoteException
      */
-    public int getSortOrder(long sessionProfileId, long problemId)
+    public int getSortOrder(long sessionProfileId, long problemId,
+                            int problemTypeId)
             throws RemoteException;
 
     /**
      *
      * @param sessionProfileId
      * @param problemId
+     * @param problemTypeId
      * @return long of sessionRoundId
      * @throws RemoteException
      */
-    public long getSessionRoundId(long sessionProfileId, long problemId)
+    public long getSessionRoundId(long sessionProfileId, long problemId,
+                                  int problemTypeId)
             throws RemoteException;
 
     /**

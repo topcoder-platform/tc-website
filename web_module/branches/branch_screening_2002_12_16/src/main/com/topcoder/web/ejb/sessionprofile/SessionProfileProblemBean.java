@@ -181,10 +181,12 @@ public class SessionProfileProblemBean extends BaseEJB {
      *
      * @param sessionProfileId
      * @param problemId
+     * @param problemTypeId
      * @param sortOrder
      * @throws RemoteException
      */
     public void setSortOrder(long sessionProfileId, long problemId,
+                             int problemTypeId,
                              int sortOrder)
             throws RemoteException {
         // construct debug message
@@ -195,6 +197,8 @@ public class SessionProfileProblemBean extends BaseEJB {
         varBuf.append(sessionProfileId);
         varBuf.append(" problemId: ");
         varBuf.append(problemId);
+        varBuf.append(" problemTypeId: ");
+        varBuf.append(problemTypeId);
         varBuf.append(" sortOrder: ");
         varBuf.append(sortOrder);
 
@@ -214,6 +218,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("UPDATE session_profile_problem_xref ");
             query.append("SET sort_order = ? WHERE ");
             query.append("session_profile_id = ? AND problem_id = ?");
+            query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -223,6 +228,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.setInt(1, sortOrder);
             pstmt.setLong(2, sessionProfileId);
             pstmt.setLong(3, problemId);
+            pstmt.setInt(4, problemTypeId);
 
             pstmt.executeUpdate();
 
@@ -252,11 +258,13 @@ public class SessionProfileProblemBean extends BaseEJB {
      *
      * @param sessionProfileId
      * @param problemId
+     * @param problemTypeId
      * @param sessionRoundId
      * @throws RemoteException
      */
     public void setSessionRoundId(long sessionProfileId,
                                   long problemId,
+                                  int problemTypeId,
                                   long sessionRoundId)
             throws RemoteException {
         // construct debug message
@@ -267,6 +275,8 @@ public class SessionProfileProblemBean extends BaseEJB {
         varBuf.append(sessionProfileId);
         varBuf.append(" problemId: ");
         varBuf.append(problemId);
+        varBuf.append(" problemTypeId: ");
+        varBuf.append(problemTypeId);
         varBuf.append(" sessionRoundId: ");
         varBuf.append(sessionRoundId);
 
@@ -286,6 +296,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("UPDATE session_profile_problem_xref ");
             query.append("SET session_round_id = ? WHERE ");
             query.append("session_profile_id = ? AND problem_id = ?");
+            query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -295,6 +306,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt.setLong(1, sessionRoundId);
             pstmt.setLong(2, sessionProfileId);
             pstmt.setLong(3, problemId);
+            pstmt.setInt(4, problemTypeId);
 
             pstmt.executeUpdate();
 
@@ -402,7 +414,9 @@ public class SessionProfileProblemBean extends BaseEJB {
      * @return sort Order int. -1 if error occurs
      * @throws RemoteException
      */
-    public int getSortOrder(long sessionProfileId, long problemId)
+    public int getSortOrder(long sessionProfileId,
+                            long problemId,
+                            int problemTypeId)
             throws RemoteException {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
@@ -412,6 +426,8 @@ public class SessionProfileProblemBean extends BaseEJB {
         varBuf.append(sessionProfileId);
         varBuf.append(" problemId: ");
         varBuf.append(problemId);
+        varBuf.append(" problemTypeId: ");
+        varBuf.append(problemTypeId);
 
         debugBuf.append("getSortOrder called. ");
         debugBuf.append(varBuf.toString());
@@ -431,6 +447,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("SELECT problem_type_id ");
             query.append("FROM session_profile_problem_xref ");
             query.append("WHERE session_profile_id = ? AND problem_id = ?");
+            query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -439,6 +456,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt = conn.prepareStatement(query.toString());
             pstmt.setLong(1, sessionProfileId);
             pstmt.setLong(2, problemId);
+            pstmt.setInt(3, problemTypeId);
 
             rs = pstmt.executeQuery();
             if ( rs.next() ) {
@@ -477,7 +495,9 @@ public class SessionProfileProblemBean extends BaseEJB {
      * @return long of sessionRoundId
      * @throws RemoteException
      */
-    public long getSessionRoundId(long sessionProfileId, long problemId)
+    public long getSessionRoundId(long sessionProfileId,
+                                  long problemId,
+                                  int problemTypeId)
             throws RemoteException {
         // construct debug message
         StringBuffer debugBuf = new StringBuffer(200);
@@ -506,6 +526,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             query.append("SELECT session_round_id ");
             query.append("FROM session_profile_problem_xref ");
             query.append("WHERE session_profile_id = ? AND problem_id = ?");
+            query.append(" AND problem_type_id = ?");
 
             ctx = new InitialContext();
             ds = (DataSource)ctx.lookup(dataSourceName);
@@ -514,6 +535,7 @@ public class SessionProfileProblemBean extends BaseEJB {
             pstmt = conn.prepareStatement(query.toString());
             pstmt.setLong(1, sessionProfileId);
             pstmt.setLong(2, problemId);
+            pstmt.setInt(3, problemTypeId);
 
             rs = pstmt.executeQuery();
             if ( rs.next() ) {
