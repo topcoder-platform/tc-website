@@ -77,7 +77,7 @@
                         <pl:answerIterator id="answer" list="<%=question.getDemographicAnswers()%>">
                             <% System.out.println(question.toString() + " \n " + answer.toString());%>
                         </pl:answerIterator>
-                    </pl:questionIterator id="question" list="<%=questionList%>"/>
+                    </pl:questionIterator>
 
                 </td>
             </tr>
