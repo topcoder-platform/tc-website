@@ -1300,6 +1300,13 @@ public class DataInterfaceBean implements PactsConstants {
         return ps.generateRoundPayments(roundId, makeChanges);
     }
 
+    public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
+            throws RemoteException, IllegalUpdateException, SQLException {
+        PactsServices ps = getEjbHandle();
+        return ps.generateRoundPayments(roundId, affidavitTypeId, makeChanges);
+    }
+
+
     /**
      * Sets the status on all affidavits older than a specified time
      * to Expired, and set the status on their associated payment (if any)
