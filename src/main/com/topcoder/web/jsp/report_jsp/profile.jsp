@@ -13,7 +13,6 @@
 <%
   ArrayList profiles = null;
   Profile p = null;
-  ArrayList educationList = null;
   ArrayList demographicList = null;
   ArrayList jobList = null;
   String className = null;
@@ -65,7 +64,6 @@
   if (profiles != null && request.getParameter(Constants.TASK_NAME_KEY) != null ) {
     for (int k=0; k<profiles.size(); k++) {
       p = (Profile)profiles.get(k);
-      educationList = p.getEducationList();
       demographicList = p.getDemographicList();
       jobList = p.getJobList();
       
@@ -154,6 +152,14 @@
       <td>&#160;&#160;&#160;</td>
       <td><%=p.getMemberSince()%></td>
     </tr>
+<% if (!p.getSchoolName().equals("")) { %>
+    <tr>
+      <td>School</td>
+      <td>&#160;&#160;&#160;</td>
+      <td><%=p.getSchoolName()%></td>
+    </tr>
+<% } %>
+
     <tr><td><br/></td></tr>
     <tr>
       <td valign="top">Street Address</td>
@@ -221,31 +227,6 @@
  
 
 
-<%
-    if (educationList!=null) {
-%>
-  <br/><br/>
-  <table cellpadding="0" cellspacing="0"> 
-    <tr><td colspan="5"><b>Education History</b></td></tr>
-  
-<%
-      for(int i=0; i<educationList.size(); i++) {
-%>
-    <tr>
-<%
-        ResultItem[] items = (ResultItem[])educationList.get(i);
-%>
-      <td>
-        <%=items[4].toString()%>/<%=items[3].toString()%> <%=items[1].toString()%> from <%=items[0].toString()%> in <%=items[2].toString()%><br/>
-      </td> 
-    </tr>
-<%
-      }
-    }
-%>
-  </table>
-
-   
 <%
     if (jobList!=null) {
 %>
