@@ -10,12 +10,12 @@
 <script type="text/javascript" language="Javascript">
 <!--
 function submitEdit() {
-document.sessionConfirmForm.rp.value = "<%=Constants.POPULATE_SESSION_PROCESSOR%>";
+document.sessionConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.POPULATE_SESSION_PROCESSOR%>";
 document.sessionConfirmForm.submit();
 }
 
 function submitUpdate() {
-document.sessionConfirmForm.rp.value = "<%=Constants.UPDATE_SESSION_PROCESSOR%>";
+document.sessionConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.UPDATE_SESSION_PROCESSOR%>";
 document.sessionConfirmForm.submit();
 }
 // -->
@@ -52,7 +52,7 @@ document.sessionConfirmForm.submit();
             <jsp:useBean id="testSessionInfo" type="com.topcoder.web.screening.model.TestSessionInfo" scope="session" />
                         
             <screen:form name="sessionConfirmForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-            <input type="HIDDEN" name="rp" value="" >
+            <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
                         
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Session</td></tr>

@@ -10,7 +10,7 @@ public class ConfirmProfile extends PopulateProfileSetup {
         if (getAuthentication().getUser().isAnonymous()) {
             throw new PermissionException(getAuthentication().getUser(), new ClassResource(this.getClass()));
         }
-        super.process();
+        super.businessProcessing();
         
         //validate the info
         if(!validateProfileInfo()) {

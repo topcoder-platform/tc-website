@@ -23,26 +23,26 @@ function getProblemDetail(id) {
   }
 
 function submitReload() {
-    document.profileSetupForm.rp.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
 
 function submitAdd() {
-    document.profileSetupForm.rp.value = "<%=Constants.PROFILE_ADD_PROBLEM_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.PROFILE_ADD_PROBLEM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
 
 function submitRemove(id) {
     document.profileSetupForm.testSetBRemove.value = id;
-    document.profileSetupForm.rp.value = "<%=Constants.PROFILE_REMOVE_PROBLEM_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.PROFILE_REMOVE_PROBLEM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
 
 function submitConfirm() {
-    document.profileSetupForm.rp.value = "<%=Constants.PROFILE_CONFIRM_PROCESSOR%>";
+    document.profileSetupForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.PROFILE_CONFIRM_PROCESSOR%>";
     document.profileSetupForm.submit();
     return;
 }
@@ -91,7 +91,7 @@ function submitConfirm() {
             <jsp:useBean id="profile" class="com.topcoder.web.screening.model.ProfileInfo" scope="request" />
             
             <screen:form name="profileSetupForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
-            <input type="hidden" name="rp" value="" >
+            <input type="hidden" name="<%=Constants.MODULE_KEY%>" value="" >
             <% if(!profile.isNew()) { %>
                <input type="hidden" name="profileId" value="<jsp:getProperty name="profile" property="profileId" />" >
             <% } %>

@@ -22,13 +22,13 @@ function getProblemDetail(id) {
   }
 
 function submitEdit() {
-    document.profileConfirmForm.rp.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
+    document.profileConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.POPULATE_PROFILE_PROCESSOR%>";
     document.profileConfirmForm.submit();
     return;
 }
 
 function submitUpdate() {
-    document.profileConfirmForm.rp.value = "<%=Constants.UPDATE_PROFILE_PROCESSOR%>";
+    document.profileConfirmForm.<%=Constants.MODULE_KEY%>.value = "<%=Constants.UPDATE_PROFILE_PROCESSOR%>";
     document.profileConfirmForm.submit();
     return;
 }
@@ -66,7 +66,7 @@ function submitUpdate() {
             
              <table border="0" cellspacing="0" cellpadding="0" width="70%">
                 <tr><screen:form name="profileConfirmForm" method="GET" action="<%=Constants.CONTROLLER_URL%>">
-                    <INPUT TYPE="HIDDEN" NAME="rp" VALUE="" >
+                    <INPUT TYPE="HIDDEN" NAME="<%=Constants.MODULE_KEY%>" VALUE="" >
                     <% if(!profile.isNew()) { %>
                         <INPUT TYPE="HIDDEN" NAME="profileId" VALUE="<jsp:getProperty name="profile" property="profileId" />" >
                     <% } %>

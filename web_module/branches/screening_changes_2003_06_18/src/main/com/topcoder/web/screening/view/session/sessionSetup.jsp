@@ -32,17 +32,17 @@ function showEmail() {
   }
 
 function submitProfile() {
-    document.sessionSetupForm.rp.value="<%=Constants.CREATE_PROFILE_PROCESSOR%>";
+    document.sessionSetupForm.<%=Constants.MODULE_KEY%>.value="<%=Constants.CREATE_PROFILE_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
 
 function submitCandidate() {
-    document.sessionSetupForm.rp.value="<%=Constants.CREATE_CANDIDATE_PROCESSOR%>";
+    document.sessionSetupForm.<%=Constants.MODULE_KEY%>.value="<%=Constants.CREATE_CANDIDATE_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
 
 function submitSession() {
-    document.sessionSetupForm.rp.value="<%=Constants.CONFIRM_SESSION_PROCESSOR%>";
+    document.sessionSetupForm.<%=Constants.MODULE_KEY%>.value="<%=Constants.CONFIRM_SESSION_PROCESSOR%>";
     document.sessionSetupForm.submit();
 }
 //-->
@@ -87,7 +87,7 @@ function submitSession() {
             <jsp:useBean id="testSessionInfo" type="com.topcoder.web.screening.model.TestSessionInfo" scope="session" />
             
             <screen:form name="sessionSetupForm" action="<%=Constants.CONTROLLER_URL%>" method="GET">
-            <input type="HIDDEN" name="rp" value="" >
+            <input type="HIDDEN" name="<%=Constants.MODULE_KEY%>" value="" >
 
             <table cellspacing="0" cellpadding="3" width="70%" class="testFrame">
                 <tr><td class="testTableTitle" colspan="3">Test Profile</td></tr>

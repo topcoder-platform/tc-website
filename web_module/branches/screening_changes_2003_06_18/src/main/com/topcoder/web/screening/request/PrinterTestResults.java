@@ -19,7 +19,7 @@ public class PrinterTestResults extends TestResults {
 
     protected void businessProcessing() throws Exception {
         //get the test results information
-        super.process();
+        super.businessProcessing();
 
         long sessionId = Long.parseLong(getRequest().getParameter(Constants.SESSION_ID));
 
