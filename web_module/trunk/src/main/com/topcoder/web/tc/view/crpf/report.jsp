@@ -13,13 +13,14 @@
 <jsp:include page="../script.jsp" />
 </head>
 <body>
+<%System.out.println(donatinInfo.toString());%>
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
                 <td>
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport&"+DataAccessConstants.SORT_COLUMN+"=6&"+DataAccessConstants.SORT_DIRECTION+"=asc"%>">Rank</a>
                 </td>
                 <td>
-                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport&"+DataAccessConstants.SORT_COLUMN+"=5&"+DataAccessConstants.SORT_DIRECTION+"=asc"%>">Handle</a>
+                    <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport&"+DataAccessConstants.SORT_COLUMN+"=4&"+DataAccessConstants.SORT_DIRECTION+"=asc"%>">Handle</a>
                 </td>
                 <td>
                     <a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport&"+DataAccessConstants.SORT_COLUMN+"=2&"+DataAccessConstants.SORT_DIRECTION+"=desc"%>">Rating</a>
