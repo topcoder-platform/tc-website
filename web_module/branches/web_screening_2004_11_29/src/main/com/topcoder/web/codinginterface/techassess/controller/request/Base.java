@@ -39,7 +39,7 @@ public abstract class Base extends BaseProcessor {
         String messageId = sender.sendMessageGetID(new HashMap(), m);
         return messageId;
     }
-    protected void postProcessing(Message message) {
+    protected void postProcessing(Message message) throws Exception {
 
     }
 

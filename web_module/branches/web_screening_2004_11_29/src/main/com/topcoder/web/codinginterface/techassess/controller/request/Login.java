@@ -5,6 +5,7 @@ import com.topcoder.web.codinginterface.techassess.Constants;
 import com.topcoder.shared.netCommon.screening.request.ScreeningLoginRequest;
 import com.topcoder.shared.netCommon.screening.response.ScreeningLoginResponse;
 import com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet;
+import com.topcoder.shared.netCommon.messages.Message;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.language.JavaLanguage;
@@ -47,54 +48,55 @@ public class Login extends Base {
                 addError(Constants.PASSWORD, "Please enter your password");
             }
 
-            ScreeningLoginResponse response = null;
             if (hasErrors()) {
                 setNextPage(Constants.PAGE_LOGIN);
                 setIsNextPageInContext(true);
             } else {
-
                 ScreeningLoginRequest request = new ScreeningLoginRequest(handle, password, companyId);
                 request.setServerID(ScreeningApplicationServer.WEB_SERVER_ID);
                 String messageId = send(request);
-                response = (ScreeningLoginResponse)receive(5000, messageId);
-
-                if (response.isSuccess()) {
-                    getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
-                    ScreeningProblemSet[] problemSets = response.getProblemSets();
-
-                    ArrayList examples = new ArrayList();
-                    ArrayList testSetA = new ArrayList();
-                    ArrayList testSetB = new ArrayList();
-
-                    for (int i=0; i<problemSets.length; i++) {
-                        if (problemSets[i].getType().intValue()==Constants.TEST_SET_A_ID) {
-                            testSetA.add(problemSets[i]);
-                        } else if (problemSets[i].getType().intValue()==Constants.TEST_SET_B_ID) {
-                            testSetB.add(problemSets[i]);
-                        } else if (problemSets[i].getType().intValue()==Constants.EXAMPLE_ID) {
-                            examples.add(problemSets[i]);
-                        }
-                    }
-
-                    getRequest().getSession().setAttribute(Constants.EXAMPLES, examples);
-                    getRequest().getSession().setAttribute(Constants.TEST_SET_A, testSetA);
-                    getRequest().getSession().setAttribute(Constants.TEST_SET_B, testSetB);
-                    getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
-
-                    setNextPage(Constants.PAGE_INDEX);
-                    setIsNextPageInContext(true);
-
-                } else {
-                    addError(Constants.HANDLE, response.getMessage());
-                    setNextPage(Constants.PAGE_LOGIN);
-                    setIsNextPageInContext(true);
-                }
+                receive(5000, messageId);
             }
         } else {
             setNextPage(Constants.PAGE_LOGIN);
             setIsNextPageInContext(true);
         }
 
+    }
+
+    protected void postProcessing(Message resp) throws Exception {
+        ScreeningLoginResponse response = (ScreeningLoginResponse)resp;
+        if (response.isSuccess()) {
+            getAuthentication().login(new SimpleUser(response.getUserID(), "", ""));
+            ScreeningProblemSet[] problemSets = response.getProblemSets();
+
+            ArrayList examples = new ArrayList();
+            ArrayList testSetA = new ArrayList();
+            ArrayList testSetB = new ArrayList();
+
+            for (int i=0; i<problemSets.length; i++) {
+                if (problemSets[i].getType().intValue()==Constants.TEST_SET_A_ID) {
+                    testSetA.add(problemSets[i]);
+                } else if (problemSets[i].getType().intValue()==Constants.TEST_SET_B_ID) {
+                    testSetB.add(problemSets[i]);
+                } else if (problemSets[i].getType().intValue()==Constants.EXAMPLE_ID) {
+                    examples.add(problemSets[i]);
+                }
+            }
+
+            getRequest().getSession().setAttribute(Constants.EXAMPLES, examples);
+            getRequest().getSession().setAttribute(Constants.TEST_SET_A, testSetA);
+            getRequest().getSession().setAttribute(Constants.TEST_SET_B, testSetB);
+            getRequest().getSession().setAttribute(Constants.LANGUAGES, getLanguages(response));
+
+            setNextPage(Constants.PAGE_INDEX);
+            setIsNextPageInContext(true);
+
+        } else {
+            addError(Constants.HANDLE, response.getMessage());
+            setNextPage(Constants.PAGE_LOGIN);
+            setIsNextPageInContext(true);
+        }
     }
 
     private ArrayList getLanguages(ScreeningLoginResponse response) {
