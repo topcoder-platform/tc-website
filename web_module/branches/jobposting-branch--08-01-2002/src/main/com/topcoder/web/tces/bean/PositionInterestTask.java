@@ -101,7 +101,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         Integer userId = (Integer)session.getAttribute("user_id");
         if (userId == null || (userId.intValue()<0) ) {
             log.debug("User not authenticated for access to ES main page.");
-            throw new Exception("User not authenticated for access to ES main page.");
+            throw new TCESAuthenticationException("User not authenticated for access to ES main page.");
         }
 
         uid = userId.intValue();
@@ -140,7 +140,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Campaign_Info");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("Bad campaign ID or campaign does not belong to user.");
+            throw new TCESAuthenticationException ("Bad campaign ID or campaign does not belong to user.");
         }
         ResultSetContainer.ResultSetRow cpgnInfRow = rsc.getRow(0);
         setCampaignName( cpgnInfRow.getItem("campaign_name").toString() );
@@ -148,7 +148,7 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("jid="+Integer.toString(getJobID())+
+            throw new TCESAuthenticationException ("jid="+Integer.toString(getJobID())+
                                  " cid="+Integer.toString(getCampaignID())+
                                  "does not belong to uid="+Integer.toString(uid) );
         }

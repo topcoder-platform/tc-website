@@ -122,7 +122,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
         Integer userId = (Integer)session.getAttribute("user_id");
         if (userId == null || (userId.intValue()<0) ) {
             log.debug("User not authenticated for access to ES main page.");
-            throw new Exception("User not authenticated for access to ES main page.");
+            throw new TCESAuthenticationException("User not authenticated for access to ES main page.");
         }
 
         uid = userId.intValue();
@@ -278,7 +278,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Job_Access");
             if (rsc.getRowCount() == 0) {
-                throw new Exception (" cid="+Integer.toString(getCampaignID())+
+                throw new TCESAuthenticationException (" cid="+Integer.toString(getCampaignID())+
                                      " pid="+Integer.toString(getJobID())+
                                      " does not belong to uid="+Integer.toString(uid) );
             }
@@ -288,7 +288,7 @@ public class DemographicTask extends BaseTask implements Task, Serializable {
 
             rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Campaign_Access");
             if (rsc.getRowCount() == 0) {
-                throw new Exception (" cid="+Integer.toString(getCampaignID())+
+                throw new TCESAuthenticationException (" cid="+Integer.toString(getCampaignID())+
                                      "does not belong to uid="+Integer.toString(uid) );
             }
         }

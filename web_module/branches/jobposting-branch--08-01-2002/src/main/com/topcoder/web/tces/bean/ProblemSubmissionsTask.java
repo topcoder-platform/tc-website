@@ -22,20 +22,20 @@ import java.util.Map;
  * @author  George Dean
  */
 public class ProblemSubmissionsTask extends BaseTask implements Task, Serializable {
-    
+
     private static Logger log = Logger.getLogger(ProblemSubmissionsTask.class);
 
     private int uid;
     private int cid;
     private int jid;
     private int mid;
-    
+
     /** Holds value of property handle. */
     private String handle;
-    
+
     /** Holds value of property submissionList. */
     private List submissionList;
-    
+
     /** Creates new ProblemSubmissionsTask */
     public ProblemSubmissionsTask() {
         super();
@@ -43,7 +43,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
 
         uid=-1;
     }
-    
+
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -52,7 +52,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         Integer userId = (Integer)session.getAttribute("user_id");
         if (userId == null || (userId.intValue()<0) ) {
             log.debug("User not authenticated for access to ES main page.");
-            throw new Exception("User not authenticated for access to ES main page.");
+            throw new TCESAuthenticationException("User not authenticated for access to ES main page.");
         }
 
         uid = userId.intValue();
@@ -61,7 +61,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
     public void processStep(String step) throws Exception {
         viewProblemSubmissions();
     }
-    
+
     private void viewProblemSubmissions() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_problem_submissions");
@@ -70,10 +70,10 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         dataRequest.setProperty("cid", Integer.toString(getCampaignID()) );
         dataRequest.setProperty("jid", Integer.toString(getJobID()) );
         dataRequest.setProperty("mid", Integer.toString(getMemberID()) );
-        
+
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
-        
+
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("No member handle!");
@@ -83,7 +83,7 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("mid="+Integer.toString(getMemberID())+
+            throw new TCESAuthenticationException ("mid="+Integer.toString(getMemberID())+
                                  " jid="+Integer.toString(getJobID())+
                                  " cid="+Integer.toString(getCampaignID())+
                                  " does not belong to uid="+Integer.toString(uid) );
@@ -94,10 +94,10 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Submissions");
         setSubmissionList( (List)rsc );
-        
+
         setNextPage( TCESConstants.PROBLEM_SUBMISSIONS_PAGE );
     }
-    
+
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
@@ -109,75 +109,75 @@ public class ProblemSubmissionsTask extends BaseTask implements Task, Serializab
         if (paramName.equalsIgnoreCase(TCESConstants.MEMBER_ID_PARAM))
             setMemberID(Integer.parseInt(value));
     }
-    
+
     /** Getter for property campaignID.
      * @return Value of property campaignID.
      */
     public int getCampaignID() {
         return cid;
     }
-    
+
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
     public void setCampaignID(int campaignID) {
         cid = campaignID;
     }
-    
+
     /** Getter for property jobID.
      * @return Value of property jobID.
      */
     public int getJobID() {
         return jid;
     }
-    
+
     /** Setter for property jobID.
      * @param jobID New value of property jobID.
      */
     public void setJobID(int jobID) {
         jid = jobID;
     }
-    
+
     /** Getter for property memberID.
      * @return Value of property memberID.
      */
     public int getMemberID() {
         return mid;
     }
-    
+
     /** Setter for property memberID.
      * @param memberID New value of property memberID.
      */
     public void setMemberID(int memberID) {
         mid = memberID;
     }
-    
+
     /** Getter for property handle.
      * @return Value of property handle.
      */
     public String getHandle() {
         return this.handle;
     }
-    
+
     /** Setter for property handle.
      * @param handle New value of property handle.
      */
     public void setHandle(String handle) {
         this.handle = handle;
     }
-    
+
     /** Getter for property submissionList.
      * @return Value of property submissionList.
      */
     public List getSubmissionList() {
         return this.submissionList;
     }
-    
+
     /** Setter for property submissionList.
      * @param submissionList New value of property submissionList.
      */
     public void setSubmissionList(List submissionList) {
         this.submissionList = submissionList;
     }
-    
+
 }

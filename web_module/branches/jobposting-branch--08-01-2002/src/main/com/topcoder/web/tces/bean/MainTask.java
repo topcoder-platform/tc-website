@@ -57,7 +57,7 @@ public class MainTask extends BaseTask implements Task, Serializable {
         Integer userId = (Integer)session.getAttribute("user_id");
         if (userId == null || (userId.intValue()<0) ) {
             log.debug("User not authenticated for access to ES main page.");
-            throw new Exception("User not authenticated for access to ES main page.");
+            throw new TCESAuthenticationException("User not authenticated for access to ES main page.");
         }
 
         uid = userId.intValue();

@@ -24,26 +24,26 @@ import java.util.Map;
  * @author  George Dean
  */
 public class ProblemStatisticsTask extends BaseTask implements Task, Serializable {
-    
+
     private static Logger log = Logger.getLogger(ProblemStatisticsTask.class);
 
     private int uid;
     private int cid;
     private int jid;
     private int mid;
-    
+
     /** Holds value of property problemID. */
     private int problemID;
-    
+
     /** Holds value of property handle. */
     private String handle;
-    
+
     /** Holds value of property problemStats. */
     private ResultSetContainer.ResultSetRow problemStats;
-    
+
     /** Holds value of property problemStatsByLanguage. */
     private List problemStatsByLanguage;
-    
+
     public String getStatistic(String name){
         try{
             return JSPUtils.autoFormat(getProblemStats().getItem(name));
@@ -53,7 +53,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
             return "";
         }
     }
-    
+
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
     {
@@ -62,7 +62,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         Integer userId = (Integer)session.getAttribute("user_id");
         if (userId == null || (userId.intValue()<0) ) {
             log.debug("User not authenticated for access to ES main page.");
-            throw new Exception("User not authenticated for access to ES main page.");
+            throw new TCESAuthenticationException("User not authenticated for access to ES main page.");
         }
 
         uid = userId.intValue();
@@ -71,7 +71,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
     public void processStep(String step) throws Exception {
         viewProblemStatistics();
     }
-    
+
     private void viewProblemStatistics() throws Exception {
         Request dataRequest = new Request();
         dataRequest.setContentHandle("tces_problem_statistics");
@@ -81,10 +81,10 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         dataRequest.setProperty("jid", Integer.toString(getJobID()) );
         dataRequest.setProperty("mid", Integer.toString(getMemberID()) );
         dataRequest.setProperty("pm", Integer.toString(getProblemID()) );
-        
+
         DataAccessInt dai = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
         Map resultMap = dai.getData(dataRequest);
-        
+
         ResultSetContainer rsc = (ResultSetContainer) resultMap.get("TCES_Member_Handle");
         if (rsc.getRowCount() == 0) {
             throw new Exception ("No member handle!");
@@ -94,7 +94,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Verify_Member_Access");
         if (rsc.getRowCount() == 0) {
-            throw new Exception ("mid="+Integer.toString(getMemberID())+
+            throw new TCESAuthenticationException ("mid="+Integer.toString(getMemberID())+
                                  " jid="+Integer.toString(getJobID())+
                                  " cid="+Integer.toString(getCampaignID())+
                                  " does not belong to uid="+Integer.toString(uid) );
@@ -111,10 +111,10 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
 
         rsc = (ResultSetContainer) resultMap.get("TCES_Problem_Stats_by_Language");
         setProblemStatsByLanguage( (List)rsc );
-        
+
         setNextPage( TCESConstants.PROBLEM_STATISTICS_PAGE );
     }
-    
+
     public void setAttributes(String paramName, String[] paramValues) {
         String value = paramValues[0];
         value = (value == null?"":value.trim());
@@ -128,7 +128,7 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
         if (paramName.equalsIgnoreCase(TCESConstants.PROBLEM_ID_PARAM))
             setProblemID(Integer.parseInt(value));
     }
-    
+
     /** Creates new ProblemStatisticsTask */
     public ProblemStatisticsTask() {
         super();
@@ -136,103 +136,103 @@ public class ProblemStatisticsTask extends BaseTask implements Task, Serializabl
 
         uid=-1;
     }
-    
+
     /** Getter for property campaignID.
      * @return Value of property campaignID.
      */
     public int getCampaignID() {
         return cid;
     }
-    
+
     /** Setter for property campaignID.
      * @param campaignID New value of property campaignID.
      */
     public void setCampaignID(int campaignID) {
         cid = campaignID;
     }
-    
+
     /** Getter for property jobID.
      * @return Value of property jobID.
      */
     public int getJobID() {
         return jid;
     }
-    
+
     /** Setter for property jobID.
      * @param jobID New value of property jobID.
      */
     public void setJobID(int jobID) {
         jid = jobID;
     }
-    
+
     /** Getter for property memberID.
      * @return Value of property memberID.
      */
     public int getMemberID() {
         return mid;
     }
-    
+
     /** Setter for property memberID.
      * @param memberID New value of property memberID.
      */
     public void setMemberID(int memberID) {
         mid = memberID;
     }
-    
+
     /** Getter for property problemID.
      * @return Value of property problemID.
      */
     public int getProblemID() {
         return this.problemID;
     }
-    
+
     /** Setter for property problemID.
      * @param problemID New value of property problemID.
      */
     public void setProblemID(int problemID) {
         this.problemID = problemID;
     }
-    
+
     /** Getter for property handle.
      * @return Value of property handle.
      */
     public String getHandle() {
         return this.handle;
     }
-    
+
     /** Setter for property handle.
      * @param handle New value of property handle.
      */
     public void setHandle(String handle) {
         this.handle = handle;
     }
-    
+
     /** Getter for property problemStats.
      * @return Value of property problemStats.
      */
     public ResultSetContainer.ResultSetRow getProblemStats() {
         return this.problemStats;
     }
-    
+
     /** Setter for property problemStats.
      * @param problemStats New value of property problemStats.
      */
     public void setProblemStats(ResultSetContainer.ResultSetRow problemStats) {
         this.problemStats = problemStats;
     }
-    
+
     /** Getter for property problemStatsByLanguage.
      * @return Value of property problemStatsByLanguage.
      */
     public List getProblemStatsByLanguage() {
         return this.problemStatsByLanguage;
     }
-    
+
     /** Setter for property problemStatsByLanguage.
      * @param problemStatsByLanguage New value of property problemStatsByLanguage.
      */
     public void setProblemStatsByLanguage(List problemStatsByLanguage) {
         this.problemStatsByLanguage = problemStatsByLanguage;
     }
-    
+
 }
