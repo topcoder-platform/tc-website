@@ -35,11 +35,6 @@ public class Constants {
     public  static final String KEY_INTERNAL_EXC_PAGE = "int-exc-page";
     
     /**
-     * Environment to produce security InitialContext from.
-     */
-    public static final Hashtable SECURITY_CONTEXT_ENVIRONMENT = new Hashtable();
-
-    /**
      * Environment to produce JTA InitialContext from.
      */
     public static final Hashtable JTA_CONTEXT_ENVIRONMENT = new Hashtable();
@@ -133,21 +128,6 @@ public class Constants {
             value
         );
 
-        // security environment
-        value = store.getProperty(
-            "security-context-factory",
-            "org.jnp.interfaces.NamingContextFactory"
-        );
-        SECURITY_CONTEXT_ENVIRONMENT.put(
-            javax.naming.Context.INITIAL_CONTEXT_FACTORY,
-            value
-        );
-        value = store.getProperty("security-provider-url", "jnp://127.0.0.1:1099");
-        SECURITY_CONTEXT_ENVIRONMENT.put(
-            javax.naming.Context.PROVIDER_URL,
-            value
-        );
-        
         // app ejb environment
         value = store.getProperty(
             "ejb-context-factory",

@@ -17,7 +17,6 @@ import com.topcoder.shared.security.Persistor;
 import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.Constants;
 
 /**
  * This implementation will use the TCS security component to attempt a login.

@@ -24,6 +24,10 @@ public class SessionPersistor implements Persistor {
     
     public SessionPersistor(HttpSession session) {
         store = session;
+        Stack pages = (Stack)store.getAttribute(KEY_PREVPAGE);
+        if( pages == null ) {
+            store.setAttribute(KEY_PREVPAGE, new Stack());
+        }
     }   
     
     /**

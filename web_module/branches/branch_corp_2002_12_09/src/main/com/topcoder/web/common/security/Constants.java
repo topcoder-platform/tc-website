@@ -1,41 +1,41 @@
 package com.topcoder.web.common.security;
 
-import java.lang.reflect.*;
-import javax.naming.*;
-import com.topcoder.shared.util.*;
-import com.topcoder.shared.util.logging.Logger;
+//import java.util.Hashtable;
+//import javax.servlet.ServletConfig;
+import java.util.Hashtable;
+
+import com.topcoder.shared.util.TCResourceBundle;
 
 /**
- * Houses a convenience method for getting EJB interfaces.
- * Package scope is deliberate.
+ * General set of constants to be used in scope of this web application. 
+ * 
+ * @author djFD molc@mail.ru
+ * @version 1.02
  *
- * @author Ambrose Feinstein
  */
-class Constants {
-
-    private static Logger log = Logger.getLogger(Constants.class);
-
+public class Constants {
+    private static final TCResourceBundle store;
     /**
-     * Get a remote instance of the specified EJB.
-     * Assumes the home class will have the same name plus "Home".
-     *
-     * @param remoteclass The class of the interface which should be returned.
+     * Environment to produce security InitialContext from.
      */
-    static Object createEJB(Class remoteclass) throws Exception {
+    public static final Hashtable SECURITY_CONTEXT_ENVIRONMENT = new Hashtable();
 
-        try {
-            /* create the context anew each time in case the JNDI provider is restarted. */
-            Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
-
-            Class remotehomeclass = Class.forName(remoteclass.getName()+"Home");
-            String refname = (String)remotehomeclass.getField("EJB_REF_NAME").get(null);
-            Object remotehome = ctx.lookup(refname);
-            Method createmethod = remotehome.getClass().getMethod("create", null);
-            return createmethod.invoke(remotehome, null);
-
-        } catch(Exception e) {
-            log.error("caught exception in createEJB, rethrowing it", e);
-            throw e;
-        }
+    static {
+        String value;
+        store = new TCResourceBundle("SecurityConfig");
+        // security environment
+        value = store.getProperty(
+            "security-context-factory",
+            "org.jnp.interfaces.NamingContextFactory"
+        );
+        SECURITY_CONTEXT_ENVIRONMENT.put(
+            javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+            value
+        );
+        value = store.getProperty("security-provider-url", "jnp://127.0.0.1:1099");
+        SECURITY_CONTEXT_ENVIRONMENT.put(
+            javax.naming.Context.PROVIDER_URL,
+            value
+        );
     }
 }

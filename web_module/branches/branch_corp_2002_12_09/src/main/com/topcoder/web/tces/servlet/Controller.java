@@ -96,7 +96,7 @@ public class Controller extends HttpServlet {
                                            + taskName;
 
                 /* User authorization checking */
-                SessionPersistor persistor = SessionPersistor.getInstance(
+                SessionPersistor persistor = new SessionPersistor(
                     request.getSession(true)
                 );
                 WebAuthentication authToken

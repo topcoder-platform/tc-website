@@ -5,7 +5,7 @@
                  com.topcoder.web.common.security.SessionPersistor,
                  com.topcoder.web.common.security.BasicAuthentication "
          autoFlush="false" %>
-<% BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request.getSession(true)), request, response);
+<% BasicAuthentication auth = new BasicAuthentication(new SessionPersistor(request.getSession(true)), request, response);
    User activeUser = auth.getActiveUser();
 %>
 <A NAME="top"/>

@@ -16,7 +16,6 @@ import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.shared.util.logging.Logger;
 
-
 /**
  * Helper class to be used in scope of application   
  * 
@@ -119,7 +118,9 @@ public class Util {
     {
         InitialContext ic = null;
         try {
-            ic = new InitialContext(Constants.SECURITY_CONTEXT_ENVIRONMENT);
+            ic = new InitialContext(
+                com.topcoder.web.common.security.Constants.SECURITY_CONTEXT_ENVIRONMENT
+            );
             PrincipalMgrRemoteHome rHome = (PrincipalMgrRemoteHome)
                 ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
 

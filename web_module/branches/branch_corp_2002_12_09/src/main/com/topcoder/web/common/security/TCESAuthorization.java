@@ -13,7 +13,6 @@ import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.shared.security.Authorization;
 import com.topcoder.shared.security.Resource;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.web.corp.Constants;
 
 /**
  * This will be using the TopCoder Software security component to determine if a
