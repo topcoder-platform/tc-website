@@ -24,8 +24,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_diff-design">File Diff</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=barcode_generation-design&amp;payment=210&amp;date=2&#47;12&#47;2003">Barcode Generation</a></td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -34,7 +34,7 @@
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=financial_calc-design">Financial Calculator</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -44,8 +44,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=parser_factory-design">Generic Parser</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=compression_utility-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Compression Utility</a></td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -53,8 +53,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=HTTP_utility-design">HTTP Utility</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=credit_card_processor-design&amp;payment=245&amp;date=2&#47;12&#47;2003">Credit Card Processor</a></td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -62,8 +62,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=image_converter-design">Image Converter</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=file_delta-design&amp;payment=245&amp;date=2&#47;12&#47;2003">File Delta</a></td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -71,8 +71,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=jar_compressor-design">Jar Compressor</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=lazy_instantiation-design&amp;payment=175&amp;date=2&#47;12&#47;2003">Lazy Instantiation</a></td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 							
@@ -80,8 +80,8 @@
 
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_compiler">Java Compiler</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=lexical_analyzer-design&amp;payment=280&amp;date=2&#47;12&#47;2003">Lexical Analyzer</a></td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -90,7 +90,7 @@
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_decompiler-design">Java Decompiler</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -100,8 +100,8 @@
 							<tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
-								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=java_ftp-design">Java FTP</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=security_enhancement-design&amp;payment=280&amp;date=2&#47;19&#47;2003">Security Enhancement</a></td>
+								<td background="" class="statText" align="center">2.19.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -111,7 +111,7 @@
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=list_manipulation-design">List Manipulation</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
@@ -120,7 +120,7 @@
 							<tr valign="top">
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 								<td background="" class="statText"><a class="statText" href="/index?t=development&amp;c=object_factory-design">Object Factory</a></td>
-								<td background="" class="statText" align="center">2.5.2003</td>
+								<td background="" class="statText" align="center">2.12.2003</td>
 								<td background="" width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
 							</tr>
 
