@@ -95,8 +95,10 @@ public class LoginTask extends BaseTask implements Task, Serializable {
             if (Authentication.attemptLogin( getHandleInput(), getPasswordInput(), getInitialContext(), session)) {
                 if (request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTH))
                     setNextPage(TCESConstants.LOGIN_OK_PAGE );
-                else if (request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTHREDIR))
+                else if (request.getParameter(TCESConstants.STEP_PARAM).equals(TCESConstants.LOGIN_TASK_STEP_AUTHREDIR)) {
+log.debug(HttpUtils.getRequestURL(request).toString() );
                     setNextPage( HttpUtils.getRequestURL(request).toString() );
+                }
             }
             else {
                 setMessage(Authentication.getErrorMessage(session));

@@ -39,7 +39,7 @@
 
   <init-param>
     <param-name>auth_failed_page</param-name>
-    <param-value>/tces?task=LoginTask&step=ar</param-value>
+    <param-value>/tces?task=LoginTask&amp;step=ar</param-value>
     <description>
       URI to the page for a failed authentication
     </description>
@@ -55,7 +55,7 @@
 
   <init-param>
     <param-name>login_ok_page</param-name>
-    <param-value>/tces?task=MainTask&st=v</param-value>
+    <param-value>/tces?task=MainTask&amp;st=v</param-value>
     <description>
       URI to the successful login page
     </description>
