@@ -154,7 +154,7 @@ public class EmailBean implements SessionBean {
      * @throws RemoteException
      * @throws EJBException
      */
-/*    public long getEmailId(long userId) {
+    public long getEmailId(long userId) {
         log.debug("getEmailId called...user_id: " + userId);
 
         Context ctx = null;
@@ -223,7 +223,7 @@ public class EmailBean implements SessionBean {
         }
         return (ret);
     }
-*/
+
 
     /**
      *

@@ -11,8 +11,8 @@ import java.rmi.RemoteException;
  * @version $Revision$
  */
 public interface EmailHome extends javax.ejb.EJBHome {
-    public static final String EJB_REF_NAME = EmailHome.class.getName();
-    
+//    public static final String EJB_REF_NAME = EmailHome.class.getName();
+
     /**
      * Creates the remote Email EJB object
      *
