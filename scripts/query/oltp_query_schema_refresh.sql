@@ -52,6 +52,7 @@ INSERT INTO command VALUES(1017,"tces_member_interest",8);
 INSERT INTO command VALUES(1100,"tces_user_and_pw",8);
 INSERT INTO command VALUES(1500,"member_profile_info",9);
 INSERT INTO command VALUES(1501,"member_demographics",9);
+INSERT INTO command VALUES(59,"TCES Notification",1);
 
 
 INSERT INTO data_type VALUES (1001,'Integer Input');
@@ -157,6 +158,7 @@ INSERT INTO command_query_xref VALUES(1017, 1097, 5);
 INSERT INTO command_query_xref VALUES(1100, 1100, 1);
 INSERT INTO command_query_xref VALUES(1500, 1051, 1);
 INSERT INTO command_query_xref VALUES(1501, 1052, 1);
+INSERT INTO command_query_xref VALUES(59, 83, 1);
 
 
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES(3,"cr",1001,"Coder ID");
