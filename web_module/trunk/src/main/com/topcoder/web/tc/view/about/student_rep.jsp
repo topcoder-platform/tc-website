@@ -42,7 +42,7 @@
                     <img src="/i/clear.gif" alt="" width="10" height="5" border="0" /><br/>
 
                             <p> <img src="/i/clear.gif" alt="" width="10" height="10" border="0" align="left"/><img src="/i/about/student_rep_students.jpg" alt="Represent TopCoder on your College Campus." width="131" height="100" border="0" align="left" style="padding-left: 0px; padding-top: 0px; padding-right: 15px; padding-bottom: 7px;"/>
-                            <strong>It's that time of year again - time to start advertising for the 2005 TopCoder Collegiate Challenge.   We want participation in the 
+                            <strong>It's that time of year again - time to start advertising for the <a href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=overview">2005 TopCoder Collegiate Challenge</a>. We want participation in the 
                             TCCC05 to reach record levels, and we need your help in order to make that happen. TopCoder wants Student Representatives from colleges and universities world wide!</strong></p>
 
                         
@@ -64,8 +64,8 @@
                         <p><strong>What do you get for being a Student Rep?</strong></p>
 
                         <ol>
-                        	<li>We will send a Limited Edition 2005 TopCoder Collegiate Challenge student Rep t-shirt to each Rep who gets at least one person from his/her school to register as a TopCoder member and compete in the Qualification Round of the TCCC05. Each person must stated either your hand or "Campus Poster" as the reason for registering at TopCoder.</li>
-                        	<li>The Rep who gets the most new people to register at TopCoder and compete in the Qualification Round of the TCCC05 will receive a trip to attend the onsite finals of the TCCC05 in march 2005 in SanJose, CA, USA. See <A href="Javascript:openWin('/tc?module=Static&d1=about&d2=student_rep_rules','comp',530,500);">official rules</A> for details.</li>
+                        	<li>We will send a Limited Edition 2005 TopCoder Collegiate Challenge student Rep t-shirt to each Rep who gets at least one person from his/her school to register as a TopCoder member and compete in the Qualification Round of the TCCC05. Each person must state either your handle or "Campus Poster" as the reason for registering at TopCoder.</li>
+                        	<li>The Rep who gets the most new people to register at TopCoder and compete in the Qualification Round of the TCCC05 will receive a trip to attend the onsite finals of the TCCC05 in March 2005. See <A href="Javascript:openWin('/tc?module=Static&d1=about&d2=student_rep_rules','comp',530,500);">official rules</A> for details.</li>
                         </ol>
 
                         <p><strong>How to get started:</strong></p>
@@ -77,7 +77,7 @@
                                         <li>Include your mailing address in the e-mail.  This will be the address where the posters are sent.</li>         
                                     </ol>
                        <p>There can only be one Rep at each school. We will be posting each Rep, their school name, and 
-                       the number of new members who have registed from their school on the website.</p>
+                       the number of new members who have registed from their school on the website. Positions will be filled on a first come, first served basis, so act fast!</p>
                 
                         
                         <img src="/i/clear.gif" alt="" width="175" height="1" border="0" />
@@ -97,7 +97,7 @@
 <!-- Right Column Begins -->
          <td width="170">
             <jsp:include page="../../public_right.jsp">
-               <jsp:param name="level1" value="about"/>
+               <jsp:param name="level1" value="privatelabel"/>
             </jsp:include>
          </td>
 <!-- Right Column Ends -->
