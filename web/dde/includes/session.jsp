@@ -1,7 +1,11 @@
+
 <%@ page import="com.topcoder.security.*,
                  java.lang.reflect.UndeclaredThrowableException,
                  com.topcoder.util.logging.Logger,
-                 com.topcoder.dde.util.Cookies" %>
+                 com.topcoder.dde.util.Cookies,
+                 javax.naming.Context,
+                 javax.naming.InitialContext,
+                 javax.rmi.PortableRemoteObject" %>
 <%@ page import="com.topcoder.security.admin.*" %>
 <%@ page import="com.topcoder.security.login.*" %>
 <%@ page import="com.topcoder.security.policy.*" %>
