@@ -151,7 +151,7 @@ li {
 							<tr valign="top">
 								<td class="statText" width="100%">
 									<p><strong>Sample Development Submission</strong><br />
-									This is the <a href="/i/development/downloads/devsubmission-sample.jar" class="statText">winning development submission</a> from <a href="/stat?c=member_profile&amp;cr=281876" class="coderTextGreen">garyk</a> for the Timer component. It should only be used as a guide for creating a development submission. Contents of this submission include:
+									This is the <a href="/i/development/downloads/devsubmission-sample.jar" class="statText">winning development submission</a> from <a href="/stat?c=member_profile&amp;cr=281876" class="coderTextGreen">garyk</a> for the Object Formatter component. It should only be used as a guide for creating a development submission. Contents of this submission include:
 									<ul>
 										<li>Compilable Source Code</li>
 										<li>Unit Test Cases: Developer's should submit unit test cases called from the UnitTests.java and placed in the base package test directory.</li>
