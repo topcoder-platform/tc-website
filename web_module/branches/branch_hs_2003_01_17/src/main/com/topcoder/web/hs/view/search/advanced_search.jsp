@@ -32,7 +32,7 @@
    <TD></TD>
    <TD></TD>
    <TD CLASS="errorText" ALIGN="left" VALIGN="middle">
-    <adv:errorIterator id="error" name="SchoolCode"><%=error%><BR></reg:errorIterator>
+    <adv:errorIterator id="error" name="SchoolCode"><%=error%><BR></adv:errorIterator>
    </TD>
   </TR>
   <TR>
@@ -53,13 +53,13 @@
   </TR>
   <TR>
    <TD COLSPAN="2" CLASS="errorText" ALIGN="left" VALIGN="middle">
-    <adv:errorIterator id="error" name="MinRating"><%=error%><BR></reg:errorIterator>
-    <adv:errorIterator id="error" name="MaxRating"><%=error%><BR></reg:errorIterator>
-    <adv:errorIterator id="error" name="MinMax"><%=error%><BR></reg:errorIterator>
+    <adv:errorIterator id="error" name="MinRating"><%=error%><BR></adv:errorIterator>
+    <adv:errorIterator id="error" name="MaxRating"><%=error%><BR></adv:errorIterator>
+    <adv:errorIterator id="error" name="MinMax"><%=error%><BR></adv:errorIterator>
    </TD>
    <TD></TD>
    <TD>
-    <adv:errorIterator id="error" name="SchoolId"><%=error%><BR></reg:errorIterator>
+    <adv:errorIterator id="error" name="SchoolId"><%=error%><BR></adv:errorIterator>
    </TD>
   </TR>
   <TR>
