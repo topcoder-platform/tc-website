@@ -51,7 +51,7 @@
             <table border="0" cellpadding="10" cellspacing="0" width="534">
                 <tr>
                     <td align="center" class="bodyText">
-                        <img src="/i/development/dev_home_promo.jpg" width="489" height="314" alt="" border="0" usemap="#dev_promos"/>
+                        <img src="/i/development/homePromo.gif" width="506" height="211" alt="" border="0" usemap="#dev_promos"/>
                         <map name="dev_promos">
                         <area shape="rect" alt="" coords="40,55,225,240" href="/?t=development&amp;c=comp_projects" />
                         <area shape="rect" alt="" coords="300,55,435,240" href="/tc?module=ViewReviewProjects " />
