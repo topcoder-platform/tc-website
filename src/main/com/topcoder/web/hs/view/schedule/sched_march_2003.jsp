@@ -84,7 +84,10 @@
                                 <td id="calendar">3</td>
                                 <td id="calendar">4</td>
                                 <td id="calendar">5</td>
-                                <td id="calendar">6</td>
+                                <td id="calendarSRM">
+                                    <span id="calendarSRMDate">6</span><br>
+                                    Match postponed due to snow day.<br>
+                                    <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">7</td>
                                 <td id="calendar">8</td>
                             </tr>
@@ -96,9 +99,7 @@
                                 <td id="calendar">12</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">13</span><br>
-                                    <strong>Match 1</strong><br>
-                                    Register: 2:00&nbsp;PM<br>
-                                    Compete: 3:00&nbsp;PM<br>
+                                    Match postponed due to snow day.<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
                                 <td id="calendar">14</td>
                                 <td id="calendar">15</td>
@@ -111,7 +112,7 @@
                                 <td id="calendar">19</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">20</span><br>
-                                    <strong>Match 2</strong><br>
+                                    <strong>Match 1</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
@@ -126,7 +127,7 @@
                                 <td id="calendar">26</td>
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">27</span><br>
-                                    <strong>Match 3</strong><br>
+                                    <strong>Match 2</strong><br>
                                     Register: 2:00&nbsp;PM<br>
                                     Compete: 3:00&nbsp;PM<br>
                                     <img border="0" height="1" width="50" src="/i/clear.gif" alt=""></td>
