@@ -116,7 +116,6 @@
                                <xsl:when test="number(seed)=0">N/A</xsl:when>
                                <xsl:otherwise><xsl:value-of select="seed"/></xsl:otherwise>
                            </xsl:choose>
-                           <xsl:value-of select="seed"/>
                        </td>
                        <td class="advancers_list" align="left">
                            <a>
