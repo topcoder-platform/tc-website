@@ -1958,7 +1958,7 @@ public class TCLoadAggregate extends TCLoad {
             ResultSetContainer.ResultSetRow innerRow = null;
             for(Iterator it = problems.iterator(); it.hasNext();) {
                 row = (ResultSetContainer.ResultSetRow)it.next();
-                psSel.setLong(1, row.getLongItem("round_id"));
+                psSel.setLong(1, fRoundId);
                 psSel.setLong(2, row.getLongItem("problem_id"));
                 psSel.setInt(3, row.getIntItem("division_id"));
                 rs = psSel.executeQuery();
@@ -1967,7 +1967,7 @@ public class TCLoadAggregate extends TCLoad {
                 for (Iterator it1 = rankList.iterator(); it1.hasNext();) {
                     innerRow = (ResultSetContainer.ResultSetRow)it1.next();
                     psUpd.setInt(1, innerRow.getIntItem("rank"));
-                    psUpd.setLong(2, innerRow.getLongItem("round_id"));
+                    psUpd.setLong(2, fRoundId);
                     psUpd.setLong(3, innerRow.getLongItem("coder_id"));
                     psUpd.setInt(4, innerRow.getIntItem("division_id"));
                     psUpd.setLong(5, innerRow.getLongItem("problem_id"));
