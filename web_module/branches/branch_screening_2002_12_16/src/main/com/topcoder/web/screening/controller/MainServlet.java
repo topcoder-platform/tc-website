@@ -2,7 +2,6 @@ package com.topcoder.web.screening.controller;
 
 import java.io.IOException;
 
-import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.topcoder.common.web.util.Data;
 import com.topcoder.security.TCSubject;
 import com.topcoder.shared.security.*;
+import com.topcoder.shared.util.logging.Logger;
 
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.*;
@@ -23,7 +23,6 @@ import com.topcoder.web.screening.model.RequestInfo;
  * rehashed from Greg Paul with permission.
  *
  * @author Nathaniel Dean
- * @date 27-Dec-2002
  * @version 1.0.1
  *
  * History:
@@ -34,7 +33,7 @@ import com.topcoder.web.screening.model.RequestInfo;
  */
 
 public class MainServlet extends HttpServlet {
-
+     private final static Logger log = Logger.getLogger(MainServlet.class);
     /**
      * Init() is run the moment that the servlet is loaded into the web server.
      * Initializes the static variables.
@@ -79,7 +78,8 @@ public class MainServlet extends HttpServlet {
      * @param response
      * @throws ServletException
      * @throws IOException
-     * @throws Exception
+     * @throws ServletException
+     * @throws IOException
      */
     public void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
@@ -115,6 +115,10 @@ public class MainServlet extends HttpServlet {
             {
                 className = Constants.PROCESSORS_PACKAGE + "."  + procParam;
             }
+            log.info(new StringBuffer(100).append("[**** ").append(procParam).append(" **** ").
+                    append(authen.getActiveUser().getUserName()).append(" **** ").
+                    append(request.getRemoteHost() + " ****]"));
+
             Class procClass = Class.forName(className);
             Resource r = new ClassResource(procClass);
 
