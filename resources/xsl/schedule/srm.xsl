@@ -110,7 +110,7 @@
                                 <b>For information on how to win an Intel&#174; Centrino&#153; mobile technology-based notebook computer click <a href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_intel">here</a></b><br/><br/>
                            </xsl:when>
                                 <xsl:when test="$roundId=5856">
-                                 <table width="510" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                                 <table width="428" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                                     <tr valign="top">
                                         <td class="sidebarTitle">Configuration Details:</td>
                                         <td class="sidebarText">1 Intel<sup>&#174;</sup> Pentium<sup>&#174;</sup> M PROCESSOR 1.0GHz, Intel<sup>&#174;</sup>
