@@ -58,7 +58,7 @@ public final class TaskAffidavit {
                 requestTask = Conversion.checkNull(request.getParameter("t"));
                 requestCommand = Conversion.checkNull(request.getParameter("c"));
 
-                if (requestCommand.equals("submit_questions")) {
+                if (requestCommand.equals("2003_collegiate_submit_questions")) {
 
                     TreeMap questions = new TreeMap();
                     TreeMap answers = new TreeMap();
