@@ -43,74 +43,129 @@
    <jsp:param name="tabLev3" value="schedule"/>
 </jsp:include>
 
-<!-- Onsite Semifinal and Championship Rounds begins -->
-            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br />
-            The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round
-            of the tournament being held on Thursday, December 4th.</p>
-
-            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+<h3>Schedule of Events</h3>
+            
+            <div align="center">
+            <table border="0" cellpadding="5" cellspacing="0">
                 <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Wednesday, December 3</strong></td>
                 </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #1</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 10:00 AM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">6:00pm - 8:00pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Welcome Reception *</td>
                 </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #2</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 1:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
+                <tr>
+                    <td colspan="2" class="bodyText">&nbsp;</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Thursday, December 4</strong></td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">10:00am - 11:45am</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 1</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">11:45am - 1:00pm</td>
+                    <td class="bodyText">Lunch *</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">1:00pm - 2:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 2</td>
+                </tr>
+                <tr>
+                    <td class="bodyText">2:45pm - 3:45pm</td>
+                    <td class="bodyText">Revelation Presentation</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">4:00pm - 5:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 3</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">5:45pm - 6:45pm</td>
+                    <td class="bodyText">TopCoder Software Presentation</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">7:00pm - 8:45pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Semifinal Room 4</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">8:30pm - 10:00pm</td>
+                    <td class="bodyText">NVIDIA Gathering *</td>
                 </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #3</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 4:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
+                <tr>
+                    <td colspan="2" class="bodyText">&nbsp;</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2" class="statText" bgcolor="#999999"><strong>Friday, December 5</strong></td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>8:00am - 12:00pm</strong></td>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>Component Competiton Finals</strong></td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">12:00pm - 1:00pm</td>
+                    <td class="bodyText">Lunch *</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">12:00pm - 3:30pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Review of Component Competition</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">1:00pm - 2:30pm</td>
+                    <td class="bodyText">Intel&#174; Technical Presentation</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>3:00pm - 4:45pm</strong></td>
+                    <td class="bodyText" bgcolor="#CCFF66"><strong>Coding Tournament Finals</strong></td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">5:00pm - 6:00pm</td>
+                    <td class="bodyText">Media Hour/Press Conference</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText" bgcolor="#EEEEEE">6:00pm - 7:00pm</td>
+                    <td class="bodyText" bgcolor="#EEEEEE">Cocktail Hour *</td>
+                </tr>
+                
+                <tr>
+                    <td class="bodyText">7:00pm - 9:00pm</td>
+                    <td class="bodyText">Dinner and Awards Presentation *</td>
                 </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #4</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 7:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
+                <tr>
+                    <td colspan="2" class="bodyText" bgcolor="#999999"></td>
                 </tr>
+                
+                <tr>
+                    <td colspan="2" class="bodyText">&nbsp;</td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2" class="smallText">* Open to competitors, their guests, and sponsors only.</td>
+                </tr>
+                
+            </table>
+            </div>
 
-                <tr valign="top">
-                    <td class="bodyText" bgcolor="#CCFF66"><strong>Championship Round</strong></td>
-                    <td class="bodyText" bgcolor="#CCFF66">
-                        <strong>Friday, December 5th<br />
-                        Compete: 3:00 PM<br /></strong>
-                    </td>
-                    <td class="bodyText" bgcolor="#CCFF66" align="center"><strong>4</strong></td>
-                    <td class="bodyText" bgcolor="#CCFF66" align="center"><strong>1</strong></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
-                    </td>
-                </tr>
-            </table><br />
 
          <p><br/></p>
          </td>
