@@ -222,7 +222,7 @@
                     <td class="bodyText" bgcolor="#FFCC33"><strong>Championship Round</strong></td>
                     <td class="bodyText" bgcolor="#FFCC33">
                         <strong>Friday, December 5th<br />
-                        Compete: 1:00 PM<br /></strong>
+                        Compete: 3:00 PM<br /></strong>
                     </td>
                     <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>4</strong></td>
                     <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>1</strong></td>
