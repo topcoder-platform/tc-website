@@ -14,7 +14,19 @@
 
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
+<% String round = request.getParameter("rd");
+	    if (round==null) {
+        com.topcoder.shared.dataAccess.Request dataRequest = new com.topcoder.shared.dataAccess.Request();
+                        dataRequest.setContentHandle("most_recent_srm");
 
+                                   DataAccessInt dai = new CachedDataAccess(
+                                            dataRequest.getProperty(Constants.DB_KEY, Query.WAREHOUSE));
+                            Map dataMap = null;
+                            dataMap = dai.getData(dataRequest);
+
+                            ResultSetContainer rsc1 = (ResultSetContainer)dataMap.get("Most_Recent_SRM");
+        round = rsc1.getStringItem(0, "round_id");
+    } %>
 					
                     
 
@@ -39,17 +51,29 @@ function goTo(selection){
   <body>
   <table>
     <tr valign="top">
-      <td width="170"><jsp:include page="srm_nav.jsp" /></td>
+      <td width="170"><jsp:include page="srm_nav.jsp" >
+	    <jsp:param name="rd" value="<%=round%>"/>
+		  </jsp:include>
+	  </td>
 	  <td colspan="3">
 	  <table>
 	    <tr>
-		  <td><jsp:include page="srm_info.jsp" /></td>
+		  <td><jsp:include page="srm_info.jsp" >
+		  <jsp:param name="rd" value="<%=round%>"/>
+		  </jsp:include>
+		  </td>
 		</tr>
 	    <tr>
-		  <td><jsp:include page="srm_chooser.jsp" /><jsp:param name="link" value="srm_lang_index"/></jsp:include></td>
+		  <td><jsp:include page="srm_chooser.jsp" >
+		  <jsp:param name="link" value="srm_lang_index"/>
+		  <jsp:param name="rd" value="<%=round%>"/>
+		  </jsp:include></td>
 		</tr>
 		<tr>
-		  <td><jsp:include page="srm_survey.jsp" /></td>
+		  <td><jsp:include page="srm_survey.jsp" >
+		   <jsp:param name="rd" value="<%=round%>"/>
+		    </jsp:include>
+		  </td>
 		</tr>
 	  </table>
 	</tr>
