@@ -82,7 +82,7 @@
                         <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> in payments to the winning designers and developers. Send us
                         your solutions today so you can start collecting your share.</p>
 
-                        <p>*And that's before royalty payments. The more <a class="statText" href="http://www.topcodersoftware.com/pages/s_subscriptions.jsp">Component Subscriptions</a> we sell, the more royalties we pay out to our winners!</p></td>
+                        <p>*And that's before royalty payments. The more <a class="statText" href="http://software.topcoder.com/pages/s_subscriptions.jsp">Component Subscriptions</a> we sell, the more royalties we pay out to our winners!</p></td>
                         <td width="10" class="statText"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
 
