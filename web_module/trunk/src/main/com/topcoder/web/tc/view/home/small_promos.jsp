@@ -9,4 +9,3 @@
 		<td height="150" align="center"><A href="/tc?module=Static&d1=about&d2=student_rep"><img src="/i/promos/student_rep_small.gif" width="170" height="150" border="0" alt="Represent TopCoder on your College Campus" /></A></td>
 	</tr>
 </table>
-            
