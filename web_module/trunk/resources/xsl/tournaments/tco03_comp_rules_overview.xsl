@@ -17,7 +17,7 @@
 
 <xsl:call-template name="Preload"/>
 
-<title>2003 TopCoder Open - Computer Programming Tournament - Rules - Overview</title>
+<title>2003 TopCoder Open sponsored by Intel&#174;  - Computer Programming Tournament - Rules - Overview</title>
 
 <xsl:call-template name="CSS"/>
 
@@ -97,7 +97,7 @@
 
             <h3><font color="#CC0000">No purchase necessary to enter or win</font></h3>
 
-            <p>The 2003 TopCoder Open Component Design and Development Competition ("CDDC") will take place between September 2nd and December 5th, 2003.
+            <p>The 2003 TopCoder Open sponsored by Intel&#174;  Component Design and Development Competition ("CDDC") will take place between September 2nd and December 5th, 2003.
             It will consist of two (2) online elimination rounds, and one (1) onsite final round, being the Championship round.  The prize purse for this tournament
             is $30,000 in cash, with $15,000 being awarded for the design contest and $15,000 for the development contest.  The top two scorers from each of the
             last online rounds will advance to the onsite Championship round, being held at the Mohegan Sun Casino in Uncasville, CT on December 5th.
