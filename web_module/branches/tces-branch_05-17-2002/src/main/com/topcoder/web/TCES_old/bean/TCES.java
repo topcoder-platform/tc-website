@@ -96,7 +96,7 @@ private void processSkills() {
 private void processJob() {
 }
 
-private void processContact() {
+private void processContact() throws SQLException, TaskException {
     CoderBean beanCoder = new CoderBean();
     coderObject.coder_id = new Long( (long)currentUser.getUserId() );
     coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
@@ -284,16 +284,16 @@ private void processContact() {
             coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.UPDATE, coderObject);
         } catch (Exception e) {
             error.add("Problem updating CoderObject.");
-            Log.msg("Problem with updating coderObject: " + e.getMessage());
-            throw e;
+            Log.msg("Problem with updating CoderObject: " + e.getMessage());
+            throw new TaskException("TCES.processEmployment(): Exception: " + e.getMessage());
         }
         try {
             //xxx todo: something's up - have to figure it out - comment this for now
             //userObject = beanUser.request(com.topcoder.web.TCES.ejb.User.UPDATE, userObject);
         } catch (Exception e) {
             error.add("Problem updating UserObject.");
-            Log.msg("Problem with updating userObject: " + e.getMessage());
-            throw e;
+            Log.msg("Problem with updating UserObject: " + e.getMessage());
+            throw new TaskException ("TCES.processEmployment(): Exception: " + e.getMessage());
         }
 
     }
