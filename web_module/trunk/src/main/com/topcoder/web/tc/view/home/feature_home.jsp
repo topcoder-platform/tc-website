@@ -1,13 +1,13 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-            <table border="0" cellspacing="0" cellpadding="3" width="100%">
+            <table border="0" cellspacing="0" cellpadding="3" width="530">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Feature</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=features&amp;c=index" class="bodyText"><strong>View All</strong></a></td>
                 </tr>
             </table>
 
-            <table border="0" cellspacing="3" cellpadding="0" width="100%">
+            <table border="0" cellspacing="3" cellpadding="0" width="530">
                 <tr>
                     <td width="85" class="bodyText"  valign="top">
                         <!--<a href="/?&amp;t=features&amp;c=feat_topics"><img src="/i/writers_wanted.gif" alt="" width="55" height="61" border="0" vspace="5" /></a>-->

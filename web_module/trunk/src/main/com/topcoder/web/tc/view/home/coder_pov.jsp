@@ -1,13 +1,13 @@
 <%@ page contentType="text/html; charset=ISO-8859-1" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-            <table width="100%" border="0" cellspacing="0" cellpadding="3">
+            <table width="530" border="0" cellspacing="0" cellpadding="3">
                 <tr valign="middle">
                     <td class="statTextLarge" bgcolor="#999999" width="50%"><font size="3">Coders Point of View</font></td>
                     <td class="bodyText" bgcolor="#999999" width="50%" align="right"><a href="/?t=statistics&amp;c=editorial_archive" class="bodyText"><strong>View All</strong></a></td>
                 </tr>
             </table>
 
-             <table border="0" cellspacing="3" cellpadding="0" width="100%">
+             <table width="530" border="0" cellspacing="3" cellpadding="0">
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
                         <img src="/i/m/Yarin_mug.gif" alt="" width="55" height="61" border="0" vspace="5" /><br />
