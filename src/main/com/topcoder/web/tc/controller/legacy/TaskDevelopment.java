@@ -181,7 +181,7 @@ public final class TaskDevelopment {
                     devTag.addTag(new ValueTag("To", to));
 
                     devTag.addTag(new ValueTag("projectId", request.getParameter("projectId")));
-                    if(!tcoTermsCheck(nav.getSessionInfo().getUserId()) && (request.getParameter("continue") == null || !request.getParameter("continue").equals("true")))
+                    if(command.equals("tcs_inquire") && !tcoTermsCheck(nav.getSessionInfo().getUserId()) && (request.getParameter("continue") == null || !request.getParameter("continue").equals("true")))
                     {
                         xsldocURLString = XSL_DIR + "tco_terms.xsl";
                     }
