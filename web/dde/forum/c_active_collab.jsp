@@ -173,36 +173,36 @@
 				if( Catalog.JAVA_CATALOG == forum.getRootCategory( ) )
 				{
 				%>
-                                <img src="/images/javaSm.gif" width="33" height="17" alt="Java Catalog" border="0" />
+                                <img src="/images/javaSm.gif" alt="Java Catalog" border="0" />
 				<%
 				}
 				else if( Catalog.NET_CATALOG == forum.getRootCategory( ) )
 				{
 				%>
-                                <img src="/images/netSm.gif" width="33" height="17" alt=".NET Catalog" border="0" />
+                                <img src="/images/dotnetSm.gif" alt=".NET Catalog" border="0" />
 				<%
 				}
 				else if( Catalog.FLASH_CATALOG == forum.getRootCategory( ) )
 				{
 				%>
-                                <img src="/images/flashSm.gif" width="33" height="17" alt=".NET Catalog" border="0" />
+                                <img src="/images/flashSm.gif" alt="Flash Catalog" border="0" />
 				<%
 				}
-                                else if( Catalog.JAVA_CUSTOM_CATALOG == forum.getRootCategory( ) )
-                                {
+                else if( Catalog.JAVA_CUSTOM_CATALOG == forum.getRootCategory( ) )
+                {
 				%>
 				<img src="/images/javaCustomSm.gif" alt="Java Custom Catalog" border="0" />
 				<%
 				}
-                                else if( Catalog.NET_CUSTOM_CATALOG == forum.getRootCategory( ) )
-                                {
+                else if( Catalog.NET_CUSTOM_CATALOG == forum.getRootCategory( ) )
+                {
 				%>
-				<img src="/images/netCustomSm.gif" alt=".NET Custom Catalog" border="0" />
+				<img src="/images/dotnetCustomSm.gif" alt=".NET Custom Catalog" border="0" />
 				<%
                                 }
                                 %>
 				</td>
-                                <td><img src="/images/spacer.gif" alt="" width="5" height="17" border="0" /></td>
+                                <td><img src="/images/clear.gif" alt="" width="5" height="17" border="0" /></td>
                                 <td width="165" class="forumText"><a href="c_forum.jsp?f=<%=forum.getForumId()%>"><strong><%=forum.getName()%></strong><!-- version&nbsp;<%=forum.getVersionText()%> --></a><br />
                                     <img src="/images/clear.gif" alt="" width="165" height="1" border="0"/></td>
                                     </td>
