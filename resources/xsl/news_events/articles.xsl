@@ -54,6 +54,12 @@
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="23" BORDER="0"/></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="statTextBig" COLSPAN="2" BACKGROUND="/i/steel_gray_bg.gif" HEIGHT="18">&#160;Articles - 2002</TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_drdobbs2" CLASS="bodyText">And the winner is...</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.10.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_contratimes" CLASS="bodyText">Computer wiz takes on high on-line stakes</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.08.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_stanforddaily4" CLASS="bodyText">Students advance to TopCoders finals</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.06.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_marietta" CLASS="bodyText">Georgia Tech computer science major to compete in TopCoder . . .</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.05.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_dnvrbizjrnl2" CLASS="bodyText">Coder wins big in contests</A></TD></TR>
+		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;04.01.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_clevplain" CLASS="bodyText">Digital Playground</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;02.27.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="http://www.informationweek.com/story/IWK20020227S0002" CLASS="bodyText">Cultivating Next-Generation IT Talent</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" HEIGHT="14">&#160;02.22.02</TD><TD VALIGN="middle" CLASS="bodyText"><A HREF="/index?t=news_events&amp;c=article_stanforddaily3" CLASS="bodyText">Annual coding competition features student entrants</A></TD></TR>
 		<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD></TR>
