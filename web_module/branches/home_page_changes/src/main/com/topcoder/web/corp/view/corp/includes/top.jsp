@@ -57,6 +57,6 @@
 			</tr>
 		</table>
 <% } else { %>
-	<jsp:include page="../../menu.jsp"/>
+<jsp:include page="../../corpMenu.jsp"/>
 <% } %>
 <!-- Main Navigation bar ends -->
