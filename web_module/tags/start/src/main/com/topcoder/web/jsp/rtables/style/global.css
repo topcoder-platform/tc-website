@@ -1,0 +1,143 @@
+
+<style type="text/css">
+
+/* stupid hack for netscape (the empty P tag) */
+P,INPUT {}
+BODY, TD {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+}
+
+/* global styles */
+.label {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+}
+.errorText {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+	color : #ff0000;
+}
+.pulldown, .forumButton {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+}
+.pageMessage {
+	font-family : verdana,arial,helvetica,sans-serif;
+	color : #003399;
+	font-style : italic;
+	font-weight: bold;
+	font-size : 9pt;
+}
+
+
+/* header styles */
+.headerBg { background-color : #000000; }
+.headerFg { background-color : #ffffff; }
+.headerText { 
+	font-family : arial,helvetica,sans-serif;
+	font-size : 10pt;
+	font-style : italic;
+}
+.date {
+	font-family : arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+	font-style : italic;
+	color : #333333;
+}
+
+
+/* footer styles */
+.footerText {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+}
+
+
+/* bread crumb styles */
+.crumbBg { background-color : #999999; }
+.crumbFg { background-color : #ccccdd; }
+.crumb,.crumbCurrent {
+	font-family : arial,helvetica,sans-serif;
+	font-size : 10pt;
+	color : #000000;
+	font-style : italic;
+}
+.crumb { }
+.crumbCurrent { font-weight: bold; }
+A.crumb { text-decoration : none; }
+A.crumb:hover { color : #660000; text-decoration : underline; }
+
+
+/* toolbar */
+.toolbarBg { background-color : #cccccc; }
+.toolbarFg { background-color : #eeeeff; }
+.toolbarText {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+	color : #000000;
+	text-decoration : none;
+}
+.toolbarText:hover { 
+	color : #660000;
+	text-decoration : underline;
+}
+
+
+/* page styles */
+.pageHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+}
+.subPageHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 11pt;
+	font-weight : bold;
+	color : #990000;
+}
+
+
+/* view forum page styles */
+.viewForumHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 12pt;
+	font-weight : bold;
+}
+.viewForumDeck {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 10pt;
+	color : #993333;
+}
+.forumListHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+	text-align : center;
+}
+.forumListCell {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 9pt;
+	background-color : #ffffff;
+}
+.forumListDateCell {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+	color : #660000;
+}
+
+
+/* view message page styles */
+.messageHeader {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 11pt;
+	font-weight : bold;
+}
+.messageAuthor {
+	font-family : verdana,arial,helvetica,sans-serif;
+	font-size : 8pt;
+	color : #000000;
+}
+
+</style>
+
