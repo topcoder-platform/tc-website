@@ -231,7 +231,8 @@
    document.regForm.submit();
   }
   function submitForm() {
-   if (checkName()&&checkEmail()&&checkPassword()) {
+   if (checkName()&&checkSchool()&&checkHandle()&&
+       checkEmail()&&checkPassword()&&checkTerms()) {
     document.regForm.submit();
    }
   }
@@ -244,6 +245,27 @@
    if (document.regForm.last_name.value.length==0) {
     alert("You must enter your last name");
     document.regForm.lastName.focus();
+    return(false);
+   }
+   return(true);
+  }
+  function checkSchool() {
+   if (document.regForm.state.selectedIndex==0) {
+    alert("Please pick a state");
+    document.regForm.state.focus();
+    return(false);
+   }
+   if (document.regForm.school.selectedIndex==0) {
+    alert("Please pick a school");
+    document.regForm.school.focus();
+    return(false);
+   }
+   return(true);
+  }
+  function checkHandle() {
+   if (document.regForm.handle.value.length==0) {
+    alert("You must enter a handle");
+    document.regForm.handle.focus();
     return(false);
    }
    return(true);
@@ -272,6 +294,14 @@
    if (pass!=document.regForm.confirm_password.value) {
     alert("Passwords do not match.");
     document.regForm.password.focus();
+    return(false);
+   }
+   return(true);
+  }
+  function checkTerms() {
+   if (!document.regForm.terms[0].checked) {
+    alert("Please agree to the terms and conditions");
+    document.regForm.terms.focus();
     return(false);
    }
    return(true);
