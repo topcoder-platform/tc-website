@@ -17,13 +17,13 @@
         </TD>
         
         
-        <TD VALIGN="top" BACKGROUND="/i/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
+        <TD VALIGN="top" BACKGROUND="/i/hs/bluegradiant_bg.gif" BGCOLOR="#FFFFFF">
             <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0"  WIDTH="100%">
     <TR>
         <TD>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="" WIDTH="100%">
              <TR><TD ALIGN="left" HEIGHT="44" WIDTH="348"><IMG src="/i/hs/headinginside_press.gif" WIDTH="348" HEIGHT="44" BORDER="0"></TD>
-             <TD BACKGROUND="/i/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
+             <TD BACKGROUND="/i/hs/headinginside_1pix_bg.gif" ALIGN="left" HEIGHT="44" WIDTH="4096">&nbsp;
              </TD></TR>
             </TABLE>
         </TD>
@@ -42,7 +42,7 @@
             <TD VALIGN="top" CLASS="bodyText">
             <!--Body starts Here-->
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
-					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Press Releases</B> <!--Archive--> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
+					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Press Releases</B> <!--Archive--> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
         <TR><TD VALIGN="top" CLASS="bodyText" HEIGHT="14">&nbsp;10.30.02</TD><TD VALIGN="middle" CLASS="bodyText">&nbsp;&nbsp;&nbsp;&nbsp;<A HREF="?module=Static&d1=press&d2=pr_10_30_02" >TopCoder Competitions Expand to High Schools</A></TD></TR>
@@ -50,7 +50,7 @@
 
 <P><BR></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
-					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Articles</B> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
+					<TR><TD VALIGN="middle" COLSPAN="2" BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Articles</B> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="middle">&nbsp;11.13.02</TD>
 <TD CLASS="bodyText" VALIGN="middle">&nbsp;&nbsp;&nbsp;&nbsp;<A CLASS="bodyText" HREF="http://builder.com.com/article.jhtml?id=u00220021106adm01.htm&rcode=&page=1" TARGET="_blank">You'll find more than competitions at TopCoder these days</A></TD></TR>
@@ -68,7 +68,7 @@
 		</TABLE>
 <P><BR></P>
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
-					<TR><TD VALIGN="middle" COLSPAN="3"  BACKGROUND="/i/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Features</B> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
+					<TR><TD VALIGN="middle" COLSPAN="3"  BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&nbsp;<B>Features</B> - 2002&nbsp;&nbsp;&nbsp;</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;11.20.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leadhyena_inran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/?&t=features&c=feat_112002" TARGET="_blank">The eight seconds of death: tips on preventing timeout
 </A></TD></TR>

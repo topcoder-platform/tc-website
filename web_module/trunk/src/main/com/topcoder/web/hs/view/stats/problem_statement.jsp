@@ -41,9 +41,9 @@ if (rsc!=null && !rsc.isEmpty()) {
                  </TR>
                  <TR>
                    <% if (sClassName == null) { %>
-                     <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;</TD>
+                     <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;</TD>
                    <% } else { %>
-                     <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;Problem Statement for <%=sClassName%></TD>
+                     <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" COLSPAN="7" HEIGHT="18">&nbsp;Problem Statement for <%=sClassName%></TD>
                    <% } %>
                  </TR>
                  <TR>

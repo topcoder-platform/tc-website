@@ -28,7 +28,7 @@
 <!-- Left Column begins -->
         
 <!-- Center Column begins -->
-        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
+        <td valign="top" background="/i/hs/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
                 <tr><td width="100%" bgcolor="#001934"><img src="/i/hs/headinginside_faq.gif" width="348" height="44" alt="Support" border="0"></td></tr>
                 
@@ -40,7 +40,7 @@
                             <tr valign="top">
                                 <td>
                                     <table width="100" cellpadding="5" cellspacing="0" bgcolor="001935" border="0">
-                                        <tr><td class="statTextLarge" background="/i/steel_bluebv_bg.gif" align="left">Rating Key</td></tr>
+                                        <tr><td class="statTextLarge" background="/i/hs/steel_bluebv_bg.gif" align="left">Rating Key</td></tr>
                                         
                                         <tr><td align="left" class="coderTextRed">2200+</td></tr>
                                         

@@ -47,15 +47,15 @@ pageContext.setAttribute("resultSet", rsc);
                    <TD   COLSPAN="16"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"></TD>
                  </TR>
                  <TR>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" VALIGN="middle" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Position</TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="48%">
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" VALIGN="middle" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" WIDTH="20%" HEIGHT="18">Position</TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="left" WIDTH="48%">
 				   <A HREF="?module=Statistics&c=school_round_rank&rd=<%=currRound%>&sq=School_Round_Scores&sc=1&sd=<%= "1".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">School</a>
 				   </TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" CLASS="statText" VALIGN="middle" ALIGN="right" WIDTH="20%">
 				   <A HREF="?module=Statistics&c=school_round_rank&rd=<%=currRound%>&sq=School_Round_Scores&sc=2&sd=<%= "2".equals(srb.getProperty("sc")) && srb.getProperty("sd","desc").equals("asc") ?"desc":"asc"%>" CLASS="statText">Score</a>
 				   </TD>
-                   <TD BACKGROUND="/i/blue_heading_bg.gif" VALIGN="top" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+                   <TD BACKGROUND="/i/hs/blue_heading_bg.gif" VALIGN="top" WIDTH="10"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
                  <TR>
                    <TD   COLSPAN="5"><IMG src="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>

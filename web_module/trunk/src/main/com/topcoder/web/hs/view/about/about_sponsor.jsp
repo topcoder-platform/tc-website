@@ -26,23 +26,23 @@
             <jsp:include page="../includes/left_calendar.jsp" />
         </td>
 <!-- Left Column begins -->
-        
+
 <!-- Center Column begins -->
-        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
+        <td valign="top" background="/i/hs/bluegradiant_bg.gif" bgcolor="#FFFFFF" width="99%">
             <table cellspacing="0" cellpadding="10" border="0" width="100%">
                 <tr><td width="100%" bgcolor="001934"><img src="/i/hs/headinginside_about.gif" width="348" height="44" border="0"></td></tr>
-                
+
                 <tr>
                     <td width="100%" class="bodyText">
                         <h3>Sponsors</h3>
-                        
-                        <p>TopCoder High School provides sponsoring companies the ability to proactively and directly support and 
-                        promote high school math and science programs within their communities.  It also allows companies to reach a 
-                        desirable and targeted market of high school consumers and their families.  Sponsorship of these academically 
-                        competitive events may further position a company as a leader in the community and provide benefit to those 
+
+                        <p>TopCoder High School provides sponsoring companies the ability to proactively and directly support and
+                        promote high school math and science programs within their communities.  It also allows companies to reach a
+                        desirable and targeted market of high school consumers and their families.  Sponsorship of these academically
+                        competitive events may further position a company as a leader in the community and provide benefit to those
                         students who previously had no "playing field" to showcase their skills.</p>
 
-                        <p>Three sponsorship packages are available to companies. The investment and benefits of each package are as 
+                        <p>Three sponsorship packages are available to companies. The investment and benefits of each package are as
                         follows:</p>
 
                         <div align="center">
@@ -52,7 +52,7 @@
                                 <th class="bodyText" align="left">SPONSORSHIP BENEFITS INCLUDE</td>
                                 <th class="bodyText" align="right">INVESTMENT</td>
                             </tr>
-                        
+
                             <tr valign="top">
                                 <td class="bodyText">Title Sponsor - limited to 1 company</td>
                                 <td class="bodyText">
@@ -67,7 +67,7 @@
                                 </td>
                                 <td class="bodyText" align="right">$25,000</td>
                             </tr>
-                        
+
                             <tr valign="top">
                                 <td class="bodyText">Corporate Sponsor - limited to 3 companies</td>
                                 <td class="bodyText">
@@ -81,7 +81,7 @@
                                 </td>
                                 <td class="bodyText" align="right">$15,000</td>
                             </tr>
-                        
+
                             <tr valign="top">
                                 <td class="bodyText">Community Supporter</td>
                                 <td class="bodyText">
@@ -96,7 +96,7 @@
                         </table>
                         </div>
 
-                        <p><strong>Companies interested in sponsoring the TopCoder High School program should contact TopCoder at 
+                        <p><strong>Companies interested in sponsoring the TopCoder High School program should contact TopCoder at
                         <a href="mailto:sponsorships@topcoder.com">sponsorships@topcoder.com</a>.</strong></p>
 
                         <p><br></p>
@@ -105,7 +105,7 @@
                 </tr>
             </table>
         </td>
-        
+
 <!-- Right Column begins -->
         <td width="" bgcolor="#001934">
             <jsp:include page="../includes/right_resources.jsp" />
