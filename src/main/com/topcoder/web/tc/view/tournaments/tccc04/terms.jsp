@@ -1,4 +1,6 @@
+<%@ page import="com.topcoder.web.privatelabel.Constants"%>
 <%@  page language="java"  %>
+<jsp:usebean id="sessionInfo" class="com.topcoder.web.common.SessionInfo" scope="request" />
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -32,6 +34,9 @@
 <!-- Center Column Begins -->
          <td class="bodyText" width="100%">
          <p><%=request.getAttribute("terms")%></p>
+
+         <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=TCCC04TermsAgree">Click here if you agree to the terms</a>
+
 
          <p><br/></p>
          </td>
