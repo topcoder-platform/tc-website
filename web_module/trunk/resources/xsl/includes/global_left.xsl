@@ -423,7 +423,7 @@
 <!-- Support/FAQs begins -->
 
 <!-- About Us begins -->
-        <xsl:when test="/TC/Task='about_tc'">
+        <xsl:when test="/TC/Task='about_tc'or/TC/Task='tces'">
             <xsl:call-template name="left_nav_top_row" />
             <table width="180" cellspacing="0" cellpadding="0" border="0">
                 <xsl:call-template name="tc_info_row"/>
@@ -549,42 +549,6 @@
         </xsl:when>
 <!-- Contact Us ends -->
 
-<!-- TCES begins -->
-      <xsl:when test="/TC/Task='tces'">
-            <xsl:call-template name="left_nav_top_row" />
-            <table width="180" cellspacing="0" cellpadding="0" border="0">
-                <xsl:call-template name="jobs_row"/>
-                <xsl:call-template name="applet_row"/>
-                <xsl:call-template name="my_home_row"/>
-
-                <tr>
-                    <td id="leftNavOn">
-                        <xsl:attribute name="id">
-                        <xsl:choose>
-                        <xsl:when test="/TC/Command='index'">leftNavSelect</xsl:when>
-                        <xsl:otherwise>leftNavOn</xsl:otherwise>
-                        </xsl:choose>
-                        </xsl:attribute>
-                        <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tces&amp;c=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_bottom.gif" border="0"/>Jobs for Members</A></td>
-                </tr>
-
-                <tr>
-                    <td id="leftNav">
-                        <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=recruiting&amp;d3=index</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>Hiring for Employers</A>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td id="leftNav">
-                        <A class="left"><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/tces/?task=MainTask</xsl:attribute><img alt="" width="10" height="10" src="/i/nav_arrow_right.gif" border="0"/>TCES Reporting</A><br /><div style="font-size:11px; font-weight:normal; margin-left:10;">Employers log in to access Recruiting Reports</div>
-                    </td>
-                </tr>
-            </table>
-
-            <xsl:call-template name="simple_search"/>
-            <xsl:call-template name="left_nav_btm_row"/>
-        </xsl:when>
-<!-- TCES ends -->
 
 <!-- no task -->
         <xsl:when test="/TC/Task=''">
