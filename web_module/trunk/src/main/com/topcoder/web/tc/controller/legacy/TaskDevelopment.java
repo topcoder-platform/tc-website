@@ -661,27 +661,27 @@ else if (command.equals("send")) {
         }
         return result;
     }
-    
+
     public static boolean tcoTermsCheck(long userId) throws Exception {
         Calendar c = Calendar.getInstance();
-        
-        if(c.before(new GregorianCalendar(2004, 7, 10)) || c.after(new GregorianCalendar(2004, 9, 23)))
+
+        if(c.before(new GregorianCalendar(2004, 6, 10)) || c.after(new GregorianCalendar(2004, 9, 23)))
         {
             return true;
-        } 
-        
-        
-        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME); 
+        }
+
+
+        DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request inquiryRequest = new Request();
         inquiryRequest.setContentHandle("checkTerms");
         inquiryRequest.setProperty("uid", String.valueOf(userId));
         inquiryRequest.setProperty("tid", String.valueOf( Constants.TCO04_COMPONENT_TERMS_OF_USE_ID ));
         ResultSetContainer detailRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("checkTerms");
-        
+
         if(detailRsc.isEmpty()) {
             return false;
         }
-        
+
         return true;
     }
 
@@ -694,7 +694,7 @@ else if (command.equals("send")) {
         ResultSetContainer detailRsc = (ResultSetContainer) dAccess.getData(inquiryRequest).get("project_detail");
 
         String closed = detailRsc.getStringItem(0, "project_status");
-        
+
         boolean ret = false;
         if(closed.equals("closed"))
         {
@@ -704,7 +704,7 @@ else if (command.equals("send")) {
         return ret;
 
     }
-    
+
     public static boolean isProjectLockedOut(long componentId, long version, long phase, long userId) throws Exception {
 /*
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
@@ -773,7 +773,7 @@ else if (command.equals("send")) {
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("component_inquiry");
         return !rsc.isEmpty();
     }
-    
+
     static boolean reviewerCheck(long projectId, long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
@@ -783,7 +783,7 @@ else if (command.equals("send")) {
         ResultSetContainer rsc = (ResultSetContainer) dAccess.getData(r).get("reviewer_check");
         return rsc.isEmpty();
     }
-    
+
     static boolean winningDesignerCheck(long projectId, long userId) throws Exception {
         DataAccessInt dAccess = new DataAccess(DBMS.TCS_OLTP_DATASOURCE_NAME);
         Request r = new Request();
