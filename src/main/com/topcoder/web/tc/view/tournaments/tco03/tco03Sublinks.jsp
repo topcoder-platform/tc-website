@@ -112,6 +112,7 @@
                     <td class="<%=tab.equals("bracket")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_bracket_interact#bracket" class="topLink">Bracket</a></td>
                     <td class="<%=tab.equals("design")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_des_rd2" class="topLink">Design Details</a></td>
                     <td class="<%=tab.equals("development")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_dev_rd2" class="topLink">Development Details</a></td>
+                    <td class="<%=tab.equals("finals")?"tcoSubNav_on":"tcoSubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=tco03_comp_finals" class="topLink">Finals</a></td>
                     <td class="tcoSubNav" width="49%"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
