@@ -63,6 +63,21 @@
             
             <img src="/i/clear.gif" alt="" width="1" height="10" border="0"/><br/>
                  
+<!-- OSS-->
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
+                    <td width="274"><A href="/?&amp;t=news_events&amp;c=pr_11_03_03"><img src="/i/pressroom/java_oss.gif" alt="talbots" width="135" height="70" border="0" /></A></td>
+                    <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText">
+                        <p><font size="3"><strong><A href="/?&amp;t=news_events&amp;c=pr_11_03_03">TopCoder Teams with Telecom Leaders in OSS through Java&#153; Initiative</A></strong></font><br />
+                        Competitive Software Development Methodology Will Be a Part of Standards Development for Operational Support Systems.<span class="prHead">[October 14]</span></p>
+
+                    </td>
+                </tr>
+            </table>
+
+            <hr width="100%" size="1" noshade="noshade" />
+
 <!-- Mass High Tech article -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
