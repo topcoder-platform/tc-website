@@ -1,0 +1,12 @@
+<jboss>
+    <enterprise-beans>
+        <session>
+            <ejb-name>PasswordEJB</ejb-name>
+            <jndi-name>com/topcoder/web/ejb/password/PasswordEJB</jndi-name>
+            <resource-ref>
+                <res-ref-name>jdbc/DefaultDS</res-ref-name>
+                <jndi-name>java:/InformixDS</jndi-name>
+            </resource-ref>
+        </session>
+    </enterprise-beans>
+</jboss>

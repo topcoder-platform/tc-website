@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+  "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<taglib>
+  <tlibversion>1.0</tlibversion>
+  <jspversion>1.1</jspversion>
+  <shortname>TopCoder TCES Tags</shortname>
+  <info>
+  </info>
+
+  <tag>
+    <name>mapIterator</name>
+    <tagclass>com.topcoder.web.corp.view.tces.tag.MapIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.corp.view.tces.tag.MapIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      tag to iterate through a list of maps
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>MapList</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>rowIterator</name>
+    <tagclass>com.topcoder.web.corp.view.tces.tag.RowIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.corp.view.tces.tag.RowIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a List of ResultSetRows
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>rowList</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>trailIterator</name>
+    <tagclass>com.topcoder.web.corp.view.tces.tag.TrailIteratorTag</tagclass>
+    <teiclass>com.topcoder.web.corp.view.tces.tag.TrailIteratorTagInfo</teiclass>
+    <bodycontent>JSP</bodycontent>
+    <info>
+      Tag to iterate through a List of TrailItems
+    </info>
+    <attribute>
+      <name>id</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>trailList</name>
+      <required>true</required>
+      <rtexprvalue>true</rtexprvalue>
+    </attribute>
+  </tag>
+
+
+</taglib>
