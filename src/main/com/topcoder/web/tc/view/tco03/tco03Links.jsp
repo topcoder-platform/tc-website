@@ -5,47 +5,36 @@
     String selectedTab = request.getParameter("selectedTab")==null?"":request.getParameter("selectedTab");
 %>
 
-<table border="1" cellspacing="0" cellpadding="0" width="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
-      <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
+      <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
 <% if (selectedContest.equals("coding")) {%>
-                 <td align="center">
-                     <img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/><br/>
-                     <A href="/tc?module=Static&d1=tco03&d2=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
-                 </td>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tco03&d2=tco03_overview"><img src="/i/tournament/tco03/coding_tab_on.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } else { %>
-                    <td align="center">
-                        <img src="/i/tournament/tco03/coding_start.gif" alt="Coding Start" width="219" height="15" border="0" vspace="5"/><br/>
-                        <A href="/tc?module=Static&d1=tco03&d2=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0"/></A>
-                    </td>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tco03&d2=tco03_overview"><img src="/i/tournament/tco03/coding_tab_off.gif" alt="Coding Tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } %>
 <% if (selectedContest.equals("component")) {%>
-                    <td align="center">
-                        <img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/><br/>
-                        <A href="/tc?module=Static&d1=tco03&d2=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
-                    </td>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_on.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } else { %>
-                 <td align="center">
-                     <img src="/i/tournament/tco03/component_start.gif" alt="Component Start" width="222" height="15" border="0" vspace="5"/><br/>
-                     <A href="/tc?module=Static&d1=tco03&d2=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0"/></A>
-                 </td>
+                 <td align="center" width="239"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_overview"><img src="/i/tournament/tco03/component_tab_off.gif" alt="Component tab" width="239" height="54" border="0" vspace="0" hspace="0"/></A></td>
 <% } %>
-      <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
+      <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
    </tr>
 </table>
-
-<table border="1" cellspacing="0" cellpadding="0" width="100%" valign="top">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
       <tr>
-           <td align="right" width="50%" valign="top"><img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0"/></td>
-           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_middle.gif" alt="bracket" width="240" height="19" border="0"/></td>
-           <td align="left" width="50%" valign="top"><img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0"/></td>
+         <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
+           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_left.gif" alt="bracket" width="25" height="19" border="0" vspace="0" hspace="0"/></td>
+           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_middle.gif" alt="bracket" width="260" height="19" border="0" vspace="0" hspace="0"/></td>
+           <td align="center" valign="top"><img src="/i/tournament/tco03/bracket_right.gif" alt="bracket" width="25" height="19" border="0" vspace="0" hspace="0"/></td>
+         <td width="49%" align="left"><img src="/i/clear.gif" alt="" width="5" height="10" border="0"  vspace="0"/></td>
       </tr>
 </table>
 
 <% if (selectedContest.equals("coding")) {%>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
-      <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
+      <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 <!-- Summary tab -->
             <% if (selectedTab.equals("coding_overview")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tco03&d2=tco03_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
@@ -81,7 +70,7 @@
 <% if (selectedContest.equals("component")) {%>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr>
-      <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
+      <td width="49%" align="right"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
 <!-- Summary tab -->
             <% if (selectedTab.equals("component_overview")) {%>
                  <td class="statTextBig" width="88"><A href="/tc?module=Static&d1=tco03&d2=tco03_comp_overview" class="statTextBig"><img src="/i/tournament/tco03/tab_overview_on.gif" alt="Overview" width="88" height="22" border="0" /></A></td>
