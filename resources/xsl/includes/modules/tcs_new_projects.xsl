@@ -179,7 +179,7 @@
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
                 <TR>
-                    <TD background="TopCoder  Application_files/172.16.20[30]" colSpan=4>
+                    <TD background="TopCoder  Application_files/172.16.20[30]" colSpan="4">
 	  	        <IMG height=3 alt="" src="/i/clear.gif" width=1 border=0>
 	            </TD>
 		</TR>
@@ -191,7 +191,7 @@
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
                 <TR>
-                    <TD background="TopCoder  Application_files/172.16.20[30]" colSpan=4>
+                    <TD background="TopCoder  Application_files/172.16.20[30]" colSpan="4">
 	  	        <IMG height=3 alt="" src="/i/clear.gif" width=1 border=0>
 	            </TD>
 		</TR>
@@ -203,7 +203,7 @@
 		    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
                 <TR>
-                    <TD background="TopCoder  Application_files/172.16.20[30]" colSpan=4>
+                    <TD background="TopCoder  Application_files/172.16.20[30]" colSpan="4">
 	  	        <IMG height=3 alt="" src="/i/clear.gif" width=1 border=0>
 	            </TD>
 		</TR>
