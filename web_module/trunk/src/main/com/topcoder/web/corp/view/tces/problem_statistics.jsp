@@ -104,70 +104,79 @@ function openWnd(pageUrl) {
 
                 
 
-                <tces:rowIterator id="language" rowList="<%=(List)ProblemStatisticsTask.getProblemStatsByLanguage()%>">
+				<%
+				int i=0;
+				%>
+	                <tces:rowIterator id="language" rowList="<%=(List)ProblemStatisticsTask.getProblemStatsByLanguage()%>">
+					<% 
+					i++;
+					%> 
                   <TR>
-                    <TD class="screeningCellOdd">
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <nobr><b><%= language.getItem("language_name").toString() %></b></nobr>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= language.getItem("problems_presented").toString() %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= language.getItem("submitted").toString() %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(language.getItem("submit_percent")) %>%
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= language.getItem("correct").toString() %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(language.getItem("submission_accuracy")) %>%
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(language.getItem("overall_accuracy")) %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(language.getItem("avg_submission_points")) %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= JSPUtils.autoFormat(language.getItem("avg_final_points")) %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right nowrap=nowrap>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right nowrap=nowrap>
                         <%= JSPUtils.timeFormat(language.getItem("avg_time_elapsed")) %>
                     </TD>
                   </TR>
                 </tces:rowIterator>
 
+					<% 
+					i++;
+					%> 
                   <TR>
-                    <TD class="screeningCellOdd">
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>">
                         <b>All</b>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("problems_presented") %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("problems_submitted") %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("submit_percent") %>%
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("problems_correct") %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("submission_accuracy") %>%
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("overall_accuracy") %>%
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("avg_submission_points") %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right>
                         <%= ProblemStatisticsTask.getStatistic("average_points") %>
                     </TD>
-                    <TD class="screeningCellOdd" align=right nowrap=nowrap>
+                    <TD class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>" align=right nowrap=nowrap>
                         <%= JSPUtils.timeFormat(ProblemStatisticsTask.getProblemStats().getItem("avg_time_elapsed")) %>
                     </TD>
                   </TR>
