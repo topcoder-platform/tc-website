@@ -227,8 +227,7 @@
  </TABLE>
  <SCRIPT type="text/javascript">
   function changeState() {
-   var idx=document.regForm.state.selectedIndex;
-   document.regForm.pick=document.regForm.state.options[idx].value;
+   document.regForm.cmd.value="";
    document.regForm.submit();
   }
   function submitForm() {
