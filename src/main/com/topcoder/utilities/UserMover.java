@@ -167,7 +167,7 @@ public class UserMover {
 
                 count++;
                 if(count%100==0) log.info(""+count+" users processed");
-                if(count%200==0) System.gc();
+                if(count%100==0) System.gc();
             }
 
 
