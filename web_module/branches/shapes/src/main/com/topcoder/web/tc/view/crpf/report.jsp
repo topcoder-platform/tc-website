@@ -106,7 +106,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                     </td>
                     <td class="tourney_subnav" >
     
-                    <tc:ratingImage link='<%=sLink + info.getIntItem("coder_id")%>' bg='B' cid='<%=info.getIntItem("coder_id")%>' /></a><a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
+                    <tc:ratingImage link='<%=sLink + item row.getIntItem("coder_id")%>' bg='B' cid='<%=item row.getIntItem("coder_id")%>' /></a><a href="/stat?c=member_profile&cr=<rsc:item row="<%=info%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=info.getIntItem("rating")%>'/>"><rsc:item row="<%=info%>" name="handle"/></a>
                     </td>
                     <td class="tourney_subnav" align="right">
                         $<rsc:item row="<%=info%>" name="amount" format="0.00"/>
