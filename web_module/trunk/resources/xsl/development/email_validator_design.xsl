@@ -60,9 +60,7 @@
 -->
                                     <B>Email Address Validator Component Design</B>
                                     <BR/>
-<!--
-                                    <a href="Javascript:document.frmInquire.Project.value='Email Address Validator';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
--->
+
                                     <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Address Validator" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
                                     <BR/>
 <P>
@@ -152,8 +150,7 @@ Estimated Development End Date: 1/6/2003<BR/>
 After inquiring for this project please make sure you are registered at www.topcodersoftware.com.  Each eligible member will be granted access to more detailed information about the project and the deliverables.
 </P>
 
-
-                                    <a href="Javascript:document.frmInquire.Project.value='Email Address Validator';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+          <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Email Address Validator" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
           <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

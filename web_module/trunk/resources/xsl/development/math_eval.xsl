@@ -142,7 +142,7 @@ Estimated Development End Date: 1/15/2002<BR/>
 </P>
 
 
-                                    <a href="Javascript:document.frmInquire.Project.value='Math Evaluator Design';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
+   <a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=Math Evaluator Design" CLASS="statText"><B>Click here to inquire &gt;&gt;</B></a>
           <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
