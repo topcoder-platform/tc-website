@@ -70,9 +70,9 @@
             <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0">
 					<TR><TD VALIGN="middle" COLSPAN="3"  BACKGROUND="/i/hs/blue_heading_bg_deux.gif" BGCOLOR="#B2B6C3" CLASS="registerNav" HEIGHT="14" WIDTH="100%">&#160;<B>Features</B> - 2002&#160;&#160;&#160;</TD></TR>
 						<TR><TD VALIGN="middle" CLASS="bodyText" COLSPAN="2"><IMG SRC="/i/hs/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
-<TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;11.20.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leadhyena_inran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/?&t=news_events&c=feat_112002" TARGET="_blank">The eight seconds of death: tips on preventing timeout
+<TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;11.20.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;leadhyena_inran&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/?&t=features&c=feat_112002" TARGET="_blank">The eight seconds of death: tips on preventing timeout
 </A></TD></TR>
-<TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;08.07.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KaiEl&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/index?t=news_events&c=feat_080702" TARGET="_blank">Match Strategy</A></TD></TR>
+<TR><TD HEIGHT="14" CLASS="bodyText" VALIGN="top">&nbsp;08.07.02</TD><TD CLASS="bodyText" VALIGN="top">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;KaiEl&nbsp;&nbsp;&nbsp;&nbsp;</TD><TD CLASS="bodyText" VALIGN="top"><A CLASS="bodyGeneric" HREF="http://www.topcoder.com/index?t=features&c=feat_080702" TARGET="_blank">Match Strategy</A></TD></TR>
 <TR><TD COLSPAN="3" CLASS="bodyText" VALIGN="top"><IMG BORDER="0" HEIGHT="15" WIDTH="1" ALT="" SRC="/i/hs/clear.gif"></TD></TR>
 
 		</TABLE>
