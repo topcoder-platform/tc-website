@@ -66,7 +66,7 @@ public class Controller extends HttpServlet {
                 if (!Authentication.isLoggedIn(session)) {
                     log.debug("User not authenticated for access to TCES resource.");
                     forwardToLoginPage(request, response);
-                    log.debug("still executing");
+                    return;
                 }
                 // process a task
                 Task task = null;
@@ -101,6 +101,7 @@ public class Controller extends HttpServlet {
             }
             else {
                 forwardToLoginPage(request, response);
+                return;
             }
         } catch (AuthenticationException authex) {
             log.debug(authex.getMessage());
