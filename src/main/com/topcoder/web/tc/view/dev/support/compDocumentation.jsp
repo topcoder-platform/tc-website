@@ -48,10 +48,10 @@
                 <tr>
 					<td class="projectCells" valign="top">
 					<strong>TopCoder Software Component Tutorials</strong><br/>
-					The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder Software's review board members on writing TopCoder Software components.
+					The TopCoder Software Development Tutorial provides detailed information on designing components using the TopCoder Software process. This tutorial was written by review board member kyky.
 					</td>
-					<td class="projectCells" valign="top" align="center">11.10.2003</td>
-					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/TopCoder_Software_Component_Design_Tutorial.pdf">Component Design Tutorial.pdf</A></td>
+					<td class="projectCells" valign="top" align="center">12.17.2004</td>
+					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/tc?module=Static&d1=dev&d2=support&d3=desTutorial">Component Design Tutorial</A></td>
 				</tr>
                 <tr>
 					<td class="projectCells" valign="top">
@@ -84,7 +84,7 @@
 					08.03.2004<br/>
 					08.03.2004<br/>
 					08.03.2004<br/>
-					08.03.2004<br/>
+					12.17.2004<br/>
 					08.03.2004<br/>
 					08.03.2004
 					</td>
@@ -181,7 +181,7 @@
 					<td class="projectCells" valign="top">
 					<strong>TopCoder Software Member Guide</strong><br/>
 					The TopCoder Software Member Guide provides details required to design and develop TopCoder Software components. This document includes supported versions of software tools, coding standards and submission deliverables</td>
-					<td class="projectCells" valign="top" align="center">06.16.2004</td>
+					<td class="projectCells" valign="top" align="center">12.17.2004</td>
 					<td class="projectCells" valign="top" align="right" nowrap="nowrap"><A href="/i/development/downloads/TopCoder_Software_Member_Guide.pdf">TopCoder Software Member Guide.pdf</A></td>
 				</tr>
                 <tr>
