@@ -1,35 +1,16 @@
 package com.topcoder.web.tc.controller.legacy;
 
-import com.topcoder.common.web.constant.TCServlet;
-import com.topcoder.common.web.data.Navigation;
-import com.topcoder.common.web.data.report.Query;
-import com.topcoder.common.web.error.NavigationException;
 import com.topcoder.common.web.util.Cache;
-import com.topcoder.common.web.util.Conversion;
-import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.ejb.DataCache.DataCache;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.docGen.xml.RecordTag;
-import com.topcoder.shared.docGen.xml.ValueTag;
-import com.topcoder.shared.docGen.xml.XMLDocument;
-import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.logging.Logger;
-
-import javax.naming.Context;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Calendar;
-import java.util.Map;
 
 public final class TaskHome {
 
-    private static final String XSL_DIR = "home/";
+//    private static final String XSL_DIR = "home/";
     private static Logger log = Logger.getLogger(TaskHome.class);
 
+/*
     static String process(HttpServletRequest request, HttpServletResponse response,
                           HTMLRenderer HTMLmaker, Navigation nav, XMLDocument document)
             throws NavigationException {
@@ -88,19 +69,19 @@ public final class TaskHome {
                     rsc = (ResultSetContainer) resultMap.get("Coder_Data");
                     homeTag.addTag(rsc.getTag("Coder", "Coder"));
 
-                    /*
-                    com.topcoder.common.web.data.stat.coder.Coder c = temp.getCoderEarnings(nav.getUser().getUserId());
-                    if (c != null)
-                        homeTag.addTag(c.getXML());
-                    else
-                        homeTag.addTag(new com.topcoder.common.web.data.stat.coder.Coder().getXML());
 
-                    ArrayList a = temp.getLastCoderComps(nav.getUser().getUserId(), 3);
-                    RecordTag rt = new RecordTag("Last3Comps");
-                    for (int i = 0; i < a.size(); i++) {
-                        rt.addTag(((com.topcoder.common.web.data.stat.contest.RoomResult) a.get(i)).getXML());
-                    }
-                    */
+//                    com.topcoder.common.web.data.stat.coder.Coder c = temp.getCoderEarnings(nav.getUser().getUserId());
+//                    if (c != null)
+//                        homeTag.addTag(c.getXML());
+//                    else
+//                        homeTag.addTag(new com.topcoder.common.web.data.stat.coder.Coder().getXML());
+//
+//                    ArrayList a = temp.getLastCoderComps(nav.getUser().getUserId(), 3);
+//                    RecordTag rt = new RecordTag("Last3Comps");
+//                    for (int i = 0; i < a.size(); i++) {
+//                        rt.addTag(((com.topcoder.common.web.data.stat.contest.RoomResult) a.get(i)).getXML());
+//                    }
+
 
                     dataRequest = new Request();
                     dataRequest.setContentHandle("most_recent_coder_comps");
@@ -156,15 +137,15 @@ public final class TaskHome {
                 rsc = (ResultSetContainer) resultMap.get("total_component_prices");
                 homeTag.addTag(rsc.getTag("Project", "Total"));
 
-/*
-                dataRequest = new Request();
-                dataRequest.setContentHandle("state_avg_rating");
-                dataRequest.setProperty("sr", "1");
-                dataRequest.setProperty("er", "5");   // just get the top 10
-                resultMap = dai.getData(dataRequest);
-                rsc = (ResultSetContainer) resultMap.get("State_Avg_Rating");
-                homeTag.addTag(rsc.getTag("TopRankedStates", "State"));
-*/
+
+//                dataRequest = new Request();
+//                dataRequest.setContentHandle("state_avg_rating");
+//                dataRequest.setProperty("sr", "1");
+//                dataRequest.setProperty("er", "5");   // just get the top 10
+//                resultMap = dai.getData(dataRequest);
+//                rsc = (ResultSetContainer) resultMap.get("State_Avg_Rating");
+//                homeTag.addTag(rsc.getTag("TopRankedStates", "State"));
+
 
                 dataRequest = new Request();
                 dataRequest.setContentHandle("country_avg_rating");
@@ -214,6 +195,7 @@ public final class TaskHome {
         }
         return result;
     }
+*/
 
 /*
     private static RecordTag getTourneyInfo(DataAccessInt dai, long userId) throws Exception {
