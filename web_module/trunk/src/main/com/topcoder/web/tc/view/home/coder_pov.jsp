@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/ValD_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=158447"><strong>ValD</strong></a><br/>
+                        <img src="/i/m/Rustyoldman_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By <a class="bodyText" href="/stat?c=member_profile&amp;cr=282718"><strong>Rustyoldman</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,8 +19,8 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm197_prob">SRM 197 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Wednesday, June 2, 2004</p>
+                        <p><strong><font size="4"><a href="/?t=statistics&amp;c=srm198_prob">SRM 198 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Saturday, June 12, 2004</p>
 
                         <p>
 <p>
@@ -29,7 +29,7 @@ The first two problems in Division-I went quickly, with 13 coders submitting
 both only 30 minutes into the match. But with all that time left, no one was 
 able to come up with a working solution to the 1200, although pparys and Yarin were "only one bug away".
 
-                        <a href="/?t=statistics&amp;c=srm197_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/?t=statistics&amp;c=srm198_prob" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
