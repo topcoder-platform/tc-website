@@ -108,12 +108,20 @@
             Unfortunately you are not eligible to participate in the 2002 TopCoder Invitational Tournament because are you are from an eligible country.
           </xsl:when>
           <xsl:otherwise>
-            <xsl:if test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_enough_ratings='false'">
+            <xsl:choose>
+            <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_enough_ratings='false'">
               You are not eligible to compete in the 2002 TopCoder Invitational Tournament because you have not competed in at least 3 rated events.
-            </xsl:if>
-            <xsl:if test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_recent_competition='false'">
-              You are not eligible to compete in the 2002 TopCoder Invitational Tournament because you have not competed since March 30, 2002.
-            </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:choose>
+              <xsl:when test="/TC/HOME/InvitationalInfo/Invitational_Eligibility/Info/has_recent_competition='false'">
+                You are not eligible to compete in the 2002 TopCoder Invitational Tournament because you have not competed since March 30, 2002.
+              </xsl:when>
+              <xsl:otherwise>
+              </xsl:otherwise>
+              </xsl:choose>
+            </xsl:otherwise>
+            </xsl:choose>
           </xsl:otherwise>
           </xsl:choose>
         </xsl:when>
