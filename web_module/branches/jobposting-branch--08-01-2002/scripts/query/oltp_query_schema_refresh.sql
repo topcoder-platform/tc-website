@@ -99,7 +99,7 @@ INSERT INTO input_lu VALUES(37,"fn",1005,"first name");
 INSERT INTO input_lu VALUES(38,"ln",1005,"last name");
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES ( 39, 'top', 1001, 'No of Top Rated Coders' );
 INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES ( 40, 'ais', 1001, 'answer id' );
-INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (1100, "hn", 1001, "User Handle");
+INSERT INTO input_lu (input_id, input_code, data_type_id, input_desc) VALUES (1100, "hn", 1005, "User Handle");
 
 
 INSERT INTO query_input_xref (query_id, optional, default_value, input_id, sort_order) VALUES(50,"N",null,18,1);
