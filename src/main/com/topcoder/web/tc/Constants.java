@@ -32,6 +32,7 @@ public class Constants {
     public static String CRPF_REPORT;
 
     public static String PROBLEM_RATING_RESULTS;
+    public static String PROBLEM_RATING_QUESTIONS;
 
     private Constants() {
     }
