@@ -3,6 +3,7 @@
   import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
 %>
 <%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc-webtags.tld" prefix="rsc" %>
 
 <html>
   <head>
