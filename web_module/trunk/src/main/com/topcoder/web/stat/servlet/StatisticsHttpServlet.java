@@ -120,15 +120,20 @@ public class StatisticsHttpServlet extends HttpServlet{
       // the next line works for Servlet 2.3
       // Map map = request.getParameterMap();
 
-      Request dataRequest = new Request(map);
-
-      ServletContext sctx = this.getServletContext();
-      Map accessMap = (Map)this.getServletContext().getAttribute(ACCESS_MAP_KEY);
-      String accessLevel = (String)accessMap.get(dataRequest.getContentHandle());
-      Navigation nav = (Navigation)request.getSession().getAttribute("navigation");
-      if (nav==null) nav = new Navigation();
-
+      ServletContext sctx = null;
+      Map accessMap = null;
+      String accessLevel = null;
+      Navigation  nav = null;
+      Request dataRequest = null;
       try {
+        dataRequest = new Request(map);
+
+        sctx = this.getServletContext();
+        accessMap = (Map)this.getServletContext().getAttribute(ACCESS_MAP_KEY);
+        accessLevel = (String)accessMap.get(dataRequest.getContentHandle());
+        nav = (Navigation)request.getSession().getAttribute("navigation");
+        if (nav==null) nav = new Navigation();
+
         if (nav.getLoggedIn())
           com.topcoder.common.web.util.Data.loadUser(nav);
         if (nav.getUser() == null)
