@@ -105,8 +105,8 @@
                     </TR>
                     <TR>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD VALIGN="middle" CLASS="statText">Tues. Oct. 8th<BR/>Registration: 7:30 PM - 9:25 PM EDT<BR/>Start: 9:30 EDT</TD>
-                      <TD VALIGN="middle" CLASS="statText">Thurs. Oct. 10th<BR/>Registration: 7:30 PM - 9:25 EDT<BR/>Start: 9:30 EDT</TD>
+                      <TD VALIGN="top" CLASS="statText">Tues. Oct. 8th<BR/>Registration: 6:30 PM - 9:25 PM EDT<BR/>Start: 9:30 EDT</TD>
+                      <TD VALIGN="top" CLASS="statText">Thurs. Oct. 10th<BR/>Registration: 6:30 PM - 9:25 EDT<BR/>Start: 9:30 EDT</TD>
                     </TR>
                                                           
                     <TR>
