@@ -391,7 +391,7 @@
 
 
 
-<P><A HREF="/?t=tces&amp;c=ge_faq">Read our Frequently Asked Questions</A></P>
+<P><A HREF="/?t=tces&amp;c=ge_faq&amp;a=secure">Read our Frequently Asked Questions</A></P>
 
 
 

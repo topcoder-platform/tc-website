@@ -40,7 +40,7 @@ Please view the following links for review of the Google Employment program.<BR/
 
 <A HREF="/?t=tces&amp;c=ge">GE Main Page</A><BR/>
 
-<A HREF="/?t=tces&amp;c=ge_faq">GE FAQ Page</A><BR/>
+<A HREF="/?t=tces&amp;c=ge_faq&amp;a=secure">GE FAQ Page</A><BR/>
 
 <!-- <A HREF="statsindex.gif">Statistics Index Page</A><BR/>
 
