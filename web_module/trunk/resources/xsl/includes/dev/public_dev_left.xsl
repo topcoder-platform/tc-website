@@ -73,11 +73,7 @@
 
 				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_des_projects" class="subNav">Open Component Design Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
-
-				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
-
-				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_dev_projects" class="subNav">Open Component Development Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
+				<tr valign="top"><td class="subNav" background="" align="right">&#160;&#160;::&#160;&#160;</td><td height="15" class="subNav" background="" width="100%"><a href="/index?t=development&amp;c=comp_projects" class="subNav">Open Component Projects</a></td><td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td></tr>
 
 				<tr><td colspan="3" background="" height="3"><img src="/i/clear.gif" height="3" alt="" border="0" /></td></tr>
 
