@@ -1091,27 +1091,27 @@ final class UserDbCoder {
   /////////////////////////////////////////////////////////////////////////////////
     Log.msg ( VERBOSE, "ejb.User.UserDbCoder:updateCurrentSchool():called." );
     PreparedStatement ps = null;
+    ResultSet rs = null;
     try {
-      String modifiedFlag = currentSchool.getModified();
-      if ( modifiedFlag.equals("A") ) {
-        insertCurrentSchool ( conn, currentSchool );
-      }
-      else if (modifiedFlag.equals("U")) {
+      /**************************************************************/
+      String query = "SELECT 1 FROM current_school WHERE coder_id=?";
+      /**************************************************************/
+      ps = conn.prepareStatement ( query );
+      ps.setInt ( 1, currentSchool.getUserId() );
+      rs = ps.executeQuery();
+      ps.clearParameters();
+      if ( rs.next() ) {
         /**************************************************************/
-        String query = "UPDATE current_school SET school_id=?, school_name=? WHERE coder_id=?";
+        query = "UPDATE current_school SET school_id=?, school_name=? WHERE coder_id=?";
         /**************************************************************/
         ps = conn.prepareStatement ( query );
         ps.setInt ( 1, currentSchool.getSchoolId() );
         ps.setString ( 2, currentSchool.getName() );
         ps.setInt ( 3, currentSchool.getUserId() );
-        int retVal = ps.executeUpdate();
-        if ( retVal != 1 ) {
-          Log.msg ( VERBOSE, "coder       : " + currentSchool.getUserId() );
-          Log.msg ( VERBOSE, "school name : " + currentSchool.getName() );
-          Log.msg ( VERBOSE, "school id   : " + currentSchool.getSchoolId() );
-          throw new TCException ("ejb.User.UserDbCoder:updateCurrentSchool:update error: " + retVal);
-        }
+        ps.executeUpdate();
         currentSchool.setModified("S");
+      } else {
+        insertCurrentSchool ( conn, currentSchool );
       }
     } catch (SQLException sqe) {
       DBMS.printSqlException ( true, sqe );
@@ -1121,6 +1121,7 @@ final class UserDbCoder {
         "ejb.User.UserDbCoder:updateCurrentSchool:ERROR:"+ex
       );
     } finally {
+      if (rs != null) { try { rs.close(); } catch ( Exception ignore ) {} }
       if (ps != null) { try { ps.close(); } catch ( Exception ignore ) {} }
     }
   }
