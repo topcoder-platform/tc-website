@@ -3,7 +3,7 @@
                  com.topcoder.common.web.data.Navigation,
                  com.topcoder.web.tc.model.CoderSessionInfo"%>
 <%@  page language="java"  %>
-<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
+<%@ taglib uri="/WEB-INF/tc-taglib.tld" prefix="tc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -18,7 +18,7 @@
     request.getSession(true).setAttribute("navigation", nav);
     CoderSessionInfo sessionInfo = nav.getSessionInfo();
 %>
- 
+
 <body>
 <table width="100%" border=0 cellpadding=0 cellspacing=0>
 <%-- Header --%>
@@ -37,7 +37,7 @@
             <td width="50%" class="homeLogo"><img src="/i/home/TC_homeLogo.gif" alt=""/></td>
             <td class="BIGPromoBox"><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=about"><img src="/i/home/promos/BIG_tccc05.gif" border="0" alt=""/></A></td>
             <td width="50%" class="homeLogo">&#160;</td>
-         </tr>            
+         </tr>
       </table>
       </td>
    </tr>
