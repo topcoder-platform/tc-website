@@ -60,7 +60,7 @@
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
 						</TR>					
 						<TR>
-							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 20 - May 26, 2002</TD>
+							<TD VALIGN="middle" COLSPAN="3" HEIGHT="16" BACKGROUND="/i/steel_bluebv_bg.gif" CLASS="statTextBig">&#160;May 27 - June 2, 2002</TD>
 						</TR>
 						<TR>
 							<TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -69,27 +69,59 @@
 							<TD VALIGN="top" COLSPAN="3" CLASS="statText">
 <!-- <A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>
 <A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A> -->											
-<IMG SRC="/i/m/Brian_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
+<IMG SRC="/i/m/along_big.jpg" ALT="Coder of the Week" WIDTH="126" HEIGHT="140" ALIGN="left" HSPACE="10" VSPACE="10" BORDER="0"/>
 <P CLASS="statText">
-<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=274068" CLASS="coderTextYellow">Brian</A><BR/>
-<B>Rating: </B>1906<BR/>
-<B>Member Since: </B>March&#160;28,&#160;2002<BR/>
-<B>Total Competitions: </B>6<BR/>
+<B>Handle: </B><A HREF="/stat?c=member_profile&amp;cr=251223" CLASS="coderTextYellow">along</A><BR/>
+<B>Rating: </B>1832<BR/>
+<B>Member Since: </B>December &#160;7,&#160;2001<BR/>
+<B>Total Competitions: </B>1<BR/>
 </P>
 
-<P>TopCoder, Inc. announced today that <B>Brian</B>, based on his performance in Single Round Match 91, has been named the "Coder of the Week" for Single Round Matches 90 and 91, which took place between May 20 and May 26, 2002.</P>
-<P>In Single Round Match 91, <B>Brian</B> added 318 points to his rating, which is the 10th largest single round gain in Division-I (<A HREF="/stat?c=biggest_rating_gains&amp;dn=1" CLASS="statText">View the list of Division-I Rating Point Gain</A>).  <B>Brian</B> won Room 9 with 1404.28 final points.  He earned 235.65 points on the Level One problem, 399.07 on the Level Two problem, and 719.56 on the Level Three problem, for a total of 1354.28 points in the "Coding Phase".  <B>Brian</B> then added 50 points to his total with a successful challenge of the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=266162" CLASS="coderTextYellow">rashok</A> in the "Challenge Phase".</P>
-<P>"I have been coding a lot more in the past week or so, than I was previously," said <B>Brian</B>.  "I may have been a little more warmed up at the time of the SRM.</P>
-<P>All three problems in SRM 91 were a good match for my programming style.  My knowledge of STL is a little rusty, so I tend to be slower at parsing and sorting problems.  I also tend to do better at mathematical problems than problems with letters and words.</P>
-<P>I found the third problem particularly interesting, and I had a solution coded for it very quickly, but the program wasn't efficient enough.  I enjoyed figuring out how to optimize the solution.  At the end of the competition, I enjoyed seeing how differently other people had approached the problem.  This problem was clearly one of my favorites!</P>
-<P>My biggest problem in SRM 91 was actually understanding the problems before starting to code.  I had some trouble with the first problem, but I particularly had trouble reading the second problem's description.  Eventually, it helped to think of the two races as G and T, but even then I got confused.</P>
-<P>On a good note, I actually successfully challenged another program.  My record on challenges isn't too good, so I tend to be careful.  This time, I was pretty sure I had found an issue."</P>
-<P><B>Brian</B> has been a TopCoder member since March 28, 2002, and has won $274.</P>
-<P>"I've been having a great time using TopCoder these last couple of months.</P>
-<P>I was amazed when a friend showed me the site.  I immediately started looking forward to my first opportunity to compete.</P>
-<P>I'm regularly impressed by the quality of the people who compete here; their willingness and excitement to discuss the problems and their solutions; and their encouragement of one another at the end of the match.</P>
-<P>It feels wonderful to be selected as 'Coder of the Week'.  Coding is a big part of who I am, and it's nice to have to use that skill in a competitive environment."</P> 
-<P>Other members nominated for "Coder of the Week" were: <A HREF="/stat?c=member_profile&amp;cr=283374" CLASS="coderTextYellow">indigo9</A>, who had a debut rating of 1845 in SRM 90, which is the 12th highest ever (<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>); and <A HREF="/stat?c=member_profile&amp;cr=264169" CLASS="coderTextBlue">Ninjak</A>, who had 1557.10 final points in SRM 91, the most of any Division-II member.</P>
+<P>
+TopCoder, Inc. announced today that <B>along</B>, based on his performance in Single Round 
+Match 93, has been named the "Coder of the Week" for Single Round Matches 92 and 93, 
+which took place between May 27 and June 2, 2002.  
+</P>
+
+<P>
+In Single Round Match 93, along, in his initial TopCoder competition, earned 
+a rating of 1832, which is the 16th best debut rating ever 
+(<A HREF="/stat?c=impressive_debuts" CLASS="statText">View the list of Impressive Debuts</A>).  
+<B>along</B> won Room 67 with 1315.00 final points.  
+He earned 236.92 points on the Level One problem, 376.99 on the Level Two problem, 
+and 551.09 on the Level Three problem, for a total of 1165.00 points in the "Coding Phase".  
+<B>along</B> then added 150 points to his total with successful challenges of the 
+Level One submissions of <A HREF="/stat?c=member_profile&amp;cr=266698" CLASS="coderTextBlue">vietchau</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=286590" CLASS="coderTextGray">samosa</A>, and the Level Two submission of 
+<A HREF="/stat?c=member_profile&amp;cr=267505" CLASS="coderTextGray">kidprogram</A>
+ in the "Challenge Phase".  <B>vietchau</B> tried to challenge the Level 
+Three submission of <B>along</B>, but failed.
+</P>
+
+<P>
+Although he registered on the site last year, <B>along</B> waited to compete until 
+China became a country eligible to receive prizes on Tuesday, May 28.  
+"I love all types of online contests," said <B>along</B>.
+</P>
+
+<P>
+<B>along</B> has been a TopCoder member since December 7, 2001 and has won $100.   
+</P>
+
+<P>
+"It's wonderful to win 'Coder of the Week'," added <B>along</B>, who 
+appreciates the great work the TopCoder staff has done on building such a wonderful site.  
+"I love this game!  I will participate in future matches, and will try my best to win."
+</P>
+
+<P>
+Other members nominated for "Coder of the Week" were: 
+<A HREF="/stat?c=member_profile&amp;cr=272490" CLASS="coderTextBlue">kolanovic</A>
+ and 
+<A HREF="/stat?c=member_profile&amp;cr=282718" CLASS="coderTextGreen">rustyoldman</A>, 
+who won their rooms in both matches, and have three match consecutive win streaks.
+</P>
+
 </TD>						
 						</TR>						
 					</TABLE>

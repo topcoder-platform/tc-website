@@ -84,13 +84,36 @@ function changeImages() {
 }
 ]]></SCRIPT>
 
-<script language="JavaScript"><![CDATA[
+<script type="text/javascript"><![CDATA[
 <!--
-
+function arena() 
+{
+  w=window.open("/contest/arena/launch.html","Launch","top=2,left=2,width=300,height=225,status=1");
+  return;
+}
+function tcTime() 
+{
+  w=window.open("/contest/time.html","Time","top=2,left=2,width=250,height=50,status=1");
+  return;
+}
+function sponsorLink(spons)
+{
+  w=window.open(spons,"Sponsor");
+  return;
+}
+function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
+{
+  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=no,toolbar=no,location=no,scrollbars=no,menubar=no,status=no");
+  return;
+}
 function goTo(selection)
 {
   sel = selection.options[selection.selectedIndex].value;
-  if (sel == "alltimewin")
+  if (sel == "arena")
+  {
+    arena();
+  }
+  else if (sel == "alltimewin")
   {
     window.location = "/stat?c=all_time_wins";
   }
@@ -394,7 +417,11 @@ function goTo(selection)
    else if (sel == "may1302")
   {
     window.location = "/index?t=statistics&c=coder_of_week051302";
-  }                                         
+  } 
+   else if (sel == "may2002")
+  {
+    window.location = "/index?t=statistics&c=coder_of_week052002";
+  }                                          
   else
   
   {}
