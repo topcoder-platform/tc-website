@@ -53,6 +53,7 @@ function openWin(url, name, w, h) {
             <table border="0" cellspacing="15" cellpadding="0" width="540">
                 <tr valign="top">
                     <td colspan="2" class="bodyText">
+                    <p class="smallText"> Intel is the title sponsor of the 2003 TopCoder Open. Below is information provided  by Intel&#174; Developer Services.</p>
                         <p><img src="/i/sponsor/intel_ids/IDS_Novbr2TC-header.gif" width="510" height="115" alt="Intel Developer Services" /></p>
                     </td>
                 </tr> 
@@ -96,8 +97,8 @@ function openWin(url, name, w, h) {
                         compete in any Intel-sponsored Single-Round Match for a chance to win!</strong></p>
                     
                     
-                        <p class="smallText">*Intel, the Intel Inside logo, Intel Centrino and the Intel Centrino logo are trademarks or registered trademarks of Intel Corporation or its 
-                        subsidiaries in the United States and other countries.</p>
+                        <p class="smallText">*Intel, Intel Centrino, the Intel Centrino logo and Intel Developer Library are trademarks or registered trademarks of Intel Corporation 
+                        or its subsidiaries in the United States and other countries.</p>
                     
                         <p><br /></p>
                     </td>
