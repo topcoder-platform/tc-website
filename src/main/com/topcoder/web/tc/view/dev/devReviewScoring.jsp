@@ -64,8 +64,8 @@
 
 <ul>
 <li>All classes are implemented as defined in the design documents. This not only includes technical details such as modifiers and types, but also naming conventions.</li>
-<li>"Defined classes are implemented.</li>
-<li>If not, list additional or missing classes. Points should be deducted for adding classes that affect the public API."</li>
+<li>"Defined classes are implemented.<br/>
+If not, list additional or missing classes. Points should be deducted for adding classes that affect the public API."</li>
 </ul>
 
 <p class="bodyText"><span class="bodySubtitle">Variable Definition</span><br/>
