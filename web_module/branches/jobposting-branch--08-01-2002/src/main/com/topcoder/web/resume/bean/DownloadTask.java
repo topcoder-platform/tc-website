@@ -34,7 +34,8 @@ public class DownloadTask extends ResumeTask{
 
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
-        response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
+//        response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
+        response.setHeader("content-disposition","inline; filename="+resume.getFileName());
         response.setContentType(resume.getMimeType());
         ServletOutputStream sos = response.getOutputStream();
         sos.write(resume.getFile());
