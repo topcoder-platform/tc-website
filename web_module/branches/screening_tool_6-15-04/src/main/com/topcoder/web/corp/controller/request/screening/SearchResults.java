@@ -69,7 +69,7 @@ public class SearchResults extends BaseScreeningProcessor {
         //generate results
         query.append("select distinct u.first_name || ' ' || u.last_name as name, ");
 	query.append("e.address as email_address, ");
-	query.append("a.state_code as state, ");
+	query.append("case when a.state_code is null then a.province else a.state_code end as state, ");
 	query.append("ct.country_name, ");
 	query.append("cty.coder_type_desc as coder_type, ");
 	query.append("j.job_desc as job, ");
