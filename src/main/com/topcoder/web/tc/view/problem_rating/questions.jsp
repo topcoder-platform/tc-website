@@ -27,10 +27,10 @@
         <tr>
             <tc:counter min="1" max="10" inc="1">
             <td class="statText">
-                <jsp:getProperty name="<%=quest%>" property="question"/>
+                <jsp:getProperty name="quest" property="question"/>
             </td>
             <td>
-                        <input type="radio" name="<jsp:getProperty name="<%=quest%>" property="questionID"/>" value="<%= counter %>">
+                        <input type="radio" name="<jsp:getProperty name="quest" property="questionID"/>" value="<%= counter %>">
             </td>
             </tc:problemRatingInput>
         </tr>
