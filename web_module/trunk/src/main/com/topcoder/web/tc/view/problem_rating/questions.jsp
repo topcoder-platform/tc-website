@@ -8,10 +8,10 @@
 <head>
 <title>TopCoder Problem Rating Questions - <%= request.getAttribute("problemName") %></title>
 <jsp:include page="../script.jsp"/>
-</SCRIPT>
 </head>
 <body>
 <center><h3><font color="#FFFFFF"><%= request.getAttribute("problemName") %></font></h3></center>
+<%= request.getAttribute("processor_errors") %>
 <tc-webtag:errorIterator id="err" name="problemRating"><%=err%><br/></tc-webtag:errorIterator>
 <form name="ratings" action="/tc/" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
