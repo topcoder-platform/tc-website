@@ -117,7 +117,7 @@
             <table border="0" cellspacing="0" cellpadding="10" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%">
                 <tr valign="middle">
                     <td class="statText" background="/i/steel_darkblue_bg.gif">
-                        <p><strong>File Splitter:&#160;Design</strong><br />
+                        <p><strong>Socket Server Manager:&#160;Design</strong><br />
                         The Socket Server Manager provides a common mechanism for administering socket connections.  For more details, check out <a href="http://www.topcodersoftware.com/pages/c_component.jsp?comp=3201991" class="statText">Socket Server Manager</a> on the TopCoder Software web site.</p>
                         
                         <p><strong>Review Board Comments</strong><br />
