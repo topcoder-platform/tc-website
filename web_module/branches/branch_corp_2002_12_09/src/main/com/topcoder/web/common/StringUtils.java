@@ -40,6 +40,9 @@ public final class StringUtils {
     public static final String ALPHABET_NUM_PUNCT_EN =
         ALPHABET_DIGITS_EN +
         ALPHABET_PUNCTUATION_EN;
+
+    public static final String ALPHABET_HEX_UPPER = "0123456789ABCDEF";
+
     
     /**
      * Checks if string has all its charachters in alphabet given.
@@ -92,8 +95,28 @@ public final class StringUtils {
         return wordCnt <= maxWords;
     }
     
+    /**
+     * Returns hexadecimat representation of input array of bytes as String.
+     *  
+     * @param buf array of byter to get representation of 
+     * @return String hexadecimal representation in uppercase
+     */
+    public static String getHexRepresentation(byte [] buf) {
+        StringBuffer b = new StringBuffer();
+        for( int i=0; i<buf.length; ++i ) {
+            int iv = buf[i];
+            if( iv < 0 ) iv += 256;
+            int v = iv / 16;
+            b.append(ALPHABET_HEX_UPPER.charAt(v));
+            v = iv % 16;
+            b.append(ALPHABET_HEX_UPPER.charAt(v));
+        }
+        return b.toString();
+    }
+    
     public static void main(String[] args) {
         String blabla = "bla-bla";
-        System.out.println(hasNotMoreWords(blabla, 1));
+        byte [] b = blabla.getBytes();
+        System.out.println(getHexRepresentation(b));
     }
 }

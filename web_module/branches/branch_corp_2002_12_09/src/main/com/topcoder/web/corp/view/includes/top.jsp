@@ -1,4 +1,12 @@
+<%@page import="com.topcoder.web.corp.request.Login,
+                com.topcoder.shared.security.User,
+                com.topcoder.web.common.security.SessionPersistor,
+                com.topcoder.web.common.security.BasicAuthentication "
+ %>
 <% String appContext = request.getContextPath(); %> 
+<% BasicAuthentication auth = new BasicAuthentication(SessionPersistor.getInstance(request), request.getCookies());
+   User loggedIn = auth.getLoggedInUser();
+ %>
 <A NAME="top"/>
 <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">    
    <TR>
@@ -7,7 +15,15 @@
       <TD VALIGN="middle" BGCOLOR="#333333" WIDTH="100%" ALIGN="right" CLASS="globalNavSmall" NOWRAP="0"> 
                 <A HREF="http://www.topcodersoftware.com" TARGET="_parent" CLASS="globalNavSmall">TopCoder Software</A>&#160;&#160;&#160;|&#160;&#160;&#160;
                 <A HREF="#" TARGET="_parent" CLASS="globalNavSmall">TopCoder High School</A>&#160;&#160;&#160;|&#160;&#160;&#160;
-<A HREF="/?t=authentication&amp;c=login" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+<% if( loggedIn == null ) {  // no logged user
+ %>
+                <A HREF="<%=appContext%>/?module=static&d1=login" CLASS="globalNavSmall" TARGET="_parent">Login</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+<% }
+   else {
+ %>
+                <A HREF="<%=appContext%>/?module=logout" CLASS="globalNavSmall" TARGET="_parent">Logout</A>&#160;&#160;&#160;|&#160;&#160;&#160;
+<% }
+ %>
                 <A HREF="<%=appContext%>/?module=static&d1=index" TARGET="_parent" CLASS="globalNavSmall">Home</A></TD>
       <TD WIDTH="15" BGCOLOR="#333333"><IMG SRC="/i/p/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0" VSPACE="8"/></TD>
    </TR>
@@ -33,20 +49,42 @@
                         <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD WIDTH="100%" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="74" BORDER="0"/></TD>
                         <TD CLASS="time" ALIGN="right" VALIGN="middle" WIDTH="190" BGCOLOR="#000000">&#160;
-                           <FORM NAME="login" METHOD="POST" onSubmit="/<%=appContext%>/?module=login">
+                           <FORM NAME="mini_login" METHOD="POST" onSubmit="<%=appContext%>/">
+<% if( loggedIn == null ) {  // no logged user
+ %>
                               <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
                                     <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2">
-                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="Handle" TYPE="TEXT" VALUE="" onKeyPress="submitEnter(event)"/></TD>
+                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Login.KEY_USER_HANDLE%>" TYPE="TEXT" VALUE="" onKeyPress="submitEnter(event)"/></TD>
                                  </TR>
                                  <TR>
                                     <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
                                     <TD HEIGHT="20" VALIGN="TOP">
-                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="Password" TYPE="Password" VALUE="" onKeyPress="submitEnter(event)"/></TD>
-                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="Javascript:login.submit()" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login </FONT></A></TD>                    
+                                    <INPUT CLASS="dropdown" MAXLENGTH="15" SIZE="12" NAME="<%=Login.KEY_USER_PASS%>" TYPE="Password" VALUE="" onKeyPress="submitEnter(event)"/></TD>
+                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="javascript:document.mini_login.submit();" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Login </FONT></A></TD>
                                  </TR>
                               </TABLE>
+                              <INPUT NAME="module" TYPE="hidden" VALUE="login"/>
+                              <INPUT NAME="<%=Login.KEY_LOGINMODE%>" TYPE="hidden" VALUE="1"/>
+<% }
+   else {
+ %>
+                              <TABLE BORDER="0" CELLPADDING="0" CELLSPACING="0" WIDTH="100%" ALIGN="center">
+                                 <TR>
+                                    <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">User Name:&#160;&#160;</TD>
+                                    <TD HEIGHT="20" VALIGN="TOP" COLSPAN="2"><FONT COLOR="#CCCCCC"><%=loggedIn.getUserName()%></FONT></TD>
+                                 </TR>
+                                 <TR>
+                                    <TD CLASS="statTextBig" VALIGN="middle" HEIGHT="14" ALIGN="right">Password:&#160;&#160;</TD>
+                                    <TD HEIGHT="20" VALIGN="TOP"><FONT COLOR="#CCCCCC">********</FONT></TD>
+                                    <TD CLASS="statTextBig" VALIGN="top">&#160;&#160;<A HREF="javascript:document.mini_login.submit();" CLASS="statTextBig"><FONT COLOR="#CCCCCC">Logout</FONT></A></TD>
+                                 </TR>
+                              </TABLE>
+                              <INPUT NAME="module" TYPE="hidden" VALUE="logout"/>
+<%
+   }
+ %>
                            </FORM>
                         </TD>
                         <TD WIDTH="10" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>

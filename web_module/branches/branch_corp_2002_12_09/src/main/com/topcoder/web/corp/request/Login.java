@@ -1,5 +1,6 @@
 package com.topcoder.web.corp.request;
 
+import com.topcoder.shared.security.AuthenticationException;
 import com.topcoder.shared.security.User;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
@@ -39,9 +40,11 @@ import com.topcoder.web.corp.stub.UserStub;
  *
  */
 public class Login extends BaseProcessor {
-    public static final String KEY_USER_HANDLE = "handle";
-    public static final String KEY_USER_PASS   = "passw";
+    public static final String KEY_USER_HANDLE      = "handle";
+    public static final String KEY_USER_PASS        = "passw";
+    public static final String KEY_STICKY_LOGIN     = "sticky-login";
     public static final String KEY_DESTINATION_PAGE = "dest";
+    
     // modes either full (form to be filled returned to user)
     // or mini (user fill out miniform at the top of screen)  
     public static final String KEY_LOGINMODE   = "lm";
@@ -51,26 +54,65 @@ public class Login extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
+        if( ! "POST".equals(request.getMethod()) ) {
+            pageInContext = true;
+            nextPage = SessionPersistor.getInstance(request).popLastPage();
+            return;
+        }
         
+        boolean miniLogin = false;
+        try {
+            miniLogin = Integer.parseInt(request.getParameter(KEY_LOGINMODE)) == 1;
+        }
+        catch(Exception e) {}
+
+        boolean stickyLogin = false;
+        try {
+            stickyLogin = "ON".equalsIgnoreCase(request.getParameter(KEY_STICKY_LOGIN));
+        }
+        catch(Exception e) {}
+        setFormFieldDefault(KEY_STICKY_LOGIN, ""+stickyLogin);
+        
+        // here either user tries get logged in via mini login or
+        // he submitted filled form
         String handle = request.getParameter(KEY_USER_HANDLE);
-        User possibleUser = new UserStub(handle, null, 0, null);
+        setFormFieldDefault(KEY_USER_HANDLE, handle == null ? "" : handle);
+
+        String passw = request.getParameter(KEY_USER_PASS);
+        setFormFieldDefault(KEY_USER_PASS, "");
+        if( handle == null || handle.trim().length() == 0 ) {
+            markFormFieldAsInvalid(KEY_USER_HANDLE);
+        }
+
+        log.debug("login attempt[login/passw]: "+handle+"/"+passw);
+        User possibleUser = new UserStub(handle, passw, 0, null);
         BasicAuthentication authToken = getAuthenticityToken();
-        authToken.login(possibleUser);
-        possibleUser = authToken.getLoggedInUser();
+        try {
+            authToken.login(possibleUser);
+        }
+        catch(AuthenticationException ae) {
+            markFormFieldAsInvalid(KEY_USER_PASS);
+            pageInContext = !miniLogin;
+            nextPage = null; // will return to last page
+            return;
+        }
         
-        System.err.println("-----"+possibleUser+"------");
+        possibleUser = authToken.getLoggedInUser();
+        log.debug("user "+possibleUser.getUserName()+" has logged in");
+        
+        // well, logged in. set/reset cookies as requested
+        setCookies(authToken.buildAutoLogonCookies(! stickyLogin ));
 
         // done. if there is destination page then go there
         String destination = request.getParameter(KEY_DESTINATION_PAGE);
-        if( destination != null && destination.length() != 0 ) {
-            pageInContext = true;
-            nextPage = destination;
-            return;
+
+        if( ! miniLogin ) {
+            SessionPersistor.getInstance(request).popLastPage(); // do not return to login form
         }
-        else { // go to back to recent page
-            pageInContext = true;
-            nextPage = SessionPersistor.getInstance(request).getLastPage();
-            return;
-        }
+
+        // if destination is null then controller will fetch recently viewed page
+        nextPage = destination;
+        pageInContext = false; // ensures all request parameters are dropped off
+        return;
     }
 }

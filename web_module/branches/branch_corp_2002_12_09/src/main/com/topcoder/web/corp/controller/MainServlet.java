@@ -1,10 +1,13 @@
 package com.topcoder.web.corp.controller;
 
 import java.io.IOException;
+import java.util.HashSet;
+import java.util.Iterator;
 
 import javax.naming.InitialContext;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -41,6 +44,7 @@ public class MainServlet extends HttpServlet {
     private static final String KEY_MAINPAGE    = "main";
 	private static final String KEY_CFG_CONTEXT = "config-context";
     private static final String KEY_EXCEPTION   = "caught-exception";
+    public  static final String KEY_COOKIES_SET = "cookies-to-set";
 
     private static final String PFX_PROCMODULE  = "processor-";
     private static final String PFX_PAGE        = "page-";
@@ -49,8 +53,8 @@ public class MainServlet extends HttpServlet {
     private InitialContext jndiInitialContext = null;
     
     /**
-     * Initializes the servlet. What content will be feed is defined from
-     * servlet config accepted
+     * Initializes the servlet. Primary goal is to set up application context. 
+     * 
      * @see javax.servlet.Servlet#init(javax.servlet.ServletConfig)
      * @throws     ServletException
      * */
@@ -68,29 +72,32 @@ public class MainServlet extends HttpServlet {
     }
 
     /**
-     * For now it is just synonym for doGet.
-     *
-     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
-     */
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
-    }
-
-    /**
      * 
      * @see javax.servlet.http.HttpServlet#doGet(HttpServletRequest, HttpServletResponse)
      */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         log.debug("URI: "+request.getRequestURI()+"["+request.getQueryString()+"]" );
         
+//        Cookie [] clist = request.getCookies();
+//        for(int j=0; j<clist.length; ++j) {
+//            log.debug("-- req cookie ---"+clist[j].getName()+":"+clist[j].getValue()+
+//            ":"+clist[j].getDomain()+":"+clist[j].getMaxAge()+":"+clist[j].getPath()
+//            );
+//        }
     	String processorName = request.getParameter(KEY_MODULE);
+        if( processorName == null ) {
+            log.warn("processing module not specified");
+            fetchErrorPage(request, response, null);
+            return;
+        }
+
         // prefixed to allow different resource kinds to share same name
     	String processorClassName = servletConfig.getInitParameter(PFX_PROCMODULE+processorName);
         RequestProcessor processorModule = null;
         
         try {
             processorModule = (RequestProcessor) Class.forName(processorClassName).newInstance();
-            log.debug("processing module "+processorClassName+"instantiated");
+            log.debug("processing module "+processorClassName+" instantiated");
 
         }
         catch(Exception e) {
@@ -104,31 +111,67 @@ public class MainServlet extends HttpServlet {
             processorModule.process();
             boolean forward = processorModule.isNextPageInContext();
             String destination = processorModule.getNextPage();
-
-            log.debug((forward?"forwarding":"redirecting") + " to " + destination);
-
-            if( forward ) {
-                getServletContext().getRequestDispatcher(destination).forward(request, response);
+            if( destination != null ) {
+                String lastUserPage = request.getRequestURI();
+                if( request.getQueryString() != null ) {
+                    lastUserPage += "?"+request.getQueryString();
+                }
+                SessionPersistor.getInstance(request).pushLastPage(lastUserPage);
             }
-            else {
-                response.sendRedirect(destination);
-            }
-            // well done. every successful page we will place into persistor which in
-            // turn stored in http session. thus we will be able return to original
-            // page after error recovering or after login
-            SessionPersistor store = SessionPersistor.getInstance(request);
-            String currentPage = request.getRequestURI();
-            if( request.getQueryString() != null ) {
-                currentPage += "?"+request.getQueryString();
-            }
-            store.setLastPage( currentPage );
-            log.debug("last page set as "+currentPage);
+            fetchRegularPage(request, response, destination, forward);
         }
         catch(Exception e) {
             log.error("exception during request processing ["+processorName+"]", e);
             fetchErrorPage(request, response, e);
         }
     }
+    
+    /**
+     * 
+     * @param req
+     * @param resp
+     * @param dest
+     * @param forward
+     * @throws Exception
+     */
+    private void fetchRegularPage( HttpServletRequest req, HttpServletResponse resp,
+                                    String dest, boolean forward ) throws IOException, ServletException
+    {
+        if( dest == null ) {
+            // it is supposed when processor returns null as next page, then
+            // controller must use defaul page
+            dest = SessionPersistor.getInstance(req).popLastPage();
+            if( dest == null ) { //still null
+                dest = req.getContextPath()+"/"; // deefault page is web app root
+            } 
+        }
+        log.debug((forward?"forwarding":"redirecting") + " to " + dest);
+
+        // if there are any cookies to be set, then populate response with them
+        HashSet cookies = (HashSet)req.getAttribute(KEY_COOKIES_SET);
+        if( cookies != null ) {
+            Iterator i = cookies.iterator();
+            while (i.hasNext()) {
+                resp.addCookie((Cookie) i.next());
+            }
+        }
+        String contextPrefix = req.getContextPath();
+        boolean startsWithContextPath = dest.startsWith(contextPrefix); 
+        if( forward ) {
+            // forwarded pages *must not* contain servlet context path
+            if( startsWithContextPath ) {
+                dest = dest.substring(contextPrefix.length());
+            }
+            getServletContext().getRequestDispatcher(dest).forward(req, resp);
+        }
+        else {
+            // redirected pages *must* contain servlet context path
+            if( ! startsWithContextPath ) {
+                dest = contextPrefix+dest;
+            }
+            resp.sendRedirect(dest);
+        }
+    }                                    
 
     /**
      * Forces error page to be returned to user. As I think, all errors must
@@ -144,20 +187,35 @@ public class MainServlet extends HttpServlet {
      * @throws ServletException
      * @throws IOException
      */
-    private void fetchErrorPage(HttpServletRequest req, HttpServletResponse resp, Throwable exc) throws ServletException, IOException {
+    private void fetchErrorPage(HttpServletRequest req, HttpServletResponse resp, Throwable exc)
+                                 throws ServletException, IOException
+    {
+        // error page is regular page too with the only difference - it
+        // has an error attribute set in request, so..
         String errorPage = servletConfig.getInitParameter(PFX_PAGE+KEY_MAINPAGE);
-        req.setAttribute(KEY_EXCEPTION, exc);
-        log.debug("forwarding to "+errorPage);
-//        resp.sendError(HttpServletResponse.SC_FORBIDDEN);
-        getServletContext().getRequestDispatcher(errorPage).forward(req, resp);
+        if( exc != null ) {
+            req.setAttribute(KEY_EXCEPTION, exc);
+        }
+        fetchRegularPage(req, resp, errorPage, true);
     }
     
+    /**
+     * For now it is just synonym for doGet.
+     *
+     * @see javax.servlet.http.HttpServlet#doPost(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
+     */
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        doGet(request, response);
+    }
+
     /**
      * Not supported. Will return 403 forbidden.
      * 
      * @see javax.servlet.http.HttpServlet#doDelete(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
-    protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doDelete(HttpServletRequest req, HttpServletResponse resp)
+                             throws ServletException, IOException
+    {
         log.error(ERR_DELETE);
         fetchErrorPage(req, resp, new Exception(ERR_DELETE));
     }
@@ -167,7 +225,9 @@ public class MainServlet extends HttpServlet {
      * 
      * @see javax.servlet.http.HttpServlet#doOptions(javax.servlet.http.HttpServletRequest, javax.servlet.http.HttpServletResponse)
      */
-    protected void doOptions(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+    protected void doOptions(HttpServletRequest req, HttpServletResponse resp)
+                               throws ServletException, IOException
+    {
         log.error(ERR_OPTIONS);
         fetchErrorPage(req, resp, new Exception(ERR_OPTIONS));
     }

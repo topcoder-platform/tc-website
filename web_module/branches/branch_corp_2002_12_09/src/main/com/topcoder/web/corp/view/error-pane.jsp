@@ -8,6 +8,7 @@
      If you think this page was shown by mistake, please contact us<br>
      We are sorry for any inconveniences caused by this<br>
      Site Administration<br><br>
+   </DIV>
 
      <!-- web-app debug time stack trace  BEGIN -->
      <br><hr><b><i>Debug information is provided for web application debug time only</i></b><br>
@@ -21,5 +22,4 @@
 
      <!-- web-app debug time stack trace END -->
 
-   </DIV>
  </TD>

@@ -22,6 +22,10 @@ public class UserStub implements User {
         grp = g;
     }
     
+    public static UserStub getAnonymous() {
+        return new UserStub(USER_ANONYMOUS_LOGIN, "", USER_ANONYMOUS_ID, "Guests");
+    }
+    
     /**
      * 
      * @return boolean
@@ -58,71 +62,74 @@ public class UserStub implements User {
         return handle;
     }
     
-    /**
-     * 
-     * @param userID
-     * @return User
-     */
-    public static User getInstance(long userID) {
-        if( userID == 0 ) {
-            return new UserStub(USER_ANONYMOUS_LOGIN, "", USER_ANONYMOUS_ID, "none");
-        }
-
-        if( userID == 1 ) {
-            return new UserStub("dok", "1", 1, "tc-corp");
-        }
-
-        if( userID == 2 ) {
-            return new UserStub("swif0ne", "2", 2, "tc-corp");
-        }
-
-        if( userID == 3 ) {
-            return new UserStub("veredox", "3", 3, "tc-corp");
-        }
-
-        if( userID == 4 ) {
-            return new UserStub("Neoturi", "4", 4, "tc-corp");
-        }
-
-        if( userID == 5 ) {
-            return new UserStub("slinky ", "5", 5, "tc-corp");
-        }
-
-        if( userID == 6 ) {
-            return new UserStub("djFD", "6", 6, "tc-corp");
-        }
-        return null;
-    }
-    
-    /**
-     * 
-     * @param userHandle
-     * @return User
-     */
-    public static User getInstance(String userHandle) {
-        if( userHandle.equals("dok") ) {
-            return new UserStub("dok", "1", 1, "tc-corp");
-        }
-
-        if( userHandle.equals("swif0ne") ) {
-            return new UserStub("swif0ne", "2", 2, "tc-corp");
-        }
-
-        if( userHandle.equals("veredox") ) {
-            return new UserStub("veredox", "3", 3, "tc-corp");
-        }
-
-        if( userHandle.equals("Neoturi") ) {
-            return new UserStub("Neoturi", "4", 4, "tc-corp");
-        }
-
-        if( userHandle.equals("slinky") ) {
-            return new UserStub("slinky ", "5", 5, "tc-corp");
-        }
-
-        if( userHandle.equals("djFD") ) {
-            return new UserStub("djFD", "6", 6, "tc-corp");
-        }
-        return null;
-    }
+//    /**
+//     * 
+//     * @param userID
+//     * @return User
+//     */
+//    public static User getInstance(long userID) {
+//        if( userID == 0 ) {
+//            return new UserStub(USER_ANONYMOUS_LOGIN, "", USER_ANONYMOUS_ID, "none");
+//        }
+//
+//        if( userID == 1 ) {
+//            return new UserStub("dok", "1", 1, "tc-corp");
+//        }
+//
+//        if( userID == 2 ) {
+//            return new UserStub("swif0ne", "2", 2, "tc-corp");
+//        }
+//
+//        if( userID == 3 ) {
+//            return new UserStub("veredox", "3", 3, "tc-corp");
+//        }
+//
+//        if( userID == 4 ) {
+//            return new UserStub("Neoturi", "4", 4, "tc-corp");
+//        }
+//
+//        if( userID == 5 ) {
+//            return new UserStub("slinky ", "5", 5, "tc-corp");
+//        }
+//
+//        if( userID == 6 ) {
+//            return new UserStub("djFD", "6", 6, "tc-corp");
+//        }
+//        return null;
+//    }
+//    
+//    /**
+//     * 
+//     * @param userHandle
+//     * @return User
+//     */
+//    public static User getInstance(String userHandle) {
+//        if( userHandle.equals("dok") ) {
+//            return new UserStub("dok", "1", 1, "tc-corp");
+//        }
+//
+//        if( userHandle.equals("swif0ne") ) {
+//            return new UserStub("swif0ne", "2", 2, "tc-corp");
+//        }
+//
+//        if( userHandle.equals("veredox") ) {
+//            return new UserStub("veredox", "3", 3, "tc-corp");
+//        }
+//
+//        if( userHandle.equals("Neoturi") ) {
+//            return new UserStub("Neoturi", "4", 4, "tc-corp");
+//        }
+//
+//        if( userHandle.equals("slinky") ) {
+//            return new UserStub("slinky ", "5", 5, "tc-corp");
+//        }
+//
+//        if( userHandle.equals("djFD") ) {
+//            return new UserStub("djFD", "6", 6, "tc-corp");
+//        }
+//        return null;
+//    }
+    public String toString() {
+        return "User[id="+id+", handle="+handle+", pasw="+pass+", grp="+grp+"]";
+    } 
 }

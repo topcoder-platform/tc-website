@@ -1,8 +1,12 @@
 package com.topcoder.web.corp.request;
 
-import com.topcoder.security.UserPrincipal;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.web.common.AppContext;
+import java.util.Iterator;
+
+import com.topcoder.web.corp.stub.PersistStore;
+
+//import com.topcoder.security.UserPrincipal;
+//import com.topcoder.security.admin.PrincipalMgrRemote;
+//import com.topcoder.web.common.AppContext;
 
 /**
  * 
@@ -17,7 +21,7 @@ public class TrySecurity extends BaseProcessor {
     
     public TrySecurity() {
         pageInContext = true; // Static pages in same contect.
-        nextPage = "/error.jsp";
+        nextPage = "/index.jsp";
     }
 
     /**
@@ -27,8 +31,12 @@ public class TrySecurity extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
-        PrincipalMgrRemote remotePrincipalMgr = AppContext.getInstance().getRemotePrincipalManager();
-        UserPrincipal user = remotePrincipalMgr.getUser(132456);
-        throw new Exception("debug exception");
+        Iterator i = PersistStore.getInstance(null).userList();
+        while( i.hasNext() ) {
+            System.err.println("------"+i.next()+"-------");
+        }
+//        PrincipalMgrRemote remotePrincipalMgr = AppContext.getInstance().getRemotePrincipalManager();
+//        UserPrincipal user = remotePrincipalMgr.getUser(132456);
+//        throw new Exception("debug exception");
     }
 }

@@ -48,13 +48,17 @@ public class ErrorTag extends BaseTag implements BodyTag {
      */
     public int doAfterBody() throws JspException {
         String body = content.getString();
-        if( body == null || body.length() == 0 ) return SKIP_BODY;
+        if( body == null || body.trim().length() == 0 ) {
+            msg = text;
+            return SKIP_BODY;
+        }
 
         //there is some body - if $e will found then replace it with error msg
-        int k = body.indexOf("$e");
-        if( k < 0 ) return SKIP_BODY;
-            
-        msg = body.substring(0, k) + text + body.substring(k+2);
+        int k;
+        while( (k=body.indexOf("$e")) >= 0 ) {
+            body = body.substring(0, k) + text + body.substring(k+2);
+        }
+        msg = body;
         return SKIP_BODY;
     }
 

@@ -18,16 +18,17 @@
         <!-- Left Column Include Ends -->
       </TD>
       <!-- Left Column Ends -->
+
       <!-- Gutter Begins -->
       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
+      <!-- Gutter Ends -->
+
 <!-- Body Area -->
 
       <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
-         String contentPane;
+         String contentPane = null;
          if( excCaught != null ) {
             contentPane = "error-pane.jsp";
-//            excCaught.printStackTrace(new java.io.PrintWriter(out));
          }
          else {
             contentPane = "content-pane.jsp";
@@ -36,6 +37,7 @@
       <jsp:include page="<%=contentPane%>"/>
 
 <!-- Body Area Ends -->
+
       <!-- Gutter -->
       <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->

@@ -1,9 +1,11 @@
 package com.topcoder.web.common;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.rmi.RemoteException;
+import java.rmi.server.RMIClassLoader;
 import java.util.Hashtable;
 import java.util.Properties;
 
@@ -13,8 +15,9 @@ import javax.naming.NamingException;
 
 import com.topcoder.security.admin.PrincipalMgrRemote;
 import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.shared.dataAccess.*;
+import com.topcoder.shared.dataAccess.DatabaseContext;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.web.corp.stub.PersistStore;
 
 /**
  * because this will used frequently, it is possible to supply some on-the-fly
@@ -30,6 +33,7 @@ public class AppContext {
     private InitialContext jndiInitialContext = null;
     private PrincipalMgrRemoteHome principalMgrRemoteHome = null;
     private DatabaseContext databaseContext = null;
+    private PersistStore persistStore = null;
 
 	/**
 	 * 
@@ -63,7 +67,7 @@ public class AppContext {
 				if( propertiesFileName != null ) {
 					me.appProperties.load(new FileInputStream(propertiesFileName));
 				}
-				me.doInit();
+				me.doInit(propertiesFileName);
 			}
 		}
 		return me;
@@ -73,7 +77,16 @@ public class AppContext {
 	 * 
 	 * @throws NamingException
 	 */
-	private void doInit() throws NamingException {
+	private void doInit(String propertiesFileName) throws NamingException {
+        // DEBUG - TIME //
+        // instantiate persistent store
+        if( propertiesFileName != null ) {
+            File dir = new File((new File(propertiesFileName)).getParent());
+            persistStore = PersistStore.getInstance(dir);
+        } 
+        
+        
+        
 		Hashtable envir = new Hashtable();
         
         // if these will be nulls then current ejb container will provide own default stuff
@@ -89,6 +102,13 @@ public class AppContext {
 		jndiInitialContext = new InitialContext(envir);
 
         Object  l = jndiInitialContext.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        try {
+        System.err.println(l.getClass().getClassLoader());
+        System.err.println(Class.forName("com.topcoder.security.admin.PrincipalMgrRemoteHome").getClassLoader());
+        System.err.println("------"+RMIClassLoader.getClassLoader("http://mframe:8083/")+"------");
+        }
+        catch(Exception e) {
+        }
         principalMgrRemoteHome = (PrincipalMgrRemoteHome)l;
 	}
 
@@ -110,7 +130,7 @@ public class AppContext {
     public PrincipalMgrRemote getRemotePrincipalManager() throws CreateException, RemoteException, NamingException
     {
         if(principalMgrRemoteHome == null ) {
-            doInit();
+            doInit(null);
         }
         return principalMgrRemoteHome.create(); 
     }
@@ -121,6 +141,15 @@ public class AppContext {
      */
     public DatabaseContext getDBContext() {
         return databaseContext;
+    }
+
+    /**
+     * Returns persistent store.
+     * 
+     * @return PersistStore
+     */
+    public PersistStore getStore() {
+        return persistStore;
     }
 }
 

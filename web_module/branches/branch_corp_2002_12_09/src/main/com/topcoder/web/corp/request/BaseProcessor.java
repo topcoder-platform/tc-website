@@ -1,15 +1,20 @@
 package com.topcoder.web.corp.request;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.HashSet;
+
 import javax.servlet.ServletRequest;
 
 import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
 import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.tag.BaseTag;
-import com.topcoder.web.corp.stub.UserStub;
+import com.topcoder.web.corp.controller.MainServlet;
+import com.topcoder.web.corp.stub.PersistStore;
 
 /**
  * Base abstract class for RequestProcessor implementors.
@@ -29,6 +34,7 @@ import com.topcoder.web.corp.stub.UserStub;
  *
  */
 public abstract class BaseProcessor implements RequestProcessor {
+    protected static final Logger log = Logger.getLogger(BaseProcessor.class); 
     protected HttpServletRequest request;
     protected boolean pageInContext = false;
     protected String nextPage = null;
@@ -152,7 +158,7 @@ public abstract class BaseProcessor implements RequestProcessor {
      * @throws Exception some errors occured when working with DB
      */
     protected User lookupUserByID(long userID) throws Exception {
-        return UserStub.getInstance(userID);
+        return PersistStore.getInstance(null).getUser(userID);
     }
     
     /**
@@ -164,6 +170,27 @@ public abstract class BaseProcessor implements RequestProcessor {
      * @throws Exception some errors occured when working with DB
      */
     protected User lookupUserByHandle(String userHandle) throws Exception {
-        return UserStub.getInstance(userHandle);
+        return PersistStore.getInstance(null).getUser(userHandle);
+    }
+    
+    /**
+     * Populates request(!) by cookies given. Because processors have not access
+     * to the response, where cookies really must be embedded, this method
+     * pickups cookies contaner (a set) from request (possible creating new one)
+     * and populates it with given cookies. Later, when processor complete its
+     * work controller fetch cookies container from request and embeds cookies
+     * from it into response.
+     * 
+     * @param set a set of cookies to be returned to user 
+     */
+    protected void setCookies(Cookie [] set) {
+        HashSet cookies = (HashSet) request.getAttribute(MainServlet.KEY_COOKIES_SET);
+        if( cookies == null ) {
+            cookies = new HashSet();
+            request.setAttribute(MainServlet.KEY_COOKIES_SET, cookies);
+        }
+        for( int i=0; i<set.length; ++i ) {
+            cookies.add(set[i]);
+        }
     }
 }

@@ -39,5 +39,11 @@ public interface User {
      * @return String
      */
     public String getGroup();
+    
+    /**
+     * Shows is user anonymous or not.
+     * @return boolean true if this user is anonymous one
+     */
+    public boolean isAnonymous();
         
 }

@@ -10,7 +10,7 @@ import com.topcoder.shared.security.Resource;
  * @version 1.02
  *
  */
-public class ResourceFactory {
+class ResourceFactory {
     /**
      * 
      */

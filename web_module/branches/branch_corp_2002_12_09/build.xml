@@ -548,10 +548,13 @@
             </classes>
             <lib dir="${jars.dir}">
                 <include name="log4j.jar"/>
+                <include name="jdom.jar"/>
+                <include name="security.jar"/>
             </lib>
             <webinf dir="${resources}/corp">
                 <include name="tc-webtags.tld"/>
                 <include name="*.properties"/>
+                <include name="*.xml"/>
             </webinf>
             <zipfileset dir="${java}/com/topcoder/web/corp/view/" includes="**/*" prefix=""/>
             <zipfileset dir="${ejb_jars}" includes="*.jar" prefix="WEB-INF/ejb"/>

@@ -1,11 +1,14 @@
 package com.topcoder.web.common.security;
 
+import java.util.EmptyStackException;
 import java.util.Hashtable;
+import java.util.Stack;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import com.topcoder.shared.security.Persistor;
+import com.topcoder.shared.util.logging.Logger;
 
 /**
  * implementation of Persitor that will use an HttpSession object for
@@ -16,11 +19,13 @@ import com.topcoder.shared.security.Persistor;
  * @version 1.02
  */
 public class SessionPersistor implements Persistor {
+    private final static Logger log = Logger.getLogger(SessionPersistor.class);
     private static final String KEY_PERSISTOR    = "persistor-object";
     private static final String KEY_PREVPAGE     = "last-accessed-page";
     private static final String KEY_AUTH_TOKEN   = "auth-token";
     
 	private Hashtable items = null;
+    private String appContextPath = null;
 
     private SessionPersistor() {
         items = new Hashtable();
@@ -38,6 +43,9 @@ public class SessionPersistor implements Persistor {
                 store = (SessionPersistor)session.getAttribute(KEY_PERSISTOR);
                 if( store == null ) {
                     store = new SessionPersistor();
+                    session.setAttribute(KEY_PERSISTOR, store);
+                    store.appContextPath = request.getContextPath();
+                    store.items.put(KEY_PREVPAGE, new Stack());
                 }
             }
         }
@@ -70,31 +78,30 @@ public class SessionPersistor implements Persistor {
      * 
      * @param page
      */
-    public void setLastPage(String page) {
-        items.put(KEY_PREVPAGE, page);
+    public void pushLastPage(String page) {
+        Stack pages = (Stack)items.get(KEY_PREVPAGE);
+        String top = null;
+        try {
+            top = (String)pages.peek();
+        }
+        catch(EmptyStackException ee) {}
+        if( !page.equals(top) ) {
+            pages.push(page);
+            log.debug("last page set as "+page);
+        }
     }
     
     /**
      * 
      * @return String
      */
-    public String getLastPage() {
-        return (String)items.get(KEY_PREVPAGE);
+    public String popLastPage() {
+        try {
+            Stack pages = (Stack)items.get(KEY_PREVPAGE);
+            return (String)pages.pop();
+        }
+        catch(EmptyStackException e) {
+            return null;
+        }
     }
-    
-//    /**
-//     * 
-//     * @param authToken
-//     */
-//    public void setAuthToken(BasicAuthentication authToken) {
-//        items.put(KEY_AUTH_TOKEN, authToken);
-//    }
-//    
-//    /**
-//     * 
-//     * @return BasicAuthentication
-//     */
-//    public BasicAuthentication getAuthToken() {
-//        return (BasicAuthentication)items.get(KEY_AUTH_TOKEN);
-//    }
 }
