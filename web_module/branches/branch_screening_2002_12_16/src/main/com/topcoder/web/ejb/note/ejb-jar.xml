@@ -30,7 +30,7 @@
                 <method-intf>Remote</method-intf>
                 <method-name>*</method-name>
             </method>
-            <trans-attribute>NotSupported</trans-attribute>
+            <trans-attribute>Required</trans-attribute>
         </container-transaction>
     </assembly-descriptor>
 </ejb-jar>
