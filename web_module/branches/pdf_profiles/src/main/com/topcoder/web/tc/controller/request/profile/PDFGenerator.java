@@ -85,8 +85,6 @@ public class PDFGenerator extends BaseProcessor {
         
         if(getRequest() instanceof MultipartRequest) {
             MultipartRequest request = (MultipartRequest)getRequest();
-            log.debug("RYAN");
-            log.debug(""+request.getUploadedFile("logo").getSize());
             config.setCompanyLogo(request.getUploadedFile("logo"));
         }
 
@@ -291,6 +289,7 @@ public class PDFGenerator extends BaseProcessor {
             byte[] b = new byte[(int)info.getCompanyLogo().getSize()];
             info.getCompanyLogo().getInputStream().read(b);
             Image companyLogo = Image.getInstance(b);
+            companyLogo.scaleAbsoluteWidth(300);
 
             PdfPCell cell = new PdfPCell(companyLogo, false);
             cell.setBorder(0);
