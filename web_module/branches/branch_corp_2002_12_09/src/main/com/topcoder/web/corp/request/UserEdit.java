@@ -88,6 +88,12 @@ public class UserEdit extends BaseProcessor {
         );
 
         verifyAllowed();
+        log.debug(
+            secTok.createNew ?
+            "verification passed: create" :
+            "verification passed: edit"
+        );
+        
         if( authToken.getActiveUser().getId() != authToken.getUser().getId() ) {
             throw new NotAuthorizedException(
                 "Log in if logged off, and vice versa"
@@ -327,7 +333,7 @@ public class UserEdit extends BaseProcessor {
      * Populates common form's filelds with their default values (eiter
      * pulled from DB or entered by user).
      */
-    protected void setFormFieldsDefaults() {
+    protected void setFormFieldsDefaults() throws Exception {
         setFormFieldDefault(KEY_FIRSTNAME, firstName);
         setFormFieldDefault(KEY_LASTNAME, lastName);
         setFormFieldDefault(KEY_PHONE, phone);

@@ -88,7 +88,7 @@ public final class Registration extends UserEdit {
     /**
      * @see com.topcoder.web.corp.request.UserEdit#setFormFieldsDefaults()
      */
-    protected void setFormFieldsDefaults() {
+    protected void setFormFieldsDefaults() throws Exception {
         setFormFieldDefault(KEY_COMPANY, company);
         setFormFieldDefault(KEY_TITLE, title);
         setFormFieldDefault(KEY_ADDRLINE, compAddress);
@@ -97,8 +97,30 @@ public final class Registration extends UserEdit {
         setFormFieldDefault(KEY_STATE, state);
         setFormFieldDefault(KEY_ZIP, zip);
         setFormFieldDefault(KEY_COUNTRY, country);
-        super.setFormFieldsDefaults();
         request.setAttribute("ext-fields-editable", ""+isExtFieldsEditable());
+        
+        Request dataRequest = new Request();
+        InitialContext ic = null;
+        ResultSetContainer rsc = null;
+        try {
+            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
+            DataAccessInt dai = new DataAccess((DataSource)ic.lookup(
+                Constants.NDS_DATA_SOURCE)
+            );
+            dataRequest.setContentHandle("cmd-states-list");
+            Map resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("State_List");
+            request.setAttribute("rsc-states-list", rsc);
+            
+            dataRequest.setContentHandle("cmd-countries-list");
+            resultMap = dai.getData(dataRequest);
+            rsc = (ResultSetContainer) resultMap.get("Country_List");
+            request.setAttribute("rsc-countries-list", rsc);
+        }
+        finally {
+            Util.closeIC(ic);
+        }
+        super.setFormFieldsDefaults();
     }
     
     /**
@@ -379,7 +401,8 @@ public final class Registration extends UserEdit {
             (UserAddressHome)ic.lookup(UserAddressHome.EJB_REF_NAME)
         ).create();
         long addrID = -1;
-        ResultSetContainer rsc = xrefUserAddr.getUserAddresses(targetUserID);
+        // single address per company so address is to be fetched for primary
+        ResultSetContainer rsc = xrefUserAddr.getUserAddresses(secTok.primaryUserID);
         try {
             String tmp = rsc.getItem(0, "address_id").getResultData().toString();
             addrID = Long.parseLong(tmp);

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
   "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
-
 <taglib>
     <tlibversion>1.0</tlibversion>
     <jspversion>1.1</jspversion>
     <shortname>TopCoder Generic Web Tags</shortname>
-<!--    <info /> -->
-
+    <!--    <info /> -->
     <tag>
         <name>textInput</name>
         <tagclass>com.topcoder.web.common.tag.TextInputTag</tagclass>
@@ -45,7 +43,6 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-
     <tag>
         <name>chkBox</name>
         <tagclass>com.topcoder.web.common.tag.ChkBoxTag</tagclass>
@@ -59,7 +56,6 @@
             <required>false</required>
         </attribute>
     </tag>
-
     <tag>
         <name>errorIterator</name>
         <tagclass>com.topcoder.web.common.tag.ErrorIteratorTag</tagclass>
@@ -73,7 +69,6 @@
             <required>true</required>
         </attribute>
     </tag>
-
     <tag>
         <name>iterator</name>
         <tagclass>com.topcoder.web.common.tag.ListIteratorTag</tagclass>
@@ -93,7 +88,6 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-
     <tag>
         <name>queryIterator</name>
         <tagclass>com.topcoder.web.common.tag.QueryIteratorTag</tagclass>
@@ -116,7 +110,6 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
-
     <tag>
         <name>item</name>
         <tagclass>com.topcoder.web.common.tag.ResultSetItemTag</tagclass>
@@ -133,5 +126,65 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
     </tag>
+    <tag>
+        <name>rscSelect</name>
+        <info>Generates an html select box for fiven ResultSetContainer</info>
+        <tagclass>com.topcoder.web.common.tag.RSCSelectTag</tagclass>
+        <attribute>
+            <name>name</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>class</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>onChange</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedValue</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedText</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>selectedOnly</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>size</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>multiple</name>
+            <required>false</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
 
+        <attribute>
+            <name>list</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>fieldValue</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+        <attribute>
+            <name>fieldText</name>
+            <required>true</required>
+            <rtexprvalue>true</rtexprvalue>
+        </attribute>
+    </tag>
 </taglib>
