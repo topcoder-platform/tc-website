@@ -42,7 +42,7 @@
 
           <!-- Global Seconday Nav Begins -->
 
-          <jsp:include page="left.jsp" />
+         <%@ include file="../includes/global_left.jsp" %>
 
           <!-- Global Seconday Nav Ends -->
 

@@ -18,7 +18,7 @@
 		<TD><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
 <!-- Body Area -->
   <!-- Center Column Begins -->  
-    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
+    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#FFFFFF" valign="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">steelblue</xsl:with-param>
   <xsl:with-param name="image">statistics</xsl:with-param>

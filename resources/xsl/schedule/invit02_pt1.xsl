@@ -7,7 +7,7 @@
   <xsl:import href="../includes/modules/practice_room.xsl"/>
   <xsl:import href="../includes/modules/calendar.xsl"/>
   <xsl:import href="../includes/modules/invit02_links.xsl"/>  
-  <xsl:import href="../includes/schedule/public_schedule_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/>     
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
@@ -34,7 +34,7 @@
             <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
               <!-- Left Column Include Begins -->  
               <!-- Global Seconday Nav Begins -->  
-              <xsl:call-template name="public_schedule_left"/>
+              <xsl:call-template name="global_left"/>
               <!-- Global Seconday Nav Ends -->      
               <!-- Left Column Include Ends -->          
             </TD>
@@ -53,29 +53,28 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
 	<TR>
 		<TD BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
-		<TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
+		<TD COLSPAN="2" VALIGN="top" BGCOLOR="#000033" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
     <!-- Coder of the Week Pulldown Begins -->				
         <xsl:call-template name="invit02_links"/>
 	<!-- Coder of the Week Pulldown Ends -->
 	<BR/><BR/>
-<A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4324" CLASS="statText">View Part 1 Advancers</A> | <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4325" CLASS="statText">View Part 2 Advancers</A><BR/><BR/>	
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
                     <TR>
                       <TD COLSPAN="4" VALIGN="middle" HEIGHT="18" CLASS="statTextBig" BACKGROUND="/i/steel_gray_bg.gif">&#160;&#160;Online Round #1, Part 1 Seeding (Oct. 8th)</TD>
                       <TD COLSPAN="2" ALIGN="right" VALIGN="middle" HEIGHT="18" CLASS="statTextBig"><A HREF="/index?t=schedule&amp;c=invit02_pt2" CLASS="statTextBig">View Part 2 Seeding</A></TD>
                     </TR>
-						<!-- <TR>
+						<TR>
 							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">Round #1</TD>
 							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd2" CLASS="statTextBig"></A>Round #2</TD>
 							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd3" CLASS="statTextBig"></A>Round #3</TD>
 							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_rnd4" CLASS="statTextBig"></A>Round #4</TD>
 							<TD WIDTH="15%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_semi" CLASS="statTextBig"></A>Semi</TD>	
 							<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=invit02_champ" CLASS="statTextBig"></A>Champ</TD>												
-						</TR> -->
-                    </TABLE><BR/>                    
+						</TR>
+                    </TABLE><BR/>
 					<TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="0" ALIGN="center">
 						<TR>
-							<TD ALIGN="left" VALIGN="top" CLASS="statText">						
+							<TD ALIGN="left" VALIGN="top" CLASS="statText">
 [ucf]entity<BR/>
 [UoM]Icenine<BR/>
 acebruin<BR/>

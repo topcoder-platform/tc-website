@@ -2,10 +2,12 @@
   contentType="text/html"
 %>
 <SCRIPT type="text/javascript">
-if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVersion.charAt(0)=='4') {
+if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
+  // Linux Stylesheets
   document.write('<link type="text/css" rel="stylesheet" href="/css/style_linux.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders_linux.css"/>');
 } else {
+  // NonLinux Stylesheets
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
 }
@@ -13,11 +15,11 @@ if ( window.navigator.appName.indexOf("Netscape")>-1 && window.navigator.appVers
 <SCRIPT type="text/javascript">
 if (document.images) {
   image2on = new Image();
-  image2on.src = "/i/menu_sched_on.gif";
+  image2on.src = "/i/menu_tces_on.gif";
   image3on = new Image();
   image3on.src = "/i/menu_applet_on.gif";
   image4on = new Image();
-  image4on.src = "/i/menu_stats_on.gif";
+  image4on.src = "/i/menu_tcs_on.gif";
   image5on = new Image();
   image5on.src = "/i/menu_rounds_on.gif";
   image6on = new Image();
@@ -29,11 +31,11 @@ if (document.images) {
   image9on = new Image();
   image9on.src = "/i/menu_support_on.gif";      
   image2off = new Image();
-  image2off.src = "/i/menu_sched_off.gif";
+  image2off.src = "/i/menu_tces_off.gif";
   image3off = new Image();
   image3off.src = "/i/menu_applet_off.gif";
   image4off = new Image();
-  image4off.src = "/i/menu_stats_off.gif";
+  image4off.src = "/i/menu_tcs_off.gif";
   image5off = new Image();
   image5off.src = "/i/menu_rounds_off.gif";
   image6off = new Image();

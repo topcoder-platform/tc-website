@@ -6,7 +6,7 @@
   <xsl:import href="../foot.xsl"/> 
   <xsl:import href="../includes/modules/scroll.xsl"/>  
   <xsl:import href="../includes/modules/rating.xsl"/>  
-  <xsl:import href="../includes/stats/public_stats_left.xsl"/> 
+  <xsl:import href="../includes/global_left.xsl"/> 
   <xsl:import href="../includes/public_right_col.xsl"/> 
   <xsl:import href="affidavit_body.xsl"/>      
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>

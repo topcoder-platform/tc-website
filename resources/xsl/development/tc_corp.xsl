@@ -5,8 +5,8 @@
   <xsl:import href="../includes/body_top.xsl"/>  
   <xsl:import href="../foot.xsl"/>
   <xsl:import href="../includes/modules/stats_intro.xsl"/>  
-  <xsl:import href="../includes/dev/public_dev_left.xsl"/> 
-  <xsl:import href="../includes/public_right_col.xsl"/>     
+  <xsl:import href="../includes/global_left.xsl"/>
+  <xsl:import href="../includes/dev/public_dev_right.xsl"/>    
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">
     <HTML>
@@ -29,7 +29,7 @@
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top">
 <!-- Left Column Include Begins -->  
     <!-- Global Seconday Nav Begins -->        
-        <xsl:call-template name="public_dev_left"/>
+        <xsl:call-template name="global_left"/>
   <!-- Global Seconday Nav Ends -->      
 <!-- Left Column Include Ends -->              
       </TD>
@@ -40,7 +40,7 @@
 
 <!-- Body Area -->
   <!-- Center Column Begins -->  
-    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="240" height="1" VSPACE="5" BORDER="0"/><BR/>
+    <TD CLASS="bodyText" WIDTH="100%" bgcolor="#CCCCCC" valign="top">
 <xsl:call-template name="BodyTop">
   <xsl:with-param name="image1">steelblue</xsl:with-param>
   <xsl:with-param name="image">development</xsl:with-param>
@@ -501,13 +501,10 @@ Project End Date:  January 22, 2003<BR/>
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
 <!-- Right Column Include Begins -->        
-        <xsl:call-template name="public_right_col"/>        
+			<xsl:call-template name="public_dev_right" />        
 <!-- Right Column Include Ends -->        
         </TD>
   <!-- Right Column Ends -->
-  <!-- Gutter -->
-    <TD WIDTH="25" BGCOLOR="#CCCCCC"><IMG SRC="/i/clear.gif" WIDTH="25" HEIGHT="1" BORDER="0"/></TD>
-    <!-- Gutter Ends -->
   </TR>
 </TABLE>
 <!-- Body Ends -->

@@ -6,7 +6,6 @@
 		<xsl:choose>
 			<xsl:when test="/TC/LoggedIn='true'">
 				<xsl:call-template name="tcs_new_projects"/>
-				<xsl:call-template name="my_stats"/>
 			</xsl:when>                  
 			<xsl:otherwise>
 				<xsl:call-template name="tcs_new_projects"/>

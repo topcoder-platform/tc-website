@@ -1,6 +1,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:import href="../top2.xsl"/>
-  <xsl:import href="tourny_public_body.xsl"/>
+  <xsl:import href="public_body.xsl"/>
   <xsl:import href="../script.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template match="/">

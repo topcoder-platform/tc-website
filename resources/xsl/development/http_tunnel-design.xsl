@@ -5,7 +5,7 @@
 	<xsl:import href="../includes/body_top.xsl" />  
 	<xsl:import href="../foot.xsl" />
 	<xsl:import href="../includes/modules/stats_intro.xsl" />  
-	<xsl:import href="../includes/dev/public_dev_left.xsl" /> 
+  <xsl:import href="../includes/global_left.xsl"/>  
 	<xsl:import href="../includes/dev/public_dev_right.xsl" />     
 	<xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
 	<xsl:template match="/">
@@ -35,7 +35,7 @@
 	<tr>
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top">
-			<xsl:call-template name="public_dev_left" />
+			<xsl:call-template name="global_left"/>
 		</td>
 <!-- Left Column Ends -->
 
@@ -59,10 +59,10 @@
                                     
 						<p><a href="/?&amp;t=development&amp;c=tcs_inquire&amp;Project=HTTP Tunneling Component Design" class="statText"><strong>Inquire about this project &gt;&gt;</strong></a></p>
 
-						<p><strong>Overview</strong><br />
+						<p><strong>Overview</strong><br/>
 						The HTTP Tunneling component serves as a conduit between proprietary web protocols and HTTP. It wraps and unwraps proprietary calls in HTTP and sends it to the proper destination. The purpose is to allow proprietary communication via HTTP through proxy servers and firewalls.</p>
 
-						<p><strong>Project Type</strong><br />
+						<p><strong>Project Type</strong><br/>
 						Component Design Project: Provide a complete design for the HTTP Tunneling component.<br/>
 						Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="statText">Component Development Methodology</a> for further details regarding this project type.</p>
 
@@ -72,14 +72,14 @@
 							<li>Java 1.4</li>
 						</ul>
 
-						<p><strong>Payment</strong><br />
+						<p><strong>Payment</strong><br/>
 						TopCoder will compensate the member with the winning solution. Compensation will consist of both initial payments and royalties on the sale of the component. The initial payment will be distributed in two installments.<br/>
 						First Milestone: When the winning solution is submitted and review board suggestions are integrated.<br/>
 						Second Milestone: Is marked by the completion of the development project*.</p>
 
 						<p>Members will also collect royalties on the revenue generated from the sale of the component. The total royalty per component will be equal to 10%* of the component's revenue, with 25%* of the royalty being paid to the designer, 25% to the developer(s), 25% to the Architecture Board member(s) and 25% to the QA Board member(s).  Royalties may be diluted if additional work is done to the component, as the total work effort for the component will increase.</p>
 
-						<p><strong>Designer</strong><br />
+						<p><strong>Designer</strong><br/>
 						Royalty Percentage - 25%</p>
 						
 						<p>Total Payment - $210.00<br/>
@@ -94,7 +94,7 @@
 							<li>Final payment is conditional on acceptance of the fully functional component by the QA Review Board.</li>
 						</ul>
 
-						<p><strong>Eligibility</strong><br />
+						<p><strong>Eligibility</strong><br/>
 						You must be a rated TopCoder member, at least 18 years of age, meeting all of the membership requirements and fit into one of the following categories:</p>
 								
 						<ol>
@@ -104,7 +104,7 @@
 							<li>A Non US Citizen working in their country of residence.</li>
 						</ol>
 								
-						<p><strong>Time Line</strong><br />
+						<p><strong>Time Line</strong><br/>
 						All submissions are required to be submitted by the Initial Submission Due Date.  All questions submitted prior to 6PM EDT on the Initial Submission Due Date will be answered. Following review from the board the winning member is given until the Final Submission Due Date to modify their submission.</p>
 								
 						<p>Component Posting: 11.26.2002<br/>

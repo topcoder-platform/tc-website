@@ -1,14 +1,14 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
   <xsl:template name="intro">
-     <TABLE WIDTH="170" BGCOLOR="#000000" CELLSPACING="0" CELLPADDING="0" BORDER="0">
+     <TABLE WIDTH="170" BGCOLOR="#333333" CELLSPACING="0" CELLPADDING="0" BORDER="0">
       <TR> 
         <TD VALIGN="top"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
         <TD VALIGN="middle" HEIGHT="18" CLASS="statTextBig">Links for Coders</TD>
         <TD VALIGN="top"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>      
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -22,7 +22,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -36,7 +36,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -50,7 +50,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <!-- <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -64,7 +64,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR> -->
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -78,7 +78,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>      
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>      
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -92,7 +92,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>      
       <TR> 
         <TD VALIGN="top"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -100,7 +100,7 @@
         <TD VALIGN="top"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR> 
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -114,7 +114,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -128,7 +128,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
@@ -142,7 +142,7 @@
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>      
       <TR> 
         <TD VALIGN="top"><IMG ALT="" WIDTH="6" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
@@ -150,7 +150,7 @@
         <TD VALIGN="top"><IMG ALT="" WIDTH="8" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR>
       <TR> 
-        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#333333"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
+        <TD VALIGN="top" COLSPAN="3" BGCOLOR="#000000"><IMG ALT="" WIDTH="1" HEIGHT="1" SRC="/i/clear.gif" BORDER="0"/></TD>
       </TR> 
       <TR>       
         <TD VALIGN="top" CLASS="statText">&#160;</TD>
