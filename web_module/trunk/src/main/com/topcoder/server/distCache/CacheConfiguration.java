@@ -7,11 +7,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 import java.rmi.registry.Registry;
+import com.topcoder.server.util.TCResourceBundle;
 
 public class CacheConfiguration 
 {
-    static String resourceFile  = "resources/cache.properties";
-    
+    static final String BUNDLE_NAME      = "cache";
     static final String PROP_PRIMARY     = "cache.primary";
     static final String PROP_SECONDARY   = "cache.secondary";
     static final String PROP_SIZE        = "cache.size";
@@ -20,7 +20,7 @@ public class CacheConfiguration
     static final String PROP_EXPIREDELAY = "cache.expirecheck";
 //    static final String PROP_EXPIRETIME  = "cache.expiretime";
 
-    static Properties _properties = null;
+    private static TCResourceBundle _bundle = null;
 
     // --------------------------------------------------
 
@@ -29,18 +29,7 @@ public class CacheConfiguration
      */
 
     public static int getSize() {
-        int    size    = -1;
-        String sizestr = getProperties().getProperty(PROP_SIZE);
-
-        if ((sizestr != null) && (sizestr.length() > 0)) {
-            try {
-                size = Integer.parseInt(sizestr);
-            } catch (NumberFormatException e) {
-                System.out.println("cannot parse cache size: " + sizestr);
-            }
-        }
-
-        return size;
+        return getBundle().getIntProperty(PROP_SIZE, -1);
     }
 
     /**
@@ -48,33 +37,11 @@ public class CacheConfiguration
      */
 
     public static int getSynchronizationDelay() {
-        int    delay    = 10000; // 10 seconds
-        String delaystr = getProperties().getProperty(PROP_SYNC);
-
-        if ((delaystr != null) && (delaystr.length() > 0)) {
-            try {
-                delay = Integer.parseInt(delaystr);
-            } catch (NumberFormatException e) {
-                System.out.println("cannot parse cache sync time: " + delaystr);
-            }
-        }
-
-        return delay;
+        return getBundle().getIntProperty(PROP_SYNC, 10000);
     }
 
     public static int getExpirationCheckDelay() {
-        int    delay    = 60000; // 60 seconds
-        String delaystr = getProperties().getProperty(PROP_EXPIREDELAY);
-
-        if ((delaystr != null) && (delaystr.length() > 0)) {
-            try {
-                delay = Integer.parseInt(delaystr);
-            } catch (NumberFormatException e) {
-                System.out.println("cannot parse " + PROP_EXPIREDELAY + " value " + delaystr);
-            }
-        }
-
-        return delay;
+        return getBundle().getIntProperty(PROP_EXPIREDELAY, 60000);
     }
 
 
@@ -87,67 +54,42 @@ public class CacheConfiguration
 
 
     public static String getPrimaryClientURL() {
-        return "rmi://" + getProperties().getProperty(PROP_PRIMARY) + "/client/primary";
+        return "rmi://" + getBundle().getProperty(PROP_PRIMARY, "") + "/client/primary";
     }
 
     public static String getSecondaryClientURL() {
-        return "rmi://" + getProperties().getProperty(PROP_SECONDARY) + "/client/secondary";
+        return "rmi://" + getBundle().getProperty(PROP_SECONDARY, "") + "/client/secondary";
     }
 
 
     public static String getPrimaryServerURL() {
-        return "rmi://" + getProperties().getProperty(PROP_PRIMARY) + "/server/primary";
+        return "rmi://" + getBundle().getProperty(PROP_PRIMARY, "") + "/server/primary";
     }
 
     public static String getSecondaryServerURL() {
-        return "rmi://" + getProperties().getProperty(PROP_SECONDARY) + "/server/secondary";
+        return "rmi://" + getBundle().getProperty(PROP_SECONDARY, "") + "/server/secondary";
     }
 
 
 
     public static String getPrimaryServerHost() {
-        return extractHost(getProperties().getProperty(PROP_PRIMARY));
+        return extractHost(getBundle().getProperty(PROP_PRIMARY, ""));
     }
 
     public static String getSecondaryServerHost() {
-        return extractHost(getProperties().getProperty(PROP_SECONDARY));
+        return extractHost(getBundle().getProperty(PROP_SECONDARY, ""));
     }
 
     public static int getPrimaryServerPort() {
-        return extractPort(getProperties().getProperty(PROP_PRIMARY));
+        return extractPort(getBundle().getProperty(PROP_PRIMARY, ""));
     }
 
     public static int getSecondaryServerPort() {
-        return extractPort(getProperties().getProperty(PROP_SECONDARY));
+        return extractPort(getBundle().getProperty(PROP_SECONDARY, ""));
     }
 
 
     // --------------------------------------------------
-
-    static Properties getProperties() {
-        if (_properties != null) {
-            return _properties;
-        }
-
-        File propfile = new File(resourceFile);
-        if (!propfile.exists()) {
-            System.err.println(propfile.getPath());
-            throw new RuntimeException("Can't find cache properties file " + propfile.getName());
-        }
-        
-        Properties p = new Properties();
-        
-        try {
-            p.load(new FileInputStream(propfile));
-        } catch (IOException e) {
-            throw new RuntimeException("Error reading propreites file: " + e.getMessage());
-        }
-        
-        _properties = p;
-        
-        return _properties;
-    }
-
     private static int extractPort(String hostname) {
         if (hostname == null) {
             return Registry.REGISTRY_PORT;
@@ -178,9 +120,12 @@ public class CacheConfiguration
     }
 
 
-    public static void setResourceFile(String f)
-    {
-        resourceFile = f;
+    private static TCResourceBundle getBundle() {
+      if (_bundle == null) { 
+        _bundle = new TCResourceBundle(BUNDLE_NAME);
+      }
+      return _bundle;    
     }
+
 
 }
