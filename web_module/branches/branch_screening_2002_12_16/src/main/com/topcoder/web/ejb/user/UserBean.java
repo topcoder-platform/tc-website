@@ -40,19 +40,21 @@ public class UserBean implements SessionBean {
         ctx = _ctx;
     }
 
-    public void createUser(long _user_id) throws RemoteException, EJBException {
+    public void createUser(long userId, String handle, char status) throws RemoteException, EJBException {
         PreparedStatement ps = null;
         Connection conn = null;
         try {
 
-            StringBuffer query = new StringBuffer(1024);
+            StringBuffer query=new StringBuffer(1024);
             query.append("INSERT ");
-            query.append("INTO user (user_id) ");
-            query.append("VALUES (?)");
+            query.append("INTO user (user_id,handle,status) ");
+            query.append("VALUES (?,?,?)");
 
-            conn = ds.getConnection();
-            ps = conn.prepareStatement(query.toString());
-            ps.setLong(1, _user_id);
+            conn=ds.getConnection();
+            ps=conn.prepareStatement(query.toString());
+            ps.setLong(1,userId);
+            ps.setString(2,handle);
+            ps.setString(3,""+status);
 
             int rc = ps.executeUpdate();
             if (rc != 1) {
