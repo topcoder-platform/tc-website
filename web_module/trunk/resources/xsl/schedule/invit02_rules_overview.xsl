@@ -59,28 +59,39 @@
 	<xsl:call-template name="invit02_rule_links"/>
 					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 						<TR><TD VALIGN="middle" COLSPAN="3" HEIGHT="16" CLASS="statText"><BR/>
-						<P><B>2002 Sun Microsystems and TopCoder Collegiate Challenge<BR/>Official Rules and Regulations</B></P>
+						<P><B>2002 TopCoder Invitational Tournament Official Rules<BR/>Official Rules and Regulations</B></P>
 						<DIV ALIGN="center">No purchase necessary to enter or win.</DIV><BR/>
 						<DIV CLASS="statTextBig">Overview of the Tournament</DIV><BR/>
-						<P>The 2002 Sun Microsystems and TopCoder Collegiate Challenge tournament will take place between February 19, 2002 and April 20, 2002.  It will consist of three 
-						(3) online Regional rounds and two (2) onsite Semifinal and Championship rounds.  The top 16 finishers in the Regional rounds will advance to the onsite Semifinal and 
-						Championship rounds, being held at the University Park Hotel @ MIT in Cambridge, MA from April 19-20, 2002.</P>
+						<P>The 2002 TopCoder Invitational tournament will take place between October 8th and November 23rd. It will consist of four (4) online elimination rounds and two 
+						(2) onsite rounds, being the Semifinal and Championship rounds. The total prize purse for the tournament will be $150,000, with the top 64 finishers in the online 
+						rounds receiving prize money. The top 16 finishers in the online rounds will advance to the onsite Semifinal and Championship rounds, being held at the Mohegan Sun 
+						Casino in Uncasville, CT from November 21st through November 23rd.</P>
 						<P><B>Eligibility</B></P>
-						<P>The tournament is open to the following members who are at least 18 years of age, AND who are matriculated full-time at an accredited US college or university 
-						(including accredited colleges or universities in the US territories of Guam, Puerto Rico and the US Virgin Islands):<UL>
-						<LI>All US* citizens</LI>
-						<LI>All Lawful Permanent Residents of the US (i.e., Green Card Holders)</LI>
-						<LI>All Legal Permanent Residents of Canada, excluding Quebec</LI>
-						<LI>All Legal Permanent Residents of Australia</LI>
-						<LI>All Legal Permanent Residents of India</LI>
-						<LI>All non-immigrants** currently residing in the US with a valid Visa</LI></UL></P>
-						<P>* including the US territories of Guam, Puerto Rico and the US Virgin Islands<BR/>
-						** Non-immigrants refer to people who come to the US, but not permanently (i.e., they are not permanent residents)</P>
-						<P>Employees of <A HREF="http://www.topcoder.com/" CLASS="statText">TopCoder, Inc.</A> and <A HREF="http://www.sun.com/" CLASS="statText">Sun Microsystems, Inc.</A>, 
-						and those involved in the development, production (including prize suppliers), implementation and distribution of this tournament and their advertising or promotion agencies, 
-						parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the tournament and members of the 
-						immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament.</P>
-						<DIV ALIGN="center" CLASS="statTextBig">Visit <A HREF="http://www.sun.com" CLASS="statTextBig">Sun Microsystems</A> - exlcusive sponsor of the 2002 TopCoder Collegiate Challenge</DIV><BR/>
+						<P>The tournament is open to the following members who are at least 18 years of age, AND who have participated in at least three (3) TopCoder rated events 
+						(i.e., Single Round Matches and previous tournaments) prior to October 1, with at least one (1) of those events being since March 31st:</P>
+						<UL>
+						<LI>All citizens and lawful permanent residents of:</LI>
+							<UL>
+							<LI>Australia</LI>
+							<LI>Canada (excluding Quebec)</LI>
+							<LI>China</LI>
+							<LI>India</LI>
+							<LI>Ireland</LI>
+							<LI>New Zealand</LI>
+							<LI>the United Kingdom</LI>
+							<LI>the United States (including the U.S. territories of Guam, Puerto Rico and the U.S. Virgin Islands)</LI>
+							</UL>
+						<LI>All non-immigrants currently residing in the United States with a valid Visa</LI>
+						</UL>
+						<P><B>Invitations and Registration</B></P>
+						<P>The top 1,024 rated TopCoder members as of October 1st who meet the eligibility criteria defined above will be invited via email to compete in the tournament. 
+						Invitations will be emailed no later than 6:00PM Eastern Time on October 1st. Once invited, members must register on TopCoder's website to compete in the tournament. 
+						Registration details and deadlines will be provided in the invitations.</P>
+						<P>Employees of TopCoder, Inc. and those involved in the production (including prize suppliers), implementation and distribution of this tournament and their advertising 
+						or promotion agencies, parent companies, service providers, agents, officers, subsidiaries or affiliates, or any other persons or entities directly associated with the 
+						tournament and members of the immediate families and/or persons living in the same household as such persons, are ineligible to enter the tournament. </P>
+						<BR/>
+						 <BR/>
 						</TD>
 						</TR>
 					</TABLE>

@@ -59,35 +59,65 @@
 	<xsl:call-template name="invit02_rule_links"/>
 					<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
 						<TR><TD VALIGN="middle" COLSPAN="3" HEIGHT="16" CLASS="statText"><BR/>
-						<DIV CLASS="statTextBig">Scoring and Advancing during Online Regional Rounds</DIV><BR/>
-						After each round of competition, the winners from each of the assigned rooms will be identified and invited to compete at the next level of competition. 
-						Coder advancement in all rounds is determined by comparing the total point values from all three phases of the round 
-						&#40; see <A HREF="/?ContestId=4025&amp;t=schedule&amp;c=tourny_rules_structure" CLASS="statText">Competition Round Structure</A> &#41; for each coder.  In order to advance, 
-						a coder must finish with a greater-than-zero point total.  The winners will be determined as follows:<BR/><BR/>
-						<B>Online Regional Quarter-Final</B><UL>
-						<LI>Up to 128 coders per region (totaling 512) will compete - 32 coders per region (totaling 128) will advance</LI><BR/>
-						<LI>The winners of each room will automatically advance (automatic berth) (up to 16)</LI><BR/>
-						<LI>The remaining spots (wildcard pool) (32 minus the total number of room winners) will be handed out based on total points across all rooms in the region</LI>
-						</UL>
-						<B>Online Regional Semifinal</B><UL>
-						<LI>32 coders per region (totaling 128) will compete - 8 coders per region (totaling 32) will advance</LI><BR/>
-						<LI>The winners of each room will automatically advance (4)</LI><BR/>
-						<LI>A wildcard pool will be used to determine the remainder of the advancers in each region.  The remaining spots (4) will be handed out based on total points across all rooms in the region.</LI>
-						</UL><BR/>
-						Note: The term "wildcard" indicates a competitor who has advanced to the next round of competition based on highest points for a given round. In the case of the Regional Championship, 
-						the "wildcards" will total twelve (12) competitors based on all regions. There will be a minimum of one (1) representative per region in the Semifinals, but there could be more than one 
-						"wildcard" from any region going into the Semifinals.<BR/><BR/>
-						<B>Online Regional Final</B><UL>
-						<LI>8 coders per region (totaling 32) will compete</LI><BR/>
-						<LI>The winners of each region (4) will be crowned Regional Champions, will win $5,000 each, and will automatically advance to the onsite Semifinal round.  (NOTE:  All regional champions must participate in the onsite Semifinal rounds to receive prizes.)</LI><BR/>
-						<LI>The remaining spots (12) to advance to the onsite Semifinal and Championship rounds will be handed out based on total points across all rooms (regardless of region)</LI>
-						</UL><BR/>
-						In order to advance, a coder must finish with a greater-than-zero point total.  If a room has no contestants who have more than zero points, the automatic berth for that room will be placed into the regional wildcard pool.  Any tie in points for an automatic berth in a room or for the last spot of the wildcard pool will be resolved in the following manner:<UL>
-						<LI>Total points acquired (higher is better) during the rounds of the tournament in which all of the tied participants were presented with the same set of problems</LI><BR/>
-						<LI>If a tie still remains, then by rating (higher is better) as of February 14, 2002</LI>
-						</UL><BR/>
-						If a tie still remains, all tied coders will advance to the next round.<BR/><BR/>
-						<DIV ALIGN="center" CLASS="statTextBig">Visit <A HREF="http://www.sun.com" CLASS="statTextBig">Sun Microsystems</A> - exlcusive sponsor of the 2002 TopCoder Collegiate Challenge</DIV><BR/>
+						<DIV CLASS="statTextBig">Scoring and Advancing during Online Rounds</DIV><BR/>
+						<P>After each round of competition, the winners from each of the assigned rooms will be identified and will advance to the next online round. Coder advancement 
+						in all rounds is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order 
+						to advance, a coder must finish each round with a greater-than-zero point total. The structure of the online rounds is as follows:
+						</P>
+						<P><B>Online Round #1</B> (to be completed in 2 parts)
+						<UL>
+						<LI> A total of 1,024 coders will compete in Round #1 and a total of 512 will advance.  Round #1 will consist of 2 parts, with 512 people competing in each 
+						part and 256 members advancing from each part.</LI>
+						<LI> The winner of each of the 128 rooms (64 rooms in each part of Round #1), will automatically advance 
+						(i.e. receive an automatic berth) to Online Round #2.</LI>
+						<LI> The remaining 384 spots (192 spots from each part of Round #1) will be wildcards, and 
+	 					will be handed out based on total points across all rooms.  (In the event that there are 
+	 					not 64 room winners in one part of Round #1, the total number of wildcard spots for that part of 
+	 					Round #1 will be equal to 256 minus the number of automatic berths awarded to the room winners.)</LI>
+	 					</UL></P>
+	 					<P><B>Online Round #2</B><UL>
+	 					<LI> 512 coders will compete and 256 will advance.</LI>
+	 					<LI> The winner of each of the 64 rooms will automatically advance to Online Round #3.</LI>
+	 					<LI> The remaining 192 spots will be wildcards and will be handed out based on total points across all
+ 						rooms.  (In the event that there are not 64 room winners in Round #2, the total number of wildcard 
+ 						spots will be equal to 256 minus the number of automatic berths awarded to the room winners.)</LI>
+ 						</UL></P>
+ 						<P><B>Online Round #3</B><UL>
+ 						<LI> 256 coders will compete and 64 will advance.</LI>
+ 						<LI> The winner of each of the 32 rooms will automatically advance to Online Round #4.</LI>
+ 						<LI> The remaining 32 spots will be wildcards and will be handed out based on total points 
+						across all rooms.  (In the event that there are not 32 room winners in Round #3, the total number 
+						of wildcard spots will be equal to 64 minus the number of automatic berths awarded to the room winners.)</LI>
+						</UL></P>
+						<P><B>Online Round #4</B><UL>
+						<LI> 64 coders will compete and 16 will advance to the onsite Semifinal round.</LI>
+						<LI> The winner of each of the 8 rooms will automatically advance to the Semifinal round.  </LI>
+						<LI> The remaining 8 spots will be wildcards and will be handed out based on total points 
+						across all rooms.  (In the event that there are not 8 room winners in Round #4, the total number 
+						of wildcard spots will be equal to 16 minus the number of automatic berths awarded to the room winners.)</LI>
+						</UL></P>
+						<P>NOTE:  If a room has no contestants who have more than zero points, the automatic berth for that room will be placed into the wildcard pool. Any tie 
+						in points for an automatic berth in a room or for the last spot of the wildcard pool will be resolved in the following manner:
+						<UL>
+						<LI> Total points acquired (higher is better) during the rounds of the tournament in which all 
+						of the tied participants were presented with the same set of problems</LI>
+						<LI> If a tie still remains, then by rating (higher is better) as of October 1, 2002</LI>
+						<LI> If a tie still remains, all tied coders will advance to the next round</LI></UL></P>
+						<P><B>Competition Round Structure</B></P>
+						<P>Each online and onsite round of competition consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. (Note: the format 
+						of these competition rounds is similar to the format of the Single Round Matches.)</P>
+						<P><UL><LI> The Coding Phase is a timed event where all contestants are presented with the same three questions representing three levels of 
+						complexity and, accordingly, three levels of point earnings potential. Points for a problem are awarded upon submission of any solution that successfully 
+						compiles and are calculated on the total time elapsed from the time the problem was opened to the time it was submitted.</LI><LI> The Challenge Phase 
+						is a timed event wherein each competitor has a chance to challenge the functionality of other competitors' code. A successful challenge will result in 
+						a loss of the original problem submission points by the defendant, and a 50-point reward for the challenger.  Unsuccessful challengers will incur a point 
+						reduction of 50 points as a penalty, applied against their total score in that round of competition.</LI><LI> The System Testing Phase is applied to all 
+						submitted code that has not already been successfully challenged. If the TopCoder System Test finds code that is flawed, the author of that code submission 
+						will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output 
+						from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. 
+						The same set of input/output test cases will be applied to all code submissions for a given problem. All successful challenges from the Challenge Phase will 
+						be added to the sets of inputs for the System Testing Phase.</LI>
+						</UL></P>						
 						</TD>
 						</TR>
 					</TABLE>
