@@ -95,7 +95,7 @@ function submitEnter(e) {
                             </tr>
 
                             <tr valign="middle">
-                                <td nowrap class="bodyText" align="right">User Name:</td>
+                                <td nowrap class="bodyText" align="right">Handle:</td>
                                 <td colspan="2" align="left"><input type="text" name="<%=Login.USER_NAME%>" value="<%= username %>" maxlength="15" size="12" onkeypress="submitEnter(event)"></td>
                             </tr>
 

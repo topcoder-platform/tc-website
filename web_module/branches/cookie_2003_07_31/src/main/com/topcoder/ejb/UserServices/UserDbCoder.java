@@ -578,7 +578,7 @@ final class UserDbCoder {
                 Phone phoneEJB = ((PhoneHome) ctx.lookup(PhoneHome.EJB_REF_NAME)).create();
                 UserAddress userAddressEJB = ((UserAddressHome) ctx.lookup(UserAddressHome.EJB_REF_NAME)).create();
 
-                ResultSetContainer addresses = userAddressEJB.getUserAddresses(coder.getCoderId(), DBMS.OLTP_DATASOURCE_NAME);
+                ResultSetContainer addresses = userAddressEJB.getUserAddresses(coder.getCoderId(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
                 if (addresses.size()!=1) {
                     log.warn("Not sure what to do, user: " + coder.getCoderId() +
