@@ -75,7 +75,7 @@
             3:00pm and check out time is 12:00noon.  If you have any special requests, please indicate them on the
             travel form. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master
             account.  You will be required, however, to provide a credit card upon check-in for any incidentals.
-            <BR/>
+            <BR/><BR/>
             At the TCCC04, you will be sharing a hotel room with another competitor.  Once the finalists have
             been announced, you can email me bhealy@topcoder.com with any preference you may have for a
             roommate.  We will do all possible to accommodate your request. <BR/>
