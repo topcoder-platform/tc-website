@@ -983,17 +983,22 @@ SELECT c.handle, p.class_name, p.method_name, ps.status_desc, ps.submission_text
 
 java com.topcoder.utilities.QueryLoader "DW" 53 "High_Scorers" 0 0 "
 SELECT
-  c.handle,
-  r.name,
-  rr.final_points,
-  rd.round_id,
-  rr.division_id
+  c.coder_id as coder_id,
+  c.handle as handle,
+  r.name as room_name,
+  rr.final_points as final_points,
+  cn.name as contest_name,
+  rr.division_id as division_id,
+  rr.new_rating as new_rating,
+  rd.round_id as round_id
 FROM
   coder c,
   room r,
   room_result rr,
-  round rd
+  round rd,
+  contest cn
 WHERE
+  cn.contest_id = rd.contest_id and
   rr.round_id = rd.round_id and
   c.coder_id = rr.coder_id and
   c.status = 'A' and
@@ -1004,14 +1009,14 @@ ORDER by division_id, final_points desc
 
 java com.topcoder.utilities.QueryLoader "DW" 54 "Round_Percentages" 0 0 "
 select
-  d.division_desc,
+  d.division_desc as division_desc,
   p.level_id,
-  min(l.level_desc),
-  p.class_name,
-  sum(case when submission_points > 0 then 1 else 0 end),
-  sum(case when final_points > 0 then 1 else 0 end),
-  sum(final_points),
-  min(d.division_id)
+  min(l.level_desc) as problem_level,
+  p.class_name as problem_name,
+  sum(case when submission_points > 0 then 1 else 0 end) as submissions,
+  sum(case when final_points > 0 then 1 else 0 end) as successful_submissions,
+  sum(final_points) as total_points,
+  min(d.division_id) as division_id
 from
   division_lu d,
   level_lu l,
@@ -1027,4 +1032,64 @@ where
   rd.round_id = @rd@
 group by 1,2,4
 order by 8, 2
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 55 "Problem_Distribution_Graph" 0 0 "
+SELECT
+  sum(case when ps.final_points >= p.points*0.300 and ps.final_points < p.points*0.323 then 1 else 0 end) as group00
+  ,sum(case when ps.final_points >= p.points*0.323 and ps.final_points < p.points*0.347 then 1 else 0 end) as group01
+  ,sum(case when ps.final_points >= p.points*0.347 and ps.final_points < p.points*0.370 then 1 else 0 end) as group02
+  ,sum(case when ps.final_points >= p.points*0.370 and ps.final_points < p.points*0.393 then 1 else 0 end) as group03
+  ,sum(case when ps.final_points >= p.points*0.393 and ps.final_points < p.points*0.417 then 1 else 0 end) as group04
+  ,sum(case when ps.final_points >= p.points*0.417 and ps.final_points < p.points*0.440 then 1 else 0 end) as group05
+  ,sum(case when ps.final_points >= p.points*0.440 and ps.final_points < p.points*0.463 then 1 else 0 end) as group06
+  ,sum(case when ps.final_points >= p.points*0.463 and ps.final_points < p.points*0.487 then 1 else 0 end) as group07
+  ,sum(case when ps.final_points >= p.points*0.487 and ps.final_points < p.points*0.510 then 1 else 0 end) as group08
+  ,sum(case when ps.final_points >= p.points*0.510 and ps.final_points < p.points*0.533 then 1 else 0 end) as group09
+  ,sum(case when ps.final_points >= p.points*0.533 and ps.final_points < p.points*0.557 then 1 else 0 end) as group10
+  ,sum(case when ps.final_points >= p.points*0.557 and ps.final_points < p.points*0.580 then 1 else 0 end) as group11
+  ,sum(case when ps.final_points >= p.points*0.580 and ps.final_points < p.points*0.603 then 1 else 0 end) as group12
+  ,sum(case when ps.final_points >= p.points*0.603 and ps.final_points < p.points*0.627 then 1 else 0 end) as group13
+  ,sum(case when ps.final_points >= p.points*0.627 and ps.final_points < p.points*0.650 then 1 else 0 end) as group14
+  ,sum(case when ps.final_points >= p.points*0.650 and ps.final_points < p.points*0.673 then 1 else 0 end) as group15
+  ,sum(case when ps.final_points >= p.points*0.673 and ps.final_points < p.points*0.697 then 1 else 0 end) as group16
+  ,sum(case when ps.final_points >= p.points*0.697 and ps.final_points < p.points*0.720 then 1 else 0 end) as group17
+  ,sum(case when ps.final_points >= p.points*0.720 and ps.final_points < p.points*0.743 then 1 else 0 end) as group18
+  ,sum(case when ps.final_points >= p.points*0.743 and ps.final_points < p.points*0.767 then 1 else 0 end) as group19
+  ,sum(case when ps.final_points >= p.points*0.767 and ps.final_points < p.points*0.790 then 1 else 0 end) as group20
+  ,sum(case when ps.final_points >= p.points*0.790 and ps.final_points < p.points*0.813 then 1 else 0 end) as group21
+  ,sum(case when ps.final_points >= p.points*0.813 and ps.final_points < p.points*0.837 then 1 else 0 end) as group22
+  ,sum(case when ps.final_points >= p.points*0.837 and ps.final_points < p.points*0.860 then 1 else 0 end) as group23
+  ,sum(case when ps.final_points >= p.points*0.860 and ps.final_points < p.points*0.883 then 1 else 0 end) as group24
+  ,sum(case when ps.final_points >= p.points*0.883 and ps.final_points < p.points*0.907 then 1 else 0 end) as group25
+  ,sum(case when ps.final_points >= p.points*0.907 and ps.final_points < p.points*0.930 then 1 else 0 end) as group26
+  ,sum(case when ps.final_points >= p.points*0.930 and ps.final_points < p.points*0.953 then 1 else 0 end) as group27
+  ,sum(case when ps.final_points >= p.points*0.953 and ps.final_points < p.points*0.977 then 1 else 0 end) as group28
+  ,sum(case when ps.final_points >= p.points*0.977 and ps.final_points < p.points*1.000 then 1 else 0 end) as group29
+  ,p.class_name as name
+  ,p.points as points
+FROM
+  problem p,
+  problem_submission ps
+WHERE
+  ps.problem_id=@pm@ and
+  p.problem_id = ps.problem_id and
+  p.division_id = @dn@
+GROUP BY
+  p.class_name,
+  p.points
+"
+
+java com.topcoder.utilities.QueryLoader "DW" 56 "Problem_Distribution_Info" 0 0 "
+SELECT
+  problems_presented as total
+  ,problems_opened-problems_submitted as opened
+  ,problems_correct as passed
+  ,problems_failed_by_challenge as challenged
+  ,problems_failed_by_system_test as failed
+FROM
+  round_problem
+WHERE
+  problem_id=@pm@ and
+  division_id = @dn@
 "
