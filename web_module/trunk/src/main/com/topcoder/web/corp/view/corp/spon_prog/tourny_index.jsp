@@ -113,7 +113,7 @@
                         <p>TopCoder extends across all professional and collegiate levels and is the only venue that draws thousands of software professionals 
                         together for hours at a time to write software and investigate technology.</p>
 
-                        <p>For more information on sponsoring the TCO, please contact Rob Hughes at
+                        <p>For more information on sponsoring the TCO, please contact Paul Moriarty at
                         <A HREF="mailto:sponsor@topcoder.com" CLASS="bodyText">sponsor@topcoder.com</A> or 860-633-5540.</p>
                         
                         <p><br/></p>

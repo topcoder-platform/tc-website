@@ -60,7 +60,7 @@
 					<IMG SRC="/i/about/survey3.gif" ALT="" WIDTH="396" HEIGHT="140" BORDER="0"/><BR/><BR/>
 					<A HREF="#" CLASS="bodyText">:: What is in a Tournament Package?</A><BR/><BR/>
 					For more information about sponsorship packages, please contact:<BR/>
-					<A HREF="mailto:sponsor@topcoder.com" CLASS="bodyText">Rob Hughes, President and COO</A><BR/><BR/>
+					<A HREF="mailto:sponsor@topcoder.com" CLASS="bodyText">Paul Moriarty</A><BR/><BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>

@@ -76,7 +76,7 @@
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
                                     <p><a href="mailto:sponsorship@topcoder.com" class="bodyText">Sponsorship and Private Label Events</a><br/>
-                                    Robert Hughes, President and COO<br />
+                                    Paul Moriarty<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
                                     &#160;</p>
@@ -94,8 +94,7 @@
                             <tr valign="top">
                                 <td width="50%" align="left" class="bodyText">
                                     <p><a href="mailto:service@topcoder.com" class="bodyText">TopCoder Arena / Web Site Technical Support </a><br />
-
-                                    Mike Lydon, CTO<br />
+                                    Mike Lydon<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
                                     &#160;</p>
@@ -103,7 +102,7 @@
                                     
                                 <td width="50%" align="left" class="bodyText">
                                     <p><a href="mailto:tces@topcoder.com" class="bodyText">Employment Services</a><br />
-                                    Paul Moriarty, Director of Employment Services<br />
+                                    Paul Moriarty<br />
                                     tel: 860.633.5540<br />
                                     fax: 860.657.4276<br />
                                     &#160;</p>
