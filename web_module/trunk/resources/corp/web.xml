@@ -522,6 +522,18 @@
         </init-param>
         
         <init-param>
+            <param-name>city</param-name>
+            <param-value>city</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
+            <param-name>area_of_interest_id</param-name>
+            <param-value>10</param-value>
+            <description></description>
+        </init-param>
+        
+        <init-param>
             <param-name>last_name</param-name>
             <param-value>lastName</param-value>
             <description></description>
