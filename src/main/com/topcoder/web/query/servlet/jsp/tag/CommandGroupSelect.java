@@ -18,12 +18,8 @@ public class CommandGroupSelect extends Select {
         this.list = list;
     }
 
-    public void setSelectedValue(String selectedValue) {
-        super.setSelectedValue(Constants.GROUP_ID_PARAM+selectedValue);
-    }
-
     String getOptionValue(Object o) {
-        return Constants.GROUP_ID_PARAM+((ResultSetContainer.ResultSetRow)o).getItem("command_group_id").toString();
+        return ((ResultSetContainer.ResultSetRow)o).getItem("command_group_id").toString();
     }
 
     String getOptionText(Object o) {
