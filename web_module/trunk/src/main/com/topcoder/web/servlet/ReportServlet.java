@@ -1138,8 +1138,8 @@ public final class ReportServlet extends HttpServlet {
             " ,SUM(CASE WHEN r.rating > 1199 AND r.rating < 1500 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as blue_percent" +
             " ,SUM(CASE WHEN r.rating > 899 AND r.rating < 1200 THEN 1 ELSE 0 END) as green_count" +
             " ,SUM(CASE WHEN r.rating > 899 AND r.rating < 1200 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as green_percent" +
-            " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 899 THEN 1 ELSE 0 END) as gray_count" +
-            " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 899 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as gray_percent" +
+            " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 900 THEN 1 ELSE 0 END) as gray_count" +
+            " ,SUM(CASE WHEN r.rating > 0 AND r.rating < 900 THEN 1 ELSE 0 END)/SUM(CASE WHEN r.rating > 0 THEN 1 ELSE 0 END)*100 as gray_percent" +
             " FROM rating r" +
             " ,coder c" +
             " WHERE r.coder_id = c.coder_id" +
