@@ -60,27 +60,78 @@
             <BR/>
             <ol>
               <li>
-                Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> to view a printable version of your affidavit.
+                <xsl:choose>
+                  <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_notarized_affidavit)=0">
+                    We do not have an affidavit on file.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> 
+                    to view a printable version.  
+                    This must be signed in front of a notary and return immediately to the address below.
+                  </xsl:when>
+                  <xsl:otherwise>
+                    Your affidavit is complete.  Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_affidavit">here</A> 
+                    to view a printable version.  
+                    You must sign this new copy and send it back to the address below.
+                  </xsl:otherwise>
+                </xsl:choose>
+                <BR/>
+                <BR/>
               </li>
-              <xsl:if test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
-                <li>
-                  You must print out a tax form and send it immediately.<BR/>
-                  <A HREF="/contest/fw9.pdf">Download W9 tax form</A>  (<A HREF="/contest/iw9.pdf">W9 instructions</A>)<BR/>
-                  <A HREF="/contest/fw8ben.pdf">Download W8-BEN tax form</A> (<A HREF="/contest/iw8ben.pdf">W8-BEN instructions</A>)
-                </li>
-              </xsl:if>
               <li>
-	        Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_questionaire">here</A> to view the TopCoder 2002 Questionnaire.
+                <xsl:choose>
+                  <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_tax_form)=0">
+                    You must complete, sign and return a tax form.  Read the instructions 
+                    <A HREF="/contest/iw9.pdf">here (W9)</A> and <A HREF="/contest/iw8ben.pdf">here (W8)</A> 
+                    to determine which tax form is applicable to you.  Click
+                    <A HREF="/contest/fw9.pdf">here (W9)</A> or <A HREF="/contest/fw8ben.pdf">here (W8)</A> to print 
+                    out the appropriate tax form.  This must be returned immediately to the address below.
+                  </xsl:when>
+                  <xsl:otherwise>
+                    We have a tax form on file.  This item is complete.
+                  </xsl:otherwise>
+                </xsl:choose>
+                <BR/>
+                <BR/>
               </li>
               <li>
-	        Click <A HREF="#">here</A> to complete a Travel Information Page.
+	        Click <A HREF="/?&amp;t=affidavit&amp;c=2002_invitational_questionaire">here</A> to view 
+                the TopCoder 2002 Questionnaire.  Copy this HTML page into a word processor.  Complete 
+                ALL questions and email it back to: 
+                <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A>
+                <BR/>
+                <BR/>
               </li>
               <li>
-	        Click <A HREF="/">here</A> to view your current headshot.<BR/>
+	        Click <A HREF="#">here</A> to view a Travel Information Page.  Copy this HTML page into 
+                a word processor.  Complete ALL questions and email it back to: 
+                <A HREF="mailto:invitational@topcoder.com">invitational@topcoder.com</A>
+                <BR/>
+                <BR/>
+              </li>
+              <li>
+                <xsl:choose>
+                  <xsl:when test="number(/TC/AFFIDAVIT/Affidavit/Info/has_image)=0">
+                    We do not have a Headshot on file.  Go to your Member Home Page to submit one.
+                  </xsl:when>
+                  <xsl:otherwise>
+                    We have a Headshot on file.  If you'd like to change it, go to your Member Home 
+                    Page and resubmit there.
+                  </xsl:otherwise>
+                </xsl:choose>
+                <BR/>
+                <BR/>
               </li>
             </ol>
-              Reminder, you will not receive any prize money unless all items above are completed by Monday, October 28th at Noon EST.
-
+            <CENTER> 
+              TopCoder Invitational<BR/>
+              703 Hebron Avenue<BR/>
+              Glastonbury, CT 06033<BR/>
+            </CENTER>
+            <BR/>
+            <BR/>
+            <B>
+            Reminder, you will not receive any prize money unless all five items above are completed 
+            by Monday, October 28th at Noon EST.  Any items that need to be mailed via the postal 
+            service must be postmarked by this date.
+            </B>
           </P>
 
 <!--
