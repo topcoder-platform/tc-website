@@ -33,6 +33,7 @@ public abstract class BaseProcessor implements RequestProcessor {
     protected boolean pageInContext = false;
     protected String nextPage = null;
     protected WebAuthentication authToken = null;
+    private HashMap errors;
 
     // form based processors must set it to new HashMap() inside
     // constructor, while others are allowed leave it as is
@@ -40,6 +41,9 @@ public abstract class BaseProcessor implements RequestProcessor {
     // same for form defaults
     private HashMap formDefaults = null;
 
+    public BaseProcessor() {
+        errors = new HashMap();
+    }
     /**
      * Performs generic pre-processing, then calls businessProcessing() method
      * of subclass and, finally does some post processing operations.
@@ -165,4 +169,29 @@ public abstract class BaseProcessor implements RequestProcessor {
     public void setAuthentication(WebAuthentication auth) {
         authToken = auth;
     }
+
+
+    protected void addError(String key, Object error) {
+        if (!hasError(key)) {
+            errors.put(key, error);
+        }
+    }
+
+    public String getError(String key) {
+        if (errors.containsKey(key) && errors.get(key) != null) {
+            return errors.get(key).toString();
+        }
+        return "";
+    }
+
+    public boolean hasError(String key) {
+        return errors.containsKey(key);
+    }
+
+    protected void removeError(String key) {
+        if (hasError(key)) {
+            errors.remove(key);
+        }
+    }
+
 }

@@ -1,6 +1,6 @@
 package com.topcoder.web.query.servlet.jsp.tag;
 
-import com.topcoder.web.query.bean.task.Task;
+import com.topcoder.web.common.RequestProcessor;
 
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.TagSupport;
@@ -8,10 +8,10 @@ import java.io.IOException;
 
 public class ErrorTag extends TagSupport  {
 
-    private Task task;
+    private RequestProcessor task;
     private String key;
 
-    public void setTask(Task task) {
+    public void setTask(RequestProcessor task) {
         this.task = task;
     }
 
