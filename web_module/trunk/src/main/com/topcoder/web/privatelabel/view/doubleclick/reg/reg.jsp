@@ -19,14 +19,17 @@
 </head>
 <body align="center">
 
-<jsp:include page="../links.jsp" >
-   <% if (regInfo.getCoderType()==Constants.STUDENT) {%>
-    <jsp:param name="tabLev1" value="collegiate"/>
+<% if (regInfo.getCoderType()==Constants.STUDENT) {%>
+    <jsp:include page="../links.jsp" >
+        <jsp:param name="tabLev1" value="collegiate"/>
+       <jsp:param name="tabLev2" value="overview"/>
+    </jsp:include>
    <% } else { %>
-    <jsp:param name="tabLev1" value="internal"/>
+    <jsp:include page="../links.jsp" >
+        <jsp:param name="tabLev1" value="internal"/>
+       <jsp:param name="tabLev2" value="overview"/>
+    </jsp:include>
    <% } %>
-   <jsp:param name="tabLev2" value="overview"/>
-</jsp:include>
 
 <table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
 	<tr>
