@@ -19,6 +19,7 @@ public class Constants {
 
     public static String STATIC_PREFIX;
     public static String DEFAULT_PAGE;
+    public static String HOME_PAGE;
 
     /* request parameters */
     public static String PROBLEM_ID;
