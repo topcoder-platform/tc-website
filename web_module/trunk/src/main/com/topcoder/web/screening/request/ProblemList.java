@@ -1,15 +1,14 @@
 package com.topcoder.web.screening.request;
 
-import com.topcoder.web.screening.common.*;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.*;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.security.User;
+import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.ScreeningException;
 import com.topcoder.web.screening.model.ProblemInfo;
 
-import javax.naming.InitialContext;
-import javax.sql.DataSource;
-import java.util.Map;
 import java.util.ArrayList;
+import java.util.Map;
 
 /**
  * Processor for Problem List page.

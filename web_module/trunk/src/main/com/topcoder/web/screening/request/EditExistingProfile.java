@@ -1,20 +1,15 @@
 package com.topcoder.web.screening.request;
 
-import java.util.Iterator;
-import java.util.Map;
-
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
-import javax.servlet.ServletRequest;
-import javax.sql.DataSource;
-
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProfileInfo;
+
+import javax.servlet.ServletRequest;
+import java.util.Iterator;
+import java.util.Map;
 
 public class EditExistingProfile extends BaseProfileProcessor {
     private Request profileLookup;
@@ -36,12 +31,7 @@ public class EditExistingProfile extends BaseProfileProcessor {
         }
         ProfileInfo info = new ProfileInfo();
 
-        InitialContext context = new InitialContext();
-        DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
-                                        DataSource.class);
-        DataAccess dAccess = new DataAccess(ds);
-
+        DataAccessInt dAccess = getDataAccess();;
 
         info.setIsNew(false);
         info.setProfileId(new Long(profileId));

@@ -1,6 +1,16 @@
 package com.topcoder.web.screening.request;
 
-import java.util.Map;
+import com.topcoder.shared.dataAccess.DataAccessConstants;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.Transaction;
+import com.topcoder.web.ejb.sessionprofile.*;
+import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.ScreeningException;
+import com.topcoder.web.screening.model.ProfileInfo;
+import com.topcoder.web.screening.model.SessionInfo;
 
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
@@ -8,27 +18,7 @@ import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.transaction.UserTransaction;
-
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
-import com.topcoder.shared.dataAccess.DataAccessInt;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.security.User;
-import com.topcoder.shared.util.Transaction;
-
-import com.topcoder.web.ejb.sessionprofile.SessionProfile;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileHome;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileLanguage;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileLanguageHome;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileProblem;
-import com.topcoder.web.ejb.sessionprofile.SessionProfileProblemHome;
-
-import com.topcoder.web.screening.common.Constants;
-import com.topcoder.web.screening.common.ScreeningException;
-
-import com.topcoder.web.screening.model.ProfileInfo;
-import com.topcoder.web.screening.model.SessionInfo;
+import java.util.Map;
 
 public class UpdateProfile extends BaseProfileProcessor {
     public void process() throws Exception {

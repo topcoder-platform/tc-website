@@ -1,16 +1,14 @@
 package com.topcoder.web.screening.request;
 
+import com.topcoder.web.common.security.PrincipalMgr;
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
+import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.model.CandidateInfo;
+
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
-
-import com.topcoder.web.ejb.email.Email;
-import com.topcoder.web.ejb.email.EmailHome;
-
-import com.topcoder.web.common.security.PrincipalMgr;
-
-import com.topcoder.web.screening.common.Constants;
-import com.topcoder.web.screening.model.CandidateInfo;
 
 /** 
  * <p>

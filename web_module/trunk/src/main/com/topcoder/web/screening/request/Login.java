@@ -1,10 +1,11 @@
 package com.topcoder.web.screening.request;
 
-import javax.servlet.*;
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.security.*;
+import com.topcoder.shared.security.AuthenticationException;
+import com.topcoder.shared.security.SimpleUser;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
+
+import javax.servlet.ServletRequest;
 
 /**
  * Processes a login request.

@@ -1,28 +1,23 @@
 package com.topcoder.web.screening.request;
 
+import com.topcoder.shared.dataAccess.CachedDataAccess;
+import com.topcoder.shared.dataAccess.DataAccess;
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.security.User;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.WebAuthentication;
+import com.topcoder.web.screening.common.AnonymousUserException;
+import com.topcoder.web.screening.common.Constants;
 
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpUtils;
-import java.util.Hashtable;
-import java.util.Map;
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.rmi.PortableRemoteObject;
 import javax.sql.DataSource;
-
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.TCSubject;
-import com.topcoder.shared.util.ApplicationServer;
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.security.*;
-import com.topcoder.web.screening.common.*;
-import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.shared.dataAccess.DataAccess;
-import com.topcoder.shared.dataAccess.CachedDataAccess;
-import com.topcoder.shared.dataAccess.DataAccessInt;
+import java.util.Map;
 
 
 /** Provides some of the basic methods and data common to request processors.

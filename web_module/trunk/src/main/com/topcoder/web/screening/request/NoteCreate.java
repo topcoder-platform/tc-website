@@ -1,17 +1,18 @@
 package com.topcoder.web.screening.request;
 
+import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
+import com.topcoder.shared.util.Transaction;
 import com.topcoder.web.ejb.note.Note;
 import com.topcoder.web.ejb.note.NoteHome;
 import com.topcoder.web.ejb.user.UserNote;
 import com.topcoder.web.ejb.user.UserNoteHome;
-import com.topcoder.web.screening.common.*;
-import com.topcoder.shared.dataAccess.*;
-import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-import com.topcoder.shared.util.Transaction;
+import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.common.PermissionDeniedException;
 import com.topcoder.web.screening.model.CandidateInfo;
 
 import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import javax.transaction.UserTransaction;
 import java.util.Map;
 
@@ -34,8 +35,7 @@ public class NoteCreate extends BaseProcessor {
         }
         
         InitialContext context = new InitialContext();
-        DataAccessInt dAccess = new DataAccess(
-            (DataSource)context.lookup(Constants.DATA_SOURCE));
+        DataAccessInt dAccess = getDataAccess();
         
         Request dr = new Request();
         dr.setContentHandle("candidateInfo");

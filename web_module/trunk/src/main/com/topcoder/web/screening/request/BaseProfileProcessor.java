@@ -1,18 +1,15 @@
 package com.topcoder.web.screening.request;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import javax.servlet.ServletRequest;
-
-import com.topcoder.shared.dataAccess.DataAccess;
 import com.topcoder.shared.dataAccess.DataAccessConstants;
-import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
-
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.ProfileInfo;
+
+import javax.servlet.ServletRequest;
+import java.util.HashMap;
+import java.util.Map;
 
 public abstract class BaseProfileProcessor extends BaseProcessor {
     protected ProfileInfo buildProfileInfo(ServletRequest request) {
