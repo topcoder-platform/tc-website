@@ -51,7 +51,7 @@ public class IdGeneratorClient {
                                 true);
             }
             retVal = IdGenerator.nextId(seqName);
-            System.out.println("retVal = " + retVal);
+            //System.out.println("retVal = " + retVal);
         }
         catch (NamingException e) {
             log.debug("NamingException occured within getSeqId" + e.toString());
