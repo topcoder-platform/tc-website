@@ -56,6 +56,16 @@ function changeImages() {
 }
 </SCRIPT>
 
+<SCRIPT TYPE="text/javascript">
+  function getGraph(url,wd,ht) {
+    var last=0;
+    var size = "top=2,left=2,width="+wd+",height="+ht+",status=0";
+    var name="graph";
+    window.open('graphPopup.jsp?'+url+'&width='+wd+'&height='+ht,name,size);
+    return;
+  }
+</SCRIPT>
+
 <script type="text/javascript">
 function arena() 
 {
