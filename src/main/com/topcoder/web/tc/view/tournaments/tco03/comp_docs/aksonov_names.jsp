@@ -74,7 +74,7 @@
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/initial/ServerTest.java" target="_blank">Server Test.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/initial/SocketAddress.java" target="_blank">Socket Address.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/initial/SocketAddressTest.java" target="_blank">Socket Address Test.java</a></td></tr>
-                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/initial/UnitTests.java.java" target="_blank">Unit Tests.java</a></td></tr>
+                <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/initial/UnitTests.java" target="_blank">Unit Tests.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/initial/VoteDownListEntry.java" target="_blank">Vote Down List Entry.java</a></td></tr>
                 <tr><td class="compDocsTabOff"><a href="/i/tournament/tco03/comp_docs/aksonov/initial/VoteDownListEntryTest.java" target="_blank">Vote Down List Entry Test.java</a></td></tr>
 
