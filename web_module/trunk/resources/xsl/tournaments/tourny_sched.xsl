@@ -13,6 +13,7 @@
   <xsl:template match="/">
     <HTML>
       <HEAD>
+
         <xsl:call-template name="Preload"/>      
         <TITLE>TopCoder :: Tournaments</TITLE>
         <xsl:call-template name="CSS"/>      
