@@ -15,6 +15,11 @@
     <jsp:param name="level1" value="development"/>
 </jsp:include>
 
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
+<%@ taglib uri="tc.tld" prefix="tc" %>
+
+<% ResultSetContainer rsc = (ResultSetContainer) ((Map)request.getAttribute("resultMap")).get("usdc_weekly_results"); %>
+
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
    <tr valign="top">
 <!-- Left Column Begins-->
@@ -61,19 +66,18 @@
                                 <td class="sidebarTitle" align=center>Start Date</td>
                                 <td class="sidebarTitle" align=center>End Date</td>
                                 <td class="sidebarTitle" align=center>Winner</td>
-                                <td class="sidebarTitle" align=center>Winner<br/>Submission Date</td>
-                                <td class="sidebarTitle" align=center>Score</td>
                                 <td class="sidebarTitle" align=right>Contest Prizes</td>
                             </tr>
+                            RYAN WAS HERE
+                            <rsc:iterator list="<%=rsc%>" id="resultRow">
                             <tr>
-                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det">Week 1</A></td>
+                                <td class="sidebarText"><A href="/tc?module=Static&d1=dev&d2=usdc_contest_det"><rsc:item name="contest_name" row="<%=resultRow%>"/></A></td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.03.2004 9:00AM</td>
                                 <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 9:00AM</td>
                                 <td class="sidebarText" align=center>somedude</td>
-                                <td class="sidebarText" align=center nowrap=nowrap>06.10.2004 8:59AM</td>
-                                <td class="sidebarText" align=center>85.00</td>
                                 <td class="sidebarText" align=right>$1,000</td>
                             </tr>
+                            </rsc:iterator>
                         </table>
                         
                         <br/>
