@@ -16,7 +16,7 @@
 
                 <xsl:call-template name="Preload"/>
 
-                <title>Palm Transfers Application Design Project at TopCoder</title>
+                <title>TopCoder Screening Tool Version 1.1 Project at TopCoder</title>
 
                 <xsl:call-template name="CSS"/>
 
