@@ -226,6 +226,9 @@ function lookupText(qId){
         String currentSchoolState = "";
         String currentSchoolStateName = "";
         if ( request.getParameter(Registration.SCHOOL_STATE)==null ) {
+              currentSchoolState = Registration.getState();
+              currentSchoolStateName = Registration.getStateName(currentSchoolState);
+/*
           if ( schoolState.length()==0 ) {
             currentSchoolState = Registration.getState();
             currentSchoolStateName = Registration.getStateName(currentSchoolState);
@@ -233,6 +236,7 @@ function lookupText(qId){
             currentSchoolState = schoolState;
             currentSchoolStateName = Registration.getStateName(currentSchoolState);
           }
+*/
         } else {
           currentSchoolState = request.getParameter(Registration.SCHOOL_STATE);
           currentSchoolStateName = Registration.getStateName(currentSchoolState);

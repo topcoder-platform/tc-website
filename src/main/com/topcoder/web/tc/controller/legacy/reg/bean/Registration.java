@@ -22,6 +22,7 @@ import com.topcoder.web.ejb.email.Email;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.tc.view.reg.tag.Demographic;
 import com.topcoder.web.tc.view.reg.tag.Notification;
+import com.topcoder.web.tc.view.reg.tag.StateSelect;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -1396,7 +1397,7 @@ public class Registration
 
     public static String getStateName(String stateCode)
             throws TaskException {
-        String result = "";
+        String result = StateSelect.NOT_IN_US.getStateName();
         try {
             DataCache cache = Cache.get();
             ArrayList states = cache.getStates();
