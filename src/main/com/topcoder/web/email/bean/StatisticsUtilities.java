@@ -62,14 +62,12 @@ public class StatisticsUtilities
     public static String getCommandName(int commandId)
         throws ServletException
     {
-        DataAccessInt dai = null;
-        RequestInt dataRequest = null;
-        Map resultMap = null;
         try {
-            dai = new OLTPDataAccess();
-            dataRequest = new Request();
-            dataRequest.setProperty("ci", String.valueOf(commandId));
-            resultMap = dai.getData(dataRequest);
+            Map inputMap = new HashMap();
+            inputMap.put("ci", String.valueOf(commandId));
+
+            // run query, get results
+            Map resultMap = StatisticsUtilities.runStatsQuery(EmailConstants.QUERY_DESCRIPTION_COMMAND, inputMap);
 
             ResultSetContainer rsc = (ResultSetContainer) resultMap.get(EmailConstants.QUERY_DESCRIPTION_RESULT);
             if (rsc.size() > 0) {
@@ -100,16 +98,14 @@ public class StatisticsUtilities
         throws ServletException
     {
         Set commandInputSet = new HashSet();
-        DataAccessInt dai = null;
-        RequestInt dataRequest = null;
-        Map resultMap = null;
 
         try {
-            dai = new OLTPDataAccess();
-            dataRequest = new Request();
-            dataRequest.setProperty("ci", String.valueOf(commandId));
-            resultMap = dai.getData(dataRequest);
+            Map inputMap = new HashMap();
+            // command id parameter
+            inputMap.put("ci", String.valueOf(commandId));
 
+            // run query, get results
+            Map resultMap = StatisticsUtilities.runStatsQuery(EmailConstants.QUERY_METADATA_COMMAND, inputMap);
             ResultSetContainer resultSetContainer = (ResultSetContainer) resultMap.get(EmailConstants.QUERY_METADATA_RESULT);
 
             for (int i = 0; i < resultSetContainer.size(); i++) {
