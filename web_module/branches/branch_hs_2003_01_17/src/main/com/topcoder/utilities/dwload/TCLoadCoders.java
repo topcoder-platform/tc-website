@@ -284,46 +284,35 @@ public class TCLoadCoders extends TCLoad {
 
         try {
             // Our select statement
-            query = new StringBuffer(100);
+            query=new StringBuffer(1024);
             query.append("SELECT c.coder_id ");                  // 1
-            query.append("       ,c.state_code ");               // 2
-            query.append("       ,c.country_code ");             // 3
-            query.append("       ,c.first_name ");               // 4
-            query.append("       ,c.last_name ");                // 5
-            query.append("       ,c.home_phone ");               // 6
-            query.append("       ,c.work_phone ");               // 7
-            query.append("       ,c.address1 ");                 // 8
-            query.append("       ,c.address2 ");                 // 9
-            query.append("       ,c.city ");                     // 10
-            query.append("       ,c.zip ");                      // 11
-            query.append("       ,c.middle_name ");              // 12
-            query.append("       ,c.activation_code ");          // 13
-            query.append("       ,c.member_since ");             // 14
-            query.append("       ,c.notify ");                   // 15
-            query.append("       ,c.quote ");                    // 16
-            query.append("       ,c.employer_search ");          // 17
-            query.append("       ,c.relocate ");                 // 18
-            query.append("       ,CURRENT ");                    // 19
-            query.append("       ,c.editor_id ");                // 20
-            query.append("       ,c.notify_inquiry ");           // 21
-            query.append("       ,c.language_id ");              // 22
-            query.append("       ,c.coder_type_id ");            // 23
-            query.append("       ,u.handle ");                   // 24
-            query.append("       ,u.password ");                 // 25
-            query.append("       ,u.status ");                   // 26
-            query.append("       ,u.email ");                    // 27
-            query.append("       ,u.terms ");                    // 28
-            query.append("       ,u.last_login ");               // 29
-            query.append("       ,(SELECT rs.region_code ");     // 30
-            query.append("           FROM region_state rs ");
-            query.append("          WHERE c.state_code = rs.state_code ");
-            query.append("          AND rs.user_type_id = 3) ");
-            query.append("       ,c.image ");                    // 31
+            query.append("      ,s.state_code ");                // 2
+            query.append("      ,c.country_code ");              // 3
+            query.append("      ,u.first_name ");                // 4
+            query.append("      ,u.last_name ");                 // 5
+            query.append("      ,c.member_since ");              // 6
+            query.append("      ,CURRENT ");                     // 7
+            query.append("      ,c.editor_id ");                 // 8
+            query.append("      ,c.language_id ");               // 9
+            query.append("      ,u.handle ");                    // 10
+            query.append("      ,u.password ");                  // 11
+            query.append("      ,u.status ");                    // 12
+            query.append("      ,e.address ");                   // 13
+            query.append("      ,u.last_login ");                // 14
             query.append("  FROM coder c ");
-            query.append("       ,user u ");
+            query.append("      ,user u ");
+            query.append("      ,email e ");
+            query.append("      ,school s ");
+            query.append("      ,user_school_xref x ");
             query.append(" WHERE c.coder_id = u.user_id ");
-            query.append("   AND c.modify_date > ?");
-            query.append("   AND EXISTS (SELECT 'pops' FROM group_user gu WHERE gu.user_id = u.user_id AND gu.group_id = 10)");
+            query.append("   AND e.user_id = u.user_id ");
+            query.append("   AND e.primary = 1 ");
+            query.append("   AND x.user_id = u.user_id ");
+            query.append("   AND x.school_id = s.school_id ");
+            query.append("   AND x.current_ind = 1 ");
+            query.append("   AND (c.modify_date > ? ");
+            query.append("    OR  e.modify_date > ? ");
+            query.append("    OR  u.modify_date > ?)");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
@@ -337,94 +326,60 @@ public class TCLoadCoders extends TCLoad {
             psSel = prepareStatement(query.toString(), SOURCE_DB);
 
             // Our insert statement
-            query = new StringBuffer(100);
+            query = new StringBuffer(1024);
             query.append("INSERT INTO coder ");
             query.append("      (coder_id ");                   // 1
             query.append("       ,state_code ");                // 2
             query.append("       ,country_code ");              // 3
             query.append("       ,first_name ");                // 4
             query.append("       ,last_name ");                 // 5
-            query.append("       ,home_phone ");                // 6
-            query.append("       ,work_phone ");                // 7
-            query.append("       ,address1 ");                  // 8
-            query.append("       ,address2 ");                  // 9
-            query.append("       ,city ");                      // 10
-            query.append("       ,zip ");                       // 11
-            query.append("       ,middle_name ");               // 12
-            query.append("       ,activation_code ");           // 13
-            query.append("       ,member_since ");              // 14
-            query.append("       ,notify ");                    // 15
-            query.append("       ,quote ");                     // 16
-            query.append("       ,employer_search ");           // 17
-            query.append("       ,relocate ");                  // 18
-            query.append("       ,modify_date ");               // 19
-            query.append("       ,editor_id ");                 // 20
-            query.append("       ,notify_inquiry ");            // 21
-            query.append("       ,language_id ");               // 22
-            query.append("       ,coder_type_id ");             // 23
-            query.append("       ,handle ");                    // 24
-            query.append("       ,password ");                  // 25
-            query.append("       ,status ");                    // 26
-            query.append("       ,email ");                     // 27
-            query.append("       ,terms ");                     // 28
-            query.append("       ,last_login ");                // 29
-            query.append("       ,coder_region_code ");         // 30
-            query.append("       ,image) ");                    // 31
+            query.append("       ,member_since ");              // 6
+            query.append("       ,modify_date ");               // 7
+            query.append("       ,editor_id ");                 // 8
+            query.append("       ,language_id ");               // 9
+            query.append("       ,handle ");                    // 10
+            query.append("       ,password ");                  // 11
+            query.append("       ,status ");                    // 12
+            query.append("       ,email ");                     // 13
+            query.append("       ,last_login) ");               // 14
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
-            query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
-            query.append("?,?,?,?,?,?,?,?,?,?,");  // 30
-            query.append("?)");                    // 31 total values
+            query.append("?,?,?,?)");              // 14 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
-            query = new StringBuffer(100);
+            query = new StringBuffer(1024);
             query.append("UPDATE coder ");
-            query.append("   SET state_code = ? ");                 // 1
-            query.append("       ,country_code = ? ");              // 2
-            query.append("       ,first_name = ? ");                // 3
-            query.append("       ,last_name = ? ");                 // 4
-            query.append("       ,home_phone = ? ");                // 5
-            query.append("       ,work_phone = ? ");                // 6
-            query.append("       ,address1 = ? ");                  // 7
-            query.append("       ,address2 = ? ");                  // 8
-            query.append("       ,city = ? ");                      // 9
-            query.append("       ,zip = ? ");                       // 10
-            query.append("       ,middle_name = ? ");               // 11
-            query.append("       ,activation_code = ? ");           // 12
-            query.append("       ,member_since = ? ");              // 13
-            query.append("       ,notify = ? ");                    // 14
-            query.append("       ,quote = ? ");                     // 15
-            query.append("       ,employer_search = ? ");           // 16
-            query.append("       ,relocate = ? ");                  // 17
-            query.append("       ,modify_date = ? ");               // 18
-            query.append("       ,editor_id = ? ");                 // 19
-            query.append("       ,notify_inquiry = ? ");            // 20
-            query.append("       ,language_id = ? ");               // 21
-            query.append("       ,coder_type_id = ? ");             // 22
-            query.append("       ,handle = ? ");                    // 23
-            query.append("       ,password = ? ");                  // 24
-            query.append("       ,status = ? ");                    // 25
-            query.append("       ,email = ? ");                     // 26
-            query.append("       ,terms = ? ");                     // 27
-            query.append("       ,last_login = ? ");                // 28
-            query.append("       ,coder_region_code = ? ");         // 29
-            query.append("       ,image = ? ");                     // 30
-            query.append("WHERE coder_id = ?");                     // 31
+            query.append("   SET state_code = ? ");                 // 2
+            query.append("       ,country_code = ? ");              // 3
+            query.append("       ,first_name = ? ");                // 4
+            query.append("       ,last_name = ? ");                 // 5
+            query.append("       ,member_since = ? ");              // 6
+            query.append("       ,modify_date = ? ");               // 7
+            query.append("       ,editor_id = ? ");                 // 8
+            query.append("       ,language_id = ? ");               // 9
+            query.append("       ,handle = ? ");                    // 10
+            query.append("       ,password = ? ");                  // 11
+            query.append("       ,status = ? ");                    // 12
+            query.append("       ,email = ? ");                     // 13
+            query.append("       ,last_login = ? ");                // 14
+            query.append("WHERE coder_id = ?");                     // 1
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             // Our select statement to determine if a particular row is
             // present or not
-            query = new StringBuffer(100);
+            query = new StringBuffer(1024);
             query.append("SELECT 'pops' ");
             query.append("  FROM coder ");
             query.append(" WHERE coder_id = ?");
-            psSel2 = prepareStatement(query.toString(), TARGET_DB);
+            psSel2=prepareStatement(query.toString(), TARGET_DB);
 
-            // The first thing we do is delete the old record prior to inserting the
-            // new record. We don't care if this fails or not.
+            // The first thing we do is delete the old record prior to
+            // inserting the new record. We don't care if this fails or not.
             psSel.setTimestamp(1, fLastLogTime);
-            rs = executeQuery(psSel, "loadCoder");
+            psSel.setTimestamp(2, fLastLogTime);
+            psSel.setTimestamp(3, fLastLogTime);
+            rs=executeQuery(psSel, "loadCoder");
 
             while (rs.next()) {
                 int coder_id = rs.getInt(1);
@@ -436,87 +391,55 @@ public class TCLoadCoders extends TCLoad {
                 // we update. Otherwise, we insert.
                 if (rs2.next()) {
                     psUpd.clearParameters();
-                    psUpd.setString(1, rs.getString(2));   // state_code
-                    psUpd.setString(2, rs.getString(3));   // country_code
-                    psUpd.setString(3, rs.getString(4));   // first_name
-                    psUpd.setString(4, rs.getString(5));   // last_name
-                    psUpd.setString(5, rs.getString(6));   // home_phone
-                    psUpd.setString(6, rs.getString(7));   // work_phone
-                    psUpd.setString(7, rs.getString(8));   // address1
-                    psUpd.setString(8, rs.getString(9));   // address2
-                    psUpd.setString(9, rs.getString(10));  // city
-                    psUpd.setString(10, rs.getString(11));  // zip
-                    psUpd.setString(11, rs.getString(12));  // middle_name
-                    psUpd.setString(12, rs.getString(13));  // activation_code
-                    psUpd.setTimestamp(13, rs.getTimestamp(14));  // member_since
-                    psUpd.setString(14, rs.getString(15));  // notify
-                    psUpd.setString(15, rs.getString(16));  // quote
-                    psUpd.setString(16, rs.getString(17));  // employer_search
-                    psUpd.setString(17, rs.getString(18));  // relocate
-                    psUpd.setTimestamp(18, rs.getTimestamp(19));  // modify_date
-                    psUpd.setInt(19, rs.getInt(20));  // editor_id
-                    psUpd.setString(20, rs.getString(21));  // notify_inquiry
-                    psUpd.setInt(21, rs.getInt(22));  // language_id
-                    psUpd.setInt(22, rs.getInt(23));  // coder_type_id
-                    psUpd.setString(23, rs.getString(24));  // handle
-                    psUpd.setString(24, rs.getString(25));  // password
-                    psUpd.setString(25, rs.getString(26));  // status
-                    psUpd.setString(26, rs.getString(27));  // email
-                    psUpd.setString(27, rs.getString(28));  // terms
-                    psUpd.setTimestamp(28, rs.getTimestamp(29));  // last_login
-                    psUpd.setString(29, rs.getString(30));  // coder_region_code
-                    psUpd.setInt(30, rs.getInt(31));  // image
-                    psUpd.setInt(31, coder_id);  // coder_id
+                    psUpd.setString(1, rs.getString(2));         // state_code
+                    psUpd.setString(2, rs.getString(3));         // country_code
+                    psUpd.setString(3, rs.getString(4));         // first_name
+                    psUpd.setString(4, rs.getString(5));         // last_name
+                    psUpd.setTimestamp(5, rs.getTimestamp(6));   // member_since
+                    psUpd.setTimestamp(6, rs.getTimestamp(7));   // modify_date
+                    psUpd.setInt(7, rs.getInt(8));               // editor_id
+                    psUpd.setInt(8, rs.getInt(9));               // language_id
+                    psUpd.setString(9, rs.getString(10));        // handle
+                    psUpd.setString(10, rs.getString(11));       // password
+                    psUpd.setString(11, rs.getString(12));       // status
+                    psUpd.setString(12, rs.getString(13));       // email
+                    psUpd.setTimestamp(13, rs.getTimestamp(14)); // last_login
+                    psUpd.setInt(14, coder_id);                  // coder_id
 
                     // Now, execute the insert of the new row
                     retVal = psUpd.executeUpdate();
                     count = count + retVal;
                     if (retVal != 1) {
-                        throw new SQLException("TCLoadCoders: Update for coder_id " +
-                                coder_id +
-                                " modified " + retVal + " rows, not one.");
+                        throw(new SQLException("TCLoadCoders: Update for "+
+                                               "coder_id "+coder_id+
+                                               " modified "+retVal+" rows, "+
+                                               "not one."));
                     }
                 } else {
                     psIns.clearParameters();
-                    psIns.setInt(1, coder_id);   // coder_id
-                    psIns.setString(2, rs.getString(2));   // state_code
-                    psIns.setString(3, rs.getString(3));   // country_code
-                    psIns.setString(4, rs.getString(4));   // first_name
-                    psIns.setString(5, rs.getString(5));   // last_name
-                    psIns.setString(6, rs.getString(6));   // home_phone
-                    psIns.setString(7, rs.getString(7));   // work_phone
-                    psIns.setString(8, rs.getString(8));   // address1
-                    psIns.setString(9, rs.getString(9));   // address2
-                    psIns.setString(10, rs.getString(10));  // city
-                    psIns.setString(11, rs.getString(11));  // zip
-                    psIns.setString(12, rs.getString(12));  // middle_name
-                    psIns.setString(13, rs.getString(13));  // activation_code
-                    psIns.setTimestamp(14, rs.getTimestamp(14));  // member_since
-                    psIns.setString(15, rs.getString(15));  // notify
-                    psIns.setString(16, rs.getString(16));  // quote
-                    psIns.setString(17, rs.getString(17));  // employer_search
-                    psIns.setString(18, rs.getString(18));  // relocate
-                    psIns.setTimestamp(19, rs.getTimestamp(19));  // modify_date
-                    psIns.setInt(20, rs.getInt(20));  // editor_id
-                    psIns.setString(21, rs.getString(21));  // notify_inquiry
-                    psIns.setInt(22, rs.getInt(22));  // language_id
-                    psIns.setInt(23, rs.getInt(23));  // coder_type_id
-                    psIns.setString(24, rs.getString(24));  // handle
-                    psIns.setString(25, rs.getString(25));  // password
-                    psIns.setString(26, rs.getString(26));  // status
-                    psIns.setString(27, rs.getString(27));  // email
-                    psIns.setString(28, rs.getString(28));  // terms
-                    psIns.setTimestamp(29, rs.getTimestamp(29));  // last_login
-                    psIns.setString(30, rs.getString(30));  // coder_region_code
-                    psIns.setInt(31, rs.getInt(31));  // image
+                    psIns.setInt(1, coder_id);                   // coder_id
+                    psIns.setString(2, rs.getString(2));         // state_code
+                    psIns.setString(3, rs.getString(3));         // country_code
+                    psIns.setString(4, rs.getString(4));         // first_name
+                    psIns.setString(5, rs.getString(5));         // last_name
+                    psIns.setTimestamp(6, rs.getTimestamp(6));   // member_since
+                    psIns.setTimestamp(7, rs.getTimestamp(7));   // modify_date
+                    psIns.setInt(8, rs.getInt(8));               // editor_id
+                    psIns.setInt(9, rs.getInt(9));               // language_id
+                    psIns.setString(10, rs.getString(10));       // handle
+                    psIns.setString(11, rs.getString(11));       // password
+                    psIns.setString(12, rs.getString(12));       // status
+                    psIns.setString(13, rs.getString(13));       // email
+                    psIns.setTimestamp(14, rs.getTimestamp(14)); // last_login
 
                     // Now, execute the insert of the new row
                     retVal = psIns.executeUpdate();
                     count = count + retVal;
                     if (retVal != 1) {
-                        throw new SQLException("TCLoadCoders: Insert for coder_id " +
-                                coder_id +
-                                " modified " + retVal + " rows, not one.");
+                        throw(new SQLException("TCLoadCoders: Insert for "+
+                                               "coder_id "+coder_id+
+                                               " modified "+retVal+" rows, "+
+                                               "not one."));
                     }
                 }
 
