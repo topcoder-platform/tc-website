@@ -1,7 +1,13 @@
 package com.topcoder.web.screening.request;
 
+import javax.naming.InitialContext;
+import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
 
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
+
+import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.CandidateInfo;
 
 /** 
@@ -23,26 +29,31 @@ import com.topcoder.web.screening.model.CandidateInfo;
 public class PopulateCandidate extends BaseProcessor {
     public void process() throws Exception {
         ServletRequest request = getRequest();
-        String candId = request.getParameter("candidateId");
-        if(request.getAttribute("candidateInfo") == null 
-           && candId != null) {
+        String uId = request.getParameter(Constants.USER_ID);
+        if(request.getAttribute(Constants.CANDIDATE_INFO) == null 
+           && uId != null) {
             CandidateInfo info = new CandidateInfo();
-            long candidateId = Long.parseLong(candId);
+            info.setIsNew(false);
+            long userId = Long.parseLong(uId);
 
             //do some kind of db lookup
-            //InitialContext context = new InitialContext();
-            //CoderHome cHome = context.lookup("coderHomeJNDIname thingY");
-            //Coder coder = cHome.create();
+            InitialContext context = new InitialContext();
+            EmailHome eHome = (EmailHome)PortableRemoteObject.narrow(
+                    context.lookup(EmailHome.class.getName()),
+                    EmailHome.class);
+            Email email = eHome.create();
             
             //will throw exception or return null?
-            info.setCandidateId(new Long(candidateId));
-            //info.setEmailAddress(coder.getEmailAddress(candidateId));
+            info.setUserId(new Long(userId));
+
+            long emailId = email.getPrimaryForUser(userId);
+            info.setEmailAddress(email.getAddress(emailId, userId));
             //info.setPassword(coder.getPassword(candidateId));
 
-            request.setAttribute("candidateInfo", info);
+            request.setAttribute(Constants.CANDIDATE_INFO, info);
         }
 
-        setNextPage("/candidate/candidateSetup.jsp");
+        setNextPage(Constants.CANDIDATE_SETUP_PAGE);
         setNextPageInContext(true);
     }
 }

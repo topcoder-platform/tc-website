@@ -3,7 +3,9 @@ package com.topcoder.web.screening.model;
 /** 
  * <p>
  * This is the model for candidate information.  Currently, candidate
- * info consists of email address and password.
+ * info consists of user id, email address, and password. Also, if the
+ * data contained is for a new candidate, isNew is true, else it isNew 
+ * should be false.
  * </p>
  *
  * @author Dan Tomalesky (grim@xynesis.com)
@@ -13,7 +15,44 @@ public class CandidateInfo implements java.io.Serializable
 {
     private String emailAddress;
     private String password;
-    private Long candidateId;
+    private Long userId;
+    private boolean isNew;
+
+    public CandidateInfo()
+    {
+        emailAddress = "";
+        password = "";
+        isNew = true;
+    }
+
+    /** 
+     * Set the variable isNew 
+     *
+     * @param val The value to set isNew to
+     */
+    public void setIsNew(boolean val)
+    {
+        isNew = val;
+    }
+
+    /** 
+     * Get the value of isNew
+     *
+     * @return boolean The value of isNew
+     */
+    public boolean getIsNew()
+    {
+        return isNew;
+    }
+
+    /** 
+     * Alternative method to retrieve the value of isNew
+     * @return 
+     */
+    public boolean isNew()
+    {
+        return isNew;
+    }
 
     /**
      * Sets the value of <code>emailAddress</code>.
@@ -56,23 +95,23 @@ public class CandidateInfo implements java.io.Serializable
     }
 
     /**
-     * Sets the value of <code>candidateId</code>.
+     * Sets the value of <code>userId</code>.
      *
-     * @param candidateId
+     * @param userId
      */
-    public void setCandidateId( Long val )
+    public void setUserId( Long val )
     {
-        candidateId = val;
+        userId = val;
     }
 
     /**
-     * Gets the value of <code>candidateId</code>.
+     * Gets the value of <code>userId</code>.
      *
      * @return 
      */
-    public Long getCandidateId()
+    public Long getUserId()
     {
-        return candidateId;
+        return userId;
     }
 
 }

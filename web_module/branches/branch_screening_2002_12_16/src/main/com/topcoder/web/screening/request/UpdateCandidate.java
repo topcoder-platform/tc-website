@@ -4,14 +4,19 @@ import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
 
-import com.topcoder.web.screening.model.CandidateInfo;
+import com.topcoder.security.TCSubject;
+import com.topcoder.security.UserPrincipal;
 
+import com.topcoder.web.ejb.email.Email;
+import com.topcoder.web.ejb.email.EmailHome;
 import com.topcoder.web.ejb.user.Coder;
 import com.topcoder.web.ejb.user.CoderHome;
-//import com.topcoder.web.ejb.user.Email;
-//import com.topcoder.web.ejb.user.EmailHome;
-//import com.topcoder.web.ejb.user.User;
-//import com.topcoder.web.ejb.user.UserHome;
+import com.topcoder.web.ejb.user.User;
+import com.topcoder.web.ejb.user.UserHome;
+
+import com.topcoder.web.screening.common.Constants;
+import com.topcoder.web.screening.model.CandidateInfo;
+import com.topcoder.web.screening.security.PrincipalMgr;
 
 /** 
  * <p>
@@ -25,14 +30,15 @@ import com.topcoder.web.ejb.user.CoderHome;
 public class UpdateCandidate extends BaseProcessor
 {
     /** String with the total list of character able to be used in a password */
-    private static final String VALUE_SPACE = 
-        "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
-
-    /** Page to forward to if we don't have a referrer specified */
-    private static final String DEFAULT_PAGE_NAME = "CandidateList";
+    private final int createCoderStatusId;
 
     /** The request variable for this particular processor */
     private ServletRequest request;
+
+    public UpdateCandidate() {
+        createCoderStatusId = 
+            Integer.parseInt(Constants.UC_CREATE_CODER_STATUS_ID);
+    }
 
     /** 
      * Processes the inputted information specified for CandidateSetup.
@@ -45,47 +51,79 @@ public class UpdateCandidate extends BaseProcessor
         CandidateInfo info = buildInfo();
 
         InitialContext context = new InitialContext();
-        CoderHome cHome = (CoderHome)PortableRemoteObject.narrow(context.lookup(CoderHome.class.getName()), CoderHome.class);
-        Coder coder = cHome.create();
-        //UserHome uHome = (UserHome)PortableRemoteObject.narrow(context.lookup(UserHome.class.getName()), UserHome.class);
-        //User user = uHome.create();
-        //EmailHome eHome = 
-        //        (EmailHome)PortableRemoteObject.narrow(context.lookup(EmailHome.class.getName()), EmailHome.class);
-        //Email user = eHome.create();
-        if(info.getCandidateId() == null) {
-            //create new user
-            //long userId = user.createUser();
+        PrincipalMgr principalMgr = new PrincipalMgr();
+        EmailHome eHome = (EmailHome)
+            PortableRemoteObject.narrow(
+                    context.lookup(EmailHome.class.getName()), EmailHome.class);
+        Email email = eHome.create();
             
-            //we have a new candidate
-            //long newCandidateId = coder.createCoder(0/*some coder status id*/);
-            //if(newCandidateId == -1) {
-            //  throw new Exception("Failed to generate new candidate");
-            //}
-            //info.setCandidateId(new Long(newCandidateId));
+        //check to see if user is logged in...
+        //user.isLoggedIn() or something 
+        
+        TCSubject requestor = 
+            principalMgr.getUserSubject(getAuthentication().getUser().getId());
+
+        if(info.getUserId() == null) {
+            //create new user
+            UserPrincipal userPrincipal = 
+                principalMgr.createUser(info.getEmailAddress(), 
+                                        info.getPassword(),
+                                        requestor);
+            long userId = userPrincipal.getId();
+            
+            UserHome uHome = (UserHome)
+                PortableRemoteObject.narrow(
+                    context.lookup(UserHome.class.getName()), UserHome.class);
+            User user = uHome.create();
+            user.createUser(userId);
+
+            CoderHome cHome = (CoderHome)
+                PortableRemoteObject.narrow(
+                    context.lookup(CoderHome.class.getName()), CoderHome.class);
+            Coder coder = cHome.create();
+            coder.createCoder(userId, createCoderStatusId);
+            long emailId = email.createEmail(userId);
+            email.setAddress(emailId, userId, info.getEmailAddress());
+            email.setPrimary(emailId, userId, true);
         }
+        else
+        {
+            long userId = info.getUserId().longValue();
+            long emailId = email.getPrimaryForUser(userId);
+            email.setAddress(emailId, userId, info.getEmailAddress());
 
-        //email.setEmailAddress(info.getCandidateId().longValue(), 
-        //                        info.getEmailAddress());
-        //user.setPassword(info.getCandidateId().longValue(),
-        //                    info.getPassword());
-
+            UserPrincipal userPrincipal = 
+                principalMgr.getUser(userId);
+            principalMgr.editPassword(userPrincipal, 
+                                      info.getPassword(), 
+                                      requestor);
+        }
+        
         determineNextPage();
     }
 
+    /** 
+     * Attempt build a CandidateInfo bean from the parameters passed in
+     * on the request.
+     * 
+     * @return a new CandidateInfo object populated with the parameter info
+     * @throws Exception Thrown if the required properties for the CandidateInfo
+     *                   object are not in the request or are invalid.
+     */
     private CandidateInfo buildInfo() throws Exception {
         CandidateInfo info = new CandidateInfo();
-        String candId = request.getParameter("candidateId");
-        if(candId != null) {
-            info.setCandidateId(new Long(candId));
+        String uId = request.getParameter(Constants.USER_ID);
+        if(uId != null) {
+            info.setUserId(new Long(uId));
         }
 
-        String email = request.getParameter("emailAddress");
+        String email = request.getParameter(Constants.EMAIL_ADDRESS);
         if(email == null) {
             throw new Exception("Email is not set.");
         }
         validateEmail(email);
         info.setEmailAddress(email);
-        String password = request.getParameter("password");
+        String password = request.getParameter(Constants.PASSWORD);
         if(password == null) {
             throw new Exception("Password is not set.");
         }
@@ -94,6 +132,13 @@ public class UpdateCandidate extends BaseProcessor
         return info;
     }
 
+    /** 
+     * Validate an String that is supposed to be an Email Address
+     * 
+     * @param email The string to evaluate
+     * @throws Exception Thrown if the string is invalid.  The exception
+     *                   holds the information that specifies what was invalid.
+     */
     private void validateEmail(String email) throws Exception {
         StringBuffer errorString = new StringBuffer();
         boolean valid = true;
@@ -128,6 +173,14 @@ public class UpdateCandidate extends BaseProcessor
             throw new Exception(errorString.toString());
         }
     }
+
+    /** 
+     * Validate a string that is supposed to be a password
+     *
+     * @param password  The string to evaluate
+     * @throws Exception Thrown if the string is invalid and exception holds
+     *                   info about what was invalid
+     */
     private void validatePassword(String password) throws Exception {
         StringBuffer errorString = new StringBuffer();
         boolean valid = true;
@@ -138,8 +191,9 @@ public class UpdateCandidate extends BaseProcessor
 
         //check for characters not allowed...
         for(int i = 0; i < password.length(); ++i) {
-            if(VALUE_SPACE.indexOf(password.charAt(i)) == -1) {
-                errorString.append("Character '" + password.charAt(i) + "' is not a valid character to use in a password. Use only '" + VALUE_SPACE + "'");
+            if(Constants.VALID_CHAR_LIST.indexOf(password.charAt(i)) == -1) {
+                errorString.append("Character '" + password.charAt(i) + "' is not a valid character to use in a password. Use only '" + 
+                        Constants.VALID_CHAR_LIST + "'");
                 valid = false;
                 break;
             }
@@ -150,13 +204,18 @@ public class UpdateCandidate extends BaseProcessor
         }
     }
 
+    /** 
+     * Determines the next page by the referrer parameter passed in or
+     * defaults to the one specified in Constants
+     */
     private void determineNextPage() {
-        String referrer = request.getParameter("referrer");
+        String referrer = request.getParameter(Constants.REFERRER);
         if(referrer == null) {
-            referrer = DEFAULT_PAGE_NAME;
+            referrer = Constants.UC_DEFAULT_FORWARD_PROCESSOR;
         }
 
-        setNextPage("/screening?rp= " + referrer);
+        setNextPage(Constants.CONTROLLER_URL + "?" + 
+                    Constants.REQUEST_PROCESSOR + "=" + referrer);
         //redirect because we are done
         setNextPageInContext(false);
     }

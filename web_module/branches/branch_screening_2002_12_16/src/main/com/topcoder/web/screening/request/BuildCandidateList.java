@@ -13,50 +13,35 @@ import com.topcoder.shared.dataAccess.DataAccessConstants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
-public class BuildCandidateList extends BaseProcessor {
-    private static final String QUERY_KEY = "candidateList"; //move to constants
-    private static final String DATA_SOURCE = "SCREENING_OLTP"; //move to constants
-    private static final String FORWARD_URL = "/candidate/candidateList.jsp"; //move to constants
+import com.topcoder.web.screening.common.Constants;
 
+public class BuildCandidateList extends BaseProcessor {
     private Request dataRequest;
     
-    public BuildCandidateList()
-    {
+    public BuildCandidateList() {
         dataRequest = new Request();
-        dataRequest.setProperty(DataAccessConstants.COMMAND, QUERY_KEY);
+        dataRequest.setProperty(DataAccessConstants.COMMAND, 
+                Constants.CANDIDATE_LIST_QUERY_KEY);
 
     }
 
     public void process() throws Exception {
-
-        /*
-        DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup("some ds"), 
-                                        DataSource.class);
-        Connection con = ds.getConnection();
-        PreparedStatement statement = 
-            con.prepareStatement(shouldbeindao);
-
-        //get results and add it to the 
-        ResultSet rs = statement.executeQuery();
-        result = new ResultSetContainer(rs);
-        */
-
         InitialContext context = new InitialContext();
         DataSource ds = (DataSource)
-            PortableRemoteObject.narrow(context.lookup(DATA_SOURCE),
+            PortableRemoteObject.narrow(context.lookup(Constants.DATA_SOURCE),
                                         DataSource.class);
         DataAccess dAccess = new DataAccess(ds);
         Map map = dAccess.getData(dataRequest);
 
         if(map != null && map.size() == 1)
         {
-            ResultSetContainer result = (ResultSetContainer)map.get(QUERY_KEY);
+            ResultSetContainer result = 
+                (ResultSetContainer)map.get(Constants.CANDIDATE_LIST_QUERY_KEY);
             ServletRequest request = getRequest();
-            request.setAttribute("list", result);
+            request.setAttribute(Constants.CANDIDATE_LIST_QUERY_KEY, result);
         }
 
-        setNextPage(FORWARD_URL);
+        setNextPage(Constants.CANDIDATE_LIST_PAGE);
         setNextPageInContext(true);
     }
 }

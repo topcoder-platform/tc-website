@@ -1,13 +1,19 @@
 package com.topcoder.web.screening.controller;
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+import java.io.IOException;
 
-import com.topcoder.shared.security.*;
-import com.topcoder.web.common.*;
-import com.topcoder.web.common.security.*;
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletException;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.topcoder.shared.security.Authentication;
+import com.topcoder.shared.security.Persistor;
+import com.topcoder.web.common.RequestProcessor;
+import com.topcoder.web.common.security.BasicAuthentication;
+import com.topcoder.web.common.security.SessionPersistor;
+import com.topcoder.web.screening.common.Constants;
 
 /**
  * This class handles all incoming requests.
@@ -25,12 +31,7 @@ import com.topcoder.web.common.security.*;
  * version 1.0.3 -- 02-Jan-2003 -- fixed RequestProcessor usage again :). - Porgery
  */
  
-public class MainServlet
-    extends HttpServlet {
-        //defaults seeded for missing config params in web.xml
-    static String ERROR_PAGE         = "errorPage.jsp";
-    static String PROCESSORS_PACKAGE = "com.topcoder.web.screening.request";
-    static String PROCESSORS_PARAM   = "rp";
+public class MainServlet extends HttpServlet {
 
     /**
      * Init() is run the moment that the servlet is loaded into the web server.
@@ -39,16 +40,15 @@ public class MainServlet
      * @throws ServletException
      */
     public void init() throws ServletException {
-        if(getServletConfig().getInitParameter("error_page")!=null)
-            ERROR_PAGE = getServletConfig().getInitParameter("error_page");
-        if(getServletConfig().getInitParameter("processors_package")!=null)
-            PROCESSORS_PACKAGE = getServletConfig().getInitParameter("processors_package");
-        if(getServletConfig().getInitParameter("processors_param")!=null)
-            PROCESSORS_PARAM = getServletConfig().getInitParameter("processors_param");
+        Constants.initialize(getServletConfig());
+
+        if(!Constants.isInitialized())
+            throw new ServletException("Constants did not initialize properly");
     }
 
     /**
-     * all GET requests are redirected to the doPost handler, and POST should always be used anyway.
+     * all GET requests are redirected to the doPost handler, and POST 
+     * should always be used anyway.
      * 
      * @param request 
      * @param response 
@@ -61,8 +61,9 @@ public class MainServlet
     }
 
     /**
-     * This method takes the request and locates the appropriate RequestProcessor,
-     * instantiates it, and then creates a forward call to the view (JSPs).
+     * This method takes the request and locates the appropriate 
+     * RequestProcessor, instantiates it, and then creates a forward call 
+     * to the view (JSPs).
      * 
      * @param request 
      * @param response
@@ -73,14 +74,19 @@ public class MainServlet
     public void doPost(HttpServletRequest request, HttpServletResponse response)
                 throws ServletException, IOException {
         try {
-            String proc_param = request.getParameter(PROCESSORS_PARAM);
+            String procParam = 
+                request.getParameter(Constants.REQUEST_PROCESSOR);
 
-            if (proc_param == null || proc_param.length() == 0)
-                throw new Exception("No Request Processor Set.");
-            if (!isLegal(proc_param))
+            //redirect to some default page
+            if (procParam == null || procParam.length() == 0)
+                sendToPage(request, response, Constants.DEFAULT_PAGE, false);
+
+            if (!isLegal(procParam))
                 throw new Exception("Request Processor in illegal format.");
-            Class            proc_class = Class.forName(PROCESSORS_PACKAGE+proc_param);
-            RequestProcessor rp = (RequestProcessor)proc_class.newInstance();
+            Class procClass = 
+                Class.forName(Constants.PROCESSORS_PACKAGE+procParam);
+
+            RequestProcessor rp = (RequestProcessor)procClass.newInstance();
 
             Persistor p = new SessionPersistor(request.getSession());
             Authentication auth = new BasicAuthentication(p, request, response);
@@ -107,11 +113,14 @@ public class MainServlet
      * @throws ServletException 
      * @throws IOException 
      */
-    private void sendToPage(HttpServletRequest request, HttpServletResponse response, String page, 
+    private void sendToPage(HttpServletRequest request, 
+                            HttpServletResponse response, 
+                            String page, 
                             boolean forward)
                      throws ServletException, IOException {
         if (forward) {
-            getServletContext().getRequestDispatcher(response.encodeURL(page)).forward(request, response);
+            getServletContext().getRequestDispatcher(
+                    response.encodeURL(page)).forward(request, response);
         } else {
             response.sendRedirect(response.encodeRedirectURL(page));
         }
@@ -126,11 +135,12 @@ public class MainServlet
      * @throws ServletException
      * @throws IOException
      */
-    private void sendToErrorPage(HttpServletRequest request, HttpServletResponse response, 
+    private void sendToErrorPage(HttpServletRequest request, 
+                                 HttpServletResponse response, 
                                  Throwable exception)
                           throws ServletException, IOException {
         request.setAttribute("Exception", exception);
-        sendToPage(request, response, ERROR_PAGE, true);
+        sendToPage(request, response, Constants.ERROR_PAGE, true);
     }
 
     /**
@@ -140,10 +150,10 @@ public class MainServlet
      * @return true==string is okay, false==string is bad
      */
     private static boolean isLegal(String s) {
-        for (int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); ++i) {
             char ch = s.charAt(i);
 
-            if ("0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_".indexOf(ch) < 0) {
+            if (Constants.VALID_CHAR_LIST.indexOf(ch) < 0) {
                 return false;
             }
         }

@@ -36,7 +36,7 @@
               <TD COLSPAN="7"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="7" ALIGN="center"><screen:link page="/screening?rp=CandidateSetup" styleClass="bodyText">Add Candidate</screen:link></TD>
+              <TD COLSPAN="7" ALIGN="center"><screen:link page="/screening?rp=PopulateCandidate&referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:link></TD>
            </TR>
            <TR>
               <TD COLSPAN="7"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
@@ -52,11 +52,11 @@
            <TR>
               <TD COLSPAN="8"><screen:img page="/ev/clear.gif" width="1" height="1" border="0" /></TD>
            </TR>	        
-            <jsp:useBean id="list" type="java.util.List" scope="request" />
-            <screen:resultSetRowIterator id="row" list="<%=list%>">
+            <jsp:useBean id="candidateList" type="java.util.List" scope="request" />
+            <screen:resultSetRowIterator id="row" list="<%=candidateList%>">
 	        <TR>
    <% 
-    String linkUrl = "/screening?rp=CandidateSetup&candidateId=" + row.getItem("user_id");
+    String linkUrl = "/screening?referrer=BuildCandidateList&rp=PopulateCandidate&candidateId=" + row.getItem("user_id");
     %>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" CLASS="bodyText">&#160;<screen:link page="<%=linkUrl%>" styleClass="bodyText">Edit</screen:link></TD>
 		       <TD VALIGN="middle" CLASS="bodyText">&#160;<screen:resultSetItem row="<%=row%>" name="address" /></TD>		       
@@ -74,7 +74,7 @@
               <TD COLSPAN="7"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR>
            <TR>
-              <TD COLSPAN="7" ALIGN="center"><screen:link page="/screening?rp=candidateSetup" styleClass="bodyText">Add Candidate</screen:link></TD>
+              <TD COLSPAN="7" ALIGN="center"><screen:link page="/screening?rp=PopulateCandidate&referrer=BuildCandidateList" styleClass="bodyText">Add Candidate</screen:link></TD>
            </TR>
          </TABLE>
 <P><BR/></P>    

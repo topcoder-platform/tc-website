@@ -4,27 +4,6 @@
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Candidate Setup</TITLE>
-<SCRIPT language="JavaScript">
-<!--
-
-//returns an integer between 0 and number-1
-function rand(number) {
-        return Math.floor(Math.random()*number);
-};
-
-//string containing every value we can use in a password
-var valueSpace = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ"; 
-
-//generates a random password of 8 alphanumeric values
-function generatePassword() {
-    var newPass = "";
-    for(var i = 0; i < 8; ++i) {
-        newPass = newPass + valueSpace.charAt(rand(valueSpace.length));
-    }
-
-    document.candidateSetupForm.password.value = newPass;
-}
-//--></SCRIPT>
 </HEAD>
 
 <BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -49,17 +28,12 @@ function generatePassword() {
 <P>
             Create a new candidate or update the existing one.
 </P><BR>
-<%
-    CandidateInfo info = (CandidateInfo)request.getAttribute("candidateInfo");
-    String emailAddress = "";
-    String password = "";
-    if(info != null) {
-       emailAddress = info.getEmailAddress();
-       password = info.getPassword();
-    }
+<jsp:useBean id="candidateInfo" class="CandidateInfo" />
 
+<%
     String referrer = request.getParameter("referrer");
 %>
+
 <screen:form name="candidateSetupForm" action="/screening" method="POST">
         <INPUT type="hidden" name="rp" value="UpdateCandidate" />
 <%
@@ -70,9 +44,9 @@ function generatePassword() {
     }
     
     //only want it there if we are not new
-    if(info != null) {
+    if(!candidateInfo.isNew()) {
 %>
-        <INPUT type="hidden" name="candidateId" value="<%=info.getCandidateId()%>" />
+        <INPUT type="hidden" name="userId" value="<jsp:getProperty name="candidateInfo" property="userId" " />
 <%    
     }
 %>
@@ -81,7 +55,7 @@ function generatePassword() {
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="50%">
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Email Address</strong>&#160;&#160;</TD>
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="emailAddress" value="<%=emailAddress%>" size="30" maxlength="30"></TD>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="emailAddress" value="<jsp:getProperty name="candidateInfo" property="emailAddress" />" size="30" maxlength="30"></TD>
               <TD CLASS="bodyText" VALIGN="middle">&#160;</TD>
            </TR>
            <TR>
@@ -89,24 +63,26 @@ function generatePassword() {
            </TR>
            <TR>
               <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><strong>Password</strong>&#160;&#160;</TD>
-              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="password" value="<%=password%>" size="30" maxlength="30"></TD>
-              <TD CLASS="bodyText" VALIGN="middle">&#160;<A HREF="#" onClick="generatePassword()" CLASS="bodyText">Generate a Password</A></TD>
+              <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><input type="text" name="password" value="<jsp:getProperty name="candidateInfo" property="password" />>" size="30" maxlength="30"></TD>
+              <TD CLASS="bodyText" VALIGN="middle">&#160;<screen:link page="/screening?rp=GeneratePassword" class="bodyText">Generate a Password</screen:link></TD>
            </TR>
            <TR>
               <TD></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
             <TR>
-              <TD COLSPAN="2"><screen:img page="/i/ev/clear.gif" width="1" height="10" border="0" /></TD>
+              <TD COLSPAN="2"><screen:img page="/ev/clear.gif" width="1" height="10" border="0" /></TD>
            </TR> 
            <TR>
               <TD COLSPAN="2" ALIGN="center"><INPUT type="SUBMIT" /></TD>
            </TR>                                
          </TABLE>
 <%
-    if(info != null)
+    if(!candidateInfo.isNew())
     {
+        //make custom tag to deal with this eventually...
+        String link = "/screening?rp=NoteList&userId=" + candidateInfo.getUserId();
 %>
-<P>To add a note <screen:link page="/note_list.jsp" styleClass="bodyText">click here</screen:link></P>
+<P>To add a note <screen:link page="<%=link%>" styleClass="bodyText">click here</screen:link></P>
 <%
     }
 %>
