@@ -1,7 +1,8 @@
 <%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
                  com.topcoder.shared.netCommon.screening.response.data.ScreeningProblemSet,
                  java.util.ArrayList,
-                 java.util.List"%>
+                 java.util.List,
+                 com.topcoder.web.codinginterface.techassess.model.ProblemSetInfo"%>
 
 <script language="javascript">
 
@@ -20,8 +21,8 @@
         var ids = new Array(<%=problems.size()%>);
         <%
                 for (int i=0; i<problems.size(); i++) {
-                    %> times(<%=i%>) = new Date(<%=((ScreeningProblemSet)problems.get(i)).getCompletionTime().intValue()%>); <%
-                    %> ids(<%=i%>) = 'problemTimer<%=((ScreeningProblemSet)problems.get(i)).getProblemLabels()[0].getComponentID()%>'; <%
+                    %> times(<%=i%>) = new Date(<%=((ProblemSetInfo)problems.get(i)).getTimeRemaining().getTime()%>); <%
+                    %> ids(<%=i%>) = 'problemTimer<%=((ProblemSetInfo)problems.get(i)).getProblems()[0].getComponentID()%>'; <%
                 }
             }
 
