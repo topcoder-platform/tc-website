@@ -94,17 +94,17 @@ public class SoftwareComponent {
 
     private float getScreeningPrimaryDevReviewCost() {
         float screeningCost = (1f / 2f) * (float)submissionCount * DEV_REVIEW_RATE;  //30 minutes per submission
-        return Math.round(screeningCost);
+        return screeningCost;
     }
 
     private float getDevAggregationCost() {
         float aggregationCost = (1f / 2f) * DEV_REVIEW_RATE;  //30 minutes to aggregate
-        return Math.round(aggregationCost);
+        return aggregationCost;
     }
 
     private float getDevFinalReviewCost() {
         float finalReviewCost = DEV_REVIEW_RATE;  //60 minutes to do final review
-        return Math.round(finalReviewCost);
+        return finalReviewCost;
     }
 
     /**
@@ -116,7 +116,7 @@ public class SoftwareComponent {
         float startupCost = DEV_REVIEW_RATE * 2; //120 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        return Math.round(reviewCost + startupCost);
+        return reviewCost + startupCost;
     }
 
     /**
@@ -153,17 +153,17 @@ public class SoftwareComponent {
 
     private float getDesignScreeningCost() {
         float screeningCost = (1f / 2f) * (float)submissionCount * DESIGN_REVIEW_RATE;  //30 minutes per submission
-        return Math.round(screeningCost);
+        return screeningCost;
     }
 
     private float getDesignAggregationCost() {
         float aggregationCost = (1f / 2f) * DESIGN_REVIEW_RATE;  //30 minutes to aggregate
-        return Math.round(aggregationCost);
+        return aggregationCost;
     }
 
     private float getDesignFinalReviewCost() {
         float finalReviewCost = DESIGN_REVIEW_RATE;  //60 minutes to do final review
-        return Math.round(finalReviewCost);
+        return finalReviewCost;
     }
 
 
@@ -177,7 +177,7 @@ public class SoftwareComponent {
         float startupCost = DESIGN_REVIEW_RATE; //60 minutes to "start up"
         debug("reviewCost " + reviewCost);
         debug("startupCost " + startupCost);
-        return Math.round(reviewCost + startupCost);
+        return reviewCost + startupCost;
     }
 
 
