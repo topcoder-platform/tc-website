@@ -73,13 +73,17 @@ public class GoogleLogin extends FullLogin {
     }
 
     protected void setNextPage() {
-        if (hasErrors()) {
+        setNextPage(Constants.GOOGLE_REG_CLOSED_PAGE);
+        setIsNextPageInContext(true);
+        //reg closed
+/*        if (hasErrors()) {
             setNextPage(Constants.GOOGLE_LOGIN_PAGE);
             setIsNextPageInContext(true);
         } else {
             setNextPage(Constants.GOOGLE_REG_PAGE);
             setIsNextPageInContext(true);
         }
+        */
     }
 
     protected boolean hasCompanyAccount() throws Exception {
