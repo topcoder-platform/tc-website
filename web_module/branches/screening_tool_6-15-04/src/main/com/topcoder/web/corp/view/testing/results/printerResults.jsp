@@ -168,9 +168,45 @@
          <p></p>
      <% } //has test set a %>
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
+            <%if( request.getAttribute(Constants.USAGE_TYPE) != null && ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
             <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
 	        <TR>
-		       <TD COLSPAN="7" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+                       <TD COLSPAN="7" VALIGN="top" CLASS="testTableTitle">Problem Statistics:</TD>
+	        </TR>
+	        <TR>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Problem</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B># Submissions</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Submission %</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B># Correct</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Sub. Correct %</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Overall Correct %</B></TD>
+		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Avg. Time</B></TD>
+	        </TR>
+                <% { even = false; %>
+                   <screen:resultSetRowIterator id="row" list="<%=testResultsInfo.getProblemSetBStats()%>">
+	             <TR>
+		       <TD CLASS="<%=even?"testTableEven":"testTableOdd"%>">&#160;<screen:resultSetItem row="<%=row%>" name="name" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submission_count" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submission_percent" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="num_correct" /></TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="submit_correct_percent" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="overall_correct_percent" />%</TD>
+		       <TD ALIGN="center" CLASS="<%=even?"testTableEven":"testTableOdd"%>"><screen:resultSetItem row="<%=row%>" name="avg_time" /></TD>
+	             </TR>
+                     <% even = !even; %>
+                   </screen:resultSetRowIterator>
+                <% } %>
+	        </table>
+	        <p></p>
+            <% } %>
+            <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
+	        <TR>
+       	        <% if( request.getAttribute(Constants.USAGE_TYPE) != null &&  ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_SCREENING) { %>
+		       <TD COLSPAN="8" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+		<% } else { %>
+                       <TD COLSPAN="7" VALIGN="top" CLASS="testTableTitle">Test Set B Results:</TD>
+		<% } %>
+
 	        </TR>
 	        <TR>
 		       <TD ALIGN="center" WIDTH="10%" CLASS="testFormHeader"><B>Problem</B></TD>
