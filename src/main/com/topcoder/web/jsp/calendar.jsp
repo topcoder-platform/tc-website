@@ -41,7 +41,7 @@
                                 <td id="calendarMini">10</td>
                                 <td id="calendarCRPFMini"><A id="miniSRMDate" href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_sched">11</A></td>
                                 <td id="calendarSRMMini"><A id="miniSRMDate" href="/?RoundId=4660&amp;t=schedule&amp;c=srm">12</A></td>
-                                <td id="calendarCRPFMini"><A id="miniSRMDate" href="/tc?&amp;module=CRPFStatic&amp;d1=crpf&amp;d2=crpf_sched">13</A></td>
+                                <td id="calendarMini">13</td>
                                 <td id="calendarGoogleMini"><A id="miniSRMDate" href="/pl/?&amp;module=Static&amp;d1=google&amp;d2=google_sched"><span id="calendarGoogleDate">14</span></A></td>
                                 <td id="calendarMini">15</td>
                             </tr>
