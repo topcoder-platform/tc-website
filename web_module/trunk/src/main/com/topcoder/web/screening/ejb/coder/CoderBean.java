@@ -1,6 +1,6 @@
 package com.topcoder.web.screening.ejb.coder;
 
-import com.topcoder.shared.ejb.BaseEJB;
+import com.topcoder.web.ejb.BaseEJB;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
