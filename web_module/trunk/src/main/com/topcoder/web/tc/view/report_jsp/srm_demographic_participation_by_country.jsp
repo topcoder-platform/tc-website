@@ -26,6 +26,7 @@
 %>
 <%@ taglib uri="/WEB-INF/rsc-taglib.tld" prefix="rsc" %>
 <%
+
     TCRequest tcRequest = HttpObjectFactory.createRequest(request);
     TCResponse tcResponse = HttpObjectFactory.createResponse(response);
     WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),

@@ -19,9 +19,31 @@ javax.servlet.jsp.JspWriter,
 		  java.math.BigInteger,
 		  java.lang.Object
 
-"
+          ,
+          com.topcoder.web.common.TCRequest,
+          com.topcoder.web.common.HttpObjectFactory,
+          com.topcoder.web.common.TCResponse,
+          com.topcoder.web.common.security.WebAuthentication,
+          com.topcoder.web.common.security.BasicAuthentication,
+          com.topcoder.web.common.security.SessionPersistor,
+          com.topcoder.security.admin.PrincipalMgrRemote,
+          com.topcoder.security.TCSubject,
+          com.topcoder.web.common.SessionInfo"
 %>
 <%
+
+    TCRequest tcRequest = HttpObjectFactory.createRequest(request);
+    TCResponse tcResponse = HttpObjectFactory.createResponse(response);
+    WebAuthentication authentication = new BasicAuthentication(new SessionPersistor(tcRequest.getSession()),
+            tcRequest, tcResponse, BasicAuthentication.MAIN_SITE);
+    PrincipalMgrRemote pmgr = (PrincipalMgrRemote) com.topcoder.web.common.security.Constants.createEJB(PrincipalMgrRemote.class);
+    TCSubject user = pmgr.getUserSubject(authentication.getActiveUser().getId());
+    SessionInfo info = new SessionInfo(tcRequest, authentication, user.getPrincipals());
+    if (!info.isAdmin()) {
+        %> you don't have permssion to view this page <%
+        return;
+    }
+
 String newrd;
 if (request.getParameter("rd")==null)
 {
