@@ -1,3 +1,5 @@
+//@@@ ok, this seems really stupid now that i read about errorPage
+
 package com.topcoder.web.hs.controller.requests;
 
 import javax.servlet.*;
