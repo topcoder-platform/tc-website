@@ -91,16 +91,16 @@
             
             <table border="0" cellspacing="0" cellpadding="3" width="100%">
 
-<!-- TCO Design Begins -->
-                <tr>
-                    <td colspan="6" class="tcoHeader"><a name="design"></a>2003 TopCoder Open Component Design Projects</td>
-                </tr>
                 <tr>
                     <xsl:variable name="priceFormat" select="'$###,###.00'" />
                     <td class="bodyText" colspan="6">
                         <p>Currently open projects total <span id="totalMoney"><xsl:value-of select="format-number(sum(/TC/DEVELOPMENT/projects/project/price) * 1.75, $priceFormat)"/></span> 
                         in payments to the winning designers and developers. Send us your solutions today so you can start collecting your share.</p>
                     </td>
+                </tr>
+<!-- TCO Design Begins -->
+                <tr>
+                    <td colspan="6" class="tcoHeader"><a name="design"></a>2003 TopCoder Open Component Design Projects</td>
                 </tr>
 
                 <tr valign="middle">
