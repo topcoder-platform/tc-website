@@ -62,30 +62,21 @@
 					====================================<BR/>
 					.:: SPONSOR NAME<BR/>
 					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
-					.:: SPONSOR NAME<BR/>
-					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
-					.:: SPONSOR NAME<BR/>
-					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
-					.:: SPONSOR NAME<BR/>
-					<A HREF="#" CLASS="bodyText">http://www.sponsorcompany.com</A><BR/><BR/>
 					====================================<BR/>
 					Division I:<BR/>
 					====================================<BR/>
-					Room 00: [handle], points, earnings<BR/>
-					Room 00: [handle], points, earnings<BR/>
-					Room 00: [handle], points, earnings<BR/><BR/>
+					Room 00: [handle], points<BR/>
+					Room 00: [handle], points<BR/>
+					Room 00: [handle], points<BR/><BR/>
 					====================================<BR/>
 					Division II:<BR/>
 					====================================<BR/>
-					Room 00: [handle], points, earnings<BR/>
-					Room 00: [handle], points, earnings<BR/>
-					Room 00: [handle], points, earnings<BR/>
+					Room 00: [handle], points<BR/>
+					Room 00: [handle], points<BR/>
+					Room 00: [handle], points<BR/>
 					<A HREF="#" CLASS="bodyText">More results and match summary</A><BR/><BR/>
-					Don't forget to try out the problems new <A HREF="#" CLASS="bodyText">Practice Room!</A><BR/><BR/>
-					Best of luck in the next match!<BR/>
-					Tom Longo<BR/>
-					Vice President of Membership<BR/>
-					TopCoder, Inc.<BR/>
+					Don't forget to try out the problems in the <A HREF="#" CLASS="bodyText">Practice Room!</A><BR/><BR/>
+					Best of luck to you in the next match!<BR/>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>

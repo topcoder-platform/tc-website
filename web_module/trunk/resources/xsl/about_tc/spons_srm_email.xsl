@@ -94,10 +94,10 @@
 </TABLE>
 <!--end contextual links-->
 					<P>TopCoder's membership receives emails before and after each single round match. The emails are text formatted and contain the necessary information regarding the match date, time and 
-					registration time. TopCoder has an opt-in email policy regarding competition related information. To date, better than 80% of the membership opts-in for these emails.</P>
-					<P><B>Match Announcment</B><BR/>Sponsors are given space within the email for company name, forty words of copy and a desired URL.<BR/><A HREF="/index?t=about_tc&amp;c=spons_email_annc" CLASS="bodyText">View sample</A></P>
+					registration time. TopCoder has an opt-in email policy regarding competition related information. To date, better than 70% of the membership opts-in for these emails.</P>
+					<P><B>Match Announcment</B><BR/>Sponsors are given space within the email for company name, 50 words of copy and a desired URL.<BR/><A HREF="/index?t=about_tc&amp;c=spons_email_annc" CLASS="bodyText">View sample</A></P>
 					<P><B>Match Results</B><BR/>Sponsors are given space within the email for company name and a desired URL.<BR/><A HREF="/index?t=about_tc&amp;c=spons_email_results" CLASS="bodyText">View sample</A></P>
-					<P><B>Note</B> - TopCoder marketing will work with a sponsor's internal or external creative team to develop the desired copy points.</P>
+					<P><B>Note</B> - TopCoder Marketing will work with a sponsor's internal or external creative team to develop the desired copy points.</P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
