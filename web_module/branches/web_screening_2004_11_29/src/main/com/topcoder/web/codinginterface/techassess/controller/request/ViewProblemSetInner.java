@@ -23,7 +23,7 @@ public class ViewProblemSetInner extends Base {
                 loadSessionErrorsIntoRequest(messageId);
                 loadSessionDefaultsIntoRequest(messageId);
                 log.debug("defaults: " + defaults);
-                if (hasDefault(Constants.PROBLEM_SETS) && hasDefault(Constants.LANGUAGES) && hasDefault(Constants.PROBLEM_TYPE_ID)) {
+                if (hasDefault(Constants.PROBLEMS) && hasDefault(Constants.PROBLEM_TYPE_ID)) {
                     log.debug("has defaults");
                     getRequest().setAttribute(Constants.PROBLEM_SETS, getDefault(Constants.PROBLEM_SETS));
                     getRequest().setAttribute(Constants.LANGUAGES, getDefault(Constants.LANGUAGES));
