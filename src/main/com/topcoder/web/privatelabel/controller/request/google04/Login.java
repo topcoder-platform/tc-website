@@ -127,13 +127,12 @@ public class Login extends FullLogin {
             info = getCommonInfo(userId, db);
 
             Coder coder = (Coder) createEJB(getInitialContext(), Coder.class);
-            try {
-            info.setCoderType(coder.getCoderTypeId(userId, db));
-            } catch (Exception e) {
-                if(hasTCAccount) {
-                    info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
-                }
+            if(coder.exists(userId, db)) {
+                info.setCoderType(coder.getCoderTypeId(userId, db));
+            } else if(hasTCAccount) {
+                info.setCoderType(coder.getCoderTypeId(userId, DBMS.OLTP_DATASOURCE_NAME));
             }
+
 
             //load up the demographic information
             Response response = (Response) createEJB(getInitialContext(), Response.class);
