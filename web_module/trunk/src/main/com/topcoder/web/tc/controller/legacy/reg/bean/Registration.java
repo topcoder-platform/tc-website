@@ -1333,7 +1333,7 @@ public class Registration
     }
 
 
-    public static String getSchoolName(int schoolName)
+    public static String getSchoolName(long schoolName)
             throws TaskException {
         String result = "";
         try {
@@ -1622,8 +1622,8 @@ public class Registration
                 } else {
                     currentSchool.setModified("U");
                 }
-                int schoolId = 0;
-                if (isNumber(school) && Integer.parseInt(school) != -1) {
+                long schoolId = 0;
+                if (isNumber(school) && Integer.parseInt(school) != 0) {
                     schoolId = Integer.parseInt(school);
                     this.schoolName = getSchoolName(schoolId);
                 } else {
@@ -1633,13 +1633,14 @@ public class Registration
                         //create school
                         InitialContext ctxSchool = TCContext.getInitial();
                         com.topcoder.web.ejb.school.School s = (com.topcoder.web.ejb.school.School) BaseProcessor.createEJB(ctxSchool, com.topcoder.web.ejb.school.School.class);
-                        schoolId = Integer.parseInt(String.valueOf(s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME)));
-                        s.setFullName(schoolId, schoolName, DBMS.OLTP_DATASOURCE_NAME);
+                        
+                        schoolId = s.createSchool(DBMS.OLTP_DATASOURCE_NAME, DBMS.COMMON_OLTP_DATASOURCE_NAME,
+                                    schoolName.substring(0,1).toUpperCase(), "NA", this.country, coder.getCoderId(), schoolName );
                     }
                 }
 
                 currentSchool.setUserId(coder.getCoderId());
-                currentSchool.setSchoolId(schoolId);
+                currentSchool.setSchoolId((int)schoolId);
                 currentSchool.setName(schoolName);  
 
                 if (!this.gpa.equals("")) {
