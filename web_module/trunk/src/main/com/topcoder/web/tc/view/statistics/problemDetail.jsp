@@ -47,6 +47,7 @@
            <tr>
              <td VALIGN="top" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR>
 
+             <% if (!div1Lang.isEmpty()) { %>
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <tr><td>Division 1</td></tr>
                  <tr>
@@ -164,11 +165,13 @@
                    </rsc:iterator>
                  </tr>
                </table>
+               <% } %>
 
 
                <br/><br/>
                <br/><br/>
 
+               <% if (!div2Lang.isEmpty()) { %>
                <table BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <tr><td>Division 2</td></tr>
                  <tr>
@@ -288,6 +291,7 @@
 
 
                </table>
+               <% } %>
 
 
 
