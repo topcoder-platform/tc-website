@@ -145,7 +145,7 @@ function getProblemDetail(id) {
                         </A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
-                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=problem_text&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Problem<br/>Results</A>
+                        <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=problem_text&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Test<br/>Results</A>
                     </td>
                     <td class="screeningHeader" width="10%" align=center>
                         <A class=screeningHeader href="?<%=Constants.MODULE_KEY%>=<%=Constants.CAMPAIGN_RESULTS_PROCESSOR%>&<%=Constants.SORT_BY%>=preference&<%=Constants.CAMPAIGN_ID%>=<%=request.getAttribute(Constants.CAMPAIGN_ID)%>">Preference<br/>Level</A>
@@ -202,7 +202,7 @@ function getProblemDetail(id) {
                     </td>
 
                     <td class='<%=cssClasses[counter % 2]%>' align=center>
-                        <A href='?<%=Constants.MODULE_KEY%>=ProblemResult&<%=Constants.ROUND_ID%>=<%=row.getStringItem("session_round_id")%>&<%=Constants.PROBLEM_ID%>=<%=row.getStringItem("problem_id")%>&<%=Constants.SESSION_ID%>=<%=row.getStringItem("session_id")%>&<%=Constants.PROBLEM_TYPE_ID%>=<%=row.getStringItem("problem_type_id")%><%--&<%=Constants.ROUND_ID%>=<%=row.getStringItem("session_round_id")%>--%>'>
+                        <A href='?<%=Constants.MODULE_KEY%>=TestResults&<%=Constants.SESSION_ID%>=<%=row.getStringItem("session_id")%>'>
                             <%=row.getStringItem("problem_text")%>
                         </A>
                     </td>
