@@ -94,7 +94,7 @@
 <B>When:</B> October 8th - November 23rd<BR/>
 <B>Where:</B> Mohegan Sun Casino in Uncasville, CT<BR/>
 <B>Total Prize:</B> $150,000<BR/><BR/>
-<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute><B>&#62;&#62; There are 89 open spots!</B><BR/>
+<A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=authentication&amp;c=login</xsl:attribute><B>&#62;&#62; There are 112 open spots!</B><BR/>
 Login</A> to sign up!<BR/>
 <A CLASS="bodyText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=schedule&amp;c=invit02_sched</xsl:attribute>Get more details!</A><BR/>
     </TD>
