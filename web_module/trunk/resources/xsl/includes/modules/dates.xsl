@@ -32,13 +32,13 @@
               </xsl:otherwise>
             </xsl:choose>
             <xsl:choose>
-              <xsl:when test="ContestId='4105'">
-                <b>04/01/2002</b><br/>
-                Register: 8:30 PM<br/>
-                Compete: 10:00 PM<br/>
+              <xsl:when test="ContestId='4115'">
+                <b>04/09/2002</b><br/>
+                Register: 6:30 PM<br/>
+                Compete: 8:00 PM<br/>
               </xsl:when>
-              <xsl:when test="ContestId='4110'">
-                <b>04/03/2002</b><br/>
+              <xsl:when test="ContestId='4120'">
+                <b>04/10/2002</b><br/>
                 Register: 7:30 PM<br/>
                 Compete: 9:00 PM<br/>
               </xsl:when>
