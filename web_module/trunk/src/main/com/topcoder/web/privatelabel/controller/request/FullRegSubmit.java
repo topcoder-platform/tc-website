@@ -16,7 +16,6 @@ import com.topcoder.web.privatelabel.model.DemographicQuestion;
 import com.topcoder.web.privatelabel.model.DemographicResponse;
 import com.topcoder.web.privatelabel.model.FullRegInfo;
 import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.shared.security.SimpleUser;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -82,9 +81,8 @@ abstract class FullRegSubmit extends SimpleRegSubmit {
                     throw new Exception ("Invalid or inactive job " + jobId);
                 }
             }
-            //log them is so that they can upload a resume
-            //this is really sketchy if they we are requiring an activation email to activate their account
-            getAuthentication().login(new SimpleUser(ret.getId(), regInfo.getHandle(), regInfo.getPassword()));
+            //put their user id in the session so that they can upload a resume
+            getRequest().getSession(true).setAttribute(Constants.USER_ID, new Long(ret.getId()));
         } else {
             User user = (User) createEJB(getInitialContext(), User.class);
             //they're not eligible so override whatever we had set their status to be private label ineligible
