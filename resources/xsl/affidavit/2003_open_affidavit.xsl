@@ -209,10 +209,16 @@
     <xsl:when test="/TC/AFFIDAVIT/Affidavit/Info/country_name='India'">'
         <center>
             [TO BE EXECUTED ON A STAMP PAPER OF TWENTY FIVE RUPEES]<br/><br/>
-            AFFIDAVIT OF ELIGIBILITY AND LIABILITY AND PUBLICITY RELEASE<br/><br/>
+            AFFIDAVIT OF ELIGIBILITY AND LIABILITY AND PUBLICITY RELEASE<br/>
+            <BR/>
+            <BR/>
             2003 TopCoder Open<BR/>
             Coding Tournament<BR/>
+            <BR/>
+            <BR/>
         </center>
+        <BR/>
+        <BR/>
             I, _______________ [insert full name], aged ___ [insert age],
             son/daughter of ___________ [insert father's name], residing
             at _____________ [insert address] do hereby solemnly affirm and state
