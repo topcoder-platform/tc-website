@@ -389,7 +389,6 @@ public class ProductBean implements SessionBean {
     }
 
 
-
     /**
      *
      *
@@ -422,7 +421,7 @@ public class ProductBean implements SessionBean {
             if (rs.next())
                 ret = rs.getLong("unit_type_id");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting unit_type_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting unit_type_id");
@@ -500,7 +499,7 @@ public class ProductBean implements SessionBean {
             if (rs.next())
                 ret = rs.getString("unit_type_desc");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting unit_type_desc");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting unit_type_desc");
@@ -544,8 +543,6 @@ public class ProductBean implements SessionBean {
 
         return (ret);
     }
-
-
 
 
     /**
@@ -686,8 +683,6 @@ public class ProductBean implements SessionBean {
     }
 
 
-
-
     /**
      *
      *
@@ -696,7 +691,7 @@ public class ProductBean implements SessionBean {
      */
     public void setNumUnits(long productId, int numUnits) {
         log.debug("setNumUnits called...productId: " + productId +
-                 " numUnits: " + numUnits);
+                " numUnits: " + numUnits);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -720,7 +715,7 @@ public class ProductBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating num_units");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating num_units");
@@ -764,7 +759,7 @@ public class ProductBean implements SessionBean {
      */
     public void setUnitTypeId(long productId, long unitTypeId) {
         log.debug("setUnitTypeId called...productId: " + productId +
-                 " unitTypeId: " + unitTypeId);
+                " unitTypeId: " + unitTypeId);
 
         Context ctx = null;
         PreparedStatement ps = null;
@@ -788,7 +783,7 @@ public class ProductBean implements SessionBean {
                 throw new EJBException("Wrong number of rows in update: " +
                         rows);
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException updating unit_type_id");
         } catch (NamingException e) {
             throw new EJBException("NamingException updating unit_type_id");
@@ -822,15 +817,6 @@ public class ProductBean implements SessionBean {
             }
         }
     }
-
-
-
-
-
-
-
-
-
 
 
 }

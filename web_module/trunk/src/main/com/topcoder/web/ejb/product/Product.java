@@ -44,7 +44,6 @@ public interface Product extends EJBObject {
     String getUnitTypeDesc(long productId) throws RemoteException, EJBException;
 
 
-
     /**
      * @see com.topcoder.web.ejb.product.ProductBean#setProductDesc
      */

@@ -1002,7 +1002,7 @@ public class PurchaseBean implements SessionBean {
             if (rs.next())
                 ret = rs.getDate("create_date");
         } catch (SQLException sqe) {
-            DBMS.printSqlException(true,sqe);
+            DBMS.printSqlException(true, sqe);
             throw new EJBException("SQLException getting create_date");
         } catch (NamingException e) {
             throw new EJBException("NamingException getting create_date");
@@ -1046,12 +1046,6 @@ public class PurchaseBean implements SessionBean {
 
         return (ret);
     }
-
-
-
-
-
-
 
 
     /**
