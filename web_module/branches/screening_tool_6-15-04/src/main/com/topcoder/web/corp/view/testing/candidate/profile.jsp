@@ -310,7 +310,7 @@ if ( MM_FlashCanPlay ) {
                     </td>
 
                     <td width="14%" align="center" class="<%=cssClasses[counter % 2]%>">
-                        <screen:resultSetItem row="<%=row%>" name="candidate_percentile" />
+                        <screen:resultSetItem row="<%=row%>" name="candidate_percentile" />%
                     </td>
 
                     <td width="14%" align="center" class="<%=cssClasses[counter++ % 2]%>">
