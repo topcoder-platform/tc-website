@@ -21,12 +21,14 @@
 <table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
 	<tr>
 		<td class="dc_headerPic">
-	      <img src="/i/events/doubleclick/image6.gif" border="0" width="163" height="180"/>
+	      <div align="center"><img src="/i/events/doubleclick/image6.gif" border="0" width="163" height="180"/><br/>
+	      <img src="/i/clear.gif" border="0" width="1" height="10"/><br/>
+	      <A href="/pl/?module=DCReg&cid=2998&eid=1"><img src="/i/events/doubleclick/registernow.gif" border="0" width="142" height="29"/></A></div>
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Are you the best collegiate programmer in New York City?</p>
          <p>
-         Do you like to solve problems?<img src="/i/clear.gif" border="0" width="160" height="1"/><A href="/pl/?module=DCReg&cid=2998&eid=1"><img src="/i/events/doubleclick/registernow.gif" border="0" width="102" height="21"/></A><br/><br/>
+         Do you like to solve problems?<br/><br/>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do math and science interest you?<br/><br/>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Do you spend your time online looking for the next challenge?<br/><br/>
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Would you like to win $5,000? </p>
