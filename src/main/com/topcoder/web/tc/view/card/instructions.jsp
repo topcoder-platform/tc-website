@@ -8,7 +8,7 @@
 
 <link type="text/css" rel="stylesheet" href="/css/TCCC04style.css"/>
 
-<jsp:usebean id="cardUnlocked" class="java.lang.Boolean" scope="request" />
+<% boolean cardUnlocked = ((Boolean)request.getAttribute("cardUnlocked")).booleanValue(); %>
 
 </head>
 
@@ -41,7 +41,7 @@
             <div class="bodyText">
 
 
-            <% if (cardUnlocked.booleanValue()) { %>
+            <% if (cardUnlocked) { %>
                 <p>Great!  You've unlocked your TopCoder Member Card.  In addition to being able to view your card here, you can also place it right into your own site! The card is built on Macromedia&#174; Flash&#153; technology.  This makes it a little more complicated than inserting a .jpg or .gif into your website, but it is still a simple process.  This page presents 2 methods for posting the TopCoder Member Card on your personal site, one with Flash "detection" and one without it.  Even though <A href="http://www.macromedia.com/software/player_census/flashplayer/?promoid=pu1_homepage_flashubiquity_012804" target="_blank">98% of internet viewers</A> have Flash-enabled browsers, you still might want your site to be able to detect the presence of Flash and react accordingly.  Here's how:</p>
             <% } %>
 
