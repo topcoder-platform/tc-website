@@ -196,7 +196,7 @@
 
         <init-param>
             <param-name>login_page</param-name>
-            <param-value>/?module=Static&amp;d1=LoginPage</param-value>
+            <param-value>/?module=Login</param-value>
         </init-param>
 
         <init-param>
