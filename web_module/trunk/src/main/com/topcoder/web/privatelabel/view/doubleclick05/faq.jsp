@@ -5,8 +5,7 @@
 
 <title>DoubleClick</title>
 
-<jsp:include page="../script.jsp" />
-
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/doubleclick05.css"/>
 
 </head>
@@ -23,7 +22,7 @@
 	      <img src="/i/events/doubleclick05/image4.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">FAQ</p>
+         <p class="bigTitle">FAQ</p>
 
 			<p><span class="dc_subTitle">Is there a way to practice before the Main Competition Round?</span><br/>
 			Once you've registered for the DCCC, you may use your username and password to log into the competition arena.  Within the arena there is a practice area that mimics the functionality of the real competition.  Nothing that you do in the practice room will count against you.</p>

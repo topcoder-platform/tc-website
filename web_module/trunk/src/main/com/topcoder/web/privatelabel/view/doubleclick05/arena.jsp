@@ -6,8 +6,7 @@
 
 <title>DoubleClick</title>
 
-<jsp:include page="../script.jsp" />
-
+<link type="text/css" rel="stylesheet" class="bodyText_link" href="/css/style.css"/>
 <link type="text/css" rel="stylesheet" href="/css/doubleclick05.css"/>
 
 </head>
@@ -24,7 +23,7 @@
 	      <img src="/i/events/doubleclick05/image2.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Competition Arena</p>
+         <p class="bigTitle">Competition Arena</p>
 
                         <p>
                         Click <a class="bodyText_link" href="Javascript:openWin('?module=Static&d1=doubleclick05&d2=dc_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a Java Applet.
