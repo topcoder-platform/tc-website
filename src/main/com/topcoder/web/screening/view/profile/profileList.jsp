@@ -39,8 +39,8 @@ function getProblemDetail(id) {
       <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Test Profile List</B></FONT><BR/><BR/>
+        <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+            <h1 class="testHead">Test Profile List</h1>
 
 <jsp:useBean id="profileList" type="java.util.List" scope="request" />
 
