@@ -223,7 +223,7 @@
             <% List skillsList = Arrays.asList(request.getParameterValues("skillset"+resultRow.getStringItem("skill_type_id"))); %>
             <logic:iterate id="skill_selection" name="skillsList">
                 <option value="<%=skill_selection%>">
-                    <%= skillNames.get(new Integer(skill_selection.substring(0,skill_selection.indexOf("_")))) %>
+                    <%= skillNames.get(new Integer(skill_selection.toString().substring(0,skill_selection.toString().indexOf("_")))) %>
                 </option>
             </logic:iterate>
         </select>
