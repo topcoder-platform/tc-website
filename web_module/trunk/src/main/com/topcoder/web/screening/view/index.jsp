@@ -2,79 +2,67 @@
 <%@ page errorPage="/errorPage.jsp" %>
 <%@ page import="com.topcoder.web.screening.common.Constants" %>
 <%@ taglib uri="screening.tld" prefix="screen" %>
-<HTML>
-<HEAD>
-<TITLE>TopCoder - Candidate Evaluation</TITLE>
+<html>
+<head>
+<title>TopCoder -- Candidate Testing</title>
 <jsp:include page="script.jsp"/>
-</HEAD>
+</head>
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+<body bgcolor="#FFFFFF" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
 <jsp:include page="includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
     <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
+        <td width="22" bgcolor="#000000">
         <!-- Left Column Include Begins -->
         <!-- Global Seconday Nav Begins -->
-        <jsp:include page="includes/left.jsp"/>
+            <jsp:include page="includes/left.jsp"/>
         <!-- Global Seconday Nav Ends -->
         <!-- Left Column Include Ends -->
-      </TD>
+        </td>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+        <td><img src="/i/p/clear.gif" width="10" height="1"></td>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/p/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Welcome!</B></FONT><BR/>
-<P>
-               <B>Introduction goes here</B><BR/>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-</P><BR>                 
-         <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
-            <TR>
-               <TD COLSPAN="3" VALIGN="top"><FONT SIZE="3" COLOR="#666666"><B>Create a New Session:</B></FONT></TD>
-            </TR>
-            <TR>
-               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-            </TR>            
-            <TR>
-               <TD VALIGN="top" CLASS="bodyTextBold" NOWRAP=""><B>Step 1:</B></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="5" HEIGHT="1"></TD>
-               <TD VALIGN="top" CLASS="bodyText"><B>Create a Test Profile</B><BR>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.</TD>               
-            </TR>
-            <TR>
-               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-            </TR>            
-            <TR>
-               <TD VALIGN="top" CLASS="bodyTextBold"><B>Step 2:</B></TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="5" HEIGHT="1"></TD>
-               <TD VALIGN="top" CLASS="bodyText"><B>Set up or Add a Candidate</B><BR>
-               Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-               ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci.</TD>               
-            </TR>
-            <TR>
-               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-            </TR>
-            <TR>
-               <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10"></TD>
-            </TR>
-            <TR>
-               <TD COLSPAN="3" CLASS="bodyText" ALIGN="center"><screen:servletLink processor="PopulateSession" styleClass="bodyText">Create a New Session</screen:servletLink></TD>
-            </TR>                                                       
-         </TABLE>
-<P><BR/></P>    
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+        <td class="bodyText" width="100%"><img src="/i/p/clear.gif" width="400" height="11" border="0"><br />
+            <h1 class="testHead">Welcome!</h1>
+            <p>TopCoder Testing allows companies to test the technical abilities of candidates during the interview process, thereby reducing 
+            the time incurred by in-house engineers.  This administration tool allows you to set up candidates to be tested, as well as review 
+            each candidate’s results.  Follow the steps below to begin.</p>
+                            
+            <table border="0" cellspacing="1" cellpadding="0" bgcolor="#FFFFFF" width="95%">
+                <tr><td colspan="3" valign="top"><font size="3" color="#666666"><b>Create a New Session:</b></font></td></tr>
+                <tr><td colspan="3"><img src="/i/p/clear.gif" width="1" height="10"></td></tr>            
+                <tr>
+                    <td valign="top" class="bodyText" nowrap="nowrap"><strong>Step 1:</strong></td>
+                    <td><img src="/i/p/clear.gif" width="5" height="1"></td>
+                    <td valign="top" class="bodyText"><strong>Create a Test Profile</strong><br />
+                        <p>Each candidate is assigned to a Test Profile.  Each Test Profile is assigned two sets of problems&#151;Test Set A, which 
+                        is used to screen for accuracy and speed, and Test Set B, which is used to screen for accuracy and style.</p></td>               
+                </tr>
+                <tr><td colspan="3"><img src="/i/p/clear.gif" width="1" height="10"></td></tr>            
+                <tr>
+                    <td valign="top" class="bodyText" nowrap="nowrap"><strong>Step 2:</strong></td>
+                    <td><img src="/i/p/clear.gif" width="5" height="1"></td>
+                    <td valign="top" class="bodyText"><strong>Set up or Add a Candidate</strong><br />
+                        <p>Each candidate is set up in the system and assigned to a Test Profile.  Test results are tracked and reported by candidate.</p></td>               
+                </tr>
+                <tr><td colspan="3"><img src="/i/p/clear.gif" width="1" height="10"></td></tr>
+                <tr><td colspan="3"><img src="/i/p/clear.gif" width="1" height="10"></td></tr>
+                <tr><td colspan="3" class="bodyText" align="center"><screen:servletlink processor="PopulateSession" styleclass="bodyText">Create a New Session</screen:servletlink></td></tr>                                                       
+            </table>
+            <p><br/></p>    
+        </td>
+<!-- Center Column Ends -->
 
-  <jsp:include page="includes/foot.jsp"/>
+<!-- Gutter -->
+        <td width="10"><img src="/i/p/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
 
-</BODY>
-</HTML>
+<jsp:include page="includes/foot.jsp"/>
+
+</body>
+</html>
