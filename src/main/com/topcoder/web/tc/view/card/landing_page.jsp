@@ -53,13 +53,8 @@ if ( plugin ) {
 <!-- Center Column Begins -->
          <td class="cardCell" width="100%" align="center">
 
-        <jsp:include page="../body_top.jsp" >
-           <jsp:param name="image" value="cards"/>
-           <jsp:param name="image1" value="white"/>
-           <jsp:param name="title" value="Downloads"/>
-        </jsp:include>
-
          <div class="cardBody">
+            <div class="pageTitle"><img src="/i/card/title.gif" border=0/></div>
 
 <p>
 The TopCoder member base is an international community of computer programmers brought together through competition.  Our Algorithm competitions showcase developers' skills in solving complex mathematical and algorithmic problems.  Design and Development competitions give members an opportunity to build software components and applications that are sold to TopCoder clients.

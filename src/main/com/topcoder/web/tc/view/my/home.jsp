@@ -30,7 +30,7 @@
 
          <div class="myTCBody">
 
-            <h2>Welcome to "My TopCoder"!</h2>
+            <img src="/i/my/title.gif" border=0/>
             
             <hr width="100%" size="1" noshade="noshade" />
 
