@@ -5,13 +5,13 @@
 <HTML>
 <HEAD>
 <TITLE>Error</TITLE>
-<% if incl { %>
+<% if(incl) { %>
 <jsp:include page="../includes/css.jsp" />
 <% } %>
 </HEAD>
 
 <BODY BGCOLOR="#001934" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<% if incl { %>
+<% if(incl) { %>
 <jsp:include page="../includes/top.jsp" />
 <% } %>
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#000000" WIDTH="100%">
@@ -19,7 +19,7 @@
 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
     <TR VALIGN="top">
 		<TD WIDTH="170" BGCOLOR="#001934">
-<% if incl { %>
+<% if(incl) { %>
 <jsp:include page="../includes/left_nav.jsp" />
 <jsp:include page="../includes/left_calendar.jsp" />
 <% } %>
@@ -78,7 +78,7 @@
 </TABLE>
 </TD></TR></TABLE>
 
-<% if incl { %>
+<% if(incl) { %>
 <jsp:include page="../includes/foot.jsp" />
 <% } %>
 </BODY>
