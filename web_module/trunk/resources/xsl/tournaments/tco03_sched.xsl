@@ -119,7 +119,8 @@
                 <tr valign="top">
                     <td class="sidebarText" colspan="4">
                         *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate"
-                        will be the following day at the same time.
+                        will be the following day at the same time.<br/>
+                        * Registration is limited to the first 1,000 participants to register.
                     </td>
                 </tr>
             </table><br />
