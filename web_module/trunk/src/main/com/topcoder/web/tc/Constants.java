@@ -60,6 +60,7 @@ public class Constants {
 
     public static String HIGHEST_RATING;
     public static String PROBLEM_ARCHIVE;
+    public static String PROBLEM_DETAIL;
 
     public static String LOGIN;
     public static String ACTIVATE;
