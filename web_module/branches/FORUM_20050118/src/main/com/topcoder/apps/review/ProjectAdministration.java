@@ -720,8 +720,10 @@ public class ProjectAdministration implements Model {
             }
 
 LogHelper.log("qq before if ");
-            if (closed && (newProject.getProjectType().getId() == ProjectType.ID_DESIGN))
-            {
+LogHelper.log("qq closed ="+closed);
+LogHelper.log("qq typeId =" + newProject.getProjectType().getId());
+//            if (closed && (newProject.getProjectType().getId() == ProjectType.ID_DESIGN))
+//            {
                 LogHelper.log("qq in the if0");
 
                 InitialContext context = new InitialContext();
@@ -743,7 +745,7 @@ LogHelper.log("qq before if ");
                 LogHelper.log("qq in the if4");
 
 
-            }
+//            }
 
             // remove permission for old reviewers and remove all permission if project closes
             if (isRoleChange || closed) {
