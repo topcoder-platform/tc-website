@@ -61,7 +61,7 @@
 					or Collegiate Challenge (open to college students only).<BR/><BR/>
 					<B>Who Benefits</B><BR/><UL>
 					<LI><A HREF="/index?t=about_tc&amp;c=membr_whyjoin" CLASS="bodyText">Members</A><BR/>
-					Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. TopCoder is in the process of establishing <A HREF="/index?t=about_tc&amp;c=membr_teams" CLASS="bodyText">Teams</A>. This couple with the new <A HREF="/index?t=about_tc&amp;c=membr_divisions" CLASS="bodyText">Divisions</A> will offer a more level field of competition for newer members in order to build ratings and move into potential tournament opportunities.</LI><BR/><BR/>
+					Each Single Round Match offers a fun, time-based, and challenging set of problems that put a developer's skills to the test. TopCoder is in the process of establishing <A HREF="/index?t=about_tc&amp;c=membr_teams" CLASS="bodyText">Teams</A>. This coupled with the new <A HREF="/index?t=about_tc&amp;c=membr_divisions" CLASS="bodyText">Divisions</A> will offer a more level field of competition for newer members in order to build ratings and move into potential tournament opportunities.</LI><BR/><BR/>
 					<LI><A HREF="/index?t=about_tc&amp;c=spons_target" CLASS="bodyText">Sponsors</A><BR/>
 					Reaching the developer community is a difficult task at best. Marketing budgets are limited and with the advent of the Internet, the expectation for 
 					measuring results has only grown. TopCoder offers companies a means of targeting this desired community through the <A HREF="/index?t=about_tc&amp;c=spons_target" CLASS="bodyText">targeted sponsorship</A> of Single 
