@@ -8,6 +8,7 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
@@ -41,6 +42,8 @@ import java.util.Map;
  *
  */
 public class UserEdit extends BaseProcessor {
+    private static Logger log = Logger.getLogger(UserEdit.class);
+
     public static final String KEY_TARGET_USER_ID = "id";
     public static final String KEY_FIRSTNAME = "first-name";
     public static final String KEY_LASTNAME = "last-name";
@@ -233,6 +236,7 @@ public class UserEdit extends BaseProcessor {
             }
 
             // user is logged in
+/*
             if (!secTok.isAccountAdmin) { // primary user can create
                 // other are still able to edit themself
                 log.debug("switched to edit mode");
@@ -240,6 +244,7 @@ public class UserEdit extends BaseProcessor {
                 secTok.createNew = false;
                 secTok.renewTargetUser();
             }
+*/
         } else { // edit mode
             // modifications is allowed if primary edits own group members
             // or regular user edits self
