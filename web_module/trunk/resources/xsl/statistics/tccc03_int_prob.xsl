@@ -104,7 +104,7 @@
             The most notable aspect of this round was the Level 2 problem, which was solved by only four coders.
             This lead to a lot of successful challenges by coders such as <b>John Dethridge</b>.  The
             The Level 1 and Level 3 problems had very high success rates among those that submitted the problems,
-            but each had a rather low submission rate.
+            but only 14 coders managed to submit a possible solution for the Level 3 problem.
         </p>
 <h1>The Problems</h1>
 <a name="Pareto"></a><font size="+2"><b>Pareto</b></font><br/><font size="-1">
@@ -182,7 +182,11 @@
 </tr>
 </table></blockquote></font><h4>Implementation</h4>
 <p>
-                Very few people were able to get this problem, yet the solution is almost embarrassingly simple.
+                Very few people were able to get this problem, yet the solution is almost embarrassingly simple.  The first step
+                should be to compare the number of foreground pixels to the number of background pixels.  We will get very bogus results
+                if there are more foreground pixels than background pixels, and it is this sort of test case that broke a great many
+                submissions.  The simple fix is to simply invert the colors if there are more foreground pixels than background pixels.
+                This can be as simple as <tt>n &lt;?= w * h - n</tt> in C++.
             </p>
 <p>
                 There are three possible ways to optimally layout the pixels.  The first is to fill rows in the image with the
