@@ -1,58 +1,104 @@
 <%@ page contentType="text/html; charset=ISO-8859-1"
          autoFlush="false"
          buffer="64kb"
+         import="com.topcoder.web.corp.Constants"
          errorPage="../exc/InternalError.jsp" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
-<HTML>
-<HEAD>
-<title>TopCoder Corporate Services</title>
+<html>
+<head>
+<title>TopCoder | Corporate Services</title>
 
 <link rel="stylesheet" type="text/css" href="/css/corpStyle.css" />
 
 <script language="JavaScript" type="text/javascript" src="/js/script.js"></script>
-</HEAD>
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
+</head>
+
+<body>
+
+<!-- Top begins -->
 <jsp:include page="../includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="170" VALIGN="top">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="../includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
-<FONT SIZE="3" COLOR="#666666"><B>Contact Us</B></FONT><BR/>
-<P>
-                       Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-</P>
+<!-- Top ends -->
 
-<P>
-olor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
-                       ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-                       tuer adipiscing elit, sed diam nut laoreet dolore magna aliquam erat volu adminim veniam.
-</P>
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
 
-<P><BR/></P>    
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="30"><IMG SRC="/i/clear.gif" WIDTH="30" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+<!-- Left Column Begins -->
+        <td width="170" valign="top" class="leftColumn">
+            <jsp:include page="../includes/left.jsp">
+                <jsp:param name="level1" value="contact"/>
+                <jsp:param name="level2" value="index"/>
+            </jsp:include>
+        </td>
+<!-- Left Column Ends -->
 
+<!-- Gutter Begins -->
+        <td valign="top"><img src="/i/clear.gif" width="10" height="1"></td>
+<!-- Gutter Ends -->
+
+<!-- Center Column begins -->
+        <td width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0"><br>
+            <table border="0" width="100%">
+                <tr>
+                    <td class="bodyText" width="100%">
+                        <h1 class="testHead">Contact Us</h1>
+                        <p>TopCoder is dedicated to servicing members, partnering companies, the media and anyone else interested in what 
+                        TopCoder is about. Please contact the appropriate individuals below for more information or assistance.</p>
+                        
+                        <p><strong>Please direct general questions or concerns to</strong></p>
+
+                        <p>TopCoder, Inc.<br>
+                        703 Hebron Avenue <br>
+                        Glastonbury, CT 06033 USA<br>
+                        phone: 860.633.5540 <br>
+                        fax: 860.657.4276 <br>
+                        email: <a href="mailto:service@topcoder.com">TopCoder General Inbox</a></p>
+
+                        <p><strong><a href="mailto:mlydon@topcoder.com">NEED TECH SUPPORT?</a></strong></p>
+                    </td>
+                </tr>
+            </table>
+
+            <table border="0" width="100%">
+                <tr>
+                    <td class="bodyText" width="100%">
+                        <p><strong>Sponsorships and Private Label Events</strong><br>
+                        Drew Vaughn, VP of Sales <br>
+                        Corporate Office <br>
+                        703 Hebron Avenue <br>
+                        Glastonbury, CT 06033 <br>
+                        phone: 860.633.5540 <br>
+                        fax: 860.657.4276 <br>
+                        email: <a href="mailto:dvaughn@topcoder.com">TopCoder Sponsorships</a></p>
+                    </td>
+
+                    <td class="bodyText" width="100%">
+                        <p><strong>Recruiting and Candidate Testing</strong><br>
+                        Paul Moriarty, Director of Employment Services <br>
+                        Corporate Office <br>
+                        703 Hebron Avenue 
+                        Glastonbury, CT 06033<br> 
+                        phone: 860.633.5540 <br>
+                        fax: 860.657.4276 <br>
+                        email: <p><a href="mailto:tces@topcoder.com">TopCoder Employment Services</a></p>
+                    </td>
+                </tr>
+            </table>
+
+            <p><br/></p>
+
+        </td>
+<!-- Center Column ends -->
+
+<!-- Gutter -->
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
+<!-- Gutter Ends -->
+    </tr>
+</table>
+
+<!-- Footer begins -->
   <jsp:include page="../includes/foot.jsp"/>
+<!-- Footer ends -->
 
-</BODY>
-</HTML>
+</body>
+</html>
