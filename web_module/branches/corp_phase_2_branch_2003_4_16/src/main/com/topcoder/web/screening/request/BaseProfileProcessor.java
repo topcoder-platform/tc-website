@@ -17,6 +17,8 @@ import javax.rmi.PortableRemoteObject;
 import java.util.*;
 
 public abstract class BaseProfileProcessor extends BaseProcessor {
+    private static final int TEST_SET_B_PROBLEM_TYPE = 4;
+
     protected ProfileInfo buildProfileInfo(ServletRequest request) {
         ProfileInfo info = new ProfileInfo();
 
@@ -79,11 +81,14 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
         SessionProfileProblem problem = sppHome.create();
 
         ResultSetContainer rsc = problem.getProblems(profileId);
+        Integer problemTypeB = new Integer(TEST_SET_B_PROBLEM_TYPE);
         for (Iterator i = rsc.iterator(); i.hasNext();) {
             ResultSetContainer.ResultSetRow row = (ResultSetContainer.ResultSetRow) i.next();
-            long tempRoundId = Long.parseLong(row.getItem("session_round_id").toString());
-            long tempProblemId = Long.parseLong(row.getItem("problem_id").toString());
-            ret.add(ProblemInfo.createProblemInfo(user, tempRoundId, tempProblemId));
+            if (row.getItem("problem_type_id").getResultData().equals(problemTypeB)) {
+                long tempRoundId = Long.parseLong(row.getItem("session_round_id").toString());
+                long tempProblemId = Long.parseLong(row.getItem("problem_id").toString());
+                ret.add(ProblemInfo.createProblemInfo(user, tempRoundId, tempProblemId));
+            }
         }
         return ret;
     }
