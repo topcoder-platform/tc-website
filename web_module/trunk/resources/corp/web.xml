@@ -1249,6 +1249,11 @@
         <url-pattern>/JNLPServlet/</url-pattern>
     </servlet-mapping>
 
+    <servlet-mapping>
+        <servlet-name>GraphServlet</servlet-name>
+        <url-pattern>/CorpGraph/</url-pattern>
+    </servlet-mapping>
+
     <taglib>
         <taglib-uri>tc-webtags.tld</taglib-uri>
         <taglib-location>tc-webtags.tld</taglib-location>
