@@ -227,6 +227,26 @@ public final class TaskDevelopment {
 
                     devTag.addTag(new ValueTag("documentId", request.getParameter("docId")));
                     
+               Request dataRequest = null;
+               ResultSetContainer rsc = null;
+               Map resultMap = null;
+               log.debug("getting dai");
+               dataRequest = new Request();
+               dataRequest.setContentHandle("open_projects");
+
+               DataAccessInt dai = new DataAccess((javax.sql.DataSource)
+                        TCContext.getInitial().lookup(
+                                dataRequest.getProperty(Constants.DB_KEY, Query.TCS_CATALOG)));
+               log.debug("got dai");
+
+               resultMap = dai.getData(dataRequest);
+               log.debug("got map");
+               rsc = (ResultSetContainer) resultMap.get("Retrieve open projects");
+
+               log.debug("got rsc");
+               if(rsc == null)
+                  log.debug("rsc is null");
+               devTag.addTag(rsc.getTag("projects", "project"));
 
                     xsldocURLString = XSL_DIR + command + ".xsl";
                 }
@@ -532,7 +552,7 @@ public final class TaskDevelopment {
                     requiresLogin = true;
                 }
             } else if (command.length() > 0) {
-
+               /********** SHOULD BE A FUNCTION ****************/
                Request dataRequest = null;
                ResultSetContainer rsc = null;
                Map resultMap = null;
@@ -660,6 +680,5 @@ public final class TaskDevelopment {
        }
        return catalog;
     }
-
 
 }
