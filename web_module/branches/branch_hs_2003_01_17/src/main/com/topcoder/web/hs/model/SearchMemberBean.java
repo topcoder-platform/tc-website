@@ -1,4 +1,4 @@
-package com.topcoder.hs.web.model;
+package com.topcoder.web.hs.model;
 
 import java.util.*;
 
@@ -15,6 +15,10 @@ public class SearchMemberBean {
   private String school_name=null;
 
   private Date last_competed=null;
+
+  public SearchMemberBean() {
+    /* do nothing */
+  }
 
   public Long getUserId() {
     return(user_id);
