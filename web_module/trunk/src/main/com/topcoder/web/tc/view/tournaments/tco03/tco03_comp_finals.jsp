@@ -104,6 +104,11 @@ the Arena applet.
                   <td class="formTextEven" align="right">92.63&#160;&#160;</td>
                   <td class="formTextEven" align="right">86.87&#160;&#160;</td>
                 </tr>
+                <tr>  
+                  <td class="bodyText" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
+                  <td class="bodyText" align="right" bgcolor="#FFCC00"><b>92.24&#160;&#160;</b></td>
+                  <td class="bodyText" align="right" bgcolor="#FFCC00"><b>86.65&#160;&#160;</b></td>
+                </tr>
                <tr>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"align="right"><A class="topLink" href="Javascript:openWin('/tc?module=Static&d1=tournaments&d2=tco03&d3=comp_docs&d4=pops_final_doc1','pops',800,600);"><img src="/i/view.gif" border="0" width="60" height="18"/></A></td>
@@ -142,6 +147,11 @@ the Arena applet.
                   <td class="formTextEven" align="left">Initial score:</td>
                   <td class="formTextEven" align="right">85.31&#160;&#160;</td>
                   <td class="formTextEven" align="right">84.71&#160;&#160;</td>
+                </tr>
+                <tr>  
+                  <td class="bodyText" align="left" bgcolor="#FFCC00"><b>Final score:</b></td>
+                  <td class="bodyText" align="right" bgcolor="#FFCC00"><b>66.06&#160;&#160;</b></td>
+                  <td class="bodyText" align="right" bgcolor="#FFCC00"><b>88.70&#160;&#160;</b></td>
                 </tr>
                <tr>
                   <td class="statTextLarge" background="/i/graybv_bg.gif"><strong>Live Updates:</td>
