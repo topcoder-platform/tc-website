@@ -194,6 +194,29 @@
                                   </TD>
                                 </TR>
                               </xsl:when>
+                              <xsl:when test="RoundId='4340'">
+                                <IMG SRC="/i/es/google/srm_bnr_google.gif" ALT="" WIDTH="428" HEIGHT="80" BORDER="0" />
+                                <TR BGCOLOR="#CCCCCC">
+                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Date</B></TD>
+                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Registration</B></TD>
+                                  <TD WIDTH="130" HEIGHT="24" VALIGN="middle" ALIGN="center" class="bodyText"><B>Start</B></TD>
+                                </TR>
+                                <TR BGCOLOR="#666666">
+                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                  <b> <xsl:value-of select="substring(RoundSegments/RoundSegment[SegmentId='1']/Start,0,11)"/><br/> </b>
+                                  </TD>
+                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                    <B>
+                                      <xsl:value-of select="format-number(RoundSegments/RoundSegment[SegmentId='1']/StartHour,'##')"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='1']/StartAMPM"/>
+                                    </B>
+                                  </TD>
+                                  <TD WIDTH="130" HEIGHT="18" VALIGN="middle" ALIGN="center" class="statText">
+                                    <B>
+                                      <xsl:value-of select="format-number(RoundSegments/RoundSegment[SegmentId='2']/StartHour,'##')"/>:<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartMinute"/>&#160;<xsl:value-of select="RoundSegments/RoundSegment[SegmentId='2']/StartAMPM"/>
+                                    </B>
+                                  </TD>
+                                </TR>
+                              </xsl:when>
 
 
 
