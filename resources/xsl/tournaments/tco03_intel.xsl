@@ -67,6 +67,7 @@
                             					<p>With technology complexity increasing at a blistering pace, <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>Intel&#174; 
                             					Developer Services</strong> </a> offers the resources and opportunities you need to keep stride with industry innovations,
                              					take advantage of emerging technologies and accelerate the successful development and delivery of your solutions.</p>
+                             					<p><br/></p>
                             				</td>
                             			</tr>
                             				
@@ -90,15 +91,12 @@
                             				<td align ="left">
                             						<table>
                             								<tr>
-                            									<td valign="top" ><img src="/i/sponsor/intel_ids/bttn.gif" height="13" width="13" alt="*" border="0" /></td>
-                            									<td class="bodyText" rowspan="2"> <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
+                            									<td><img src="/i/spacer.gif" height="13" width="13"/></td>
+                            									<td class="bodyText" > <p>Register for Intel Developer Services and compete in the TopCoder Open to be entered for a chance to win an Intel Centrino 
                             									mobile-technology- based notebook! <a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup"><strong>View Specs</strong> </a>.
                             										<br/><br/><strong><a href="https://cedar.intel.com/cgi-bin/ids.dll/registration/regIndex.jsp?action=signup">Register Now!</a> Use promotion code TCO2003. </strong></p></td>
                             								</tr>
                             								
-                            								<tr>
-                            									<td><img src="/i/spacer.gif" height="13" width="13"/></td>
-                            								</tr>
                             									</table>
                             						
                             						</td>
