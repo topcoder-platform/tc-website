@@ -50,9 +50,42 @@
   <TR>
     <TD BGCOLOR="#FFFFFF" VALIGN="top" WIDTH="11"><IMG SRC="/i/clear.gif" ALT="" WIDTH="11" HEIGHT="1" BORDER="0"/></TD>
     <TD CLASS="bodyText" COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/><BR/>
-<P>
-<A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">Room 1 Review</A> | <A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">Rookie Review</A> | <A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">Problem Set Analysis &amp; Opinion</A>
-</P>
+<!--body contextual links-->
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="1" VALIGN="top" WIDTH="250" ALIGN="right">
+ 	<TR>
+        <TD ROWSPAN="5" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
+        <TD COLSPAN="2" BGCOLOR="#FFFFFF" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD>
+    </TR> 
+	<TR><TD COLSPAN="2" BGCOLOR="#999999" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="1" BORDER="0"/></TD></TR>
+	<TR>
+		<TD VALIGN="top" BGCOLOR="#999999" CLASS="moduleTitle">&#160; &#160;</TD>
+		<TD BGCOLOR="#999999" VALIGN="top" CLASS="moduleTitle">MATCH EDITORIAL LINKS:</TD>
+	</TR>                    
+	<TR>
+    	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
+		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
+		</TR>
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
+		</TR>
+		<TR>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=editorial_archive">Archive</A></TD>
+		</TR>
+		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
+		</TABLE>
+		</TD>
+	</TR>
+ 	<TR><TD COLSPAN="2" VALIGN="top" BGCOLOR="#FFFFFF" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"/></TD></TR>                
+</TABLE>
+<!--end contextual links-->
+<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
+<P><B>Single Round Match 78</B><BR/>
+April 9, 2002</P>
 <P><B>Problem Set Analysis &amp; Opinion</B></P>
 <P>Algorithms:<BR/>PoemCode - 250<BR/>
 Like most 250's the algorithm was straightforward and there were not really any special cases to watch for.  You simply have to remove the extra characters (',','.', and ' ') and then loop 
@@ -89,7 +122,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">99.07%</TD>
 	<TD CLASS="bodyText" ALIGN="right">96.28%</TD>
 	<TD CLASS="bodyText" ALIGN="right">221</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson<BR/>244.20</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">NDBronson<BR/>244.20</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -98,7 +131,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">95.81%</TD>
 	<TD CLASS="bodyText" ALIGN="right">51.63%</TD>
 	<TD CLASS="bodyText" ALIGN="right">326</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">Logan<BR/>412.42</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">Logan<BR/>412.42</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -107,7 +140,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">30.23%</TD>
 	<TD CLASS="bodyText" ALIGN="right">11.16%</TD>
 	<TD CLASS="bodyText" ALIGN="right">631</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">thekcc<BR/>981.45</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">thekcc<BR/>981.45</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
@@ -120,7 +153,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">97.65%</TD>
 	<TD CLASS="bodyText" ALIGN="right">97.07%</TD>
 	<TD CLASS="bodyText" ALIGN="right">240</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">kokon<BR/>249.16</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">kokon<BR/>249.16</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -129,7 +162,7 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">91.79%</TD>
 	<TD CLASS="bodyText" ALIGN="right">79.47%</TD>
 	<TD CLASS="bodyText" ALIGN="right">372</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">WhiteShadow<BR/>478.40</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">WhiteShadow<BR/>478.40</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
@@ -138,15 +171,13 @@ to come down to the point where the sizes of the piles are all the input size mo
 	<TD CLASS="bodyText" ALIGN="right">47.80%</TD>
 	<TD CLASS="bodyText" ALIGN="right">3.23%</TD>
 	<TD CLASS="bodyText" ALIGN="right">601</TD>
-	<TD CLASS="bodyText" ALIGN="center"><A HREF="/stat?c=last_match" CLASS="bodyGeneric">antimatter<BR/>742.48</A></TD>
+	<TD CLASS="bodyText" ALIGN="center">antimatter<BR/>742.48</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 </TABLE></DIV></P>
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>   
-<BR/><A HREF="mailto:editorial@topcoder.com">Are you a member interested in writing a review?</A>
-          <P><br/></P>
-					</TD>
+          <P><BR/></P>					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
 				</TR>
 				<TR>
