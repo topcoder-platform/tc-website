@@ -2,7 +2,7 @@
 
 JAVACMD=java
 BASE=..
-MAIN=com.topcoder.shared.distCache.CacheServerMain
+MAIN=com.topcoder.server.distCache.CacheServerMain
 PROCESSOR=DefaultProcessor
 CMD=usage
 MAXMEM=1024m
