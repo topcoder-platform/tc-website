@@ -51,21 +51,17 @@
                     </td>
                 </tr>
                 <tr>
-                    <td colspan="2" align="center" width="480"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_visualize.gif" alt="NVIDA" width="510" height="18" border="0" />
+                    <td colspan="2" align="center" width="480"><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_visualize.gif" alt="NVIDIA" width="510" height="18" border="0" />
                     </td>
                 </tr>
                 
                 <tr valign="top">
                     <td class="bodyText" align="left" width="232.5">
-                        
-                        <p>At NVIDIA we're continually looking for the elite few who will shape the future of the software 
+                       <p>At NVIDIA we're continually looking for the elite few who will shape the future of the software 
                         industry&#133;  those who play hard, work smart, and always strive to win.  The visual computing industry is ultra-competitive and the stakes are high&#133;
                         to remain a market leader we hire only the brightest and most innovative engineering talent.  As a TopCoder member you've distinguished yourself 
                         as a skilled coder who seeks a challenge, and as a competitor in the TopCoder Open you've told us that nothing can stop you from competing against 
                         the best of the best.</p>
-                        
-                        <p>NVIDIA's culture promotes and inspires our team of world-class engineers and developers to be at the top of their game.  We are creative, passionate, 
-                        and we are shaping the world of tomorrow&#133;today.  </p>
                      </td>
                      
                       <td class="promoText" align="left" width="232.5">
@@ -77,6 +73,13 @@
                       </td>
                   </tr>
         
+        <tr> 
+        <td colspan="2" class="bodyText" align="left" width="480">
+        <p>NVIDIA's culture promotes and inspires our team of world-class engineers and developers to be at the top of their game.  We are creative, passionate, 
+                        and we are shaping the world of tomorrow&#133;today.  </p>
+        </td>
+        </tr>
+     
         
         <tr>
             <td colspan="2" align="center" ><img src="/i/tournament/tco03/sponsors/nvidia/nvidia_partnering.gif" alt="NVIDA" width="510" height="18" border="0" />
@@ -91,7 +94,7 @@
           
                         
                         <p>We constantly evaluate opportunities to partner with organizations that fit our corporate culture and objectives, and we're pleased to again be a part of 
-                        TopCoder's programming competitions, this time as a leading sponsor of the TopCoder Open."TopCoder has built a great community of top notch, competitive talent.  
+                        TopCoder's programming competitions, this time as a premier sponsor of the TopCoder Open.  "TopCoder has built a great community of top notch, competitive talent.  
                         It's great when you see such a group of supportive folks really driving each other to excel.  We see a lot of synergy between the TopCoder community and our own 
                         here at NVIDIA.  We're delighted to be participating again, and I'm personally excited to see the college talent go toe to toe with the professionals.  It'll be a great 
                         match!" said Daniel Rohrer, Manager of Direct X Graphics at NVIDIA.</p>
