@@ -229,7 +229,7 @@ public class CommandBean extends BaseEJB {
             query.append(     " , LOWER(cg.command_group_name)");
             query.append(  " FROM command c");
             query.append(     " , command_group_lu cg");
-            query.append( " WHERE c.command_id = cg.command_id");
+            query.append( " WHERE c.command_group_id = cg.command_group_id");
             query.append( " ORDER BY 6 ASC, 5 ASC");
             ctx = new InitialContext();
             if (dataSourceName==null) throw new EJBException("Could not execute query, DataSourceName has not been set.");
