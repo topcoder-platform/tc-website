@@ -3,13 +3,14 @@
     String tl2 = request.getParameter("tabLev2")==null?"":request.getParameter("tabLev2");
 %>
 
+<% if (tl1.equals("collegiate")) {%>
+
 <table width="750" cellpadding="0" cellspacing="7" border="0" align="center">
    <tr><td align="left" valign="bottom"><a href="/pl/?&module=Static&d1=doubleclick&d2=col_overview"><img src="/i/events/doubleclick/dccc_logo.gif" width="200" height="100" alt="DoubleClick" border="0"/></a></td>
    <td align="right" valign="bottom"><a href="/"><img src="/i/events/doubleclick/pbtc.gif" width="185" height="69" alt="TopCoder" border="0"/></a></td>
    </tr>
 </table>
 
-<% if (tl1.equals("collegiate")) {%>
     <table width="750" align="center" border="0" cellpadding="2" cellspacing="1" class="dc_lvl2_box">
         <tr valign="top">
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
@@ -31,7 +32,15 @@
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
         </tr>
     </table>
+
 <% } else if(tl1.equals("internal")){ %>
+
+<table width="750" cellpadding="0" cellspacing="7" border="0" align="center">
+   <tr><td align="left" valign="bottom"><a href="/pl/?&module=Static&d1=doubleclick&d2=int_overview"><img src="/i/events/doubleclick/dccc_logo.gif" width="200" height="100" alt="DoubleClick" border="0"/></a></td>
+   <td align="right" valign="bottom"><a href="/"><img src="/i/events/doubleclick/pbtc.gif" width="185" height="69" alt="TopCoder" border="0"/></a></td>
+   </tr>
+</table>
+
     <table width="750" align="center" border="0" cellpadding="2" cellspacing="1" class="dc_lvl2_box">
         <tr valign="top">
             <td class="dc_subnav" width="49%" align="center">&nbsp;</td>
