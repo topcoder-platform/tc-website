@@ -94,6 +94,9 @@
           <xsl:if test="/TC/SCHEDULE/Advancers/Advancer/round_id=4345">
             <A HREF="/index?t=schedule&amp;c=invit02_final_64" class="statText">Click here to view a snapshot.</A>
           </xsl:if>
+          <xsl:if test="/TC/SCHEDULE/Advancers/Advancer/round_id=4355">
+            <A HREF="/index?t=schedule&amp;c=invit02_final_16" class="statText">Click here to view a snapshot.</A>
+          </xsl:if>
           </P>
 
           <TABLE WIDTH="100%" BORDER="0" CELLPADDING="1" CELLSPACING="1" ALIGN="center">
