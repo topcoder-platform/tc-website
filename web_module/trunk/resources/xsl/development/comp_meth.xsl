@@ -61,18 +61,31 @@
 							<tr valign="top">
 								<td class="statText">
 									<p><strong>There has been significant change to the development of components. All members interested submitting design and 
-									development solutions need to first review both the TopCoder Software Component Development Methodology detailed below and the
-									<a class="statText" href="/index?t=development&amp;c=comp_des_meth"><strong>TopCoder Software Component Design Methodology</strong></a>.</strong></p>
+									development solutions need to first review the TopCoder Software Component Development Methodology below .</strong></p>
 
 									<p><strong>All Component Projects:</strong></p>
 
 									<p>Component projects have been redesigned to to be more competitve. Interested members must submit their solution to the 
 									posted project by the project due date. Once all submissions have been received, a review team will select the winning solution. 
 									Software components built through the competition based projects offer the additional benefit of being commercially marketed. 
-									In addition to the initial payment received for providing the winning solution, members can also receive royalties on all sales 
-									of the component through TopCoder Software. The TopCoder Software Component Methodologies combine the best of 
-									traditional software development methodologies with the power of community-based, distributed development. These methodologies 
-									are designed for low-level base components, not for larger applications.</p>
+									In addition to the initial payment received for providing the winning solution, members can also earn royalties on all sales 
+									of the component through TopCoder Software. The TopCoder Software Component Methodology combines the best of 
+									traditional software development methodologies with the power of community-based, distributed development. This methodology 
+									is designed for low-level base components, not for larger applications.</p>
+
+									<p><strong>Component Design Projects:</strong>
+
+									<ol>
+										<li>TopCoder Software product manager posts a design project on the Development section of the TopCoder website. This posting includes a high-level functional description of the component and a timeline for submissions and project payment. A requirements specification document and the required deliverables for the design proposal will be sent to all members who inquire about the project.</li>
+										<li>Only rated TopCoder members are allowed to inquire about the Design project on the Development section of the TopCoder website.</li>
+										<li>The product manager will grant all eligible members access to an online forum on www.topcodersoftware.com. This forum is used for the designers to ask the product manager questions about the requirements specification. </li>
+										<li>All designers are required to submit their designs to the product manager by the end of the design phase as stated on the project posting. Any designs received after the Initial Submission Due Date will be ignored. </li>
+										<li>The product manager will assemble an architecture review board consisting of 3 TopCoder Software architects to review proposals submitted by the designers.</li>
+										<li>A member of the architecture review board first screens the design documents to verify that the proposal includes all required elements and performs a high-level review of the designs to narrow down to the top 5 component designs.</li>
+										<li>Accepted designs are then reviewed by the architecture board and scored. The architecture board will submit a design scorecard for each design, which may include suggestions for improvements.</li>
+										<li>The member with the winning design will be given additional time to incorporate design suggestions received from the architecture board. The additional time period will be set as a percentage (currently 20%) of the initial design period. For example, a component with a 5 day design period will allow an additional 1 day after the due date for the designer to incorporate the suggestions. If the completed design is submitted on time, the designer is paid the first of two payments for the project as stated in the project posting.</li>
+										<li>The winning designer is required to answer questions regarding the design during the development project. At the completion of the development project the designer will receive their final payment.</li>
+									</ol></p>
 
 									<p><strong>Component Development Projects:</strong>
 
