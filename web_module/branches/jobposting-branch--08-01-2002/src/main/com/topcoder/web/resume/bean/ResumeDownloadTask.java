@@ -36,6 +36,7 @@ public class ResumeDownloadTask extends ResumeTask{
 //        response.setHeader("Cache-Control", "no-store");
 //        response.setHeader("Pragma", "no-cache");
 //        response.setDateHeader("Expires", 0);
+        response.setHeader("content-disposition","attachment; filename="+resume.getFileName());
         response.setContentType(resume.getFileType());
 //        response.setContentLength(resume.getFile().length);
         ServletOutputStream sos = response.getOutputStream();
