@@ -4,7 +4,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <HTML>
   <HEAD>
-    <TITLE>Registration</TITLE>
+    <TITLE>TCES</TITLE>
     <%@ include file="../script.jsp" %>
   </HEAD>
   <BODY BGCOLOR=#CCCCCC TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
@@ -39,7 +39,7 @@
 							<% //@ page errorPage="error.jsp" %>
 							<%@ taglib uri="tc-taglib.tld" prefix="tc" %>
 							<%@ page import="com.topcoder.web.tces.servlet.*" %>
-							<jsp:useBean id="Registration" scope="session" class="com.topcoder.web.tces.bean.Registration" />
+							<jsp:useBean id="TCES" scope="session" class="com.topcoder.web.tces.bean.TCES" />
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 							<BR><BR><BR>

@@ -40,7 +40,7 @@ public class TCESController
         if (request.getContentType()==null || request.getContentType().indexOf(MULTIPART_FORM_DATA) < 0)
         {
             String taskName = request.getParameter(TASK);
-            if (taskName == null || !Registration.htValidTasks.containsKey(taskName)) {
+            if (taskName == null || !TCES.htValidTasks.containsKey(taskName)) {
                 Log.msg(TASK+" not found in request.");
                 forwardToError(request,response,new TaskException(TASK+" not found in request."));
                 return;
@@ -158,7 +158,7 @@ public class TCESController
         synchronized(this) {
             //rd = (RequestDispatcher) dispatcherMap.get(url);
             if (rd == null) {
-                rd = getServletContext().getRequestDispatcher(Registration.PATH + url + ".jsp");
+                rd = getServletContext().getRequestDispatcher(TCES.PATH + url + ".jsp");
                 if (rd == null) {
         					Log.msg(" => tces.TCES RequestDispatcher is null");
 									throw new ServletException("cannot obtain request dispatcher");

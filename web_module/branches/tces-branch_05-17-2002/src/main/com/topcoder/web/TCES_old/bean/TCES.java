@@ -179,7 +179,7 @@ public class TCES
     
     void init()
     {
-        Log.msg(" => REGISTRATION.INIT()");
+        Log.msg(" => TCES.INIT()");
         validSteps = new String[] {STEP_0, STEP_1, STEP_2, STEP_3, STEP_4};
         
         if (user == null || user.getUserId() == 0)
