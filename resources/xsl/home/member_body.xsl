@@ -43,7 +43,7 @@
             <td width="100%" align="center"><img src="/i/clear.gif" alt="" width="1" height="4" border="0" /><br />
                 <table border="0" cellspacing="0" cellpadding="0" width="100%" id="tccc_banner">
                     <tr valign="top">
-                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
+                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_schedule_mit"><img src="/i/tournament/tccc03/tccc03_home.gif" alt="" width="110" height="90" border="0" /></a></td>
                         <td valign="middle" class="statText" width="99%">
                             <p><img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
                             <strong>When:</strong> Feb. 18th - April 5th, 2003<br />
@@ -54,7 +54,7 @@
                             <a class="statText"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=tournaments&amp;c=tccc03_sched</xsl:attribute>Get more information</a><br />
                             <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /></p>
                         </td>
-                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_sched"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
+                        <td width="1"><a href="/?&amp;t=tournaments&amp;c=tccc03_schedule_mit"><img src="/i/tournament/tccc03/sun03_home.gif" alt="Sun Microsystems" width="135" height="90" border="0" /></a></td>
                     </tr>
                 </table>
 
@@ -581,7 +581,6 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
                 </tr>
                 
-                
                 <tr valign="top">
                     <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
                 </tr>
@@ -605,9 +604,6 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
                     <td class="statText" align="right">87.77</td>
                     <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"/></td>
                 </tr>
-                
-                
-              
 
                 <tr valign="top">
                     <td colspan="5" class="smallFoot"><img src="/i/clear.gif" alt="" width="10" height="6" border="0" /></td>
