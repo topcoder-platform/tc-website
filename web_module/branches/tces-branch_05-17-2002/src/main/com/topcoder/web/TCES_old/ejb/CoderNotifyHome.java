@@ -8,7 +8,7 @@ import	com.topcoder.web.TCES.ejb.CoderNotify;
 /**
  * This is the home interface for the CoderNotify class.
  * @see com.topcoder.web.TCES.ejb.CoderNotify
- * @author Phil Selby, June 12th, 2002
+ * @author Phil Selby, May 22nd, 2002
  */
 
 public interface CoderNotifyHome extends javax.ejb.EJBHome {
