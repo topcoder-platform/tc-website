@@ -1,4 +1,4 @@
-package com.topcoder.web.reg.bean;
+package com.topcoder.web.tces.bean;
 
 import java.io.*;
 import java.math.*;
@@ -14,7 +14,7 @@ import com.topcoder.common.web.util.*;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.ejb.DataCache.*;
 import com.topcoder.ejb.UserServices.*;
-import com.topcoder.web.reg.servlet.*;
+import com.topcoder.web.tces.servlet.*;
 import com.topcoder.web.reg.servlet.jsp.tag.*;
 
 

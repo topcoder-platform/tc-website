@@ -1,4 +1,4 @@
-package com.topcoder.web.reg.bean;
+package com.topcoder.web.tces.bean;
 
 public class TaskException
     extends Exception
