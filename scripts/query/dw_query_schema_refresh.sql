@@ -37,13 +37,15 @@ INSERT INTO command VALUES(30,"round_overview",6);
 INSERT INTO command VALUES(31,"problem_distribution_graph",2);
 INSERT INTO command VALUES(32,"school_avg_rating",6);
 INSERT INTO command VALUES(33,"top_scorers",6);
-INSERT INTO command VALUES(1010,"tces_member_profile");
-INSERT INTO command VALUES(1011,"tces_problem_submissions");
-INSERT INTO command VALUES(1013,"tces_competition_history");
-INSERT INTO command VALUES(1014,"tces_competition_statistics");
-INSERT INTO command VALUES(1015,"tces_problem_statistics");
-INSERT INTO command VALUES(1016,"tces_problem_statement");
-INSERT INTO command VALUES(1500,"member_profile_info");
+INSERT INTO command VALUES(1010,"tces_member_profile", 8);
+INSERT INTO command VALUES(1011,"tces_problem_submissions", 8);
+INSERT INTO command VALUES(1013,"tces_competition_history", 8);
+INSERT INTO command VALUES(1014,"tces_competition_statistics", 8);
+INSERT INTO command VALUES(1015,"tces_problem_statistics", 8);
+INSERT INTO command VALUES(1016,"tces_problem_statement", 8);
+INSERT INTO command VALUES(1500,"member_profile_info", 9);
+
+
 
 INSERT INTO command_query_xref VALUES(1, 1, 1);
 INSERT INTO command_query_xref VALUES(1, 2, 2);
