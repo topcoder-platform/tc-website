@@ -113,7 +113,6 @@ public abstract class BaseServlet extends HttpServlet {
     protected void notAllowed(HttpServletRequest req, HttpServletResponse resp) throws IOException {
         resp.setStatus(HttpServletResponse.SC_METHOD_NOT_ALLOWED);
         resp.setContentType("text/html");
-        resp.flushBuffer();
     }
 
     protected void process(HttpServletRequest request, HttpServletResponse response)
