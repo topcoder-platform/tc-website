@@ -7,7 +7,6 @@ package com.topcoder.web.common.tag;
 public class HiddenInputTag extends BaseTag {
 
     private String value;
-    private String name;
 
     public int doStartTag() {
         StringBuffer ret = new StringBuffer();
@@ -34,16 +33,6 @@ public class HiddenInputTag extends BaseTag {
     public void setValue(String value) {
         this.value = value;
     }
-
-    /**
-     * Sets the name
-     * @param name The name to set
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
-
 
 
 }

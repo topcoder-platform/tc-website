@@ -32,7 +32,10 @@ public class Constants {
     public static String PROBLEM_TYPE_ID;
     public static String LANGUAGE_ID;
     public static String CODE;
+    public static String MODULE;
 
+    //request processors
+    public static String RP_LOGIN;
 
     //other
     public static int SERVER_ID;

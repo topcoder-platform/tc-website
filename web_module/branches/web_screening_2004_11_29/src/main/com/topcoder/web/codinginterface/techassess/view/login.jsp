@@ -1,4 +1,6 @@
-<%@ page import="com.topcoder.web.codinginterface.techassess.Constants"%>
+<%@ page import="com.topcoder.web.codinginterface.techassess.Constants,
+                 com.topcoder.web.common.BaseProcessor,
+                 java.util.Map"%>
 <%@ taglib uri="/WEB-INF/tc-webtags.tld" prefix="tc-webtag" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
@@ -52,6 +54,10 @@ function submitEnter(e) {
 				</p>
 
         <form action="<jsp:getProperty name="sessionInfo" property="secureAbsoluteServletPath"/>" method=post name=loginForm>
+            <tc-webtag:hiddenInput name="<%=Constants.MODULE%>" value="<%=Constants.RP_LOGIN%>"/>
+            <tc-webtag:hiddenInput name="<%=Constants.COMPANY_ID%>"/>
+
+
 				<table width="400" cellspacing=0 cellpadding=0 border=0 class=tableFrame>
 					<tr>
 						<td class=tableTitle colspan=2>Login</td>
