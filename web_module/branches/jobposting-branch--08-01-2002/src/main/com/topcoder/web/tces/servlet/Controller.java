@@ -98,7 +98,7 @@ log.debug(getServletContext().getRequestDispatcher(response.encodeURL(task.getNe
             }
         } catch (TCESAuthenticationException authex) {
             log.debug("User not authenticated to access TCES resource.");
-            Authentication.attemptLogin("","",request.getSession(true),"/tces?"+request.getQueryString());
+            Authentication.attemptLogin("","",ctx,request.getSession(true),"/tces?"+request.getQueryString());
             forwardToLoginPage(request, response, authex);
             return;
         } catch (ClassNotFoundException cnfex) {

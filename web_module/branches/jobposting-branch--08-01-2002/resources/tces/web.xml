@@ -39,7 +39,7 @@
 
   <init-param>
     <param-name>auth_failed_page</param-name>
-    <param-value>/tces?task=LoginTask</param-value>
+    <param-value>/tces?task=LoginTask&amp;st=v</param-value>
     <description>
       URI to the page for a failed authentication
     </description>
