@@ -51,6 +51,7 @@ public class Constants {
     public static String CORP_ADMIN_ROLE = null;
     public static String CORP_GROUP = null;
     public static String CORP_ANONYMOUS_GROUP = null;
+    public static int CORP_SITE_TERMS_ID = -1;
 
     public static void init(ServletConfig cfg) {
         REGISTRATION_PAGE_SUCCESS = cfg.getInitParameter("page-Registration-success");
@@ -74,5 +75,6 @@ public class Constants {
         CORP_ADMIN_ROLE = store.getProperty("security-corp-admin-role", "Account Administrator");
         CORP_GROUP = store.getProperty("security-corp-group", "Corp User");
         CORP_ANONYMOUS_GROUP = store.getProperty("security-anonymous-group", "Anonymous");
+        CORP_SITE_TERMS_ID = store.getIntProperty("corp-site-terms-id", 3);
     }
 }

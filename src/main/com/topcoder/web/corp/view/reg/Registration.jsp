@@ -1,7 +1,8 @@
 <%@ page
          contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.Constants,
-                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer"
+                 com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
+                 com.topcoder.web.corp.request.Registration"
          autoFlush="false"
          buffer="64kb"
          errorPage="../exc/InternalError.jsp"
@@ -261,12 +262,12 @@
     <TD COLSPAN="4" CLASS="bodyText" VALIGN="middle" background="/i/p/graybv_lite_bg.gif" HEIGHT="16">&#160;<FONT COLOR="#FFFFFF"><B>Terms of Use</B></FONT></TD>
   </TR>
   <TR align="right" valign="middle">
-    <TD COLSPAN="4" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textArea name="terms" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
+    <TD COLSPAN="4" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:textArea name="<%=Registration.KEY_TERMS%>" rows="10" cols="80" readOnly="true" class="bodyText"/></TD>
   </TR>
 
   <TR align="right" valign="middle">
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC"><b>I Agree to the Terms and Conditions stated above</b>&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
-    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:chkBox name="agree-to-terms"/></TD>
+    <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><tc-webtag:chkBox name="<%=Registration.KEY_AGREE_TO_TERMS%>"/></TD>
   </TR>
 
     <TR>

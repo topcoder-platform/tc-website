@@ -23,6 +23,8 @@ import com.topcoder.web.ejb.user.Contact;
 import com.topcoder.web.ejb.user.ContactHome;
 import com.topcoder.web.ejb.user.UserAddress;
 import com.topcoder.web.ejb.user.UserAddressHome;
+import com.topcoder.web.ejb.termsofuse.TermsOfUse;
+import com.topcoder.web.ejb.termsofuse.TermsOfUseHome;
 
 import javax.ejb.CreateException;
 import javax.naming.InitialContext;
@@ -50,6 +52,8 @@ public final class Registration extends UserEdit {
     public static final String KEY_STATE = "prim-company-state";
     public static final String KEY_ZIP = "prim-company-zip";
     public static final String KEY_COUNTRY = "prim-company-country";
+    public static final String KEY_TERMS = "terms";
+    public static final String KEY_AGREE_TO_TERMS = "agree-to-terms";
 
     private static final String COUNTRY_USA = "840";
 
@@ -116,6 +120,10 @@ public final class Registration extends UserEdit {
             resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("Country_List");
             request.setAttribute("rsc-countries-list", rsc);
+
+            TermsOfUse terms = ((TermsOfUseHome)ic.lookup(TermsOfUseHome.EJB_REF_NAME)).create();
+            terms.getText(Constants.CORP_SITE_TERMS_ID);
+
         } finally {
             Util.closeIC(ic);
         }
