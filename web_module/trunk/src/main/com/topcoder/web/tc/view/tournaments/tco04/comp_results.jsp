@@ -62,7 +62,7 @@ else
                                 <td class="sidebarTitle" width=20% align=center>Start Date</td>
                                 <td class="sidebarTitle" width=20% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
-                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
+                                <td class="sidebarTitle" width=10% align=right nowrap=nowrap>Contest Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
