@@ -47,13 +47,13 @@
                     <td class="bodyText" colspan="3">   
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
                                     <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy ash t-shirt has double needle hems, and is 
-                                    taped shoulder to shoulder. The Topcoder logo is silkscreened on the left chest and on the upper back. </td></tr>
+                                    taped shoulder to shoulder. The TopCoder logo is silkscreened on the left chest and on the upper back. </td></tr>
                                     <tr>
                                         <form name="sizeSelect">
                                         <td valign="middle" nowrap>$16.95 ($18.95 for XXL)</td>
                                         <td valign="middle" class="bodyText">
                                           <select name="menu" size="1" class="dropdown">
-                                             <option SELECTED VALUE="0">Select a Size:</option>
+                                             <option SELECTED VALUE="http://promo.askallied.com/topcoder/index.cfm?nav=prodlist&catID=69450&name=Go%20Shopping">Select a Size:</option>
                                              <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309353&name=Go%20Shopping">Small</option>
                                              <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309354&name=Go%20Shopping">Medium</option>
                                              <option value="http://promo.askallied.com/topcoder/index.cfm?nav=proddet&CatID=69450&PID=309355&name=Go%20Shopping">Large</option>
@@ -62,7 +62,8 @@
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">
-                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value);" value="Buy Now" class="bodyText">
+
+                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value, 'buyWindow');" value="Buy Now" class="bodyText">
                                           </td>
                                         </form>
                                     </tr>

@@ -46,7 +46,7 @@
                     <td><img src="/i/clear.gif" alt="" width="28" height="15" border="0" /></td>
                     <td class="bodyText" colspan="3">   
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
-                                    <tr><td colspan="3" class="bodyText"> The 7oz. short sleeve 100% Ultra cotton pique sportshirt is black with a red pin stripe. Topcoder logo is embroidered on the left chest and on the upper back.</td></tr>
+                                    <tr><td colspan="3" class="bodyText"> The 7oz. short sleeve 100% Ultra cotton pique sportshirt is black with a red pin stripe. TopCoder logo is embroidered on the left chest and on the upper back.</td></tr>
                                     <tr>
                                         <form name="sizeSelect">
                                         <td valign="middle" nowrap>$34.95 ($36.95 for XXL)</td>
@@ -61,7 +61,7 @@
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">
-                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value);" value="Buy Now" class="bodyText">
+                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value, 'buyWindow');" value="Buy Now" class="bodyText">
                                           </td>
                                         </form>
                                     </tr>

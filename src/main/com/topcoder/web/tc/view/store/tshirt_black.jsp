@@ -47,7 +47,7 @@
                     <td class="bodyText" colspan="3">   
                                  <table width="100%" border="0" cellpadding="5" cellspacing="0">
                                     <tr><td colspan="3" class="bodyText"> The 6.1oz 100% ring-spun cotton, heavyweight beefy black t-shirt has double needle hems, and is 
-                                    taped shoulder to shoulder. The Topcoder logo is silkscreened on the left chest and on the upper back. </td></tr>
+                                    taped shoulder to shoulder. The TopCoder logo is silkscreened on the left chest and on the upper back. </td></tr>
                                     <tr>
                                         <form name="sizeSelect">
                                         <td valign="middle" nowrap>$16.95 ($18.95 for XXL)</td>
@@ -62,7 +62,7 @@
                                           </select>
                                           </td>
                                           <td valign="middle" class="bodyText" width="100%">
-                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value);" value="Buy Now" class="bodyText">
+                                          <input type="button" onClick="window.open(document.sizeSelect.menu.options[document.sizeSelect.menu.selectedIndex].value, 'buyWindow');" value="Buy Now" class="bodyText">
                                           </td>
                                         </form>
                                     </tr>
