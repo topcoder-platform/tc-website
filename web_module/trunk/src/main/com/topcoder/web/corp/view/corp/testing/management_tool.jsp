@@ -69,7 +69,7 @@
                             - Attempted problem status<br>
                             - System test results<br>
                             - Time to submit</li>
-                            <li>Comparative statistics to TopCoder’s member base</li>
+                            <li>Comparative statistics to TopCoder's member base</li>
                             <li>Submitted code can be analyzed by engineers to determine problem solving skills</li>
                         </ul>
                         
