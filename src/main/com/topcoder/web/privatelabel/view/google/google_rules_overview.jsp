@@ -62,10 +62,10 @@ function openWin(url, name, w, h) {
                   <div class=content> 
                   <div align="center">
 	            <font size="-1">
-                     <a href="google_overview.jsp">Overview</a> &nbsp;|&nbsp; 
-                     <a href="google_sched.jsp">Schedule</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_overview">Overview</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_sched">Schedule</a> &nbsp;|&nbsp; 
                      <font color="006633">Rules</font> &nbsp;|&nbsp; 
-                     <a href="google_registration.jsp">Register Now</a> &nbsp;|&nbsp; 
+                     <a href="/pl/?&module=Static&d1=google&d2=google_rules">Rules</a> &nbsp;|&nbsp; 
                      <a href="Javascript:openWin('?module=Static&d1=google&d2=google_quick_launch','comp',300,225);">Practice Arena</a>
                   </font>
                   </div><br><br>
