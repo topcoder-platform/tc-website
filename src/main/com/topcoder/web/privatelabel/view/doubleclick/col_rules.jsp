@@ -183,9 +183,7 @@
 	</tr>
 </table>
    
-<jsp:include page="foot.jsp" >
-   <jsp:param name="contest" value="collegiate"/>
-</jsp:include>
+<jsp:include page="foot.jsp" />
 
 </body>
 </html>
