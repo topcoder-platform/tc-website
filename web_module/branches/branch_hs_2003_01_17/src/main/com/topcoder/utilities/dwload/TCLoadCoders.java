@@ -310,9 +310,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("   AND x.user_id = u.user_id ");
             query.append("   AND x.school_id = s.school_id ");
             query.append("   AND x.current_ind = 1 ");
-            query.append("   AND (c.modify_date > ? ");
-            query.append("    OR  e.modify_date > ? ");
-            query.append("    OR  u.modify_date > ?)");
+            query.append("   AND c.modify_date > ? ");
             query.append("   AND NOT EXISTS ");
             query.append("       (SELECT 'pops' ");
             query.append("          FROM group_user gu ");
@@ -377,8 +375,6 @@ public class TCLoadCoders extends TCLoad {
             // The first thing we do is delete the old record prior to
             // inserting the new record. We don't care if this fails or not.
             psSel.setTimestamp(1, fLastLogTime);
-            psSel.setTimestamp(2, fLastLogTime);
-            psSel.setTimestamp(3, fLastLogTime);
             rs=executeQuery(psSel, "loadCoder");
 
             while (rs.next()) {
