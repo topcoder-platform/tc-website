@@ -143,14 +143,13 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
     public void servletPostAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception {
 
-        //TODO add constants for names
         ArrayList a = new ArrayList();
         a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
             "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.MAIN_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), "Main"));
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.MAIN_NAME));
         a.add(new TrailItem(request.getContextPath() + request.getServletPath() + 
             "?" + TCESConstants.TASK_PARAM + "=" + TCESConstants.CAMPAIGN_DETAIL_TASK + "&" + 
-            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), "Campaign Detail"));
+            TCESConstants.CAMPAIGN_ID_PARAM + "=" + getCampaignID(), TCESConstants.CAMPAIGN_DETAIL_NAME));
         setTrail(a);
 
     }

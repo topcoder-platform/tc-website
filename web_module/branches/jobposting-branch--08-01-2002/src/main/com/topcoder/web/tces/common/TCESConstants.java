@@ -33,6 +33,11 @@ public class TCESConstants {
     public static String PROBLEM_STATEMENT_PAGE = null;
     public static String MEMBER_INTEREST_PAGE = null;
 
+    public static String MAIN_NAME = null;
+    public static String CAMPAIGN_DETAIL_NAME = null;
+    public static String CAMPAIGN_INTEREST_NAME = null;
+    public static String POSITION_INTEREST_NAME = null;
+
     public static String LOGIN_TASK = null;
     public static String LOGIN_TASK_STEP_VIEW = null;
     public static String LOGIN_TASK_STEP_AUTH = null;
@@ -209,6 +214,11 @@ public class TCESConstants {
         STUDENT_CODER_TYPE = bundle.getIntProperty("student_coder_type", 1);
         PROBLEM_STATUS_OPEN = bundle.getIntProperty("problem_status_open", 120);
         PROBLEM_STATUS_COMPILED = bundle.getIntProperty("problem_status_compiled", 121);
+
+        MAIN_NAME = bundle.getProperty("main_name", "");
+        CAMPAIGN_DETAIL_NAME = bundle.getProperty("campaign_detail_name", "");
+        CAMPAIGN_INTEREST_NAME = bundle.getProperty("camgpaign_interest_name", "");
+        POSITION_INTEREST_NAME = bundle.getProperty("position_interest_name", "");
 
         JSP_ROOT = bundle.getProperty("jsp_root", "");
         ERROR_PAGE = bundle.getProperty("error_page", "");

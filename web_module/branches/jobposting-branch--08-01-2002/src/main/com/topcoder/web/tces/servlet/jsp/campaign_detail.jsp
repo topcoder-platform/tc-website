@@ -42,7 +42,7 @@
         </jsp:include>
         <P ALIGN="center">
           <tces:trailIterator id="trailItem" trailList="<%=CampaignDetailTask.getTrail()%>">
-            <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A>
+            <A HREF="<jsp:getProperty name="trailItem" property="href"/>" class="statText"><jsp:getProperty name="trailItem" property="name"/></A> &gt;
           </tces:trailIterator>
         </P>
 
