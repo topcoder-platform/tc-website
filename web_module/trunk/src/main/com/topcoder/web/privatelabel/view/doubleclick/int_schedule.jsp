@@ -21,7 +21,7 @@
 <table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
 	<tr>
 		<td class="dc_headerPic">
-	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
+	      <img src="/i/events/doubleclick/image3.gif" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
          <p class="pageTitle">Schedule</p>
