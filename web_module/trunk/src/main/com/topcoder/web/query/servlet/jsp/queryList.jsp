@@ -28,14 +28,14 @@
       <td width="4" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="4" height="8"></td>
       <td class="statText" width="100%" bgcolor="#000000" valign="top">
         <table width="60%" border="0" cellpadding="0" cellspacing="0">
-          <tr><td class="statTextBig" colspan="4"><%=Constants.COMMAND_LIST_NAME%></td></TR>
+          <tr><td class="statTextBig" colspan="2"><%=Constants.COMMAND_LIST_NAME%></td></TR>
           <tr>
             <td class="statText" ALIGN="right" colspan="2">DB:&#160;</td>
             <td class="statText" ALIGN="left" colspan="2">
               <jsp:getProperty name="QueryList" property="Db"/>
             </td>
           </TR>
-          <tr><td colspan="4"><img src="/i/clear.gif" width="4" height="8"></td></TR>
+          <tr><td colspan="2"><img src="/i/clear.gif" width="4" height="8"></td></TR>
           <tr bgcolor="#333333">
             <td></td>
             <td class="statTextBig">Query Name</td>
