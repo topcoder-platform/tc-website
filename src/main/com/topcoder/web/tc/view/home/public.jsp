@@ -1,3 +1,4 @@
+<%@ page import="com.topcoder.shared.util.ApplicationServer"%>
 <html>
 <head>
 <title>Programming Contests, Software Development, and Employment Services at TopCoder</title>
@@ -59,7 +60,9 @@
 <!-- Right Column Begins -->
          <td width="180">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-               <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
+               <tr><td><img src="/i/clear.gif" width="180" height="10" border="0"></td></tr>
+				<tr><td><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp" target="_top"><img src="/i/promos/featured_clients.gif" width="180" height="179" border="0"></A></td></tr>
+				<tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
                <tr><td><img src="/i/top_10_lists_top.gif" alt="Competition Leaders" width="180" height="11" border="0"></td></tr>
                <tr><td><img src="/i/module_labels_comp_leaders.gif" alt="Competition Leaders" width="180" height="20" border="0" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="1" height="1" border="0" /></td></tr>
