@@ -108,9 +108,9 @@ function sponsorLink(spons)
   w=window.open(spons,"Sponsor");
   return;
 }
-function sponsorLinkWindow(spons,nam,top,lef,wid,hei,sta)
+function sponsorLinkWindow(spons,nam,top,lef,wid,hei)
 {
-  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",status="+sta);
+  w=window.open(spons,nam,"top="+top+",left="+lef+",width="+wid+",height="+hei+",resizable=yes,toolbar=yes,location=yes,scrollbars=yes,menubar=yes,status=yes");
   return;
 }
 function goTo(selection)
