@@ -26,6 +26,25 @@ public class SimpleRegInfo extends Base{
     public SimpleRegInfo() {
     }
 
+    public SimpleRegInfo(SimpleRegInfo info) {
+        setHandle(info.getHandle());
+        setPassword(info.getPassword());
+        setPasswordConfirm(info.getPasswordConfirm());
+        setEmail(info.getEmail());
+        setEmailConfirm(info.getEmailConfirm());
+        setFirstName(info.getFirstName());
+        setLastName(info.getLastName());
+        setAddress1(info.getAddress1());
+        setAddress2(info.getAddress2());
+        setCountryCode(info.getCountryCode());
+        setCountryName(info.getCountryName());
+        setStateCode(info.getStateCode());
+        setStateName(info.getStateName());
+        setCity(info.getCity());
+        setZip(info.getZip());
+        setCompanyId(info.getCompanyId());
+    }
+
     public String getHandle() {
         return handle;
     }

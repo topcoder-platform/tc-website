@@ -25,14 +25,16 @@ abstract class FullRegBase extends SimpleRegBase {
 
     protected abstract void registrationProcessing() throws TCWebException;
 
-    public FullRegBase() { }
+    public FullRegBase() {
+    }
+
 
     protected void setDefaults(FullRegInfo info) {
         super.setDefaults(info);
     }
 
     protected SimpleRegInfo makeRegInfo() throws Exception {
-        FullRegInfo info = (FullRegInfo)super.makeRegInfo();
+        FullRegInfo info = new FullRegInfo(super.makeRegInfo());
         if (!hasResume) {
             try {
                 fu = new FileUpload(getRequest(), false);

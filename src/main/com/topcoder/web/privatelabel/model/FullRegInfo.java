@@ -12,6 +12,11 @@ public class FullRegInfo extends SimpleRegInfo {
     public FullRegInfo() {
     }
 
+    public FullRegInfo(SimpleRegInfo info) {
+        super(info);
+    }
+
+
     public byte[] getResume() {
         return resume;
     }
