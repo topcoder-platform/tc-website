@@ -87,7 +87,7 @@
 <!-- Gutter -->
          <td width="10"><img src="/i/clear.gif" width="10" height="1" border="0"></td>
 <!-- Gutter Ends -->
-    </tr>
+    </tr> 
 </table>
 
 <jsp:include page="../../foot.jsp" />
