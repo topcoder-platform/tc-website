@@ -1,7 +1,8 @@
 <%@ page
   language="java"
   errorPage="/errorPage.jsp"
-  import="com.topcoder.web.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*"
+  import="com.topcoder.web.stat.common.JSPUtils,com.topcoder.shared.dataAccess.*,com.topcoder.shared.dataAccess.resultSet.*,
+          java.text.DecimalFormat"
 
 %>
 
@@ -31,21 +32,22 @@
 %>
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <%
+    DecimalFormat df = new DecimalFormat("0.00");
     ResultSetContainer leaders = (ResultSetContainer) queryEntries.get("High_Scorers");
     ResultSetContainer percents = (ResultSetContainer) queryEntries.get("Round_Percentages");
+    ResultSetContainer.ResultSetRow currentRow = null;
     int topN = Integer.parseInt(srb.getProperty("er","5"));
     if(topN<0||topN>100)topN = 5;
-    ResultSetContainer.ResultSetRow resultRow_0 = leaders.getRow(0);
-    String contestName = resultRow_0.getItem("contest_name").toString();
-    int roundID = Integer.parseInt(resultRow_0.getItem("round_id").toString());
+    currentRow = leaders.getRow(0);
+    String contestName = currentRow.getItem("contest_name").toString();
+    int roundID = Integer.parseInt(currentRow.getItem("round_id").toString());
     //get divisionIDs
     ArrayList divisionNames = new ArrayList(5);
     ArrayList divisionIDs = new ArrayList(5);
-
     String last = "";
     int divisions = 0;
     for(int i = 0; i<percents.size();i++){
-        ResultSetContainer.ResultSetRow currentRow = percents.getRow(i);
+        currentRow = percents.getRow(i);
         String current = currentRow.getItem("division_desc").toString();
         if(!current.equals(last)){
             divisionNames.add(current);
@@ -58,10 +60,16 @@
     String coders[][] = new String[divisions][topN];
     String scores[][] = new String[divisions][topN];
     String rooms[][] = new String[divisions][topN];
+    int lastDivisionID = -1;
+    int divisionPtr = 0;
     for(int i = 0; i<leaders.size();i++){
-        ResultSetContainer.ResultSetRow currentRow = leaders.getRow(i);
-        int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString())-1;
-        if(ptrs[divisionID]==topN)continue;
+        currentRow = leaders.getRow(i);
+        int divisionID = Integer.parseInt(currentRow.getItem("division_id").toString());
+        if(divisionID!=lastDivisionID){
+            lastDivisionID = divisionID;
+            divisionPtr++;
+        }
+        if(ptrs[divisionPtr]==topN)continue;
         String handle = currentRow.getItem("handle").toString();
         String room_name = currentRow.getItem("room_name").toString();
         String points = currentRow.getItem("final_points").toString();
@@ -69,6 +77,7 @@
         scores[divisionID][ptrs[divisionID]]=points;
         rooms[divisionID][ptrs[divisionID]++]=room_name;
     }
+
 %>
 
 
@@ -92,7 +101,7 @@ DATE<BR/>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
   <%for(int i = 0; i<divisionNames.size();i++){%>
-    <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B><%= divisionNames.get(i).toString() %></B></TD>
+    <TD VALIGN="middle" COLSPAN="2" BGCOLOR="#CCCCCC" WIDTH="40%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Leaders</B></TD>
     <TD VALIGN="middle" ALIGN="center" BGCOLOR="#CCCCCC" WIDTH="10%" NOWRAP="0"><A HREF="/stat?c=last_match&amp;rd=<%= roundID %>&amp;dn=<%= divisionIDs.get(i).toString() %>" CLASS="bodyGeneric">Results</A></TD>
   <%}%>
   </TR>
@@ -106,11 +115,16 @@ DATE<BR/>
   <%    }%>
       </TR>
   <%}%>
+<%  int currentRowPtr = 0;
+    for(int i = 0; i<divisions;i++){
+        currentRow = percents.getRow(currentRowPtr);
+        int currentDivID = Integer.parseInt(currentRow.getItem("division_id").toString());
+    %>
 </TABLE>
     <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/><BR/><A NAME="problem_stats"></A>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
-    <TD VALIGN="middle" COLSPAN="5" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B>Div-I Problem Stats</B></TD>
+    <TD VALIGN="middle" COLSPAN="5" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B><%= divisionNames.get(i).toString() %> Problem Stats</B></TD>
   </TR>
 
   <TR>
@@ -120,64 +134,29 @@ DATE<BR/>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
     <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><B>Average Pts.</B></TD>
   </TR>
+  <%while(Integer.parseInt(currentRow.getItem("division_id").toString())==currentDivID){
+      String problemLevel = currentRow.getItem("problem_level").toString();
+      String problemName = currentRow.getItem("problem_name").toString();
+      int submissions =Integer.parseInt(currentRow.getItem("submissions").toString());
+      int correct = Integer.parseInt(currentRow.getItem("successful_submissions").toString());
+      double total = Double.parseDouble(currentRow.getItem("total_points").toString())/correct;
+      String perCor = df.format((((double)correct)/submissions));
+      String avgPoints = df.format(total/correct);
+  %>
+
   <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Level One</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;StemChange</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">91 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">84.62% &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">184.75</TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;<%=problemLevel%></TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<%=problemName%></TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=submissions%> &#160;&#160;</TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=correct%>% &#160;&#160;</TD>
+    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right"><%=avgPoints%></TD>
   </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Level Two</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;WordSearch</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">73 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">26.03% &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">256.52</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Level Three</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;LeftMoves</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">32 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">56.25% &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">530.03</TD>
-  </TR>
-</TABLE>
-    <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"/><BR/>
+  <%
+    }
+  }%>
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">
   <TR>
-    <TD VALIGN="middle" COLSPAN="5" BGCOLOR="#CCCCCC" WIDTH="100%" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;<B>Div-II Problem Stats</B></TD>
-  </TR>
-
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText">&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="30%" HEIGHT="15" CLASS="bodyText">&#160;<B>Problem Name</B></TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="10%" HEIGHT="15" CLASS="bodyText" ALIGN="right">&#160;<B>Submissions</B></TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right">&#160;<B>Correct %&#160;&#160;</B></TD>
-    <TD VALIGN="middle" NOWRAP="0" WIDTH="20%" HEIGHT="15" CLASS="bodyText" ALIGN="right"><B>Average Pts.</B></TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Level One</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;Lars</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">145 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">62.07% &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">220.37</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Level Two</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;StemChange</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">118 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">73.73% &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">297.81</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;Level Three</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText">&#160;&#160;Packyman</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">15 &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">6.67% &#160;&#160;</TD>
-    <TD VALIGN="middle" NOWRAP="0" HEIGHT="15" CLASS="bodyText" ALIGN="right">461.70</TD>
-  </TR>
-  <TR>
-    <TD VALIGN="middle" COLSPAN="5" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></TD>
+    <TD VALIGN="middle" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="10" BORDER="0"/></TD>
   </TR>
   <!-- <TR>
     <TD VALIGN="middle" COLSPAN="5" BGCOLOR="#CCCCCC" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
