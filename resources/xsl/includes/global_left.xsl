@@ -157,6 +157,12 @@
                 <tr>
                     <td id="leftSubnav"><A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=search</xsl:attribute>Advanced Member Search</A></td>
                 </tr>
+                <tr>
+                    <td id="leftSubnav">
+                        <a class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?&amp;module=SurveyList</xsl:attribute>Member Surveys</a>
+                    </td>
+                </tr>
+
 
                 <xsl:call-template name="feat_row"/>
                 <xsl:call-template name="events_row"/>
