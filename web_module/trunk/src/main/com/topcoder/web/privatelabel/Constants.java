@@ -36,6 +36,7 @@ public class Constants {
     public static String GOOGLE_REG_DEMOG_PAGE;
     public static String GOOGLE_REG_CONFIRM_PAGE;
     public static String GOOGLE_REG_SUCCESS_PAGE;
+    public static String GOOGLE_ACTIVATION_PAGE;
     public static String DEFAULT_PAGE;
 
     //main reg parameters
