@@ -64,7 +64,6 @@
 <P>
 The Object Formatter component provides a generic API for formatting java objects. This component can be used to centralize data formatting within an application instead of having each "tier" of the application define its own formatting methods.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2600179&amp;cat=14" CLASS="statText">Object Formatter Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>

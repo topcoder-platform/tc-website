@@ -64,7 +64,6 @@
 <P>
 The Java API Comparator component is used to compare the differences between two java classes. The comparison is far more complex than simply checking the contents of 2 files. It goes further in its use of reflection to validate that the implementation of 2 classes is the same. This validation is particularly beneficial when comparing a design with its implementation.
 <BR/>
-For more details, check out the <A HREF="http://www.topcodersoftware.com/pages/c_component.jsp?comp=2400324&amp;cat=14" CLASS="statText">API Comparator Component</A> at <A HREF="http://www.topcodersoftware.com" CLASS="statText">topcodersoftware.com</A>.
 </P>
 
 <P>
