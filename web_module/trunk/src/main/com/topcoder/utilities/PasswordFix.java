@@ -27,11 +27,10 @@ public class PasswordFix {
             PasswordFix um = new PasswordFix();
             try {
                 log.debug("first");
-                InitialContext ctx = TCContext.getInitial();
                 log.debug("first");
                 long begin = System.currentTimeMillis();
                 log.debug("first");
-                int count = um.getUsers(ctx);
+                int count = um.getUsers();
                 log.debug("first");
                 long end = System.currentTimeMillis();
                 log.debug("all done, " + count + " moved in " + (double) ((end - begin) / 1000) + " seconds");
@@ -42,8 +41,12 @@ public class PasswordFix {
 
         }
 
-        private int getUsers(InitialContext ctx) throws Exception {
+        private int getUsers() throws Exception {
 
+
+            log.debug("next");
+            InitialContext ctx = TCContext.getInitial();
+            log.debug("next");
             DataSource ds = (DataSource) ctx.lookup(SOURCE_DS);
             Connection conn = null;
             PreparedStatement ps = null;
