@@ -53,21 +53,21 @@
                   <TD class="statText" HEIGHT="18" align="left" colspan="20">
 
                       <!-- Error message content pane -->
-                   <DIV CLASS="header">    
+                   <DIV CLASS="headerWhite">    
                         You do not enough priveleges to perform this action<br>
                         If you think this page was shown by mistake, please contact us<br>
                         We are sorry for any inconveniences caused by this<br>
                         site administration<br><br>
-                   </DIV CLASS="header">
+                   </DIV CLASS="headerWhite">
                        <!-- web-app debug time stack trace  BEGIN -->
 
                         <hr><b><i>Trace information is provided for web application debug time only</i></b><br>
-                       <pre>
+                       <pre><br>
                        <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
                           if( excCaught != null ) {
                              excCaught.printStackTrace(new java.io.PrintWriter(out));
                           }
-                       %>
+                       %><br>
                        </pre><hr>
 
                        <!-- web-app debug time stack trace END -->
