@@ -155,10 +155,13 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($designtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Design Competition begins on 11/11/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>The final round of the 2003 TCO Component Design Competition begins on 11/11/2003</strong></td>
                         </tr>
                 </xsl:if>
 
+                <tr>
+                    <td class="bodyText" colspan="6"><a href="http://172.16.20.20/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
+                </tr>
                 <tr>
                     <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
@@ -219,9 +222,12 @@
                                                     and status_id=303]"/>
                 <xsl:if test="not($devtco)">
                         <tr valign="top">
-                            <td class="formTextOdd" colspan="6"><strong>Round 3 of the 2003 TCO Component Development Competition begins on 11/11/2003</strong></td>
+                            <td class="formTextOdd" colspan="6"><strong>The final round 3 of the 2003 TCO Component Development Competition begins on 11/11/2003</strong></td>
                         </tr>
                 </xsl:if>
+                <tr>
+                    <td class="bodyText" colspan="6"><a href="http://172.16.20.20/tc?module=Static&amp;d1=tournaments&amp;d2=tco03&amp;d3=tco03_comp_bracket_interact#bracket">Eligible Competitors</a> </td>
+                </tr>
                 <tr>
                     <td class="bodyText" colspan="6">*Total Payment (before royalties) </td>
                 </tr>
