@@ -140,7 +140,6 @@
                 
                 <tr valign="top">
                     <td class="statText">
-<<<<<<< app_meth.xsl
                    	<p><b>Architecture and Design Phase:</b>  Self-defined TopCoder Software Design teams of one or more members create and 
                    	submit application designs to TopCoder Software.</p>
                    	<p>
@@ -174,46 +173,7 @@
 					<li>The winning design is posted as an Application Development Project.</li>
 					</ol>
 					</p>
-            		
-            		
-=======
-                       <p><b>Architecture and Design Phase:</b>  Self-defined TopCoder Software Design teams of one or more members create and 
-                       submit application designs to TopCoder Software.</p>
-                       <p>
-                       <ol>
-                    <li>All eligible TopCoder members may submit completed designs for the application.</li>
-                    <li>Designers must submit a completed Application Design Specification on the Specification Submission Due 
-                    Date as stated in the Application Project Posting page.</li>
-                    <li>Application Managers will provide functional feedback to designers via the TopCoder Software NewsGroups.</li>
-                    <li>Designers must submit the following documents by the Design Submission Due Date:
-                    <ul>
-                    <li>Updated Application Specification Document</li>
-                    <li>Updated Use Case diagrams if required</li>
-                    <li>Deployment Diagrams - Associations between application classes and components</li>
-                    <li>Sequence Diagrams - Associations between application classes and components</li>
-                    <li>Persistence Diagrams - Data Definition Language (DDL), XML Schema, Document Type Definition (DTD)</li>
-                    <li>Configuration Data - Explanation of configuration parameters</li>
-                    <li>Static Data - Data required for the application to be used</li>
-                    <li>Test Cases - Functional Test Cases that cover the public API of the application</li>
-                    </ul></li>
-                    <li>The Application Specification Document is expected to specify both generic components that can be mapped 
-                    to the <a class="statText" href="http://www.topcodersoftware.com/pages/c_showroom.jsp" target="_blank">TopCoder Software Component Catalog</a>, new components and component extensions necessary to implement 
-                    functionality specific to the application.</li>
-                    <li>An Architecture Review Board reviews and scores all design submissions. The Board will take several factors, 
-                    including number of current TopCoder Software components used and new components identified into account when
-                    scoring the submissions.</li>
-                    <li>The Architecture Review Board selects a winning design submission and the top two entries are compensated.</li>
-                    <li>If the new components are required for the application, they will be developed separately using the 
-                    <a class="statText" href="index?t=development&amp;c=comp_meth">Component Development Methodology</a>.</li>
-                    <li>The winning designer(s) incorporate Review Board suggestions into their design.</li>
-                    <li>The Architecture Review Board performs a final review and accepts the application design.</li>
-                    <li>The winning design is posted as an Application Development Project.</li>
-                    </ol>
-                    </p>
-                    
-                    
->>>>>>> 1.16
-                    </td>
+            		</td>
                 </tr>
 <!-- Design ends -->
 
