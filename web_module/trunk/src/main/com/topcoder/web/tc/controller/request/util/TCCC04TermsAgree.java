@@ -28,7 +28,7 @@ public class TCCC04TermsAgree extends Base {
                 now.setTime(new Date());
                 Calendar end = Calendar.getInstance();
 //                end.set(2004, 1, 23, 9, 0);
-                end.set(2004, 0, 23, 9, 0);
+                end.set(2004, 1, 23, 9, 0);
                 Calendar beginning = Calendar.getInstance();
 //                beginning.set(2004, 1, 1, 0, 0);
                 beginning.set(2004, 0, 1, 0, 0);
