@@ -177,35 +177,35 @@ the nearest competitor.
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 
 <TR><TD COLSPAN="6" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD></TR>
-<TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division II (check back for info)</TD></TR>
-<!-- <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
+<TR><TD COLSPAN="6" CLASS="bodyText" ALIGN="left">Division II</TD></TR>
+<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 1 - Rain</TD>
 	<TD CLASS="bodyText" ALIGN="right">250</TD>
-	<TD CLASS="bodyText" ALIGN="right">97.65%</TD>
-	<TD CLASS="bodyText" ALIGN="right">97.07%</TD>
-	<TD CLASS="bodyText" ALIGN="right">240</TD>
-	<TD CLASS="bodyText" ALIGN="center">kokon<BR/>249.16</TD>
+	<TD CLASS="bodyText" ALIGN="right">96.8661%</TD>
+	<TD CLASS="bodyText" ALIGN="right">993.447296%</TD>
+	<TD CLASS="bodyText" ALIGN="right">235.21341</TD>
+	<TD CLASS="bodyText" ALIGN="center">stimpi<BR/>248.73</TD>
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 2 - StringOps</TD>
 	<TD CLASS="bodyText" ALIGN="right">600</TD>
-	<TD CLASS="bodyText" ALIGN="right">91.79%</TD>
-	<TD CLASS="bodyText" ALIGN="right">79.47%</TD>
-	<TD CLASS="bodyText" ALIGN="right">372</TD>
-	<TD CLASS="bodyText" ALIGN="center">WhiteShadow<BR/>478.40</TD>
+	<TD CLASS="bodyText" ALIGN="right">64.38747%</TD>
+	<TD CLASS="bodyText" ALIGN="right">25.641026%</TD>
+	<TD CLASS="bodyText" ALIGN="right">326.0778</TD>
+	<TD CLASS="bodyText" ALIGN="center">b0b0b0b<BR/>543.28</TD> 
 </TR>
 <TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 <TR>
 	<TD CLASS="bodyText" ALIGN="left">Level 3 - Sketch</TD>
 	<TD CLASS="bodyText" ALIGN="right">900</TD>
-	<TD CLASS="bodyText" ALIGN="right">47.80%</TD>
-	<TD CLASS="bodyText" ALIGN="right">3.23%</TD>
-	<TD CLASS="bodyText" ALIGN="right">601</TD>
-	<TD CLASS="bodyText" ALIGN="center">antimatter<BR/>742.48</TD>
+	<TD CLASS="bodyText" ALIGN="right">45.584045%</TD>
+	<TD CLASS="bodyText" ALIGN="right">30.19943%</TD>
+	<TD CLASS="bodyText" ALIGN="right">569.5755</TD>
+	<TD CLASS="bodyText" ALIGN="center">tenken<BR/>771.33</TD> 
 </TR>
-<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR> -->
+<TR><TD COLSPAN="6" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD></TR>
 </TABLE></DIV></P>
     <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
 By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/stat?c=member_profile&amp;cr=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
