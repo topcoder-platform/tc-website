@@ -1372,5 +1372,18 @@
              </classpath>
          </java>
      </target>
+         <target name="crawl-site" depends="compile">
+         <java classname="com.topcoder.utilities.SiteCrawler" fork="true">
+             <classpath>
+                 <pathelement location="${classes}"/>
+                 <pathelement location="${jars.dir}/log4j-1.2.7.jar"/>
+                 <pathelement location="${resources}"/>
+                 <pathelement location="${jars.dir}/httpunit.jar"/>
+                 <pathelement location="${jars.dir}/Tidy.jar"/>
+                 <pathelement location="${jars.dir}/nekohtml.jar"/>
+                 <pathelement location="${jars.dir}/xalan-j_2_4_0/bin/xalan.jar"/>
+             </classpath>
+         </java>
+     </target>
  </project>
 
