@@ -43,7 +43,7 @@ public class Submit extends FullRegSubmit {
     protected void setNextPage() {
         if (isEligible((FullRegInfo)regInfo)) {
             if (hasErrors()) {
-                setNextPage(Constants.DEMO_REG_PAGE);
+                setNextPage(Constants.BROOKS_REG_PAGE);
                 setIsNextPageInContext(true);
             } else {
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
@@ -55,7 +55,7 @@ public class Submit extends FullRegSubmit {
                 buf.append(Constants.MODULE_KEY);
                 buf.append("=");
                 buf.append(Constants.STATIC);
-                buf.append(Constants.DEMO_REG_SUCCESS_PAGE);
+                buf.append(Constants.BROOKS_REG_SUCCESS_PAGE);
                 setNextPage(buf.toString());
                 setIsNextPageInContext(false);
             }
@@ -295,9 +295,13 @@ public class Submit extends FullRegSubmit {
                 StringBuffer buf = new StringBuffer(1000);
 
                 TCSEmailMessage mail = new TCSEmailMessage();
-                mail.setSubject("Invitation to Private Candidate Testing Application");
+                mail.setSubject("Invitation to Brooks Automation Technical Assessment Tool");
 
-                buf.append("Thank you for your interest in working at TopCoder.  We would like you to participate in the Private Candidate Testing Application powered by TopCoder.  Through this Testing Application, you will be asked to solve algorithmic problems as an objective measure of your programming ability.\n\n");
+                Date transBegin = translateDate(beginDate);
+                Date transEnd = translateDate(endDate);
+
+
+                buf.append("Thank you for your interest in employment opportunities with Brooks Automation Private Limited in Chennai, India.  As part of our candidate selection and evaluation process, we would like you to participate in the Brooks Automation Technical Assessment Tool, powered by TopCoder.  Through this Technical Assessment Tool, you will be asked to solve algorithmic problems as an objective measure of your programming and technical problem solving ability.\n\n");
                 buf.append("Please review the Help Manual before getting started:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
@@ -305,19 +309,19 @@ public class Submit extends FullRegSubmit {
                 buf.append("\n\n");
                 buf.append("The following session has been scheduled for you:\n\n");
                 buf.append("Begin: ");
-                buf.append(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(beginDate));
-                buf.append(" Eastern Time\n");
+                buf.append(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(transBegin));
+                buf.append(" IST\n");
                 buf.append("End: ");
-                buf.append(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(endDate));
-                buf.append(" Eastern Time\n");
+                buf.append(new SimpleDateFormat("MM/dd/yyyy hh:mm a").format(transEnd));
+                buf.append(" IST\n");
                 buf.append("Login: ");
                 buf.append(info.getHandle());
                 buf.append("\n");
                 buf.append("Password: ");
                 buf.append(info.getPassword());
                 buf.append("\n\n");
-                buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TESTING APPLICATION PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 2 HOURS TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
-                buf.append("You must have the Java 1.4.x runtime installed to access the Testing Application here: \n");
+                buf.append("PLEASE NOTE THAT YOU MUST COMPLETE ALL PORTIONS OF THE TECHNICAL ASSESSMENT TOOL PRIOR TO THE END TIME SHOWN ABOVE.  YOU SHOULD ALLOW APPROXIMATELY 1 HOUR TO COMPLETE ALL PORTIONS OF THE TEST.\n\n");
+                buf.append("You must have the Java 1.4.x runtime installed to access the Technical Assessment Tool here:\n");
                 buf.append("http://");
                 buf.append(ApplicationServer.SERVER_NAME);
                 buf.append("/corp/testing/testingApp.jsp?company=");
@@ -325,12 +329,14 @@ public class Submit extends FullRegSubmit {
                 buf.append("\n\n");
                 buf.append("If you are unable to connect when you attempt to login, please try checking the HTTP Tunneling option and entering your login/password again.");
                 buf.append("\n\n");
+                buf.append("If you encounter any technical problems while using the Technical Assessment Tool, please contact us at brooks@topcoder.com.\n\n");
                 buf.append("Thank you,\n\n");
-                buf.append("TopCoder");
+                buf.append("Brooks Automation Private Limited\n");
+                buf.append("Chennai, India");
 
                 mail.setBody(buf.toString());
                 mail.addToAddress(info.getEmail(), TCSEmailMessage.TO);
-                mail.setFromAddress("service@topcoder.com", "TopCoder");
+                mail.setFromAddress("brooks@topcoder.com", "Brooks Automation Private Limited, Chennai");
                 EmailEngine.send(mail);
                 log.info("sent registration email to " + info.getEmail());
 
@@ -346,6 +352,27 @@ public class Submit extends FullRegSubmit {
         }
     }
 
+    private String getUrl(String code) {
+        StringBuffer buf = new StringBuffer(200);
+        buf.append("http://");
+        buf.append(ApplicationServer.SERVER_NAME);
+        SessionInfo sInfo = (SessionInfo) getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
+        buf.append(sInfo.getServletPath());
+        buf.append("?");
+        buf.append(Constants.MODULE_KEY);
+        buf.append("=");
+        buf.append(Constants.DC_ACTIVATION);
+        buf.append("&");
+        buf.append(BaseActivate.ACTIVATION_CODE);
+        buf.append("=");
+        buf.append(code);
+        buf.append("&");
+        buf.append(Constants.COMPANY_ID);
+        buf.append("=");
+        buf.append(regInfo.getCompanyId());
+        return buf.toString();
+    }
+
     private Date formDate(String year, String month, String day, String hour) {
         //if we don't have all the values then just exit
         if(year == null || month == null || day == null || hour == null) {
@@ -354,7 +381,7 @@ public class Submit extends FullRegSubmit {
         Calendar c = Calendar.getInstance();
         c.set(Integer.parseInt(year),
                months[Integer.parseInt(month)],
-               Integer.parseInt(day), 
+               Integer.parseInt(day),
                Integer.parseInt(hour), 0, 0);
         c.set(Calendar.MILLISECOND, 0);
         return c.getTime();
@@ -375,6 +402,24 @@ public class Submit extends FullRegSubmit {
         //96 hours
         c.add(Calendar.DATE,4);
         return c.getTime();
+    }
+
+    private Date translateDate(Date d)
+    {
+        log.debug("TIME1: " + d);
+        log.debug("TIME1: " + d.getTime());
+        Calendar c = new GregorianCalendar();
+        c.setTime(d);
+        Date ret = new Date(d.getTime());
+
+        //bring to GMT
+        log.debug("TIME: " + c.get(GregorianCalendar.YEAR));
+        log.debug("EST: " + TimeZone.getTimeZone("EST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        log.debug("IST: " + TimeZone.getTimeZone("IST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        ret = new Date( ret.getTime() - TimeZone.getTimeZone("EST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+        ret = new Date( ret.getTime() + TimeZone.getTimeZone("IST").getOffset(1,  1900 + c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH), c.get(Calendar.DAY_OF_WEEK), 0));
+
+        return ret;
     }
 
     private static int[] months =

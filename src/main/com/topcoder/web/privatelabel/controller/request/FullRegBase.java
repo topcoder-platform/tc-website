@@ -60,7 +60,7 @@ public abstract class FullRegBase extends SimpleRegBase {
                 log.debug("GETTING QUESTIONS");
                 try
                 {
-                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType());
+                    questions = getQuestions(transDb, ((FullRegInfo) info).getCoderType(), Integer.parseInt( getRequestParameter(Constants.COMPANY_ID)));
                 }
                 catch(Exception e)
                 {
@@ -196,7 +196,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         //in case we need the list before we've populated it.  this is most
         //likely to happen in makeRegInfo()
         if (questions==null)
-            questions = getQuestions(transDb, coderTypeId);
+            questions = getQuestions(transDb, coderTypeId, Integer.parseInt( getRequestParameter(Constants.COMPANY_ID)));
         List ret = new ArrayList(questions.size());
         DemographicQuestion q = null;
         for (Iterator it = questions.values().iterator(); it.hasNext();) {
