@@ -14,7 +14,7 @@
 <body align="center">
 
 <jsp:include page="../links.jsp" >
-   <jsp:param name="tabLev1" value="student"/>
+   <jsp:param name="tabLev1" value="collegiate"/>
    <jsp:param name="tabLev2" value="registration"/>
 </jsp:include>
 
@@ -24,7 +24,7 @@
 	      <img src="/i/events/doubleclick/headers/guyNcode.jpg" border="0" width="163" height="180"/>
 	  	</td>
 		<td class="dc_bodyText">
-         <p class="pageTitle">Registration</p>
+         <p class="pageTitle">ActivationSuccessful!</p>
          <p>You have successfully activated your account.</p>
 
 		</td>
