@@ -42,8 +42,8 @@
    <jsp:param name="tabLev2" value="onsite_events"/>
    <jsp:param name="tabLev3" value="reception"/>
 </jsp:include>
-            <img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
 
+            <img src="/i/clear.gif" width="1" height="10" border="0"/><br/>
             <div class="leadPhoto">
             <img src="/i/tournament/tccc04/reception/summary.jpg" alt="" width="200" height="350" class="photoFrameBig" /><br/>
             <span class="leadPhotoCaption">caption<br/><br/> </span>
