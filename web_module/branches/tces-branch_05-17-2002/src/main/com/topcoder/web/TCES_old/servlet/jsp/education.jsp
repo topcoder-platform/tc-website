@@ -50,43 +50,41 @@
 
 <%@ page import="javax.ejb.*,javax.naming.*,javax.rmi.*,com.topcoder.web.TCES.ejb.*,java.rmi.*,java.util.*" %>
 <%@ page import="com.topcoder.web.tces.common.*" %>
-<%@ page import="com.topcoder.web.TCES.common.*" %>
 <%
-/*
+
 Lookup cities = new Lookup();
-cities.add("0", "New York");
-cities.add("1", "Los Angeles");
+cities.addPair("0", "New York");
+cities.addPair("1", "Los Angeles");
 
 
 Lookup schools = new Lookup();
-cities.add("0", "Harvard");
-cities.add("1", "Stanford");
+cities.addPair("0", "Harvard");
+cities.addPair("1", "Stanford");
 
 
 Lookup degreeTypes = new Lookup();
-degreeTypes.add("0", "BA");
-degreeTypes.add("1", "MA");
+degreeTypes.addPair("0", "BA");
+degreeTypes.addPair("1", "MA");
 
 
 Lookup majors = new Lookup();
-majors.add("0", "CS");
-majors.add("1", "IS");
+majors.addPair("0", "CS");
+majors.addPair("1", "IS");
 
 
 Lookup gpas = new Lookup();
-gpas.add("0", "4.0");
-gpas.add("1", "2.0");
+gpas.addPair("0", "4.0");
+gpas.addPair("1", "2.0");
 
 
 Lookup months = new Lookup();
-months.add("0", "January");
-months.add("1", "February");
+months.addPair("0", "January");
+months.addPair("1", "February");
 
 Lookup years = new Lookup();
-years.add("0", "2002");
-years.add("1", "2003");
+years.addPair("0", "2002");
+years.addPair("1", "2003");
 
-*/
 String selectedCity = "";
 String selectedSchool = "";
 String selectedDegreeType = "";
