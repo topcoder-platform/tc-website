@@ -10,8 +10,7 @@ import java.rmi.registry.Registry;
 
 public class CacheConfiguration 
 {
-    static final String RESOURCES_DIR    = "resources";
-    static final String RESOURCES_FILES  = "cache.properties";
+    static String resourceFile  = "resources/cache.properties";
     
     static final String PROP_PRIMARY     = "cache.primary";
     static final String PROP_SECONDARY   = "cache.secondary";
@@ -130,7 +129,7 @@ public class CacheConfiguration
             return _properties;
         }
 
-        File propfile = new File(new File(RESOURCES_DIR), RESOURCES_FILES);
+        File propfile = new File(resourceFile);
         if (!propfile.exists()) {
             System.err.println(propfile.getPath());
             throw new RuntimeException("Can't find cache properties file " + propfile.getName());
@@ -179,6 +178,9 @@ public class CacheConfiguration
     }
 
 
-
+    public static void setResourceFile(String f)
+    {
+        resourceFile = f;
+    }
 
 }

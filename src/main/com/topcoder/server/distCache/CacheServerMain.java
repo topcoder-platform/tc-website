@@ -8,7 +8,7 @@ public class CacheServerMain
     
     public static void main(String[] args) {
         CacheServer server = new CacheServer();
-
+        String file = null;
         // log.debug("CACHE STARTING");
 
         for (int i=0; i<args.length; i++) {
@@ -18,12 +18,17 @@ public class CacheServerMain
             } else if (args[i].equals("-secondary")) {
                 server.setMode(CacheServer.MODE_SECONDARY);
 
-            } else {
+            } else if(file==null)
+            {
+                file = args[i];
+            }
+            else {
                 System.out.println("INVALID ARGUMENT: " + args[i]);
                 return;
             }
         }
-
+        if(file!=null)
+            CacheConfiguration.setResourceFile(file);
         server.startCache();
     }
 
