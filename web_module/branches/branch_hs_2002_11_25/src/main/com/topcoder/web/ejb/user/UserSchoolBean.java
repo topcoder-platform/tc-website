@@ -347,4 +347,61 @@ public class UserSchoolBean implements SessionBean {
     return(current);
   }
 
+  public boolean existsCurrentUserSchoolId(long _user_id,long _school_id)
+                                          throws EJBException, RemoteException {
+
+    boolean exists=true;
+
+    Connection con=null;
+    PreparedStatement ps=null;
+
+    try {
+
+      String ds_name=(String)init_ctx.lookup(DATA_SOURCE);
+      DataSource ds=(DataSource)init_ctx.lookup(ds_name);
+
+      StringBuffer query=new StringBuffer(1024);
+      query.append("SELECT current_ind ");
+      query.append("FROM user_school_xref ");
+      query.append("WHERE user_id=? AND school_id=?");
+
+      con=ds.getConnection();
+      ps=con.prepareStatement(query.toString());
+      ps.setLong(1,_user_id);
+      ps.setLong(2,_school_id);
+
+      ResultSet rs=ps.executeQuery();
+      if (!rs.next()) {
+        exists=false;
+      }
+    }
+    catch (SQLException _sqle) {
+      _sqle.printStackTrace();
+      throw(new EJBException(_sqle.getMessage()));
+    }
+    catch (NamingException _ne) {
+      _ne.printStackTrace();
+      throw(new EJBException(_ne.getMessage()));
+    }
+    finally {
+      if (con!=null) {
+        try {
+          con.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+      if (ps!=null) {
+        try {
+          ps.close();
+        }
+        catch (Exception _e) {
+          /* do nothing */
+        }
+      }
+    }
+    return(exists);
+  }
+
 };

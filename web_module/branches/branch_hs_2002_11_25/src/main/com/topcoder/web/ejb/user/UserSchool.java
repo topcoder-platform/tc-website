@@ -21,4 +21,7 @@ public interface UserSchool extends EJBObject {
   public boolean isCurrentUserSchoolId(long _user_id,long _school_id)
                                            throws EJBException, RemoteException;
 
+  public boolean existsUserSchoolId(long _user_id,long _school_id)
+                                           throws EJBException, RemoteException;
+
 };
