@@ -44,7 +44,7 @@ public final class ViewOpenProjectsAction extends BaseAction {
      * @param response The HTTP response we are creating
      *
      * @return the forward action.
-     * 
+     *
      * @exception IOException if an input/output error occurs
      * @exception ServletException if a servlet exception occurs
      */
@@ -53,22 +53,22 @@ public final class ViewOpenProjectsAction extends BaseAction {
                                  HttpServletRequest request,
                                  HttpServletResponse response)
         throws IOException, ServletException {
-        
+
         // Validate the request parameters specified by the user
         ActionErrors errors = new ActionErrors();
-        
+
         // Create the UserData from the session
         HttpSession session = request.getSession();
-        SecurityEnabledUser user = 
+        SecurityEnabledUser user =
 			(SecurityEnabledUser) session.getAttribute(Constants.USER_KEY);
-        UtilityBean utility = 
+        UtilityBean utility =
             (UtilityBean) session.getAttribute(Constants.UTILITY_KEY);
-        
+
         // Call the business logic layer
         ActionForward forward = null;
         ProjectType[] projectTypes = null;
         UserProjectInfo[] projects = null;
-        
+
         if (user == null || utility == null) {
             // Login needed
             errors.add(ActionErrors.GLOBAL_ERROR,
@@ -78,8 +78,8 @@ public final class ViewOpenProjectsAction extends BaseAction {
             BusinessDelegate businessDelegate = new BusinessDelegate();
             ActionData data = new OnlineReviewData(user);
             ResultData result = null;
-            
-            // Get the project list and store them into session 
+
+            // Get the project list and store them into session
             if (utility.getAdmin()) {
                 if (request.getParameter(Constants.ALL_KEY) == null) {
                     result = businessDelegate.viewMyOpenProjects(data);
@@ -95,7 +95,9 @@ public final class ViewOpenProjectsAction extends BaseAction {
                     session.setAttribute(Constants.PROJECT_LIST_KEY, projects);
                 }
             } else {
+                log(Level.DEBUG, "before viewMyOpenProjects(data) call");
                 result = businessDelegate.viewMyOpenProjects(data);
+                log(Level.DEBUG, "after viewMyOpenProjects(data) call");
                 if (result instanceof SuccessResult) {
                     projects = ((ProjectsRetrieval) result).getProjects();
                     session.setAttribute(Constants.PROJECT_LIST_KEY, projects);
@@ -103,7 +105,7 @@ public final class ViewOpenProjectsAction extends BaseAction {
             }
 
             projectTypes = businessDelegate.getProjectTypes();
-            
+
             if (!(result instanceof SuccessResult)) {
                 if (result instanceof FailureResult
                         && ((FailureResult) result).getMessage() != null) {
@@ -116,28 +118,28 @@ public final class ViewOpenProjectsAction extends BaseAction {
                 forward = mapping.findForward(Constants.FAILURE_KEY);
             }
         }
-        
+
         // Report any errors we have discovered back to the original form
         if (!errors.empty()) {
             saveErrors(request, errors);
         } else {
             OpenProjectBean[] bean = new OpenProjectBean[projectTypes.length];
-                
-            log(Level.INFO, "ViewOpenProjectsAction: User '" 
-                            + user.getHandle() + "' in session " 
+
+            log(Level.INFO, "ViewOpenProjectsAction: User '"
+                            + user.getHandle() + "' in session "
                             + session.getId());
-            
+
             // Save the projects info in the session
             for (int i = 0; i < projectTypes.length; i++) {
                 bean[i] = new OpenProjectBean(projectTypes[i], projects);
             }
-            
+
             request.setAttribute(Constants.PROJECT_TYPE_KEY, bean);
 
             // Forward control to the specified success URI
             forward = mapping.findForward(Constants.SUCCESS_KEY);
         }
-        
+
         // Forward control to the specified URI
         return forward;
     }
