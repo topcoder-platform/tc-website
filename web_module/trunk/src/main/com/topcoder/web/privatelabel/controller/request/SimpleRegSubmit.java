@@ -58,14 +58,14 @@ public class SimpleRegSubmit extends SimpleRegBase {
             newUser = store(regInfo);
             Transaction.commit(tx);
         } catch (Exception e) {
+            Exception ex = null;
             try {
                 log.debug("caught exception, attempt to roll back");
                 if (tx != null) {
                     Transaction.rollback(tx);
                 }
-            } catch (Exception ex) {
-                //not much we can do, and i need the next try block to execute
-                ex.printStackTrace();
+            } catch (Exception x) {
+                ex = x;
             }
             try {
                 log.debug("attempt to remove the security_user " + newUser + " " + (newUser==null?"":""+newUser.getId()));
@@ -75,8 +75,9 @@ public class SimpleRegSubmit extends SimpleRegBase {
                     PrincipalMgrRemote mgr = getPrincipalManager();
                     mgr.removeUser(newUser, CREATE_USER);
                 }
-            } catch (Exception ex) {
-                throw new TCWebException(ex);
+            } catch (Exception x) {
+                if (ex==null) ex = x;
+                throw new TCWebException(x);
             }
             throw new TCWebException(e);
         }
@@ -129,6 +130,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
         long addressId = address.createAddress();
         address.setAddress1(addressId, regInfo.getAddress1());
         address.setAddress2(addressId, regInfo.getAddress2());
+        if (1==1) throw new Exception ("blah");
         address.setAddress3(addressId, regInfo.getAddress3());
         address.setAddressTypeId(addressId, ADDRESS_TYPE);
         address.setCity(addressId, regInfo.getCity());
