@@ -284,6 +284,9 @@ Tuesday, September 24, 2002<BR/><BR/>
 	  <P>
 	  <B>radeye</B> was the top Division I coder by a good margin in this match. He had the highest score on both the level 2 and level 3 problems and was able to successfully challenge <B>mpa's</B> level 2 problem for an additional 50 points. His performance moved him up to 4<SUP>th</SUP> place in the overall TopCoder rankings.
 	  </P>
+	  <P>
+Someone to watch for in upcoming matches will be <B>vorthys.</B> In his debut match, he was able to beat all other Division II coders, and was one of only three people to solve the Division II, level 3 problem. He also successfully challenged two problems for a total of 1404.82 points, giving him an initial ranking of 1861. That ranks him 11th on the Impressive Rating Debuts list.
+	  </P>
     </TD>
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>     
   </TR>
