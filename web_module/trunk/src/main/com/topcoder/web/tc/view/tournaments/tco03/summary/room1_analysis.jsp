@@ -143,7 +143,7 @@ class BinaryTree{
             we can do is flip the pool table along the cushion so that it is reflected as if the cushion was a mirror. The opponent's cue is also 
             reflected. We see from the diagram below, that the ball's initial path combined with its reflected path is a straight line:</p>
 
-            <img src="/contest/problem/NCushion/reflection.png" alt="" width="128" height="128" border="0" /><br/><br/>
+            <img src="/contest/problem/NCushion/reflect.png" alt="" width="300" height="300" border="0" /><br/><br/>
 
             <p>This is true no matter how many cushions we go through. Each time we go through a horizontal cushion, the table flips over 
             vertically, and each time we go through a vertical cushion, the table flips over horizontally:</p>
