@@ -288,6 +288,14 @@
 
         <copy file="${build_classdir}/com/topcoder/dde/util/ApplicationServer.class"
               todir="${webdir}/WEB-INF/classes/com/topcoder/dde/util/"/>
+
+        <copy file="${build_classdir}/com/topcoder/date/workdays/TCWorkdays.class"
+              todir="${webdir}/WEB-INF/classes/com/topcoder/date/workdays/"/>
+
+        <copy file="${build_classdir}/com/topcoder/project/phases/TCPhase.class"
+              todir="${webdir}/WEB-INF/classes/com/project/phases/"/>
+
+
         <copy file="${emailaddressvalidator.jar}" todir="${dist.jars.dir}"/>
         <war warfile="${dde.war}" webxml="web.xml">
             <lib dir="${dist.jars.dir}" includes="email_address_validator.jar"/>
