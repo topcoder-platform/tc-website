@@ -13,29 +13,20 @@ import com.topcoder.shared.util.TCResourceBundle;
  */
 public class Constants {
     // keys
-    private static final String KEY_SECURITY_CONTEXT_FACTORY = 
-        "security-context-factory";
+    private static final String KEY_SECURITY_CONTEXT_FACTORY = "security-context-factory";
+    private static final String KEY_SECURITY_PROVIDER_URL    = "security-provider-url";
+    
+    private static final String KEY_JTA_CONTEXT_FACTORY = "jta-context-factory";
+    private static final String KEY_JTA_PROVIDER_URL    = "jta-provider-url";
+    private static final String KEY_JTA_TX_MANAGER      = "jta-transaction-manager";
+    private static final String KEY_JTA_DATA_SOURCE     = "jta-data-source";
+    
+    private static final String KEY_NDS_CONTEXT_FACTORY = "nds-context-factory";
+    private static final String KEY_NDS_PROVIDER_URL    = "nds-provider-url";
+    private static final String KEY_NDS_DATA_SOURCE     = "nds-data-source";
 
-    private static final String KEY_SECURITY_PROVIDER_URL =
-        "security-provider-url";
-
-    private static final String KEY_JTA_CONTEXT_FACTORY =
-        "jta-context-factory";
-
-    private static final String KEY_JTA_PROVIDER_URL =
-        "jta-provider-url";
-
-    private static final String KEY_JTA_TX_MANAGER =
-        "jta-transaction-manager";
-
-    private static final String KEY_JTA_DATA_SOURCE =
-        "jta-data-source";
-
-    private static final String KEY_EJB_CONTEXT_FACTORY =
-        "ejb-context-factory";
-
-    private static final String KEY_EJB_PROVIDER_URL =
-        "ejb-provider-url";
+    private static final String KEY_EJB_CONTEXT_FACTORY = "ejb-context-factory";
+    private static final String KEY_EJB_PROVIDER_URL    = "ejb-provider-url";
 
     // and their defaults
     private static final String DEF_SECURITY_CONTEXT_FACTORY =
@@ -47,14 +38,17 @@ public class Constants {
     private static final String DEF_JTA_CONTEXT_FACTORY =
         "weblogic.jndi.WLInitialContextFactory";
 
-    private static final String DEF_JTA_PROVIDER_URL =
-        "t3://127.0.0.1:8040";
+    private static final String DEF_JTA_PROVIDER_URL = "t3://127.0.0.1:8040";
         
     private static final String DEF_JTA_TX_MANAGER =
         "weblogic/transaction/TransactionManager";
 
-    private static final String DEF_JTA_DATA_SOURCE =
-        "CORP_OLTP";
+    private static final String DEF_JTA_DATA_SOURCE  =  "JTS_CORP_OLTP";
+
+    private static final String DEF_NDS_CONTEXT_FACTORY =
+        DEF_JTA_CONTEXT_FACTORY;
+    private static final String DEF_NDS_PROVIDER_URL = DEF_JTA_PROVIDER_URL;
+    private static final String DEF_NDS_DATA_SOURCE  = "CORP_OLTP";
 
     private static final String DEF_EJB_CONTEXT_FACTORY =
         DEF_JTA_CONTEXT_FACTORY;
@@ -77,6 +71,12 @@ public class Constants {
         new Hashtable();
 
     /**
+     * Environment to produce JTA InitialContext from.
+     */
+    public static final Hashtable NDS_CONTEXT_ENVIRONMENT =
+        new Hashtable();
+
+    /**
      * jndi name of transaction manager
      */
     public static String JTA_TX_MANAGER = null;
@@ -88,9 +88,14 @@ public class Constants {
         new Hashtable();
         
     /**
-     * Name of DataSourse to be used
+     * Name of transactional DataSourse to be used
      */
     public static String JTA_DATA_SOURCE = null;
+
+    /**
+     * Name of non-transactional DataSourse to be used
+     */
+    public static String NDS_DATA_SOURCE = null;
 
     static {
         store = new TCResourceBundle("CorpConstants");
@@ -101,6 +106,10 @@ public class Constants {
         
         JTA_DATA_SOURCE = store.getProperty(KEY_JTA_DATA_SOURCE,
                                             DEF_JTA_DATA_SOURCE
+        );
+
+        NDS_DATA_SOURCE = store.getProperty(KEY_NDS_DATA_SOURCE,
+                                            DEF_NDS_DATA_SOURCE
         );
 
         String value;
@@ -116,6 +125,22 @@ public class Constants {
                                   DEF_JTA_PROVIDER_URL
         );
         JTA_CONTEXT_ENVIRONMENT.put(
+            javax.naming.Context.PROVIDER_URL,
+            value
+        );
+
+        // nds environment
+        value = store.getProperty(KEY_NDS_CONTEXT_FACTORY,
+                                  DEF_NDS_CONTEXT_FACTORY
+        );
+        NDS_CONTEXT_ENVIRONMENT.put(
+            javax.naming.Context.INITIAL_CONTEXT_FACTORY,
+            value
+        );
+        value = store.getProperty(KEY_NDS_PROVIDER_URL,
+                                  DEF_NDS_PROVIDER_URL
+        );
+        NDS_CONTEXT_ENVIRONMENT.put(
             javax.naming.Context.PROVIDER_URL,
             value
         );

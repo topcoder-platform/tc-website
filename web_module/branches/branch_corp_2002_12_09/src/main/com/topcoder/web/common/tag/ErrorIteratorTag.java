@@ -6,29 +6,34 @@ import java.util.Iterator;
 import javax.servlet.jsp.JspException;
 import javax.servlet.jsp.tagext.BodyTag;
 
+/**
+ * 
+ * @author djFD molc@mail.ru
+ * @version 1.02
+ *
+ */
 public class ErrorIteratorTag extends BaseTag {
     private Iterator errIter = null;
-    private int index = 0;
     private String id = null;
 
     /**
      * 
      * @see javax.servlet.jsp.tagext.Tag#doStartTag()
-     */	
-	public int doStartTag() {
+     */ 
+    public int doStartTag() {
         errIter = getErrIterator();
         if( errIter == null || ! errIter.hasNext() ) {
             return SKIP_BODY;
         }
         return BodyTag.EVAL_BODY_TAG;
-	}
+    }
 
     /**
-     * Sets the refname.
-     * @param refname The refname to set
+     * Sets the name of referenced input tag.
+     * @param refName name of referenced input tag
      */
-    public void setRefname(String refname) {
-        name = refname;
+    public void setRefName(String refName) {
+        name = refName;
     }
     
     /**
@@ -62,7 +67,7 @@ public class ErrorIteratorTag extends BaseTag {
     }
 
     /**
-     * 
+     * Fetches next element from container.
      * @return String
      */
     private String fetchNext() {

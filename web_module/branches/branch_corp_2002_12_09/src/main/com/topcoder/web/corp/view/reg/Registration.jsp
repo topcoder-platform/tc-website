@@ -1,6 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
 <%@page import="com.topcoder.web.corp.request.Registration" %>
+<% String appContext = request.getContextPath(); %>
 <HTML>
 <HEAD>
 <TITLE>TopCoder - Portal</TITLE>
@@ -30,7 +31,7 @@
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
 </P><BR>
-<FORM action="" method="POST">
+<FORM action="<%=appContext%>/" method="POST">
 <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 
 <!-- FIRST NAME -->
@@ -110,6 +111,7 @@
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">State&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
         <select name="prim-company-state">
+            <option value="-1"></option>
             <tc-webtag:queryIterator command="cmd-states-list" id="resultRow">
               <option value="<%=resultRow.getItem("state_code")%>"><%=resultRow.getItem("state_name")%></option>
             </tc-webtag:queryIterator>
@@ -140,6 +142,7 @@
     <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" BGCOLOR="#CCCCCC">Country&#160;</TD><TD><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
     <TD COLSPAN="2" ALIGN="left" VALIGN="middle" CLASS="bodyText">
         <select name="prim-company-country">
+            <option value="-1"></option>
             <tc-webtag:queryIterator command="cmd-countries-list" id="resultRow">
               <option value="<%=resultRow.getItem("country_code")%>"><%=resultRow.getItem("country_name")%></option>
             </tc-webtag:queryIterator>
@@ -247,6 +250,7 @@
   </TR>
     <TR>
         <TD COLSPAN="3"><IMG SRC="/i/p/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0" /></TD>
+        <INPUT type="hidden" name="module" value="Registration"/>
     </TR>  
   <TR ALIGN="right" VALIGN="middle">
      <TD COLSPAN="3" ALIGN="center" VALIGN="middle" CLASS="statText"><input type="button" onClick="" name="clear" value=" Clear ">&#160;<input type="submit" onClick="" name="submit" value=" Submit "></td>

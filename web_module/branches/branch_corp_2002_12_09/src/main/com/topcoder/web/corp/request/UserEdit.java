@@ -1,5 +1,7 @@
 package com.topcoder.web.corp.request;
 
+import com.topcoder.security.login.AuthenticationException;
+
 /**
  * This processing module is responsible for user creation/modification. 
  * 
@@ -22,15 +24,15 @@ public class UserEdit extends BaseProcessor {
      * @see com.topcoder.web.corp.request.BaseProcessor#businessProcessing()
      */
     void businessProcessing() throws Exception {
-//        //check if user is logged in - *must be*
-//        if( ! getAuthenticityToken().isLoggedIn(true)) {
-//            throw new AuthenticationException("You must be logged in to perform this action");
-//        }
-//        
-//        // well, user is logged in
-//        // now we will define what action requested
-//        // if ID of user is omitted, is negative or absent (also if page is to be fetched 
-//        // by non POST method) then will suppose that it is 'user create' request
+        //check if user is logged in - *must be*
+        if( authToken.getUser().isAnonymous() ) {
+            throw new AuthenticationException("You must be logged in to perform this action");
+        }
+        
+        // well, user is logged in
+        // now we will define what action requested
+        // if ID of user is omitted, is negative or absent (also if page is to be fetched 
+        // by non POST method) then will suppose that it is 'user create' request
 //        int targetUserID = -1;
 //        try {
 //            targetUserID = Integer.parseInt(request.getParameter(KEY_TARGET_USER_ID));

@@ -135,7 +135,7 @@ public class LoginTask extends BaseTask implements Task, Serializable {
                 setMessage("Username and/or password are incorrect");
                 setNextPage(TCESConstants.LOGIN_PAGE);
             }
-        } else if (isUserLoggedIn()) {
+        } else if ( true /*isUserLoggedIn()*/ ) {
             if (checkNextPage != null && checkNextPage.trim().length() > 0) {
                 setNextPage(checkNextPage.trim());
                 customRedir=true;

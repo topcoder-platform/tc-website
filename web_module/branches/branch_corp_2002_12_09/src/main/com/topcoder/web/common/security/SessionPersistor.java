@@ -22,18 +22,19 @@ public class SessionPersistor implements Persistor {
     private static final String KEY_PERSISTOR    = "persistor-object";
     private static final String KEY_PREVPAGE     = "last-accessed-page";
     
-	private Hashtable items = null;
+        private Hashtable items = null;
 
     private SessionPersistor() {
         items = new Hashtable();
-    }	
+    }   
     /**
      * Creates new persistor and stores it in given session.
      * 
      * @param session parent session to hold this persistor.
      */
     public static SessionPersistor getInstance(HttpSession session) {
-        SessionPersistor store = (SessionPersistor)session.getAttribute(KEY_PERSISTOR);
+        SessionPersistor store;
+        store = (SessionPersistor)session.getAttribute(KEY_PERSISTOR);
         if( store == null ) {
             synchronized(session) {
                 store = (SessionPersistor)session.getAttribute(KEY_PERSISTOR);
@@ -59,14 +60,14 @@ public class SessionPersistor implements Persistor {
      * @see com.topcoder.shared.security.Persistor#removeObject(java.lang.String)
      */
     public void removeObject(String key) {
-    	items.remove(key);
+        items.remove(key);
     }
 
     /**
      * @see com.topcoder.shared.security.Persistor#setObject(java.lang.String, java.lang.Object)
      */
     public void setObject(String key, Object value) {
-    	items.put(key, value);
+        items.put(key, value);
     }
     
     /**

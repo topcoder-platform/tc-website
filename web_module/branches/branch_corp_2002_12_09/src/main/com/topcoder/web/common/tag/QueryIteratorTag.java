@@ -36,9 +36,9 @@ public class QueryIteratorTag extends IteratorTag {
     public int doStartTag() throws JspException {
         InitialContext ic = null;
         try {
-            ic = new InitialContext(Constants.JTA_CONTEXT_ENVIRONMENT);
+            ic = new InitialContext(Constants.NDS_CONTEXT_ENVIRONMENT);
             DataAccessInt dai = new DataAccess( (DataSource)
-                new InitialContext().lookup(Constants.JTA_DATA_SOURCE)
+                new InitialContext().lookup(Constants.NDS_DATA_SOURCE)
             );
             Request dataRequest = new Request();
             dataRequest.setContentHandle(command);

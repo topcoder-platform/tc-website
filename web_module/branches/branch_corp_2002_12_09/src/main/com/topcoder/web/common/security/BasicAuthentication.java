@@ -9,10 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.TCSubject;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 import com.topcoder.security.login.AuthenticationException;
 import com.topcoder.security.login.LoginRemote;
 import com.topcoder.security.login.LoginRemoteHome;
@@ -90,7 +87,7 @@ public class BasicAuthentication implements WebAuthentication {
         log.debug("embedding cookies ["+(clear?"clean up]" : "set up]"));
         Cookie [] ret = new Cookie [1];
         ret[0] = new Cookie(KEY_LOGON_COOKIE_ID, clear ? "" : ""+userID);
-        int expiresIn = clear ? -10*24*60*60 : 10*24*60*60;
+        int expiresIn = clear ? 0 : 10*24*60*60;
         ret[0].setMaxAge(expiresIn);
         ret[0].setPath("/");
         for( int i=0; i<ret.length; ++i ) {
@@ -113,7 +110,7 @@ public class BasicAuthentication implements WebAuthentication {
                 try {
                     ret = Long.parseLong(ca[i].getValue());
                 }
-                catch(Exception e) {
+                catch(Exception ignore) {
                     /* id is invalid in some way - just ignore it*/
                 }
                 break;
@@ -122,57 +119,48 @@ public class BasicAuthentication implements WebAuthentication {
         return ret;
     }
 
-    /**
-     * Pulls out user matching given ID from database.
-     * 
-     * @param id of user to be pulled out
-     * @return User user matching an ID given. For security reasons password
-     * will be set as null.
-     * @throws Exception if there is not user with given id in DB or some errors
-     * in underlying software has occured
-     */
-    private User pullUserFromDB(long id)
-    throws NamingException, CreateException, NoSuchUserException,
-            RemoteException, GeneralSecurityException
-    {
-        log.debug("pulling out user from db [id="+id+"]");
-        InitialContext ic = null;
-        try {
-            ic = new InitialContext( Constants.SECURITY_CONTEXT_ENVIRONMENT );
-            PrincipalMgrRemoteHome mgrHome = (PrincipalMgrRemoteHome)
-            ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-           
-            PrincipalMgrRemote mgr = mgrHome.create();
-            String uname = mgr.getUser(id).getName();
-            // log.debug("[username="+uname+"]");
-            // password set to null because user is not logged in yet
-            return new SimpleUser(uname, null, id);
-        }
-        finally {
-            closeIC(ic);
-        }
-    }
+//    /**
+//     * Pulls out user matching given ID from database.
+//     * 
+//     * @param id of user to be pulled out
+//     * @return User user matching an ID given. For security reasons password
+//     * will be set as null.
+//     * @throws Exception if there is not user with given id in DB or some errors
+//     * in underlying software has occured
+//     */
+//    private User pullUserFromDB(long id)
+//    throws NamingException, CreateException, NoSuchUserException,
+//            RemoteException, GeneralSecurityException
+//    {
+//        log.debug("pulling out user from db [id="+id+"]");
+//        InitialContext ic = null;
+//        try {
+//            ic = new InitialContext( Constants.SECURITY_CONTEXT_ENVIRONMENT );
+//            PrincipalMgrRemoteHome mgrHome = (PrincipalMgrRemoteHome)
+//            ic.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+//           
+//            PrincipalMgrRemote mgr = mgrHome.create();
+//            String uname = mgr.getUser(id).getName();
+//            // log.debug("[username="+uname+"]");
+//            // password set to null because user is not logged in yet
+//            return new SimpleUser(uname, null, id);
+//        }
+//        finally {
+//            closeIC(ic);
+//        }
+//    }
 
     /**
      * @see com.topcoder.web.common.security.WebAuthentication#getActiveUser()
      */
     public User getActiveUser() {
-        User user = getUser();
-        if( user.isAnonymous() ) {
-            // well, there is not user currently logged in
-            // will try to pre-identify user with cookies
-            long id = getIDFromCookies();
-            if( id != User.USER_ANONYMOUS_ID ) {
-                try {
-                    user = pullUserFromDB(id);
-                }
-                catch(Exception e) {
-                    // we may ignore this because pre-identification
-                    // process is second order task
-                }
-            }
+        // looking in cookies at first (weak identification at first)
+        long id = getIDFromCookies();
+        if( id != User.USER_ANONYMOUS_ID ) {
+            return new SimpleUser(null, null, id); // no DB lookup is reqd
         }
-        return user;
+        // weak identification has failed
+        return getUser();
     }
 
     /**

@@ -23,11 +23,6 @@ import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
 import com.topcoder.web.corp.Util;
-//import com.topcoder.web.ejb.company.Company;
-//import com.topcoder.web.ejb.company.CompanyHome;
-//import com.topcoder.web.ejb.country.Country;
-//import com.topcoder.web.ejb.country.CountryMgr;
-//import com.topcoder.web.ejb.country.CountryMgrHome;
 
 /**
  * This class contains logic Primary registration.
@@ -37,23 +32,23 @@ import com.topcoder.web.corp.Util;
  *
  */
 public class Registration extends BaseProcessor {
-	private final static Logger log = Logger.getLogger(Registration.class);
-	
-	public static final String KEY_FIRSTNAME = "prim-first-name";
-	public static final String KEY_LASTNAME = "prim-last-name";
-	public static final String KEY_TITLE = "prim-title";
-	public static final String KEY_ADDRLINE1 = "prim-company-address-1";
-	public static final String KEY_ADDRLINE2 = "prim-company-address-2";
-	public static final String KEY_CITY = "prim-company-city";
-	public static final String KEY_STATE = "prim-company-state";
-	public static final String KEY_ZIP = "prim-company-zip";
-    public static final String KEY_COUNTRY = "prim-company-country";
-    public static final String KEY_PHONE = "prim-phone";
-    public static final String KEY_LOGIN = "prim-username";
-    public static final String KEY_PASSWORD1 = "prim-password";
-    public static final String KEY_PASSWORD2 = "prim-password-once-more";
-	public static final String KEY_EMAIL1 = "prim-email";
-	public static final String KEY_EMAIL2 = "prim-email-once-more";
+    private final static Logger log = Logger.getLogger(Registration.class);
+   
+    public static final String KEY_FIRSTNAME    = "prim-first-name";
+    public static final String KEY_LASTNAME     = "prim-last-name";
+    public static final String KEY_TITLE        = "prim-title";
+    public static final String KEY_ADDRLINE1    = "prim-company-address-1";
+    public static final String KEY_ADDRLINE2    = "prim-company-address-2";
+    public static final String KEY_CITY         = "prim-company-city";
+    public static final String KEY_STATE        = "prim-company-state";
+    public static final String KEY_ZIP          = "prim-company-zip";
+    public static final String KEY_COUNTRY      = "prim-company-country";
+    public static final String KEY_PHONE        = "prim-phone";
+    public static final String KEY_LOGIN        = "prim-username";
+    public static final String KEY_PASSWORD1    = "prim-password";
+    public static final String KEY_PASSWORD2    = "prim-password-once-more";
+    public static final String KEY_EMAIL1       = "prim-email";
+    public static final String KEY_EMAIL2       = "prim-email-once-more";
 
 	private String firstName;
 	private String lastName;
@@ -94,21 +89,21 @@ public class Registration extends BaseProcessor {
     	// well, user filled the form
     	// and possible he thinks that it is allright
     	// so lets prove that he is wrong
-    	firstName = (String) request.getParameter(KEY_FIRSTNAME);
-    	lastName = (String) request.getParameter(KEY_LASTNAME);
-    	title = (String) request.getParameter(KEY_TITLE);
-    	compAddress1 = (String) request.getParameter(KEY_ADDRLINE1);
-    	compAddress2 = (String) request.getParameter(KEY_ADDRLINE2);
-    	city = (String) request.getParameter(KEY_CITY);
-    	state = (String) request.getParameter(KEY_STATE);
-    	zip = (String) request.getParameter(KEY_ZIP);
-    	country = (String) request.getParameter(KEY_COUNTRY);
-    	phone = (String) request.getParameter(KEY_PHONE);
-    	userName = (String) request.getParameter(KEY_LOGIN);
-    	password = (String) request.getParameter(KEY_PASSWORD1);
-    	password2 = (String) request.getParameter(KEY_PASSWORD2);
-    	email = (String) request.getParameter(KEY_EMAIL1);
-    	email2 = (String) request.getParameter(KEY_EMAIL2);
+    	firstName      = (String) request.getParameter(KEY_FIRSTNAME);
+    	lastName       = (String) request.getParameter(KEY_LASTNAME);
+    	title          = (String) request.getParameter(KEY_TITLE);
+    	compAddress1   = (String) request.getParameter(KEY_ADDRLINE1);
+    	compAddress2   = (String) request.getParameter(KEY_ADDRLINE2);
+    	city           = (String) request.getParameter(KEY_CITY);
+    	state          = (String) request.getParameter(KEY_STATE);
+    	zip            = (String) request.getParameter(KEY_ZIP);
+    	country        = (String) request.getParameter(KEY_COUNTRY);
+    	phone          = (String) request.getParameter(KEY_PHONE);
+    	userName       = (String) request.getParameter(KEY_LOGIN);
+    	password       = (String) request.getParameter(KEY_PASSWORD1);
+    	password2      = (String) request.getParameter(KEY_PASSWORD2);
+    	email          = (String) request.getParameter(KEY_EMAIL1);
+    	email2         = (String) request.getParameter(KEY_EMAIL2);
         
         boolean formDataValid = isValid();
         if( formDataValid ) {
@@ -118,7 +113,7 @@ public class Registration extends BaseProcessor {
             nextPage = "/reg/RegSuccess.jsp";
         }
         else {
-        	log.debug("invalid data entered");
+            log.debug("invalid data entered");
             nextPage = "/reg/Registration.jsp";
         }
     }
@@ -166,11 +161,6 @@ public class Registration extends BaseProcessor {
             "Ensure city is not empty, consists of letters, digits and punctuation signs only (no more than 3 words)"
         );
     	
-//        ret &= // state validity (optional) 
-//    	checkItemValidity(KEY_STATE, state, 
-//            StringUtils.ALPHABET_ALPHA_EN, false, 2,
-//            "Please choose state from the list carefully"
-//        );
         ret &= // state validity (optional)
         checkAgainstDB(
             KEY_STATE, 
@@ -189,8 +179,6 @@ public class Registration extends BaseProcessor {
     	checkItemValidity(KEY_ZIP, zip, StringUtils.ALPHABET_DIGITS_EN, 
             false, 1, "Ensure ZIP code is not empty and, consists of digits only"
         );
-        
-        // insert country validity check here
         
         ret &= // phone validity
         checkItemValidity(KEY_PHONE, phone, StringUtils.ALPHABET_NUM_PUNCT_EN, 
@@ -290,7 +278,6 @@ public class Registration extends BaseProcessor {
     throws SystemException, NamingException
     {
         //well, general scheme is
-        
         
         // trying to start transaction
         Transaction tx = Util.beginTransaction();
