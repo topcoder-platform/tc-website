@@ -1078,7 +1078,7 @@
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=devTutorial</xsl:attribute>Development Tutorial</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=devTutorial</xsl:attribute>Development Tutorial</A>
         </td>
     </tr>
 
@@ -1091,7 +1091,7 @@
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=documentation</xsl:attribute>Component Documentation</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=compDocumentation</xsl:attribute>Component Documentation</A>
         </td>
     </tr>
 
@@ -1104,7 +1104,7 @@
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=appDocumentation</xsl:attribute>Application Documentation</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=appDocumentation</xsl:attribute>Application Documentation</A>
         </td>
     </tr>
 
@@ -1117,7 +1117,7 @@
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=ratings</xsl:attribute>Rating System</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=ratings</xsl:attribute>Rating System</A>
         </td>
     </tr>
 
@@ -1130,7 +1130,7 @@
                 <xsl:otherwise>leftSubnav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=reliability</xsl:attribute>Reliability Rating</A>
+            <A class="leftOn"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/tc?module=Static&amp;d1=dev&amp;d2=support&amp;d3=reliability</xsl:attribute>Reliability Rating</A>
         </td>
     </tr>
 
