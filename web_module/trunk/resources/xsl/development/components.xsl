@@ -383,7 +383,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" height="15">&#160;</td>
                     <td class="statText" height="15" align="center">&#160;</td>
-                    <td class="statText" height="15"><a class="coderTextGrey" href="/stat?c=member_profile&amp;cr=252277"><strong>Farlox</strong></a></td>
+                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=252277"><strong>Farlox</strong></a></td>
                     <td class="statText" height="15" align="center">94.21</td>
                     <td class="statText" height="15" align="right">$412.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
@@ -396,7 +396,7 @@
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                     <td class="statText" height="15">&#160;</td>
                     <td class="statText" height="15" align="center">&#160;</td>
-                    <td class="statText" height="15"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=153089"><strong>preben</strong></a></td>
+                    <td class="statText" height="15"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=153089"><strong>preben</strong></a></td>
                     <td class="statText" height="15" align="center">88.27</td>
                     <td class="statText" height="15" align="right">$0.00&#160;&#160;</td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
