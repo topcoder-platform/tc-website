@@ -126,8 +126,8 @@ Please review the TopCoder Software <a href="/?t=development&amp;c=app_meth" tar
                         <ol>
                             <li>A US Citizen </li>
                             <li>A Lawful Permanent Resident of the US</li>
-                            <li>A temporary resident, asylee, refugee, or have a lawfully issued work authorization card permitting unrestricted employment.</li>
-                            <li>A Non-US Citizen working in your country of residence.</li>
+                            <li>A temporary resident, asylee, refugee of the U.S., or have a lawfully issued work authorization card permitting unrestricted employment in the U.S.</li>
+                            <li>A Non-US resident authorized to perform services as an independent contractor.</li>
                         </ol>
 
 <!-- Time Line -->
