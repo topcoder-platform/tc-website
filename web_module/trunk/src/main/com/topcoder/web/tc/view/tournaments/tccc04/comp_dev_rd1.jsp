@@ -176,7 +176,7 @@
                     <td class="advCell" align="center"></td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=151920">Khristopher</a></td>
                     <td class="advCell" align="center">pending</td>
-                    <td class="advCell" align="center">&#160;</td>
+                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell">&#160;</td>
@@ -192,7 +192,7 @@
                     <td class="advCell" align="center"></td>
                     <td class="advCell"><a href="/stat?c=member_profile&amp;cr=310233">Standlove</a></td>
                     <td class="advCell" align="center">pending</td>
-                    <td class="advCell" align="center"><img src="/i/development/multiplierLGray.gif" border="0"/></td>
+                    <td class="advCell" align="center">&#160;</td>
                 </tr>
                 <tr valign="middle">
                     <td class="advCell"><a href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/catalog/c_component.jsp?comp=8403457" target="_blank">Sort Utility</a></td>
