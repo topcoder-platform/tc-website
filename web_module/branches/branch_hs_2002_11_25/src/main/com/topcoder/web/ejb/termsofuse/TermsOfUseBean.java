@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.termsofuse;
 
 import com.topcoder.util.idgenerator.*;
+import com.topcoder.util.idgenerator.sql.InformixDB;
 
 import java.rmi.RemoteException;
 import java.sql.*;
@@ -51,18 +52,11 @@ public class TermsOfUseBean implements SessionBean {
       DataSource ds=(DataSource)init_ctx.lookup(HS_APPLICATION_DS);
 
       if (!IdGenerator.isInitialized()) {
-
-        /* Fix this so that it uses a specific column of a persisted sequences
-         * table with maxLow=1 (this will ensure a unique id for each item of
-         * each table)
-         */
-        IdGenerator.init(ds);
+        IdGenerator.init(new InformixDB(),ds,"sequence_object","name",
+                         "current_value",9999999999L,10,true);
       }
 
-      /* Fix this so that it asks specifically for the next sequence number for
-       * the 'user' table
-       */
-      terms_of_use_id=IdGenerator.nextId();
+      terms_of_use_id=IdGenerator.nextId("TERMSOFUSE_SEQ");
 
       StringBuffer query=new StringBuffer(1024);
       query.append("INSERT ");
