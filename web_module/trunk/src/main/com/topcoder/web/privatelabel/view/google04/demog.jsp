@@ -96,6 +96,14 @@ function submitEnter(e) {
                 </td>
            </tr>
             <tr>
+                <td align="right" valign=bottom nowrap>
+                    <span class="errorText">* Required</span> 
+                </td>
+                <td align="left" valign=bottom>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
                <td colspan="2" align="center">
                   <p align="center"><a href="javascript: document.regForm.submit();">Submit</a></p>
                </td>
