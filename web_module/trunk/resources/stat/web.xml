@@ -7,7 +7,7 @@
 <web-app>
 
   <servlet>
-    <servlet-name>stats</servlet-name>
+    <servlet-name>stat</servlet-name>
     <servlet-class>com.topcoder.web.stat.servlet.StatisticsHttpServlet</servlet-class>
     <load-on-startup>1</load-on-startup>
   </servlet>
