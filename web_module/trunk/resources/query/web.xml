@@ -286,6 +286,13 @@
   </init-param>
 
   <init-param>
+    <param-name>modify_command_query_task</param-name>
+    <param-value>ModifyCommandQueryTask</param-value>
+    <description></description>
+  </init-param>
+
+
+  <init-param>
     <param-name>login_name</param-name>
     <param-value>Login</param-value>
     <description></description>

@@ -45,7 +45,7 @@
                   <TD CLASS="statText" ALIGN="left">Query Name</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-                <query:resultSetRowIterator id="query" rowList="<%=CommandDetailTask.getQueryList()%>">
+                <query:resultSetRowIterator id="query" list="<%=CommandDetailTask.getQueryList()%>">
                   <TR>
                     <TD CLASS="statText" ALIGN="right">
                       <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_QUERY_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.QUERY_ID_PARAM%>=<query:resultSetItem row="<%=query%>" name="query_id"/>" class="statText">
@@ -71,7 +71,7 @@
                   <TD CLASS="statText" ALIGN="left">Input Description</TD>
                 </TR>
                 <TR><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="8"></TD></TR>
-                <query:resultSetRowIterator id="input" rowList="<%=CommandDetailTask.getInputList()%>">
+                <query:resultSetRowIterator id="input" list="<%=CommandDetailTask.getInputList()%>">
                   <TR>
                     <TD CLASS="statText" ALIGN="right">
                       <A HREF="<jsp:getProperty name="CommandDetailTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.MODIFY_INPUT_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandDetailTask" property="Db"/>&<%=Constants.INPUT_ID_PARAM%>=<query:resultSetItem row="<%=input%>" name="input_id"/>" class="statText">
