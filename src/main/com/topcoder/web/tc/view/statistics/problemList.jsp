@@ -42,18 +42,7 @@
 
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
-                   <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="5" BORDER="0"></TD>
-                 </TR>
-                 <TR>
-                   <TD CLASS="statText" HEIGHT="16" COLSPAN="6" ALIGN="center">
-                     In order for a state to be ranked, it must have at least 10 rated members.
-                   </TD>
-                 </TR>
-                 <TR>
-                   <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+                   <TD COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="7" BORDER="0"></TD>
                  </TR>
                  <%--<a href="<%=sessionInfo.getServletPath()+"?"+Constants.MODULE_KEY+"=CRPFReport"%><tc:sort column="5"/>"><img src="/i/tournament/crpf03/rank.gif" width="43" height="26" border="0"></a>--%>
                  <TR>
@@ -76,10 +65,10 @@
                      <TD CLASS="statText" HEIGHT="13"><rsc:item name="problem_name" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="contest_name" row="<%=resultRow%>"/></TD>
                      <TD CLASS="statText" HEIGHT="13" ALIGN="left"><rsc:item name="contest_date" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_level" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div2_level" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_success" row="<%=resultRow%>"/></TD>
-                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div2_success" row="<%=resultRow%>"/></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_level" row="<%=resultRow%>" ifNull="N/A"/></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div2_level" row="<%=resultRow%>" ifNull="N/A"/></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div1_success" row="<%=resultRow%>" ifNull="N/A" format="0.00%"/></TD>
+                     <TD CLASS="statText" HEIGHT="13" ALIGN="right"><rsc:item name="div2_success" row="<%=resultRow%>" ifNull="N/A" format="0.00%"/></TD>
                      <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                    </TR>
                  </rsc:iterator>
