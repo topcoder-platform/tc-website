@@ -1,5 +1,9 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:import href="../menu.xsl"/>
+<xsl:import href="../top.xsl"/>
+
+
 <xsl:import href="challenge_top.xsl"/>
 <xsl:preserve-space elements="*"/> 
 <xsl:template match="/">
@@ -11,7 +15,11 @@
 
 </head>
 
-<body bgcolor="#ffffff" marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" onLoad="loaded=true">
+<body marginwidth="0" marginheight="0" topmargin="0" leftmargin="0" onLoad="loaded=true">
+      <xsl:call-template name="Top"/>
+      <xsl:call-template name="Menu"/>
+
+
 
 <a name="top"></a>
 
@@ -28,7 +36,7 @@
         <xsl:value-of select="/TC/CHALLENGE/Challenge/RoundId"/>
     </xsl:attribute>
 </input>
-<input type="hidden" name="filter" value="1"/>
+<input type="hidden" name="filter" value="90"/>
 <input type="hidden" name="remove" value=""/>
 <input type="hidden" name="overturn" value=""/>
 <input type="hidden" name="roundid" value="">
@@ -152,6 +160,10 @@
                     <xsl:if test="Succeeded=0">No</xsl:if>
                     <xsl:if test="Succeeded=-1">Nullified</xsl:if>
                 </td>
+              </tr>
+              <tr>
+                <td>Status</td>
+                <td><xsl:value-of select="StatusDesc"/></td>
               </tr>
               <tr>
                 <td>Message</td>
