@@ -5,6 +5,7 @@ import com.topcoder.shared.dataAccess.DataAccessInt;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.screening.common.Constants;
 import com.topcoder.web.screening.model.SessionInfo;
 
@@ -16,6 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public abstract class BaseSessionProcessor extends BaseProcessor {
+        private final static Logger log = Logger.getLogger(BaseSessionProcessor.class);
     private static int BEGIN = 0;
     private static int END = 1;
 
@@ -95,6 +97,7 @@ public abstract class BaseSessionProcessor extends BaseProcessor {
                String.valueOf(getAuthentication().getUser().getId()));
             dRequest.setProperty("start", sdf.format(info.getBeginDate()));
             dRequest.setProperty("end", sdf.format(info.getEndDate()));
+            log.debug("request: " + dRequest.toString());
             DataAccessInt dataAccess = getDataAccess();
             Map map = dataAccess.getData(dRequest);
 
