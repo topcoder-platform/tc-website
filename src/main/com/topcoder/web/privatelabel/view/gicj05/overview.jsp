@@ -116,7 +116,7 @@
 
                            <tr valign="top">
                               <td class="sidebarText">Saturday, March 26</td>
-                              <td class="sidebarText">12:00 PM</td>
+                              <td class="sidebarText">9:00 AM</td>
                               <td class="sidebarText">Championship Round - 50 participants</td>
                            </tr>
                 
