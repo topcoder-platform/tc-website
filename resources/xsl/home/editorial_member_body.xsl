@@ -13,7 +13,7 @@
   <xsl:import href="../includes/modules/my_stats.xsl"/>  
   <xsl:import href="../includes/modules/arena2.xsl"/>  
   <xsl:import href="../includes/modules/calendar.xsl"/>
-  <xsl:import href="../includes/modules/editorials.xsl"/>
+  <!-- <xsl:import href="../includes/modules/editorials.xsl"/> -->
   <xsl:import href="../includes/modules/top_room_wins.xsl"/>
   <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN"/>
   <xsl:template name="MemberBody">
@@ -68,7 +68,7 @@
 
     <!-- Left Column Begins -->
 
-    <TD WIDTH="170" BGCOLOR="#666666" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
+    <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><!-- <IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0" VSPACE="5"><BR/> -->
 <xsl:call-template name="srm_dates"/>
 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
 <xsl:call-template name="calendar"/>
@@ -441,8 +441,7 @@
     <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/>    
     </TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">
-<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Match 79</B></FONT><BR/>
-Wednesday, April 10, 2002<BR/>
+<FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana"><B>Single Round Match 79</B></FONT><BR/>
 By&#160;ZorbaTHut,<I>TopCoder Member</I><BR/>
 <A HREF="/?t=statistics&amp;c=srm79_room1" CLASS="bodyGeneric">Room One Review</A> | 
 <A HREF="/?t=statistics&amp;c=srm79_rookie" CLASS="bodyGeneric">Rookie Review</A> | 
