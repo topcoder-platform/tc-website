@@ -17,8 +17,11 @@ public class TCO04ComponentTerms extends TCO04AlgorithmTerms {
     }
 
     protected void setSuccessPage() throws Exception {
-        if (!isRegistered())
+        if (isRegistered()) {
+            setIsNextPageInContext(false);
+        } else {
             setNextPage(Constants.TCO04_TERMS);
-        setIsNextPageInContext(true);
+            setIsNextPageInContext(true);
+        }
     }
 }
