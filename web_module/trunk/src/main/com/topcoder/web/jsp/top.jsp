@@ -65,11 +65,10 @@
     <tr valign="middle">
         <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" border="0"/></td>
         <td width="206"><a href="/" target="_parent"><img src="/i/logo.gif" width="206" height="49" border="0" vspace="5"/></a></td>
-        <td width="20"><img src="/i/clear.gif" width="1" height="1" border="0" hspace="15"/></td>
-        <td nowrap align="right">
+        <td width="99%" nowrap>
 
 <% if ( !sessionInfo.isAnonymous() ) { %>
-            <table width="99%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#333333">            
                 <tr valign="middle"><form name="selectform">
                 <% if (rating > 1199) { %>
                     <td width="99%" align="left"><img src="/i/top_div1_badge.jpg.gif" width="370" height="75" border="0"/></td>
@@ -97,7 +96,7 @@
 
 <% } else { %>
 
-            <table width="99%" border="0" cellpadding="0" cellspacing="0">            
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">            
                 <tr><td><img src="/i/clear.gif" width="1" height="75" border="0"/></td></tr>           
             </table>                    
 
