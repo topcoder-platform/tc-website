@@ -54,6 +54,7 @@ public class DBMS {
     public static final int EDUCATION_SEQ               = 8;
     public static final int RESPONSE_SEQ                = 9;
     public static final int PROBLEMSTATE_SEQ            = 11;
+    public static final int SECTOR_SEQ                  = 13;
     
 
   // Sequence ID's for PACTS
@@ -302,6 +303,9 @@ public class DBMS {
                     break;
                 case PROBLEMSTATE_SEQ:
                     query = " execute procedure nextval("+ PROBLEMSTATE_SEQ +") ";
+                    break;
+                case SECTOR_SEQ:
+                    query = " execute procedure nextval("+ SECTOR_SEQ +") ";
                     break;
                 case PT_LOGIN_SEQ:
                     query = " execute procedure nextval("+ PT_LOGIN_SEQ +") ";
