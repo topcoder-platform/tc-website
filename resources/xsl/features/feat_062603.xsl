@@ -259,10 +259,10 @@ test cases.  At that time I included the line:
 </p>
 
 <p>
-<pre>
+<em>
 You absolutely have to be able to run the example tests via a single keystroke.  
 There is no discussion.  
-</pre>
+</em>
 </p>
 
 <p>
