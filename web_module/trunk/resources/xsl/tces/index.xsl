@@ -85,7 +85,7 @@
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 <!-- Appian ends -->
 
-<!-- Vertex begins -->
+<!-- Vertex begins 
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=vertex" target="_top"><img src="/i/es/vertex/vertex_logo.gif" width="76" height="52" alt="" border="0" /></a></td>
                                 <td width="99%" class="bodyText"><strong>Vertex Pharmaceuticals Incorporated (NASDAQ: VRTX)</strong> is a global biotechnology 
@@ -96,7 +96,7 @@
                             </tr>
                             
                             <tr><td colspan="2" bgcolor="#43515E" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
-<!-- Vertex ends -->
+ Vertex ends -->
 
 <!-- Microsoft begins
                             <tr valign="top">
