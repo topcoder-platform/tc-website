@@ -34,7 +34,7 @@ import java.sql.SQLException;
 *
 */
 
-class UserListTest extends BaseProcessor {
+public class UserListTest extends BaseProcessor {
     private static Logger log = Logger.getLogger(UserListTest.class);
 
 	public UserListTest() {
