@@ -96,7 +96,7 @@ else
                                 <td class="sidebarText" align=center nowrap=nowrap><rsc:item format="MM.dd.yyyy hh:mma" name="submit_timestamp" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><rsc:item name="placed" row="<%=resultRow%>"/></td>
                                 <td class="sidebarText" align=center><rsc:item name="final_score" format="0.00" row="<%=resultRow%>"/></td>
-                                <td class="sidebarText" align=right><rsc:item name="payment" ifNull="-" format="$#,##0" row="<%=resultRow%>"/></td>
+                                <td class="sidebarText" align=right><rsc:item name="payment" ifNull="" format="$#,##0" row="<%=resultRow%>"/></td>
                             </tr>
                             </rsc:iterator>
                         </table>
