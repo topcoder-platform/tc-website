@@ -49,7 +49,7 @@ public class Login extends BaseProcessor {
 
                     authToken.login(new SimpleUser(0, username, password));
 
-                    if (!hasActiveAccount(username)) throw new LoginException("Account is not active.");
+                    if (!hasActiveAccount(username)) throw new LoginException("Sorry, your account is not active.");
 
                     /* no need to reset user or sessioninfo, since we immediately proceed to a new page */
                     String dest = StringUtils.checkNull(request.getParameter(KEY_DESTINATION_PAGE));

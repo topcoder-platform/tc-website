@@ -29,7 +29,7 @@ public class ClassSource implements TokenizedSource {
             if (tempint != '\n')
                 buf.append(tempint);
             else {
-                if (buf.indexOf("java") == -1)
+                if (buf.toString().indexOf("java") == -1)
                     tokens.add(buf.toString().trim());
                 buf = new StringBuffer();
             }
