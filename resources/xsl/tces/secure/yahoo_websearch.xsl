@@ -91,11 +91,11 @@
 						<p>Experience should include:</p>
 						
 						<ul>
-						<li>C/C++</li></br>
-						<li>TCP/IP network programming</li></br>
-						<li>Web protocols such HTTP, DNS, and SSL</li></br>
-						<li>Data analysis and pattern recognition algorithms</li></br>
-						<li>Multi-threaded and asynchronous programming</li></br>
+						<li>C/C++</li>
+						<li>TCP/IP network programming</li>
+						<li>Web protocols such HTTP, DNS, and SSL</li>
+						<li>Data analysis and pattern recognition algorithms</li>
+						<li>Multi-threaded and asynchronous programming</li>
 						<li>Unix tools and scripting languages</li>
 						</ul>
 
@@ -104,7 +104,7 @@
                         <p><strong>Job Location</strong><br/>
                         Sunnyvale, CA</p>
                         
-                        <p align="center"><a href="#" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
+                        <p align="center"><a href="/jobposting?&amp;t=JobHitTask&amp;jid=184&amp;jt=2" class="bodyText">Apply now!</a> | <a href="/?&amp;t=tces&amp;c=yahoo_openings&amp;a=secure" class="bodyText">Back to Jobs</a></p>
 
 <!-- Client Job List ends -->
 
