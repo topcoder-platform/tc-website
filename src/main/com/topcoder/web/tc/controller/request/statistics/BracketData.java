@@ -76,7 +76,7 @@ public class BracketData extends Base {
                 hd.startElement("", "", "competitor", emptyAtts);
                 addElement(hd, "handle", profileRsc.getStringItem(0, "handle"), emptyAtts);
                 addElement(hd, "photo", profileRsc.getStringItem(0, "image_path"), emptyAtts);
-                addElement(hd, "alg_rating", competitorRsc.getStringItem(0, "algorithm_rating"), emptyAtts);
+                addElement(hd, "alg_rating", competitorRsc.getStringItem(0, "rating"), emptyAtts);
                 addElement(hd, "alg_rank", competitorRsc.getStringItem(0, "rank"), emptyAtts);
                 addElement(hd, "alg_percentile", df.format(competitorRsc.getDoubleItem(0, "percentile")), emptyAtts);
                 addElement(hd, "member_since", sdf.format(competitorRsc.getItem(0, "member_since").getResultData()), emptyAtts);
