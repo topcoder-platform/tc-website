@@ -8,7 +8,6 @@ import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.corp.Constants;
@@ -30,7 +29,6 @@ import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.sql.DataSource;
 import javax.transaction.Transaction;
-import javax.transaction.UserTransaction;
 import java.rmi.RemoteException;
 import java.util.Enumeration;
 import java.util.Map;
@@ -85,6 +83,7 @@ public class UserEdit extends BaseProcessor {
         verifyAllowed();
         log.debug(secTok.createNew ?"verification passed: create" :"verification passed: edit");
 
+        InitialContext icEJB = null;
         PrincipalMgrRemote mgr = secTok.man;
 
         if (loadUserData()) return;
@@ -96,20 +95,13 @@ public class UserEdit extends BaseProcessor {
             return;
         }
         // form is valid - store it
-        InitialContext icEJB = null;
-        InitialContext secCtx = null;
+        icEJB = null;
         Transaction tx = null;
-        UserTransaction secTx = null;
         try {
             mgr = Util.getPrincipalManager();
 
             // transaction boundary
             tx = Util.beginTransaction();
-
-            secCtx = (InitialContext) TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY,
-                    ApplicationServer.SECURITY_PROVIDER_URL);
-            secTx = (UserTransaction) secCtx.lookup("UserTransaction");
-            secTx.begin();
 
             if (secTok.createNew) {
                 secTok.targetUser = createUserPrincipal();
@@ -121,24 +113,12 @@ public class UserEdit extends BaseProcessor {
             icEJB = (InitialContext)TCContext.getInitial();
             storeUserDataIntoDB(icEJB);
 
-            secTx.commit();
             tx.commit();
         } catch (Exception exc) {
-            //rollbackHelper(tx);
-            try {
-                secTx.rollback();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            try {
-                tx.rollback();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+            rollbackHelper(tx);
             throw exc;
         } finally {
             Util.closeIC(icEJB);
-            Util.closeIC(secCtx);
         }
 
         pageInContext = false;
@@ -545,7 +525,6 @@ public class UserEdit extends BaseProcessor {
                 log.error("tx.roolback(): op has failed");
             }
         }
-
         if (secTok.targetUser != null) {
             // security user creation is performed by the remote component
             // (thus, outside of transaction scope) so we have remove it
