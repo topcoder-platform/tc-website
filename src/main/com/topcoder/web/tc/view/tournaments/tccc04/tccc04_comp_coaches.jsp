@@ -70,7 +70,7 @@ with "Coach" in the subject line.
 
 <p><span class="bodySubtitle">Compensation</span><br/>
 <ul>
-<li>Coaches will receive 10% of the competitor's winnings for all CDDC submissions after the coaching agreement was signed.  This includes both component earnings and contest prizes.</li>
+<li>Coaches will receive 10% of the competitor's winnings for all CDDC submissions received by TopCoder after the coaching agreement was signed.  This includes both component earnings and contest prizes.</li>
 <li>Future royalties due to the winning competitor are not subject to the coach's percentage.</li>
 </ul>
 

@@ -49,7 +49,7 @@
             
             <p>NOTE: All times are EST.</p>
 
-            <p>Each contestant in an online round must submit his/her design and/or development submissions as scheduled (see below).</p>
+            <p>Each contestant in an online round must submit his/her design and/or development submissions by the deadlines indicated below:</p>
             
             <a name="sched"></a>
             <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
@@ -307,7 +307,7 @@
                         04.16.04 4:20PM
                         </td>
                    </tr>
-                <tr><td colspan="3" class="sidebarText">*Phases of the tournament will be conducted onsite at the Championship Round. These times are subject to change</td></tr>
+                <tr><td colspan="3" class="sidebarText">*These phases of the tournament will be conducted onsite at the Championship Round. These times are subject to change.</td></tr>
              </table>
 
          <p><br/></p>

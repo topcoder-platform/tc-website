@@ -243,7 +243,7 @@
          will not be awarded.  Competitors who do not submit the required information listed above by the applicable deadlines 
          will forfeit their prizes.</p>
 
-         <p>As a condition of participation in the tournament, all information provided in TopCoder member profile 
+         <p>As a condition of participation in the tournament, all information provided in each competitor's TopCoder member profile 
          must be comprehensive, accurate and up-to-date. TopCoder may require each competitor to complete an additional registration form 
          to register for the tournament. In order to be eligible to participate in the tournament, each competitor must have completed any and 
          all registration forms required by TopCoder.</p>
@@ -291,7 +291,11 @@
             <p>A list of tournament winners by coder handles will be available on the web site at http://www.topcoder.com/, and will be
             displayed for at least 3 months after the end of the tournament.</p>
 
-            <p>The results of a round of competition will be considered, by TopCoder, to be final at 11:00 AM EST on the day following the round of competition.  Any appeals regarding the validity of these results must be received by TopCoder at the <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> email address no later than 11:00 AM EST on the second day following the date on which the round of competition was held.</p>
+            <p>The results of the online rounds of competition will be considered, by TopCoder, to be final at 11:00 AM EST on the day following 
+            the round of competition.  Any appeals regarding the validity of these results must be received by TopCoder at the 
+            <A href="mailto:service@topcoder.com" class="bodyText">service@topcoder.com</A> email address no later than 11:00 AM EST 
+            on the second day following the date on which the round of competition was held.  For the onsite rounds of competition, competitors 
+            may appeal the results within five (5) minutes following the announcement of the results.</p>
 
             <p>This tournament is brought to you by TopCoder, Inc. (http://www.topcoder.com/) 703 Hebron Avenue, Glastonbury, CT 06033.</p>
 
