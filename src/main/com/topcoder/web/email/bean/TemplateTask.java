@@ -118,7 +118,7 @@ public class TemplateTask
     private String add(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the template to be added
-        EmailTemplateForm template = (EmailTemplateForm) request.getSession().getAttribute("EmailTemplate");
+        EmailTemplateForm template = (EmailTemplateForm) request.getAttribute("EmailTemplate");
 
         if (!template.isAdded()) {
             template.setName(request.getParameter("name"));
@@ -198,7 +198,7 @@ public class TemplateTask
     private String save(HttpServletRequest request, HttpServletResponse response)
             throws ServletException {
         // retrieve the edited template
-        EmailTemplateForm template = (EmailTemplateForm) request.getSession().getAttribute("EmailTemplate");
+        EmailTemplateForm template = (EmailTemplateForm) request.getAttribute("EmailTemplate");
 
         int templateId;
         try {
