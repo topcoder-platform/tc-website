@@ -1,8 +1,8 @@
 package com.topcoder.ejb.UserServices;
 
-import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
-import com.topcoder.ejb.AuthenticationServices.User;
+import com.topcoder.common.web.data.*;
+import com.topcoder.common.web.data.User;
 import com.topcoder.shared.docGen.xml.RecordTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.DBMS;

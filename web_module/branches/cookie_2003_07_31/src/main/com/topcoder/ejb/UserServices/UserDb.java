@@ -1,6 +1,6 @@
 package com.topcoder.ejb.UserServices;
 
-import com.topcoder.common.web.data.CoderRegistration;
+import com.topcoder.common.web.data.*;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.shared.util.DBMS;
