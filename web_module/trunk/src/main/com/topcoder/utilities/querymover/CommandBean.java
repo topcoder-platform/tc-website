@@ -41,4 +41,7 @@ public class CommandBean {
         this.commandGroupId = commandGroupId;
     }
 
+    public String toString() {
+        return "id: " + commandId + " desc: " + commandDesc + " groupid: " + commandGroupId;
+    }
 }

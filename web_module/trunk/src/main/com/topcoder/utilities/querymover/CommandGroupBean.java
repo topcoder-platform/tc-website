@@ -29,4 +29,8 @@ public class CommandGroupBean {
     public void setCommandGroupDesc(String commandGroupDesc) {
         this.commandGroupDesc = commandGroupDesc;
     }
+
+    public String toString() {
+        return "id: " + commandGroupId + " desc: " + commandGroupDesc;
+    }
 }
