@@ -73,7 +73,7 @@
                Used As:
              </td>
              <td class="statText">
-               <rsc:item set="<%=generalInfo%>" name="div1_use" /> <%=generalInfo.getItem(0, "div2_use").getResultData()!=null&&generalInfo.getItem(0, "div1_use").getResultData()!=null?"":", "%><rsc:item set="<%=generalInfo%>" name="div2_use" />
+               <rsc:item set="<%=generalInfo%>" name="div1_use" /> <%=generalInfo.getItem(0, "div2_use").getResultData()!=null&&generalInfo.getItem(0, "div1_use").getResultData()!=null?", ":""%><rsc:item set="<%=generalInfo%>" name="div2_use" />
              </td>
            </tr>
          <table>
