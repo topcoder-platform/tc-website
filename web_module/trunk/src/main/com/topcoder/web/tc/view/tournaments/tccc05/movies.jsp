@@ -35,6 +35,8 @@
 				<br/><A href="/i/tournament/tccc05/onsite_movies/reception.mov">Reception (3.4 MB)</A><br/></td>
 				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/room1.mov"><img src="/i/tournament/tccc05/onsite_movies/room1.jpg" border=0/></A>
 				<br/><A href="/i/tournament/tccc05/onsite_movies/room1.mov">Room 1 (2.8 MB)</A><br/></td>
+				<td class=bodyText align=center valign=top><A href="/i/tournament/tccc05/onsite_movies/room2.mov"><img src="/i/tournament/tccc05/onsite_movies/room2.jpg" border=0/></A>
+				<br/><A href="/i/tournament/tccc05/onsite_movies/room2.mov">Room 2 (2.7 MB)</A><br/></td>
             </tr>
       </table>
 
