@@ -5,7 +5,6 @@ import com.topcoder.shared.distCache.CacheClientFactory;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.util.DBMS;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Map;
 
@@ -17,11 +16,10 @@ import java.util.Map;
  * @version $Revision$
  * @see     RequestInt
  */
-public class CachedDataAccess implements DataAccessInt {
+public class CachedDataAccess extends DataAccess {
     private static Logger log = Logger.getLogger(CachedDataAccess.class);
-    private long expireTime;
-    private String dataSource;
-    private static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 5;
+    protected long expireTime;
+    protected static final int DEFAULT_EXPIRE_TIME = 1000 * 60 * 60 * 24 * 5;
 
     /**
      * Constructor that sets the timeout for the object should it need to be
@@ -77,7 +75,7 @@ public class CachedDataAccess implements DataAccessInt {
         Connection conn = null;
         try {
             boolean hasCacheConnection = true;
-            String key = ((Request)request).getCacheKey();
+            String key = request.getCacheKey();
             Map map = null;
             DataRetriever dr = null;
             CacheClient cc = null;
@@ -132,18 +130,5 @@ public class CachedDataAccess implements DataAccessInt {
         return expireTime;
     }
 
-    /**
-     * @param dataSource
-     */
-    public void setDataSource(String dataSource) {
-        this.dataSource = dataSource;
-    }
-
-    /**
-     * @return this object's data source
-     */
-    public String getDataSource() {
-        return dataSource;
-    }
 }
 
