@@ -35,7 +35,7 @@
         startIndex = 0;
     }
 
-    if (startIndex >= results.size()) {
+    if (startIndex >= results.size() || startIndex < 0) {
         startIndex = 0;
     }
 
@@ -78,19 +78,22 @@
                     <td class="bodyText">Total Candidates:
                         <b><%= info.size()%></b>
                     </td>
-                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;
+                    <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
+                        + 1 + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="/">Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%></A>
+                    <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
+                        Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
+                    </A>
                     <%  } %>
 
                     <%
                         if (startIndex + Constants.PAGE_SIZE > info.size()) {
                     %>
-                    | <A href="/">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a><
+                    | <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a>
                     <%  } %>
-                    /td>
+                    </td>
                 </tr>
             </table>
 
@@ -233,19 +236,22 @@
 
             <table border="0" cellspacing="0" cellpadding="0" width="600">
                 <tr valign="top">
-                    <td class="bodyText" align=right>Showing 1-20:&#160;&#160;&#160;
+                    <td class="bodyText" align=right>Showing <%=startIndex + 1%>-<%=startIndex
+                        + 1 + Math.min(info.size() -  startIndex,Constants.PAGE_SIZE)%>:&#160;&#160;&#160;
                     <%
                         if (startIndex > 0) {
                     %>
-                    <A href="/">Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%></A>
+                    <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex - Constants.PAGE_SIZE%>">
+                        Prev <%=Math.min(startIndex, Constants.PAGE_SIZE)%>
+                    </A>
                     <%  } %>
 
                     <%
                         if (startIndex + Constants.PAGE_SIZE > info.size()) {
                     %>
-                    | <A href="/">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a><
+                    | <A href="/corp/testing/campaignResults.jsp?<%=Constants.PAGE_START_INDEX%>=<%=startIndex + Constants.PAGE_SIZE%>">Next <%=Math.min(info.size() - startIndex,Constants.PAGE_SIZE)%></a>
                     <%  } %>
-                    /td>
+                    </td>
                 </tr>
             </table>
 
