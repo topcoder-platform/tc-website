@@ -35,6 +35,7 @@
         </jsp:include>
 
             <table border=0 cellpadding=2 cellspacing=0 width="100%">
+            <tr class="bodyText" valign="top"><td nowrap="nowrap">03.09.05 1:45 PM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/marybeth.mov">MaryBeth Luce on finding the best</A></td></tr>
             <tr class="bodyText" valign="top"><td nowrap="nowrap">02.21.05 12:30 PM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/heidiBurgett.mov">Yahoo!'s Heidi Burgett on hiring the "best and the brightest"</A></td></tr>
             <tr class="bodyText" valign="top"><td nowrap="nowrap">02.07.05 1:15 PM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/reid.mov">reid, on going to an onsite event</A></td></tr>
             <tr class="bodyText" valign="top"><td nowrap="nowrap">01.25.05 10:00 AM&#160;-&#160</td><td width="100%"><A href="/i/tournament/tco04/onsite_movies/Nvidia2.mov">NVIDIA's Nick Trientos on the TopCoder community</A></td></tr>
