@@ -137,7 +137,7 @@
 					  <LI>Members not yet rated compete in Division-II</LI>
                       <LI>Room assignments place members of like divisions together</LI>
                       <LI>Rating changes go into effect in next participated match</LI>
-                      <LI>Members who are ineligible to receive prizes, due to age or country restrictions, will be placed in rooms separate from those members who are eligible to receive prizes.</LI></UL>
+                      <LI>In the event that any member who is ineligible to receive prizes (due to age or country restrictions) places in a position in which they would receive a prize, they will be asked to pick a charity to which to donate their prize.  In the event that the member does not pick a charity, TopCoder will pick a charity to which the ineligible member's prize will be paid.</LI></UL>
                       <A HREF="/index?t=support&amp;c=divisions" CLASS="bodyText">More about the Division structure</A><BR/><BR/>
                       <B>Eligibility:</B><BR/><BR/>
                       Open to members meeting the following eligibility requirements:<UL>
