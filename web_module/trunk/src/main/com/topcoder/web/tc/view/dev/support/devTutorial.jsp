@@ -269,24 +269,23 @@
 			<p>Java distributions are commonly in jar format, and .NET distributions are 
 				commonly in zip format.  Both can be extracted with an unzip utility.</p>
 			<h3>Contents</h3>
-			<p><font face="Courier New">/conf - </font><font face="Times New Roman">This directory, 
+			<p><font face="Courier New">/conf - </font>This directory, 
 					if present, will contain configuration files for your component.  
 					Sometimes this will include configuration for components your submission will 
 					rely on, or sample configuration files written by the designer.  If no 
 					such files were created during design phase, you may not have this directory in 
 					your distribution.  If your component uses configuration files, you will 
-					need to create this directory on your own.</font></p>
+					need to create this directory on your own.</p>
 			<p><font face="Courier New">/docs - </font>This directory contains all current 
 				documentation for your component.  This includes a .zargo or .zuml UML 
 				design specification, as well as the requirements and component specification. 
 				The design documents are covered in more detail in <a href="#sectionIV">Section IV</a>.</p>
-			<font face="Courier New">
-				<p><font face="Courier New">/lib - </font><font face="Times New Roman">Here you 
+				<p><font face="Courier New">/lib - </font>Here you 
 						will find all required components level libraries that your component will 
 						require.  Not included here are system level libraries (e.g. ODBC drivers, 
 						and other libraries that may required more complicated installation).  All 
 						TCS components that your project relies on should be included here.  If any 
-						are missing, you need to contact your Product Manager.</font></p>
+						are missing, you need to contact your Product Manager.</p>
 			</font>
 			<p><font face="Courier New">/src - </font>This directory will contain all your 
 				source, when you complete your project.  In the distribution, normally 
@@ -302,12 +301,12 @@
 			<p><font face="Courier New">/build.xml - </font>This is a default, possibly unconfigured build script.  Build scripts are covered in more detail in <a href="#sectionIII">Section III</a>.</p>
 			<h4>C#</h4>
 			<p><font face="Courier New">/default.build - </font>This is a default, possibly unconfigured build script.  Build scripts are covered in more detail in <a href="#sectionIII">Section III</a>.</p>
-			<span class=bodySubtitle><a name="#setupenv">Setting Up Your Environment</a></span>
+			<span class=bodySubtitle><a name="#setupenv"></a>Setting Up Your Environment</span>
 			<p>First off, you'll need to decide on a working directory.  Appropriate 
 				examples include <font face="Courier New"><font size="2">C:\working\</font><font face="Times New Roman">,</font>
 					<font face="Courier New"><font size="2">C:\proj\</font><font face="Times New Roman">,</font>
 						<font face="Courier New"><font size="2">~/projects/</font> <font face="Times New Roman">
-								,</font> </font></font></font><font face="Times New Roman">or 
+								,</font> </font></font></font>or 
 					wherever you are comfortable putting your code.  It is recommended to 
 					establish a new directory for TopCoder projects, to minimize confusion and 
 					reduce the chance of submitting the wrong files when you're ready to 
@@ -560,8 +559,8 @@
 				directory.  From there, you need to arrange your source according to the 
 				package for your project.  For instance, if your component was <font face="Courier New" size="2">
 					com.topcoder.util.tutorial</font>, your full path to source would be <font face="Courier New" size="2">
-					/src/java/main/com/topcoder/util/tutorial/.  <font face="Times New Roman" size="3">
-						Below are Java specific paths.</font></font></p>
+					/src/java/main/com/topcoder/util/tutorial/.</font>
+						Below are Java specific paths.</p>
 			<table border="0" cellpadding="0" width="100%" class="formFrame">
 				<thead>
 					<tr>
@@ -591,10 +590,10 @@
 				directory.  From there, you need to arrange your source according to the 
 				package for your project.  For instance, if your component was <font face="Courier New" size="2">
 					TopCoder.Util.Tutorial.dll</font>, your full path to source would be <font face="Courier New" size="2">
-					/src/csharp/main/TopCoder/Util/Tutorial/. <font face="Times New Roman" size="3">Below 
+					/src/csharp/main/TopCoder/Util/Tutorial/. </font>Below 
 						are C# specific paths.  Although C# namespaces do not require 
 						directory arrangement conformity as Java packages do, it is TopCoder practice 
-						to arrange the source files according to namespace.</font></font></p>
+						to arrange the source files according to namespace.</p>
 			<table border="0" cellpadding="0" width="100%" class="formFrame">
 				<thead>
 					<tr>
@@ -670,10 +669,10 @@
 			</table>
 			<p>To execute a build target, you simply move into the directory where your build 
 				script is (it should be the project root directory), and execute <font face="Courier New" size="2">
-					ant &lt;target&gt; <font face="Times New Roman" size="3">or</font> n<font face="Courier New" size="2">ant 
-						&lt;target&gt;.  <font face="Times New Roman" size="3">Make sure that you've 
+					ant &lt;target&gt;</font> or n<font face="Courier New" size="2">ant 
+						&lt;target&gt;.  </font>Make sure that you've 
 							properly configured [N]Ant to allow execution at the command line, or this step 
-							simply won't work!</font></font></font>
+							simply won't work!
 			</p>
 			<p><a href="/i/development/nantbuild.html" target="_blank">Example NAnt Build</a></p>
 			<p><a href="/i/development/antbuild.html" target="_blank">Example Ant Build</a></p>
@@ -935,9 +934,9 @@
 			<p>The hard work is over, and you've got 150 successful unit tests.  You're 
 				ready to submit your solution!</p>
 			<p>First, you should review your code.  Make sure that your submission meets 
-				the review guidelines (<a href="#sectionIX">Section IX</a>) as fully as possible.  <span style="font-size: 12pt; font-family: 'Times New Roman';">
+				the review guidelines (<a href="#sectionIX">Section IX</a>) as fully as possible.
 					Finding small issues now will save you points later in the review 
-					process.  Make sure that your directory structure is appropriate as above.</span></p>
+					process.  Make sure that your directory structure is appropriate as above.</p>
 			<p>Secondly, make sure your code compiles.  If you're writing a Java solution, 
 				make sure that the compile_targets build target compiles, if applicable.</p>
 			<p>Finally, run the dev_submission build target.  This will build a compressed 

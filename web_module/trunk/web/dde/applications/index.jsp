@@ -65,7 +65,7 @@
                         <p><strong>We know you've probably become conditioned to tune out the claims made by other software companies. TopCoder is on a mission to prove 
                         that we can develop high-quality software applications differently from those companies. How do we do it?</strong></p>
                         
-                        <p>We utilize our member base of over 35,000 software developers who are differentiated by talent through
+                        <p>We utilize our member base of software developers who are differentiated by talent through
                         competition. Combining this talent with our competition-based methodology and our catalogs of re-usable components is what allows us to develop 
                         faster, cheaper, and better.</p>
                     </td>
