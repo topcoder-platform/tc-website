@@ -300,7 +300,7 @@ public class UserEdit extends BaseProcessor {
                     request.getParameter(KEY_TARGET_USER_ID)
             );
         } catch (Exception e) {
-			e.printStackTrace();
+            //if there was an exception, just use -1
         }
         return targetUserID < 0;
     }

@@ -2,7 +2,8 @@
          contentType="text/html; charset=ISO-8859-1"
          import="com.topcoder.web.corp.Constants,
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
-                 com.topcoder.web.corp.request.Registration"
+                 com.topcoder.web.corp.request.Registration,
+                 com.topcoder.web.corp.request.UserEdit"
          autoFlush="false"
          buffer="64kb"
          errorPage="../exc/InternalError.jsp"
@@ -188,9 +189,9 @@
     <TR>
         <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
     </TR>
-    <% String id = (String)request.getAttribute("id");
+    <% String id = (String)request.getAttribute(UserEdit.KEY_TARGET_USER_ID);
        if( id != null ) { %>
-          <input type="hidden" name="id" value="<%=id%>"/>
+          <input type="hidden" name="<%=UserEdit.KEY_TARGET_USER_ID%>" value="<%=id%>"/>
     <% } %>
 
 <!-- LOGIN -->
