@@ -44,7 +44,6 @@ public class DataAccess implements DataAccessInt {
      */
     public Map getData(RequestInt request) throws Exception {
         Connection conn = dataSource.getConnection();
-        log.debug("getting data for " + request.getProperty("c"));
         try {
             DataRetriever dr = new DataRetriever(conn);
             Map map = dr.executeCommand(request.getProperties());
