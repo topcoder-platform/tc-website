@@ -784,7 +784,7 @@ public class UserEdit extends BaseProcessor {
         ResultSetContainer rsc = null;
         try {
             ic = (InitialContext)TCContext.getInitial();
-            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.CORP_DATASOURCE_NAME));
+            DataAccessInt dai = new DataAccess((DataSource) ic.lookup(DBMS.OLTP_DATASOURCE_NAME));
             Map resultMap = dai.getData(dataRequest);
             rsc = (ResultSetContainer) resultMap.get("qry-permissions-for-user");
             request.setAttribute(KEY_USER_PERMS, rsc);
