@@ -97,6 +97,7 @@ public class DemographicInput extends BaseTag {
                 s.append("<option value=\"");
                 s.append(answer.getAnswerId());
                 s.append("\"");
+                log.info("DEFAULT:" + getDefaultValue());
                 if (getDefaultValue()!=null && getDefaultValue().equals(String.valueOf(answer.getAnswerId()))) {
                     s.append(" selected");
                 }
