@@ -116,6 +116,26 @@ public class CacheClientImpl
      * @return
      * @throws RemoteException
      */
+    public ArrayList getEntries()
+            throws RemoteException {
+        return _cache.getEntries();
+    }
+
+    /**
+     *
+     * @return
+     * @throws RemoteException
+     */
+    public ArrayList getKeys()
+            throws RemoteException {
+        return _cache.getKeys();
+    }
+
+    /**
+     *
+     * @return
+     * @throws RemoteException
+     */
     public ArrayList getValues()
             throws RemoteException {
         return _cache.getValues();

@@ -438,11 +438,31 @@ public class Cache
      *
      * @return
      */
-    public ArrayList getValues() {
+    public ArrayList getEntries() {
         ArrayList al = new ArrayList();
 
         Iterator it = _keymap.values().iterator();
         while (it.hasNext()) al.add(it.next());
+        return al;
+    }
+
+    public ArrayList getKeys() {
+        ArrayList al = new ArrayList();
+       
+        Iterator it = _keymap.values().iterator();
+        while (it.hasNext()) {
+            al.add(((CachedValue)it.next()).getKey());
+        }
+        return al;
+    }
+
+    public ArrayList getValues() {
+        ArrayList al = new ArrayList();
+       
+        Iterator it = _keymap.values().iterator();
+        while (it.hasNext()) {
+            al.add(((CachedValue)it.next()).getValue());
+        }
         return al;
     }
 }

@@ -104,6 +104,22 @@ public interface CacheClient
      * @return
      * @throws RemoteException
      */
+    public ArrayList getEntries()
+            throws RemoteException;
+
+    /**
+     *
+     * @return
+     * @throws RemoteException
+     */
+    public ArrayList getKeys()
+            throws RemoteException;
+
+    /**
+     *
+     * @return
+     * @throws RemoteException
+     */
     public ArrayList getValues()
             throws RemoteException;
 
