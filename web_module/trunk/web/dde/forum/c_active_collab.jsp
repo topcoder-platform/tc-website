@@ -200,12 +200,6 @@
 				<img src="/images/netCustomSm.gif" alt=".NET Custom Catalog" border="0" />
 				<%
                                 }
-                                else
-                                {
-                                %>
-                                <!-- unknown root category <%=forum.getRootCategory()%> -->
-                                <%
-                                }
                                 %>
 				</td>
                                 <td><img src="/images/spacer.gif" alt="" width="5" height="17" border="0" /></td>
