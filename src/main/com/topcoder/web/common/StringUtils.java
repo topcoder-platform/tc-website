@@ -161,8 +161,8 @@ public final class StringUtils {
     }
 
     //can't think of a better place to put these....
-    public static String getActivationCode(int coderId) {
-        String id = Integer.toString(coderId);
+    public static String getActivationCode(long coderId) {
+        String id = Long.toString(coderId);
         String hash = new BigInteger(new BigInteger(id).bitLength(), new Random(coderId)).add(new BigInteger("TopCoder", 36)).toString();
         while (hash.length() < id.length()) {
             hash = "0" + hash;
