@@ -289,7 +289,7 @@ function goTo(selection){
 
        <TD WIDTH="180" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="180" HEIGHT="1" BORDER="0">
        <rsc:iterator list="<%=image%>" id="resultRow">
-        <CENTER><A HREF="<rsc:item name="link" row="resultRow"/>"><img src="<rsc:item name="file" row="resultRow"/>" ALT="" WIDTH="<rsc:item name="width" row="resultRow"/>" HEIGHT="<rsc:item name="height" row="resultRow"/>" BORDER="0"/></A></CENTER>
+        <CENTER><A HREF="<rsc:item name="link" row="<%=resultRow%>"/>"><img src="<rsc:item name="file" row="<%=resultRow%>"/>" ALT="" WIDTH="<rsc:item name="width" row="<%=resultRow%>"/>" HEIGHT="<rsc:item name="height" row="<%=resultRow%>"/>" BORDER="0"/></A></CENTER>
        </rsc:iterator>
          <jsp:include page="../public_right.jsp" />
         </TD>
