@@ -51,11 +51,11 @@ function openWin(url, name, w, h) {
                  <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_donate" class="statTextBig"><img src="/i/events/crpf03/tab_donate_off.gif" alt="Donate" width="60" height="22" border="0" /></A></td>
             <% } %>
 
-<!-- ATT tab -->
-            <% if (selectedTab.equals("att")) {%>
-                 <td class="statTextBig" width="128"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_att" class="statTextBig"><img src="/i/events/crpf03/tab_att_on.gif" alt="att" width="128" height="22" border="0" /></A></td>
+<!-- Advancers tab -->
+            <% if (selectedTab.equals("advancers")) {%>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_advancers" class="statTextBig"><img src="/i/events/crpf03/tab_advancers_on.gif" alt="att" width="88" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="12/"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_att" class="statTextBig"><img src="/i/events/crpf03/tab_att_off.gif" alt="att" width="128" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="88"><A href="/tc?&module=CRPFStatic&d1=crpf&d2=crpf_advancers" class="statTextBig"><img src="/i/events/crpf03/tab_advancers_off.gif" alt="att" width="88" height="22" border="0" /></A></td>
             <% } %>
 
 
