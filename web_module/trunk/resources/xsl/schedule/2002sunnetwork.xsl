@@ -57,7 +57,7 @@
 <!-- <DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A></DIV> -->
 	<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="1">
       <TR>
-        <TD><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
+        <TD><DIV ALIGN="center"><A HREF="http://sunnetwork.sun.com" TARGET="_blank"><IMG SRC="/i/tournament/sun_network_logo.gif" ALT="" WIDTH="284" HEIGHT="80" BORDER="0"/></A><A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" TARGET="_blank"><IMG SRC="/i/tournament/sun_challenge_logo.gif" ALT="" WIDTH="174" HEIGHT="65" BORDER="0"/></A></DIV></TD>
       </TR>      
       
       <!-- <TR>
@@ -103,7 +103,7 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 		<TD WIDTH="25%" ALIGN="center" VALIGN="middle" HEIGHT="16" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif">
 			<!-- <xsl:attribute name="BACKGROUND">/i/<xsl:choose><xsl:when test="/TC/Command='2002sunnetwork_rules'">orangebv_bg</xsl:when>
 			<xsl:otherwise>steel_bluebv_bg</xsl:otherwise></xsl:choose>.gif</xsl:attribute>	-->
-		<A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" CLASS="statTextBig"><FONT COLOR="#FFCC00">Sign-Up!</FONT></A></TD>
+		<A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" CLASS="statTextBig"><FONT COLOR="#FFCC00">Sign-Up!</FONT></A></TD>
 	  </TR>
     </TABLE>
     <BR/>
@@ -118,7 +118,7 @@ Challenge powered by TopCoder. This is <B>NOT</B> a rated event. </P>
 Please <A HREF="/reg/index.jsp" CLASS="statText">update</A> your member profile to sign-up.
   </xsl:when>
   <xsl:otherwise>  
-Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You must log in to view this portion of the site.&amp;errorURL=/reg/index.jsp" CLASS="statText">login</A> to update your member profile to sign-up.
+Please <A HREF="/?&amp;t=authentication&amp;c=login&amp;errorMsg=You%20must%20log%20in%20to%20view%20this%20portion%20of%20the%20site.&amp;errorURL=/reg/index.jsp" CLASS="statText">login</A> to update your member profile to sign-up.
   </xsl:otherwise>
 </xsl:choose>
 </P>
