@@ -35,6 +35,9 @@ public class SimpleSearch extends Base {
             m.setResults(rsc);
             getRequest().setAttribute("memberSearch", m);
 
+            setNextPage(Constants.SIMPLE_SEARCH_RESULTS);
+            setIsNextPageInContext(true);
+
 
         } catch (TCWebException e) {
             throw e;
