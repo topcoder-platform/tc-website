@@ -62,13 +62,13 @@
                 <tr valign="top">
                     <td width="427" class="bodyCopy">
 
-                        <h2 class="pgTitle">Practice Arena</h2>
+                        <h2 class="pgTitle">Competition Arena</h2>
 
-                        <p>Click <a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,275);">here</a> to run the Practice Arena as a Java Applet.<br/><br/> 
+                        <p>Click <a href="Javascript:openWin('?module=Static&d1=verizon&d2=vcc03_quick_launch','comp',300,275);">here</a> to run the Competition Arena as a Java Applet.<br/><br/> 
                         
-                        Click <a href="http://www.topcoder.com/contest/arena/ContestAppletVerizon.jnlp">here</a> to run the Practice Arena as a Java Web Start Application.<br/><br/> 
+                        Click <a href="http://www.topcoder.com/contest/arena/ContestAppletVerizon.jnlp">here</a> to run the Competition Arena as a Java Web Start Application.<br/><br/> 
                         Note: If you wish to install Java Web Start click <a href="http://java.sun.com/products/javawebstart/index.html">here</a>.<br/><br/> 
-                        If you experience problems loading or running the Practice Arena please contact <a href="mailto:vcc@topcoder.com">vcc@topcoder.com</a>.</p>
+                        If you experience problems loading or running the Competition Arena please contact <a href="mailto:vcc@topcoder.com">vcc@topcoder.com</a>.</p>
 
 
                         
