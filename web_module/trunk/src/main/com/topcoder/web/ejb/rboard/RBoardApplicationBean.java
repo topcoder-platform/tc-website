@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.rboard;
 
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.common.RowNotFoundException;
 import com.topcoder.web.ejb.BaseEJB;
 
@@ -82,7 +83,14 @@ public class RBoardApplicationBean extends BaseEJB {
             return false;
         }
         return true;
+    }
 
+    public ResultSetContainer getReviewers(String dataSource, long projectId, int phaseId) {
+            return selectSet("rboard_application",
+                    new String[] {"user_id", "review_resp_id", "primary_ind", "create_date"},
+                    new String[] {"project_id"},
+                    new String[] {String.valueOf(projectId)},
+                    dataSource);
     }
 
 }
