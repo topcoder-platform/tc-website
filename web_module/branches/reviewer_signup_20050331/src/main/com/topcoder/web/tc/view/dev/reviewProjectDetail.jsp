@@ -4,7 +4,6 @@
 <%@ page import="com.topcoder.shared.dataAccess.resultSet.ResultSetContainer,
                  com.topcoder.shared.dataAccess.resultSet.TCTimestampResult,
                  com.topcoder.web.common.BaseProcessor,
-                 com.topcoder.web.ejb.rboard.RBoardApplication,
                  com.topcoder.web.tc.model.ReviewBoardApplication,
                  com.topcoder.web.tc.Constants,
                  java.sql.Timestamp,
@@ -14,7 +13,7 @@
 <jsp:useBean id="sessionInfo" scope="request" class="com.topcoder.web.common.SessionInfo"/>
 <% ResultSetContainer projectDetail = (ResultSetContainer) request.getAttribute("projectDetail"); %>
 <% List reviewerList = (List) request.getAttribute("reviewerList"); %>
-<% RBoardApplication rboardApplication = (RBoardApplication) request.getAttribute("reviewBoardApplication"); %>
+<% boolean isWaiting = ((Boolean) request.getAttribute("waitingToReview")).booleanValue(); %>
 <head>
 <title>Open Component Projects Available for Review</title>
 
@@ -155,25 +154,11 @@
                                 Not open yet***
                             <% } else if (((ReviewBoardApplication) reviewer).isSpotFilled()) { %>
                                 <tc:beanWrite name="reviewer" property="handle"/>
-                                <%--
-                            <% } else {
-                                Timestamp ts = null;
-                                try {
-                                    ts = rboardApplication.getLatestReviewApplicationTimestamp(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId());
-                                } catch (RemoteException e) {
-                                    if (e.detail instanceof RowNotFoundException) {
-                                        // No previous review application found, we don't need to do anything here.
-                                    } else {
-                                        throw e;
-                                    }
-                                }
-                                if (ts != null && System.currentTimeMillis() < ts.getTime() + APPLICATION_DELAY) { %>
+                            <% } else if (isWaiting) { %>
                                    Waiting****
-                                   --%>
-                                <% } else { %>
-                                    <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a>**
-                                <% }
-                            } %>
+                            <% } else { %>
+                                <a href="<%=sessionInfo.getServletPath()%>?<%=Constants.MODULE_KEY%>=ProjectReviewApply&<%=Constants.PROJECT_ID%>=<tc:beanWrite name="reviewer" property="projectId"/>&<%=Constants.PHASE_ID%>=<tc:beanWrite name="reviewer" property="phaseId"/>&<%=Constants.PRIMARY_FLAG%>=<%=((ReviewBoardApplication)reviewer).isPrimary()%>&<%=Constants.REVIEWER_TYPE_ID%>=<tc:beanWrite name="reviewer" property="reviewerTypeId"/>">Apply Now</a>**
+                            <% } %>
                         </td>
                         <td class="projectCells" align="right">
                             $<tc:beanWrite name="reviewer" property="reviewPrice" format="#,###.00"/>*
