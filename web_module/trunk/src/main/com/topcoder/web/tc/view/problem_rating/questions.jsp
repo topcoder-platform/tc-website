@@ -17,6 +17,20 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
   document.write('<link type="text/css" rel="stylesheet" href="/css/style.css"/>');
   document.write('<link type="text/css" rel="stylesheet" href="/css/coders.css"/>');
 }
+function submit(){
+    var rf = document.ratings;
+    var tot = 0;
+    for(int i = 0; i<rf.elements.length; i++){
+        if(rf.elements[i].name.charAt(0)=='q' && rf.elements[i].checked){
+            tot ++;
+        }
+    }
+    if(tot != <%=problemRatingQuestions.size()%>){
+        window.alert("Please answer all of the questions");
+    }else{
+        rf.submit();
+    }
+}
 </SCRIPT>
 <STYLE TYPE="text/css">
 BODY
@@ -58,12 +72,9 @@ BODY
         <td colspan="9" align="right">
             <a href="/tc/?module=ProblemRatingResults&pid=<%= request.getParameter("pid") %>" class="statText">View Results</a>
         </td><td>
-            <a onlick="document.ratings.submit()" class="statText">View Results</a>
+            <a href="#" onlick='submit()' class="statText">Submit Ratings</a>
         </td></tr>
     </table>
-    <center>
-<input type="submit" value="Submit Ratings">
-    </center>
 </form>
 </body>
 </html>
