@@ -74,12 +74,12 @@
                     <td width="99%" class="bodyText">
                         <p><font size="3"><strong>2003 TopCoder Open</strong></font><br />
                         December 4-5<br />
-                        Mohegan Sun Casino and Resort<br />
+                        Mohegan Sun Casino<br />
                         Uncasville, Connecticut</p>
                         
                         <p><font color="#CC0000"><strong>Qualification rounds start online October 7</strong></font></p>
                         
-                        <p><A href="/?t=tournaments&amp;c=tco03_overview">Official Rules and Regulations</A></p><br />
+                        <p><A href="/?t=tournaments&amp;c=tco03_rules_overview">Official Rules and Regulations</A></p><br />
                     </td>
                 </tr>
             </table>
