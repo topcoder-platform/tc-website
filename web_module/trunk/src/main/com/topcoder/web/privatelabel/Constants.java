@@ -45,6 +45,14 @@ public class Constants {
     public static String GOOGLE_ACTIVATION_PAGE;
     public static String GOOGLE_LOGIN_PAGE;
     public static String GOOGLE_REG_CLOSED_PAGE;
+    
+    public static String GOOGLE04_REG_PAGE;
+    public static String GOOGLE04_REG_DEMOG_PAGE;
+    public static String GOOGLE04_REG_CONFIRM_PAGE;
+    public static String GOOGLE04_REG_SUCCESS_PAGE;
+    public static String GOOGLE04_ACTIVATION_PAGE;
+    public static String GOOGLE04_LOGIN_PAGE;
+    public static String GOOGLE04_REG_CLOSED_PAGE;
 
     public static String DEFAULT_PAGE;
     public static String RESUME_PAGE;
@@ -125,6 +133,12 @@ public class Constants {
     public static String GOOGLE_REG_SUBMIT;
     public static String GOOGLE_ACTIVATION;
     public static String GOOGLE_LOGIN;
+    public static String GOOGLE04_REG_MAIN;
+    public static String GOOGLE04_REG_DEMOG;
+    public static String GOOGLE04_REG_CONFIRM;
+    public static String GOOGLE04_REG_SUBMIT;
+    public static String GOOGLE04_ACTIVATION;
+    public static String GOOGLE04_LOGIN;
     public static String VERIZON_REG_MAIN;
     public static String VERIZON_REG_DEMOG;
     public static String VERIZON_REG_CONFIRM;
