@@ -12,7 +12,7 @@
         <html>
             <head>
                 <xsl:call-template name="Preload"/>
-                <title>Email Tool Enhancements Application Design Project at TopCoder</title>
+                <title>Registration Application Design Project at TopCoder</title>
                 <xsl:call-template name="CSS"/>
                 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities."/>
                 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++"/>
@@ -56,28 +56,31 @@
 
                                         <!-- Title -->
                                         <h1 class="devSubhead">
-                                            <strong>Email Tool Enhancements Application: Design</strong>
+                                            <strong>Registration Application: Design</strong>
                                         </h1>
                                         <!-- Overview -->
                                         <p>
                                             <strong>Overview</strong>
                                             <br/>
-                                            The main goals of the Email Tool Enhancement project include adding support for HTML
-                                            emails, and improving the user interface.  Currently TopCoder is only capable of
-                                            sending plain text emails, we would like to expand our mass email system to include
-                                            the ability to send HTML emails.  Additionally, the current system is used exclusively
-                                            by technical personnel; we would like to improve the user friendliness of the interface
-                                            to a point where non-technical TopCoder staff will be able to use the system.
+
+                                            The main goal of the Registration project is to generate a single registration
+                                            process that will work for different types of TopCoder users. Specifically,
+                                            it will allow a TopCoder corporate client to have an account that will allow
+                                            them to compete in TopCoder matches. This will be achieved by asking only for
+                                            the data that is relevant for the particular type of user that is registering.
+                                            This system will allow the user to both register for TopCoder sites, but also change
+                                            the profile information for their existing account.
+
                                         </p>
                                         <p>
-                                            Members that are chosen for the Email Tool Enhancements project will be given full access
+                                            Members that are chosen for the Registration project will be given full access
                                             to the current TopCoder code base and access to our development environments.
                                         </p>
                                         <!-- Project Type -->
                                         <p>
                                             <strong>Project Type</strong>
                                             <br/>
-                                            Application Design Project: Provide a complete design for the Email Tool Enhancement
+                                            Application Design Project: Provide a complete design for the Registration
                                             project.   Please review the TopCoder Software
                                             <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
@@ -89,8 +92,6 @@
                                             <li>Java 1.3</li>
                                             <li>J2EE</li>
                                             <li>SQL</li>
-                                            <li>XML</li>
-                                            <li>XSL</li>
                                         </ul>
                                         <!-- Payment -->
                                         <p>

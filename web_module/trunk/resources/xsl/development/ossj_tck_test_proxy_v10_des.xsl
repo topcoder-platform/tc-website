@@ -81,7 +81,7 @@
                                             <a href="#eligibility">Eligibility</a> |
                                             <a href="#timeline">Timeline</a> |
                                             <a target="_new" href="/i/development/downloads/OSSJTCKTestProxyApplicationSpec_v10.pdf">Requirement Specification</a>
-                                            <!-- | <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire</a>-->
+                                            <!-- | <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire</a>-->
                                         </p>
 
                                         <!-- Overview -->
@@ -114,7 +114,7 @@
                                             </strong>
                                             <br/>
                                             Application Design Project: Provide a completed design for the OSS/J TCK Test Proxy project.  Please review the TopCoder Software
-                                            <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
+                                            <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
 
                                         <!-- Technologies -->
@@ -281,19 +281,19 @@
                                         <!--
                                         <p>
                                             <strong>
-                                                <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire for the OSS/J TCK Test Proxy Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
+                                                <a name="inquire" href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire for the OSS/J TCK Test Proxy Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
 
 
                                         <p>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group2">Inquire for the Group 2 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group2">Inquire for the Group 2 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         <p>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group3">Inquire for the Group 3 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group3">Inquire for the Group 3 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         -->

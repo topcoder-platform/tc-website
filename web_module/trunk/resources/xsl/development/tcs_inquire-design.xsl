@@ -96,8 +96,8 @@
                         <p><strong>Project Type</strong><br />
                         Component Design Project: Provide a complete design for the <xsl:value-of select="/TC/DEVELOPMENT/componentName"/> component.</p>
 
-                        <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?&amp;t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution.
-                        If you're not sure what to submit, go to <a href="/?&amp;t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.</p>
+                        <p>Please review the TopCoder Software <a href="http://www.topcoder.com/?t=development&amp;c=comp_meth" class="bodyText">Component Development Methodology</a> before you submit a solution.
+                        If you're not sure what to submit, go to <a href="/?t=development&amp;c=tcs_sample_docs" class="bodyText">Documentation and Sample Submissions</a> for more information.</p>
 
 <!-- Technologies -->
                         <p><strong>Technologies</strong></p>
@@ -186,7 +186,7 @@
 
                            <p><strong><A>
                                     <xsl:attribute name="href">
-                                        <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Design&amp;date=', /TC/DEVELOPMENT/date)"/>
+                                        <xsl:value-of select="concat('/?t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Design&amp;date=', /TC/DEVELOPMENT/date)"/>
                                     </xsl:attribute>
                                     Register</A> for this Component Project to get information necessary to submit a solution</strong>
                             </p>

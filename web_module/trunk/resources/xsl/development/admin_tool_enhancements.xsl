@@ -81,7 +81,7 @@
                                             <br/>
                                             Application Design Project: Provide a complete design for the Online Review
                                             application.   Please review the TopCoder Software
-                                            <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
+                                            <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
                                         <!-- Technologies -->
                                         <p>
@@ -209,7 +209,7 @@
                                         </p>
                                         <p>
                                             <strong>
-                                                <!--<a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt; -->
+                                                <!--<a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements">Inquire for the Application Project</a> to get selected as a designer and to obtain the information necessary to submit a solution &gt;&gt; -->
                                                 Inquiry is closed.
                                             </strong>
                                         </p>

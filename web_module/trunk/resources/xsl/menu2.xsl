@@ -27,7 +27,7 @@
                 <xsl:otherwise>topNav</xsl:otherwise>
             </xsl:choose>
             </xsl:attribute>
-            <A class="topLink" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=development&amp;c=index</xsl:attribute>Development</A>
+            <A class="topLink" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=index</xsl:attribute>Development</A>
         </td>
 
         <td nowrap="0">

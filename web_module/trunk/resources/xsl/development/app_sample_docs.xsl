@@ -344,7 +344,7 @@
                             </table>
 
                             <p>For more information about Application deliverables see the
-                                <a href="/?&amp;t=development&amp;c=app_meth" class="bodyText">TopCoder Application Methodology.</a>
+                                <a href="/?t=development&amp;c=app_meth" class="bodyText">TopCoder Application Methodology.</a>
                             </p>
                             <br/>
 

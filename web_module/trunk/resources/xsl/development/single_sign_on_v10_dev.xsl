@@ -165,7 +165,7 @@
                                                 <a name="projecttype">Project Type</a>
                                             </strong>
                                             <br/>
-                                          Application Development Project: Provide a completed development solution according to the design requirements for the Single Sign-On application. Please review the TopCoder Software <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
+                                          Application Development Project: Provide a completed development solution according to the design requirements for the Single Sign-On application. Please review the TopCoder Software <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                           </p>
 
                                           <p>

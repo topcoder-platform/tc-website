@@ -200,7 +200,7 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                 <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
             </table>
 
-            <p>For more information about Application deliverables see the <a href="/?&amp;t=development&amp;c=comp_meth" class="bodyText">TopCoder Component Methodology.</a></p><br />
+            <p>For more information about Application deliverables see the <a href="/?t=development&amp;c=comp_meth" class="bodyText">TopCoder Component Methodology.</a></p><br />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="10" bgcolor="#EEEEEE">
                 <tr valign="top">

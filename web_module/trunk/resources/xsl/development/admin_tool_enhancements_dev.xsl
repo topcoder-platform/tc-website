@@ -152,7 +152,7 @@
                                             <br/>
                                             Application Development Project: Provide a completed development solution according to the design requirements
                                             for the Admin Tool application.   Please review the TopCoder Software
-                                            <a href="/?&amp;t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
+                                            <a href="/?t=development&amp;c=app_meth">Application Development Methodology</a> before you submit a solution.
                                         </p>
 
                                         <!-- Technologies -->
@@ -355,19 +355,19 @@
 
                                         <p>
                                             <strong>
-                                                <!--<a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group1">Inquire for the Group 1 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.-->
+                                                <!--<a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group1">Inquire for the Group 1 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.-->
                                                 Inquiry is closed.
                                             </strong>
                                         </p>
                                         <!--
                                         <p>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group2">Inquire for the Group 2 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group2">Inquire for the Group 2 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         <p>
                                             <strong>
-                                                <a href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group3">Inquire for the Group 3 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
+                                                <a href="/index?t=development&amp;c=tcs_app_inquire&amp;Project=Admin%20Tool%20Enhancements%20Group3">Inquire for the Group 3 Development Tasks of the Application Project</a> to get selected as a developer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
                                         -->
