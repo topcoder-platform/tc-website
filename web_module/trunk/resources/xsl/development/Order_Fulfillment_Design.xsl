@@ -101,7 +101,7 @@
                                                         <br/>
                                                         <br/>
                                                     </p>
-                                                    <p class="noSpList">
+                                                    <p class="noSpListTitle">
                                                         <strong>Objectives</strong>
                                                     </p>
                                                     <ul class="noSpList">
