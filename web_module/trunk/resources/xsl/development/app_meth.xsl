@@ -153,7 +153,7 @@
                                 <li>Class Diagrams - Interfaces  between application level interaction</li>
                                 <li>Application Design Specification Document</li>
                                 <li>Test Plan - Describes the test cases for the implementation </li>
-                                <li>Development Scope Document - Describes the development effort required and separation of work</li>
+                                <li>Development Scope Document - Describes the development effort and strategy required</li>
                             </ul></li>
                             <li>TopCoder members selected for the design are phase are required to submit incremental deliverables defined by the TopCoder Product Manager.</li>
                             <li>An Architecture Review Board reviews each incremental deliverable and provides feedback to the designers after each phase of the design.</li>
