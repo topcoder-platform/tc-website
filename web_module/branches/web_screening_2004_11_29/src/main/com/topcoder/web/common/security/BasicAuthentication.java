@@ -4,6 +4,7 @@ import java.util.*;
 import java.security.*;
 import javax.servlet.http.*;
 import com.topcoder.security.*;
+import com.topcoder.security.admin.*;
 import com.topcoder.security.login.*;
 import com.topcoder.shared.security.*;
 import com.topcoder.shared.util.*;
@@ -20,13 +21,18 @@ import javax.servlet.http.Cookie;
  *
  * @author Greg Paul, Ambrose Feinstein
  */
-public class BasicAuthentication extends PersistorAuthentication implements WebAuthentication {
+public class BasicAuthentication implements WebAuthentication {
 
     private static Logger log = Logger.getLogger(BasicAuthentication.class);
 
-    protected static final String USER_COOKIE_NAME = "user_id";
+    private static final String USER_PERSISTOR_KEY = "user_obj";
+    private static final String USER_COOKIE_NAME = "user_id";
 
-    protected Resource defaultCookiePath;
+    private Persistor persistor;
+    private TCRequest request;
+    private TCResponse response;
+    private User guest = SimpleUser.createGuest();
+    private Resource defaultCookiePath;
 
     public static final Resource CORP_SITE = new SimpleResource("/corp");
     public static final Resource MAIN_SITE = new SimpleResource("/");
@@ -39,7 +45,10 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
      * and HTTP request and response.
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response) throws Exception {
-        super(userPersistor, request, response);
+        this.defaultCookiePath = MAIN_SITE;
+        this.persistor = userPersistor;
+        this.request = request;
+        this.response = response;
         log.debug("cookie path: " + defaultCookiePath.getName());
     }
 
@@ -48,7 +57,9 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
      * and HTTP request, response and cookie path resource.
      */
     public BasicAuthentication(Persistor userPersistor, TCRequest request, TCResponse response, Resource r) throws Exception {
-        super(userPersistor, request, response);
+        this.persistor = userPersistor;
+        this.request = request;
+        this.response = response;
         this.defaultCookiePath = r;
     }
 
@@ -79,6 +90,8 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
             long uid = sub.getUserId();
             setCookie(uid, rememberUser);
             setUserInPersistor(makeUser(uid));
+            log.info("login succeeded");
+
         } catch (Exception e) {
             log.info("login failed", e);
             //not necessarily accurate, but gotta say something...
@@ -92,8 +105,9 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
      * 2.  clear their identifying cookies
      */
     public void logout() {
-        super.logout();
+        log.info("logging out");
         clearCookie();
+        setUserInPersistor(guest);
     }
 
 
@@ -132,6 +146,29 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
             //log.debug("*** they were live***");
         }
         return u;
+    }
+
+    /**
+     * Get the user for this session, only if they have logged in during
+     * this session.  Otherwise returns an anonymous user.
+     */
+    public User getUser() {
+        User u = getUserFromPersistor();
+        if(u == null) u = guest;
+        return u;
+    }
+
+    /** Fill in the name field from the user id. */
+    private User makeUser(long id) {
+        try {
+            PrincipalMgrRemote pmgr = (PrincipalMgrRemote) Constants.createEJB(PrincipalMgrRemote.class);
+            UserPrincipal up = pmgr.getUser(id);
+            return new SimpleUser(id, up.getName(), "");
+        } catch (Exception e) {
+            log.warn("caught exception in makeUser with id = " + id, e);
+            e.printStackTrace();
+            return guest;
+        }
     }
 
     /**
@@ -202,17 +239,17 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
         Cookie[] ca = request.getCookies();
         for(int i=0; i<ca.length; i++)
             if(ca[i].getName().equals(USER_COOKIE_NAME)) {
-                long uid = -1;
+
                 try {
                     StringTokenizer st = new StringTokenizer(ca[i].getValue(), "|");
-                    uid = Long.parseLong(st.nextToken());
+                    long uid = Long.parseLong(st.nextToken());
                     if (uid<1) continue;
                     String hash = hashForUser(uid);
                     if(!hash.equals(st.nextToken())) continue;
                     return makeUser(uid);
 
                 } catch(Exception e) {
-                    log.error("exception parsing cookie or invalid user id " + uid, e);
+                    log.error("exception parsing cookie", e);
                     /* junk in the cookie, ignore it */
                 }
             }
@@ -220,5 +257,19 @@ public class BasicAuthentication extends PersistorAuthentication implements WebA
         return null;
     }
 
+    private User getUserFromPersistor() {
+        return (User)persistor.getObject(request.getSession().getId()+USER_PERSISTOR_KEY);
+    }
+
+    /**
+     * Record information about who is logged in and at what level in the
+     * persistor.  Done to avoid expensive rechecking of the cookie, and to
+     * handle logins which expire with the session.
+     *
+     * @param user
+     */
+    private void setUserInPersistor(User user) {
+        persistor.setObject(request.getSession().getId()+USER_PERSISTOR_KEY, user);
+    }
 
 }
