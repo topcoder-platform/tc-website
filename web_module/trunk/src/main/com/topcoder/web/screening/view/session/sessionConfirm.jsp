@@ -34,10 +34,10 @@ document.sessionConfirmForm.submit();
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
 <h1 class="testHead">Create a New Session - <FONT COLOR="#000000">Session Confirmation</FONT></h1>
 
 <P>Review the information below for correctness.  If the information is correct, click "Submit".  If changes need to be made, click "Edit" 
@@ -47,7 +47,7 @@ to return to the previous page.  Click "Cancel" if you do not wish to set up thi
          <input type="HIDDEN" name="rp" value="" >
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="95%">
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Candidate:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Candidate:</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getCandidateList()%>">
                 <% if(sessionInfo.isSelectedCandidate(row.getItem("candidate_id").toString())) { %>
                   <input type="HIDDEN" name="cid" value="<screen:resultSetItem row="<%=row%>" name="candidate_id" />" >
@@ -56,16 +56,16 @@ to return to the previous page.  Click "Cancel" if you do not wish to set up thi
                 </screen:resultSetRowIterator>
            </TR>
            <TR>
-              <TD></TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+              <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
            <TR>
-              <TD COLSPAN="4" ><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD COLSPAN="4" ><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD BGCOLOR="#CCCCCC" COLSPAN="4" CLASS="bodyText" ALIGN="left" VALIGN="middle" HEIGHT="20">&#160;<B>Session</B></TD>
            </TR>
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Profile:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Profile:</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
                 <screen:resultSetRowIterator id="row" list="<%=sessionInfo.getProfileList()%>">
                 <% if(sessionInfo.isSelectedProfile(row.getItem("session_profile_id").toString())) { %>
                   <input type="HIDDEN" name="profileId" value="<screen:resultSetItem row="<%=row%>" name="session_profile_id" />" >
@@ -74,7 +74,7 @@ to return to the previous page.  Click "Cancel" if you do not wish to set up thi
                 </screen:resultSetRowIterator>
            </TR>
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Begin:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>Begin:</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
               <input type="HIDDEN" name="beginMonth" value="<jsp:getProperty name="sessionInfo" property="beginMonth" />" >
               <input type="HIDDEN" name="beginDay" value="<jsp:getProperty name="sessionInfo" property="beginDay" />" >
               <input type="HIDDEN" name="beginYear" value="<jsp:getProperty name="sessionInfo" property="beginYear" />" >
@@ -82,7 +82,7 @@ to return to the previous page.  Click "Cancel" if you do not wish to set up thi
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:beanWrite name="sessionInfo" property="beginDate" format="MM/dd/yyyy hh:mm aa" /></TD>
            </TR>
            <TR>
-              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>End:</b>&#160;</TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD CLASS="bodyText" ALIGN="right" VALIGN="middle" HEIGHT="15"><b>End:</b>&#160;</TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
               <input type="HIDDEN" name="endMonth" value="<jsp:getProperty name="sessionInfo" property="endMonth" />" >
               <input type="HIDDEN" name="endDay" value="<jsp:getProperty name="sessionInfo" property="endDay" />" >
               <input type="HIDDEN" name="endYear" value="<jsp:getProperty name="sessionInfo" property="endYear" />" >
@@ -90,13 +90,13 @@ to return to the previous page.  Click "Cancel" if you do not wish to set up thi
               <TD COLSPAN="2" CLASS="bodyText" ALIGN="left" VALIGN="middle"><screen:beanWrite name="sessionInfo" property="endDate" format="MM/dd/yyyy hh:mm aa" /></TD>
            </TR>           
            <TR>
-              <TD></TD><TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
+              <TD></TD><TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD><TD colspan="2" class="errorText" align="left" valign="middle"></TD>
            </TR>
          </TABLE>
 
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="90%">
            <TR>
-              <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
             <TR>
               <input type="HIDDEN" name="candidateEmail" value="<jsp:getProperty name="sessionInfo" property="candidateEmail" />" >
@@ -107,7 +107,7 @@ to return to the previous page.  Click "Cancel" if you do not wish to set up thi
                <TD VALIGN="middle" HEIGHT="15" CLASS="bodyText">Send me email reminder&#160;- <B><jsp:getProperty name="sessionInfo" property="repEmail" /></B></TD>
             </TR>
            <TR>
-              <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD ALIGN="center"><screen:servletLink processor="CancelSession" styleClass="bodyText">Cancel</screen:servletLink> | <A HREF="JavaScript:submitEdit()" CLASS="bodyText">Edit</A> | <A HREF="JavaScript:submitUpdate()" CLASS="bodyText">Submit</A></TD>
@@ -118,7 +118,7 @@ to return to the previous page.  Click "Cancel" if you do not wish to set up thi
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

@@ -39,10 +39,10 @@ function getProblemDetail(id) {
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-        <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+        <TD CLASS="statTextBig" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
             <h1 class="testHead">Test Results</h1>
             <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
                 <TR>
@@ -62,14 +62,14 @@ function getProblemDetail(id) {
                        </TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10"></TD>
+		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10"></TD>
 	        </TR>
 <% if(testResultsInfo.isSessionComplete()) { %>
 	        <TR>
 		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyTextBold"><B>Test Set A Results:</B></TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1"></TD>
+		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
 	        </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Problem</B></TD>
@@ -103,7 +103,7 @@ function getProblemDetail(id) {
                      <% even = !even; %>
                    </screen:resultSetRowIterator>
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30"></TD>
+		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
 <% } // isSessionComplete %>
 	        </TABLE>
@@ -114,7 +114,7 @@ function getProblemDetail(id) {
 		       <TD COLSPAN="10" VALIGN="top" CLASS="bodyTextBold"><B>TopCoder Stats</B></TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="10"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1"></TD>
+		       <TD COLSPAN="10"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
 	        </TR>
 	        <TR>
 		       <TD VALIGN="middle" HEIGHT="15" ALIGN="center" WIDTH="10%" CLASS="statText" BGCOLOR="#666666"><B>Name</B></TD>
@@ -154,13 +154,13 @@ function getProblemDetail(id) {
     <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30"></TD>
+		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
 	        <TR>
 		       <TD COLSPAN="8" VALIGN="top" CLASS="bodyTextBold"><B>Test Set B Results:</B></TD>
 	        </TR>
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1"></TD>
+		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1"></TD>
 	        </TR>
 	        <TR>
 		       <TD VALIGN="middle" ALIGN="center" HEIGHT="15" WIDTH="15%" CLASS="statText" BGCOLOR="#666666"><B>Problem</B></TD>
@@ -195,20 +195,20 @@ function getProblemDetail(id) {
                    </screen:resultSetRowIterator>
                 <% } %>
 	        <TR>
-		       <TD COLSPAN="8"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="30"></TD>
+		       <TD COLSPAN="8"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="30"></TD>
 	        </TR>
 	        </TABLE>
     <% } // getProblemSetBCount() > 0 %>
 <% } else { //isSessionComplete %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD COLSPAN="4" CLASS="bodyText"><B>Problems</B></TD>
            </TR>
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD COLSPAN="4" CLASS="bodyText"><B>Problem Set A</B></TD>
@@ -221,7 +221,7 @@ function getProblemDetail(id) {
 <%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
 	        </TR>
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>
             <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetAList()%>">
 	        <TR>
@@ -233,14 +233,14 @@ function getProblemDetail(id) {
 	        </TR>
             </screen:problemInfoIterator>
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>
          </TABLE>
 
 <% if(testResultsInfo.getProblemSetBCount() > 0){ %>
          <TABLE BORDER="0" CELLSPACING="1" CELLPADDING="0" BGCOLOR="#FFFFFF" WIDTH="100%">
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD COLSPAN="4" CLASS="bodyText"><B>Problem Set B</B></TD>
@@ -253,7 +253,7 @@ function getProblemDetail(id) {
 <%--		       <TD VALIGN="middle" ALIGN="center" CLASS="bodyTextBold" BGCOLOR="#CCCCCC"><B>&#160;Business Categories</B></TD> --%>
 	        </TR>
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>
             <screen:problemInfoIterator id="problem" list="<%=profileInfo.getTestSetBList()%>">
 	        <TR>
@@ -265,7 +265,7 @@ function getProblemDetail(id) {
 	        </TR>
             </screen:problemInfoIterator>
            <TR>
-              <TD COLSPAN="4"><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
+              <TD COLSPAN="4"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"></TD>
            </TR>
          </TABLE>
 <% } // getProblemSetBCount() > 0 %>
@@ -275,7 +275,7 @@ function getProblemDetail(id) {
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

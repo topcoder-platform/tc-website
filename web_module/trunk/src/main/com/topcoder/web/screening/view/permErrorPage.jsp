@@ -27,10 +27,10 @@ String message = (String)request.getAttribute("message");
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><img src="/i/ev/clear.gif" width="10" height="1" /></TD>
+      <TD VALIGN="top"><img src="/i/clear.gif" width="10" height="1" /></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" height="1" vspace="5" border="0" /><BR>
 <FONT SIZE="3" COLOR="#666666"><B>PERMISSION ERROR</B></FONT><BR/>
 <P>
 You do not have permission to access the requested resource.
@@ -38,10 +38,10 @@ You do not have permission to access the requested resource.
 
  <TABLE BGCOLOR="#CCCCCC" CELLSPACING="0" CELLPADDING="0" BORDER="0" HEIGHT="69%" WIDTH="100%">
  <TR>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"> <img alt="" border="0" height="1" width="10" src="/i/ev/clear.gif" /></TD>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><img border="0" height="8" width="10" src="/i/ev/clear.gif" /></TD>
+ <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"> <img alt="" border="0" height="1" width="10" src="/i/clear.gif" /></TD>
+ <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="10"><img border="0" height="8" width="10" src="/i/clear.gif" /></TD>
  <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
-   <img border="0" vspace="5" height="1" width="400" src="/i/ev/clear.gif" /><BR>
+   <img border="0" vspace="5" height="1" width="400" src="/i/clear.gif" /><BR>
    <% if(exception != null && Constants.DEBUG.equals("true")) {
     exception.printStackTrace(new java.io.PrintWriter(out));
 }
@@ -49,18 +49,18 @@ You do not have permission to access the requested resource.
    %>
 <%--   <DIV CLASS="header"><%=message==null?"Navigation Error":message%></DIV>--%>
  </TD>
- <TD BGCOLOR="#CCCCCC" WIDTH="10"><img border="0" height="1" width="10" src="/i/ev/clear.gif" /></TD>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"><img border="0" height="1" width="170" src="/i/ev/clear.gif" /><BR></TD>
- <TD BGCOLOR="#CCCCCC" WIDTH="10"><img height="1" width="10" src="/i/ev/clear.gif" /></TD>
- <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="100%"><img height="1" width="170" src="/i/ev/clear.gif" /><BR></TD>
- <TD BGCOLOR="#CCCCCC" WIDTH="25"><img border="0" height="1" width="25" src="/i/ev/clear.gif" /></TD>
+ <TD BGCOLOR="#CCCCCC" WIDTH="10"><img border="0" height="1" width="10" src="/i/clear.gif" /></TD>
+ <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="170"><img border="0" height="1" width="170" src="/i/clear.gif" /><BR></TD>
+ <TD BGCOLOR="#CCCCCC" WIDTH="10"><img height="1" width="10" src="/i/clear.gif" /></TD>
+ <TD VALIGN="top" BGCOLOR="#CCCCCC" WIDTH="100%"><img height="1" width="170" src="/i/clear.gif" /><BR></TD>
+ <TD BGCOLOR="#CCCCCC" WIDTH="25"><img border="0" height="1" width="25" src="/i/clear.gif" /></TD>
  </TR>
  </TABLE>
 <P><BR/></P>
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><img src="/i/ev/clear.gif" width="10" height="1" border="0" /></TD>
+      <TD WIDTH="10"><img src="/i/clear.gif" width="10" height="1" border="0" /></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

@@ -24,10 +24,10 @@
       </TD>
       <!-- Left Column Ends -->
       <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1"></TD>
+      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
         <!-- Gutter Ends -->
         <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/ev/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
             <h1 class="testHead">Note Creation</h1>                  
 
             <screen:form name='note' method='POST' action='<%=Constants.CONTROLLER_URL%>'>
@@ -56,7 +56,7 @@
            </TR>    
            
            <TR>
-              <TD><IMG SRC="/i/ev/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+              <TD><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
            </TR>
            <TR>
               <TD ALIGN="center"><A HREF="Javascript:document.note.submit()" CLASS="bodyText">Save</A></TD>
@@ -67,7 +67,7 @@
      </TD>
 <!-- Body Area Ends -->
       <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/ev/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
       <!-- Gutter Ends -->
    </TR>
 </TABLE>

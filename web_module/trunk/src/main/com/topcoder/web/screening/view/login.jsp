@@ -26,15 +26,15 @@
 <body>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#000000">            
-    <tr><td colspan="3" class="globalNavSmall"><img src="/i/ev/clear.gif" width="1" height="15" border="0"/></td></tr>             
+    <tr><td colspan="3" class="globalNavSmall"><img src="/i/clear.gif" width="1" height="15" border="0"/></td></tr>
 
     <tr>
-        <td width="15"><a name="top"></a><img src="/i/ev/clear.gif" width="15" height="1" alt="" border="0"></td>
-        <td width="206"><screen:servletLink target="_parent"><img src="/i/ev/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Testing Application" vspace="13"></screen:servletLink></TD>
-        <td width="100%"><img src="/i/ev/clear.gif" width="1" height="1" alt="" border="0"></td>        
+        <td width="15"><a name="top"></a><img src="/i/clear.gif" width="15" height="1" alt="" border="0"></td>
+        <td width="206"><screen:servletLink target="_parent"><img src="/i/logo_testing.gif" width="206" height="49" border="0" alt="TopCoder Testing Application" vspace="13"></screen:servletLink></TD>
+        <td width="100%"><img src="/i/clear.gif" width="1" height="1" alt="" border="0"></td>
     </tr>             
 
-    <tr><td colspan="3" class="testTop"><img src="/i/ev/clear.gif" width="1" height="18" border="0"/></td></tr>
+    <tr><td colspan="3" class="testTop"><img src="/i/clear.gif" width="1" height="18" border="0"/></td></tr>
 </table>
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -48,11 +48,11 @@
 <!-- Left Column Ends -->
 
 <!-- Gutter begins -->
-        <td><img src="/i/ev/clear.gif" width="10" alt="" height="1"></td>
+        <td><img src="/i/clear.gif" width="10" alt="" height="1"></td>
 <!-- Gutter ends -->
 
 <!-- Center Column begins -->
-        <td width="100%" align="center"><img src="/i/ev/clear.gif" width="400" height="11" alt="" border="0"><br>
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
             <p><br></p>
             <p><br></p>
             <table width="350" border="0" cellpadding="3" cellspacing="0" class="loginForm">
@@ -96,7 +96,7 @@
 <!-- Center Column Ends -->
 
 <!-- Gutter begins -->
-        <td width="10"><img src="/i/ev/clear.gif" width="10" height="1" alt="" border="0"></td>
+        <td width="10"><img src="/i/clear.gif" width="10" height="1" alt="" border="0"></td>
 <!-- Gutter ends -->
 
     </tr>
