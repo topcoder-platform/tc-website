@@ -44,6 +44,23 @@ public abstract class BaseServlet extends HttpServlet {
         PATH = config.getInitParameter("processor_path");
         DEFAULT_PROCESSOR = config.getInitParameter("default_processor");
         LOGIN_PROCESSOR = config.getInitParameter("login_processor");
+        StringBuffer buf = new StringBuffer(200);
+        buf.append("Servlet Initialized with the following:\n");
+        buf.append(" ERROR_PAGE = ");
+        buf.append(ERROR_PAGE);
+        buf.append("\n");
+        buf.append(" MODULE = ");
+        buf.append(MODULE);
+        buf.append("\n");
+        buf.append(" PATH = ");
+        buf.append(PATH);
+        buf.append("\n");
+        buf.append(" DEFAULT_PROCESSOR = ");
+        buf.append(DEFAULT_PROCESSOR);
+        buf.append("\n");
+        buf.append(" LOGIN_PROCESSOR = ");
+        buf.append(LOGIN_PROCESSOR);
+        log.info(buf);
     }
 
     public void doGet(HttpServletRequest request, HttpServletResponse response)
