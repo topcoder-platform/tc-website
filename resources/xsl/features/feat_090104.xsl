@@ -91,19 +91,21 @@ Our first example illustrates the concept. The problem is that you are given an 
 
 <pre>
 int neighborBest(int[] values){
-int count=0;
-for(int i=0; i&lt;values.length; i++){
-if(i==0){
-if(values[i]&gt;values[i+1])count++;
-} else if (i==values.length-1){
-if(values[i]&gt;values[i-1])count++;
-} else {
-if(values[i]&gt;values[i+1] 
-|| values[i]&gt;values[i-1])count++;
-}
-}
-
-return count;
+	int count=0;
+	for(int i=0; i&lt;values.length; i++){
+		if(i==0){
+			if(values[i]&gt;values[i+1])
+				count++;
+		} else if (i==values.length-1){
+			if(values[i]&gt;values[i-1])
+				count++;
+		} else {
+			if(values[i]&gt;values[i+1] || values[i]&gt;values[i-1])
+				count++;
+		}
+	}
+	
+	return count;
 }
 </pre>
 
@@ -113,15 +115,15 @@ Notice the intricacies in the code when having to deal with the endpoints. This 
 
 <pre>
 int neighborBest(int[] values){
-int count=0;
-int auxa[]=new int[values.length+2]; // A
-Arrays.fill(auxa,Integer.MAX_VALUE); 
-for(int i=1;i&lt;auxa.length-1;i++)
-auxa[i]=values[i-1]; // B
-for(int i=1;i&lt;auxa.length-1;i++)
-if(auxa[i]&gt;Math.min(auxa[i-1],auxa[i+1]) // C
-count++; 
-return count;
+	int count=0;
+	int auxa[]=new int[values.length+2]; // A
+	Arrays.fill(auxa,Integer.MAX_VALUE); 
+	for(int i=1;i&lt;auxa.length-1;i++)
+		auxa[i]=values[i-1]; // B
+	for(int i=1;i&lt;auxa.length-1;i++)
+		if(auxa[i]&gt;Math.min(auxa[i-1],auxa[i+1]) // C
+			count++; 
+	return count;
 }
 </pre>
 

@@ -139,7 +139,7 @@
                                     <span id="calendarTCO04Date">11</span><br/>
                                     <strong>2004 TopCoder Open</strong><br/>
                                     Online Round #1<br/>
-                                    Registration: 9:00 AM<br/>
+                                    Registration: 9:00AM - 11:55AM ET<br/>
                                     Compete: 12:00 PM(noon)<br/>
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
@@ -167,7 +167,7 @@
                                 <td id="calendarTCO04">
                                     <strong>2004 TopCoder Open</strong><br/>
                                     Online Round #2<br/>
-                                    Login by: 9:20 PM<br/>
+                                    Registration: 6:30PM - 9:25PM ET<br/>
                                     Compete: 9:30 PM<br/>
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
@@ -183,7 +183,7 @@
                                     <span id="calendarTCO04Date">22</span><br/>
                                     <strong>2004 TopCoder Open</strong><br/>
                                     Online Round #3<br/>
-                                    Login by: 9:20 PM<br/>
+                                    Registration: 6:30PM - 9:25PM ET<br/>
                                     Compete: 9:30 PM<br/>
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
@@ -215,7 +215,7 @@
                                     <span id="calendarTCO04Date">29</span><br/>
                                     <strong>2004 TopCoder Open</strong><br/>
                                     Online Round #4<br/>
-                                    Login by: 9:20 PM<br/>
+                                    Registration: 6:30PM - 9:25PM ET<br/>
                                     Compete: 9:30 PM<br/>
                                     &#160;<br />
                                     <img src="/i/clear.gif" width="50" height="1" border="0"/><br/>
