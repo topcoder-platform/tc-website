@@ -241,7 +241,7 @@ public class PDFGenerator extends BaseProcessor {
     }    
     
     private void drawPageOne(Document doc, PlacementConfig info) throws Exception {
-        Image logo = Image.getInstance("http://" + ApplicationServer.HOST_URL + "/i/profile/topcoder_logo_tagline.jpg");
+        Image logo = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profile/topcoder_logo_tagline.jpg");
         logo.setAlignment(Element.ALIGN_CENTER);
         logo.scalePercent(60f);
         Paragraph p = new Paragraph(" ");
@@ -401,7 +401,7 @@ public class PDFGenerator extends BaseProcessor {
         ranking.addCell(inner);
         ranking.addCell(" ");
 
-        Image chart = Image.getInstance("http://" + ApplicationServer.HOST_URL + "/graph?c=rating_distribution_graph&width=600&height=400");
+        Image chart = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/graph?c=rating_distribution_graph&width=600&height=400");
         ranking.addCell(chart);
 
         t.addCell(ranking);
@@ -773,7 +773,7 @@ public class PDFGenerator extends BaseProcessor {
             
             try {
                 //super.onEndPage(writer, document);
-                Image footerimg = Image.getInstance("http://" + ApplicationServer.HOST_URL + "/i/profiles/topcoder_logo_footer.jpg");
+                Image footerimg = Image.getInstance("http://" + ApplicationServer.SERVER_NAME + "/i/profiles/topcoder_logo_footer.jpg");
                 footerimg.setAlignment(Element.ALIGN_LEFT);
                 footerimg.scalePercent(70f);
 
