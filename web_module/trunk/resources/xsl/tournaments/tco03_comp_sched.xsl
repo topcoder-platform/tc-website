@@ -61,7 +61,7 @@
             </xsl:call-template>
         
 <!-- TCO Header -->
-            <div align="center"><img src="/i/tournament/tco03/header_tco_main.gif" alt="2003 TopCoder Open" width="494" height="119" border="0" vspace="15" /></div>
+            <div align="center"><img src="/i/tournament/tco03/tco_promo_big2.gif" alt="2003 TopCoder Open" width="550" height="240" border="0" vspace="15" /></div>
 
 <!-- Tab bar suplinks-->
             <xsl:call-template name="tco03_suplinks">
@@ -82,192 +82,243 @@
             <h2>Schedule</h2>
             
 <!-- Qualification Rounds begins -->
-           <p><span class="bodySubtitle">Qualification Rounds</span></p>
+           <p><span class="bodySubtitle">Online Elimination Rounds</span></p>
+            <p>All eligible TopCoder members will compete in Online Round 1 of the TCO. For design, the top eight scorers from Round 1 
+            will advance.  The top eight scorers from Round 1 along with the winners of the previous quarterly component design contests 
+            will compete in Online Round 2.  For development, the top ten scorers from Round 1 will compete in Online Round 2.  
+            The top two scorers from Round 2 will compete in the Championship Round at Mohegan Sun on December 5th.</p>
 
-            <p><a name="berths"></a><strong>Automatic Berths</strong> - The 100 highest rated TopCoder members as of October 7th (who are 18 years of age or older) will receive an automatic berth into
-            <A href="#online">Online Round #1.</A> The 100 highest rated members must have competed in at least three TopCoder rated events (i.e., 
-            Single Round Matches and/or previous tournaments) prior to October 7th with at least one (1) of those events being between July 7th
-            and October 7th.  Any member receiving an automatic berth will not be permitted to compete in the Qualification Rounds.</p>
-
-            <p><strong>Qualification Spots</strong> - All members (who are 18 years of age or older) can compete for one of 400 qualification spots in the tournament.  Two Qualification
-            Rounds will be held, and the top 200 scorers from each Qualification Round will win a spot in Online Round #1 of the TCO.  Please note
-            that the top 100 rated members with an automatic berth will not be allowed to compete in the Qualification Rounds.  Also, those members
-            who qualify for the tournament during Qualification Round #1 will not be allowed to compete in Qualification Round #2.</p>
-            
             <a name="sched"></a>
             <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                    <td class="sidebarTitle" width="35%">Development</td>
+                    <td class="sidebarTitle" width="21%" align="center">Design</td>
                 </tr>
                 <tr valign="top">
-                    <td class="sidebarText">Qualification Round #1</td>
-                    <td class="sidebarText">
-                        Tuesday, October 7<br />
-                        Registration:  6:00 PM - 8:55 PM<br />
-                        Compete: 9:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">All members who have not previously qualified</td>
-                    <td class="sidebarText" align="center">200</td>
+                    <td class="sidebarText" colspan="3"><strong>Online Round 1</strong></td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarText">
+                        Projects posted
+                     </td>
+                     <td class="sidebarText">
+                        09.02.03 12:00am
+                     </td>
+                     <td class="sidebarText">
+                        09.04.03 12:00am
+                     </td>
+               </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Submission deadline
+                     </td>
+                     <td class="sidebarText">
+                        09.15.03 11:59pm
+                     </td>
+                     <td class="sidebarText">
+                        09.17.03 11:59pm
+                     </td>
                 </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3">Review</td>
+                 </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Screening<br/>
+                        Reviews<br/>
+                        Appeals due<br/>
+                        Aggregation<br/>
+                     </td>
+                     <td class="sidebarText">
+                        09.17.03 6:00pm<br/>
+                        09.22.03 6:00pm<br/>
+                        09.23.03 11:00am<br/>
+                        09.25.03 6:00pm<br/>
+                     </td>
+                     <td class="sidebarText">
+                        09.19.03 6:00pm<br/>
+                        09.24.03 6:00pm<br/>
+                        09.25.03 11:00am<br/>
+                        09.29.03 6:00pm<br/>
+                     </td>                     
+                </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Winners announced
+                        </td>
+                     <td class="sidebarText">
+                        10.02.03
+                        </td>
+                     <td class="sidebarText">
+                        10.02.03
+                        </td>
+                   </tr>            
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3"><strong>Online Round 2</strong></td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarText">
+                        Projects posted
+                     </td>
+                     <td class="sidebarText">
+                        10.07.03 12:00am
+                     </td>
+                     <td class="sidebarText">
+                        10.09.03 12:00am
+                     </td>
+               </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Submission deadline
+                     </td>
+                     <td class="sidebarText">
+                        10.20.03 11:59pm
+                     </td>
+                     <td class="sidebarText">
+                        10.22.03 11:59pm
+                     </td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3">Review</td>
+                 </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Screening<br/>
+                        Reviews<br/>
+                        Appeals due<br/>
+                        Aggregation<br/>
+                     </td>
+                     <td class="sidebarText">
+                        10.22.03 6:00pm<br/>
+                        10.27.03 6:00pm<br/>
+                        10.28.03 11:00am<br/>
+                        10.30.03 6:00pm<br/>
+                      </td>
+                     <td class="sidebarText">
+                        10.24.03 6:00pm<br/>
+                        10.29.03 6:00pm<br/>
+                        10.30.03 11:00am<br/>
+                        11.03.03 6:00pm<br/>
+                     </td>                     
+                </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Winners announced
+                        </td>
+                     <td class="sidebarText">
+                        11.06.03
+                        </td>
+                     <td class="sidebarText">
+                        11.06.03
+                        </td>
+                   </tr>            
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3">Online Round 3</td>
+                 </tr>
+                 <tr>
+                     <td class="sidebarText">
+                        Projects posted
+                     </td>
+                     <td class="sidebarText">
+                        11.06.03 12:00am
+                     </td>
+                     <td class="sidebarText">
+                        11.06.03 12:00am
+                     </td>
+               </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Submission deadline
+                     </td>
+                     <td class="sidebarText">
+                        11.17.03 11:59pm
+                     </td>
+                     <td class="sidebarText">
+                        11.17.03 11:59pm
+                     </td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText" colspan="3">Review</td>
+                 </tr>
+               <tr>
+                     <td class="sidebarText">
+                        Screening<br/>
+                        Reviews<br/>
+                        Appeals due<br/>
+                        Aggregation<br/>
+                     </td>
+                     <td class="sidebarText">
+                        N/A<br/>
+                        11.21.03 6:00pm<br/>
+                        N/A<br/>
+                        11.25.03 6:00pm<br/>
+                     </td>
+                     <td class="sidebarText">
+                        N/A<br/>
+                        11.21.03 6:00pm<br/>
+                        N/A<br/>
+                        11.25.03 6:00pm<br/>
+                     </td>                     
+                </tr>
+                  <tr>
+                     <td class="sidebarText">
+                        Submissions posted
+                        </td>
+                     <td class="sidebarText">
+                        11.25.03
+                        </td>
+                     <td class="sidebarText">
+                        11.25.03
+                        </td>
+                   </tr>            
+                  <tr>
+                     <td class="sidebarText">
+                        Scorecards posted
+                        </td>
+                     <td class="sidebarText">
+                        12.05.03 8:00am
+                        </td>
+                     <td class="sidebarText">
+                        11.25.03 8:00am
+                        </td>
+                   </tr>            
+                  <tr>
+                     <td class="sidebarText">
+                        Final fixes
+                        </td>
+                     <td class="sidebarText">
+                        12.05.03 8:00am - 12:00pm
+                        </td>
+                     <td class="sidebarText">
+                        12.05.03 8:00am - 12:00pm
+                        </td>
+                   </tr>            
+                  <tr>
+                     <td class="sidebarText">
+                        Final reviews
+                        </td>
+                     <td class="sidebarText">
+                        12.05.03 12:15pm - 3:30pm
+                        </td>
+                     <td class="sidebarText">
+                        12.05.03 12.15pm - 3:30pm
+                        </td>
+                   </tr>            
+                  <tr>
+                     <td class="sidebarText">
+                        Winners announced
+                        </td>
+                     <td class="sidebarText">
+                        12.05.03 4:20pm
+                        </td>
+                     <td class="sidebarText">
+                        12.05.03 4:20pm
+                        </td>
+                   </tr>            
 
-                <tr valign="top">
-                    <td class="sidebarText">Qualification Round #2</td>
-                    <td class="sidebarText">
-                        Thursday, October 9<br />
-                        Registration:  7:00 PM - 9:55 PM<br />
-                        Compete: 10:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">All members who have not previously qualified</td>
-                    <td class="sidebarText" align="center">200</td>
-                </tr>
 
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
-                        will be the following day at the same time.
-                    </td>
-                </tr>
             </table><br />
-<!-- Qualification Rounds ends -->
-
-<!-- Online Elimination Rounds begins -->
-            <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
-            A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
-            berths and 400 qualification spots. Each room winner and the next highest scorers in each round will advance.</p>
-            
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Online Round #1</td>
-                    <td class="sidebarText">
-                        Wednesday, October 15th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">500</td>
-                    <td class="sidebarText" align="center">200</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Online Round #2</td>
-                    <td class="sidebarText">
-                        Wednesday, October 22nd<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">200</td>
-                    <td class="sidebarText" align="center">100</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Online Round #3</td>
-                    <td class="sidebarText">
-                        Wednesday, October 29th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">100</td>
-                    <td class="sidebarText" align="center">50</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Online Round #4</td>
-                    <td class="sidebarText">
-                        Wednesday, November 5th<br />
-                        Login by:  9:20 PM<br />
-                        Compete: 9:30 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">50</td>
-                    <td class="sidebarText" align="center">16</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
-                        will be the following day at the same time.
-                    </td>
-                </tr>
-            </table>
-<!-- Online Elimination Rounds ends -->
-
-<!-- Onsite Semifinal and Championship Rounds begins -->
-            <p><span class="bodySubtitle">Onsite Semifinal and Championship Rounds</span><br />
-            The 16 advancers from Online Round #4 will travel to Mohegan Sun on Wednesday, December 3rd to compete in the Semifinal round 
-            of the tournament being held on Thursday, December 4th.</p>
-            
-            <table width="100%" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
-                <tr>
-                    <td class="sidebarTitle" width="25%">Round</td>
-                    <td class="sidebarTitle" width="35%">Date and Time*</td>
-                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
-                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
-                </tr>
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #1</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 10:00 AM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #2</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 1:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #3</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 4:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText">Semifinal Room #4</td>
-                    <td class="sidebarText">
-                        Thursday, December 4th<br />
-                        Compete: 7:00 PM<br />
-                    </td>
-                    <td class="sidebarText" align="center">4</td>
-                    <td class="sidebarText" align="center">1</td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="bodyText" bgcolor="#FFCC33"><strong>Championship Round</strong></td>
-                    <td class="bodyText" bgcolor="#FFCC33">
-                        <strong>Friday, December 5th<br />
-                        Compete: 1:00 PM<br /></strong>
-                    </td>
-                    <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>4</strong></td>
-                    <td class="bodyText" bgcolor="#FFCC33" align="center"><strong>1</strong></td>
-                </tr>
-
-                <tr valign="top">
-                    <td class="sidebarText" colspan="4">
-                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
-                    </td>
-                </tr>
-            </table><br />
-
             </blockquote>
 
             <p><br/></p>
