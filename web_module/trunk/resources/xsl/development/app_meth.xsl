@@ -199,7 +199,7 @@
                         <li>A Development Review Board is selected from the Development Review Board Pool.</li>
                         <li>The Development Review Board and Designer are responsible for testing and scoring each submission.</li>
                         <li>Scoring includes accuracy testing, failure testing, and stress testing.</li>
-                        <li>Once all submissions are scored a winning solution is chosen and the runner-up developer is compensated.</li>
+                        <li>Once all submissions are scored a winning solution is chosen.</li>
                         <li>The winning developers must integrate as a team all of the winning submissions into one application.</li>
                         <li>A lead developer is chosen by the TopCoder Software Project Manager, from the winning submitters to
                             facilitate the integration and build process.</li>
