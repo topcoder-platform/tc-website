@@ -374,7 +374,7 @@
     <target name="package-EJB-AddressBean" depends="compile">
         <antcall target="build-ejb-unit">
             <param name="unit-jar-name" value="Address"/>
-            <param name="unit-class-path" value="com/topcoder/web/ejb"/>
+            <param name="unit-class-path" value="com/topcoder/web/ejb/address"/>
         </antcall>
         <jar jarfile="${ejb_jars}/Address.jar" update="true">
             <zipfileset dir="${classes}" includes="com/topcoder/shared/util/*.class"/>
