@@ -54,7 +54,7 @@ public class ProblemArchive extends Base {
                 filters.add(new Contains(className, "problem_name"));
                 setDefault(Constants.CLASS_NAME, className);
             }
-            if (!className.equals("")) {
+            if (!category.equals("")) {
                 log.debug("add category filter: " + category);
                 filters.add(new Contains(category, "categories"));
                 setDefault(Constants.CATEGORY, category);

@@ -61,6 +61,7 @@
 
     void add(StringBuffer buf, String key, String val) {
         if (key.equals(Constants.CLASS_NAME)
+                || key.equals(Constants.CATEGORY)
                 || key.equals(Constants.MIN_DIV1_SUCCESS)
                 || key.equals(Constants.MIN_DIV2_SUCCESS)
                 || key.equals(Constants.MAX_DIV1_SUCCESS)
