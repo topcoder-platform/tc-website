@@ -37,7 +37,8 @@
   					<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/coding_challenge.gif" width="351" height="27" border="0">
   					<img src="/i/clear.gif" width="140" height="1"><a href="http://www.topcoder.com/"><img src="/i/events/javaone04/pbtc_logo.gif" width="130" height="27" border="0"/></a>
   					<p></p>
-  					
+  					<img src="/i/clear.gif" width="7" height="1"><img src="/i/events/javaone04/winners.gif" width="335" height="61" border="0"><br/>
+  					<img src="/i/clear.gif" width="20" height="10">
 					<p class ="regmiddle"><strong><font size="4">Code - Compete - Win!</font></strong></p>
 					
 					<p class ="regmiddle">Sun Microsystems has again teamed up with TopCoder to bring the JavaOne<sup><font size="1">SM</font></sup> Coding Challenge to conference attendees.
