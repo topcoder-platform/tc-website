@@ -94,6 +94,46 @@
             </div>	
 
             <p>Text <strong>handle</strong> text, text, text.</p>
+            
+            <a name="dev"> </a>
+
+            <div class="leadPhoto">
+            <img src="/i/clear.gif" alt="" width="200" height="350" class="photoFrameBig" /><br/>
+            <span class="leadPhotoCaption">Photo caption.<br/><br/></span>
+            </div>
+            
+            <h2>Component Final Round</h2>
+
+            <p>by <A href="/stat?c=member_profile&amp;cr=296145">srowen</A>, <em>TopCoder Member</em><br />
+            Friday, December 5, 2003</p> 
+
+            <p>Text <strong>handle</strong> text, text, text.</p>
+
+            <div align="center">
+            <table border="0" cellspacing="2" cellpadding="0" class="pointsTable">
+                <tr>
+                    <td  class="pointsName">handle</td>
+                    <td class="pointsScore">xxx.xx</td>
+                </tr>
+                               			
+                <tr>
+                    <td  class="pointsName">handle</td>
+                    <td class="pointsScore">xxx.xx</td>
+                </tr>
+                               			
+                <tr>
+                    <td  class="pointsName">handle</td>
+                    <td class="pointsScore">xxx.xx</td>
+                </tr>
+                               			
+                <tr>
+                    <td  class="pointsName">handle</td>
+                    <td class="pointsScore">xxx.xx</td>
+                </tr>
+            </table>
+            </div>	
+
+            <p>Text <strong>handle</strong> text, text, text.</p>
 
             <p><br/></p>
         </td>
