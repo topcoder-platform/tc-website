@@ -108,6 +108,7 @@ public final class Controller extends HttpServlet {
                 } else {
                     response.sendRedirect(response.encodeRedirectURL(rp.getNextPage()));
                 }
+                return;  /* all done if we can get here */
 
             } catch(Exception e) {
                 log.error("caught exception, forwarding to error page", e);
