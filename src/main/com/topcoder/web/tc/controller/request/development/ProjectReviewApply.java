@@ -70,7 +70,7 @@ public class ProjectReviewApply extends Base {
                                         "you are not a Flash reviewer");
                             }
                         } else if (catalog == Constants.APPLICATIONS_CATALOG_ID) {
-                            if (rbu.canReviewFlash(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
+                            if (rbu.canReviewApplications(DBMS.TCS_OLTP_DATASOURCE_NAME, getUser().getId(), phaseId)) {
                                 applicationProcessing();
                             } else {
                                 throw new NavigationException("Sorry, you can not review this project because " +

@@ -19,12 +19,14 @@ public interface RBoardUser extends EJBObject {
     void setCanReviewJava(String dataSource, long userId, int phaseId, boolean canReviewJava) throws RemoteException;
     void setCanReviewDotNet(String dataSource, long userId, int phaseId, boolean canReviewDotNet) throws RemoteException;
     void setCanReviewFlash(String dataSource, long userId, int phaseId, boolean canReviewFlash) throws RemoteException;
+    void setCanReviewApplications(String dataSource, long userId, int phaseId, boolean canReviewApplications) throws RemoteException;
 
     int getStatus(String dataSource, long userId, int phaseId) throws RemoteException;
     boolean hasContract(String dataSource, long userId, int phaseId) throws RemoteException;
     boolean canReviewJava(String dataSource, long userId, int phaseId) throws RemoteException;
     boolean canReviewDotNet(String dataSource, long userId, int phaseId) throws RemoteException;
     boolean canReviewFlash(String dataSource, long userId, int phaseId) throws RemoteException;
+    boolean canReviewApplications(String dataSource, long userId, int phaseId) throws RemoteException;
 
 
 

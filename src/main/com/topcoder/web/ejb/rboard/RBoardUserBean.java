@@ -100,6 +100,22 @@ public class RBoardUserBean extends BaseEJB {
 
     }
 
+    public void setCanReviewApplications(String dataSource, long userId, int phaseId, boolean canReviewApplications) {
+        int ret = update("rboard_user",
+                new String[]{"applications_ind"},
+                new String[]{canReviewApplications ? "1" : "0"},
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'rboard_user'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+
+    }
+
+
     public int getStatus(String dataSource, long userId, int phaseId) {
         return selectInt("rboard_user",
                 "status_id",
@@ -136,6 +152,15 @@ public class RBoardUserBean extends BaseEJB {
     public boolean canReviewFlash(String dataSource, long userId, int phaseId) {
         return selectInt("rboard_user",
                 "flash_ind",
+                new String[]{"user_id", "phase_id"},
+                new String[]{String.valueOf(userId), String.valueOf(phaseId)},
+                dataSource).intValue() == 1;
+
+    }
+
+    public boolean canReviewApplications(String dataSource, long userId, int phaseId) {
+        return selectInt("rboard_user",
+                "applications_ind",
                 new String[]{"user_id", "phase_id"},
                 new String[]{String.valueOf(userId), String.valueOf(phaseId)},
                 dataSource).intValue() == 1;
