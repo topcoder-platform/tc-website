@@ -105,6 +105,7 @@
         </select>
         </td></tr>
       </rsc:iterator>
+      <?idx=0;?>
       <tr><td><hr/><center><h2>Placement Information</h2></center></td></tr>
       <tr><td>Placement Indicator: <INPUT type="checkbox" name="placement"/></td></tr>
       <tr><td>Resume: <INPUT type="checkbox" name="resume"/></td></tr>
@@ -114,7 +115,7 @@
       <rsc:iterator list="<%=skill_types%>" id="resultRow">
         <tr><td>
         <rsc:item name="skill_type_desc" row="<%=resultRow%>"/>:<br/>
-        <select size=10 multiple name="skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>
+        <select size=10 multiple name="skilltype<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         <%
         while(idx < skills.getRowCount()){
             skill = skills.getRow(idx);
@@ -129,14 +130,14 @@
         }
         %>
         </select>
-        <select size=5 name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>
+        <select size=5 name="skilllevel<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         <option>1</option>
         <option>2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
         </select>
-        <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>
+        <select multiple size=10 name="skillset<rsc:item name="skill_type_id" row="<%=resultRow%>"/>">
         </select>
         </td></tr>
       </rsc:iterator>
