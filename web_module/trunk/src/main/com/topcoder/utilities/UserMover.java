@@ -40,7 +40,7 @@ public class UserMover {
             long begin = System.currentTimeMillis();
             int count = um.getUsers(ctx);
             long end = System.currentTimeMillis();
-            log.debug("all done, " + count + " moved in " + (double)((end-begin)/1000) + " seconds");
+            log.debug("all done, " + count + " moved in " + (double) ((end - begin) / 1000) + " seconds");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,33 +50,31 @@ public class UserMover {
 
     private int getUsers(Context ctx) throws Exception {
 
-        DataSource ds = (DataSource)ctx.lookup(SOURCE_DS);
+        DataSource ds = (DataSource) ctx.lookup(SOURCE_DS);
         Connection conn = null;
         PreparedStatement ps = null;
         ResultSet rs = null;
         try {
             conn = ds.getConnection();
             StringBuffer query = new StringBuffer();
-            query.append("select u.user_id");
-            query.append(     ", u.handle");
-            query.append(     ", u.status");
-            query.append(     ", u.email");
-            query.append(     ", c.state_code");
-            query.append(     ", c.country_code");
-            query.append(     ", c.first_name");
-            query.append(     ", c.last_name");
-            query.append(     ", c.home_phone");
-            query.append(     ", c.address1");
-            query.append(     ", c.address2");
-            query.append(     ", c.city");
-            query.append(     ", c.zip");
-            query.append(     ", CASE WHEN u.status='A' THEN 1 ELSE 0 END as status_order");
-            query.append( " from user u");
-            query.append(     ", coder c");
+            query.append(" select u.user_id");
+            query.append(" , u.handle");
+            query.append(" , u.status");
+            query.append(" , u.email");
+            query.append(" , c.state_code");
+            query.append(" , c.country_code");
+            query.append(" , c.first_name");
+            query.append(" , c.last_name");
+            query.append(" , c.home_phone");
+            query.append(" , c.address1");
+            query.append(" , c.address2");
+            query.append(" , c.city");
+            query.append(" , c.zip");
+            query.append(" , CASE WHEN u.status='A' THEN 1 ELSE 0 END as status_order");
+            query.append(" from user u");
+            query.append(" , coder c");
             query.append(" where u.user_id = c.coder_id");
-            query.append("   and u.user_id not in (select user_id");
-            query.append("                           from common_oltp:email)");
-            //query.append(  " and u.user_id = 114443");
+            query.append("   AND u.user_id between 301 and 310");
             query.append(" order by status_order desc");
 
             log.info("built query");
@@ -96,7 +94,7 @@ public class UserMover {
 
             log.info("created ejbs");
 
-            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome)context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+            PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
             PrincipalMgrRemote pmr = pmrh.create();
             TCSubject tcs = new TCSubject(132456);
             Collection groups = pmr.getGroups(tcs);
@@ -110,7 +108,7 @@ public class UserMover {
             }
             for (Iterator iterator = groups.iterator(); iterator.hasNext();) {
                 userGroup = (GroupPrincipal) iterator.next();
-                if (anonGroup.getName().equals("Users")) {
+                if (userGroup.getName().equals("Users")) {
                     break;
                 }
             }
@@ -197,8 +195,18 @@ public class UserMover {
                     }
 
                     UserPrincipal up = pmr.getUser(userId);
-                    pmr.addUserToGroup(anonGroup, up, tcs);
-                    pmr.addUserToGroup(userGroup, up, tcs);
+                    try {
+                        pmr.addUserToGroup(anonGroup, up, tcs);
+                    } catch (Exception e) {
+                        log.error("error adding to anonymous group " + handle + "(" + userId + ")");
+                        e.printStackTrace();
+                    }
+                    try {
+                        pmr.addUserToGroup(userGroup, up, tcs);
+                    } catch (Exception e) {
+                        log.error("error adding to anonymous group " + handle + "(" + userId + ")");
+                        e.printStackTrace();
+                    }
 
                 } catch (Exception e) {
                     log.error("error moving over " + handle + "(" + userId + ")");
@@ -206,8 +214,8 @@ public class UserMover {
                 }
 
                 count++;
-                if(count%100==0) log.info(""+count+" users processed");
-                if(count%100==0) System.gc();
+                if (count % 100 == 0) log.info("" + count + " users processed");
+                if (count % 100 == 0) System.gc();
             }
 
 
