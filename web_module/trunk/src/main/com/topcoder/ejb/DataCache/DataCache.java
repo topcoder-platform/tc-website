@@ -38,14 +38,6 @@ public interface DataCache extends EJBObject {
 
     public void resetSchools() throws TCException, RemoteException;
 
-    public ArrayList getNewsItems() throws TCException, RemoteException;
-
-    public void resetNewsItems() throws TCException, RemoteException;
-
-    public ArrayList getContactSubjects() throws TCException, RemoteException;
-
-    public void resetContactSubjects() throws TCException, RemoteException;
-
     public ArrayList getCountries() throws TCException, RemoteException;
 
     public void resetCountries() throws TCException, RemoteException;
@@ -54,25 +46,9 @@ public interface DataCache extends EJBObject {
 
     public void resetStates() throws TCException, RemoteException;
 
-    public ArrayList getCoderRegions() throws TCException, RemoteException;
-
-    public void resetCoderRegions() throws TCException, RemoteException;
-
-    public ArrayList getForums() throws TCException, RemoteException;
-
-    public void resetForums() throws TCException, RemoteException;
-
     public ArrayList getDegrees() throws TCException, RemoteException;
 
     public void resetDegrees() throws TCException, RemoteException;
-
-    public ArrayList getSkills() throws TCException, RemoteException;
-
-    public void resetSkills() throws TCException, RemoteException;
-
-    public ArrayList getSkillTypes() throws TCException, RemoteException;
-
-    public void resetSkillTypes() throws TCException, RemoteException;
 
     public ArrayList getJobTypes() throws TCException, RemoteException;
 
@@ -88,27 +64,7 @@ public interface DataCache extends EJBObject {
 
     public ArrayList getLanguages() throws TCException, RemoteException;
 
-    public void resetTitles() throws TCException, RemoteException;
-
-    public ArrayList getTitles() throws TCException, RemoteException;
-
-    public void resetOrganizations() throws TCException, RemoteException;
-
-    public ArrayList getOrganizations() throws TCException, RemoteException;
-
-    public void resetExperienceTypes() throws TCException, RemoteException;
-
-    public ArrayList getExperienceTypes() throws TCException, RemoteException;
-
-    public void resetSectorFiles() throws TCException, RemoteException;
-
-    public ArrayList getSectorFiles() throws TCException, RemoteException;
-
     public void resetLanguages() throws TCException, RemoteException;
-
-    public void resetCoderTypes() throws TCException, RemoteException;
-
-    public ArrayList getCoderTypes() throws TCException, RemoteException;
 
     public void resetDemographicAssignments() throws TCException, RemoteException;
 
