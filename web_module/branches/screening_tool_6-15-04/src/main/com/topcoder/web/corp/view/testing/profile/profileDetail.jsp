@@ -71,55 +71,44 @@ function getProblemDetail(id) {
 
             <table cellspacing="0" cellpadding="0" width="700" class="screeningFrame">
               <% if (profile.hasTestSetA()) { %>
-                <tr><td class="screeningTitle" colspan="6">Test Set A</td></tr>
+                <tr><td class="screeningTitle" colspan="4">Test Set A</td></tr>
                 <tr>
-                    <td width="10" class="screeningHeader"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0" /></td>
-                    <td width="20%" class="screeningHeader">Name</td>
+                    <td width="20%" align="left" class="screeningHeader">Name</td>
                     <td width="20%" align="center" class="screeningHeader">Division</td>
                     <td width="20%" align="center" class="screeningHeader">Difficulty</td>
                     <td width="40%" align="center" class="screeningHeader">Algorithmic Categories</td>
-                    <td width="10" class="screeningHeader"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                  </tr>
 
                 <screen:listIterator id="testA" list="<%=profile.getTestSetAList()%>">
                 <tr>
-                    <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                     <td class="screeningCellOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testA" property="roundId" />,<screen:beanWrite name="testA" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testA" property="problemName"/></a></td>
                     <td align="center" class="screeningCellOdd"><screen:beanWrite name="testA" property="divisionDesc" /></td>
                     <td align="center" class="screeningCellOdd"><screen:beanWrite name="testA" property="difficultyDesc" /></td>
                     <td align="center" class="screeningCellOdd"><screen:beanWrite name="testA" property="algorithmicCategoryList" /></td>
-                    <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
                 </screen:listIterator>
 
-                <tr><td colspan="6"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
               <% } %>
 
                 <% if (!profile.getTestSetBList().isEmpty()) { %>
-                    <tr><td class="screeningTitle" colspan="6">Test Set B</td></tr>
+                    <tr><td class="screeningTitle" colspan="4">Test Set B</td></tr>
 
                     <tr>
-                        <td width="10" class="screeningHeader"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                         <td width="20%" class="screeningHeader">Name</td>
                         <td width="20%" align="center" class="screeningHeader">Division</td>
                         <td width="20%" align="center" class="screeningHeader">Difficulty</td>
                         <td width="40%" align="center" class="screeningHeader">Algorithmic Categories</td>
-                        <td width="10" class="screeningHeader"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                      </tr>
 
                     <screen:listIterator id="testB" list="<%=profile.getTestSetBList()%>">
                     <tr>
-                        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                         <td class="screeningCellOdd"><a href="JavaScript:getProblemDetail('<screen:beanWrite name="testB" property="roundId" />,<screen:beanWrite name="testB" property="problemId"/>')" class="bodyText"><screen:beanWrite name="testB" property="problemName"/></a></td>
                         <td align="center" class="screeningCellOdd"><screen:beanWrite name="testB" property="divisionDesc" /></td>
                         <td align="center" class="screeningCellOdd"><screen:beanWrite name="testB" property="difficultyDesc" /></td>
                         <td align="center" class="screeningCellOdd"><screen:beanWrite name="testB" property="algorithmicCategoryList" /></td>
-                        <td width="10"><img src="/i/corp/clear.gif" width="10" height="1" alt="" border="0"></td>
                     </tr>
                     </screen:listIterator>
                 <%}%>
-
-                <tr><td colspan="6"><img src="/i/corp/clear.gif" width="1" height="10" alt="" border="0"></td></tr>
 
             </table>
 
@@ -129,12 +118,12 @@ function getProblemDetail(id) {
 
                 <tr>
                    <td colspan="2" align="center" class="screeningTitle">&#160;</td>
-                   <td colspan="3" align="center" class="screeningTitle">PROBLEMS</td>
+                   <td colspan="3" align="center" class="screeningTitle">Problems</td>
                    <td align="center" class="screeningTitle">&#160;</td>
                 </tr>
 
                 <tr>
-                   <td align="center" class="screeningHeader">Candidate</td>
+                   <td align="left" class="screeningHeader">Candidate</td>
                    <td align="center" class="screeningHeader">Status</td>
                    <td align="center" class="screeningHeader">Presented</td>
                    <td align="center" class="screeningHeader">Submitted</td>
@@ -157,12 +146,12 @@ function getProblemDetail(id) {
                     String color = (even) ? "bgcolor='#EEEEEE'" : "";
                 %>
                 <tr>
-                    <td width="20%" class="bodyText" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
-                    <td width="16%" align="center" class="bodyText" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
+                    <td width="20%" class="screeningCellOdd" <%=color%>><screen:servletLink processor="PopulateCandidate" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="user_name" /></screen:servletLink></td>
+                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:sessionStatus row="<%=row%>" /></td>
+                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><%=String.valueOf(((Long)row.getItem("set_a_count").getResultData()).longValue()+((Long)row.getItem("set_b_count").getResultData()).longValue())%></td>
+                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:resultSetItem row="<%=row%>" name="submitted" /></td>
+                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:resultSetItem row="<%=row%>" name="passed" /></td>
+                    <td width="16%" align="center" class="screeningCellOdd" <%=color%>><screen:servletLink processor="TestResults" param="<%=sparam%>"><screen:sessionStatusLink row="<%=row%>" /></screen:servletLink></td>
                 </tr>
                 <% } %>
                 <% even = !even; %>
