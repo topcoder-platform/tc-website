@@ -43,7 +43,7 @@ public class HSAuthorization implements Authorization {
         }
     }
 
-    /* Query the security component to determine whether the user can access this resource. */
+    /** Query the security component to determine whether the user can access this resource. */
     public boolean hasPermission(Resource r) {
         try {
             TCPermission perm = new GenericPermission(r.getName());

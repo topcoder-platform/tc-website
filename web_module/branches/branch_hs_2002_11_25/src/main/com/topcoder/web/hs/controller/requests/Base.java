@@ -49,7 +49,7 @@ public abstract class Base implements RequestProcessor {
         auth = new BasicAuthentication(persistor, request, response);
         user = auth.getUser();
 
-        hsa = new HSAuthorization(user.getId());
+        hsa = new HSAuthorization(user);
         if(!hsa.hasPermission(new SimpleResource(this.getClass().getName())))
             throw new RuntimeException("@@@ use authexception");
 

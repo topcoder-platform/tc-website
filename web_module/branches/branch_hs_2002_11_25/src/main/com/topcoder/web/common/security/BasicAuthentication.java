@@ -101,7 +101,11 @@ public class BasicAuthentication implements WebAuthentication {
 
     /** Fill in the name field from the user id. */
     private User makeUser(long id) {
-        UserPrincipal up = pmgr.getUser(id);
+        try {
+            UserPrincipal up = pmgr.getUser(id);
+        } catch(RemoteException e) {
+            throw new RuntimeException(e.getMessage());
+        }
         return new SimpleUser(id, up.getName(), "");
     }
 }

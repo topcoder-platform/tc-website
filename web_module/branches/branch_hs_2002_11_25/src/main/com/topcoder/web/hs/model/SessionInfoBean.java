@@ -22,7 +22,7 @@ public class SessionInfoBean implements Serializable {
 
   public String getHandle() { return handle; }
   public void   setHandle(String handle) { this.handle = handle; }
-  public int    getUserId() { return userid; }
+  public long   getUserId() { return userid; }
   public void   setUserId(long userid) { this.userid = userid; }
   public char   getGroup() { return group; }
   public void   setGroup(char group) {
