@@ -28,6 +28,7 @@
       p = container.getRow(0);
 %>
   <table cellpadding="0" cellspacing="0" border="0">
+    <TR><TD><A HREF="<%=Constants.SERVLET_ADDR%>"><< back to main menu</A><BR/><BR/></TD></TR>
     <tr>
       <td colspan="3"><font size="+2"><center><b><%=p.getItem("handle").toString()%></b></center></font></td>
     </tr>

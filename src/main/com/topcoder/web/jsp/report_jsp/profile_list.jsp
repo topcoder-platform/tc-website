@@ -1,5 +1,6 @@
 <%@  page 
   language="java"
+  errorPage="/errorPage.jsp"
   import="java.util.*,
           com.topcoder.common.web.data.report.*,
           com.topcoder.shared.dataAccess.resultSet.*"
@@ -8,6 +9,7 @@
 
 <%!
   String stripQuotes(String s) {
+    if (s==null || s.length()==0) return "";
     StringBuffer buf = new StringBuffer(150);
     for(int i=0; i<s.length(); i++) {
       if (s.charAt(i)!='\'') 
@@ -16,6 +18,16 @@
     return buf.toString();
   }
 %>
+<%! 
+  boolean contains(String list, String key) {
+    StringTokenizer st = new StringTokenizer(list, ",");
+    HashSet hash = new HashSet();
+    while (st.hasMoreTokens())
+      hash.add(st.nextToken());
+    if (hash.contains(key)) return true;
+    else return false;
+  }
+%> 
 
 <%
   Map m = null;
@@ -48,7 +60,7 @@
     <title>TopCoder Reporting</title>
   </HEAD>
   <BODY>
-    <A HREF=<%=Constants.SERVLET_ADDR%>><< back to main menu</A><BR/><BR/>
+    <A HREF="<%=Constants.SERVLET_ADDR%>"><< back to main menu</A><BR/><BR/>
     (Use % for a wildcard.)
     <TABLE WIDTH="100%" HEIGHT="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
       <TR><TD><FONT size="4"><b>Profile List</b></FONT></TD></TR>
@@ -66,7 +78,7 @@
                 <TD>
                   <b>Pro/Student: </b>
                   <SELECT NAME="<%=Constants.REPORT_PRO_STUDENT_KEY%>" SIZE="3" MULTIPLE="false">
-<%                   String occupation = request.getParameter(Constants.REPORT_PRO_STUDENT_KEY)==null?"":request.getParameter(Constants.REPORT_PRO_STUDENT_KEY);
+<%                   String occupation = request.getParameter(Constants.REPORT_PRO_STUDENT_KEY)==null?"1,2":request.getParameter(Constants.REPORT_PRO_STUDENT_KEY);
 %>
                      <OPTION value="1"<%=occupation.equals("1")?" selected=\"true\"":""%>>Student</OPTION>
                      <OPTION value="2"<%=occupation.equals("2")?" selected=\"true\"":""%>>Professional</OPTION>
@@ -86,29 +98,23 @@
               </TR>
               <TR>
                 <TD colspan="2" align="center">
-                  <b>Comma separated list of states: </b><br/>
-      <%          StringBuffer stateBuf = new StringBuffer(150);
-                  it = states.iterator();
-                  int i=0;
-                  while(it.hasNext()) { 
-                    i++;
-                    rsr = (ResultSetContainer.ResultSetRow)it.next();
-                    stateBuf.append(rsr.getItem("state_code").toString());
-                    if (i!=states.size()-1) stateBuf.append(",");
-                  }
-      %>
-                  <INPUT type="text" onKeyPress="submitEnter(event)" size="50%" name="<%=Constants.REPORT_STATE_KEY%>" value="<%=request.getParameter(Constants.REPORT_STATE_KEY)==null?stateBuf.toString():stripQuotes(request.getParameter(Constants.REPORT_STATE_KEY))%>"/>
+                  <b>Comma separated list of states: (default is all) </b><br/>
+                  <INPUT type="text" onKeyPress="submitEnter(event)" size="50%" name="<%=Constants.REPORT_STATE_KEY%>" value="<%=stripQuotes(request.getParameter(Constants.REPORT_STATE_KEY))%>"/>
                 </TD>
               </TR>
               <TR>
                 <TD colspan="2" align="center">
                   <b>Willing to relocate:</b><br/>
                     <SELECT NAME="relocateAnswers" SIZE="3" MULTIPLE="true">
-<%                    it = relocateAnswers.iterator();
+<%                 
+                     String willingToRelocate = request.getParameter(Constants.REPORT_RELOCATE_KEY)==null?"":request.getParameter(Constants.REPORT_RELOCATE_KEY);
+                     String selectedString = null;
+                     it = relocateAnswers.iterator();
                       while(it.hasNext()) { 
                         rsr = (ResultSetContainer.ResultSetRow)it.next();
+                        selectedString = contains(willingToRelocate, rsr.getItem("answer_id").toString())?" selected=\"true\"":"";
 %>
-                      <OPTION value="<%=rsr.getItem("answer_id").toString()%>"><%=rsr.getItem("answer_text").toString()%></OPTION>
+                      <OPTION value="<%=rsr.getItem("answer_id").toString()%>"<%=selectedString%>><%=rsr.getItem("answer_text").toString()%></OPTION>
 <%
                       }
 %>
@@ -243,6 +249,7 @@
               }
               function addQuotes(s) {
                 var ret="";
+                if (s.length==0) return ret;
                 var states = s.split(",");
                 for(i=0; i<states.length; i++) {
                   if (states[i].charAt(0)!='\'')
@@ -326,7 +333,7 @@
                     document.profileListForm[othercol].options[ocl] = op;
                   }
                 } else {
-                  alert("Please select a country");
+                  alert("Please select a column");
                 }
               }
             // -->
@@ -343,6 +350,7 @@
           <TABLE WIDTH="60%" HEIGHT="100%" BORDER="1" CELLPADDING="0" CELLSPACING="0">
             <TR><TD><FONT size="4"><b>Results</b></FONT></TD></TR>
             <TR>
+            <TD></TD>
 <%        
             for (int j=0; j<columns.length; j++) {
 %>            <TD><b><%=profiles.getColumnName(Integer.parseInt(columns[j]))%></b></TD>
@@ -356,8 +364,12 @@
 <%
               else 
 %>          <TR>
+
 <%
               rsr = (ResultSetContainer.ResultSetRow)it.next();
+%>
+              <TD><A HREF="<%=Constants.SERVLET_ADDR%>?<%=Constants.TASK_NAME_KEY%>=<%=Constants.REPORT_PROFILE_DETAIL_KEY%>&amp;<%=Constants.REPORT_CODER_ID_KEY%>=<%=rsr.getItem("user_id").toString()%>">detail</A></TD>
+<%
               for (int j=0; j<columns.length; j++) {
 %>            <TD><%=rsr.getItem(Integer.parseInt(columns[j])).toString()%></TD>
 <%          
