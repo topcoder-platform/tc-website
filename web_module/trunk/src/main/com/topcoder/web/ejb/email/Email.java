@@ -23,6 +23,10 @@ public interface Email extends EJBObject {
     void setAddress(long emailId, String address, String dataSource)
             throws EJBException, RemoteException;
 
+    int getStatusId(long emailId, String dataSource) throws RemoteException;
+
+    void setStatusId(long emailId, int statusId, String dataSource) throws RemoteException;
+
     String getAddress(long emailId, String dataSource) throws EJBException, RemoteException;
 
 }

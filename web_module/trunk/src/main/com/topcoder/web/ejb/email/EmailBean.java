@@ -304,4 +304,28 @@ public class EmailBean extends BaseEJB {
         return (address);
     }
 
+    public int getStatusId(long emailId, String dataSource) {
+        return selectInt("email",
+                "status_id",
+                new String[] {"email_id"},
+                new String[] {String.valueOf(emailId)},
+                dataSource).intValue();
+    }
+
+    public void setStatusId(long emailId, int statusId, String dataSource) {
+        int ret = update("email",
+                new String[] {"stutus_id"},
+                new String[] {String.valueOf(statusId)},
+                new String[] {"email_id"},
+                new String[] {String.valueOf(emailId)},
+                dataSource);
+        if (ret != 1) {
+            throw(new EJBException("Wrong number of rows updated in " +
+                    "'email'. Updated " + ret + ", " +
+                    "should have updated 1."));
+        }
+    }
+
+
+
 }
