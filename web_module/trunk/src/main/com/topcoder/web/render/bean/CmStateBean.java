@@ -99,7 +99,10 @@ private void configDev()
 /* CmStateBean no-arg constructor */
 public CmStateBean() throws NamingException {
     if (context == null)
-        context = com.topcoder.common.TCContext.getInitial();
+    {
+        //context = com.topcoder.common.TCContext.getInitial();
+        context = new InitialContext();
+    }
     session = null;
     currentPage = null;
     pageHits = resourceHits = null;
@@ -646,7 +649,8 @@ protected void processEditResourceFormProd(Map params, String url) throws Authen
     throw new AuthenticationException ( "processEditResourceFormProd:  Unable to get connection to prod..." );
   } finally {
     try {
-      selectedResource.connect ( com.topcoder.common.TCContext.getInitial() );
+      //selectedResource.connect ( com.topcoder.common.TCContext.getInitial() );
+      selectedResource.connect ( new InitialContext() );
 System.out.println ( "CONNECTED TO LOCAL ... " );
     } catch ( Exception eCx ) {
       eCx.printStackTrace();
