@@ -14,7 +14,7 @@
                 				<TD CLASS="statText"  BGCOLOR="#990000" VALIGN="top">
 			
 <xsl:call-template name="Form"/>				
-               				<A HREF="index?t=authentication&amp;c=recover_password" CLASS="statText">Password help</A>
+               				<A HREF="index?t=authentication&amp;c=recover_password" CLASS="statText">- Password help</A>
                 				</TD>
                 				<TD CLASS="data" BGCOLOR="#990000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="4" HEIGHT="1" BORDER="0"/></TD>
               				</TR>
