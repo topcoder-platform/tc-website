@@ -42,25 +42,19 @@ Subject Line: "Top Software Developers wanted at Apex Data"
 
 
 
-<P>Apex is interested in evaluating Division I rated TopCoder members for full-time employment.</P>
+<P>Apex is interested in evaluating Division-I rated TopCoder members for full-time employment.</P>
 
 <P>Apex Data Services (<A HREF="http://www.apexinc.com">http://www.apexinc.com</A>) is an international data conversion company headquartered in Herndon, VA.  As an employee-owned company, Apex is devoted to the growth of its staff as they solve interesting technical problems in a stimulating environment.</P>
 
 <P>Apex is looking for a small number of excellent software developers.  The Apex environment will challenge even the best and brightest.</P>
 
-<P>To learn more about the opportunities at Apex, please visit www.topcoder.com//?t=jobs&amp;c=apex. </P>
+<P>To learn more about the opportunities at Apex, please visit <A HREF="http://www.topcoder.com/?t=tces&amp;c=apex">www.topcoder.com/?t=tces&amp;c=apex</A>. </P>
 
 <P>Thank you and good luck in the arena!<BR/>
 
 TopCoder Employment Services</P>
 
 </FONT>
-
-
-
-<P><A HREF="http://www.topcoder.com//?t=jobs&amp;c=apex">Click here to apply</A></P>
-
-
 
 </BODY>
 

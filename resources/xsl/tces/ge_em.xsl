@@ -19,10 +19,24 @@ Date: 00.00.00<BR/>
 Subject Line: GE will be visiting [IMLP School] and would like an opportunity to meet you!<BR/>
 
 <P>Dear [TC Member],</P>
-<P>You have been selected to apply for consideration into General Electric's Information Management Leadership Program (IMLP). The IMLP is GE's premiere entry-level training program for high potential individuals seeking an accelerated career in Information Technology. The program consists of four 6-month rotational assignments at a GE Business, combined with training. This program is an outstanding opportunity for top individuals.</P>
-<P>General Electric will be visiting [IMLP School] on [date] at [time] for an information session at [location]. On [date], GE will be interviewing select candidates for consideration into this elite program. </P>
-<P>In order to learn more about General Electric's IMLP Program, please visit www.topcoder.com/?t=jobs&amp;c=ge. </P>
-<P>If you have any questions regarding IMLP or the dates and times that GE will be visiting [IMLP School], please visit your Career Development Center or email Christine Peterson (<A HREF="mailto: Christine.Peterson@corporate.ge.com">Christine.Peterson@corporate.ge.com</A>) at General Electric with any questions.</P>
+<P>You have been selected to apply for consideration into GE's Information Management 
+Leadership Program (IMLP). The IMLP is GE's premiere entry-level training program for 
+high potential individuals seeking an accelerated career in Information Technology. 
+The program consists of four 6-month rotational assignments at a GE Business, 
+combined with training. This program is an outstanding opportunity for top individuals.</P>
+
+<P>GE will be visiting selectively targeted schools for an information session and 
+will be interviewing top quality candidates for consideration into this elite program. 
+To see when GE will be visiting your school please view their campus recruiting schedule: 
+<A HREF="http://gecareers.com/Campus/index.cfm">GE's Campus Recruiting Schedule</A>.  </P>
+
+<P>In order to learn more about General Electric's IMLP Program, 
+please visit <A HREF="http://www.topcoder.com/?t=tces&amp;c=ge">www.topcoder.com/?t=tces&amp;c=ge</A>. </P>
+
+<P>If you have any questions regarding GE's Information Management Leadership Program, 
+please visit your Campus Career Development Center or feel free to contact Christine Peterson 
+(<A HREF="mailto: Christine.Peterson@corporate.ge.com">Christine.Peterson@corporate.ge.com</A>)
+ at GE.</P>
 
 <P>Thank you and good luck in the arena!<BR/>
 TopCoder Employment Services</P>
