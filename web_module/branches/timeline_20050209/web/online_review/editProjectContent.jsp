@@ -100,12 +100,12 @@
                 </tr>
                 <tr>
                     <td class="timelineTitleCenter"><strong><bean:message key="prompt.timelineStart" /></strong></td>
-                    <bean:define id="currentPhase" name="project" property="currentPhase" />
+                    <bean:define id="currentPhase" name="projectForm" property="currentPhase" />
                     
 
 
                     
-                    <logic:iterate id="phaseInstance" name="project" property="timeline">
+                    <logic:iterate id="phaseInstance" name="projectForm" property="timeline">
                         <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                             <td class="timelineHiliteCenter">
                                 <strong><review:showDate name="phaseInstance" property="startDate" /></strong></td>
@@ -118,7 +118,7 @@
                 </tr>
                 <tr>
                     <td class="timelineTitleCenter"><strong><bean:message key="prompt.timelineEnd" /></strong></td>
-                    <logic:iterate id="phaseInstance" name="project" property="timeline">
+                    <logic:iterate id="phaseInstance" name="projectForm" property="timeline">
                         <logic:equal name="phaseInstance" property="phase.name" value="<%=currentPhase.toString()%>">
                             <td class="timelineHiliteCenter">
                                 <strong><review:showDate name="phaseInstance" property="endDate" /></strong></td>
