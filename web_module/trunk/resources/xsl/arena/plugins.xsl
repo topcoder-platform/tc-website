@@ -74,10 +74,12 @@
                         Author: kyky<br />
                         Date: 04/02/2004<br />
                         <a href="/contest/classes/ExampleBuilder/ExampleBuilder.html" class="statText">Documentation</a><br />
+                        <a href="/contest/classes/ExampleBuilder/ExampleBuilderSrc.zip" class="statText">Source Code</a><br />
+                        <a href="/contest/classes/ExampleBuilder/ReleaseNotes_v2_01.txt" class="statText">Release Notes</a><br />
                         Version: 2.01<br />
                         EntryPoint: tc_plugin.ExampleBuilder<br />
                         ClassPath: CodeProcessor.jar; FileEdit.jar; ExampleBuilder.jar<br />
-                        <a href="/contest/classes/ExampleBuilder/ExampleBuilder.jar" class="statText">PopsPack.jar Plugin</a></p>
+                        <a href="/contest/classes/ExampleBuilder/ExampleBuilder.jar" class="statText">ExampleBuilder.jar Plugin</a></p>
 
                         <hr width="100%" noshade="noshade" color="#666666" />
 
