@@ -96,7 +96,7 @@ public class Controller extends HttpServlet {
             }
         } catch (AuthenticationException authex) {
             request.setAttribute("Authentication", task.getAuthentication());
-            sendToLoginPage(request, response, false);
+            sendToLoginPage(request, response, true);
         } catch (LoginFailedException authex) {
             request.setAttribute("Authentication", task.getAuthentication());
             sendToLoginPage(request, response, true);
