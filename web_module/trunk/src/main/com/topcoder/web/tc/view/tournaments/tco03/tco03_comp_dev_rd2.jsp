@@ -76,7 +76,7 @@
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleOdd" align="right">95.68</td>
                     <td class="formHandleOdd" align="right">95.34,96.02</td>
-                    <td class="formHandleOdd" align="right">$192.00</td>
+                    <td class="formHandleOdd" align="right">$336.00</td>
                 </tr>
 
                 <tr valign="middle">
@@ -84,15 +84,15 @@
                     <td class="formHandleEven" align="left"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154714">rnielsen</a></td>
                     <td class="formHandleEven" align="right">93.58</td>
                     <td class="formHandleEven" align="right">96.08,91.08</td>
-                    <td class="formHandleEven" align="right">$188.00</td>
+                    <td class="formHandleEven" align="right">$288.00</td>
                 </tr>
 
                 <tr valign="middle">
                     <td class="formHandleOdd" align="center">3</td>
                     <td class="formHandleOdd" align="left"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=273428">rbnn</a></td>
-                    <td class="formHandleOdd" align="right">89.66</td>
-                    <td class="formHandleOdd" align="right">91.38, 87.93</td>
-                    <td class="formHandleOdd" align="right">$48.00</td>
+                    <td class="formHandleOdd" align="right">90.07</td>
+                    <td class="formHandleOdd" align="right">91.38, 88.76</td>
+                    <td class="formHandleOdd" align="right">$84.00</td>
                 </tr>
 
                 <tr valign="middle">
@@ -225,7 +225,7 @@
                     <td class="formHandleEven"></td>
                     <td class="formHandleEven" align="center"></td>
                     <td class="formHandleEven" align="center">5</td>
-                    <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=292290">preben</a></td>
+                    <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=153089">preben</a></td>
                     <td class="formHandleEven" align="right">63.42</td>
                 </tr>
                 <tr valign="middle">
@@ -277,6 +277,14 @@
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=299904">mishagam</a></td>
                     <td class="formHandleOdd" align="right">84.04</td>
                 </tr>
+                <tr valign="middle">
+                    <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=6409400" class="statText" target="_blank">MathML</a></td>
+                    <td class="formHandleOdd" align="center">1</td>
+                    <td class="formHandleOdd" align="center"></td>
+                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
+                    <td class="formHandleOdd" align="right">95.34</td>
+                </tr>
+
             </table>
 
          <p><br/></p>
