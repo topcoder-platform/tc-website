@@ -74,7 +74,7 @@ solution to see the possible point value. In addition, you can view the submissi
 	</TR>	
 	<TR>
         <TD VALIGN="top" CLASS="smallText">&#160;</TD>
-		<TD VALIGN="top" CLASS="smallText">&#183;</TD><TD VALIGN="top" CLASS="smallText">knowledge of the Java, C++, C# or VB programming languages</TD>
+		<TD VALIGN="top" CLASS="smallText">&#183;</TD><TD VALIGN="top" CLASS="smallText">knowledge of the Java, C++, Microsoft® Visual C#® .NET or Microsoft® Visual Basic® .NET programming languages</TD>
 	</TR>
 	<TR>
 		<TD VALIGN="top" CLASS="smallText">&#160;</TD>
