@@ -42,34 +42,37 @@ public class SponsorImage extends TagSupport {
 
     public int doStartTag() throws JspException {
 
-        StringBuffer buffer = new StringBuffer();
-        buffer.append("<img src=\"");
-        buffer.append(image.getSrc() == null ? "" : image.getSrc());
-        buffer.append("\"");
-        if (alt != null) {
-            buffer.append(" alt=\"" + alt + "\"");
-        }
-        if (image.getHeight() >= 0) {
-            buffer.append(" height=\"" + image.getHeight() + "\"");
-        }
-        if (image.getWidth() >= 0) {
-            buffer.append(" width=\"" + image.getWidth() + "\"");
-        }
+        if (image!=null) {
+            StringBuffer buffer = new StringBuffer();
+            buffer.append("<img src=\"");
+            buffer.append(image.getSrc() == null ? "" : image.getSrc());
+            buffer.append("\"");
+            if (alt != null) {
+                buffer.append(" alt=\"" + alt + "\"");
+            }
+            if (image.getHeight() >= 0) {
+                buffer.append(" height=\"" + image.getHeight() + "\"");
+            }
+            if (image.getWidth() >= 0) {
+                buffer.append(" width=\"" + image.getWidth() + "\"");
+            }
 
-        if (vspace != null) {
-            buffer.append(" vspace=\"" + vspace + "\"");
-        }
+            if (vspace != null) {
+                buffer.append(" vspace=\"" + vspace + "\"");
+            }
 
-        if (border != null) {
-            buffer.append(" border=\"" + border + "\"");
-        }
+            if (border != null) {
+                buffer.append(" border=\"" + border + "\"");
+            }
 
-        buffer.append(" />");
+            buffer.append(" />");
 
-        try {
-            pageContext.getOut().println(buffer.toString());
-        } catch (IOException e) {
-            throw new JspException(e.getMessage());
+            try {
+                pageContext.getOut().println(buffer.toString());
+            } catch (IOException e) {
+                throw new JspException(e.getMessage());
+            }
+
         }
 
         return EVAL_BODY_INCLUDE;
