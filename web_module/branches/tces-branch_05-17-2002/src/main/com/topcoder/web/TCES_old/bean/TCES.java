@@ -302,7 +302,8 @@ public class TCES extends Task implements Serializable {
                                                     throw e;
                                                 }
                                                 try {
-                                                    userObject = beanUser.request(com.topcoder.web.TCES.ejb.User.UPDATE, userObject);
+                                                    //xxx todo: something's up - have to figure it out - comment this for now
+                                                    //userObject = beanUser.request(com.topcoder.web.TCES.ejb.User.UPDATE, userObject);
                                                 } catch (Exception e) {
                                                     Log.msg("Problem with updating userObject: " + e.getMessage());
                                                     throw e;
