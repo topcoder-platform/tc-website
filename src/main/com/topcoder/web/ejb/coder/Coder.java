@@ -120,5 +120,14 @@ public interface Coder extends EJBObject {
      */
     String getActivationCode(long coderId, String dataSource) throws EJBException, RemoteException;
 
+    /**
+     *
+     * @param coderId
+     * @param dataSource
+     * @return
+     * @throws EJBException
+     * @throws RemoteException
+     */
+    boolean exists(long coderId, String dataSource) throws EJBException, RemoteException;
 
 }

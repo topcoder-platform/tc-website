@@ -531,4 +531,47 @@ public class CoderBean extends BaseEJB {
         return activationCode;
     }
 
+    public boolean exists(long coderId, String dataSource) {
+        log.debug("exists called. coderId: " + coderId);
+
+        PreparedStatement stmt = null;
+        Connection conn = null;
+        InitialContext ctx = null;
+        ResultSet rs = null;
+        String activationCode;
+
+        try {
+            StringBuffer query = new StringBuffer();
+
+            query.append(" SELECT '1' ");
+            query.append( " FROM coder ");
+            query.append( " WHERE coder_id = ?");
+
+            ctx = new InitialContext();
+            DataSource ds = (DataSource) ctx.lookup(dataSource);
+            conn = ds.getConnection();
+            stmt = conn.prepareStatement(query.toString());
+
+            stmt.setLong(1, coderId);
+
+            rs = stmt.executeQuery();
+            return rs.next();
+
+        } catch (SQLException sqe) {
+            DBMS.printSqlException(true, sqe);
+            throw new EJBException("SQLException in getActivationCode coderId: " + coderId);
+        } catch (EJBException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new EJBException("Exception in getActivationCode coderId: " + coderId);
+        } finally {
+            close(rs);
+            close(stmt);
+            close(conn);
+            close(ctx);
+        }
+    }
+
+
+
 }
