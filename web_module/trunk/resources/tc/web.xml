@@ -29,7 +29,7 @@
 
         <init-param>
             <param-name>login_servlet</param-name>
-            <param-value>/</param-value>
+            <param-value>/index</param-value>
             <description>the servlet path to use when we need to direct the user to login</description>
         </init-param>
 
