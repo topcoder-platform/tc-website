@@ -21,6 +21,10 @@ public class Constants
     public static String USER_ID;
     public static String EMAIL_ADDRESS;
     public static String PASSWORD;
+    public static String HANDLE;
+    public static String REDIRECT;
+    public static String MESSAGE_PARAMETER;
+    public static String FIRST_ATTEMPT;
     public static String REFERRER;
     public static String REQUEST_PROCESSOR;
     public static String PROFILE_ID;
@@ -75,6 +79,10 @@ public class Constants
         USER_ID = config.getInitParameter("user_id_parameter");
         EMAIL_ADDRESS = config.getInitParameter("email_address_parameter");
         PASSWORD = config.getInitParameter("password_parameter");
+        HANDLE = config.getInitParameter("handle_parameter");
+        MESSAGE_PARAMETER = config.getInitParameter("message_parameter");
+        FIRST_ATTEMPT = config.getInitParameter("first_attempt_parameter");
+        REDIRECT = config.getInitParameter("redirect_parameter");
         REFERRER = config.getInitParameter("referrer_parameter");
         REQUEST_PROCESSOR = 
             config.getInitParameter("request_processor_parameter");
