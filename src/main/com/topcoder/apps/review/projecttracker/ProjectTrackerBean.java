@@ -29,7 +29,6 @@ import com.topcoder.apps.review.security.ScreenPermission;
 import com.topcoder.apps.review.security.SubmitFinalFixPermission;
 import com.topcoder.apps.review.security.SubmitPermission;
 import com.topcoder.apps.review.security.ViewProjectPermission;
-import com.topcoder.apps.review.document.ScorecardTemplate;
 
 import com.topcoder.security.NoSuchUserException;
 import com.topcoder.security.RolePrincipal;
@@ -43,7 +42,6 @@ import com.topcoder.security.policy.PermissionCollection;
 import com.topcoder.security.policy.PolicyRemote;
 import com.topcoder.security.policy.PolicyRemoteHome;
 import com.topcoder.util.TCException;
-import com.topcoder.util.format.FormatMethodFactory;
 import com.topcoder.util.idgenerator.bean.IdGen;
 import com.topcoder.util.idgenerator.bean.IdGenHome;
 import com.topcoder.util.log.Level;
@@ -51,9 +49,6 @@ import com.topcoder.util.log.Log;
 import com.topcoder.util.log.LogException;
 import com.topcoder.util.log.LogFactory;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.rmi.RemoteException;
 
 import java.sql.Connection;
@@ -469,6 +464,7 @@ public class ProjectTrackerBean implements SessionBean {
             rs = ps.executeQuery();
             long prevProjectId = -1;
             LinkedList userRoleList = new LinkedList();
+            PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
             while (rs.next()) {
                 long projectId = rs.getLong(1);
                 if (prevProjectId != projectId) {
@@ -493,11 +489,10 @@ public class ProjectTrackerBean implements SessionBean {
                     long piVersionId = rs.getLong(11);
                     String catalogName = rs.getString(12);
 
-                    PhaseManager phaseManager = (PhaseManager) Common.getFromCache("PhaseManager");
+
                     Phase phase = phaseManager.getPhase(phaseId);
 
                     PhaseInstance phaseInstance = new PhaseInstance(phaseInstanceId, phase, startDate, endDate, piVersionId);
-
 
                     User winner = null;
                     if (winnerId != 0) {
@@ -525,7 +520,7 @@ public class ProjectTrackerBean implements SessionBean {
                     long rRoleId = rs.getLong(14);
                     long paymentInfoId = rs.getLong(15);
                     long rRespId = rs.getLong(16);
-                    long thisUserId = rs.getLong(17);
+//                    long thisUserId = rs.getLong(17);
                     long rVersionId = rs.getLong(18);
                     float amount = rs.getFloat(19);
                     long paymentStatusId = rs.getLong(20);
@@ -986,7 +981,7 @@ public class ProjectTrackerBean implements SessionBean {
 
             // save userRoles
             UserRole[] userRole = project.getParticipants();
-            long[] userRoleIdArr = new long[userRole.length];
+//            long[] userRoleIdArr = new long[userRole.length];
 
             for (int i = 0; i < userRole.length; i++) {
                 /*
@@ -1318,7 +1313,7 @@ public class ProjectTrackerBean implements SessionBean {
      * returned.
      *
      * @param projectId
-     * @param userId
+     * @param user
      *
      * @return UserRole[]
      *
@@ -1449,6 +1444,7 @@ public class ProjectTrackerBean implements SessionBean {
      *
      * @throws RuntimeException DOCUMENT ME!
      */
+/*
     private PhaseInstance getCurrentPhaseInstance(long projectId) {
         info("PT.getCurrentPhaseInstance, project: " + projectId);
 
@@ -1487,7 +1483,6 @@ public class ProjectTrackerBean implements SessionBean {
             } else {
                 String errorMsg = "PT.getCurrentPhaseInstance(): Could not retrieve current phaseInstance for projectId: " + projectId;
                 error(errorMsg);
-                // TODO Change exception?
                 throw new RuntimeException(errorMsg);
             }
         } catch (SQLException e) {
@@ -1499,6 +1494,7 @@ public class ProjectTrackerBean implements SessionBean {
         info("PT.getCurrentPhaseInstance(): end");
         return phaseInstance;
     }
+*/
 
     /**
      * Retrieves a PaymentInfo object from the database.
@@ -1509,6 +1505,7 @@ public class ProjectTrackerBean implements SessionBean {
      *
      * @throws RuntimeException DOCUMENT ME!
      */
+/*
     private PaymentInfo getPaymentInfo(long paymentInfoId) {
         debug("PT.getPaymentInfo( " + paymentInfoId + " )");
 
@@ -1541,13 +1538,12 @@ public class ProjectTrackerBean implements SessionBean {
                 paymentInfo = new PaymentInfo(paymentInfoId, amount, paymentStatus, paymentVersionId);
             }
 // UserRoles don't need paymentinfo(pm does not have one)
-/*             else {
-                String errorMsg = "Could not retrieve paymentInfo, id: " + paymentInfoId;
-                error(errorMsg);
-                // TODO Change exception?
-                throw new RuntimeException(errorMsg);
-            }
-*/
+//             else {
+//                String errorMsg = "Could not retrieve paymentInfo, id: " + paymentInfoId;
+//                error(errorMsg);
+//                throw new RuntimeException(errorMsg);
+//            }
+
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } finally {
@@ -1556,6 +1552,7 @@ public class ProjectTrackerBean implements SessionBean {
 
         return paymentInfo;
     }
+*/
 
     /**
      * Creates a new Online Review Project.
@@ -1644,7 +1641,7 @@ public class ProjectTrackerBean implements SessionBean {
             ps.setLong(8, modUserId);
             ps.setLong(9, levelId);
 
-            int nr = ps.executeUpdate();
+            ps.executeUpdate();
 
             // Create phase instances for project
             info("Creating phase instances");
@@ -1688,7 +1685,7 @@ public class ProjectTrackerBean implements SessionBean {
                 ps.setLong(5, projectId);
                 ps.setLong(6, modUserId);
 
-                nr = ps.executeUpdate();
+                ps.executeUpdate();
 
                 // Clean up this variable for reuse - bblais
                 Common.close(ps);
@@ -1717,7 +1714,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setLong(3, 1);
                     ps.setLong(4, modUserId);
 
-                    nr = ps.executeUpdate();
+                    ps.executeUpdate();
                 }
             }
 
@@ -1756,7 +1753,7 @@ public class ProjectTrackerBean implements SessionBean {
                     ps.setNull(6, Types.DECIMAL);
                 }
                 ps.setLong(7, modUserId);
-                nr = ps.executeUpdate();
+                ps.executeUpdate();
             }
 
             // Clean up this variable for reuse - bblais
@@ -1816,7 +1813,7 @@ public class ProjectTrackerBean implements SessionBean {
             }
 
             ProjectTypeManager projectTypeManager = (ProjectTypeManager) Common.getFromCache("ProjectTypeManager");
-            ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
+//            ProjectType projectType = projectTypeManager.getProjectType(projectTypeId);
 
             String prefix = projectName + " " +
                     projectVersion + " " +
@@ -2743,25 +2740,25 @@ public class ProjectTrackerBean implements SessionBean {
     /**
      * @see javax.ejb.SessionBean#ejbRemove()
      */
-    public void ejbRemove() throws EJBException, RemoteException {
+    public void ejbRemove() throws EJBException {
     }
 
     /**
      * @see javax.ejb.SessionBean#ejbActivate()
      */
-    public void ejbActivate() throws EJBException, RemoteException {
+    public void ejbActivate() throws EJBException {
     }
 
     /**
      * @see javax.ejb.SessionBean#ejbPassivate()
      */
-    public void ejbPassivate() throws EJBException, RemoteException {
+    public void ejbPassivate() throws EJBException {
     }
 
     /**
      * @see javax.ejb.SessionBean#setSessionContext(javax.ejb.SessionContext)
      */
-    public void setSessionContext(SessionContext ctx) throws EJBException, RemoteException {
+    public void setSessionContext(SessionContext ctx) throws EJBException {
         this.ejbContext = ctx;
     }
 
@@ -2815,7 +2812,7 @@ public class ProjectTrackerBean implements SessionBean {
         }
     }
 
-    public void finalizeScores(long projectId) throws Exception, RemoteException {
+    public void finalizeScores(long projectId) throws EJBException {
         final String retrieveScores =
                 " SELECT cvd.phase_id ," +
                 "        cvd.level_id," +
@@ -2941,7 +2938,7 @@ public class ProjectTrackerBean implements SessionBean {
                 psInsertScores.executeUpdate();
             }
         } catch (SQLException sqe) {
-            throw new Exception(sqe);
+            throw new EJBException(sqe);
         } finally {
             if (rsScores != null) {
                 try {
