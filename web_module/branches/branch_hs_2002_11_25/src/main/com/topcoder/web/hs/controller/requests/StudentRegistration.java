@@ -345,6 +345,7 @@ public class StudentRegistration extends Base {
           catch (NoSuchUserException _nsue) {
             handle_take=false;
           }
+        }
         catch (RemoteException _re) {
           _re.printStackTrace();
         }
