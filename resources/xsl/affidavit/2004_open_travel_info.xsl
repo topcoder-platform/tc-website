@@ -56,42 +56,46 @@
 <!-- TCO Head Begins -->
             <div align="center">
                 <img src="/i/clear.gif" alt="" width="10" height="15" border="0" /><br/>
-                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=overview" target="_top"><img src="/i/tournament/tco04/tco04_home_banner2.gif" alt="2004 TopCoder Open" width="540" height="99" border="0"/></A><br/>
+                <A href="/tc?module=Static&amp;d1=tournaments&amp;d2=tco04&amp;d3=overview" target="_top"><img src="/i/tournament/tco04/tco04_home_banner2.gif" alt="2004 TopCoder Collegiate Challenge" width="540" height="99" border="0"/></A><br/>
                 <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br/>
             </div>
 <!-- TCO Head Ends -->
 
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td width="11"><img src="/i/clear.gif" alt="" width="11" height="1" border="0"/></td>
+                    <td class="bodyText" width="100%"><img src="/i/clear.gif" alt="" width="240" height="1" border="0"/><br/>
         <h2>Travel Information</h2>
         <p>
         <B><U>HOTEL INFORMATION:</U></B><BR/>
         <BR/>
-          Boston Park Plaza Hotel &amp; Towers<BR/>
-          64 Arlington Street<BR/>
-          Boston, MA 02116<BR/>
-          Phone: (617) 426-2000<BR/>
-          <a target="_blank" href="http://www.bostonparkplaza.com">www.bostonparkplaza.com</a><BR/>
+          Santa Clara Marriott<BR/>
+          2700 Mission College Boulevard<BR/>
+          Santa Clara, CA 95054<BR/>
+          Phone: (408) 988-1500<BR/>
+          <a target="_blank" href="http://www.santaclaramarriott.com">www.santaclaramarriott.com</a><BR/>
         <BR/>
-         A room will be confirmed for your arrival on April 14th and departure on April 17th.   The check-in time is
-            3:00pm and check out time is 12:00noon.  If you have any special requests, please indicate them on the
+         A room will be confirmed for your arrival on November 10th and departure on November 13th.   The check-in time is
+            3:00pm and check out time is 11:00 AM .  If you have any special requests, please indicate them on the
             travel form. The cost of your sleeping room and applicable taxes will be charged to the TopCoder master
             account.  You will be required, however, to provide a credit card upon check-in for any incidental expenses.
             <BR/><BR/>
-            <b>At the TCO04, you will be sharing a hotel room with another competitor.</b>  Once the finalists have
-            been announced, you can email <a href="mailto:bhealy@topcoder.com">Barbara Healy</a> with any preference you may have for a
-            roommate.  We will do everything possible to accommodate your request. <BR/>
+            <b>At the TCO04, you will be sharing a hotel room with another competitor.</b>  Please fill in the
+            appropriate space with your roommate preference if you have one<BR/>
         <BR/>
         <B><U>AIRLINE INFORMATION:</U></B><BR/>
         <BR/>
-          Your travel information must be submitted no later than <strong>9:00 PM ET on Wednesday, March 24th</strong>.    TopCoder will secure
+          Your travel information must be submitted no later than <strong>9:00 AM ET on Monday, October 18th</strong>.
+            TopCoder will secure
             airline reservations based upon your registration information and will email a travel itinerary to you
-            by Friday, April 2nd.  Please be advised that once airlines tickets are confirmed, any changes are
+            by Friday, November 5th.  Please be advised that once airlines tickets are confirmed, any changes are
             subject to penalty fees at your own expense.
             <BR/>
         <BR/>
         <B><U>AIRPORT TRANSPORTATION:</U></B><BR/>
         <BR/>
-            The Boston Park Plaza Hotel provides a shuttle to and from Logan International Airport every half hour.
-            Further information on where to board upon your arrival at the airport will be indicated on your itinerary.
+            TopCoder will provide transportation to and from San Jose International Airport.  Further information on
+            where to board upon your arrival at the airport will be indicated on your itinerary.
         </p>
 
 
@@ -257,7 +261,7 @@
 
             <TR>
               <TD COLSPAN="2">
-                  *For extended stays in San Jose/USA, please contact <a href="mailto:bhealy@topcoder.com" >Barbara healy</a>.  Any extra expenses will be the
+                  *For extended stays in San Jose/USA, please contact <a href="mailto:bhealy@topcoder.com" >Barbara Healy</a>.  Any extra expenses will be the
                   responsibility of the competitor (extra hotel nights, meals, higher air fares, etc.).
               </TD>
             </TR>
@@ -273,7 +277,15 @@
 
         </TABLE>
 
-        <p><br/></p>
+
+
+
+
+                    </td>
+                    <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
+                </tr>
+                <tr><td colspan="4" valign="top" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td></tr>
+            </table>
         </td>
 <!-- Center Column Ends -->
 
@@ -284,7 +296,7 @@
 <!-- Right Column Begins -->
         <td width="170">
             <xsl:call-template name="public_right_col">
-                <xsl:with-param name="sectionName">tco03</xsl:with-param>
+                <xsl:with-param name="sectionName">tco04</xsl:with-param>
             </xsl:call-template>
         </td>
 <!-- Right Column Ends -->
