@@ -191,7 +191,8 @@
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">
-                        <%= JSPUtils.timeFormat(level.getItem("time_elapsed")) %>
+                        <% int sid=Integer.valueOf(level.getItem("end_status_id").toString()); %>
+                        <%= (sid==TCESConstants.PROBLEM_STATUS_OPEN || sid==TCESConstants.PROBLEM_STATUS_COMPILED)?"N/A":JSPUtils.timeFormat(level.getItem("time_elapsed")) %>
                     </TD>
                     <TD><IMG SRC="/i/clear.gif" ALT="" WIDTH="20" HEIGHT="1" BORDER="0"></TD>
                     <TD class="statText">

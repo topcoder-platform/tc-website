@@ -136,6 +136,9 @@ public class TCESConstants {
 
     public static int PRO_CODER_TYPE  = 2;
     public static int STUDENT_CODER_TYPE = 1;
+    
+    public static int PROBLEM_STATUS_OPEN = 120;
+    public static int PROBLEM_STATUS_COMPILED = 121;
 
     public static DateFormat DATE_FORMAT = new SimpleDateFormat("MM/dd/yyyy");
     public static NumberFormat NUMBER_FORMAT = new DecimalFormat("####0.00");
