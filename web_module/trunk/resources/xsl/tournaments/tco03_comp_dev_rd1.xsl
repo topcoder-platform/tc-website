@@ -506,7 +506,7 @@
                     <td class="formHandleOdd"><a href="http://software.topcoder.com/catalog/c_component.jsp?comp=7361823" class="statText" target="_blank">Type Safe Enum</a></td>
                     <td class="formHandleOdd" align="center">6</td>
                     <td class="formHandleOdd" align="center">1</td>
-                    <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=278460">Ukraine</a></td>
+                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=278460">Ukraine</a></td>
                     <td class="formHandleOdd" align="right">96.25</td>
                 </tr>
                 <tr valign="middle">
