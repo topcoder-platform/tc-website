@@ -76,7 +76,7 @@
 <IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="3" BORDER="0"/>
 <xsl:call-template name="calendar"/>
 <!-- <xsl:call-template name="countries"/> -->
-<IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="5"/>
+<IMG SRC="/i/logo_ghosted_bracket.gif" WIDTH="160" HEIGHT="77" BORDER="0" ALT="[ TopCoder ]" VSPACE="5"/><BR/>
 <!-- Do Not Delete This Line --><FONT SIZE="1" COLOR="#CCCCCC" FACE="tahoma">HiddenWord</FONT>      
       </TD>    
 
@@ -167,17 +167,17 @@ trying for the fun of it...<A HREF="/index?t=news_events&amp;c=feat_050802" CLAS
   </TR>  
 </TABLE>
 <!-- Editorials -->
-<!-- <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
-  <TR><TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
+<TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%" BGCOLOR="#FFFFFF">  
+  <TR><!-- <TD VALIGN="top"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="8" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2" WIDTH="100%"><IMG SRC="/i/label_coder_view.gif" ALT="Coder's Point of View" WIDTH="148" HEIGHT="26" BORDER="0"/></TD>   
       <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
-      <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+      <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD> -->
       <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
       <TD VALIGN="top" COLSPAN="2"><IMG SRC="/i/label_lessons.gif" ALT="Lessons Learned the Hard Way" WIDTH="205" HEIGHT="26" BORDER="0"/></TD>       
       <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR>    
   <TR>
-    <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
+    <!-- <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="26" BORDER="0"/></TD>  
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" WIDTH="100%" ALIGN="left" CLASS="bodyText">    
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
@@ -187,15 +187,15 @@ trying for the fun of it...<A HREF="/index?t=news_events&amp;c=feat_050802" CLAS
 	<A HREF="/?t=statistics&amp;c=srm86_rookie" CLASS="bodyGeneric">Rookie Review</A><BR/>
 	<A HREF="/?t=statistics&amp;c=srm86_prob" CLASS="bodyGeneric">Problem Set Analysis &amp; Opinion</A></TD>
      <TD VALIGN="top" WIDTH="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="3" HEIGHT="1" BORDER="0"/></TD>   
-     <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
+     <TD VALIGN="top" WIDTH="1" BGCOLOR="#FFFFFF"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD> -->
      <TD VALIGN="top" WIDTH="5"><IMG SRC="/i/clear.gif" ALT="" WIDTH="5" HEIGHT="1" BORDER="0"/></TD>
     <TD VALIGN="top" WIDTH="55" ALIGN="left" CLASS="bodyText"><IMG SRC="/i/m/slowjoe_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1"/><BR/></TD>
     <TD VALIGN="top" ALIGN="left" CLASS="bodyText">
     <FONT SIZE="2" COLOR="#000000" FACE="tahoma, verdana">
-    <B>SRM 85</B></FONT><BR/>
+    <B>SRM 87</B></FONT><BR/>
 	By&#160;slowjoe,<I>[TC] Member</I><BR/>
-	This is the first of what hopefully will develop into a regular review of Division 2. 
-	The focus will be on "<A HREF="/?t=statistics&amp;c=srm85_lessons" CLASS="bodyGeneric">what went wrong</A>".
+SRM 87 had 623 registrants, and this resulted in 41 rooms in Division-II, of 
+which 5 rooms were in the non-rated competition...<A HREF="/?t=statistics&amp;c=srm87_lessons" CLASS="bodyGeneric">full story</A>
 	</TD>
      <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>	  
   </TR>
@@ -206,7 +206,7 @@ trying for the fun of it...<A HREF="/index?t=news_events&amp;c=feat_050802" CLAS
     <TD VALIGN="top" WIDTH="8"><IMG SRC="/i/clear.gif" ALT="" WIDTH="8" HEIGHT="1" BORDER="0"/></TD>
   </TR> 
   <TR><TD VALIGN="top" COLSPAN="9"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="4" BORDER="0"/></TD></TR>   
-</TABLE> -->
+</TABLE>
  <!-- Coder of the Week Begins -->
    <xsl:call-template name="coder_week"/>
 <!-- Coder of the Week Ends -->
