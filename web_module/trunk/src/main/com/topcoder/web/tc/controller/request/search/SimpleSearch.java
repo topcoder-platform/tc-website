@@ -164,7 +164,7 @@ public class SimpleSearch extends Base {
         searchQuery.append(" SELECT c.coder_id AS user_id");
         searchQuery.append(" , c.handle");
         searchQuery.append(" , LOWER(c.handle) lower_handle");
-        searchQuery.append(" , r.rating");
+        searchQuery.append(" , CASE WHEN r.rating= 0 THEN 'Unrated' ELSE r.rating END as rating");
         searchQuery.append(" , case when co.country_code = '840' then c.state_code else case when c.state_code='ZZ' then '' else c.state_code end end as state_code");
         searchQuery.append(" , r.num_ratings");
         searchQuery.append(" , (SELECT date FROM calendar cal WHERE cal.calendar_id = ro.calendar_id) AS last_competed");
