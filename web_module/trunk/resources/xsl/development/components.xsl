@@ -249,23 +249,6 @@
                     <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
                 </tr>
 
-                <tr valign="middle">
-                    <td class="formHandleEven"></td>
-                    <td class="formHandleEven" align="center"></td>
-                    <td class="formHandleEven" align="center">4</td>
-                    <td class="formHandleEven"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=153503"><strong>try17</strong></a></td>
-                    <td class="formHandleEven" align="center">90.48</td>
-                    <td class="formHandleEven" align="right">$50.00&#160;&#160;</td>
-                </tr>
-
-                <tr valign="middle">
-                    <td class="formHandleOdd"></td>
-                    <td class="formHandleOdd" align="center"></td>
-                    <td class="formHandleOdd" align="center">5</td>
-                    <td class="formHandleOdd"><a class="coderTextBlue" href="/stat?c=member_profile&amp;cr=154714"><strong>mielson</strong></a></td>
-                    <td class="formHandleOdd" align="center">89.88</td>
-                    <td class="formHandleOdd" align="right">$0.00&#160;&#160;</td>
-                </tr>
 
             </table>
 <!-- Development Winners Ends -->
