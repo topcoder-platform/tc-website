@@ -22,10 +22,17 @@
 </head>
 <body align="center">
 
-<jsp:include page="../links.jsp" >
-   <jsp:param name="tabLev1" value="<%=regInfo.getCoderType()==Constants.STUDENT?"collegiate":"internal"%>"/>
-   <jsp:param name="tabLev2" value="registration"/>
-</jsp:include>
+<% if (regInfo.getCoderType()==Constants.STUDENT) {%>
+    <jsp:include page="../links.jsp" >
+        <jsp:param name="tabLev1" value="collegiate"/>
+       <jsp:param name="tabLev2" value="overview"/>
+    </jsp:include>
+<% } else { %>
+    <jsp:include page="../links.jsp" >
+        <jsp:param name="tabLev1" value="internal"/>
+       <jsp:param name="tabLev2" value="overview"/>
+    </jsp:include>
+<% } %>
 
 <div class="dc_bodyTable">
    <div CLASS="dc_headerPic">

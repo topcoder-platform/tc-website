@@ -24,12 +24,12 @@
         <jsp:param name="tabLev1" value="collegiate"/>
        <jsp:param name="tabLev2" value="registration"/>
     </jsp:include>
-   <% } else { %>
+<% } else { %>
     <jsp:include page="../links.jsp" >
         <jsp:param name="tabLev1" value="internal"/>
        <jsp:param name="tabLev2" value="registration"/>
     </jsp:include>
-   <% } %>
+<% } %>
 
 <table width="750" align="center" valign="top" cellpadding="0" cellspacing="0">
 	<tr>
