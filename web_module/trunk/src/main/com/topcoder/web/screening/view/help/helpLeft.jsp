@@ -1,10 +1,10 @@
 <%@  page language="java"%>
 <% String selected = request.getParameter("selected")==null?"":request.getParameter("selected"); %>
 
+                        <h3 class="bodySubtitle">Contents</h3>
+                        
                         <table border="0" cellpadding="3" cellspacing="0" width="100%">
-                            <tr><td><h3 class="bodySubtitle">Contents</h3></td></tr>
-
-<!-- Getting Started begins -->
+ <!-- Getting Started begins -->
                             <tr>
                             <% if (selected.equals("steps")) { %>
                                 <td class="helpTitle"><strong>Perform the Following Steps</strong></td>
