@@ -65,15 +65,15 @@
     	<TD COLSPAN="4" VALIGN="top" BGCOLOR="#999999">
 		<TABLE BORDER="0" WIDTH="100%" CELLSPACING="0" CELLPADDING="2" BGCOLOR="#CCCCCC">
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_room1" CLASS="bodyText">&#160;&#160;Room 1 Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Want to write?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_rookie" CLASS="bodyText">&#160;&#160;Rookie Review</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="mailto:editorial@topcoder.com">Comments?</A></TD>
 		</TR>
 		<TR>
-			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm78_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
+			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=srm79_prob" CLASS="bodyText">&#160;&#160;Problem Set</A></TD>
 			<TD VALIGN="top" CLASS="bodyText"><A HREF="/?t=statistics&amp;c=editorial_archive">Archive</A></TD>
 		</TR>
 		<TR><TD VALIGN="top" COLSPAN="4" CLASS="smallText"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/></TD></TR>    		
@@ -84,20 +84,30 @@
 </TABLE>
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
-<P><B>Single Round Match 78</B><BR/>
-April 9, 2002</P>
-<P><B>Room 1 Review</B></P>
-<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">dmwright</A> won top honors in <A HREF="/stat?c=last_match" CLASS="bodyGeneric">SRM 78</A>, edging out top ranked 
-<A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> by submitting all three problems successfully for 1308.41 and then taking the lead during the challenge 
-phase by successfully challenging <A HREF="/stat?c=last_match" CLASS="bodyGeneric">dgarthur's</A> CleanupCrew and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">bigg_nate's</A> pinball, 
-for a total of 1408.41, giving him second overall (to <A HREF="/stat?c=last_match" CLASS="bodyGeneric">SnapDragon</A> with 1483.30).</P>
-<P><A HREF="/stat?c=last_match" CLASS="bodyGeneric">NDBronson</A> was true to his usual form in this match, with the third highest score overall. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ambrose</A>
-, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">erdos</A>, and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">bigg_nate</A>, however, did not fair so well, each receiving points only for the 
-easy problem, resulting in big ratings drops of 150+ points.</P>
-<P>In addition, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A> and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">ZorbaTHut</A>, the number 2 and number 3 coders were absent tonight.  <A HREF="/stat?c=last_match" CLASS="bodyGeneric">jonmac</A>, last year's <A HREF="/index?t=schedule&amp;c=tourny_tci_01" CLASS="bodyText">2001 Invitational</A> winner, was rumored to be playing tennis.</P>
-    
-    <IMG SRC="/i/m/lbackstrom_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
-By&#160;lbackstrom<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=159052" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
+<P><B>Single Round Match 79</B><BR/>
+April 10, 2002</P>
+<P><B>Rookie Review</B></P>
+<P>In the rookie rooms, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus</A> in room 65 submitted the 
+fastest problem set, netting 1138.10 points for all three solutions. Only he and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Niller</A>
+broke 1100, though <A HREF="/stat?c=last_match" CLASS="bodyGeneric">MadMax, Arachnid, JackAttack, weirfreak, KingTark, Silence, fenrir28, 
+and v3risimilitud3</A> all achieved more than 1000 points.</P>
+
+<P>Challenge phase produced more than one reversal, with many of the people over 1000 losing most or even all of their solutions, some offsetting this
+with one or more successful challenges. Most notably is <A HREF="/stat?c=last_match" CLASS="bodyGeneric">mmsa</A> in room 61 getting four successful 
+challenges on <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Arachnid, MadMax, Xalles, and kris,</A> though an unsuccessful challenge on a different 
+solution of Arachnid's meant only a net gain of 150 points. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Silence</A> in room 64 added 50 points to their
+score with a successful challenge of <A HREF="/stat?c=last_match" CLASS="bodyGeneric">TaeShadow</A>, bringing it up to 1123.45.</P>
+
+<P>System test was drastic in some rooms and ineffective in others. Room 61 with an amazing 12 successful challenges overall only lost a single
+solution, while room 64 with only a single successful challenge lost a total of nine solutions. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus's</A> 
+450 failed the system test, as did <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Silence's</A> 1000 and <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Niller's</A> 
+300. However, in each case their two remaining submissions kept them in first place, <A HREF="/stat?c=last_match" CLASS="bodyGeneric">Frostilicus</A> having the 
+only working 1000pt solution in the rookie rooms. <A HREF="/stat?c=last_match" CLASS="bodyGeneric">pearl</A> won room 62 with a successful 300pt and a successful 450pt.</P>
+
+<P>The grand winner of the rookie rooms, however, was <A HREF="/stat?c=last_match" CLASS="bodyGeneric">mmsa</A>, submitting a rapid 
+300 and 450 and then gaining another 150 points during challenge phase, for a grand total of 824.11 and a debut rating of 1485.</P>    
+    <IMG SRC="/i/m/ZorbaTHut_mug.gif" ALT="" WIDTH="55" HEIGHT="61" BORDER="0" HSPACE="6" VSPACE="1" ALIGN="left"/>
+By&#160;ZorbaTHut<BR/><DIV CLASS="smallText"><I>TopCoder Member</I><BR/><A HREF="/?t=statistics&amp;c=member_profile&amp;Coder_Id=152347" CLASS="smallText">Author Profile</A></DIV><BR CLEAR="all"/>
           <P><BR/></P>
 					</TD>
 					<TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
