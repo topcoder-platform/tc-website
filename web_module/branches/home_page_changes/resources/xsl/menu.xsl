@@ -10,28 +10,9 @@
     <tr valign="middle">
         <td class="topNav" width="49%">&#160;</td>
 
-        <td nowrap="0">
-            <xsl:attribute name="class">
-            <xsl:choose>
-                <xsl:when test="/TC/Task!='tces'and/TC/Task!='development'and/TC/Task!='about_tc'and/TC/Task!='news_events'and/TC/Task!='contacts'">topNavOn</xsl:when>
-                <xsl:otherwise>topNav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="topLink" target="_parent"><xsl:attribute name="HREF">/</xsl:attribute>Competition</A>
-        </td>
+        <td class="topNav" nowrap="0"><A class="topLink" href="/tc">Competition Home</A></td>
 
-        <td nowrap="0">
-            <xsl:attribute name="class">
-            <xsl:choose>
-                <xsl:when test="/TC/Task='development'">topNavOn</xsl:when>
-                <xsl:otherwise>topNav</xsl:otherwise>
-            </xsl:choose>
-            </xsl:attribute>
-            <A class="topLink" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?t=development&amp;c=index</xsl:attribute>Development</A>
-        </td>
-
-
-        <td class="topNav" nowrap="0"><A class="topLink" href="/corp/?module=Static&amp;d1=corp&amp;d2=index">Corporate Services</A></td>
+        <td class="topNav" nowrap="0"><A class="topLink" href="/?t=development&amp;c=index">Development</A></td>
 
         <td class="topNav" width="49%">&#160;</td>
     </tr>
