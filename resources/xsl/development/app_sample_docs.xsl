@@ -303,16 +303,6 @@
                                                     <a target="tcsdocs" href="/i/development/downloads/Application_Integration_Specification.rtf" class="bodyText">Application Integration Specification</a>
                                                 </td>
                                             </tr>
-                                            <tr valign="top">
-                                                <td class="bodyText">01.12.2004</td>
-                                                <td class="bodyText">
-                                                    <img src="/i/clear.gif" alt="" width="10" height="5" border="0"/>
-                                                </td>
-                                                <td class="bodyText">
-                                                    <a target="tcsdocs" href="/i/development/downloads/Application_Development_Scope.rtf" class="bodyText">Application Development Scope</a>
-                                                </td>
-                                            </tr>
-
                                         </table>
                                     </td>
                                 </tr>
