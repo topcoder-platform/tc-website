@@ -170,13 +170,6 @@
     </servlet>
 
     <servlet>
-        <servlet-name>report</servlet-name>
-        <display-name>report</display-name>
-        <description>The report controller servlet</description>
-        <servlet-class>com.topcoder.web.tc.controller.legacy.ReportServlet</servlet-class>
-    </servlet>
-
-    <servlet>
         <servlet-name>PactsMemberServlet</servlet-name>
         <display-name>PactsMemberServlet</display-name>
         <description>The PactsMemberServlet controller servlet</description>
