@@ -100,7 +100,7 @@ third and hardest problem, relegating him to third place.
 <p>
 </p>
 
-Brand-new contestant <b>JongMan</b> romped all over Division Two with
+Brand-new contestant <b>JongMan</b> romped through Division Two with
 a 300-point win over his nearest competitor, <b>weck</b>. We'll see if
 this latest coding ace has the goods to make an impression in the major
 league. Rounding out the top three was <b>andro</b>, whose name means,
