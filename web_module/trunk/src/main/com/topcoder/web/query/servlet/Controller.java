@@ -52,6 +52,7 @@ public class Controller extends HttpServlet {
             throws ServletException, IOException {
 
         String taskName = request.getParameter(Constants.TASK_PARAM);
+        String stepName = request.getParameter(Constants.STEP_PARAM);
         if (taskName!=null && !isLegal(taskName)) {
             throw new ServletException("Illegal task: " + taskName);
         }
@@ -82,7 +83,7 @@ public class Controller extends HttpServlet {
 
                 task.servletPreAction(request, response);
 
-                task.process();
+                task.process(stepName);
 
                 task.servletPostAction(request, response);
 

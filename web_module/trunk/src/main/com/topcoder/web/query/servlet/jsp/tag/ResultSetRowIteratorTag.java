@@ -9,9 +9,7 @@ import javax.servlet.jsp.JspException;
  *
  * @author  George Dean
  */
-public class RowIteratorTag extends IteratorTag {
-
-    private static Logger log = Logger.getLogger(RowIteratorTag.class);
+public class ResultSetRowIteratorTag extends IteratorTag {
 
     ResultSetContainer rsc;
 
@@ -21,7 +19,7 @@ public class RowIteratorTag extends IteratorTag {
 
     public int doStartTag()throws JspException {
         setCollection(rsc);
-       return super.doStartTag();
+        return super.doStartTag();
     }
 
 }

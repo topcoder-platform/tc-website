@@ -11,8 +11,6 @@ import java.util.List;
  */
 public class ListIteratorTag extends IteratorTag {
     
-    private static Logger log = Logger.getLogger(ListIteratorTag.class);
-
     List list;
 
     public void setList(List list) {

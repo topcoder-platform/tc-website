@@ -3,6 +3,7 @@ package com.topcoder.web.query.ejb.QueryServices;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 import javax.ejb.EJBObject;
+import javax.ejb.EJBException;
 import java.rmi.RemoteException;
 import java.rmi.RemoteException;
 
@@ -19,7 +20,7 @@ public interface QueryAuthentication extends EJBObject {
      * @return ResultSetContainer containing the user_id, handle and password
      * @throws RemoteException if there was a problem with query execution
      */
-    public ResultSetContainer getLoginInfo(String handle) throws RemoteException;
+    ResultSetContainer getLoginInfo(String handle) throws RemoteException, EJBException;
 
 }
 

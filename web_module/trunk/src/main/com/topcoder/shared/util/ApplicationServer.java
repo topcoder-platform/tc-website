@@ -42,7 +42,14 @@ public class ApplicationServer {
     public static String JOB_POSTING_SERVICES = bundle.getProperty("JOB_POSTING_SERVICES", "com.topcoder.web.tces.ejb.JobPostingServicesHome");
     public static String RESUME_SERVICES = bundle.getProperty("RESUME_SERVICES", "com.topcoder.web.resume.ejb.ResumeServicesHome");
 
-    public static String QUERY_AUTHENTICATION = bundle.getProperty("QUERY_AUTHENTICATION", "com.topcoder.web.query.ejb.QueryServices.QueryAuthentication");
+    public static String Q_QUERY_AUTHENTICATION = bundle.getProperty("Q_QUERY_AUTHENTICATION", "com.topcoder.web.query.ejb.QueryServices.QueryAuthentication");
+    public static String Q_COMMAND = bundle.getProperty("Q_COMMAND", "com.topcoder.web.query.ejb.QueryServices.Command");
+    public static String Q_COMMAND_GROUP = bundle.getProperty("Q_COMMAND_GROUP", "com.topcoder.web.query.ejb.QueryServices.CommandGroup");
+    public static String Q_COMMAND_QUERY = bundle.getProperty("Q_COMMAND_QUERY", "com.topcoder.web.query.ejb.QueryServices.CommandQuery");
+    public static String Q_INPUT = bundle.getProperty("Q_INPUT", "com.topcoder.web.query.ejb.QueryServices.Input");
+    public static String Q_QUERY = bundle.getProperty("Q_QUERY", "com.topcoder.web.query.ejb.QueryServices.Query");
+    public static String Q_QUERY_INPUT = bundle.getProperty("Q_QUERY_INPUT", "com.topcoder.web.query.ejb.QueryServices.QueryInput");
+
 
     private static String[] getClusterArray(String s) {
         StringTokenizer st = new StringTokenizer(s, ",");

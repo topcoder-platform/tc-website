@@ -7,28 +7,27 @@ import javax.servlet.jsp.tagext.BodyTagSupport;
 import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 
 
-public class RSCTag extends BodyTagSupport {
+public class ResultSetItemTag extends BodyTagSupport {
 
     private ResultSetContainer.ResultSetRow row;
-    private String colName;
+    private String name;
 
     public void setRow(ResultSetContainer.ResultSetRow row) {
         this.row = row;
     }
 
-    public void setColName(String name) {
-        this.colName = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
     public void doInitBody() throws JspException {
-        pageContext.setAttribute(getId(), row.getItem(colName));
+        pageContext.setAttribute(getId(), row.getItem(name));
     }
 
     public int doAfterBody() throws JspException {
-        pageContext.setAttribute(getId(), row.getItem(colName));
+        pageContext.setAttribute(getId(), row.getItem(name));
         return EVAL_BODY_TAG;
     }
-
 
     public void release() {
         row = null;

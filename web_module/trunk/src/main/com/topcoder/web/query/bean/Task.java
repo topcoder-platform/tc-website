@@ -3,6 +3,7 @@ package com.topcoder.web.query.bean;
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 
 /**
@@ -16,7 +17,7 @@ public interface Task {
     /** Processes the given step of a task
      * @throws Exception
      */
-    void process() throws Exception;
+    void process(String step) throws Exception;
 
     /** Setter for property initialContext.
      * @param ctx New value of property initialContext.
@@ -51,5 +52,16 @@ public interface Task {
     void setServletPath(String servletPath);
 
     String getServletPath();
-}
 
+    void addError(String key, Object error);
+
+    String getError(String key);
+
+    boolean hasError(String key);
+
+    void removeError(String key);
+
+    void clearErrors();
+
+    boolean hasErrors();
+}
