@@ -1,8 +1,7 @@
 package com.topcoder.web.privatelabel.controller.request.google04;
 
 import com.topcoder.web.privatelabel.Constants;
-import com.topcoder.web.privatelabel.model.SimpleRegInfo;
-import com.topcoder.web.privatelabel.model.FullRegInfo;
+import com.topcoder.web.privatelabel.model.*;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.SessionInfo;
 import com.topcoder.web.common.BaseServlet;
