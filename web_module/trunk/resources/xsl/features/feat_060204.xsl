@@ -88,7 +88,7 @@ with the addition of generics, see below).
 To get around these limitations, Java has "wrapper" classes with similar names to the primitives that 
 they wrap.  For example, the Integer class wraps int; you can cheaply make an Integer with the int 
 that it wraps.   The wrapper classes in Java also provide utility methods and constants that are 
-associated with the primitive itself.  For example, <span class="code">Integer.MAX_VALUE</span> is the most positive <span class="code">int</span> (2<sup>32</sup>-1).  
+associated with the primitive itself.  For example, <span class="code">Integer.MAX_VALUE</span> is the most positive <span class="code">int</span> (2<sup>31</sup>-1).  
 Other very useful methods include <span class="code">Integer</span>.<span class="code">parseInt</span>, which parses a <span class="code">String</span> into an <span class="code">int</span> (aside: why 
 doesn't it parse it into an <span class="code">Integer</span>?), and <span class="code">Integer.toBinaryString</span>.
 </p>
