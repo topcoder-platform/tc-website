@@ -76,28 +76,19 @@
             
             <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
                <tr>
-                  <td width = "40%" align = "left" class="advancers_roundid"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
+                  <td width = "40%" align = "left" class="advancers_header">Round</td>
                   <td width = "20%" align = "right" class="advancers_header">Advancers</td>
                   <td width = "20%" align = "right" class="advancers_header">Room Winners</td>
                   <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
                </tr>
                <tr>
-                  <td align = "left" class="advancers_faded"></td>
+                  <td align = "left" class="advancers_roundid"><a href="/index?t=tournaments&amp;c=tco03_top100" class="topLink">Top 100</a></td>
                   <td align = "right" class="advancers_faded"><a href="/index?t=tournaments&amp;c=tco03_top100">100</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
                </tr>
-            </table>
-            <br/>
-            <table width="500" align="center" border="0" cellpadding="2" cellspacing="2" class="formFrame">
                <tr>
-                  <td width = "40%" align = "left" class="advancers_roundid"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700" class="topLink">Qualification Round 1</a></td>
-                  <td width = "20%" align = "right" class="advancers_header">Advancers</td>
-                  <td width = "20%" align = "right" class="advancers_header">Room Winners</td>
-                  <td width = "20%" align = "right" class="advancers_header">Wildcards</td>
-               </tr>
-               <tr>
-                  <td align = "left" class="advancers_faded"></td>
+                  <td align = "left" class="advancers_roundid"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700" class="topLink">Qualification Round 1</a></td>
                   <td align = "right" class="advancers_faded"><a href="/?&amp;t=tournaments&amp;c=tco03_advancers&amp;rd=4700">200</a></td>
                   <td align = "right" class="advancers_faded">n/a</td>
                   <td align = "right" class="advancers_faded">n/a</td>
