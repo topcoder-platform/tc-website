@@ -173,8 +173,6 @@ public abstract class BaseServlet extends HttpServlet {
     protected final void fetchRegularPage(HttpServletRequest request, HttpServletResponse response, String dest,
                                   boolean forward) throws Exception {
 
-        String contextPrefix = request.getContextPath();
-        boolean startsWithContextPath = dest.startsWith(contextPrefix);
         if (forward) {
             if (!dest.startsWith("/")) {
                 dest = "/" + dest;
