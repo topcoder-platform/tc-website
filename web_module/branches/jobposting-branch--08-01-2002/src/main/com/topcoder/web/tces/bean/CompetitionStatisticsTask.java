@@ -45,7 +45,13 @@ public class CompetitionStatisticsTask extends BaseTask implements Task, Seriali
     private List overallStatsByLevel;
     
     public String getStatistic(String name){
-        return getCompetitionStats().getItem(name).toString();
+        try{
+            return getCompetitionStats().getItem(name).toString();
+        }catch(NullPointerException npe){
+            log.debug("Null pointer exception in CompetitionStatisticsTask.getStatistic(\""
+                      + name + "\")");
+            return "";
+        }
     }
     
     /** Creates new CompetitionStatisticsTask */
