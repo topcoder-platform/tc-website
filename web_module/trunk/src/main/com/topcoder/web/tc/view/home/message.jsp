@@ -11,14 +11,14 @@ if (now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd())||now.aft
     </table>
     <table cellspacing="0" cellpadding="0" class="messageBoxFrame">
         <tr>
-            <td class="tc04Message" align=center>
+            <td class="tco04Message" align=center>
             <img src="/i/tournament/tco04/message.gif" border=0 /><br/><br/>
             <% if (algoTerms.isRegistered()) { %>
                 You are registered for the TCO Algorithm Competition.<br/>
             <%
             } else {
                 if (algoTerms.isEligible()) { %>
-                    You are not registered for the TCO Algorithm Competition, click <a href="/tc?module=TCO04AlgorithmTerms">here</a> to register.<br/>
+                    You are not registered for the TCO Algorithm Competition, click <a class="tco04MessageLink" href="/tc?module=TCO04AlgorithmTerms">here</a> to register.<br/>
             <%    }
              } %>
             <% if (compTerms.isRegistered()) { %>
@@ -26,7 +26,7 @@ if (now.after(compTerms.getBeginning())&&now.before(compTerms.getEnd())||now.aft
             <%
             } else {
                 if (compTerms.isEligible()) { %>
-                    You are not registered for the TCO Component Competition, click <a href="/tc?module=TCO04ComponentTerms">here</a> to register.
+                    You are not registered for the TCO Component Competition, click <a class="tco04MessageLink" href="/tc?module=TCO04ComponentTerms">here</a> to register.
             <%    } else { %>
                     Sorry, you are not eligible to register for the TCO.
             <%    }
