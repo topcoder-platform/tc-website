@@ -38,7 +38,7 @@
 
          <div class="cardBody">
          
-         <p>This is a preview of what your card will look like. It will always accurately portray your algorithm, design, and development statistics. Before you can post your TopCoder Member Card to your site you will have to "unlock" it by clicking the link below.</p>
+         <p>You can download any of the badges listed below in various sizes.  Feel free to place them on your personal website or on your resume</p>
 
         <table cellpadding="0" cellspacing="15" border="0" class="bodyText" align="center">
             <tr>
@@ -63,7 +63,7 @@
             </tr>
          </table>
 
-        <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p>
+        <p><a href="/tc?module=Static&d1=card&d2=description">Back to description</a></p> 
 
          </div>
          <p><br/></p>
