@@ -68,8 +68,8 @@
          <br><br>
          The Qualification Round will consist of two phases: the Coding Phase and System Testing Phase.
          <ul>
-         <li>The Qualification Round Coding Phase is a timed event where contestants are presented with one of [NUMBER TBD] possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
-         <li>The Qualification Round System Testing Phase is applied to all submitted code after the conclusion of the Qualification Round Coding Phase. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question. </li>
+         <li><strong>The Qualification Round Coding Phase</strong> is a timed event where contestants are presented with one of [NUMBER TBD] possible problem sets.  Each problem set contains two questions representing two levels of complexity and, accordingly, two levels of point earnings potential. Points for a question are awarded upon submission of any solution that successfully compiles and are calculated based on the total time elapsed from the time the question was opened to the time it was submitted.  Competitors will have 60 minutes to complete either or both of the problems.  The 60 minutes will begin to elapse once the first problem is opened.  The timer in the coding window will count down to the end of the 60 minutes.  A competitor who begins the qualification attempt within the final 60 minutes of the Qualification Round will have less than 60 minutes to attempt qualification.</li>
+         <li><strong>The Qualification Round System Testing Phase</strong> is applied to all submitted code after the conclusion of the Qualification Round Coding Phase. If the TopCoder System Test finds code that is flawed, the author of that code submission will lose all of the points that were originally earned for that code submission. The automated tester will apply a set of inputs, expecting the output from the code submission to be correct. If the output from a coder's submission does not match the expected output, the submission is considered flawed. The same set of input/output test cases will be applied to all code submissions for a given question. </li>
          </ul>
          The Qualification Round will contain xx virtual rooms and xx problem sets.  The top xx scorers from each of the xx problem sets presented during the Qualification Round will be eligible to compete in Round 1 of the GICJ05. 
          <br><br>
@@ -77,20 +77,27 @@
          Up to 500 individuals will qualify to compete in Round 1.  The top 50 scorers from Round 1 will advance to the Championship Round, which will be held onsite at Google's office in Bangalore, India.
          <br><br>
          The Rounds will be held on the following dates:
+
          <br><br>
-         Round	Date and Time * (all India Standard Time)
-         
-         Round 1
-         Championship Round
-         	
-         Saturday, March 5, 2005
-         Sign in:  9:00 AM - 11:55 AM
-         START:          12:00 PM (Noon)
-         
-         Saturday, March 26, 2005
-         START:          12:00 PM (Noon)
-         
-         *NOTE:  In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.
+         <table width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+         <tr valign="top">
+         <td class="sidebarTitle">Round</strong></td>
+         <td class="sidebarTitle">Date and Time * (all India Standard Time)</strong></td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap=nowrap>Round 1</td>
+         <td class="sidebarText">Saturday, March 5, 2005<br>Sign in: 9:00 AM - 11:55 AM<br>START: 12:00 PM (Noon) 
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap=nowrap>Championship Round</td>
+         <td class="sidebarText">Saturday, March 26, 2005<br>START: 12:00 PM (Noon)
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" colspan="2">*NOTE: In the event a Round must be cancelled for any reason, the "raindate" will be the following day at the same time.</td>
+         </tr>
+         </table>
          <br><br>
          
          <span class="greenSubtitle">About the Tournament</span><br>
@@ -106,9 +113,10 @@
          After each round of competition, the top scorers will be identified and will advance to the next round.  Coder advancement is determined by comparing the total point values from all three phases of the round (see Competition Round Structure) for each coder. In order to advance, a coder must finish each round with a positive (i.e., greater-than-zero) point total. The structure of the online rounds is as follows:
          <br><br>
          <strong>Round 1 (online)</strong><br>
+         <ul>
          <li>Up to 500 coders will compete in Round 1 and up to 50 will advance.  The 50 highest scoring competitors will advance to the Championship Round.  Each coder must have positive points to advance, so if there are less than 50 competitors who score positive points, only those competitors with a positive point total will advance.</li>
-         <br><br>
-         NOTE:  In the event of a tie for any advancing position, all tied coders will advance to the Championship Round.
+         </ul>
+         <strong>NOTE:</strong>  In the event of a tie for any advancing position, all tied coders will advance to the Championship Round.
          <br><br>
          <strong>Competition Round Structure</strong><br>
          Each online and onsite round of competition (excluding the Qualification Round) consists of three phases: the Coding Phase, Challenge Phase, and System Testing Phase. The Qualification Round will consist only of the Coding Phase and System Testing Phase.  (See "Qualification Round" above for details regarding the Coding Phase and System Testing Phase of the Qualification Round.)
@@ -137,19 +145,72 @@
          All participants who compete in Round 1 will receive a Google India Code Jam 2005, Powered by TopCoder t-shirt.  In addition, the 50 finalists in the Championship Round will receive cash prizes totaling 1,000,000 INR.  Any and all applicable taxes on prizes are the sole responsibility of the prizewinner.  Prizes will be distributed as follows:
          <br><br>
          
-         Competitor(s)	Prize
-         1st place finisher* - Tournament Champion	250,000 INR
-         2nd place finisher* in the Championship Round	175,000 INR
-         3rd place finisher* in the Championship Round	125,000 INR
-         4th place finisher* in the Championship Round	85,000 INR
-         5th place finisher* in the Championship Round	45,000 INR
-         6th - 10th place finishers* in the Championship Round	20,000 INR each
-         11th - 20th place finishers* in the Championship Round	10,000 INR each
-         21st - 32nd place finishers* in the Championship Round	6,250 INR each
-         33rd - 50th place finishers* in the Championship Round	2,500 INR each
-         Up to 500 competitors who compete in Round 1 	Google India Code Jam 2005, 
-         Powered by TopCoder t-shirt
-         * Winner must be present at the onsite round to receive prize.
+         <table  width="500" border="0" cellpadding="6" cellspacing="2" class="sidebarBox" align=center>
+         <tr valign="top">
+         <td class="sidebarTitle">Competitor(s)</td>
+         <td class="sidebarTitle" align=right>Prize</td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText"><b>1st place finisher* - Tournament Champion</b></td>
+         <td class="sidebarText" align=right><b>250,000 INR</b>
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>2nd place finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>175,000 INR
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>3rd place
+         finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>125,000 INR
+         </td>
+         </tr>                
+         <tr valign="top">
+         <td class="sidebarText" nowrap>4th place
+         finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>85,000 INR
+         </td>
+         </tr>                
+         <tr valign="top">
+         <td class="sidebarText" nowrap>5th place
+         finisher* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>45,000 INR
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>6th - 10th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>20,000 INR each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>11th - 20th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>10,000 INR each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>21st - 32nd place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>6,250 INR each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>33rd - 50th place
+         finishers* in the Championship Round</td>
+         <td class="sidebarText" nowrap align=right>2,500 INR each
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" nowrap>Up to 500 competitors who compete in Round 1 </td>
+         <td class="sidebarText" nowrap align=right>"Google India Code Jam 2005, Powered by TopCoder" t-shirt
+         </td>
+         </tr>
+         <tr valign="top">
+         <td class="sidebarText" colspan="2">* Winner must be present at the onsite round to receive prize.</td>
+         </tr>
+         </table>
          
          <br><br>
          <span class="greenSubtitle">Conditions of Participation</span><br>
