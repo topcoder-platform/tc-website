@@ -52,7 +52,7 @@
 			<br/><br/>
 			<span class=greenSubtitle>How it works</span>
 			<br/><br/>
-			Download the Google India Code Jam 2005 Competition Manual <a href="/i/events/google2005/competitionManual2.pdf">here</a>.
+			Be sure to read the Google India Code Jam 2005 <a href="/pl/?&module=Static&d1=gicj05&d2=instructions">competition instructions</a>.
 			<br/><br/>
 			The tournament is a timed contest where all participants compete online to solve the same problems under the same time constraints. Here’s the line-by-line documentation:
 			<br/><br/>
