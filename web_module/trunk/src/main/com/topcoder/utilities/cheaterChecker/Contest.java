@@ -122,7 +122,7 @@ public class Contest {
             query.append(" , scf.class_file ");
             query.append(" , u.handle ");
             query.append(" , s.submission_text ");
-            query.append(" , cc.language_id ");
+            query.append(" , s.language_id ");
             query.append(" , co.open_time ");
             query.append(" , s.submit_time ");
             query.append(" , s.submission_points ");
