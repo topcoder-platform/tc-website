@@ -431,8 +431,11 @@ java com.topcoder.utilities.QueryLoader "OLTP" 1002 "TCES_Campaign_Info" 0 0 "
 SELECT c.campaign_name,
        slu.status_desc
   FROM campaign c,
-       status_lu slu
- WHERE c.campaign_id = @cid@
+       status_lu slu,
+       contact con
+ WHERE c.campaign_id = @cid@ 
+   AND contact.contact_id = @uid@
+   AND c.company_id = con.company_id
    AND slu.status_id = c.status_id
 "
 
@@ -521,5 +524,6 @@ SELECT u.user_id, u.password
   FROM user u
        ,contact c
  WHERE c.contact_id = u.user_id
-   AND u.handle = @hn@
+   AND u.handle = '@hn@'
+   AND u.status = 'A'
 "
