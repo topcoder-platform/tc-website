@@ -26,6 +26,8 @@ public class DemographicModel extends BaseModel {
     private int proCount;
     private Map studentDemoInfo;
     private Map proDemoInfo;
+    private List studentDemoList;
+    private List proDemoList;
     
     public void setCampaignName(String s) {
         campaignName = s;
@@ -51,12 +53,22 @@ public class DemographicModel extends BaseModel {
         return proCount;
     }
     
-    public void setStudentDemoInfo(Map h) {
+    public void setStudentDemoInfo(Map h, List l) {
         studentDemoInfo = h;
+        studentDemoList = l;
     }
     
-    public void setProDemoInfo(Map h) {
+    public void setProDemoInfo(Map h, List l) {
         proDemoInfo = h;
+        proDemoList = l;
+    }
+    
+    public List getStudentDemoList() {
+        return studentDemoList;
+    }
+    
+    public List getProDemoList() {
+        return proDemoList;
     }
     
     public Map getStudentDemoInfo() {
