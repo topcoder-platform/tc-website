@@ -82,7 +82,11 @@ The <B>W-8BEN form</B> should be filled out by all non-U.S. Citizens.<BR><A clas
                         
                     Mailing address for forms and affidavits:  TopCoder, 703 Hebron Avenue, Glastonbury, CT 06033
 
+<p><a href=PactsMemberServlet?t=affidavit&c=render_affidavit&affidavit_id=<%
 
+out.print(new String(a.affidavit._header._id + ""));
+
+%>>click here for a printer friendly version of the affidavit</a></p>
 
 <%
 	}
