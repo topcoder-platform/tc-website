@@ -11,17 +11,69 @@
 	  <httpurl>screening?rp=Login
 	  </httpurl>
 	  <identification>
-	     <text-pattern>form action="/screening/screening</text-pattern>
+	     <text-pattern>Candidate Evaluation Application</text-pattern>
 	  </identification>
-	  <links>
-	     <link>
-	        <with-text>aaaaaaaaaa</with-text>
-	        <url></url>
-	        <target-name>cccccccccc</target-name>
-	     </link>
-	  </links>
+	  <links/>
+	  <forms>
+	     <form>
+               <index>0</index>
+               <parameter>
+                  <name>handle</name>
+                  <value>corp_user</value>
+               </parameter>
+               <parameter>
+                  <name>password</name>
+                  <value>password</value>
+               </parameter>
+               <submit-button-name/>
+               <target-name>Main</target-name>
+         </form>
+	  </forms>
     </page>
     
+    <page name="LoginBad">
+	  <httpurl>screening?rp=Login&amp;handle=Aaa&amp;password=Ppp</httpurl>
+	  <identification>
+	     <text-pattern>Incorrect username and/or password</text-pattern>
+	  </identification>
+    </page>
+    
+    <page name="LoginZero">
+	  <httpurl>screening?rp=Login&amp;handle=Aaa&amp;password=Ppp</httpurl>
+	  <identification>
+	     <text-pattern>Please enter both a username and a password.</text-pattern>
+	  </identification>
+    </page>
+    
+    <page name="Main">
+       <httpurl>screening?</httpurl>
+	   <identification>
+	      <text-pattern>Welcome!</text-pattern>
+	   </identification>
+	   <links>
+	      <link>
+	         <with-text>Create a New Session</with-text>
+	         <url>/screening/?rp=PopulateSession</url>
+	         <target-name>PopulateSession</target-name>
+	      </link>
+	      <link>
+	         <with-text>Test Profiles</with-text>
+	         <url>/screening/?rp=ProfileList</url>
+	         <target-name>ProfileList</target-name>
+	      </link>
+	      <link>
+	         <with-text>Problems</with-text>
+	         <url>/screening/?rp=ProblemList</url>
+	         <target-name>ProblemList</target-name>
+	      </link>
+	      <link>
+	         <with-text>Candidates</with-text>
+	         <url>/screening/?rp=BuildCandidateList</url>
+	         <target-name>BuildCandidateList</target-name>
+	      </link>
+	   </links>
+	</page>
+	   
     <page name="TestResults">
       <httpurl>?rp=TestResults</httpurl>
       <identification>
@@ -72,11 +124,6 @@
             <url></url>
             <target-name>BuildCandidateList</target-name>
          </link>
-         <link>
-            <with-text>Problem A</with-text>
-            <url/>
-            <target-name></target-name>
-         </link>
        </links>
     </page>
 	
@@ -99,7 +146,7 @@
     <page name="PopulateCandidate">
        <httpurl>?rp=PopulateCandidate</httpurl>
        <identification>
-          <text-pattern> Create a new candidate or update the existing one</text-pattern>
+          <text-pattern>Create a new candidate or update the existing one</text-pattern>
        </identification>
     </page>
     
@@ -110,11 +157,43 @@
           <re-pattern>.*Code:.*System Test.*Top TopCoder Solutions.*</re-pattern>
        </identification>
     </page>
-    
-    <page name="CandidateList">
-    </page>
-</pages>
-
+  </pages>
+  <paths>
+     <path name="LoginToLoginBad">
+        <step type="start">Login</step>
+        <step type="form">
+           <index>0</index>
+           <parameter>
+              <name>handle</name>
+              <value>ccoorrpp</value>
+           </parameter>
+           <parameter>
+              <name>password</name>
+              <value>ppppppp</value>
+           </parameter>
+           <submit-button-name/>
+           <target-name>LoginBad</target-name>
+        </step>
+        <step type="finish">LoginBad</step>
+     </path>
+     <path name="LoginToLoginZero">
+        <step type="start">Login</step>
+        <step type="form">
+           <index>0</index>
+           <parameter>
+              <name>handle</name>
+              <value></value>
+           </parameter>
+           <parameter>
+              <name>password</name>
+              <value></value>
+           </parameter>
+           <submit-button-name/>
+           <target-name>LoginZero</target-name>
+        </step>
+        <step type="finish">LoginZero</step>
+     </path>
+  </paths>
 </web-site-flow-test>
 
          

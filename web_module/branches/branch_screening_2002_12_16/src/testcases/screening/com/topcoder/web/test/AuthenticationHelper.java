@@ -12,7 +12,7 @@ import com.topcoder.shared.security.*;
  */
 public class AuthenticationHelper implements Authentication {
 	
-	protected User myUser;
+	public User myUser=null;
 
     /** 
      * Attempts to log in the given user.

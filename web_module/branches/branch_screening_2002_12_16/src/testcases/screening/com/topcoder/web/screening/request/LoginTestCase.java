@@ -7,6 +7,7 @@ import com.topcoder.shared.security.*;
 import com.topcoder.web.common.security.*;
 import com.topcoder.web.test.*;
 import com.topcoder.web.test.wsf.*;
+import com.topcoder.web.screening.common.Constants;
 
 import org.apache.log4j.*;
 // imports for HTTP testing
@@ -23,7 +24,7 @@ import org.w3c.dom.*;
  * @version 1.0
  */
 public class LoginTestCase extends TestCase {
-	Authentication auth;
+	AuthenticationHelper auth;
 	ServletRequestHelper request;
 	ServletResponse response;
 	User u;	
@@ -34,6 +35,13 @@ public class LoginTestCase extends TestCase {
 	}
 	
 	public void setUp() {
+		// initializing constnts
+		if (Constants.isInitialized() == false) {
+			ServletConfigHelper config = new ServletConfigHelper();
+			config.readWebXmlParameters("Resources/screening/web.xml");
+			Constants.initialize(config);
+		}
+		
 		auth = new AuthenticationHelper();
 		request = new ServletRequestHelper();
 		response = new ServletResponseHelper();
@@ -54,9 +62,9 @@ public class LoginTestCase extends TestCase {
 		// I don't know how to get correct config yet, so i
 		// pick up parameter names directly from web.xml
 		// mishagam 1/15/2003
-		request.setParameter("handle", "aa");
-		request.setParameter("password", "aa123");
-		request.setParameter("redir", "Next page");
+		request.setParameter(Constants.HANDLE, "aa");
+		request.setParameter(Constants.PASSWORD, "aa123");
+		request.setParameter(Constants.REDIRECT, "Next page");
 		login.setRequest(request);
 		login.setAuthentication(auth);
 		try {
@@ -99,17 +107,19 @@ public class LoginTestCase extends TestCase {
 	/**
 	 * tests logout. propert nextPage should become "/"
 	 * */
-	public void testLogout() {
+	public void testLogout() {		
 		Logout logout = new Logout();
 		logout.setRequest(request);
 		logout.setAuthentication(auth);
-		logout.setAuthentication(auth);
+		UserHelper user = new UserHelper();
+		user.myId = 9999;
+		auth.myUser = user;
 		try {
 			logout.process();
 		} catch (Exception e) {
 			fail("Exception in Logout " + e);
 		}		
-		assertEquals("/", logout.getNextPage());	
+		assertEquals(Constants.CONTROLLER_URL, logout.getNextPage());	
 		assertTrue(!logout.isNextPageInContext());
 		
 	}
@@ -128,7 +138,7 @@ public class LoginTestCase extends TestCase {
 			int len = isr.read(buf);
 			String page = new String(buf, 0, len);
 			// checking for existense of login form in page
-			Pattern pat = Pattern.compile("form action.*screening.*screening.*login");
+			Pattern pat = Pattern.compile("Candidate Evaluation Application.*handle.*password.*login", Pattern.DOTALL);
 			Matcher mat = pat.matcher(page);
 			boolean b = mat.find();
 			assertTrue(b);			
@@ -157,9 +167,28 @@ public class LoginTestCase extends TestCase {
 		try {
 			wsf.init();
 			bOk = wsf.testPage("Login");
-			assertTrue(bOk);
+			assertTrue("Test of page Login failed", bOk);
+			bOk = wsf.testPageForms("Login");
+			assertTrue("Test of form on login page failed", bOk);
 		} catch (Exception e) {
+			e.printStackTrace();
 			fail("testLoginWebSiteFlow failed with Exception " + e);
+		}		
+	}
+	
+	public void testLoginPathsWSF() {
+		WebSiteFlowTest wsf = new WebSiteFlowTest();
+		boolean bOk;
+		
+		try {
+			wsf.init();
+			bOk = wsf.testPath("LoginToLoginBad");
+			assertTrue("path Login to LoginBad failed", bOk);
+			bOk = wsf.testPath("LoginToLoginZero");
+			assertTrue("path Login to LoginZero failed", bOk);
+		} catch (Exception e) {
+			e.printStackTrace();
+			fail("testLoginPathsWSF failed with Exception " + e);
 		}		
 	}
 
