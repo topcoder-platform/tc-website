@@ -45,14 +45,15 @@
 <P>&nbsp;</P>
             <P>Welcome to TopCoder High School, a site developed for high school students who are already interested in computer science.</P>
             <P><B>There is no cost to sign up or compete.</B></P>
-  <FORM ACTION="post" NAME="registration" ID="ID">
+  <FORM ACTION="http://highschool.topcoder.com" METHOD="post" NAME="regForm" >
   <table width="400" border="0" cellspacing="0" cellpadding="5" align="center">
+    <INPUT TYPE="hidden" NAME="c" VALUE="hs_reg_email"/>
     <tr>
         <td colspan="2" class="bodyText" align="center" valign="middle"><B>All fields are required</B></td>
     </tr>
     <tr valign="middle">
         <td colspan="2" class="bodyText" valign="middle">&nbsp;</td>
-    </tr>    
+    </tr>
     <tr valign="middle">
         <td colspan="2"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     </tr>
@@ -67,7 +68,7 @@
         <td class="bodyText" align="right" valign="middle" >Last Name&nbsp;</td>
         <td class="bodyText" align="left" valign="middle">&nbsp;&nbsp;<input type="text" name="lastName" value ="" size="30" maxlength="30"></td>
     </tr>
-    <tr> 
+    <tr>
         <td colspan="2"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     </tr>
     <tr align="right" valign="middle">
@@ -85,11 +86,11 @@
         <td colspan="2"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
     </tr>
     <tr align="right" valign="middle">
-        <td class="bodyText" align="center" valign="middle" colspan="2">Coach<INPUT TYPE="radio" NAME="coach" VALUE="">&nbsp;&nbsp;  Student<INPUT TYPE="radio" NAME="coach" VALUE=""></td>
+        <td class="bodyText" align="center" valign="middle" colspan="2">Coach<INPUT TYPE="radio" NAME="coderType" VALUE="">&nbsp;&nbsp;  Student<INPUT TYPE="radio" NAME="coderType" VALUE=""></td>
   </tr>
     <tr>
         <td colspan="2"><img src="/i/clear.gif" width="1" height="1" border="0"></td>
-    </tr>  
+    </tr>
     <tr  valign="middle">
         <td colspan="2" align="center" valign="middle" class="bodyText" ALIGN="center">
         <input type="button" onClick="submit" name="submit" value="Submit">
@@ -99,14 +100,14 @@
   </FORM>
 <P ALIGN="center"><B>You will be contacted by TopCoder when the full registration becomes available.</B></P>
 <P><BR></P>
-            <!-- End Body-->            
+            <!-- End Body-->
             </TD>
              <TD>
                 <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" WIDTH="100%">
                  <TR>
                     <TD WIDTH="10"><IMG SRC="/i/hs/clear_10_pix_width.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                  </TR>
-                </TABLE>    
+                </TABLE>
             </TD>
            </TR>
           </TABLE>
@@ -117,10 +118,10 @@
         </TD>
         <TD WIDTH="1" BGCOLOR="#000000" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
         <TD WIDTH="1" BGCOLOR="#C5C5C9" VALIGN="top"><IMG SRC="/i/hs/frame_1pix_bg_lg_top_right.gif" WIDTH="1" HEIGHT="18" ALT="" BORDER="0"></TD>
-        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">        
+        <TD WIDTH="" BGCOLOR="#001934" VALIGN="top">
 <IMG SRC="/i/hs/right_top_3dots.gif" WIDTH="86" HEIGHT="41" ALT="" BORDER="0" >
 <BR/>
-<jsp:include page="/hs/includes/resources/right_resources.jsp" /></TD>		
+<jsp:include page="/hs/includes/resources/right_resources.jsp" /></TD>
 	</TR>
 </TABLE>
 </TD></TR></TABLE>

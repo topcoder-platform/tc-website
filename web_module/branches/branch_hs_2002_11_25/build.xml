@@ -103,7 +103,7 @@
    <target name="full_deploy" depends="build_ejbs,deploy">
    </target>
 
-   <target name="deploy" depends="build_wars,servlets,jsp,moveStruts,moveReg,moveStats,moveTCES">
+   <target name="deploy" depends="build_wars,servlets">
    </target>
 
    <target name="servlets" depends="compile,move_file_upload_xml">

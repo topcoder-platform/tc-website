@@ -38,19 +38,11 @@ public final class Index extends HttpServlet {
                 msgText.append("|");
                 msgText.append(checkNull(request.getParameter("handle")));
                 msgText.append("|");
-                msgText.append(checkNull(request.getParameter("password")));
-                msgText.append("|");
                 msgText.append(checkNull(request.getParameter("email")));
                 msgText.append("|");
-                msgText.append(checkNull(request.getParameter("quote")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("editor")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("language")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("terms")));
-                msgText.append("|");
-                msgText.append(checkNull(request.getParameter("coder_type")));
+                msgText.append(checkNull(request.getParameter("coderType")));
+
+System.out.println(msgText.toString());
 
                 mail.setBody(msgText.toString());
                 mail.addToAddress("service@topcoder.com", TCSEmailMessage.TO);
