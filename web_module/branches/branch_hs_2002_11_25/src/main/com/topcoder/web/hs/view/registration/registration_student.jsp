@@ -14,7 +14,6 @@
 <FORM ACTION="" METHOD="post" NAME="regForm">
  <INPUT TYPE="hidden" NAME="module" VALUE="StudentRegistration">
  <INPUT TYPE="hidden" NAME="cmd" VALUE="register">
- <INPUT TYPE="hidden" NAME="pick" VALUE="">
  <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
   <TR>
    <TD CLASS="bodyTextBig" WIDTH="150" ALIGN="right" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="2" BORDER="0"></TD>
