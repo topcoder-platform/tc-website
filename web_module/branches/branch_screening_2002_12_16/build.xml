@@ -744,6 +744,10 @@
                 <include name="com/topcoder/shared/dataAccess/"/>
             </classes>
 
+            <classes dir="${resources}">
+                <include name="ApplicationServer.properties" />
+            </classes>
+
             <webinf dir="${resources}/screening">
                 <include name="screening.tld"/>
             </webinf>
