@@ -228,7 +228,7 @@ function submitSession() {
                 </tr>
                 
                  <tr>
-                    <td class="testTableOdd" colspan="3"><div align="center"><a href="JavaScript:submitSession()" CLASS="bodyText" >Confirm</a></div></td>
+                    <td class="testTableOdd" colspan="3"><a href="JavaScript:submitSession()" class="testButton">Confirm</a></td>
                 </tr>
 
                 <tr>
