@@ -75,9 +75,9 @@
 						That's where the second phase of competition comes into play.<BR/><BR/>
 						In the second phase, opponents are allowed to review and compare codes with one another to look for mistakes. Correctly challenging an opponents' code results in an additional 50 points.<BR/><BR/>
 						Finally, codes are sent to the main computer in a "system test phase" to check for accuracy.<BR/><BR/>
-						In the finals, Wright was edged out only by fellow Stanford junior Jon McAlister. McAlister's 1,143 points barely exceeded Wright's 1,072, but both were well beyond third-place finisher Nathan Bronson who ended the day with 650. In addition to his $25,00 check for winning in the semifinal round, McAlister was also paid $75,000 for the finals win Ð a grand total of $100,000.<BR/><BR/>
+						In the finals, Wright was edged out only by fellow Stanford junior Jon McAlister. McAlister's 1,143 points barely exceeded Wright's 1,072, but both were well beyond third-place finisher Nathan Bronson who ended the day with 650. In addition to his $25,00 check for winning in the semifinal round, McAlister was also paid $75,000 for the finals win - a grand total of $100,000.<BR/><BR/>
 						Wright, who won TopCoder's collegiate competition this spring, has collected $37,950 from programming competitions this year alone. But he said the money won't be splurged.<BR/><BR/>
-						"I'm going to try to be reasonable with it," Wright said. "I'll put some of it toward my education Ð Stanford isn't exactly inexpensive."<BR/><BR/>
+						"I'm going to try to be reasonable with it," Wright said. "I'll put some of it toward my education - Stanford isn't exactly inexpensive."<BR/><BR/>
 						Neither will Wright's services after graduation. One of the main attractions associated with programming competitions is the corporate recognition the top achievers are able to generate.<BR/><BR/>
 						"That's what TopCoder is ultimately for - employment purposes," Wright said. "This will definitely go on my resume."<BR/><BR/>
 						</TD></TR>                                                                 

@@ -61,7 +61,7 @@ Friday, February 22, 2002<BR/><BR/>
 WAYNN LUE<BR/>
 CONTRIBUTING WRITER<BR/><BR/>
 <P>For most computer programmers, the result of finishing a program is receiving a grade and another assignment. However, those who are participating in the 2002 Sun Microsystems and TopCoder Collegiate Challenge have the opportunity to win $100,000.</P>
-<P>The tournament began Tuesday night, when TopCoder announced its field of invitees Ñ 512 of the highest-rated TopCoder college-level members Ñ and began a series of four online regional tournaments. The winners of these tournaments receive $5,000 and automatically advances to the final round of 16 coders.</P>
+<P>The tournament began Tuesday night, when TopCoder announced its field of invitees - 512 of the highest-rated TopCoder college-level members - and began a series of four online regional tournaments. The winners of these tournaments receive $5,000 and automatically advances to the final round of 16 coders.</P>
 <P>The 16 go to M.I.T. to participate in the semifinal and championship rounds on April 19 and April 20. The tournament champion will receive $100,000.</P>
 <P>According to tournament organizers, competitors have to code quickly and accurately in a particular coding language to be successful. Winners are the fastest to solve problems with computer code that withstands the scrutiny of other contestants, as well as the TopCoder system itself.</P>
 <P>The tournament marks TopCoder's second annual Collegiate Challenge and the third major programming tournament in its history. Last year's Collegiate Challenge was won by Jason Woolever, an M.I.T. graduate student.</P>
