@@ -16,7 +16,7 @@
 	<tr><td bgcolor="#333333" colspan="3" valign="top"><img border="0" src="/i/clear.gif" height="1" width="1" alt=""></td></tr>
 	<tr>
 	  	<td class="srmText" valign="top">&nbsp;</td>
-		<td class="srmText" height="18" valign="middle"><img border="0" src="/i/arrow_white.gif" height="10" width="10" alt="">&nbsp;<a class="srmTextBig" HREF="srm_demo_general.jsp?&rd=<%= request.getParameter("rd") %>">General</a></td>
+		<td class="srmText" height="18" valign="middle"><img border="0" src="/i/arrow_white.gif" height="10" width="10" alt="">&nbsp;<a class="srmTextBig" HREF="srm_demo_general.jsp?&rd=<%= request.getParameter("rd") %>">Participation Info</a></td>
 		<td class="srmText" valign="top">&nbsp;</td>
 	 </tr>
 	 <tr><td bgcolor="#333333" colspan="3" valign="top"><img border="0" src="/i/clear.gif" height="1" width="1" alt=""></td></tr>

@@ -8,6 +8,15 @@ java.text.*,
 java.text.DateFormat,
 com.topcoder.shared.util.DBMS,
 javax.servlet.jsp.JspWriter,
+		  java.lang.Object,
+		            com.topcoder.common.web.data.report.Constants,
+          com.topcoder.shared.dataAccess.DataAccessConstants,
+          com.topcoder.common.web.data.report.Query,
+		  com.topcoder.shared.dataAccess.*,
+		  com.topcoder.shared.dataAccess.resultSet.*,
+		  com.topcoder.shared.util.TCContext,
+		  java.text.NumberFormat,
+		  java.math.BigInteger,
 		  java.lang.Object
 
 "
@@ -22,16 +31,15 @@ javax.servlet.jsp.JspWriter,
 <body>
 
 <%
-string newrd;
+String newrd;
 if (request.getParameter("rd")==null)
 {
-	newrd = "4445";
-	}
+	newrd="4445";
+}
 else
 {
 	newrd = request.getParameter("rd");
 }
-
 %>
 <%!
   //////////////////////////////////////////////////////////////////////////////// 
@@ -408,9 +416,9 @@ else
 <td class=sectionTitle width="40">&nbsp;&nbsp;</td>
 <td class=sectionTitle>Professionals</td></tr>
 <tr>
-	<td valign="top"><%doit(out,1,newrd);%></td>
+	<td valign="top"><%doit(out,1,Integer.parseInt(request.getParameter("rd")));%></td>
 	<td width="40">&nbsp;&nbsp;</td>
-	<td valign="top"><%doit(out,2,newrd);%></td>
+	<td valign="top"><%doit(out,2,Integer.parseInt(request.getParameter("rd")));%></td>
 </tr>
 </table>
 
