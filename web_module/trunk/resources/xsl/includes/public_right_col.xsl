@@ -5,27 +5,33 @@
   <xsl:import href="modules/my_stats.xsl"/>
   <xsl:template name="public_right_col">
   <xsl:param name="sectionName"></xsl:param>
+  <xsl:param name="sectionSubname"></xsl:param>
 
 <xsl:choose>
-    <xsl:when test="$sectionName='tourny'">
+    <xsl:when test="$sectionName='tourny'or$sectionName='statistics'">
             <img alt="" width="1" height="10" src="/i/clear.gif" border="0"/><br/>
             
             <xsl:call-template name="calendar"/>
             
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-<!-- Save until Premier Sponsors come online
-            <img src="/i/tournament/tco03/header_title_sponsor.gif" alt="Title Sponsor" width="170" height="22" border="0" /><br/>
+            <img src="/i/tournament/tco03/promo_tco_header.gif" alt="2003 TopCoder Open Sponsors" width="170" height="62" border="0" /><br />
+            
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <img src="/i/tournament/tco03/header_premier_sponsors.gif" alt="Premier Sponsors" width="170" height="22" border="0" /><br/>
-            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />  -->
+            <xsl:choose>
+                <xsl:when test="$sectionSubname='intel'">
+
+            <A href="/?t=tournaments&amp;c=tco03_intel"><img src="/i/tournament/tco03/promo_sm_intel.gif" alt="Intel Developer Services" width="171" height="104" border="0" /></A><br />
+            <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
             
-            <img src="/i/tournament/tco03/header_corp_sponsors.gif" alt="Corporate Sponsors" width="170" height="22" border="0" /><br/>
+                </xsl:when>
+            </xsl:choose>
+            
             <A href="/?t=tournaments&amp;c=tco03_revelation"><img src="/i/tournament/tco03/promo_sm_revelation.gif" alt="Revelation Software" width="170" height="84" border="0" /></A><br/>
 
             <img src="/i/clear.gif" alt="" width="10" height="10" border="0" /><br />
-            <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index</xsl:attribute><img src="/i/tournament/tco03/promo_sponsor_tco.gif" alt="Sponsor the TCO" width="170" height="166" border="0" /></A><br />
+            <A><xsl:attribute name="href">http://<xsl:value-of select="/TC/CorpHost"/>/?module=Static&amp;d1=corp&amp;d2=spon_prog&amp;d3=tourny_index</xsl:attribute><img src="/i/tournament/tco03/promo_sponsor_tco.gif" alt="Sponsor the TCO" width="170" height="115" border="0" /></A><br />
             
             <p><br/></p>
     </xsl:when>
