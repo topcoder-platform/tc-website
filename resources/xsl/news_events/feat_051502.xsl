@@ -60,7 +60,7 @@
 Wednesday, May 15, 2002<BR/>
 By&#160;Adam Loss,<I>TopCoder Staff Writer</I><BR/></P>
 
-<P>
+<P><IMG SRC="/i/f/feat_051502_tn1.jpg" ALT="" WIDTH="100" HEIGHT="150" HSPACE="10" VSPACE="5" ALIGN="right" BORDER="0"/>
 Rookies.  Showing up as a rookie can sometimes be tough.  Sure, there are those 
 well-known rookies who come along with a big reputation, and are able to succeed 
 right from the start of their careers.  Most, however, must go through the growing 
@@ -78,19 +78,21 @@ Simple.  They'd garner immediate attention and notoriety, which is exactly what
 has been brought upon <A HREF="/stat?c=member_profile&amp;cr=277956" CLASS="bodyGeneric">kpsmith</A>,
  who in Single Round Match 86, his initial TopCoder 
 competition, earned a Division-II record 1935.74 final points.  That point total
- broke the Division-II record of chi, who earned 1898.64 final points in Single Round Match 67 in February.
+ broke the Division-II record of <A HREF="/stat?c=member_profile&amp;cr=155069" CLASS="bodyGeneric">chi</A>,
+  who earned 1898.64 final points in Single Round Match 67 in February.
 </P>
-
+<A HREF="/stat?c=highest_totals&amp;dn=2"><IMG SRC="/i/f/feat_051502_tn2.gif" HSPACE="10" VSPACE="5" ALT="" BORDER="0"/></A>
 <P>
 The final point total of <B>kpsmith</B> is also TopCoder's all-time point record, 8.35 
-more than the 1927.39 total of vulture in Single Round Match 1, which strangely 
+more than the 1927.39 total of <A HREF="/stat?c=member_profile&amp;cr=109965" CLASS="bodyGeneric">vulture</A>
+ in Single Round Match 1, which strangely 
 enough occurred exactly one year (May 8, 2001) from the date <B>kpsmith</B> broke the 
 record (May 8, 2002).  <B>kpsmith</B> also broke the record for the most points earned 
 in a debut match, which was held by <A HREF="/stat?c=member_profile&amp;cr=112630" CLASS="bodyGeneric">Aleksey</A>,
  who earned 1787.55 final points in 
 the Second Round of the 2001 TopCoder Collegiate Challenge.  Lastly, <B>kpsmith</B> had 
 a debut rating of 1894, which is the seventh highest ever.
-</P>
+</P><A HREF="/stat?c=impressive_debuts"><IMG SRC="/i/f/feat_051502_tn2.gif" HSPACE="10" VSPACE="5" ALT="" BORDER="0"/></A>
 
 <P>
 <B>The Match</B>
@@ -117,7 +119,8 @@ I read other people's solutions and figured out what I could have done better.
 in 3:06 for 296.46 points.  He then spent 4:10 on the Level Two problem and 
 earned 538.43 points, and finished the Coding Phase of the competition with 
 1685.74 points by completing the Level Three problem in 6:53 for 850.85 points.  
-That total put him in first place in Room 62, 48.97 points ahead of ekrips.
+That total put him in first place in Room 62, 48.97 points ahead of 
+<A HREF="/stat?c=member_profile&amp;cr=282138" CLASS="bodyGeneric">ekrips</A>.
 </P>
 
 <P>
@@ -136,7 +139,7 @@ That must have been quite a chatting and thinking session, since in the next
 
 <P>
 "About five minutes before it (the Challenge Phase) started, one person
- asked how one of the players (<A HREF="/stat?c=member_profile&amp;cr=282138" CLASS="bodyGeneric">ekrips</A>)
+ asked how one of the players (<B>ekrips</B>)
   managed to get 898 points on a 900 
  point problem.  No one answered, but clearly several people realized that 
  he must have submitted empty code.  So once the Challenge Phase started, 
@@ -187,8 +190,7 @@ well under competitive pressure."
 <P>
 After the match, <B>kpsmith</B> logged off and went to bed, unaware of his 
 achievements.  "My friend <A HREF="/stat?c=member_profile&amp;cr=278964" CLASS="bodyGeneric">digitalbeing</A>
- pointed it out to me the next morning.  
-It certainly felt good."
+ pointed it out to me the next morning.  It certainly felt good."
 </P>
 
 <P>
@@ -197,7 +199,7 @@ It certainly felt good."
 
 <P>
 "<B>kpsmith</B> is one of the brightest and most analytical engineers I know," 
-remarked digitalbeing, when asked if he thought his friend <B>kpsmith</B> was 
+remarked <B>digitalbeing</B>, when asked if he thought his friend <B>kpsmith</B> was 
 capable of a performance like this.  "I was not surprised that he did so 
 well in his debut; <B>kpsmith</B> is a highly proficient programmer who is equally 
 adept at defining efficient system architectures and coding up quick'n'dirty 
@@ -207,7 +209,7 @@ the TopCoder tournament is a natural fit for him.  I expect he will be bumping
 </P>
 
 <P>
-While digitalbeing expected this type of performance by his friend, 
+While <B>digitalbeing</B> expected this type of performance by his friend, 
 the Room 62 adversaries of <B>kpsmith</B> appreciated his kindness and were 
 in awe of his proficiency and professionalism:
 </P>
@@ -235,7 +237,7 @@ The previous high point record holder was also impressed:
 
 <P>
 "I have always had a difficult time scoring near my previous best, 
-even with a great round," remarked vulture.  "Looking back at that 
+even with a great round," remarked <B>vulture</B>.  "Looking back at that 
 round, I'm surprised I was even able to score that high.  I'm also 
 surprised that nobody has been able to top it until just now.  It was 
 no easy task for sure, and a great accomplishment for him.  I wish him 
@@ -282,7 +284,7 @@ sounded like a good fit for him.
 "She knows that I love to play games and to program, and that I'm really 
 good at both," recalled <B>kpsmith</B>.  "She also thinks that I can out-program 
 anyone and wanted to see how I'd do.  She was probably reading the article 
-and thinking, 'My husband could do that!  He'd do really well!"  Then she 
+and thinking, 'My husband could do that!  He'd do really well!'  Then she 
 showed me the article and encouraged me to try it saying that she would 
 enjoy seeing how I did with it."
 </P>
@@ -346,7 +348,7 @@ Either way is ok with me."
 <B>kpsmith</B> almost made it two-for-two in room wins, as he led Room 4 with 1385.87 
 points after the Coding Phase in Single Round Match 87.  <A HREF="/stat?c=member_profile&amp;cr=269058" CLASS="bodyGeneric">jasonw</A>
  successfully 
-challenged his Level Three submission during the "Challenge Phase, however, 
+challenged his Level Three submission during the Challenge Phase, however, 
 dropping him to sixth place.  
 </P>
 
@@ -365,8 +367,8 @@ Despite the disappointment, the rating of <B>kpsmith</B> did increase by 35 poin
 
 <P>
 We are always looking to replace our heroes, leaders and legends when they get older and 
-ride off into the sunset.  Who's going to be the next Babe Ruth, the next John Wayne, 
-or the next Beatles, we've asked in the past? 
+ride off into the sunset.  Who's going to be the next Babe Ruth? The next John Wayne? 
+The next Beatles? We've asked these questions in the past. 
 </P>
 
 <P>
