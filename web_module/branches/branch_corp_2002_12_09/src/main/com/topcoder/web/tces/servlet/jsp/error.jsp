@@ -32,7 +32,39 @@
            <jsp:param name="image1" value="steelblue"/>
            <jsp:param name="title" value="error"/>
         </jsp:include>
-		
+	<TR>
+	   <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
+	   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
+	   <DIV CLASS="header">
+
+		 <!-- Error message content pane -->
+
+		 You have not enough priveleges to perform this action<br>
+		 If you think this page was shown by mistake, please contact us<br>
+		 We are sorry for any inconveniences caused by this<br>
+		 Site Administration<br><br>
+	   </DIV>
+
+	   <!-- web-app debug time stack trace  BEGIN -->
+
+	   <br><hr><b><i>Trace information is provided for web application debug time only</i></b><br>
+	   <pre>
+	   <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
+		  if( excCaught != null ) {
+			 excCaught.printStackTrace(new java.io.PrintWriter(out));
+		  }
+	   %>
+	   </pre><hr>
+
+	   <!-- web-app debug time stack trace END -->
+	   </TD>
+
+	<!-- Body Area Ends -->
+
+		  <!-- Gutter -->
+		  <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
+		  <!-- Gutter Ends -->
+		<TR>
 		<IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="6" BORDER="0"><BR>
         <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001935" BACKGROUND="/i/steel_darkblue_bg.gif" WIDTH="100%">
           <TR>
@@ -41,43 +73,6 @@
               <IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"/>
               <P><BR></P>
 		</TABLE>
-        </TD>
-	</TABLE>
-	<BR>
-<TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-	<TR>
-   <TD valign="top" bgcolor="#CCCCCC" width="100%" class="bodyText">
-   <IMG BORDER="0" VSPACE="5" HEIGHT="1" width="400" src="/i/clear.gif"><BR>
-   <DIV CLASS="header">
-
-     <!-- Error message content pane -->
-
-     You have not enough priveleges to perform this action<br>
-     If you think this page was shown by mistake, please contact us<br>
-     We are sorry for any inconveniences caused by this<br>
-     Site Administration<br><br>
-   </DIV>
-
-   <!-- web-app debug time stack trace  BEGIN -->
-
-   <br><hr><b><i>Trace information is provided for web application debug time only</i></b><br>
-   <pre>
-   <% Exception excCaught = (Exception)request.getAttribute("caught-exception");
-      if( excCaught != null ) {
-         excCaught.printStackTrace(new java.io.PrintWriter(out));
-      }
-   %>
-   </pre><hr>
-
-   <!-- web-app debug time stack trace END -->
-   </TD>
-
-<!-- Body Area Ends -->
-
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/p/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
 </TABLE>
   <!-- Body Ends -->
 </BODY>
