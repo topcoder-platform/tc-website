@@ -66,10 +66,10 @@
 <!-- BWO -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274"><A href=" http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm" target="_blank"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
+                    <td width="274"><A href=" /?&amp;t=news_events&amp;c=art_04_29_04"><img src="/i/pressroom/bwo_logo.gif" alt="bwo_logo" width="135" height="25" border="0" /></A></td>
                     <td width="10"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText">
-                        <p><font size="3"><strong><A href=" http://www.businessweek.com/technology/content/apr2004/tc20040413_3592_tc146.htm" target="_blank">And The Champion Coders Are...</A></strong></font><br />
+                        <p><font size="3"><strong><A href=" /?&amp;t=news_events&amp;c=art_04_29_04">And The Champion Coders Are...</A></strong></font><br />
                          In software, no country is hotter than India. But at the Apr. 16 TopCoder Collegiate Challenge, software's world championship in Boston, the programming powerhouse was all but invisible. A 22-year-old Pole, Tomasz Czajka, won the $25,000 prize for the second year in a row, edging out rivals from the U.S., Canada, and Australia.<span class="prHead"> [April 29]</span></p>
                     </td>
                 </tr>
