@@ -45,11 +45,8 @@
 							<jsp:useBean id="navigation" scope="session" class="com.topcoder.common.web.data.Navigation" />
 							<tc:getProperty id="user" name="navigation" property="user" type="com.topcoder.common.web.data.User" />
 							<BR><BR><BR>
-							<%
-								com.topcoder.common.web.User l_user = user;
-							%>
-							User is <%= l_user %><BR>
-							<%= l_user.getHandle() %> (<%= l_user.getUserId() %>)
+							User is <%= user %><BR>
+							<%= user.getHandle() %> (<%= user.getUserId() %>)
 							<BR><BR>
 
 <!--trj insert 6/11/2002 1943 -->
