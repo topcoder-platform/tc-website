@@ -4188,7 +4188,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
             StringBuffer getAffidavitTexts = new StringBuffer(300);
             getAffidavitTexts.append("SELECT x.country_code, att.text ");
-            getAffidavitTexts.append("FROM affidavit_template att, country_affidavit_xref x ");
+            getAffidavitTexts.append("FROM affidavit_template att, country_affidavit_template_xref x ");
             getAffidavitTexts.append("WHERE att.affidavit_type_id = " + CONTEST_WINNING_AFFIDAVIT);
             getAffidavitTexts.append(" and att.affidavit_template_id =x.affidavit_template_id ");
             ResultSetContainer texts = runSelectQuery(c, getAffidavitTexts.toString(), false);
