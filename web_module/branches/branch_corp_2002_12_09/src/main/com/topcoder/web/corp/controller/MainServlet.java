@@ -162,16 +162,6 @@ public class MainServlet extends HttpServlet {
             }
             fetchRegularPage(request, response, destination, forward);
         }
-        catch(NotAuthorizedException nae) {
-              /* If the user is anonymous and tries to access a static 
-                 directory they are not authorized to access, send them to 
-                 the login page.
-              */
-              log.debug("user anonymous unauthorized to access static resource"
-                        + ", forwarding to login page.");
-              fetchLoginPage(request,response);
-              return;
-        }
         catch(Exception e) {
             log.error("exception during request processing ["
                 +processorName+"]", e
@@ -289,7 +279,7 @@ public class MainServlet extends HttpServlet {
                 originatingPage
 //                , resp.getCharacterEncoding() // 1.4
             );
-        fetchRegularPage(req, resp, loginPageDest, false);
+        fetchRegularPage(req, resp, loginPageDest, true);
     }
 
 
