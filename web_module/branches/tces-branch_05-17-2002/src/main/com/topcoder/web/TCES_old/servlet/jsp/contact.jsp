@@ -80,7 +80,7 @@ String language = "";
 boolean student = true;
 %>
 
-<FORM NAME="frm" ACTION="/<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
+<FORM NAME="frm" ACTION="<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
   <TABLE WIDTH="100%" BORDER="0" CELLSPACING="0" CELLPADDING="1" ALIGN="center">
   <TR>
     <TD CLASS="statTextBig" WIDTH="150" ALIGN="right" VALIGN="middle"><IMG SRC="/i/clear.gif" WIDTH="150" HEIGHT="2" 

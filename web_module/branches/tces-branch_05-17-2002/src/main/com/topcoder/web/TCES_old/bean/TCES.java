@@ -80,7 +80,8 @@ public class TCES extends Task implements Serializable {
 					coderObject = beanCoder.request(com.topcoder.web.TCES.ejb.Coder.SELECT, coderObject);
 					boolean doUpdate = false;
 					if (htParams.get("firstName") != null) {
-						coderObject.first_name = "" + htParams.get("first_name");
+      			Log.msg(" => TCES.process():first_name='" + "" + htParams.get("first_name") + "'");
+						coderObject.first_name = "" + htParams.get("firstName");
 						doUpdate = true;
 					}
 					if (doUpdate) {

@@ -121,7 +121,7 @@
 	String endYear = "";
 %>
 
-<FORM NAME="frm" ACTION="/<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
+<FORM NAME="frm" ACTION="<%= TCESController.ALIAS %>?task=<%= tces.getCurrentNav().getTaskKey() %>" METHOD="POST">
 <table width="100%" border="0" cellspacing="0" cellpadding="1" align="center">
 
 <tr>

@@ -63,13 +63,16 @@ public class TCESController extends HttpServlet {
 	                    tces.setAttributes(parameterName,parameterValues);
 	                }
 	            }
+              Log.msg("About to call process()");
 							try {
+              	Log.msg("calling process()");
 								tces.process();
+              	Log.msg("called process()");
+								session.setAttribute("tces", tces);
+	            	forward(request,response, tces.getNextNav().getFullPageName());
 							} catch (TaskException te) {
                 forwardToError(request,response,new TaskException(TASK+": " + te.getMessage()));
 							}
-							session.setAttribute("tces", tces);
-            	forward(request,response, tces.getNextNav().getFullPageName());
 						}
          } 
       } catch ( ServletException se ) {
