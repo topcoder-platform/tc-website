@@ -54,8 +54,10 @@
   <tr valign="middle">
     <td class="statText" align="right" valign="middle">&nbsp;</td>
     <td class="statText"  align="left" valign="top">
-    Email: <jsp:getProperty name="JobHitTask" property="Email" /><br>
-        Handle: <jsp:getProperty name="JobHitTask" property="Handle" /><br>
+      Email: <jsp:getProperty name="JobHitTask" property="Email" /><br>
+      Handle: <jsp:getProperty name="JobHitTask" property="Handle" /><br>
+      Member Since Date: <jsp:getProperty name="JobHitTask" property="MemberSince" /><br>
+      Most Recent Rated Event: <jsp:getProperty name="JobHitTask" property="MostRecentEvent" /><br>
     </td>
   </tr>
   <tr valign="middle">

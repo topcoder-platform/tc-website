@@ -44,10 +44,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
     private String coderType;
     private String coderTypeId;
     private String school;
-    private String degree;
-    private String major;
-    private String gradYear;
-    private String gradMonth;
+    private String memberSince;
+    private String mostRecentEvent;
     private Map demographics;
     private boolean hasResume;
 
@@ -71,10 +69,8 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setCoderType("");
         setCoderTypeId("");
         setSchool("");
-        setDegree("");
-        setMajor("");
-        setGradYear("");
-        setGradMonth("");
+        setMemberSince("");
+        setMostRecentEvent("");
         setDemographics(new TreeMap());
         setHasResume(false);
     }
@@ -153,12 +149,21 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
 
     private void loadUserInfo(com.topcoder.ejb.AuthenticationServices.User user) throws Exception {
         setUserId(user.getUserId());
-        Request oltpDataRequest = new Request();
-        oltpDataRequest.setContentHandle("member_profile_info");
-        oltpDataRequest.setProperty("mid", ""+getUserId());
+
+        Request dataRequest = new Request();
+        dataRequest.setContentHandle("member_profile_info");
+        dataRequest.setProperty("mid", ""+getUserId());
         DataAccess data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        Map resultMap = data.getData(oltpDataRequest);
-        ResultSetContainer rsc = (ResultSetContainer)resultMap.get("TCES_Member_Profile");
+        Map oltpMap = data.getData(dataRequest);
+        ResultSetContainer oltpResult = (ResultSetContainer)oltpMap.get("TCES_Member_Profile");
+
+        data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.DW_DATASOURCE_NAME));
+        Map dwMap = data.getData(dataRequest);
+        ResultSetContainer dwResult = (ResultSetContainer)oltpMap.get("TCES_Member_Profile");
+        if (!dwResult.isEmpty()) {
+            setMostRecentEvent(dwResult.getItem(0, "last_rated_event").toString());
+        }
+
 
         CoderRegistration coder = (CoderRegistration) user.getUserTypeDetails().get("Coder");
         setUserId(user.getUserId());
@@ -175,21 +180,18 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         setEmail(user.getEmail());
         setCoderType(coder.getCoderType().getCoderTypeDesc());
         setCoderTypeId(Integer.toString(coder.getCoderType().getCoderTypeId()));
-        if (!rsc.isEmpty()) {
-            setSchool(rsc.getItem(0, "school_name").toString());
-            setDegree(rsc.getItem(0, "degree").toString());
-            setMajor(rsc.getItem(0, "major").toString());
-            setGradYear(rsc.getItem(0, "grad_year").toString());
-            setGradMonth(rsc.getItem(0, "grad_month").toString());
+        if (!oltpResult.isEmpty()) {
+            setSchool(oltpResult.getItem(0, "school_name").toString());
+            setMemberSince(oltpResult.getItem(0, "member_since_date").toString());
         }
 
 
-        oltpDataRequest = new Request();
-        oltpDataRequest.setContentHandle("member_demographics");
-        oltpDataRequest.setProperty("mid", ""+getUserId());
+        dataRequest = new Request();
+        dataRequest.setContentHandle("member_demographics");
+        dataRequest.setProperty("mid", ""+getUserId());
         data = new DataAccess((javax.sql.DataSource)getInitialContext().lookup(DBMS.OLTP_DATASOURCE_NAME));
-        resultMap = data.getData(oltpDataRequest);
-        rsc = (ResultSetContainer)resultMap.get("TCES_Member_Demographics");
+        Map resultMap = data.getData(dataRequest);
+        ResultSetContainer rsc = (ResultSetContainer)resultMap.get("TCES_Member_Demographics");
 
 
         ResultSetContainer.ResultSetRow qrListRow = null;
@@ -374,35 +376,20 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
         this.coderTypeId = coderTypeId;
     }
 
-    public String getDegree() {
-        return degree;
+    public String getMemberSince() {
+        return memberSince;
     }
 
-    public void setDegree(String degree) {
-        this.degree = degree;
+    public void setMemberSince(String memberSince) {
+        this.memberSince = memberSince;
     }
 
-    public String getMajor() {
-        return major;
+    public String getMostRecentEvent() {
+        return mostRecentEvent;
     }
 
-    public void setMajor(String major) {
-        this.major = major;
+    public void setMostRecentEvent(String mostRecentEvent) {
+        this.mostRecentEvent = mostRecentEvent;
     }
 
-    public String getGradYear() {
-        return gradYear;
-    }
-
-    public void setGradYear(String gradYear) {
-        this.gradYear = gradYear;
-    }
-
-    public String getGradMonth() {
-        return gradMonth;
-    }
-
-    public void setGradMonth(String gradMonth) {
-        this.gradMonth = gradMonth;
-    }
 }
