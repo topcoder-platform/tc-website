@@ -78,7 +78,7 @@
 -->
                       </TD>
                       <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
-                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se32" CLASS="statTextBig"></A><FONT COLOR="#999999">Seed Update</FONT></TD>
+                      <TD ALIGN="center" VALIGN="middle" WIDTH="35%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_se32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -113,8 +113,8 @@
                     </TR>
                     <TR>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD VALIGN="middle" CLASS="statText">Tues. Oct. 8th @ 8pm EST<BR/>Registration: 7:30 PM - 9:25 PM<BR/>Start: 9:30 PM</TD>
-                      <TD VALIGN="middle" CLASS="statText">Thurs. Oct. 10th @ 8pm EST<BR/>Registration: 7:30 PM - 9:25 PM<BR/>Start: 9:30 PM</TD>
+                      <TD VALIGN="middle" CLASS="statText">Tues. Oct. 8th<BR/>Registration: 7:30 PM - 9:25 PM EDT<BR/>Start: 9:30 EDT</TD>
+                      <TD VALIGN="middle" CLASS="statText">Thurs. Oct. 10th<BR/>Registration: 7:30 PM - 9:25 EDT<BR/>Start: 9:30 EDT</TD>
                     </TR>
                                                           
                     <TR>
@@ -124,7 +124,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #2<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Seed Update</FONT></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" WIDTH="11%" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -155,7 +155,7 @@
                     </TR>                                                           
                     <TR>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 16th @ 8pm EST, Start: 9:30 PM</TD>
+                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 16th, Start: 9:30 PM EDT</TD>
                     </TR>                   
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
@@ -164,7 +164,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #3<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Seed Update</FONT></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -195,7 +195,7 @@
                     </TR>                                                           
                     <TR>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 23th @ 8pm EST, Start: 9:30 PM</TD>
+                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 23th, Start: 9:30 PM EDT</TD>
                     </TR>
                      <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"/></TD>
@@ -204,7 +204,7 @@
                       <TD HEIGHT="18" ALIGN="left" CLASS="statTextBig" BACKGROUND="/i/orangebv_bg.gif">
                         &#160;&#160;Online Round #4<BR/>
                       </TD>
-                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Seed Update</FONT></TD>
+                      <TD COLSPAN="2" ALIGN="center" VALIGN="middle" CLASS="statTextBig" BACKGROUND="/i/steel_bluebv_bg.gif"><A HREF="/index?t=schedule&amp;c=tourny_regions_ne32" CLASS="statTextBig"></A><FONT COLOR="#999999">Advancers</FONT></TD>
                     </TR>                    
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -223,7 +223,7 @@
                     </TR>                 
                     <TR>
                       <TD ALIGN="right" HEIGHT="13" CLASS="statText">Room Winners<BR/>Wildcards</TD>
-                      <TD COLSPAN="2" ALIGN="center" HEIGHT="13" CLASS="statText">16<BR/>8</TD>
+                      <TD COLSPAN="2" ALIGN="center" HEIGHT="13" CLASS="statText">8<BR/>8</TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -235,7 +235,7 @@
                     </TR>                                                           
                     <TR>
                       <TD ALIGN="center" VALIGN="middle" CLASS="statText">&#160;</TD>
-                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 30th @ 8pm EST, Start: 9:30 PM</TD>
+                      <TD COLSPAN="2" VALIGN="middle" CLASS="statText">Wed. Oct. 30th, Start: 9:30 PM EDT</TD>
                     </TR>
                     <TR>
                       <TD COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="20" BORDER="0"/></TD>
