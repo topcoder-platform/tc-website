@@ -90,7 +90,7 @@
                         Diversified Data has developed a clearly defined, results-based methodology utilizing industry-standard best practices. Diversified Data uses this methodology 
                         for implementing clients' Centera solutions and developing its own Centera software products. Our proven methodology provides a roadmap for the successful and 
                         rapid implementation of a customized Centera solution. The Diversified Data Methodology includes guidelines, checklists and templates to ensure product success 
-                        and client satisfaction at every stage.
+                        and client satisfaction at every stage. We are an <A href="http://www.emc.com/partnersalliances/partner_pages/divdata.jsp" class="bodyText">EMC Centera Partner</A>.
                         </p>
                         <p><strong>What we're looking for:</strong></p>
                         <p>Developers with 3+ years of experience to join our team on a contract-to-hire basis.  Check out more of the 

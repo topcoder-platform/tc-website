@@ -64,7 +64,7 @@
 
 <!-- Client Job List begins -->
                         <p><A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="DiversifiedData" border="0" /></A></p>
-
+                        <p>NOTE: Both positions require relocation to Boston/New England. No relocation and/or travel expense reimbursement packages are available.</p>
                         <p><A href="/?&amp;t=tces&amp;c=diversifieddata_softeng&amp;a=secure" class="bodyText">Software Engineer/Consultant</A></p>
                         <p><A href="/?&amp;t=tces&amp;c=diversifieddata_softdev&amp;a=secure" class="bodyText">Software Developer</A></p>
                         
