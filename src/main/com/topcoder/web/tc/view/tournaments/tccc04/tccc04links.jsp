@@ -179,15 +179,15 @@
                     <td class="<%=tabLev3.equals("rules")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=tccc04_comp_rules" class="topLink">Rules</a></td>
             <% } else if (tabLev2.equals("design")) {%>
                     <td class="<%=tabLev3.equals("round1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_rd1" class="topLink">Round 1</a></td>
+                    <td class="<%=tabLev3.equals("round2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_rd2" class="topLink">Round 2</a></td>
 <%--
-                    <td class="<%=tabLev3.equals("round2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_rd1" class="topLink">Round 2</a></td>
                     <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_finals" class="topLink">Finals</a></td>
                     <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_des_bracket" class="topLink">Bracket</a></td>
 --%>
             <% } else if (tabLev2.equals("development")) {%>
                     <td class="<%=tabLev3.equals("round1")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_rd1" class="topLink">Round 1</a></td>
 <%--
-                    <td class="<%=tabLev3.equals("round2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_rd1" class="topLink">Round 2</a></td>
+                    <td class="<%=tabLev3.equals("round2")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_rd2" class="topLink">Round 2</a></td>
                     <td class="<%=tabLev3.equals("finals")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_finals" class="topLink">Finals</a></td>
                     <td class="<%=tabLev3.equals("bracket")?"tccc04SubNav_on":"tccc04SubNav"%>" width="1" nowrap="nowrap"><a href="/tc?module=Static&d1=tournaments&d2=tccc04&d3=comp_dev_bracket" class="topLink">Bracket</a></td>
 --%>
