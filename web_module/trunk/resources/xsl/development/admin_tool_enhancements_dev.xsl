@@ -60,10 +60,12 @@
                                         </h1>
                                         <p>
                                             <font size="-2">&#160;&#160;&#160;&#160;
-                                            <a href="#summary">Summary of the Tournament</a> |
-                                            <a href="#about">About the Tournament</a> |
-                                            <a href="#prizes">About the Prizes</a> |
-                                            <a href="#conditions">Conditions of Participation</a>
+                                                <a href="#summary">Overview</a> |
+                                                <a href="#about">Project Type</a> |
+                                                <a href="#prizes">Payment</a> |
+                                                <a href="#conditions">Eligibility</a> |
+                                                <a href="#conditions">Timeline</a> |
+                                                <a href="#conditions">Requirement Specification</a>
                                             </font>
                                         </p>
                                         <!-- Overview -->
