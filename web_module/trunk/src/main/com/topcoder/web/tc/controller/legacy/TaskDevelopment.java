@@ -665,6 +665,13 @@ else if (command.equals("send")) {
         return result;
     }
 
+    /**
+     * return true if the registration period is open, or if they have already registered
+     * for the tco
+     * @param userId
+     * @return
+     * @throws Exception
+     */
     private static boolean tcoTermsCheck(long userId) throws Exception {
         Calendar c = Calendar.getInstance();
 
