@@ -111,7 +111,7 @@ public abstract class BaseServlet extends HttpServlet {
                 try {
                     String cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
                     if (cmd.equals(""))
-                        cmd = StringUtils.checkNull(request.getParameter(MODULE));
+                        cmd = StringUtils.checkNull(getParameter(request, MODULE));
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
                     if (!isLegalCommand(cmd))
@@ -243,6 +243,10 @@ public abstract class BaseServlet extends HttpServlet {
         }
         request.setAttribute("exception", e);
         fetchRegularPage(request, response, ERROR_PAGE, true);
+    }
+
+    protected String getParameter(HttpServletRequest request, String name) throws Exception {
+        return request.getParameter(name);
     }
 
     protected boolean hasPermission(WebAuthentication auth, Resource r) throws Exception {
