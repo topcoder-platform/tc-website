@@ -130,7 +130,7 @@ public class AutoPilotTimer
                         }
 // by cucu
                     // if in appeals phase and it ended, move to appeals response
-                    if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
+                    } else if(projs[i].getCurrentPhaseInstance().getPhase().getId() == Phase.ID_APPEALS) {
                         if(projs[i].getCurrentPhaseInstance().getEndDate() !=null && projs[i].getCurrentPhaseInstance().getEndDate().getTime() <= System.currentTimeMillis()) {
                             logger.debug("SELECTED: " + projs[i].getProjectName());
 
