@@ -14,7 +14,7 @@
 		</xsl:if>
     </xsl:template>
 
-    <xsl:template name="tcs_tco_projects">
+    <xsl:template name="public_dev_right">
     <xsl:param name="projects"/>
 
 <!-- Declare universal variables -->
