@@ -277,13 +277,13 @@
                                                 <a target="_new" class="bodyText" href="/i/development/downloads/OSSJTCKTestProxyApplicationSpec_v10.pdf">Requirement Specification</a> for this application project &gt;&gt;
                                             </strong>
                                         </p>
-<!--
+
                                         <p>
                                             <strong>
                                                 <a name="inquire" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=OSS/J%20TCK%20Test%20Proxy">Inquire for the OSS/J TCK Test Proxy Project</a> to get selected as a designer and to obtain the information necessary to submit a solution.
                                             </strong>
                                         </p>
--->
+
                                         <!--
                                         <p>
                                             <strong>
