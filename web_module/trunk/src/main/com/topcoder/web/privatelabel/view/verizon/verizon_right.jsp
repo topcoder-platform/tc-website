@@ -53,7 +53,7 @@
 
                         <img alt="" src="/images/spacer.gif" height="6" width="138"><br/>
 
-                        <a href="#"><img alt="Win a FREE T-shirt!" src="/i/events/verizon2003/tshirt_promo.gif" height="87" width="138"></a><br/>
+                        <a href="vcc03_rules.jsp#prizes"><img alt="Win a FREE T-shirt!" src="/i/events/verizon2003/tshirt_promo.gif" height="87" width="138"></a><br/>
 
                         <img alt="" src="/images/spacer.gif" height="20" width="138"><br/>
                     </td>
