@@ -109,9 +109,9 @@ final class UserDb {
                 InitialContext ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
                 Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
-                userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0), DBMS.JTS_OLTP_DATASOURCE_NAME);
-                userEJB.setFirstName(user.getUserId(), coder.getFirstName(), DBMS.JTS_OLTP_DATASOURCE_NAME);
-                userEJB.setLastName(user.getUserId(), coder.getLastName(), DBMS.JTS_OLTP_DATASOURCE_NAME);
+                userEJB.createUser(user.getUserId(), user.getHandle(), user.getStatus().charAt(0), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                userEJB.setFirstName(user.getUserId(), coder.getFirstName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                userEJB.setLastName(user.getUserId(), coder.getLastName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
                 long emailId = emailEJB.createEmail(coder.getCoderId());
                 emailEJB.setAddress(emailId, user.getEmail());
@@ -226,9 +226,9 @@ final class UserDb {
                 InitialContext ctx = new InitialContext();
                 com.topcoder.web.ejb.user.User userEJB = ((UserHome) ctx.lookup(UserHome.EJB_REF_NAME)).create();
                 Email emailEJB = ((EmailHome) ctx.lookup("main:"+EmailHome.EJB_REF_NAME)).create();
-                userEJB.setFirstName(user.getUserId(), coder.getFirstName(), DBMS.JTS_OLTP_DATASOURCE_NAME);
-                userEJB.setLastName(user.getUserId(), coder.getLastName(), DBMS.JTS_OLTP_DATASOURCE_NAME);
-                userEJB.setStatus(user.getUserId(), user.getStatus().charAt(0), DBMS.JTS_OLTP_DATASOURCE_NAME);
+                userEJB.setFirstName(user.getUserId(), coder.getFirstName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                userEJB.setLastName(user.getUserId(), coder.getLastName(), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                userEJB.setStatus(user.getUserId(), user.getStatus().charAt(0), DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
                 long emailId = emailEJB.getPrimaryEmailId(coder.getCoderId());
                 emailEJB.setAddress(emailId, user.getEmail());

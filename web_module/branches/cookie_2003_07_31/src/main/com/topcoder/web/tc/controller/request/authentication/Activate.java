@@ -45,9 +45,9 @@ public class Activate extends Base {
             if (dbCode.equals(code)) {
                 //activate account
                 User user = (User) createEJB(ctx, User.class);
-                char status = user.getStatus(userId, DBMS.OLTP_DATASOURCE_NAME);
+                char status = user.getStatus(userId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
                 if (Arrays.binarySearch(UNACTIVE_STATI, status)>0) {
-                    user.setStatus(userId, ACTIVE_STATI[1], DBMS.OLTP_DATASOURCE_NAME); //want to get 'A'
+                    user.setStatus(userId, ACTIVE_STATI[1], DBMS.COMMON_OLTP_DATASOURCE_NAME); //want to get 'A'
                     setNextPage(Constants.ACTIVATE);
                     setIsNextPageInContext(true);
                 } else if (Arrays.binarySearch(ACTIVE_STATI, status)>0) {

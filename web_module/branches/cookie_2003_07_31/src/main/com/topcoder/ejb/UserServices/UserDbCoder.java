@@ -157,7 +157,7 @@ final class UserDbCoder {
             addressEJB.setZip(addressId, coder.getHomeZip());
             addressEJB.setAddressTypeId(addressId, ADDRESS_TYPE_ID);
 
-            userAddressEJB.createUserAddress(coder.getCoderId(), addressId, DBMS.JTS_OLTP_DATASOURCE_NAME);
+            userAddressEJB.createUserAddress(coder.getCoderId(), addressId, DBMS.COMMON_OLTP_DATASOURCE_NAME);
 
             long phoneId = phoneEJB.createPhone(coder.getCoderId());
             phoneEJB.setNumber(phoneId, coder.getHomePhone());
