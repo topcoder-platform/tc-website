@@ -685,23 +685,22 @@ public final class TaskDevelopment {
 
                     respBody.append("Thank you for registering for the ");
                     respBody.append(project);
-                    respBody.append(" Team Application Project.  Since this is a team project, please remember that ");
-                    respBody.append("if you registered without providing the TopCoder handle of a teammate, we will ");
-                    respBody.append("assume that you are looking for TopCoder to assign a teammate for you.  If this ");
-                    respBody.append("is not correct, you may reply to this email with the TopCoder handle of your ");
-                    respBody.append("teammate.\n\n");
+                    respBody.append(" Team Application Project.  Since this is a team project, please remember that if ");
+                    respBody.append("you registered without providing the TopCoder handle of your teammate, we will ");
+                    respBody.append("assume that you are looking for TopCoder to assign a teammate for you.  If this is ");
+                    respBody.append("not correct, you may reply to this email with the TopCoder handle of your teammate.\n\n");
                     respBody.append("In addition, if you are not familiar with the TopCoder Team Application process, ");
-                    respBody.append("please read this information: ");
+                    respBody.append("please read this information:");
                     respBody.append("http://");
                     respBody.append(ApplicationServer.SERVER_NAME);
                     respBody.append("/?t=development&c=app_team_meth");
                     respBody.append("\n\n");
-                    respBody.append("Please note the deadline for proposal submissions, as this is the first ");
-                    respBody.append("deliverable in the new Team Application process.\n\n");
-                    respBody.append("Access to all of the project specification documentation will be provided to ");
-                    respBody.append("you shortly.\n\n");
-                    respBody.append("We will contact you in the near future to ensure that you plan to participate ");
-                    respBody.append("in the proposal phase of this application project.\n\n");
+                    respBody.append("Please note the deadline for proposal submissions, as this is the first deliverable ");
+                    respBody.append("in the new Team Application process.\n\n");
+                    respBody.append("We will contact you in the near future to ensure that you plan to participate in ");
+                    respBody.append("the proposal phase of this application project and to provide you and your teammate ");
+                    respBody.append("access to all of the project specification documentation.\n\n\n");
+                    respBody.append("Thanks,\n\n");
 
                     respBody.append("TopCoder Software Service");
                     resp.setBody(respBody.toString());
