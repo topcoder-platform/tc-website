@@ -20,9 +20,7 @@ import com.topcoder.shared.util.logging.Logger;
 import javax.naming.Context;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.Map;
-import java.util.Enumeration;
-import java.util.ArrayList;
+import java.util.*;
 
 
 public final class TaskAffidavit {
@@ -62,8 +60,8 @@ public final class TaskAffidavit {
 
                 if (requestCommand.equals("submit_questions")) {
 
-                    ArrayList questions = new ArrayList();
-                    ArrayList answers = new ArrayList();
+                    TreeMap questions = new TreeMap();
+                    TreeMap answers = new TreeMap();
 
                     Enumeration parameterNames = request.getParameterNames();
                     while (parameterNames.hasMoreElements()) {
@@ -72,23 +70,23 @@ public final class TaskAffidavit {
                         String parameterValue = request.getParameter(parameterName);
                         if (parameterName.startsWith(QUESTION_PREFIX)) {
                             int index = Integer.parseInt(parameterName.substring(QUESTION_PREFIX.length()));
-                            questions.ensureCapacity(index+1);
-                            questions.set(index, parameterValue);
+                            questions.put(new Integer(index), parameterValue);
                         } else if (parameterName.startsWith(ANSWER_PREFIX)) {
                             int index = Integer.parseInt(parameterName.substring(ANSWER_PREFIX.length()));
-                            answers.ensureCapacity(index+1);
-                            answers.set(index, parameterValue);
+                            answers.put(new Integer(index), parameterValue);
                         }
                     }
                     StringBuffer buf = new StringBuffer(1000);
                     buf.append(nav.getUser().getHandle());
                     buf.append(" has answered your questions thusly\n\n");
-                    for (int i=0; i<questions.size(); i++) {
-                        buf.append(i);
+                    Map.Entry me = null;
+                    for (Iterator it = questions.entrySet().iterator(); it.hasNext(); ) {
+                        me = (Map.Entry) it.next();
+                        buf.append(me.getKey());
                         buf.append(". ");
-                        buf.append(questions.get(i));
+                        buf.append(me.getKey());
                         buf.append("\n");
-                        buf.append(answers.get(i));
+                        buf.append(me.getValue());
                         buf.append("\n\n");
                     }
 
