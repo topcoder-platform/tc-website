@@ -60,10 +60,10 @@ function getProblemDetail(id) {
                 </tr>
 
                 <tr>
-                   <td align="left" class="screeningHeader">Test Profile</td>
-                   <td align="center" class="screeningHeader">Total</td>
-                   <td align="center" class="screeningHeader">Complete</td>
-                   <td align="center" class="screeningHeader">Create Date</td>
+                   <td width="25%" align="left" class="screeningHeader">Test Profile</td>
+                   <td width="25%" align="center" class="screeningHeader">Total</td>
+                   <td width="25%" align="center" class="screeningHeader">Complete</td>
+                   <td width="25%" align="right" class="screeningHeader">Create Date</td>
                 </tr>
                 <% if(profileList.isEmpty()){ %>
                     <tr>
@@ -79,10 +79,10 @@ function getProblemDetail(id) {
                        cparam = Constants.PROFILE_ID + '=' + row.getItem("session_profile_id");
                     %>
                     <tr>
-                        <td width="20%" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
+                        <td class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:servletLink processor="ProfileDetail" param="<%=cparam%>" styleClass="bodyText"><screen:resultSetItem row="<%=row%>" name="session_profile_desc" /></screen:servletLink></td>
                         <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="num_sessions" /></td>
                         <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="num_complete" /></td>
-                        <td align="center" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
+                        <td align="right" class="<%=i%2==1?"screeningCellOdd":"screeningCellEven"%>"><screen:resultSetItem row="<%=row%>" name="create_date" format='MM/dd/yyyy hh:mm a'/></td>
                     </tr>
                     </screen:resultSetRowIterator>
                 <% } %>
