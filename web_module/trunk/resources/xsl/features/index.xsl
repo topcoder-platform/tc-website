@@ -68,6 +68,12 @@
                             </tr>
                             
                             <tr>
+                                <td valign="middle" class="bodyText" height="14">October 1</td>
+                                <td valign="middle" class="bodyText">leadhyena_inran</td>
+                                <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_100104" class="bodyText">On Sentinels</A></td>
+                            </tr>
+
+                            <tr>
                                 <td valign="middle" class="bodyText" height="14">September 1</td>
                                 <td valign="middle" class="bodyText">leadhyena_inran</td>
                                 <td valign="middle" class="bodyText"><A href="/index?t=features&amp;c=feat_090104" class="bodyText">On Sentinels</A></td>
