@@ -24,7 +24,6 @@ import java.util.*;
              InitialContext context = new InitialContext();
              SessionHome sHome = (SessionHome)PortableRemoteObject.narrow(context.lookup(SessionHome.class.getName()), SessionHome.class);
              Session session = sHome.create();
-        
          String testprofile=getRequest().getParameter("testprofile");
          String candidate=getRequest().getParameter("candidate");
          String beginmonth=getRequest().getParameter("beginmonth");
@@ -45,19 +44,25 @@ import java.util.*;
          String adminemail=getRequest().getParameter("adminemail");
          String command=getRequest().getParameter("command");
          if(command.equals("save")){
-             session.createSession(100L,100L,cbDate,ceDate,candidateemail.equals("TRUE"),adminemail.equals("TRUE"),100L);
+             //what's createUserID?
+             session.createSession(Long.parseLong(testprofile),Long.parseLong(candidate),cbDate,ceDate,candidateemail.equals("TRUE"),adminemail.equals("TRUE"),0L);
+             ServletRequest sr = getRequest();
+             sr.setAttribute("sessioninfo",session);
+             setNextPage("session/sessionConfirm.jsp");
+             setNextPageInContext(true);
          } else if(command.equals("view")){
-             //load it through the beans, put it in the response
-             //and load the confirm page
+             //there needs to be a method in SessionHome that allows me to load a Session by sessionID into the bean pool so my JSP can pull it up.
          } else if(command.equals("remove")){
-             //remove it through the beans,
+             //remove it through the beans, this also needs to be added to SessionHome as a removeSession() method.
              //and return to overall view webpage.
          } else {
              //I didn't understand the command
              setNextPage("errorPage.jsp?error=\"SessionSetup was given an illegal command:"+command+"\"");
+             setNextPageInContext(false);
          }
          }catch(Exception e){
              setNextPage("errorPage.jsp?error=\"Unrecoverable error in session setup processing."+e.getMessage()+"\"");
+             setNextPageInContext(false);
              return;
          }
      }
