@@ -133,7 +133,7 @@
                                                     <a class="methNav" href="#design">Architecture and Design</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
-                                                    <a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;
+                                                    <a class="methNav" href="#qa">Quality Assurance</a>&#160;&#160;&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
                                                     <div class="topPage">
@@ -182,7 +182,7 @@
                                                     </span>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
-                                                    <a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;
+                                                    <a class="methNav" href="#qa">Quality Assurance</a>&#160;&#160;&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
                                                     <div class="topPage">
@@ -247,7 +247,7 @@
                                                         <strong>Development and Testing</strong>
                                                     </span>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
-                                                    <a class="methNav" href="#qa">QA</a>&#160;&#160;&#160;&#160;
+                                                    <a class="methNav" href="#qa">Quality Assurance</a>&#160;&#160;&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
                                                     <div class="topPage">
@@ -314,7 +314,7 @@
                                                     <span class="bodyText">
                                                         <strong>Integration</strong>
                                                     </span>&#160;&#160;|&#160;&#160;
-                                                    <a class="methNav" href="#qa">QA</a>&#160;&#160;|&#160;&#160;
+                                                    <a class="methNav" href="#qa">Quality Assurance</a>&#160;&#160;|&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
                                                     <div class="topPage">
@@ -370,7 +370,7 @@
                                                     <a class="methNav" href="#development">Development and Testing</a>&#160;&#160;|&#160;&#160;
                                                     <a class="methNav" href="#integration">Integration</a>&#160;&#160;|&#160;&#160;
                                                     <span class="bodyText">
-                                                        <strong>QA</strong>
+                                                        <strong>Quality Assurance</strong>
                                                     </span>&#160;&#160;&#160;&#160;
                                                 </td>
                                                 <td class="methNav" width="2%" nowrap="nowrap">
@@ -385,9 +385,15 @@
                                 <tr valign="top">
                                     <td class="bodyText">
                                         <ol>
-                                            <li>The Development Review Board and Designer perform several iterations of QA testing and provide feedback to the developers at specified milestones of the development phase.</li>
-                                            <li>The Primary Development Review Board members and Designer team up with the TopCoder Software Project Manager to perform several iterations of QA testing with the winning developers at the completion of integration.</li>
-                                            <li>Once the TopCoder Software Project Manager is satisfied that the application meets the rigorous standards of TopCoder Software, the application solution is accepted and the Development Integration Team is compensated.</li>
+                                            <li>The Development Review Board and Designer perform several iterations of
+                                                QA testing and provide feedback to the developers at specified milestones
+                                                of the development phase.</li>
+                                            <li>The Primary Development Review Board members and Designer team up with the
+                                                TopCoder Software Project Manager to perform several iterations of QA testing
+                                                with the winning integrators at the completion of integration.</li>
+                                            <li>Once the TopCoder Software Project Manager is satisfied that the application
+                                                meets the rigorous standards of TopCoder Software, the application solution
+                                                is accepted and the Application Integration Team is compensated.</li>
                                         </ol>
                                     </td>
                                 </tr>
