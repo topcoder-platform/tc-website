@@ -41,7 +41,10 @@
 <table width="550" align="center" border="0" cellpadding="0" cellspacing="10">
 	<tr><td colspan="2" class="bodyText">
 		<div align="center"><img src="/i/tournament/tccc05/monitor_logo.jpg" width="424" height="336" border="0"/></div>
-                <div align="center">Student Reps</div>
+                
+                <table width="510" align="center" border=0 cellpadding=0 cellspacing=0>
+					<tr><td><h2>Student Reps</h2></td></tr>
+				</table>
                 <table width="510" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                 <tr>
                     <td class="sidebarTitle">
