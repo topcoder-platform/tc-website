@@ -234,13 +234,16 @@ public final class ReportServlet extends HttpServlet {
         String handle = Conversion.checkNull(request.getParameter(Constants.REPORT_HANDLE_KEY));
         String firstName = Conversion.checkNull(request.getParameter(Constants.REPORT_FIRST_NAME_KEY));
         String lastName = Conversion.checkNull(request.getParameter(Constants.REPORT_LAST_NAME_KEY));
+        String email = Conversion.checkNull(request.getParameter(Constants.REPORT_EMAIL_KEY));
         if (handle.equals("")) handle = "%";
         if (firstName.equals("")) firstName = "%";
         if (lastName.equals("")) lastName = "%";
+        if (email.equals("")) email = "%";
         Query profileListQuery = new Query(PROFILE_LIST, PROFILE_LIST_TYPES);
         profileListQuery.setValue(handle);
         profileListQuery.setValue(firstName);
         profileListQuery.setValue(lastName);
+        profileListQuery.setValue(email);
         ArrayList a = profileListQuery.execute();
         ArrayList result = new ArrayList();
         Profile p = null;
@@ -248,7 +251,8 @@ public final class ReportServlet extends HttpServlet {
             p = new Profile(
                     ((ResultItem[]) a.get(i))[0].toString(),
                     ((ResultItem[]) a.get(i))[1].toString(),
-                    ((ResultItem[]) a.get(i))[2].toString());
+                    ((ResultItem[]) a.get(i))[2].toString(),
+                    ((ResultItem[]) a.get(i))[3].toString());
             try {
                 p.execute();
                 result.add(p);

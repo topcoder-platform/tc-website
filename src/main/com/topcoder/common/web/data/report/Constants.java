@@ -34,6 +34,7 @@ public class Constants {
     public static String REPORT_HANDLE_KEY = "ha";
     public static String REPORT_FIRST_NAME_KEY = "fn";
     public static String REPORT_LAST_NAME_KEY = "ln";
+    public static String REPORT_EMAIL_KEY = "ea";
 
     public static String REPORT_PRO_STUDENT_KEY = "cts";
     public static String REPORT_STATE_KEY = "scs";

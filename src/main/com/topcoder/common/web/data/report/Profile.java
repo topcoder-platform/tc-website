@@ -18,6 +18,7 @@ public class Profile implements Serializable {
     private String handle;
     private String firstName;
     private String lastName;
+    private String email;
 
     private static final int[] GENERAL_QUERY_TYPES = {ResultItem.INT, ResultItem.INT, ResultItem.INT, ResultItem.DATE, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.DATE, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING, ResultItem.STRING};
     private static final String GENERAL_QUERY =
@@ -63,6 +64,7 @@ public class Profile implements Serializable {
                "AND LOWER(u.handle) like LOWER('?') " +
                "AND LOWER(c.first_name) like LOWER('?') " +
                "AND LOWER(c.last_name) like LOWER('?') " +
+               "AND LOWER(u.email) like LOWER('?') " +
                "AND r.coder_id = c.coder_id   " +
                "AND cref.coder_id = c.coder_id " +
                "AND re.referral_id = cref.referral_id " +
@@ -100,7 +102,7 @@ public class Profile implements Serializable {
 
     private static Logger log = Logger.getLogger(Profile.class);
 
-    public Profile(String handle, String firstName, String lastName) {
+    public Profile(String handle, String firstName, String lastName, String email) {
         if (Conversion.checkNull(handle).equals(""))
             this.handle = "%";
         else
@@ -113,9 +115,14 @@ public class Profile implements Serializable {
             this.lastName = "%";
         else
             this.lastName = lastName.trim();
+        if (Conversion.checkNull(email).equals(""))
+            this.email = "%";
+        else
+            this.email= lastName.trim();
         log.debug("handle: " + handle);
         log.debug("first: " + firstName);
         log.debug("last: " + lastName);
+        log.debug("email: " + email);
         generalInfo = null;
         generalQuery = new Query(GENERAL_QUERY, GENERAL_QUERY_TYPES);
         demographicQuery = new Query(DEMOGRAPHIC_QUERY, DEMOGRAPHIC_QUERY_TYPES);
@@ -259,10 +266,12 @@ public class Profile implements Serializable {
         generalQuery.setValue(handle);
         generalQuery.setValue(firstName);
         generalQuery.setValue(lastName);
+        generalQuery.setValue(email);
 
         ArrayList a = generalQuery.execute();
         if (a.size() == 0)
-            throw new Exception("Could not find user with handle: " + handle + " first name: " + firstName + " last name: " + lastName);
+            throw new Exception("Could not find user with handle: " + handle + " first name: " +
+                    firstName + " last name: " + lastName + " email: " + email);
         else
             generalInfo = (ResultItem[]) a.get(0);
 
