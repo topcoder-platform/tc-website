@@ -17,9 +17,9 @@
     </tr>
     <rsc:iterator list="<%=schools%>" id="resultRow">
         <tr>
-            <td align="right" class="formHandleOdd"><rsc:item name="rank" row="<%=resultRow%>"/></td>
-            <td align="left" class="formHandleOdd" nowrap="nowrap"><rsc:item name="name" row="<%=resultRow%>"/></td>
-            <td align="right" class="formHandleOdd" nowrap="nowrap"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
+            <td align="right" class="formHandleEven"><rsc:item name="rank" row="<%=resultRow%>"/></td>
+            <td align="left" class="formHandleEven" nowrap="nowrap"><rsc:item name="name" row="<%=resultRow%>"/></td>
+            <td align="right" class="formHandleEven" nowrap="nowrap"><rsc:item name="avg_rating" row="<%=resultRow%>"/></td>
         </tr>
     </rsc:iterator>
 </table>
