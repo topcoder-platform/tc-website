@@ -129,6 +129,14 @@ public abstract class BaseProfileProcessor extends BaseProcessor {
                         "At least one language must be selected");
             }
 
+            if (!info.hasTestSetA()) {
+                if (info.getTestSetBList().isEmpty()) {
+                    success = false;
+                    addError(Constants.TEST_SET_B,
+                            "If you do not select a Test Set A, you must select at least one problem for Test Set B.");
+                }
+
+            }
             if (success) {
                 Request dRequest = new Request();
                 dRequest.setProperty(DataAccessConstants.COMMAND,
