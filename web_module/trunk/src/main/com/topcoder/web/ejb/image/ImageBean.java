@@ -12,8 +12,6 @@ public class ImageBean extends BaseEJB {
 
 
     public long createImage(String fileName, int imageTypeId, long pathId, String dataSource)  {
-        //get next image id
-
         long id = IdGeneratorClient.getSeqId("IMAGE_SEQ");
 
         insert("image",
