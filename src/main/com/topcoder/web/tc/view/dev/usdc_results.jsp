@@ -72,11 +72,11 @@ else
                         </table>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class="sidebarTitle" width=50%>Contest</td>
-                                <td class="sidebarTitle" width=10% align=center>Start Date</td>
-                                <td class="sidebarTitle" width=10% align=center>End Date</td>
+                                <td class="sidebarTitle" width=30%>Contest</td>
+                                <td class="sidebarTitle" width=20% align=center>Start Date</td>
+                                <td class="sidebarTitle" width=20% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
-                                <td class="sidebarTitle" width=10% align=right>Contest Prize</td>
+                                <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
                             </tr>
                             <rsc:iterator list="<%=rsc%>" id="resultRow">
@@ -121,9 +121,9 @@ else
                         </table>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class="sidebarTitle" width=50%>Contest</td>
-                                <td class="sidebarTitle" width=10% align=center>Start Date</td>
-                                <td class="sidebarTitle" width=10% align=center>End Date</td>
+                                <td class="sidebarTitle" width=30%>Contest</td>
+                                <td class="sidebarTitle" width=20% align=center>Start Date</td>
+                                <td class="sidebarTitle" width=20% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
@@ -150,9 +150,9 @@ else
                         </table>
                         <table width="100%" align="center" border="0" cellpadding="5" cellspacing="2" class="sidebarBox">
                             <tr>
-                                <td class="sidebarTitle" width=50%>Contest</td>
-                                <td class="sidebarTitle" width=10% align=center>Start Date</td>
-                                <td class="sidebarTitle" width=10% align=center>End Date</td>
+                                <td class="sidebarTitle" width=30%>Contest</td>
+                                <td class="sidebarTitle" width=20% align=center>Start Date</td>
+                                <td class="sidebarTitle" width=20% align=center>End Date</td>
                                 <td class="sidebarTitle" width=10% align=center>Winner</td>
                                 <td class="sidebarTitle" width=10% align=right>Contest Prizes</td>
                                 <td class="sidebarTitle" width=10% align=center>Components</td>
