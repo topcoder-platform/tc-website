@@ -126,7 +126,7 @@ Project End Date: October 11th, 2002</P>
 
 
                                     <a href="Javascript:document.frmInquire.Project.value='Single Sign On Components';document.frmInquire.To.value='development@topcoder.com';document.frmInquire.submit();" CLASS="statText"><b>Click here to inquire &gt;&gt;</b></a>
-          <P><br/></P>
+          <P><BR/></P>
     </TD>
     <TD VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"/></TD>
   </TR>
