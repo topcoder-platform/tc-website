@@ -71,7 +71,7 @@
                 <tr valign="middle">
                     <td class="bodyText" valign="top"><strong>TopCoder Software Development Environment</strong><br />
                         The TopCoder Software Development Environment is intended to facilitate the component design and 
-                        and development process.  Anyone interested in working on component design or development 
+                        development process.  Anyone interested in working on component design or development 
                         should download this file and configure their environment before getting started.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
@@ -89,7 +89,7 @@
                                 
                 <tr valign="middle">
                     <td class="bodyText" valign="top"><strong>TopCoder Software Component Guidelines</strong><br />
-                        The TopCoder Software Component Guidelines provides details required to design and development TopCoder Software components.  This document includes software versions and coding standards.</td>
+                        The TopCoder Software Component Guidelines provide details required to design and develop TopCoder Software components. This document includes supported versions of software tools and coding standards.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
@@ -129,9 +129,7 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
 
                 <tr valign="middle">
                     <td class="bodyText" valign="top"><strong>Design Deliverables</strong><br />
-                        Java and .NET Design Deliverables provide an overview of the design process 
-                        including the required deliverables for submission and the responsibilities of the winning designer. 
-                        Submissions which do not meet the screening requirements will not be reviewed by the Architecture Review Board.</td>
+                        Java and .NET Design Deliverables provide an overview of the design process including the required deliverables for submission and the responsibilities of the winning designer. The Architecture Review Board will not review submissions that do not meet the screening requirements.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
@@ -153,9 +151,7 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                                 
                 <tr valign="middle">
                     <td class="bodyText" valign="top"><strong>Development Deliverables</strong><br />
-                        Development Deliverables provides an overview of the design process including the 
-                        required deliverables for submission. Submissions which do not meet the screening requirements will not be reviewed by the 
-                        Development Review Board.</td>
+                        Development Deliverables provide an overview of the development process including the required deliverables for submission. The Development Review Board will not review submissions that do not meet the screening requirements.</td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
                         <table border="0" cellspacing="0" cellpadding="0">
@@ -176,10 +172,8 @@ The TopCoder Component Tutorials provide detailed handbooks from two of TopCoder
                 <tr><td colspan="3"><hr width="100%" size="1px" color="666666" /></td></tr>
                                 
                 <tr valign="middle">
-                    <td class="bodyText" valign="top"><strong>Specification</strong><br />
-                        The purpose of the specification is to provide additional details 
-                        about the design, including implementation details which may not be covered in the UML diagrams. This template 
-                        should be filled out and submitted with each design submission.<br /><br />
+                    <td class="bodyText" valign="top"><strong>Component Specification</strong><br />
+                        The purpose of the Component Specification is to provide additional details about the design, including implementation details that may not be covered in the UML diagrams. This template should be filled out and submitted with each design submission.<br/><br />
                     </td>
                     <td></td>
                     <td class="bodyText" valign="top"><br />
