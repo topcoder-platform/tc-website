@@ -69,9 +69,9 @@
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
             </TR>                        
             <TR>
-				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 92</A></TD>						
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Wednesday, May 29</A></TD>
-				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4180&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">7:30pm EDT (registration)</A></TD>
+				<TD VALIGN="middle" HEIGHT="13" CLASS="statText"><A HREF="/?ContestId=4185&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Single Round Match 93</A></TD>						
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4185&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">Thursday, May 30</A></TD>
+				<TD VALIGN="middle" CLASS="bodyGeneric"><A HREF="/?ContestId=4185&amp;t=schedule&amp;c=srm" CLASS="bodyGeneric">8:30pm EDT (registration)</A></TD>
             </TR>           
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="22" BORDER="0"/></TD>
@@ -83,7 +83,7 @@
                       <TD COLSPAN="3" ALIGN="center"><BR/><A HREF="/index?t=schedule&amp;c=tourny_spons"><IMG SRC="/i/tournament/sun_banner.gif" ALT="" WIDTH="428" HEIGHT="84" VSPACE="5" BORDER="0"/></A></TD>
                     </TR> -->            
             <TR>
-              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 91 - May 22, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
+              <TD VALIGN="middle" COLSPAN="3" HEIGHT="18" BACKGROUND="/i/steel_gray_bg.gif" CLASS="statTextBig">&#160;Last Match Summary: Single Round Match 92 - May 29, 2002<!-- 2002 TCCC Regional Championships - March 13 --></TD>
             </TR>
             <TR>
               <TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
@@ -108,38 +108,44 @@
 <A HREF="/stat?c=last_match&amp;rd=4115&amp;dn=1" CLASS="bodyGeneric">dmwright</A>
 -->
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=152476" CLASS="bodyGeneric">kalmes</A>
- was the top-scorer in Division-I, winning Room 4 with 1422.50 final points.  
-<B>kalmes</B> earned 237.41 points on the Level One problem, 422.74 on the Level Two problem, 
-and 762.35 on the Level Three problem.  In the "Challenge Phase", 
-<A HREF="/stat?c=member_profile&amp;cr=158258" CLASS="bodyGeneric">jerm</A> tried to challenge 
-the Level Two submission of <B>kalmes</B>, but to no avail.  This was the eighth room win for <B>kalmes</B>, 
-who has won $2,570 in 38 matches. 
+<A HREF="/stat?c=member_profile&amp;cr=129815" CLASS="bodyGeneric">dmh2000</A>
+ only coded the Level One problem, but it was enough to win Room 20 by 3.62 points, 
+187.47 to 183.85 over <A HREF="/stat?c=member_profile&amp;cr=262953" CLASS="bodyGeneric">MEEP!</A>
+  &#160;<B>dmh2000</B> coded the Level One problem in 25:29, which placed 
+him fifth after the "Coding Phase".  <B>MEEP!</B> was actually in first place with 478.50 points.  
+During the "Challenge Phase", however, ethaneade successfully challenged the Level Two 
+submission of <B>MEEP!</B>, causing <B>MEEP!</B> to lose the 294.65 points earned on that problem.  
+<A HREF="/stat?c=member_profile&amp;cr=263788" CLASS="bodyGeneric">monteith</A>, 
+who was in third after the "Coding Phase" also lost points in the 
+"Challenge Phase", while <A HREF="/stat?c=member_profile&amp;cr=272349" CLASS="bodyGeneric">smileywiley</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=267180" CLASS="bodyGeneric">Ani</A>, 
+ who were in second and fourth, 
+lost all of there points in the system test. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=274068" CLASS="bodyGeneric">Brian</A>
- won Room 9 with 1404.28 final points, producing a rating point gain of 318, which is 
-the 10th highest in Division-I.  <B>Brian</B> earned 1354.28 points in the "Coding Phase", coding 
-the Level One problem for 235.65 points, the Level Two problem for 399.07 points, and the 
-Level Three problem for 719.56 points.  In the "Challenge Phase", <B>Brian</B> added 50 points 
-with a successful challenge of the Level One problem of 
-<A HREF="/stat?c=member_profile&amp;cr=266162" CLASS="bodyGeneric">rashok</A>, and withstood a challenge 
-from <A HREF="/stat?c=member_profile&amp;cr=154619" CLASS="bodyGeneric">hilfiger</A>
- on his Level Three submission.  <B>Brian</B> has won his room three times in six 
-matches, for a total of $274. 
+<A HREF="/stat?c=member_profile&amp;cr=280198" CLASS="bodyGeneric">alanm</A>
+ won Room 21 with 513.34 final points, and added 255 points to his rating, 
+the biggest Division-I increase of the match.  <B>alanm</B> earned 231.82 points on the 
+Level One problem, and 281.52 on the Level Two problem.  
+<A HREF="/stat?c=member_profile&amp;cr=264728" CLASS="bodyGeneric">Liguo</A>
+ and <A HREF="/stat?c=member_profile&amp;cr=269213" CLASS="bodyGeneric">Tek</A>
+ both tried 
+to challenge the Level One submission of <B>alanm</B>, but to no avail. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=155737" CLASS="bodyGeneric">forgothowtocode</A>
- remembered how to code in Single Round Match 91, and won Room 20 with 
-482.99 final points.    <B>forgothowtocode</B> earned 210.68 points on the Level One problem 
-and 272.31 points on the Level Two problem.  Both <A HREF="/stat?c=member_profile&amp;cr=158149" CLASS="bodyGeneric">adrian</A>
- and <A HREF="/stat?c=member_profile&amp;cr=276525" CLASS="bodyGeneric">yfu</A>
- tried to challenge 
-the Level Two submissions on <B>forgothowtocode</B>, but failed.  This is the third room win 
-for <B>forgothowtocode</B>, who has won $426 in 32 matches.
+<A HREF="/stat?c=member_profile&amp;cr=273414" CLASS="bodyGeneric">drcode</A>
+ had the poorest outing in Room 19, and ended up losing 221 rating points, 
+the most in the division for the match.  <B>drcode</B> submitted code for the Level One 
+and Two problems, earning a combined 460.52 points in the "Coding Phase".  <B>drcode</B> 
+then lost 150 points with three unsuccessful challenges, and 179.35 when 
+<A HREF="/stat?c=member_profile&amp;cr=156439" CLASS="bodyGeneric">Moose</A> 
+successfully challenged his Level One submission in the "Challenge Phase".  
+The Level Two submission of <B>drcode</B> ended up failing the system test, 
+leaving <B>drcode</B> with -150 final points for the match.
 </P>
+
                  </TD>
             </TR>             
             <TR><TD VALIGN="middle" COLSPAN="3"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="18" BORDER="0"/></TD></TR>        
@@ -148,38 +154,41 @@ for <B>forgothowtocode</B>, who has won $426 in 32 matches.
             <TR>
               <TD VALIGN="top" COLSPAN="3" CLASS="bodyText">
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=264169" CLASS="bodyGeneric">Ninjak</A>
- was the top-scorer in Division-II and SRM 91, earning 1557.10 final points.  
-<B>Ninjak</B> produced 1507.10 points in the "Coding Phase", coding the Level One problem 
-for 247.09 points, the Level Two problem for 437.06, and the Level Three problem for 
-822.95.  In the "Challenge Phase", <B>Ninjak</B> added 50 points with a successful challenge 
-of the Level Two code of complete.  <A HREF="/stat?c=member_profile&amp;cr=158851" CLASS="bodyGeneric">nemo_d</A>
- and <A HREF="/stat?c=member_profile&amp;cr=274858" CLASS="bodyGeneric">z-man</A>
- tried to challenge the Level Three 
-submission of <B>Ninjak</B>, but to no avail.  <B>Ninjak</B> has won six times in 29 matches, and earned $424. 
+<A HREF="/stat?c=member_profile&amp;cr=278938" CLASS="bodyGeneric">binaryni</A>
+ was the top point-getter in Division-II, winning Room 28 with 
+1370.22 final points.  <B>binaryni</B> earned 241.96 points on the Level One 
+problem, 362.46 on the Level Two problem, and 615.80 on the Level 
+Three problem, for 1220.22 points after the "Coding Phase".  <B>binaryni</B> 
+then added 150 points in the "Challenge Phase" with successful challenges 
+of the Level Two submissions of <A HREF="/stat?c=member_profile&amp;cr=280986" CLASS="bodyGeneric">InsaneProdigy</A>, 
+<A HREF="/stat?c=member_profile&amp;cr=263468" CLASS="bodyGeneric">Rakot</A>, 
+and <A HREF="/stat?c=member_profile&amp;cr=159543" CLASS="bodyGeneric">PongsriBunny</A>.  
+<B>binaryni</B> added 219 rating points, which is the largest gain for the division in the match. 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=251089" CLASS="bodyGeneric">GotMilk</A>
- got a win in Room 46, coding all three problems for 1205.59 final points.  
-<B>GotMilk</B> earned 237.03 on the Level One problem, 403.50 on the Level Two problem, 
-and 565.06 on the Level Three problem.  This was the second consecutive room win for 
-<B>GotMilk</B>, who has three wins overall in 27 matches, and has won $202. 
+Two rooms were decided by less than one point: 
 </P>
 
 <P>
-<A HREF="/stat?c=member_profile&amp;cr=282137" CLASS="bodyGeneric">ttilling</A>
- won by an impressive 902.52 points in Room 65.  <B>ttilling</B> earned 1080.89 
-final points in the match, with <A HREF="/stat?c=member_profile&amp;cr=285601" CLASS="bodyGeneric">lolbrish</A>
- finishing second with 178.36.  In the 
-"Coding Phase", <B>ttilling</B> coded all three problems for 1030.89 points.  <B>lolbrish</B> 
-also coded all three problems, and was actually leading the room with 1032.28 points.  
-<B>ttilling</B> then added 50 points in the "Challenge Phase" with a successful challenge of 
-the Level One submission of <A HREF="/stat?c=member_profile&amp;cr=279388" CLASS="bodyGeneric">limer619</A>, 
-while <B>lolbrish</B> lost 50 points with an unsuccessful 
-challenge of the Level One code of <A HREF="/stat?c=member_profile&amp;cr=266060" CLASS="bodyGeneric">mfrahman</A>. 
-<B>lolbrish</B> then lost 803.92 in the system test, when the submitted Level Two and Three submissions failed.
+In Room 62, <A HREF="/stat?c=member_profile&amp;cr=275394" CLASS="bodyGeneric">Tazjam</A>
+ outpaced <A HREF="/stat?c=member_profile&amp;cr=283493" CLASS="bodyGeneric">mozuon</A>
+ 234.76 to 234.40, a difference of only 
+0.36 points.  <B>Tazjam</B> submitted code for the Level One problem in 7:19, 
+while <B>mozuon</B> submitted six seconds later. 
 </P>
+
+<P>
+An even closer battle took place in Room 68, where 
+<A HREF="/stat?c=member_profile&amp;cr=276128" CLASS="bodyGeneric">WordMuncher</A> earned 
+0.22 more points than <A HREF="/stat?c=member_profile&amp;cr=286346" CLASS="bodyGeneric">Tempralisis</A>
+ to win the room. <B>WordMuncher</B> spent 
+19:48 on the Level One problem for 178.08 points, while <B>Tempralisis</B> 
+spent three seconds more and earned 177.86.  
+<A HREF="/stat?c=member_profile&amp;cr=271531" CLASS="bodyGeneric">VladVM</A> challenged both 
+of their codes in the "Challenge Phase", but failed each time.
+</P>
+
           </TD>
             </TR>            
           </TABLE>
@@ -212,7 +221,8 @@ challenge of the Level One code of <A HREF="/stat?c=member_profile&amp;cr=266060
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <TD WIDTH="170" BGCOLOR="#CCCCCC" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="170" HEIGHT="1" BORDER="0"/><BR/>
-<center><A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=match_summary','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A></center><BR/>
+		<A HREF="/?&amp;t=sponsor&amp;c=link&amp;link=http://idenphones.motorola.com/iden/developer/developer_home.jsp&amp;refer=srm92"><IMG SRC="/i/motorola_sidebar.gif" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A>
+<!-- <center><A href="Javascript:sponsorLinkWindow('/?&amp;t=sponsor&amp;c=link&amp;link=/contest/citrix/index.html&amp;refer=match_summary','Citrix','1','1','680','489')"><img src="/i/citrix_sidebar.jpg" ALT="" WIDTH="171" HEIGHT="117" BORDER="0"/></A></center><BR/> -->
     
 <!-- <A HREF="/index?t=schedule&amp;c=tourny_sched"><IMG SRC="/i/tournament/sun_small_banner2.gif" ALT="" WIDTH="170" HEIGHT="84" BORDER="0"/></A> -->
 <!-- Right Column Include Begins -->        
