@@ -90,7 +90,7 @@ public abstract class BaseServlet extends HttpServlet {
                     if (!isLegalCommand(cmd))
                         throw new NavigationException("Invalid module in request: " + cmd);
 
-                    String processorName = PATH + PATH.endsWith(".")?"":"." + cmd;
+                    String processorName = PATH + (PATH.endsWith(".")?"":".") + cmd;
 
                     log.debug("creating request processor for " + processorName);
                     try {
