@@ -140,7 +140,7 @@
 						
 
 						   <p>
-						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_inquire&amp;Project=Online%20Review">Register for the Application Project</a> to get information necessary to submit a solution &gt;&gt;</strong>
+						        <strong><a class="statText" href="/index?&amp;t=development&amp;c=tcs_app_inquire&amp;Project=Online%20Review">Register for the Application Project</a> to get information necessary to submit a solution &gt;&gt;</strong>
                             </p>
                             <p>
                                  To submit a solution, email your submissions to <a href="mailto:submissions@topcodersoftware.com" class="statText">submissions@topcodersoftware.com</a>.
