@@ -43,7 +43,7 @@ public class TCCC04TermsAgree extends Base {
         r.setContentHandle("tccc04_eligibility");
         r.setProperty("cr", String.valueOf(userId));
         ResultSetContainer rsc = (ResultSetContainer)new DataAccess(DBMS.OLTP_DATASOURCE_NAME).getData(r).get("tccc04_eligibility");
-        log.debug("they " + rsc.isEmpty()?"are not":"are" + " eligible");
+        log.debug("they " + (rsc.isEmpty()?"are not":"are") + " eligible");
         return !rsc.isEmpty();
     }
 
@@ -54,7 +54,7 @@ public class TCCC04TermsAgree extends Base {
             ctx = TCContext.getInitial();
             UserTermsOfUse userTerms = (UserTermsOfUse)createEJB(ctx, UserTermsOfUse.class);
             ret = userTerms.hasTermsOfUse(userId, Constants.TCCC04_TERMS_OF_USE_ID, DBMS.OLTP_DATASOURCE_NAME);
-            log.debug("they " + ret?"are":"are not" + " registered");
+            log.debug("they " + (ret?"are":"are not") + " registered");
         } finally {
             close(ctx);
         }
