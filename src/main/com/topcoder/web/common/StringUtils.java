@@ -1,5 +1,8 @@
 package com.topcoder.web.common;
 
+import java.math.BigInteger;
+import java.util.Random;
+
 /**
  * Class for some frequently used (small and simple but still required to be
  * coded every time) string processing utilities.
@@ -156,6 +159,36 @@ public final class StringUtils {
         }
         return sb.toString();
     }
+
+    //can't think of a better place to put these....
+    public static String getActivationCode(int coderId) {
+        String id = Integer.toString(coderId);
+        String hash = new BigInteger(new BigInteger(id).bitLength(), new Random(coderId)).add(new BigInteger("TopCoder", 36)).toString();
+        while (hash.length() < id.length()) {
+            hash = "0" + hash;
+        }
+        hash = hash.substring(hash.length() - id.length());
+        return new BigInteger(id + hash).toString(36).toUpperCase();
+    }
+
+    //can't think of a better place to put these....
+    public static int getCoderId(String activationCode) {
+        try {
+            String idhash = new BigInteger(activationCode, 36).toString();
+            if (idhash.length() % 2 != 0) return 0;
+            String id = idhash.substring(0, idhash.length() / 2);
+            String hash = idhash.substring(idhash.length() / 2);
+            if (new BigInteger(new BigInteger(id).bitLength(), new Random(Long.parseLong(id))).add(new BigInteger("TopCoder", 36)).toString().endsWith(hash)) {
+                return Integer.parseInt(id);
+            } else {
+                return 0;
+            }
+
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+
 
 
 
