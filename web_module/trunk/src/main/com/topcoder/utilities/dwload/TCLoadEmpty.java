@@ -34,17 +34,16 @@ public class TCLoadEmpty extends TCLoad {
     /**
      * This method performs the load for the coder information tables
      */
-    public boolean performLoad() {
+    public void performLoad() throws Exception {
         try {
             doContests();
             doRounds();
             doRooms();
 
             System.out.println("Ran successfully.");
-            return true;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
-            return false;
+            throw ex;
         }
     }
 

@@ -5,7 +5,7 @@ package com.topcoder.utilities.dwload;
  *
  * TCLoadCoders loads coder information tables from one database to another.
  * The tables that are built by this load procedure are:
- * <ul>     
+ * <ul>
  * <li>state</li>
  * <li>country</li>
  * <li>coder</li>
@@ -50,14 +50,14 @@ public class TCLoadCoders extends TCLoad {
     /**
      * This method performs the load for the coder information tables
      */
-    public boolean performLoad() {
+    public void performLoad() throws Exception {
         try {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
 
             getLastUpdateTime();
 
             loadState();
-   
+
             loadCountry();
 
             loadCoder();
@@ -78,16 +78,15 @@ public class TCLoadCoders extends TCLoad {
             loadCoderImageXref();
 
             loadSchool();
-         
+
             loadCurrentSchool();
 
             setLastUpdateTime();
 
             log.info("SUCCESS: Coders load ran successfully.");
-            return true;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
-            return false;
+            throw ex;
         }
     }
 
@@ -138,7 +137,7 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT s.state_code ");
-            query.append(      " ,s.state_name ");    
+            query.append(      " ,s.state_name ");
             query.append(      " ,s.region_code ");
             query.append( " FROM state s ");
             query.append(" WHERE s.modify_date > ?");
@@ -147,11 +146,11 @@ public class TCLoadCoders extends TCLoad {
 
             query = new StringBuffer(100);
             query.append("INSERT INTO state ");
-            query.append(" (state_code ");       
-            query.append(" ,state_name ");      
+            query.append(" (state_code ");
+            query.append(" ,state_name ");
             query.append(" ,region_code) ");
             query.append("VALUES (");
-            query.append("?,?,?)"); 
+            query.append("?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -207,7 +206,7 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT c.country_code ");
-            query.append(      " ,c.country_name ");    
+            query.append(      " ,c.country_name ");
             query.append(      " ,c.participating ");
             query.append( " FROM country c ");
             query.append(" WHERE c.modify_date > ?");
@@ -216,11 +215,11 @@ public class TCLoadCoders extends TCLoad {
 
             query = new StringBuffer(100);
             query.append("INSERT INTO country ");
-            query.append(" (country_code ");       
-            query.append(" ,country_name ");      
+            query.append(" (country_code ");
+            query.append(" ,country_name ");
             query.append(" ,participating) ");
             query.append("VALUES (");
-            query.append("?,?,?)"); 
+            query.append("?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1275,7 +1274,7 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT s.school_id ");
-            query.append(      " ,s.sort_letter ");    
+            query.append(      " ,s.sort_letter ");
             query.append(      " ,s.city ");
             query.append(      " ,s.state_code ");
             query.append(      " ,s.country_code ");
@@ -1289,15 +1288,15 @@ public class TCLoadCoders extends TCLoad {
 
             query = new StringBuffer(100);
             query.append("INSERT INTO school ");
-            query.append(" (school_id ");       
-            query.append(" ,sort_letter ");      
+            query.append(" (school_id ");
+            query.append(" ,sort_letter ");
             query.append(" ,city ");
             query.append(" ,state_code ");
             query.append(" ,country_code ");
             query.append(" ,name ");
             query.append(" ,short_name) ");
             query.append("VALUES (");
-            query.append("?,?,?,?,?,?,?)"); 
+            query.append("?,?,?,?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);
@@ -1368,7 +1367,7 @@ public class TCLoadCoders extends TCLoad {
         try {
             query = new StringBuffer(100);
             query.append("SELECT cs.coder_id ");
-            query.append(      " ,cs.school_name ");    
+            query.append(      " ,cs.school_name ");
             query.append(      " ,cs.school_id ");
             query.append(      " ,cs.degree_number ");
             query.append( " FROM current_school cs ");
@@ -1379,11 +1378,11 @@ public class TCLoadCoders extends TCLoad {
             query = new StringBuffer(100);
             query.append("INSERT INTO current_school ");
             query.append(" (coder_id ");
-            query.append(" ,school_name ");       
-            query.append(" ,school_id ");      
+            query.append(" ,school_name ");
+            query.append(" ,school_id ");
             query.append(" ,degree_number) ");
             query.append("VALUES (");
-            query.append("?,?,?,?)"); 
+            query.append("?,?,?,?)");
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             query = new StringBuffer(100);

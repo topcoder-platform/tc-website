@@ -74,7 +74,7 @@ public class TCLoadRank extends TCLoad {
    /**
      * This method performs the load for the round information tables
      */
-    public boolean performLoad() {
+    public void performLoad() throws Exception {
         log.debug("performLoad called...");
         try {
 
@@ -96,10 +96,9 @@ public class TCLoadRank extends TCLoad {
 
 
             log.info("SUCCESS: Rank load ran successfully for round " + roundId + ".");
-            return true;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
-            return false;
+            throw ex;
         }
     }
 

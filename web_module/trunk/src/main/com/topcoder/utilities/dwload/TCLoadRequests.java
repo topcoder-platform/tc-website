@@ -52,7 +52,7 @@ public class TCLoadRequests extends TCLoad {
     /**
      * This method performs the load for the coder information tables
      */
-    public boolean performLoad() {
+    public void  performLoad() throws Exception {
         try {
             fStartTime = new java.sql.Timestamp(System.currentTimeMillis());
             log.info("It is now " + fStartTime.toString());
@@ -75,10 +75,9 @@ public class TCLoadRequests extends TCLoad {
             setLastUpdateTime(WEB_REQUEST_LOAD);
 
             log.info("SUCCESS: Requests load ran successfully.");
-            return true;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
-            return false;
+            throw ex;
         }
     }
 

@@ -157,7 +157,7 @@ public class TCLoadAggregate extends TCLoad {
     /**
      * This method performs the load for the round information tables
      */
-    public boolean performLoad() {
+    public void performLoad() throws Exception {
         try {
 
             loadRoomResult2();
@@ -187,10 +187,9 @@ public class TCLoadAggregate extends TCLoad {
             loadProblemLanguage();
 
             log.info("SUCCESS: Aggregate load ran successfully.");
-            return true;
         } catch (Exception ex) {
             setReasonFailed(ex.getMessage());
-            return false;
+            throw ex;
         }
     }
 
