@@ -83,7 +83,7 @@ if ( window.navigator.userAgent.indexOf("Linux")>-1 ) {
                 TopCoder is always looking for ways to give something back to the community. Help us raise money for the Christopher Reeve Paralysis 
                 Foundation by putting your coding skills to the test. Get your friends, relatives and co-workers to donate money on your behalf. Donate 
                 by credit card on the <A href="http://www.crpf.org/contribute/contribute.cfm?orgid=TopCoderWebsite2003" target="_blank">CRPF site,</A> 
-                or download our <A href="/i/tournament/crfp03/donation_form.pdf" target="_blank">donation form</A> to pay by check. Then compete in 
+                or download our <A href="/i/tournament/crpf03/donation_form.pdf" target="_blank">donation form</A> to pay by check. Then compete in 
                 the online tournament on November 11th, 13th, and 17th. All competitors who raise at least $50 will receive a commemorative TopCoder 
                 Charity Challenge t-shirt. You could also be one of ten lucky winners to mingle with the stars at <em>A Magical Evening!</em></p>
 
