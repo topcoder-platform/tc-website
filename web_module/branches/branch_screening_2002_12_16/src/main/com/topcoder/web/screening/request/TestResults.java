@@ -8,6 +8,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 import java.util.Map;
+import java.util.List;
+import java.util.ArrayList;
 
 /**
  * Processing for the Test Results page.
@@ -55,13 +57,6 @@ public class TestResults extends BaseProcessor {
         cinfo.setUserId(Long.valueOf(result.getItem(0,"user_id").toString()));
         getRequest().setAttribute("candidateInfo",cinfo);
             
-        ProfileInfo pinfo = new ProfileInfo();
-        pinfo.setProfileName(result.getItem(0,"session_profile_desc").toString());
-        pinfo.setTestSetAName(result.getItem(0,"session_round_name").toString());
-        pinfo.setTestSetAList((ResultSetContainer)map.get("sessionTestSetA"));
-        pinfo.setTestSetBList((ResultSetContainer)map.get("sessionTestSetB"));
-        getRequest().setAttribute("profileInfo",pinfo);
-        
         TestResultsInfo tinfo = new TestResultsInfo();
         tinfo.setSessionId(Long.parseLong(getRequest().getParameter(Constants.SESSION_ID)));
         tinfo.setSessionComplete(!result.getItem(0,"has_ended").toString().equals("0"));
@@ -71,6 +66,33 @@ public class TestResults extends BaseProcessor {
         tinfo.setProblemSetATCStats((ResultSetContainer)dwMap.get("roundProblemStats"));
         getRequest().setAttribute("testResultsInfo",tinfo);
 
+        ProfileInfo pinfo = new ProfileInfo();
+        pinfo.setProfileName(result.getItem(0,"session_profile_desc").toString());
+        pinfo.setTestSetAName(result.getItem(0,"session_round_name").toString());
+
+        List plist = new ArrayList();
+        result = (ResultSetContainer)map.get("testSetAResults");
+        for(int i=0; i < result.size(); i++){
+            plist.add(
+                ProblemInfo.createProblemInfo(
+                    getAuthentication().getActiveUser(),
+                    Long.parseLong(result.getItem(i,"session_round_id").toString()),
+                    Long.parseLong(result.getItem(i,"problem_id").toString())));
+        }
+        pinfo.setTestSetAList(plist);
+        
+        plist = new ArrayList();
+        result = (ResultSetContainer)map.get("testSetBResults");
+        for(int i=0; i < result.size(); i++){
+            plist.add(
+                ProblemInfo.createProblemInfo(
+                    getAuthentication().getActiveUser(),
+                    Long.parseLong(result.getItem(i,"session_round_id").toString()),
+                    Long.parseLong(result.getItem(i,"problem_id").toString())));
+        }
+        pinfo.setTestSetBList(plist);
+        getRequest().setAttribute("profileInfo",pinfo);
+        
         setNextPage(Constants.TEST_RESULTS_PAGE);
         setNextPageInContext(true);
     }
