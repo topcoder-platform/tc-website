@@ -93,7 +93,7 @@
    <target name="jsp" depends="check_java_version">
       <property name="stat.trgt"     value="${public_html}/stat_jsp" />
       <property name="stat.src"      value="${web}/stat/servlet/jsp" />
-      <property name="root.trgt"     value="${public_html}/public_html" />
+      <property name="root.trgt"     value="${public_html}" />
       <property name="root.src"      value="${web}/jsp" />
       <property name="pacts.trgt"    value="${public_html}/pacts" />
       <property name="pacts.src"     value="${web}/pacts/servlet/jsp" />
