@@ -1,9 +1,11 @@
 package com.topcoder.web.tc.controller.request.statistics;
 
 import com.topcoder.web.common.TCWebException;
+import com.topcoder.web.common.PermissionException;
 import com.topcoder.web.tc.Constants;
 import com.topcoder.shared.dataAccess.Request;
 import com.topcoder.shared.dataAccess.DataAccessInt;
+import com.topcoder.shared.security.ClassResource;
 
 import javax.servlet.http.HttpUtils;
 
@@ -17,6 +19,9 @@ public class ProblemDetail extends Base {
     protected void businessProcessing() throws TCWebException {
 
         try {
+            if (!userLoggedIn())
+                throw new PermissionException(getUser(), new ClassResource(this.getClass()));
+
             Request r = new Request();
             r.setContentHandle("problem_detail");
             r.setProperty("pm", getRequest().getParameter("pm"));
