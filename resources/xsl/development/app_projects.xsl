@@ -68,15 +68,16 @@
                 <!--tr valign="top">
                     <td align="center" colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr-->
-
+                <!--
                 <tr valign="top">
-                    <!--<td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>-->
+                    <td class="formTextOdd"><a href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
                     <td class="formTextOdd" align="center">$1,860</td>
                     <td class="formTextOdd" align="center">$690</td>
                     <td class="formTextOdd" align="center">closed</td>
                 </tr>
+                -->
             </table>
-            
+
             <br/>
 
             <table border="0" cellspacing="0" cellpadding="5" width="100%">
@@ -87,10 +88,6 @@
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Winning Developer</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Second Place</td>
                     <td background="/i/graybv_bg.gif" class="statTextLarge" align="center" nowrap="nowrap">Inquire By</td>
-                </tr>
-
-                <tr valign="top">
-                    <td colspan="4" class="formTextOdd">No New Projects Available</td>
                 </tr>
 
                 <tr valign="top">
