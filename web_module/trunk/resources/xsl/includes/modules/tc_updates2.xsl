@@ -9,7 +9,7 @@
             </table>
 
             <table width="100%" border="0" cellspacing="0" cellpadding="4">   
-                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_01_03">Artifact and Northface to sponsor TopCoder Open</A> [October 1]</td></tr>  
+                <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_10_01_03">Artifact and Northface University to sponsor TopCoder Open</A> [October 1]</td></tr>  
 
                 <tr><td class="prHead"><A href="/?&amp;t=news_events&amp;c=pr_09_29_03">Intel is the Title Sponsor for TopCoder Open</A> [September 29]</td></tr>  
 
