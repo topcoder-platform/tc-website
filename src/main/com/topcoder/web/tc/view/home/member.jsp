@@ -62,9 +62,7 @@
 <!-- Right Column Begins -->
          <td width="180">
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
-               <tr><td><img src="/i/clear.gif" width="180" height="10" border="0"></td></tr>
-               <tr><td><A href="http://<%=ApplicationServer.SOFTWARE_SERVER_NAME%>/index.jsp" target="_top"><img src="/i/promos/featured_clients.gif" width="180" height="179" border="0"></A></td></tr>
-
+               <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
                <tr><td><jsp:include page="message.jsp" /></td></tr>
                <tr><td><img src="/i/clear.gif" width="180" height="5" border="0"></td></tr>
                <tr><td><jsp:include page="my_stats_right.jsp" /></td></tr>
