@@ -147,7 +147,7 @@ public final class ProcessAuthentication {
                 TCSEmailMessage mail = new TCSEmailMessage();
                 mail.setSubject("TopCoder");
                 StringBuffer msgText = new StringBuffer(1000);
-                msgText.append("Your TopCoder login credetials are:\n\n");
+                msgText.append("Your TopCoder login credentials are:\n\n");
                 msgText.append("Handle:  ");
                 msgText.append(authentication.getHandle());
                 msgText.append("\nPassword:  ");
