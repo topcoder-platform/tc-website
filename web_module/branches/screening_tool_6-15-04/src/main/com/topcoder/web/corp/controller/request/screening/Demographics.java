@@ -104,6 +104,8 @@ public class Demographics extends BaseScreeningProcessor {
                 throw new ScreeningException(" cid=" + campaignId +
                         "does not belong to uid=" + getUser().getId());
             }
+            
+            getRequest().setAttribute("demographicInfo", m);
 
             setNextPage(Constants.DEMOGRAPHICS_PAGE);
             setIsNextPageInContext(true); 
