@@ -10,8 +10,8 @@ import com.topcoder.web.common.security.*;
  */
 public class Login extends BaseProcessor {
     
-    static String HANDLE_PARAM = "hn";
-    static String PASSWORD_PARAM = "pw";
+    static String HANDLE_PARAM = "handle";
+    static String PASSWORD_PARAM = "password";
     static String REDIRECT_PARAM = "redir";
     static String MESSAGE_PARAM = "msg";
     
