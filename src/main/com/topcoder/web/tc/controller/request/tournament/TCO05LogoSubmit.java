@@ -32,6 +32,8 @@ public class TCO05LogoSubmit extends Base {
                 fos.write(bytes);
                 //create record in image table
                 //create record in coder image xref table
+                setNextPage("/tournaments/tco05/logo_success.jsp");
+                setIsNextPageInContext(true);
             }
         }
     }
