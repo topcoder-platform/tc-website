@@ -1,4 +1,4 @@
-<@ include file="head.inc" %>
+<%@ include file="head.inc" %>
 <% Map data=(Map)request.getAttribute("STUDENT_DATA");
    ResultSetContainer rsc;
    ResultSetContainer.ResultSetRow rsr;
@@ -94,7 +94,7 @@
      <% rsc=(ResultSetContainer)data.get("school_list");
         for (Iterator i=rsc.iterator();i.hasNext();) {
          rsr=(ResultSetContainer.ResultSetRow)i.next();
-         String id=(Integer)rsr.getItem("school_id").getResultData();
+         Integer id=(Integer)rsr.getItem("school_id").getResultData();
          String name=(String)rsr.getItem("short_name").getResultData();
          String selected=id.equals(school_id)?" SELECTED":""; %>
      <OPTION VALUE="<%=id%>"<%=selected%>><%=name%></OPTION>
