@@ -78,6 +78,8 @@
         scores[divisionPtr][ptrs[divisionPtr]]=points;
         rooms[divisionPtr][ptrs[divisionPtr]++]=room_name;
     }
+    topN = 0;
+    for(int i = 0; i<divisions;i++)topN = Math.max(topN,ptrs[i]);
 
 %>
 
