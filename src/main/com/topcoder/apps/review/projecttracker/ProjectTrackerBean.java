@@ -2131,7 +2131,7 @@ public class ProjectTrackerBean implements SessionBean {
             long projectTypeId = 0;
             if (rs.next()) {
                 projectName = rs.getString("component_name");
-                projectVersion = rs.getString("version_text");
+                projectVersion = rs.getString("version_text").trim();
                 projectTypeId = rs.getLong("project_type_id");
 
             } else {
