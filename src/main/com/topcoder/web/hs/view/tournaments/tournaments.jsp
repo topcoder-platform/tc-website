@@ -38,7 +38,7 @@
 
                         <p>Date: May 20, 2003<br>
                         Time: 3:00pm<br>
-                        Location: Homer Babbage Library at the University of Connecticut<br>
+                        Location: Homer Babbidge Library at the University of Connecticut<br>
                         <a href="?module=Static&d1=tournaments&d2=tchs03_schools" class="statTextBig"><strong>Summary</strong><br>
                         </p>
                     </td>

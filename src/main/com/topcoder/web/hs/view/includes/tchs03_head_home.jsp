@@ -4,7 +4,7 @@
                                 <td class="statTextBig" width="99%">
                                     <h3>Welcome to our first programming tournament for high school students!</h3>
                                     
-                                    <p>Online elmination rounds began on <strong>March 20th</strong>. The final field of schools will be brought to Homer Babbage
+                                    <p>Online elmination rounds began on <strong>March 20th</strong>. The final field of schools will be brought to Homer Babbidge
                                     Library at the <a href="http://www.uconn.edu" target="_blank" class="statTextBig"><strong>University of Connecticut</strong></a> in Storrs, CT 
                                     where they will compete head-to-head on <strong>May 20th</strong>.</font></p>
                                 </td>
