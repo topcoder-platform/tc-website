@@ -65,13 +65,13 @@
             <tr><td colpsn="9"><img src="/i/clear.gif" width="10" height="10"></td></tr>
             <tr>
                <td width=15>&nbsp;</td>
-               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Overview</b></font></td>
+               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_overview"><font size=-1>Overview</font></a></td>
                <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_sched"><font size=-1>Schedule</font></a></td>
+               <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Schedule</b></font></td>
                <td width=15>&nbsp;</td>
                <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Rules</font></a></td>
                <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Register Now</font></a></td>
+               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_registration"><font size=-1>Register Now</font></a></td>
                <td width=15>&nbsp;</td>
             </tr>
             <tr>
@@ -79,11 +79,109 @@
             </tr>
          </table>
        
-            <h2>Overview</h2>
+            <h2>Schedule</h2>
             
-            <p>The $25,000 Google/TopCoder Extreme Challenge is designed as a premiere online recruiting event for Google.  Google will 
-            utilize the technology platform and expertise developed by TopCoder, Inc. for the exclusive purpose of objectively assessing 
-            programming ability.</p>
+<!-- Qualification Rounds begins -->
+           <p><span class="bodySubtitle">Qualification Rounds</span><br />
+           The top 100 scorers from each problem presented during the Qualification Round will be eligible to compete in Round 1 of the Extreme Challenge.</p>
+
+            <a name="sched"></a>
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Qualification Round</td>
+                    <td class="sidebarText">
+                        8:00 AM Friday, October 17 through<br />
+                        8:00 AM Monday, October 20<br />
+                    </td>
+                    <td class="sidebarText" align="center">All eligible members</td>
+                    <td class="sidebarText" align="center">100</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
+                        will be the following day at the same time.
+                    </td>
+                </tr>
+            </table><br />
+<!-- Qualification Rounds ends -->
+
+<!-- Online Elimination Rounds begins -->
+            <A name="online"></A><p><span class="bodySubtitle">Online Elimination Rounds</span><br />
+            Everyone who competes in Round 1 must log in to the TopCoder Competition Arena no later than ten minutes prior to the start of 
+            the online round.  All start times will be communicated as Eastern Time.  If a coder does not participate, for any reason, in an online 
+            round he/she has advanced to, it will be treated as an automatic loss in that round of competition. </p>
+            
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round 1</td>
+                    <td class="sidebarText">
+                        Friday, October 24th<br />
+                        Sign in:  8:55 PM<br />
+                        START: 9:00 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">500</td>
+                    <td class="sidebarText" align="center">250</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText">Online Round 2</td>
+                    <td class="sidebarText">
+                        Monday, October 27th<br />
+                        START: 9:00 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">250</td>
+                    <td class="sidebarText" align="center">25</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. In the event a Qualification Round must be cancelled for any reason, the "raindate" 
+                        will be the following day at the same time.
+                    </td>
+                </tr>
+            </table>
+<!-- Online Elimination Rounds ends -->
+
+<!-- Onsite Championship Round begins -->
+            <p><span class="bodySubtitle">Onsite Championship Round</span><br />
+            Up to 25 coders will compete in the Championship Round being held onsite at Google’s headquarters.  Each finalist is responsible for arriving at Google’s headquarters to compete.</p>
+            <table width="500" align="center" border="0" cellpadding="6" cellspacing="2" class="sidebarBox">
+                <tr>
+                    <td class="sidebarTitle" width="25%">Round</td>
+                    <td class="sidebarTitle" width="35%">Date and Time*</td>
+                    <td class="sidebarTitle" width="21%" align="center"># of Participants</td>
+                    <td class="sidebarTitle" width="19%" align="center"># of Advancers</td>
+                </tr>
+                <tr valign="top">
+                    <td class="sidebarText">Onsite Championship Round</td>
+                    <td class="sidebarText">
+                        Friday, November 14th<br />
+                        START: 3:00 PM<br />
+                    </td>
+                    <td class="sidebarText" align="center">25</td>
+                    <td class="sidebarText" align="center">n/a</td>
+                </tr>
+
+                <tr valign="top">
+                    <td class="sidebarText" colspan="4">
+                        *NOTE: All times are Eastern Time. The times of the onsite rounds are subject to change.
+                    </td>
+                </tr>
+            </table><br />
             
             <p><br /></p>
                         

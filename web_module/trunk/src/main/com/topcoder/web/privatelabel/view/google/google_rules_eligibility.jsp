@@ -71,7 +71,7 @@
                <td width=15>&nbsp;</td>
                <td id=0 bgcolor=#3366cc align=center width=95 nowrap><font color=#ffffff size=-1><b>Rules</b></font></td>
                <td width=15>&nbsp;</td>
-               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_rules_overview"><font size=-1>Register Now</font></a></td>
+               <td id=1 bgcolor=#efefef align=center width=95 nowrap onClick="return c('www.google.com/imghp','wi',event);" style=cursor:pointer;cursor:hand;><a href="/pl/?&module=Static&d1=google&d2=google_registration"><font size=-1>Register Now</font></a></td>
                <td width=15>&nbsp;</td>
             </tr>
          </table>
@@ -81,11 +81,11 @@
    <jsp:param name="selectedTab" value="eligibility"/>
 </jsp:include>
        
-            <h2>Overview</h2>
+            <h2>Eligibility</h2>
             
-            <p>The $25,000 Google/TopCoder Extreme Challenge is designed as a premiere online recruiting event for Google.  Google will 
-            utilize the technology platform and expertise developed by TopCoder, Inc. for the exclusive purpose of objectively assessing 
-            programming ability.</p>
+            <p>The Google Extreme Challenge is open to citizens and lawful permanent residents of the U.S. (including the U.S. territories of Guam, 
+            Puerto Rico and the U.S. Virgin Islands), and to all non-immigrants currently in the U.S. with a valid visa, who are 18 years of 
+            age or older.</p>
             
             <p><br /></p>
                         
