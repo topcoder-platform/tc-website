@@ -39,16 +39,21 @@
 <bean:define name="QUERY_RESPONSE" id="queryEntries" type="java.util.Map" scope="request"/>
 <% 
 ResultSetContainer rsc = (ResultSetContainer) queryEntries.get("Problem_Statement");
-ResultSetContainer.ResultSetRow resultRow_0 = rsc.isValidRow(0)? rsc.getRow(0):null;
-String sClassName = resultRow_0!=null?resultRow_0.getItem("class_name").toString():"";
-String sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toString():"";
-
-// jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
-StringReader reader = new StringReader(sProblemText);
-ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
-arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
-Problem problem = new Problem();
-problem.setProblemComponents(arrProblemComponent);
+ResultSetContainer.ResultSetRow resultRow_0 = null;
+String sClassName = null;
+String sProblemText = null;
+Problem problem = null;
+if (rsc!=null && !rsc.isEmpty()) {
+  resultRow_0 rsc.isValidRow(0)? rsc.getRow(0):null;
+  sClassName = resultRow_0!=null?resultRow_0.getItem("class_name").toString():"";
+  sProblemText = resultRow_0!=null?resultRow_0.getItem("problem_text").toString():"";
+  // jeddie 09/05/02 - put problem text into a Reader, create default language, and use ProblemComponentRenderer
+  StringReader reader = new StringReader(sProblemText);
+  ProblemComponent arrProblemComponent[] = new ProblemComponent[1];
+  arrProblemComponent[0] = new ProblemComponentFactory().buildFromXML(reader, true);
+  problem = new Problem();
+  problem.setProblemComponents(arrProblemComponent);
+}
 
 
 /* jeddie 09/05/02 - Don't need to make problem-text readable since we're using the ProblemComponentRenderer
@@ -107,7 +112,11 @@ while (strtok.hasMoreTokens()){
                  </TR>
                  <TR>
                    <TD BACKGROUND="/i/steel_darkblue_bg.gif" CLASS="problemText" VALIGN="middle" ALIGN="left">
+                      <% if (problem!=null) { %>
               		<%= problem.toHTML(JavaLanguage.JAVA_LANGUAGE, true) %>
+                      <% } else { %>
+                        Problem Statement not available.
+                      <% } %>
                    </TD>
                  </TR>
                  <TR>
