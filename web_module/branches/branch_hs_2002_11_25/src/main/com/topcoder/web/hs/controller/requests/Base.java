@@ -33,11 +33,7 @@ public abstract class Base implements RequestProcessor {
           p = request.getParameter("userid");
           if(p!=null) si.setUserId(Integer.parseInt(p));
           p = request.getParameter("group");
-          if(p!=null) {
-System.out.println("group=\""+p+"\"");
-System.out.println("char="+p.charAt(0));
-si.setGroup(p.charAt(0));
-}
+          if(p!=null) si.setGroup(p.charAt(0));
           p = request.getParameter("rating");
           if(p!=null) si.setRating(Integer.parseInt(p));
        } catch(Exception e) { e.printStackTrace(); }
