@@ -72,6 +72,24 @@
                 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
+                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=doubleclick05&d2=overview" target="_blank"><img src="/i/events/doubleclick05/index_dccc05.gif" alt="DCCC05" width="274" height="100" border="0" /></A></td>
+                    <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
+                    <td width="99%" class="bodyText"><font size="3"><strong>DoubleClick&#153; 2005 Coding Challenge</strong></font></td>
+                </tr>
+                <tr valign="top">
+                    <td class="bodyText">
+                        March 2, 2005<br />
+                        DoubleClick Headquarters<br/>
+                        New York<br/>
+                        <A href="/pl/?&module=Static&d1=doubleclick05&d2=overview" target="_blank">Details</A>
+                    </td>
+                </tr>
+            </table>
+
+                <hr width="100%" size="1" noshade="noshade" />
+
+            <table width="100%" border="0" cellpadding="0" cellspacing="0">
+                <tr valign="top">
                     <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=google04&d2=overview" target="_blank"><img src="/i/events/google2004/indexLogo.gif" alt="2003 GECC" width="274" height="66" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>Google&#153; Code Jam 2004 </strong></font></td>
@@ -108,7 +126,7 @@
 
             <table width="100%" border="0" cellpadding="0" cellspacing="0">
                 <tr valign="top">
-                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" target="_blank"><img src="/i/events/doubleclick/index_dccc.gif" alt="Verizon" width="274" height="100" border="0" /></A></td>
+                    <td width="274" rowspan="2"><A href="/pl/?&module=Static&d1=doubleclick&d2=col_overview" target="_blank"><img src="/i/events/doubleclick/index_dccc.gif" alt="DCCC" width="274" height="100" border="0" /></A></td>
                     <td width="10" rowspan="2"><img src="/i/clear.gif" alt="" width="10" height="10" border="0"/></td>
                     <td width="99%" class="bodyText"><font size="3"><strong>DoubleClick&#153; 2004 Coding Challenge</strong></font></td>
                 </tr>
