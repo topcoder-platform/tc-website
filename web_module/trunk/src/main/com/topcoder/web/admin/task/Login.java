@@ -15,7 +15,6 @@ public class Login {
 
     public static final String KEY_USER_HANDLE = "handle";
     public static final String KEY_USER_PASS = "pass";
-    public static final String KEY_DESTINATION_PAGE = "dest";
     private static final String LOGIN_PAGE = "/login.jsp";
 
     private String nextPage = "";
