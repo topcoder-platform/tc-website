@@ -94,8 +94,8 @@
                                 <td id="calendarSRM">
                                     <span id="calendarSRMDate">4</span><br />
                                     <strong>Match 218</strong><br />
-                                    Register: 7:00&#160;PM<br />
-                                    Compete: 10:00&#160;PM<br />
+                                    Register: 6:00&#160;AM<br />
+                                    Compete: 9:00&#160;AM<br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5864&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">5</td>

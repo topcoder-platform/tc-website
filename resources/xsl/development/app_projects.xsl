@@ -63,6 +63,30 @@
 
                             <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
                                 <tr valign="middle">
+                                    <td class="projectTitles" colspan="4">Open Team Application Projects</td>
+                                </tr>
+
+                                <tr valign="middle">
+                                    <td class="projectHeaders" nowrap="nowrap" width="75%">Project</td>
+                                    <td class="projectHeaders" align="center" nowrap="nowrap">Winning Team</td>
+                                    <td class="projectHeaders" align="center" nowrap="nowrap">Second Place Team</td>
+                                    <td class="projectHeaders" align="right" nowrap="nowrap" width="25%">Register By</td>
+                                </tr>
+                                <tr valign="middle">
+                                    <td class="projectCells">
+                                        <a href="?t=development&amp;c=SSO_Helper_Design">Thing</a>
+                                    </td>
+                                    <td class="projectCells" align="right">$3,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">$1,000 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;</td>
+                                    <td class="projectCells" align="right">01/01/2005</td>
+                                </tr>                                
+
+                            </table>
+
+                            <br/>
+
+                            <table border="0" cellspacing="0" cellpadding="3" width="100%" class="formFrame">
+                                <tr valign="middle">
                                     <td class="projectTitles" colspan="4">Open Application Design Projects</td>
                                 </tr>
 
