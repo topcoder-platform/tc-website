@@ -175,7 +175,7 @@
                     <td class="formHandleEven" align="center">pending</td>
                     <td class="formHandleEven"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=260578">danno</a></td>
                     <td class="formHandleEven" align="center">pending</td>
-                    <td class="formHandleEven" align="center">X</td>
+                    <td class="formHandleEven" align="center"><img src="/i/development/multiplierGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleOdd">&#160;</td>
@@ -231,7 +231,7 @@
                     <td class="formHandleOdd" align="center">pending</td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=286907">WishingBone</a></td>
                     <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">X</td>
+                    <td class="formHandleOdd" align="center"><img src="/i/development/multiplierGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven">&#160;</td>
@@ -263,7 +263,7 @@
                     <td class="formHandleOdd" align="center">pending</td>
                     <td class="formHandleOdd"><a class="coderTextYellow" href="/stat?c=member_profile&amp;cr=277356">aksonov</a></td>
                     <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">X</td>
+                    <td class="formHandleOdd" align="center"><img src="/i/development/multiplierGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven">&#160;</td>
@@ -295,7 +295,7 @@
                     <td class="formHandleOdd" align="center">pending</td>
                     <td class="formHandleOdd"><a class="coderTextGray" href="/stat?c=member_profile&amp;cr=251989">AdamSelene</a></td>
                     <td class="formHandleOdd" align="center">pending</td>
-                    <td class="formHandleOdd" align="center">X</td>
+                    <td class="formHandleOdd" align="center"><img src="/i/development/multiplierGray.gif" border="0"/></td>
                 </tr>
                 <tr valign="middle">
                     <td class="formHandleEven">&#160;</td>

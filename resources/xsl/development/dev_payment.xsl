@@ -86,7 +86,7 @@
 								<li>To receive your payments via PayPal, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
 							</ul>
 						</td>
-						<td align="right" valign="top" class="bodyText"><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank"><img src="/i/development/paypal.gif" alt="" width="234" height="60" border="0"/></A></td>
+						<td align="right" valign="top" class="bodyText"><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank"><img src="/i/development/paypal.gif" alt="" width="88" height="33" border="0"/></A></td>
 					</tr>
 				</table>
 				</ol>
