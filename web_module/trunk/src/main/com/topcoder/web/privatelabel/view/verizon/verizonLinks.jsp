@@ -31,11 +31,10 @@
 
 <!-- Register Now tab -->
             <% if (selectedTab.equals("register_now")) {%>
-                 <td class="statTextBig" width="108"><A href="/pl/?&module=FullReg&cid=1"class="statTextBig"><img src="/i/tournament/vcc03/tab_register_now_on.gif" alt="register_now" width="108" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="108"><A href="/pl/?&module=FullReg&eid=1&cid=1747"class="statTextBig"><img src="/i/tournament/vcc03/tab_register_now_on.gif" alt="register_now" width="108" height="22" border="0" /></A></td>
             <% } else { %>
-                 <td class="statTextBig" width="108"><A href="/pl/?&module=FullReg&cid=1"class="statTextBig"><img src="/i/tournament/vcc03/tab_register_now_off.gif" alt="register_now" width="108" height="22" border="0" /></A></td>
+                 <td class="statTextBig" width="108"><A href="/pl/?&module=FullReg&eid=1&cid=1747"class="statTextBig"><img src="/i/tournament/vcc03/tab_register_now_off.gif" alt="register_now" width="108" height="22" border="0" /></A></td>
             <% } %>
-            
                                 
       <td width="49%"><img src="/i/clear.gif" alt="" width="5" height="10" border="0" /></td>
    </tr>
