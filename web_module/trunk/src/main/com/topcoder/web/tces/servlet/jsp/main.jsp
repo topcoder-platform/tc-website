@@ -21,7 +21,7 @@
 
 <body>
 
-<jsp:include page="top.jsp" />             
+<jsp:include page="top.jsp" />
 
 <jsp:useBean id="MainTask" scope="request" class="com.topcoder.web.tces.bean.MainTask" />
 
@@ -118,7 +118,7 @@
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="foot.jsp" />             
+<jsp:include page="../foot.jsp" />
 <!-- Footer ends -->
 
 </body>

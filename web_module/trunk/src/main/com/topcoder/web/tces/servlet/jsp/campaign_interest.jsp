@@ -25,7 +25,7 @@
 <body>
 
 <!-- Top begins -->
-<jsp:include page="top.jsp" />             
+<jsp:include page="top.jsp" />
 <!-- Top ends -->
 
 <table width="100%" border="0" cellpadding="0" cellspacing="0">
@@ -140,7 +140,7 @@
 </table>
 
 <!-- Footer begins -->
-<jsp:include page="foot.jsp" />             
+<jsp:include page="../foot.jsp" />
 <!-- Footer ends -->
 
 </body>

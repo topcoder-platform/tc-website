@@ -29,7 +29,7 @@
     
   </HEAD>
   <body>
-  <jsp:include page="top.jsp" />             
+  <jsp:include page="top.jsp" />
   <TABLE WIDTH="100%" HEIGHT="50%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
     <TR valign="top">
 <!-- Left Column Begins -->
@@ -266,7 +266,7 @@
 </TABLE>
 
 <!-- Footer begins -->
-<jsp:include page="foot.jsp" />             
+<jsp:include page="../foot.jsp" />
 <!-- Footer ends -->
 
 </BODY>
