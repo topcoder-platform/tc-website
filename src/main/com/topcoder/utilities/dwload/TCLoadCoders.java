@@ -319,6 +319,7 @@ public class TCLoadCoders extends TCLoad {
             query.append("          WHERE c.state_code = rs.state_code ");
             query.append("          AND rs.user_type_id = 3) ");
             query.append("       ,c.image ");                    // 31
+            query.append("       ,c.comp_country_code");         // 32
             query.append("  FROM coder c ");
             query.append("       ,user u ");
             query.append(" WHERE c.coder_id = u.user_id ");
@@ -369,12 +370,13 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,terms ");                     // 28
             query.append("       ,last_login ");                // 29
             query.append("       ,coder_region_code ");         // 30
-            query.append("       ,image) ");                    // 31
+            query.append("       ,image ");                    // 31
+            query.append("       ,comp_country_code ");         // 32
             query.append("VALUES (");
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 10
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 20
             query.append("?,?,?,?,?,?,?,?,?,?,");  // 30
-            query.append("?)");                    // 31 total values
+            query.append("?,?)");                    // 32 total values
             psIns = prepareStatement(query.toString(), TARGET_DB);
 
             // Our update statement
@@ -410,7 +412,8 @@ public class TCLoadCoders extends TCLoad {
             query.append("       ,last_login = ? ");                // 28
             query.append("       ,coder_region_code = ? ");         // 29
             query.append("       ,image = ? ");                     // 30
-            query.append("WHERE coder_id = ?");                     // 31
+            query.append("       ,comp_country_code = ?");          // 31
+            query.append("WHERE coder_id = ?");                     // 32
             psUpd = prepareStatement(query.toString(), TARGET_DB);
 
             // Our select statement to determine if a particular row is
@@ -466,7 +469,8 @@ public class TCLoadCoders extends TCLoad {
                     psUpd.setTimestamp(28, rs.getTimestamp(29));  // last_login
                     psUpd.setString(29, rs.getString(30));  // coder_region_code
                     psUpd.setInt(30, rs.getInt(31));  // image
-                    psUpd.setInt(31, coder_id);  // coder_id
+                    psUpd.setString(31, rs.getString(32)); //comp_country_code
+                    psUpd.setInt(32, coder_id);  // coder_id
 
                     // Now, execute the insert of the new row
                     retVal = psUpd.executeUpdate();
@@ -509,6 +513,7 @@ public class TCLoadCoders extends TCLoad {
                     psIns.setTimestamp(29, rs.getTimestamp(29));  // last_login
                     psIns.setString(30, rs.getString(30));  // coder_region_code
                     psIns.setInt(31, rs.getInt(31));  // image
+                    psIns.setString(32, rs.getString(32));//comp_country_code
 
                     // Now, execute the insert of the new row
                     retVal = psIns.executeUpdate();
