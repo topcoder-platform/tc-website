@@ -21,7 +21,7 @@
 
   <init-param>
     <param-name>query_package</param-name>
-    <param-value>com.topcoder.web.query.bean</param-value>
+    <param-value>com.topcoder.web.query.bean.task</param-value>
     <description></description>
   </init-param>
 
