@@ -4,7 +4,7 @@
 
 <table width="100%" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr valign="middle">
-        <td class="statTextBig" width="1%" nowrap="0">&#160;Top <%=schools.size()%> Schools</td>
+        <td class="statTextBig" width="1%" nowrap="0">&#160;Schools</td>
         <td class="statTextBig" width="15"><A href="javascript:openWin('/tc?module=Static&d1=statistics&d2=info&d3=topSchools','schoolrankinfo', 500,500)" class="statTextBig"><img src="/i/icon_help_blue.gif" alt="?" width="15" height="11" border="0"/></A></td>
         <td class="statTextBig" align="right" width="99%"><a href="/stat?c=school_avg_rating" class="statTextBig">View all</a>&#160;</td>
     </tr>
