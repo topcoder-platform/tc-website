@@ -10,7 +10,7 @@
             <local>com.topcoder.dde.notification.NotificationLocal</local>
             <home>com.topcoder.dde.notification.NotificationHome</home>
             <remote>com.topcoder.dde.notification.Notification</remote>
-            <ejb-class>com.topcoder.dde.notification.NotificationBean/ejb-class>
+            <ejb-class>com.topcoder.dde.notification.NotificationBean</ejb-class>
             <session-type>Stateless</session-type>
             
             <transaction-type>Container</transaction-type>
