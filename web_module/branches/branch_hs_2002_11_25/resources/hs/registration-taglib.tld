@@ -39,6 +39,7 @@
   <name>errorIterator</name>
   <info>Iterates over a List of error strings based on the name parameter</info>
   <tagclass>com.topcoder.web.hs.view.tag.ErrorIterator</tagclass>
+  <teiclass>com.topcoder.web.hs.view.tag.IteratorTagInfo</teiclass>
   <bodycontent>JSP</bodycontent>
   <attribute>
    <name>id</name>
