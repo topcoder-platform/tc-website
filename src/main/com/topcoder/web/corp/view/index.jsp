@@ -38,7 +38,7 @@
             <table border="0" cellspacing="0" cellpadding="0" width="100%">
                 <tr valign="top">
                     <td width="50%" class="corpText">
-                        <p><font size="3" color="#666666"><strong><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp">Candidate Testing</a></strong></font><br />
+                        <p><span class="corpTitle"><a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp">Candidate Testing</a></span><br />
                         TopCoder's Candidate Testing Application allows companies to <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=screening&d2=index" class="corp">test the technical abilities</a> 
                         of candidates during the interview process, thereby reducing the time
                         incurred by in-house engineers.  Employers can choose problem sets to test candidates' problem solving skills with scenarios that <strong>mirror
@@ -57,11 +57,11 @@
                        <td><img src="/i/clear.gif" width="8" height="1"></td>
                        
                        <td width="50%" class="corpText">
-                       <p><font size="3" color="#666666"><strong>Sponsorship</strong></font><br />
+                       <font size="3" color="#666666"><strong>Sponsorship</strong></font><br />
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        ut laoreet dolore magna aliquam erat voctetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
                        Rt wisi enim adminim veniam, quis nostrud exerci.lutpat. Ut wisi enim adminim veniam, quis nostrud exerci. 
-                      <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="bodyText">Learn More &gt;</a></p>
+                      <a href="<%=request.getAttribute(Constants.KEY_LINK_PREFIX)%>?module=Static&d1=spon_prog&d2=index" class="bodyText">Learn More &gt;</a>
                       
                        <p><font size="3" color="#666666"><strong>Sponsorship</strong></font><br />
                        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt 
