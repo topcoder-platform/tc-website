@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<!DOCTYPE web-app PUBLIC 
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
+ "http://java.sun.com/j2ee/dtds/web-app_2_2.dtd">
+
+<web-app>
+
+ 
+<servlet>
+  <servlet-name>tces</servlet-name>
+  <display-name>tces</display-name>
+  <description>The job posting servlet</description>
+  <servlet-class>com.topcoder.web.tces.servlet.Controller</servlet-class>
+
+  <init-param>
+    <param-name>error_page</param-name>
+    <param-value>/errorPage.jsp</param-value>
+    <description>
+      The error page we'll be using.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_id</param-name>
+    <param-value>job_id</param-value>
+    <description>
+      The key for the job_id parameter of a request.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>user_id</param-name>
+    <param-value>user_id</param-value>
+    <description>
+      The key for the user_id parameter of a request.
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>click_thru</param-name>
+    <param-value>1</param-value>
+    <description>
+      The id from the database of a click_thru (hit_type_lu).
+    </description>
+  </init-param>
+
+  <init-param>
+    <param-name>job_posting</param-name>
+    <param-value>2</param-value>
+    <description>
+      The id from the database of a job_posting (hit_type_lu).
+    </description>
+  </init-param>
+</servlet>
+
+<servlet-mapping>
+  <servlet-name>tces</servlet-name>
+  <url-pattern>tces</url-pattern>
+</servlet-mapping>
+
+</web-app>
