@@ -96,20 +96,18 @@
                             </tr>
 <!-- Appian ends -->
                             
-                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 
-<!-- Cryptic begins-->
+<!-- Cryptic begins
                             <tr valign="top">
                               <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=cryptic"><img src="/i/es/cryptic/cryptic_logo.gif" width="120" height="63" alt="" border="0"/></a></td>
                               <td width="99%" class="bodyText">Want to be a part of creating the world's first super powered MMP experience?  
                               Cryptic Studios is an independent developer of massive multiplayer online games for the PC and next generation consoles.  We have several open positions.            
                               <a href="/?&amp;t=tces&amp;c=cryptic" class="bodyText">Click here</a> for more information.<br/><br/></td>
                               </tr>
-<!-- Cryptic ends -->
+Cryptic ends -->
 
-                            <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 
-<!-- DiversifiedData begins -->
+<!-- DiversifiedData begins 
                             <tr valign="top">
                                 <td class="bodyText" align="center"><a href="/?&amp;t=tces&amp;c=diversifieddata" target="_top"><img src="/i/es/diversifieddata/diversifieddata_logo.gif" width="150" height="38" alt="AlphaSimplex" border="0" /></a></td>
                                 <td width="99%" class="bodyText">Diversified Data,   the leader in Content Addressed Storage (CAS) consulting and the design and integration of 
@@ -117,7 +115,7 @@
                                 architects, accomplished engineers, project managers, and senior developers as they collaborate to craft end-to-end solutions that can be deployed and sustained locally or globally.  
                                 <A href="/?&amp;t=tces&amp;c=diversifieddata" class="bodyText" target="_top"> Learn more</A> about what Diversified Data has to offer. <br/><br/></td>
                             </tr>
-<!-- DiversifiedData ends -->
+ DiversifiedData ends -->
                             
                             <tr><td colspan="2" bgcolor="#999999" class="statText"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td></tr>
 
