@@ -343,7 +343,7 @@ public class QueryMover {
             qib.setQueryId(queryId);
             qib.setInputId(((Long) row.getItem("input_id").getResultData()).longValue());
             qib.setSortOrder(((Integer) row.getItem("sort_order").getResultData()).intValue());
-            qib.setOptional(((Integer) row.getItem("optional").getResultData()).intValue() == 1);
+            qib.setOptional((row.getItem("optional").getResultData()).equals("Y"));
             if (qib.isOptional()) {
                 qib.setDefaultValue((String) row.getItem("defalt_value").getResultData());
             }
@@ -554,6 +554,7 @@ public class QueryMover {
     private void initSource() throws CreateException, NamingException, RemoteException {
         try {
             Context ctx = TCContext.getContext(sourceContextFactory, sourceContextURL);
+
             QueryHome qHome = (QueryHome) ctx.lookup(ApplicationServer.Q_QUERY);
             sourceQ = qHome.create();
             QueryInputHome qiHome = (QueryInputHome) ctx.lookup(ApplicationServer.Q_QUERY_INPUT);
