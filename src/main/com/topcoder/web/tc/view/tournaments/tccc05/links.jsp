@@ -76,6 +76,7 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_description"><img src="/i/tournament/tccc05/tabs/L2_detailsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+<%--
 				<% if (tabLev2.equals("advancers")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_qualification"><img src="/i/tournament/tccc05/tabs/L2_advancersOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
@@ -86,12 +87,14 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=alg_sum_onlinerounds"><img src="/i/tournament/tccc05/tabs/L2_summaryOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+--%>
 				<% } else if (tabLev1.equals("component")) { %>
 				<% if (tabLev2.equals("details")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_description"><img src="/i/tournament/tccc05/tabs/L2_detailsOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_description"><img src="/i/tournament/tccc05/tabs/L2_detailsOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+<%--
 				<% if (tabLev2.equals("design")) {%>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_des_finals"><img src="/i/tournament/tccc05/tabs/L2_designOn.gif" alt="" border=0 /></A></td>
 				<% } else { %>
@@ -102,6 +105,7 @@
 				<% } else { %>
 					<td class=nav><A href="/tc?module=Static&d1=tournaments&d2=tccc05&d3=comp_dev_finals"><img src="/i/tournament/tccc05/tabs/L2_developmentOff.gif" alt="" border=0 /></A></td>
 				<% } %>
+--%>
 			<% } %>
         		<td class=nav align=left><img src="/i/tournament/tccc05/tabs/L2_sideLT.gif" border=0 /></td>
         		<td class=nav width="100%">&#160;</td>
