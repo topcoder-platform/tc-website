@@ -1,3 +1,5 @@
+package com.topcoder.utilities;
+
 import java.util.ArrayList;
 import java.sql.*;
 
@@ -44,6 +46,7 @@ public class DokkahBlade {
       query.append(        " ,method_name");
       query.append(        " ,problem_text");
       query.append(   " FROM problem");
+      query.append(  " ORDER BY problem_id");
       ps = conn.prepareStatement(query.toString());
       rs = ps.executeQuery();
    
