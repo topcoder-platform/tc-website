@@ -4,7 +4,7 @@ import com.topcoder.shared.util.ApplicationServer;
 
 public class TCServlet {
 
-  public static String XSL_ROOT                  = "file:"+ApplicationServer.BASE_DIR+"resources/xsl/";
+  public static String XSL_ROOT                  = ApplicationServer.BASE_DIR+"resources/xsl/";
   public static String HOME_PAGE                 = XSL_ROOT + "home/home.xsl";
   public static String NAVIGATION_ERROR_PAGE     = XSL_ROOT + "error/navigation.xsl";
   public static String INTERNAL_ERROR_PAGE       = XSL_ROOT + "error/internal.xsl";
