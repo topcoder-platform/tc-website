@@ -52,13 +52,17 @@ public class TCLoadTCS extends TCLoad {
     public boolean performLoad() {
         try {
             
+            PreparedStatement ps = prepareStatement("set lock mode to wait 5", SOURCE_DB);
+            ps.execute();
+            ps.close();
+            
             doLoadEvents();
             
             doLoadContests();
             
             String sSQL = "select distinct project_id from project";
             
-            PreparedStatement ps = prepareStatement(sSQL, SOURCE_DB);
+            ps = prepareStatement(sSQL, SOURCE_DB);
             ResultSet rs = ps.executeQuery();
 
             while(rs.next())
