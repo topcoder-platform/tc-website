@@ -207,7 +207,7 @@
               </p>
 
 <PRE>
-<%= ProblemStatisticsTask.getStatistic("submission_text") %>
+<%= JSPUtils.htmlEncode(ProblemStatisticsTask.getStatistic("submission_text")) %>
 </PRE>
 
     </TD>
