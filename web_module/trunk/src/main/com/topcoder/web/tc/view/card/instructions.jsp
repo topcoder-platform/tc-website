@@ -155,7 +155,7 @@ document.write( '&lt;img src="http://www.topcoder.com/i/card/noFlash.gif" border
        </table>
 
             <ol>
-            <li>If you are not concerned with detecting Flash in the user's browser, you simply need to add the following javascript into your HTML <b>&lt;body&gt;</b> wherever you want the card to show up:</li>
+            <li>If you are not concerned with detecting Flash in the user's browser, you simply need to add the following HTML into the <b>&lt;body&gt;</b> of your webpage wherever you want the card to show up:</li>
 
 <pre class="cardCode">
 &lt;object
