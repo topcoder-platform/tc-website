@@ -74,7 +74,7 @@
 					<li>To sign up for wire transfer payments, email us at <A href="mailto:payments@topcoder.com" class="bodyText">payments@topcoder.com</A>.</li>
 					</ul>
 
-				<li><A href="https://www.paypal.com/us/auction/pal=F4B23WRCCNZVE" target="_blank">PayPal&#174;</A></li>
+				<li>PayPal&#174;</li>
 				<table cellpadding="0" cellspacing="0" border="0" width="500">
 					<tr>
 						<td width="100%" class="bodyText">

@@ -115,7 +115,7 @@
 					<li>Establish that you are not a U.S. person</li>
 					<li>Claim that you are the beneficial owner of the income for which Form W-8BEN is being provided.</li>
 					</ul>
-				<p>If you are a foreign person, non-resident alien or foreign national performing work in the U.S., TopCoder will withhold taxes (currently at a rate of 29%).  You may claim exemption from or reduction of your withholding by completing Form W-8ECI and Form 8233, in addition to Form W-8BEN.</p>
+				<p>If you are a foreign person, non-resident alien or foreign national performing work in the U.S., TopCoder will withhold taxes (currently at a rate of 29%).  You may claim exemption from or reduction of your withholding due to an income tax treaty benefit by completing Form W-8ECI and Form 8233, in addition to Form W-8BEN.</p>
 
 				<p>TOPCODER CAN NOT TELL YOU WHETHER THE COUNTRY YOU ARE A RESIDENT OF HAS AN INCOME TAX TREATY WITH THE U.S. FURTHERMORE, TOPCODER CAN NOT ASSIST YOU IN DETERMINING YOUR ABILITY TO CLAIM A REDUCED RATE OF, OR EXEMPTION FROM, WITHHOLDINGS.
 <!--				<A href="#top"><img src="/i/events/verizon2003/button_backtotop.gif" alt="back to top" width="83" height="23" border="0" align="right"/></A>-->
