@@ -143,7 +143,7 @@ if (!rsc.isEmpty()) {
                   <TD CLASS="statText" ALIGN="left">&#160;</TD>
                 </TR>
                 <TR>
-                  <TD CLASS="statText">Minimun Rating:</TD>
+                  <TD CLASS="statText">Minimum Rating:</TD>
                   <TD CLASS="statText" ALIGN="right"><bean:write format="0" name="resultRow" property='<%= "item[" + 26 /*"min rating"*/ + "].resultData" %>'/></TD>
                   <TD CLASS="statText" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                   <TD CLASS="statText" ALIGN="left">&#160;</TD>
