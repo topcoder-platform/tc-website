@@ -219,7 +219,7 @@
             jarfile="${user.jar}"
             basedir="${build_classdir}"
             includes="${utildir}/TCException.class
-            ${packagedir}/DDEException.class ${userdir}/**"
+            ${packagedir}/DDEException.class ${packagedir}/util/** ${userdir}/**"
             >
             <metainf dir="${user.src.dir}" includes="*.xml"/>
         </jar>
