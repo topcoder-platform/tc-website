@@ -72,7 +72,7 @@ function arena()
 <SCRIPT type="text/javascript"><![CDATA[
 function infoWindow(url) {
   var width = 300
-  var height = 300
+  var height = 250
   var left = (screen.availWidth - width) / 2;
   var top = (screen.availHeight-height)/2;
   OpenWin=this.open(url,"Info",
