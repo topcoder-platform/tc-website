@@ -26,7 +26,7 @@ public class Same implements Fraud {
             for (int j = i + 1; j < tokens.size(); j++) {
                 s1 = (Submission) submissions.get(i);
                 s2 = (Submission) submissions.get(j);
-                if ((s1.isIncluded() || s1.isIncluded()) && s1.getLanguageId()==s2.getLanguageId()) {
+                if ((s1.isIncluded() || s1.isIncluded()) && s1.getLanguageId()==s2.getLanguageId() && s1.getCoderId()!=s2.getCoderId()) {
                     l1 = ((TokenizedSource) tokens.get(i)).getTokens();
                     l2 = ((TokenizedSource) tokens.get(j)).getTokens();
                     if (l1.equals(l2)) {

@@ -26,7 +26,7 @@ public class EditDistance implements Fraud {
                 for (int j=i+1; j<tokens.size(); j++) {
                     s1 = (Submission) submissions.get(i);
                     s2 = (Submission) submissions.get(j);
-                    if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId()==s2.getLanguageId()) {
+                    if ((s1.isIncluded() || s2.isIncluded()) && s1.getLanguageId()==s2.getLanguageId() && s1.getCoderId()!=s2.getCoderId()) {
                         int val =Util.getLevenshteinDistance(((TokenizedSource)tokens.get(i)).getTokens(),
                                 ((TokenizedSource)tokens.get(j)).getTokens());
                         results.add(new ComparisonResult(i, j, val));
