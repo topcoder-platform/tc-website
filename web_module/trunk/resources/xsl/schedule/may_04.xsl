@@ -137,6 +137,7 @@
                                     <strong>Match 195</strong><br />
                                     Register: 7:00&#160;PM<br />
                                     Compete: 10:00&#160;PM<br />
+                                    Sponsor: <A href="/?t=tces&amp;c=index">PayPal</A><br />
                                     <IMG src="/i/clear.gif" width="50" height="5" border="0" /><br />
                                     <A href="/?RoundId=5070&amp;t=schedule&amp;c=srm">Details</A><br/><br/></td>
                                 <td id="calendar">19</td>
