@@ -48,7 +48,7 @@
           <TR>
             <TD CLASS="statText" ALIGN="right">DB: </TD>
             <TD CLASS="statText" ALIGN="left">
-              <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=ModifyCommandTask.get()%>" selectedValue='<%=""+ModifyCommandTask.getGroupId()%>'/>
+              <query:dbSelect name="<%=Constants.DB_PARAM%>" class="dropdown" list="<%=Constants.DB_LIST%>" selectedValue="<%=ModifyCommandTask.getDb()%>"/>
             </TD>
           </TR>
 
