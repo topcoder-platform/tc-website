@@ -17,31 +17,21 @@
 
 <jsp:include page="../includes/top.jsp" />
 
-<table border="0" cellspacing="0" cellpadding="0" bgcolor="#FFFFFF" width="100%">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
     <tr valign="top">
-        <td width="170" bgcolor="#001934">
 
 <!-- Left Column begins -->
-<jsp:include page="../includes/left_nav.jsp" />
-<jsp:include page="../includes/left_calendar.jsp" />
+        <td width="170" bgcolor="#001934">
+            <jsp:include page="../includes/left_nav.jsp" />
+            <jsp:include page="../includes/left_calendar.jsp" />
+        </td>
 <!-- Left Column ends -->
 
-        </td>
-        
 <!-- Center Column begins -->
-        <td width="1" bgcolor="#C5C5C9" valign="top"><img src="/i/clear.gif" width="1" height="3" alt="" border="0"></td>
-        <td width="1" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="1" height="3" alt="" border="0"></td>
-        <td valign="top" background="/i/bluegradiant_bg.gif" bgcolor="#FFFFFF"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
-            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+        <td valign="top"><img src="/i/clear.gif" width="1" height="10" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="10" width="100%">
                 <tr>
-                    <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" border="0"></td>
                     <td>
-                        <table cellspacing="0" cellpadding="5" border="0" width="100%">
-<!--                            <tr><td bgcolor="#FFCC33" class="statText"><font color="#CC0000" size="2"><strong>&nbsp;Important Alert&nbsp;</strong></font></td></tr>
-                             <tr><td bgcolor="#FFFFFF"><div align="center"><a href="?module=Static&amp;d1=schedule&amp;d2=sched_march_2003" class="calendarSRMMini"><img src="/i/postpone_match.gif" alt="Due to inclement weather Match 1 will be postponed until March 20th" width="268" height="112" border="0"></a></div></td></tr>  -->
-                             <tr><td width="100%"><div align="center"><img src="/i/banner_challenge_begins.gif" alt="The Challenge Begins 03.20.2003" width="585" height="88" vspace="10" border="0"></div></td></tr>
-                        </table>
-            
                         <table cellspacing="0" cellpadding="5" border="0" width="100%">
                             <tr>
                                 <td class="bodyText" valign="top">
@@ -68,20 +58,18 @@
             
                          <hr width="100%" size="1" color="#CCCCCC" noshade="nonshade">
                     </td>
-                    <td width="10"><img src="/i/clear_10_pix_width.gif" width="10" height="1" alt="" border="0"></td>
                 </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
 
-<!-- Gutter -->
-        <td width="1" bgcolor="#000000" valign="top"><img src="/i/clear.gif" width="1" height="18" alt="" border="0"></td>
-        <td width="1" bgcolor="#C5C5C9" valign="top"><img src="/i/clear.gif" width="1" height="18" alt="" border="0"></td>
+<!-- Right Column begins -->
         <td width="200" bgcolor="#001934" align="center">
-
             <jsp:include page="../includes/sponsor_right.jsp" /><br>
-            <jsp:include page="../includes/right_resources.jsp" /><br><br>
+            <jsp:include page="../includes/right_resources.jsp" /><br>
         </td>
+<!-- Right Column ends -->        
+        
     </tr>
 </table>
 
