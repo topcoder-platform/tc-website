@@ -77,7 +77,7 @@ return false;
 			</tr>
 		</table>
 		
-		<FORM ACTION="" METHOD=POST onSubmit="" enctype="multipart/form-data">
+		<FORM ACTION="/tc?module=ContractingPreferences" METHOD=POST onSubmit="" enctype="multipart/form-data" name="frmPref">
 		<input type="hidden" name="dataToLoad" value="preferences" />
 		
 		<tc:preferenceGroupIterator id="prefGroup" list="<%=prefList%>">
@@ -116,7 +116,7 @@ return false;
 			</tr>
 		</table>
 
-		<div width="100%" align=center><br/><br/><a href="/tc?module=ContractingPreferences"><img src="/i/submit.jpg" border=0/></a></div>
+		<div width="100%" align=center><br/><br/><a href="javascript:document.frmPref.submit();"><img src="/i/submit.jpg" border=0/></a></div>
 
 		</FORM>
 

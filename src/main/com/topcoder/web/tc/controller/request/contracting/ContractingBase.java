@@ -95,6 +95,9 @@ abstract public class ContractingBase extends BaseProcessor {
                     log.debug("SET PREFERENCE " + prefId + " TO " + val);
                 }
             }
+        } else {
+            log.debug("NO DATA TO LOAD FROM REQUEST");
+            log.debug("FIELD IS " + getRequestParameter("dataToLoad"));
         }
         
         return info;
