@@ -53,12 +53,12 @@
     <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-        <td class="bodyText" width="99%">
-            <jsp:include page="../body_top.jsp" >
-                <jsp:param name="image" value="statisticsw"/>
-                <jsp:param name="image1" value="white"/>
-                <jsp:param name="title" value="Advanced Member Search"/>
-            </jsp:include>
+ <td class="bodyText" WIDTH="100%"><img src="/i/clear.gif" width="400" height="10"border="0"><br>
+        <jsp:include page="../body_top.jsp" >
+           <jsp:param name="image" value="statisticsw"/>  
+           <jsp:param name="image1" value="white"/>  
+           <jsp:param name="title" value="Advanced Member Search"/>
+         </jsp:include>
 
             <form name="searchForm" method="get">
                 <jsp:include page="searchForm.jsp"/>
