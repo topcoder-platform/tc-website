@@ -139,7 +139,7 @@
 </jsp:include>
 
             <p class="terciary">
-                <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=reception">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;Photos
+                <a href="/tc?module=Static&d1=tournaments&d2=tco03&d3=summary&d4=awards">Play-by-Play</a>&nbsp;&nbsp;|&nbsp;&nbsp;Photos
             </p>
             
             <h2>Awards Dinner Photos</h2>
