@@ -70,8 +70,8 @@
                         
 
                         <p><strong>Loading the Competition Arena</strong><br/>
-                        The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the application by clicking the 
-                        Compete Now button at <a href="http://www.topcoder.com">www.topcoder.com/verizon</a>.  Once you click the button, you will be notified if 
+                        The Competition Arena is a Java Applet that requires the Java 1.4 runtime to be installed on your machine.  Load the application by clicking the Compete Now link at the left. 
+                        Once you click the button, you will be notified if 
                         you need to upgrade your Java runtime. If so, please follow the steps of the installation wizard to upgrade your system.  If an upgrade is not 
                         required, the application will load automatically and present you with a red "Launch Competition Arena" button.</p>
                         
@@ -285,9 +285,9 @@ End Class </pre><br/><br/>
                 <p><strong>If You Have Any Questions</strong><br/>
                     If you have a question during the competition about the problem statement or about the functionality of the Arena, please utilize the chat interface in the 
                     Arena to present your question to the competition administrators.  To do so, simply type the following in the white chat line at the bottom of the applet:<br/><br/>
-                    <strong><i>admins; [YOUR QUESTION]</i></strong><br/><br/>
+                    <strong><i>admins: [YOUR QUESTION]</i></strong><br/><br/>
                     An administrator will respond to your question in the chat area.<br/><br/>
-                    If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <a href="mailto: vcc@topcoder.com">vcc@topcoder.com.</a>Please include a detailed 
+                    If you have a problem logging into the Arena or cannot access the chat interface, you may send an email to <a href="mailto: vcc@topcoder.com">vcc@topcoder.com. </a>Please include a detailed 
                     description of the problem that you are having.</p>
                
 
