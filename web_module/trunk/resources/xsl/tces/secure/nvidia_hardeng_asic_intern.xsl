@@ -64,10 +64,12 @@
 
 <P><B>HARDWARE ENGINEER - ASIC</B></P>
 <P><B>Role/Responsibilities:</B></P>
-<P>Hardware Engineers at NVIDIA design and implement the industry’s leading graphics and media communications processors. Specific architectural areas include 2D and 3D graphics, mpeg, video, power management, audio, network protocols, bus protocols, and memory subsystem design. </P>
+<P>Hardware Engineers at NVIDIA design and implement the industry's leading graphics and media communications processors. Specific architectural areas include 
+2D and 3D graphics, mpeg, video, power management, audio, network protocols, bus protocols, and memory subsystem design. </P>
 
 <P><B>Qualifications: GPA: 3.5</B></P>
-<P>Candidates should have a solid hardware engineering background with a concentration in VLSI design, including some or all of the following areas: Logic design, General VLSI principles, RTL coding, Synthesis, Timing analysis, or Analog circuit design.</P>
+<P>Candidates should have a solid hardware engineering background with a concentration in VLSI design, including some or all of the following areas: 
+Logic design, General VLSI principles, RTL coding, Synthesis, Timing analysis, or Analog circuit design.</P>
 
 <P ALIGN="center"><A HREF="/jobposting?&amp;t=JobHitTask&amp;jid=111&amp;jt=2" CLASS="bodyText">Apply now!</A> | <A HREF="/?&amp;t=tces&amp;c=nvidia_openings_intern&amp;a=secure" CLASS="bodyText">more Intern/Co-op Positions</A></P>
 
