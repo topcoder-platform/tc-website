@@ -233,6 +233,7 @@
             <% SubmissionInfo solution = null; %>
 
               <% for (int j=0; j<statements.length; j++) { %>
+                <h3>Test Set A</h3>
                 <% for (int i=0; i<statements[j].size(); i++) { %>
                     <% problem = (ProblemInfo)statements[j].get(i); %>
                     <% solution = (SubmissionInfo)solutions[j].get(i); %>
@@ -252,6 +253,7 @@
                   <tr><td><br/></td></tr>
                   </table>
                 <% } %>
+                <h3>Test Set B</h3>
               <% } %>
               </table>
 
