@@ -96,8 +96,8 @@ public class SearchBean extends BaseEJB {
         }
         if (search.getMonthsSinceLastComp() != -1) {
             query.append(" AND cal.date > CURRENT - ");
-            query.append(search.getMonthsSinceLastComp());
-            query.append(" UNITS MONTH");
+            query.append(search.getMonthsSinceLastComp() * 30 );
+            query.append(" UNITS DAY");
         }
         query.append(" ORDER BY rating_order, lower_case_handle");
         try {
@@ -226,8 +226,8 @@ public class SearchBean extends BaseEJB {
         }
         if (search.getMonthsSinceLastComp() != -1) {
             query.append(" AND cal.date > CURRENT - ");
-            query.append(search.getMonthsSinceLastComp());
-            query.append(" UNITS MONTH");
+            query.append(search.getMonthsSinceLastComp() * 30);
+            query.append(" UNITS DAY");
         }
         query.append(" ORDER BY rating_order, lower_case_handle");
         try {
