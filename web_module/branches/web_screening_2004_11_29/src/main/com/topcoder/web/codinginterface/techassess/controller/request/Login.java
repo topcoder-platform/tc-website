@@ -59,7 +59,8 @@ public class Login extends Base {
                 send(request);
 
                 SessionInfo info = (SessionInfo)getRequest().getAttribute(BaseServlet.SESSION_INFO_KEY);
-                showProcessingPage(info.getServletPath()+"?"+Constants.MODULE+"="+Constants.RP_LOGIN_RESPONSE);
+                showProcessingPage(info.getServletPath()+"?"+Constants.MODULE+"="+Constants.RP_LOGIN_RESPONSE+
+                        "&"+Constants.MESSAGE_ID+"="+getMessageId());
 
                 ScreeningLoginResponse response = (ScreeningLoginResponse)receive(5000);
 
