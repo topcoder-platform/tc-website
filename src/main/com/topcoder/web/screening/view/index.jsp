@@ -26,7 +26,7 @@
         <!-- Gutter Ends -->
         <!-- Body Area -->
         <td class="bodyText" width="100%"><img src="/i/p/clear.gif" width="400" height="11" border="0"><br />
-            <h1 class="testHead">Welcome!</h1>
+            <h1 class="testHead">Welcome! yo</h1>
             <p>TopCoder Testing allows companies to test the technical abilities of candidates during the interview process, thereby reducing 
             the time incurred by in-house engineers.  This administration tool allows you to set up candidates to be tested, as well as review 
             each candidate's results.  Follow the steps below to begin.</p>
