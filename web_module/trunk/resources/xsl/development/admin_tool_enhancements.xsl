@@ -112,16 +112,16 @@
                                         <p>
                                             <strong>Winning Designer</strong>
                                             <br/>
-                                            Total Payment - $1,600.00
+                                            Total Payment - $1,500.00
                                             <br/>
                                             First Payment - $1,200.00
                                             <br/>
-                                            Final Payment - $400.00
+                                            Final Payment - $300.00
                                             <br/>
                                         </p>
                                         <strong>Second Place Designer</strong>
                                         <br/>
-                                        Total Payment - $800.00
+                                        Total Payment - $750.00
                                         <!-- Definition of Completion -->
                                         <p/>
                                         <sup>*</sup>Completion of the project is defined as follows:
