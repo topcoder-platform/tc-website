@@ -3,7 +3,7 @@
   <xsl:template name="top_10_schools">
             <table width="100%" border="0" cellspacing="0" cellpadding="2" valign="top" bgcolor="#001935">
                 <tr valign="middle">
-                    <td colspan="2" class="statTextBig" bgcolor="#093158" height="18">&#160;Schools&#160;<a href="javascript:infoWindow('/tc/?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topSchools')" class="statTextBig">info</a></td>
+                    <td colspan="2" class="statTextBig" bgcolor="#093158" height="18">&#160;Schools&#160;<a href="javascript:infoWindow('/tc/?&amp;module=Static&amp;d1=statistics&amp;d2=info&amp;d3=topSchools')" class="statTextBig"><img src="/i/header_info.gif"/></a></td>
                     <td class="statTextBig" align="right" bgcolor="#093158" height="18"><a href="/stat?c=school_avg_rating" class="statTextBig">View all</a>&#160;</td>              
                 </tr>                        
                 

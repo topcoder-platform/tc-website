@@ -75,7 +75,10 @@ function infoWindow(url) {
   var height = 200
   var left = (screen.availWidth - width) / 2;
   var top = (screen.availHeight-height)/2;
-  OpenWin=this.open(url,"TopCoder Info","width=" + width + ",height=" + height + ",left=" + left + ",top=" + top);
+  OpenWin=this.open(url,"Info",
+            "toolbar=no,menubar=no,location=no,scrollbars=no,resizable=yes"
+            + ",width=" + width + ",height=" + height
+            + ",left=" + left + ",top=" + top);
 }
 function sponsorLink(spons)
 {
