@@ -53,6 +53,7 @@ public class Login extends Base {
                         if (Arrays.binarySearch(Activate.ACTIVE_STATI, status)>0) {
                             log.debug("user active");
                             String dest = StringUtils.checkNull(getRequest().getParameter(BaseServlet.NEXT_PAGE_KEY));
+                            log.debug("on successfull login, going to " + dest);
                             setNextPage(dest);
                             setIsNextPageInContext(false);
                             getAuthentication().login(new SimpleUser(0, username, password), rememberUser.trim().toLowerCase().equals("on"));
