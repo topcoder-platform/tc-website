@@ -69,21 +69,15 @@
                 </td>
             </tr>
             <tr>
-                <td align="right">
-                    File Type
-                </td>
-                <td align="left">
-                    <pl:questionIterator id="question" list="<%=questionList%>">
-                        <% System.out.println("q:" + question.getDemographicQuestionId() + " " + question.toString());%>
-                        <pl:answerIterator id="answer" list="<%=question.getDemographicAnswers()%>">
-                            <% System.out.println("a:" + answer.toString());%>
-                        </pl:answerIterator>
-                    </pl:questionIterator>
-
-                </td>
+                <pl:questionIterator id="question" list="<%=questionList%>">
+                    <td align="right">
+                        <%=question.getDemographicQuestionText()%>
+                    </td>
+                    <td align="left">
+                        <pl:demographicInput question="<%=question%>"/>
+                    </td>
+                </pl:questionIterator>
             </tr>
-
-
 
 
 
