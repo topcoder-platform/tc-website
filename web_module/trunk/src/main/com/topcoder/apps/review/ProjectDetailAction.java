@@ -196,7 +196,7 @@ public final class ProjectDetailAction extends ReviewAction {
                     for(int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
-                                if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
+                                if (scorecards[j] instanceof ScreeningScorecard && scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted()) {
                                     if (((ScreeningScorecard)scorecards[j]).getPassed() && scorecards[j].getScore() >= minscore) {
                                         scores.add(new Double(scorecards[j].getScore()));
                                     }
@@ -216,7 +216,7 @@ public final class ProjectDetailAction extends ReviewAction {
                     for(int i = 0; i < submissions.length; i++) {
                         if (!submissions[i].isRemoved()) {
                             for (int j = 0; j < scorecards.length; j++) {
-                                if (scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted() && !scorecards[j].isPMReviewed()) {
+                                if (scorecards[j] instanceof ScreeningScorecard && scorecards[j].getSubmission().equals(submissions[i]) && scorecards[j].isCompleted() && !scorecards[j].isPMReviewed()) {
                                     if (((ScreeningScorecard)scorecards[j]).getPassed() && scores.contains(new Double(scorecards[j].getScore()))) {
                                         ((InitialSubmission)submissions[i]).setAdvancedToReview(true);
                                     } else {
