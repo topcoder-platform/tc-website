@@ -47,7 +47,7 @@
             <xsl:call-template name="BodyTop">
                 <xsl:with-param name="image1">white</xsl:with-param>
                 <xsl:with-param name="image">jobs</xsl:with-param>
-                <xsl:with-param name="title">TopCoder Employment Services</xsl:with-param>
+                <xsl:with-param name="title">Jobs for Members</xsl:with-param>
             </xsl:call-template>
             
             <table border="0" cellspacing="10" cellpadding="0" width="100%">
