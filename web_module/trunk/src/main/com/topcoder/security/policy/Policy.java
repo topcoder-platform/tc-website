@@ -1,11 +1,8 @@
 package com.topcoder.security.policy;
 
-import com.topcoder.security.BaseEJB;
-import com.topcoder.security.GeneralSecurityException;
-import com.topcoder.security.TCPrincipal;
-import com.topcoder.security.TCSubject;
+import com.topcoder.security.*;
 
-import javax.sql.DataSource;
+import javax.naming.InitialContext;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -23,10 +20,12 @@ import java.util.Iterator;
  */
 public class Policy {
 
-    private DataSource dataSource;
+    private String dataSource;
+    private InitialContext ctx;
 
-    protected Policy(DataSource dataSource) {
+    protected Policy(InitialContext ctx, String dataSource) {
         this.dataSource = dataSource;
+        this.ctx = ctx;
     }
 
     /**
@@ -57,7 +56,7 @@ public class Policy {
         PreparedStatement ps = null;
         Connection conn = null;
         try {
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, dataSource);
             ps = conn.prepareStatement(query);
             ps.setString(1, permission.getName());
             rs = ps.executeQuery();

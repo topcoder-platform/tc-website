@@ -3,9 +3,7 @@ package com.topcoder.security.login;
 import com.topcoder.security.*;
 import org.apache.log4j.Logger;
 
-import javax.naming.Context;
 import javax.naming.InitialContext;
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -53,7 +51,7 @@ public class LoginBean extends BaseEJB {
                 "SELECT login_id FROM security_user " +
                 "WHERE user_id = ? AND password = ?";
 
-        Context ctx = null;
+        InitialContext ctx = null;
         ResultSet rs1 = null;
         ResultSet rs2 = null;
         PreparedStatement ps1 = null;
@@ -61,8 +59,7 @@ public class LoginBean extends BaseEJB {
         Connection conn = null;
         try {
             ctx = new InitialContext();
-            DataSource dataSource = (DataSource) ctx.lookup(DATA_SOURCE);
-            conn = dataSource.getConnection();
+            conn = Util.getConnection(ctx, DATA_SOURCE);
             ps1 = conn.prepareStatement(query);
             ps1.setString(1, username);
             ps1.setString(2, encPassword);
