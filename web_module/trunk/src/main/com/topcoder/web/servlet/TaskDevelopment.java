@@ -102,6 +102,7 @@ public final class TaskDevelopment {
             devTag.addTag(new ValueTag("date", date));
             String xsldocURLString = null;
             String project = Conversion.checkNull(request.getParameter("Project"));
+           
             if (command.equals("inquire")) {
                 if (nav.getLoggedIn()) {
                     String to = Conversion.checkNull(request.getParameter("To"));
@@ -131,6 +132,7 @@ public final class TaskDevelopment {
                 if (nav.getLoggedIn()) {
                     devTag.addTag(new ValueTag("Project", project));
                     String handle = nav.getUser().getHandle();
+                    devTag.addTag(new ValueTag("handle", handle));
                     String from = nav.getUser().getEmail();
                     String to = Conversion.checkNull(request.getParameter("To"));
                     String experience = Conversion.clean(request.getParameter("Experience"));
@@ -168,7 +170,7 @@ public final class TaskDevelopment {
             /********************** tcs_send *******************/
             else if (command.equals("tcs_send")) {
                 if (nav.getLoggedIn()) {
-
+                    devTag.addTag(new ValueTag("Project", project));
 
                     String handle = nav.getUser().getHandle();
                     String from = nav.getUser().getEmail();
@@ -226,8 +228,8 @@ public final class TaskDevelopment {
 	            {
                         log.debug("creating user");
                         Object objUserManager = CONTEXT.lookup("dde/UserManager");        
-	                UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class); 
-  	                UserManagerRemote USER_MANAGER = userManagerHome.create();
+  	                    UserManagerRemoteHome userManagerHome = (UserManagerRemoteHome)  PortableRemoteObject.narrow(objUserManager, UserManagerRemoteHome.class); 
+  	                    UserManagerRemote USER_MANAGER = userManagerHome.create();
                         RegistrationInfo registration = new RegistrationInfo();                        
                          
                         registration.setUsername(handle);
