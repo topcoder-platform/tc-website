@@ -123,7 +123,7 @@ public class Submit extends FullRegSubmit {
         return ret;
     }
 
-    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
 
             //UserTransaction ut = Transaction.get(getInitialContext());
@@ -140,7 +140,7 @@ public class Submit extends FullRegSubmit {
 
                 long companyId = Long.parseLong(getRequestParameter(Constants.COMPANY_ID));
 
-                candidate.createCompanyCandidate(companyId, newUser.getId());
+                candidate.createCompanyCandidate(companyId, userId);
 
                 //still todo: Session, Session Segments
                 // 96 hour session from current hour

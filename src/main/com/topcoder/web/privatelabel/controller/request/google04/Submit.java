@@ -30,11 +30,11 @@ public class Submit extends FullRegSubmit {
 
     //todo wack this crap when we have fixed the regular site to not use the transactional db for contact info
     //don't need to reimplement commit here at that point
-    protected UserPrincipal commit(SimpleRegInfo regInfo) throws TCWebException {
+    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
-        UserPrincipal newUser = super.commit(regInfo);
+        long userId = super.commit(regInfo);
         try {
-            
+
             ResumeRegInfo info = (ResumeRegInfo)regInfo;
             if(info.getUploadedFile() != null)
             {
@@ -60,15 +60,15 @@ public class Submit extends FullRegSubmit {
                     }
                     fileName = info.getUploadedFile().getRemoteFileName();
                     ResumeServices resumeServices = (ResumeServices) createEJB(getInitialContext(), ResumeServices.class);
-                    resumeServices.putResume(newUser.getId(), fileType, fileName, fileBytes, transDb);
+                    resumeServices.putResume(userId, fileType, fileName, fileBytes, transDb);
                 }
             }
 
-            if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(newUser.getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+            if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(userId, DBMS.OLTP_DATASOURCE_NAME)) {
                 UserTransaction uTx = null;
                 try {
                     UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) newUser.getId()));
+                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int)userId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
 
                     u.setPassword(regInfo.getPassword());
@@ -115,7 +115,7 @@ public class Submit extends FullRegSubmit {
             throw new TCWebException(e);
         }
 
-        return newUser;
+        return userId;
     }
 
     protected Map getFileTypes(String db) throws Exception {
@@ -164,7 +164,7 @@ public class Submit extends FullRegSubmit {
 
     }
 
-    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
             //todo if we ever allow them to update their account
             //todo we'll need to figure out a way to not send
@@ -172,7 +172,7 @@ public class Submit extends FullRegSubmit {
             //todo that are converting tc accounts
             StringBuffer buf = new StringBuffer(1000);
             User user = (User) createEJB(getInitialContext(), User.class);
-            String code = user.getActivationCode(newUser.getId(), db);
+            String code = user.getActivationCode(userId, db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
             if (info.isNew()) {

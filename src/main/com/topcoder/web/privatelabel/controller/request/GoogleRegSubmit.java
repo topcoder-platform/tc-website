@@ -24,16 +24,16 @@ public class GoogleRegSubmit extends FullRegSubmit {
 
     //todo wack this crap when we have fixed the regular site to not use the transactional db for contact info
     //don't need to reimplement commit here at that point
-    protected UserPrincipal commit(SimpleRegInfo regInfo) throws TCWebException {
+    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
 
-        UserPrincipal newUser = super.commit(regInfo);
+        long useId = super.commit(regInfo);
         try {
 
-            if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(newUser.getId(), DBMS.OLTP_DATASOURCE_NAME)) {
+            if (((Coder) createEJB(getInitialContext(), Coder.class)).exists(useId, DBMS.OLTP_DATASOURCE_NAME)) {
                 UserTransaction uTx = null;
                 try {
                     UserServicesHome userHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
-                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) newUser.getId()));
+                    UserServices userEJB = userHome.findByPrimaryKey(new Integer((int) useId));
                     com.topcoder.common.web.data.User u = userEJB.getUser();
 
                     u.setPassword(regInfo.getPassword());
@@ -80,7 +80,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
             throw new TCWebException(e);
         }
 
-        return newUser;
+        return useId;
     }
 
     protected void setNextPage() {
@@ -114,7 +114,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
 
     }
 
-    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
             //todo if we ever allow them to update their account
             //todo we'll need to figure out a way to not send
@@ -122,7 +122,7 @@ public class GoogleRegSubmit extends FullRegSubmit {
             //todo that are converting tc accounts
             StringBuffer buf = new StringBuffer(1000);
             User user = (User) createEJB(getInitialContext(), User.class);
-            String code = user.getActivationCode(newUser.getId(), db);
+            String code = user.getActivationCode(userId, db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
             if (info.isNew()) {

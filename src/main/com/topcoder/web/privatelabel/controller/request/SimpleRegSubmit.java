@@ -57,10 +57,10 @@ public class SimpleRegSubmit extends SimpleRegBase {
         setIsNextPageInContext(true);
     }
 
-    protected UserPrincipal commit(SimpleRegInfo regInfo) throws TCWebException {
+    protected long commit(SimpleRegInfo regInfo) throws TCWebException {
         UserTransaction tx = null;
 
-        UserPrincipal newUser = null;
+        long ret = 0;
         try {
             tx = Transaction.get();
             Transaction.begin(tx);
@@ -75,7 +75,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
                 newUser = mgr.getUser(regInfo.getHandle());
             }
 */
-            store(regInfo);
+            ret = store(regInfo);
             Transaction.commit(tx);
         } catch (Exception e) {
 //            Exception ex = null;
@@ -101,7 +101,7 @@ public class SimpleRegSubmit extends SimpleRegBase {
 */
             throw new TCWebException(e);
         }
-        return newUser;
+        return ret;
     }
 
     public long storeWithoutCoder(SimpleRegInfo regInfo) throws Exception {

@@ -40,12 +40,12 @@ public class VerizonRegSubmit extends FullRegSubmit {
     }
 
 
-    protected void handleActivation(SimpleRegInfo info, UserPrincipal newUser) throws TCWebException {
+    protected void handleActivation(SimpleRegInfo info, long userId) throws TCWebException {
         try {
 //            if (isEligible()) {
             StringBuffer buf = new StringBuffer(1000);
             User user = (User) createEJB(getInitialContext(), User.class);
-            String code = user.getActivationCode(newUser.getId(), db);
+            String code = user.getActivationCode(userId, db);
 
             TCSEmailMessage mail = new TCSEmailMessage();
 /*

@@ -53,7 +53,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         List responses = ((FullRegInfo) info).getResponses();
         DemographicResponse response = null;
         DemographicQuestion question = null;
-        
+
         HashMap multiAnswerMap = new HashMap();
         for (Iterator it = responses.iterator(); it.hasNext();) {
             response = (DemographicResponse) it.next();
@@ -118,7 +118,7 @@ public abstract class FullRegBase extends SimpleRegBase {
         if (!(ret instanceof FullRegInfo)) {
             ret = new FullRegInfo(ret);
         }
-        
+
         if (hasRequestParameter(Constants.CODER_TYPE))
             ((FullRegInfo)ret).setCoderType(Integer.parseInt(StringUtils.checkNull(getRequestParameter(Constants.CODER_TYPE))));
         return ret;
@@ -155,7 +155,7 @@ public abstract class FullRegBase extends SimpleRegBase {
             if (questions==null)
                 questions=getQuestions(transDb, ((FullRegInfo)regInfo).getCoderType(), Integer.parseInt(getRequestParameter(Constants.COMPANY_ID)));
         } catch (Exception e) {
-            
+
             throw new RuntimeException("failed to get the questions \n" + e.getMessage());
         }
         return questions;
