@@ -125,6 +125,8 @@ public class Task implements Serializable {
                     this.step = step;
                 }
             }
+        } else {
+            step = null;
         }
     }
 
