@@ -103,6 +103,185 @@
                                             <B>Problem Set Analysis &amp; Opinion</B>
                                         </P>
                                         <p>
+                                            Div 1 had a rather rough set tonight, as only 1 person (SnapDragon) was able to solve all three problems successfully.  However, SnapDragon was rather slow on the hard problem, and despite being the only one to solve all three problems, he came in third.  It was lars, with the highest score on the hard, who took first place, pushing him up 184 rating points.  WishingBone was a close second, and moved up 93 points.  Div 2 had a rather easy set, and first timer TekGoNos won by a large margain.
+                                        </p>
+                                        <font size="+2">
+                                            <b>NewPhone</b>
+                                        </font>
+                                        <BR/>
+                                        Used as: Division 2 - Level 1:
+                                        <blockquote>
+                                            <table cellspacing="2">
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Value</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">250</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Submission Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">163 / 196  (83.16%) </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Success Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">112 / 163  (68.71%)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>High Score</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>maximuscranius</b> for 245.17 points
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </blockquote>
+                                        <p>
+
+                                            The most obvious way to do this is with a stable sort.  A stable sort is one that preserves the order of elements with equal value.  In this problem, you want to stable sort phone numbers so that those which are called more often come first.  Then, you can just pick the first
+                                            <b>spaces</b> numbers in your sorted array.  Another way to do this, which is perhaps simpler, is to loop backwards through all possible frequencies (the max is 1000), and add the numbers to an array as they are found.
+                                        </p>
+                                        <pre>
+	String ret[] = new String[spaces];
+	int ptr = 0;
+	for(int i = 1000; i&gt;=0; i--) for(int j = 0; j&lt;freq.length &amp;&amp; ptr!=spaces; j++)
+		if(freq[j]==i)ret[ptr++] = n[j];
+	return ret;
+                                        </pre>
+
+
+                                        <font size="+2">
+                                            <b>RunLengthEncode</b>
+                                        </font>
+                                        <BR/>
+                                        Used as: Division 2 - Level 2:
+                                        <blockquote>
+                                            <table cellspacing="2">
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Value</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">500</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Submission Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">135 / 196  (68.88%) </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Success Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">89 / 135  (65.71%)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>High Score</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Spike</b> for 478.75 points
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </blockquote>
+                                        Used as: Division 1 - Level 1:
+                                        <blockquote>
+                                            <table cellspacing="2">
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Value</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">200</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Submission Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">137 / 138  (99.28%) </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Success Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">127 / 137  (92.70%)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>High Score</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Oblok</b> for 198.08 points
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </blockquote>
+                                        <p>
+                                            Most people had little trouble with this, and getting it correct was not algorithmically difficult.  Basically just check each character, and see if it is the start of a run of length greater than 4.  If it is, delete the run, and replace it with a slash and the number of characters in the run.  You could also do it by building a wholly new string out of the old one.
+                                        </p>
+                                        <pre>
+	StringBuffer r = new StringBuffer(50);
+	for(int i = 0; i&lt;input.length(); i++){
+		int j = i;
+		while(++j&lt;input.length() &amp;&amp; input.charAt(j)==input.charAt(i));
+		if(j-i>4){
+			r.append('/');
+			r.append(new DecimalFormat("00").format(j-i));
+			r.append(input.charAt(i));
+			i = j-1;
+		}else r.append(input.charAt(i));
+	}
+	return r.toString();
+                                        </pre>
+
+                                        <font size="+2">
+                                            <b>GiftWrap</b>
+                                        </font>
+                                        <BR/>
+                                        Used as: Division 2 - Level 3:
+                                        <blockquote>
+                                            <table cellspacing="2">
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Value</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">1000</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Submission Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">58 / 196  (29.59%) </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>Success Rate</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">25 / 58  (43.10%)</td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>High Score</b>
+                                                    </td>
+                                                    <td class="bodyText" style="background: #eee;">
+                                                        <b>TekGoNos</b> for 774.59 points
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </blockquote>
+                                        <p>
+                                            Probably one of the easier div 2 hard problems.  There are three different ways that the package can be wrapped, corresponding to the three different dimensions of the box.  We can use each of the three dimensions as the dimension along which the seam runs after the paper is first wrapped around (the seam in step 3 of the diagram).  Thus, if the seam runs down
+                                            <tt>dimension 1</tt>, then one of the dimensions of the paper must be
+                                            <tt>1 + 2 * (dimension 2 + dimension 3)</tt> - enough to wrap around, and overlap by 1.  Note that we add one for the overlap, not two, because if the paper were just touching, we would only have to add 1 to one side of the paper to make it overlap by 1.  So, then we must see how long the paper must be to fold down on the ends.  Looking at the diagram provided, it should be clear that the overlap should occur along the longer dimension of the end that is folded over, across the shorter dimension.  So, then if the first seam was along
+                                            <tt>dimension 1</tt>, the other two seams would cause the other dimension of the paper to be:
+                                            <br/>
+                                            <tt>dimension 1 + 2 * (1/2 + min(dimension 2, dimension 3)/2) = 1 + min(dimension 2, dimension 3)</tt>.
+                                        </p>
+                                        <p>
                                             So, if the first seam runs along
                                             <tt>dimension 1</tt>, then the paper's dimensions are:
                                             <br/>
@@ -173,28 +352,28 @@
                                             In the end, the solution seems surprisingly simple, which is what led to the misleading points assignment.  The most common mistake seems to be the mishandling of the case where one or both of the directions is negative.  People also had trouble when the line ran along an edge.  There were also some solutions which timed out because they did not use division and modulus, but used addition and subtraction to accomplish the same thing.  Here is something similar to the way most people did it:
                                         </p>
                                         <pre>
-                                            int w = in[0], h = in[1], sx = in[2], sy = in[3], dx = in[4], dy = in[5];
-                                            if(dx==0||dy==0)return 1;
-                                            if(dx&lt;0){
-                                            sx = (w-sx)%w;
-                                            dx = -dx;
-                                            }
-                                            if(dy&lt;0){
-                                            sy = (h-sy)%h;
-                                            dy = -dy;
-                                            }
-                                            int g = gcd(dx,dy);
-                                            dx/=g;dy/=g;
-                                            int ret = 0;
-                                            int nx = sx, ny = sy;
-                                            while(true){
-                                            ret+=(nx+dx)/w + (ny+dy)/h;
-                                            nx = (nx+dx)%w;
-                                            ny = (ny+dy)%h;
-                                            if(nx==0 &amp;&amp; ny==0)ret--;
-                                            if((nx-sx)*dy == (ny-sy) * dx &amp;&amp; ret !=0)break;
-                                            }
-                                            return ret;
+	int w = in[0], h = in[1], sx = in[2], sy = in[3], dx = in[4], dy = in[5];
+	if(dx==0||dy==0)return 1;
+	if(dx&lt;0){
+		sx = (w-sx)%w;
+		dx = -dx;
+	}
+	if(dy&lt;0){
+		sy = (h-sy)%h;
+		dy = -dy;
+	}
+	int g = gcd(dx,dy);
+	dx/=g;dy/=g;
+	int ret = 0;
+	int nx = sx, ny = sy;
+	while(true){
+		ret+=(nx+dx)/w + (ny+dy)/h;
+		nx = (nx+dx)%w;
+		ny = (ny+dy)%h;
+		if(nx==0 &amp;&amp; ny==0)ret--;
+		if((nx-sx)*dy == (ny-sy) * dx &amp;&amp; ret !=0)break;
+	}
+	return ret;
                                         </pre>
                                         <p>The above code is quite similar to all 3 successful submission, and was the easiest way to do it.  However, for those who are interested, there is also a constant time solution (well, actually it's logrithmic in the size of the numbers because of gcd, but constant with respect to the answer) to this problem.  The first thing to note in order to come up with this solution is that, unless the line hits a corner, the start location does not matter.  To see this, imagine that you start at some point in the square, and draw all of the line segments.  Then, if you shift the point one square to the right, all of the segments will shift one square to the right.  It should not be too hard to verify that if shifting causes a segment to hit a corner, the total number of segments decreases by 1, while if shifting causes no segment to hit a corner, when it did before, then the number of segments increases by 1.  So, this suggests that we should first start by calculating the number of segments in the case where none of the segments hits a corner.  To do this, consider how far the segment goes up, each time it goes across the paper.  A little algebra gives you
                                             <tt>w*dy/dx</tt>, or
@@ -223,25 +402,25 @@
                                             That was probably a bit confusing, but if you try to work it out yourself with a paper and pencil, it should become clearer.  Anyhow, here is the code:
                                         </p>
                                         <pre>
-                                            int w = params[0], h = params[1], sx = params[2], sy = params[3], dx = params[4], dy = params[5];
-                                            if(dx==0||dy==0)return 1;
-                                            if(dx&lt;0){dx=-dx;sx=(w-sx)%w;}
-                                            if(dy&lt;0){dy=-dy;sy=(h-sy)%h;}
-                                            int g = gcd(dx,dy);
-                                            dx/=g;dy/=g;
-                                            int n = w*dy;
-                                            int d = dx*h;
-                                            g = gcd(n,d);
-                                            d/=g; n/=g;
-                                            int ret = d+n;
-                                            int nsy = sy*dx+dy*(w-sx);
-                                            int dsy = dx*h;
-                                            g = gcd(nsy,dsy);
-                                            dsy/=g;nsy/=g;
-                                            if(d%dsy==0){
-                                            ret--;
-                                            }
-                                            return ret;
+	int w = params[0], h = params[1], sx = params[2], sy = params[3], dx = params[4], dy = params[5];
+	if(dx==0||dy==0)return 1;
+	if(dx&lt;0){dx=-dx;sx=(w-sx)%w;}
+	if(dy&lt;0){dy=-dy;sy=(h-sy)%h;}
+	int g = gcd(dx,dy);
+	dx/=g;dy/=g;
+	int n = w*dy;
+	int d = dx*h;
+	g = gcd(n,d);
+	d/=g; n/=g;
+	int ret = d+n;
+	int nsy = sy*dx+dy*(w-sx);
+	int dsy = dx*h;
+	g = gcd(nsy,dsy);
+	dsy/=g;nsy/=g;
+	if(d%dsy==0){
+		ret--;
+	}
+	return ret;
                                         </pre>
 
                                         <font size="+2">
