@@ -53,7 +53,6 @@ public class SubmitEmailActivate extends Base {
                 UserServicesHome userServicesHome = (UserServicesHome) getInitialContext().lookup(ApplicationServer.USER_SERVICES);
                 UserServices userServices = userServicesHome.findByPrimaryKey(new Integer((int)subject.getUserId()));
                 com.topcoder.common.web.data.User user = userServices.getUser();
-                Coder tempCoder = (Coder)user.getUserTypeDetails().get("Coder");
 
                 updateEmail(userServices, email);
                 TCSEmailMessage mail = new TCSEmailMessage();
@@ -65,7 +64,7 @@ public class SubmitEmailActivate extends Base {
                 msgText.append("/tc?module=EmailActivate&");
                 msgText.append(Constants.ACTIVATION_CODE);
                 msgText.append("=");
-                msgText.append(tempCoder.getActivationCode());
+                msgText.append(StringUtils.getActivationCode(user.getUserId()));
                 msgText.append("\n\n");
                 msgText.append("Thank You,\nTopCoder Service");
                 mail.setBody(msgText.toString());
@@ -105,6 +104,10 @@ public class SubmitEmailActivate extends Base {
                 com.topcoder.common.web.data.User user = userServices.getUser();
                 user.setEmail(email);
                 user.setModified("U");
+                Coder tempCoder = (Coder)user.getUserTypeDetails().get("Coder");
+                //just in case they have the old type activation code, update them to the new version
+                tempCoder.setActivationCode(StringUtils.getActivationCode(user.getUserId()));
+                tempCoder.setModified("U");
                 userServices.setUser(user);
             }
             if (!Transaction.commit(transaction)) {
