@@ -100,16 +100,16 @@
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="3" CELLSPACING="0" BACKGROUND="/i/steel_darkblue_bg.gif">
        <TR>
           <TD CLASS="statText" WIDTH="25%">
-bean911<BR/>
+chogyonim<BR/>
           </TD>
           <TD CLASS="statText" WIDTH="25%">
 dpecora<BR/>
           </TD>
           <TD CLASS="statText" WIDTH="25%">
-krmc<BR/>
+jonmac<BR/>
           </TD>
           <TD CLASS="statText" WIDTH="25%">
-sqrrrl<BR/>
+radeye<BR/>
           </TD>
        </TR> 
     </TABLE>
