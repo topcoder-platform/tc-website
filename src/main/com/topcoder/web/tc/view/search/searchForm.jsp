@@ -105,6 +105,17 @@
                                         </select>
                                     </td>
                                 </tr>
+
+                                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
+
+                                <tr><td class="bodyText">School</td></tr>
+
+                                <tr>
+                                    <td class="bodyText">
+                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onkeypress="submitEnter(event)"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </td>
 
@@ -186,17 +197,6 @@
 
                                 <tr><td colspan="2"><img src="/i/clear.gif" alt="" width="1" height="3" border="0"/></td></tr>
 
-
-
-                                <tr><td class="bodyText"><img src="/i/clear.gif" alt="" width="1" height="5" border="0"/></td></tr>
-
-                                <tr><td class="bodyText">School</td></tr>
-
-                                <tr>
-                                    <td class="bodyText">
-                                        <tc-webtag:textInput name="<%=Constants.SCHOOL_NAME%>" size="20" maxlength="150" onkeypress="submitEnter(event)"/>
-                                    </td>
-                                </tr>
 
                             </table>
                         </td>
