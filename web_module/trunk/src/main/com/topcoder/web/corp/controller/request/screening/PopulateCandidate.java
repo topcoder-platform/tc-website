@@ -10,10 +10,7 @@ import com.topcoder.web.common.StringUtils;
 import com.topcoder.web.common.TCRequest;
 import com.topcoder.web.common.TCWebException;
 import com.topcoder.web.common.security.PrincipalMgr;
-import com.topcoder.web.corp.common.Constants;
-import com.topcoder.web.corp.common.PermissionDeniedException;
-import com.topcoder.web.corp.common.ScreeningException;
-import com.topcoder.web.corp.common.Util;
+import com.topcoder.web.corp.common.*;
 import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.ejb.resume.ResumeServices;
 import com.topcoder.web.ejb.preferencelevel.PreferenceLevel;
@@ -113,8 +110,12 @@ public class PopulateCandidate extends BaseScreeningProcessor {
                     Contact contact = (Contact)createEJB(getInitialContext(), Contact.class);
 
                     PreferenceLevel pl = (PreferenceLevel)createEJB(getInitialContext(), PreferenceLevel.class);
-                    info.setPreference(pl.getLevel(Constants.DATA_SOURCE,contact.
-                            getCompanyId(getUser().getId(), Constants.DATA_SOURCE), getUser().getId()));
+                    try {
+                        info.setPreference(pl.getLevel(Constants.DATA_SOURCE,contact.
+                                getCompanyId(getUser().getId(), Constants.DATA_SOURCE), getUser().getId()));
+                    } catch (NoSuchPreferenceLevelException e) {
+                        info.setPreference(0);
+                    }
 
                     DataAccessInt dAccess = Util.getDataAccess();
                     Request dr = new Request();
