@@ -5,61 +5,37 @@
     <xsl:call-template name="Foot"/>
   </xsl:template>
   <xsl:template name="Foot">
-    <!-- Footer Include Begins -->
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-  <TR>
-    <TD BGCOLOR="#CCCCCC" WIDTH="160"><IMG SRC="/i/clear.gif" WIDTH="160" HEIGHT="1" BORDER="0"/></TD>
-      <TD BGCOLOR="#CCCCCC" WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="10" BORDER="0"/></TD>
-        <TD WIDTH="100%" ALIGN="right">
-            <A HREF='javascript:history.back()' CLASS="bodyText">
-              <IMG SRC="/i/previous.gif" ALT="" WIDTH="93" HEIGHT="21" BORDER="0" HSPACE="30"/>
-            </A>
-        </TD>
-    </TR>
-  <TR>
-    <TD BGCOLOR="#666666" WIDTH="160"><IMG SRC="/i/clear.gif" WIDTH="160" HEIGHT="1" BORDER="0"/></TD>
-      <TD BGCOLOR="#666666" WIDTH="10"><IMG SRC="/i/footer_top_angle.gif" WIDTH="10" HEIGHT="10" BORDER="0"/></TD>
-        <TD WIDTH="100%"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0"/></TD>
-    </TR>
-</TABLE>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#666666">
-  <TR>
-    <TD COLSPAN="2" HEIGHT="15" BACKGROUND="/i/footer_graphic_tile.gif" ALIGN="left"><IMG SRC="/i/footer_graphic.gif" WIDTH="710" HEIGHT="16" BORDER="0"/></TD>
-  </TR>
-  <TR>
-    <TD WIDTH="20" VALIGN="top" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="20" HEIGHT="1" BORDER="0"/></TD>
-    <TD WIDTH="100%" VALIGN="top" ALIGN="left" BGCOLOR="#43515E" BACKGROUND="/i/steel_gray_bg.gif"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="5" BORDER="0"/><BR/>
-      <SPAN CLASS="smallFoot">
-        <A CLASS="smallFoot" TARGET="_parent">
-          <xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>
-          register
-        </A>&#160;&#160;|&#160;&#160;
-        <A CLASS="smallFoot" TARGET="_parent">
-          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>
-          about [TC]
-        </A>&#160;&#160;|&#160;&#160;
-        <A CLASS="smallFoot" TARGET="_parent">
-          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>
-          contacts
-        </A>&#160;&#160;|&#160;&#160;
-        <A CLASS="smallFoot" TARGET="_parent">
-          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>
-          privacy
-        </A>&#160;&#160;|&#160;&#160;
-        <A CLASS="smallFoot" TARGET="_parent">
-          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>
-          terms
-        </A>&#160;&#160;|&#160;&#160;
-        <A CLASS="smallFoot" TARGET="_parent">
-          <xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
-          [TC] home
-        </A>
-      </SPAN><BR/><BR/>
-      <SPAN CLASS="smallFoot">Copyright &#169; 2003, TopCoder, Inc. All rights reserved.</SPAN>
-      <BR/><BR/><BR/>
-    </TD>
-  </TR>
-</TABLE>    
-    <!-- Footer Include Ends -->
+
+<!-- Footer Include Begins -->
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td bgcolor="#666666" width="160"><img src="/i/clear.gif" width="160" height="1" border="0"/></td>
+        <td bgcolor="#666666" width="10"><img src="/i/footer_top_angle.gif" width="10" height="10" border="0"/></td>
+        <td width="100%"><img src="/i/clear.gif" width="1" height="1" border="0"/></td>
+    </tr>
+</table>
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#666666">
+    <tr>
+        <td colspan="2" height="15" background="/i/footer_graphic_tile.gif" align="left"><img src="/i/footer_graphic.gif" width="710" height="16" border="0"/></td>
+    </tr>
+
+    <tr valign="top">
+        <td width="20" bgcolor="#43515E" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" width="20" height="1" border="0"/></td>
+        <td width="100%" align="left" bgcolor="#43515E" background="/i/steel_gray_bg.gif"><img src="/i/clear.gif" width="1" height="5" border="0"/><br/>
+            <div class="smallFoot">
+            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">https://<xsl:value-of select="/TC/Host"/>/reg/index.jsp</xsl:attribute>Register</a>&#160;&#160;|&#160;&#160;
+            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=about_tc&amp;c=index</xsl:attribute>About TopCoder</a>&#160;&#160;|&#160;&#160;
+            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=contacts&amp;c=index</xsl:attribute>Contacts</a>&#160;&#160;|&#160;&#160;
+            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=privacy</xsl:attribute>Privacy</a>&#160;&#160;|&#160;&#160;
+            <a class="smallFoot" target="_parent"><xsl:attribute name="HREF">http://<xsl:value-of select="/TC/Host"/>/?&amp;t=&amp;c=terms</xsl:attribute>Terms</a><br /><br />
+            Copyright &#169; 2001-2003, TopCoder, Inc. All rights reserved.
+            </div>
+            <br/><br/>
+        </td>
+    </tr>
+</table>    
+<!-- Footer Include Ends -->
+
   </xsl:template>
 </xsl:stylesheet>
