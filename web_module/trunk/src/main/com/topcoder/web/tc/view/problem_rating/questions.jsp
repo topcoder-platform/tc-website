@@ -45,8 +45,8 @@
 <form name="ratings" action="<jsp:getProperty name="sessionInfo" property="ServletPath"/>" method="GET">
 <input type="hidden" name="module" value="SubmitRatings">
 <input type="hidden" name="pid" value="<%= request.getParameter("pid") %>">
-    <table BORDER="1" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
-        <tr><td class="bodyTextBig">Question</td>
+    <table BORDER="0" CELLSPACING="1" CELLPADDING="5" WIDTH="100%">
+        <tr><td class="bodyTextBig" colspan="2">Question</td>
             <% for(int i = 1; i<=10; i++){ %>
                 <td class="bodyTextBig" align="center">
                     <%=i%>
