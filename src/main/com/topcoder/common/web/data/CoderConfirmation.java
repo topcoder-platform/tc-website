@@ -4,7 +4,7 @@ import java.io.Serializable;
 import com.topcoder.shared.docGen.xml.*;
 import com.topcoder.shared.util.logging.Logger;
 
-public final class CoderConfirmation implements Serializable, TagRenderer {
+public final class CoderConfirmation implements Serializable, TagRenderer, Modifiable {
 
   private int coderId;
   private int contestId;
@@ -23,6 +23,10 @@ public final class CoderConfirmation implements Serializable, TagRenderer {
   public void toggleModified() {
     if (getModified().equals("S")) setModified("U");
     if (getModified().equals("")) setModified("A");
+  }
+
+  public void setAllModifiedStable() throws Exception {
+    setModified("S");
   }
 
   public void setCoderId(int coderId) {
