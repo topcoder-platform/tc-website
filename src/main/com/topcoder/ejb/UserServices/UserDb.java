@@ -4,19 +4,12 @@ import com.topcoder.common.web.data.CoderRegistration;
 import com.topcoder.common.web.error.TCException;
 import com.topcoder.ejb.AuthenticationServices.*;
 import com.topcoder.shared.util.DBMS;
-import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
-import com.topcoder.security.admin.PrincipalMgrRemote;
-import com.topcoder.security.admin.PrincipalMgrRemoteHome;
-import com.topcoder.security.TCSubject;
-import com.topcoder.security.UserPrincipal;
+import com.topcoder.security.Util;
 
-import javax.naming.InitialContext;
-import javax.naming.Context;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Hashtable;
 
 
 final class UserDb {
@@ -87,14 +80,11 @@ final class UserDb {
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, user.getUserId());
             ps.setString(2, user.getHandle());
-            ps.setString(3, "placeholder");
+            ps.setString(3, Util.encodePassword(user.getPassword(), "users"));
             regVal = ps.executeUpdate();
             if (regVal != 1) {
                 throw new TCException("ejb.User.UserDb:insertUser():did not update security user record:\n");
             }
-
-            updateSecurityPassword(user.getUserId(), user.getHandle(), user.getPassword());
-
         } catch (SQLException sqe) {
             DBMS.printSqlException(true, sqe);
             throw new TCException("ejb.DataCache.DataCacheBean.insertUser: ERROR \n " + sqe.getMessage());
@@ -158,15 +148,16 @@ final class UserDb {
                 query = new StringBuffer(100);
                 query.append(" UPDATE security_user");
                 query.append(   " SET user_id = ?");
+                query.append(    " , password = ?");
                 query.append( " WHERE login_id = ?");
                 ps = conn.prepareStatement(query.toString());
                 ps.setString(1, user.getHandle());
-                ps.setLong(2, user.getUserId());
+                ps.setString(2, Util.encodePassword(user.getPassword(), "users"));
+                ps.setLong(3, user.getUserId());
                 regVal = ps.executeUpdate();
                 if (regVal != 1) {
                     throw new TCException("ejb.User.UserDb:updateUser():did not update security user record:\n");
                 }
-                updateSecurityPassword(user.getUserId(), user.getHandle(), user.getPassword());
                 user.setModified("S");
 
             }
@@ -862,15 +853,6 @@ final class UserDb {
         }
     }
 
-    private static void updateSecurityPassword(long userId, String handle, String password) throws Exception {
-        Hashtable env = new Hashtable();
-        env.put(Context.INITIAL_CONTEXT_FACTORY, ApplicationServer.SECURITY_CONTEXT_FACTORY);
-        env.put(Context.PROVIDER_URL, ApplicationServer.SECURITY_PROVIDER_URL);
-        InitialContext context = new InitialContext(env);
-        PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome)
-                context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
-        PrincipalMgrRemote principalMgr = principalMgrHome.create();
-        principalMgr.editPassword(new UserPrincipal(handle, userId), password, new TCSubject(0));
-    }
+
 
 }
