@@ -15,6 +15,9 @@
         <TD class="statText">
           <form name="upload_form" enctype="multipart/form-data" method="POST" action="Resume">
             <input type="hidden" name="<%=Constants.TASK_KEY%>" value="UploadTask">
+            <% if (ViewUploadTask.hasCompany()) {%>
+            <input type="hidden" name="compid" value="<jsp:getProperty name="ViewUploadTask" property="companyId"/>">
+            <% } %>
             <br/>Resume: <input type=file name=file1>
             <br/>File Type: <select name="fileType" class="dropdown">
             <rsc:iterator list="<%=ViewUploadTask.getFileTypes()%>" id="fileType">

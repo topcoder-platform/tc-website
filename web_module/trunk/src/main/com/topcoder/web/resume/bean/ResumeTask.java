@@ -68,6 +68,18 @@ public abstract class ResumeTask {
         this.fileUpload = fileUpload;
     }
 
+    public long getCompanyId() {
+        return companyId;
+    }
+
+    public boolean hasCompany() {
+        return companyId > 0;
+    }
+
+    public void setCompanyId(long companyId) {
+        this.companyId = companyId;
+    }
+
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
             throws Exception {
     }
