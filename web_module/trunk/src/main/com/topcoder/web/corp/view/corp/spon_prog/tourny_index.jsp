@@ -114,7 +114,7 @@
                         together for hours at a time to write software and investigate technology.</p>
 
                         <p>For more information on sponsoring the TCO, please contact Rob Hughes at
-                        <A HREF="mailto:sponsor@topcoder.com" CLASS="bodyText">sponsor@topcoder.com</A> or 860-833-5540.</p>
+                        <A HREF="mailto:sponsor@topcoder.com" CLASS="bodyText">sponsor@topcoder.com</A> or 860-633-5540.</p>
                         
                         <p><br/></p>
                     </td>
