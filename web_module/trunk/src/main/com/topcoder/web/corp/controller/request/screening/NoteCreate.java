@@ -17,7 +17,6 @@ import com.topcoder.web.corp.model.CandidateInfo;
 import com.topcoder.web.common.*;
 import com.topcoder.common.web.error.NavigationException;
 
-import javax.naming.InitialContext;
 import javax.transaction.UserTransaction;
 import java.util.Map;
 
@@ -85,7 +84,11 @@ public class NoteCreate extends BaseProcessor {
                 NoteHome nHome = (NoteHome) getInitialContext().lookup(NoteHome.class.getName());
                 Note note = nHome.create();
 
-                long noteId = note.createNote(noteText, getAuthentication().getUser().getId(), 1);
+                long noteId = note.createNote(noteText,
+                        getAuthentication().getUser().getId(),
+                        1,
+                        DBMS.SCREENING_JTS_OLTP_DATASOURCE_NAME,
+                        DBMS.SCREENING_OLTP_DATASOURCE_NAME);
 
                 UserNoteHome uHome = (UserNoteHome) getInitialContext().lookup(UserNoteHome.class.getName());
                 UserNote unote = uHome.create();

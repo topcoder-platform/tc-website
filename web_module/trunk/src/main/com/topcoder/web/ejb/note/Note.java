@@ -23,7 +23,7 @@ public interface Note extends EJBObject {
      */
     public long createNote(String text,
                            long submittedBy,
-                           int noteTypeId)
+                           int noteTypeId, String dataSource, String idDataSource)
             throws EJBException, RemoteException;
 
     /**
@@ -32,7 +32,7 @@ public interface Note extends EJBObject {
      * @param text
      * @throws RemoteException
      */
-    public void setText(long noteId, String text)
+    public void setText(long noteId, String text, String dataSource)
             throws EJBException, RemoteException;
 
     /**
@@ -41,7 +41,7 @@ public interface Note extends EJBObject {
      * @param submittedBy
      * @throws RemoteException
      */
-    public void setSubmittedBy(long noteId, long submittedBy)
+    public void setSubmittedBy(long noteId, long submittedBy, String dataSource)
             throws EJBException, RemoteException;
 
     /**
@@ -50,7 +50,7 @@ public interface Note extends EJBObject {
      * @param noteTypeId
      * @throws RemoteException
      */
-    public void setNoteTypeId(long noteId, int noteTypeId)
+    public void setNoteTypeId(long noteId, int noteTypeId, String dataSource)
             throws EJBException, RemoteException;
 
     /**
@@ -59,7 +59,7 @@ public interface Note extends EJBObject {
      * @return note text
      * @throws RemoteException
      */
-    public String getText(long noteId)
+    public String getText(long noteId, String dataSource)
             throws EJBException, RemoteException;
 
     /**
@@ -68,7 +68,7 @@ public interface Note extends EJBObject {
      * @return submitter user id
      * @throws RemoteException
      */
-    public long getSubmittedBy(long noteId)
+    public long getSubmittedBy(long noteId, String dataSource)
             throws EJBException, RemoteException;
 
     /**
@@ -77,7 +77,7 @@ public interface Note extends EJBObject {
      * @return note type id
      * @throws RemoteException
      */
-    public int getNoteTypeId(long noteId)
+    public int getNoteTypeId(long noteId, String dataSource)
             throws EJBException, RemoteException;
 
     /**
@@ -86,6 +86,6 @@ public interface Note extends EJBObject {
      * @return Note Type Description
      * @throws RemoteException
      */
-    public String getNoteTypeDesc(long noteId)
+    public String getNoteTypeDesc(long noteId, String dataSource)
             throws EJBException, RemoteException;
 }

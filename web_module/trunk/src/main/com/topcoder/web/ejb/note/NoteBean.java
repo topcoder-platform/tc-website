@@ -6,9 +6,6 @@ import com.topcoder.shared.util.DBMS;
 import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 
 import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.sql.DataSource;
 import javax.ejb.EJBException;
 import java.sql.PreparedStatement;
 import java.sql.Connection;
@@ -24,8 +21,10 @@ import java.sql.ResultSet;
 public class NoteBean extends BaseEJB {
 
     private static Logger log = Logger.getLogger(NoteBean.class);
+/*
     private static final String DATA_SOURCE = "java:comp/env/datasource_name";
     private static final String JTS_DATA_SOURCE = "java:comp/env/jts_datasource_name";
+*/
 
     /**
      *
@@ -37,7 +36,7 @@ public class NoteBean extends BaseEJB {
      */
     public long createNote(String text,
                            long submittedBy,
-                           int noteTypeId)
+                           int noteTypeId, String dataSource, String idDataSource)
             throws EJBException {
         log.debug("createNote called. text: " + text
                 + " submittedBy: " + submittedBy + "noteTypeId: " + noteTypeId);
@@ -45,7 +44,6 @@ public class NoteBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
         long noteId = 0;
 
         try {
@@ -54,10 +52,10 @@ public class NoteBean extends BaseEJB {
             query.append("note_type_id) ");
             query.append("VALUES(?,?,?,?) ");
 
-            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
 
-            noteId = IdGeneratorClient.getSeqId("NOTE_SEQ");
+            noteId = IdGeneratorClient.getSeqId("NOTE_SEQ", idDataSource);
 
             ps.setLong(1, noteId);
             ps.setBytes(2, text.getBytes());
@@ -85,7 +83,7 @@ public class NoteBean extends BaseEJB {
      * @param text
      * @throws EJBException
      */
-    public void setText(long noteId, String text)
+    public void setText(long noteId, String text, String dataSource)
             throws EJBException {
         log.debug("setText called. noteId: "
                 + noteId + " text: " + text);
@@ -93,13 +91,12 @@ public class NoteBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             StringBuffer query = new StringBuffer(60);
             query.append("UPDATE note set text = ? where note_id = ?");
 
-            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
 
             ps.setBytes(1, text.getBytes());
@@ -125,7 +122,7 @@ public class NoteBean extends BaseEJB {
      * @param submittedBy
      * @throws EJBException
      */
-    public void setSubmittedBy(long noteId, long submittedBy)
+    public void setSubmittedBy(long noteId, long submittedBy, String dataSource)
             throws EJBException {
         log.debug("setSubmittedBy called. noteId: "
                 + noteId + " submittedBy: " + submittedBy);
@@ -133,13 +130,12 @@ public class NoteBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             StringBuffer query = new StringBuffer(60);
             query.append("UPDATE note set submitted_by = ? where note_id = ?");
 
-            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, submittedBy);
@@ -165,7 +161,7 @@ public class NoteBean extends BaseEJB {
      * @param noteTypeId
      * @throws EJBException
      */
-    public void setNoteTypeId(long noteId, int noteTypeId)
+    public void setNoteTypeId(long noteId, int noteTypeId, String dataSource)
             throws EJBException {
         log.debug("setNoteTypeId called. noteId: "
                 + noteId + " noteTypeId: " + noteTypeId);
@@ -173,13 +169,12 @@ public class NoteBean extends BaseEJB {
         Context ctx = null;
         PreparedStatement ps = null;
         Connection conn = null;
-        DataSource ds = null;
 
         try {
             StringBuffer query = new StringBuffer(60);
             query.append("UPDATE note set note_type_id = ? where note_id = ?");
 
-            conn = DBMS.getConnection(JTS_DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
             ps = conn.prepareStatement(query.toString());
 
             ps.setLong(1, noteTypeId);
@@ -205,7 +200,7 @@ public class NoteBean extends BaseEJB {
      * @return note text
      * @throws EJBException
      */
-    public String getText(long noteId)
+    public String getText(long noteId, String dataSource)
             throws EJBException {
         log.debug("getText called. noteId: " + noteId);
 
@@ -213,14 +208,13 @@ public class NoteBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        DataSource ds = null;
         String text = null;
 
         try {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT text from note where note_id = ?");
 
-            conn = DBMS.getConnection(DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
@@ -251,7 +245,7 @@ public class NoteBean extends BaseEJB {
      * @return submitter user id
      * @throws EJBException
      */
-    public long getSubmittedBy(long noteId)
+    public long getSubmittedBy(long noteId, String dataSource)
             throws EJBException {
         log.debug("getSubmittedBy called. noteId: " + noteId);
 
@@ -259,14 +253,13 @@ public class NoteBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        DataSource ds = null;
         long submittedBy = -1;
 
         try {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT submitted_by from note where note_id = ?");
 
-            conn = DBMS.getConnection(DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
@@ -297,7 +290,7 @@ public class NoteBean extends BaseEJB {
      * @return note type id
      * @throws EJBException
      */
-    public int getNoteTypeId(long noteId)
+    public int getNoteTypeId(long noteId, String dataSource)
             throws EJBException {
         log.debug("getNoteTypeId called. noteId: " + noteId);
 
@@ -305,14 +298,13 @@ public class NoteBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        DataSource ds = null;
         int noteTypeId = -1;
 
         try {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT note_type_id from note where note_id = ?");
 
-            conn = DBMS.getConnection(DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
@@ -343,7 +335,7 @@ public class NoteBean extends BaseEJB {
      * @return Note Type Description
      * @throws EJBException
      */
-    public String getNoteTypeDesc(long noteId)
+    public String getNoteTypeDesc(long noteId, String dataSource)
             throws EJBException {
         log.debug("getNoteTypeDesc called. noteId: " + noteId);
 
@@ -351,14 +343,13 @@ public class NoteBean extends BaseEJB {
         PreparedStatement ps = null;
         ResultSet rs = null;
         Connection conn = null;
-        DataSource ds = null;
         String noteTypeDesc = null;
 
         try {
             StringBuffer query = new StringBuffer(60);
             query.append("SELECT note_type_desc from note where note_id = ?");
 
-            conn = DBMS.getConnection(DATA_SOURCE);
+            conn = DBMS.getConnection(dataSource);
 
             ps = conn.prepareStatement(query.toString());
             ps.setLong(1, noteId);
