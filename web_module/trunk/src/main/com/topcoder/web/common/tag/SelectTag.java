@@ -154,9 +154,9 @@ public abstract class SelectTag extends BaseTag {
         return s.toString();
     }
 
-    abstract String getOptionValue(Object o);
+    protected abstract String getOptionValue(Object o);
 
-    abstract String getOptionText(Object o);
+    protected abstract String getOptionText(Object o);
 
-    abstract List getSelectOptions() throws JspException;
+    protected abstract List getSelectOptions() throws JspException;
 }
