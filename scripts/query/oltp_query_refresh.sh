@@ -438,3 +438,25 @@ WHERE
 ORDER BY
   1
 "
+
+java com.topcoder.utilities.QueryLoader "OLTP" 76 "Members that said Yes to Sun Network Event" 0 0 "
+select
+  LOWER(u.email) AS email_address,
+  u.handle
+from
+  user u,
+  audit_coder a,
+  demographic_response dr
+where
+  date(a.timestamp) = date(today)-1 and
+  a.column_name = 'STATUS' and
+  old_value = 'U' and
+  new_value = 'A' and
+  a.user_id = u.user_id and
+  dr.coder_id = u.user_id and
+  dr.demographic_question_id = 24 and
+  dr.demographic_response = 'Yes' and
+  u.status = 'A'
+ORDER BY
+  1
+"
