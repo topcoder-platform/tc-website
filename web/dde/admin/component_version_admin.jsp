@@ -438,7 +438,7 @@ if (action != null) {
         GregorianCalendar gcDate = new GregorianCalendar(Integer.parseInt(year), Integer.parseInt(month)-1, Integer.parseInt(date));
         ver.setPhaseDate(gcDate.getTime());
         ver.setPhase(Long.parseLong(phase));
-        
+
         try {
             if (colTechnology != null) {
                 Iterator iter = colTechnology.iterator();
@@ -456,7 +456,7 @@ if (action != null) {
                     }
                 }
             }
-            componentManager.updateVersionInfo(ver, tcSubject, levelId); 
+            componentManager.updateVersionInfo(ver, tcSubject, levelId);
             if(verDateInfo != null && (ver.getPhase() == ComponentVersionInfo.DEVELOPMENT || ver.getPhase() == ComponentVersionInfo.SPECIFICATION || ver.getPhase() == ComponentVersionInfo.COMPLETED))
             {
 
@@ -1522,7 +1522,7 @@ if (action != null) {
 
 <!-- Submissions begins -->
 
-            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
+<%--            <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td class="adminSubhead">Submissions</td></tr>
             </table>
 
@@ -1587,8 +1587,9 @@ if (action != null) {
 <!-- Submissions ends -->
 
                 <tr><td colspan="2" height="15"><img src="../images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
-            </table>
+            </table>--%>
 
+<%--
 <form action="<%= page_name %>" method="POST">
 <input type="hidden" name="comp" value="<%= lngComponent %>">
 <input type="hidden" name="ver" value="<%= ver.getVersion() %>">
@@ -1627,8 +1628,10 @@ if (action != null) {
 
                 <tr><td colspan="2" height="15"><img src="../images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
             </table>
+--%>
 
 <!-- Reviews begins -->
+<%--
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
                 <tr><td class="adminSubhead">Reviews</td></tr>
             </table>
@@ -1668,6 +1671,7 @@ if (action != null) {
 
                 <tr><td colspan="2" height="15"><img src="../images/clear.gif" alt="" width="10" height="15" border="0"/></td></tr>
             </table>
+--%>
 
 <!-- Team Member Roles begins -->
             <table width="100%" border="0" cellpadding="0" cellspacing="0" align="center">
