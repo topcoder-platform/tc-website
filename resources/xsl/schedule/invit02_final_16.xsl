@@ -61,7 +61,27 @@
   <P CLASS="statText">The following competitors have advanced from Round 4 to the Semifinals. <A HREF="/index?t=schedule&amp;c=tourney_advancers&amp;rds=4355" CLASS="statText">Back to Advancers</A></P>
  <TABLE CELLSPACING="0" CELLPADDING="0" BORDER="0" ALIGN="center">
     <TR>
-        <TD VALIGN="top"><IMG SRC="/i/invite02_final16.jpg" BORDER="0"/></TD>
+        <TD VALIGN="top">
+        <IMG SRC="/i/invite02_final16.jpg" WIDTH="345" HEIGHT="615" ALT="" BORDER="0" USEMAP="#handle_links"/>
+        <MAP NAME="handle_links">
+        <AREA ALT="" COORDS="0,84,77,185" HREF="/stat?c=member_profile&amp;cr=272072" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="85,86,162,187" HREF="/stat?c=member_profile&amp;cr=120816" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="173,86,250,187" HREF="/stat?c=member_profile&amp;cr=153505" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="259,87,336,188" HREF="/stat?c=member_profile&amp;cr=152342" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="0,227,77,328" HREF="/stat?c=member_profile&amp;cr=260835" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="86,226,163,327" HREF="/stat?c=member_profile&amp;cr=114853" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="172,226,249,327" HREF="/stat?c=member_profile&amp;cr=262936" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="259,226,336,327" HREF="/stat?c=member_profile&amp;cr=287105"  SHAPE="RECT"/>
+        <AREA ALT="" COORDS="0,368,77,469" HREF="/stat?c=member_profile&amp;cr=152073" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="86,368,163,469" HREF="/stat?c=member_profile&amp;cr=277659" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="172,367,249,468" HREF="/stat?c=member_profile&amp;cr=157972" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="258,368,335,469" HREF="/stat?c=member_profile&amp;cr=264949" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="0,510,77,611" HREF="/stat?c=member_profile&amp;cr=270505" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="86,509,163,610" HREF="/stat?c=member_profile&amp;cr=152347" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="173,508,250,609" HREF="/stat?c=member_profile&amp;cr=155275" SHAPE="RECT"/>
+        <AREA ALT="" COORDS="258,506,335,607" HREF="/stat?c=member_profile&amp;cr=287266"  SHAPE="RECT"/>
+        </MAP>
+        </TD>
     </TR>
    </TABLE>
          <P><BR/></P>
