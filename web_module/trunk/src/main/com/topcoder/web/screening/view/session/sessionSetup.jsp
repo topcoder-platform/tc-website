@@ -211,16 +211,16 @@ function submitSession() {
                     <td class="testTableTitle" colspan="3">Email</td>
                 </tr>
                     
-                <tr>
-                    <td height="25" class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /><img src="/i/ev/clear.gif" width="1" height="25" alt="" border="0"></td>
+                <tr valign="middle">
+                    <td class="testTableOdd" colspan="3">Invite candidate to Testing Application&#160;<screen:checkbox name="candidateEmail" value="YES" checked="<%=sessionInfo.getCandidateEmail()%>" /><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
-                <tr>
-                    <td height="25" class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /><img src="/i/ev/clear.gif" width="1" height="25" alt="" border="0"></td>
+                <tr valign="middle">
+                    <td class="testTableEven" colspan="3">Send me email reminder&#160;<screen:checkbox name="repEmail" value="YES" checked="<%=sessionInfo.getRepEmail()%>" /><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
                 
-                <tr>
-                    <td height="25" class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()">click here</a><img src="/i/ev/clear.gif" width="1" height="25" alt="" border="0"></td>
+                <tr valign="middle">
+                    <td class="testTableOdd" colspan="3">To preview the email template <a href="JavaScript:showEmail()">click here</a><img src="/i/ev/clear.gif" width="1" height="20" alt="" border="0"></td>
                 </tr>
             </table>
 
