@@ -1,6 +1,7 @@
 package com.topcoder.web.ejb.pacts;
 
 import com.topcoder.web.ejb.BaseEJB;
+import com.topcoder.web.ejb.idgeneratorclient.IdGeneratorClient;
 import com.topcoder.shared.messaging.QueueMessageSender;
 import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.DBMS;
@@ -9,6 +10,8 @@ import com.topcoder.shared.dataAccess.resultSet.ResultSetContainer;
 import com.topcoder.web.tc.controller.legacy.pacts.common.*;
 
 import javax.jms.JMSException;
+import javax.naming.InitialContext;
+import javax.ejb.EJBException;
 import java.sql.*;
 import java.text.*;
 import java.util.*;
@@ -1889,6 +1892,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
 
     // Helper function, assumes autocommit is false
     private long makeAffidavitPayment(Connection c, Affidavit a, String text, Payment p) throws Exception {
+        log.debug("makeAffidavitPayment called...");
         PreparedStatement ps = null;
         try {
             // Get ID numbers.  As affidavit references payment, we must add the
@@ -1920,6 +1924,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             ps.setString(6, a._header._description);
             ps.setInt(7, a._header._typeID);
             ps.setBytes(8, DBMS.serializeTextString(text));
+            //todo STUPID!!!! make this a default in the database
             ps.setTimestamp(9, new Timestamp(System.currentTimeMillis())); // date_created
             ps.executeUpdate();
             ps.close();
@@ -2131,6 +2136,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
     // Helper function that adds the specified payment to the database
     // Assumes autocommit is false
     private long makeNewPayment(Connection c, Payment p, boolean createReferralPayment) throws Exception {
+        log.debug("makeNewPayment called...");
         long paymentId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_SEQ);
         long paymentDetailId = (long) DBMS.getSeqId(c, DBMS.PAYMENT_DETAIL_SEQ);
         PreparedStatement ps = null;
@@ -4129,6 +4135,7 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
      */
     public int generateRoundPayments(long roundId, int affidavitTypeId, boolean makeChanges)
             throws IllegalUpdateException, SQLException {
+        log.debug("generateRoundPayments called...");
         int i;
         Connection c = null;
 
@@ -4224,7 +4231,8 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
                 String countryCode = winners.getItem(i, "country_code").toString();
                 String text = (String) textMap.get(countryCode);
                 if (text == null) {
-                    throw new SQLException("Affidavit template is missing for country code " + countryCode);
+                    throw new SQLException("Affidavit template is missing for country code " + countryCode +
+                            " type " + affidavitTypeId);
                 }
 
                 if (makeChanges) {
@@ -4366,6 +4374,42 @@ public class PactsServicesBean extends BaseEJB implements PactsConstants {
             }
             c = null;
             throw new SQLException(e.getMessage());
+        }
+    }
+
+
+    public void createAffidavitTemplate(int affidavitTypeId, String text) throws SQLException {
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+
+            conn = DBMS.getConnection();
+
+            StringBuffer query = new StringBuffer(1024);
+            query.append("insert into affidavit_tempate (affidavit_template_id, affidavit_type_id, text)");
+            query.append("values (?, ?, ?)");
+
+
+            long affidavitTemplateId = IdGeneratorClient.getSeqId("AFFIDAVIT_TEMPLATE_SEQ", DBMS.OLTP_DATASOURCE_NAME);
+
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, affidavitTemplateId);
+            ps.setInt(2, affidavitTypeId);
+            ps.setBytes(3, text.getBytes());
+
+            int rc = ps.executeUpdate();
+            if (rc != 1) {
+                throw(new EJBException("Wrong number of rows updated in 'useaffidavit_tempater'. " +
+                        "Updated " + rc + ", should have updated 1."));
+            }
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            close(ps);
+            close(conn);
         }
     }
 }

@@ -166,5 +166,8 @@ public interface PactsServices extends EJBObject {
             throws IllegalUpdateException, RemoteException, SQLException;
 
     public int expireOldAffidavits() throws RemoteException, SQLException;
+
+    public void createAffidavitTemplate(int affidavitTypeId, String text) throws RemoteException, SQLException;
+
 }
 
