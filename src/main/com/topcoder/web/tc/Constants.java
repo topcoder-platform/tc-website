@@ -31,6 +31,7 @@ public class Constants {
     public static String ACTIVATION_CODE;
 
     public static String USER_ID;
+    public static String NOTE_ID;
     public static String HANDLE;
     public static String STATE_CODE;
     public static String COUNTRY_CODE;
