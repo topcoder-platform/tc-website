@@ -181,8 +181,7 @@ public class QueryMover {
 
                 log.info("command " + sourceCommand.getCommandDesc() + " not found, creating...");
                 long newCommandId = targetC.createCommand(sourceCommand.getCommandDesc(),
-                        (int) sourceCommand.getCommandId(), targetDSN);
-                targetC.setCommandGroupId(newCommandId, newCommandGroupId, targetDSN);
+                        newCommandGroupId, targetDSN);
 
                 commandMap.put(new Long(newCommandId), new Long(sourceCommandId));
                 moveQueries(sourceCommandId);
