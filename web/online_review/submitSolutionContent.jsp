@@ -82,7 +82,7 @@
 					<td class="blueBkgnd"><img src="images/clear.gif" alt="" width="1" height="8" border="0"></td>
 				</tr>
 				<tr>
-					<td class="forumTextsrc="Odd">Not sure what to send? A <a href='<%="http://"+ApplicationServer.TC_SERVER+"/?&t=development&c=tcs_sample_docs"%>'>sample submission and Documentation</a> are available on Topcoder.com</td>
+					<td class="forumTextsrc="Odd">Not sure what to send? A <a href='<%="http://"+ApplicationServer.TC_SERVER+"/tc?module=Static&d1=dev&d2=support&d3=compDocumentation"%>'>sample submission and Documentation</a> are available on Topcoder.com</td>
 				</tr>
                 </form>
 			</table>
