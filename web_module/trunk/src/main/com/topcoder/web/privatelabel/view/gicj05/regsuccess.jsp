@@ -56,7 +56,7 @@ do not activate your account.
 
 Spend time in the Practice Rooms prior to the Qualification Round by clicking the Competition Arena tab above.<br/><br/>
 
-If you encounter any problems, please contact us at <A href="mailto:gicj05@topcoder.com?subject=Question regarding Google India Code Jam">gicj05@topcoder.com?subject=Question regarding Google India Code Jam</A>.<br/><br/>
+If you encounter any problems, please contact us at <A href="mailto:gicj05@topcoder.com?subject=Question regarding Google India Code Jam">gicj05@topcoder.com</A>.<br/><br/>
 
 Good luck to you in the Arena!
 
