@@ -1,0 +1,4 @@
+#!/bin/ksh
+
+java com.topcoder.utilities.dwload.TCLoadUtility -xmlfile loadround.xml
+
