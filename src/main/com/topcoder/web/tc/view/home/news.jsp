@@ -389,5 +389,17 @@
          <A href="/tc?module=Static&d1=tutorials&d2=index">archive</A>
    </td></tr>
 
+<%--------------------------------------------------------%>
+   <tr>
+      <td class="newsIconCell" rowspan="2"><img src="/i/home/icons/movie.gif" alt="TopCoder Movies" border="0" /><br>01.04.05<br>5:00 PM</td>
+      <td class="newsTextCell"><span class="newsTitle"><A href="/i/tournament/tco04/onsite_movies/rhughes.mov">President/COO Rob Hughes</A></span><br><br>
+      Rob Hughes discusses "Performance & Credibility".
+      </td>
+   </tr>
+   <tr><td class="newsLinksCell">
+         <A href="/i/tournament/tco04/onsite_movies/rhughes.mov">watch movie</A>&#160;|&#160;
+         <A href="/tc?module=Static&d1=home&d2=news_archive_movies">archive</A>
+   </td></tr>
+
 </table>
 <br><br>
