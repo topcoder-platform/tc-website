@@ -9,8 +9,8 @@
                 <tr valign="top">
                     <td width="85" class="bodyText"  valign="top">
 
-                        <img src="/i/m/legakis_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
-                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=287269"><strong>legakis</strong></a><br/>
+                        <img src="/i/m/vorthys_mug.gif" alt="" width="55" height="61" border="0" vspace="5" class="myStatsPhoto"/><br />
+                        By<br/><a class="bodyText" href="/stat?c=member_profile&amp;cr=299177"><strong>vorthys</strong></a><br/>
                         <span class="smallText"><em>TopCoder Member</em></span><br/>
                         <img src="/i/clear.gif" alt="" width="85" height="1" border="0" />
 
@@ -19,17 +19,17 @@
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
 
                     <td width="99%" class="bodyText" valign="top">
-                        <p><strong><font size="4"><a href="/index?t=statistics&c=srm212_prob">SRM 212 - Problem Set &amp; Analysis</a></font></strong><br />
-                        Saturday, September 25, 2004</p>
+                        <p><strong><font size="4"><a href="/index?t=statistics&c=tco04_online_rd_4">TCO Round 4 - Problem Set &amp; Analysis</a></font></strong><br />
+                        Wednesday, September 29, 2004</p>
 
                         <p>
 
-SRM 212 was a bit easier than average, giving coders still
-in the TopCoder Open a nice break before Round 4, and giving
-coders eliminated from the TCO a chance to build their confidence
-back up.
+<b>reid</b> rode the fastest Easy and the fastest Medium to victory on a night
+where no one solved all three problems.
+Kudos to <b>gepa</b> for the lone successful solution to the Hard, but
+resubmissions on both his Easy and Hard dropped him to fifth. At the conclusion of coding, only 22 coders had submitted more than one problem.
 
-                        <a href="/index?t=statistics&c=srm212_prob" class="bodyText"><strong>full&#160;story</strong></a>
+                        <a href="/index?t=statistics&c=tco04_online_rd_4" class="bodyText"><strong>full&#160;story</strong></a>
                         </p>
 
                     </td>
