@@ -52,10 +52,10 @@
         <td class="testTop">&#160;</td>
         <td nowrap class="testTop"><screen:servletLink processor="Search" styleclass="topLink">Search</screen:servletLink></td>
         <td class="testTop" width="49%">&#160;</td>
-        <% } %>
+        <% } else { %>
         <td nowrap class="testTop"><screen:servletLink processor="BuildCandidateList" styleclass="topLink">Candidate Status</screen:servletLink></td>
         <td class="testTop" width="49%">&#160;</td>
-
+        <% } %>
    </tr>
 </table>
 

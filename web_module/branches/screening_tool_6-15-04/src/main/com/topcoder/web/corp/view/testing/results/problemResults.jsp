@@ -140,7 +140,7 @@ function getTCProblemResults(coderId, roundId, problemId) {
          </table>
 
          <p></p>
-
+         <% if( request.getAttribute(Constants.USAGE_TYPE) == null || ((Long)request.getAttribute(Constants.USAGE_TYPE)).longValue() == Constants.USAGE_TYPE_TESTING) { %>
          <table cellspacing="1" cellpadding="3" width="100%" class="testFrame">
            <TR>
               <TD COLSPAN="4" CLASS="testTableTitle">Top TopCoder Solutions</TD>
@@ -171,6 +171,7 @@ function getTCProblemResults(coderId, roundId, problemId) {
 	        </TR>	        
            <% } %>
          </TABLE>                 
+         <% } %>
 </FORM>         
             <p><br></p>
         </td>

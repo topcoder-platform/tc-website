@@ -6,6 +6,8 @@
 
 package com.topcoder.web.corp.model;
 
+import com.topcoder.shared.dataAccess.resultSet.*;
+
 /**
  *
  * @author  rfairfax
@@ -16,11 +18,15 @@ public class SearchModel extends BaseModel {
     private String lastName;
     private String emailAddress;
     
+    private ResultSetContainer rsc;
+    private long total;
+    
     /** Creates a new instance of SearchModel */
     public SearchModel() {
         firstName = "";
         lastName = "";
         emailAddress = "";
+        total = 0;
     }
     
     public void setFirstName(String s) {
@@ -33,6 +39,22 @@ public class SearchModel extends BaseModel {
     
     public void setEmailAddress(String s) {
         emailAddress = s;
+    }
+    
+    public void setTotal(long i) {
+        total = i;
+    }
+    
+    public void setResults(ResultSetContainer rs) {
+        rsc = rs;
+    }
+    
+    public long getTotal() {
+        return total;
+    }
+    
+    public ResultSetContainer getResults() {
+        return rsc;
     }
     
     public String getFirstName() {

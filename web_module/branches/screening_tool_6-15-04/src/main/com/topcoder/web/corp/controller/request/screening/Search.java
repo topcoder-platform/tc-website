@@ -15,7 +15,7 @@ import com.topcoder.web.corp.model.SearchModel;
  *
  * @author  rfairfax
  */
-public class Search extends BaseSessionProcessor {
+public class Search extends BaseScreeningProcessor {
     
     protected void screeningProcessing() throws com.topcoder.web.common.TCWebException {
         
