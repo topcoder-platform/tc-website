@@ -74,14 +74,27 @@ if (!rsc.isEmpty()) {
       <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="10" BGCOLOR="#001B35" WIDTH="100%">
            <TR>
              <TD VALIGN="top" BGCOLOR="#001B35" WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="240" HEIGHT="1" BORDER="0"><BR/>
+
+         <% if (rsc.isEmpty()) { %>
                <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
                  <TR>
                    <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
                  </TR>
-         <% if (!rsc.isEmpty()) { %>
+                <TR>
+                  <TD COLSPAN="5" CLASS="statText">This member has not yet been rated in a competition.</TD>
+                </TR>
+                <TR>
+                  <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"></TD>
+                </TR>
+              </TABLE>
+         <% } else {%>
+               <TABLE BORDER="0" CELLSPACING="0" CELLPADDING="0" BGCOLOR="#001B35" WIDTH="100%">
+                 <TR>
+                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
+                 </TR>
                  <TR>
                    <TD COLSPAN="5" CLASS="statTextLarge">
-          <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>           
+          <bean:define id="coderrank" name="resultRow" property='<%= "item[" + 4 /*"coder_score"*/ + "]" %>'/>
                      <B>Coder:</B>&#160;<SPAN CLASS="<bean:write name="nameColor" property='<%= "style[" + coderrank.toString() + "]" %>'/>"><B><bean:write name="resultRow" property='<%= "item[" + 0 /* handle */ + "]" %>'/></B></SPAN>
                    </TD>
                  </TR>
@@ -176,11 +189,6 @@ if (!rsc.isEmpty()) {
                 <TR>
                   <TD COLSPAN="4" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="15" BORDER="0"/></TD>
                 </TR>
-        <% } else { %>
-        <TR>
-                  <TD COLSPAN="5" CLASS="statText">This member has not yet been rated in a competition.</TD>
-                </TR>
-        <% } %>
                 <TR>
                   <TD COLSPAN="5" CLASS="statText"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="14" BORDER="0"></TD>
                 </TR>
@@ -329,13 +337,14 @@ pageContext.setAttribute("resultSet", rsc3);
                   <TD BACKGROUND="/i/steel_blue_bg.gif" VALIGN="top" WIDTH="10"><IMG SRC="/i/clear.gif" ALT="" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
                 </TR>
               </TABLE>
+   <% } %>
+<% } %>
             </TD>
           </TR>
           <TR>
             <TD WIDTH="100%"><IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="10" BORDER="0"></TD>
           </TR>
         </TABLE>
-<% } %>
         </logic:present>
          
          <p><br></p>
