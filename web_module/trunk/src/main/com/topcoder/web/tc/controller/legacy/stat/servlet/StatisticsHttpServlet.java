@@ -148,7 +148,7 @@ public class StatisticsHttpServlet extends HttpServlet {
                         response.getOutputStream().write("reloaded".getBytes());
                         return;
                     } else {
-                        response.getOutputStream().write("failed".getBytes());
+                        response.getOutputStream().write("shame on you, you're no admin".getBytes());
                         return;
                     }
                 }
