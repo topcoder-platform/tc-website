@@ -143,6 +143,17 @@
                                 </xsl:choose>
                                 </li>
 
+                                <div align="center">
+                                    Address to send affidavits &amp; tax forms to:<br/>
+                                    TopCoder, Inc. <br/>
+                                    Attn: MaryBeth Luce<br/>
+                                    703 Hebron Avenue<br/>
+                                    Glastonbury, CT 06033
+                                </div>
+
+                                <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, September 29.  Any
+                                items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
+
                             </ol>
                             <p><strong>B. To be completed only by those who will be traveling to the onsite semifinal rounds on November 11 &amp; 12 in Santa Clara, CA, USA.</strong></p>
                             <ol>
@@ -153,16 +164,6 @@
                                 </li>
 
                             </ol>
-                        <div align="center">
-                            Address to send affidavits &amp; tax forms to:<br/>
-                            TopCoder, Inc. <br/>
-                            Attn: MaryBeth Luce<br/>
-                            703 Hebron Avenue<br/>
-                            Glastonbury, CT 06033
-                        </div>
-
-                        <p><strong>Reminder, you will not receive any prize money unless all necessary items above are completed by 9:00 PM ET on Wednesday, September.  Any
-                        items that need to be mailed via the postal service must be postmarked by this date.</strong></p>
 
                         <p>If you have questions, please contact <a href="mailto:mluce@topcoder.com" >MaryBeth Luce</a>.</p>
                         <p><br/></p>
