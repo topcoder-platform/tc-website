@@ -60,15 +60,15 @@
 
                         <p>Incorporated in 2001, TopCoder, Inc. is fast becoming the standard by which talent and software are measured.  Our small staff is young, 
                         enthusiastic and welcomes the challenges of charting new territory within the industry.  The Company has been built with integrity as our 
-                        cornerstone, and we value honesty at every level – from our employees and our clients alike.</p>
+                        cornerstone, and we value honesty at every level &#151; from our employees and our clients alike.</p>
 
                         <p>Through our high-quality software, cutting-edge recruiting offerings, and world-renowned programming tournaments, we are committed 
                         to excellence.  We expect the same commitment and drive from our current and future employees.</p>
                         
                       <h3>Currently available positions:</h3>
                         <ul>
-                            <li><a href="?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure">Project Manager</a></li>
-                            <li><a href="?&amp;t=tces&amp;c=tcs_project_mgr&amp;a=secure">Salesperson</a></li>
+                            <li><a href="?&#38;t=tces&#38;c=tcs_project_mgr&#38;a=secure">Project Manager</a></li>
+                            <li><a href="?&#38;t=tces&#38;c=tcs_project_mgr&#38;a=secure">Salesperson</a></li>
                         </ul>
 
                     </td>
