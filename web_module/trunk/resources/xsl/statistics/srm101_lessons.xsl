@@ -89,9 +89,10 @@
 <!--end contextual links-->
 <IMG SRC="/i/clear.gif" ALT="" WIDTH="1" HEIGHT="48" BORDER="0"/><BR/>
 <!--<A HREF="stat?c=round_stats&amp;rd=4165&amp;dn=2" CLASS="bodyGeneric">-->
-<P><B>Lessons Learned the Hard Way</B><BR/>
-June 28, 2002
-</P>
+<P><B>Single Round Match 101</B><BR/>
+June 26, 2002</P>
+
+<P><B>Lessons Learned the Hard Way</B></P>
 
 <P>
 Srm 101 was the last paying Single Round Match, and as such, marked
