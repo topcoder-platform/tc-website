@@ -27,31 +27,27 @@ public abstract class SurveyData extends Base {
     protected abstract void surveyProcessing() throws Exception;
 
     protected final void businessProcessing() throws TCWebException {
-        if (getUser().isAnonymous()) {
-            throw new PermissionException(getUser(), new ClassResource(this.getClass()));
-        } else {
-            long surveyId;
-            try {
-                surveyId = Long.parseLong(getRequest().getParameter(Constants.SURVEY_ID));
-            } catch (NullPointerException e) {
-                throw new NavigationException("Invalid Request, missing required information.");
-            }
+        long surveyId;
+        try {
+            surveyId = Long.parseLong(getRequest().getParameter(Constants.SURVEY_ID));
+        } catch (NullPointerException e) {
+            throw new NavigationException("Invalid Request, missing required information.");
+        }
 
-            try {
-                survey = createSurvey(surveyId);
-                if (survey==null) {
-                    throw new NavigationException("Invalid Request, survey does not exist.");
-                } else {
-                    getRequest().setAttribute("surveyInfo", survey);
-                    questionInfo = getQuestionInfo(surveyId);
-                    getRequest().setAttribute("questionInfo", questionInfo);
-                }
-                surveyProcessing();
-            } catch (TCWebException e) {
-                throw e;
-            } catch (Exception e) {
-                throw new TCWebException(e);
+        try {
+            survey = createSurvey(surveyId);
+            if (survey == null) {
+                throw new NavigationException("Invalid Request, survey does not exist.");
+            } else {
+                getRequest().setAttribute("surveyInfo", survey);
+                questionInfo = getQuestionInfo(surveyId);
+                getRequest().setAttribute("questionInfo", questionInfo);
             }
+            surveyProcessing();
+        } catch (TCWebException e) {
+            throw e;
+        } catch (Exception e) {
+            throw new TCWebException(e);
         }
     }
 
@@ -81,7 +77,7 @@ public abstract class SurveyData extends Base {
         Map map = dataAccess.getData(r);
         ResultSetContainer rsc = (ResultSetContainer) map.get("survey_info");
         Survey ret = null;
-        if (rsc!=null && !rsc.isEmpty()) {
+        if (rsc != null && !rsc.isEmpty()) {
             ret = new Survey();
             ret.setId(rsc.getRow(0).getLongItem("survey_id"));
             ret.setName(rsc.getRow(0).getStringItem("name"));
@@ -97,7 +93,7 @@ public abstract class SurveyData extends Base {
         q.setStyleId(row.getIntItem("question_style_id"));
         q.setTypeId(row.getIntItem("question_type_id"));
         q.setText(row.getStringItem("question_text"));
-        q.setRequired(row.getIntItem("is_required")==1);
+        q.setRequired(row.getIntItem("is_required") == 1);
         q.setAnswerInfo(makeAnswerInfo(q.getId()));
         return q;
     }
