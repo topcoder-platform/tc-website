@@ -216,6 +216,13 @@ public class JobHitTask extends BaseTask implements TaskInt, Serializable {
             throw e;
         }
     }
+    public boolean hasResume() {
+        return hasResume;
+    }
+ 
+    public void setHasResume(boolean hasResume) { 
+        this.hasResume = hasResume;
+    }
 
     public ArrayList getJobHits() {
         return jobHits;

@@ -156,9 +156,13 @@ Founder and Chairman, TopCoder, Inc.
      <tr>
        <td class="statTextBig" align="right" valign="middle" background="/i/steel_gray_bg.gif"><b>Resume</b>&nbsp;</td><td><img src="/i/clear.gif" width="1" height="1" border="0"></td>
        <td colspan="2" class="statTextBig" align="left" valign="middle">
-         <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">Resume Upload</a>
-         <br/>
-         <a href="/Resume?&t=DownloadTask" class="statText">Resume Download</a>
+         <% if (Registration.hasResume()) { %>
+           <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">Click here to upload a new resume.</a>
+           <br/>
+           <a href="/Resume?&t=DownloadTask" class="statText">Click here to download your resume.</a>
+         <% } else { %>
+           <a href="JavaScript:void window.open('/Resume?&t=ViewUploadTask','Resume_Upload','top=2,left=2,width=300,height=300,status=0');" class="statText">Click here to upload a resume.</a>
+         <% } %>
        </td>
      </tr>
     <tr>

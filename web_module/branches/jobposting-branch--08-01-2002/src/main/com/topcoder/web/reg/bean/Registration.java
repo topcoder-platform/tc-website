@@ -10,6 +10,8 @@ import com.topcoder.shared.util.*;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.web.reg.servlet.jsp.tag.Demographic;
 import com.topcoder.web.reg.servlet.jsp.tag.Notification;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServicesHome;
+import com.topcoder.web.resume.ejb.ResumeServices.ResumeServices;
 
 import javax.naming.Context;
 import javax.transaction.Status;
@@ -173,6 +175,7 @@ public class Registration
     protected String school;
     protected String schoolName;
     protected String code;
+    protected boolean hasResume;
 
     public Registration() {
         super();
@@ -233,6 +236,7 @@ public class Registration
             school = "";
             schoolName = "";
             code = "";
+            hasResume = false;
             resetUser();
         } else {
             loadUser();
@@ -349,7 +353,18 @@ public class Registration
 
 
         code = "";
+
+        ResumeServicesHome rHome = null;
+        ResumeServices rServices = null;
+        try {
+            rHome = (ResumeServicesHome) TCContext.getInitial().lookup(ApplicationServer.RESUME_SERVICES);
+            rServices = rHome.create();
+            hasResume = rServices.hasResume(user.getUserId());
+        } catch (Exception e) {
+            log.error("could not determine if user has a resume or not");
+        }
     }
+
 
 
     public void process()
@@ -511,9 +526,7 @@ public class Registration
             else
                 addError(CODE, "Activation complete.  Please continue to the home page to log in.");
         }
-
     }
-
 
     public void setProcess(String ignore) {
         try {
@@ -651,6 +664,8 @@ public class Registration
         }
         return true;
     }
+
+
 
     public void setFirstName(String value) {
         this.firstName = checkNull(value);
@@ -840,6 +855,11 @@ public class Registration
     public void setCode(String value) {
         this.code = checkNull(value);
     }
+
+    public void setHasResume(boolean hasResume) {
+        this.hasResume = hasResume;
+    }
+
 
     String checkNull(String s) {
         return (s == null ? "" : s);
@@ -1203,6 +1223,7 @@ public class Registration
         return this.code;
     }
 
+
     public String getCodeError() {
         return getError(CODE);
     }
@@ -1258,7 +1279,6 @@ public class Registration
             }
         }
         if (users != null) {
-            String tempHandle = null;
             Map.Entry me = null;
             for (Iterator i = users.entrySet().iterator(); i.hasNext();) {
                 me = (Map.Entry) i.next();
@@ -1383,6 +1403,9 @@ public class Registration
         return result;
     }
 
+    public boolean hasResume() {
+        return hasResume;
+    }
 
     public boolean isEdit() {
         return this.user != null && this.user.getUserId() > 0;
