@@ -1,15 +1,18 @@
 package com.topcoder.web.common;
 
-import com.topcoder.shared.util.TCContext;
 import com.topcoder.shared.util.DBMS;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.shared.util.logging.Logger;
 import com.topcoder.shared.security.User;
 import com.topcoder.shared.security.SimpleUser;
-import com.topcoder.web.ejb.requestservices.RequestServices;
 
 import javax.naming.InitialContext;
+import javax.ejb.EJBException;
 import java.util.*;
 import java.sql.Timestamp;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 /**
  * User: dok
@@ -85,29 +88,87 @@ public class RequestTracker {
                 while (!q.isEmpty())
                     a.add(q.pop());
             }
-            InitialContext ctx = null;
             try {
-                ctx = TCContext.getInitial();
-                RequestServices rs = (RequestServices) BaseProcessor.createEJB(ctx, RequestServices.class);
                 //log.debug("begin request batch load");
                 for (Iterator it = a.iterator(); it.hasNext();) {
                     UserRequest r = (UserRequest) it.next();
                     if (r.userId == GUEST.getId()) {
-                        rs.createRequest(r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        createRequest(r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     } else {
-                        rs.createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
+                        createRequest(r.userId, r.url, new Timestamp(r.time), r.sessionId.substring(0, SESSION_ID_LENGTH), DBMS.COMMON_OLTP_DATASOURCE_NAME);
                     }
                 }
                 //log.debug("end request batch load");
 
             } catch (Exception e) {
                 log.error("Problem inserting request" + e);
-            } finally {
-                BaseProcessor.close(ctx);
             }
 
         }
     }
+
+
+
+
+    protected static void createRequest(long userId, String url, Timestamp time, String sessionId, String dataSource) {
+        log.debug("createRequest called. url: " + url
+                + " userId: " + userId + " time: " + time + " session: " + sessionId);
+
+        StringBuffer query = new StringBuffer(200);
+        query.append("insert into request (user_id, url, timestamp, session_id) ");
+        query.append(" values (?, ?, ?, ?)");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setLong(1, userId);
+            ps.setString(2, url);
+            ps.setTimestamp(3, time);
+            ps.setString(4, sessionId);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            ApplicationServer.close(ps);
+            ApplicationServer.close(conn);
+            ApplicationServer.close(ctx);
+        }
+    }
+
+    protected static void createRequest(String url, Timestamp time, String sessionId, String dataSource) {
+        log.debug("createRequest called. url: " + url + " time: " + time + " session: " + sessionId);
+        StringBuffer query = new StringBuffer(200);
+        query.append("insert into request (url, timestamp, session_id) ");
+        query.append(" values (?, ?, ?)");
+
+        Connection conn = null;
+        PreparedStatement ps = null;
+        InitialContext ctx = null;
+        try {
+            conn = DBMS.getConnection(dataSource);
+            ps = conn.prepareStatement(query.toString());
+            ps.setString(1, url);
+            ps.setTimestamp(2, time);
+            ps.setString(3, sessionId);
+
+            ps.executeUpdate();
+        } catch (SQLException e) {
+            DBMS.printSqlException(true, e);
+            throw(new EJBException(e.getMessage()));
+        } finally {
+            ApplicationServer.close(ps);
+            ApplicationServer.close(conn);
+            ApplicationServer.close(ctx);
+        }
+    }
+
+
+
 
 
 
