@@ -6,6 +6,8 @@ import java.util.Map;
 import javax.naming.InitialContext;
 import javax.rmi.PortableRemoteObject;
 import javax.servlet.ServletRequest;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
@@ -28,6 +30,7 @@ import com.topcoder.web.screening.ejb.coder.CoderHome;
 import com.topcoder.web.screening.ejb.coder.CompanyCandidate;
 import com.topcoder.web.screening.ejb.coder.CompanyCandidateHome;
 import com.topcoder.web.screening.model.CandidateInfo;
+import com.topcoder.web.screening.model.SessionInfo;
 import com.topcoder.web.common.security.PrincipalMgr;
 import com.topcoder.web.common.security.PrincipalMgrException;
 
@@ -145,6 +148,8 @@ public class UpdateCandidate extends BaseProcessor
         long emailId = email.createEmail(userId);
         email.setAddress(emailId, userId, info.getEmailAddress());
         email.setPrimary(emailId, userId, true);
+
+        updateSessionCandidate(userId);
         
         determineNextPage();
     }
@@ -263,6 +268,23 @@ public class UpdateCandidate extends BaseProcessor
         if(!valid){
             throw new Exception(errorString.toString());
         }
+    }
+
+    /** 
+     * Updates the sessionInfo object if there is one with the newly created
+     * candidate
+     *
+     * @param candidateId  THe id of the created candidate
+     */
+    private void updateSessionCandidate(long candidateId) {
+        HttpServletRequest request = (HttpServletRequest)getRequest();
+        HttpSession session = request.getSession();
+        SessionInfo info = (SessionInfo)
+            session.getAttribute(Constants.SESSION_INFO);
+        if(info != null) {
+            info.setCandidateId(String.valueOf(candidateId));
+        }
+
     }
 
     /** 
