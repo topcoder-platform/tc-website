@@ -35,7 +35,7 @@
                             <% if (selected.equals("testingApp")) { %>
                                 <td class=helpTitleOn>Loading the Technical<br />Assessment Applicaton</td>
                             <% } else { %>
-                                <td><a href="testingApp.jsp">Loading the Technical<br />Assessment  Applicaton</a></td>
+                                <td><a href="<jsp:getProperty name="sessionInfo" property="servletPath"/>?<%=Constants.MODULE%>=Static&d1=help&d2=testingApp">Loading the Technical<br />Assessment  Applicaton</a></td>
                             <% } %>
                             </tr>
 <!-- Load Testing Application ends -->
