@@ -200,12 +200,12 @@
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>defaultValue</name>
+            <name>topValue</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
         <attribute>
-            <name>selectedText</name>
+            <name>topText</name>
             <required>false</required>
             <rtexprvalue>true</rtexprvalue>
         </attribute>
