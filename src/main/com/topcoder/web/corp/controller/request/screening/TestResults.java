@@ -102,7 +102,7 @@ public class TestResults extends BaseScreeningProcessor {
                 //get percentile info
                 Request dr2 = new Request();
                 dr2.setContentHandle("candidate_percentile");
-                dr2.setProperty("cid", String.valueOf(cinfo.getUserId()));
+                dr2.setProperty("sid", String.valueOf(tinfo.getSessionId()));
                 dr2.setProperty("pid", String.valueOf(rscB.getLongItem(i, "problem_id")));
                 dr2.setProperty("tm", String.valueOf(rscB.getLongItem(i, "total_time")));
                 Map m2 = dAccess.getData(dr2);
