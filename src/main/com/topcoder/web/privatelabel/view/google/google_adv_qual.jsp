@@ -56,36 +56,36 @@ body,td,font,p,a
 </head>
 
     <body class=corporate bgcolor="#ffffff" text="#000000" link="#0000CC" vlink="#800080" alink="#ff0000" topmargin=2>
-	
+
 	<div align="center">
 <%-- Google Header--%>
 <img width="276" height="110" src="http://www.google.com/codejam/codejam_logo.gif" alt="Google Code Jam logo">
 
 <table border=0 cellspacing=5 width="740">
-   <tr> 
+   <tr>
       <td style="background-color: #006633">
          <table class=sidebar bgcolor="#ffffff" cellpadding=15 cellspacing=0 border=0 width="100%">
             <tr>
                <td valign="top">
-                  <div class=content> 
+                  <div class=content>
                   <div align="center">
-                  
+
                   <!-- Tab bar links-->
                   <jsp:include page="googlelinks.jsp" >
                      <jsp:param name="selectedTab" value="advancers"/>
                   </jsp:include>
-                  
+
                   </div><br><br>
-                  
-                  <table border=0 cellspacing=0 width="100%"> 
+
+                  <table border=0 cellspacing=0 width="100%">
                      <tr>
                         <td valign="top">
                         <b><font size="+1">Advancers</font></b>
                         <img hspace="10" vspace="5" src="/i/events/google2003/codejam_info.gif" width="150" height="390" border="0" align="right" valign="top">
-                        
+
                         <p><font size="-1">
-                        
-                  
+
+
                       <table class=googleFrame bgcolor="#ffffff" cellpadding=5 cellspacing=2 border=0 width="400">
                         <tr>
                            <td class="advancersTitle" align="left" colspan="3">Qualification Round</td>
@@ -95,7 +95,7 @@ body,td,font,p,a
                            <td class="google_round_id" width="40%">Problem Set</td>
                            <td class="google_round_id" width="30%" align="right">Score</td>
                         </tr>
-                        
+
 <tr><td class="sidebarText" align="left" >SnapDragon</td><td class="sidebarText" align="left" >Qualification Set 1</td><td class="sidebarText" align="right">1187.65</td></tr>
 <tr><td class="sidebarText" align="left" >Jary</td><td class="sidebarText" align="left" >Qualification Set 1</td><td class="sidebarText" align="right">1178.61</td></tr>
 <tr><td class="sidebarText" align="left" >tomek</td><td class="sidebarText" align="left" >Qualification Set 1</td><td class="sidebarText" align="right">1116.02</td></tr>
@@ -265,7 +265,6 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >InsaneParadox</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">219.77</td></tr>
 <tr><td class="sidebarText" align="left" >BjarkeEbert</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">218.88</td></tr>
 <tr><td class="sidebarText" align="left" >sburoff</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">213.92</td></tr>
-<tr><td class="sidebarText" align="left" >bigfella</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">210.45</td></tr>
 <tr><td class="sidebarText" align="left" >betelgeuse</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">202.13</td></tr>
 <tr><td class="sidebarText" align="left" >merolish</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">201.87</td></tr>
 <tr><td class="sidebarText" align="left" >weberchen</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">201.10</td></tr>
@@ -291,6 +290,8 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >Mike_MS</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">165.34</td></tr>
 <tr><td class="sidebarText" align="left" >oog</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">163.70</td></tr>
 <tr><td class="sidebarText" align="left" >Cho</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">162.97</td></tr>
+<tr><td class="sidebarText" align="left" >HotHB</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">162.32</td></tr>
+<tr><td class="sidebarText" align="left" >timmonk</td><td class="sidebarText" align="left" >Qualification Set 4</td><td class="sidebarText" align="right">162.28</td></tr>
 <tr><td class="sidebarText" align="left" >DrewHudson</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">1018.38</td></tr>
 <tr><td class="sidebarText" align="left" >Parchandri</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">918.43</td></tr>
 <tr><td class="sidebarText" align="left" >reid</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">916.88</td></tr>
@@ -323,7 +324,6 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >TheFaxman</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">207.85</td></tr>
 <tr><td class="sidebarText" align="left" >derek</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">193.35</td></tr>
 <tr><td class="sidebarText" align="left" >haha</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">190.54</td></tr>
-<tr><td class="sidebarText" align="left" >NickolausP</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">189.43</td></tr>
 <tr><td class="sidebarText" align="left" >snok</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">182.17</td></tr>
 <tr><td class="sidebarText" align="left" >jdmetz</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">181.99</td></tr>
 <tr><td class="sidebarText" align="left" >markjam</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">178.48</td></tr>
@@ -340,6 +340,7 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >unclejed</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">150.30</td></tr>
 <tr><td class="sidebarText" align="left" >byteCoder</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">149.73</td></tr>
 <tr><td class="sidebarText" align="left" >AndrewSmith</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">149.46</td></tr>
+<tr><td class="sidebarText" align="left" >Fleur</td><td class="sidebarText" align="left" >Qualification Set 5</td><td class="sidebarText" align="right">148.47</td></tr>
 <tr><td class="sidebarText" align="left" >AlexandraRU</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">1107.69</td></tr>
 <tr><td class="sidebarText" align="left" >bladerunner</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">1064.27</td></tr>
 <tr><td class="sidebarText" align="left" >jcd1</td><td class="sidebarText" align="left" >Qualification Set 6</td><td class="sidebarText" align="right">1037.90</td></tr>
@@ -526,7 +527,6 @@ body,td,font,p,a
 <tr><td class="sidebarText" align="left" >arosca</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">219.54</td></tr>
 <tr><td class="sidebarText" align="left" >[UoM]Icenine</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">214.66</td></tr>
 <tr><td class="sidebarText" align="left" >mossop</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">210.39</td></tr>
-<tr><td class="sidebarText" align="left" >gaborka2</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">208.59</td></tr>
 <tr><td class="sidebarText" align="left" >bokbok</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">208.26</td></tr>
 <tr><td class="sidebarText" align="left" >FrodoB</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">205.97</td></tr>
 <tr><td class="sidebarText" align="left" >adams</td><td class="sidebarText" align="left" >Qualification Set 9</td><td class="sidebarText" align="right">204.19</td></tr>
@@ -620,12 +620,12 @@ body,td,font,p,a
    </tr>
 </table>
 </div>
-<p><div class=footer> 
-<small> &copy;2003 Google - 
-<a href="http://www.google.com/">Home</a> - 
-<a href="http://www.google.com/about.html">All About Google</a> - 
+<p><div class=footer>
+<small> &copy;2003 Google -
+<a href="http://www.google.com/">Home</a> -
+<a href="http://www.google.com/about.html">All About Google</a> -
 <a href="/?t=about_tc&c=index">About TopCoder</a> -
-<a href="http://www.google.com/jobs/">We're Hiring</a> 
+<a href="http://www.google.com/jobs/">We're Hiring</a>
 </small>
 </p>
 </div>
