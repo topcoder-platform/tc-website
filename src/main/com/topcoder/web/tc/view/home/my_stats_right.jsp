@@ -3,11 +3,11 @@
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <% ResultSetContainer coderInfo= (ResultSetContainer)request.getAttribute("member_info");%>
 
-<% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="0">
     <tr><td width="180" height="11"><img src="/i/my_stats_top.gif" alt="" width="180" height="11" border="0"></td></tr>
 </table>
 
+<% if (coderInfo!=null && !coderInfo.isEmpty()) { %>
 <table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
     <tr>
         <td class="statTextBig" bgcolor="#333333">&#160;Coder: <a href="/stat?c=member_profile&cr=<rsc:item set="<%=coderInfo%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=coderInfo.getIntItem(0, "rating")%>'/>"><rsc:item set="<%=coderInfo%>" name="handle"/></a></td>
@@ -53,7 +53,19 @@
     </tr>
 </table>
 
+<% } else { %>
+<table width="180" border="0" cellspacing="0" cellpadding="3" bgcolor="#555555">
+    <tr>
+        <td class="statTextBig" bgcolor="#333333">&#160;Coder: <a href="/stat?c=member_profile&cr=<rsc:item set="<%=coderInfo%>" name="coder_id"/>" class="<tc:ratingStyle rating='<%=coderInfo.getIntItem(0, "rating")%>'/>"><rsc:item set="<%=coderInfo%>" name="handle"/></a></td>
+    </tr>
+
+    <tr>
+        <td class="statText">You are not rated for any TopCoder Competition. To learn more about Algorithm Competitions, go to the <a href="/?&t=support&c=comp_preview">Competition Preview.</a> 
+        To learn more about Design and Development Competitions, go to <a href="/?&t=development&c=comp_meth">Component Methodology.</a></td>
+    </tr>
+</table>
+
+<% } %>
 <table width="180" border="0" cellspacing="0" cellpadding="0">
     <tr><td width="180" height="11"><img src="/i/my_stats_bottom.gif" alt="" width="180" height="11" border="0"></td></tr>
 </table>
-<% } %>
