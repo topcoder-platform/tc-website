@@ -26,13 +26,13 @@
 <!-- Declaration ends -->
 
             <img src="/i/clear.gif" width="1" height="6" alt="" border="0" /><br />
-                
+
 <!-- Component Design Projects begins -->
             <img src="/i/development/head_comp_des_projects.gif" alt="Component Design Projects" width="244" height="20" border="0" /><br />
-                
+
 <!--            <A class="statText" href="/index?t=development&amp;c=des_bonus_contest_2"><img src="/i/development/tcs_des_bonus2_devpromo.gif" alt="Component Design Bonus Contest" width="244" height="97" border="0" /></A><br />
--->                
-            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#093158"> 
+-->
+            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#093158">
                 <tr valign="middle">
                     <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                     <td background="/i/development/bluebv_lite_bg.gif" width="164" class="statText">Featured Projects</td>
@@ -73,20 +73,20 @@
                     <xsl:if test="number(./version) &gt;  number('1')">
                         v <xsl:value-of select="./version"/>
                     </xsl:if>
-                    
+
                         </a>
                     </td>
                     <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                 </tr>
-                    
+
                     </xsl:if>
                 </xsl:for-each>
 
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
             </table>
 
-            <table width="244" border="0" cellspacing="0" cellpadding="0"> 
+            <table width="244" border="0" cellspacing="0" cellpadding="0">
                 <tr valign="middle">
                     <td width="5" class="statText"><img src="/i/development/list_lower_corner.gif" alt="" width="19" height="19" border="0" /></td>
                     <td class="statText" align="right" bgcolor="#093158"><a class="statText" href="/index?t=development&amp;c=comp_projects"><strong>View all Projects</strong></a></td>
@@ -99,8 +99,8 @@
 
 <!-- Component Development Projects begins -->
             <img src="/i/development/head_comp_dev_projects.gif" alt="Component Development Projects" width="244" height="20" border="0" /><br />
-                
-            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#093158"> 
+
+            <table width="244" border="0" cellspacing="0" cellpadding="0" bgcolor="#093158">
                 <tr valign="middle">
                     <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                     <td background="/i/development/bluebv_lite_bg.gif" width="164" class="statText">Featured Projects</td>
@@ -148,7 +148,7 @@
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
             </table>
 
-            <table width="244" border="0" cellspacing="0" cellpadding="0"> 
+            <table width="244" border="0" cellspacing="0" cellpadding="0">
                 <tr valign="middle">
                     <td width="5" class="statText"><img src="/i/development/list_lower_corner.gif" alt="" width="19" height="19" border="0" /></td>
                     <td class="statText" align="right" bgcolor="#093158"><a class="statText" href="/index?t=development&amp;c=comp_projects"><strong>View all Projects</strong></a></td>
@@ -161,15 +161,15 @@
 
 <!-- Application Projects begins -->
             <img src="/i/development/head_appl_projects.gif" alt="Application Projects" width="244" height="20" border="0" /><br />
-                
-            <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#093158">                
+
+            <table width="244" cellspacing="0" cellpadding="0" border="0" bgcolor="#093158">
                 <tr valign="middle">
                     <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                     <td background="/i/development/bluebv_lite_bg.gif" width="164" class="statText">Featured Projects</td>
                     <td background="/i/development/bluebv_lite_bg.gif" width="70" class="statText" align="center">Inquire by</td>
                     <td background="/i/development/bluebv_lite_bg.gif" width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="18" border="0" /></td>
                 </tr>
-                            
+
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
@@ -182,7 +182,17 @@
 	  	        <IMG height="3" alt="" src="/i/clear.gif" width="1" border="0"/>
 	            </TD>
 		</TR>
-
+                <tr valign="top">
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                    <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=admin_tool_enhancements">Admin Tool Enhancements</a></td>
+                    <td class="statText" align="center">05.27.2003</td>
+                    <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
+                </tr>
+                <TR>
+                    <TD background="" colSpan="4">
+                        <IMG height="3" alt="" src="/i/clear.gif" width="1" border="0"/>
+                    </TD>
+                </TR>
                 <!--tr valign="top">
                     <td width="5"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
                     <td class="statText"><a class="statText" href="?&amp;t=development&amp;c=online_review_dev-fe">Online Review Front End</a></td>
@@ -219,7 +229,7 @@
 	            </TD>
 		</TR-->
 
-                
+
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="3" alt="" border="0" /></td></tr>
 
                 <tr valign="top">
@@ -227,12 +237,12 @@
                     <td class="statText"></td>
                     <td class="statText" align="center"></td>
                     <td width="5" class="statText"><img src="/i/clear.gif" alt="" width="5" height="1" border="0" /></td>
-                </tr>                            
-                            
+                </tr>
+
                 <tr><td colspan="4" background=""><img src="/i/clear.gif" width="1" height="5" alt="" border="0" /></td></tr>
             </table>
 
-            <table width="244" border="0" cellspacing="0" cellpadding="0"> 
+            <table width="244" border="0" cellspacing="0" cellpadding="0">
                 <tr valign="middle">
                     <td width="5" class="statText"><img src="/i/development/list_lower_corner.gif" alt="" width="19" height="19" border="0" /></td>
                     <td class="statText" align="right" bgcolor="#093158"><a class="statText" href="/index?t=development&amp;c=app_projects"><strong>View all Projects</strong></a></td>
@@ -243,7 +253,7 @@
 
             <img src="/i/clear.gif" width="1" height="6" alt="" border="0" /><br />
 
-            <table width="100%" border="0" cellspacing="0" cellpadding="5">                
+            <table width="100%" border="0" cellspacing="0" cellpadding="5">
                 <tr valign="top">
                     <td width="100%" class="statTextSmall">
                         <p>Please read the Component Development <a class="statTextSmall" href="/index?t=development&amp;c=comp_meth">Methodology</a> before submitting a Component Design or Development solution.</p>
@@ -253,7 +263,7 @@
                 </tr>
             </table>
 
-            <table border="0" cellspacing="0" cellpadding="0"> 
+            <table border="0" cellspacing="0" cellpadding="0">
                 <tr valign="top"><td height="5"><img src="/i/clear.gif" alt="" width="5" height="5" border="0" /></td></tr>
             </table>
     </xsl:template>
