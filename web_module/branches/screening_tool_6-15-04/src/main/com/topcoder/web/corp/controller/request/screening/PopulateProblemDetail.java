@@ -7,6 +7,8 @@ import com.topcoder.web.common.BaseProcessor;
 import com.topcoder.web.common.TCWebException;
 
 public class PopulateProblemDetail extends BaseScreeningProcessor {
+    
+    private static Logger log = Logger.getLogger(PopulateProblemDetail.class);
 
     protected void screeningProcessing() throws TCWebException {
         String roundProblemId =
@@ -27,11 +29,13 @@ public class PopulateProblemDetail extends BaseScreeningProcessor {
         try {
             if(super.getUsageType() == Constants.USAGE_TYPE_SCREENING)
             {
+                log.info("GOOD");
                 info =
                     ProblemInfo.createProblemInfo(getUser(), roundId, problemId, true);
             }
             else
             {
+                log.info("BAD");
                 info =
                     ProblemInfo.createProblemInfo(getUser(), roundId, problemId);
             }
