@@ -230,10 +230,9 @@
                     <td class="bodyText">
                   
                     <ol>
-                    <li>The Development Review Board and Designer team up with the TopCoder Software Application Manager 
-                    and Quality Assurance Manager to perform several iterations of QA testing with the winning Development Team.</li>  
-                    <li>Once the TopCoder Software Application Manager is satisfied that the winning application meets the rigorous 
-                    standards of TopCoder Software the development solution is accepted and the winning Development Team is compensated.</li>
+                        <li>The Development Review Board and Designer perform several iterations of QA testing and provide feedback to the developers at specified milestones of the development phase.</li>
+                        <li>The Development Review Board and Designer team up with the TopCoder Software Project Manager to perform several iterations of QA testing with the winning developers at the completion of integration.</li>
+                        <li>Once the TopCoder Software Project Manager is satisfied that the application meets the rigorous standards of TopCoder Software the application solution is accepted and the Development Integration Team is compensated.</li>
                     </ol>
                 
 
