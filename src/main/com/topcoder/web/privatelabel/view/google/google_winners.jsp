@@ -95,10 +95,10 @@ body,td,font,p,a
                            <td class="google_round_id" width="30%" align="right">Score</td>
                         </tr>
 
-<tr><td class="sidebarText" align="left" >ZorbaTHut</td><td class="sidebarText" align="right">1261.21</td></tr> 
-<tr><td class="sidebarText" align="left" >ChristopherH</td><td class="sidebarText" align="right">1161.37</td></tr> 
-<tr><td class="sidebarText" align="left" >Yarin</td><td class="sidebarText" align="right">1047.23</td></tr> 
-<tr><td class="sidebarText" align="left" >DjinnKahn</td><td class="sidebarText" align="right">1041.41</td></tr> 
+<tr><td class="sidebarText" align="left" >Yarin</td><td class="sidebarText" align="right">569.58</td></tr>
+<tr><td class="sidebarText" align="left" >ChristopherH</td><td class="sidebarText" align="right">482.17</td></tr>
+<tr><td class="sidebarText" align="left" >venco</td><td class="sidebarText" align="right">359.85</td></tr>
+<tr><td class="sidebarText" align="left" >tomek</td><td class="sidebarText" align="right">331.87</td></tr>
 
                      </table>
 
