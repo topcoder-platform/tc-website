@@ -106,10 +106,10 @@
             </p>
             
             <p><span class="bodySubtitle">Qualification Rounds</span><br />
-            All members who have not already qualified for the TCO can compete in
+            All members who have not already qualified for the Coding Tournament can compete in
             the Qualifying Rounds.  The top 200 scorers from each of the two
-            Qualification Rounds will be eligible to compete in Online Round #1 of
-            the TCO.  The Qualification Rounds will be held on Tuesday, October 7th
+            Qualification Rounds will be eligible to compete in Online Round 1.  
+            The Qualification Rounds will be held on Tuesday, October 7th
             and Thursday, October 9th. </p>
             
             <p><span class="bodySubtitle">Automatic Berths</span><br />
@@ -117,7 +117,7 @@
             participated in at least three (3) TopCoder rated events (i.e., Single
             Round Matches and previous tournaments) prior to October 7th, with at
             least one (1) of those events being between July 7th and October 7th,
-            will receive an automatic berth into Online Round #1 of the TCO.  
+            will receive an automatic berth into Online Round 1.  
             </p>
 
 

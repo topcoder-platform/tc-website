@@ -101,7 +101,7 @@
             
 <!-- The Competition Field -->
             <p><span class="bodySubtitle">The Competition Field</span><br />
-            A total of 500 TopCoder members will compete in Online Round #1 of the TCO.  The field will be comprised of 100 automatic 
+            A total of 500 TopCoder members will compete in Online Round 1.  The field will be comprised of 100 automatic 
             berths and 400 qualification spots.</p>
 
             <p>Click <a href="/?&amp;t=tournaments&amp;c=tco03_sched#berths">here</a> for more details regarding the automatic berths
