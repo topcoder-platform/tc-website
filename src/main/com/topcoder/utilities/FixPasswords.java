@@ -45,7 +45,8 @@ public class FixPasswords {
             ApplicationServer.SECURITY_PROVIDER_URL);
     try {
         String s = "select su.password, u.user_id from user u, security_user su where u.user_id =su.login_id";
-        String t = "update user set password = ?, activation_code = ?  where user_id = ?";
+        String t = "update user set password = ? where user_id = ?";
+        String u = "update coder set activation_code = ? where coder_id = ?";
 
         PrincipalMgrRemoteHome pmrh = (PrincipalMgrRemoteHome) context.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
         PrincipalMgrRemote pmr = pmrh.create();
@@ -53,25 +54,31 @@ public class FixPasswords {
         Connection conn = null;
         PreparedStatement ps =null;
         PreparedStatement ps1 = null;
+        PreparedStatement ps2 = null;
         ResultSet rs = null;
         try {
             conn = DBMS.getConnection();
             ps = conn.prepareStatement(t);
             ps1 = conn.prepareStatement(s);
+            ps2 = conn.prepareStatement(u);
             int count = 0;
             rs = ps1.executeQuery();
             while (rs.next()) {
                 String pass = pmr.getPassword(rs.getLong("user_id"));
                 ps.setString(1, pass);
-                ps.setString(2, StringUtils.getActivationCode(rs.getLong("user_id")));
                 ps.setLong(2, rs.getLong("user_id"));
+
+                ps2.setString(1, StringUtils.getActivationCode(rs.getLong("user_id")));
+                ps2.setLong(2, rs.getLong("user_id"));
                 count += ps.executeUpdate();
+                ps2.executeUpdate();
                 if (count%25==0) System.out.println(""+count + " records updated");
             }
         } finally {
             try {rs.close();} catch (Exception e) {};
             try {ps.close();} catch (Exception e) {};
             try {ps1.close();} catch (Exception e) {};
+            try {ps2.close();} catch (Exception e) {};
             try {conn.close();} catch (Exception e) {};
         }
     } catch (Exception e) {
