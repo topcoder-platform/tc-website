@@ -9,6 +9,7 @@ import com.topcoder.security.TCSubject;
 import com.topcoder.security.UserPrincipal;
 import com.topcoder.security.GeneralSecurityException;
 import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.DBMS;
 
 import javax.ejb.CreateException;
 import javax.naming.Context;
@@ -83,12 +84,12 @@ public class UserTest extends EJBTestCase {
 
         long id = createSecurityUser(handle);
 
-        u.createUser(id, createHandle(), 'A');
+        u.createUser(id, createHandle(), 'A',DBMS.HS_OLTP_DATASOURCE_NAME);
 
         assertTrue(id >= 0);
-        assertTrue(null == u.getFirstName(id));
-        assertTrue(null == u.getLastName(id));
-        assertEquals(0, u.getUserStatusId(id));
+        assertTrue(null == u.getFirstName(id,DBMS.HS_OLTP_DATASOURCE_NAME));
+        assertTrue(null == u.getLastName(id,DBMS.HS_OLTP_DATASOURCE_NAME));
+        assertEquals(0, u.getStatus(id,DBMS.HS_OLTP_DATASOURCE_NAME));
     }
 
 
@@ -102,21 +103,21 @@ public class UserTest extends EJBTestCase {
         long id = createSecurityUser(handle);
 
 
-        u.createUser(id, createHandle(), 'A');
+        u.createUser(id, createHandle(), 'A',DBMS.HS_OLTP_DATASOURCE_NAME);
 
         String name = "testUser";
 
-        u.setFirstName(id, name);
-        assertEquals(name, u.getFirstName(id));
+        u.setFirstName(id, name,DBMS.HS_OLTP_DATASOURCE_NAME);
+        assertEquals(name, u.getFirstName(id,DBMS.HS_OLTP_DATASOURCE_NAME));
 
         try {
-            u.setFirstName(id, null);
+            u.setFirstName(id, null,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("No exception thrown when set to null");
         } catch (Exception e) {
         }
 
         try {
-            u.setFirstName(-1, name);
+            u.setFirstName(-1, name,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("No exception thrown when id < 0");
         } catch (Exception e) {
         }
@@ -132,21 +133,21 @@ public class UserTest extends EJBTestCase {
 
         long id = createSecurityUser(handle);
 
-        u.createUser(id, createHandle(), 'A');
+        u.createUser(id, createHandle(), 'A',DBMS.HS_OLTP_DATASOURCE_NAME);
 
         String name = "testUser";
 
-        u.setLastName(id, name);
-        assertEquals(name, u.getLastName(id));
+        u.setLastName(id, name,DBMS.HS_OLTP_DATASOURCE_NAME);
+        assertEquals(name, u.getLastName(id,DBMS.HS_OLTP_DATASOURCE_NAME));
 
         try {
-            u.setLastName(id, null);
+            u.setLastName(id, null,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("No exception thrown when set to null");
         } catch (Exception e) {
         }
 
         try {
-            u.setLastName(-1, name);
+            u.setLastName(-1, name,DBMS.HS_OLTP_DATASOURCE_NAME);
             fail("No exception thrown when id < 0");
         } catch (Exception e) {
         }
@@ -162,23 +163,13 @@ public class UserTest extends EJBTestCase {
 
         long id = createSecurityUser(handle);
 
-        u.createUser(id, createHandle(), 'A');
+        u.createUser(id, createHandle(), 'A',DBMS.HS_OLTP_DATASOURCE_NAME);
 
-        long status = 1;
+        char status = 'A';
 
-        u.setUserStatusId(id, status);
-        assertEquals(status, u.getUserStatusId(id));
+        u.setStatus(id, status,DBMS.HS_OLTP_DATASOURCE_NAME);
+        assertEquals(status, u.getStatus(id,DBMS.HS_OLTP_DATASOURCE_NAME));
 
-        try {
-            u.setUserStatusId(id, -1);
-            fail("No exception thrown when status < 0");
-        } catch (Exception e) {
-        }
 
-        try {
-            u.setUserStatusId(-1, status);
-            fail("No exception thrown when id < 0");
-        } catch (Exception e) {
-        }
     }
 }
