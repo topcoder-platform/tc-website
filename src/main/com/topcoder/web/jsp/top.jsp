@@ -70,9 +70,9 @@
     </TABLE>
     <!-- Logo Bar Include Begins -->       
     <TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0" BGCOLOR="#000000">            
-      <TR>
+      <TR valign="middle">
         <TD WIDTH="15" BGCOLOR="#000000"><A NAME="top"></A><IMG SRC="/i/clear.gif" WIDTH="15" HEIGHT="1" BORDER="0"/></TD>
-        <TD WIDTH="206" BGCOLOR="#000000"><A HREF="/?&amp;t=home&amp;c=public_home" TARGET="_parent"><IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="13"/></A></TD>
+        <TD WIDTH="206" BGCOLOR="#000000"><A HREF="/?&amp;t=home&amp;c=public_home" TARGET="_parent"><IMG SRC="/i/logo.gif" WIDTH="206" HEIGHT="49" BORDER="0" VSPACE="5"/></A></TD>
         <TD WIDTH="20" BGCOLOR="#000000"><IMG SRC="/i/clear.gif" WIDTH="1" HEIGHT="1" BORDER="0" HSPACE="15"/></TD>
         <TD CLASS="time" VALIGN="bottom" NOWRAP="" ALIGN="right"><!-- <BR/>
               <SPAN CLASS="registerToday">&#160;&#160;&#160;&#160;Current Member Count</SPAN>&#160;:&#160; <xsl:value-of select="format-number(/TC/MemberCount,'#,##0')"/> -->
