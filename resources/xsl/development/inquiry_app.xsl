@@ -28,7 +28,7 @@
 
 	<xsl:call-template name="Top" />
 
-<table width="100%" xborder="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" xborder="0" cellpadding="0" cellspacing="0" bgcolor="#001B35">
 	<tr>
 <!-- Left Column Begins -->
 		<td width="170" bgcolor="#CCCCCC" valign="top">
