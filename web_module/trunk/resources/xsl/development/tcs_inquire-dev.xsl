@@ -178,7 +178,7 @@
                         Requirement Specification</A> for this component project</strong>
                         </p>
 
-                        <xsl:if test="/TC/DEVELOPMENT/tco='t'">
+                        <xsl:if test="not(/TC/DEVELOPMENT/tco='t')">
                         <p><strong><A>
                             <xsl:attribute name="href">
                                 <xsl:value-of select="concat('/?&amp;t=development&amp;version=', $version, '&amp;phase=' , $phase, '&amp;comp=', $componentId, '&amp;c=tcs_inquire&amp;Project=', $formattedName, ':%20Development&amp;date=', /TC/DEVELOPMENT/date)"/>
