@@ -8,7 +8,7 @@
 
 <html>
 <head>
-<title>Verizon Coding Contest Powered by TopCoder - Rules</title>
+<title>Verizon Coding Challenge Powered by TopCoder - Rules</title>
 
 <jsp:include page="../script.jsp" />
 
