@@ -33,7 +33,7 @@ public class ViewNotes extends Base {
                 DataAccessInt dai = getDataAccess();
                 getRequest().setAttribute("note_list", dai.getData(r).get("note_list"));
                 User user = (User)createEJB(getInitialContext(), User.class);
-                getRequest().setAttribute("handle", user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
+                getRequest().setAttribute(Constants.HANDLE, user.getHandle(Long.parseLong(userId), DBMS.OLTP_DATASOURCE_NAME));
 
                 setNextPage(Constants.NOTE_LIST);
                 setIsNextPageInContext(true);
