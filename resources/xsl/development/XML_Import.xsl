@@ -263,11 +263,11 @@
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Member Acceptance:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.26.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">05.27.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Start:</td>
-                                                            <td class="bodyText" nowrap="nowrap" align="left">05.26.2004 &#160;&#160;9:00 AM ET</td>
+                                                            <td class="bodyText" nowrap="nowrap" align="left">05.27.2004 &#160;&#160;9:00 AM ET</td>
                                                         </tr>
                                                         <tr>
                                                             <td class="bodyText" nowrap="nowrap">Design Due:</td>
