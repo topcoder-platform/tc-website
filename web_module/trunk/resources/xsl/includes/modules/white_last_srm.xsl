@@ -26,7 +26,7 @@
 		<TD CLASS="bodyText" VALIGN="top">
 		
 <P>
-<SPAN CLASS="bodyTextBold">Match 79</SPAN><BR/>
+<SPAN CLASS="bodyTextBold">Single Round Match 79</SPAN><BR/>
 Wednesday, April 10, 2002<BR/>
 By Adam Loss, <I>TopCoder Staff Writer</I><BR CLEAR="all"/>
 </P>
