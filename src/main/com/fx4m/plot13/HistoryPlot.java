@@ -106,8 +106,8 @@ public class HistoryPlot
 {
 static final int   pb = 55 ; // black border width
 static final int   bw = 10 ; // additional border spacing constant
-static final int   w = 800 ; // image width
-static final int   h = 600 ; // image height
+static final int   w = 600 ; // image width
+static final int   h = 400 ; // image height
 static final int   maxyearlabels = 21 ;
 static final Color plotColor     = new Color(255,255,255);
 static final Color gridColor     = new Color(255,255,255);
