@@ -103,7 +103,7 @@ public abstract class BaseServlet extends HttpServlet {
             authentication = createAuthentication(tcRequest, tcResponse);
             TCSubject user = getUser(authentication.getActiveUser().getId());
             info = createSessionInfo(tcRequest, authentication, user.getPrincipals());
-            request.setAttribute(SESSION_INFO_KEY, info);
+            tcRequest.setAttribute(SESSION_INFO_KEY, info);
 
             StringBuffer loginfo = new StringBuffer(100);
             loginfo.append("[**** ");
@@ -119,9 +119,9 @@ public abstract class BaseServlet extends HttpServlet {
 
             try {
                 try {
-                    String cmd = StringUtils.checkNull((String) request.getAttribute(MODULE));
+                    String cmd = StringUtils.checkNull((String) tcRequest.getAttribute(MODULE));
                     if (cmd.equals(""))
-                        cmd = StringUtils.checkNull(getParameter(request, MODULE));
+                        cmd = StringUtils.checkNull(getParameter(tcRequest, MODULE));
                     
                     log.info("RYAN: COMMAND IS " + cmd);
                     log.info("RYAN: REQUEST TYPE IS " + tcRequest.getClass().getName());
