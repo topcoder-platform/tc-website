@@ -5,8 +5,11 @@
 <%@ taglib uri="screening.tld" prefix="screen" %>
 <HTML>
 <HEAD>
+
 <title>Topcoder&#160;&#160;|&#160;&#160;Testing Application Management Tool</title>
+
 <jsp:include page="/script.jsp"/>
+
 <SCRIPT TYPE="text/javascript">
 function getProblemDetail(id) {
     var width = screen.availWidth * 2 / 3;
@@ -41,24 +44,24 @@ function getTCProblemResults(coderId, roundId, problemId) {
 <jsp:useBean id="profileInfo" class="com.topcoder.web.screening.model.ProfileInfo" />
 <jsp:useBean id="problemInfo" class="com.topcoder.web.screening.model.ProblemInfo" />
 
-<BODY BGCOLOR="#FFFFFF" TOPMARGIN="0" MARGINHEIGHT="0" LEFTMARGIN="0" MARGINWIDTH="0">
-<jsp:include page="/includes/top.jsp"/>
-<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
-   <TR>
-    <!-- Left Column Begins -->
-      <TD WIDTH="22" VALIGN="top" BGCOLOR="#000000">
-        <!-- Left Column Include Begins -->
-        <!-- Global Seconday Nav Begins -->
-        <jsp:include page="/includes/left.jsp"/>
-        <!-- Global Seconday Nav Ends -->
-        <!-- Left Column Include Ends -->
-      </TD>
-      <!-- Left Column Ends -->
-      <!-- Gutter Begins -->
-      <TD VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1"></TD>
-        <!-- Gutter Ends -->
-        <!-- Body Area -->
-      <TD CLASS="bodyText" width="100%" valign="top"><img src="/i/clear.gif" width="400" HEIGHT="1" VSPACE="5" BORDER="0"><BR>
+<body>
+
+<!-- Header begins -->
+<jsp:include page="/includes/top.jsp" />
+<!-- Header ends -->
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+    <tr valign="top">
+
+<!-- gutter begins -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- gutter ends -->
+
+<!-- Middle column begins -->
+        <td width="100%" align="center"><img src="/i/clear.gif" width="400" height="11" alt="" border="0"><br>
+            <table border="0" cellspacing="0" cellpadding="0" width="100%">
+                <tr valign="top">
+                    <td class="bodyText">
             <h1 class="testHead">Problem Results</h1>                
             <P>Below are the submitted code and system test results for the candidate.  Clicking on the point value in the Top TopCoder 
             Solutions table opens a window that displays the submitted code and system test results for the highest TopCoder point-getter.</P>
@@ -182,17 +185,18 @@ function getTCProblemResults(coderId, roundId, problemId) {
            <% } %>
          </TABLE>                 
 </FORM>         
-<P><BR/></P>    
-     </TD>
-<!-- Body Area Ends -->
-      <!-- Gutter -->
-      <TD WIDTH="10"><IMG SRC="/i/clear.gif" WIDTH="10" HEIGHT="1" BORDER="0"></TD>
-      <!-- Gutter Ends -->
-   </TR>
-</TABLE>
-  <!-- Body Ends -->
+            <p><br></p>
+        </td>
+<!-- Middle Column ends -->
 
-  <jsp:include page="/includes/foot.jsp"/>
+<!-- Gutter -->
+        <td width="25"><img src="/i/clear.gif" width="25" height="1" alt="" border="0"></td>
+<!-- Gutter Ends -->
 
-</BODY>
-</HTML>
+    </tr>
+</table>
+
+  <jsp:include page="/includes/foot.jsp" />
+
+</body>
+</html>
