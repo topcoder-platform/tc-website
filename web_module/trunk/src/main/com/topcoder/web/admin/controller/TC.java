@@ -8,6 +8,8 @@ import com.topcoder.common.web.xml.HTMLRenderer;
 import com.topcoder.shared.docGen.xml.ValueTag;
 import com.topcoder.shared.docGen.xml.XMLDocument;
 import com.topcoder.shared.util.logging.Logger;
+import com.topcoder.shared.util.TCContext;
+import com.topcoder.shared.util.ApplicationServer;
 import com.topcoder.web.admin.task.*;
 import com.topcoder.web.admin.Constants;
 import com.topcoder.web.common.security.WebAuthentication;
@@ -15,6 +17,8 @@ import com.topcoder.web.common.security.BasicAuthentication;
 import com.topcoder.web.common.security.SessionPersistor;
 import com.topcoder.web.common.security.TCSAuthorization;
 import com.topcoder.security.TCSubject;
+import com.topcoder.security.admin.PrincipalMgrRemote;
+import com.topcoder.security.admin.PrincipalMgrRemoteHome;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -22,6 +26,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.naming.Context;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -216,7 +221,11 @@ public final class TC extends HttpServlet {
 
     private boolean isAdmin(HttpServletRequest request, HttpServletResponse response) throws Exception {
         WebAuthentication authToken = new BasicAuthentication(new SessionPersistor(request.getSession()), request, response);
-        TCSAuthorization authorization = new TCSAuthorization(new TCSubject(authToken.getActiveUser().getId()));
+        Context ctx = TCContext.getContext(ApplicationServer.SECURITY_CONTEXT_FACTORY, ApplicationServer.SECURITY_PROVIDER_URL);
+        PrincipalMgrRemoteHome principalMgrHome = (PrincipalMgrRemoteHome) ctx.lookup(PrincipalMgrRemoteHome.EJB_REF_NAME);
+        PrincipalMgrRemote principalMgr = principalMgrHome.create();
+        TCSubject user = principalMgr.getUserSubject(authToken.getActiveUser().getId());
+        TCSAuthorization authorization = new TCSAuthorization(user);
         log.debug("groups: " + authorization.getGroups().toString());
         boolean isAdmin = authorization.getGroups().contains("Admin");
         log.debug(String.valueOf(authToken.getActiveUser().getId()) + (isAdmin?" is":" is not") + " an admin");
