@@ -11,7 +11,7 @@
     <tc:questionIterator list="<%=questionInfo%>" id="question">
         <table width="100%" border="0" cellpadding="0" cellspacing="0">
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <jsp:getProperty name="question" property="text"/>
                 </td>
             </tr>
