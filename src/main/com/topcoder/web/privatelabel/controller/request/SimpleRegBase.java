@@ -102,8 +102,10 @@ abstract class SimpleRegBase extends RegistrationBase {
                     "Please limit the characters in your handle to letter, numbers and common punctuation symbols.");
         }
         try {
-            getPrincipalManager().getUser(info.getHandle());
-            addError(Constants.HANDLE, "Please choose another handle.");
+            if (info.isNew()) {
+                getPrincipalManager().getUser(info.getHandle());
+                addError(Constants.HANDLE, "Please choose another handle.");
+            }
         } catch (NoSuchUserException ne) {
             //ignore, this just means they user doesn't exist, so this is good.
         } catch (Exception e) {
