@@ -26,7 +26,7 @@
 
 SRM 229 was quite a bit easier than 228, and in division 1, ten coders
 solved all three problems successfully.  Top amongst them was
-Jan_Kupiers, finishing in around 35 minutes.  Next in line was haha,
+Jan_Kuipers, finishing in around 35 minutes.  Next in line was haha,
 who finished just a few minutes later.  Rounding out the top 3 was
 marian, over 100 points behind haha.
 
