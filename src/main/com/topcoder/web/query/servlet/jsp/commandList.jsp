@@ -26,13 +26,13 @@
           <TR><TD class="statText">Command List</TD></TR>
           <query:resultSetRowIterator id="command" rowList="<%=CommandListTask.getCommandList()%>">
 <%--            <query:resultSetItem id="commandId" row="<%=command%>" name="command_id"/>
---%>
             <query:resultSetItem id="commandDesc" row="<%=command%>" name="command_desc"/>
-<%System.out.println("XXX: " + commandDesc.toString());%>
-
+--%>
             <TR><TD>
              <A HREF="<jsp:getProperty name="CommandListTask" property="ServletPath"/>?<%=Constants.TASK_PARAM%>=<%=Constants.COMMAND_DETAIL_TASK%>&<%=Constants.DB_PARAM%>=<jsp:getProperty name="CommandListTask" property="Db"/>" class="statText">
-                <%=commandDesc%>
+<%System.out.println("XXX : " + command);%>
+                blah
+<%--                <%=commandDesc%>  --%>
               </A>
             </TD></TR>
           </query:resultSetRowIterator>
