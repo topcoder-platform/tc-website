@@ -85,6 +85,7 @@ abstract class RegistrationBase extends BaseProcessor {
         DataSource ds = (DataSource)
                 PortableRemoteObject.narrow(context.lookup(datasource),
                         DataSource.class);
+        close(context);
         DataAccessInt dAccess = null;
         if (cached)
             dAccess = new CachedDataAccess(ds);

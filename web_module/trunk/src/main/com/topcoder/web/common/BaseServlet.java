@@ -115,7 +115,7 @@ public abstract class BaseServlet extends HttpServlet {
                     if (cmd.equals(""))
                         cmd = DEFAULT_PROCESSOR;
                     if (!isLegalCommand(cmd))
-                        throw new NavigationException("Invalid processorName in request: " + cmd);
+                        throw new NavigationException();
 
                     String processorName = PATH + (PATH.endsWith(".")?"":".") + getProcessor(cmd);
 

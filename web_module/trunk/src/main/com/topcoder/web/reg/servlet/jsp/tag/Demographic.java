@@ -213,7 +213,7 @@ public class Demographic
         }
         if (selectedOnly) return valueText;
         StringBuffer s = new StringBuffer(500);
-        s.append("<input size=\"40\" maxlength=\"255\"");
+        s.append("<input type=\"text\" size=\"40\" maxlength=\"255\"");
         if (selectedKey != null) {
             s.append(" name=\"");
             s.append(PREFIX);

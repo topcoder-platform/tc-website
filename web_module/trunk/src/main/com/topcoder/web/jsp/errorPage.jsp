@@ -54,7 +54,7 @@ isErrorPage="true"
         <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
         <td width="100%" class="bodytext">
             <img border="0" vspace="5" height="1" width="400" src="/i/clear.gif"><br>
-            <div class="header"><%=message==null?"navigation error":message%></div>
+            <div class="header"><%=message==null?"Sorry, there was an error in your request.":message%></div>
         </td>
         <td width="10"><img border="0" height="1" width="10" src="/i/clear.gif"></td>
         <td width="170"><img border="0" height="1" width="170" src="/i/clear.gif"></td>

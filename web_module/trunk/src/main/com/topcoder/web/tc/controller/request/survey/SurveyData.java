@@ -34,13 +34,15 @@ public abstract class SurveyData extends Base {
         try {
             survey = createSurvey(surveyId);
             if (survey==null) {
-                throw new NavigationException("Invalid Request, Survey does not exist.");
+                throw new NavigationException("Invalid Request, survey does not exist.");
             } else {
                 getRequest().setAttribute("surveyInfo", survey);
                 questionInfo = getQuestionInfo(surveyId);
                 getRequest().setAttribute("questionInfo", questionInfo);
             }
             surveyProcessing();
+        } catch (TCWebException e) {
+            throw e;
         } catch (Exception e) {
             throw new TCWebException(e);
         }

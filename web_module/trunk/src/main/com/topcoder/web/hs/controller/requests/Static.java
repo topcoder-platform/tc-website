@@ -18,11 +18,11 @@ public class Static extends Base {
         for (int i = 1; ; i++) {
             String p = getRequest().getParameter("d" + i);
             if (p == null) break;
-            if (!Constants.isLegal(p)) throw new NavigationException("disallowed path component: " + p);
+            if (!Constants.isLegal(p)) throw new NavigationException();
             path += "/" + p;
             nav.setFolder(i - 1, p);
         }
-        if (path.length() == 0) throw new NavigationException("path must have at least one component");
+        if (path.length() == 0) throw new NavigationException();
         path += ".jsp";
 
         /* check whether the path is allowed for this type of user */
