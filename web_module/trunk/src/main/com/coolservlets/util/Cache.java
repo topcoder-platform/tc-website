@@ -107,7 +107,7 @@ public class Cache {
         return ret;
     }
 
-	public void add(int uniqueID, Object object) {
+	public void add(int uniqueID, SerializableObject object) {
         try {
             cache.set(String.valueOf(uniqueID), object, timeOut);
         } catch (RemoteException e) {

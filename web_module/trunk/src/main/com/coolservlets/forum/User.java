@@ -56,6 +56,8 @@
 
 package com.coolservlets.forum;
 
+import com.coolservlets.util.SerializableObject;
+
 import java.util.*;
 
 /**
@@ -75,7 +77,7 @@ import java.util.*;
  *
  * @see Group
  */
-public interface User extends java.io.Serializable {
+public interface User extends SerializableObject {
    
     /**
      * Returns the user's rating.
