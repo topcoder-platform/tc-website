@@ -22,19 +22,37 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
 
     private static Logger log = Logger.getLogger(PositionInterestTask.class);
 
+    /* Holds the ID of the campaign to which this position belongs */
     private int campaignID;
+
+    /* Holds the name of the company to which this position belongs */
     private String companyName;
+
+    /* Holds the name of the campaign to which this position belongs */
     private String campaignName;
+
+    /* Holds the name of this position */
     private String positionName;
+
+    /* Holds the status of the campaign to which this position belongs */
     private String campaignStatus;
+
+    /* Holds a list of mappings representing hits on this position */
     private ArrayList hitList;
 
+    /* Holds the id of the user currently logged in */
     private int uid;
+
+    /* Holds the id of this position */
     private int jid;
 
+    /* Holds the field that the hit list should be sorted by */
     private String sortBy;
+
+    /* Holds the order that the hit list should be sorted in */
     private String sortOrder;
 
+    /* Creates new PositionInterestTask */
     public PositionInterestTask() {
         super();
         setNextPage(TCESConstants.POSITION_INTEREST_PAGE);
@@ -44,61 +62,105 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
         sortOrder="";
     }
 
+
+    /** Setter for property campaignName.
+     * @param campaignName New value of property campaignName.
+     */
     public void setCampaignName( String campaignName ) {
         this.campaignName = campaignName;
     }
 
+    /** Getter for property campaignName
+     * @return Value of property campaignName
+     */
     public String getCampaignName() {
         return campaignName;
     }
 
+    /** Setter for property campaignStatus.
+     * @param campaignStatus New value of property campaignStatus.
+     */
     public void setCampaignStatus( String campaignStatus ) {
         this.campaignStatus = campaignStatus;
     }
 
+    /** Getter for property campaignStatus
+     * @return Value of property campaignStatus
+     */
     public String getCampaignStatus() {
         return campaignStatus;
     }
 
+    /** Setter for property positionName.
+     * @param positionName New value of property positionName.
+     */
     public void setPositionName( String positionName ) {
         this.positionName = positionName;
     }
 
+    /** Getter for property positionName
+     * @return Value of property positionName
+     */
     public String getPositionName() {
         return positionName;
     }
 
+    /** Setter for property hitList.
+     * @param hitList New value of property hitList.
+     */
     public void setHitList( ArrayList hitList ) {
         this.hitList=hitList;
     }
 
+    /** Getter for property hitList
+     * @return Value of property hitList
+     */
     public List getHitList() {
         return hitList;
     }
 
-    public int getCampaignID() {
-        return campaignID;
-    }
-
+    /** Setter for property campaignID.
+     * @param campaignID New value of property campaignID.
+     */
     public void setCampaignID(int campaignID) {
         this.campaignID = campaignID;
     }
 
-    public int getJobID() {
-        return jid;
+    /** Getter for property campaignID
+     * @return Value of property campaignID
+     */
+    public int getCampaignID() {
+        return campaignID;
     }
 
+    /** Setter for property jobID.
+     * @param jobID New value of property jobID.
+     */
     public void setJobID(int jid) {
         this.jid=jid;
     }
 
+    /** Getter for property jobID
+     * @return Value of property jobID
+     */
+    public int getJobID() {
+        return jid;
+    }
+
+    /** Setter for property companyName.
+     * @param companyName New value of property companyName.
+     */
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
+    }
+
+    /** Getter for property companyName
+     * @return Value of property companyName
+     */
     public String getCompanyName() {
         return companyName;
     }
 
-    public void setCompanyName(String companyName) {
-        this.companyName = companyName;
-    }
 
     public void servletPreAction(HttpServletRequest request, HttpServletResponse response)
         throws Exception
@@ -174,7 +236,6 @@ public class PositionInterestTask extends BaseTask implements Task, Serializable
             if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
                 hit.put("rating",
                         ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
-log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
                 hit.put("ra",((Integer)hitListRow.getItem("rating").getResultData()));
             }
             else {

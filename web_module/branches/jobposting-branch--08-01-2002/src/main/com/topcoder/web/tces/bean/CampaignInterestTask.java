@@ -22,17 +22,31 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
 
     private static Logger log = Logger.getLogger(CampaignInterestTask.class);
 
+    /* Holds the ID of this campaign */
     private int campaignID;
+
+    /* Holds the name of the company to which this campaign belongs */
     private String companyName;
+
+    /* Holds the name of this campaign */
     private String campaignName;
+
+    /* Holds the status of this campaign */
     private String campaignStatus;
+
+    /* Holds a list of mappings representing hits on this campaign */
     private ArrayList hitList;
 
+    /* Holds the ID of the currently logged-in user */
     private int uid;
 
+    /* Holds the field that the hit list should be sorted by */
     private String sortBy;
+
+    /* Holds the order that the hit list should be sorted in */
     private String sortOrder;
 
+    /* Makes a new CampaignInterestTask */
     public CampaignInterestTask() {
         super();
         setNextPage(TCESConstants.CAMPAIGN_INTEREST_PAGE);
@@ -43,42 +57,72 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
         sortOrder="";
     }
 
+    /** Setter for property campaignName.
+     * @param campaignName New value of property campaignName.
+     */
     public void setCampaignName( String campaignName ) {
         this.campaignName = campaignName;
     }
 
+    /** Getter for property campaignName
+     * @return Value of property campaignName
+     */
     public String getCampaignName() {
         return campaignName;
     }
 
+    /** Setter for property campaignStatus.
+     * @param campaignStatus New value of property campaignStatus.
+     */
     public void setCampaignStatus( String campaignStatus ) {
         this.campaignStatus = campaignStatus;
     }
 
+    /** Getter for property campaignStatus
+     * @return Value of property campaignStatus
+     */
     public String getCampaignStatus() {
         return campaignStatus;
     }
 
+    /** Setter for property hitList.
+     * @param hitList New value of property hitList.
+     */
     public void setHitList( ArrayList hitList ) {
         this.hitList=hitList;
     }
 
+    /** Getter for property hitList
+     * @return Value of property hitList
+     */
     public List getHitList() {
         return hitList;
     }
 
+    /** Getter for property campaignID
+     * @return Value of property campaignID
+     */
     public int getCampaignID() {
         return campaignID;
     }
 
+    /** Setter for property campaignID.
+     * @param campaignID New value of property campaignID.
+     */
     public void setCampaignID(int campaignID) {
         this.campaignID = campaignID;
     }
 
+    /** Getter for property companyName
+     * @return Value of property companyName
+     */
     public String getCompanyName() {
         return companyName;
     }
 
+    /** Setter for property companyName.
+     * @param companyName New value of property companyName.
+     */
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
@@ -163,7 +207,6 @@ public class CampaignInterestTask extends BaseTask implements Task, Serializable
             if (((Integer)hitListRow.getItem("rating").getResultData()).intValue() > 0) {
                 hit.put("rating",
                         ((Integer)hitListRow.getItem("rating").getResultData()).toString() );
-log.debug("rating_int inserted: "+hitListRow.getItem("rating").getResultData());
                 hit.put("ra",((Integer)hitListRow.getItem("rating").getResultData()));
             }
             else {

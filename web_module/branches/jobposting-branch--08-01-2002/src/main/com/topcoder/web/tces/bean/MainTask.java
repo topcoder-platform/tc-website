@@ -13,7 +13,7 @@ import java.io.Serializable;
 import java.util.*;
 
 /**
- * Processes the "main" command.
+ * Processes the main task
  * @author bigjake <kitz@mit.edu>
  *
  */
@@ -22,11 +22,16 @@ public class MainTask extends BaseTask implements Task, Serializable {
 
     private static Logger log = Logger.getLogger(MainTask.class);
 
+    /* Holds the name of the company of the currently logged-in user for which campaigns are being listed */
     private String companyName;
+
+    /* Holds the list of mappings representing campaigns for the company of the currently logged in user */
     private List campaignInfoList;
 
+    /* Holds the ID currently logged-in user */
     private int uid;
 
+    /* Creates a new MainTask */
     public MainTask() {
         super();
         setNextPage(TCESConstants.MAIN_PAGE);
@@ -34,18 +39,30 @@ public class MainTask extends BaseTask implements Task, Serializable {
         uid=-1;
     }
 
+    /** Setter for property companyName.
+     * @param companyName New value of property companyName.
+     */
     public void setCompanyName(String companyName) {
         this.companyName = companyName;
     }
 
+    /** Getter for property companyName
+     * @return Value of property companyName
+     */
     public String getCompanyName() {
         return companyName;
     }
 
+    /** Setter for property campaignInfoList.
+     * @param campaignInfoList New value of property campaignInfoList.
+     */
     public void setCampaignInfoList( List campaignInfoList ) {
         this.campaignInfoList = campaignInfoList;
     }
 
+    /** Getter for property campaignInfoList
+     * @return Value of property campaignInfoList
+     */
     public List getCampaignInfoList( ) {
         return campaignInfoList;
     }

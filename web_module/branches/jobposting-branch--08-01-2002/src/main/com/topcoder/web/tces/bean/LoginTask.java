@@ -12,7 +12,7 @@ import java.io.Serializable;
 import java.util.Map;
 
 /**
- * Processes the "login" command.
+ * Processes the login task
  * @author bigjake <kitz@mit.edu>
  *
  */
@@ -21,10 +21,17 @@ public class LoginTask extends BaseTask implements Task, Serializable {
 
     private static Logger log = Logger.getLogger(LoginTask.class);
 
+    /* Holds user input from the handle field */
     private String handleInput;
+
+    /* Holds user input from the password field */
     private String passwordInput;
+
+    /* Holds a message to be displayed on the login page */
     private String message;
 
+
+    /* Creates a new LoginTask */
     public LoginTask() {
         super();
         setHandleInput("");
@@ -32,26 +39,44 @@ public class LoginTask extends BaseTask implements Task, Serializable {
         setNextPage(TCESConstants.LOGIN_PAGE);
     }
 
+    /** Setter for property handleInput.
+     * @param handleInput New value of property handleInput.
+     */
     public void setHandleInput(String handleInput) {
         this.handleInput=handleInput;
     }
 
+    /** Getter for property handleInput
+     * @return Value of property handleInput
+     */
     public String getHandleInput() {
         return handleInput;
     }
 
+    /** Setter for property passwordInput.
+     * @param passwordInput New value of property passwordInput.
+     */
     public void setPasswordInput(String passwordInput) {
         this.passwordInput=passwordInput;
     }
 
+    /** Getter for property passwordInput
+     * @return Value of property passwordInput
+     */
     public String getPasswordInput() {
         return passwordInput;
     }
 
+    /** Setter for property message.
+     * @param message New value of property message.
+     */
     public void setMessage(String message) {
         this.message=message;
     }
 
+    /** Getter for property message
+     * @return Value of property message
+     */
     public String getMessage() {
         return message;
     }

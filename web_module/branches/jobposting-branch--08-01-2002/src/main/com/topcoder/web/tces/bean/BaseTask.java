@@ -20,10 +20,14 @@ public abstract class BaseTask implements Task {
 
     private static Logger log = Logger.getLogger(BaseTask.class);
 
+    /* Holds the InitialContext of a request being processed by this task */
     private InitialContext ctx;
+
+    /* Holds the next page to which the controller should forward after task processing */
     private String nextPage;
     private List trail;
 
+    /* Makes a new BaseTask */
     public BaseTask() {
         setInitialContext(null);
         setNextPage(null);
@@ -41,7 +45,6 @@ public abstract class BaseTask implements Task {
     }
 
     public void setNextPage(String nextPage) {
-log.debug("next page -> "+nextPage);
         this.nextPage=nextPage;
     }
 
@@ -69,6 +72,10 @@ log.debug("next page -> "+nextPage);
 
     public abstract void setAttributes(String paramName, String paramValues[]);
 
+    /** Retreives and parses a date from a ResultSetRow
+     * @param row Row from which the date should be retreived
+     * @param key Key for the date item within row
+     */
     public String getDate(ResultSetContainer.ResultSetRow row,
                                      String key) {
         String defaultVal = "00/00/0000";
