@@ -349,6 +349,7 @@
 <target name="qq">
         <jar    jarfile="${dist.jars.dir}/${projectphases.jar.name}"
         	update="true"
+        	basedir="."
         	includes="build/classes/com/topcoder/project/phases/TCPhase.class" />
 </target>        
 
