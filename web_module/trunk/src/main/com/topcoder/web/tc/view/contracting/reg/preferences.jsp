@@ -7,6 +7,7 @@
                  com.topcoder.shared.dataAccess.resultSet.ResultSetContainer" %>
 <%@ taglib uri="tc.tld" prefix="tc" %>
 <%@ taglib uri="tc-webtags.tld" prefix="tc-webtag" %>
+<%@ taglib uri="rsc-taglib.tld" prefix="rsc" %>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html>
 <head>
@@ -102,7 +103,7 @@ return false;
                         <% ResultSetContainer nextSRM= (ResultSetContainer)request.getAttribute("Next_SRM");%>
                         You currently do not have a TopCoder rating.  Establishing a TopCoder rating will significantly increase your chance of being contacted for potential employment positions.  <br /><br />
                         Your next chance to become rated in an algorithm competition is <rsc:item set="<%=nextSRM%>" name="registration_start" format="EEEE, MMMM d"/>
-                        - check <A href="/?t=schedule&c=srm&RoundId=<rsc:item set="<%=nextSRM%>" name="round_id"/>">here</A> for details.<br />
+                        - check <a href="/?t=schedule&c=srm&RoundId=<rsc:item set="<%=nextSRM%>" name="round_id"/>">here</a> for details.<br />
                         Check <a href="/?t=development&c=comp_projects">here</a> for information on becoming rated in the component competition.
                     </td>
                 </tr>
