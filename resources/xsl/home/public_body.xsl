@@ -43,17 +43,6 @@
         
             <img src="/i/clear.gif" alt="" width="1" height="6" border="0" /><br />
         
-<!-- Special Message begins -->
-            <table border="0" cellspacing="0" cellpadding="5" width="100%">
-                <tr>
-                    <td id="specialMessage">TopCoder will be down for routine maintenance from 11:30pm&#160;EDT on Saturday, April&#160;26th until 
-                        5:00am&#160;EDT on Sunday, April&#160;27th. We apologize for any inconvenience.</td>
-                </tr>
-            </table>
-<!-- Special Message ends -->
-
-            <img src="/i/clear.gif" alt="" width="1" height="5" border="0" /><br />
-
 <!-- Catalog Intro begins -->
             <table border="0" cellspacing="0" cellpadding="0">
                 <tr><td colspan="3" height="60"><A href="http://software.topcoder.com/pages/s_learn.jsp" target="_top"><img src="/i/promos/catalog_intro_title.gif" alt="Introducing the TopCoder Software Component Catalog" width="556" height="60" border="0" /></A></td></tr>
