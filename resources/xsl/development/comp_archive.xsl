@@ -134,13 +134,14 @@
 <!-- Component Dev Projects begin -->
                  <tr>
                     <td width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
-                    <td class="statText" colspan="5"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
+                    <td class="statText" colspan="6"><a name="design"></a><h1 class="devSubhead">Component Development Project Status</h1></td>
                     <td width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
                 </tr>
 
                 <tr valign="middle">
                     <td background="/i/steel_bluebv_bg.gif" width="3" class="statText"><img src="/i/clear.gif" alt="" width="3" height="1" border="0" /></td>
                     <td background="/i/steel_bluebv_bg.gif" width="30%" class="statText">Development Projects</td>
+                    <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Catalog</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Initial<br />Submit</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Review<br />Complete</td>
                     <td background="/i/steel_bluebv_bg.gif" width="15%" class="statText" align="center">Final<br />Submit</td>
@@ -162,7 +163,7 @@
                                     </xsl:if>
                                 </a>
                             </td>
-                            
+                            <td class="statText" align="center"><xsl:value-of select="./catalog_name"/></td>
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="initial_submission_date"/></xsl:call-template></td>
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="review_complete_date"/></xsl:call-template></td>
                             <td class="statText" align="center"><xsl:call-template name="formatmmddyyyy"><xsl:with-param name="DATE" select="final_submission_date"/></xsl:call-template></td>
