@@ -176,6 +176,7 @@ public class BasicAuthentication implements WebAuthentication {
     private void clearCookie() {
         Cookie c = new Cookie(USER_COOKIE_NAME, "");
         c.setMaxAge(0);
+        c.setPath("/");  //force everyone to have the same path regardless of servlet used in call
         response.addCookie(c);
     }
 
