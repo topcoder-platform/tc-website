@@ -106,39 +106,70 @@ parameterValues = (String[])htParams.get("address1");
 if (this.isValid(parameterValues)) {
         coderObject.address1 = parameterValues[0];
 } else {
-    coderObject.address1 = null;
+
     //xxx todo - add error redirect
+    coderObject.address1 = null;
     isTaskValidated = false;
 }
 
 parameterValues = (String[])htParams.get("address2");
-if (parameterValues != null &&
-    parameterValues.length > 0 && 
-    parameterValues[0] != null && 
-   !parameterValues[0].trim().equals("")) {
+if (this.isValid(parameterValues)) {
         coderObject.address2 = parameterValues[0];
 } else {
     coderObject.address2 = null;
 }
 
 parameterValues = (String[])htParams.get("city");
-if (parameterValues != null &&
-    parameterValues.length > 0 && 
-    parameterValues[0] != null && 
-   !parameterValues[0].trim().equals("")) {
+if (this.isValid(parameterValues)) {
         coderObject.city = parameterValues[0];
 } else {
     //xxx todo - add error redirect
+    coderObject.city = null;
     isTaskValidated = false;
 }
 
+parameterValues = (String[])htParams.get("state");
+if (this.isValid(parameterValues)) {
+        coderObject.state_code = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    coderObject.state_code = null;
+    isTaskValidated = false;
+}
+
+parameterValues = (String[])htParams.get("zip");
+if (this.isValid(parameterValues)) {
+        coderObject.zip = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    coderObject.zip = null;
+    isTaskValidated = false;
+}
+
+
+parameterValues = (String[])htParams.get("country");
+if (this.isValid(parameterValues)) {
+        coderObject.country_code = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    coderObject.country_code = null;
+    isTaskValidated = false;
+}
+
+parameterValues = (String[])htParams.get("phone");
+if (this.isValid(parameterValues)) {
+    coderObject.home_phone = parameterValues[0];
+} else {
+    //xxx todo - add error redirect
+    coderObject.home_phone = null;
+    isTaskValidated = false;
+}
+
+
+
+
 if (doUpdate) {
-        coderObject.state_code=null;
-        coderObject.country_code=null;
-        coderObject.home_phone=null;
         coderObject.work_phone=null;
-        coderObject.city=null;
-        coderObject.zip=null;
         coderObject.middle_name=null;
         coderObject.activation_code=null;
         coderObject.member_since=null;
