@@ -11,7 +11,7 @@
                       <TR> 
                         <TD CLASS="data" BGCOLOR="#990000" VALIGN="top"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
                         <TD CLASS="statText"  BGCOLOR="#990000" VALIGN="top">
-                          <FORM NAME="frmSearch" METHOD="post" onSubmit="return doCheckLogin()">
+                          <FORM NAME="searchForm" METHOD="post" onSubmit="return doCheckLogin()">
                             <xsl:attribute name="action">http://<xsl:value-of select="/TC/Host"/></xsl:attribute>
                             <INPUT TYPE="hidden" NAME="t" VALUE="search"/>
                             <INPUT TYPE="hidden" NAME="c" VALUE="simple_search"/>
