@@ -12,7 +12,7 @@
     <html>
       <head>
         <xsl:call-template name="Preload"/>      
-        <title>TopCoder :: Development</title>
+        <title>TopCoder | Development</title>
         <xsl:call-template name="CSS"/>      
         <!--<LINK REL="stylesheet" TYPE="text/css" HREF="/css/style.css"/>
         <LINK REL="stylesheet" TYPE="text/css" HREF="/css/coders.css"/>-->
@@ -23,8 +23,8 @@
         <xsl:call-template name="Top"/>
 
 <!-- Body Begins -->
-<table width="100%" height="69%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
-  <tr>
+<TABLE WIDTH="100%" BORDER="0" CELLPADDING="0" CELLSPACING="0">
+  <TR valign="top">
     <!-- Left Column Begins -->
     <td width="170" bgcolor="#CCCCCC" valign="top">
 <!-- Left Column Include Begins -->  
@@ -35,7 +35,7 @@
       </td>
   <!-- Left Column Ends -->
   <!-- Gutter Begins -->
-    <td width="4" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="4" height="8" border="0"/></td>
+    <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="8" BORDER="0"/></TD>
     <!-- Gutter Ends -->
 
 <!-- Body Area -->
@@ -164,28 +164,30 @@ Final Submission Due Date: 12/13/2002<br/>
     </td>
     <td valign="top" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0"/></td>
   </tr>
-  <tr>
-    <td colspan="4" valign="top" bgcolor="#000033" background="/i/steel_darkblue_bg.gif" width="100%"><img src="/i/clear.gif" alt="" width="1" height="10" border="0"/></td>
-  </tr>     
-  <tr>
-    <td valign="top" background="" bgcolor="#CCCCCC" width="11" align="right"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
-    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0"/></td>
-    <td background="/i/steel_darkblue_bg.gif" valign="top" bgcolor="#000033" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-    <td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-  </tr>  
-  <tr>
-    <td valign="top" background="" width="11" align="right" bgcolor="#CCCCCC"><img src="/i/clear.gif" alt="" width="11" height="8" border="0"/></td>
-    <td valign="top" background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0"/></td>
-    <td valign="top" background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-    <td valign="top" background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="1" height="1" border="0"/></td>
-  </tr>
-</table>
+                <tr><td height="5" colspan="7"><img src="/i/clear.gif" alt="" height="5" border="0" /></td></tr>
+            </table>
+
+            <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
+                <tr valign="top">
+                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
+                    <td width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>    
+    
+                <tr valign="top">
+                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                </tr>
+            </table>
     </td>
   <!-- Center Column Ends -->
 <!-- Body Area Ends -->
 
   <!-- Gutter -->
-    <td width="4" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="4" height="1" border="0"/></td>
+    <TD WIDTH="6"><IMG SRC="/i/clear.gif" WIDTH="6" HEIGHT="1" BORDER="0"/></TD>
     <!-- Gutter Ends -->
   <!-- Right Column Begins -->
     <td width="170" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="170" height="1" border="0"/><br/>

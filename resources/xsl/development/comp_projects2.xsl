@@ -9,17 +9,17 @@
     <xsl:import href="../includes/dev/public_dev_right.xsl" />
     <xsl:output indent="no" method="html" doctype-public="-//W3C//DTD HTML 4.0 Transitional//EN" />
     <xsl:template name="formatmmddyyyy">
-		<xsl:param name="DATE"/>
-		<xsl:if test='boolean($DATE)'>
-			<xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/>
-		</xsl:if>
+        <xsl:param name="DATE"/>
+        <xsl:if test='boolean($DATE)'>
+            <xsl:value-of select="substring($DATE, 6,2)"/>.<xsl:value-of select="substring($DATE, 9,2)"/>.<xsl:value-of select="substring($DATE, 1,4)"/>
+        </xsl:if>
     </xsl:template>
     <xsl:template name="urldate">
         <!--MM&#47;DD&#47;YYYY-->
-		<xsl:param name="DATE"/>
-		<xsl:if test='boolean($DATE)'>
-			<xsl:value-of select="substring($DATE, 6,2)"/>%2e<xsl:value-of select="substring($DATE, 9,2)"/>%2e<xsl:value-of select="substring($DATE, 1,4)"/>
-		</xsl:if>
+        <xsl:param name="DATE"/>
+        <xsl:if test='boolean($DATE)'>
+            <xsl:value-of select="substring($DATE, 6,2)"/>%2e<xsl:value-of select="substring($DATE, 9,2)"/>%2e<xsl:value-of select="substring($DATE, 1,4)"/>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="/">

@@ -524,38 +524,38 @@ by MaryBeth Biondi, <I>TopCoder Staff</I><br />
         <td class="statText" width="244"><img src="/i/clear.gif" alt="" width="244" height="1" border="0"/><br />
 
 <!--SRM Sponsor Starts-->
-            <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0"/><br />
+            <img usemap="#srmanimation_home" src="/i/es/srmanimation_home.gif" alt="" width="244" height="160" border="0" /><br />
             <map name="srmanimation_home">
-                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="?t=tournaments&amp;c=tccc03_sched" target="_parent" />
+                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?t=tournaments&amp;c=tccc03_sched" target="_parent" />
 <!--                <area shape="poly" alt="TCES" coords="238,24, 238,106, 120,106, 107,93, 0,93, 0,24" href="/?&amp;t=tces&amp;c=index" /> -->
                 <area shape="poly" alt="SRM Match 136" coords="0,93, 107,93, 120,106, 238,106, 238,155, 19,155, 0,137" href="/?RoundId=4470&amp;t=schedule&amp;c=srm" />
             </map>
 <!--SRM Sponsor Ends-->
 
-<!-- TCES Quote Begins -->
-      <map name="tcesMap">
-      <area shape="rect" alt="" coords="33,89,159,104" href="/?t=schedule&amp;c=index"></area>
-      <area shape="rect" alt="" coords="3,3,239,23" href="/?t=tces&amp;c=index"></area>
-      </map>
-      <img src="/i/tces_quote.gif" width="244" height="138" alt="Only rated members can apply for TCES jobs" border="0" usemap="#tcesMap" />
-<!-- TCES Quote Ends -->
+<!-- TCES Quote Begins
+            <map name="tcesMap">
+            <area shape="rect" alt="" coords="33,89,159,104" href="/?t=schedule&amp;c=index"></area>
+            <area shape="rect" alt="" coords="3,3,239,23" href="/?t=tces&amp;c=index"></area>
+            </map>
+            <img src="/i/tces_quote.gif" width="244" height="138" alt="Only rated members can apply for TCES jobs" border="0" usemap="#tcesMap" />
+ TCES Quote Ends -->
 
-<!-- Software Promo Begins
-            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_board.gif" alt="TCS" width="244" height="156" vspace="1" border="0"/></a>
-Software Promo Ends -->
-
-<!-- TCS Contest Begins -->
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#333333">
-                <tr><td height="20" class="moduleTitle"><a href="/?t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_contest_promo_top.gif" alt="Win $2000" width="244" height="153" border="0" /></a></td></tr>
-            </table>
+<!-- TCS Promo Begins -->
+            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
+            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/header_software_development.gif" alt="Software Development" width="244" height="20" border="0" /></a><br />
+            <a href="/?&amp;t=development&amp;c=components"><img src="/i/tcs_royalties_announce.gif" alt="Royalty Payments" width="244" height="107" border="0" /></a><br />
+            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
+            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/tcs_promo.gif" alt="Win $2000" width="244" height="109" border="0" /></a><br />
+            <img src="/i/clear.gif" alt="" width="1" height="2" border="0" /><br />
+            <a href="/?&amp;t=development&amp;c=bonus_contest_0303"><img src="/i/header_contest_leaders.gif" alt="Contest Leaders" width="244" height="20" border="0" /></a><br />
 
             <table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#001935">
                 <tr valign="middle">
-                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
-                    <td width="39%" class="statTextBig" background="/i/steel_bluebv_bg.gif">Handle</td>
-                    <td width="20%" class="statTextBig" align="center" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Submissions</td>
-                    <td width="39%" class="statTextBig" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Avg. Score</td>
-                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0"/></td>
+                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0" /></td>
+                    <td width="39%" class="statText" background="/i/steel_bluebv_bg.gif">Handle</td>
+                    <td width="20%" class="statText" align="center" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Submissions</td>
+                    <td width="39%" class="statText" align="right" background="/i/steel_bluebv_bg.gif" nowrap="nowrap">Avg. Score</td>
+                    <td width="10" height="15" background="/i/steel_bluebv_bg.gif"><img src="/i/clear.gif" width="10" height="15" border="0" /></td>
                 </tr>
 
                 <tr valign="top">

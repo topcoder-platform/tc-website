@@ -22,72 +22,12 @@
 <meta name="description" content="TopCoder is a programming tournament site. All members who compete attain a rating that provides a metric for coding competence and potential. These ratings, coupled with tournament performance, can lead to monetary rewards and employment opportunities." />
 <meta name="keywords" content="Computer Jobs, Programming, Programming Jobs, Programming Contest, Programming Competition, Online Games, Coding, Information Technology Jobs, Java, C++" />
 
-    <style type="text/css">
-    
-ol {
-    margin-left: 10px;
-    padding-left: 10px;
-    }
-    
-ul {
-    margin-left: 10px;
-    padding-left: 10px;
-    }
-    
-li {
-    margin-left: 0px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    }
-    
-.topPage {
-    text-align: right;
-    }
-    
-.methNav {
-    font-family:tahoma, arial, verdana, helvetica, sans-serif; 
-    color:#FC3; 
-    font-size:11px; 
-    font-weight:normal; 
-    text-decoration:none 
-    }
-A.methNav:link { 
-    font-family:tahoma, arial, verdana, helvetica, sans-serif; 
-    color:#FC3; 
-    font-size:11px; 
-    font-weight:normal; 
-    text-decoration:none 
-    }
-A.methNav:visited { 
-    font-family:tahoma, arial, verdana, helvetica, sans-serif; 
-    color:#FC3; 
-    font-size:11px; 
-    font-weight:normal; 
-    text-decoration:none 
-    }
-A.methNav:hover { 
-    font-family:tahoma, arial, verdana, helvetica, sans-serif; 
-    color:#666; 
-    font-size:11px; 
-    font-weight:normal; 
-    text-decoration:none 
-    }
-A.methNav:active { 
-    font-family:tahoma, arial, verdana, helvetica, sans-serif; 
-    color:#666; 
-    font-size:11px; 
-    font-weight:normal; 
-    text-decoration:none 
-    }
-    
-    </style>
-
 </head>
 
-<body bgcolor="#CCCCCC" topmargin="0" marginheight="0" leftmargin="0" marginwidth="0">
+<body>
     <xsl:call-template name="Top" />
 
-<table width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
     <tr valign="top">
 <!-- Left Column Begins -->
         <td width="170" bgcolor="#CCCCCC">
@@ -96,11 +36,11 @@ A.methNav:active {
 <!-- Left Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="4" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="4" height="5" alt="" border="0" /></td>
+        <td width="4"><img src="/i/clear.gif" width="4" height="5" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Center Column Begins -->
-            <td class="bodyText" width="100%" bgcolor="#CCCCCC">
+            <td class="bodyText" width="100%">
             <xsl:call-template name="BodyTop">
             <xsl:with-param name="image1">steelblue</xsl:with-param>
             <xsl:with-param name="image">development</xsl:with-param>
@@ -327,34 +267,35 @@ A.methNav:active {
                         
                         <p>** Some members may be subject to applicable taxes.</p>
                         
-                        <p><br /></p></td>
+                        <p><br /></p>
+                    </td>
                 </tr>
             </table>
                 
             <table border="0" cellspacing="0" cellpadding="0" bgcolor="#001B35" width="100%">
                 <tr valign="top">
-                    <td bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
                     <td width="14"><img src="/i/table_mid_left2x.gif" alt="" width="14" height="8" border="0" /></td>
                     <td width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>    
     
                 <tr valign="top">
-                    <td background="" bgcolor="#CCCCCC" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
-                    <td background="" bgcolor="#CCCCCC" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10" align="right"><img src="/i/clear.gif" alt="" width="10" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="14"><img src="/i/table_btm_left2.gif" alt="" width="14" height="8" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="100%"><img src="/i/clear.gif" alt="" width="1" height="1" border="0" /></td>
+                    <td background="" bgcolor="#FFFFFF" width="10"><img src="/i/clear.gif" alt="" width="10" height="1" border="0" /></td>
                 </tr>
             </table>
         </td>
 <!-- Center Column Ends -->
 
 <!-- Gutter Begins -->
-        <td width="1" bgcolor="#CCCCCC"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
+        <td width="1"><img src="/i/clear.gif" width="1" height="1" alt="" border="0" /></td>
 <!-- Gutter Ends -->
 
 <!-- Right Column Begins -->
-        <td width="244" bgcolor="#CCCCCC" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
+        <td width="244" valign="top"><img src="/i/clear.gif" width="244" height="1" alt="" border="0" /><br/>
             <xsl:call-template name="public_dev_right" />        
         </td>
 <!-- Right Column Ends -->
