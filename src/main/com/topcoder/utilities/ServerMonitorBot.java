@@ -24,6 +24,9 @@ public class ServerMonitorBot {
         client.run();
     }
     
+    public boolean fiveone = true;
+    public boolean fivetwo = true;
+    
     public void run()
     {
         while(true)
@@ -35,7 +38,7 @@ public class ServerMonitorBot {
             String[] callAndArgs = { "wget", 
                         "http://192.168.12.51:7030",
                         "--header=Host: www.topcoder.com",
-                        "--timeout=30",
+                        "--timeout=1",
                         "-t1",
                         "--spider"};
                         
@@ -49,14 +52,24 @@ public class ServerMonitorBot {
             
             if(ret.indexOf("failed") != -1)
             {
-                System.out.println("FAILED, SENDING MAIL");
-                addError("connetion to 12.51 failed");
-                sendError();
+                if(fiveone)
+                {
+                    fiveone = false;
+                    System.out.println("FAILED, SENDING MAIL");
+                    addError("connetion to 12.51 failed");
+                    sendError();
+                }
             } else if(ret.indexOf("200 OK") == -1) {
-                System.out.println("FAILED, SENDING MAIL");
-                addError("response from 12.51 failed");
-                addError(ret);
-                sendError();
+                if(fiveone)
+                {
+                    fiveone = false;
+                    System.out.println("FAILED, SENDING MAIL");
+                    addError("response from 12.51 failed");
+                    addError(ret);
+                    sendError();
+                }
+            } else {
+                fiveone = true;
             }
             
             String[] callAndArgs2 = { "wget", 
@@ -75,21 +88,29 @@ public class ServerMonitorBot {
             
             if(ret.indexOf("failed") != -1)
             {
-                System.out.println("FAILED, SENDING MAIL");
-                addError("connetion to 12.52 failed");
-                sendError();
+                if(fivetwo) {
+                    fivetwo = false;
+                    System.out.println("FAILED, SENDING MAIL");
+                    addError("connetion to 12.52 failed");
+                    sendError();
+                }
             } else if(ret.indexOf("200 OK") == -1) {
-                System.out.println("FAILED, SENDING MAIL");
-                addError("response from 12.51 failed");
-                addError(ret);
-                sendError();
+                if(fivetwo) {
+                    fivetwo = false;
+                    System.out.println("FAILED, SENDING MAIL");
+                    addError("response from 12.51 failed");
+                    addError(ret);
+                    sendError();
+                }
+            } else {
+                fivetwo = true;
             }
             
             } catch(Exception e) {
                 e.printStackTrace();
             }
             
-            wait(60 * 60); // one hour
+            wait(5 * 60); // 5 minutes
         }
     }
     
@@ -124,7 +145,12 @@ public class ServerMonitorBot {
             try 
             {
                 TCSEmailMessage em = new TCSEmailMessage();
-                em.setToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("rfairfax@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("mlydon@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("gpaul@topcoder.com", TCSEmailMessage.TO);
+                em.addToAddress("8604656205@mobile.mycingular.com", TCSEmailMessage.TO);
+                em.addToAddress("8602686127@messaging.sprintpcs.com", TCSEmailMessage.TO);
+                
                 em.setSubject("Server Error");
                 em.setBody(errorText);
                 em.setFromAddress("rfairfax@topcoder.com");
